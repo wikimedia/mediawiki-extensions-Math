@@ -7,30 +7,55 @@
  */
 
 class MathHooks {
+	/**
+	 * Set up $wgMathPath and $wgMathDirectory globals if they're not already
+	 * set.
+	 */
 	static function setup() {
 		global $wgMathPath, $wgMathDirectory;
 		global $wgUploadPath, $wgUploadDirectory;
-		if ( $wgMathPath === false ) $wgMathPath = "{$wgUploadPath}/math";
-		if ( $wgMathDirectory === false ) $wgMathDirectory = "{$wgUploadDirectory}/math";
+		if ( $wgMathPath === false ) {
+			$wgMathPath = "{$wgUploadPath}/math";
+		}
+		if ( $wgMathDirectory === false ) {
+			$wgMathDirectory = "{$wgUploadDirectory}/math";
+		}
 	}
 
-	static function onParserFirstCallInit($parser)
-	{
+	/**
+	 * Register the <math> tag with the Parser.
+	 *
+	 * @param $parser Object: instance of Parser
+	 * @return Boolean: true
+	 */
+	static function onParserFirstCallInit( $parser ) {
 		$parser->setHook( 'math', array( 'MathHooks', 'mathTagHook' ) );
 		return true;
 	}
 
 	/**
-	 * @param  $content
-	 * @param  $attributes
+	 * Callback function for the <math> parser hook.
+	 *
+	 * @param $content
+	 * @param $attributes
 	 * @param $parser Parser
 	 * @return
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		global $wgContLang;
-		return $wgContLang->armourMath( MathRenderer::renderMath( $content, $attributes, $parser->getOptions() ) );
+		$renderedMath = MathRenderer::renderMath(
+			$content, $attributes, $parser->getOptions()
+		);
+		return $wgContLang->armourMath( $renderedMath );
 	}
 
+	/**
+	 * Add the new math rendering options to Special:Preferences.
+	 *
+	 * @param $user Object: current User object
+	 * @param $defaultPreferences Object: Preferences object
+	 * @return Boolean: true
+	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
 		global $wgLang;
 		$defaultPreferences['math'] = array(

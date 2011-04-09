@@ -2,9 +2,29 @@
 /**
  * MediaWiki math extension
  *
- * (c) 2002-2011 various MediaWiki contributors
- * GPLv2 license; info in main package.
+ * @file
+ * @ingroup Extensions
+ * @version 1.0
+ * @author Tomasz Wegrzanowski
+ * @author Brion Vibber
+ * @copyright © 2002-2011 various MediaWiki contributors
+ * @license GPLv2 license; info in main package.
+ * @link http://www.mediawiki.org/wiki/Extension:Math Documentation
+ * @see https://bugzilla.wikimedia.org/show_bug.cgi?id=14202
  */
+
+if ( !defined( 'MEDIAWIKI' ) ) {
+	die( "This is not a valid entry point to MediaWiki.\n" );
+}
+
+// Extension credits that will show up on Special:Version
+$wgExtensionCredits['parserhook'][] = array(
+	'name' => 'Math',
+	'version' => '1.0',
+	'author' => array( 'Tomasz Wegrzanowski', 'Brion Vibber', '...' ),
+	'description' => 'Render mathematical formulas between <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> tags',
+	'url' => 'http://www.mediawiki.org/wiki/Extension:Math',
+);
 
 /** For back-compat */
 $wgUseTeX = true;
@@ -12,11 +32,11 @@ $wgUseTeX = true;
 /** Location of the texvc binary */
 $wgTexvc = dirname( __FILE__ ) . '/math/texvc';
 /**
-  * Texvc background color
-  * use LaTeX color format as used in \special function
-  * for transparent background use value 'Transparent' for alpha transparency or
-  * 'transparent' for binary transparency.
-  */
+ * Texvc background color
+ * use LaTeX color format as used in \special function
+ * for transparent background use value 'Transparent' for alpha transparency or
+ * 'transparent' for binary transparency.
+ */
 $wgTexvcBackgroundColor = 'transparent';
 
 /**
@@ -32,14 +52,13 @@ $wgTexvcBackgroundColor = 'transparent';
  */
 $wgMathCheckFiles = true;
 
-
 /**
  * The URL path of the math directory. Defaults to "{$wgUploadPath}/math".
  *
  * See http://www.mediawiki.org/wiki/Manual:Enable_TeX for details about how to
  * set up mathematical formula display.
  */
-$wgMathPath         = false;
+$wgMathPath = false;
 
 /**
  * The filesystem path of the math directory.
@@ -48,7 +67,7 @@ $wgMathPath         = false;
  * See http://www.mediawiki.org/wiki/Manual:Enable_TeX for details about how to
  * set up mathematical formula display.
  */
-$wgMathDirectory    = false;
+$wgMathDirectory = false;
 
 
 ////////// end of config settings.
@@ -58,7 +77,10 @@ $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
 $wgHooks['GetPreferences'][] = 'MathHooks::onGetPreferences';
 
-$wgAutoloadClasses['MathHooks'] = dirname( __FILE__ ) . '/Math.hooks.php';
-$wgAutoloadClasses['MathRenderer'] = dirname( __FILE__ ) . '/Math.body.php';
+$dir = dirname( __FILE__ ) . '/';
+$wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
+$wgAutoloadClasses['MathRenderer'] = $dir . 'Math.body.php';
 
-$wgParserTestFiles[] = dirname( __FILE__ ) . "/mathParserTests.txt";
+$wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
+
+$wgParserTestFiles[] = $dir . 'mathParserTests.txt';

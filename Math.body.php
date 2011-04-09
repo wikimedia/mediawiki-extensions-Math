@@ -5,7 +5,7 @@
  * (c) 2002-2011 Tomasz Wegrzanowski, Brion Vibber, and other MediaWiki contributors
  * GPLv2 license; info in main package.
  *
- * Contain everything related to <math> </math> parsing
+ * Contains everything related to <math> </math> parsing
  * @file
  * @ingroup Parser
  */
@@ -27,7 +27,7 @@ class MathRenderer {
 	var $mathml = '';
 	var $conservativeness = 0;
 
-	function __construct( $tex, $params=array() ) {
+	function __construct( $tex, $params = array() ) {
 		$this->tex = $tex;
 		$this->params = $params;
  	}
@@ -80,46 +80,46 @@ class MathRenderer {
 			$contents = wfShellExec( $cmd );
 			wfDebug( "TeX output:\n $contents\n---\n" );
 
-			if (strlen($contents) == 0) {
+			if ( strlen( $contents ) == 0 ) {
 				return $this->_error( 'math_unknown_error' );
 			}
 
-			$retval = substr ($contents, 0, 1);
+			$retval = substr( $contents, 0, 1 );
 			$errmsg = '';
-			if (($retval == 'C') || ($retval == 'M') || ($retval == 'L')) {
-				if ($retval == 'C') {
+			if ( ( $retval == 'C' ) || ( $retval == 'M' ) || ( $retval == 'L' ) ) {
+				if ( $retval == 'C' ) {
 					$this->conservativeness = 2;
-				} else if ($retval == 'M') {
+				} elseif ( $retval == 'M' ) {
 					$this->conservativeness = 1;
 				} else {
 					$this->conservativeness = 0;
 				}
-				$outdata = substr ($contents, 33);
+				$outdata = substr( $contents, 33 );
 
-				$i = strpos($outdata, "\000");
+				$i = strpos( $outdata, "\000" );
 
-				$this->html = substr($outdata, 0, $i);
-				$this->mathml = substr($outdata, $i+1);
-			} else if (($retval == 'c') || ($retval == 'm') || ($retval == 'l'))  {
-				$this->html = substr ($contents, 33);
-				if ($retval == 'c') {
+				$this->html = substr( $outdata, 0, $i );
+				$this->mathml = substr( $outdata, $i + 1 );
+			} elseif ( ( $retval == 'c' ) || ( $retval == 'm' ) || ( $retval == 'l' ) ) {
+				$this->html = substr( $contents, 33 );
+				if ( $retval == 'c' ) {
 					$this->conservativeness = 2;
-				} else if ($retval == 'm') {
+				} elseif ( $retval == 'm' ) {
 					$this->conservativeness = 1;
 				} else {
 					$this->conservativeness = 0;
 				}
 				$this->mathml = null;
-			} else if ($retval == 'X') {
+			} elseif ( $retval == 'X' ) {
 				$this->html = null;
-				$this->mathml = substr ($contents, 33);
+				$this->mathml = substr( $contents, 33 );
 				$this->conservativeness = 0;
-			} else if ($retval == '+') {
+			} elseif ( $retval == '+' ) {
 				$this->html = null;
 				$this->mathml = null;
 				$this->conservativeness = 0;
 			} else {
-				$errbit = htmlspecialchars( substr($contents, 1) );
+				$errbit = htmlspecialchars( substr( $contents, 1 ) );
 				switch( $retval ) {
 					case 'E':
 						$errmsg = $this->_error( 'math_lexing_error', $errbit );
@@ -136,16 +136,16 @@ class MathRenderer {
 			}
 
 			if ( !$errmsg ) {
-				 $this->hash = substr ($contents, 1, 32);
+				$this->hash = substr( $contents, 1, 32 );
 			}
 
 			wfRunHooks( 'MathAfterTexvc', array( &$this, &$errmsg ) );
 
 			if ( $errmsg ) {
-				 return $errmsg;
+				return $errmsg;
 			}
 
-			if (!preg_match("/^[a-f0-9]{32}$/", $this->hash)) {
+			if ( !preg_match( "/^[a-f0-9]{32}$/", $this->hash ) ) {
 				return $this->_error( 'math_unknown_error' );
 			}
 
@@ -175,19 +175,22 @@ class MathRenderer {
 
 			# Now save it back to the DB:
 			if ( !wfReadOnly() ) {
-				$outmd5_sql = pack('H32', $this->hash);
+				$outmd5_sql = pack( 'H32', $this->hash );
 
-				$md5_sql = pack('H32', $this->md5); # Binary packed, not hex
+				$md5_sql = pack( 'H32', $this->md5 ); # Binary packed, not hex
 
 				$dbw = wfGetDB( DB_MASTER );
-				$dbw->replace( 'math', array( 'math_inputhash' ),
-				  array(
-					'math_inputhash' => $dbw->encodeBlob($md5_sql),
-					'math_outputhash' => $dbw->encodeBlob($outmd5_sql),
-					'math_html_conservativeness' => $this->conservativeness,
-					'math_html' => $this->html,
-					'math_mathml' => $this->mathml,
-				  ), __METHOD__
+				$dbw->replace(
+					'math',
+					array( 'math_inputhash' ),
+					array(
+						'math_inputhash' => $dbw->encodeBlob( $md5_sql ),
+						'math_outputhash' => $dbw->encodeBlob( $outmd5_sql ),
+						'math_html_conservativeness' => $this->conservativeness,
+						'math_html' => $this->html,
+						'math_mathml' => $this->mathml,
+					),
+					__METHOD__
 				);
 			}
 			
@@ -204,7 +207,7 @@ class MathRenderer {
 	}
 
 	function _error( $msg, $append = '' ) {
-		$mf   = htmlspecialchars( wfMsg( 'math_failure' ) );
+		$mf = htmlspecialchars( wfMsg( 'math_failure' ) );
 		$errmsg = htmlspecialchars( wfMsg( $msg ) );
 		$source = htmlspecialchars( str_replace( "\n", ' ', $this->tex ) );
 		return "<strong class='error'>$mf ($errmsg$append): $source</strong>\n";
@@ -215,16 +218,22 @@ class MathRenderer {
 
 		$this->md5 = md5( $this->tex );
 		$dbr = wfGetDB( DB_SLAVE );
-		$rpage = $dbr->selectRow( 'math',
-			array( 'math_outputhash','math_html_conservativeness','math_html','math_mathml' ),
-			array( 'math_inputhash' => $dbr->encodeBlob(pack("H32", $this->md5))), # Binary packed, not hex
+		$rpage = $dbr->selectRow(
+			'math',
+			array(
+				'math_outputhash', 'math_html_conservativeness', 'math_html',
+				'math_mathml'
+			),
+			array(
+				'math_inputhash' => $dbr->encodeBlob( pack( "H32", $this->md5 ) ) # Binary packed, not hex
+			),
 			__METHOD__
 		);
 
 		if( $rpage !== false ) {
 			# Tailing 0x20s can get dropped by the database, add it back on if necessary:
-			$xhash = unpack( 'H32md5', $dbr->decodeBlob($rpage->math_outputhash) . "                " );
-			$this->hash = $xhash ['md5'];
+			$xhash = unpack( 'H32md5', $dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
+			$this->hash = $xhash['md5'];
 
 			$this->conservativeness = $rpage->math_html_conservativeness;
 			$this->html = $rpage->math_html;
@@ -261,11 +270,11 @@ class MathRenderer {
 				} elseif( !is_dir( $hashpath ) || !is_writable( $hashpath ) ) {
 					return false;
 				}
-				if ( function_exists( "link" ) ) {
-					return link ( $wgMathDirectory . "/{$this->hash}.png",
+				if ( function_exists( 'link' ) ) {
+					return link( $wgMathDirectory . "/{$this->hash}.png",
 							$hashpath . "/{$this->hash}.png" );
 				} else {
-					return rename ( $wgMathDirectory . "/{$this->hash}.png",
+					return rename( $wgMathDirectory . "/{$this->hash}.png",
 							$hashpath . "/{$this->hash}.png" );
 				}
 			}
@@ -286,9 +295,11 @@ class MathRenderer {
 					array( 'xmlns' => 'http://www.w3.org/1998/Math/MathML' ) ),
 				$this->mathml );
 		}
-		if (($this->mode == MW_MATH_PNG) || ($this->html == '') ||
-		   (($this->mode == MW_MATH_SIMPLE) && ($this->conservativeness != 2)) ||
-		   (($this->mode == MW_MATH_MODERN || $this->mode == MW_MATH_MATHML) && ($this->conservativeness == 0))) {
+		if ( ( $this->mode == MW_MATH_PNG ) || ( $this->html == '' ) ||
+			( ( $this->mode == MW_MATH_SIMPLE ) && ( $this->conservativeness != 2 ) ) ||
+			( ( $this->mode == MW_MATH_MODERN || $this->mode == MW_MATH_MATHML ) && ( $this->conservativeness == 0 ) )
+		)
+		{
 			return $this->_linkToMathImage();
 		} else {
 			return Xml::tags( 'span',
@@ -296,11 +307,12 @@ class MathRenderer {
 					array( 'class' => 'texhtml',
 						'dir' => 'ltr'
 					) ),
-				$this->html );
+				$this->html
+			);
 		}
 	}
 
-	function _attribs( $tag, $defaults=array(), $overrides=array() ) {
+	function _attribs( $tag, $defaults = array(), $overrides = array() ) {
 		$attribs = Sanitizer::validateTagAttributes( $this->params, $tag );
 		$attribs = Sanitizer::mergeAttributes( $defaults, $attribs );
 		$attribs = Sanitizer::mergeAttributes( $attribs, $overrides );
@@ -315,9 +327,13 @@ class MathRenderer {
 				'img',
 				array(
 					'class' => 'tex',
-					'alt' => $this->tex ),
+					'alt' => $this->tex
+				),
 				array(
-					'src' => $url ) ) );
+					'src' => $url
+				)
+			)
+		);
 	}
 
 	function _mathImageUrl() {
@@ -328,21 +344,22 @@ class MathRenderer {
 	
 	function _getHashPath() {
 		global $wgMathDirectory;
-		$path = $wgMathDirectory .'/' . $this->_getHashSubPath();
+		$path = $wgMathDirectory . '/' . $this->_getHashSubPath();
 		wfDebug( "TeX: getHashPath, hash is: $this->hash, path is: $path\n" );
 		return $path;
 	}
 	
 	function _getHashSubPath() {
-		return substr($this->hash, 0, 1)
-					.'/'. substr($this->hash, 1, 1)
-					.'/'. substr($this->hash, 2, 1);
+		return substr( $this->hash, 0, 1)
+					. '/' . substr( $this->hash, 1, 1 )
+					. '/' . substr( $this->hash, 2, 1 );
 	}
 
-	public static function renderMath( $tex, $params=array(), ParserOptions $parserOptions = null ) {
+	public static function renderMath( $tex, $params = array(), ParserOptions $parserOptions = null ) {
 		$math = new MathRenderer( $tex, $params );
-		if ( $parserOptions )
+		if ( $parserOptions ) {
 			$math->setOutputMode( $parserOptions->getMath() );
+		}
 		return $math->render();
 	}
 }
