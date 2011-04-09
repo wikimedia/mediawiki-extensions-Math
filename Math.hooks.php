@@ -60,10 +60,41 @@ class MathHooks {
 		global $wgLang;
 		$defaultPreferences['math'] = array(
 			'type' => 'radio',
-			'options' => array_flip( array_map( 'wfMsgHtml', $wgLang->getMathNames() ) ),
+			'options' => array_flip( array_map( 'wfMsgHtml', self::getMathNames() ) ),
 			'label' => '&#160;',
 			'section' => 'rendering/math',
 		);
+		return true;
+	}
+
+	/**
+	 * List of message keys for the various math output settings.
+	 *
+	 * @return array of strings
+	 */
+	private static function getMathNames() {
+		return array(
+			MW_MATH_PNG => 'mw_math_png',
+			MW_MATH_SIMPLE => 'mw_math_simple',
+			MW_MATH_HTML => 'mw_math_html',
+			MW_MATH_SOURCE => 'mw_math_source',
+			MW_MATH_MODERN => 'mw_math_modern',
+			MW_MATH_MATHML => 'mw_math_mathml'
+		);
+	}
+
+	/**
+	 * MaintenanceRefreshLinksInit handler; optimize settings for refreshLinks batch job.
+	 *
+	 * @param Maintenance $maint
+	 * @return boolean hook return code
+	 */
+	static function onMaintenanceRefreshLinksInit( $maint ) {
+		global $wgUser;
+
+		# Don't generate TeX PNGs (lack of a sensible current directory causes errors anyway)
+		$wgUser->setOption( 'math', MW_MATH_SOURCE );
+
 		return true;
 	}
 }

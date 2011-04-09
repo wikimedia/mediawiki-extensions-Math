@@ -26,6 +26,17 @@ $wgExtensionCredits['parserhook'][] = array(
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Math',
 );
 
+/**@{
+ * Maths constants
+ */
+define( 'MW_MATH_PNG',    0 );
+define( 'MW_MATH_SIMPLE', 1 );
+define( 'MW_MATH_HTML',   2 );
+define( 'MW_MATH_SOURCE', 3 );
+define( 'MW_MATH_MODERN', 4 );
+define( 'MW_MATH_MATHML', 5 );
+/**@}*/
+
 /** For back-compat */
 $wgUseTeX = true;
 
