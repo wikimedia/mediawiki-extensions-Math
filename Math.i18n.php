@@ -61,14 +61,6 @@ $messages['test'] = array(
 	'math_tip' => 'x',
 );
 
-/** Jamaican Creole English (Jamaican Creole English)
- * @author Yocahuna
- */
-$messages['jam'] = array(
-	'math_sample' => 'Insoert faamiula yaso',
-	'math_tip' => 'Matimatikal faamiula (LaTeX)',
-);
-
 /** Magyar (magázó) (Magyar (magázó))
  * @author Dani
  */
@@ -90,30 +82,6 @@ $messages['ary'] = array(
 	'math_unknown_function' => 'wadifa mjhola',
 	'math_lexing_error' => 'khata fsigha',
 	'math_syntax_error' => 'khata fsiyagha',
-);
-
-/** کھوار (کھوار)
- * @author Rachitrali
- */
-$messages['khw'] = array(
-	'math_sample' => 'فارمولو ھیارا درج کورے',
-	'math_tip' => ' ریاضیاتی صیغہ (LaTeX)',
-);
-
-/** Angika (अंगिका)
- * @author Angpradesh
- */
-$messages['anp'] = array(
-	'math_sample' => 'गणितीय सूत्र यहाँ डालॊ',
-	'math_tip' => 'गणितीय सूत्र (LaTeX)',
-);
-
-/** Dusun Bundu-liwan (Dusun Bundu-liwan)
- * @author FRANCIS5091
- */
-$messages['dtp'] = array(
-	'math_sample' => 'Posuango puralanon do hiti',
-	'math_tip' => 'Karalano monintaban (LaTeX)',
 );
 
 /** Achinese (Acèh)
@@ -213,6 +181,14 @@ $messages['ang'] = array(
 	'math_tip' => 'Rīmcræftisc ƿiċung (LaTeX)',
 	'prefs-math' => 'Rīmcræft',
 	'math_unknown_error' => 'uncūþ ƿōh',
+);
+
+/** Angika (अंगिका)
+ * @author Angpradesh
+ */
+$messages['anp'] = array(
+	'math_sample' => 'गणितीय सूत्र यहाँ डालॊ',
+	'math_tip' => 'गणितीय सूत्र (LaTeX)',
 );
 
 /** Arabic (العربية)
@@ -895,15 +871,15 @@ $messages['de'] = array(
 	'mw_math_source' => 'Als TeX belassen (für Textbrowser)',
 	'mw_math_modern' => 'Für moderne Browser empfohlene Darstellungsmethode',
 	'mw_math_mathml' => 'Sofern möglich als MathML darstellen (experimentell)',
-	'math_failure' => 'Parser-Fehler',
+	'math_failure' => 'Fehler beim Parsen',
 	'math_unknown_error' => 'Unbekannter Fehler',
 	'math_unknown_function' => 'Unbekannte Funktion ',
 	'math_lexing_error' => '„Lexing“-Fehler',
 	'math_syntax_error' => 'Syntaxfehler',
-	'math_image_error' => 'PNG-Konvertierung fehlgeschlagen; korrekte Installation von LaTeX und dvipng überprüfen (oder dvips + gs + convert)',
+	'math_image_error' => 'PNG-Konvertierung fehlgeschlagen. Bitte die korrekte Installation von LaTeX und dvipng überprüfen (oder dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Das temporäre Verzeichnis für mathematische Formeln kann nicht angelegt oder beschrieben werden.',
 	'math_bad_output' => 'Das Zielverzeichnis für mathematische Formeln kann nicht angelegt oder beschrieben werden.',
-	'math_notexvc' => 'Das texvc-Programm wurde nicht gefunden. Bitte math/README beachten.',
+	'math_notexvc' => 'Das texvc-Programm wurde nicht gefunden. Bitte zur Konfiguration die Hinweise in der Datei math/README beachten.',
 );
 
 /** Zazaki (Zazaki)
@@ -958,6 +934,14 @@ $messages['dsb'] = array(
 	'math_bad_tmpdir' => 'Njejo móžno temporarny zapisk za matematiske formule załožyś resp. do njogo pisaś.',
 	'math_bad_output' => 'Njejo móžno celowy zapisk za matematiske formule załožyś resp. do njogo pisaś.',
 	'math_notexvc' => 'Program texvc felujo. Pšosym glědaj do math/README.',
+);
+
+/** Dusun Bundu-liwan (Dusun Bundu-liwan)
+ * @author FRANCIS5091
+ */
+$messages['dtp'] = array(
+	'math_sample' => 'Posuango puralanon do hiti',
+	'math_tip' => 'Karalano monintaban (LaTeX)',
 );
 
 /** Dzongkha (ཇོང་ཁ)
@@ -1912,6 +1896,14 @@ $messages['ja'] = array(
 	'math_notexvc' => 'texvc実行可能プログラムが見つかりません。math/READMEを読んで設定してください。',
 );
 
+/** Jamaican Creole English (Jamaican Creole English)
+ * @author Yocahuna
+ */
+$messages['jam'] = array(
+	'math_sample' => 'Insoert faamiula yaso',
+	'math_tip' => 'Matimatikal faamiula (LaTeX)',
+);
+
 /** Jutish (Jysk)
  * @author Ælsån
  */
@@ -2017,6 +2009,14 @@ $messages['kbd-cyrl'] = array(
 	'math_sample' => 'Мыбдеж формулэ итхэ',
 	'math_tip' => 'Математикэм тещIыхьауэ формулэ (LaTeX)',
 	'prefs-math' => 'формулэхэр гъэлъэгъуэн',
+);
+
+/** کھوار (کھوار)
+ * @author Rachitrali
+ */
+$messages['khw'] = array(
+	'math_sample' => 'فارمولو ھیارا درج کورے',
+	'math_tip' => ' ریاضیاتی صیغہ (LaTeX)',
 );
 
 /** Kirmanjki (Kırmancki)
