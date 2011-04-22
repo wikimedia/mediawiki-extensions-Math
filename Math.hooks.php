@@ -97,4 +97,44 @@ class MathHooks {
 
 		return true;
 	}
+
+	/**
+	 * LoadExtensionSchemaUpdates handler; set up math table on install/upgrade.
+	 *
+	 * @param  $updater DatabaseUpdater
+	 * @return bool
+	 */
+	static function onLoadExtensionSchemaUpdates( $updater ) {
+		$map = array(
+			'mysql' => 'math.sql',
+			'sqlite' => 'math.sql',
+			'postgres' => 'math.pg.sql',
+			'oracle' => 'math.oracle.sql',
+			'mssql' => 'math.mssql.sql',
+			'db2' => 'math.db2.sql',
+		);
+		$base = dirname( __FILE__ );
+		$type = $updater->getDB()->getType();
+		if ( array_key_exists( $type, $map ) ) {
+			$file = $map[$type];
+			$sql = "$base/db/$file";
+			$updater->addNewExtension( 'CodeReview', $sql );
+			$updater->addExtensionTable( 'math', $sql );
+		} else {
+			throw new MWException( "Math extension does not currently support $type database." );
+		}
+		return true;
+	}
+
+	/**
+	 * Add 'math' table to the list of tables that need to be copied to
+	 * temporary tables for parser tests to run.
+	 *
+	 * @param array $tables
+	 * @return bool
+	 */
+	function onParserTestTables( &$tables ) {
+		$tables[] = 'math';
+		return true;
+	}
 }

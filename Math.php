@@ -87,6 +87,8 @@ $wgMathDirectory = false;
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
 $wgHooks['GetPreferences'][] = 'MathHooks::onGetPreferences';
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'MathHooks::onLoadExtensionSchemaUpdates';
+$wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
 
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
