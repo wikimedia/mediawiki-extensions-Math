@@ -11,8 +11,8 @@ let literal_uf_lt = [',' ':' ';' '?' '!' '\'']
 let delimiter_uf_lt = ['(' ')' '.']
 let literal_uf_op = ['+' '-' '*' '=']
 let delimiter_uf_op = ['/' '|']
-let boxchars  = ['0'-'9' 'a'-'z' 'A'-'Z' '+' '-' '*' ',' '=' '(' ')' ':' '/' ';' '?' '.' '!' ' ' '\128'-'\255']
-let aboxchars = ['0'-'9' 'a'-'z' 'A'-'Z' '+' '-' '*' ',' '=' '(' ')' ':' '/' ';' '?' '.' '!' ' ']
+let boxchars  = ['0'-'9' 'a'-'z' 'A'-'Z' '+' '-' '*' ',' '=' '(' ')' ':' '/' ';' '?' '.' '!' '\'' '`' ' ' '\128'-'\255']
+let aboxchars = ['0'-'9' 'a'-'z' 'A'-'Z' '+' '-' '*' ',' '=' '(' ')' ':' '/' ';' '?' '.' '\'' '`' '!' ' ']
 let latex_function_names = "arccos"| "arcsin" | "arctan" | "arg" | "cos" | "cosh" | "cot" | "coth" | "csc"| "deg" | "det" | "dim" | "exp" | "gcd" | "hom" | "inf" | "ker" | "lg" | "lim" | "liminf" | "limsup" | "ln" | "log" | "max" | "min" | "Pr" | "sec" | "sin" | "sinh" | "sup" | "tan" | "tanh"
 let mediawiki_function_names = "arccot" | "arcsec" | "arccsc" | "sgn" | "sen"
 
