@@ -63,7 +63,7 @@ rule token = parse
   | "\\" (latex_function_names as name) space * "("  { LITERAL (HTMLABLEC(FONT_UFH,"\\" ^ name ^ "(", name ^ "(")) }
   | "\\" (latex_function_names as name) space * "["  { LITERAL (HTMLABLEC(FONT_UFH,"\\" ^ name ^ "[", name ^ "[")) }  
   | "\\" (latex_function_names as name) space * "\\{"  { LITERAL (HTMLABLEC(FONT_UFH,"\\" ^ name ^ "\\{", name ^ "{")) }
-  | "\\" (latex_function_names as name) space * { LITERAL (HTMLABLEC(FONT_UFH,"\\" ^ name, name ^ "&nbsp;")) }
+  | "\\" (latex_function_names as name) space * { LITERAL (HTMLABLEC(FONT_UFH,"\\" ^ name ^ " ", name ^ "&nbsp;")) }
   | "\\" (mediawiki_function_names as name) space * "("    { (Texutil.tex_use_ams(); LITERAL (HTMLABLEC(FONT_UFH,"\\operatorname{" ^ name ^ "}(", name^ "("))) }  
   | "\\" (mediawiki_function_names as name) space * "["    { (Texutil.tex_use_ams(); LITERAL (HTMLABLEC(FONT_UFH,"\\operatorname{" ^ name ^ "}[", name^ "["))) }
   | "\\" (mediawiki_function_names as name) space * "\\{"  { (Texutil.tex_use_ams(); LITERAL (HTMLABLEC(FONT_UFH,"\\operatorname{" ^ name ^ "}\\{", name^ "{"))) }
