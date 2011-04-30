@@ -3956,19 +3956,20 @@ $messages['szl'] = array(
 
 /** Tamil (தமிழ்)
  * @author Trengarasu
+ * @author செல்வா
  */
 $messages['ta'] = array(
-	'math_sample' => 'இங்கே சூத்திரத்தைப் புகுத்தவும்',
-	'math_tip' => 'கணிதச் சூத்திரம் (LaTeX)',
+	'math_sample' => 'இங்கே வாய்பாட்டை இடுக',
+	'math_tip' => 'கணித வாய்பாடு (LaTeX)',
 	'prefs-math' => 'கணிதம்',
-	'mw_math_png' => 'எப்போதும் PNG ஆக மாற்று',
-	'mw_math_simple' => 'சிக்கலற்றதாயின் HTML அல்லது PNG',
-	'mw_math_html' => 'கூடுமானால் HTML அல்லது PNG',
+	'mw_math_png' => 'எப்போதும் பி.என்.ஞ்சி (PNG) ஆக மாற்று',
+	'mw_math_simple' => 'சிக்கலற்றதாயின் எச்.டி.எம்.எல் (HTML), இல்லாவிடில் பி.என்.ஞ்சி (PNG)',
+	'mw_math_html' => 'கூடுமானால் எச்.டி.எம்.எல் (HTML), இல்லாவிடில் பி.என்.ஞ்சி (PNG)',
 	'mw_math_source' => 'TeX  ஆக விட்டு வை (உரைசார் உலாவிகளுக்கு)',
 	'mw_math_modern' => 'புதிய உலாவிகளுக்குப் பரிந்துரைக்கப்படுவது',
 	'mw_math_mathml' => 'கூடுமாயின் MathML (சோதனை)',
 	'math_failure' => 'பாகுபடுத்தல் தோல்வி',
-	'math_unknown_error' => 'அறியப்படாத தவறு',
+	'math_unknown_error' => 'அறியாத ஏதோவொரு பிழை',
 	'math_unknown_function' => 'அறியப்படாத செயற்பாடு',
 	'math_lexing_error' => 'தொகுத்தல் (லெக்சிங்) தவறு',
 	'math_syntax_error' => 'தொடரமைப்புத் தவறு',
