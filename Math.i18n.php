@@ -1228,11 +1228,13 @@ Volyéd liére « math/README » por lo configurar.',
 );
 
 /** Northern Frisian (Nordfriisk)
+ * @author Murma174
  * @author Pyt
  */
 $messages['frr'] = array(
 	'math_sample' => 'Formel heer önjfäige',
 	'math_tip' => 'Matemaatisch formel (LaTex)',
+	'prefs-math' => 'TeX',
 );
 
 /** Friulian (Furlan) */
