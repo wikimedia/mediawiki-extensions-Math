@@ -37,7 +37,7 @@ class MathRenderer {
 	}
 
 	function render() {
-		global $wgTmpDirectory, $wgInputEncoding;
+		global $wgTmpDirectory;
 		global $wgTexvc, $wgMathCheckFiles, $wgTexvcBackgroundColor;
 
 		if( $this->mode == MW_MATH_SOURCE ) {
@@ -68,7 +68,7 @@ class MathRenderer {
 					escapeshellarg( $wgTmpDirectory ).' '.
 					escapeshellarg( $wgTmpDirectory ).' '.
 					escapeshellarg( $this->tex ).' '.
-					escapeshellarg( $wgInputEncoding ).' '.
+					escapeshellarg( 'UTF-8' ).' '.
 					escapeshellarg(	$wgTexvcBackgroundColor );
 
 			if ( wfIsWindows() ) {
