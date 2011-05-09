@@ -2675,6 +2675,7 @@ $messages['mo'] = array(
 );
 
 /** Marathi (मराठी)
+ * @author Htt
  * @author Kaustubh
  * @author Mahitgar
  */
@@ -2693,7 +2694,7 @@ $messages['mr'] = array(
 	'math_unknown_function' => 'अज्ञात कार्य',
 	'math_lexing_error' => 'लेक्झींग(कोशीय?)त्रूटी',
 	'math_syntax_error' => 'आज्ञावली-विन्यास त्रूटी',
-	'math_image_error' => 'PNG पालट अयशस्वी; latex, dvips, gs ची  स्थापना योग्य झाली आहे काय ते तपासा आणि बदल करा',
+	'math_image_error' => 'पीएनजी रुपांतर अयशस्वी; लॅटेक्स, डीव्हीप्स, जीएसची  स्थापना योग्य झाली आहे काय ते तपासा आणि बदल करा',
 	'math_bad_tmpdir' => '"गणितीय तूर्त धारिके"(math temp directory)ची  निर्मीती करू शकत नाही अथवा "मॅथ तूर्त धारिकेत" लिहू शकत नाही .',
 	'math_bad_output' => 'गणितीय प्राप्त धारिकेची( math output directory) निर्मीती अथवा त्यात लेखन करू शकत नाही.',
 	'math_notexvc' => 'texvcकरणी(texvc एक्झिक्यूटेबल)चूकमुकली आहे;कृपया,सज्जीत करण्याकरिता math/README पहा.',
