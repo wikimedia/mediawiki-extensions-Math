@@ -13,7 +13,7 @@ let literal_uf_op = ['+' '-' '*' '=']
 let delimiter_uf_op = ['/' '|']
 let boxchars  = ['0'-'9' 'a'-'z' 'A'-'Z' '+' '-' '*' ',' '=' '(' ')' ':' '/' ';' '?' '.' '!' '\'' '`' ' ' '\128'-'\255']
 let aboxchars = ['0'-'9' 'a'-'z' 'A'-'Z' '+' '-' '*' ',' '=' '(' ')' ':' '/' ';' '?' '.' '\'' '`' '!' ' ']
-let latex_function_names = "arccos"| "arcsin" | "arctan" | "arg" | "cos" | "cosh" | "cot" | "coth" | "csc"| "deg" | "det" | "dim" | "exp" | "gcd" | "hom" | "inf" | "ker" | "lg" | "lim" | "liminf" | "limsup" | "ln" | "log" | "max" | "min" | "Pr" | "sec" | "sin" | "sinh" | "sup" | "tan" | "tanh"
+let latex_function_names = "arccos" | "arcsin" | "arctan" | "arg" | "cos" | "cosh" | "cot" | "coth" | "csc"| "deg" | "det" | "dim" | "exp" | "gcd" | "hom" | "inf" | "ker" | "lg" | "lim" | "liminf" | "limsup" | "ln" | "log" | "max" | "min" | "Pr" | "sec" | "sin" | "sinh" | "sup" | "tan" | "tanh"
 let mediawiki_function_names = "arccot" | "arcsec" | "arccsc" | "sgn" | "sen"
 
 rule token = parse
@@ -56,7 +56,6 @@ rule token = parse
   | "-"				{ let str = Lexing.lexeme lexbuf in LITERAL (MHTMLABLEC (FONT_UFH,"-"," &minus; ",MO,str))}
   | literal_uf_op		{ let str = Lexing.lexeme lexbuf in LITERAL (MHTMLABLEC (FONT_UFH, str," "^str^" ",MO,str)) }
   | delimiter_uf_op		{ let str = Lexing.lexeme lexbuf in DELIMITER (MHTMLABLEC (FONT_UFH, str," "^str^" ",MO,str)) }
-  | "\\" alpha + 		{ Texutil.find (Lexing.lexeme lexbuf) }
   | "\\sqrt" space * "["	{ FUN_AR1opt "\\sqrt" }
   | "\\xleftarrow" space * "["	{ Texutil.tex_use_ams(); FUN_AR1opt "\\xleftarrow" }
   | "\\xrightarrow" space * "["	{ Texutil.tex_use_ams(); FUN_AR1opt "\\xrightarrow" }
@@ -79,6 +78,7 @@ rule token = parse
                                    "\\operatorname{" ^ name ^ "}\\{", name ^ "{", MF, name, "{"))) }
   | "\\" (mediawiki_function_names as name) space *
                                 { (Texutil.tex_use_ams(); LITERAL (MHTMLABLEC(FONT_UFH,"\\operatorname{" ^ name ^ "}", name ^ "&nbsp;", MF, name))) }
+  | "\\" alpha + 		{ Texutil.find (Lexing.lexeme lexbuf) }
   | "\\," 			{ LITERAL (HTMLABLE (FONT_UF, "\\,","&nbsp;")) }
   | "\\ " 			{ LITERAL (HTMLABLE (FONT_UF, "\\ ","&nbsp;")) }
   | "\\;" 			{ LITERAL (HTMLABLE (FONT_UF, "\\;","&nbsp;")) }
