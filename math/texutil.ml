@@ -9,6 +9,7 @@ let tex_part = function
   | HTMLABLEM (_,t,_) -> t
   | HTMLABLEC (_,t,_) -> t
   | MHTMLABLEC (_,t,_,_,_) -> t
+  | MHTMLABLEFC (_,t,_,_,_,_) -> t
   | HTMLABLE_BIG (t,_) -> t
   | TEX_ONLY t -> t
 

@@ -6,9 +6,9 @@
 let space = [' ' '\t' '\n' '\r']
 let alpha = ['a'-'z' 'A'-'Z']
 let literal_id = ['a'-'z' 'A'-'Z']
-let literal_mn = ['0'-'9']
+let literal_mn = ['0'-'9' '.']
 let literal_uf_lt = [',' ':' ';' '?' '!' '\'']
-let delimiter_uf_lt = ['(' ')' '.']
+let delimiter_uf_lt = ['(' ')']
 let literal_uf_op = ['+' '-' '*' '=']
 let delimiter_uf_op = ['/' '|']
 let boxchars  = ['0'-'9' 'a'-'z' 'A'-'Z' '+' '-' '*' ',' '=' '(' ')' ':' '/' ';' '?' '.' '!' '\'' '`' ' ' '\128'-'\255']
@@ -52,7 +52,7 @@ rule token = parse
   | literal_id			{ let str = Lexing.lexeme lexbuf in LITERAL (MHTMLABLEC (FONT_IT, str,str,MI,str)) }
   | literal_mn			{ let str = Lexing.lexeme lexbuf in LITERAL (MHTMLABLEC (FONT_RM, str,str,MN,str)) }
   | literal_uf_lt		{ let str = Lexing.lexeme lexbuf in LITERAL (HTMLABLEC (FONT_UFH, str,str)) }
-  | delimiter_uf_lt		{ let str = Lexing.lexeme lexbuf in DELIMITER (HTMLABLEC (FONT_UFH, str,str)) }
+  | delimiter_uf_lt		{ let str = Lexing.lexeme lexbuf in DELIMITER (MHTMLABLEC (FONT_UFH, str,str,MO,str)) }
   | "-"				{ let str = Lexing.lexeme lexbuf in LITERAL (MHTMLABLEC (FONT_UFH,"-"," &minus; ",MO,str))}
   | literal_uf_op		{ let str = Lexing.lexeme lexbuf in LITERAL (MHTMLABLEC (FONT_UFH, str," "^str^" ",MO,str)) }
   | delimiter_uf_op		{ let str = Lexing.lexeme lexbuf in DELIMITER (MHTMLABLEC (FONT_UFH, str," "^str^" ",MO,str)) }
@@ -60,20 +60,31 @@ rule token = parse
   | "\\sqrt" space * "["	{ FUN_AR1opt "\\sqrt" }
   | "\\xleftarrow" space * "["	{ Texutil.tex_use_ams(); FUN_AR1opt "\\xleftarrow" }
   | "\\xrightarrow" space * "["	{ Texutil.tex_use_ams(); FUN_AR1opt "\\xrightarrow" }
-  | "\\" (latex_function_names as name) space * "("  { LITERAL (HTMLABLEC(FONT_UFH,"\\" ^ name ^ "(", name ^ "(")) }
-  | "\\" (latex_function_names as name) space * "["  { LITERAL (HTMLABLEC(FONT_UFH,"\\" ^ name ^ "[", name ^ "[")) }  
-  | "\\" (latex_function_names as name) space * "\\{"  { LITERAL (HTMLABLEC(FONT_UFH,"\\" ^ name ^ "\\{", name ^ "{")) }
-  | "\\" (latex_function_names as name) space * { LITERAL (HTMLABLEC(FONT_UFH,"\\" ^ name ^ " ", name ^ "&nbsp;")) }
-  | "\\" (mediawiki_function_names as name) space * "("    { (Texutil.tex_use_ams(); LITERAL (HTMLABLEC(FONT_UFH,"\\operatorname{" ^ name ^ "}(", name^ "("))) }  
-  | "\\" (mediawiki_function_names as name) space * "["    { (Texutil.tex_use_ams(); LITERAL (HTMLABLEC(FONT_UFH,"\\operatorname{" ^ name ^ "}[", name^ "["))) }
-  | "\\" (mediawiki_function_names as name) space * "\\{"  { (Texutil.tex_use_ams(); LITERAL (HTMLABLEC(FONT_UFH,"\\operatorname{" ^ name ^ "}\\{", name^ "{"))) }
-  | "\\" (mediawiki_function_names as name) space *        { (Texutil.tex_use_ams(); LITERAL (HTMLABLEC(FONT_UFH,"\\operatorname{" ^ name ^ "}", name ^ "&nbsp;"))) }
+  | "\\" (latex_function_names as name) space * "("  
+                                { LITERAL (MHTMLABLEFC(FONT_UFH,"\\" ^ name ^ "(", name ^ "(", MF, name, "(")) }
+  | "\\" (latex_function_names as name) space * "[" 
+                                { LITERAL (MHTMLABLEFC(FONT_UFH,"\\" ^ name ^ "[", name ^ "[", MF, name, "[")) }
+  | "\\" (latex_function_names as name) space * "\\{"  
+                                { LITERAL (MHTMLABLEFC(FONT_UFH, "\\" ^ name ^ "\\{", name ^ "{", MF, name, "{")) }
+  | "\\" (latex_function_names as name) space * 
+                                { LITERAL (MHTMLABLEC(FONT_UFH,"\\" ^ name, name ^ "&nbsp;", MF, name)) }
+  | "\\" (mediawiki_function_names as name) space * "("  
+                                { (Texutil.tex_use_ams(); LITERAL (MHTMLABLEFC(FONT_UFH,
+                                   "\\operatorname{" ^ name ^ "}(", name ^ "(", MF, name, "("))) }
+  | "\\" (mediawiki_function_names as name) space * "["    
+                                { (Texutil.tex_use_ams(); LITERAL (MHTMLABLEFC(FONT_UFH,
+                                   "\\operatorname{" ^ name ^ "}[", name ^ "[", MF, name, "["))) }
+  | "\\" (mediawiki_function_names as name) space * "\\{"
+                                { (Texutil.tex_use_ams(); LITERAL (MHTMLABLEFC(FONT_UFH,
+                                   "\\operatorname{" ^ name ^ "}\\{", name ^ "{", MF, name, "{"))) }
+  | "\\" (mediawiki_function_names as name) space *
+                                { (Texutil.tex_use_ams(); LITERAL (MHTMLABLEC(FONT_UFH,"\\operatorname{" ^ name ^ "}", name ^ "&nbsp;", MF, name))) }
   | "\\," 			{ LITERAL (HTMLABLE (FONT_UF, "\\,","&nbsp;")) }
   | "\\ " 			{ LITERAL (HTMLABLE (FONT_UF, "\\ ","&nbsp;")) }
   | "\\;" 			{ LITERAL (HTMLABLE (FONT_UF, "\\;","&nbsp;")) }
   | "\\!" 			{ LITERAL (TEX_ONLY "\\!") }
-  | "\\{" 			{ DELIMITER (HTMLABLEC(FONT_UFH,"\\{","{")) }
-  | "\\}" 			{ DELIMITER (HTMLABLEC(FONT_UFH,"\\}","}")) }
+  | "\\{" 			{ DELIMITER (MHTMLABLEC(FONT_UFH,"\\{","{",MO,"{")) }
+  | "\\}" 			{ DELIMITER (MHTMLABLEC(FONT_UFH,"\\}","}",MO,"}")) }
   | "\\|" 			{ DELIMITER (HTMLABLE (FONT_UFH,"\\|","||")) }
   | "\\_" 			{ LITERAL (HTMLABLEC(FONT_UFH,"\\_","_")) }
   | "\\#" 			{ LITERAL (HTMLABLE (FONT_UFH,"\\#","#")) }
@@ -109,7 +120,7 @@ rule token = parse
   | '%'				{ LITERAL (HTMLABLEC(FONT_UFH,"\\%","%")) }
   | '$'				{ LITERAL (HTMLABLEC(FONT_UFH,"\\$","$")) }
   | '~'				{ LITERAL (HTMLABLE (FONT_UF, "~","&nbsp;")) }
-  | '['				{ DELIMITER (HTMLABLEC(FONT_UFH,"[","[")) }
+  | '['				{ DELIMITER (MHTMLABLEC(FONT_UFH,"[","[",MO,"[")) }
   | ']'				{ SQ_CLOSE }
   | '{'				{ CURLY_OPEN }
   | '}'				{ CURLY_CLOSE }
