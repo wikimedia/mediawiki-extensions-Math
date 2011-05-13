@@ -66,7 +66,7 @@ rule token = parse
   | "\\" (latex_function_names as name) space * "\\{"  
                                 { LITERAL (MHTMLABLEFC(FONT_UFH, "\\" ^ name ^ "\\{", name ^ "{", MF, name, "{")) }
   | "\\" (latex_function_names as name) space * 
-                                { LITERAL (MHTMLABLEC(FONT_UFH,"\\" ^ name, name ^ "&nbsp;", MF, name)) }
+                                { LITERAL (MHTMLABLEC(FONT_UFH,"\\" ^ name ^ " ", name ^ "&nbsp;", MF, name)) }
   | "\\" (mediawiki_function_names as name) space * "("  
                                 { (Texutil.tex_use_ams(); LITERAL (MHTMLABLEFC(FONT_UFH,
                                    "\\operatorname{" ^ name ^ "}(", name ^ "(", MF, name, "("))) }
@@ -77,7 +77,7 @@ rule token = parse
                                 { (Texutil.tex_use_ams(); LITERAL (MHTMLABLEFC(FONT_UFH,
                                    "\\operatorname{" ^ name ^ "}\\{", name ^ "{", MF, name, "{"))) }
   | "\\" (mediawiki_function_names as name) space *
-                                { (Texutil.tex_use_ams(); LITERAL (MHTMLABLEC(FONT_UFH,"\\operatorname{" ^ name ^ "}", name ^ "&nbsp;", MF, name))) }
+                                { (Texutil.tex_use_ams(); LITERAL (MHTMLABLEC(FONT_UFH,"\\operatorname{" ^ name ^ "} ", name ^ "&nbsp;", MF, name))) }
   | "\\" alpha + 		{ Texutil.find (Lexing.lexeme lexbuf) }
   | "\\," 			{ LITERAL (HTMLABLE (FONT_UF, "\\,","&nbsp;")) }
   | "\\ " 			{ LITERAL (HTMLABLE (FONT_UF, "\\ ","&nbsp;")) }
