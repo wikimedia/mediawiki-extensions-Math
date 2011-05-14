@@ -18,7 +18,7 @@ let render_mathml_tree = function
     TREE_MN s -> "<mn>"^s^"</mn>"
   | TREE_MI s -> "<mi>"^s^"</mi>"
   | TREE_MO s -> "<mo>"^s^"</mo>"
-  | TREE_MF s -> "<mi>"^s^"</mi><mo>&ApplyFunction;</mo>"
-  | TREE_MFB (s,b) -> "<mi>"^s^"</mi><mo>&ApplyFunction;</mo>"^"<mo>"^b^"</mo>"
+  | TREE_MF s -> "<mi>"^s^" </mi>"
+  | TREE_MFB (s,b) -> "<mi>"^s^"</mi>"^"<mo>"^b^"</mo>"
 
 let render tree = try Some (Util.mapjoin render_mathml_tree (make_mathml_tree ([],tree))) with _ -> None
