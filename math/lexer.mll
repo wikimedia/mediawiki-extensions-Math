@@ -53,8 +53,8 @@ rule token = parse
   | literal_mn			{ let str = Lexing.lexeme lexbuf in LITERAL (MHTMLABLEC (FONT_RM, str,str,MN,str)) }
   | literal_uf_lt		{ let str = Lexing.lexeme lexbuf in LITERAL (HTMLABLEC (FONT_UFH, str,str)) }
   | delimiter_uf_lt		{ let str = Lexing.lexeme lexbuf in DELIMITER (MHTMLABLEC (FONT_UFH, str,str,MO,str)) }
-  | "-"				{ let str = Lexing.lexeme lexbuf in LITERAL (MHTMLABLEC (FONT_UFH,"-"," &minus; ",MO,str))}
-  | literal_uf_op		{ let str = Lexing.lexeme lexbuf in LITERAL (MHTMLABLEC (FONT_UFH, str," "^str^" ",MO,str)) }
+  | "-"				{ let str = Lexing.lexeme lexbuf in LITERAL (MHTMLABLEC (FONT_UFH,"-"," &minus; ",MO," &minus; "))}
+  | literal_uf_op		{ let str = Lexing.lexeme lexbuf in LITERAL (MHTMLABLEC (FONT_UFH, str,"&nbsp;"^str^"&nbsp;",MO," "^str^" ")) }
   | delimiter_uf_op		{ let str = Lexing.lexeme lexbuf in DELIMITER (MHTMLABLEC (FONT_UFH, str," "^str^" ",MO,str)) }
   | "\\sqrt" space * "["	{ FUN_AR1opt "\\sqrt" }
   | "\\xleftarrow" space * "["	{ Texutil.tex_use_ams(); FUN_AR1opt "\\xleftarrow" }
