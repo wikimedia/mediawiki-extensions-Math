@@ -133,7 +133,7 @@ class MathHooks {
 	 * @param array $tables
 	 * @return bool
 	 */
-	function onParserTestTables( &$tables ) {
+	static function onParserTestTables( &$tables ) {
 		$tables[] = 'math';
 		return true;
 	}
