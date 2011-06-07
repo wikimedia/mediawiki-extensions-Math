@@ -104,7 +104,10 @@ class MathHooks {
 	 * @param  $updater DatabaseUpdater
 	 * @return bool
 	 */
-	static function onLoadExtensionSchemaUpdates( $updater ) {
+	static function onLoadExtensionSchemaUpdates( $updater = null ) {
+		if( is_null( $updater ) ) {
+			throw new MWException( "Math extension is only necessary in 1.18 or above" );
+		}
 		$map = array(
 			'mysql' => 'math.sql',
 			'sqlite' => 'math.sql',
@@ -115,10 +118,8 @@ class MathHooks {
 		);
 		$base = dirname( __FILE__ );
 		$type = $updater->getDB()->getType();
-		if ( array_key_exists( $type, $map ) ) {
-			$file = $map[$type];
-			$sql = "$base/db/$file";
-			$updater->addNewExtension( 'CodeReview', $sql );
+		if ( isset( $map[$type] ) ) {
+			$sql = dirname( __FILE__ ) . '/db/' . $map[$type];
 			$updater->addExtensionTable( 'math', $sql );
 		} else {
 			throw new MWException( "Math extension does not currently support $type database." );
