@@ -3400,10 +3400,11 @@ pe piacere vide math/README pe configurà.',
 );
 
 /** Russian (Русский)
+ * @author Amire80
  * @author MaxSem
  */
 $messages['ru'] = array(
-	'math_sample' => 'Вставьте сюда формулу',
+	'math_sample' => 'Введите сюда формулу',
 	'math_tip' => 'Математическая формула (формат LaTeX)',
 	'prefs-math' => 'Отображение формул',
 	'mw_math_png' => 'Всегда генерировать PNG',
