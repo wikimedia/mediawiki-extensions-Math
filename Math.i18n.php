@@ -2506,10 +2506,12 @@ $messages['lzz'] = array(
 
 /** Maithili (मैथिली)
  * @author Ggajendra
+ * @author Vinitutpal
  */
 $messages['mai'] = array(
 	'math_sample' => 'सूत्र समाहित करू',
 	'math_tip' => 'गणितीय सूत्र (LaTeX)',
+	'prefs-math' => 'गणित',
 );
 
 /** Moksha (Мокшень)
