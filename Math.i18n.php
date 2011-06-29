@@ -290,9 +290,11 @@ $messages['ast'] = array(
 	'math_notexvc' => "Falta l'executable 'texvc'; por favor mira 'math/README' pa configuralo.",
 );
 
-/** Avaric (Авар) */
+/** Avaric (Авар)
+ * @author Amire80
+ */
 $messages['av'] = array(
-	'math_unknown_error' => 'Лъалареб гъалатl',
+	'math_unknown_error' => 'Лъалареб гъалатӀ',
 );
 
 /** Kotava (Kotava) */
