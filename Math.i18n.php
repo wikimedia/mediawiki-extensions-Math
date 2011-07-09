@@ -2423,7 +2423,9 @@ $messages['loz'] = array(
 	'prefs-math' => 'Mat',
 );
 
-/** Lithuanian (Lietuvių) */
+/** Lithuanian (Lietuvių)
+ * @author Perkunas
+ */
 $messages['lt'] = array(
 	'math_sample' => 'Įveskite formulę',
 	'math_tip' => 'Matematinė formulė (LaTeX formatu)',
@@ -2439,7 +2441,7 @@ $messages['lt'] = array(
 	'math_unknown_function' => 'nežinoma funkcija',
 	'math_lexing_error' => 'leksikos klaida',
 	'math_syntax_error' => 'sintaksės klaida',
-	'math_image_error' => 'PNG konvertavimas nepavyko; patikrinkite, ar teisingai įdiegta latex, dvips, gs, ir convert',
+	'math_image_error' => 'PNG konvertavimas nepavyko; patikrinkite, ar teisingai įdiegta latex ir dvipng (arba dvips, gs ir convert)',
 	'math_bad_tmpdir' => 'Nepavyksta sukurti arba rašyti į matematikos laikinąjį aplanką',
 	'math_bad_output' => 'Nepavyksta sukurti arba rašyti į matematikos išvesties aplanką',
 	'math_notexvc' => 'Trūksta texvc vykdomojo failo; pažiūrėkite math/README kaip konfigūruoti.',
