@@ -25,7 +25,7 @@ class MathHooks {
 	/**
 	 * Register the <math> tag with the Parser.
 	 *
-	 * @param $parser Object: instance of Parser
+	 * @param $parser Parser instance of Parser
 	 * @return Boolean: true
 	 */
 	static function onParserFirstCallInit( $parser ) {
@@ -57,7 +57,6 @@ class MathHooks {
 	 * @return Boolean: true
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
-		global $wgLang;
 		$defaultPreferences['math'] = array(
 			'type' => 'radio',
 			'options' => array_flip( array_map( 'wfMsgHtml', self::getMathNames() ) ),
@@ -101,7 +100,7 @@ class MathHooks {
 	/**
 	 * LoadExtensionSchemaUpdates handler; set up math table on install/upgrade.
 	 *
-	 * @param  $updater DatabaseUpdater
+	 * @param $updater DatabaseUpdater
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
@@ -116,7 +115,6 @@ class MathHooks {
 			'mssql' => 'math.mssql.sql',
 			'db2' => 'math.db2.sql',
 		);
-		$base = dirname( __FILE__ );
 		$type = $updater->getDB()->getType();
 		if ( isset( $map[$type] ) ) {
 			$sql = dirname( __FILE__ ) . '/db/' . $map[$type];
