@@ -3318,6 +3318,7 @@ $messages['rif'] = array(
 
 /** Romansh (Rumantsch)
  * @author Gion-andri
+ * @author Kazu89
  */
 $messages['rm'] = array(
 	'math_sample' => 'Scriva qua tia furmla',
@@ -3325,9 +3326,9 @@ $messages['rm'] = array(
 	'prefs-math' => 'TeX',
 	'mw_math_png' => 'Adina mussar sco PNG',
 	'mw_math_simple' => 'HTML sche fitg simpel, uschiglio PNG',
-	'mw_math_html' => 'HTML sche pussibel ed uschigio PNG',
-	'mw_math_source' => 'Schar en furma da TeX (per browsers da text)',
-	'mw_math_modern' => 'Recumandà per browsers moderns',
+	'mw_math_html' => 'HTML sche pussibel ed uschiglio PNG',
+	'mw_math_source' => 'Schar en furma da TeX (per navigaturs da text)',
+	'mw_math_modern' => 'Recumandà per navigaturs moderns',
 	'mw_math_mathml' => 'MathML sche pussibel (experimental)',
 	'math_failure' => 'Errur dal parser',
 	'math_unknown_error' => 'errur nunenconuschenta',
