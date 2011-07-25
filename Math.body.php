@@ -53,7 +53,7 @@ class MathRenderer {
 			if( $wgMathCheckFiles ) {
 				# Ensure that the temp and output directories are available before continuing...
 				if( !file_exists( $wgTmpDirectory ) ) {
-					if( !wfMkdirParents( $wgTmpDirectory ) ) {
+					if( !wfMkdirParents( $wgTmpDirectory, null, __METHOD__ ) ) {
 						return $this->_error( 'math_bad_tmpdir' );
 					}
 				} elseif( !is_dir( $wgTmpDirectory ) || !is_writable( $wgTmpDirectory ) ) {
@@ -160,7 +160,7 @@ class MathRenderer {
 			$hashpath = $this->_getHashPath();
 			if( !file_exists( $hashpath ) ) {
 				wfSuppressWarnings();
-				$ret = wfMkdirParents( $hashpath, 0755 );
+				$ret = wfMkdirParents( $hashpath, 0755, __METHOD__ );
 				wfRestoreWarnings();
 				if( !$ret ) {
 					return $this->_error( 'math_bad_output' );
@@ -193,7 +193,7 @@ class MathRenderer {
 					__METHOD__
 				);
 			}
-			
+
 			// If we're replacing an older version of the image, make sure it's current.
 			global $wgUseSquid;
 			if ( $wgUseSquid ) {
@@ -240,12 +240,12 @@ class MathRenderer {
 			$this->mathml = $rpage->math_mathml;
 
 			$filename = $this->_getHashPath() . "/{$this->hash}.png";
-			
+
 			if( !$wgMathCheckFiles ) {
 				// Short-circuit the file existence & migration checks
 				return true;
 			}
-			
+
 			if( file_exists( $filename ) ) {
 				if( filesize( $filename ) == 0 ) {
 					// Some horrible error corrupted stuff :(
@@ -262,7 +262,7 @@ class MathRenderer {
 
 				if( !file_exists( $hashpath ) ) {
 					wfSuppressWarnings();
-					$ret = wfMkdirParents( $hashpath, 0755 );
+					$ret = wfMkdirParents( $hashpath, 0755, __METHOD__ );
 					wfRestoreWarnings();
 					if( !$ret ) {
 						return false;
@@ -341,14 +341,14 @@ class MathRenderer {
 		$dir = $this->_getHashSubPath();
 		return "$wgMathPath/$dir/{$this->hash}.png";
 	}
-	
+
 	function _getHashPath() {
 		global $wgMathDirectory;
 		$path = $wgMathDirectory . '/' . $this->_getHashSubPath();
 		wfDebug( "TeX: getHashPath, hash is: $this->hash, path is: $path\n" );
 		return $path;
 	}
-	
+
 	function _getHashSubPath() {
 		return substr( $this->hash, 0, 1)
 					. '/' . substr( $this->hash, 1, 1 )
