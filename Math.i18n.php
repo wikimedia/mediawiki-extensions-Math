@@ -183,7 +183,7 @@ $messages['ang'] = array(
 	'math_unknown_error' => 'uncūþ ƿōh',
 );
 
-/** Angika (अंगिका)
+/** Angika (अङ्गिका)
  * @author Angpradesh
  */
 $messages['anp'] = array(
@@ -505,6 +505,14 @@ $messages['bg'] = array(
  * @author Ganesh
  */
 $messages['bh'] = array(
+	'math_tip' => 'गणितिय सूत्र (LaTeX)',
+	'prefs-math' => 'गणित',
+);
+
+/** Bhojpuri (भोजपुरी)
+ * @author Ganesh
+ */
+$messages['bho'] = array(
 	'math_tip' => 'गणितिय सूत्र (LaTeX)',
 	'prefs-math' => 'गणित',
 );
@@ -938,7 +946,7 @@ $messages['dsb'] = array(
 	'math_notexvc' => 'Program texvc felujo. Pšosym glědaj do math/README.',
 );
 
-/** Dusun Bundu-liwan (Dusun Bundu-liwan)
+/** Central Dusun (Dusun Bundu-liwan)
  * @author FRANCIS5091
  */
 $messages['dtp'] = array(
@@ -1787,7 +1795,7 @@ $messages['ig'] = array(
 	'prefs-math' => 'Ọmúmú-ónúọgụgụ',
 );
 
-/** Eastern Canadian (Unified Canadian Aboriginal Syllabics) (ᐃᓄᒃᑎᑐᑦ) */
+/** Eastern Canadian (Aboriginal syllabics) (ᐃᓄᒃᑎᑐᑦ) */
 $messages['ike-cans'] = array(
 	'math_unknown_error' => 'ᑐᓴᐅᒪᔭᐅᙱᑐᖅ ᑕᒻᒪᓇᖅᑐᖅ',
 	'math_unknown_function' => 'ᑐᓴᐅᒪᔭᐅᙱᑐᖅ ᐃᓕᐅᕐᓂᖅ',
@@ -1900,7 +1908,7 @@ $messages['ja'] = array(
 	'math_notexvc' => 'texvc実行可能プログラムが見つかりません。math/READMEを読んで設定してください。',
 );
 
-/** Jamaican Creole English (Jamaican Creole English)
+/** Jamaican Creole English (Patios)
  * @author Yocahuna
  */
 $messages['jam'] = array(
@@ -2005,7 +2013,7 @@ $messages['kab'] = array(
 	'math_notexvc' => "''texvc executable'' / ''executable texvc'' ulac-it; ẓer math/README akken a textareḍ isemyifiyen.",
 );
 
-/** Kabardian (Cyrillic) (Къэбэрдеибзэ / Qabardjajəbza (Cyrillic))
+/** Kabardian (Cyrillic) (Адыгэбзэ (Cyrillic))
  * @author Bogups
  * @author Тамэ Балъкъэрхэ
  */
@@ -2888,6 +2896,7 @@ $messages['nds-nl'] = array(
 );
 
 /** Nepali (नेपाली)
+ * @author Bhawani Gautam
  * @author Bhawani Gautam Rhk
  * @author सरोज कुमार ढकाल
  */
@@ -3029,7 +3038,7 @@ $messages['or'] = array(
 	'math_tip' => 'ଗାଣିତିକ ସୁତର (ଲାଟେକ୍ସ)',
 );
 
-/** Ossetic (Иронау)
+/** Ossetic (Ирон)
  * @author Amikeco
  */
 $messages['os'] = array(
@@ -3251,8 +3260,8 @@ verifique que o latex, dvips, gs e convert foram correctamente instalados',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
- * @author Giro720
  * @author 555
+ * @author Giro720
  */
 $messages['pt-br'] = array(
 	'math_sample' => 'Inserir fórmula aqui',
@@ -3479,7 +3488,7 @@ $messages['sa'] = array(
 	'math_tip' => 'गणितीयसूत्रम् (LaTeX)',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author Andrijko Z.
  * @author HalanTul
  */
@@ -4146,7 +4155,7 @@ $messages['tl'] = array(
 pakitingnan ang matematika/BASAHINAKO para maisaayos ang konpigurasyon.',
 );
 
-/** Tonga (lea faka-Tonga)
+/** Tongan (lea faka-Tonga)
  * @author Tauʻolunga
  */
 $messages['to'] = array(
