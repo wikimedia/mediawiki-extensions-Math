@@ -11,13 +11,10 @@ type math_class =
     MN
   | MI
   | MO
-  | MF
-
 type t =
       HTMLABLEC of font_class * string * string
     | HTMLABLEM of font_class * string * string
     | HTMLABLE of font_class * string * string
     | MHTMLABLEC of font_class * string * string * math_class * string
-    | MHTMLABLEFC of font_class * string * string * math_class * string * string
     | HTMLABLE_BIG of string * string
     | TEX_ONLY of string

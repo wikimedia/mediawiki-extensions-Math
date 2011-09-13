@@ -28,7 +28,6 @@ let rec html_render_flat ctx = function
     TEX_LITERAL (HTMLABLE (ft,_,sh))::r -> (html_liberal (); (font_render sh (ctx,ft))^html_render_flat ctx r)
   | TEX_LITERAL (HTMLABLEC(ft,_,sh))::r -> (font_render sh (ctx,ft))^html_render_flat ctx r
   | TEX_LITERAL (MHTMLABLEC(ft,_,sh,_,_))::r -> (font_render sh (ctx,ft))^html_render_flat ctx r
-  | TEX_LITERAL (MHTMLABLEFC(ft,_,sh,_,_,_))::r -> (font_render sh (ctx,ft))^html_render_flat ctx r
   | TEX_LITERAL (HTMLABLEM(ft,_,sh))::r -> (html_moderate(); (font_render sh (ctx,ft))^html_render_flat ctx r)
   | TEX_LITERAL (HTMLABLE_BIG (_,sh))::r -> (html_liberal (); sh^html_render_flat ctx r)
   | TEX_FUN1hl (_,(f1,f2),a)::r -> f1^(html_render_flat ctx [a])^f2^html_render_flat ctx r
@@ -76,7 +75,6 @@ let rec html_render_deep ctx = function
   | TEX_LITERAL (HTMLABLEM(ft,_,sh))::r -> (html_moderate(); ("",(font_render sh (ctx,ft)),"")::html_render_deep ctx r)
   | TEX_LITERAL (HTMLABLEC(ft,_,sh))::r -> ("",(font_render sh (ctx,ft)),"")::html_render_deep ctx r
   | TEX_LITERAL (MHTMLABLEC(ft,_,sh,_,_))::r -> ("",(font_render sh (ctx,ft)),"")::html_render_deep ctx r
-  | TEX_LITERAL (MHTMLABLEFC(ft,_,sh,_,_,_))::r -> ("",(font_render sh (ctx,ft)),"")::html_render_deep ctx r
   | TEX_LITERAL (HTMLABLE_BIG (_,sh))::r -> (html_liberal (); ("",sh,"")::html_render_deep ctx r)
   | TEX_FUN2h (_,f,a,b)::r -> (html_liberal (); (f a b)::html_render_deep ctx r)
   | TEX_INFIXh (_,f,a,b)::r -> (html_liberal (); (f a b)::html_render_deep ctx r)

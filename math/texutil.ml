@@ -9,7 +9,6 @@ let tex_part = function
   | HTMLABLEM (_,t,_) -> t
   | HTMLABLEC (_,t,_) -> t
   | MHTMLABLEC (_,t,_,_,_) -> t
-  | MHTMLABLEFC (_,t,_,_,_,_) -> t
   | HTMLABLE_BIG (t,_) -> t
   | TEX_ONLY t -> t
 
@@ -21,7 +20,7 @@ let rec render_tex = function
   | TEX_DQN (a) -> "_{" ^ (render_tex  a) ^ "}"
   | TEX_UQN (a) -> "^{" ^ (render_tex  a) ^ "}"
   | TEX_LITERAL s -> tex_part s
-  | TEX_FUN1 (f,a) -> f ^ " " ^ (render_tex a)
+  | TEX_FUN1 (f,a) -> "{" ^ f ^ " " ^ (render_tex a) ^ "}"
   | TEX_FUN1hl (f,_,a) -> "{" ^ f ^ " " ^ (render_tex a) ^ "}"
   | TEX_FUN1hf (f,_,a) -> "{" ^ f ^ " " ^ (render_tex a) ^ "}"
   | TEX_DECLh (f,_,a) -> "{" ^ f ^ "{" ^ (mapjoin render_tex a) ^ "}}"
@@ -46,22 +45,16 @@ let modules_ams = ref false
 let modules_nonascii = ref false
 let modules_encoding = ref UTF8
 let modules_color = ref false
-let modules_teubner = ref false
-let modules_euro = ref false 
 
 (* wrappers to easily set / reset module properties *)
 let tex_use_ams ()     = modules_ams := true
 let tex_use_nonascii () = modules_nonascii := true
 let tex_use_color ()  = modules_color := true
-let tex_use_teubner ()  = modules_teubner := true
-let tex_use_euro ()  = modules_euro := true
 let tex_mod_reset ()   = (
         modules_ams := false;
         modules_nonascii := false;
         modules_encoding := UTF8;
-        modules_color := false;
-        modules_teubner := false;
-        modules_euro := false;
+        modules_color := false
         )
 
 (* Return TeX fragment for one of the encodings in (UTF8,LATIN1,LATIN2) *)
@@ -75,8 +68,6 @@ let get_preface ()  = "\\nonstopmode\n\\documentclass[12pt]{article}\n" ^
               (if !modules_nonascii then get_encoding !modules_encoding else "") ^
               (if !modules_ams then "\\usepackage{amsmath}\n\\usepackage{amsfonts}\n\\usepackage{amssymb}\n" else "") ^
               (if !modules_color then "\\usepackage[dvips,usenames]{color}\n" else "") ^
-              (if !modules_teubner then "\\usepackage[greek]{babel}\n\\usepackage{teubner}\n" else "") ^
-              (if !modules_euro then "\\usepackage{eurosym}\n" else "") ^
               "\\usepackage{cancel}\n\\pagestyle{empty}\n\\begin{document}\n$$\n"
 
 (* TeX fragment appended after the content *)
@@ -106,7 +97,7 @@ let find = function
     | "\\epsilon"          -> LITERAL (TEX_ONLY "\\epsilon ")
     | "\\Epsilon"          -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
     "\\mathrm{E}", "&Epsilon;")))
-    | "\\varepsilon"       -> LITERAL (HTMLABLEC (FONT_UF, "\\varepsilon ", "&epsilon;"))
+    | "\\varepsilon"       -> LITERAL (TEX_ONLY "\\varepsilon ")
     | "\\zeta"             -> LITERAL (HTMLABLEC (FONT_UF,  "\\zeta ", "&zeta;"))
     | "\\Zeta"             -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
     "\\mathrm{Z}", "&Zeta;")))
@@ -151,9 +142,9 @@ let find = function
     "\\mathrm{T}", "&Tau;")))
     | "\\upsilon"          -> LITERAL (HTMLABLEC (FONT_UF,  "\\upsilon ", "&upsilon;"))
     | "\\Upsilon"          -> LITERAL (HTMLABLEC (FONT_UF, "\\Upsilon ", "&Upsilon;"))
-    | "\\phi"              -> LITERAL (HTMLABLEC (FONT_UF, "\\phi ", "&#981;"))
+    | "\\phi"              -> LITERAL (TEX_ONLY "\\phi ")
     | "\\Phi"              -> LITERAL (HTMLABLEC (FONT_UF, "\\Phi ", "&Phi;"))
-    | "\\varphi"           -> LITERAL (HTMLABLEC (FONT_UF, "\\varphi ", "&phi;"))
+    | "\\varphi"           -> LITERAL (TEX_ONLY "\\varphi ")
     | "\\chi"              -> LITERAL (HTMLABLEC (FONT_UF,  "\\chi ", "&chi;"))
     | "\\Chi"              -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
     "\\mathrm{X}", "&Chi;")))
@@ -249,6 +240,16 @@ let find = function
     | "\\triangleleft"     -> LITERAL (TEX_ONLY "\\triangleleft ")
     | "\\triangleright"    -> LITERAL (TEX_ONLY "\\triangleright ")
     | "\\textvisiblespace" -> LITERAL (TEX_ONLY "\\textvisiblespace ")
+    | "\\ker"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\ker ","ker"))
+    | "\\lim"              -> LITERAL (TEX_ONLY "\\lim ")
+    | "\\limsup"           -> LITERAL (TEX_ONLY "\\limsup ")
+    | "\\liminf"           -> LITERAL (TEX_ONLY "\\liminf ")
+    | "\\sup"              -> LITERAL (TEX_ONLY "\\sup ")
+    | "\\Pr"               -> LITERAL (TEX_ONLY "\\Pr ")
+    | "\\hom"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\hom ","hom"))
+    | "\\arg"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\arg ","arg"))
+    | "\\dim"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\dim ","dim"))
+    | "\\inf"              -> LITERAL (TEX_ONLY "\\inf ")
     | "\\circ"             -> LITERAL (TEX_ONLY "\\circ ")
     | "\\hbar"             -> LITERAL (TEX_ONLY "\\hbar ")
     | "\\imath"            -> LITERAL (TEX_ONLY "\\imath ")
@@ -269,6 +270,32 @@ let find = function
     | "\\limits"           -> LITERAL (TEX_ONLY "\\limits ")
     | "\\nolimits"         -> LITERAL (TEX_ONLY "\\nolimits ")
     | "\\top"              -> LITERAL (TEX_ONLY "\\top ")
+    | "\\sin"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\sin ","sin"))
+    | "\\cos"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\cos ","cos"))
+    | "\\sinh"             -> LITERAL (HTMLABLEC(FONT_UFH,"\\sinh ","sinh"))
+    | "\\cosh"             -> LITERAL (HTMLABLEC(FONT_UFH,"\\cosh ","cosh"))
+    | "\\tan"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\tan ","tan"))
+    | "\\tanh"             -> LITERAL (HTMLABLEC(FONT_UFH,"\\tanh ","tanh"))
+    | "\\sec"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\sec ","sec"))
+    | "\\csc"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\csc ","csc"))
+    | "\\arcsin"           -> LITERAL (HTMLABLEC(FONT_UFH,"\\arcsin ","arcsin"))
+    | "\\arctan"           -> LITERAL (HTMLABLEC(FONT_UFH,"\\arctan ","arctan"))
+    | "\\arccos"           -> (tex_use_ams (); LITERAL (HTMLABLEC(FONT_UFH,"\\mathop{\\mathrm{arccos}}","arccos")))
+    | "\\arccot"           -> (tex_use_ams (); LITERAL (HTMLABLEC(FONT_UFH,"\\mathop{\\mathrm{arccot}}","arccot")))
+    | "\\arcsec"           -> (tex_use_ams (); LITERAL (HTMLABLEC(FONT_UFH,"\\mathop{\\mathrm{arcsec}}","arcsec")))
+    | "\\arccsc"           -> (tex_use_ams (); LITERAL (HTMLABLEC(FONT_UFH,"\\mathop{\\mathrm{arccsc}}","arccsc")))
+    | "\\sgn"              -> (tex_use_ams (); LITERAL (HTMLABLEC(FONT_UFH,"\\mathop{\\mathrm{sgn}}","sgn")))
+    | "\\cot"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\cot ","cot"))
+    | "\\coth"             -> LITERAL (HTMLABLEC(FONT_UFH,"\\coth ","coth"))
+    | "\\log"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\log ", "log"))
+    | "\\lg"               -> LITERAL (HTMLABLEC(FONT_UFH,"\\lg ", "lg"))
+    | "\\ln"               -> LITERAL (HTMLABLEC(FONT_UFH,"\\ln ", "ln"))
+    | "\\exp"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\exp ", "exp"))
+    | "\\min"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\min ", "min"))
+    | "\\max"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\max ", "max"))
+    | "\\gcd"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\gcd ", "gcd"))
+    | "\\deg"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\deg ", "deg"))
+    | "\\det"              -> LITERAL (HTMLABLEC(FONT_UFH,"\\det ", "det"))
     | "\\bullet"           -> LITERAL (HTMLABLE (FONT_UFH, "\\bullet ", "&bull;"))
     | "\\bull"             -> LITERAL (HTMLABLE (FONT_UFH, "\\bullet ", "&bull;"))
     | "\\angle"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\angle ", "&ang;")))
@@ -392,22 +419,6 @@ let find = function
     | "\\asymp"            -> LITERAL (TEX_ONLY "\\asymp ")
     | "\\doteq"            -> LITERAL (TEX_ONLY "\\doteq ")
     | "\\parallel"         -> LITERAL (TEX_ONLY "\\parallel ")
-    | "\\euro"             -> (tex_use_euro (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\euro}", "&euro;")))
-    | "\\geneuro"          -> (tex_use_euro (); LITERAL (TEX_ONLY "\\mbox{\\geneuro}"))
-    | "\\geneuronarrow"    -> (tex_use_euro (); LITERAL (TEX_ONLY "\\mbox{\\geneuronarrow}"))
-    | "\\geneurowide"      -> (tex_use_euro (); LITERAL (TEX_ONLY "\\mbox{\\geneurowide}"))
-    | "\\officialeuro"     -> (tex_use_euro (); LITERAL (TEX_ONLY "\\mbox{\\officialeuro}"))
-    | "\\Coppa"            -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\Coppa}", "&#984;")))
-    | "\\coppa"            -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\coppa}", "&#985;")))
-    | "\\varcoppa"         -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\coppa}", "&#985;")))
-    | "\\Digamma"          -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\Digamma}", "&#988;")))
-    | "\\Koppa"            -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\Koppa}", "&#984;")))
-    | "\\koppa"            -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\koppa}", "&#991;")))
-    | "\\Sampi"            -> (tex_use_teubner (); LITERAL (TEX_ONLY "\\mbox{\\Sampi}"))
-    | "\\sampi"            -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\sampi}", "&#993;")))
-    | "\\Stigma"           -> (tex_use_teubner (); LITERAL (TEX_ONLY "\\mbox{\\Stigma}"))
-    | "\\stigma"           -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\stigma}", "&#987;")))
-    | "\\varstigma"        -> (tex_use_teubner (); LITERAL (TEX_ONLY "\\mbox{\\varstigma}"))
     | "\\implies"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\implies ", "&rArr;")))
     | "\\mod"              -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mod ", "mod")))
     | "\\Diamond"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\Diamond ", "&loz;")))
@@ -416,17 +427,16 @@ let find = function
     | "\\dotsi"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\dotsi ", "&sdot;&sdot;&sdot;")))
     | "\\dotsm"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\dotsm ", "&sdot;&sdot;&sdot;")))
     | "\\dotso"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\dotso ", "...")))
-    | "\\reals"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "&#8477;")))
-    | "\\Reals"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "&#8477;")))
-    | "\\R"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "&#8477;")))
-    | "\\C"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "&#8450;")))
-    | "\\cnums"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "&#8450;")))
-    | "\\Complex"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "&#8450;")))
-    | "\\Z"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{Z}", "&#8484;")))
-    | "\\natnums"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{N}", "&#8469;")))
-    | "\\N"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{N}", "&#8469;")))
-    | "\\Q"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{Q}", "&#8474;")))
-    | "\\H"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{H}", "&#8461;")))
+    | "\\reals"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "<b>R</b>")))
+    | "\\Reals"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "<b>R</b>")))
+    | "\\R"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "<b>R</b>")))
+    | "\\C"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "<b>C</b>")))
+    | "\\cnums"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "<b>C</b>")))
+    | "\\Complex"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "<b>C</b>")))
+    | "\\Z"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{Z}", "<b>Z</b>")))
+    | "\\natnums"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{N}", "<b>N</b>")))
+    | "\\N"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{N}", "<b>N</b>")))
+    | "\\Q"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{Q}", "<b>Q</b>")))
     | "\\lVert"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\lVert ", "||")))
     | "\\rVert"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\rVert ", "||")))
     | "\\nmid"             -> (tex_use_ams (); LITERAL (TEX_ONLY "\\nmid "))
@@ -482,7 +492,6 @@ let find = function
     | "\\hat"              -> FUN_AR1 "\\hat "
     | "\\hline"            -> LITERAL (TEX_ONLY "\\hline ")
     | "\\vline"            -> LITERAL (TEX_ONLY "\\vline ")
-    | "\\widetilde"        -> LITERAL (TEX_ONLY "\\widetilde ")
     | "\\widehat"          -> LITERAL (TEX_ONLY "\\widehat ")
     | "\\overline"         -> LITERAL (TEX_ONLY "\\overline ")
     | "\\overbrace"        -> LITERAL (TEX_ONLY "\\overbrace ")

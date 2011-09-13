@@ -2,7 +2,7 @@
     open Tex
     open Render_info
     
-    let sq_close_ri = MHTMLABLEC(FONT_UFH,"]", "]",MO,"]")
+    let sq_close_ri = HTMLABLEC(FONT_UFH,"]", "]")
 %}
 %token <Render_info.t> LITERAL DELIMITER
 %token <string> FUN_AR2 FUN_INFIX FUN_AR1 DECL FUN_AR1opt BIG FUN_AR2nb
