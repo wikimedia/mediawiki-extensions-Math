@@ -492,6 +492,7 @@ let find = function
     | "\\hat"              -> FUN_AR1 "\\hat "
     | "\\hline"            -> LITERAL (TEX_ONLY "\\hline ")
     | "\\vline"            -> LITERAL (TEX_ONLY "\\vline ")
+    | "\\widetilde"        -> LITERAL (TEX_ONLY "\\widetilde ")
     | "\\widehat"          -> LITERAL (TEX_ONLY "\\widehat ")
     | "\\overline"         -> LITERAL (TEX_ONLY "\\overline ")
     | "\\overbrace"        -> LITERAL (TEX_ONLY "\\overbrace ")
