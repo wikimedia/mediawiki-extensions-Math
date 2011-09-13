@@ -136,4 +136,18 @@ class MathHooks {
 		$tables[] = 'math';
 		return true;
 	}
+
+	/**
+	 * Hack to fake a default $wgMathPath value so parser test output
+	 * that renders to images doesn't vary by who runs it.
+	 *
+	 * @global string $wgMathPath
+	 * @param Parser $parser
+	 * @return bool
+	 */
+	static function onParserTestParser( &$parser ) {
+		global $wgMathPath;
+		$wgMathPath = '/images/math';
+		return true;
+	}
 }
