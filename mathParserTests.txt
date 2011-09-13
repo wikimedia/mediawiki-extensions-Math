@@ -66,3 +66,22 @@ BUG 27324: Euro symbol for math
 <img class="tex" alt="\officialeuro" src="/images/math/d/7/0/d708de0eed23dbd6f02b99ea9073547b.png" />
 </p>
 !! end
+
+!! test
+BUG 27754: Archaic Greek letters for math (may require texlive-lang-greek)
+!! input
+<math>\digamma</math><!-- Lowercase digamma was already available -->
+<math>\Coppa\coppa\varcoppa</math>
+<math>\Digamma</math>
+<math>\Koppa\koppa</math>
+<math>\Sampi\sampi</math>
+<math>\Stigma\stigma\varstigma</math>
+!! result
+<p><img class="tex" alt="\digamma" src="/images/math/2/f/0/2f057b6e514c8ca2d9cf9a3e549f8865.png" />
+<img class="tex" alt="\Coppa\coppa\varcoppa" src="/images/math/8/3/0/8308ee5003aa36112414cad8ef874f85.png" />
+<img class="tex" alt="\Digamma" src="/images/math/5/c/f/5cfd6e5df6c87798542dca2e22c1e7cb.png" />
+<img class="tex" alt="\Koppa\koppa" src="/images/math/5/2/5/52593a0cdac178d165985ac014788b97.png" />
+<img class="tex" alt="\Sampi\sampi" src="/images/math/e/9/d/e9dabb19e4c27bf23d3c2a3629474562.png" />
+<img class="tex" alt="\Stigma\stigma\varstigma" src="/images/math/7/b/9/7b9233276816994a33a5e968202cef6e.png" />
+</p>
+!! end

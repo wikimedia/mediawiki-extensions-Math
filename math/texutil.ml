@@ -45,18 +45,21 @@ let modules_ams = ref false
 let modules_nonascii = ref false
 let modules_encoding = ref UTF8
 let modules_color = ref false
+let modules_teubner = ref false
 let modules_euro = ref false 
 
 (* wrappers to easily set / reset module properties *)
 let tex_use_ams ()     = modules_ams := true
 let tex_use_nonascii () = modules_nonascii := true
 let tex_use_color ()  = modules_color := true
+let tex_use_teubner ()  = modules_teubner := true
 let tex_use_euro ()  = modules_euro := true
 let tex_mod_reset ()   = (
         modules_ams := false;
         modules_nonascii := false;
         modules_encoding := UTF8;
         modules_color := false;
+        modules_teubner := false;
         modules_euro := false;
         )
 
@@ -71,6 +74,7 @@ let get_preface ()  = "\\nonstopmode\n\\documentclass[12pt]{article}\n" ^
               (if !modules_nonascii then get_encoding !modules_encoding else "") ^
               (if !modules_ams then "\\usepackage{amsmath}\n\\usepackage{amsfonts}\n\\usepackage{amssymb}\n" else "") ^
               (if !modules_color then "\\usepackage[dvips,usenames]{color}\n" else "") ^
+              (if !modules_teubner then "\\usepackage[greek]{babel}\n\\usepackage{teubner}\n" else "") ^
               (if !modules_euro then "\\usepackage{eurosym}\n" else "") ^
               "\\usepackage{cancel}\n\\pagestyle{empty}\n\\begin{document}\n$$\n"
 
@@ -428,6 +432,17 @@ let find = function
     | "\\geneuronarrow"    -> (tex_use_euro (); LITERAL (TEX_ONLY "\\mbox{\\geneuronarrow}"))
     | "\\geneurowide"      -> (tex_use_euro (); LITERAL (TEX_ONLY "\\mbox{\\geneurowide}"))
     | "\\officialeuro"     -> (tex_use_euro (); LITERAL (TEX_ONLY "\\mbox{\\officialeuro}"))
+    | "\\Coppa"            -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\Coppa}", "&#984;")))
+    | "\\coppa"            -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\coppa}", "&#985;")))
+    | "\\varcoppa"         -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\coppa}", "&#985;")))
+    | "\\Digamma"          -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\Digamma}", "&#988;")))
+    | "\\Koppa"            -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\Koppa}", "&#984;")))
+    | "\\koppa"            -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\koppa}", "&#991;")))
+    | "\\Sampi"            -> (tex_use_teubner (); LITERAL (TEX_ONLY "\\mbox{\\Sampi}"))
+    | "\\sampi"            -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\sampi}", "&#993;")))
+    | "\\Stigma"           -> (tex_use_teubner (); LITERAL (TEX_ONLY "\\mbox{\\Stigma}"))
+    | "\\stigma"           -> (tex_use_teubner (); LITERAL (HTMLABLE (FONT_UF, "\\mbox{\\stigma}", "&#987;")))
+    | "\\varstigma"        -> (tex_use_teubner (); LITERAL (TEX_ONLY "\\mbox{\\varstigma}"))
     | "\\implies"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\implies ", "&rArr;")))
     | "\\mod"              -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mod ", "mod")))
     | "\\Diamond"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\Diamond ", "&loz;")))
