@@ -50,3 +50,19 @@ BUG 26380: Add \widetilde support to match \widehat
 </p>
 !! end
 
+!! test
+BUG 27324: Euro symbol for math
+!! input
+<math>\euro 200</math>
+<math>\geneuro</math>
+<math>\geneuronarrow</math>
+<math>\geneurowide</math>
+<math>\officialeuro</math>
+!! result
+<p><span class="texhtml" dir="ltr">&#8364;200</span>
+<img class="tex" alt="\geneuro" src="/images/math/9/8/b/98b63c235ee187a38267e0e170b10e9d.png" />
+<img class="tex" alt="\geneuronarrow" src="/images/math/a/a/4/aa4a1ed370f4ee705c6930384bf89502.png" />
+<img class="tex" alt="\geneurowide" src="/images/math/4/4/0/4404468e6187fb04e4f7e1f15e550825.png" />
+<img class="tex" alt="\officialeuro" src="/images/math/d/7/0/d708de0eed23dbd6f02b99ea9073547b.png" />
+</p>
+!! end

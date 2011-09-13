@@ -45,16 +45,19 @@ let modules_ams = ref false
 let modules_nonascii = ref false
 let modules_encoding = ref UTF8
 let modules_color = ref false
+let modules_euro = ref false 
 
 (* wrappers to easily set / reset module properties *)
 let tex_use_ams ()     = modules_ams := true
 let tex_use_nonascii () = modules_nonascii := true
 let tex_use_color ()  = modules_color := true
+let tex_use_euro ()  = modules_euro := true
 let tex_mod_reset ()   = (
         modules_ams := false;
         modules_nonascii := false;
         modules_encoding := UTF8;
-        modules_color := false
+        modules_color := false;
+        modules_euro := false;
         )
 
 (* Return TeX fragment for one of the encodings in (UTF8,LATIN1,LATIN2) *)
@@ -68,6 +71,7 @@ let get_preface ()  = "\\nonstopmode\n\\documentclass[12pt]{article}\n" ^
               (if !modules_nonascii then get_encoding !modules_encoding else "") ^
               (if !modules_ams then "\\usepackage{amsmath}\n\\usepackage{amsfonts}\n\\usepackage{amssymb}\n" else "") ^
               (if !modules_color then "\\usepackage[dvips,usenames]{color}\n" else "") ^
+              (if !modules_euro then "\\usepackage{eurosym}\n" else "") ^
               "\\usepackage{cancel}\n\\pagestyle{empty}\n\\begin{document}\n$$\n"
 
 (* TeX fragment appended after the content *)
@@ -97,7 +101,7 @@ let find = function
     | "\\epsilon"          -> LITERAL (TEX_ONLY "\\epsilon ")
     | "\\Epsilon"          -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
     "\\mathrm{E}", "&Epsilon;")))
-    | "\\varepsilon"       -> LITERAL (TEX_ONLY "\\varepsilon ")
+    | "\\varepsilon"       -> LITERAL (HTMLABLEC (FONT_UF, "\\varepsilon ", "&epsilon;"))
     | "\\zeta"             -> LITERAL (HTMLABLEC (FONT_UF,  "\\zeta ", "&zeta;"))
     | "\\Zeta"             -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
     "\\mathrm{Z}", "&Zeta;")))
@@ -142,9 +146,9 @@ let find = function
     "\\mathrm{T}", "&Tau;")))
     | "\\upsilon"          -> LITERAL (HTMLABLEC (FONT_UF,  "\\upsilon ", "&upsilon;"))
     | "\\Upsilon"          -> LITERAL (HTMLABLEC (FONT_UF, "\\Upsilon ", "&Upsilon;"))
-    | "\\phi"              -> LITERAL (TEX_ONLY "\\phi ")
+    | "\\phi"              -> LITERAL (HTMLABLEC (FONT_UF, "\\phi ", "&#981;"))
     | "\\Phi"              -> LITERAL (HTMLABLEC (FONT_UF, "\\Phi ", "&Phi;"))
-    | "\\varphi"           -> LITERAL (TEX_ONLY "\\varphi ")
+    | "\\varphi"           -> LITERAL (HTMLABLEC (FONT_UF, "\\varphi ", "&phi;"))
     | "\\chi"              -> LITERAL (HTMLABLEC (FONT_UF,  "\\chi ", "&chi;"))
     | "\\Chi"              -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
     "\\mathrm{X}", "&Chi;")))
@@ -419,6 +423,11 @@ let find = function
     | "\\asymp"            -> LITERAL (TEX_ONLY "\\asymp ")
     | "\\doteq"            -> LITERAL (TEX_ONLY "\\doteq ")
     | "\\parallel"         -> LITERAL (TEX_ONLY "\\parallel ")
+    | "\\euro"             -> (tex_use_euro (); LITERAL (HTMLABLEC (FONT_UF, "\\mbox{\\euro}", "&euro;")))
+    | "\\geneuro"          -> (tex_use_euro (); LITERAL (TEX_ONLY "\\mbox{\\geneuro}"))
+    | "\\geneuronarrow"    -> (tex_use_euro (); LITERAL (TEX_ONLY "\\mbox{\\geneuronarrow}"))
+    | "\\geneurowide"      -> (tex_use_euro (); LITERAL (TEX_ONLY "\\mbox{\\geneurowide}"))
+    | "\\officialeuro"     -> (tex_use_euro (); LITERAL (TEX_ONLY "\\mbox{\\officialeuro}"))
     | "\\implies"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\implies ", "&rArr;")))
     | "\\mod"              -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mod ", "mod")))
     | "\\Diamond"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\Diamond ", "&loz;")))
@@ -427,16 +436,17 @@ let find = function
     | "\\dotsi"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\dotsi ", "&sdot;&sdot;&sdot;")))
     | "\\dotsm"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\dotsm ", "&sdot;&sdot;&sdot;")))
     | "\\dotso"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\dotso ", "...")))
-    | "\\reals"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "<b>R</b>")))
-    | "\\Reals"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "<b>R</b>")))
-    | "\\R"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "<b>R</b>")))
-    | "\\C"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "<b>C</b>")))
-    | "\\cnums"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "<b>C</b>")))
-    | "\\Complex"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "<b>C</b>")))
-    | "\\Z"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{Z}", "<b>Z</b>")))
-    | "\\natnums"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{N}", "<b>N</b>")))
-    | "\\N"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{N}", "<b>N</b>")))
-    | "\\Q"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{Q}", "<b>Q</b>")))
+    | "\\reals"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "&#8477;")))
+    | "\\Reals"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "&#8477;")))
+    | "\\R"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "&#8477;")))
+    | "\\C"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "&#8450;")))
+    | "\\cnums"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "&#8450;")))
+    | "\\Complex"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "&#8450;")))
+    | "\\Z"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{Z}", "&#8484;")))
+    | "\\natnums"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{N}", "&#8469;")))
+    | "\\N"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{N}", "&#8469;")))
+    | "\\Q"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{Q}", "&#8474;")))
+    | "\\H"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{H}", "&#8461;")))
     | "\\lVert"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\lVert ", "||")))
     | "\\rVert"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\rVert ", "||")))
     | "\\nmid"             -> (tex_use_ams (); LITERAL (TEX_ONLY "\\nmid "))
