@@ -85,3 +85,16 @@ BUG 27754: Archaic Greek letters for math (may require texlive-lang-greek)
 <img class="tex" alt="\Stigma\stigma\varstigma" src="/images/math/7/b/9/7b9233276816994a33a5e968202cef6e.png" />
 </p>
 !! end
+
+!! test
+BUG 19547: Apostrophe / single quotes in math \text{...}
+!! input
+<math>\text{next years}</math>
+<math>\text{next year's}</math>
+<math>\text{`next' year}</math>
+!! result
+<p><span class="texhtml" dir="ltr">next years</span>
+<span class="texhtml" dir="ltr">next year's</span>
+<span class="texhtml" dir="ltr">`next' year</span>
+</p>
+!! end
