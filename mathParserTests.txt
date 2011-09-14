@@ -98,3 +98,52 @@ BUG 19547: Apostrophe / single quotes in math \text{...}
 <span class="texhtml" dir="ltr">`next' year</span>
 </p>
 !! end
+
+!! test
+BUG 6722: Spacing fix for functions in math HTML output
+!! input
+<math>\sin x</math>
+<math>\sin(x)</math>
+<math>\sin{x}</math>
+
+<math>\sin x \,</math>
+<math>\sin(x) \,</math>
+<math>\sin{x} \,</math>
+!!result
+<p><span class="texhtml" dir="ltr">sin&#160;<i>x</i></span>
+<span class="texhtml" dir="ltr">sin(<i>x</i>)</span>
+<span class="texhtml" dir="ltr">sin&#160;<i>x</i></span>
+</p><p><img class="tex" alt="\sin x \," src="/images/math/7/6/a/76a8e1a01bd233c1e4e16d63b2bbf939.png" />
+<img class="tex" alt="\sin(x) \," src="/images/math/1/6/c/16c69b0a3658d3b398f72c518d869a03.png" />
+<img class="tex" alt="\sin{x} \," src="/images/math/8/3/9/839639707da39f691e702c2399cbf943.png" />
+</p>
+!! end
+
+!! test
+BUG 18912: Add \sen function for Spanish sin to math
+!! input
+<math>\sen x</math>
+<math>\sen(x)</math>
+<math>\sen{x}</math>
+
+<math>\sen x \,</math>
+<math>\sen(x) \,</math>
+<math>\sen{x} \,</math>
+!! result
+<p><span class="texhtml" dir="ltr">sen&#160;<i>x</i></span>
+<span class="texhtml" dir="ltr">sen(<i>x</i>)</span>
+<span class="texhtml" dir="ltr">sen&#160;<i>x</i></span>
+</p><p><img class="tex" alt="\sen x \," src="/images/math/0/a/c/0ac592b8f31b4698766c50c532f446a7.png" />
+<img class="tex" alt="\sen(x) \," src="/images/math/b/b/5/bb5469d24fcdd52aa60cb9ee90ba697d.png" />
+<img class="tex" alt="\sen{x} \," src="/images/math/d/4/8/d4882a4bcf5db1da3e30d905da8b394e.png" />
+</p>
+!! end
+
+!! test
+BUG 18912: \operatorname{sen} x gets wrong spacing in math
+!! input
+<math>\operatorname{sen}</math>
+!! result
+<p><img class="tex" alt="\operatorname{sen}" src="/images/math/3/e/7/3e71e75d9aac1bf5107271ad89ca7c3b.png" />
+</p>
+!! end
