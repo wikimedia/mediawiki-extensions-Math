@@ -19,6 +19,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 // Extension credits that will show up on Special:Version
 $wgExtensionCredits['parserhook'][] = array(
+	'path' => __FILE__,
 	'name' => 'Math',
 	'version' => '1.0',
 	'author' => array( 'Tomasz Wegrzanowski', 'Brion Vibber', '...' ),
