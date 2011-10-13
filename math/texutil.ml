@@ -20,7 +20,8 @@ let rec render_tex = function
   | TEX_DQN (a) -> "_{" ^ (render_tex  a) ^ "}"
   | TEX_UQN (a) -> "^{" ^ (render_tex  a) ^ "}"
   | TEX_LITERAL s -> tex_part s
-  | TEX_FUN1 (f,a) -> f ^ " " ^ (render_tex a)
+  | TEX_FUN1 (f,a) -> "{" ^ f ^ " " ^ (render_tex a) ^ "}"
+  | TEX_FUN1nb (f,a) -> f ^ " " ^ (render_tex a)
   | TEX_FUN1hl (f,_,a) -> "{" ^ f ^ " " ^ (render_tex a) ^ "}"
   | TEX_FUN1hf (f,_,a) -> "{" ^ f ^ " " ^ (render_tex a) ^ "}"
   | TEX_DECLh (f,_,a) -> "{" ^ f ^ "{" ^ (mapjoin render_tex a) ^ "}}"

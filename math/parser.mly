@@ -5,7 +5,7 @@
     let sq_close_ri = HTMLABLEC(FONT_UFH,"]", "]")
 %}
 %token <Render_info.t> LITERAL DELIMITER
-%token <string> FUN_AR2 FUN_INFIX FUN_AR1 DECL FUN_AR1opt BIG FUN_AR2nb
+%token <string> FUN_AR2 FUN_INFIX FUN_AR1 DECL FUN_AR1nb FUN_AR1opt BIG FUN_AR2nb
 %token <string*string> BOX
 %token <string*(string*string)> FUN_AR1hl
 %token <string*Render_info.font_force> FUN_AR1hf DECLh
@@ -85,6 +85,7 @@ lit:
   | BIG SQ_CLOSE		{ TEX_BIG ($1,sq_close_ri) }
   | left expr right		{ TEX_LR ($1,$3,$2) }
   | FUN_AR1 lit			{ TEX_FUN1($1,$2) }
+  | FUN_AR1nb lit		{ TEX_FUN1nb($1,$2) }
   | FUN_AR1hl lit		{ let t,h=$1 in TEX_FUN1hl(t,h,$2) }
   | FUN_AR1hf lit		{ let t,h=$1 in TEX_FUN1hf(t,h,$2) }
   | FUN_AR1opt expr_nosqc SQ_CLOSE lit { TEX_FUN2sq($1,TEX_CURLY $2,$4) }

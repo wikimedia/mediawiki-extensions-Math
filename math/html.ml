@@ -56,6 +56,7 @@ let rec html_render_flat ctx = function
   | TEX_BOX (_,s)::r -> s^html_render_flat ctx r
   | TEX_LITERAL (TEX_ONLY _)::_ -> raise Too_difficult_for_html
   | TEX_FUN1 _::_ -> raise Too_difficult_for_html
+  | TEX_FUN1nb _::_ -> raise Too_difficult_for_html
   | TEX_FUN2  _::_ -> raise Too_difficult_for_html
   | TEX_FUN2nb  _::_ -> raise Too_difficult_for_html
   | TEX_FUN2h  _::_ -> raise Too_difficult_for_html

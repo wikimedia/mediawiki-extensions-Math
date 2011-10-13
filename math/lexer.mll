@@ -56,6 +56,7 @@ rule token = parse
   | "-"				{ let str = Lexing.lexeme lexbuf in LITERAL (MHTMLABLEC (FONT_UFH,"-"," &minus; ",MO,str))}
   | literal_uf_op		{ let str = Lexing.lexeme lexbuf in LITERAL (MHTMLABLEC (FONT_UFH, str," "^str^" ",MO,str)) }
   | delimiter_uf_op		{ let str = Lexing.lexeme lexbuf in DELIMITER (MHTMLABLEC (FONT_UFH, str," "^str^" ",MO,str)) }
+  | "\\operatorname"            { Texutil.tex_use_ams(); FUN_AR1nb "\\operatorname" }
   | "\\sqrt" space * "["	{ FUN_AR1opt "\\sqrt" }
   | "\\xleftarrow" space * "["	{ Texutil.tex_use_ams(); FUN_AR1opt "\\xleftarrow" }
   | "\\xrightarrow" space * "["	{ Texutil.tex_use_ams(); FUN_AR1opt "\\xrightarrow" }

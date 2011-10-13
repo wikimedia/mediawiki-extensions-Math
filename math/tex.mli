@@ -11,6 +11,7 @@ type t =
     | TEX_BOX of string * string
     | TEX_BIG of string * Render_info.t
     | TEX_FUN1 of string * t
+    | TEX_FUN1nb of string * t
     | TEX_FUN2 of string * t * t
     | TEX_FUN2nb of string * t * t
     | TEX_INFIX of string * t list * t list

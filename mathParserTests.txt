@@ -144,6 +144,24 @@ BUG 18912: \operatorname{sen} x gets wrong spacing in math
 !! input
 <math>\operatorname{sen}</math>
 !! result
-<p><img class="tex" alt="\operatorname{sen}" src="/images/math/3/e/7/3e71e75d9aac1bf5107271ad89ca7c3b.png" />
+<p><img class="tex" alt="\operatorname{sen}" src="/images/math/f/a/9/fa9660c7eb053ca8d3c9a87fa86635d9.png" />
+</p>
+!! end
+
+!! test
+BUG 31442: Multiple math accents without braces fails to parse
+!! input
+<math>\dot \vec B</math>
+!! result
+<p><img class="tex" alt="\dot \vec B" src="/images/math/e/6/4/e64939568ecb506a86a392373cec0458.png" />
+</p>
+!! end
+
+!! test
+BUG 31442: Math accents with math font fail to parse if braces not used
+!! input
+<math>\tilde \mathcal{M}</math>
+!! result
+<p><img class="tex" alt="\tilde \mathcal{M}" src="/images/math/5/5/0/55072ce6ef8c840c4b7687bd8a028bde.png" />
 </p>
 !! end
