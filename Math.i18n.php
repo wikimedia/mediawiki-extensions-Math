@@ -2837,9 +2837,12 @@ $messages['nah'] = array(
 	'prefs-math' => 'Tlapōhualmatiliztli',
 );
 
-/** Min Nan Chinese (Bân-lâm-gú) */
+/** Min Nan Chinese (Bân-lâm-gú)
+ * @author Ianbu
+ */
 $messages['nan'] = array(
 	'math_sample' => 'Chia siá hong-thêng-sek',
+	'math_tip' => '數學的公式 （LaTeX）',
 	'prefs-math' => 'Sò·-ha̍k ê rendering',
 	'mw_math_png' => 'Tiāⁿ-tio̍h iōng PNG render',
 	'mw_math_simple' => 'Tân-sûn ê chêng-hêng iōng HTML; kî-thaⁿ iōng PNG',
