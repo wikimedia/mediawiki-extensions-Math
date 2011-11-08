@@ -1140,6 +1140,7 @@ $messages['fa'] = array(
 );
 
 /** Finnish (Suomi)
+ * @author Crt
  * @author Wix
  */
 $messages['fi'] = array(
@@ -1151,7 +1152,7 @@ $messages['fi'] = array(
 	'mw_math_html' => 'Näytä HTML:nä, jos mahdollista, muuten PNG:nä',
 	'mw_math_source' => 'Näytä TeX-muodossa (tekstiselaimille)',
 	'mw_math_modern' => 'Suositus nykyselaimille',
-	'mw_math_mathml' => 'Näytä MathML:nä jos mahdollista (kokeellinen)',
+	'mw_math_mathml' => 'Näytä MathML:nä, jos mahdollista (kokeellinen)',
 	'math_failure' => 'Jäsentäminen epäonnistui',
 	'math_unknown_error' => 'Tuntematon virhe',
 	'math_unknown_function' => 'Tuntematon funktio',
