@@ -3371,6 +3371,7 @@ $messages['rmy'] = array(
  * @author Emily
  * @author Laurap
  * @author Minisarm
+ * @author Strainu
  */
 $messages['ro'] = array(
 	'math_sample' => 'Introduceți formula aici',
@@ -3387,7 +3388,7 @@ $messages['ro'] = array(
 	'math_unknown_function' => 'funcție necunoscută',
 	'math_lexing_error' => 'eroare lexicală',
 	'math_syntax_error' => 'eroare de sintaxă',
-	'math_image_error' => 'Conversiune în PNG eșuată; verificați corectitudinea instalării sistemelor LaTex sau dvipng (sau dvips + gs + convert)',
+	'math_image_error' => 'Conversie în PNG eșuată; verificați corectitudinea instalării sistemelor LaTex sau dvipng (sau dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Nu se poate crea sau nu se poate scrie în directorul temporar pentru formule matematice',
 	'math_bad_output' => 'Nu se poate crea sau nu se poate scrie în directorul de ieșire pentru formule matematice',
 	'math_notexvc' => 'Lipsește executabilul texvc; vezi math/README pentru configurare.',
