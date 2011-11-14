@@ -3215,12 +3215,12 @@ $messages['prg'] = array(
 	'mw_math_modern' => 'HTML - radītan per nāunans lasātlins',
 	'mw_math_mathml' => 'MathML ik mazīngi (eksperimentālai)',
 	'math_failure' => 'Parsers ni mazēi skaitātun',
-	'math_unknown_error' => 'niwaīsta blānda',
-	'math_unknown_function' => 'niwaīsta funkciōni',
+	'math_unknown_error' => 'niwaistā blānda',
+	'math_unknown_function' => 'niwaistā funkciōni',
 	'math_lexing_error' => 'laksisis blānda',
 	'math_syntax_error' => 'sīntaksis blānda',
-	'math_image_error' => 'Maināsna en PNG ni izpalla.
-Izbāndais, anga latex, dvips, gs be convert ast instalītan tikrōmiskai',
+	'math_image_error' => 'Mainasnā en PNG ni izpalla.
+Izbandais, anga latex, dvips, gs be convert ast instalītan tikrōmiskai',
 	'math_bad_tmpdir' => 'Ni mazīngi teīktun anga enpeisātun en kīsmingiskasmu matemātiskan fōlderin',
 	'math_bad_output' => 'Ni mazīngi teīktun anga enpeisātun en izēiseniskasmu matemātiskan fōlderin',
 	'math_notexvc' => 'Ni ast texvc prōgraman.
