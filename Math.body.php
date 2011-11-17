@@ -10,6 +10,17 @@
  * @ingroup Parser
  */
 
+if ( !function_exists('wfEscapeSingleQuotes') ) {
+	/**
+	 * Escapes a string with single quotes for a UNIX shell.
+	 * It's equivalente to escapeshellarg() in UNIX, but also 
+	 * working in Windows, where we need it for cygwin shell.
+	 */
+	function wfEscapeSingleQuotes( $str ) {
+		return "'" . str_replace( "'", "'\\''", $str ) . "'";
+	}
+}
+
 /**
  * Takes LaTeX fragments, sends them to a helper program (texvc) for rendering
  * to rasterized PNG and HTML and MathML approximations. An appropriate
@@ -65,11 +76,11 @@ class MathRenderer {
 				return $this->_error( 'math_notexvc' );
 			}
 			$cmd = $wgTexvc . ' ' .
-					escapeshellarg( $wgTmpDirectory ).' '.
-					escapeshellarg( $wgTmpDirectory ).' '.
-					escapeshellarg( $this->tex ).' '.
-					escapeshellarg( 'UTF-8' ).' '.
-					escapeshellarg(	$wgTexvcBackgroundColor );
+					wfEscapeSingleQuotes( $wgTmpDirectory ) . ' '.
+					wfEscapeSingleQuotes( $wgTmpDirectory ) . ' '.
+					wfEscapeSingleQuotes( $this->tex ) . ' '.
+					wfEscapeSingleQuotes( 'UTF-8' ) . ' '.
+					wfEscapeSingleQuotes( $wgTexvcBackgroundColor );
 
 			if ( wfIsWindows() ) {
 				# Invoke it within cygwin sh, because texvc expects sh features in its default shell
