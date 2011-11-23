@@ -517,7 +517,7 @@ $messages['bho'] = array(
 	'prefs-math' => 'गणित',
 );
 
-/** Bahasa Banjar (Bahasa Banjar)
+/** Banjar (Bahasa Banjar)
  * @author Ezagren
  * @author J Subhi
  */
@@ -715,7 +715,7 @@ $messages['cps'] = array(
 	'math_tip' => 'Pormula nga pangmatematika (LaTeX)',
 );
 
-/** Crimean Turkish (Latin) (Qırımtatarca (Latin))
+/** Crimean Turkish (Latin script) (‪Qırımtatarca (Latin)‬)
  * @author Don Alessandro
  */
 $messages['crh-latn'] = array(
@@ -735,7 +735,7 @@ $messages['crh-latn'] = array(
 	'math_syntax_error' => 'sintaksis hatası',
 );
 
-/** Crimean Turkish (Cyrillic) (Qırımtatarca (Cyrillic))
+/** Crimean Turkish (Cyrillic script) (‪Къырымтатарджа (Кирилл)‬)
  * @author Don Alessandro
  */
 $messages['crh-cyrl'] = array(
@@ -1589,7 +1589,7 @@ latex, dvips, gs, और convert के इन्स्टॉलेशन की
 समनुरूप बनाने के लियें math/README देखें।',
 );
 
-/** Fiji Hindi (Latin) (Fiji Hindi (Latin))
+/** Fiji Hindi (Latin script) (Fiji Hindi)
  * @author Girmitya
  * @author Thakurji
  */
@@ -1802,7 +1802,7 @@ $messages['ike-cans'] = array(
 	'math_unknown_function' => 'ᑐᓴᐅᒪᔭᐅᙱᑐᖅ ᐃᓕᐅᕐᓂᖅ',
 );
 
-/**  () */
+/** Eastern Canadian (Latin script) (inuktitut) */
 $messages['ike-latn'] = array(
 	'math_unknown_error' => 'tusaumajaunngituq tammanaqtuq',
 	'math_unknown_function' => 'tusaumajaunngituq iliurniq',
@@ -1909,7 +1909,7 @@ $messages['ja'] = array(
 	'math_notexvc' => 'texvc実行可能プログラムが見つかりません。math/READMEを読んで設定してください。',
 );
 
-/** Jamaican Creole English (Patios)
+/** Jamaican Creole English (Patois)
  * @author Yocahuna
  */
 $messages['jam'] = array(
@@ -2014,7 +2014,7 @@ $messages['kab'] = array(
 	'math_notexvc' => "''texvc executable'' / ''executable texvc'' ulac-it; ẓer math/README akken a textareḍ isemyifiyen.",
 );
 
-/** Kabardian (Cyrillic) (Адыгэбзэ (Cyrillic))
+/** Адыгэбзэ (Адыгэбзэ)
  * @author Bogups
  * @author Тамэ Балъкъэрхэ
  */
@@ -2024,7 +2024,7 @@ $messages['kbd-cyrl'] = array(
 	'prefs-math' => 'формулэхэр гъэлъэгъуэн',
 );
 
-/** کھوار (کھوار)
+/** Khowar (کھوار)
  * @author Rachitrali
  */
 $messages['khw'] = array(
@@ -2076,7 +2076,7 @@ latex, dvips, gs جانە convert باعدارلامالارىنىڭ دۇرىس 
 باپتاۋ ٴۇشىن math/README قۇجاتىن قاراڭىز.',
 );
 
-/** Kazakh (Cyrillic) (Қазақша (Cyrillic)) */
+/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'math_sample' => 'Өрнекті мында енгізіңіз',
 	'math_tip' => 'Математика өрнегі (LaTeX)',
@@ -2100,7 +2100,7 @@ latex, dvips, gs және convert бағдарламаларының дұрыс 
 баптау үшін math/README құжатын қараңыз.',
 );
 
-/** Kazakh (Latin) (Қазақша (Latin)) */
+/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'math_sample' => 'Örnekti mında engiziñiz',
 	'math_tip' => 'Matematïka örnegi (LaTeX)',
@@ -2256,7 +2256,7 @@ Sag et enemWiki-Köbes, enem ẞööver-Minsch, oder luur ens en dä
 <code>math/README</code>.',
 );
 
-/** Kurdish (Latin) (Kurdî (Latin))
+/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
  * @author Bangin
  */
 $messages['ku-latn'] = array(
@@ -2382,7 +2382,7 @@ $messages['li'] = array(
 	'math_notexvc' => "Kin 't programma texvc neet vinje; stel alles in volges de besjrieving in math/README.",
 );
 
-/** Líguru (Líguru)
+/** Ligure (Ligure)
  * @author ZeneizeForesto
  */
 $messages['lij'] = array(
@@ -3469,7 +3469,7 @@ $messages['rue'] = array(
 	'math_notexvc' => 'Хыбить спустительный texvc; посмотьте ся до math/README на конфіґурацію.',
 );
 
-/** Megleno-Romanian (Cyrillic) (Vlăheşte (Cyrillic))
+/** Megleno-Romanian (Cyrillic script) (Влахесте)
  * @author Макѕе
  */
 $messages['ruq-cyrl'] = array(
@@ -3477,7 +3477,7 @@ $messages['ruq-cyrl'] = array(
 	'math_tip' => 'Формула с-математикс (LaTeX)',
 );
 
-/** Megleno-Romanian (Latin) (Vlăheşte (Latin))
+/** Megleno-Romanian (Latin script) (Vlăheşte)
  * @author Макѕе
  */
 $messages['ruq-latn'] = array(
@@ -3485,7 +3485,7 @@ $messages['ruq-latn'] = array(
 	'math_tip' => "Formula s'matematiks (LaTeX)",
 );
 
-/** Sanskrit (संस्कृत)
+/** Sanskrit (संस्कृतम्)
  * @author Naveen Sankar
  */
 $messages['sa'] = array(
@@ -3639,7 +3639,7 @@ $messages['sgs'] = array(
 	'math_unknown_function' => 'nežinuoma funkcėjė',
 );
 
-/** Serbo-Croatian (Srpskohrvatski / Српскохрватски)
+/** Serbo-Croatian (Srpskohrvatski)
  * @author OC Ripper
  */
 $messages['sh'] = array(
@@ -3663,7 +3663,7 @@ $messages['sh'] = array(
 	'math_notexvc' => 'Nedostaje izvršno texvc; molimo Vas da pogledate math/README da podesite.',
 );
 
-/** Tachelhit (Tašlḥiyt)
+/** Tachelhit (Tašlḥiyt/ⵜⴰⵛⵍⵃⵉⵜ)
  * @author Dalinanir
  * @author Zanatos
  */
@@ -3809,7 +3809,7 @@ $messages['sq'] = array(
 	'math_notexvc' => 'Mungon zbatuesi texvc; ju lutem shikoni math/README për konfigurimin.',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Rancher
  */
 $messages['sr-ec'] = array(
@@ -3833,7 +3833,7 @@ $messages['sr-ec'] = array(
 	'math_notexvc' => 'Недостаје извршна датотека texvc-а. Погледајте math/README за подешавање.',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬) */
+/** Serbian (Latin script) (‪Srpski (latinica)‬) */
 $messages['sr-el'] = array(
 	'math_sample' => 'Ovde unesite formulu',
 	'math_tip' => 'Matematička formula (LaTeX)',
@@ -4036,7 +4036,7 @@ $messages['te'] = array(
 	'math_notexvc' => 'texvc ఎక్జిక్యూటబుల్ కనబడడం లేదు; కాన్ఫిగరు చెయ్యడానికి math/README చూడండి.',
 );
 
-/** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
+/** Tajik (Cyrillic script) (Тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -4060,7 +4060,7 @@ $messages['tg-cyrl'] = array(
 	'math_notexvc' => 'Барномаи ичроии texvc мавҷуд нест; барои иттилооти бештар ба math/README нигаред.',
 );
 
-/** Tajik (Latin) (Тоҷикӣ (Latin))
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -4215,7 +4215,7 @@ $messages['tr'] = array(
 ayarlamak için math/README'ye bakın.",
 );
 
-/** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
+/** Tatar (Cyrillic script) (Татарча)
  * @author Don Alessandro
  * @author KhayR
  * @author Ерней
@@ -4239,7 +4239,7 @@ $messages['tt-cyrl'] = array(
 	'math_syntax_error' => 'синтаксик хата',
 );
 
-/** Tatar (Latin) (Татарча/Tatarça (Latin))
+/** Tatar (Latin script) (Tatarça)
  * @author Don Alessandro
  */
 $messages['tt-latn'] = array(
@@ -4267,7 +4267,7 @@ $messages['tyv'] = array(
 	'math_unknown_error' => 'билбес алдаг',
 );
 
-/** ئۇيغۇرچە (ئۇيغۇرچە)
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
  * @author Sahran
  */
 $messages['ug-arab'] = array(
