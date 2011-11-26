@@ -1464,6 +1464,7 @@ $messages['gsw'] = array(
 
 /** Gujarati (ગુજરાતી)
  * @author Dsvyas
+ * @author Mohit.dalal
  * @author Sushant savla
  */
 $messages['gu'] = array(
@@ -1471,7 +1472,7 @@ $messages['gu'] = array(
 	'math_tip' => 'ગણિતિક સૂત્ર (LaTeX)',
 	'prefs-math' => 'ગણિત',
 	'mw_math_png' => 'PNGને હમેંશા પરત કરો',
-	'mw_math_simple' => ' જો સરળ હોય તો  HTML અન્યથા PNG',
+	'mw_math_simple' => 'ખૂબ સરળ, PNG અથવા અન્ય જો એચટીએમએલ',
 	'mw_math_html' => 'જો સરળ હોય તો  HTML અન્યથા PNG',
 	'mw_math_source' => 'આને શબ્દ રહેવા દો (ટેક્સ્ટ બ્રાઉઝર)',
 	'mw_math_modern' => 'અત્યાધુનિક બ્રાઉઝરો માટે ભલામણ યોગ્ય',
