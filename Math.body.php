@@ -30,7 +30,7 @@ if ( !function_exists('wfEscapeSingleQuotes') ) {
  * @ingroup Parser
  */
 class MathRenderer {
-	var $mode = MW_MATH_MODERN;
+	var $mode = MW_MATH_PNG;
 	var $tex = '';
 	var $inputhash = '';
 	var $hash = '';
@@ -44,7 +44,13 @@ class MathRenderer {
  	}
 
 	function setOutputMode( $mode ) {
-		$this->mode = $mode;
+		$validModes = array( MW_MATH_PNG, MW_MATH_SOURCE );
+		if ( in_array( $mode, $validModes ) ) {
+			$this->mode = $mode;
+		} else {
+			// Several mixed modes have been phased out.
+			$this->mode = MW_MATH_PNG;
+		}
 	}
 
 	function render() {

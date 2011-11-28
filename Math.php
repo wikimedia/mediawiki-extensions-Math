@@ -31,11 +31,11 @@ $wgExtensionCredits['parserhook'][] = array(
  * Maths constants
  */
 define( 'MW_MATH_PNG',    0 );
-define( 'MW_MATH_SIMPLE', 1 );
-define( 'MW_MATH_HTML',   2 );
+define( 'MW_MATH_SIMPLE', 1 ); /// @deprecated
+define( 'MW_MATH_HTML',   2 ); /// @deprecated
 define( 'MW_MATH_SOURCE', 3 );
-define( 'MW_MATH_MODERN', 4 );
-define( 'MW_MATH_MATHML', 5 );
+define( 'MW_MATH_MODERN', 4 ); /// @deprecated
+define( 'MW_MATH_MATHML', 5 ); /// @deprecated
 /**@}*/
 
 /** For back-compat */
@@ -84,6 +84,7 @@ $wgMathDirectory = false;
 
 ////////// end of config settings.
 
+$wgDefaultUserOptions['math'] = MW_MATH_PNG;
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';

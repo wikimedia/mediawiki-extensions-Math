@@ -74,11 +74,7 @@ class MathHooks {
 	private static function getMathNames() {
 		return array(
 			MW_MATH_PNG => 'mw_math_png',
-			MW_MATH_SIMPLE => 'mw_math_simple',
-			MW_MATH_HTML => 'mw_math_html',
-			MW_MATH_SOURCE => 'mw_math_source',
-			MW_MATH_MODERN => 'mw_math_modern',
-			MW_MATH_MATHML => 'mw_math_mathml'
+			MW_MATH_SOURCE => 'mw_math_source'
 		);
 	}
 
