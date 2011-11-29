@@ -2230,9 +2230,6 @@ $messages['mg'] = array(
 	'math_tip' => 'Raikipohy matematika (LaTeX)',
 	'prefs-math' => 'Math',
 	'mw_math_png' => 'Anamboary sary PNG foana',
-	'mw_math_source' => "
-Avelao ho TeX (ho an'ny navigateurs textes)",
-Amporisihina ho an'ny navigateur moderna",
 	'math_failure' => 'Tsy nety ny fanodinana ny raikipohy',
 	'math_unknown_error' => 'tsy fahatomombanana tsy hay antony',
 	'math_unknown_function' => 'fonction tsy fantatra',
