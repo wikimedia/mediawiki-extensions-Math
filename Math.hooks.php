@@ -42,11 +42,20 @@ class MathHooks {
 	 * @return
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgContLang;
+		global $wgContLang, $wgUseMathJax;
 		$renderedMath = MathRenderer::renderMath(
 			$content, $attributes, $parser->getOptions()
 		);
-		return $wgContLang->armourMath( $renderedMath );
+		
+		if ( $wgUseMathJax ) {
+			self::addMathJax( $parser );
+			$output = Html::rawElement('noscript', null, $renderedMath ) .
+				Html::element( 'script', array( 'type' => 'math/tex' ), $content );
+		} else {
+			$output = $renderedMath;
+		}
+
+		return $wgContLang->armourMath( $output );
 	}
 
 	/**
@@ -145,5 +154,13 @@ class MathHooks {
 		global $wgMathPath;
 		$wgMathPath = '/images/math';
 		return true;
+	}
+
+	static function addMathJax( $parser ) {
+		global $wgMathJaxUrl;
+		//$script = Html::element( 'script', array( 'type' => 'text/x-mathjax-config' ), $config );
+		$html = Html::element( 'script', array( 'src' => $wgMathJaxUrl ) );
+
+		$parser->getOutput()->addHeadItem( $html, 'mathjax' );
 	}
 }
