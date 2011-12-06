@@ -49,11 +49,8 @@ class MathHooks {
 		
 		if ( $wgUseMathJax ) {
 			self::addMathJax( $parser );
-			$output = Html::rawElement('noscript', null, $renderedMath ) .
-				Html::element( 'script', array( 'type' => 'math/tex' ), $content );
-		} else {
-			$output = $renderedMath;
 		}
+		$output = $renderedMath;
 
 		return $wgContLang->armourMath( $output );
 	}
@@ -161,6 +158,7 @@ class MathHooks {
 		//$script = Html::element( 'script', array( 'type' => 'text/x-mathjax-config' ), $config );
 		$html = Html::element( 'script', array( 'src' => $wgMathJaxUrl ) );
 
-		$parser->getOutput()->addHeadItem( $html, 'mathjax' );
+		//$parser->getOutput()->addHeadItem( $html, 'mathjax' );
+		$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 	}
 }

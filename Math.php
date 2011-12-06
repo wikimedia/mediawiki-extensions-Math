@@ -116,3 +116,33 @@ $wgAutoloadClasses['MathRenderer'] = $dir . 'Math.body.php';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
+
+$moduleTemplate = array(
+	'localBasePath' => dirname( __FILE__ ) . '/modules',
+	'remoteExtPath' => 'Math/modules',
+);
+
+$wgResourceModules['ext.math.mathjax'] = array(
+	'scripts' => array(
+		'MathJax/MathJax.js',
+		'MathJax/jax/input/TeX/config.js',
+		'MathJax/jax/output/HTML-CSS/config.js',
+		'MathJax/jax/element/mml/jax.js',
+		'MathJax/extensions/TeX/noErrors.js',
+		'MathJax/extensions/TeX/noUndefined.js',
+		'MathJax/jax/input/TeX/jax.js',
+		'MathJax/extensions/TeX/AMSmath.js',
+		'MathJax/extensions/TeX/AMSsymbols.js',
+		'MathJax/extensions/TeX/boldsymbol.js',
+		'MathJax/extensions/TeX/mathchoice.js',
+		'MathJax/jax/output/HTML-CSS/jax.js',
+		'MathJax/jax/output/HTML-CSS/autoload/mtable.js',
+		'MathJax-custom/extensions/wiki2jax.js',
+		'MathJax-custom/extensions/TeX/texvc.js'
+	),
+	'group' => 'ext.math.mathjax',
+) + $moduleTemplate;
+
+$wgResourceModules['ext.math.mathjax.enabler'] = array(
+	'scripts' => 'ext.math.mathjax.enabler.js',
+) + $moduleTemplate;
