@@ -98,7 +98,7 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
 
       Koppa:        '03DE',
       Stigma:       '03DA',
-      Coppa:        '03D8',  // archaic Koppa
+      Coppa:        '03D8'  // archaic Koppa
     },
 
     delimiter: {
