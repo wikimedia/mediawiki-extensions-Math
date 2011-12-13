@@ -24,7 +24,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'version' => '1.0',
 	'author' => array( 'Tomasz Wegrzanowski', 'Brion Vibber', '...' ),
 	'description' => 'Render mathematical formulas between <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> tags',
-	'url' => 'http://www.mediawiki.org/wiki/Extension:Math',
+	'url' => 'https://www.mediawiki.org/wiki/Extension:Math',
 );
 
 /**@{
