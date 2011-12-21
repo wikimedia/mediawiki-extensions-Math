@@ -2476,6 +2476,15 @@ $messages['nan'] = array(
 	'prefs-math' => 'Sò·-ha̍k ê rendering',
 	'mw_math_png' => 'Tiāⁿ-tio̍h iōng PNG render',
 	'mw_math_source' => 'Î-chhî TeX ê keh-sek (khah ha̍h bûn-jī-sek ê liû-lám-khì)',
+	'math_failure' => '解析失敗',
+	'math_unknown_error' => '毋知啥物錯誤',
+	'math_unknown_function' => '毋知啥物函數',
+	'math_lexing_error' => '句法錯誤',
+	'math_syntax_error' => '語法錯誤',
+	'math_image_error' => 'PNG 轉換失敗；請檢查看有正確安裝 latex, dvipng（或dvips + gs + convert）無？',
+	'math_bad_tmpdir' => '無法度寫入抑是建立數學公式的臨時目錄',
+	'math_bad_output' => '無法度寫入抑是建立數學公式的輸出目錄',
+	'math_notexvc' => '無看"texvc"執行檔案；請看 math/README 做配置',
 );
 
 /** Low German (Plattdüütsch) */
