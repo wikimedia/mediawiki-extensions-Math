@@ -2487,6 +2487,29 @@ $messages['nan'] = array(
 	'math_notexvc' => '無看"texvc"執行檔案；請看 math/README 做配置',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ * @author Nghtwlkr
+ * @author Stigmj
+ */
+$messages['nb'] = array(
+	'math_sample' => 'Sett inn formel her',
+	'math_tip' => 'Matematisk formel (LaTeX)',
+	'prefs-math' => 'Matteformler',
+	'mw_math_png' => 'Vis alltid som PNG',
+	'mw_math_source' => 'Behold som TeX (for tekst-nettlesere)',
+	'math_failure' => 'Feil i matematikken',
+	'math_unknown_error' => 'ukjent feil',
+	'math_unknown_function' => 'ukjent funksjon',
+	'math_lexing_error' => 'lexerfeil',
+	'math_syntax_error' => 'syntaksfeil',
+	'math_image_error' => 'PNG-konversjon mislyktes; sjekk at latex og dvipng (eller dvips + gs + convert) er korrekt installert',
+	'math_bad_tmpdir' => 'Kan ikke skrive til eller opprette midlertidig mappe',
+	'math_bad_output' => 'Kan ikke skrive til eller opprette resultatmappe',
+	'math_notexvc' => 'Mangler kjørbar texvc;
+se math/README for oppsett.',
+);
+
 /** Low German (Plattdüütsch) */
 $messages['nds'] = array(
 	'math_sample' => 'Formel hier infögen',
@@ -2586,29 +2609,6 @@ $messages['nn'] = array(
 	'math_bad_tmpdir' => 'Kan ikkje skrive til eller laga mellombels mattemappe',
 	'math_bad_output' => 'Kan ikkje skrive til eller laga mattemappe',
 	'math_notexvc' => 'Manglar texvc-program; sjå math/README for konfigurasjon.',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
- * @author Nghtwlkr
- * @author Stigmj
- */
-$messages['nb'] = array(
-	'math_sample' => 'Sett inn formel her',
-	'math_tip' => 'Matematisk formel (LaTeX)',
-	'prefs-math' => 'Matteformler',
-	'mw_math_png' => 'Vis alltid som PNG',
-	'mw_math_source' => 'Behold som TeX (for tekst-nettlesere)',
-	'math_failure' => 'Feil i matematikken',
-	'math_unknown_error' => 'ukjent feil',
-	'math_unknown_function' => 'ukjent funksjon',
-	'math_lexing_error' => 'lexerfeil',
-	'math_syntax_error' => 'syntaksfeil',
-	'math_image_error' => 'PNG-konversjon mislyktes; sjekk at latex og dvipng (eller dvips + gs + convert) er korrekt installert',
-	'math_bad_tmpdir' => 'Kan ikke skrive til eller opprette midlertidig mappe',
-	'math_bad_output' => 'Kan ikke skrive til eller opprette resultatmappe',
-	'math_notexvc' => 'Mangler kjørbar texvc;
-se math/README for oppsett.',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
