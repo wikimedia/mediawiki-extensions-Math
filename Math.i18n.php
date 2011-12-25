@@ -2593,7 +2593,7 @@ $messages['nn'] = array(
  * @author Nghtwlkr
  * @author Stigmj
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'math_sample' => 'Sett inn formel her',
 	'math_tip' => 'Matematisk formel (LaTeX)',
 	'prefs-math' => 'Matteformler',
