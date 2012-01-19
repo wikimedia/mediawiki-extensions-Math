@@ -18,7 +18,7 @@ let mediawiki_function_names = "arccot" | "arcsec" | "arccsc" | "sgn" | "sen"
 
 rule token = parse
     space +			{ token lexbuf }
-  | "\\text" space * '{' boxchars + '}'
+  | "\\text" space * '{' aboxchars + '}'
 				{ Texutil.tex_use_ams (); let str = Lexing.lexeme lexbuf in
 				  let n = String.index str '{' + 1 in
 				  BOX ("\\text", String.sub str n (String.length str - n - 1)) }
@@ -34,6 +34,11 @@ rule token = parse
 				{ let str = Lexing.lexeme lexbuf in
 				  let n = String.index str '{' + 1 in
 				  BOX ("\\vbox", String.sub str n (String.length str - n - 1)) }
+  | "\\text" space * '{' boxchars + '}'
+				{ Texutil.tex_use_ams (); let str = Lexing.lexeme lexbuf in
+				  let n = String.index str '{' + 1 in
+				  Texutil.tex_use_nonascii();
+				  BOX ("\\text", String.sub str n (String.length str - n - 1)) }
   | "\\mbox" space * '{' boxchars + '}'
 				{ let str = Lexing.lexeme lexbuf in
 				  let n = String.index str '{' + 1 in
