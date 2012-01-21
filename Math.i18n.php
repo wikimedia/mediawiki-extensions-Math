@@ -1637,6 +1637,7 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Ohgi
+ * @author Whym
  * @author 青子守歌
  */
 $messages['ja'] = array(
@@ -1653,7 +1654,7 @@ $messages['ja'] = array(
 	'math_image_error' => 'PNGへの変換に失敗しました。dvipng（もしくはdvipsとgsとconvert）およびlatexが正しくインストールされているか確認してください。',
 	'math_bad_tmpdir' => '数式一時ディレクトリーへの書き込みまたは作成ができません',
 	'math_bad_output' => '数式一時ディレクトリーへの書き込みまたは作成ができません',
-	'math_notexvc' => 'texvc実行可能プログラムが見つかりません。math/READMEを読んで設定してください。',
+	'math_notexvc' => 'texvcの実行可能ファイルが見つかりません。math/READMEを読んで設定してください。',
 );
 
 /** Jamaican Creole English (Patois)
