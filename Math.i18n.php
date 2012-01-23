@@ -764,9 +764,10 @@ $messages['da'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
+	'math-desc' => 'Ergänzt das Tag <code>&lt;math&gt;</code> zum Darstellen mathematischer Formeln',
 	'math_sample' => 'Formel hier einfügen',
 	'math_tip' => 'Mathematische Formel (LaTeX)',
-	'prefs-math' => 'TeX',
+	'prefs-math' => 'Math',
 	'mw_math_png' => 'Immer als PNG darstellen',
 	'mw_math_source' => 'Als TeX belassen (für Textbrowser)',
 	'math_failure' => 'Fehler beim Parsen',
