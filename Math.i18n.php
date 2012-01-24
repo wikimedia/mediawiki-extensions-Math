@@ -773,11 +773,11 @@ $messages['de'] = array(
 	'math_failure' => 'Fehler beim Parsen',
 	'math_unknown_error' => 'Unbekannter Fehler',
 	'math_unknown_function' => 'Unbekannte Funktion ',
-	'math_lexing_error' => '„Lexing“-Fehler',
+	'math_lexing_error' => 'Lexikalischer Fehler',
 	'math_syntax_error' => 'Syntaxfehler',
 	'math_image_error' => 'PNG-Konvertierung fehlgeschlagen. Bitte die korrekte Installation von LaTeX und dvipng überprüfen (oder dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Das temporäre Verzeichnis für mathematische Formeln kann nicht angelegt oder beschrieben werden.',
-	'math_bad_output' => 'Das Zielverzeichnis für mathematische Formeln kann nicht angelegt oder beschrieben werden.',
+	'math_bad_output' => 'Das Ausgabeverzeichnis für mathematische Formeln kann nicht angelegt oder beschrieben werden.',
 	'math_notexvc' => 'Das texvc-Programm wurde nicht gefunden. Bitte zur Konfiguration die Hinweise in der Datei math/README beachten.',
 );
 
@@ -1027,9 +1027,11 @@ $messages['fo'] = array(
 );
 
 /** French (Français)
+ * @author Gomoko
  * @author Peter17
  */
 $messages['fr'] = array(
+	'math-desc' => 'Rendre les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Entrez votre formule ici',
 	'math_tip' => 'Formule mathématique (LaTeX)',
 	'prefs-math' => 'Rendu des maths',
@@ -1195,6 +1197,7 @@ $messages['gd'] = array(
  * @author Xosé
  */
 $messages['gl'] = array(
+	'math-desc' => 'Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Insira unha fórmula aquí',
 	'math_tip' => 'Fórmula matemática (LaTeX)',
 	'prefs-math' => 'Fórmulas matemáticas',
@@ -1434,6 +1437,7 @@ $messages['hr'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
+	'math-desc' => 'Přidawa matematiske formule mjez tafličkomaj <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Zasuń tu formulu',
 	'math_tip' => 'Matematiska formula (LaTeX)',
 	'prefs-math' => 'Math',
@@ -1504,6 +1508,7 @@ $messages['hy'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
+	'math-desc' => 'Visualisar formulas mathematic inter etiquettas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Inserer formula hic',
 	'math_tip' => 'Formula mathematic (LaTeX)',
 	'prefs-math' => 'Mathematica',
@@ -1622,6 +1627,7 @@ $messages['is'] = array(
  * @author Beta16
  */
 $messages['it'] = array(
+	'math-desc' => 'Esegue il rendering di formule matematiche tra i tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Inserire qui la formula',
 	'math_tip' => 'Formula matematica (LaTeX)',
 	'prefs-math' => 'Formule matematiche',
@@ -1898,6 +1904,7 @@ latex, dvips, gs, ಸರಿಯಾಗಿ ಸ್ಥಾಪಿತವಾಗಿದೆ�
  * @author PuzzletChung
  */
 $messages['ko'] = array(
+	'math-desc' => '<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> 태그 사이에 수학 수식을 표시함',
 	'math_sample' => '여기에 수식을 쓰세요',
 	'math_tip' => '수식(LaTeX)',
 	'prefs-math' => '수식',
@@ -2270,6 +2277,7 @@ $messages['min'] = array(
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
+	'math-desc' => 'Испис на математички формули помеѓу ознаките <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Овде вметни формула',
 	'math_tip' => 'Математичка формула (LaTeX)',
 	'prefs-math' => 'Матем. формули',
@@ -2576,9 +2584,11 @@ $messages['new'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author SPQRobin
  * @author Siebrand
  */
 $messages['nl'] = array(
+	'math-desc' => 'Wiskundige formules tussen <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-tags weergeven',
 	'math_sample' => 'Voer de formule in',
 	'math_tip' => 'Wiskundige formule (in LaTeX)',
 	'prefs-math' => 'Formules',
