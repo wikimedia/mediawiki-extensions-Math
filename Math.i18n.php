@@ -3265,6 +3265,7 @@ $messages['sk'] = array(
  * @author Dbc334
  */
 $messages['sl'] = array(
+	'math-desc' => 'Izriši matematične formule med oznakama <code>&lt;math&gt;</code> in <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Tu vnesite enačbo',
 	'math_tip' => 'Matematična enačba (LaTeX)',
 	'prefs-math' => 'Prikaz matematičnega besedila',
