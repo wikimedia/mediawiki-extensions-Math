@@ -244,6 +244,7 @@ $messages['as'] = array(
  * @author Xuacu
  */
 $messages['ast'] = array(
+	'math-desc' => 'Dibuxa les fórmules matemátiques ente les etiquetes <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Inxertar fórmula equí',
 	'math_tip' => 'Fórmula matemática',
 	'prefs-math' => 'Fórmules matemátiques',
