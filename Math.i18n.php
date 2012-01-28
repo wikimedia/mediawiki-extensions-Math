@@ -812,6 +812,7 @@ qey 'eyar kerdışi bıewnê math/README'yi.",
  * @author Qualia
  */
 $messages['dsb'] = array(
+	'math-desc' => 'Dodawa matematiske formule mjazy toflickoma <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Zapódaj how formulu',
 	'math_tip' => 'Matematiska formula (LaTeX)',
 	'prefs-math' => 'Math',
@@ -1438,7 +1439,7 @@ $messages['hr'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'math-desc' => 'Přidawa matematiske formule mjez tafličkomaj <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
+	'math-desc' => 'Přidawa matematiske formle mjez tafličkomaj <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Zasuń tu formulu',
 	'math_tip' => 'Matematiska formula (LaTeX)',
 	'prefs-math' => 'Math',
@@ -2765,8 +2766,11 @@ Zapoznaj się z math/README w celu konfiguracji.',
 
 /** Piedmontese (Piemontèis)
  * @author Borichèt
+ * @author Dragonòt
  */
 $messages['pms'] = array(
+	'math-desc' => 'Renderisé de fòrmule matemàtiche tra le tichëtte <code>&lt;math&gt;</code> ... 
+<code>&lt;/math&gt;</code>',
 	'math_sample' => 'Che a buta la fòrmula ambelessì',
 	'math_tip' => 'Fòrmula matemàtica (LaTeX)',
 	'prefs-math' => 'Fòrmule ëd matemàtica',
