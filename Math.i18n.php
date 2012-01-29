@@ -402,6 +402,7 @@ $messages['be'] = array(
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
+	'math-desc' => 'Выводзіць матэматычныя формулы, запісаныя паміж тэгамі <code>&lt;math&gt;</code> і <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Зьмясьціце тут формулу',
 	'math_tip' => 'Матэматычная формула (LaTeX)',
 	'prefs-math' => 'Матэматыка',
