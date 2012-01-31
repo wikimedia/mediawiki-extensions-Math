@@ -2383,11 +2383,13 @@ $messages['mrj'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aviator
  * @author CoolCityCat
  * @author Kurniasan
  */
 $messages['ms'] = array(
+	'math-desc' => 'Mengolah rumus-rumus matematik antara teg-teg <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Masukkan rumus di sini',
 	'math_tip' => 'Rumus matematik (LaTeX)',
 	'prefs-math' => 'Matematik',
