@@ -2304,6 +2304,7 @@ $messages['mk'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
+	'math-desc' => '<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> റ്റാഗുകൾക്കുള്ളിൽ നൽകുന്ന ഗണിതശാസ്ത്ര സൂത്രവാക്യങ്ങൾ പ്രദർശിപ്പിക്കൽ',
 	'math_sample' => 'ഇവിടെ സൂത്രവാക്യം ചേർക്കുക',
 	'math_tip' => 'ഗണിതസൂത്രവാക്യം (LaTeX)',
 	'prefs-math' => 'സമവാക്യം',
