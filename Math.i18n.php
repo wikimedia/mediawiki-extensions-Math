@@ -2773,7 +2773,7 @@ Zapoznaj się z math/README w celu konfiguracji.',
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'math-desc' => 'Renderisé de fòrmule matemàtiche tra le tichëtte <code>&lt;math&gt;</code> ... 
+	'math-desc' => 'Rende le fòrmule matemàtiche antra le tichëtte <code>&lt;math&gt;</code> ... 
 <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Che a buta la fòrmula ambelessì',
 	'math_tip' => 'Fòrmula matemàtica (LaTeX)',
