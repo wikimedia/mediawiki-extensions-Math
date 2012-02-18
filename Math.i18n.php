@@ -1346,6 +1346,7 @@ $messages['haw'] = array(
  * @author Amire80
  */
 $messages['he'] = array(
+	'math-desc' => 'הדפסת נוסחאות מתמטיות בין התגים <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'formula',
 	'math_tip' => 'נוסחה מתמטית (LaTeX)',
 	'prefs-math' => 'נוסחאות מתמטיות',
@@ -3821,10 +3822,11 @@ $messages['vec'] = array(
 	'math_notexvc' => 'Eseguibile texvc mancante; par piaser consulta math/README par la configurazion.',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel')
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
+	'math-desc' => 'Ezitada matematižed formulad <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-virgoiden keskes',
 	'math_sample' => 'Pangat formul nakhu',
 	'math_tip' => 'Matematine formul (LaTeX-formatas)',
 	'prefs-math' => 'Matematik',
@@ -3836,7 +3838,7 @@ $messages['vep'] = array(
 	'math_lexing_error' => 'leksine petuz',
 	'math_syntax_error' => 'sintaksine petuz',
 	'math_image_error' => 'PNG-ks kändmižes ozaižihe petuz;
-kodvgat, oiged-ik oma järgetud: latex, dvips, gs da convert.',
+kodvgat, oiged-ik oma järgetud latex da dvips (vai dvips + gs + convert).',
 	'math_bad_tmpdir' => 'Ei voi säta pordaigaline matematine katalog vai ei voi kirjutada sinnä',
 	'math_bad_output' => 'Ei voi säta matematine lähtmižkatalog vai ei voi kirjutada sinnä',
 	'math_notexvc' => 'En voi löuta texvc-töfailad;
