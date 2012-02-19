@@ -2749,9 +2749,11 @@ $messages['pfl'] = array(
 );
 
 /** Polish (Polski)
+ * @author BeginaFelicysym
  * @author Sp5uhe
  */
 $messages['pl'] = array(
+	'math-desc' => 'Renderowanie formuł matematycznych między znacznikami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Tutaj wprowadź wzór',
 	'math_tip' => 'Wzór matematyczny (LaTeX)',
 	'prefs-math' => 'Wzory',
