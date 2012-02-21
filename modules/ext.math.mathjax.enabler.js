@@ -83,4 +83,6 @@ mathJax.Init = function() {
   }
 }
 
-mathJax.Init();
+jQuery( document ).ready( function() {
+	mathJax.Init();
+} );
