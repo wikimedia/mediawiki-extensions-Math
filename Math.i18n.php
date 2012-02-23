@@ -405,7 +405,7 @@ $messages['be-tarask'] = array(
 	'math-desc' => 'Выводзіць матэматычныя формулы, запісаныя паміж тэгамі <code>&lt;math&gt;</code> і <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Зьмясьціце тут формулу',
 	'math_tip' => 'Матэматычная формула (LaTeX)',
-	'prefs-math' => 'Матэматыка',
+	'prefs-math' => 'Матэматычныя формулы',
 	'mw_math_png' => 'Заўсёды паказваць як PNG',
 	'mw_math_source' => 'Пакідаць у выглядзе TeX (для тэкставых браўзэраў)',
 	'math_failure' => 'Немагчыма разабраць',
@@ -1032,6 +1032,7 @@ $messages['fo'] = array(
 /** French (Français)
  * @author Gomoko
  * @author Peter17
+ * @author Sherbrooke
  */
 $messages['fr'] = array(
 	'math-desc' => 'Rendre les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
@@ -1039,7 +1040,7 @@ $messages['fr'] = array(
 	'math_tip' => 'Formule mathématique (LaTeX)',
 	'prefs-math' => 'Rendu des maths',
 	'mw_math_png' => 'Toujours produire une image PNG',
-	'mw_math_source' => 'Laisser le code TeX original',
+	'mw_math_source' => 'Laisser le code TeX original (pour les navigateurs en mode texte)',
 	'math_failure' => 'Erreur math',
 	'math_unknown_error' => 'erreur indéterminée',
 	'math_unknown_function' => 'fonction inconnue',
