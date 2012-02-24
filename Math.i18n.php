@@ -914,6 +914,7 @@ $messages['es'] = array(
 
 /** Estonian (Eesti)
  * @author KaidoKikkas
+ * @author Pikne
  * @author WikedKentaur
  */
 $messages['et'] = array(
@@ -927,8 +928,7 @@ $messages['et'] = array(
 	'math_unknown_function' => 'Tundmatu funktsioon',
 	'math_lexing_error' => 'Väljalugemisviga',
 	'math_syntax_error' => 'Süntaksiviga',
-	'math_image_error' => "PNG konverteerimine ebaõnnestus;
-kontrollige oma ''latex'', ''dvips'', ''gs'', ''convert'' installatsioonide korrektsust.",
+	'math_image_error' => 'PNG konvertimine ebaõnnestus; kontrolli, kas latex ja dvipng (või dvips, gs ja convert) on õigesti installitud.',
 	'math_bad_tmpdir' => 'Ajutise matemaatikakataloogi loomine või sinna kirjutamine ebaõnnestus',
 	'math_bad_output' => 'Matemaatika-väljundkataloogi loomine või sinna kirjutamine ebaõnnestus',
 	'math_notexvc' => 'Texvc-rakendus puudub; häälestamiseks vaata matemaatikakataloogist README-faili',
