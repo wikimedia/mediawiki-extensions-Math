@@ -62,22 +62,6 @@ $messages['hu-formal'] = array(
 	'math_image_error' => 'PNG-vé alakítás sikertelen; ellenőrizze, hogy a latex és dvipng (vagy dvips + gs + convert) helyesen van-e telepítve',
 );
 
-/** Moroccan Spoken Arabic (Maġribi)
- * @author Enzoreg
- * @author Zanatos
- */
-$messages['ary'] = array(
-	'math_sample' => 'Kṫeb ĝalaqa de l-mat hnaya',
-	'math_tip' => 'Ĝalaqa de l-mat (LaTeX)',
-	'prefs-math' => 'mat',
-	'mw_math_png' => 'dima biyn bhal  PNG',
-	'math_failure' => 'khata flmat',
-	'math_unknown_error' => 'khat mjhol',
-	'math_unknown_function' => 'wadifa mjhola',
-	'math_lexing_error' => 'khata fsigha',
-	'math_syntax_error' => 'khata fsiyagha',
-);
-
 /** Achinese (Acèh)
  * @author Si Gam Acèh
  */
@@ -201,6 +185,22 @@ $messages['ar'] = array(
 $messages['arc'] = array(
 	'prefs-math' => 'ܡܬܡܐܛܝܩܘܬܐ',
 	'math_unknown_error' => 'ܦܘܕܐ ܠܐ ܝܕܝܥܐ',
+);
+
+/** Moroccan Spoken Arabic (Maġribi)
+ * @author Enzoreg
+ * @author Zanatos
+ */
+$messages['ary'] = array(
+	'math_sample' => 'Kṫeb ĝalaqa de l-mat hnaya',
+	'math_tip' => 'Ĝalaqa de l-mat (LaTeX)',
+	'prefs-math' => 'mat',
+	'mw_math_png' => 'dima biyn bhal  PNG',
+	'math_failure' => 'khata flmat',
+	'math_unknown_error' => 'khat mjhol',
+	'math_unknown_function' => 'wadifa mjhola',
+	'math_lexing_error' => 'khata fsigha',
+	'math_syntax_error' => 'khata fsiyagha',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -890,12 +890,14 @@ $messages['eo'] = array(
 );
 
 /** Spanish (Español)
+ * @author Armando-Martin
  * @author Dferg
  * @author Fitoschido
  * @author Platonides
  * @author Translationista
  */
 $messages['es'] = array(
+	'math-desc' => 'Sintetiza imágenes (render) a partir de las fórmulas matemáticas entre las etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Escribir la fórmula aquí',
 	'math_tip' => 'Fórmula matemática (LaTeX)',
 	'prefs-math' => 'Fórmulas',
