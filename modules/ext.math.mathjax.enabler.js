@@ -22,6 +22,7 @@ mathJax.Config = function() {
   delete MathJax.Message.styles["#MathJax_Message"].left;
   if ( typeof(mathJax.userConfig) !== "undefined" ) MathJax.Hub.Config( mathJax.userConfig );
   //if ( typeof(mathJax.fontDir) !== "undefined" ) MathJax.OutputJax.fontDir = mathJax.fontDir; else MathJax.Hub.Config({ NativeMML: {webFont: null} });
+  MathJax.OutputJax.fontDir = mathJax.fontDir = mediaWiki.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
   MathJax.Hub.Register.StartupHook("End Extensions", function() {
 	  /*
 	   // this section is newly commented out while updating to MJ 2.0
