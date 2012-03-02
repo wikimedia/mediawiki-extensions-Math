@@ -23,27 +23,23 @@ MathJax.Extension.wiki2jax = {
       this.previewClass = MathJax.Hub.config.preRemoveClass;
       this.configured = true;
     }
-    var span, i;
-    if ((!element || element == document.body) && mathJax.span) {  // dirty hack
-      span = mathJax.span;
-      i = mathJax.spanIndex;
-    }
-    else {
-      if (typeof(element) === "string") {element = document.getElementById(element)}
-      if (!element) {element = this.config.element || document.body}
-      span = element.getElementsByTagName("span");
-      i = span.length-1;
-    }
-    for (; i >= 0; i--)
-      if (span[i].className === "tex") this.ConvertMath(span[i])
+    var that = this;
+    $('span.tex, img.tex', element || document).each(function(i, span) {
+		that.ConvertMath(span);
+	});
   },
 
   ConvertMath: function (node) {
     var parent = node.parentNode,
         mode = parent.tagName === "DD" && parent.firstChild === parent.lastChild ? "; mode=display" : "",
+		tex;
+	if (node.nodeName == 'IMG') {
+		tex = node.alt;
+	} else {
         tex = node.innerHTML.substring(node.innerHTML[0]=='$',node.innerHTML.length-(node.innerHTML[node.innerHTML.length-1]=='$'));
+	    tex = tex.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&").replace(/&nbsp;/g," ");
+	}
 
-    tex = tex.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&").replace(/&nbsp;/g," ");
     tex = tex.replace(/\\iiint([^!]*)!\\!\\!\\!\\!.*\\subset\\!\\supset/g,"\\iiint$1mkern-2.5em\\subset\\!\\supset").replace(/\\iint([^!]*)!\\!\\!\\!\\!\\!\\!\\!\\!\\!\\!(.*)\\subset\\!\\supset/g,"\\iint$1mkern-1.65em$2\\subset\\!\\!\\supset").replace(/\\int\\!\\!\\!(\\!)+\\int\\!\\!\\!(\\!)+\\int([^!]*)!\\!\\!\\!\\!.*\\bigcirc(\\,)*/g,"\\iiint$3mkern-2.5em\\subset\\!\\supset").replace(/\\int\\!\\!\\!(\\!)+\\int([^!]*)!\\!\\!\\!\\!\\!\\!\\!\\!(.*)\\bigcirc(\\,)*/g,"\\iint$2mkern-1.65em$3\\subset\\!\\!\\supset");
     if (mode === "") {
       tex = tex.replace(/ *\\scriptstyle(\W)/g,"\\textstyle$1").replace(/ *\\scriptscriptstyle(\W)/g,"\\scriptstyle$1");

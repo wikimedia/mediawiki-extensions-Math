@@ -44,26 +44,18 @@ mathJax.Load = function(element) {
   if (this.loaded)
     return true;
 
-  var span = element.getElementsByTagName("span"), i;
-  for (i = span.length-1; i >= 0; i--) {
-    if (span[i].className === "tex") {
-//      this.span = span;
-//      this.spanIndex = i;
+  // create configuration element
+  var config = 'mathJax.Config();';
+  var script = document.createElement( 'script' );
+  script.setAttribute( 'type', 'text/x-mathjax-config' );
+  if ( window.opera ) script.innerHTML = config; else script.text = config;
+  document.getElementsByTagName('head')[0].appendChild( script );
 
-      // create configuration element
-      var config = 'mathJax.Config();';
-      var script = document.createElement( 'script' );
-      script.setAttribute( 'type', 'text/x-mathjax-config' );
-      if ( window.opera ) script.innerHTML = config; else script.text = config;
-      document.getElementsByTagName('head')[0].appendChild( script );
+  // create startup element
+  mediaWiki.loader.load('ext.math.mathjax');
 
-      // create startup element
-	  mediaWiki.loader.load('ext.math.mathjax');
+  this.loaded = true;
 
-      this.loaded = true;
-      break;
-    }
-  }
   return false;
 }
 
