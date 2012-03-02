@@ -24,22 +24,18 @@ mathJax.Config = function() {
   //if ( typeof(mathJax.fontDir) !== "undefined" ) MathJax.OutputJax.fontDir = mathJax.fontDir; else MathJax.Hub.Config({ NativeMML: {webFont: null} });
   MathJax.OutputJax.fontDir = mathJax.fontDir = mediaWiki.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
   MathJax.Hub.Register.StartupHook("End Extensions", function() {
-	  /*
-	   // this section is newly commented out while updating to MJ 2.0
     var TEX = MathJax.InputJax.TeX;
     var MACROS = TEX.config.Macros;
     for (var id in MACROS) {
       if (typeof(MACROS[id]) === "string") TEX.Macro(id, MACROS[id]);
       else TEX.Macro(id, MACROS[id][0], MACROS[id][1]);
     }
-	  */
-	 // this next section was already commented out
-/*    TEX.Parse.Augment({
+    TEX.Parse.Augment({
       Cr: function(name) {
         this.GetBrackets(name);
         this.Push(TEX.Stack.Item.cell().With({isCR: true, name: name}));
       }
-    });*/
+    });
   });
   MathJax.Hub.Startup.onload();
 }
