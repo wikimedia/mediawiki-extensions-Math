@@ -741,8 +741,10 @@ $messages['cy'] = array(
 
 /** Danish (Dansk)
  * @author Nghtwlkr
+ * @author Peter Alberti
  */
 $messages['da'] = array(
+	'math-desc' => 'Gengiver matematiske formler inden i <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>-tags',
 	'math_sample' => 'Indsæt formel her (LaTeX)',
 	'math_tip' => 'Matematisk formel (LaTeX)',
 	'prefs-math' => 'Matematiske formler',
