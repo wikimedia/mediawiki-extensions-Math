@@ -129,7 +129,6 @@ $wgResourceModules['ext.math.mathjax'] = array(
 		'ext.math.mathjax.preload.js',
 		'MathJax/jax/input/TeX/config.js',
 		'MathJax/jax/output/HTML-CSS/config.js',
-		'MathJax/extensions/tex2jax.js',
 		'MathJax/extensions/MathEvents.js',
 		'MathJax/extensions/MathZoom.js',
 		'MathJax/extensions/MathMenu.js',
