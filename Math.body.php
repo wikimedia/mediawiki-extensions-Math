@@ -44,7 +44,7 @@ class MathRenderer {
  	}
 
 	function setOutputMode( $mode ) {
-		$validModes = array( MW_MATH_PNG, MW_MATH_SOURCE );
+		$validModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHJAX );
 		if ( in_array( $mode, $validModes ) ) {
 			$this->mode = $mode;
 		} else {
@@ -57,7 +57,7 @@ class MathRenderer {
 		global $wgTmpDirectory;
 		global $wgTexvc, $wgMathCheckFiles, $wgTexvcBackgroundColor;
 
-		if( $this->mode == MW_MATH_SOURCE ) {
+		if( $this->mode == MW_MATH_SOURCE || $this->mode == MW_MATH_MATHJAX ) {
 			# No need to render or parse anything more!
 			# New lines are replaced with spaces, which avoids confusing our parser (bugs 23190, 22818)
 			return ('<span class="tex" dir="ltr">$ ' . str_replace( "\n", " ", htmlspecialchars( $this->tex ) ) . ' $</span>');

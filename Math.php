@@ -36,6 +36,7 @@ define( 'MW_MATH_HTML',   2 ); /// @deprecated
 define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 ); /// @deprecated
+define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
 /**@}*/
 
 /** For back-compat */
@@ -88,7 +89,7 @@ $wgMathDirectory = false;
  *
  * Not guaranteed to be stable at this time.
  */
-$wgMathUseMathJax = false;
+$wgUseMathJax = false;
 
 /**
  * Use of MathJax's CDN is governed by terms of service

@@ -46,9 +46,9 @@ class MathHooks {
 		$renderedMath = MathRenderer::renderMath(
 			$content, $attributes, $parser->getOptions()
 		);
-		
-		if ( $wgUseMathJax ) {
-			self::addMathJax( $parser );
+
+		if ( $wgUseMathJax && $parser->getOptions()->getMath() == MW_MATH_MATHJAX ) {
+			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
 		$output = $renderedMath;
 
@@ -78,10 +78,17 @@ class MathHooks {
 	 * @return array of strings
 	 */
 	private static function getMathNames() {
-		return array(
+		$names = array(
 			MW_MATH_PNG => 'mw_math_png',
-			MW_MATH_SOURCE => 'mw_math_source'
+			MW_MATH_SOURCE => 'mw_math_source',
 		);
+
+		global $wgUseMathJax;
+		if( $wgUseMathJax ) {
+			$names[MW_MATH_MATHJAX] = 'mw_math_mathjax';
+		}
+		
+		return $names;
 	}
 
 	/**
@@ -151,14 +158,5 @@ class MathHooks {
 		global $wgMathPath;
 		$wgMathPath = '/images/math';
 		return true;
-	}
-
-	static function addMathJax( $parser ) {
-		global $wgMathJaxUrl;
-		//$script = Html::element( 'script', array( 'type' => 'text/x-mathjax-config' ), $config );
-		$html = Html::element( 'script', array( 'src' => $wgMathJaxUrl ) );
-
-		//$parser->getOutput()->addHeadItem( $html, 'mathjax' );
-		$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 	}
 }
