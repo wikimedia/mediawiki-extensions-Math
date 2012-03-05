@@ -982,8 +982,10 @@ $messages['ext'] = array(
 
 /** Persian (فارسی)
  * @author Huji
+ * @author ZxxZxxZ
  */
 $messages['fa'] = array(
+	'math-desc' => 'فرمول‌های ریاضی میان برچسب‌های <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> را رندر می‌کند',
 	'math_sample' => 'درج فرمول در اینجا',
 	'math_tip' => 'فرمول ریاضی (LaTeX)',
 	'prefs-math' => 'نمایش ریاضیات',
