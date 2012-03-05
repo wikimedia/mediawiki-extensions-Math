@@ -2,127 +2,87 @@
  * From https://en.wikipedia.org/wiki/User:Nageh/mathJax/config/TeX-AMS-texvc_HTML.js
  */
 
-MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
-  var VERSION = "1.0";
+MathJax.Extension.wiki2jax = {
+  version: "1.0",
 
-  var MML = MathJax.ElementJax.mml;
+  config: {
+    element: null,    // The ID of the element to be processed
+                      //   (defaults to full document)
 
-  MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions,{
+    preview: "TeX"    // Set to "none" to prevent preview strings from being inserted
+                      //   or to an array that specifies an HTML snippet to use for
+                      //   the preview.
+  },
 
-    mathchar0mi: {
-      // Lowercase Greek letters
-      thetasym:     '03B8',  // theta
-      koppa:        '03DF',
-      stigma:       '03DB',
-      coppa:        '03D9',  // archaic koppa
+  PreProcess: function (element) {
+    if (!this.configured) {
+      MathJax.Hub.Insert(this.config,(MathJax.Hub.config.wiki2jax||{}));
+      if (this.config.Augment) {MathJax.Hub.Insert(this,this.config.Augment)}
+      if (typeof(this.config.previewTeX) !== "undefined" && !this.config.previewTeX)
+        {this.config.preview = "none"} // backward compatibility for previewTeX parameter
+      this.previewClass = MathJax.Hub.config.preRemoveClass;
+      this.configured = true;
+    }
+    var that = this;
+    $('span.tex, img.tex', element || document).each(function(i, span) {
+		that.ConvertMath(span);
+	});
+  },
 
-      // Ord symbols
-      C:            ['0043',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
-      cnums:        ['0043',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
-      Complex:      ['0043',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
-      N:            ['004E',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
-      natnums:      ['004E',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
-      R:            ['0052',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
-      reals:        ['0052',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
-      Reals:        ['0052',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
-      Z:            ['005A',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
-      sect:         '00A7',  // S
-      P:            '00B6',
-      alef:         ['2135',{mathvariant: MML.VARIANT.NORMAL}],  // aleph
-      alefsym:      ['2135',{mathvariant: MML.VARIANT.NORMAL}],  // aleph
-      weierp:       ['2118',{mathvariant: MML.VARIANT.NORMAL}],  // wp
-      real:         ['211C',{mathvariant: MML.VARIANT.NORMAL}],  // Re
-      part:         ['2202',{mathvariant: MML.VARIANT.NORMAL}],  // partial
-      infin:        ['221E',{mathvariant: MML.VARIANT.NORMAL}],  // infty
-      empty:        ['2205',{mathvariant: MML.VARIANT.NORMAL}],  // emptyset
-      O:            ['2205',{mathvariant: MML.VARIANT.NORMAL}],  // emptyset (but should probably be Swedish O)
-      ang:          ['2220',{mathvariant: MML.VARIANT.NORMAL}],  // angle
-      exist:        ['2203',{mathvariant: MML.VARIANT.NORMAL}],  // exists
-      clubs:        ['2663',{mathvariant: MML.VARIANT.NORMAL}],  // clubsuit
-      diamonds:     ['2662',{mathvariant: MML.VARIANT.NORMAL}],  // diamondsuit
-      hearts:       ['2661',{mathvariant: MML.VARIANT.NORMAL}],  // heartsuit
-      spades:       ['2660',{mathvariant: MML.VARIANT.NORMAL}],  // spadesuit
-      textvisiblespace: '2423'
-    },
+  ConvertMath: function (node) {
+    var parent = node.parentNode,
+        mode = parent.tagName === "DD" && parent.firstChild === parent.lastChild ? "; mode=display" : "",
+		tex;
+	if (node.nodeName == 'IMG') {
+		tex = node.alt;
+	} else {
+        tex = node.innerHTML.substring(node.innerHTML[0]=='$',node.innerHTML.length-(node.innerHTML[node.innerHTML.length-1]=='$'));
+	    tex = tex.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&").replace(/&nbsp;/g," ");
+	}
 
-    mathchar0mo: {
-      // Binary operators
-      and:          '2227',  // land
-      or:           '2228',  // lor
-      bull:         '2219',  // bullet
-      plusmn:       '00B1',  // pm
-      sdot:         '22C5',  // cdot
-
-      // Binary relations
-      sup:          '2283',  // supset
-      sub:          '2282',  // subset
-      supe:         '2287',  // supseteq
-      sube:         '2286',  // subseteq
-      isin:         '2208',  // in
-
-      hAar:               '21D4',  // Leftrightarrow [sic]
-      hArr:               '21D4',  // Leftrightarrow
-      Harr:               '21D4',  // Leftrightarrow
-      Lrarr:              '21D4',  // Leftrightarrow
-      lrArr:              '21D4',  // Leftrightarrow
-      lArr:               '21D0',  // Leftarrow
-      Larr:               '21D0',  // Leftarrow
-      rArr:               '21D2',  // Rightarrow
-      Rarr:               '21D2',  // Rightarrow
-      harr:               '2194',  // leftrightarrow
-      lrarr:              '2194',  // leftrightarrow
-      larr:               '2190',  // leftarrow
-      gets:               '2190',  // leftarrow
-      rarr:               '2192',   // rightarrow
-
-      // big ops
-      oiint:              ['222F',{texClass: MML.TEXCLASS.OP}],  // not part of texvc but nice to have
-      oiiint:             ['2230',{texClass: MML.TEXCLASS.OP}]
-    },
-
-    mathchar7: {
-      // Uppercase Greek letters
-      Alpha:        '0391',
-      Beta:         '0392',
-      Epsilon:      '0395',
-      Zeta:         '0396',
-      Eta:          '0397',
-      Iota:         '0399',
-      Kappa:        '039A',
-      Mu:           '039C',
-      Nu:           '039D',
-      Omicron:      '039F',
-      Rho:          '03A1',
-      Tau:          '03A4',
-      Chi:          '03A7',
-
-      Koppa:        '03DE',
-      Stigma:       '03DA',
-      Coppa:        '03D8'  // archaic Koppa
-    },
-
-    delimiter: {
-      '\\uarr':           '2191',  // uparrow
-      '\\darr':           '2193',  // downarrow
-      '\\Uarr':           '21D1',  // Uparrow
-      '\\uArr':           '21D1',  // Uparrow
-      '\\Darr':           '21D3',  // Downarrow
-      '\\dArr':           '21D3',  // Downarrow
-      '\\rang':           '27E9',  // rangle
-      '\\lang':           '27E8'   // langle
-    },
-
-    macros: {
-      sgn:                ['NamedOp',0],
-      textcolor:          ['Macro','\\color{#1}',1],
-      bold:               ['Macro','{\\boldsymbol #1}',1]  // boldsymbol
+    tex = tex.replace(/\\iiint([^!]*)!\\!\\!\\!\\!.*\\subset\\!\\supset/g,"\\iiint$1mkern-2.5em\\subset\\!\\supset").replace(/\\iint([^!]*)!\\!\\!\\!\\!\\!\\!\\!\\!\\!\\!(.*)\\subset\\!\\supset/g,"\\iint$1mkern-1.65em$2\\subset\\!\\!\\supset").replace(/\\int\\!\\!\\!(\\!)+\\int\\!\\!\\!(\\!)+\\int([^!]*)!\\!\\!\\!\\!.*\\bigcirc(\\,)*/g,"\\iiint$3mkern-2.5em\\subset\\!\\supset").replace(/\\int\\!\\!\\!(\\!)+\\int([^!]*)!\\!\\!\\!\\!\\!\\!\\!\\!(.*)\\bigcirc(\\,)*/g,"\\iint$2mkern-1.65em$3\\subset\\!\\!\\supset");
+    if (mode === "") {
+      tex = tex.replace(/ *\\scriptstyle(\W)/g,"\\textstyle$1").replace(/ *\\scriptscriptstyle(\W)/g,"\\scriptstyle$1");
+      if (parent.firstChild === node) tex = "\\displaystyle "+tex;
     }
 
-  });
-});
+    var i;
+    while ((i = tex.search(/\\color{/)) != -1) {
+      var braces = 0;
+      for (i += 6; i < tex.length; i++) {
+        if (tex[i] == '{') braces++;
+        else if (tex[i] == '}') {
+          if (braces-- == 0)
+            break;
+        }
+      }
+      tex = (tex.substring(0, i) + "}" + tex.substring(i, tex.length)).replace(/\\color{(\w*)}/, "\\textcolor{$1}{");
+    }
 
-MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
-  MathJax.Hub.Startup.signal.Post("TeX texvc Ready");
-});
+    var script = document.createElement("script");
+    script.type = "math/tex" + mode;
+    if (MathJax.Hub.Browser.isMSIE) {script.text = tex}
+      else {script.appendChild(document.createTextNode(tex))}
 
-MathJax.Ajax.loadComplete("[MathJax]/extensions/TeX/texvc.js");
+    if (node.nextSibling) {parent.insertBefore(script,node.nextSibling)}
+      else {parent.appendChild(script)}
+    if (this.config.preview !== "none") {this.createPreview(node)}
+    parent.removeChild(node);
+  },
+
+  createPreview: function (node) {
+    var preview;
+    if (this.config.preview === "TeX") {preview = [this.filterTeX(node.innerHTML)]}
+    else if (this.config.preview instanceof Array) {preview = this.config.preview}
+    if (preview) {
+      preview = MathJax.HTML.Element("span",{className: MathJax.Hub.config.preRemoveClass},preview);
+      node.parentNode.insertBefore(preview,node);
+    }
+  },
+
+  filterTeX: function (tex) {return tex}
+
+};
+
+MathJax.Hub.Register.PreProcessor(["PreProcess",MathJax.Extension.wiki2jax]);
+MathJax.Ajax.loadComplete("[MathJax]/extensions/wiki2jax.js");
