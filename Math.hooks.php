@@ -2,7 +2,7 @@
 /**
  * MediaWiki math extension
  *
- * (c) 2002-2011 various MediaWiki contributors
+ * (c) 2002-2012 various MediaWiki contributors
  * GPLv2 license; info in main package.
  */
 

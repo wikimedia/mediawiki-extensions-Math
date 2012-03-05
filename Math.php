@@ -7,7 +7,7 @@
  * @version 1.0
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
- * @copyright © 2002-2011 various MediaWiki contributors
+ * @copyright © 2002-2012 various MediaWiki contributors
  * @license GPLv2 license; info in main package.
  * @link http://www.mediawiki.org/wiki/Extension:Math Documentation
  * @see https://bugzilla.wikimedia.org/show_bug.cgi?id=14202

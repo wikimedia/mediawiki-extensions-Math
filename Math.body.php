@@ -2,7 +2,7 @@
 /**
  * MediaWiki math extension
  *
- * (c) 2002-2011 Tomasz Wegrzanowski, Brion Vibber, and other MediaWiki contributors
+ * (c) 2002-2012 Tomasz Wegrzanowski, Brion Vibber, and other MediaWiki contributors
  * GPLv2 license; info in main package.
  *
  * Contains everything related to <math> </math> parsing
