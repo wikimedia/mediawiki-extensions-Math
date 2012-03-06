@@ -126,23 +126,8 @@ $moduleTemplate = array(
 $wgResourceModules['ext.math.mathjax'] = array(
 	'scripts' => array(
 		'MathJax/MathJax.js',
-		'ext.math.mathjax.preload.js',
-		'MathJax/jax/input/TeX/config.js',
-		'MathJax/jax/output/HTML-CSS/config.js',
-		'MathJax/extensions/MathEvents.js',
-		'MathJax/extensions/MathZoom.js',
-		'MathJax/extensions/MathMenu.js',
-		'MathJax/jax/element/mml/jax.js',
-		'MathJax/extensions/toMathML.js',
-		'MathJax/extensions/TeX/noErrors.js',
-		'MathJax/extensions/TeX/noUndefined.js',
-		'MathJax/jax/input/TeX/jax.js',
-		'MathJax/extensions/TeX/AMSmath.js',
-		'MathJax/extensions/TeX/AMSsymbols.js',
-		'MathJax/jax/output/HTML-CSS/jax.js',
-		'MathJax/jax/output/HTML-CSS/autoload/mtable.js',
-		'MathJax-custom/extensions/wiki2jax.js',
-		'MathJax-custom/extensions/TeX/texvc.js'
+		// We'll let the other parts be loaded by MathJax's
+		// own module/config loader.
 	),
 	'group' => 'ext.math.mathjax',
 ) + $moduleTemplate;
