@@ -229,6 +229,7 @@ $messages['arz'] = array(
 
 /** Assamese (অসমীয়া)
  * @author Chaipau
+ * @author Gitartha.bordoloi
  * @author Rajuonline
  */
 $messages['as'] = array(
@@ -238,6 +239,7 @@ $messages['as'] = array(
 	'math_failure' => 'পাৰ্চ কৰিব অসমৰ্থ',
 	'math_unknown_error' => 'অপৰিচিত সমস্যা',
 	'math_unknown_function' => 'অজ্ঞাত কাৰ্য্য',
+	'math_syntax_error' => 'চীন্‌টেক্স ত্ৰুটি',
 );
 
 /** Asturian (Asturianu)
@@ -409,6 +411,7 @@ $messages['be-tarask'] = array(
 	'prefs-math' => 'Матэматычныя формулы',
 	'mw_math_png' => 'Заўсёды паказваць як PNG',
 	'mw_math_source' => 'Пакідаць у выглядзе TeX (для тэкставых браўзэраў)',
+	'mw_math_mathjax' => 'MathJax (экспэрымэнтальна; найлепей для большасьці браўзэраў)',
 	'math_failure' => 'Немагчыма разабраць',
 	'math_unknown_error' => 'невядомая памылка',
 	'math_unknown_function' => 'невядомая функцыя',
@@ -2802,6 +2805,7 @@ $messages['pms'] = array(
 	'prefs-math' => 'Fòrmule ëd matemàtica',
 	'mw_math_png' => 'Most-lo sempe coma PNG',
 	'mw_math_source' => 'Lass-lo coma TeX (për ij programa ëd navigassion testual)',
+	'mw_math_mathjax' => 'MathJax (sperimental; mej për tant navigador)',
 	'math_failure' => 'Parsificassion falà',
 	'math_unknown_error' => 'Eror nen conossù',
 	'math_unknown_function' => 'funsion che as sa pa lòn che a la sia',
