@@ -15,7 +15,7 @@ mathJax.Config = function() {
     "v1.0-compatible": false,
     styles: { ".mtext": { "font-family": "sans-serif ! important", "font-size": "80%" } },
     displayAlign: "left",
-    menuSettings: { zoom: "click" },
+    menuSettings: { zoom: "Click" },
     "HTML-CSS": { imageFont: null, availableFonts: ["TeX"] }
   });
   MathJax.OutputJax.fontDir = mathJax.fontDir = mediaWiki.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
