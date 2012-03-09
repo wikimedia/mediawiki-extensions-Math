@@ -3306,6 +3306,7 @@ $messages['sl'] = array(
 	'prefs-math' => 'Prikaz matematičnega besedila',
 	'mw_math_png' => 'Vedno prikaži PNG',
 	'mw_math_source' => 'Pusti v TeX-ovi obliki (za besedilne brskalnike)',
+	'mw_math_mathjax' => 'MathJax (poskusno; najboljše za večino brskalnikov)',
 	'math_failure' => 'Ni mi uspelo razčleniti',
 	'math_unknown_error' => 'neznana napaka',
 	'math_unknown_function' => 'neznana funkcija',
