@@ -253,6 +253,7 @@ $messages['ast'] = array(
 	'prefs-math' => 'Fórmules matemátiques',
 	'mw_math_png' => 'Renderizar siempre PNG',
 	'mw_math_source' => 'Dexalo como TeX (pa navegadores de testu)',
+	'mw_math_mathjax' => 'MathJax (esperimental; lo meyor pa la mayoría de navegadores)',
 	'math_failure' => 'Fallu al revisar la fórmula',
 	'math_unknown_error' => 'error desconocíu',
 	'math_unknown_function' => 'función desconocida',
