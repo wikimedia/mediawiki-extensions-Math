@@ -2418,6 +2418,7 @@ $messages['ms'] = array(
 	'prefs-math' => 'Matematik',
 	'mw_math_png' => 'Sentiasa lakar PNG',
 	'mw_math_source' => 'Biarkan sebagai TeX (untuk pelayar teks)',
+	'mw_math_mathjax' => 'MathJax (dalam percubaan; paling sesuai untuk kebanyakan pelayar)',
 	'math_failure' => 'Gagal menghurai',
 	'math_unknown_error' => 'ralat yang tidak dikenali',
 	'math_unknown_function' => 'fungsi yang tidak dikenali',
@@ -3279,13 +3280,16 @@ $messages['si'] = array(
 
 /** Slovak (Slovenčina)
  * @author Helix84
+ * @author Teslaton
  */
 $messages['sk'] = array(
+	'math-desc' => 'Vykresľovať matematické vzorce medzi značkami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Sem vložte vzorec',
 	'math_tip' => 'Matematický vzorec (LaTeX)',
 	'prefs-math' => 'Vykreslenie matematiky',
 	'mw_math_png' => 'Vždy vykresľovať PNG',
 	'mw_math_source' => 'Ponechať TeX (pre textové prehliadače)',
+	'mw_math_mathjax' => 'MathJax (experimentálne; optimum pre väčšinu prehliadačov)',
 	'math_failure' => 'Syntaktická analýza (parsing) neúspešná',
 	'math_unknown_error' => 'neznáma chyba',
 	'math_unknown_function' => 'neznáma funkcia',
