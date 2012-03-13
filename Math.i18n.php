@@ -4076,13 +4076,15 @@ $messages['zea'] = array(
 	'math_notexvc' => "Kan 't prohramma texvc nie vin'n; stel aolles in volhens de beschrievieng in math/README.",
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Yfdyh000
+ */
 $messages['zh-hans'] = array(
 	'math_sample' => '在此插入数学公式',
 	'math_tip' => '插入数学公式 （LaTeX）',
 	'prefs-math' => '数学公式',
 	'mw_math_png' => '永远使用PNG图像',
-	'mw_math_source' => '显示为TeX代码（使用文字浏览器时）',
+	'mw_math_source' => '显示TeX代码（供文字浏览器使用）',
 	'math_failure' => '解析失败',
 	'math_unknown_error' => '未知错误',
 	'math_unknown_function' => '未知函数',
@@ -4095,6 +4097,7 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
+ * @author Liangent
  * @author Mark85296341
  */
 $messages['zh-hant'] = array(
@@ -4102,7 +4105,7 @@ $messages['zh-hant'] = array(
 	'math_tip' => '插入數學公式 （LaTeX）',
 	'prefs-math' => '數學公式',
 	'mw_math_png' => '永遠使用PNG圖片',
-	'mw_math_source' => '顯示為TeX代碼 （使用文字瀏覽器時）',
+	'mw_math_source' => '顯示TeX代碼（供文字瀏覽器使用）',
 	'math_failure' => '解析失敗',
 	'math_unknown_error' => '未知錯誤',
 	'math_unknown_function' => '未知函數',
