@@ -60,7 +60,16 @@ class MathRenderer {
 		if( $this->mode == MW_MATH_SOURCE || $this->mode == MW_MATH_MATHJAX ) {
 			# No need to render or parse anything more!
 			# New lines are replaced with spaces, which avoids confusing our parser (bugs 23190, 22818)
-			return ('<span class="tex" dir="ltr">$ ' . str_replace( "\n", " ", htmlspecialchars( $this->tex ) ) . ' $</span>');
+			return Xml::element( 'span',
+				$this->_attribs(
+					'span',
+					array(
+						'class' => 'tex',
+						'dir' => 'ltr'
+					)
+				),
+				'$ ' . str_replace( "\n", " ", htmlspecialchars( $this->tex ) ) . ' $'
+			);
 		}
 		if( $this->tex == '' ) {
 			return; # bug 8372
