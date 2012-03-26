@@ -12,9 +12,12 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
     mathchar0mi: {
       // Lowercase Greek letters
       thetasym:     '03B8',  // theta
-      koppa:        '03DF',
-      stigma:       '03DB',
-      coppa:        '03D9',  // archaic koppa
+      koppa:        '03DF',  // teubner
+      stigma:       '03DB',  // teubner
+      coppa:        '03D9',  // teubner, non-italic, archaic koppa
+      varcoppa:     '03D9',  // teubner, non-italic
+      sampi:        '03E1',  // teubner
+      varstigma:    '03DB',  // teubner
 
       // Ord symbols
       C:            ['0043',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
@@ -96,9 +99,12 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
       Tau:          '03A4',
       Chi:          '03A7',
 
-      Koppa:        '03DE',
-      Stigma:       '03DA',
-      Coppa:        '03D8'  // archaic Koppa
+      Koppa:        '03DE', // teubner
+      Stigma:       '03DA', // teubner, broken
+      Dagger:       '2021', // teubner
+      Digamma:      '03DC', // teubner
+      Coppa:        '03D8', // teubner, non-italic, archaic Koppa
+      Sampi:        '03E0'  // teubner
     },
 
     delimiter: {
@@ -117,7 +123,7 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
       arccot:             'NamedFn',
       arcsec:             'NamedFn',
       arccsc:             'NamedFn',
-      bold:               ['Macro','\\boldsymbol']  // boldsymbol
+      bold:               ['Macro','\\boldsymbol'] // boldsymbol
     }
 
   });
