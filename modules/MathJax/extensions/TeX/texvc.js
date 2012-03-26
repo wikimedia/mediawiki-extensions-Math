@@ -15,19 +15,24 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
       koppa:        '03DF',
       stigma:       '03DB',
       coppa:        '03D9',  // archaic koppa
+      varcoppa:     '03D9',
+      sampi:        '03E1',
 
       // Ord symbols
       C:            ['0043',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       cnums:        ['0043',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       Complex:      ['0043',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
+      H:            ['210D',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       N:            ['004E',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       natnums:      ['004E',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
+      Q:            ['0051',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       R:            ['0052',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       reals:        ['0052',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       Reals:        ['0052',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       Z:            ['005A',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       sect:         '00A7',  // S
       P:            '00B6',
+      AA:           ['00C5',{mathvariant: MML.VARIANT.NORMAL}],  // Å, used for Angstrom
       alef:         ['2135',{mathvariant: MML.VARIANT.NORMAL}],  // aleph
       alefsym:      ['2135',{mathvariant: MML.VARIANT.NORMAL}],  // aleph
       weierp:       ['2118',{mathvariant: MML.VARIANT.NORMAL}],  // wp
@@ -98,7 +103,10 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
 
       Koppa:        '03DE',
       Stigma:       '03DA',
-      Coppa:        '03D8'  // archaic Koppa
+      Dagger:       '2021',
+      Digamma:      '03DC',
+      Coppa:        '03D8',  // archaic Koppa
+      Sampi:        '03E0'
     },
 
     delimiter: {
@@ -117,7 +125,9 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
       arccot:             'NamedFn',
       arcsec:             'NamedFn',
       arccsc:             'NamedFn',
-      bold:               ['Macro','\\boldsymbol']  // boldsymbol
+      sen:                'NamedFn',                // Spanish version of \sin (bug 18912)
+      bold:               ['Macro','\\boldsymbol'], // boldsymbol
+      image:              ['Macro','\\Im']          // A texvc alias
     }
 
   });
