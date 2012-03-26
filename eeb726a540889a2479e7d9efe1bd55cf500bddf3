@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAIn//9XE\u003d",
+        "filename": "modules/MathJax/extensions/wiki2jax.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 25
+      },
+      "writtenOn": "2012-03-26T21:14:11Z",
+      "side": 1,
+      "message": "This looks like it\u0027ll be missing a space. There previously was one, which was removed when we added the braces (which  I guess aren\u0027t needed -- it\u0027s a marker, not a function with parameters?)",
+      "revId": "eeb726a540889a2479e7d9efe1bd55cf500bddf3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
