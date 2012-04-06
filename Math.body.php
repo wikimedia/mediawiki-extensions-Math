@@ -382,6 +382,10 @@ class MathRenderer {
 	}
 
 	public static function renderMath( $tex, $params = array(), ParserOptions $parserOptions = null ) {
+		if( trim( $tex ) == "" ) {
+			return "";
+		}
+
 		$math = new MathRenderer( $tex, $params );
 		if ( $parserOptions ) {
 			$math->setOutputMode( $parserOptions->getMath() );

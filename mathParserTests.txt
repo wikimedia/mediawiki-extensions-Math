@@ -165,3 +165,18 @@ BUG 31442: Math accents with math font fail to parse if braces not used
 <p><img class="tex" alt="\tilde \mathcal{M}" src="/images/math/5/5/0/55072ce6ef8c840c4b7687bd8a028bde.png" />
 </p>
 !! end
+
+!! test
+BUG 31824: Empty math tag returns uniq
+!! input
+<math></math>
+!! result
+!! end
+
+!! test
+BUG 31824: Empty math tag returns uniq
+!! input
+<math> </math>
+!! result
+!! end
+
