@@ -13,7 +13,7 @@
 if ( !function_exists('wfEscapeSingleQuotes') ) {
 	/**
 	 * Escapes a string with single quotes for a UNIX shell.
-	 * It's equivalente to escapeshellarg() in UNIX, but also 
+	 * It's equivalent to escapeshellarg() in UNIX, but also
 	 * working in Windows, where we need it for cygwin shell.
 	 */
 	function wfEscapeSingleQuotes( $str ) {
@@ -41,7 +41,7 @@ class MathRenderer {
 	function __construct( $tex, $params = array() ) {
 		$this->tex = $tex;
 		$this->params = $params;
- 	}
+	}
 
 	function setOutputMode( $mode ) {
 		$validModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHJAX );
