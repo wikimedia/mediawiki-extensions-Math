@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "AAAAI3//9ck\u003d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 24
+      },
+      "writtenOn": "2012-04-08T10:31:32Z",
+      "side": 1,
+      "message": "Seems to be bug 31824 https://bugzilla.wikimedia.org/31824",
+      "parentUuid": "AAAAI3//9c0\u003d",
+      "revId": "4ef029cf4a387793bac332723839c6fef604c361",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAAAI3//9ow\u003d",
         "filename": "Math.body.php",
         "patchSetId": 1
