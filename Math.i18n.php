@@ -1370,6 +1370,7 @@ $messages['he'] = array(
 	'prefs-math' => 'נוסחאות מתמטיות',
 	'mw_math_png' => 'תמיד להציג כ־PNG',
 	'mw_math_source' => 'להשאיר כקוד TeX (לדפדפני טקסט)',
+	'mw_math_mathjax' => 'MathJax (ניסיוני; מומלץ לרוב הדפדפנים)',
 	'math_failure' => 'עיבוד הנוסחה נכשל',
 	'math_unknown_error' => 'שגיאה לא ידועה',
 	'math_unknown_function' => 'פונקציה לא מוכרת',
