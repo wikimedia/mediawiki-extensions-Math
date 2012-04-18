@@ -678,11 +678,13 @@ $messages['crh-cyrl'] = array(
  * @author Mormegil
  */
 $messages['cs'] = array(
+	'math-desc' => 'Vykresluje matematické vzorce vyznačené pomocí <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Vložit sem vzorec',
 	'math_tip' => 'Matematický vzorec (LaTeX)',
 	'prefs-math' => 'Matematika',
 	'mw_math_png' => 'Vždy jako PNG',
 	'mw_math_source' => 'Ponechat jako TeX (pro textové prohlížeče)',
+	'mw_math_mathjax' => 'MathJax (experimentální; pro většinu prohlížečů nejlepší)',
 	'math_failure' => 'Nelze pochopit',
 	'math_unknown_error' => 'neznámá chyba',
 	'math_unknown_function' => 'neznámá funkce',
@@ -1658,6 +1660,7 @@ $messages['it'] = array(
 	'prefs-math' => 'Formule matematiche',
 	'mw_math_png' => 'Mostra sempre in PNG',
 	'mw_math_source' => 'Lascia in formato TeX (per browser testuali)',
+	'mw_math_mathjax' => 'MathJax (sperimentale; il migliore per la maggior parte dei browser)',
 	'math_failure' => 'Errore del parser',
 	'math_unknown_error' => 'errore sconosciuto',
 	'math_unknown_function' => 'funzione sconosciuta',
