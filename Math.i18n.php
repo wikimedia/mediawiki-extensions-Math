@@ -1742,6 +1742,7 @@ $messages['ka'] = array(
 	'prefs-math' => 'მათემატიკა',
 	'mw_math_png' => 'მუდამ გამოიყენე PNG',
 	'mw_math_source' => 'დატოვე როგორც TeX (ტექსტური ბრაუზერებისთვის)',
+	'mw_math_mathjax' => 'MathJax (ექსპერიმენტული; ყველაზე შესაფერისი ბრაუზერების უმეტესობისათვის)',
 	'math_failure' => 'შეუძლებელია გამონათქვამის გარჩევაშ',
 	'math_unknown_error' => 'უცნობი შეცდომა',
 	'math_unknown_function' => 'უცნობი ფუნქცია',
@@ -4081,14 +4082,15 @@ $messages['zea'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Xiaomingyan
  * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
-	'math-desc' => '呈现在<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>标签之间的数学公式',
+	'math-desc' => '在<code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code>标签间生成数学公式',
 	'math_sample' => '在此插入数学公式',
 	'math_tip' => '插入数学公式 （LaTeX）',
 	'prefs-math' => '数学公式',
-	'mw_math_png' => '永远使用PNG图像',
+	'mw_math_png' => '总生成PNG',
 	'mw_math_source' => '显示TeX代码（供文字浏览器使用）',
 	'mw_math_mathjax' => 'MathJax（实验性；适合大多数浏览器）',
 	'math_failure' => '解析失败',
