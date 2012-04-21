@@ -1674,6 +1674,7 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Ohgi
+ * @author Shirayuki
  * @author Whym
  * @author 青子守歌
  */
@@ -1683,6 +1684,7 @@ $messages['ja'] = array(
 	'prefs-math' => '数式',
 	'mw_math_png' => '常にPNGで描画',
 	'mw_math_source' => 'TeXのまま（テキストブラウザー向け）',
+	'mw_math_mathjax' => 'MathJax（開発中; ほとんどのブラウザーに最適）',
 	'math_failure' => '構文解析失敗',
 	'math_unknown_error' => '不明なエラー',
 	'math_unknown_function' => '不明な関数',
