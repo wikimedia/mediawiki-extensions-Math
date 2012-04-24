@@ -37,7 +37,6 @@ define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 ); /// @deprecated
 define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
-define( 'MW_MATH_LATEXML', 7 ); /// new in 1.21
 /**@}*/
 
 /** For back-compat */
@@ -75,22 +74,13 @@ $wgMathCheckFiles = true;
 $wgMathPath = false;
 
 /**
- * The name of a file backend ($wgFileBackends) to use for storing math renderings.
- * Defaults to FSFileBackend using $wgMathDirectory as a base path.
- *
- * See http://www.mediawiki.org/wiki/Manual:Enable_TeX for details about how to
- * set up mathematical formula display.
- */
-$wgMathFileBackend = false;
-
-/**
  * The filesystem path of the math directory.
  * Defaults to "{$wgUploadDirectory}/math".
  *
  * See http://www.mediawiki.org/wiki/Manual:Enable_TeX for details about how to
  * set up mathematical formula display.
  */
-$wgMathDirectory = false;
+ $wgMathDirectory = false;
 
 /**
  * Experimental option to use MathJax library to do client-side math rendering
@@ -109,18 +99,9 @@ $wgUseMathJax = true;
  */
 $wgMathJaxUrl = 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML';
 
-/**
- * Use of LaTeXML for details see
- * <http://latexml.mathweb.org/help>
- *
- * If you don't like them, install your own server see
- * <https://svn.mathweb.org/repos/LaTeXML/branches/arXMLiv/INSTALL>
- */
-$wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
-
 ////////// end of config settings.
 
-$wgDefaultUserOptions['math'] = MW_MATH_LATEXML;
+$wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;//MW_MATH_PNG;
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
@@ -131,11 +112,10 @@ $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
 
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
-$wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
-$wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
-$wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
-$wgAutoloadClasses['MathMathJax'] = $dir . 'MathMathJax.php';
-$wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
+$wgAutoloadClasses['MathRenderer'] = $dir . 'Math.body.php';
+$wgAutoloadClasses['MathLaTeXML'] = $dir . 'Math.LaTeXML.php';
+$wgAutoloadClasses['EDUtils'] = $dir. 'ED_Utils.php';
+$wgAutoloadClasses['MathTexvc'] = $dir . 'Math.texvc.php';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
@@ -151,14 +131,9 @@ $wgResourceModules['ext.math.mathjax'] = array(
 		// We'll let the other parts be loaded by MathJax's
 		// own module/config loader.
 	),
-		'group' => 'ext.math.mathjax',
+	'group' => 'ext.math.mathjax',
 ) + $moduleTemplate;
-
 
 $wgResourceModules['ext.math.mathjax.enabler'] = array(
 	'scripts' => 'ext.math.mathjax.enabler.js',
-) + $moduleTemplate;
-// Customized module for LaTeXML
-$wgResourceModules['ext.math.mathjax.enabler.mml'] = array(
-	'scripts' => 'ext.math.mathjax.enabler.mml.js',
 ) + $moduleTemplate;
