@@ -11,7 +11,8 @@ mathJax.loaded = false;
 mathJax.Config = function() {
   MathJax.Hub.Config({
     root: mediaWiki.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax',
-    config: ["TeX-AMS-texvc_HTML.js"],
+    //config: ["TeX-AMS-texvc_HTML.js"],
+   config: ["MML_HTMLorMML-full.js"],
     "v1.0-compatible": false,
     styles: { ".mtext": { "font-family": "sans-serif ! important", "font-size": "80%" } },
     displayAlign: "left",

@@ -80,7 +80,7 @@ $wgMathPath = false;
  * See http://www.mediawiki.org/wiki/Manual:Enable_TeX for details about how to
  * set up mathematical formula display.
  */
-$wgMathDirectory = false;
+ $wgMathDirectory = false;
 
 /**
  * Experimental option to use MathJax library to do client-side math rendering
@@ -89,7 +89,7 @@ $wgMathDirectory = false;
  *
  * Not guaranteed to be stable at this time.
  */
-$wgUseMathJax = false;
+$wgUseMathJax = true;
 
 /**
  * Use of MathJax's CDN is governed by terms of service
@@ -101,7 +101,7 @@ $wgMathJaxUrl = 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS
 
 ////////// end of config settings.
 
-$wgDefaultUserOptions['math'] = MW_MATH_PNG;
+$wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;//MW_MATH_PNG;
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
@@ -113,7 +113,9 @@ $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
 $wgAutoloadClasses['MathRenderer'] = $dir . 'Math.body.php';
-
+$wgAutoloadClasses['MathLaTeXML'] = $dir . 'Math.LaTeXML.php';
+$wgAutoloadClasses['EDUtils'] = $dir. 'ED_Utils.php';
+$wgAutoloadClasses['MathTexvc'] = $dir . 'Math.texvc.php';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';

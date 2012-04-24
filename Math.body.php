@@ -56,8 +56,7 @@ class MathRenderer {
 	function render() {
 		global $wgTmpDirectory;
 		global $wgTexvc, $wgMathCheckFiles, $wgTexvcBackgroundColor;
-
-		if( $this->mode == MW_MATH_SOURCE || $this->mode == MW_MATH_MATHJAX ) {
+		if( $this->mode == MW_MATH_SOURCE ) {
 			# No need to render or parse anything more!
 			# New lines are replaced with spaces, which avoids confusing our parser (bugs 23190, 22818)
 			return Xml::element( 'span',
@@ -71,11 +70,34 @@ class MathRenderer {
 				'$ ' . str_replace( "\n", " ", htmlspecialchars( $this->tex ) ) . ' $'
 			);
 		}
+
+		
 		if( $this->tex == '' ) {
 			return; # bug 8372
 		}
 
 		if( !$this->_recall() ) {
+		$latexmlmath=new MathLaTeXML();
+		$latexmlmath->render($this);
+			if ($this->mode == MW_MATH_MATHJAX){
+				if ( !wfReadOnly() ) {
+				$outmd5_sql = pack( 'H32', $this->hash );
+
+				$md5_sql = pack( 'H32', $this->md5 ); # Binary packed, not hex
+
+				$dbw = wfGetDB( DB_MASTER );
+				$dbw->replace(
+					'math',
+					array( 'math_inputhash' ),
+					array(
+						'math_inputhash' => $dbw->encodeBlob( $md5_sql ),
+						'math_outputhash' => $dbw->encodeBlob( $outmd5_sql ),
+						'math_mathml' => $this->mathml,
+					),
+					__METHOD__
+				);
+			}
+			}else{
 			if( $wgMathCheckFiles ) {
 				# Ensure that the temp and output directories are available before continuing...
 				if( !file_exists( $wgTmpDirectory ) ) {
@@ -86,90 +108,9 @@ class MathRenderer {
 					return $this->_error( 'math_bad_tmpdir' );
 				}
 			}
+			$texvc = new MathTexvc();
+			$result=$texvc->render($this);
 
-			if( !is_executable( $wgTexvc ) ) {
-				return $this->_error( 'math_notexvc' );
-			}
-			$cmd = $wgTexvc . ' ' .
-					wfEscapeSingleQuotes( $wgTmpDirectory ) . ' '.
-					wfEscapeSingleQuotes( $wgTmpDirectory ) . ' '.
-					wfEscapeSingleQuotes( $this->tex ) . ' '.
-					wfEscapeSingleQuotes( 'UTF-8' ) . ' '.
-					wfEscapeSingleQuotes( $wgTexvcBackgroundColor );
-
-			if ( wfIsWindows() ) {
-				# Invoke it within cygwin sh, because texvc expects sh features in its default shell
-				$cmd = 'sh -c ' . wfEscapeShellArg( $cmd );
-			}
-
-			wfDebug( "TeX: $cmd\n" );
-			$contents = wfShellExec( $cmd );
-			wfDebug( "TeX output:\n $contents\n---\n" );
-
-			if ( strlen( $contents ) == 0 ) {
-				return $this->_error( 'math_unknown_error' );
-			}
-
-			$retval = substr( $contents, 0, 1 );
-			$errmsg = '';
-			if ( ( $retval == 'C' ) || ( $retval == 'M' ) || ( $retval == 'L' ) ) {
-				if ( $retval == 'C' ) {
-					$this->conservativeness = 2;
-				} elseif ( $retval == 'M' ) {
-					$this->conservativeness = 1;
-				} else {
-					$this->conservativeness = 0;
-				}
-				$outdata = substr( $contents, 33 );
-
-				$i = strpos( $outdata, "\000" );
-
-				$this->html = substr( $outdata, 0, $i );
-				$this->mathml = substr( $outdata, $i + 1 );
-			} elseif ( ( $retval == 'c' ) || ( $retval == 'm' ) || ( $retval == 'l' ) ) {
-				$this->html = substr( $contents, 33 );
-				if ( $retval == 'c' ) {
-					$this->conservativeness = 2;
-				} elseif ( $retval == 'm' ) {
-					$this->conservativeness = 1;
-				} else {
-					$this->conservativeness = 0;
-				}
-				$this->mathml = null;
-			} elseif ( $retval == 'X' ) {
-				$this->html = null;
-				$this->mathml = substr( $contents, 33 );
-				$this->conservativeness = 0;
-			} elseif ( $retval == '+' ) {
-				$this->html = null;
-				$this->mathml = null;
-				$this->conservativeness = 0;
-			} else {
-				$errbit = htmlspecialchars( substr( $contents, 1 ) );
-				switch( $retval ) {
-					case 'E':
-						$errmsg = $this->_error( 'math_lexing_error', $errbit );
-						break;
-					case 'S':
-						$errmsg = $this->_error( 'math_syntax_error', $errbit );
-						break;
-					case 'F':
-						$errmsg = $this->_error( 'math_unknown_function', $errbit );
-						break;
-					default:
-						$errmsg = $this->_error( 'math_unknown_error', $errbit );
-				}
-			}
-
-			if ( !$errmsg ) {
-				$this->hash = substr( $contents, 1, 32 );
-			}
-
-			wfRunHooks( 'MathAfterTexvc', array( &$this, &$errmsg ) );
-
-			if ( $errmsg ) {
-				return $errmsg;
-			}
 
 			if ( !preg_match( "/^[a-f0-9]{32}$/", $this->hash ) ) {
 				return $this->_error( 'math_unknown_error' );
@@ -227,7 +168,7 @@ class MathRenderer {
 				$u = new SquidUpdate( $urls );
 				$u->doUpdate();
 			}
-		}
+		}}
 
 		return $this->_doRender();
 	}
@@ -315,11 +256,8 @@ class MathRenderer {
 	 * Select among PNG, HTML, or MathML output depending on
 	 */
 	function _doRender() {
-		if( $this->mode == MW_MATH_MATHML && $this->mathml != '' ) {
-			return Xml::tags( 'math',
-				$this->_attribs( 'math',
-					array( 'xmlns' => 'http://www.w3.org/1998/Math/MathML' ) ),
-				$this->mathml );
+		if( $this->mode == MW_MATH_MATHML && $this->mathml != '' or $this->mode == MW_MATH_MATHJAX ) {
+			return $this->_embedMathML();
 		}
 		if ( ( $this->mode == MW_MATH_PNG ) || ( $this->html == '' ) ||
 			( ( $this->mode == MW_MATH_SIMPLE ) && ( $this->conservativeness != 2 ) ) ||
@@ -359,6 +297,20 @@ class MathRenderer {
 					'src' => $url
 				)
 			)
+		);
+	}
+
+	function _embedMathML() {
+		$mml=str_replace("\n"," ",$this->mathml);
+			return Xml::tags( 'span',
+				$this->_attribs( 'span',
+					array(
+						'class' => 'tex',
+						'dir' => 'ltr',
+						'id' => $this->hash
+					)
+				),
+				$mml
 		);
 	}
 
