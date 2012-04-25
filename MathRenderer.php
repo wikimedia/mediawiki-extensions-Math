@@ -6,6 +6,7 @@
  * GPLv2 license; info in main package.
  *
  * Contains everything related to <math> </math> parsing
+ * 2012/04/25 Changed LaTeXML for the MathML rendering which is passed to MathJAX
  * @file
  * @ingroup Parser
  */
@@ -81,6 +82,8 @@ class MathRenderer {
 		$latexmlmath->render($this);
 			if ($this->mode == MW_MATH_MATHJAX){
 				if ( !wfReadOnly() ) {
+				if (!$this->hash)
+					$this->hash = md5( $this->tex );
 				$outmd5_sql = pack( 'H32', $this->hash );
 
 				$md5_sql = pack( 'H32', $this->md5 ); # Binary packed, not hex

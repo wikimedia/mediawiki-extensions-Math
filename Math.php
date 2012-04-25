@@ -99,6 +99,15 @@ $wgUseMathJax = true;
  */
 $wgMathJaxUrl = 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML';
 
+/**
+ * Use of LaTeXML for details see 
+ * <http://latexml.mathweb.org/help>
+ *
+ * If you don't like them, install your own server see
+ * <https://svn.mathweb.org/repos/LaTeXML/branches/arXMLiv/INSTALL>
+ */
+$wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
+
 ////////// end of config settings.
 
 $wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;//MW_MATH_PNG;

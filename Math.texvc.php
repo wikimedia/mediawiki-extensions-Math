@@ -1,4 +1,14 @@
 <?php
+/**
+ * MediaWiki math extension
+ *
+ * (c) 2002-2012 Tomasz Wegrzanowski, Brion Vibber, and other MediaWiki contributors
+ * GPLv2 license; info in main package.
+ *
+ * Contains the driver function for the texvc program
+ * @file
+ * @ingroup Parser
+ */
 
 class MathTexvc{
 
