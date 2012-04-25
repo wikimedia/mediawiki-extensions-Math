@@ -134,6 +134,8 @@ $moduleTemplate = array(
 	'remoteExtPath' => 'Math/modules',
 );
 
+//Don't use MathJax with Firefox
+ if (!preg_match('/Firefox/',$_SERVER['HTTP_USER_AGENT'])){
 $wgResourceModules['ext.math.mathjax'] = array(
 	'scripts' => array(
 		'MathJax/MathJax.js',
@@ -145,4 +147,4 @@ $wgResourceModules['ext.math.mathjax'] = array(
 
 $wgResourceModules['ext.math.mathjax.enabler'] = array(
 	'scripts' => 'ext.math.mathjax.enabler.js',
-) + $moduleTemplate;
+) + $moduleTemplate;}
