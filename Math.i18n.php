@@ -778,7 +778,7 @@ $messages['de'] = array(
 	'math-desc' => 'Ergänzt das Tag <code>&lt;math&gt;</code> zum Darstellen mathematischer Formeln',
 	'math_sample' => 'Formel hier einfügen',
 	'math_tip' => 'Mathematische Formel (LaTeX)',
-	'prefs-math' => 'Math',
+	'prefs-math' => 'Mathematische Formeln',
 	'mw_math_png' => 'Immer als PNG darstellen',
 	'mw_math_source' => 'Als TeX belassen (für Textbrowser)',
 	'mw_math_mathjax' => 'MathJax (experimentell; für alle Browser geeignet)',
@@ -1679,13 +1679,14 @@ $messages['it'] = array(
  * @author 青子守歌
  */
 $messages['ja'] = array(
+	'math-desc' => '<code>&lt;math&gt;</code> ... <code>&gt;/math&lt;</code> タグで囲まれた数式をレンダリング',
 	'math_sample' => 'ここに数式を挿入',
 	'math_tip' => '数式 (LaTeX)',
 	'prefs-math' => '数式',
 	'mw_math_png' => '常にPNGで描画',
 	'mw_math_source' => 'TeXのまま（テキストブラウザー向け）',
 	'mw_math_mathjax' => 'MathJax（開発中; ほとんどのブラウザーに最適）',
-	'math_failure' => '構文解析失敗',
+	'math_failure' => '構文解析に失敗',
 	'math_unknown_error' => '不明なエラー',
 	'math_unknown_function' => '不明な関数',
 	'math_lexing_error' => '字句解析エラー',
