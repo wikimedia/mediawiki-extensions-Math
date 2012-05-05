@@ -3044,6 +3044,7 @@ pe piacere vide math/README pe configurà.',
 
 /** Russian (Русский)
  * @author Amire80
+ * @author Kalan
  * @author MaxSem
  */
 $messages['ru'] = array(
@@ -3052,6 +3053,7 @@ $messages['ru'] = array(
 	'prefs-math' => 'Отображение формул',
 	'mw_math_png' => 'Всегда генерировать PNG',
 	'mw_math_source' => 'Оставить в разметке ТеХ (для текстовых браузеров)',
+	'mw_math_mathjax' => 'MathJax (экспериментальная опция, оптимальная для большинства браузеров)',
 	'math_failure' => 'Невозможно разобрать выражение',
 	'math_unknown_error' => 'неизвестная ошибка',
 	'math_unknown_function' => 'неизвестная функция',
