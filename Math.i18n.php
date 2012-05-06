@@ -1942,6 +1942,7 @@ $messages['ko'] = array(
 	'prefs-math' => '수식',
 	'mw_math_png' => '항상 PNG로 표시',
 	'mw_math_source' => 'TeX로 남겨둠 (텍스트 브라우저용)',
+	'mw_math_mathjax' => 'MathJax (실험중; 대부분의 브라우저에서 최적)',
 	'math_failure' => '해석 실패',
 	'math_unknown_error' => '알 수 없는 오류',
 	'math_unknown_function' => '알 수 없는 함수',
