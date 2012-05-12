@@ -757,6 +757,7 @@ $messages['da'] = array(
 	'prefs-math' => 'Matematiske formler',
 	'mw_math_png' => 'Vis altid som PNG',
 	'mw_math_source' => 'Lad være som TeX (for tekstbrowsere)',
+	'mw_math_mathjax' => 'MathJax (på forsøgsstadiet; virker bedst for mange browsere)',
 	'math_failure' => 'Fejl i matematikken',
 	'math_unknown_error' => 'ukendt fejl',
 	'math_unknown_function' => 'ukendt funktion',
@@ -1596,7 +1597,7 @@ $messages['ike-cans'] = array(
 	'math_unknown_function' => 'ᑐᓴᐅᒪᔭᐅᙱᑐᖅ ᐃᓕᐅᕐᓂᖅ',
 );
 
-/** Eastern Canadian (Latin script) (inuktitut) */
+/** Eastern Canadian (Latin script) (Inuktitut) */
 $messages['ike-latn'] = array(
 	'math_unknown_error' => 'tusaumajaunngituq tammanaqtuq',
 	'math_unknown_function' => 'tusaumajaunngituq iliurniq',
@@ -2020,10 +2021,11 @@ $messages['ku-latn'] = array(
 
 /** Cornish (Kernowek)
  * @author Kw-Moon
+ * @author Nrowe
  */
 $messages['kw'] = array(
 	'math_sample' => 'Keworrewgh an furvel obma',
-	'math_tip' => 'Furvel galcoriethek (LaTeX)',
+	'math_tip' => 'Furvel galkoriethek (LaTeX)',
 );
 
 /** Kirghiz (Кыргызча) */
@@ -2652,6 +2654,25 @@ $messages['nn'] = array(
 	'math_bad_tmpdir' => 'Kan ikkje skrive til eller laga mellombels mattemappe',
 	'math_bad_output' => 'Kan ikkje skrive til eller laga mattemappe',
 	'math_notexvc' => 'Manglar texvc-program; sjå math/README for konfigurasjon.',
+);
+
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
+$messages['no'] = array(
+	'math_sample' => 'Sett inn formel her',
+	'math_tip' => 'Matematisk formel (LaTeX)',
+	'prefs-math' => 'Matteformler',
+	'mw_math_png' => 'Vis alltid som PNG',
+	'mw_math_source' => 'Behold som TeX (for tekst-nettlesere)',
+	'math_failure' => 'Feil i matematikken',
+	'math_unknown_error' => 'ukjent feil',
+	'math_unknown_function' => 'ukjent funksjon',
+	'math_lexing_error' => 'lexerfeil',
+	'math_syntax_error' => 'syntaksfeil',
+	'math_image_error' => 'PNG-konversjon mislyktes; sjekk at latex og dvipng (eller dvips + gs + convert) er korrekt installert',
+	'math_bad_tmpdir' => 'Kan ikke skrive til eller opprette midlertidig mappe',
+	'math_bad_output' => 'Kan ikke skrive til eller opprette resultatmappe',
+	'math_notexvc' => 'Mangler kjørbar texvc;
+se math/README for oppsett.',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
@@ -3593,7 +3614,7 @@ $messages['tg-cyrl'] = array(
 	'math_notexvc' => 'Барномаи ичроии texvc мавҷуд нест; барои иттилооти бештар ба math/README нигаред.',
 );
 
-/** Tajik (Latin script) (tojikī)
+/** Tajik (Latin script) (Tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -3824,7 +3845,7 @@ $messages['ur'] = array(
 latex، dvips، gs کی صحیح تنصیب کی جانچ کرنے کے بعد دوبارہ تحویل کی کوشش کیجئے.',
 );
 
-/** Uzbek (O'zbek)
+/** Uzbek (Oʻzbek)
  * @author Abdulla
  */
 $messages['uz'] = array(
@@ -3854,7 +3875,7 @@ $messages['vec'] = array(
 	'math_notexvc' => 'Eseguibile texvc mancante; par piaser consulta math/README par la configurazion.',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
