@@ -1674,13 +1674,14 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Ant176
  * @author Ohgi
  * @author Shirayuki
  * @author Whym
  * @author 青子守歌
  */
 $messages['ja'] = array(
-	'math-desc' => '<code>&lt;math&gt;</code> ... <code>&gt;/math&lt;</code> タグで囲まれた数式をレンダリング',
+	'math-desc' => '<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング',
 	'math_sample' => 'ここに数式を挿入',
 	'math_tip' => '数式 (LaTeX)',
 	'prefs-math' => '数式',
@@ -2189,6 +2190,28 @@ $messages['lt'] = array(
 $messages['ltg'] = array(
 	'math_sample' => 'Formulu īrokst ite',
 	'math_tip' => 'Matematiska formula (LaTeX)',
+);
+
+/** Lushai (Mizo ţawng)
+ * @author RMizo
+ */
+$messages['lus'] = array(
+	'math-desc' => 'Chhiarkawp dàn rëng rëng  <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> te inkara ziah luh tùr.',
+	'math_sample' => 'Chhiarkawp dàn chu hetah hian chhu rawh',
+	'math_tip' => 'Chhiarkawp dàn (LaTeX)',
+	'prefs-math' => 'Chhiarkawp',
+	'mw_math_png' => 'PNG-a chhuahna',
+	'mw_math_source' => 'TeX ngäi ngäiin dah rawh (thuziak rangpuifanna tán bîk)',
+	'mw_math_mathjax' => 'MathJax (aitechhinna; rangpuifanna tam zâwk tan a ṭha ber)',
+	'math_failure' => 'Chhiarkawp dàn chhut sùal a awm',
+	'math_unknown_error' => 'dikhlelhna hriat loh',
+	'math_unknown_function' => 'hnathawh hriat loh',
+	'math_lexing_error' => 'chhiarkawp ṭawngkam dik lo',
+	'math_syntax_error' => 'chhiarkawp ṭawngkauchheh dik lo',
+	'math_image_error' => 'PNG-a chhuah a tlawlh; latex leh dvipng  (a nih loh pawhin dvips+gs+convert) i bun dik nge dik lo finfiah rawh',
+	'math_bad_tmpdir' => 'Chhiarkawp báwm lailâwk a siamin a ziaklût thei lo',
+	'math_bad_output' => 'Chhiarkawpa chhuahna báwmah ziaklûtin a siam thei lo',
+	'math_notexvc' => 'texvc tihnun theih a awm lo; khawngaihin herrem tùrin math/README en rawh.',
 );
 
 /** Latvian (Latviešu)
@@ -3412,7 +3435,7 @@ $messages['sr-ec'] = array(
 	'math_unknown_error' => 'непозната грешка',
 	'math_unknown_function' => 'непозната функција',
 	'math_lexing_error' => 'речничка грешка',
-	'math_syntax_error' => 'синтаксна грешка',
+	'math_syntax_error' => 'синтактичка грешка',
 	'math_image_error' => 'Претварање у формат PNG није успело. Проверите да ли су добро инсталирани latex, dvips, gs и convert',
 	'math_bad_tmpdir' => 'Стварање или писање у привремену фасциклу за математику није успело',
 	'math_bad_output' => 'Стварање или писање у одредишној фасцикли за математику није успело',
@@ -3722,6 +3745,7 @@ $messages['tpi'] = array(
 /** Turkish (Türkçe)
  * @author Emperyan
  * @author Erkan Yilmaz
+ * @author Hcagri
  * @author Joseph
  * @author Runningfridgesrule
  * @author Srhat
@@ -3733,6 +3757,7 @@ $messages['tr'] = array(
 	'prefs-math' => 'Matematiksel simgeler',
 	'mw_math_png' => 'Daima PNG resim formatına çevir',
 	'mw_math_source' => 'Değiştirmeden TeX olarak bırak  (metin tabanlı tarayıcılar için)',
+	'mw_math_mathjax' => 'MathJax (deneysel; çoğu tarayıcıya uygun)',
 	'math_failure' => 'Ayrıştırılamadı',
 	'math_unknown_error' => 'bilinmeyen hata',
 	'math_unknown_function' => 'bilinmeyen fonksiyon',
@@ -3855,6 +3880,7 @@ $messages['uz'] = array(
 );
 
 /** Vèneto (Vèneto)
+ * @author Alunardon90
  * @author Candalua
  * @author Vajotwo
  */
@@ -3869,7 +3895,7 @@ $messages['vec'] = array(
 	'math_unknown_function' => 'funzion sconossiùa',
 	'math_lexing_error' => 'eror lessicale',
 	'math_syntax_error' => 'eror de sintassi',
-	'math_image_error' => 'Conversion in PNG fałía',
+	'math_image_error' => 'La conversion in PNG no xe riusida; verifegare che i seguenti programi sìe instaładi coretamente: latex e dvipng (o dvips + gs + convert).',
 	'math_bad_tmpdir' => 'Inpossibile scrìvar o crear la directory tenporanea par math',
 	'math_bad_output' => 'Inpossibile scrìvar o crear la directory de output par math',
 	'math_notexvc' => 'Eseguibile texvc mancante; par piaser consulta math/README par la configurazion.',
