@@ -796,6 +796,7 @@ $messages['de'] = array(
 
 /** Zazaki (Zazaki)
  * @author Aspar
+ * @author Erdemaslancan
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -809,8 +810,7 @@ $messages['diq'] = array(
 	'math_unknown_function' => 'fonksiyon nizanyeno',
 	'math_lexing_error' => 'ğeleto lexing',
 	'math_syntax_error' => 'ğeleto sintaks',
-	'math_image_error' => 'Conversiyonê PNG de ğeleti esta;
-qe ronayişê raşti ye latex, dvips, gs kontrol bike u convert bike',
+	'math_image_error' => 'Açarnayışê PNG nêbı;programan de latex, dvips u gs ra rast barbıyayışi ra emel bê u karfinayışê açarnayışi dest pêkerê.',
 	'math_bad_tmpdir' => 'Nieşkeno binusi ya zi direktorê mathi virazi',
 	'math_bad_output' => 'Nieşkeno binusi ya zi direktorê mathi ye outputi virazi',
 	'math_notexvc' => "xebetnayekarê texvc'i vindbiyo
