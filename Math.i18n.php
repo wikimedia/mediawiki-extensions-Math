@@ -1105,9 +1105,22 @@ Volyéd liére « math/README » por lo configurar.',
  * @author Pyt
  */
 $messages['frr'] = array(
+	'math-desc' => 'Wiset matemaatisk formeln tesken <code>&lt;math&gt;</code> an <code>&lt;/math&gt;</code> uun.',
 	'math_sample' => 'Formel heer önjfäige',
 	'math_tip' => 'Matemaatisch formel (LaTex)',
 	'prefs-math' => 'TeX',
+	'mw_math_png' => 'Leewen üs PNG uunwise',
+	'mw_math_source' => 'Uun TeX-formoot läät (för tekst-browsers)',
+	'mw_math_mathjax' => 'MathJax (eksperimentel; best för a miast browsers)',
+	'math_failure' => "Bi't auersaaten as wat skiaf gingen.",
+	'math_unknown_error' => 'Ünbekäänd feeler',
+	'math_unknown_function' => 'Ünbekäänd funktsjuun',
+	'math_lexing_error' => 'Leksikaalisk feeler',
+	'math_syntax_error' => 'Süntaksfeeler',
+	'math_image_error' => 'PNG konwertiarin as skiaf gingen. Preewe det iinrachtang faan LaTeX an dvipng (of dvips + gs + convert)',
+	'math_bad_tmpdir' => 'Det föörluupen fertiaknis för matemaatisk formeln küd ei brükt of iinracht wurd.',
+	'math_bad_output' => 'Det fertiaknis för matemaatisk formeln küd ei brükt of iinracht wurd.',
+	'math_notexvc' => "Det texvc program as ei diar. Luke hü det iinrachten gongt uun't datei math/README.",
 );
 
 /** Friulian (Furlan) */
