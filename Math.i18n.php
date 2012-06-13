@@ -4018,7 +4018,7 @@ $messages['vro'] = array(
 	'math_notexvc' => 'Olõ-i texvc-tüüriista; loeq tuu paikasäädmise kotsilõ math/README-st.',
 );
 
-/** Walloon (Walon) */
+/** Walloon (walon) */
 $messages['wa'] = array(
 	'math_sample' => "Tapez l' formule matematike chal",
 	'math_tip' => 'Formule matematike (LaTeX)',
