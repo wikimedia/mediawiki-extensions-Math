@@ -1707,8 +1707,8 @@ $messages['ja'] = array(
 	'math_lexing_error' => '字句解析エラー',
 	'math_syntax_error' => '構文エラー',
 	'math_image_error' => 'PNGへの変換に失敗しました。dvipng（もしくはdvipsとgsとconvert）およびlatexが正しくインストールされているか確認してください。',
-	'math_bad_tmpdir' => '数式一時ディレクトリーへの書き込みまたは作成ができません',
-	'math_bad_output' => '数式一時ディレクトリーへの書き込みまたは作成ができません',
+	'math_bad_tmpdir' => '数式一時ディレクトリでの書き込みまたは作成ができません',
+	'math_bad_output' => '数式出力ディレクトリでの書き込みまたは作成ができません',
 	'math_notexvc' => 'texvcの実行可能ファイルが見つかりません。math/READMEを読んで設定してください。',
 );
 
