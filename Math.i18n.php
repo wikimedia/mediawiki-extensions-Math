@@ -2002,11 +2002,13 @@ $messages['krc'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'math-desc' => 'Zeisch Fomelle us de Mathematik aan, die ennerhallef vun <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> schtonn.',
 	'math_sample' => 'Heh schriev de Formel en „LaTeX“ Forrem eren',
 	'math_tip' => 'En mathematisch Formel',
 	'prefs-math' => 'Mathematisch Formele',
 	'mw_math_png' => 'Immer nor PNG aanzeije',
 	'mw_math_source' => 'Lohß et als TeX (jod för de Tex-Brausere)',
+	'mw_math_mathjax' => '<i lang="en">MathJax</i> (för zom Ußprobeere un et bäß för de miehtsde Brausere)',
 	'math_failure' => 'Fähler vum Parser',
 	'math_unknown_error' => 'Fähler, dä mer nit kenne',
 	'math_unknown_function' => 'en Funktion, die mer nit kenne',
