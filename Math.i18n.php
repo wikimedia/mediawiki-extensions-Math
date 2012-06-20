@@ -1617,21 +1617,26 @@ $messages['ike-latn'] = array(
 );
 
 /** Iloko (Ilokano)
+ * @author Lam-ang
  * @author Saluyot
  */
 $messages['ilo'] = array(
-	'math_sample' => 'Isulbong ti formula ditoy',
-	'math_tip' => 'Matematikal a formula (LaTeX)',
+	'math-desc' => 'Agipaay kadagiti matematiko a pagannurotan a nagbaetan dagiti <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> nga etiketa',
+	'math_sample' => 'Isengngat ti pagannurotan ditoy',
+	'math_tip' => 'Matematiko a pagannurotan  (LaTeX)',
 	'prefs-math' => 'Math',
-	'mw_math_png' => 'Kanayon a pagbalinen a PNG',
-	'mw_math_source' => 'Ibati lattan a kas TeX (para kadagiti text browsers)',
-	'math_failure' => 'Napaay nga ag-parse',
-	'math_unknown_error' => 'di ammo a biddut',
-	'math_unknown_function' => 'di ammo a function',
-	'math_lexing_error' => 'lexing error',
-	'math_syntax_error' => 'biddut iti syntax',
-	'math_image_error' => 'Napaay ti PNG conversion;
-itsek ti husto a panangikapet iti latex, dvips, gs, samo i-convert',
+	'mw_math_png' => 'Kanayon nga ipaay ti PNG',
+	'mw_math_source' => 'Ibati lattan a kas ti TeX (para kadagiti testo a pagbasabasa)',
+	'mw_math_mathjax' => 'MathJax (eksperimento; kasayaatan para kadagiti kaaduan a pagbasabasa)',
+	'math_failure' => 'Napaay a na-parse',
+	'math_unknown_error' => 'di amammo a biddut',
+	'math_unknown_function' => 'di amammo a pamay-an',
+	'math_lexing_error' => 'lexing a biddut',
+	'math_syntax_error' => 'biddut ti gramatika',
+	'math_image_error' => 'Napaay ti panagbalbaliw ti PNG ; kitaen para kadagiti husto a panagikabil iti latex ken dvipng (wenno dvips + gs + panagbalbaliw)',
+	'math_bad_tmpdir' => 'Saan a makasurat wenno makapartuat ti temporario a direktorio ti math',
+	'math_bad_output' => 'Saan a makasurat wenno makapartuat ti maiparang a direktorio ti math',
+	'math_notexvc' => 'Awan dagiti mapabalin a texvc; pangngaasi a kitaen ti math/README tapno maaramid.',
 );
 
 /** Ido (Ido)
