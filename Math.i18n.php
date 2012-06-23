@@ -4025,7 +4025,9 @@ $messages['vro'] = array(
 	'math_notexvc' => 'Olõ-i texvc-tüüriista; loeq tuu paikasäädmise kotsilõ math/README-st.',
 );
 
-/** Walloon (walon) */
+/** Walloon (walon)
+ * @author Srtxg
+ */
 $messages['wa'] = array(
 	'math_sample' => "Tapez l' formule matematike chal",
 	'math_tip' => 'Formule matematike (LaTeX)',
@@ -4035,7 +4037,7 @@ $messages['wa'] = array(
 	'math_unknown_error' => 'aroke nén cnoxhowe',
 	'math_unknown_function' => 'fonccion nén cnoxhowe',
 	'math_syntax_error' => 'aroke di sintacse',
-	'math_image_error' => 'Li cviersaedje e PNG a fwait berwete; verifyîz ki les programes latex, dvips, gs eyet convert ont stî astalés comifåt',
+	'math_image_error' => 'Li cviersaedje e PNG a fwait berwete; verifyîz ki les programes latex et dvipng (ou dvips + gs + convert) ont stî astalés comifåt',
 	'math_bad_tmpdir' => "Dji n' sai nén scrire ou ahiver l' ridant timporaire po les formules matematikes",
 	'math_bad_output' => "Dji n' sai nén scrire ou ahiver l' ridant po les fitchîs di rexhowe des formules matematikes",
 	'math_notexvc' => 'I manke li fitchî enondåve texvc; lijhoz math/README po-z apontyî.',
