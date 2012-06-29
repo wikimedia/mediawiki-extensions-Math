@@ -68,7 +68,7 @@ class MathRenderer {
 						'dir' => 'ltr'
 					)
 				),
-				'$ ' . str_replace( "\n", " ", $this->tex) . ' $'
+				'$ ' . str_replace( "\n", " ", $this->tex ) . ' $'
 			);
 		}
 		if( $this->tex == '' ) {
