@@ -119,7 +119,7 @@ $messages['am'] = array(
 	'math_bad_output' => 'ወደ math ውጤት ዶሴ መጻፍ ወይም መፍጠር አይቻልም',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -400,7 +400,7 @@ $messages['be'] = array(
 	'math_notexvc' => 'Не знойдзены выканальны модуль texvc; аб яго настаўленнях чытайце ў math/README.',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -696,7 +696,7 @@ $messages['cs'] = array(
 	'math_notexvc' => 'Chybí spustitelný texvc; podívejte se prosím do math/README na konfiguraci.',
 );
 
-/** Kashubian (Kaszëbsczi)
+/** Kashubian (kaszëbsczi)
  * @author Kaszeba
  * @author Warszk
  */
@@ -709,7 +709,7 @@ $messages['csb'] = array(
 	'math_failure' => 'Parser nie rozmiôł rozpòznac',
 );
 
-/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -730,11 +730,13 @@ $messages['cv'] = array(
  * @author Lloffiwr
  */
 $messages['cy'] = array(
+	'math-desc' => 'Arddangos fformwla mathemategol rhwng y tagiau <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Gosodwch fformwla yma',
 	'math_tip' => 'Fformwla mathemategol (LaTeX)',
 	'prefs-math' => 'Mathemateg',
 	'mw_math_png' => 'Arddangos symbolau mathemateg fel delwedd PNG bob amser',
 	'mw_math_source' => 'Gadewch fel côd TeX (ar gyfer porwyr testun)',
+	'mw_math_mathjax' => "MathJax (arbrofol; yn orau i'r mwyafrif o borwyr)",
 	'math_failure' => 'Wedi methu dosrannu',
 	'math_unknown_error' => 'gwall anhysbys',
 	'math_unknown_function' => 'ffwythiant anhysbys',
@@ -817,7 +819,7 @@ $messages['diq'] = array(
 qey 'eyar kerdışi bıewnê math/README'yi.",
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  * @author Nepl1
  * @author Pe7er
@@ -1227,7 +1229,7 @@ $messages['gd'] = array(
 	'math_unknown_error' => 'mearachd neo-aithnichte',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Alma
  * @author Toliño
  * @author Xosé
@@ -1472,7 +1474,7 @@ $messages['hr'] = array(
 	'math_notexvc' => 'Nedostaje izvršna datoteka texvc-a; pogledajte math/README za postavke.',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -3120,7 +3122,7 @@ $messages['ru'] = array(
 	'math_notexvc' => 'Выполняемый файл texvc не найден; См. math/README — справку по настройке.',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
@@ -3278,7 +3280,7 @@ $messages['sei'] = array(
 	'math_syntax_error' => 'römjde syntáx',
 );
 
-/** Samogitian (Žemaitėška) */
+/** Samogitian (žemaitėška) */
 $messages['sgs'] = array(
 	'math_sample' => 'Iveskėt fuormolė',
 	'math_tip' => 'Matematinė fuormolė (LaTeX fuormato)',
@@ -3567,7 +3569,7 @@ $messages['sw'] = array(
 	'math_unknown_error' => 'hitilafu isiyojulikana',
 );
 
-/** Silesian (Ślůnski)
+/** Silesian (ślůnski)
  * @author Lajsikonik
  * @author Timpul
  */
