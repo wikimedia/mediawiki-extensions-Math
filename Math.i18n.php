@@ -935,11 +935,13 @@ $messages['es'] = array(
  * @author WikedKentaur
  */
 $messages['et'] = array(
+	'math-desc' => 'Viimistleb märgendite <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> vahel olevad matemaatilised valemid.',
 	'math_sample' => 'Sisesta valem siia',
 	'math_tip' => 'Matemaatiline valem (LaTeX)',
 	'prefs-math' => 'Valemite näitamine',
 	'mw_math_png' => 'Alati PNG',
 	'mw_math_source' => 'Säilitada TeX (tekstibrauserite puhul)',
+	'mw_math_mathjax' => 'MathJax (katseline; parim enamiku võrgulehitsejatega)',
 	'math_failure' => 'Arusaamatu süntaks',
 	'math_unknown_error' => 'Tundmatu viga',
 	'math_unknown_function' => 'Tundmatu funktsioon',
