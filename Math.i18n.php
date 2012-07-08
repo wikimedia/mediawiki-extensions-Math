@@ -3728,11 +3728,13 @@ konfigurirlemek üçin math/README serediň.',
  * @author AnakngAraw
  */
 $messages['tl'] = array(
+	'math-desc' => 'Iharap ang mga pormulang pangmatematika sa pagitan ng mga tatak na <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Isingit ang pormula dito',
 	'math_tip' => 'Pormulang pangmatematika (LaTeX)',
 	'prefs-math' => 'Matematika',
 	'mw_math_png' => 'Palaging ilarawan sa anyong PNG',
 	'mw_math_source' => "Iwanan bilang TeX (para sa mga panghanap na pangteksto o ''text browser'')",
+	'mw_math_mathjax' => 'MathJax (eksperimental; pinaka mahusay para sa karamihan ng mga pantingin-tingin)',
 	'math_failure' => 'Nabigo sa pagbanghay',
 	'math_unknown_error' => 'hindi nalalamang kamalian',
 	'math_unknown_function' => 'hindi nalalamang tungkulin',
