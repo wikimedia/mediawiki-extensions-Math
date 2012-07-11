@@ -265,7 +265,7 @@ $messages['ast'] = array(
 	'math_notexvc' => "Falta l'executable 'texvc'; por favor mira 'math/README' pa configuralo.",
 );
 
-/** Avaric (Авар)
+/** Avaric (авар)
  * @author Amire80
  */
 $messages['av'] = array(
@@ -304,7 +304,7 @@ $messages['az'] = array(
 	'math_syntax_error' => 'sintaksis xətası',
 );
 
-/** Bashkir (Башҡортса)
+/** Bashkir (башҡортса)
  * @author Assele
  * @author Haqmar
  * @author Рустам Нурыев
@@ -580,7 +580,7 @@ $messages['cdo'] = array(
 	'math_unknown_function' => 'muôi báik hàng-só',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -641,7 +641,7 @@ $messages['cps'] = array(
 	'math_tip' => 'Pormula nga pangmatematika (LaTeX)',
 );
 
-/** Crimean Turkish (Latin script) (‪Qırımtatarca (Latin)‬)
+/** Crimean Turkish (Latin script) (‪qırımtatarca (Latin)‬)
  * @author Don Alessandro
  */
 $messages['crh-latn'] = array(
@@ -657,7 +657,7 @@ $messages['crh-latn'] = array(
 	'math_syntax_error' => 'sintaksis hatası',
 );
 
-/** Crimean Turkish (Cyrillic script) (‪Къырымтатарджа (Кирилл)‬)
+/** Crimean Turkish (Cyrillic script) (‪къырымтатарджа (Кирилл)‬)
  * @author Don Alessandro
  */
 $messages['crh-cyrl'] = array(
@@ -1873,7 +1873,7 @@ latex, dvips, gs جانە convert باعدارلامالارىنىڭ دۇرىس 
 باپتاۋ ٴۇشىن math/README قۇجاتىن قاراڭىز.',
 );
 
-/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'math_sample' => 'Өрнекті мында енгізіңіз',
 	'math_tip' => 'Математика өрнегі (LaTeX)',
@@ -1893,7 +1893,7 @@ latex, dvips, gs және convert бағдарламаларының дұрыс 
 баптау үшін math/README құжатын қараңыз.',
 );
 
-/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'math_sample' => 'Örnekti mında engiziñiz',
 	'math_tip' => 'Matematïka örnegi (LaTeX)',
@@ -1986,7 +1986,7 @@ $messages['koi'] = array(
 	'math_tip' => 'Математикаись формула',
 );
 
-/** Karachay-Balkar (Къарачай-Малкъар)
+/** Karachay-Balkar (къарачай-малкъар)
  * @author Iltever
  * @author Къарачайлы
  */
@@ -2293,7 +2293,7 @@ $messages['mai'] = array(
 	'prefs-math' => 'गणित',
 );
 
-/** Moksha (Мокшень)
+/** Moksha (мокшень)
  * @author Jarmanj Turtash
  * @author Kranch
  * @author Numulunj pilgae
@@ -2336,7 +2336,7 @@ Avelao ho TeX (ho an'ny navigateurs textes)",
 	'math_notexvc' => 'Tsy hita ny rindrankajy texvc; azafady jereo math/README hanamboarana azy.',
 );
 
-/** Eastern Mari (Олык Марий)
+/** Eastern Mari (олык марий)
  * @author Сай
  */
 $messages['mhr'] = array(
@@ -2455,7 +2455,7 @@ $messages['mr'] = array(
 	'math_notexvc' => 'texvcकरणी(texvc एक्झिक्यूटेबल)चूकमुकली आहे;कृपया,सज्जीत करण्याकरिता math/README पहा.',
 );
 
-/** Hill Mari (Кырык мары)
+/** Hill Mari (кырык мары)
  * @author Amdf
  */
 $messages['mrj'] = array(
@@ -2533,7 +2533,7 @@ $messages['my'] = array(
 	'math_unknown_function' => 'အမည်မသိ ဖန်ရှင်',
 );
 
-/** Erzya (Эрзянь)
+/** Erzya (эрзянь)
  * @author Amdf
  * @author Botuzhaleny-sodamo
  */
@@ -2576,12 +2576,13 @@ $messages['nan'] = array(
 	'mw_math_source' => 'Î-chhî TeX ê keh-sek (khah ha̍h bûn-jī-sek ê liû-lám-khì)',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
+ * @author Event
  * @author Nghtwlkr
  * @author Stigmj
  */
 $messages['nb'] = array(
+	'math-desc' => 'Fremstill matematiske formler inne i taggparet <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Sett inn formel her',
 	'math_tip' => 'Matematisk formel (LaTeX)',
 	'prefs-math' => 'Matteformler',
@@ -3832,7 +3833,7 @@ $messages['tt-latn'] = array(
 	'math_syntax_error' => 'sintaksik xata',
 );
 
-/** Tuvinian (Тыва дыл)
+/** Tuvinian (тыва дыл)
  * @author Sborsody
  */
 $messages['tyv'] = array(
@@ -3896,7 +3897,7 @@ $messages['ur'] = array(
 latex، dvips، gs کی صحیح تنصیب کی جانچ کرنے کے بعد دوبارہ تحویل کی کوشش کیجئے.',
 );
 
-/** Uzbek (Oʻzbekcha)
+/** Uzbek (oʻzbekcha)
  * @author Abdulla
  */
 $messages['uz'] = array(
@@ -3927,7 +3928,7 @@ $messages['vec'] = array(
 	'math_notexvc' => 'Eseguibile texvc mancante; par piaser consulta math/README par la configurazion.',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
@@ -4072,7 +4073,7 @@ $messages['wuu'] = array(
 	'prefs-math' => '数学公式',
 );
 
-/** Kalmyk (Хальмг)
+/** Kalmyk (хальмг)
  * @author Huuchin
  */
 $messages['xal'] = array(
