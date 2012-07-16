@@ -177,6 +177,19 @@ class MathRenderer {
 		}else{	
 			return $this->_error('math_failure');
 			}
+		$md5_sql = pack( 'H32', $this->md5 ); # Binary packed, not hex
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->replace('mathindex',
+		array( 'pagename','anchor', ),
+		array(
+				//'tex' => $this->tex,
+				'pagename' => $this->title,
+				'anchor' =>  $this->anchor ,
+				//'mathml' => $this->mathml,
+				//'status'=> $this->status,
+				//'error'=> $this->log,
+				'inputhash' => $dbw->encodeBlob( $md5_sql )
+				));
 		return $this->_doRender();
 	}
 
