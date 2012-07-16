@@ -123,7 +123,6 @@ $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
 $wgAutoloadClasses['MathRenderer'] = $dir . 'Math.body.php';
 $wgAutoloadClasses['MathLaTeXML'] = $dir . 'Math.LaTeXML.php';
-$wgAutoloadClasses['EDUtils'] = $dir. 'ED_Utils.php';
 $wgAutoloadClasses['MathTexvc'] = $dir . 'Math.texvc.php';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
@@ -134,8 +133,13 @@ $moduleTemplate = array(
 	'remoteExtPath' => 'Math/modules',
 );
 
-//Don't use MathJax with Firefox
- if (!preg_match('/Firefox/',$_SERVER['HTTP_USER_AGENT'])){
+
+if(isset($_SERVER['HTTP_USER_AGENT'])){
+$UA=$_SERVER['HTTP_USER_AGENT'];
+} else
+{$UA="undefined"; //required for maitenance script runs
+}
+ if (!preg_match('/Firefox/',$UA)){ //Don't use MathJax with Firefox this has to be extenden to other browser that suppert MathML maybe a function supports MathML was the correct way to go 
 $wgResourceModules['ext.math.mathjax'] = array(
 	'scripts' => array(
 		'MathJax/MathJax.js',
