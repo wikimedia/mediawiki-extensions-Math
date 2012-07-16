@@ -42,9 +42,9 @@ class MathHooks {
 	 * @return
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgContLang, $wgUseMathJax;
+		global $wgContLang, $wgUseMathJax; //Title of the page is needed to create appropiate database entries
 		$renderedMath = MathRenderer::renderMath(
-			$content, $attributes, $parser->getOptions()
+			$content, $attributes, $parser
 		);
 
 		if ( $wgUseMathJax && $parser->getOptions()->getMath() == MW_MATH_MATHJAX ) {
