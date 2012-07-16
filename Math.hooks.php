@@ -36,31 +36,23 @@ class MathHooks {
 	/**
 	 * Callback function for the <math> parser hook.
 	 *
-	 * @param $content (the LaTeX input)
+	 * @param $content
 	 * @param $attributes
 	 * @param $parser Parser
-	 * @return string
+	 * @return
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgContLang, $wgUseMathJax;
-		if (  trim( $content )  === "" ) { // bug 8372
-			return "";
-		}
-		$mode = $parser->getOptions()->getMath();
-		$renderer = MathRenderer::getRenderer(
-			$content, $attributes, $mode
+		global $wgContLang, $wgUseMathJax; //Title of the page is needed to create appropiate database entries
+		$renderedMath = MathRenderer::renderMath(
+			$content, $attributes, $parser
 		);
-		$renderer->setAnchorID( $parser->nextLinkID() ); // Add an ID for referencing the equation later on only used by LaTeXML
-		$renderedMath = $renderer->render();
-		wfRunHooks( 'MathFormulaRendered', array( &$renderer,&$parser) );//Enables indexing of math formula
-		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
-			// $renderer->addModules(&$parser);
+
+		if ( $wgUseMathJax && $parser->getOptions()->getMath() == MW_MATH_MATHJAX ) {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
-		} elseif ( $wgUseMathJax && $mode == MW_MATH_LATEXML ) {
-			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler.mml' ) );
-		} 
-		$renderer->writeCache();
-		return $wgContLang->armourMath( $renderedMath );
+		}
+		$output = $renderedMath;
+
+		return $wgContLang->armourMath( $output );
 	}
 
 	/**
@@ -73,7 +65,7 @@ class MathHooks {
 	static function onGetPreferences( $user, &$defaultPreferences ) {
 		$defaultPreferences['math'] = array(
 			'type' => 'radio',
-			'options' => array_flip( self::getMathNames() ),
+			'options' => array_flip( array_map( 'wfMsgHtml', self::getMathNames() ) ),
 			'label' => '&#160;',
 			'section' => 'rendering/math',
 		);
@@ -87,15 +79,15 @@ class MathHooks {
 	 */
 	private static function getMathNames() {
 		$names = array(
-			MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
-			MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
+			MW_MATH_PNG => 'mw_math_png',
+			MW_MATH_SOURCE => 'mw_math_source',
 		);
 
 		global $wgUseMathJax;
-		if ( $wgUseMathJax ) {
-			$names[MW_MATH_MATHJAX] = wfMessage( 'mw_math_mathjax' )->escaped();
+		if( $wgUseMathJax ) {
+			$names[MW_MATH_MATHJAX] = 'mw_math_mathjax';
 		}
-
+		
 		return $names;
 	}
 
@@ -118,11 +110,10 @@ class MathHooks {
 	 * LoadExtensionSchemaUpdates handler; set up math table on install/upgrade.
 	 *
 	 * @param $updater DatabaseUpdater
-	 * @throws MWException
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
-		if ( is_null( $updater ) ) {
+		if( is_null( $updater ) ) {
 			throw new MWException( "Math extension is only necessary in 1.18 or above" );
 		}
 		$map = array(

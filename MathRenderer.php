@@ -37,7 +37,11 @@ class MathRenderer {
 	var $hash = '';
 	var $html = '';
 	var $mathml = '';
+	var $status='';
+	var $log = '';
 	var $conservativeness = 0;
+	var $title='';
+	var $anchor=0;
 
 	function __construct( $tex, $params = array() ) {
 		$this->tex = $tex;
@@ -79,9 +83,8 @@ class MathRenderer {
 
 		if( !$this->_recall() ) {
 		$latexmlmath=new MathLaTeXML();
-		$latexmlmath->render($this);
-			if ($this->mode == MW_MATH_MATHJAX){
-				if ( !wfReadOnly() ) {
+		if($latexmlmath->render($this)){
+		if ( !wfReadOnly() ) {
 				if (!$this->hash)
 					$this->hash = md5( $this->tex );
 				$outmd5_sql = pack( 'H32', $this->hash );
@@ -98,9 +101,8 @@ class MathRenderer {
 						'math_mathml' => $this->mathml,
 					),
 					__METHOD__
-				);
-			}
-			}else{
+				);}
+			if ($this->mode != MW_MATH_MATHJAX){
 			if( $wgMathCheckFiles ) {
 				# Ensure that the temp and output directories are available before continuing...
 				if( !file_exists( $wgTmpDirectory ) ) {
@@ -172,7 +174,9 @@ class MathRenderer {
 				$u->doUpdate();
 			}
 		}}
-
+		}else{	
+			return $this->_error('math_failure');
+			}
 		return $this->_doRender();
 	}
 
@@ -294,7 +298,8 @@ class MathRenderer {
 				'img',
 				array(
 					'class' => 'tex',
-					'alt' => $this->tex
+					'alt' => $this->tex,
+					'id' => 'math'.$this->anchor
 				),
 				array(
 					'src' => $url
@@ -310,7 +315,7 @@ class MathRenderer {
 					array(
 						'class' => 'tex',
 						'dir' => 'ltr',
-						'id' => $this->hash
+						'id' => 'math'.$this->anchor
 					)
 				),
 				$mml
@@ -322,7 +327,12 @@ class MathRenderer {
 		$dir = $this->_getHashSubPath();
 		return "$wgMathPath/$dir/{$this->hash}.png";
 	}
-
+	function setPageTitle($sTitle){
+		$this->title=$sTitle;
+		}
+	function setAnchorID($sTitle){
+		$this->anchor=$sTitle;
+		}
 	function _getHashPath() {
 		global $wgMathDirectory;
 		$path = $wgMathDirectory . '/' . $this->_getHashSubPath();
@@ -336,14 +346,15 @@ class MathRenderer {
 					. '/' . substr( $this->hash, 2, 1 );
 	}
 
-	public static function renderMath( $tex, $params = array(), ParserOptions $parserOptions = null ) {
+	public static function renderMath( $tex, $params = array(),  $parser = null ) {
 		if( trim( $tex ) == "" ) {
 			return "";
 		}
-
-		$math = new MathRenderer( $tex, $params );
-		if ( $parserOptions ) {
-			$math->setOutputMode( $parserOptions->getMath() );
+		$math = new MathRenderer( $tex, $params ); //Added more options
+		if ( $parser ) {
+			$math->setOutputMode($parser->getOptions()->getMath());
+			$math->setPageTitle($parser->getTitle()->getText());
+			$math->setAnchorID($parser->nextLinkID());
 		}
 		return $math->render();
 	}
