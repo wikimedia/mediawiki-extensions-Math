@@ -40,7 +40,7 @@ class MathRenderer {
 	var $status='';
 	var $log = '';
 	var $conservativeness = 0;
-	var $title='';
+	var $pageID=0;
 	var $anchor=0;
 
 	function __construct( $tex, $params = array() ) {
@@ -183,7 +183,7 @@ class MathRenderer {
 		array( 'pagename','anchor', ),
 		array(
 				//'tex' => $this->tex,
-				'pagename' => $this->title,
+				'pageid' => $this->pageID,
 				'anchor' =>  $this->anchor ,
 				//'mathml' => $this->mathml,
 				//'status'=> $this->status,
@@ -340,11 +340,11 @@ class MathRenderer {
 		$dir = $this->_getHashSubPath();
 		return "$wgMathPath/$dir/{$this->hash}.png";
 	}
-	function setPageTitle($sTitle){
-		$this->title=$sTitle;
+	function setPageID($ID){
+		$this->pageID=$ID;
 		}
-	function setAnchorID($sTitle){
-		$this->anchor=$sTitle;
+	function setAnchorID($ID){
+		$this->anchor=$ID;
 		}
 	function _getHashPath() {
 		global $wgMathDirectory;
@@ -366,7 +366,7 @@ class MathRenderer {
 		$math = new MathRenderer( $tex, $params ); //Added more options
 		if ( $parser ) {
 			$math->setOutputMode($parser->getOptions()->getMath());
-			$math->setPageTitle($parser->getTitle()->getText());
+			$math->setPageID($parser->getTitle()->getArticleID());
 			$math->setAnchorID($parser->nextLinkID());
 		}
 		return $math->render();
