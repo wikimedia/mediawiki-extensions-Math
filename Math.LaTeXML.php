@@ -36,7 +36,7 @@ class MathLaTeXML{
 				{wfDebug("LaTeXML","\nLaTeXML Error:". var_export(array($result,$post, $wgLaTeXMLUrl),true)."\n\n");
 				return false;}
 
-			wfDebug( "Latexml request: $post\n processed in $time seconds." );
+			wfDebugLog( "LaTeXML","Latexml request: $post\n processed in $time seconds." );
 			return true;
 			//wfDebug( "Latexml output:\n $result\n---\n" );
 		}
