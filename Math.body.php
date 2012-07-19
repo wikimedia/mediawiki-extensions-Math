@@ -347,7 +347,7 @@ class MathRenderer {
 					'math_html_conservativeness' => $this->conservativeness,
 					'math_html' => $this->html,
 					'math_mathml' => $this->mathml,
-					'math_tex' => $this->tex,
+					//'math_tex' => $this->tex,
 				),
 				__METHOD__
 			);
