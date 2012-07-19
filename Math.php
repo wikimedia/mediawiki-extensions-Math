@@ -108,6 +108,10 @@ $wgMathJaxUrl = 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS
  */
 $wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
 
+/**
+ * Determines if an Index-Table of all mathematical Formula should be created
+ */
+$wgCreateMathIndex=false;
 ////////// end of config settings.
 
 $wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;//MW_MATH_PNG;

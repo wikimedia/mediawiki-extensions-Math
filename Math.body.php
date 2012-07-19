@@ -84,24 +84,7 @@ class MathRenderer {
 		if( !$this->_recall() ) {
 		$latexmlmath=new MathLaTeXML();
 		if($latexmlmath->render($this)){
-		if ( !wfReadOnly() ) {
-				if (!$this->hash)
-					$this->hash = md5( $this->tex );
-				$outmd5_sql = pack( 'H32', $this->hash );
-
-				$md5_sql = pack( 'H32', $this->md5 ); # Binary packed, not hex
-
-				$dbw = wfGetDB( DB_MASTER );
-				$dbw->replace(
-					'math',
-					array( 'math_inputhash' ),
-					array(
-						'math_inputhash' => $dbw->encodeBlob( $md5_sql ),
-						'math_outputhash' => $dbw->encodeBlob( $outmd5_sql ),
-						'math_mathml' => $this->mathml,
-					),
-					__METHOD__
-				);}
+			$this->writeDBentry();
 			if ($this->mode != MW_MATH_MATHJAX){
 			if( $wgMathCheckFiles ) {
 				# Ensure that the temp and output directories are available before continuing...
@@ -145,26 +128,7 @@ class MathRenderer {
 				return $this->_error( 'math_output_error' );
 			}
 
-			# Now save it back to the DB:
-			if ( !wfReadOnly() ) {
-				$outmd5_sql = pack( 'H32', $this->hash );
 
-				$md5_sql = pack( 'H32', $this->md5 ); # Binary packed, not hex
-
-				$dbw = wfGetDB( DB_MASTER );
-				$dbw->replace(
-					'math',
-					array( 'math_inputhash' ),
-					array(
-						'math_inputhash' => $dbw->encodeBlob( $md5_sql ),
-						'math_outputhash' => $dbw->encodeBlob( $outmd5_sql ),
-						'math_html_conservativeness' => $this->conservativeness,
-						'math_html' => $this->html,
-						'math_mathml' => $this->mathml,
-					),
-					__METHOD__
-				);
-			}
 
 			// If we're replacing an older version of the image, make sure it's current.
 			global $wgUseSquid;
@@ -177,19 +141,6 @@ class MathRenderer {
 		}else{	
 			return $this->_error('math_failure');
 			}
-		$md5_sql = pack( 'H32', $this->md5 ); # Binary packed, not hex
-		$dbw = wfGetDB( DB_MASTER );
-		$dbw->replace('mathindex',
-		array( 'pagename','anchor', ),
-		array(
-				//'tex' => $this->tex,
-				'pageid' => $this->pageID,
-				'anchor' =>  $this->anchor ,
-				//'mathml' => $this->mathml,
-				//'status'=> $this->status,
-				//'error'=> $this->log,
-				'inputhash' => $dbw->encodeBlob( $md5_sql )
-				));
 		return $this->_doRender();
 	}
 
@@ -202,8 +153,6 @@ class MathRenderer {
 
 	function _recall() {
 		global $wgMathDirectory, $wgMathCheckFiles;
-
-		$this->md5 = md5( $this->tex );
 		$dbr = wfGetDB( DB_SLAVE );
 		$rpage = $dbr->selectRow(
 			'math',
@@ -212,7 +161,7 @@ class MathRenderer {
 				'math_mathml'
 			),
 			array(
-				'math_inputhash' => $dbr->encodeBlob( pack( "H32", $this->md5 ) ) # Binary packed, not hex
+				'math_inputhash' => $dbr->encodeBlob( $this->getInputhash()) # Binary packed, not hex
 			),
 			__METHOD__
 		);
@@ -302,6 +251,12 @@ class MathRenderer {
 		$attribs = Sanitizer::mergeAttributes( $attribs, $overrides );
 		return $attribs;
 	}
+	static function attribs( $tag, $defaults = array(), $overrides = array(),$params = array() ) {
+		$attribs = Sanitizer::validateTagAttributes( $params, $tag );
+		$attribs = Sanitizer::mergeAttributes( $defaults, $attribs );
+		$attribs = Sanitizer::mergeAttributes( $attribs, $overrides );
+		return $attribs;
+	}
 
 	function _linkToMathImage() {
 		$url = $this->_mathImageUrl();
@@ -334,6 +289,19 @@ class MathRenderer {
 				$mml
 		);
 	}
+	static function embedMathML($mathml,$ID=0) {
+		$mml=str_replace("\n"," ",$mathml);
+			return Xml::tags( 'span',
+				MathRenderer::attribs( 'span',
+					array(
+						'class' => 'tex',
+						'dir' => 'ltr',
+						'id' => 'math'.$ID
+					)
+				),
+				$mml
+		);
+	}
 
 	function _mathImageUrl() {
 		global $wgMathPath;
@@ -349,7 +317,7 @@ class MathRenderer {
 	function _getHashPath() {
 		global $wgMathDirectory;
 		$path = $wgMathDirectory . '/' . $this->_getHashSubPath();
-		wfDebug( "TeX: getHashPath, hash is: $this->hash, path is: $path\n" );
+		wfDebugLog("Math", "TeX: getHashPath, hash is: $this->hash, path is: $path\n" );
 		return $path;
 	}
 
@@ -358,7 +326,54 @@ class MathRenderer {
 					. '/' . substr( $this->hash, 1, 1 )
 					. '/' . substr( $this->hash, 2, 1 );
 	}
-
+	function getInputHash(){
+		return pack( 'H32', md5($this->tex) ); # Binary packed, not hex
+	}
+	
+	function writeDBentry(){
+			# Now save it back to the DB:
+			global $wgOut;
+		if ( !wfReadOnly() ) {
+			$dbw = wfGetDB( DB_MASTER );
+			$outmd5_sql = pack( 'H32', $this->hash );
+			wfDebugLog("math","store entry for".$this->tex." in database");
+			$inputhash = $dbw->encodeBlob( $this->getInputHash() );
+			$dbw->replace(
+				'math',
+				array( 'math_inputhash' ),
+				array(
+					'math_inputhash' => $inputhash,
+					'math_outputhash' => $dbw->encodeBlob( $outmd5_sql ),
+					'math_html_conservativeness' => $this->conservativeness,
+					'math_html' => $this->html,
+					'math_mathml' => $this->mathml,
+					'math_tex' => $this->tex,
+				),
+				__METHOD__
+			);
+			$this->UpdateMathIndex();
+		}
+	}
+	/*
+	* Creates or updates index for mathematical formula
+	*/
+	function UpdateMathIndex(){
+	global $wgCreateMathIndex;
+	if ($wgCreateMathIndex){
+		$dbw = wfGetDB( DB_MASTER );
+		wfDebugLog("Math",'Store index for $'.$this->tex.'$ in database');
+		$inputhash = $dbw->encodeBlob( $this->getInputHash() );
+		$dbw->replace('mathindex',
+		array( 'pageid','anchor', ),
+		array(
+				'pageid' => $this->pageID,
+				'anchor' =>  $this->anchor ,
+				'inputhash' => $inputhash
+				));
+			wfDebugLog("Math","inputhash=$inputhash (".md5($this->tex).")");
+	}
+	}
+	
 	public static function renderMath( $tex, $params = array(),  $parser = null ) {
 		if( trim( $tex ) == "" ) {
 			return "";
