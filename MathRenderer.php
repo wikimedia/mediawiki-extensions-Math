@@ -141,6 +141,7 @@ class MathRenderer {
 		}else{	
 			return $this->_error('math_failure');
 			}
+		$this->UpdateMathIndex();
 		return $this->_doRender();
 	}
 
@@ -335,7 +336,10 @@ class MathRenderer {
 			global $wgOut;
 		if ( !wfReadOnly() ) {
 			$dbw = wfGetDB( DB_MASTER );
-			$outmd5_sql = pack( 'H32', $this->hash );
+			if($this->hash)
+				$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ));
+			else
+				$outmd5_sql = null;
 			wfDebugLog("math","store entry for".$this->tex." in database");
 			$inputhash = $dbw->encodeBlob( $this->getInputHash() );
 			$dbw->replace(
@@ -343,7 +347,7 @@ class MathRenderer {
 				array( 'math_inputhash' ),
 				array(
 					'math_inputhash' => $inputhash,
-					'math_outputhash' => $dbw->encodeBlob( $outmd5_sql ),
+					'math_outputhash' => $outmd5_sql ,
 					'math_html_conservativeness' => $this->conservativeness,
 					'math_html' => $this->html,
 					'math_mathml' => $this->mathml,
@@ -359,19 +363,8 @@ class MathRenderer {
 	*/
 	function UpdateMathIndex(){
 	global $wgCreateMathIndex;
-	if ($wgCreateMathIndex){
-		$dbw = wfGetDB( DB_MASTER );
-		wfDebugLog("Math",'Store index for $'.$this->tex.'$ in database');
-		$inputhash = $dbw->encodeBlob( $this->getInputHash() );
-		$dbw->replace('mathindex',
-		array( 'pageid','anchor', ),
-		array(
-				'pageid' => $this->pageID,
-				'anchor' =>  $this->anchor ,
-				'inputhash' => $inputhash
-				));
-			wfDebugLog("Math","inputhash=$inputhash (".md5($this->tex).")");
-	}
+	wfRunHooks( 'MathFormulaRendered', array( &$this) );
+	wfDebugLog( 'Math', 'FormulaRenderedCalled');
 	}
 	
 	public static function renderMath( $tex, $params = array(),  $parser = null ) {
