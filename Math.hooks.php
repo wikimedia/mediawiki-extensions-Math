@@ -128,8 +128,6 @@ class MathHooks {
 		if ( isset( $map[$type] ) ) {
 			$sql = dirname( __FILE__ ) . '/db/' . $map[$type];
 			$updater->addExtensionTable( 'math', $sql );
-			$sqlindex = dirname( __FILE__ ) . '/db/' . $map[$type].'.index';
-			$updater->addExtensionTable( 'mathindex', $sqlindex );
 		} else {
 			throw new MWException( "Math extension does not currently support $type database." );
 		}
