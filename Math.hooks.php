@@ -101,7 +101,7 @@ class MathHooks {
 		global $wgUser;
 
 		# Don't generate TeX PNGs (lack of a sensible current directory causes errors anyway)
-		$wgUser->setOption( 'math', MW_MATH_SOURCE );
+		//$wgUser->setOption( 'math', MW_MATH_SOURCE );
 
 		return true;
 	}
