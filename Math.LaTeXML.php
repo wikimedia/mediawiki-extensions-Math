@@ -13,11 +13,16 @@ class MathLaTeXML{
 
 	function render($super) {
 			global $wgLaTeXMLUrl;
-
+			if( is_array( $wgLaTeXMLUrl ) ) {
+				$pick = mt_rand( 0, count( $wgLaTeXMLUrl ) - 1 );
+				$host = $wgLaTeXMLUrl[$pick];
+			} else {
+				$host=$wgLaTeXMLUrl;
+			}
 			$texcmd=urlencode("\$".$super->tex."\$");
 			$post="summary=true&profile=fragment&tex=$texcmd";
 			$time_start = microtime(true);
-			$res= Http::post($wgLaTeXMLUrl, array("postData"=> $post,"timeout"=>60));
+			$res= Http::post($host, array("postData"=> $post,"timeout"=>60));
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 			$result=json_decode($res);
@@ -31,6 +36,10 @@ class MathLaTeXML{
 				if($result->status!="No obvious problems"){
 				$super->status= $result->status;
 				$super->log =$result->log;}
+				if((strpos($result->result, '<?xml version="1.0" encoding="utf-8"?>') === 0))
+					{
+					return false;
+					}
 				$super->mathml= $result->result;}
 			else
 				{wfDebug("LaTeXML","\nLaTeXML Error:". var_export(array($result,$post, $wgLaTeXMLUrl),true)."\n\n");

@@ -80,8 +80,8 @@ class MathRenderer {
 		if( $this->tex == '' ) {
 			return; # bug 8372
 		}
-
-		if( !$this->_recall() ) {
+		if(!$this->_recall() or $this->isPurge()) { //|| 
+		wfDebugLog("Math","no recall");
 		$latexmlmath=new MathLaTeXML();
 		if($latexmlmath->render($this)){
 			$this->writeDBentry();
@@ -137,10 +137,12 @@ class MathRenderer {
 				$u = new SquidUpdate( $urls );
 				$u->doUpdate();
 			}
-		}}
+		}
+		
 		}else{	
 			return $this->_error('math_failure');
 			}
+		}
 		$this->UpdateMathIndex();
 		return $this->_doRender();
 	}
@@ -180,7 +182,9 @@ class MathRenderer {
 
 			if( !$wgMathCheckFiles ) {
 				// Short-circuit the file existence & migration checks
+				wfDebugLog("Math","database entry found");
 				return true;
+				
 			}
 
 			if( file_exists( $filename ) ) {
@@ -221,7 +225,10 @@ class MathRenderer {
 		# Missing from the database and/or the render cache
 		return false;
 	}
-
+function isPurge(){
+	global $wgRequest;
+	return ($wgRequest->getVal('mathpurge')=="true")?true:false;
+}
 	/**
 	 * Select among PNG, HTML, or MathML output depending on
 	 */
@@ -335,11 +342,13 @@ class MathRenderer {
 			# Now save it back to the DB:
 			global $wgOut;
 		if ( !wfReadOnly() ) {
+			//$lb = wfGetLBFactory()->newMainLB();
+			//$dbw = $lb->getConnection( DB_MASTER );
 			$dbw = wfGetDB( DB_MASTER );
 			if($this->hash)
 				$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ));
 			else
-				$outmd5_sql = null;
+				$outmd5_sql = 0;
 			wfDebugLog("math","store entry for".$this->tex." in database");
 			$inputhash = $dbw->encodeBlob( $this->getInputHash() );
 			$dbw->replace(
@@ -355,6 +364,8 @@ class MathRenderer {
 				),
 				__METHOD__
 			);
+			//lb->commitMasterChanges();
+			//$lb->closeAll();
 			$this->UpdateMathIndex();
 		}
 	}

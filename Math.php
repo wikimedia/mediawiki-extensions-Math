@@ -63,7 +63,7 @@ $wgTexvcBackgroundColor = 'transparent';
  * On a big site with heavy NFS traffic this can be slow and flaky,
  * so sometimes we want to short-circuit it by setting this to false.
  */
-$wgMathCheckFiles = true;
+$wgMathCheckFiles = false;
 
 /**
  * The URL path of the math directory. Defaults to "{$wgUploadPath}/math".
