@@ -3863,6 +3863,7 @@ latex، dvips، gs، ۋە convert توغرا قاچىلانغانلىقىنى ت
 );
 
 /** Ukrainian (українська)
+ * @author Olvin
  * @author Тест
  */
 $messages['uk'] = array(
@@ -3871,6 +3872,7 @@ $messages['uk'] = array(
 	'prefs-math' => 'Відображення формул',
 	'mw_math_png' => 'Завжди генерувати PNG',
 	'mw_math_source' => 'Залишити в вигляді ТеХ (для текстових браузерів)',
+	'mw_math_mathjax' => 'MathJax (експериментально; найкраще підходить для більшості оглядачів)',
 	'math_failure' => 'Неможливо розібрати вираз',
 	'math_unknown_error' => 'невідома помилка',
 	'math_unknown_function' => 'невідома функція',
