@@ -935,7 +935,7 @@ $messages['es'] = array(
  * @author WikedKentaur
  */
 $messages['et'] = array(
-	'math-desc' => 'Viimistleb märgendite <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> vahel olevad matemaatilised valemid.',
+	'math-desc' => 'Viimistleb siltide <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> vahel olevad matemaatilised valemid.',
 	'math_sample' => 'Sisesta valem siia',
 	'math_tip' => 'Matemaatiline valem (LaTeX)',
 	'prefs-math' => 'Valemite näitamine',
