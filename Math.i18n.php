@@ -2009,6 +2009,7 @@ $messages['krc'] = array(
 
 /** Colognian (Ripoarisch)
  * @author Purodha
+ * @author Reedy
  */
 $messages['ksh'] = array(
 	'math-desc' => 'Zeisch Fomelle us de Mathematik aan, die ennerhallef vun <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> schtonn.',
@@ -2017,7 +2018,7 @@ $messages['ksh'] = array(
 	'prefs-math' => 'Mathematisch Formele',
 	'mw_math_png' => 'Immer nor PNG aanzeije',
 	'mw_math_source' => 'Lohß et als TeX (jod för de Tex-Brausere)',
-	'mw_math_mathjax' => '<i lang="en">MathJax</i> (för zom Ußprobeere un et bäß för de miehtsde Brausere)',
+	'mw_math_mathjax' => 'MathJax (för zom Ußprobeere un et bäß för de miehtsde Brausere)',
 	'math_failure' => 'Fähler vum Parser',
 	'math_unknown_error' => 'Fähler, dä mer nit kenne',
 	'math_unknown_function' => 'en Funktion, die mer nit kenne',
@@ -2390,6 +2391,7 @@ $messages['ml'] = array(
 	'prefs-math' => 'സമവാക്യം',
 	'mw_math_png' => 'എപ്പോഴും PNG ആയി പ്രദർശിപ്പിക്കുക',
 	'mw_math_source' => 'TeX ആയി തന്നെ പ്രദർശിപ്പിക്കുക (ടെക്സ്റ്റ് ബ്രൗസറുകൾക്ക്)',
+	'mw_math_mathjax' => 'MathJax (പരീക്ഷണാടിസ്ഥാനം; ബഹുഭൂരിപക്ഷം ബ്രൗസറുകൾക്കും അനുയോജ്യം)',
 	'math_failure' => 'പാഴ്സ് ചെയ്യൽ പരാജയപ്പെട്ടു',
 	'math_unknown_error' => 'അപരിചിതമായ പിഴവ്',
 	'math_unknown_function' => 'അജ്ഞാതമായ ഫങ്ങ്ഷൻ',
