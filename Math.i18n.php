@@ -3110,6 +3110,7 @@ pe piacere vide math/README pe configurà.',
  * @author MaxSem
  */
 $messages['ru'] = array(
+	'math-desc' => 'Отображает математические формулы в тегах <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Введите сюда формулу',
 	'math_tip' => 'Математическая формула (формат LaTeX)',
 	'prefs-math' => 'Отображение формул',
