@@ -74,6 +74,15 @@ $wgMathCheckFiles = true;
 $wgMathPath = false;
 
 /**
+ * The name of a file backend ($wgFileBackends) to use for storing math renderings.
+ * Defaults to FSFileBackend using $wgMathDirectory as a base path.
+ *
+ * See http://www.mediawiki.org/wiki/Manual:Enable_TeX for details about how to
+ * set up mathematical formula display.
+ */
+$wgMathFileBackend = false;
+
+/**
  * The filesystem path of the math directory.
  * Defaults to "{$wgUploadDirectory}/math".
  *
