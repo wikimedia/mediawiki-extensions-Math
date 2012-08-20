@@ -38,9 +38,31 @@ class MathRenderer {
 	var $mathml = '';
 	var $conservativeness = 0;
 
-	function __construct( $tex, $params = array() ) {
+	public function __construct( $tex, $params = array() ) {
 		$this->tex = $tex;
 		$this->params = $params;
+	}
+
+	/**
+	 * @return FileBackend
+	 */
+	protected function getBackend() {
+		global $wgMathFileBackend, $wgMathDirectory;
+
+		if ( $wgMathFileBackend ) {
+			return FileBackendGroup::singleton()->get( $wgMathFileBackend );
+		} else {
+			static $backend = null;
+			if ( !$backend ) {
+				$backend = new FSFileBackend( array(
+					'name'           => 'math-backend',
+					'lockManager'    => 'nullLockManager',
+					'containerPaths' => array( 'math-render' => $wgMathDirectory ),
+					'fileMode'       => 777
+				) );
+			}
+			return $backend;
+		}
 	}
 
 	function setOutputMode( $mode ) {
@@ -54,8 +76,7 @@ class MathRenderer {
 	}
 
 	function render() {
-		global $wgTmpDirectory;
-		global $wgTexvc, $wgMathCheckFiles, $wgTexvcBackgroundColor;
+		global $wgTexvc, $wgTexvcBackgroundColor, $wgUseSquid;
 
 		if( $this->mode == MW_MATH_SOURCE || $this->mode == MW_MATH_MATHJAX ) {
 			# No need to render or parse anything more!
@@ -75,27 +96,17 @@ class MathRenderer {
 			return; # bug 8372
 		}
 
-		if( !$this->_recall() ) {
-			if( $wgMathCheckFiles ) {
-				# Ensure that the temp and output directories are available before continuing...
-				if( !file_exists( $wgTmpDirectory ) ) {
-					if( !wfMkdirParents( $wgTmpDirectory, null, __METHOD__ ) ) {
-						return $this->_error( 'math_bad_tmpdir' );
-					}
-				} elseif( !is_dir( $wgTmpDirectory ) || !is_writable( $wgTmpDirectory ) ) {
-					return $this->_error( 'math_bad_tmpdir' );
-				}
-			}
-
+		$tmpDir = wfTempDir();
+		if( !$this->_recall() ) { // cache miss
 			if( !is_executable( $wgTexvc ) ) {
 				return $this->_error( 'math_notexvc' );
 			}
 			$cmd = $wgTexvc . ' ' .
-					wfEscapeSingleQuotes( $wgTmpDirectory ) . ' '.
-					wfEscapeSingleQuotes( $wgTmpDirectory ) . ' '.
-					wfEscapeSingleQuotes( $this->tex ) . ' '.
-					wfEscapeSingleQuotes( 'UTF-8' ) . ' '.
-					wfEscapeSingleQuotes( $wgTexvcBackgroundColor );
+				wfEscapeSingleQuotes( $tmpDir ) . ' '.
+				wfEscapeSingleQuotes( $tmpDir ) . ' '.
+				wfEscapeSingleQuotes( $this->tex ) . ' '.
+				wfEscapeSingleQuotes( 'UTF-8' ) . ' '.
+				wfEscapeSingleQuotes( $wgTexvcBackgroundColor );
 
 			if ( wfIsWindows() ) {
 				# Invoke it within cygwin sh, because texvc expects sh features in its default shell
@@ -107,8 +118,15 @@ class MathRenderer {
 			wfDebug( "TeX output:\n $contents\n---\n" );
 
 			if ( strlen( $contents ) == 0 ) {
-				return $this->_error( 'math_unknown_error' );
+				if ( !file_exists( $tmpDir ) || !is_writable( $tmpDir ) ) {
+					return $this->_error( 'math_bad_tmpdir' );
+				} else {
+					return $this->_error( 'math_unknown_error' );
+				}
 			}
+
+			$tempFsFile = new TempFSFile( "$tmpDir/{$this->hash}.png" );
+			$tempFsFile->autocollect(); // destroy file when $tempFsFile leaves scope
 
 			$retval = substr( $contents, 0, 1 );
 			$errmsg = '';
@@ -169,33 +187,26 @@ class MathRenderer {
 
 			if ( $errmsg ) {
 				return $errmsg;
-			}
-
-			if ( !preg_match( "/^[a-f0-9]{32}$/", $this->hash ) ) {
+			} elseif ( !preg_match( "/^[a-f0-9]{32}$/", $this->hash ) ) {
 				return $this->_error( 'math_unknown_error' );
-			}
-
-			if( !file_exists( "$wgTmpDirectory/{$this->hash}.png" ) ) {
+			} elseif( !file_exists( "$tmpDir/{$this->hash}.png" ) ) {
+				return $this->_error( 'math_image_error' );
+			} elseif( filesize( "$tmpDir/{$this->hash}.png" ) == 0 ) {
 				return $this->_error( 'math_image_error' );
 			}
 
-			if( filesize( "$wgTmpDirectory/{$this->hash}.png" ) == 0 ) {
-				return $this->_error( 'math_image_error' );
-			}
+			$hashpath = $this->_getHashPath(); // final storage directory
 
-			$hashpath = $this->_getHashPath();
-			if( !file_exists( $hashpath ) ) {
-				wfSuppressWarnings();
-				$ret = wfMkdirParents( $hashpath, 0755, __METHOD__ );
-				wfRestoreWarnings();
-				if( !$ret ) {
-					return $this->_error( 'math_bad_output' );
-				}
-			} elseif( !is_dir( $hashpath ) || !is_writable( $hashpath ) ) {
-				return $this->_error( 'math_bad_output' );
+			$backend = $this->getBackend();
+			# Create any containers/directories as needed...
+			if ( !$backend->prepare( array( 'dir' => $hashpath ) )->isOK() ) {
+				return $this->_error( 'math_output_error' );
 			}
-
-			if( !rename( "$wgTmpDirectory/{$this->hash}.png", "$hashpath/{$this->hash}.png" ) ) {
+			// Store the file at the final storage path...
+			if ( !$backend->quickStore( array(
+				'src' => "$tmpDir/{$this->hash}.png", 'dst' => "$hashpath/{$this->hash}.png"
+				) )->isOK()
+			) {
 				return $this->_error( 'math_output_error' );
 			}
 
@@ -221,7 +232,6 @@ class MathRenderer {
 			}
 
 			// If we're replacing an older version of the image, make sure it's current.
-			global $wgUseSquid;
 			if ( $wgUseSquid ) {
 				$urls = array( $this->_mathImageUrl() );
 				$u = new SquidUpdate( $urls );
@@ -240,7 +250,7 @@ class MathRenderer {
 	}
 
 	function _recall() {
-		global $wgMathDirectory, $wgMathCheckFiles;
+		global $wgMathCheckFiles;
 
 		$this->md5 = md5( $this->tex );
 		$dbr = wfGetDB( DB_SLAVE );
@@ -257,7 +267,7 @@ class MathRenderer {
 		);
 
 		if( $rpage !== false ) {
-			# Tailing 0x20s can get dropped by the database, add it back on if necessary:
+			# Trailing 0x20s can get dropped by the database, add it back on if necessary:
 			$xhash = unpack( 'H32md5', $dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
 			$this->hash = $xhash['md5'];
 
@@ -265,46 +275,22 @@ class MathRenderer {
 			$this->html = $rpage->math_html;
 			$this->mathml = $rpage->math_mathml;
 
-			$filename = $this->_getHashPath() . "/{$this->hash}.png";
-
 			if( !$wgMathCheckFiles ) {
 				// Short-circuit the file existence & migration checks
 				return true;
 			}
 
-			if( file_exists( $filename ) ) {
-				if( filesize( $filename ) == 0 ) {
+			$filename = $this->_getHashPath() . "/{$this->hash}.png"; // final storage path
+
+			$backend = $this->getBackend();
+			if( $backend->fileExists( array( 'src' => $filename ) ) ) {
+				if( $backend->getFileSize( array( 'src' => $filename ) ) == 0 ) {
 					// Some horrible error corrupted stuff :(
-					wfSuppressWarnings();
-					unlink( $filename );
-					wfRestoreWarnings();
+					$backend->quickDelete( array( 'src' => $filename ) );
 				} else {
-					return true;
+					return true; // cache hit
 				}
 			}
-
-			if( file_exists( $wgMathDirectory . "/{$this->hash}.png" ) ) {
-				$hashpath = $this->_getHashPath();
-
-				if( !file_exists( $hashpath ) ) {
-					wfSuppressWarnings();
-					$ret = wfMkdirParents( $hashpath, 0755, __METHOD__ );
-					wfRestoreWarnings();
-					if( !$ret ) {
-						return false;
-					}
-				} elseif( !is_dir( $hashpath ) || !is_writable( $hashpath ) ) {
-					return false;
-				}
-				if ( function_exists( 'link' ) ) {
-					return link( $wgMathDirectory . "/{$this->hash}.png",
-							$hashpath . "/{$this->hash}.png" );
-				} else {
-					return rename( $wgMathDirectory . "/{$this->hash}.png",
-							$hashpath . "/{$this->hash}.png" );
-				}
-			}
-
 		}
 
 		# Missing from the database and/or the render cache
@@ -368,13 +354,19 @@ class MathRenderer {
 		return "$wgMathPath/$dir/{$this->hash}.png";
 	}
 
+	/**
+	 * @return string Storage directory
+	 */
 	function _getHashPath() {
-		global $wgMathDirectory;
-		$path = $wgMathDirectory . '/' . $this->_getHashSubPath();
+		$path = $this->getBackend()->getRootStoragePath() .
+			'/math-render/' . $this->_getHashSubPath();
 		wfDebug( "TeX: getHashPath, hash is: $this->hash, path is: $path\n" );
 		return $path;
 	}
 
+	/**
+	 * @return string Relative directory
+	 */
 	function _getHashSubPath() {
 		return substr( $this->hash, 0, 1)
 					. '/' . substr( $this->hash, 1, 1 )
