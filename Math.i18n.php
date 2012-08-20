@@ -3961,11 +3961,13 @@ kc. math/README järgendamižen täht.',
  * @author Vinhtantran
  */
 $messages['vi'] = array(
+	'math-desc' => 'Kết xuất các công thức nằm giữa thẻ <code>&lt;math&gt;</code> …<code>&lt;/math&gt;</code>',
 	'math_sample' => 'Nhập công thức toán vào đây',
 	'math_tip' => 'Công thức toán (LaTeX)',
 	'prefs-math' => 'Công thức toán',
 	'mw_math_png' => 'Luôn cho ra dạng hình PNG',
 	'mw_math_source' => 'Để nguyên mã TeX (dành cho trình duyệt văn bản)',
+	'mw_math_mathjax' => 'MathJax (chưa ổn định; được khuyên cho phần nhiều trình duyệt)',
 	'math_failure' => 'Không thể phân tích cú pháp',
 	'math_unknown_error' => 'lỗi lạ',
 	'math_unknown_function' => 'hàm lạ',
