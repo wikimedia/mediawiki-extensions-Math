@@ -19,7 +19,7 @@ mathJax.Config = function() {
     "HTML-CSS": { imageFont: null, availableFonts: ["TeX"] }
   });
   MathJax.OutputJax.fontDir = mathJax.fontDir = mediaWiki.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
-}
+};
 
 mathJax.Load = function(element) {
   if (this.loaded)
@@ -38,7 +38,7 @@ mathJax.Load = function(element) {
   this.loaded = true;
 
   return false;
-}
+};
 
 mathJax.Init = function() {
   this.Load( document.getElementById("bodyContent") || document.body );
@@ -55,7 +55,7 @@ mathJax.Init = function() {
     if ( typeof(mathJax.oldAjaxPreviewExec) !== "undefined" ) mathJax.oldAjaxPreviewExec(previewArea);
     if ( mathJax.Load(previewArea) ) MathJax.Hub.Queue( ["Typeset", MathJax.Hub, previewArea] );
   }
-}
+};
 
 jQuery( document ).ready( function() {
 	mathJax.Init();

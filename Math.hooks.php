@@ -39,7 +39,7 @@ class MathHooks {
 	 * @param $content
 	 * @param $attributes
 	 * @param $parser Parser
-	 * @return
+	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		global $wgContLang, $wgUseMathJax;
@@ -63,6 +63,7 @@ class MathHooks {
 	 * @return Boolean: true
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
+		// @todo FIXME: Replace wfMsgHtml with wfMessage equivalent.
 		$defaultPreferences['math'] = array(
 			'type' => 'radio',
 			'options' => array_flip( array_map( 'wfMsgHtml', self::getMathNames() ) ),
@@ -110,6 +111,7 @@ class MathHooks {
 	 * LoadExtensionSchemaUpdates handler; set up math table on install/upgrade.
 	 *
 	 * @param $updater DatabaseUpdater
+	 * @throws MWException
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {

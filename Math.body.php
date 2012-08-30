@@ -243,8 +243,8 @@ class MathRenderer {
 	}
 
 	function _error( $msg, $append = '' ) {
-		$mf = htmlspecialchars( wfMsg( 'math_failure' ) );
-		$errmsg = htmlspecialchars( wfMsg( $msg ) );
+		$mf = wfMessage( 'math_failure' )->escaped();
+		$errmsg = wfMessage( $msg )->escaped();
 		$source = htmlspecialchars( str_replace( "\n", ' ', $this->tex ) );
 		return "<strong class='error'>$mf ($errmsg$append): $source</strong>\n";
 	}
