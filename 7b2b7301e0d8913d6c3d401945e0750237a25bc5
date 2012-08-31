@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAARn///Fw\u003d",
+        "filename": "Math.hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 25
+      },
+      "writtenOn": "2012-08-31T00:32:10Z",
+      "side": 1,
+      "message": "Best thing to do here is probably to de-cleverize it to make the code clearer and more maintainable. :)\n\nActually, since getMathNames() is not used elsewhere, it\u0027s probably best to just modify it to return the desired whatsits. If you don\u0027t get to it I\u0027ll whip something up when I have some free time to test it and make sure I\u0027ve got it right.",
+      "revId": "7b2b7301e0d8913d6c3d401945e0750237a25bc5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
