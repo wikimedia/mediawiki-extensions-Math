@@ -14,8 +14,8 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
     rgb = rgb.split(/,/); var RGB = "#";
     if (rgb.length !== 3) {this.TEX.Error("RGB colors require 3 decimal numbers")}
     for (var i = 0; i < 3; i++) {
-      if (!rgb[i].match(/^(\d+)$/)) {this.TEX.Error("Invalid decimal number")}
-      var n = parseInt(rgb[i]);
+      if (!rgb[i].match(/^(\d{1,3})$/)) {this.TEX.Error("Invalid decimal number")}
+      var n = parseInt(rgb[i], 10);
       if (n < 0 || n > 255) {this.TEX.Error("RGB values must be between 0 and 255")}
       n = n.toString(16); if (n.length < 2) {n = "0"+n}
       RGB += n;
