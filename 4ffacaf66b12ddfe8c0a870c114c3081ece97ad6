@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAATH///jc\u003d",
+        "filename": "modules/MathJax/extensions/TeX/texvc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 127
+      },
+      "writtenOn": "2012-09-23T01:48:35Z",
+      "side": 1,
+      "message": "This could be just /^(\\d{1,3})$/.",
+      "revId": "4ffacaf66b12ddfe8c0a870c114c3081ece97ad6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
