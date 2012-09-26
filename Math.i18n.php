@@ -3904,11 +3904,15 @@ latex، dvips، gs کی صحیح تنصیب کی جانچ کرنے کے بعد �
 
 /** Uzbek (oʻzbekcha)
  * @author Abdulla
+ * @author CoderSI
  */
 $messages['uz'] = array(
 	'math_sample' => 'Formula qoʻying',
 	'math_tip' => 'Matematik formula (LaTeX)',
 	'prefs-math' => 'Formulalar',
+	'mw_math_png' => 'Har doim PNGga aylantirish',
+	'mw_math_source' => 'Ishoralarda TeX ni qoldirish (matnli brauzerlar uchun)',
+	'mw_math_mathjax' => "MathJax (tajribaviy moslama, ko'pchilik brauzerlar uchun eng maqbuli)",
 );
 
 /** vèneto (vèneto)
@@ -4183,16 +4187,18 @@ $messages['zh-hans'] = array(
 	'math_notexvc' => '"texvc"执行文件遗失；请参照math/README进行配置。',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Liangent
  * @author Mark85296341
  */
 $messages['zh-hant'] = array(
+	'math-desc' => '在<code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code>標籤間生成數學公式',
 	'math_sample' => '在此插入數學公式',
 	'math_tip' => '插入數學公式 （LaTeX）',
 	'prefs-math' => '數學公式',
 	'mw_math_png' => '永遠使用PNG圖片',
 	'mw_math_source' => '顯示TeX代碼（供文字瀏覽器使用）',
+	'mw_math_mathjax' => 'MathJax（實驗性；適合大多數瀏覽器）',
 	'math_failure' => '解析失敗',
 	'math_unknown_error' => '未知錯誤',
 	'math_unknown_function' => '未知函數',
