@@ -1708,7 +1708,7 @@ $messages['ja'] = array(
 	'math_tip' => '数式 (LaTeX)',
 	'prefs-math' => '数式',
 	'mw_math_png' => '常にPNGで描画',
-	'mw_math_source' => 'TeXのまま（テキストブラウザー向け）',
+	'mw_math_source' => 'TeX のまま (テキスト ブラウザー向け)',
 	'mw_math_mathjax' => 'MathJax（開発中; ほとんどのブラウザーに最適）',
 	'math_failure' => '構文解析に失敗',
 	'math_unknown_error' => '不明なエラー',
@@ -1718,7 +1718,7 @@ $messages['ja'] = array(
 	'math_image_error' => 'PNGへの変換に失敗しました。dvipng（もしくはdvipsとgsとconvert）およびlatexが正しくインストールされているか確認してください。',
 	'math_bad_tmpdir' => '数式一時ディレクトリでの書き込みまたは作成ができません',
 	'math_bad_output' => '数式出力ディレクトリでの書き込みまたは作成ができません',
-	'math_notexvc' => 'texvcの実行可能ファイルが見つかりません。math/READMEを読んで設定してください。',
+	'math_notexvc' => 'texvc の実行可能ファイルが見つかりません。math/README を読んで設定してください。',
 );
 
 /** Jamaican Creole English (Patois)
