@@ -400,7 +400,7 @@ $messages['be'] = array(
 	'math_notexvc' => 'Не знойдзены выканальны модуль texvc; аб яго настаўленнях чытайце ў math/README.',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -641,7 +641,7 @@ $messages['cps'] = array(
 	'math_tip' => 'Pormula nga pangmatematika (LaTeX)',
 );
 
-/** Crimean Turkish (Latin script) (‪qırımtatarca (Latin)‬)
+/** Crimean Turkish (Latin script) (qırımtatarca (Latin)‎)
  * @author Don Alessandro
  */
 $messages['crh-latn'] = array(
@@ -657,7 +657,7 @@ $messages['crh-latn'] = array(
 	'math_syntax_error' => 'sintaksis hatası',
 );
 
-/** Crimean Turkish (Cyrillic script) (‪къырымтатарджа (Кирилл)‬)
+/** Crimean Turkish (Cyrillic script) (къырымтатарджа (Кирилл)‎)
  * @author Don Alessandro
  */
 $messages['crh-cyrl'] = array(
@@ -1186,7 +1186,7 @@ $messages['gag'] = array(
 	'math_tip' => 'Matematik formula (LaTeX formatında)',
 );
 
-/** Simplified Gan script (‪赣语（简体）‬) */
+/** Simplified Gan script (赣语（简体）‎) */
 $messages['gan-hans'] = array(
 	'math_sample' => '到个首扻入数学公式',
 	'math_tip' => '数学公式 （LaTeX）',
@@ -1204,7 +1204,7 @@ $messages['gan-hans'] = array(
 	'math_notexvc' => '执行伓正"texvc"；请参看 math/README 再配置过。',
 );
 
-/** Traditional Gan script (‪贛語（繁體）‬) */
+/** Traditional Gan script (贛語（繁體）‎) */
 $messages['gan-hant'] = array(
 	'math_sample' => '到箇首扻入數學公式',
 	'math_tip' => '數學公式 （LaTeX）',
@@ -1343,7 +1343,7 @@ $messages['gv'] = array(
 	'math_syntax_error' => 'Co-ordrail marranagh',
 );
 
-/** Hausa (هَوُسَ)
+/** Hausa (Hausa)
  * @author Mladanali
  */
 $messages['ha'] = array(
@@ -1853,7 +1853,7 @@ enstale-kerdena ''latex'', ''dvips'', ''gs'', u ''convert''i qontrol ke",
 Serba areze-kerdene qaytê ''math/README''y ke.",
 );
 
-/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
 $messages['kk-arab'] = array(
 	'math_sample' => 'ورنەكتى مىندا ەنگىزىڭىز',
 	'math_tip' => 'ماتەماتىيكا ورنەگى (LaTeX)',
@@ -1873,7 +1873,7 @@ latex, dvips, gs جانە convert باعدارلامالارىنىڭ دۇرىس 
 باپتاۋ ٴۇشىن math/README قۇجاتىن قاراڭىز.',
 );
 
-/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
 $messages['kk-cyrl'] = array(
 	'math_sample' => 'Өрнекті мында енгізіңіз',
 	'math_tip' => 'Математика өрнегі (LaTeX)',
@@ -1893,7 +1893,7 @@ latex, dvips, gs және convert бағдарламаларының дұрыс 
 баптау үшін math/README құжатын қараңыз.',
 );
 
-/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎) */
 $messages['kk-latn'] = array(
 	'math_sample' => 'Örnekti mında engiziñiz',
 	'math_tip' => 'Matematïka örnegi (LaTeX)',
@@ -2032,7 +2032,7 @@ Sag et enemWiki-Köbes, enem ẞööver-Minsch, oder luur ens en dä
 <code>math/README</code>.',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author Bangin
  */
 $messages['ku-latn'] = array(
@@ -2578,7 +2578,7 @@ $messages['nan'] = array(
 	'mw_math_source' => 'Î-chhî TeX ê keh-sek (khah ha̍h bûn-jī-sek ê liû-lám-khì)',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Event
  * @author Nghtwlkr
  * @author Stigmj
@@ -2686,7 +2686,7 @@ $messages['nl'] = array(
 	'math_notexvc' => 'Kan het programma texvc niet vinden; stel alles in volgens de beschrijving in math/README.',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Nghtwlkr
  */
 $messages['nn'] = array(
@@ -3450,7 +3450,7 @@ $messages['sq'] = array(
 	'math_notexvc' => 'Mungon zbatuesi texvc; ju lutem shikoni math/README për konfigurimin.',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Rancher
  */
 $messages['sr-ec'] = array(
@@ -3470,7 +3470,7 @@ $messages['sr-ec'] = array(
 	'math_notexvc' => 'Недостаје извршна датотека texvc-а. Погледајте math/README за подешавање.',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬) */
+/** Serbian (Latin script) (srpski (latinica)‎) */
 $messages['sr-el'] = array(
 	'math_sample' => 'Ovde unesite formulu',
 	'math_tip' => 'Matematička formula (LaTeX)',
@@ -4164,7 +4164,7 @@ $messages['zea'] = array(
 	'math_notexvc' => "Kan 't prohramma texvc nie vin'n; stel aolles in volhens de beschrievieng in math/README.",
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Xiaomingyan
  * @author Yfdyh000
  */
