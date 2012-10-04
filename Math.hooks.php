@@ -63,10 +63,9 @@ class MathHooks {
 	 * @return Boolean: true
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
-		// @todo FIXME: Replace wfMsgHtml with wfMessage equivalent.
 		$defaultPreferences['math'] = array(
 			'type' => 'radio',
-			'options' => array_flip( array_map( 'wfMsgHtml', self::getMathNames() ) ),
+			'options' => array_flip( self::getMathNames() ),
 			'label' => '&#160;',
 			'section' => 'rendering/math',
 		);
@@ -80,15 +79,15 @@ class MathHooks {
 	 */
 	private static function getMathNames() {
 		$names = array(
-			MW_MATH_PNG => 'mw_math_png',
-			MW_MATH_SOURCE => 'mw_math_source',
+			MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
+			MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
 		);
 
 		global $wgUseMathJax;
 		if( $wgUseMathJax ) {
-			$names[MW_MATH_MATHJAX] = 'mw_math_mathjax';
+			$names[MW_MATH_MATHJAX] = wfMessage( 'mw_math_mathjax' )->escaped();
 		}
-		
+
 		return $names;
 	}
 
