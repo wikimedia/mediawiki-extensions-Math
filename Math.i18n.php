@@ -3544,15 +3544,18 @@ $messages['su'] = array(
 /** Swedish (svenska)
  * @author Boivie
  * @author Habj
+ * @author Martinwiss
  * @author Nghtwlkr
  * @author Sannab
  */
 $messages['sv'] = array(
+	'math-desc' => 'Ritar matematiska ekvationer mellan <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-taggar',
 	'math_sample' => 'Skriv formeln här',
 	'math_tip' => 'Matematisk formel (LaTeX)',
 	'prefs-math' => 'Matematik',
 	'mw_math_png' => 'Rendera alltid PNG',
 	'mw_math_source' => 'Låt vara TeX (för textbaserade webbläsare)',
+	'mw_math_mathjax' => 'MathJax (i försöksstadium; fungerar bäst för de flesta webbläsare)',
 	'math_failure' => 'Misslyckades med att tolka formel.',
 	'math_unknown_error' => 'okänt fel',
 	'math_unknown_function' => 'okänd funktion',
