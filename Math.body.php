@@ -58,7 +58,7 @@ class MathRenderer {
 					'name'           => 'math-backend',
 					'lockManager'    => 'nullLockManager',
 					'containerPaths' => array( 'math-render' => $wgMathDirectory ),
-					'fileMode'       => 777
+					'fileMode'       => 0777
 				) );
 			}
 			return $backend;
