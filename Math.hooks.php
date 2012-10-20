@@ -36,23 +36,30 @@ class MathHooks {
 	/**
 	 * Callback function for the <math> parser hook.
 	 *
-	 * @param $content
+	 * @param $content (the LaTeX input)
 	 * @param $attributes
 	 * @param $parser Parser
 	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		global $wgContLang, $wgUseMathJax;
-		$renderedMath = MathRenderer::renderMath(
-			$content, $attributes, $parser->getOptions()
+		if(  trim($content)  == "" ) { //bug 8372
+			return "";
+		}
+		$mode=$parser->getOptions()->getMath();
+		$renderer = MathRenderer::getRenderer(
+			$content, $attributes,$mode
 		);
-
-		if ( $wgUseMathJax && $parser->getOptions()->getMath() == MW_MATH_MATHJAX ) {
+		$renderer->setAnchorID($parser->nextLinkID()); //Add an ID for referencing the equation later on only used by LaTeXML
+		$renderedMath = $renderer->render();
+		//wfRunHooks( 'MathFormulaRendered', array( &$renderer,&$parser) );//Enables indexing of math formula
+		if (  $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
+		//TODO:MathJax has stopped working together with MathML i.e. LaTeXML in the last version 
+			//$renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
-		$output = $renderedMath;
-
-		return $wgContLang->armourMath( $output );
+		$renderer->writeCache();
+		return $wgContLang->armourMath( $renderedMath );
 	}
 
 	/**
