@@ -37,6 +37,7 @@ define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 ); /// @deprecated
 define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
+define( 'MW_MATH_LATEXML', 7 ); /// new in 1.21
 /**@}*/
 
 /** For back-compat */
@@ -108,6 +109,15 @@ $wgUseMathJax = false;
  */
 $wgMathJaxUrl = 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML';
 
+/**
+ * Use of LaTeXML for details see 
+ * <http://latexml.mathweb.org/help>
+ *
+ * If you don't like them, install your own server see
+ * <https://svn.mathweb.org/repos/LaTeXML/branches/arXMLiv/INSTALL>
+ */
+$wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
+
 ////////// end of config settings.
 
 $wgDefaultUserOptions['math'] = MW_MATH_PNG;
@@ -121,8 +131,11 @@ $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
 
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
-$wgAutoloadClasses['MathRenderer'] = $dir . 'Math.body.php';
-
+$wgAutoloadClasses['MathRenderer'] = $dir . 'Math.base.php';
+$wgAutoloadClasses['MathTexvc'] = $dir . 'Math.texvc.php';
+$wgAutoloadClasses['MathSource'] = $dir . 'Math.source.php';
+$wgAutoloadClasses['MathMathJax'] = $dir . 'Math.MathJax.php';
+$wgAutoloadClasses['MathLaTeXML'] = $dir . 'Math.LaTeXML.php';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
