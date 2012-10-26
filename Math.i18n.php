@@ -629,7 +629,8 @@ $messages['ckb'] = array(
 	'math_syntax_error' => 'ڕستەکار هەڵەیە',
 );
 
-/** Corsican (corsu) */
+/** Corsican (corsu)
+ */
 $messages['co'] = array(
 	'prefs-math' => 'Matematica',
 	'math_syntax_error' => 'errore di sintassa',
@@ -641,22 +642,6 @@ $messages['co'] = array(
 $messages['cps'] = array(
 	'math_sample' => 'Isulod ang diya pormula',
 	'math_tip' => 'Pormula nga pangmatematika (LaTeX)',
-);
-
-/** Crimean Turkish (Latin script) (qırımtatarca (Latin)‎)
- * @author Don Alessandro
- */
-$messages['crh-latn'] = array(
-	'math_sample' => 'Bu yerge formulanı kirsetiñiz',
-	'math_tip' => 'Riyaziy (matematik) formula (LaTeX formatında)',
-	'prefs-math' => 'Riyaziy (matematik) işaretler',
-	'mw_math_png' => 'Daima PNG resim formatına çevir',
-	'mw_math_source' => 'Deñiştirmeden TeX olaraq taşla  (metin temelli brauzerler içün)',
-	'math_failure' => 'Ayırıştırılamadı',
-	'math_unknown_error' => 'bilinmegen hata',
-	'math_unknown_function' => 'belgisiz funktsiya',
-	'math_lexing_error' => 'leksik hata',
-	'math_syntax_error' => 'sintaksis hatası',
 );
 
 /** Crimean Turkish (Cyrillic script) (къырымтатарджа (Кирилл)‎)
@@ -673,6 +658,22 @@ $messages['crh-cyrl'] = array(
 	'math_unknown_function' => 'бельгисиз функция',
 	'math_lexing_error' => 'лексик хата',
 	'math_syntax_error' => 'синтаксис хатасы',
+);
+
+/** Crimean Turkish (Latin script) (qırımtatarca (Latin)‎)
+ * @author Don Alessandro
+ */
+$messages['crh-latn'] = array(
+	'math_sample' => 'Bu yerge formulanı kirsetiñiz',
+	'math_tip' => 'Riyaziy (matematik) formula (LaTeX formatında)',
+	'prefs-math' => 'Riyaziy (matematik) işaretler',
+	'mw_math_png' => 'Daima PNG resim formatına çevir',
+	'mw_math_source' => 'Deñiştirmeden TeX olaraq taşla  (metin temelli brauzerler içün)',
+	'math_failure' => 'Ayırıştırılamadı',
+	'math_unknown_error' => 'bilinmegen hata',
+	'math_unknown_function' => 'belgisiz funktsiya',
+	'math_lexing_error' => 'leksik hata',
+	'math_syntax_error' => 'sintaksis hatası',
 );
 
 /** Czech (česky)
@@ -1129,7 +1130,8 @@ $messages['frr'] = array(
 	'math_notexvc' => "Det texvc program as ei diar. Luke hü det iinrachten gongt uun't datei math/README.",
 );
 
-/** Friulian (furlan) */
+/** Friulian (furlan)
+ */
 $messages['fur'] = array(
 	'math_sample' => 'Inserìs la formule culì',
 	'math_tip' => 'Formule matematiche (LaTeX)',
@@ -1188,7 +1190,8 @@ $messages['gag'] = array(
 	'math_tip' => 'Matematik formula (LaTeX formatında)',
 );
 
-/** Simplified Gan script (赣语（简体）‎) */
+/** Simplified Gan script (赣语（简体）‎)
+ */
 $messages['gan-hans'] = array(
 	'math_sample' => '到个首扻入数学公式',
 	'math_tip' => '数学公式 （LaTeX）',
@@ -1206,7 +1209,8 @@ $messages['gan-hans'] = array(
 	'math_notexvc' => '执行伓正"texvc"；请参看 math/README 再配置过。',
 );
 
-/** Traditional Gan script (贛語（繁體）‎) */
+/** Traditional Gan script (贛語（繁體）‎)
+ */
 $messages['gan-hant'] = array(
 	'math_sample' => '到箇首扻入數學公式',
 	'math_tip' => '數學公式 （LaTeX）',
@@ -1855,7 +1859,8 @@ enstale-kerdena ''latex'', ''dvips'', ''gs'', u ''convert''i qontrol ke",
 Serba areze-kerdene qaytê ''math/README''y ke.",
 );
 
-/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏)
+ */
 $messages['kk-arab'] = array(
 	'math_sample' => 'ورنەكتى مىندا ەنگىزىڭىز',
 	'math_tip' => 'ماتەماتىيكا ورنەگى (LaTeX)',
@@ -1875,7 +1880,8 @@ latex, dvips, gs جانە convert باعدارلامالارىنىڭ دۇرىس 
 باپتاۋ ٴۇشىن math/README قۇجاتىن قاراڭىز.',
 );
 
-/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎)
+ */
 $messages['kk-cyrl'] = array(
 	'math_sample' => 'Өрнекті мында енгізіңіз',
 	'math_tip' => 'Математика өрнегі (LaTeX)',
@@ -1895,7 +1901,8 @@ latex, dvips, gs және convert бағдарламаларының дұрыс 
 баптау үшін math/README құжатын қараңыз.',
 );
 
-/** Kazakh (Latin script) (qazaqşa (latın)‎) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎)
+ */
 $messages['kk-latn'] = array(
 	'math_sample' => 'Örnekti mında engiziñiz',
 	'math_tip' => 'Matematïka örnegi (LaTeX)',
@@ -2971,7 +2978,6 @@ verifique que o latex, dvips, gs e convert foram correctamente instalados',
 );
 
 /** Brazilian Portuguese (português do Brasil)
- * @author 555
  * @author Giro720
  */
 $messages['pt-br'] = array(
@@ -3291,7 +3297,8 @@ $messages['sei'] = array(
 	'math_syntax_error' => 'römjde syntáx',
 );
 
-/** Samogitian (žemaitėška) */
+/** Samogitian (žemaitėška)
+ */
 $messages['sgs'] = array(
 	'math_sample' => 'Iveskėt fuormolė',
 	'math_tip' => 'Matematinė fuormolė (LaTeX fuormato)',
@@ -3477,7 +3484,8 @@ $messages['sr-ec'] = array(
 	'math_notexvc' => 'Недостаје извршна датотека texvc-а. Погледајте math/README за подешавање.',
 );
 
-/** Serbian (Latin script) (srpski (latinica)‎) */
+/** Serbian (Latin script) (srpski (latinica)‎)
+ */
 $messages['sr-el'] = array(
 	'math_sample' => 'Ovde unesite formulu',
 	'math_tip' => 'Matematička formula (LaTeX)',
@@ -3653,6 +3661,12 @@ $messages['te'] = array(
 	'math_bad_tmpdir' => 'math తాత్కాలిక డైరెక్టరీని సృష్టించలేకపోడం కానీ, అందులో రాయలేకపోవడంగానీ జరిగింది',
 	'math_bad_output' => 'math ఔట్‌పుట్ డైరెక్టరీని సృష్టించలేకపోడం కానీ, అందులో రాయలేకపోవడంగానీ జరిగింది',
 	'math_notexvc' => 'texvc ఎక్జిక్యూటబుల్ కనబడడం లేదు; కాన్ఫిగరు చెయ్యడానికి math/README చూడండి.',
+);
+
+/** Test (site admin only) (Test (site admin only)) */
+$messages['test'] = array(
+	'math_sample' => 'x',
+	'math_tip' => 'x',
 );
 
 /** Tajik (Cyrillic script) (тоҷикӣ)
