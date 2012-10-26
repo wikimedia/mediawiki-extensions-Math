@@ -157,3 +157,7 @@ $wgResourceModules['ext.math.mathjax'] = array(
 $wgResourceModules['ext.math.mathjax.enabler'] = array(
 	'scripts' => 'ext.math.mathjax.enabler.js',
 ) + $moduleTemplate;
+//Customized module for LaTeXML
+$wgResourceModules['ext.math.mathjax.enabler.mml'] = array(
+	'scripts' => 'ext.math.mathjax.enabler.mml.js',
+) + $moduleTemplate;
