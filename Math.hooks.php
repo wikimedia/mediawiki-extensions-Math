@@ -43,29 +43,20 @@ class MathHooks {
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		global $wgContLang, $wgUseMathJax;
-		if(  trim($content)  == "" ) { //bug 8372
+		if (  trim( $content )  === "" ) { // bug 8372
 			return "";
 		}
-		$mode=$parser->getOptions()->getMath();
+		$mode = $parser->getOptions()->getMath();
 		$renderer = MathRenderer::getRenderer(
-			$content, $attributes,$mode
+			$content, $attributes, $mode
 		);
-		$renderer->setAnchorID($parser->nextLinkID()); //Add an ID for referencing the equation later on only used by LaTeXML
+		$renderer->setAnchorID( $parser->nextLinkID() ); // Add an ID for referencing the equation later on only used by LaTeXML
 		$renderedMath = $renderer->render();
-		//wfRunHooks( 'MathFormulaRendered', array( &$renderer,&$parser) );//Enables indexing of math formula
+		// wfRunHooks( 'MathFormulaRendered', array( &$renderer,&$parser) );//Enables indexing of math formula
 		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
-			//$renderer->addModules(&$parser);
+			// $renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
-		} elseif ($mode == MW_MATH_LATEXML)		{
-			if(isset($_SERVER['HTTP_USER_AGENT'])){
-			$UA=$_SERVER['HTTP_USER_AGENT'];
-			} else	{
-				$UA="undefined"; //required e.g. for maitenance script runs
-			}
-			if (!preg_match('/Firefox/',$UA)){ //Don't use MathJax with Firefox this has to be extenden to other browser that suppert MathML maybe a function supports MathML was the correct way to go 
-			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler.mml' ) );
-			}
-		}
+		} 
 		$renderer->writeCache();
 		return $wgContLang->armourMath( $renderedMath );
 	}
@@ -99,7 +90,7 @@ class MathHooks {
 		);
 
 		global $wgUseMathJax;
-		if( $wgUseMathJax ) {
+		if ( $wgUseMathJax ) {
 			$names[MW_MATH_MATHJAX] = wfMessage( 'mw_math_mathjax' )->escaped();
 		}
 
@@ -129,7 +120,7 @@ class MathHooks {
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
-		if( is_null( $updater ) ) {
+		if ( is_null( $updater ) ) {
 			throw new MWException( "Math extension is only necessary in 1.18 or above" );
 		}
 		$map = array(
