@@ -37,6 +37,7 @@ define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 ); /// @deprecated
 define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
+define( 'MW_MATH_LATEXML', 7 ); /// new in 1.21
 /**@}*/
 
 /** For back-compat */
@@ -63,7 +64,7 @@ $wgTexvcBackgroundColor = 'transparent';
  * On a big site with heavy NFS traffic this can be slow and flaky,
  * so sometimes we want to short-circuit it by setting this to false.
  */
-$wgMathCheckFiles = false;
+$wgMathCheckFiles = true;
 
 /**
  * The URL path of the math directory. Defaults to "{$wgUploadPath}/math".
@@ -74,13 +75,22 @@ $wgMathCheckFiles = false;
 $wgMathPath = false;
 
 /**
+ * The name of a file backend ($wgFileBackends) to use for storing math renderings.
+ * Defaults to FSFileBackend using $wgMathDirectory as a base path.
+ *
+ * See http://www.mediawiki.org/wiki/Manual:Enable_TeX for details about how to
+ * set up mathematical formula display.
+ */
+$wgMathFileBackend = false;
+
+/**
  * The filesystem path of the math directory.
  * Defaults to "{$wgUploadDirectory}/math".
  *
  * See http://www.mediawiki.org/wiki/Manual:Enable_TeX for details about how to
  * set up mathematical formula display.
  */
- $wgMathDirectory = false;
+$wgMathDirectory = false;
 
 /**
  * Experimental option to use MathJax library to do client-side math rendering
@@ -89,7 +99,7 @@ $wgMathPath = false;
  *
  * Not guaranteed to be stable at this time.
  */
-$wgUseMathJax = true;
+$wgUseMathJax = false;
 
 /**
  * Use of MathJax's CDN is governed by terms of service
@@ -108,13 +118,9 @@ $wgMathJaxUrl = 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS
  */
 $wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
 
-/**
- * Determines if an Index-Table of all mathematical Formula should be created
- */
-$wgCreateMathIndex=false;
 ////////// end of config settings.
 
-$wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;//MW_MATH_PNG;
+$wgDefaultUserOptions['math'] = MW_MATH_PNG;
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
@@ -125,9 +131,11 @@ $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
 
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
-$wgAutoloadClasses['MathRenderer'] = $dir . 'Math.body.php';
-$wgAutoloadClasses['MathLaTeXML'] = $dir . 'Math.LaTeXML.php';
+$wgAutoloadClasses['MathRenderer'] = $dir . 'Math.base.php';
 $wgAutoloadClasses['MathTexvc'] = $dir . 'Math.texvc.php';
+$wgAutoloadClasses['MathSource'] = $dir . 'Math.source.php';
+$wgAutoloadClasses['MathMathJax'] = $dir . 'Math.MathJax.php';
+$wgAutoloadClasses['MathLaTeXML'] = $dir . 'Math.LaTeXML.php';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
@@ -137,13 +145,6 @@ $moduleTemplate = array(
 	'remoteExtPath' => 'Math/modules',
 );
 
-
-if(isset($_SERVER['HTTP_USER_AGENT'])){
-$UA=$_SERVER['HTTP_USER_AGENT'];
-} else
-{$UA="undefined"; //required for maitenance script runs
-}
- if (!preg_match('/Firefox/',$UA)){ //Don't use MathJax with Firefox this has to be extenden to other browser that suppert MathML maybe a function supports MathML was the correct way to go 
 $wgResourceModules['ext.math.mathjax'] = array(
 	'scripts' => array(
 		'MathJax/MathJax.js',
@@ -155,4 +156,8 @@ $wgResourceModules['ext.math.mathjax'] = array(
 
 $wgResourceModules['ext.math.mathjax.enabler'] = array(
 	'scripts' => 'ext.math.mathjax.enabler.js',
-) + $moduleTemplate;}
+) + $moduleTemplate;
+//Customized module for LaTeXML
+$wgResourceModules['ext.math.mathjax.enabler.mml'] = array(
+	'scripts' => 'ext.math.mathjax.enabler.mml.js',
+) + $moduleTemplate;

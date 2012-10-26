@@ -119,7 +119,7 @@ $messages['am'] = array(
 	'math_bad_output' => 'ወደ math ውጤት ዶሴ መጻፍ ወይም መፍጠር አይቻልም',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -242,7 +242,7 @@ $messages['as'] = array(
 	'math_syntax_error' => 'চীন্‌টেক্স ত্ৰুটি',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -265,7 +265,7 @@ $messages['ast'] = array(
 	'math_notexvc' => "Falta l'executable 'texvc'; por favor mira 'math/README' pa configuralo.",
 );
 
-/** Avaric (Авар)
+/** Avaric (авар)
  * @author Amire80
  */
 $messages['av'] = array(
@@ -290,7 +290,7 @@ $messages['avk'] = array(
 	'math_notexvc' => "L'éxécutable « texvc » est introuvable. Lisez math/README pour le configurer.",
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author PrinceValiant
  */
 $messages['az'] = array(
@@ -304,7 +304,7 @@ $messages['az'] = array(
 	'math_syntax_error' => 'sintaksis xətası',
 );
 
-/** Bashkir (Башҡортса)
+/** Bashkir (башҡортса)
  * @author Assele
  * @author Haqmar
  * @author Рустам Нурыев
@@ -379,7 +379,7 @@ $messages['bcl'] = array(
 	'math_notexvc' => 'May nawawarang texvc na ehekutable; hilingón tabî an mat/README para makonpigurar.',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Mienski
  * @author Yury Tarasievich
  */
@@ -400,7 +400,7 @@ $messages['be'] = array(
 	'math_notexvc' => 'Не знойдзены выканальны модуль texvc; аб яго настаўленнях чытайце ў math/README.',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -426,7 +426,7 @@ $messages['be-tarask'] = array(
 Калі ласка, прачытайце math/README пра яго канфігурацыю.',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  */
 $messages['bg'] = array(
@@ -493,7 +493,7 @@ $messages['bn'] = array(
 	'math_notexvc' => 'texvc executable হারানো গেছে; অনুগ্রহ করে কনফিগার করার জন্য math/README দেখুন।',
 );
 
-/** Bishnupria Manipuri (ইমার ঠার/বিষ্ণুপ্রিয়া মণিপুরী)
+/** Bishnupria Manipuri (বিষ্ণুপ্রিয়া মণিপুরী)
  * @author Usingha
  */
 $messages['bpy'] = array(
@@ -510,7 +510,7 @@ $messages['bqi'] = array(
 	'math_tip' => 'فرمول ریاضی (LaTeX)',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
@@ -530,7 +530,7 @@ $messages['br'] = array(
 	'math_notexvc' => "N'hall ket an erounezeg 'texvc' bezañ kavet. Lennit math/README evit he c'hefluniañ.",
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -550,7 +550,7 @@ $messages['bs'] = array(
 	'math_notexvc' => 'Nedostaje izvršno texvc; molimo Vas da pogledate math/README da podesite.',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Martorell
  * @author SMP
  * @author Toniher
@@ -580,7 +580,7 @@ $messages['cdo'] = array(
 	'math_unknown_function' => 'muôi báik hàng-só',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -611,7 +611,7 @@ $messages['ch'] = array(
 	'math_syntax_error' => 'linachi syntax',
 );
 
-/** Sorani (کوردی)
+/** Sorani Kurdish (کوردی)
  * @author Arastein
  * @author Asoxor
  * @author Marmzok
@@ -627,7 +627,7 @@ $messages['ckb'] = array(
 	'math_syntax_error' => 'ڕستەکار هەڵەیە',
 );
 
-/** Corsican (Corsu) */
+/** Corsican (corsu) */
 $messages['co'] = array(
 	'prefs-math' => 'Matematica',
 	'math_syntax_error' => 'errore di sintassa',
@@ -641,7 +641,7 @@ $messages['cps'] = array(
 	'math_tip' => 'Pormula nga pangmatematika (LaTeX)',
 );
 
-/** Crimean Turkish (Latin script) (‪Qırımtatarca (Latin)‬)
+/** Crimean Turkish (Latin script) (qırımtatarca (Latin)‎)
  * @author Don Alessandro
  */
 $messages['crh-latn'] = array(
@@ -657,7 +657,7 @@ $messages['crh-latn'] = array(
 	'math_syntax_error' => 'sintaksis hatası',
 );
 
-/** Crimean Turkish (Cyrillic script) (‪Къырымтатарджа (Кирилл)‬)
+/** Crimean Turkish (Cyrillic script) (къырымтатарджа (Кирилл)‎)
  * @author Don Alessandro
  */
 $messages['crh-cyrl'] = array(
@@ -673,7 +673,7 @@ $messages['crh-cyrl'] = array(
 	'math_syntax_error' => 'синтаксис хатасы',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Danny B.
  * @author Mormegil
  */
@@ -696,7 +696,7 @@ $messages['cs'] = array(
 	'math_notexvc' => 'Chybí spustitelný texvc; podívejte se prosím do math/README na konfiguraci.',
 );
 
-/** Kashubian (Kaszëbsczi)
+/** Kashubian (kaszëbsczi)
  * @author Kaszeba
  * @author Warszk
  */
@@ -709,7 +709,7 @@ $messages['csb'] = array(
 	'math_failure' => 'Parser nie rozmiôł rozpòznac',
 );
 
-/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -730,11 +730,13 @@ $messages['cv'] = array(
  * @author Lloffiwr
  */
 $messages['cy'] = array(
+	'math-desc' => 'Arddangos fformwla mathemategol rhwng y tagiau <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Gosodwch fformwla yma',
 	'math_tip' => 'Fformwla mathemategol (LaTeX)',
 	'prefs-math' => 'Mathemateg',
 	'mw_math_png' => 'Arddangos symbolau mathemateg fel delwedd PNG bob amser',
 	'mw_math_source' => 'Gadewch fel côd TeX (ar gyfer porwyr testun)',
+	'mw_math_mathjax' => "MathJax (arbrofol; yn orau i'r mwyafrif o borwyr)",
 	'math_failure' => 'Wedi methu dosrannu',
 	'math_unknown_error' => 'gwall anhysbys',
 	'math_unknown_function' => 'ffwythiant anhysbys',
@@ -746,7 +748,7 @@ $messages['cy'] = array(
 	'math_notexvc' => 'Rhaglen texvc yn eisiau; gwelwch math/README er mwyn ei chyflunio.',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Nghtwlkr
  * @author Peter Alberti
  */
@@ -757,6 +759,7 @@ $messages['da'] = array(
 	'prefs-math' => 'Matematiske formler',
 	'mw_math_png' => 'Vis altid som PNG',
 	'mw_math_source' => 'Lad være som TeX (for tekstbrowsere)',
+	'mw_math_mathjax' => 'MathJax (på forsøgsstadiet; virker bedst for mange browsere)',
 	'math_failure' => 'Fejl i matematikken',
 	'math_unknown_error' => 'ukendt fejl',
 	'math_unknown_function' => 'ukendt funktion',
@@ -778,7 +781,7 @@ $messages['de'] = array(
 	'math-desc' => 'Ergänzt das Tag <code>&lt;math&gt;</code> zum Darstellen mathematischer Formeln',
 	'math_sample' => 'Formel hier einfügen',
 	'math_tip' => 'Mathematische Formel (LaTeX)',
-	'prefs-math' => 'Math',
+	'prefs-math' => 'Mathematische Formeln',
 	'mw_math_png' => 'Immer als PNG darstellen',
 	'mw_math_source' => 'Als TeX belassen (für Textbrowser)',
 	'mw_math_mathjax' => 'MathJax (experimentell; für alle Browser geeignet)',
@@ -795,6 +798,7 @@ $messages['de'] = array(
 
 /** Zazaki (Zazaki)
  * @author Aspar
+ * @author Erdemaslancan
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -808,15 +812,14 @@ $messages['diq'] = array(
 	'math_unknown_function' => 'fonksiyon nizanyeno',
 	'math_lexing_error' => 'ğeleto lexing',
 	'math_syntax_error' => 'ğeleto sintaks',
-	'math_image_error' => 'Conversiyonê PNG de ğeleti esta;
-qe ronayişê raşti ye latex, dvips, gs kontrol bike u convert bike',
+	'math_image_error' => 'Açarnayışê PNG nêbı;programan de latex, dvips u gs ra rast barbıyayışi ra emel bê u karfinayışê açarnayışi dest pêkerê.',
 	'math_bad_tmpdir' => 'Nieşkeno binusi ya zi direktorê mathi virazi',
 	'math_bad_output' => 'Nieşkeno binusi ya zi direktorê mathi ye outputi virazi',
 	'math_notexvc' => "xebetnayekarê texvc'i vindbiyo
 qey 'eyar kerdışi bıewnê math/README'yi.",
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  * @author Nepl1
  * @author Pe7er
@@ -900,7 +903,7 @@ $messages['eo'] = array(
 	'math_notexvc' => 'Programo texvc ne ekzistas; bonvolu vidi math/README por konfiguri.',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  * @author Dferg
  * @author Fitoschido
@@ -926,17 +929,19 @@ $messages['es'] = array(
 	'math_notexvc' => 'Falta el ejecutable de <strong>texvc</strong>. Por favor, lea <em>math/README</em> para configurarlo.',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author KaidoKikkas
  * @author Pikne
  * @author WikedKentaur
  */
 $messages['et'] = array(
+	'math-desc' => 'Viimistleb siltide <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> vahel olevad matemaatilised valemid.',
 	'math_sample' => 'Sisesta valem siia',
 	'math_tip' => 'Matemaatiline valem (LaTeX)',
 	'prefs-math' => 'Valemite näitamine',
 	'mw_math_png' => 'Alati PNG',
 	'mw_math_source' => 'Säilitada TeX (tekstibrauserite puhul)',
+	'mw_math_mathjax' => 'MathJax (katseline; parim enamiku võrgulehitsejatega)',
 	'math_failure' => 'Arusaamatu süntaks',
 	'math_unknown_error' => 'Tundmatu viga',
 	'math_unknown_function' => 'Tundmatu funktsioon',
@@ -948,7 +953,7 @@ $messages['et'] = array(
 	'math_notexvc' => 'Texvc-rakendus puudub; häälestamiseks vaata matemaatikakataloogist README-faili',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  * @author Bengoa
  */
@@ -969,7 +974,7 @@ $messages['eu'] = array(
 	'math_notexvc' => 'texvc exekutagarria falta da; mesedez, ikus math/README konfiguratzeko.',
 );
 
-/** Extremaduran (Estremeñu)
+/** Extremaduran (estremeñu)
  * @author Better
  */
 $messages['ext'] = array(
@@ -1012,7 +1017,7 @@ $messages['fa'] = array(
 	'math_notexvc' => 'برنامهٔ اجرایی texvc موجود نیست. برای اطلاعات بیشتر به <span dir=ltr>math/README</span> مراجعه کنید.',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Crt
  * @author Wix
  */
@@ -1033,7 +1038,7 @@ $messages['fi'] = array(
 	'math_notexvc' => 'Texvc-sovellus puuttuu, lue math/READMEstä asennustietoja',
 );
 
-/** Faroese (Føroyskt)
+/** Faroese (føroyskt)
  * @author Krun
  * @author Quackor
  * @author Spacebirdy
@@ -1046,7 +1051,7 @@ $messages['fo'] = array(
 	'mw_math_source' => 'Lat verða sum TeX (til tekstkagara)',
 );
 
-/** French (Français)
+/** French (français)
  * @author Gomoko
  * @author Peter17
  * @author Sherbrooke
@@ -1070,7 +1075,7 @@ $messages['fr'] = array(
 	'math_notexvc' => 'L’exécutable « texvc » est introuvable. Lisez math/README pour le configurer.',
 );
 
-/** Cajun French (Français cadien)
+/** Cajun French (français cadien)
  * @author RoyAlcatraz
  */
 $messages['frc'] = array(
@@ -1078,7 +1083,7 @@ $messages['frc'] = array(
 	'math_tip' => "Formule d'arithmitique (LaTeX)",
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -1104,12 +1109,25 @@ Volyéd liére « math/README » por lo configurar.',
  * @author Pyt
  */
 $messages['frr'] = array(
+	'math-desc' => 'Wiset matemaatisk formeln tesken <code>&lt;math&gt;</code> an <code>&lt;/math&gt;</code> uun.',
 	'math_sample' => 'Formel heer önjfäige',
 	'math_tip' => 'Matemaatisch formel (LaTex)',
 	'prefs-math' => 'TeX',
+	'mw_math_png' => 'Leewen üs PNG uunwise',
+	'mw_math_source' => 'Uun TeX-formoot läät (för tekst-browsers)',
+	'mw_math_mathjax' => 'MathJax (eksperimentel; best för a miast browsers)',
+	'math_failure' => "Bi't auersaaten as wat skiaf gingen.",
+	'math_unknown_error' => 'Ünbekäänd feeler',
+	'math_unknown_function' => 'Ünbekäänd funktsjuun',
+	'math_lexing_error' => 'Leksikaalisk feeler',
+	'math_syntax_error' => 'Süntaksfeeler',
+	'math_image_error' => 'PNG konwertiarin as skiaf gingen. Preewe det iinrachtang faan LaTeX an dvipng (of dvips + gs + convert)',
+	'math_bad_tmpdir' => 'Det föörluupen fertiaknis för matemaatisk formeln küd ei brükt of iinracht wurd.',
+	'math_bad_output' => 'Det fertiaknis för matemaatisk formeln küd ei brükt of iinracht wurd.',
+	'math_notexvc' => "Det texvc program as ei diar. Luke hü det iinrachten gongt uun't datei math/README.",
 );
 
-/** Friulian (Furlan) */
+/** Friulian (furlan) */
 $messages['fur'] = array(
 	'math_sample' => 'Inserìs la formule culì',
 	'math_tip' => 'Formule matematiche (LaTeX)',
@@ -1168,7 +1186,7 @@ $messages['gag'] = array(
 	'math_tip' => 'Matematik formula (LaTeX formatında)',
 );
 
-/** Simplified Gan script (‪赣语(简体)‬) */
+/** Simplified Gan script (赣语（简体）‎) */
 $messages['gan-hans'] = array(
 	'math_sample' => '到个首扻入数学公式',
 	'math_tip' => '数学公式 （LaTeX）',
@@ -1186,7 +1204,7 @@ $messages['gan-hans'] = array(
 	'math_notexvc' => '执行伓正"texvc"；请参看 math/README 再配置过。',
 );
 
-/** Traditional Gan script (‪贛語(繁體)‬) */
+/** Traditional Gan script (贛語（繁體）‎) */
 $messages['gan-hant'] = array(
 	'math_sample' => '到箇首扻入數學公式',
 	'math_tip' => '數學公式 （LaTeX）',
@@ -1213,7 +1231,7 @@ $messages['gd'] = array(
 	'math_unknown_error' => 'mearachd neo-aithnichte',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Alma
  * @author Toliño
  * @author Xosé
@@ -1325,7 +1343,7 @@ $messages['gv'] = array(
 	'math_syntax_error' => 'Co-ordrail marranagh',
 );
 
-/** Hausa (هَوُسَ)
+/** Hausa (Hausa)
  * @author Mladanali
  */
 $messages['ha'] = array(
@@ -1437,7 +1455,7 @@ $messages['hil'] = array(
 	'math_tip' => 'Math pormula (LaTeX)',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Herr Mlinka
  * @author SpeedyGonsales
  */
@@ -1458,7 +1476,7 @@ $messages['hr'] = array(
 	'math_notexvc' => 'Nedostaje izvršna datoteka texvc-a; pogledajte math/README za postavke.',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -1488,7 +1506,7 @@ $messages['ht'] = array(
 	'math_tip' => 'Fòmil matematik (LaTeX)',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  */
 $messages['hu'] = array(
@@ -1530,7 +1548,7 @@ $messages['hy'] = array(
 	'math_notexvc' => 'Կատարման texvc նիշքը չի գտնվել։ Տեսեք math/README՝ կարգավորման համար։',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -1603,21 +1621,26 @@ $messages['ike-latn'] = array(
 );
 
 /** Iloko (Ilokano)
+ * @author Lam-ang
  * @author Saluyot
  */
 $messages['ilo'] = array(
-	'math_sample' => 'Isulbong ti formula ditoy',
-	'math_tip' => 'Matematikal a formula (LaTeX)',
+	'math-desc' => 'Agipaay kadagiti matematiko a pagannurotan a nagbaetan dagiti <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> nga etiketa',
+	'math_sample' => 'Isengngat ti pagannurotan ditoy',
+	'math_tip' => 'Matematiko a pagannurotan  (LaTeX)',
 	'prefs-math' => 'Math',
-	'mw_math_png' => 'Kanayon a pagbalinen a PNG',
-	'mw_math_source' => 'Ibati lattan a kas TeX (para kadagiti text browsers)',
-	'math_failure' => 'Napaay nga ag-parse',
-	'math_unknown_error' => 'di ammo a biddut',
-	'math_unknown_function' => 'di ammo a function',
-	'math_lexing_error' => 'lexing error',
-	'math_syntax_error' => 'biddut iti syntax',
-	'math_image_error' => 'Napaay ti PNG conversion;
-itsek ti husto a panangikapet iti latex, dvips, gs, samo i-convert',
+	'mw_math_png' => 'Kanayon nga ipaay ti PNG',
+	'mw_math_source' => 'Ibati lattan a kas ti TeX (para kadagiti testo a pagbasabasa)',
+	'mw_math_mathjax' => 'MathJax (eksperimento; kasayaatan para kadagiti kaaduan a pagbasabasa)',
+	'math_failure' => 'Napaay a na-parse',
+	'math_unknown_error' => 'di amammo a biddut',
+	'math_unknown_function' => 'di amammo a pamay-an',
+	'math_lexing_error' => 'lexing a biddut',
+	'math_syntax_error' => 'biddut ti gramatika',
+	'math_image_error' => 'Napaay ti panagbalbaliw ti PNG ; kitaen para kadagiti husto a panagikabil iti latex ken dvipng (wenno dvips + gs + panagbalbaliw)',
+	'math_bad_tmpdir' => 'Saan a makasurat wenno makapartuat ti temporario a direktorio ti math',
+	'math_bad_output' => 'Saan a makasurat wenno makapartuat ti maiparang a direktorio ti math',
+	'math_notexvc' => 'Awan dagiti mapabalin a texvc; pangngaasi a kitaen ti math/README tapno maaramid.',
 );
 
 /** Ido (Ido)
@@ -1633,7 +1656,7 @@ $messages['io'] = array(
 	'math_bad_output' => 'Onu ne povas skribar o krear la arkivaro por la matematiko',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author Krun
  * @author S.Örvarr.S
  */
@@ -1650,7 +1673,7 @@ $messages['is'] = array(
 	'math_syntax_error' => 'málfræðivilla',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  */
 $messages['it'] = array(
@@ -1673,27 +1696,29 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Ant176
  * @author Ohgi
  * @author Shirayuki
  * @author Whym
  * @author 青子守歌
  */
 $messages['ja'] = array(
+	'math-desc' => '<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング',
 	'math_sample' => 'ここに数式を挿入',
 	'math_tip' => '数式 (LaTeX)',
 	'prefs-math' => '数式',
 	'mw_math_png' => '常にPNGで描画',
-	'mw_math_source' => 'TeXのまま（テキストブラウザー向け）',
+	'mw_math_source' => 'TeX のまま (テキスト ブラウザー向け)',
 	'mw_math_mathjax' => 'MathJax（開発中; ほとんどのブラウザーに最適）',
-	'math_failure' => '構文解析失敗',
+	'math_failure' => '構文解析に失敗',
 	'math_unknown_error' => '不明なエラー',
 	'math_unknown_function' => '不明な関数',
 	'math_lexing_error' => '字句解析エラー',
 	'math_syntax_error' => '構文エラー',
 	'math_image_error' => 'PNGへの変換に失敗しました。dvipng（もしくはdvipsとgsとconvert）およびlatexが正しくインストールされているか確認してください。',
-	'math_bad_tmpdir' => '数式一時ディレクトリーへの書き込みまたは作成ができません',
-	'math_bad_output' => '数式一時ディレクトリーへの書き込みまたは作成ができません',
-	'math_notexvc' => 'texvcの実行可能ファイルが見つかりません。math/READMEを読んで設定してください。',
+	'math_bad_tmpdir' => '数式一時ディレクトリでの書き込みまたは作成ができません',
+	'math_bad_output' => '数式出力ディレクトリでの書き込みまたは作成ができません',
+	'math_notexvc' => 'texvc の実行可能ファイルが見つかりません。math/README を読んで設定してください。',
 );
 
 /** Jamaican Creole English (Patois)
@@ -1704,7 +1729,7 @@ $messages['jam'] = array(
 	'math_tip' => 'Matimatikal faamiula (LaTeX)',
 );
 
-/** Jutish (Jysk)
+/** Jutish (jysk)
  * @author Ælsån
  */
 $messages['jut'] = array(
@@ -1828,7 +1853,7 @@ enstale-kerdena ''latex'', ''dvips'', ''gs'', u ''convert''i qontrol ke",
 Serba areze-kerdene qaytê ''math/README''y ke.",
 );
 
-/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
 $messages['kk-arab'] = array(
 	'math_sample' => 'ورنەكتى مىندا ەنگىزىڭىز',
 	'math_tip' => 'ماتەماتىيكا ورنەگى (LaTeX)',
@@ -1848,7 +1873,7 @@ latex, dvips, gs جانە convert باعدارلامالارىنىڭ دۇرىس 
 باپتاۋ ٴۇشىن math/README قۇجاتىن قاراڭىز.',
 );
 
-/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
 $messages['kk-cyrl'] = array(
 	'math_sample' => 'Өрнекті мында енгізіңіз',
 	'math_tip' => 'Математика өрнегі (LaTeX)',
@@ -1868,7 +1893,7 @@ latex, dvips, gs және convert бағдарламаларының дұрыс 
 баптау үшін math/README құжатын қараңыз.',
 );
 
-/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎) */
 $messages['kk-latn'] = array(
 	'math_sample' => 'Örnekti mında engiziñiz',
 	'math_tip' => 'Matematïka örnegi (LaTeX)',
@@ -1941,6 +1966,7 @@ $messages['ko'] = array(
 	'prefs-math' => '수식',
 	'mw_math_png' => '항상 PNG로 표시',
 	'mw_math_source' => 'TeX로 남겨둠 (텍스트 브라우저용)',
+	'mw_math_mathjax' => 'MathJax (실험중; 대부분의 브라우저에서 최적)',
 	'math_failure' => '해석 실패',
 	'math_unknown_error' => '알 수 없는 오류',
 	'math_unknown_function' => '알 수 없는 함수',
@@ -1960,7 +1986,7 @@ $messages['koi'] = array(
 	'math_tip' => 'Математикаись формула',
 );
 
-/** Karachay-Balkar (Къарачай-Малкъар)
+/** Karachay-Balkar (къарачай-малкъар)
  * @author Iltever
  * @author Къарачайлы
  */
@@ -1983,13 +2009,16 @@ $messages['krc'] = array(
 
 /** Colognian (Ripoarisch)
  * @author Purodha
+ * @author Reedy
  */
 $messages['ksh'] = array(
+	'math-desc' => 'Zeisch Fomelle us de Mathematik aan, die ennerhallef vun <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> schtonn.',
 	'math_sample' => 'Heh schriev de Formel en „LaTeX“ Forrem eren',
 	'math_tip' => 'En mathematisch Formel',
 	'prefs-math' => 'Mathematisch Formele',
 	'mw_math_png' => 'Immer nor PNG aanzeije',
 	'mw_math_source' => 'Lohß et als TeX (jod för de Tex-Brausere)',
+	'mw_math_mathjax' => 'MathJax (för zom Ußprobeere un et bäß för de miehtsde Brausere)',
 	'math_failure' => 'Fähler vum Parser',
 	'math_unknown_error' => 'Fähler, dä mer nit kenne',
 	'math_unknown_function' => 'en Funktion, die mer nit kenne',
@@ -2003,7 +2032,7 @@ Sag et enemWiki-Köbes, enem ẞööver-Minsch, oder luur ens en dä
 <code>math/README</code>.',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author Bangin
  */
 $messages['ku-latn'] = array(
@@ -2016,12 +2045,13 @@ $messages['ku-latn'] = array(
 	'math_image_error' => 'Wêşandana PNG nemeşî',
 );
 
-/** Cornish (Kernowek)
+/** Cornish (kernowek)
  * @author Kw-Moon
+ * @author Nrowe
  */
 $messages['kw'] = array(
 	'math_sample' => 'Keworrewgh an furvel obma',
-	'math_tip' => 'Furvel galcoriethek (LaTeX)',
+	'math_tip' => 'Furvel galkoriethek (LaTeX)',
 );
 
 /** Kirghiz (Кыргызча) */
@@ -2129,7 +2159,7 @@ $messages['liv'] = array(
 	'math_tip' => 'Matemātili formula (LaTeX)',
 );
 
-/** Lumbaart (Lumbaart)
+/** lumbaart (lumbaart)
  * @author Insübrich
  */
 $messages['lmo'] = array(
@@ -2159,7 +2189,7 @@ $messages['loz'] = array(
 	'prefs-math' => 'Mat',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Perkunas
  */
 $messages['lt'] = array(
@@ -2179,7 +2209,7 @@ $messages['lt'] = array(
 	'math_notexvc' => 'Trūksta texvc vykdomojo failo; pažiūrėkite math/README kaip konfigūruoti.',
 );
 
-/** Latgalian (Latgaļu)
+/** Latgalian (latgaļu)
  * @author Jureits
  */
 $messages['ltg'] = array(
@@ -2187,7 +2217,29 @@ $messages['ltg'] = array(
 	'math_tip' => 'Matematiska formula (LaTeX)',
 );
 
-/** Latvian (Latviešu)
+/** Lushai (Mizo ţawng)
+ * @author RMizo
+ */
+$messages['lus'] = array(
+	'math-desc' => 'Chhiarkawp dàn rëng rëng  <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> te inkara ziah luh tùr.',
+	'math_sample' => 'Chhiarkawp dàn chu hetah hian chhu rawh',
+	'math_tip' => 'Chhiarkawp dàn (LaTeX)',
+	'prefs-math' => 'Chhiarkawp',
+	'mw_math_png' => 'PNG-a chhuahna',
+	'mw_math_source' => 'TeX ngäi ngäiin dah rawh (thuziak rangpuifanna tán bîk)',
+	'mw_math_mathjax' => 'MathJax (aitechhinna; rangpuifanna tam zâwk tan a ṭha ber)',
+	'math_failure' => 'Chhiarkawp dàn chhut sùal a awm',
+	'math_unknown_error' => 'dikhlelhna hriat loh',
+	'math_unknown_function' => 'hnathawh hriat loh',
+	'math_lexing_error' => 'chhiarkawp ṭawngkam dik lo',
+	'math_syntax_error' => 'chhiarkawp ṭawngkauchheh dik lo',
+	'math_image_error' => 'PNG-a chhuah a tlawlh; latex leh dvipng  (a nih loh pawhin dvips+gs+convert) i bun dik nge dik lo finfiah rawh',
+	'math_bad_tmpdir' => 'Chhiarkawp báwm lailâwk a siamin a ziaklût thei lo',
+	'math_bad_output' => 'Chhiarkawpa chhuahna báwmah ziaklûtin a siam thei lo',
+	'math_notexvc' => 'texvc tihnun theih a awm lo; khawngaihin herrem tùrin math/README en rawh.',
+);
+
+/** Latvian (latviešu)
  * @author Marozols
  * @author Yyy
  */
@@ -2242,7 +2294,7 @@ $messages['mai'] = array(
 	'prefs-math' => 'गणित',
 );
 
-/** Moksha (Мокшень)
+/** Moksha (мокшень)
  * @author Jarmanj Turtash
  * @author Kranch
  * @author Numulunj pilgae
@@ -2285,7 +2337,7 @@ Avelao ho TeX (ho an'ny navigateurs textes)",
 	'math_notexvc' => 'Tsy hita ny rindrankajy texvc; azafady jereo math/README hanamboarana azy.',
 );
 
-/** Eastern Mari (Олык Марий)
+/** Eastern Mari (олык марий)
  * @author Сай
  */
 $messages['mhr'] = array(
@@ -2304,7 +2356,7 @@ $messages['min'] = array(
 	'math_tip' => 'Rumus matematika (LaTeX)',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -2339,6 +2391,7 @@ $messages['ml'] = array(
 	'prefs-math' => 'സമവാക്യം',
 	'mw_math_png' => 'എപ്പോഴും PNG ആയി പ്രദർശിപ്പിക്കുക',
 	'mw_math_source' => 'TeX ആയി തന്നെ പ്രദർശിപ്പിക്കുക (ടെക്സ്റ്റ് ബ്രൗസറുകൾക്ക്)',
+	'mw_math_mathjax' => 'MathJax (പരീക്ഷണാടിസ്ഥാനം; ബഹുഭൂരിപക്ഷം ബ്രൗസറുകൾക്കും അനുയോജ്യം)',
 	'math_failure' => 'പാഴ്സ് ചെയ്യൽ പരാജയപ്പെട്ടു',
 	'math_unknown_error' => 'അപരിചിതമായ പിഴവ്',
 	'math_unknown_function' => 'അജ്ഞാതമായ ഫങ്ങ്ഷൻ',
@@ -2352,7 +2405,7 @@ latex, dvips,എന്നിവ ശരിയായാണോ ഇൻസ്റ്�
 സജ്ജീകരിച്ചെടുക്കാനുള്ള സഹായത്തിനു ദയവായി math/README കാണുക.',
 );
 
-/** Mongolian (Монгол)
+/** Mongolian (монгол)
  * @author Chinneeb
  */
 $messages['mn'] = array(
@@ -2374,7 +2427,7 @@ latex, dvips, gs, convert-г зөв суулгасан эсэхийг шалга
 math/README-г уншиж тохируулна уу.',
 );
 
-/** Moldavian (Молдовеняскэ)
+/** Moldavian (молдовеняскэ)
  * @author Node ue
  */
 $messages['mo'] = array(
@@ -2404,7 +2457,7 @@ $messages['mr'] = array(
 	'math_notexvc' => 'texvcकरणी(texvc एक्झिक्यूटेबल)चूकमुकली आहे;कृपया,सज्जीत करण्याकरिता math/README पहा.',
 );
 
-/** Hill Mari (Кырык мары)
+/** Hill Mari (кырык мары)
  * @author Amdf
  */
 $messages['mrj'] = array(
@@ -2482,7 +2535,7 @@ $messages['my'] = array(
 	'math_unknown_function' => 'အမည်မသိ ဖန်ရှင်',
 );
 
-/** Erzya (Эрзянь)
+/** Erzya (эрзянь)
  * @author Amdf
  * @author Botuzhaleny-sodamo
  */
@@ -2520,27 +2573,18 @@ $messages['nah'] = array(
  */
 $messages['nan'] = array(
 	'math_sample' => 'Chia siá hong-thêng-sek',
-	'math_tip' => '數學的公式 （LaTeX）',
 	'prefs-math' => 'Sò·-ha̍k ê rendering',
 	'mw_math_png' => 'Tiāⁿ-tio̍h iōng PNG render',
 	'mw_math_source' => 'Î-chhî TeX ê keh-sek (khah ha̍h bûn-jī-sek ê liû-lám-khì)',
-	'math_failure' => '解析失敗',
-	'math_unknown_error' => '毋知啥物錯誤',
-	'math_unknown_function' => '毋知啥物函數',
-	'math_lexing_error' => '句法錯誤',
-	'math_syntax_error' => '語法錯誤',
-	'math_image_error' => 'PNG 轉換失敗；請檢查看有正確安裝 latex, dvipng（或dvips + gs + convert）無？',
-	'math_bad_tmpdir' => '無法度寫入抑是建立數學公式的臨時目錄',
-	'math_bad_output' => '無法度寫入抑是建立數學公式的輸出目錄',
-	'math_notexvc' => '無看"texvc"執行檔案；請看 math/README 做配置',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
+/** Norwegian Bokmål (norsk (bokmål)‎)
+ * @author Event
  * @author Nghtwlkr
  * @author Stigmj
  */
 $messages['nb'] = array(
+	'math-desc' => 'Fremstill matematiske formler inne i taggparet <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Sett inn formel her',
 	'math_tip' => 'Matematisk formel (LaTeX)',
 	'prefs-math' => 'Matteformler',
@@ -2642,7 +2686,7 @@ $messages['nl'] = array(
 	'math_notexvc' => 'Kan het programma texvc niet vinden; stel alles in volgens de beschrijving in math/README.',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Nghtwlkr
  */
 $messages['nn'] = array(
@@ -2662,6 +2706,25 @@ $messages['nn'] = array(
 	'math_notexvc' => 'Manglar texvc-program; sjå math/README for konfigurasjon.',
 );
 
+/** Norwegian (bokmål)‬ (‪norsk (bokmål)‬) */
+$messages['no'] = array(
+	'math_sample' => 'Sett inn formel her',
+	'math_tip' => 'Matematisk formel (LaTeX)',
+	'prefs-math' => 'Matteformler',
+	'mw_math_png' => 'Vis alltid som PNG',
+	'mw_math_source' => 'Behold som TeX (for tekst-nettlesere)',
+	'math_failure' => 'Feil i matematikken',
+	'math_unknown_error' => 'ukjent feil',
+	'math_unknown_function' => 'ukjent funksjon',
+	'math_lexing_error' => 'lexerfeil',
+	'math_syntax_error' => 'syntaksfeil',
+	'math_image_error' => 'PNG-konversjon mislyktes; sjekk at latex og dvipng (eller dvips + gs + convert) er korrekt installert',
+	'math_bad_tmpdir' => 'Kan ikke skrive til eller opprette midlertidig mappe',
+	'math_bad_output' => 'Kan ikke skrive til eller opprette resultatmappe',
+	'math_notexvc' => 'Mangler kjørbar texvc;
+se math/README for oppsett.',
+);
+
 /** Northern Sotho (Sesotho sa Leboa)
  * @author Mohau
  */
@@ -2672,7 +2735,7 @@ $messages['nso'] = array(
 	'math_syntax_error' => 'phošo ya popafoko',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -2778,7 +2841,7 @@ $messages['pfl'] = array(
 	'math_tip' => 'Mathematische Formel (LaTeX)',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author BeginaFelicysym
  * @author Sp5uhe
  */
@@ -2883,7 +2946,7 @@ $messages['ps'] = array(
 	'math_unknown_function' => 'ناجوته کړنه',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Hamilton Abreu
  */
 $messages['pt'] = array(
@@ -2904,7 +2967,7 @@ verifique que o latex, dvips, gs e convert foram correctamente instalados',
 	'math_notexvc' => 'O executável texvc não foi encontrado. Consulte math/README para instruções da configuração.',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author 555
  * @author Giro720
  */
@@ -2962,7 +3025,7 @@ $messages['rif'] = array(
 	'math_tip' => 'Mathematical formula (LaTeX)',
 );
 
-/** Romansh (Rumantsch)
+/** Romansh (rumantsch)
  * @author Gion-andri
  * @author Kazu89
  */
@@ -2996,7 +3059,7 @@ $messages['rmy'] = array(
 	'math_notexvc' => 'Nai o kerditori (eksekutabilo) texvc; dikh math/README te labyares les.',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Emily
  * @author Laurap
  * @author Minisarm
@@ -3007,7 +3070,7 @@ $messages['ro'] = array(
 	'math_tip' => 'Formulă matematică (LaTeX)',
 	'prefs-math' => 'Aspect formule',
 	'mw_math_png' => 'Întodeauna afișează PNG',
-	'mw_math_source' => 'Lasă ca TeX (pentru browser-ele text)',
+	'mw_math_source' => 'Lasă ca TeX (pentru navigatoarele text)',
 	'math_failure' => 'Nu s-a putut interpreta',
 	'math_unknown_error' => 'eroare necunoscută',
 	'math_unknown_function' => 'funcție necunoscută',
@@ -3019,7 +3082,7 @@ $messages['ro'] = array(
 	'math_notexvc' => 'Lipsește executabilul texvc; vezi math/README pentru configurare.',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -3041,16 +3104,19 @@ condrolle ce l'installazione de latex e dvips (o dvipg + gs + convertitore) jè 
 pe piacere vide math/README pe configurà.',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Amire80
+ * @author Kalan
  * @author MaxSem
  */
 $messages['ru'] = array(
+	'math-desc' => 'Отображает математические формулы в тегах <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Введите сюда формулу',
 	'math_tip' => 'Математическая формула (формат LaTeX)',
 	'prefs-math' => 'Отображение формул',
 	'mw_math_png' => 'Всегда генерировать PNG',
 	'mw_math_source' => 'Оставить в разметке ТеХ (для текстовых браузеров)',
+	'mw_math_mathjax' => 'MathJax (экспериментальная опция, оптимальная для большинства браузеров)',
 	'math_failure' => 'Невозможно разобрать выражение',
 	'math_unknown_error' => 'неизвестная ошибка',
 	'math_unknown_function' => 'неизвестная функция',
@@ -3062,7 +3128,7 @@ $messages['ru'] = array(
 	'math_notexvc' => 'Выполняемый файл texvc не найден; См. math/README — справку по настройке.',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
@@ -3106,7 +3172,7 @@ $messages['sa'] = array(
 	'math_tip' => 'गणितीयसूत्रम् (LaTeX)',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author Andrijko Z.
  * @author HalanTul
  */
@@ -3127,7 +3193,7 @@ $messages['sah'] = array(
 	'math_notexvc' => 'texvc кыайан толоруллубата; маны math/README көр.',
 );
 
-/** Sardinian (Sardu)
+/** Sardinian (sardu)
  * @author Andria
  */
 $messages['sc'] = array(
@@ -3137,7 +3203,7 @@ $messages['sc'] = array(
 	'math_unknown_error' => 'faddina disconnota',
 );
 
-/** Sicilian (Sicilianu)
+/** Sicilian (sicilianu)
  * @author Tonyfroio
  */
 $messages['scn'] = array(
@@ -3196,7 +3262,7 @@ $messages['sdc'] = array(
 	'math_notexvc' => "Fattìbiri ''texvc'' mancanti; pa piazeri cunsulthà ''math/README'' pa la cunfigurazioni.",
 );
 
-/** Northern Sami (Sámegiella)
+/** Northern Sami (sámegiella)
  * @author Skuolfi
  */
 $messages['se'] = array(
@@ -3220,7 +3286,7 @@ $messages['sei'] = array(
 	'math_syntax_error' => 'römjde syntáx',
 );
 
-/** Samogitian (Žemaitėška) */
+/** Samogitian (žemaitėška) */
 $messages['sgs'] = array(
 	'math_sample' => 'Iveskėt fuormolė',
 	'math_tip' => 'Matematinė fuormolė (LaTeX fuormato)',
@@ -3232,7 +3298,7 @@ $messages['sgs'] = array(
 	'math_unknown_function' => 'nežinuoma funkcėjė',
 );
 
-/** Serbo-Croatian (Srpskohrvatski)
+/** Serbo-Croatian (srpskohrvatski / српскохрватски)
  * @author OC Ripper
  */
 $messages['sh'] = array(
@@ -3285,7 +3351,7 @@ $messages['si'] = array(
 වින්‍යාස කෙරුමට කරුණාකර math/README බලන්න.',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  * @author Teslaton
  */
@@ -3308,7 +3374,7 @@ $messages['sk'] = array(
 	'math_notexvc' => 'Chýbajúci program texvc; konfigurácia je popísaná v math/README.',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -3364,7 +3430,7 @@ $messages['so'] = array(
 	'prefs-math' => 'Xisaab',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Mikullovci11
  */
 $messages['sq'] = array(
@@ -3384,7 +3450,7 @@ $messages['sq'] = array(
 	'math_notexvc' => 'Mungon zbatuesi texvc; ju lutem shikoni math/README për konfigurimin.',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Rancher
  */
 $messages['sr-ec'] = array(
@@ -3397,14 +3463,14 @@ $messages['sr-ec'] = array(
 	'math_unknown_error' => 'непозната грешка',
 	'math_unknown_function' => 'непозната функција',
 	'math_lexing_error' => 'речничка грешка',
-	'math_syntax_error' => 'синтаксна грешка',
+	'math_syntax_error' => 'синтактичка грешка',
 	'math_image_error' => 'Претварање у формат PNG није успело. Проверите да ли су добро инсталирани latex, dvips, gs и convert',
 	'math_bad_tmpdir' => 'Стварање или писање у привремену фасциклу за математику није успело',
 	'math_bad_output' => 'Стварање или писање у одредишној фасцикли за математику није успело',
 	'math_notexvc' => 'Недостаје извршна датотека texvc-а. Погледајте math/README за подешавање.',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬) */
+/** Serbian (Latin script) (srpski (latinica)‎) */
 $messages['sr-el'] = array(
 	'math_sample' => 'Ovde unesite formulu',
 	'math_tip' => 'Matematička formula (LaTeX)',
@@ -3475,18 +3541,21 @@ $messages['su'] = array(
 	'math_bad_output' => 'Henteu bisa nulisikeun atawa nyieun direktori keluaran math',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Boivie
  * @author Habj
+ * @author Martinwiss
  * @author Nghtwlkr
  * @author Sannab
  */
 $messages['sv'] = array(
+	'math-desc' => 'Ritar matematiska ekvationer mellan <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-taggar',
 	'math_sample' => 'Skriv formeln här',
 	'math_tip' => 'Matematisk formel (LaTeX)',
 	'prefs-math' => 'Matematik',
 	'mw_math_png' => 'Rendera alltid PNG',
 	'mw_math_source' => 'Låt vara TeX (för textbaserade webbläsare)',
+	'mw_math_mathjax' => 'MathJax (i försöksstadium; fungerar bäst för de flesta webbläsare)',
 	'math_failure' => 'Misslyckades med att tolka formel.',
 	'math_unknown_error' => 'okänt fel',
 	'math_unknown_function' => 'okänd funktion',
@@ -3509,7 +3578,7 @@ $messages['sw'] = array(
 	'math_unknown_error' => 'hitilafu isiyojulikana',
 );
 
-/** Silesian (Ślůnski)
+/** Silesian (ślůnski)
  * @author Lajsikonik
  * @author Timpul
  */
@@ -3579,7 +3648,7 @@ $messages['te'] = array(
 	'math_notexvc' => 'texvc ఎక్జిక్యూటబుల్ కనబడడం లేదు; కాన్ఫిగరు చెయ్యడానికి math/README చూడండి.',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -3666,11 +3735,13 @@ konfigurirlemek üçin math/README serediň.',
  * @author AnakngAraw
  */
 $messages['tl'] = array(
+	'math-desc' => 'Iharap ang mga pormulang pangmatematika sa pagitan ng mga tatak na <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Isingit ang pormula dito',
 	'math_tip' => 'Pormulang pangmatematika (LaTeX)',
 	'prefs-math' => 'Matematika',
 	'mw_math_png' => 'Palaging ilarawan sa anyong PNG',
 	'mw_math_source' => "Iwanan bilang TeX (para sa mga panghanap na pangteksto o ''text browser'')",
+	'mw_math_mathjax' => 'MathJax (eksperimental; pinaka mahusay para sa karamihan ng mga pantingin-tingin)',
 	'math_failure' => 'Nabigo sa pagbanghay',
 	'math_unknown_error' => 'hindi nalalamang kamalian',
 	'math_unknown_function' => 'hindi nalalamang tungkulin',
@@ -3707,6 +3778,7 @@ $messages['tpi'] = array(
 /** Turkish (Türkçe)
  * @author Emperyan
  * @author Erkan Yilmaz
+ * @author Hcagri
  * @author Joseph
  * @author Runningfridgesrule
  * @author Srhat
@@ -3718,6 +3790,7 @@ $messages['tr'] = array(
 	'prefs-math' => 'Matematiksel simgeler',
 	'mw_math_png' => 'Daima PNG resim formatına çevir',
 	'mw_math_source' => 'Değiştirmeden TeX olarak bırak  (metin tabanlı tarayıcılar için)',
+	'mw_math_mathjax' => 'MathJax (deneysel; çoğu tarayıcıya uygun)',
 	'math_failure' => 'Ayrıştırılamadı',
 	'math_unknown_error' => 'bilinmeyen hata',
 	'math_unknown_function' => 'bilinmeyen fonksiyon',
@@ -3730,7 +3803,7 @@ $messages['tr'] = array(
 ayarlamak için math/README'ye bakın.",
 );
 
-/** Tatar (Cyrillic script) (Татарча)
+/** Tatar (Cyrillic script) (татарча)
  * @author Don Alessandro
  * @author KhayR
  * @author Ерней
@@ -3750,7 +3823,7 @@ $messages['tt-cyrl'] = array(
 	'math_syntax_error' => 'синтаксик хата',
 );
 
-/** Tatar (Latin script) (Tatarça)
+/** Tatar (Latin script) (tatarça)
  * @author Don Alessandro
  */
 $messages['tt-latn'] = array(
@@ -3766,7 +3839,7 @@ $messages['tt-latn'] = array(
 	'math_syntax_error' => 'sintaksik xata',
 );
 
-/** Tuvinian (Тыва дыл)
+/** Tuvinian (тыва дыл)
  * @author Sborsody
  */
 $messages['tyv'] = array(
@@ -3795,7 +3868,8 @@ latex، dvips، gs، ۋە convert توغرا قاچىلانغانلىقىنى ت
 	'math_notexvc' => ' texvc ئىجرا قىلالمىدى؛ math/README دىن پايدىلىنىپ سەپلەڭ.',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
+ * @author Olvin
  * @author Тест
  */
 $messages['uk'] = array(
@@ -3804,6 +3878,7 @@ $messages['uk'] = array(
 	'prefs-math' => 'Відображення формул',
 	'mw_math_png' => 'Завжди генерувати PNG',
 	'mw_math_source' => 'Залишити в вигляді ТеХ (для текстових браузерів)',
+	'mw_math_mathjax' => 'MathJax (експериментально; найкраще підходить для більшості оглядачів)',
 	'math_failure' => 'Неможливо розібрати вираз',
 	'math_unknown_error' => 'невідома помилка',
 	'math_unknown_function' => 'невідома функція',
@@ -3830,16 +3905,21 @@ $messages['ur'] = array(
 latex، dvips، gs کی صحیح تنصیب کی جانچ کرنے کے بعد دوبارہ تحویل کی کوشش کیجئے.',
 );
 
-/** Uzbek (O'zbek)
+/** Uzbek (oʻzbekcha)
  * @author Abdulla
+ * @author CoderSI
  */
 $messages['uz'] = array(
 	'math_sample' => 'Formula qoʻying',
 	'math_tip' => 'Matematik formula (LaTeX)',
 	'prefs-math' => 'Formulalar',
+	'mw_math_png' => 'Har doim PNGga aylantirish',
+	'mw_math_source' => 'Ishoralarda TeX ni qoldirish (matnli brauzerlar uchun)',
+	'mw_math_mathjax' => "MathJax (tajribaviy moslama, ko'pchilik brauzerlar uchun eng maqbuli)",
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
+ * @author Alunardon90
  * @author Candalua
  * @author Vajotwo
  */
@@ -3854,13 +3934,13 @@ $messages['vec'] = array(
 	'math_unknown_function' => 'funzion sconossiùa',
 	'math_lexing_error' => 'eror lessicale',
 	'math_syntax_error' => 'eror de sintassi',
-	'math_image_error' => 'Conversion in PNG fałía',
+	'math_image_error' => 'La conversion in PNG no xe riusida; verifegare che i seguenti programi sìe instaładi coretamente: latex e dvipng (o dvips + gs + convert).',
 	'math_bad_tmpdir' => 'Inpossibile scrìvar o crear la directory tenporanea par math',
 	'math_bad_output' => 'Inpossibile scrìvar o crear la directory de output par math',
 	'math_notexvc' => 'Eseguibile texvc mancante; par piaser consulta math/README par la configurazion.',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
@@ -3888,11 +3968,13 @@ kc. math/README järgendamižen täht.',
  * @author Vinhtantran
  */
 $messages['vi'] = array(
+	'math-desc' => 'Kết xuất các công thức nằm giữa thẻ <code>&lt;math&gt;</code> …<code>&lt;/math&gt;</code>',
 	'math_sample' => 'Nhập công thức toán vào đây',
 	'math_tip' => 'Công thức toán (LaTeX)',
 	'prefs-math' => 'Công thức toán',
 	'mw_math_png' => 'Luôn cho ra dạng hình PNG',
 	'mw_math_source' => 'Để nguyên mã TeX (dành cho trình duyệt văn bản)',
+	'mw_math_mathjax' => 'MathJax (chưa ổn định; được khuyên cho phần nhiều trình duyệt)',
 	'math_failure' => 'Không thể phân tích cú pháp',
 	'math_unknown_error' => 'lỗi lạ',
 	'math_unknown_function' => 'hàm lạ',
@@ -3964,7 +4046,9 @@ $messages['vro'] = array(
 	'math_notexvc' => 'Olõ-i texvc-tüüriista; loeq tuu paikasäädmise kotsilõ math/README-st.',
 );
 
-/** Walloon (Walon) */
+/** Walloon (walon)
+ * @author Srtxg
+ */
 $messages['wa'] = array(
 	'math_sample' => "Tapez l' formule matematike chal",
 	'math_tip' => 'Formule matematike (LaTeX)',
@@ -3974,7 +4058,7 @@ $messages['wa'] = array(
 	'math_unknown_error' => 'aroke nén cnoxhowe',
 	'math_unknown_function' => 'fonccion nén cnoxhowe',
 	'math_syntax_error' => 'aroke di sintacse',
-	'math_image_error' => 'Li cviersaedje e PNG a fwait berwete; verifyîz ki les programes latex, dvips, gs eyet convert ont stî astalés comifåt',
+	'math_image_error' => 'Li cviersaedje e PNG a fwait berwete; verifyîz ki les programes latex et dvipng (ou dvips + gs + convert) ont stî astalés comifåt',
 	'math_bad_tmpdir' => "Dji n' sai nén scrire ou ahiver l' ridant timporaire po les formules matematikes",
 	'math_bad_output' => "Dji n' sai nén scrire ou ahiver l' ridant po les fitchîs di rexhowe des formules matematikes",
 	'math_notexvc' => 'I manke li fitchî enondåve texvc; lijhoz math/README po-z apontyî.',
@@ -4003,7 +4087,7 @@ $messages['wuu'] = array(
 	'prefs-math' => '数学公式',
 );
 
-/** Kalmyk (Хальмг)
+/** Kalmyk (хальмг)
  * @author Huuchin
  */
 $messages['xal'] = array(
@@ -4083,7 +4167,7 @@ $messages['zea'] = array(
 	'math_notexvc' => "Kan 't prohramma texvc nie vin'n; stel aolles in volhens de beschrievieng in math/README.",
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Xiaomingyan
  * @author Yfdyh000
  */
@@ -4106,16 +4190,18 @@ $messages['zh-hans'] = array(
 	'math_notexvc' => '"texvc"执行文件遗失；请参照math/README进行配置。',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Liangent
  * @author Mark85296341
  */
 $messages['zh-hant'] = array(
+	'math-desc' => '在<code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code>標籤間生成數學公式',
 	'math_sample' => '在此插入數學公式',
 	'math_tip' => '插入數學公式 （LaTeX）',
 	'prefs-math' => '數學公式',
 	'mw_math_png' => '永遠使用PNG圖片',
 	'mw_math_source' => '顯示TeX代碼（供文字瀏覽器使用）',
+	'mw_math_mathjax' => 'MathJax（實驗性；適合大多數瀏覽器）',
 	'math_failure' => '解析失敗',
 	'math_unknown_error' => '未知錯誤',
 	'math_unknown_function' => '未知函數',
