@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAABVH///9s\u003d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:25:57Z",
+      "side": 1,
+      "message": "There needs to be empty line after the summary line.",
+      "revId": "2b1a08e80151774a2e1f4078071a30a394b96dc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAABVH///9c\u003d",
+        "filename": "Math.LaTeXML.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:25:57Z",
+      "side": 1,
+      "message": "or should be ||, use \u003d\u003d\u003d wherever possible",
+      "revId": "2b1a08e80151774a2e1f4078071a30a394b96dc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAABVH///9Y\u003d",
+        "filename": "Math.LaTeXML.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:25:57Z",
+      "side": 1,
+      "message": "Don\u0027t add commented out code",
+      "revId": "2b1a08e80151774a2e1f4078071a30a394b96dc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAABVH///9g\u003d",
+        "filename": "Math.LaTeXML.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:25:57Z",
+      "side": 1,
+      "message": "Trailing space",
+      "revId": "2b1a08e80151774a2e1f4078071a30a394b96dc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAABVH///9U\u003d",
+        "filename": "Math.LaTeXML.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:25:57Z",
+      "side": 1,
+      "message": "Tabs midline",
+      "revId": "2b1a08e80151774a2e1f4078071a30a394b96dc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAABVH///9Q\u003d",
+        "filename": "Math.LaTeXML.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:25:57Z",
+      "side": 1,
+      "message": "?true:false is redundant",
+      "revId": "2b1a08e80151774a2e1f4078071a30a394b96dc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAABVH///9M\u003d",
+        "filename": "Math.LaTeXML.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:25:57Z",
+      "side": 1,
+      "message": "That\u0027s not a type, it\u0027s string with html",
+      "revId": "2b1a08e80151774a2e1f4078071a30a394b96dc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAABVH///9E\u003d",
+        "filename": "Math.base.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:25:57Z",
+      "side": 1,
+      "message": "unknown?",
+      "revId": "2b1a08e80151774a2e1f4078071a30a394b96dc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAABVH///9I\u003d",
+        "filename": "Math.base.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:25:57Z",
+      "side": 1,
+      "message": "Typo: by",
+      "revId": "2b1a08e80151774a2e1f4078071a30a394b96dc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAABVH///9A\u003d",
+        "filename": "Math.hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:25:57Z",
+      "side": 1,
+      "message": "Double spaces, \u003d\u003d\u003d",
+      "revId": "2b1a08e80151774a2e1f4078071a30a394b96dc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAABVH///80\u003d",
+        "filename": "Math.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:25:57Z",
+      "side": 1,
+      "message": "Usually we name the file after the class.",
+      "revId": "2b1a08e80151774a2e1f4078071a30a394b96dc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAABVH///8w\u003d",
+        "filename": "Math.texvc.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:25:57Z",
+      "side": 1,
+      "message": "There is wfEscapeSchellArg in core.",
+      "revId": "2b1a08e80151774a2e1f4078071a30a394b96dc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAABVH///8s\u003d",
+        "filename": "Math.texvc.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:25:57Z",
+      "side": 1,
+      "message": "One tab per indentation level is enough.",
+      "revId": "2b1a08e80151774a2e1f4078071a30a394b96dc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
