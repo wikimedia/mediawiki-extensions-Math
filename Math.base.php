@@ -26,9 +26,9 @@ abstract class MathRenderer {
 	var $html = '';
 	var $mathml = '';
 	var $conservativeness = 0;
-	var $params='';
+	var $params = '';
 	protected $recall;
-	protected $anchorID=0;
+	protected $anchorID = 0;
 
 
 	/**
@@ -44,8 +44,8 @@ abstract class MathRenderer {
 	 * @param unknown $params
 	 * @param string $mode
 	 */
-	public static function renderMath( $tex, $params = array(),  $mode=MW_MATH_PNG ) {
-		$renderer=getRenderer( $tex, $params, $mode );
+	public static function renderMath( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
+		$renderer = getRenderer( $tex, $params, $mode );
 		return $renderer->render();
 	}
 	/**
@@ -54,24 +54,24 @@ abstract class MathRenderer {
 	 * @param Maths constants $mode
 	 * @return MathRenderer
 	 */
-	public static function getRenderer( $tex, $params = array(),  $mode=MW_MATH_PNG ) {
+	public static function getRenderer( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
 		global $wgDefaultUserOptions;
-		$validModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHJAX,MW_MATH_LATEXML );
+		$validModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHJAX, MW_MATH_LATEXML );
 		if ( !in_array( $mode, $validModes ) )
-			$mode=$wgDefaultUserOptions['math'];
-		switch ($mode){
+			$mode = $wgDefaultUserOptions['math'];
+		switch ( $mode ) {
 			case MW_MATH_SOURCE:
-				$renderer= new MathSource($tex, $params);
+				$renderer = new MathSource( $tex, $params );
 				break;
 			case MW_MATH_MATHJAX:
-				$renderer= new MathMathJax($tex, $params);
+				$renderer = new MathMathJax( $tex, $params );
 				break;
 			case MW_MATH_LATEXML:
-				$renderer= new MathLaTeXML($tex, $params);
+				$renderer = new MathLaTeXML( $tex, $params );
 				break;
 			case MW_MATH_PNG:
 			default:
-				$renderer= new MathTexvc($tex, $params);
+				$renderer = new MathTexvc( $tex, $params );
 		}
 
 		return $renderer;
@@ -98,12 +98,12 @@ abstract class MathRenderer {
 
 
 	/**
-	 * 
+	 *
 	 */
-	public function getInputHash(){
-		//TODO: What happens if $tex is empty?
+	public function getInputHash() {
+		// TODO: What happens if $tex is empty?
 		$dbr = wfGetDB( DB_SLAVE );
-		return $dbr->encodeBlob( pack( "H32", md5($this->tex) ) ); # Binary packed, not hex
+		return $dbr->encodeBlob( pack( "H32", md5( $this->tex ) ) ); # Binary packed, not hex
 	}
 
 
@@ -125,33 +125,33 @@ abstract class MathRenderer {
 				__METHOD__
 		);
 
-		if( $rpage !== false ) {
+		if ( $rpage !== false ) {
 			# Trailing 0x20s can get dropped by the database, add it back on if necessary:
 			$xhash = unpack( 'H32md5', $dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
 			$this->hash = $xhash['md5'];
 			$this->conservativeness = $rpage->math_html_conservativeness;
 			$this->html = $rpage->math_html;
 			$this->mathml = $rpage->math_mathml;
-			$this->recall=true;
+			$this->recall = true;
 			return true;
 		}
 
 		# Missing from the database and/or the render cache
-		$this->recall=false;
+		$this->recall = false;
 		return false;
 	}
 	/**
-	 * 
+	 *
 	 */
-	protected function _writeDBentry(){
+	protected function _writeDBentry() {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
 			$dbw = wfGetDB( DB_MASTER );
-			if($this->hash)
-				$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ));
+			if ( $this->hash )
+				$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ) );
 			else
 				$outmd5_sql = null;
-			wfDebugLog("Math",'store entry for $'.$this->tex.'$ in database (hash:'.$this->getInputHash().')\n');
+			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->getInputHash() . ')\n' );
 			$dbw->replace(
 					'math',
 					array( 'math_inputhash' ),
@@ -161,7 +161,7 @@ abstract class MathRenderer {
 							'math_html_conservativeness' => $this->conservativeness,
 							'math_html' => $this->html,
 							'math_mathml' => $this->mathml,
-							//'math_tex' => $this->tex, //For debugging
+							// 'math_tex' => $this->tex, //For debugging
 					),
 					__METHOD__
 			);
@@ -183,18 +183,18 @@ abstract class MathRenderer {
 	/**
 	 * Does nothing be default
 	 */
-	public function writeCache(){
+	public function writeCache() {
 	}
 	/**
 	 * @return boolean
 	 */
-	public function isRecall(){
+	public function isRecall() {
 		return $this->recall;
 	}
-	public function getAnchorID(){
+	public function getAnchorID() {
 		return $this->anchorID;
 	}
-	public function setAnchorID($ID){
-		$this->anchorID=$ID;
+	public function setAnchorID( $ID ) {
+		$this->anchorID = $ID;
 	}
 }

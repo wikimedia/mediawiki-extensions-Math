@@ -110,7 +110,7 @@ $wgUseMathJax = false;
 $wgMathJaxUrl = 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML';
 
 /**
- * Use of LaTeXML for details see 
+ * Use of LaTeXML for details see
  * <http://latexml.mathweb.org/help>
  *
  * If you don't like them, install your own server see
@@ -157,7 +157,7 @@ $wgResourceModules['ext.math.mathjax'] = array(
 $wgResourceModules['ext.math.mathjax.enabler'] = array(
 	'scripts' => 'ext.math.mathjax.enabler.js',
 ) + $moduleTemplate;
-//Customized module for LaTeXML
+// Customized module for LaTeXML
 $wgResourceModules['ext.math.mathjax.enabler.mml'] = array(
 	'scripts' => 'ext.math.mathjax.enabler.mml.js',
 ) + $moduleTemplate;

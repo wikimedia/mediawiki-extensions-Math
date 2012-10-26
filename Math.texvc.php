@@ -9,7 +9,7 @@
  * @file
  * @ingroup Parser
  */
-if ( !function_exists('wfEscapeSingleQuotes') ) {
+if ( !function_exists( 'wfEscapeSingleQuotes' ) ) {
 	/**
 	 * Escapes a string with single quotes for a UNIX shell.
 	 * It's equivalent to escapeshellarg() in UNIX, but also
@@ -27,21 +27,21 @@ if ( !function_exists('wfEscapeSingleQuotes') ) {
  * @author Tomasz Wegrzanowski, with additions by Brion Vibber (2003, 2004)
  * @ingroup Parser
  */
-define('MW_TEXVC_SUCCESS',-1);
-class MathTexvc extends MathRenderer{
+define( 'MW_TEXVC_SUCCESS', -1 );
+class MathTexvc extends MathRenderer {
 
 	function render() {
-		if( trim($this->tex) == '' ) {
+		if ( trim( $this->tex ) == '' ) {
 			return; # bug 8372
 		}
-		if( !$this->_recall() ) { // cache miss
-			$result=$this->callTexvc();
-			if ($result!=MW_TEXVC_SUCCESS)
+		if ( !$this->_recall() ) { // cache miss
+			$result = $this->callTexvc();
+			if ( $result != MW_TEXVC_SUCCESS )
 				return $result;
 		}
 		return $this->_doRender();
 	}
-		
+
 	/**
 	 * @return string Storage directory
 	 */
@@ -56,7 +56,7 @@ class MathTexvc extends MathRenderer{
 	 * @return string Relative directory
 	 */
 	function _getHashSubPath() {
-		return substr( $this->hash, 0, 1)
+		return substr( $this->hash, 0, 1 )
 		. '/' . substr( $this->hash, 1, 1 )
 		. '/' . substr( $this->hash, 2, 1 );
 	}
@@ -82,19 +82,19 @@ class MathTexvc extends MathRenderer{
 				)
 		);
 	}
-	function callTexvc(){
+	function callTexvc() {
 		$tmpDir = wfTempDir();
 		global $wgTmpDirectory;
 		global $wgTexvc, $wgTexvcBackgroundColor, $wgUseSquid;
 		global $wgTexvc, $wgMathCheckFiles, $wgTexvcBackgroundColor;
-		if( !is_executable( $wgTexvc ) ) {
+		if ( !is_executable( $wgTexvc ) ) {
 			return $this->_error( 'math_notexvc' );
 		}
 		$cmd = $wgTexvc . ' ' .
-				wfEscapeSingleQuotes( $tmpDir ) . ' '.
-				wfEscapeSingleQuotes( $tmpDir ) . ' '.
-				wfEscapeSingleQuotes( $this->tex ) . ' '.
-				wfEscapeSingleQuotes( 'UTF-8' ) . ' '.
+				wfEscapeSingleQuotes( $tmpDir ) . ' ' .
+				wfEscapeSingleQuotes( $tmpDir ) . ' ' .
+				wfEscapeSingleQuotes( $this->tex ) . ' ' .
+				wfEscapeSingleQuotes( 'UTF-8' ) . ' ' .
 				wfEscapeSingleQuotes( $wgTexvcBackgroundColor );
 
 		if ( wfIsWindows() ) {
@@ -102,9 +102,9 @@ class MathTexvc extends MathRenderer{
 			$cmd = 'sh -c ' . wfEscapeShellArg( $cmd );
 		}
 
-		wfDebugLog( 'Math',"TeX: $cmd\n" );
+		wfDebugLog( 'Math', "TeX: $cmd\n" );
 		$contents = wfShellExec( $cmd );
-		wfDebugLog( 'Math',"TeX output:\n $contents\n---\n" );
+		wfDebugLog( 'Math', "TeX output:\n $contents\n---\n" );
 
 		if ( strlen( $contents ) == 0 ) {
 			if ( !file_exists( $tmpDir ) || !is_writable( $tmpDir ) ) {
@@ -178,9 +178,9 @@ class MathTexvc extends MathRenderer{
 			return $errmsg;
 		} elseif ( !preg_match( "/^[a-f0-9]{32}$/", $this->hash ) ) {
 			return $this->_error( 'math_unknown_error' );
-		} elseif( !file_exists( "$tmpDir/{$this->hash}.png" ) ) {
+		} elseif ( !file_exists( "$tmpDir/{$this->hash}.png" ) ) {
 			return $this->_error( 'math_image_error' );
-		} elseif( filesize( "$tmpDir/{$this->hash}.png" ) == 0 ) {
+		} elseif ( filesize( "$tmpDir/{$this->hash}.png" ) == 0 ) {
 			return $this->_error( 'math_image_error' );
 		}
 
@@ -223,7 +223,7 @@ class MathTexvc extends MathRenderer{
 		}
 	}
 	function _doRender() {
-		if( $this->mode == MW_MATH_MATHML && $this->mathml != '' ) {
+		if ( $this->mode == MW_MATH_MATHML && $this->mathml != '' ) {
 			return Xml::tags( 'math',
 					$this->_attribs( 'math',
 							array( 'xmlns' => 'http://www.w3.org/1998/Math/MathML' ) ),
@@ -245,32 +245,32 @@ class MathTexvc extends MathRenderer{
 			);
 		}
 	}
-	public function writeCache(){
+	public function writeCache() {
 		global $wgUseSquid;
-		if (!$this->isRecall()){
+		if ( !$this->isRecall() ) {
 			return;
 		}
 		$this->_writeDBentry();
 		// If we're replacing an older version of the image, make sure it's current.
-		if ($wgUseSquid ) {
+		if ( $wgUseSquid ) {
 			$urls = array( $this->_mathImageUrl() );
 			$u = new SquidUpdate( $urls );
 			$u->doUpdate();
 		}
 	}
-	function _recall(){
+	function _recall() {
 		global $wgMathCheckFiles;
-		if ($this->_readFromDB()){
-			if( !$wgMathCheckFiles ) {
+		if ( $this->_readFromDB() ) {
+			if ( !$wgMathCheckFiles ) {
 				// Short-circuit the file existence & migration checks
 				return true;
 			}
-			
+
 			$filename = $this->_getHashPath() . "/{$this->hash}.png"; // final storage path
-			
+
 			$backend = $this->getBackend();
-			if( $backend->fileExists( array( 'src' => $filename ) ) ) {
-				if( $backend->getFileSize( array( 'src' => $filename ) ) == 0 ) {
+			if ( $backend->fileExists( array( 'src' => $filename ) ) ) {
+				if ( $backend->getFileSize( array( 'src' => $filename ) ) == 0 ) {
 					// Some horrible error corrupted stuff :(
 					$backend->quickDelete( array( 'src' => $filename ) );
 				} else {
