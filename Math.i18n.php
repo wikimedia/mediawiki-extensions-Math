@@ -38,17 +38,29 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Jon Harald Søby
  * @author Kizito
- * @author Shirayuki
  * @author Siebrand
  */
 $messages['qqq'] = array(
-	'math-desc' => '{{desc|name=Math|url=http://www.mediawiki.org/wiki/Extension:Math}}',
+	'math-desc' => '{{desc}}',
 	'math_sample' => 'The sample formula text that you get when you press the fourth button from the right on the edit toolbar.',
 	'math_tip' => 'This is the text that appears when you hover the mouse over the fourth button from the right on the edit toolbar.',
 	'prefs-math' => 'Used in user preferences.',
 	'mw_math_png' => 'In user preferences. All mw_math_* messages MUST be different, things will break otherwise!',
 	'mw_math_source' => 'In user preferences (math). All mw_math_* messages MUST be different, things will break otherwise!',
 	'math_syntax_error' => '{{Identical|Syntax error}}',
+);
+
+/** Test (site admin only) (Test (site admin only)) */
+$messages['test'] = array(
+	'math_sample' => 'x',
+	'math_tip' => 'x',
+);
+
+/** Magyar (magázó) (Magyar (magázó))
+ * @author Dani
+ */
+$messages['hu-formal'] = array(
+	'math_image_error' => 'PNG-vé alakítás sikertelen; ellenőrizze, hogy a latex és dvipng (vagy dvips + gs + convert) helyesen van-e telepítve',
 );
 
 /** Achinese (Acèh)
@@ -122,7 +134,7 @@ $messages['an'] = array(
 	'math_lexing_error' => 'error de lexico',
 	'math_syntax_error' => 'error de sintaxi',
 	'math_image_error' => 'A conversión enta PNG ha tenito errors;
-comprebe si latex, dvips, gs y convert son bien instalatos.', # Fuzzy
+comprebe si latex, dvips, gs y convert son bien instalatos.',
 	'math_bad_tmpdir' => "No s'ha puesto escribir u creyar o directorio temporal d'esprisions matematicas",
 	'math_bad_output' => "No s'ha puesto escribir u creyar o directorio de salida d'esprisions matematicas",
 	'math_notexvc' => "No s'ha trobato o fichero executable ''texvc''. Por favor, leiga <em>math/README</em> ta confegurar-lo correctament.",
@@ -209,7 +221,7 @@ $messages['arz'] = array(
 	'math_lexing_error' => 'غلط فى الكلمة',
 	'math_syntax_error' => 'غلط فى تركيب الجملة',
 	'math_image_error' => 'فشل التحويل لـ PNG ؛
-اتاكد من التثبيت المضبوط لـ :Latex و dvips و gs و convert.', # Fuzzy
+اتاكد من التثبيت المضبوط لـ :Latex و dvips و gs و convert.',
 	'math_bad_tmpdir' => 'مش ممكن الكتابة أو انشاء مجلد الرياضة الموؤقت',
 	'math_bad_output' => 'مش ممكن الكتابة لـ أو إنشاء مجلد الخرج للرياضيات',
 	'math_notexvc' => 'ضايعtexvc executable ؛ لو سمحت شوفmath/README للضبط.',
@@ -260,8 +272,7 @@ $messages['av'] = array(
 	'math_unknown_error' => 'Лъалареб гъалатӀ',
 );
 
-/** Kotava (Kotava)
- */
+/** Kotava (Kotava) */
 $messages['avk'] = array(
 	'math_sample' => 'Va rinaf tazukoy batliz cenkal',
 	'math_tip' => 'Solokseropaf tazukoy (LaTeX)',
@@ -273,7 +284,7 @@ $messages['avk'] = array(
 	'math_unknown_function' => 'megrupen fliok',
 	'math_lexing_error' => 'ravlemafa rokla',
 	'math_syntax_error' => 'erurafa rokla',
-	'math_image_error' => "La conversion en PNG a échouée, vérifiez l'installation de Latex, dvips, gs et convert", # Fuzzy
+	'math_image_error' => "La conversion en PNG a échouée, vérifiez l'installation de Latex, dvips, gs et convert",
 	'math_bad_tmpdir' => 'Redura ik sutera ko ugaloraxo tid merotisa',
 	'math_bad_output' => 'Redura ik sutera ko divaxo tid merotisa',
 	'math_notexvc' => "L'éxécutable « texvc » est introuvable. Lisez math/README pour le configurer.",
@@ -350,7 +361,7 @@ $messages['bcc'] = array(
 	'math_lexing_error' => 'حطا نوشتاری',
 	'math_syntax_error' => 'حطا ساختار',
 	'math_image_error' => 'بدل کتن PNGپروش وارت;
-کنترل کنیت په نصب latex, dvips, gs, و convert', # Fuzzy
+کنترل کنیت په نصب latex, dvips, gs, و convert',
 	'math_bad_tmpdir' => 'نه نونیت بنویسیت یا مسیر غیر دایمی ریاضی شرکنت',
 	'math_bad_output' => 'نه تونیت بنویسیت یا مشیر خروجی ریاضی شرکنت.',
 	'math_notexvc' => 'ترکیب کتن texvc  قابل اجرا;
@@ -372,7 +383,7 @@ $messages['bcl'] = array(
 	'math_unknown_function' => 'Dai aram an gamit',
 	'math_lexing_error' => 'may salâ sa analisador léxico',
 	'math_syntax_error' => 'may salâ sa analisador nin sintaksis',
-	'math_image_error' => 'Nagprakaso an konbersyon kan PNG; sosogon tabî an pagkaag nin latex, dvips, gs, asin ikonbertir', # Fuzzy
+	'math_image_error' => 'Nagprakaso an konbersyon kan PNG; sosogon tabî an pagkaag nin latex, dvips, gs, asin ikonbertir',
 	'math_bad_tmpdir' => 'Dai masuratan o magibo an direktoryo nin mat temp',
 	'math_bad_output' => 'Dai masuratan o magibo an direktoryo kan salida nin math',
 	'math_notexvc' => 'May nawawarang texvc na ehekutable; hilingón tabî an mat/README para makonpigurar.',
@@ -478,7 +489,7 @@ $messages['bn'] = array(
 	'math_unknown_function' => 'অজানা ফাংশন',
 	'math_lexing_error' => 'লেক্সিং ত্রুটি',
 	'math_syntax_error' => 'সিনট্যাক্স ত্রুটি',
-	'math_image_error' => 'PNG রূপান্তর ব্যর্থ; latex, dvips, gs, এবং convert ঠিকমত ইন্সটল হয়েছে কি না পরীক্ষা করুন', # Fuzzy
+	'math_image_error' => 'PNG রূপান্তর ব্যর্থ; latex, dvips, gs, এবং convert ঠিকমত ইন্সটল হয়েছে কি না পরীক্ষা করুন',
 	'math_bad_tmpdir' => 'সাময়িক ম্যাথ ডিরেক্টরি সৃষ্টি করতে বা এতে লিখতে পারা যাচ্ছে না।',
 	'math_bad_output' => 'ম্যাথ আউটপুট ডিরেক্টরি সৃষ্টি করতে বা এতে লিখতে পারা যাচ্ছে না।',
 	'math_notexvc' => 'texvc executable হারানো গেছে; অনুগ্রহ করে কনফিগার করার জন্য math/README দেখুন।',
@@ -564,8 +575,7 @@ $messages['ca'] = array(
 	'math_notexvc' => "No s'ha trobat el fitxer executable ''texvc''; si us plau, vegeu math/README per a configurar-lo.",
 );
 
-/** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄)
- */
+/** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
 $messages['cdo'] = array(
 	'prefs-math' => 'Só-hŏk',
 	'math_unknown_error' => 'muôi báik gì dâng',
@@ -606,7 +616,6 @@ $messages['ch'] = array(
 /** Sorani Kurdish (کوردی)
  * @author Arastein
  * @author Asoxor
- * @author Calak
  * @author Marmzok
  */
 $messages['ckb'] = array(
@@ -615,14 +624,12 @@ $messages['ckb'] = array(
 	'prefs-math' => 'بیرکاری',
 	'mw_math_png' => 'ھەموو جارێک وەک PNG نیشان بدە',
 	'mw_math_source' => 'وەک TeX بمێنێتەوە (بۆ وێبگەڕە دەقی‌یەکان)',
-	'mw_math_mathjax' => 'MathJax (بۆ ئەزموون؛ باشترین بۆ زۆربەی وێبگەڕەکان)',
 	'math_unknown_error' => 'هەڵەیەکی نەزانراو',
 	'math_unknown_function' => 'فەرمانێکی نەناسراو',
 	'math_syntax_error' => 'ڕستەکار هەڵەیە',
 );
 
-/** Corsican (corsu)
- */
+/** Corsican (corsu) */
 $messages['co'] = array(
 	'prefs-math' => 'Matematica',
 	'math_syntax_error' => 'errore di sintassa',
@@ -634,22 +641,6 @@ $messages['co'] = array(
 $messages['cps'] = array(
 	'math_sample' => 'Isulod ang diya pormula',
 	'math_tip' => 'Pormula nga pangmatematika (LaTeX)',
-);
-
-/** Crimean Turkish (Cyrillic script) (къырымтатарджа (Кирилл)‎)
- * @author Don Alessandro
- */
-$messages['crh-cyrl'] = array(
-	'math_sample' => 'Бу ерге формуланы кирсетинъиз',
-	'math_tip' => 'Риязий (математик) формула (LaTeX форматында)',
-	'prefs-math' => 'Риязий (математик) ишаретлер',
-	'mw_math_png' => 'Даима PNG ресим форматына чевир',
-	'mw_math_source' => 'Денъиштирмеден TeX оларакъ ташла  (метин темелли браузерлер ичюн)',
-	'math_failure' => 'Айырыштырыламды',
-	'math_unknown_error' => 'билинмеген хата',
-	'math_unknown_function' => 'бельгисиз функция',
-	'math_lexing_error' => 'лексик хата',
-	'math_syntax_error' => 'синтаксис хатасы',
 );
 
 /** Crimean Turkish (Latin script) (qırımtatarca (Latin)‎)
@@ -666,6 +657,22 @@ $messages['crh-latn'] = array(
 	'math_unknown_function' => 'belgisiz funktsiya',
 	'math_lexing_error' => 'leksik hata',
 	'math_syntax_error' => 'sintaksis hatası',
+);
+
+/** Crimean Turkish (Cyrillic script) (къырымтатарджа (Кирилл)‎)
+ * @author Don Alessandro
+ */
+$messages['crh-cyrl'] = array(
+	'math_sample' => 'Бу ерге формуланы кирсетинъиз',
+	'math_tip' => 'Риязий (математик) формула (LaTeX форматында)',
+	'prefs-math' => 'Риязий (математик) ишаретлер',
+	'mw_math_png' => 'Даима PNG ресим форматына чевир',
+	'mw_math_source' => 'Денъиштирмеден TeX оларакъ ташла  (метин темелли браузерлер ичюн)',
+	'math_failure' => 'Айырыштырыламды',
+	'math_unknown_error' => 'билинмеген хата',
+	'math_unknown_function' => 'бельгисиз функция',
+	'math_lexing_error' => 'лексик хата',
+	'math_syntax_error' => 'синтаксис хатасы',
 );
 
 /** Czech (česky)
@@ -983,7 +990,7 @@ $messages['ext'] = array(
 	'math_unknown_function' => 'hunción andarria',
 	'math_lexing_error' => 'marru lésicu',
 	'math_syntax_error' => 'marru ena sintasis',
-	'math_image_error' => 'Marru convirtiendu a PNG; compreba que latex, dvips, gs, i convert estén corretamenti istalaus', # Fuzzy
+	'math_image_error' => 'Marru convirtiendu a PNG; compreba que latex, dvips, gs, i convert estén corretamenti istalaus',
 	'math_bad_tmpdir' => 'Nu es posibri escribil u crial el diretoriu temporal de <em>math</em>',
 	'math_bad_output' => 'Nu es posibri escribil u crial el diretoriu e salia e <em>math</em>',
 	'math_notexvc' => 'Farta el ehecutabri e <strong>texvc</strong>; pol favol, lei <em>math/README</em> pa configuralu.',
@@ -1014,17 +1021,14 @@ $messages['fa'] = array(
 
 /** Finnish (suomi)
  * @author Crt
- * @author VezonThunder
  * @author Wix
  */
 $messages['fi'] = array(
-	'math-desc' => 'Esittää matemaattiset kaavat tunnisteiden <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> välillä',
 	'math_sample' => 'Lisää kaava tähän',
 	'math_tip' => 'Matemaattinen kaava (LaTeX)',
 	'prefs-math' => 'Matematiikka',
 	'mw_math_png' => 'Näytä aina PNG:nä',
 	'mw_math_source' => 'Näytä TeX-muodossa (tekstiselaimille)',
-	'mw_math_mathjax' => 'MathJax (kokeellinen; paras useimmille selaimille)',
 	'math_failure' => 'Jäsentäminen epäonnistui',
 	'math_unknown_error' => 'Tuntematon virhe',
 	'math_unknown_function' => 'Tuntematon funktio',
@@ -1125,8 +1129,7 @@ $messages['frr'] = array(
 	'math_notexvc' => "Det texvc program as ei diar. Luke hü det iinrachten gongt uun't datei math/README.",
 );
 
-/** Friulian (furlan)
- */
+/** Friulian (furlan) */
 $messages['fur'] = array(
 	'math_sample' => 'Inserìs la formule culì',
 	'math_tip' => 'Formule matematiche (LaTeX)',
@@ -1151,7 +1154,7 @@ $messages['fy'] = array(
 	'math_lexing_error' => 'Unbekind wurd',
 	'math_syntax_error' => 'Sinboufout',
 	'math_image_error' => 'PNG-omsetting is mislearre.
-Gean nei oft latex, dvips, en gs goed ynstallearre binne en set om', # Fuzzy
+Gean nei oft latex, dvips, en gs goed ynstallearre binne en set om',
 	'math_bad_tmpdir' => 'De tydlike formulepad kin net skreaun of makke wêze.',
 	'math_bad_output' => 'De formulepad kin net skreaun of makke wêze.',
 	'math_notexvc' => 'It programma texvc net fûn; sjoch math/README te ynstallearjen.',
@@ -1171,7 +1174,7 @@ $messages['ga'] = array(
 	'math_unknown_function' => 'foirmle anaithnid',
 	'math_lexing_error' => 'Theip ó anailís an fhoclóra',
 	'math_syntax_error' => 'earráid comhréire',
-	'math_image_error' => 'Theip ó aistriú an PNG; tástáil má tá na ríomh-oidis latex, dvips, gs, agus convert i suite go maith.', # Fuzzy
+	'math_image_error' => 'Theip ó aistriú an PNG; tástáil má tá na ríomh-oidis latex, dvips, gs, agus convert i suite go maith.',
 	'math_bad_tmpdir' => 'Ní féidir scríobh chuig an fillteán mata sealadach, nó é a chruthú',
 	'math_bad_output' => 'Ní féidir scríobh chuig an fillteán mata aschomhaid, nó é a chruthú',
 	'math_notexvc' => 'Níl an ríomhchlár texvc ann; féach ar mata/EOLAIS chun é a sainathrú.',
@@ -1185,8 +1188,7 @@ $messages['gag'] = array(
 	'math_tip' => 'Matematik formula (LaTeX formatında)',
 );
 
-/** Simplified Gan script (赣语（简体）‎)
- */
+/** Simplified Gan script (赣语（简体）‎) */
 $messages['gan-hans'] = array(
 	'math_sample' => '到个首扻入数学公式',
 	'math_tip' => '数学公式 （LaTeX）',
@@ -1198,14 +1200,13 @@ $messages['gan-hans'] = array(
 	'math_unknown_function' => '未知函数',
 	'math_lexing_error' => '句法错误',
 	'math_syntax_error' => '文法错误',
-	'math_image_error' => 'PNG转换失败；请检查系否装正嘞latex, dvips, gs同到convert', # Fuzzy
+	'math_image_error' => 'PNG转换失败；请检查系否装正嘞latex, dvips, gs同到convert',
 	'math_bad_tmpdir' => '写伓正或建伓正数学公式临时目录',
 	'math_bad_output' => '写伓正或建伓正数学公式输出目录',
 	'math_notexvc' => '执行伓正"texvc"；请参看 math/README 再配置过。',
 );
 
-/** Traditional Gan script (贛語（繁體）‎)
- */
+/** Traditional Gan script (贛語（繁體）‎) */
 $messages['gan-hant'] = array(
 	'math_sample' => '到箇首扻入數學公式',
 	'math_tip' => '數學公式 （LaTeX）',
@@ -1217,7 +1218,7 @@ $messages['gan-hant'] = array(
 	'math_unknown_function' => '未知函數',
 	'math_lexing_error' => '句法錯誤',
 	'math_syntax_error' => '文法錯誤',
-	'math_image_error' => 'PNG轉換失敗；請檢查係否裝正嘞latex, dvips, gs同到convert', # Fuzzy
+	'math_image_error' => 'PNG轉換失敗；請檢查係否裝正嘞latex, dvips, gs同到convert',
 	'math_bad_tmpdir' => '寫伓正或建伓正數學公式臨時目錄',
 	'math_bad_output' => '寫伓正或建伓正數學公式輸出目錄',
 	'math_notexvc' => '執行伓正"texvc"；請參看 math/README 再配置過。',
@@ -1256,8 +1257,7 @@ $messages['gl'] = array(
 	'math_notexvc' => 'Falta o executable texvc. Por favor consulte math/README para configurar.',
 );
 
-/** Guarani (Avañe'ẽ)
- */
+/** Guarani (Avañe'ẽ) */
 $messages['gn'] = array(
 	'math_tip' => 'Matemátika kuaareko (LaTeX)',
 );
@@ -1297,7 +1297,7 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'math_sample' => 'Formel do yyfiege',
+	'math_sample' => 'Formel do yfüge',
 	'math_tip' => 'Mathematisch Formel (LaTeX)',
 	'prefs-math' => 'TeX',
 	'mw_math_png' => 'Immer als PNG aazeige',
@@ -1367,7 +1367,7 @@ $messages['hak'] = array(
 	'math_unknown_function' => 'Mò-tî chhṳ-su',
 	'math_lexing_error' => 'ki-fap chho-ngu',
 	'math_syntax_error' => 'ngî-fap chho-ngu',
-	'math_image_error' => 'PNG chón-von sṳt-phai; chhiáng kiám-chhà he-feu chṳn-khok ôn-chông latex, dvips, gs lâu convert', # Fuzzy
+	'math_image_error' => 'PNG chón-von sṳt-phai; chhiáng kiám-chhà he-feu chṳn-khok ôn-chông latex, dvips, gs lâu convert',
 	'math_bad_tmpdir' => 'Mò-fap siá-ngi̍p fe̍t-chá kien-li̍p su-ho̍k kûng-sṳt lìm-sṳ̀ muk-liu̍k',
 	'math_bad_output' => 'Mò-fap siá-ngi̍p fe̍t-chá kien-li̍p su-ho̍k kûng-sṳt sû-chhut muk-liu̍k',
 	'math_notexvc' => 'Mò-fap chṳp-hàng "texvc"; chhiáng chhâm-cheu math/README chin-hàng phi-chṳ.',
@@ -1420,7 +1420,7 @@ $messages['hi'] = array(
 	'math_lexing_error' => 'लेक्सींग समस्या',
 	'math_syntax_error' => 'सिन्टैक्स गलती',
 	'math_image_error' => 'PNG में रुपांतरण अयशस्वी;
-latex, dvips, gs, और convert के इन्स्टॉलेशन की जाँच करें', # Fuzzy
+latex, dvips, gs, और convert के इन्स्टॉलेशन की जाँच करें',
 	'math_bad_tmpdir' => 'मैथ अस्थायी डाइरेक्टरी या तो बना नहीं सकतें या फिर उसमें लिख नहीं सकतें',
 	'math_bad_output' => 'मैथ आउटपुट डाइरेक्टरी या तो बना नहीं सकतें या फिर उसमें लिख नहीं सकतें',
 	'math_notexvc' => 'texvc एक्झीक्यूटेबल फ़ाईल मिल नहीं रहीं;
@@ -1528,13 +1528,6 @@ $messages['hu'] = array(
 	'math_notexvc' => 'HIányzó texvc végrehajtható fájl; a beállítást lásd a math/README fájlban.',
 );
 
-/** Magyar (magázó) (Magyar (magázó))
- * @author Dani
- */
-$messages['hu-formal'] = array(
-	'math_image_error' => 'PNG-vé alakítás sikertelen; ellenőrizze, hogy a latex és dvipng (vagy dvips + gs + convert) helyesen van-e telepítve',
-);
-
 /** Armenian (Հայերեն)
  * @author Chaojoker
  * @author Teak
@@ -1551,7 +1544,7 @@ $messages['hy'] = array(
 	'math_unknown_function' => 'անհայտ ֆունկցիա',
 	'math_lexing_error' => 'բառական սխալ',
 	'math_syntax_error' => 'շարահյուսության սխալ',
-	'math_image_error' => 'PNG վերածումը ձախողվեց. ստուգեք latex, dvips, gs և convert ծրագրերի տեղադրման ճշտությունը։', # Fuzzy
+	'math_image_error' => 'PNG վերածումը ձախողվեց. ստուգեք latex, dvips, gs և convert ծրագրերի տեղադրման ճշտությունը։',
 	'math_bad_tmpdir' => 'Չի հաջողվում ստեղծել կամ գրել մաթեմատիկայի ժամանակավոր թղթապանակին։',
 	'math_bad_output' => 'Չի հաջողվում ստեղծել կամ գրել մաթեմատիկայի արտածման թղթապանակին',
 	'math_notexvc' => 'Կատարման texvc նիշքը չի գտնվել։ Տեսեք math/README՝ կարգավորման համար։',
@@ -1617,15 +1610,13 @@ $messages['ig'] = array(
 	'prefs-math' => 'Ọmúmú-ónúọgụgụ',
 );
 
-/** Eastern Canadian (Aboriginal syllabics) (ᐃᓄᒃᑎᑐᑦ)
- */
+/** Eastern Canadian (Aboriginal syllabics) (ᐃᓄᒃᑎᑐᑦ) */
 $messages['ike-cans'] = array(
 	'math_unknown_error' => 'ᑐᓴᐅᒪᔭᐅᙱᑐᖅ ᑕᒻᒪᓇᖅᑐᖅ',
 	'math_unknown_function' => 'ᑐᓴᐅᒪᔭᐅᙱᑐᖅ ᐃᓕᐅᕐᓂᖅ',
 );
 
-/** Eastern Canadian (Latin script) (inuktitut)
- */
+/** Eastern Canadian (Latin script) (inuktitut) */
 $messages['ike-latn'] = array(
 	'math_unknown_error' => 'tusaumajaunngituq tammanaqtuq',
 	'math_unknown_function' => 'tusaumajaunngituq iliurniq',
@@ -1718,7 +1709,7 @@ $messages['ja'] = array(
 	'math_sample' => 'ここに数式を挿入',
 	'math_tip' => '数式 (LaTeX)',
 	'prefs-math' => '数式',
-	'mw_math_png' => '常に PNG で描画',
+	'mw_math_png' => '常にPNGで描画',
 	'mw_math_source' => 'TeX のまま (テキスト ブラウザー向け)',
 	'mw_math_mathjax' => 'MathJax（開発中; ほとんどのブラウザーに最適）',
 	'math_failure' => '構文解析に失敗',
@@ -1762,7 +1753,7 @@ $messages['jv'] = array(
 	'math_unknown_function' => 'fungsi sing ora dimangertèni',
 	'math_lexing_error' => "kaluputan ''lexing''",
 	'math_syntax_error' => "''syntax error'' (kaluputan sintaksis)",
-	'math_image_error' => 'Konversi PNG gagal; priksa apa latex, dvips, gs, lan convert wis diinstalasi sing bener', # Fuzzy
+	'math_image_error' => 'Konversi PNG gagal; priksa apa latex, dvips, gs, lan convert wis diinstalasi sing bener',
 	'math_bad_tmpdir' => 'Ora bisa nulis utawa nggawé dirèktori sauntara math',
 	'math_bad_output' => 'Ora bisa nulis utawa nggawé dirèktori paweton math',
 	'math_notexvc' => 'Executable texvc ilang;
@@ -1820,7 +1811,7 @@ $messages['kab'] = array(
 	'math_unknown_function' => 'Tawuri mačči d taḍahrit',
 	'math_lexing_error' => 'Agul n tmawalt',
 	'math_syntax_error' => 'Agul n tseddast',
-	'math_image_error' => 'Abeddil ɣer PNG yexser; ssenqed installation n latex, dvips, gs, umbeɛd eg abeddel', # Fuzzy
+	'math_image_error' => 'Abeddil ɣer PNG yexser; ssenqed installation n latex, dvips, gs, umbeɛd eg abeddel',
 	'math_bad_tmpdir' => 'Ur yezmir ara ad yaru ɣef/ɣer tusnakt n temp directory/dossier',
 	'math_bad_output' => 'Ur yezmir ara ad yaru ɣef/ɣer tusnakt n tuffɣa directory/dossier',
 	'math_notexvc' => "''texvc executable'' / ''executable texvc'' ulac-it; ẓer math/README akken a textareḍ isemyifiyen.",
@@ -1857,15 +1848,14 @@ $messages['kiu'] = array(
 	'math_lexing_error' => 'xeta grameri',
 	'math_syntax_error' => 'xeta cumla',
 	'math_image_error' => "Werênaisê ''PNG''y de xeta biye;
-enstale-kerdena ''latex'', ''dvips'', ''gs'', u ''convert''i qontrol ke", # Fuzzy
+enstale-kerdena ''latex'', ''dvips'', ''gs'', u ''convert''i qontrol ke",
 	'math_bad_tmpdir' => "Sıma nêşikinê indeksê ''math temp''i de bınusê ya ki bıafernê",
 	'math_bad_output' => 'Sıma nêşikinê indeksê formulunê matematiki de bınusê ya ki bıafernê',
 	'math_notexvc' => "''Texvc''o gurênae çino;
 Serba areze-kerdene qaytê ''math/README''y ke.",
 );
 
-/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏)
- */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
 $messages['kk-arab'] = array(
 	'math_sample' => 'ورنەكتى مىندا ەنگىزىڭىز',
 	'math_tip' => 'ماتەماتىيكا ورنەگى (LaTeX)',
@@ -1878,15 +1868,14 @@ $messages['kk-arab'] = array(
 	'math_lexing_error' => 'ٴسوز كەنىنىڭ قاتەسى',
 	'math_syntax_error' => 'سويلەم جۇيەسىنىڭ قاتەسى',
 	'math_image_error' => 'PNG اۋدارىسى ٴساتسىز ٴبىتتى;
-latex, dvips, gs جانە convert باعدارلامالارىنىڭ دۇرىس ورناتۋىن تەكسەرىپ شىعىڭىز', # Fuzzy
+latex, dvips, gs جانە convert باعدارلامالارىنىڭ دۇرىس ورناتۋىن تەكسەرىپ شىعىڭىز',
 	'math_bad_tmpdir' => 'math دەگەن ۋاقىتشا قالتاسىنا جازىلمادى, نە قالتا قۇرىلمادى',
 	'math_bad_output' => 'math دەگەن بەرىس قالتاسىنا جازىلمادى, نە قالتا قۇرىلمادى',
 	'math_notexvc' => 'texvc اتقارىلمالىسى تابىلمادى;
 باپتاۋ ٴۇشىن math/README قۇجاتىن قاراڭىز.',
 );
 
-/** Kazakh (Cyrillic script) (қазақша (кирил)‎)
- */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
 $messages['kk-cyrl'] = array(
 	'math_sample' => 'Өрнекті мында енгізіңіз',
 	'math_tip' => 'Математика өрнегі (LaTeX)',
@@ -1899,15 +1888,14 @@ $messages['kk-cyrl'] = array(
 	'math_lexing_error' => 'сөз кенінің қатесі',
 	'math_syntax_error' => 'сөйлем жүйесінің қатесі',
 	'math_image_error' => 'PNG аударысы сәтсіз бітті;
-latex, dvips, gs және convert бағдарламаларының дұрыс орнатуын тексеріп шығыңыз', # Fuzzy
+latex, dvips, gs және convert бағдарламаларының дұрыс орнатуын тексеріп шығыңыз',
 	'math_bad_tmpdir' => 'math деген уақытша қалтасына жазылмады, не қалта құрылмады',
 	'math_bad_output' => 'math деген беріс қалтасына жазылмады, не қалта құрылмады',
 	'math_notexvc' => 'texvc атқарылмалысы табылмады;
 баптау үшін math/README құжатын қараңыз.',
 );
 
-/** Kazakh (Latin script) (qazaqşa (latın)‎)
- */
+/** Kazakh (Latin script) (qazaqşa (latın)‎) */
 $messages['kk-latn'] = array(
 	'math_sample' => 'Örnekti mında engiziñiz',
 	'math_tip' => 'Matematïka örnegi (LaTeX)',
@@ -1920,7 +1908,7 @@ $messages['kk-latn'] = array(
 	'math_lexing_error' => 'söz keniniñ qatesi',
 	'math_syntax_error' => 'söýlem jüýesiniñ qatesi',
 	'math_image_error' => 'PNG awdarısı sätsiz bitti;
-latex, dvips, gs jäne convert bağdarlamalarınıñ durıs ornatwın tekserip şığıñız', # Fuzzy
+latex, dvips, gs jäne convert bağdarlamalarınıñ durıs ornatwın tekserip şığıñız',
 	'math_bad_tmpdir' => 'math degen waqıtşa qaltasına jazılmadı, ne qalta qurılmadı',
 	'math_bad_output' => 'math degen beris qaltasına jazılmadı, ne qalta qurılmadı',
 	'math_notexvc' => 'texvc atqarılmalısı tabılmadı;
@@ -1964,7 +1952,7 @@ $messages['kn'] = array(
 	'mw_math_png' => 'ಯಾವಾಗಲೂ PNG ಪ್ರಕಾರ ತೋರಿಸು',
 	'math_unknown_error' => 'ತಿಳಿದಿಲ್ಲದ ದೋಷ',
 	'math_image_error' => 'PNGಗೆ ಬದಲಾವಣೆ ವಿಫಲವಾಯಿತು;
-latex, dvips, gs, ಸರಿಯಾಗಿ ಸ್ಥಾಪಿತವಾಗಿದೆಯೆ ಎಂದು ಖಾತ್ರಿ ಮಾಡಿ ಬದಲಾಯಿಸಿ', # Fuzzy
+latex, dvips, gs, ಸರಿಯಾಗಿ ಸ್ಥಾಪಿತವಾಗಿದೆಯೆ ಎಂದು ಖಾತ್ರಿ ಮಾಡಿ ಬದಲಾಯಿಸಿ',
 );
 
 /** Korean (한국어)
@@ -2056,7 +2044,7 @@ $messages['ku-latn'] = array(
 	'mw_math_png' => 'Her caran wek PNG nîşanbide',
 	'mw_math_source' => "Wek TeX bêle (ji browser'ên gotaran ra)",
 	'math_unknown_error' => 'şaşbûnekî nezanîn',
-	'math_image_error' => 'Wêşandana PNG nemeşî', # Fuzzy
+	'math_image_error' => 'Wêşandana PNG nemeşî',
 );
 
 /** Cornish (kernowek)
@@ -2068,8 +2056,7 @@ $messages['kw'] = array(
 	'math_tip' => 'Furvel galkoriethek (LaTeX)',
 );
 
-/** Kirghiz (Кыргызча)
- */
+/** Kirghiz (Кыргызча) */
 $messages['ky'] = array(
 	'math_unknown_error' => 'белгисиз ката',
 );
@@ -2232,7 +2219,7 @@ $messages['ltg'] = array(
 	'math_tip' => 'Matematiska formula (LaTeX)',
 );
 
-/** Mizo (Mizo ţawng)
+/** Lushai (Mizo ţawng)
  * @author RMizo
  */
 $messages['lus'] = array(
@@ -2270,11 +2257,10 @@ $messages['lv'] = array(
 	'math_lexing_error' => 'leksikas kļūda',
 	'math_syntax_error' => 'sintakses kļūda',
 	'math_image_error' => 'Kļūda konvertējot uz PNG formātu;
-pārbaudi vai ir korekti uzinstalēti latex, dvips, gs, un convert', # Fuzzy
+pārbaudi vai ir korekti uzinstalēti latex, dvips, gs, un convert',
 );
 
-/** Literary Chinese (文言)
- */
+/** Literary Chinese (文言) */
 $messages['lzh'] = array(
 	'math_sample' => '此書方程式',
 	'math_tip' => '數學方程式（LaTeX）',
@@ -2326,7 +2312,7 @@ $messages['mdf'] = array(
 	'math_unknown_function' => 'аф содаф функцие',
 	'math_lexing_error' => 'лексиконь эльбятькс',
 	'math_syntax_error' => 'синтаксонь эльбятькс',
-	'math_image_error' => 'PNG форматс сёрматфтомась изь лисев; ватт лац эли аф арафтовсть latex, dvips, gs эди convert', # Fuzzy
+	'math_image_error' => 'PNG форматс сёрматфтомась изь лисев; ватт лац эли аф арафтовсть latex, dvips, gs эди convert',
 	'math_bad_tmpdir' => 'Аф сёрматфтови ётконь математик директориес эди директориесь аф тиеви',
 	'math_bad_output' => 'Аф сёрматфтови нолдамань математик директориес эди директориесь аф тиеви',
 	'math_notexvc' => 'Нолдамань файл texvc изь мув; Ванк math/README ладямать колга.',
@@ -2436,7 +2422,7 @@ $messages['mn'] = array(
 	'math_lexing_error' => 'лекслэхэд алдаа гарлаа',
 	'math_syntax_error' => 'синтаксийн алдаа',
 	'math_image_error' => 'PNG руух хувиргал амжилтгүй боллоо;
-latex, dvips, gs, convert-г зөв суулгасан эсэхийг шалгана уу', # Fuzzy
+latex, dvips, gs, convert-г зөв суулгасан эсэхийг шалгана уу',
 	'math_bad_tmpdir' => 'Математикийн түр зуурын каталогыг үүсгэх, эсвэл түүн руу хуулж чадсангүй',
 	'math_bad_output' => 'Математикийн гадагшлуулах каталогыг үүсгэх, эсвэл түүн руу хуулж чадсангүй',
 	'math_notexvc' => 'texvc программ олдохгүй байна;
@@ -2618,8 +2604,7 @@ $messages['nb'] = array(
 se math/README for oppsett.',
 );
 
-/** Low German (Plattdüütsch)
- */
+/** Low German (Plattdüütsch) */
 $messages['nds'] = array(
 	'math_sample' => 'Formel hier infögen',
 	'math_tip' => 'Mathematsche Formel (LaTeX)',
@@ -2631,7 +2616,7 @@ $messages['nds'] = array(
 	'math_unknown_function' => 'Unbekannte Funktschoon',
 	'math_lexing_error' => "'Lexing'-Fehler",
 	'math_syntax_error' => 'Syntaxfehler',
-	'math_image_error' => 'dat Konverteren na PNG harr keen Spood.', # Fuzzy
+	'math_image_error' => 'dat Konverteren na PNG harr keen Spood.',
 	'math_bad_tmpdir' => 'Kann dat Temporärverteken för mathematsche Formeln nich anleggen oder beschrieven.',
 	'math_bad_output' => 'Kann dat Teelverteken för mathematsche Formeln nich anleggen oder beschrieven.',
 	'math_notexvc' => 'Dat texvc-Programm kann nich funnen warrn. Kiek ok math/README.',
@@ -2675,8 +2660,7 @@ $messages['ne'] = array(
 	'math_syntax_error' => 'सूत्र (syntax) त्रुटि',
 );
 
-/** Newari (नेपाल भाषा)
- */
+/** Newari (नेपाल भाषा) */
 $messages['new'] = array(
 	'prefs-math' => 'गणित',
 );
@@ -2768,7 +2752,7 @@ $messages['oc'] = array(
 	'math_unknown_function' => 'foncion desconeguda',
 	'math_lexing_error' => 'error lexicala',
 	'math_syntax_error' => 'error de sintaxi',
-	'math_image_error' => 'La conversion en PNG a pas capitat ; verificatz l’installacion de Latex, dvips, gs e convert', # Fuzzy
+	'math_image_error' => 'La conversion en PNG a pas capitat ; verificatz l’installacion de Latex, dvips, gs e convert',
 	'math_bad_tmpdir' => 'Impossible de crear o d’escriure dins lo repertòri math temporari',
 	'math_bad_output' => 'Impossible de crear o d’escriure dins lo repertòri math de sortida',
 	'math_notexvc' => 'L’executable « texvc » es introbable. Legissètz math/README per lo configurar.',
@@ -2792,8 +2776,7 @@ $messages['os'] = array(
 	'math_syntax_error' => 'синтаксисы рæдыд',
 );
 
-/** Punjabi (ਪੰਜਾਬੀ)
- */
+/** Punjabi (ਪੰਜਾਬੀ) */
 $messages['pa'] = array(
 	'math_tip' => 'ਗਣਿਤ ਫਾਰਮੂਲਾ (LaTeX)',
 	'prefs-math' => 'ਗਣਿਤ',
@@ -2804,8 +2787,7 @@ $messages['pa'] = array(
 	'math_syntax_error' => 'ਸੰਟੈਕਸ ਗਲਤੀ',
 );
 
-/** Pangasinan (Pangasinan)
- */
+/** Pangasinan (Pangasinan) */
 $messages['pag'] = array(
 	'math_unknown_error' => 'aga-antan error',
 );
@@ -2824,7 +2806,7 @@ $messages['pam'] = array(
 	'math_lexing_error' => 'pamagkamali king lexing',
 	'math_syntax_error' => 'pamagkamali king pamituki-tuki (syntax error)',
 	'math_image_error' => 'E melaus ing pamanalis king PNG;
-siguraduan mu ing ustung pamag-install king latex, dvips, gs, at kaibat iyalis (i-convert) me', # Fuzzy
+siguraduan mu ing ustung pamag-install king latex, dvips, gs, at kaibat iyalis (i-convert) me',
 	'math_bad_tmpdir' => 'E makasulat king o makapaglalang piyakitan (directory) a math temp',
 	'math_bad_output' => 'E makasulat king o makapaglalang piyakitan (directory) a math output',
 	'math_notexvc' => 'Mawawala ya ing texvc executable;
@@ -2949,7 +2931,7 @@ $messages['prg'] = array(
 	'math_lexing_error' => 'laksisis blānda',
 	'math_syntax_error' => 'sīntaksis blānda',
 	'math_image_error' => 'Mainasnā en PNG ni izpalla.
-Izbandais, anga latex, dvips, gs be convert ast instalītan tikrōmiskai', # Fuzzy
+Izbandais, anga latex, dvips, gs be convert ast instalītan tikrōmiskai',
 	'math_bad_tmpdir' => 'Ni mazīngi teīktun anga enpeisātun en kīsmingiskasmu matemātiskan fōlderin',
 	'math_bad_output' => 'Ni mazīngi teīktun anga enpeisātun en izēiseniskasmu matemātiskan fōlderin',
 	'math_notexvc' => 'Ni ast texvc prōgraman.
@@ -2989,8 +2971,8 @@ verifique que o latex, dvips, gs e convert foram correctamente instalados',
 );
 
 /** Brazilian Portuguese (português do Brasil)
- * @author Giro720
  * @author 555
+ * @author Giro720
  */
 $messages['pt-br'] = array(
 	'math_sample' => 'Inserir fórmula aqui',
@@ -3062,7 +3044,7 @@ $messages['rm'] = array(
 	'math_lexing_error' => 'Errur lexicala',
 	'math_syntax_error' => 'Sbagl da la sintaxta',
 	'math_image_error' => "La conversiun da PNG n'è betg reussida; 
-controllescha l'installaziun correcta da latext, dvips, gs e convertescha lura", # Fuzzy
+controllescha l'installaziun correcta da latext, dvips, gs e convertescha lura",
 	'math_bad_tmpdir' => "Betg pussaivel da scriver u crear l'ordinatur temporar math",
 	'math_bad_output' => "Betg pussaivel da scriver u crear l'ordinatur da destinaziun math",
 	'math_notexvc' => "Il program texvc n'è betg vegnì chattà. Legia math/README per al configurar.",
@@ -3240,7 +3222,7 @@ $messages['scn'] = array(
 	'math_unknown_function' => 'funzioni scanusciuta',
 	'math_lexing_error' => 'erruri lissicali',
 	'math_syntax_error' => 'erruri di sintassi',
-	'math_image_error' => "Cunvirsioni 'n PNG fallita; virificati la curretta nstallazzioni dî siquenti prugrammi: latex, dvips, gs e convert.", # Fuzzy
+	'math_image_error' => "Cunvirsioni 'n PNG fallita; virificati la curretta nstallazzioni dî siquenti prugrammi: latex, dvips, gs e convert.",
 	'math_bad_tmpdir' => 'Mpussìbbili scrìviri o criari la directory timpurània pi math',
 	'math_bad_output' => 'Mpussìbbili scrìviri o criari la directory di output pi math',
 	'math_notexvc' => 'Esiquìbbili texvc mancanti; pi favuri cunzurtari math/README pi la cunfigurazzioni.',
@@ -3279,7 +3261,7 @@ $messages['sdc'] = array(
 	'math_unknown_function' => 'funzioni ischuniscidda',
 	'math_lexing_error' => 'errori di lingàggiu',
 	'math_syntax_error' => 'errori di sintassi',
-	'math_image_error' => 'Cunvirthimentu in PNG nò ridisciddu; verifiggà chi siani isthalladdi currentementi i sighenti prugrammi: latex, dvips, gs, e convert.', # Fuzzy
+	'math_image_error' => 'Cunvirthimentu in PNG nò ridisciddu; verifiggà chi siani isthalladdi currentementi i sighenti prugrammi: latex, dvips, gs, e convert.',
 	'math_bad_tmpdir' => "Impussìbiri ischribì o crià la carthella timpurània pa ''math''",
 	'math_bad_output' => "Impussìbiri ischribì o crià la carthella d'iscidda pa ''math''",
 	'math_notexvc' => "Fattìbiri ''texvc'' mancanti; pa piazeri cunsulthà ''math/README'' pa la cunfigurazioni.",
@@ -3309,8 +3291,7 @@ $messages['sei'] = array(
 	'math_syntax_error' => 'römjde syntáx',
 );
 
-/** Samogitian (žemaitėška)
- */
+/** Samogitian (žemaitėška) */
 $messages['sgs'] = array(
 	'math_sample' => 'Iveskėt fuormolė',
 	'math_tip' => 'Matematinė fuormolė (LaTeX fuormato)',
@@ -3436,7 +3417,7 @@ $messages['sli'] = array(
 	'math_unknown_function' => 'Unbekennte Funksjonn',
 	'math_lexing_error' => '„Lexing“-Fahler',
 	'math_syntax_error' => 'Syntaxfahler',
-	'math_image_error' => 'de PNG-Konvertierung schlug fehl', # Fuzzy
+	'math_image_error' => 'de PNG-Konvertierung schlug fehl',
 	'math_bad_tmpdir' => 'Doas temporäre Verzeichnis fier mathematische Formeln koan ne oagelagt oder beschrieba waan.',
 	'math_bad_output' => 'Doas Zielverzeichnis fier mathematische Formeln koan ne oagelegt oder beschrieba waan.',
 	'math_notexvc' => 'Doas texvc-Programm wurde ne gefunda. Bitte math/README beachten.',
@@ -3448,11 +3429,10 @@ $messages['sli'] = array(
 $messages['sma'] = array(
 	'math_sample' => 'Bïejedh fårmele daesnie',
 	'math_tip' => 'Ryökneme fårmele (LaTeX)',
-	'math_unknown_error' => 'ammes båajhtede', # Fuzzy
+	'math_unknown_error' => 'ammes båajhtede',
 );
 
-/** Somali (Soomaaliga)
- */
+/** Somali (Soomaaliga) */
 $messages['so'] = array(
 	'prefs-math' => 'Xisaab',
 );
@@ -3497,8 +3477,7 @@ $messages['sr-ec'] = array(
 	'math_notexvc' => 'Недостаје извршна датотека texvc-а. Погледајте math/README за подешавање.',
 );
 
-/** Serbian (Latin script) (srpski (latinica)‎)
- */
+/** Serbian (Latin script) (srpski (latinica)‎) */
 $messages['sr-el'] = array(
 	'math_sample' => 'Ovde unesite formulu',
 	'math_tip' => 'Matematička formula (LaTeX)',
@@ -3564,7 +3543,7 @@ $messages['su'] = array(
 	'math_unknown_function' => 'fungsi teu kanyahoan',
 	'math_lexing_error' => 'kasalahan lexing',
 	'math_syntax_error' => 'Kasalahan rumpaka',
-	'math_image_error' => 'Konversi PNG gagal; pastikeun yén latex, dvips, gs, jeung convert geus bener nginstalna', # Fuzzy
+	'math_image_error' => 'Konversi PNG gagal; pastikeun yén latex, dvips, gs, jeung convert geus bener nginstalna',
 	'math_bad_tmpdir' => 'Henteu bisa nulis atawa nyieun direktori samentara math',
 	'math_bad_output' => 'Henteu bisa nulisikeun atawa nyieun direktori keluaran math',
 );
@@ -3621,7 +3600,7 @@ $messages['szl'] = array(
 	'math_unknown_function' => 'ńyznano funkcyjo',
 	'math_lexing_error' => 'feler leksera',
 	'math_syntax_error' => 'felerno skuadńa',
-	'math_image_error' => 'kůnwersyjo do formatu PNG ńy powjodua śe; uobadej, eli poprawńy zainštalowane sům lotex, dvips, gs i convert', # Fuzzy
+	'math_image_error' => 'kůnwersyjo do formatu PNG ńy powjodua śe; uobadej, eli poprawńy zainštalowane sům lotex, dvips, gs i convert',
 	'math_bad_tmpdir' => 'Ńy idźe utwořić abo naškryflać w tymčasowym katalůgu do wzorůw matymatyčnych',
 	'math_bad_output' => 'Ńy idźe utwořić abo naškryflać we wyjśćowym katalůgu do wzorůw matymatyčnych',
 	'math_notexvc' => 'Ńy ma sam texvc; zapoznej śe z math/README w celu kůnfiguracyje.',
@@ -3676,12 +3655,6 @@ $messages['te'] = array(
 	'math_notexvc' => 'texvc ఎక్జిక్యూటబుల్ కనబడడం లేదు; కాన్ఫిగరు చెయ్యడానికి math/README చూడండి.',
 );
 
-/** Test (site admin only) (Test (site admin only)) */
-$messages['test'] = array(
-	'math_sample' => 'x',
-	'math_tip' => 'x',
-);
-
 /** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
@@ -3696,7 +3669,7 @@ $messages['tg-cyrl'] = array(
 	'math_unknown_function' => 'амали номаълум',
 	'math_lexing_error' => 'хатои lexing',
 	'math_syntax_error' => 'хатои наҳвӣ',
-	'math_image_error' => 'Табдил ба PNG шикаст хӯр; насби дурусти latex, dvips, gs, ва табдилотро баррасӣ кунед', # Fuzzy
+	'math_image_error' => 'Табдил ба PNG шикаст хӯр; насби дурусти latex, dvips, gs, ва табдилотро баррасӣ кунед',
 	'math_bad_tmpdir' => 'Имкони эҷод ё навистани иттилоот дар пӯшаи муваққатии риёзӣ (temp) вуҷуд надорад',
 	'math_bad_output' => 'Имкони эҷод ё навистани иттилоот дар пӯшаи хуруҷии риёзӣ (output) вуҷуд надорад',
 	'math_notexvc' => 'Барномаи ичроии texvc мавҷуд нест; барои иттилооти бештар ба math/README нигаред.',
@@ -3716,7 +3689,7 @@ $messages['tg-latn'] = array(
 	'math_unknown_function' => "amali noma'lum",
 	'math_lexing_error' => 'xatoi lexing',
 	'math_syntax_error' => 'xatoi nahvī',
-	'math_image_error' => 'Tabdil ba PNG şikast xūr; nasbi durusti latex, dvips, gs, va tabdilotro barrasī kuned', # Fuzzy
+	'math_image_error' => 'Tabdil ba PNG şikast xūr; nasbi durusti latex, dvips, gs, va tabdilotro barrasī kuned',
 	'math_bad_tmpdir' => 'Imkoni eçod jo navistani ittiloot dar pūşai muvaqqatiji rijozī (temp) vuçud nadorad',
 	'math_bad_output' => 'Imkoni eçod jo navistani ittiloot dar pūşai xuruçiji rijozī (output) vuçud nadorad',
 	'math_notexvc' => 'Barnomai icroiji texvc mavçud nest; baroi ittilooti beştar ba math/README nigared.',
@@ -3758,7 +3731,7 @@ $messages['tk'] = array(
 	'math_lexing_error' => 'leksiki säwlik',
 	'math_syntax_error' => 'sintaktik säwlik',
 	'math_image_error' => 'PNG öwürmeklik şowsuz boldy;
-latex, dvips, gs we convert gurluşlarynyň dogrulygyny barlaň', # Fuzzy
+latex, dvips, gs we convert gurluşlarynyň dogrulygyny barlaň',
 	'math_bad_tmpdir' => 'Matematikanyň wagtlaýyn katalogyny ýazyp ýa-da döredip bolanok',
 	'math_bad_output' => 'Matematika çykyş katalogyny ýazyp ýa-da döredip bolanok',
 	'math_notexvc' => 'texvc ýerine ýetirilýän faýl tapylmady;
@@ -3896,19 +3869,17 @@ $messages['ug-arab'] = array(
 	'math_lexing_error' => 'جۈملە خاتالىقى',
 	'math_syntax_error' => 'گرامماتىكىلىق خاتالىق',
 	'math_image_error' => 'PNG ئايلاندۇرۇش مەغلۇپ بولدى؛
-latex، dvips، gs، ۋە convert توغرا قاچىلانغانلىقىنى تەكشۈرۈڭ', # Fuzzy
+latex، dvips، gs، ۋە convert توغرا قاچىلانغانلىقىنى تەكشۈرۈڭ',
 	'math_bad_tmpdir' => 'ماتېماتېكىلىق فورمۇلا يازىدىغان ياكى قۇرىدىغان ۋاقىتلىق مۇندەرىجە قۇرالمىدى',
 	'math_bad_output' => 'ماتېماتېكىلىق فورمۇلا چىقىرىدىغان مۇندەرىجىگە يازالمىدى ياكى قۇرالمىدى',
 	'math_notexvc' => ' texvc ئىجرا قىلالمىدى؛ math/README دىن پايدىلىنىپ سەپلەڭ.',
 );
 
 /** Ukrainian (українська)
- * @author Base
  * @author Olvin
  * @author Тест
  */
 $messages['uk'] = array(
-	'math-desc' => 'Відображає математичні формули у теґах <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Вставте сюди формулу',
 	'math_tip' => 'Математична формула (LaTeX)',
 	'prefs-math' => 'Відображення формул',
@@ -3938,7 +3909,7 @@ $messages['ur'] = array(
 	'math_unknown_function' => 'نامعلوم فعل',
 	'math_syntax_error' => 'نحوی غلطی',
 	'math_image_error' => 'PNG; کی تحویل ناکام
-latex، dvips، gs کی صحیح تنصیب کی جانچ کرنے کے بعد دوبارہ تحویل کی کوشش کیجئے.', # Fuzzy
+latex، dvips، gs کی صحیح تنصیب کی جانچ کرنے کے بعد دوبارہ تحویل کی کوشش کیجئے.',
 );
 
 /** Uzbek (oʻzbekcha)
@@ -4047,7 +4018,7 @@ $messages['vo'] = array(
 	'math_lexing_error' => 'vödidiletam no eplöpon',
 	'math_syntax_error' => 'süntagapöl',
 	'math_image_error' => 'Feajafam ela PNG no eplöpon;
-vestigolös stitami verätik ela latex, ela dvips, ela gs, e feajafön', # Fuzzy
+vestigolös stitami verätik ela latex, ela dvips, ela gs, e feajafön',
 	'math_bad_tmpdir' => 'No mögos ad penön ini / jafön ragiviär(i) matematik nelaidüpik.',
 	'math_bad_output' => 'No mögos ad penön ini / jafön ragiviär(i) matematik labü seks',
 	'math_notexvc' => 'Program-texvc ledunovik no petuvon;
@@ -4076,7 +4047,7 @@ $messages['vro'] = array(
 	'math_unknown_function' => 'Tundmalda tallitus',
 	'math_lexing_error' => 'Vällälugõmisviga',
 	'math_syntax_error' => 'Süntaksiviga',
-	'math_image_error' => 'PNG-muutus lää-s kõrda; kaeq üle, et latex, dvips, gs ja convert ommaq õigõhe paika säedüq', # Fuzzy
+	'math_image_error' => 'PNG-muutus lää-s kõrda; kaeq üle, et latex, dvips, gs ja convert ommaq õigõhe paika säedüq',
 	'math_bad_tmpdir' => 'Matõmaatigateksti kirotaminõ aotlistõ kausta vai taa kausta luuminõ ei lääq kõrdaq',
 	'math_bad_output' => 'Matõmaatigateksti kirotaminõ välläandmiskausta vai sääntse kausta luuminõ ei lääq kõrda',
 	'math_notexvc' => 'Olõ-i texvc-tüüriista; loeq tuu paikasäädmise kotsilõ math/README-st.',
@@ -4197,7 +4168,7 @@ $messages['zea'] = array(
 	'math_unknown_function' => 'onbekende functie',
 	'math_lexing_error' => 'lexicohraofische fout',
 	'math_syntax_error' => 'syntactische fout',
-	'math_image_error' => 'PNG-omzettieng is mislukt. Hi nae of an latex, dvips en gs correct heïnstalleerd zien en zet om', # Fuzzy
+	'math_image_error' => 'PNG-omzettieng is mislukt. Hi nae of an latex, dvips en gs correct heïnstalleerd zien en zet om',
 	'math_bad_tmpdir' => "De map voe tiedelijke bestan'n voe wiskundihe formules besti nie of kan nie emikt worn",
 	'math_bad_output' => "De map voe bestan'n mie wiskundihe formules besti nie of kan nie emikt worn.",
 	'math_notexvc' => "Kan 't prohramma texvc nie vin'n; stel aolles in volhens de beschrievieng in math/README.",
@@ -4254,9 +4225,9 @@ $messages['zh-tw'] = array(
 	'mw_math_png' => '永遠使用PNG圖片',
 );
 
-/** Zulu (isiZulu)
- */
+/** Zulu (isiZulu) */
 $messages['zu'] = array(
 	'math_sample' => 'Faka izibalo lapha',
 	'prefs-math' => 'Izibalo',
 );
+

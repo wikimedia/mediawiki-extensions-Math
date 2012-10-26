@@ -36,23 +36,38 @@ class MathHooks {
 	/**
 	 * Callback function for the <math> parser hook.
 	 *
-	 * @param $content
+	 * @param $content (the LaTeX input)
 	 * @param $attributes
 	 * @param $parser Parser
-	 * @return
+	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgContLang, $wgUseMathJax; //Title of the page is needed to create appropiate database entries
-		$renderedMath = MathRenderer::renderMath(
-			$content, $attributes, $parser
-		);
-
-		if ( $wgUseMathJax && $parser->getOptions()->getMath() == MW_MATH_MATHJAX ) {
-			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
+		global $wgContLang, $wgUseMathJax;
+		if(  trim($content)  == "" ) { //bug 8372
+			return "";
 		}
-		$output = $renderedMath;
-
-		return $wgContLang->armourMath( $output );
+		$mode=$parser->getOptions()->getMath();
+		$renderer = MathRenderer::getRenderer(
+			$content, $attributes,$mode
+		);
+		$renderer->setAnchorID($parser->nextLinkID()); //Add an ID for referencing the equation later on only used by LaTeXML
+		$renderedMath = $renderer->render();
+		//wfRunHooks( 'MathFormulaRendered', array( &$renderer,&$parser) );//Enables indexing of math formula
+		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
+			//$renderer->addModules(&$parser);
+			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
+		} elseif ($mode == MW_MATH_LATEXML)		{
+			if(isset($_SERVER['HTTP_USER_AGENT'])){
+			$UA=$_SERVER['HTTP_USER_AGENT'];
+			} else	{
+				$UA="undefined"; //required e.g. for maitenance script runs
+			}
+			if (!preg_match('/Firefox/',$UA)){ //Don't use MathJax with Firefox this has to be extenden to other browser that suppert MathML maybe a function supports MathML was the correct way to go 
+			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler.mml' ) );
+			}
+		}
+		$renderer->writeCache();
+		return $wgContLang->armourMath( $renderedMath );
 	}
 
 	/**
@@ -65,7 +80,7 @@ class MathHooks {
 	static function onGetPreferences( $user, &$defaultPreferences ) {
 		$defaultPreferences['math'] = array(
 			'type' => 'radio',
-			'options' => array_flip( array_map( 'wfMsgHtml', self::getMathNames() ) ),
+			'options' => array_flip( self::getMathNames() ),
 			'label' => '&#160;',
 			'section' => 'rendering/math',
 		);
@@ -79,15 +94,15 @@ class MathHooks {
 	 */
 	private static function getMathNames() {
 		$names = array(
-			MW_MATH_PNG => 'mw_math_png',
-			MW_MATH_SOURCE => 'mw_math_source',
+			MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
+			MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
 		);
 
 		global $wgUseMathJax;
 		if( $wgUseMathJax ) {
-			$names[MW_MATH_MATHJAX] = 'mw_math_mathjax';
+			$names[MW_MATH_MATHJAX] = wfMessage( 'mw_math_mathjax' )->escaped();
 		}
-		
+
 		return $names;
 	}
 
@@ -101,7 +116,7 @@ class MathHooks {
 		global $wgUser;
 
 		# Don't generate TeX PNGs (lack of a sensible current directory causes errors anyway)
-		//$wgUser->setOption( 'math', MW_MATH_SOURCE );
+		$wgUser->setOption( 'math', MW_MATH_SOURCE );
 
 		return true;
 	}
@@ -110,6 +125,7 @@ class MathHooks {
 	 * LoadExtensionSchemaUpdates handler; set up math table on install/upgrade.
 	 *
 	 * @param $updater DatabaseUpdater
+	 * @throws MWException
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
