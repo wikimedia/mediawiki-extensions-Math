@@ -18,14 +18,16 @@ class MathLaTeXML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	function render() {
-		if ( !$this->_readFromDB() or $this->mathml == "" or $this->isPurge() ) { // ||
+		if ( !$this->_readFromDB() || $this->mathml === "" || $this->isPurge() ) { // ||
 			wfDebugLog( "Math", "no recall" );
-			// wfDebug("no recall");
 			$this->dorender();
 		}
 		return $this->_embedMathML();
 	}
 
+	/* (non-PHPdoc)
+	 * @see MathRenderer::writeCache()
+	 */
 	function writeCache() {
 		if ( !$this->isRecall() )
 			$this->_writeDBentry();
@@ -70,7 +72,7 @@ class MathLaTeXML extends MathRenderer {
 			}
 			$this->mathml = $result->result;
 		}
-		else		{
+		else {
 			wfDebugLog( "Math", "\nLaTeXML Error:" . var_export( array( $result, $post, $host ), true ) . "\n\n" );
 			return false;
 		}
@@ -84,11 +86,11 @@ class MathLaTeXML extends MathRenderer {
 		// TODO: Figure out if ?action=purge
 		// until this issue is resolved we use ?mathpurge=true instead
 		global $wgRequest;
-		return ( $wgRequest->getVal( 'mathpurge' ) == "true" ) ? true:false;
+		return ( $wgRequest->getVal( 'mathpurge' ) === "true" );
 	}
 
 	/**
-	 * @return XML::tags
+	 * @return string
 	 */
 	private function _embedMathML() {
 		$mml = str_replace( "\n", " ", $this->mathml );

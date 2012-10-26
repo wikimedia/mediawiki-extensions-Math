@@ -9,16 +9,6 @@
  * @file
  * @ingroup Parser
  */
-if ( !function_exists( 'wfEscapeSingleQuotes' ) ) {
-	/**
-	 * Escapes a string with single quotes for a UNIX shell.
-	 * It's equivalent to escapeshellarg() in UNIX, but also
-	 * working in Windows, where we need it for cygwin shell.
-	 */
-	function wfEscapeSingleQuotes( $str ) {
-		return "'" . str_replace( "'", "'\\''", $str ) . "'";
-	}
-}
 /**
  * Takes LaTeX fragments, sends them to a helper program (texvc) for rendering
  * to rasterized PNG and HTML and MathML approximations. An appropriate
@@ -91,11 +81,11 @@ class MathTexvc extends MathRenderer {
 			return $this->_error( 'math_notexvc' );
 		}
 		$cmd = $wgTexvc . ' ' .
-				wfEscapeSingleQuotes( $tmpDir ) . ' ' .
-				wfEscapeSingleQuotes( $tmpDir ) . ' ' .
-				wfEscapeSingleQuotes( $this->tex ) . ' ' .
-				wfEscapeSingleQuotes( 'UTF-8' ) . ' ' .
-				wfEscapeSingleQuotes( $wgTexvcBackgroundColor );
+				wfEscapeSchellArg( $tmpDir ) . ' ' .
+				wfEscapeSchellArg( $tmpDir ) . ' ' .
+				wfEscapeSchellArg( $this->tex ) . ' ' .
+				wfEscapeSchellArg( 'UTF-8' ) . ' ' .
+				wfEscapeSchellArg( $wgTexvcBackgroundColor );
 
 		if ( wfIsWindows() ) {
 			# Invoke it within cygwin sh, because texvc expects sh features in its default shell
@@ -265,9 +255,7 @@ class MathTexvc extends MathRenderer {
 				// Short-circuit the file existence & migration checks
 				return true;
 			}
-
 			$filename = $this->_getHashPath() . "/{$this->hash}.png"; // final storage path
-
 			$backend = $this->getBackend();
 			if ( $backend->fileExists( array( 'src' => $filename ) ) ) {
 				if ( $backend->getFileSize( array( 'src' => $filename ) ) == 0 ) {
