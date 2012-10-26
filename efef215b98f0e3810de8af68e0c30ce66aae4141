@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAABVH///8I\u003d",
+        "filename": "Math.hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:28:56Z",
+      "side": 1,
+      "message": "Tabs in middle of line.\n\nhttp://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP",
+      "revId": "efef215b98f0e3810de8af68e0c30ce66aae4141",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
