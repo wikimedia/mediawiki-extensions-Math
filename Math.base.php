@@ -98,7 +98,7 @@ abstract class MathRenderer {
 
 
 	/**
-	 *
+	 * @return mixed
 	 */
 	public function getInputHash() {
 		// TODO: What happens if $tex is empty?
@@ -169,10 +169,10 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * @param unknown $tag
-	 * @param unknown $defaults
-	 * @param unknown $overrides
-	 * @return unknown
+	 * @param string $tag
+	 * @param array $defaults
+	 * @param array $overrides
+	 * @return array
 	 */
 	protected function _attribs( $tag, $defaults = array(), $overrides = array() ) {
 		$attribs = Sanitizer::validateTagAttributes( $this->params, $tag );
@@ -181,7 +181,7 @@ abstract class MathRenderer {
 		return $attribs;
 	}
 	/**
-	 * Does nothing be default
+	 * Does nothing by default
 	 */
 	public function writeCache() {
 	}

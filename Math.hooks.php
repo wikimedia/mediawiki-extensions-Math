@@ -43,7 +43,7 @@ class MathHooks {
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		global $wgContLang, $wgUseMathJax;
-		if (  trim( $content )  == "" ) { // bug 8372
+		if (  trim( $content )  === "" ) { // bug 8372
 			return "";
 		}
 		$mode = $parser->getOptions()->getMath();
@@ -56,15 +56,9 @@ class MathHooks {
 		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
 			// $renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
-		} elseif ( $mode == MW_MATH_LATEXML )		{
-			if ( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
-			$UA = $_SERVER['HTTP_USER_AGENT'];
-			} else	{
-				$UA = "undefined"; // required e.g. for maitenance script runs
-			}
-			if ( !preg_match( '/Firefox/', $UA ) ) { // Don't use MathJax with Firefox this has to be extenden to other browser that suppert MathML maybe a function supports MathML was the correct way to go
+		} elseif ( $mode == MW_MATH_LATEXML ) {
+			//TODO: Check useragent and decide to use MathJaX or the Browsers render
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler.mml' ) );
-			}
 		}
 		$renderer->writeCache();
 		return $wgContLang->armourMath( $renderedMath );
