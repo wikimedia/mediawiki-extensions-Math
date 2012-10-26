@@ -131,11 +131,11 @@ $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
 
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
-$wgAutoloadClasses['MathRenderer'] = $dir . 'Math.base.php';
-$wgAutoloadClasses['MathTexvc'] = $dir . 'Math.texvc.php';
-$wgAutoloadClasses['MathSource'] = $dir . 'Math.source.php';
-$wgAutoloadClasses['MathMathJax'] = $dir . 'Math.MathJax.php';
-$wgAutoloadClasses['MathLaTeXML'] = $dir . 'Math.LaTeXML.php';
+$wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
+$wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
+$wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
+$wgAutoloadClasses['MathMathJax'] = $dir . 'MathMathJax.php';
+$wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
