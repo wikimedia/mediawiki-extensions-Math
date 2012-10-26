@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAABVH///8Y\u003d",
+        "filename": "modules/ext.math.mathjax.enabler.mml.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2012-10-26T13:26:59Z",
+      "side": 1,
+      "message": "Has it been checked that the license is compatible with GPL?",
+      "revId": "ae733bf98f2f8ecf3bbc8450493d71c2ca717e05",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
