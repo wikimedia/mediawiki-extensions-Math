@@ -53,10 +53,18 @@ class MathHooks {
 		$renderer->setAnchorID($parser->nextLinkID()); //Add an ID for referencing the equation later on only used by LaTeXML
 		$renderedMath = $renderer->render();
 		//wfRunHooks( 'MathFormulaRendered', array( &$renderer,&$parser) );//Enables indexing of math formula
-		if (  $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
-		//TODO:MathJax has stopped working together with MathML i.e. LaTeXML in the last version 
+		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
 			//$renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
+		} elseif ($mode == MW_MATH_LATEXML)		{
+			if(isset($_SERVER['HTTP_USER_AGENT'])){
+			$UA=$_SERVER['HTTP_USER_AGENT'];
+			} else	{
+				$UA="undefined"; //required e.g. for maitenance script runs
+			}
+			if (!preg_match('/Firefox/',$UA)){ //Don't use MathJax with Firefox this has to be extenden to other browser that suppert MathML maybe a function supports MathML was the correct way to go 
+			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler.mml' ) );
+			}
 		}
 		$renderer->writeCache();
 		return $wgContLang->armourMath( $renderedMath );
