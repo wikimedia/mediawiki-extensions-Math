@@ -99,7 +99,7 @@ $wgMathDirectory = false;
  *
  * Not guaranteed to be stable at this time.
  */
-$wgUseMathJax = false;
+$wgUseMathJax = true;
 
 /**
  * Use of MathJax's CDN is governed by terms of service
@@ -120,7 +120,7 @@ $wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
 
 ////////// end of config settings.
 
-$wgDefaultUserOptions['math'] = MW_MATH_PNG;
+$wgDefaultUserOptions['math'] = MW_MATH_LATEXML;
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
