@@ -56,10 +56,7 @@ class MathHooks {
 		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
 			// $renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
-		} elseif ( $mode == MW_MATH_LATEXML ) {
-			//TODO: Check useragent and decide to use MathJaX or the Browsers render
-			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler.mml' ) );
-		}
+		} 
 		$renderer->writeCache();
 		return $wgContLang->armourMath( $renderedMath );
 	}
