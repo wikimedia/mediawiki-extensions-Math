@@ -36,23 +36,29 @@ class MathHooks {
 	/**
 	 * Callback function for the <math> parser hook.
 	 *
-	 * @param $content
+	 * @param $content (the LaTeX input)
 	 * @param $attributes
 	 * @param $parser Parser
 	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		global $wgContLang, $wgUseMathJax;
-		$renderedMath = MathRenderer::renderMath(
-			$content, $attributes, $parser->getOptions()
-		);
-
-		if ( $wgUseMathJax && $parser->getOptions()->getMath() == MW_MATH_MATHJAX ) {
-			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
+		if (  trim( $content )  === "" ) { // bug 8372
+			return "";
 		}
-		$output = $renderedMath;
-
-		return $wgContLang->armourMath( $output );
+		$mode = $parser->getOptions()->getMath();
+		$renderer = MathRenderer::getRenderer(
+			$content, $attributes, $mode
+		);
+		$renderer->setAnchorID( $parser->nextLinkID() ); // Add an ID for referencing the equation later on only used by LaTeXML
+		$renderedMath = $renderer->render();
+		// wfRunHooks( 'MathFormulaRendered', array( &$renderer,&$parser) );//Enables indexing of math formula
+		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
+			// $renderer->addModules(&$parser);
+			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
+		} 
+		$renderer->writeCache();
+		return $wgContLang->armourMath( $renderedMath );
 	}
 
 	/**
@@ -84,7 +90,7 @@ class MathHooks {
 		);
 
 		global $wgUseMathJax;
-		if( $wgUseMathJax ) {
+		if ( $wgUseMathJax ) {
 			$names[MW_MATH_MATHJAX] = wfMessage( 'mw_math_mathjax' )->escaped();
 		}
 
@@ -114,7 +120,7 @@ class MathHooks {
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
-		if( is_null( $updater ) ) {
+		if ( is_null( $updater ) ) {
 			throw new MWException( "Math extension is only necessary in 1.18 or above" );
 		}
 		$map = array(

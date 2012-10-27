@@ -37,6 +37,7 @@ define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 ); /// @deprecated
 define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
+define( 'MW_MATH_LATEXML', 7 ); /// new in 1.21
 /**@}*/
 
 /** For back-compat */
@@ -108,6 +109,7 @@ $wgUseMathJax = false;
  */
 $wgMathJaxUrl = 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML';
 
+
 ////////// end of config settings.
 
 $wgDefaultUserOptions['math'] = MW_MATH_PNG;
@@ -121,8 +123,11 @@ $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
 
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
-$wgAutoloadClasses['MathRenderer'] = $dir . 'Math.body.php';
-
+$wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
+$wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
+$wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
+$wgAutoloadClasses['MathMathJax'] = $dir . 'MathMathJax.php';
+$wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
