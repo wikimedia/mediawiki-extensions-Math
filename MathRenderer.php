@@ -161,7 +161,7 @@ abstract class MathRenderer {
 							'math_html_conservativeness' => $this->conservativeness,
 							'math_html' => $this->html,
 							'math_mathml' => $this->mathml,
-							// 'math_tex' => $this->tex, //For debugging
+							'math_tex' => $this->tex, //For debugging
 					),
 					__METHOD__
 			);
@@ -196,5 +196,8 @@ abstract class MathRenderer {
 	}
 	public function setAnchorID( $ID ) {
 		$this->anchorID = $ID;
+	}
+	public function getTex() {
+		return $this->tex;
 	}
 }

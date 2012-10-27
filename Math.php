@@ -145,6 +145,12 @@ $moduleTemplate = array(
 	'remoteExtPath' => 'Math/modules',
 );
 
+if(isset($_SERVER['HTTP_USER_AGENT'])){
+$UA=$_SERVER['HTTP_USER_AGENT'];
+} else
+{$UA="undefined"; //required for maitenance script runs
+}
+ if (!preg_match('/Firefox/',$UA)){ //Don't use MathJax with Firefox this has to be extenden to other browser that suppert MathML maybe a function supports MathML was the correct way to go 
 $wgResourceModules['ext.math.mathjax'] = array(
 	'scripts' => array(
 		'MathJax/MathJax.js',
@@ -153,6 +159,7 @@ $wgResourceModules['ext.math.mathjax'] = array(
 	),
 	'group' => 'ext.math.mathjax',
 ) + $moduleTemplate;
+}
 
 $wgResourceModules['ext.math.mathjax.enabler'] = array(
 	'scripts' => 'ext.math.mathjax.enabler.js',
