@@ -81,11 +81,11 @@ class MathTexvc extends MathRenderer {
 			return $this->_error( 'math_notexvc' );
 		}
 		$cmd = $wgTexvc . ' ' .
-				wfEscapeSchellArg( $tmpDir ) . ' ' .
-				wfEscapeSchellArg( $tmpDir ) . ' ' .
-				wfEscapeSchellArg( $this->tex ) . ' ' .
-				wfEscapeSchellArg( 'UTF-8' ) . ' ' .
-				wfEscapeSchellArg( $wgTexvcBackgroundColor );
+				wfEscapeShellArg( $tmpDir ) . ' ' .
+				wfEscapeShellArg( $tmpDir ) . ' ' .
+				wfEscapeShellArg( $this->tex ) . ' ' .
+				wfEscapeShellArg( 'UTF-8' ) . ' ' .
+				wfEscapeShellArg( $wgTexvcBackgroundColor );
 
 		if ( wfIsWindows() ) {
 			# Invoke it within cygwin sh, because texvc expects sh features in its default shell
