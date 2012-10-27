@@ -36,23 +36,27 @@ class MathHooks {
 	/**
 	 * Callback function for the <math> parser hook.
 	 *
-	 * @param $content
+	 * @param $content (the LaTeX input)
 	 * @param $attributes
 	 * @param $parser Parser
 	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		global $wgContLang, $wgUseMathJax;
-		$renderedMath = MathRenderer::renderMath(
-			$content, $attributes, $parser->getOptions()
+		if ( trim( $content )  === "" ) { // bug 8372
+			return "";
+		}
+		$mode = $parser->getOptions()->getMath();
+		$renderer = MathRenderer::getRenderer(
+			$content, $attributes, $mode
 		);
-
-		if ( $wgUseMathJax && $parser->getOptions()->getMath() == MW_MATH_MATHJAX ) {
+		$renderer->setAnchorID( $parser->nextLinkID() ); // Add an ID for referencing the equation later on only used by LaTeXML
+		$renderedMath = $renderer->render();
+		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
-		$output = $renderedMath;
-
-		return $wgContLang->armourMath( $output );
+		$renderer->writeCache();
+		return $wgContLang->armourMath( $renderedMath );
 	}
 
 	/**
@@ -78,13 +82,12 @@ class MathHooks {
 	 * @return array of strings
 	 */
 	private static function getMathNames() {
+		global $wgUseMathJax;
 		$names = array(
 			MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
 			MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
 		);
-
-		global $wgUseMathJax;
-		if( $wgUseMathJax ) {
+		if ( $wgUseMathJax ) {
 			$names[MW_MATH_MATHJAX] = wfMessage( 'mw_math_mathjax' )->escaped();
 		}
 
@@ -102,7 +105,6 @@ class MathHooks {
 
 		# Don't generate TeX PNGs (lack of a sensible current directory causes errors anyway)
 		$wgUser->setOption( 'math', MW_MATH_SOURCE );
-
 		return true;
 	}
 
@@ -114,7 +116,7 @@ class MathHooks {
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
-		if( is_null( $updater ) ) {
+		if ( is_null( $updater ) ) {
 			throw new MWException( "Math extension is only necessary in 1.18 or above" );
 		}
 		$map = array(
