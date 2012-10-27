@@ -29,8 +29,10 @@ class MathLaTeXML extends MathRenderer {
 	 * @see MathRenderer::writeCache()
 	 */
 	function writeCache() {
-		if ( !$this->isRecall() )
+		if ( !$this->isRecall() ){
+			$this->hash=0;
 			$this->_writeDBentry();
+		}
 	}
 	/**
 	 * Picks a LaTeXML daemon if more than one are availible from the $wgLaTeXMLUrl array
