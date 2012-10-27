@@ -7,6 +7,7 @@
  * @version 1.0
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
+ * @author Moritz Schubotz
  * @copyright © 2002-2012 various MediaWiki contributors
  * @license GPLv2 license; info in main package.
  * @link http://www.mediawiki.org/wiki/Extension:Math Documentation
@@ -122,7 +123,9 @@ $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
 $wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
-
+$wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
+$wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
+$wgAutoloadClasses['MathMathJax'] = $dir . 'MathMathJax.php';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
