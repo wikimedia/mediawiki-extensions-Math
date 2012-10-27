@@ -56,7 +56,7 @@ class MathHooks {
 		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
 			// $renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
-		} 
+		}
 		$renderer->writeCache();
 		return $wgContLang->armourMath( $renderedMath );
 	}
