@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAABdH////0\u003d",
+        "filename": "modules/ext.math.mathjax.enabler.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2012-10-27T15:50:56Z",
+      "side": 1,
+      "message": "I think this was the place to allow MathML.",
+      "revId": "84370c5131e1adedda51c0e407df97fd01111e4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
