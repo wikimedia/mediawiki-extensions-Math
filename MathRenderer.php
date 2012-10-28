@@ -71,7 +71,7 @@ abstract class MathRenderer {
 				break;
 			case MW_MATH_PNG:
 			default:
-				$renderer = new MathTexvc( $tex, $params );
+				$renderer = new MathLaTeXMLImages( $tex, $params );
 		}
 
 		return $renderer;
@@ -106,7 +106,12 @@ abstract class MathRenderer {
 		return $dbr->encodeBlob( pack( "H32", md5( $this->tex ) ) ); # Binary packed, not hex
 	}
 
-
+	/**
+	 * @return string
+	 */
+	public function getMd5() {
+		return  md5( $this->tex ) ; # Binary packed, not hex
+	}
 
 	/**
 	 * @return boolean
