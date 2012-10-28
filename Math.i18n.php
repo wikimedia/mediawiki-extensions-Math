@@ -2224,7 +2224,7 @@ $messages['ltg'] = array(
 	'math_tip' => 'Matematiska formula (LaTeX)',
 );
 
-/** Lushai (Mizo ţawng)
+/** Mizo (Mizo ţawng)
  * @author RMizo
  */
 $messages['lus'] = array(
