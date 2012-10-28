@@ -45,6 +45,8 @@ $wgUseTeX = true;
 
 /** Location of the texvc binary */
 $wgTexvc = dirname( __FILE__ ) . '/math/texvc';
+/** Location of the latexmlmath binary */
+$wgLaTeXML = '/usr/local/bin/latexmlmath';
 /**
  * Texvc background color
  * use LaTeX color format as used in \special function
@@ -136,6 +138,7 @@ $wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
 $wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
 $wgAutoloadClasses['MathMathJax'] = $dir . 'MathMathJax.php';
 $wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
+$wgAutoloadClasses['MathLaTeXMLImages'] = $dir . 'MathLaTeXMLImages.php';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
