@@ -82,7 +82,7 @@ abstract class MathRenderer {
 	/**
 	 * @return misc
 	 */
-	abstract public function render();
+	abstract public function render($purge=false);
 
 
 	/**
