@@ -22,7 +22,9 @@ class MathLaTeXML extends MathRenderer {
 			wfDebugLog( "Math", "no recall" );
 			$this->dorender();
 		}
-		return $this->_embedMathML();
+		return $this->_embedMathML().
+		' <a href="/wiki/Spezial:MathSearch?pattern='.urlencode($this->tex).'&searchx=Search"><img src="http://arxivdemo.formulasearchengine.com/images/FSE-PIC.png" width="15" height="15"></a>'
+		;
 	}
 
 	/* (non-PHPdoc)
@@ -95,17 +97,31 @@ class MathLaTeXML extends MathRenderer {
 	 * @return string
 	 */
 	private function _embedMathML() {
-		$mml = str_replace( "\n", " ", $this->mathml );
+		return self::embedMathML($this->mathml, $this->getAnchorID());
+	}
+	public static function embedMathML($mml,$anchorID=0){
+		$mml = str_replace( "\n", " ", $mml );
 		return Xml::tags( 'span',
-				$this->_attribs( 'span',
+				self::attribs( 'span',
 						array(
 								'class' => 'tex',
 								'dir' => 'ltr',
-								'id' => 'math' . $this->getAnchorID()
+								'id' => 'math' . $anchorID
 						)
 				),
 				$mml
 		);
 	}
-
+	/**
+	 * @param string $tag
+	 * @param array $defaults
+	 * @param array $overrides
+	 * @return array
+	 */
+	protected static function attribs( $tag, $defaults = array(), $overrides = array() ) {
+		$attribs = Sanitizer::validateTagAttributes( array(), $tag );
+		$attribs = Sanitizer::mergeAttributes( $defaults, $attribs );
+		$attribs = Sanitizer::mergeAttributes( $attribs, $overrides );
+		return $attribs;
+	}
 }
