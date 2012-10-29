@@ -29,6 +29,7 @@ abstract class MathRenderer {
 	var $params = '';
 	protected $recall;
 	protected $anchorID = 0;
+	protected $pageID = 0;
 
 
 	/**
@@ -201,6 +202,12 @@ abstract class MathRenderer {
 	}
 	public function setAnchorID( $ID ) {
 		$this->anchorID = $ID;
+	}
+	public function getPageID() {
+		return $this->pageID;
+	}
+	public function setPageID( $ID ) {
+		$this->pageID = $ID;
 	}
 	public function getTex() {
 		return $this->tex;

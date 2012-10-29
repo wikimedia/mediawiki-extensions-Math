@@ -51,8 +51,9 @@ class MathHooks {
 			$content, $attributes, $mode
 		);
 		$renderer->setAnchorID( $parser->nextLinkID() ); // Add an ID for referencing the equation later on only used by LaTeXML
+		$renderer->setPageID($parser->getTitle()->getArticleID());
 		$renderedMath = $renderer->render();
-		wfRunHooks( 'MathFormulaRendered', array( &$renderer,&$parser) );//Enables indexing of math formula
+		wfRunHooks( 'MathFormulaRendered', 	array( &$renderer) );//Enables indexing of math formula
 		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
 			// $renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
