@@ -17,8 +17,8 @@ class MathLaTeXML extends MathRenderer {
 	/* (non-PHPdoc)
 	 * @see MathRenderer::render()
 	*/
-	function render() {
-		if ( !$this->_readFromDB() || $this->mathml == "" || $this->isPurge() ) { // ||
+	function render($purge=false) {
+		if ( $purge||!$this->_readFromDB() || $this->mathml == "" || $this->isPurge() ) { // ||
 			wfDebugLog( "Math", "no recall" );
 			$this->dorender();
 		}

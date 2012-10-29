@@ -20,7 +20,7 @@
 define( 'MW_TEXVC_SUCCESS', -1 );
 class MathLaTeXMLImages extends MathRenderer {
 
-	function render() {
+	function render($purge=false) {
 		if ( trim( $this->tex ) == '' ) {
 			return; # bug 8372
 		}
@@ -107,8 +107,8 @@ class MathLaTeXMLImages extends MathRenderer {
 			}
 		}*/
 
-		//$tempFsFile = new TempFSFile( "$tmpDir/{$this->hash}.png" );
-		//$tempFsFile->autocollect(); // destroy file when $tempFsFile leaves scope
+		$tempFsFile = new TempFSFile( "$tmpDir/{$this->hash}.png" );
+		$tempFsFile->autocollect(); // destroy file when $tempFsFile leaves scope
 /*
 		$retval = substr( $contents, 0, 1 );
 		$errmsg = '';
@@ -246,7 +246,7 @@ class MathLaTeXMLImages extends MathRenderer {
 		if ( !$this->isRecall() ) {
 			return;
 		}
-		$this->_writeDBentry();
+		//$this->_writeDBentry();
 		// If we're replacing an older version of the image, make sure it's current.
 		if ( $wgUseSquid ) {
 			$urls = array( $this->_mathImageUrl() );
@@ -255,22 +255,22 @@ class MathLaTeXMLImages extends MathRenderer {
 		}
 	}
 	function _recall() {
-		global $wgMathCheckFiles;
+		/*global $wgMathCheckFiles;
 		if ( $this->_readFromDB() ) {
 			if ( !$wgMathCheckFiles ) {
 				// Short-circuit the file existence & migration checks
 				return true;
+			}*/
+		$filename = $this->_getHashPath() . "/{$this->getMd5()}.png"; // final storage path
+		$backend = $this->getBackend();
+		if ( $backend->fileExists( array( 'src' => $filename ) ) ) {
+			if ( $backend->getFileSize( array( 'src' => $filename ) ) == 0 ) {
+				// Some horrible error corrupted stuff :(
+				$backend->quickDelete( array( 'src' => $filename ) );
+			} else {
+				return true; // cache hit
 			}
-			$filename = $this->_getHashPath() . "/{$this->getMd5()}.png"; // final storage path
-			$backend = $this->getBackend();
-			if ( $backend->fileExists( array( 'src' => $filename ) ) ) {
-				if ( $backend->getFileSize( array( 'src' => $filename ) ) == 0 ) {
-					// Some horrible error corrupted stuff :(
-					$backend->quickDelete( array( 'src' => $filename ) );
-				} else {
-					return true; // cache hit
-				}
-			}
+			//}
 		}
 	}
 

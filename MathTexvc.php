@@ -20,11 +20,11 @@
 define( 'MW_TEXVC_SUCCESS', -1 );
 class MathTexvc extends MathRenderer {
 
-	function render() {
+	function render($purge=false) {
 		if ( trim( $this->tex ) == '' ) {
 			return; # bug 8372
 		}
-		if ( !$this->_recall() ) { // cache miss
+		if ( $purge||!$this->_recall() ) { // cache miss
 			$result = $this->callTexvc();
 			if ( $result != MW_TEXVC_SUCCESS )
 				return $result;
