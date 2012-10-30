@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "AAAB1n///9s\u003d",
+        "filename": "modules/MathJax/extensions/TeX/texvc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2012-10-30T19:58:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAAATH///jc\u003d",
+      "revId": "4ffacaf66b12ddfe8c0a870c114c3081ece97ad6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAAB03///98\u003d",
         "filename": "modules/MathJax/extensions/TeX/texvc.js",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2012-10-30T17:13:00Z",
       "side": 1,
       "message": "You should use parseInt(rgb[i], 10) here, as parseInt tries to \"guess\" the base by default and parseInt(\"09\") gives 0, assuming the number is octal.",
+      "revId": "4ffacaf66b12ddfe8c0a870c114c3081ece97ad6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAB1n///9o\u003d",
+        "filename": "modules/MathJax/extensions/TeX/texvc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2012-10-30T19:58:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAAB03///98\u003d",
       "revId": "4ffacaf66b12ddfe8c0a870c114c3081ece97ad6",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
