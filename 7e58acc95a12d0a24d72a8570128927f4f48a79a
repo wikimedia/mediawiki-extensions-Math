@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAACBX///1k\u003d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 90
+      },
+      "writtenOn": "2012-11-01T15:40:41Z",
+      "side": 1,
+      "message": "That\u0027s not really a lookbehind issue... I was trying to say, with lookbehind we can fix it in this way:\n\n tex \u003d tex.replace(/(?\u003c\u003d[^\\\\])%/g, \"\\\\%\" );\n\nor just:\n\n tex \u003d tex.replace(/(?\u003c!\\\\)%/g, \"\\\\%\" );\n\nBut JavaScript doesn\u0027t support lookbehind so I have to write:\n\n tex \u003d tex.replace(/([^\\\\])%/g, \"$1\\\\%\" );\n\nand this one may be (I\u0027m not so sure) less efficient.",
+      "revId": "7e58acc95a12d0a24d72a8570128927f4f48a79a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
