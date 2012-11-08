@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAACzH///+4\u003d",
+        "filename": "MathMathJax.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2012-11-08T16:39:04Z",
+      "side": 1,
+      "message": "indentation is off by 1 indent here.",
+      "revId": "1a5000d2e4e4ee89a15c328c920cf377f766151d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAACzH///+c\u003d",
+        "filename": "MathSource.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2012-11-08T16:39:04Z",
+      "side": 1,
+      "message": "indent level",
+      "revId": "1a5000d2e4e4ee89a15c328c920cf377f766151d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAACzH///+Y\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2012-11-08T16:39:04Z",
+      "side": 1,
+      "message": "This is now already handler in mathTagHook right ? but not in the MathRenderer renderMath function it seems ?\n\nMight want to align this.",
+      "revId": "1a5000d2e4e4ee89a15c328c920cf377f766151d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAACzX////4\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2012-11-08T16:39:04Z",
+      "side": 1,
+      "message": "Please add  { }",
+      "revId": "1a5000d2e4e4ee89a15c328c920cf377f766151d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAACzX////0\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2012-11-08T16:39:04Z",
+      "side": 1,
+      "message": "$wgTmpDirectory this seems unused ?",
+      "revId": "1a5000d2e4e4ee89a15c328c920cf377f766151d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAACzH///+U\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2012-11-08T16:39:04Z",
+      "side": 1,
+      "message": "the global variable $wgTexvc and $wgTexvcBackgroundColor are imported twice here.",
+      "revId": "1a5000d2e4e4ee89a15c328c920cf377f766151d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
