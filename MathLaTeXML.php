@@ -74,6 +74,8 @@ class MathLaTeXML extends MathRenderer {
 				wfDebugLog( "Math", "ERROR: Result is invalid " . $result->result );
 				return false;
 			}
+			$this->status = $result->status;
+			$this->log = $result->log;
 			$this->mathml = $result->result;
 		}
 		else {

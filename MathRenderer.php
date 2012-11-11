@@ -27,6 +27,8 @@ abstract class MathRenderer {
 	var $mathml = '';
 	var $conservativeness = 0;
 	var $params = '';
+	var $log='';
+	var $status='';
 	protected $recall;
 	protected $anchorID = 0;
 	protected $pageID = 0;
@@ -168,6 +170,7 @@ abstract class MathRenderer {
 							'math_html' => $this->html,
 							'math_mathml' => $this->mathml,
 							'math_tex' => $this->tex, //For debugging
+							'math_log' => $this->status."\n".$this->log, //For debugging
 					),
 					__METHOD__
 			);
