@@ -38,10 +38,11 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Jon Harald Søby
  * @author Kizito
+ * @author Shirayuki
  * @author Siebrand
  */
 $messages['qqq'] = array(
-	'math-desc' => '{{desc}}',
+	'math-desc' => '{{desc|name=Math|url=http://www.mediawiki.org/wiki/Extension:Math}}',
 	'math_sample' => 'The sample formula text that you get when you press the fourth button from the right on the edit toolbar.',
 	'math_tip' => 'This is the text that appears when you hover the mouse over the fourth button from the right on the edit toolbar.',
 	'prefs-math' => 'Used in user preferences.',
