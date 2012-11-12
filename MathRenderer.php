@@ -155,23 +155,11 @@ abstract class MathRenderer {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
 			$dbw = wfGetDB( DB_MASTER );
-			if ( $this->hash )
-				$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ) );
-			else
-				$outmd5_sql = null;
 			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->getInputHash() . ')\n' );
 			$dbw->replace(
 					'math',
 					array( 'math_inputhash' ),
-					array(
-							'math_inputhash' => $this->getInputHash(),
-							'math_outputhash' => $outmd5_sql ,
-							'math_html_conservativeness' => $this->conservativeness,
-							'math_html' => $this->html,
-							'math_mathml' => $this->mathml,
-							'math_tex' => $this->tex, //For debugging
-							'math_log' => $this->status."\n".$this->log, //For debugging
-					),
+					$this->dbOutArray(),
 					__METHOD__
 			);
 		}
@@ -188,6 +176,30 @@ abstract class MathRenderer {
 		$attribs = Sanitizer::mergeAttributes( $defaults, $attribs );
 		$attribs = Sanitizer::mergeAttributes( $attribs, $overrides );
 		return $attribs;
+	}
+	
+	/**
+	 * @return Ambigous <multitype:, multitype:unknown number string mixed >
+	 */
+	private function dbOutArray(){
+		global $wgDebugMath;
+		if ( $this->hash )
+			$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ) );
+		else
+			$outmd5_sql = null;
+		$out= array(
+			'math_inputhash' => $this->getInputHash(),
+			'math_outputhash' => $outmd5_sql ,
+			'math_html_conservativeness' => $this->conservativeness,
+			'math_html' => $this->html,
+			'math_mathml' => $this->mathml);
+		if ($wgDebugMath){
+			$debug_out= array(
+				'math_tex' => $this->tex,
+				'math_log' => $this->status."\n".$this->log);
+			$out=array_merge($out,$debug_out);
+		}
+		return $out;
 	}
 	/**
 	 * Does nothing by default
