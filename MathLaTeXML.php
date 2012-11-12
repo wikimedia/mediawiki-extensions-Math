@@ -55,6 +55,7 @@ class MathLaTeXML extends MathRenderer {
 	 * @return boolean
 	 */
 	private function dorender() {
+		global $wgDebugMath;
 
 		$host = self::pickHost();
 		$texcmd = "literal:" . urlencode( "\$" . $this->tex . "\$" );
@@ -65,7 +66,7 @@ class MathLaTeXML extends MathRenderer {
 		$time = $time_end - $time_start;
 		$result = json_decode( $res );
 		if ( $result ) {// &&is_array($result)&&is_array($result['result'])&&count($result['result'])>0){
-			if ( $result->status != "No obvious problems" ) {
+			if ($wgDebugMath or $result->status != "No obvious problems" ) {
 				$this->status = $result->status;
 				$this->log = $result->log;
 			}
@@ -74,8 +75,6 @@ class MathLaTeXML extends MathRenderer {
 				wfDebugLog( "Math", "ERROR: Result is invalid " . $result->result );
 				return false;
 			}
-			$this->status = $result->status;
-			$this->log = $result->log;
 			$this->mathml = $result->result;
 		}
 		else {
