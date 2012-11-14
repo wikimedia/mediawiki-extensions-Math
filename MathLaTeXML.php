@@ -22,9 +22,7 @@ class MathLaTeXML extends MathRenderer {
 			wfDebugLog( "Math", "no recall" );
 			$this->dorender();
 		}
-		return $this->_embedMathML().
-		' <a href="/wiki/Spezial:MathSearch?pattern='.urlencode($this->tex).'&searchx=Search"><img src="http://arxivdemo.formulasearchengine.com/images/FSE-PIC.png" width="15" height="15"></a>'
-		;
+		return $this->_embedMathML();
 	}
 
 	/* (non-PHPdoc)
@@ -59,7 +57,7 @@ class MathLaTeXML extends MathRenderer {
 
 		$host = self::pickHost();
 		$texcmd = "literal:" . urlencode( "\$" . $this->tex . "\$" );
-		$post = "profile=fragment&tex=$texcmd";
+		$post = "profile=math&tex=$texcmd";
 		$time_start = microtime( true );
 		$res = Http::post( $host, array( "postData" => $post, "timeout" => 60 ) );
 		$time_end = microtime( true );
@@ -69,6 +67,7 @@ class MathLaTeXML extends MathRenderer {
 			if ($wgDebugMath or $result->status != "No obvious problems" ) {
 				$this->status = $result->status;
 				$this->log = $result->log;
+				$this->status_code = $result->status_code;
 			}
 			if ( ( strpos( $result->result, '<?xml version="1.0" encoding="utf-8"?>' ) === 0 ) )
 			{
@@ -76,6 +75,7 @@ class MathLaTeXML extends MathRenderer {
 				return false;
 			}
 			$this->mathml = $result->result;
+			$this->valid_xml=self::isValidMathML($this->mathml);
 		}
 		else {
 			wfDebugLog( "Math", "\nLaTeXML Error:" . var_export( array( $result, $post, $host ), true ) . "\n\n" );
@@ -93,7 +93,35 @@ class MathLaTeXML extends MathRenderer {
 		global $wgRequest;
 		return ( $wgRequest->getVal( 'mathpurge' ) === "true" );
 	}
-
+	/**
+	 * Checks if the input is valid MathML, 
+	 * and if the root element has the name math
+	 * @param string $XML
+	 * @return boolean
+	 */
+	static public function isValidMathML($XML){
+		//TODO: Check: Is simpleXML core php? 
+		//	Is libxml_use_internal_error permanent (side effects with other methods)?
+		libxml_use_internal_errors( true );
+		$xml = simplexml_load_string( $XML );
+		if ( !$xml ) {
+			wfDebugLog("Math", "ERROR while converting:\n " . var_export( $XML, true ) . "\n");
+			foreach ( libxml_get_errors() as $error ){
+				wfDebugLog("Math", "\t". $error->message);
+			}
+			libxml_clear_errors();
+			return false;
+		} else {
+			$name= $xml->getName();
+			if ( $name=="math" ){
+				return true;
+			} else {
+				wfDebugLog("Math", "got wrong root element" .$name);
+				return false;
+			}
+		}
+	}
+	
 	/**
 	 * @return string
 	 */
