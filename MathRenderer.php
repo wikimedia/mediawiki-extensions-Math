@@ -29,6 +29,8 @@ abstract class MathRenderer {
 	var $params = '';
 	var $log='';
 	var $status='';
+	var $status_code='';
+	var $valid_xml='';
 	protected $recall;
 	protected $anchorID = 0;
 	protected $pageID = 0;
@@ -183,6 +185,7 @@ abstract class MathRenderer {
 	 */
 	private function dbOutArray(){
 		global $wgDebugMath;
+		//die ($wgDebugMath);
 		if ( $this->hash )
 			$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ) );
 		else
@@ -195,6 +198,8 @@ abstract class MathRenderer {
 			'math_mathml' => $this->mathml);
 		if ($wgDebugMath){
 			$debug_out= array(
+				'math_status' => $this->status_code,
+				'valid_xml' => $this->valid_xml,
 				'math_tex' => $this->tex,
 				'math_log' => $this->status."\n".$this->log);
 			$out=array_merge($out,$debug_out);
