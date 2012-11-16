@@ -604,6 +604,7 @@ $messages['ch'] = array(
 /** Sorani Kurdish (کوردی)
  * @author Arastein
  * @author Asoxor
+ * @author Calak
  * @author Marmzok
  */
 $messages['ckb'] = array(
@@ -612,6 +613,7 @@ $messages['ckb'] = array(
 	'prefs-math' => 'بیرکاری',
 	'mw_math_png' => 'ھەموو جارێک وەک PNG نیشان بدە',
 	'mw_math_source' => 'وەک TeX بمێنێتەوە (بۆ وێبگەڕە دەقی‌یەکان)',
+	'mw_math_mathjax' => 'MathJax (بۆ ئەزموون؛ باشترین بۆ زۆربەی وێبگەڕەکان)',
 	'math_unknown_error' => 'هەڵەیەکی نەزانراو',
 	'math_unknown_function' => 'فەرمانێکی نەناسراو',
 	'math_syntax_error' => 'ڕستەکار هەڵەیە',
