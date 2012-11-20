@@ -56,8 +56,8 @@ class MathLaTeXML extends MathRenderer {
 		global $wgDebugMath;
 
 		$host = self::pickHost();
-		$texcmd = "literal:" . urlencode( "\$" . $this->tex . "\$" );
-		$post = "profile=math&tex=$texcmd";
+		$texcmd = 'literal:' . urlencode( '\$' . str_replace('$','\$',$this->tex) . '\$' );
+		$post = 'preload=texvc.sty&profile=math&tex='.$texcmd;
 		$time_start = microtime( true );
 		$res = Http::post( $host, array( "postData" => $post, "timeout" => 60 ) );
 		$time_end = microtime( true );
