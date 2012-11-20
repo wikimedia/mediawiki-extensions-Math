@@ -20,7 +20,6 @@ class MathLaTeXML extends MathRenderer {
 	function render($purge=false) {
 		if ( $purge||!$this->_readFromDB() || !self::isValidMathML($this->mathml) || $this->isPurge() ) { // ||
 			wfDebugLog( "Math", "no recall" );
-			$this->recall=false;
 			$this->dorender();
 		}
 		return $this->_embedMathML();
@@ -57,8 +56,7 @@ class MathLaTeXML extends MathRenderer {
 		global $wgDebugMath;
 
 		$host = self::pickHost();
-		$this->tex=str_replace('\\$','\$',str_replace('$','\$',$this->tex));
-		$texcmd = 'literal:' . urlencode( $this->tex );
+		$texcmd = 'literal:' . urlencode( '\$' . str_replace('$','\$',$this->tex) . '\$' );
 		$post = 'preload=texvc.sty&profile=math&tex='.$texcmd;
 		$time_start = microtime( true );
 		$res = Http::post( $host, array( "postData" => $post, "timeout" => 60 ) );
@@ -128,7 +126,7 @@ class MathLaTeXML extends MathRenderer {
 	 * @return string
 	 */
 	private function _embedMathML() {
-		return self::embedMathML($this->mathml);
+		return self::embedMathML($this->mathml, $this->getAnchorID());
 	}
 	public static function embedMathML($mml,$anchorID=0){
 		$mml = str_replace( "\n", " ", $mml );
@@ -136,8 +134,8 @@ class MathLaTeXML extends MathRenderer {
 				self::attribs( 'span',
 						array(
 								'class' => 'tex',
-								'dir' => 'ltr'
-								//'id' => 'math' . urlencode($this->tex)
+								'dir' => 'ltr',
+								'id' => 'math' . $anchorID
 						)
 				),
 				$mml
