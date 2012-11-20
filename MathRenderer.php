@@ -27,6 +27,10 @@ abstract class MathRenderer {
 	var $mathml = '';
 	var $conservativeness = 0;
 	var $params = '';
+	var $log='';
+	var $status='';
+	var $status_code='';
+	var $valid_xml='';
 	protected $recall;
 	protected $anchorID = 0;
 	protected $pageID = 0;
@@ -153,22 +157,11 @@ abstract class MathRenderer {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
 			$dbw = wfGetDB( DB_MASTER );
-			if ( $this->hash )
-				$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ) );
-			else
-				$outmd5_sql = null;
 			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->getInputHash() . ')\n' );
 			$dbw->replace(
 					'math',
 					array( 'math_inputhash' ),
-					array(
-							'math_inputhash' => $this->getInputHash(),
-							'math_outputhash' => $outmd5_sql ,
-							'math_html_conservativeness' => $this->conservativeness,
-							'math_html' => $this->html,
-							'math_mathml' => $this->mathml,
-							'math_tex' => $this->tex, //For debugging
-					),
+					$this->dbOutArray(),
 					__METHOD__
 			);
 		}
@@ -185,6 +178,33 @@ abstract class MathRenderer {
 		$attribs = Sanitizer::mergeAttributes( $defaults, $attribs );
 		$attribs = Sanitizer::mergeAttributes( $attribs, $overrides );
 		return $attribs;
+	}
+	
+	/**
+	 * @return Ambigous <multitype:, multitype:unknown number string mixed >
+	 */
+	private function dbOutArray(){
+		global $wgDebugMath;
+		//die ($wgDebugMath);
+		if ( $this->hash )
+			$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ) );
+		else
+			$outmd5_sql = null;
+		$out= array(
+			'math_inputhash' => $this->getInputHash(),
+			'math_outputhash' => $outmd5_sql ,
+			'math_html_conservativeness' => $this->conservativeness,
+			'math_html' => $this->html,
+			'math_mathml' => $this->mathml);
+		if ($wgDebugMath){
+			$debug_out= array(
+				'math_status' => $this->status_code,
+				'valid_xml' => $this->valid_xml,
+				'math_tex' => $this->tex,
+				'math_log' => $this->status."\n".$this->log);
+			$out=array_merge($out,$debug_out);
+		}
+		return $out;
 	}
 	/**
 	 * Does nothing by default

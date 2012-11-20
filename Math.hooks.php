@@ -53,7 +53,7 @@ class MathHooks {
 		$renderer->setAnchorID( $parser->nextLinkID() ); // Add an ID for referencing the equation later on only used by LaTeXML
 		$renderer->setPageID($parser->getTitle()->getArticleID());
 		$renderedMath = $renderer->render();
-		wfRunHooks( 'MathFormulaRendered', 	array( &$renderer) );//Enables indexing of math formula
+		wfRunHooks( 'MathFormulaRendered', 	array( &$renderer,&$renderedMath) );//Enables indexing of math formula
 		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
 			// $renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
@@ -61,7 +61,7 @@ class MathHooks {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler.mml' ) );
 		} 
 		$renderer->writeCache();
-		return $wgContLang->armourMath( $renderedMath );
+		return $wgContLang->armourMath( $renderedMath);
 	}
 
 	/**
@@ -90,6 +90,7 @@ class MathHooks {
 		$names = array(
 			MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
 			MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
+			MW_MATH_LATEXML => wfMessage( 'mw_math_latexml' )->escaped(),
 		);
 
 		global $wgUseMathJax;
