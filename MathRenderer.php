@@ -31,16 +31,15 @@ abstract class MathRenderer {
 	var $status='';
 	var $status_code='';
 	var $valid_xml='';
+	protected $timestamp;
 	protected $recall;
-	protected $anchorID = 0;
-	protected $pageID = 0;
 
 
 	/**
 	 * @param string $tex
 	 * @param array $params
 	 */
-	public function __construct( $tex, $params = array() ) {
+	public function __construct( $tex='', $params = array() ) {
 		$this->tex = $tex;
 		$this->params = $params;
 	}
@@ -107,8 +106,12 @@ abstract class MathRenderer {
 	 */
 	public function getInputHash() {
 		// TODO: What happens if $tex is empty?
-		$dbr = wfGetDB( DB_SLAVE );
-		return $dbr->encodeBlob( pack( "H32", md5( $this->tex ) ) ); # Binary packed, not hex
+		if ($this->inputhash==''){
+			$dbr = wfGetDB( DB_SLAVE );
+			return $dbr->encodeBlob( pack( "H32", md5( $this->tex ) ) ); # Binary packed, not hex
+		} else {
+			return $this->inputhash;
+		}
 	}
 
 	/**
@@ -122,13 +125,11 @@ abstract class MathRenderer {
 	 * @return boolean
 	 */
 	protected function _readFromDB() {
+		global $wgDebugMath;
 		$dbr = wfGetDB( DB_SLAVE );
 		$rpage = $dbr->selectRow(
 				'math',
-				array(
-						'math_outputhash', 'math_html_conservativeness', 'math_html',
-						'math_mathml'
-				),
+				$this->dbInArray(),
 				array(
 						'math_inputhash' => $this->getInputHash()
 				),
@@ -143,6 +144,14 @@ abstract class MathRenderer {
 			$this->html = $rpage->math_html;
 			$this->mathml = $rpage->math_mathml;
 			$this->recall = true;
+			if($wgDebugMath){
+				$this->tex=$rpage->math_tex;
+				$this->status_code=$rpage->math_status;
+				$this->valid_xml=$rpage->valid_xml;
+				$this->tex=$rpage->math_tex;
+				$this->log=$rpage->math_log;
+				$this->timestamp=$rpage->math_timestamp;
+			}
 			return true;
 		}
 
@@ -185,9 +194,9 @@ abstract class MathRenderer {
 	 */
 	private function dbOutArray(){
 		global $wgDebugMath;
-		//die ($wgDebugMath);
+		$dbr = wfGetDB( DB_SLAVE );
 		if ( $this->hash )
-			$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ) );
+			$outmd5_sql = $dbr->encodeBlob( pack( 'H32', $this->hash ) );
 		else
 			$outmd5_sql = null;
 		$out= array(
@@ -207,6 +216,28 @@ abstract class MathRenderer {
 		return $out;
 	}
 	/**
+	 * @return Ambigous <multitype:, multitype:unknown number string mixed >
+	 */
+	private function dbInArray(){
+		global $wgDebugMath;
+		$in= array(
+				'math_inputhash',
+				'math_outputhash'  ,
+				'math_html_conservativeness' ,
+				'math_html',
+				'math_mathml');
+		if ($wgDebugMath){
+			$debug_in= array(
+					'math_status' ,
+					'valid_xml' ,
+					'math_tex' ,
+					'math_log',
+					'math_timestamp');
+			$in=array_merge($in,$debug_in);
+		}
+		return $in;
+	}
+	/**
 	 * Does nothing by default
 	 */
 	public function writeCache() {
@@ -216,18 +247,6 @@ abstract class MathRenderer {
 	 */
 	public function isRecall() {
 		return $this->recall;
-	}
-	public function getAnchorID() {
-		return $this->anchorID;
-	}
-	public function setAnchorID( $ID ) {
-		$this->anchorID = $ID;
-	}
-	public function getPageID() {
-		return $this->pageID;
-	}
-	public function setPageID( $ID ) {
-		$this->pageID = $ID;
 	}
 	public function getTex() {
 		return $this->tex;
