@@ -12,7 +12,7 @@
 
 
 
-define('LaTeXMLTimeout',240);
+
 class MathLaTeXML extends MathRenderer {
 	/* (non-PHPdoc)
 	 * @see MathRenderer::render()
@@ -50,33 +50,20 @@ class MathLaTeXML extends MathRenderer {
 		wfDebugLog( "Math", "picking host " . $host );
 		return $host;
 	}
-	private static function generalize($bad,$correct,$input){
-	return str_replace($bad,$correct,str_replace($correct,$bad,$input));
-	}
 	/**
 	 * @return boolean
 	 */
 	private function dorender() {
 		global $wgDebugMath;
+
 		$host = self::pickHost();
-		$tex=self::generalize('$','\$',$this->tex); //in texvc both $ and \$ are treated as \$
-		$tex=self::generalize('%','\%',$tex); //in texvc both % and \% are treated as \%
-		$tex=self::generalize('\part','\partial',$tex); //in texvc both \part and \partial are treated as \partial
-		$tex=self::generalize('\or','\vee',$tex); 
-		if(substr($tex,0,5)=='\text'){
-			$tex='$\ '.$tex.'$';
-		}
-		$texcmd = 'literal:' . urlencode( $tex );
-		$post = 'timeout='.LaTeXMLTimeout.'preload=texvc.sty&profile=math&tex='.$texcmd;
+		$this->tex=str_replace('\\$','\$',str_replace('$','\$',$this->tex));
+		$texcmd = 'literal:' . urlencode( $this->tex );
+		$post = 'preload=texvc.sty&profile=math&tex='.$texcmd;
 		$time_start = microtime( true );
-		$res = Http::post( $host, array( "postData" => $post, "timeout" => LaTeXMLTimeout) );
+		$res = Http::post( $host, array( "postData" => $post, "timeout" => 60 ) );
 		$time_end = microtime( true );
 		$time = $time_end - $time_start;
-		if($time>LaTeXMLTimeout){
-			$this->mathml = "[ERROR (timeout)]";
-			wfDebugLog( "Math", "\nLaTeXML Timeout:" . var_export( array( LaTeXMLTimeout, $post, $host ), true ) . "\n\n" );
-			return false;
-		}
 		$result = json_decode( $res );
 		if ( $result ) {// &&is_array($result)&&is_array($result['result'])&&count($result['result'])>0){
 			if ($wgDebugMath or $result->status != "No obvious problems" ) {
@@ -91,10 +78,6 @@ class MathLaTeXML extends MathRenderer {
 			}
 			$this->mathml = $result->result;
 			$this->valid_xml=self::isValidMathML($this->mathml);
-			if(!$this->valid_xml){
-				$this->mathml = "[ERROR (invalid)]".$result->result;
-				wfDebugLog( "Math", "\nLaTeXML Error:" . var_export( array( $result, $post, $host ), true ) . "\n\n" );
-			}
 		}
 		else {
 			wfDebugLog( "Math", "\nLaTeXML Error:" . var_export( array( $result, $post, $host ), true ) . "\n\n" );
@@ -124,7 +107,7 @@ class MathLaTeXML extends MathRenderer {
 		libxml_use_internal_errors( true );
 		$xml = simplexml_load_string( $XML );
 		if ( !$xml ) {
-			wfDebugLog("Math", "XML validation error:\n " . var_export( $XML, true ) . "\n");
+			wfDebugLog("Math", "ERROR while converting:\n " . var_export( $XML, true ) . "\n");
 			foreach ( libxml_get_errors() as $error ){
 				wfDebugLog("Math", "\t". $error->message);
 			}
@@ -132,7 +115,7 @@ class MathLaTeXML extends MathRenderer {
 			return false;
 		} else {
 			$name= $xml->getName();
-			if ( $name=="math" or $name=="table" or $name=="div" ){
+			if ( $name=="math" ){
 				return true;
 			} else {
 				wfDebugLog("Math", "got wrong root element" .$name);
@@ -145,16 +128,16 @@ class MathLaTeXML extends MathRenderer {
 	 * @return string
 	 */
 	private function _embedMathML() {
-		return self::embedMathML($this->mathml,urldecode($this->tex));
+		return self::embedMathML($this->mathml);
 	}
-	public static function embedMathML($mml,$tagId=''){
+	public static function embedMathML($mml,$anchorID=0){
 		$mml = str_replace( "\n", " ", $mml );
 		return Xml::tags( 'span',
 				self::attribs( 'span',
 						array(
 								'class' => 'tex',
-								'dir' => 'ltr',
-								'id' => $tagId 
+								'dir' => 'ltr'
+								//'id' => 'math' . urlencode($this->tex)
 						)
 				),
 				$mml
