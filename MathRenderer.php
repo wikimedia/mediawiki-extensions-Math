@@ -49,7 +49,7 @@ abstract class MathRenderer {
 	 * @param string $mode
 	 */
 	public static function renderMath( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
-		$renderer = getRenderer( $tex, $params, $mode );
+		$renderer = self::getRenderer( $tex, $params, $mode );
 		return $renderer->render();
 	}
 	/**
@@ -127,7 +127,7 @@ abstract class MathRenderer {
 		$this->hash = $xhash['md5'];
 		$this->conservativeness = $rpage->math_html_conservativeness;
 		$this->html = $rpage->math_html;
-		$this->mathml = $rpage->math_mathml;
+		$this->mathml =utf8_decode( $rpage->math_mathml);
 		$this->recall = true;
 		if($wgDebugMath){
 			$this->tex=$rpage->math_tex;
@@ -208,7 +208,7 @@ abstract class MathRenderer {
 			'math_outputhash' => $outmd5_sql ,
 			'math_html_conservativeness' => $this->conservativeness,
 			'math_html' => $this->html,
-			'math_mathml' => $this->mathml);
+			'math_mathml' => utf8_encode($this->mathml));
 		if ($wgDebugMath){
 			$debug_out= array(
 				'math_status' => $this->status_code,
@@ -217,6 +217,7 @@ abstract class MathRenderer {
 				'math_log' => $this->status."\n".$this->log);
 			$out=array_merge($out,$debug_out);
 		}
+		wfDebugLog("Math","storeVAL:".var_export(utf8_encode ( $this->mathml),true)."ENDStoreVAL");
 		return $out;
 	}
 	/**
