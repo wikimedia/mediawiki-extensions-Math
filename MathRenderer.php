@@ -49,7 +49,7 @@ abstract class MathRenderer {
 	 * @param string $mode
 	 */
 	public static function renderMath( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
-		$renderer = getRenderer( $tex, $params, $mode );
+		$renderer = self::getRenderer( $tex, $params, $mode );
 		return $renderer->render();
 	}
 	/**
@@ -120,7 +120,24 @@ abstract class MathRenderer {
 	public function getMd5() {
 		return  md5( $this->tex ) ; # Binary packed, not hex
 	}
-
+	public function initializeFromDBRow($rpage){
+		global $wgDebugMath;
+		$dbr = wfGetDB( DB_SLAVE );
+		$xhash = unpack( 'H32md5', $dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
+		$this->hash = $xhash['md5'];
+		$this->conservativeness = $rpage->math_html_conservativeness;
+		$this->html = $rpage->math_html;
+		$this->mathml =utf8_decode( $rpage->math_mathml);
+		$this->recall = true;
+		if($wgDebugMath){
+			$this->tex=$rpage->math_tex;
+			$this->status_code=$rpage->math_status;
+			$this->valid_xml=$rpage->valid_xml;
+			$this->tex=$rpage->math_tex;
+			$this->log=$rpage->math_log;
+			$this->timestamp=$rpage->math_timestamp;
+		}
+	}
 	/**
 	 * @return boolean
 	 */
@@ -138,20 +155,7 @@ abstract class MathRenderer {
 
 		if ( $rpage !== false ) {
 			# Trailing 0x20s can get dropped by the database, add it back on if necessary:
-			$xhash = unpack( 'H32md5', $dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
-			$this->hash = $xhash['md5'];
-			$this->conservativeness = $rpage->math_html_conservativeness;
-			$this->html = $rpage->math_html;
-			$this->mathml = $rpage->math_mathml;
-			$this->recall = true;
-			if($wgDebugMath){
-				$this->tex=$rpage->math_tex;
-				$this->status_code=$rpage->math_status;
-				$this->valid_xml=$rpage->valid_xml;
-				$this->tex=$rpage->math_tex;
-				$this->log=$rpage->math_log;
-				$this->timestamp=$rpage->math_timestamp;
-			}
+			$this->initializeFromDBRow($rpage);
 			return true;
 		}
 
@@ -204,7 +208,7 @@ abstract class MathRenderer {
 			'math_outputhash' => $outmd5_sql ,
 			'math_html_conservativeness' => $this->conservativeness,
 			'math_html' => $this->html,
-			'math_mathml' => $this->mathml);
+			'math_mathml' => utf8_encode($this->mathml));
 		if ($wgDebugMath){
 			$debug_out= array(
 				'math_status' => $this->status_code,
@@ -213,6 +217,7 @@ abstract class MathRenderer {
 				'math_log' => $this->status."\n".$this->log);
 			$out=array_merge($out,$debug_out);
 		}
+		wfDebugLog("Math","storeVAL:".var_export(utf8_encode ( $this->mathml),true)."ENDStoreVAL");
 		return $out;
 	}
 	/**
