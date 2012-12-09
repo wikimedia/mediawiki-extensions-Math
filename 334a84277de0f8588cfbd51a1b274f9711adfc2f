@@ -19,6 +19,312 @@
     },
     {
       "key": {
+        "uuid": "AAADbX//2SI\u003d",
+        "filename": "Math.hooks.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "Commented-out code.",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2SE\u003d",
+        "filename": "Math.hooks.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "Here too.",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2S8\u003d",
+        "filename": "MathMathJax.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "This group is used by the core, better not use it in extensions.",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2Tg\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "Do all of these varibles need to be public?",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2TY\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "Needs an empty line between functions.",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2Tc\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "I suggest you not to use underscores for non-public methods, it\u0027s not used in our coding conventions.",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2TU\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "And there are 3 empty lines.",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2TM\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "{",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2TI\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "} else {",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2TE\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "}",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2TA\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "Too indented.",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2S4\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "{",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2S0\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "}",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2Sw\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "Not indented.",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2Sc\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "Not indented.",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2SY\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "Too indented.",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2SU\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "Too indented.",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADbX//2SM\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2012-12-09T14:32:37Z",
+      "side": 1,
+      "message": "Too indented.",
+      "revId": "334a84277de0f8588cfbd51a1b274f9711adfc2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAADbX//2Tw\u003d",
         "filename": "MathTexvc.php",
         "patchSetId": 8
