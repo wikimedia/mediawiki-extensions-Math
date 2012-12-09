@@ -31,16 +31,15 @@ abstract class MathRenderer {
 	var $status='';
 	var $status_code='';
 	var $valid_xml='';
+	protected $timestamp;
 	protected $recall;
-	protected $anchorID = 0;
-	protected $pageID = 0;
 
 
 	/**
 	 * @param string $tex
 	 * @param array $params
 	 */
-	public function __construct( $tex, $params = array() ) {
+	public function __construct( $tex='', $params = array() ) {
 		$this->tex = $tex;
 		$this->params = $params;
 	}
@@ -50,7 +49,7 @@ abstract class MathRenderer {
 	 * @param string $mode
 	 */
 	public static function renderMath( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
-		$renderer = getRenderer( $tex, $params, $mode );
+		$renderer = self::getRenderer( $tex, $params, $mode );
 		return $renderer->render();
 	}
 	/**
@@ -107,8 +106,12 @@ abstract class MathRenderer {
 	 */
 	public function getInputHash() {
 		// TODO: What happens if $tex is empty?
-		$dbr = wfGetDB( DB_SLAVE );
-		return $dbr->encodeBlob( pack( "H32", md5( $this->tex ) ) ); # Binary packed, not hex
+		if ($this->inputhash==''){
+			$dbr = wfGetDB( DB_SLAVE );
+			return $dbr->encodeBlob( pack( "H32", md5( $this->tex ) ) ); # Binary packed, not hex
+		} else {
+			return $this->inputhash;
+		}
 	}
 
 	/**
@@ -117,18 +120,33 @@ abstract class MathRenderer {
 	public function getMd5() {
 		return  md5( $this->tex ) ; # Binary packed, not hex
 	}
-
+	public function initializeFromDBRow($rpage){
+		global $wgDebugMath;
+		$dbr = wfGetDB( DB_SLAVE );
+		$xhash = unpack( 'H32md5', $dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
+		$this->hash = $xhash['md5'];
+		$this->conservativeness = $rpage->math_html_conservativeness;
+		$this->html = $rpage->math_html;
+		$this->mathml =utf8_decode( $rpage->math_mathml);
+		$this->recall = true;
+		if($wgDebugMath){
+			$this->tex=$rpage->math_tex;
+			$this->status_code=$rpage->math_status;
+			$this->valid_xml=$rpage->valid_xml;
+			$this->tex=$rpage->math_tex;
+			$this->log=$rpage->math_log;
+			$this->timestamp=$rpage->math_timestamp;
+		}
+	}
 	/**
 	 * @return boolean
 	 */
 	protected function _readFromDB() {
+		global $wgDebugMath;
 		$dbr = wfGetDB( DB_SLAVE );
 		$rpage = $dbr->selectRow(
 				'math',
-				array(
-						'math_outputhash', 'math_html_conservativeness', 'math_html',
-						'math_mathml'
-				),
+				$this->dbInArray(),
 				array(
 						'math_inputhash' => $this->getInputHash()
 				),
@@ -137,12 +155,7 @@ abstract class MathRenderer {
 
 		if ( $rpage !== false ) {
 			# Trailing 0x20s can get dropped by the database, add it back on if necessary:
-			$xhash = unpack( 'H32md5', $dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
-			$this->hash = $xhash['md5'];
-			$this->conservativeness = $rpage->math_html_conservativeness;
-			$this->html = $rpage->math_html;
-			$this->mathml = $rpage->math_mathml;
-			$this->recall = true;
+			$this->initializeFromDBRow($rpage);
 			return true;
 		}
 
@@ -185,9 +198,9 @@ abstract class MathRenderer {
 	 */
 	private function dbOutArray(){
 		global $wgDebugMath;
-		//die ($wgDebugMath);
+		$dbr = wfGetDB( DB_SLAVE );
 		if ( $this->hash )
-			$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ) );
+			$outmd5_sql = $dbr->encodeBlob( pack( 'H32', $this->hash ) );
 		else
 			$outmd5_sql = null;
 		$out= array(
@@ -195,7 +208,7 @@ abstract class MathRenderer {
 			'math_outputhash' => $outmd5_sql ,
 			'math_html_conservativeness' => $this->conservativeness,
 			'math_html' => $this->html,
-			'math_mathml' => $this->mathml);
+			'math_mathml' => utf8_encode($this->mathml));
 		if ($wgDebugMath){
 			$debug_out= array(
 				'math_status' => $this->status_code,
@@ -204,7 +217,30 @@ abstract class MathRenderer {
 				'math_log' => $this->status."\n".$this->log);
 			$out=array_merge($out,$debug_out);
 		}
+		wfDebugLog("Math","storeVAL:".var_export(utf8_encode ( $this->mathml),true)."ENDStoreVAL");
 		return $out;
+	}
+	/**
+	 * @return Ambigous <multitype:, multitype:unknown number string mixed >
+	 */
+	private function dbInArray(){
+		global $wgDebugMath;
+		$in= array(
+				'math_inputhash',
+				'math_outputhash'  ,
+				'math_html_conservativeness' ,
+				'math_html',
+				'math_mathml');
+		if ($wgDebugMath){
+			$debug_in= array(
+					'math_status' ,
+					'valid_xml' ,
+					'math_tex' ,
+					'math_log',
+					'math_timestamp');
+			$in=array_merge($in,$debug_in);
+		}
+		return $in;
 	}
 	/**
 	 * Does nothing by default
@@ -216,18 +252,6 @@ abstract class MathRenderer {
 	 */
 	public function isRecall() {
 		return $this->recall;
-	}
-	public function getAnchorID() {
-		return $this->anchorID;
-	}
-	public function setAnchorID( $ID ) {
-		$this->anchorID = $ID;
-	}
-	public function getPageID() {
-		return $this->pageID;
-	}
-	public function setPageID( $ID ) {
-		$this->pageID = $ID;
 	}
 	public function getTex() {
 		return $this->tex;

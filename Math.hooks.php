@@ -50,10 +50,9 @@ class MathHooks {
 		$renderer = MathRenderer::getRenderer(
 			$content, $attributes, $mode
 		);
-		$renderer->setAnchorID( $parser->nextLinkID() ); // Add an ID for referencing the equation later on only used by LaTeXML
-		$renderer->setPageID($parser->getTitle()->getArticleID());
 		$renderedMath = $renderer->render();
-		wfRunHooks( 'MathFormulaRendered', 	array( &$renderer,&$renderedMath) );//Enables indexing of math formula
+		wfRunHooks( 'MathFormulaRendered',
+			array( &$renderer,&$renderedMath,$parser->getTitle()->getArticleID(), $parser->nextLinkID()) );//Enables indexing of math formula
 		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
 			// $renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
