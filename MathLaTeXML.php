@@ -1,5 +1,5 @@
 <?php
-/**
+	/**
  * MediaWiki math extension
  *
  * (c)2012 Moritz Schubotz
@@ -59,15 +59,18 @@ class MathLaTeXML extends MathRenderer {
 	private function dorender() {
 		global $wgDebugMath;
 		$host = self::pickHost();
-		$tex=self::generalize('$','\$',$this->tex); //in texvc both $ and \$ are treated as \$
+		/*$tex=self::generalize('$','\$',$this->tex); //in texvc both $ and \$ are treated as \$
 		$tex=self::generalize('%','\%',$tex); //in texvc both % and \% are treated as \%
 		$tex=self::generalize('\part','\partial',$tex); //in texvc both \part and \partial are treated as \partial
 		$tex=self::generalize('\or','\vee',$tex); 
 		if(substr($tex,0,5)=='\text'){
 			$tex='$\ '.$tex.'$';
-		}
-		$texcmd = 'literal:' . urlencode( $tex );
-		$post = 'timeout='.LaTeXMLTimeout.'preload=texvc.sty&profile=math&tex='.$texcmd;
+		}*/
+		$texcmd = 'literal:' . urlencode( $this->tex );
+        $post='format=xhtml&whatsin=math&whatsout=math&pmml&cmml&preload=LaTeX.pool&preload=article.cls&'.
+        'preload=amsmath&preload=amsthm&preload=amstext&preload=amssymb&preload=eucal&preload=[dvipsnames]xcolor&preload=url&preload=hyperref&preload=mws&';
+		$post .= //'timeout='.LaTeXMLTimeout.
+        'preload=texvc&tex='.$texcmd;
 		$time_start = microtime( true );
 		$res = Http::post( $host, array( "postData" => $post, "timeout" => LaTeXMLTimeout) );
 		$time_end = microtime( true );
