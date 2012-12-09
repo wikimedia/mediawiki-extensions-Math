@@ -1292,7 +1292,7 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'math_sample' => 'Formel do yfüge',
+	'math_sample' => 'Formel do yyfiege',
 	'math_tip' => 'Mathematisch Formel (LaTeX)',
 	'prefs-math' => 'TeX',
 	'mw_math_png' => 'Immer als PNG aazeige',
@@ -3893,10 +3893,12 @@ latex، dvips، gs، ۋە convert توغرا قاچىلانغانلىقىنى ت
 );
 
 /** Ukrainian (українська)
+ * @author Base
  * @author Olvin
  * @author Тест
  */
 $messages['uk'] = array(
+	'math-desc' => 'Відображає математичні формули у теґах <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Вставте сюди формулу',
 	'math_tip' => 'Математична формула (LaTeX)',
 	'prefs-math' => 'Відображення формул',
