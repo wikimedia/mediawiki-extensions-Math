@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAADgH///4w\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 18
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2012-12-18T16:56:00Z",
+      "side": 1,
+      "message": "I know this is from the old code, but what do these magic numbers do?\n\nIf you can figure it out, please replace with constants.",
+      "revId": "f2b37ab6b42c514c048273c4a769fc533edf3332",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgH///4s\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 18
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2012-12-18T16:56:00Z",
+      "side": 1,
+      "message": "Missing single quote",
+      "revId": "f2b37ab6b42c514c048273c4a769fc533edf3332",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
