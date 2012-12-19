@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "AAADgH///W8\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 18
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2012-12-19T07:36:46Z",
+      "side": 1,
+      "message": "this is related to the result returned from the texvc program... I think it is not a good idea to change it...since there are more 33 and 32. the out math_outputhash is for example the 1..32\n$this-\u003ehash \u003d substr( $contents, 1, 32 ); see below\n\nI think this way to exchange data is not state of the art for web technology. Therefore I propose to step back from texvc in the long run, which supports XML and JSON data formats.",
+      "revId": "f2b37ab6b42c514c048273c4a769fc533edf3332",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAADgH///4s\u003d",
         "filename": "MathTexvc.php",
         "patchSetId": 18
@@ -30,6 +47,24 @@
       "writtenOn": "2012-12-18T16:56:00Z",
       "side": 1,
       "message": "Missing single quote",
+      "revId": "f2b37ab6b42c514c048273c4a769fc533edf3332",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgH///XE\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 18
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2012-12-19T07:36:46Z",
+      "side": 1,
+      "message": "oh no... not a good idea to use a text editor for fixing indention....",
+      "parentUuid": "AAADgH///4s\u003d",
       "revId": "f2b37ab6b42c514c048273c4a769fc533edf3332",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
