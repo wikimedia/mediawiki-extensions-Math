@@ -1012,14 +1012,17 @@ $messages['fa'] = array(
 
 /** Finnish (suomi)
  * @author Crt
+ * @author VezonThunder
  * @author Wix
  */
 $messages['fi'] = array(
+	'math-desc' => 'Esittää matemaattiset kaavat tunnisteiden <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> välillä',
 	'math_sample' => 'Lisää kaava tähän',
 	'math_tip' => 'Matemaattinen kaava (LaTeX)',
 	'prefs-math' => 'Matematiikka',
 	'mw_math_png' => 'Näytä aina PNG:nä',
 	'mw_math_source' => 'Näytä TeX-muodossa (tekstiselaimille)',
+	'mw_math_mathjax' => 'MathJax (kokeellinen; paras useimmille selaimille)',
 	'math_failure' => 'Jäsentäminen epäonnistui',
 	'math_unknown_error' => 'Tuntematon virhe',
 	'math_unknown_function' => 'Tuntematon funktio',
