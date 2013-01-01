@@ -121,7 +121,7 @@ $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
 
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
-$wgAutoloadClasses['MathRenderer'] = $dir . 'Math.body.php';
+$wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
 
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
