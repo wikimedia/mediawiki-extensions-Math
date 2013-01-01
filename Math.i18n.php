@@ -3350,6 +3350,7 @@ $messages['shi'] = array(
 /** Sinhala (සිංහල)
  * @author Singhalawap
  * @author නන්දිමිතුරු
+ * @author පසිඳු කාවින්ද
  * @author ශ්වෙත
  */
 $messages['si'] = array(
@@ -3358,6 +3359,7 @@ $messages['si'] = array(
 	'prefs-math' => 'ගණිත',
 	'mw_math_png' => 'සැමවිට PNG ලෙසට විදැහන්න',
 	'mw_math_source' => 'TeX  ලෙසින් පැවැතීමට හරින්න(පෙළ බ්‍රවුසරයන් සඳහා)',
+	'mw_math_mathjax' => 'MathJax (පරික්ෂණාත්මක; ගොඩක් ගවේෂකයන් සඳහා හොදයි)',
 	'math_failure' => 'ව්‍යාකරණ විග්‍රහය අසමත් විය',
 	'math_unknown_error' => 'හඳුනා නොගත් දෝෂය',
 	'math_unknown_function' => 'හඳුනා නොගත් ශ්‍රිතය',
