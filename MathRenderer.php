@@ -45,7 +45,7 @@ abstract class MathRenderer {
 	}
 	/**
 	 * @param string $tex
-	 * @param unknown $params
+	 * @param array $params
 	 * @param string $mode
 	 */
 	public static function renderMath( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
