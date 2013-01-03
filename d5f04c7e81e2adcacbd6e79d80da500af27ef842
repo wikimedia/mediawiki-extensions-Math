@@ -1,0 +1,463 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAADgX//5Tc\u003d",
+        "filename": "Math.hooks.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Isn\u0027t this really part of rendering?  Consider passing the OutputPage in so the renderer can do this.  Or you could have the renderer return an object, which could include a list of modules to add.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5TQ\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "This comment is no longer accurate, right?  Please update to reflect that this is an abstract class and the subclass decides how to render.\n\nIn general, please keep the comments accurate (including authors, etc.)",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5TI\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Is this being set here for legacy reasons?",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5R0\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Please describe what parameters actually are, as well as a brief method description.\n\nE.g.\n\nConstructs a base MathRenderer\n\n@param string $tex: Latex markup\n@param array $params: Parameters to control rendering.\n\nhttps://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Comments_and_Documentation",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5R8\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Why unknown?  Isn\u0027t it always an array, per above?\n\nAlso, document return type.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5R4\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "See above.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5RY\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Include the actual type, and a description. In this case:\n\n@param int $mode: constant indicating rendering mode",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5RM\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Fix docs; see above",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5RE\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Fix docs",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5Ok\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "No underscore",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5RA\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Fix docs.  The return is always string, right?",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5Q4\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Fix docs; add meaning of return value and method description.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5Qo\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "No underscore: https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Naming",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5Qk\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Document.  No underscore",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5QY\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "getAttributes (no underscore).  Fix doc.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5QM\u003d",
+        "filename": "MathSource.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Document",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5QE\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "No underscore.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5P8\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "No underscore",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5P4\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "getMathImageUrl()",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5Pg\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "getLinkToMathImage",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5Pc\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Don\u0027t do the same escaping twice.  Use a variable.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5PI\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "At least do constants for the 2/1/0.  You can leave out the 32/33 for now.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5Ow\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Fix docs",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5Oo\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Underscore, docs.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5Og\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "What if it\u0027s this mode, but mathml is the empty string?  It looks like it will end up falling back on texhtml in the else for conservativeness aove 0, but that doesn\u0027t make sense to me.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5OQ\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "Docs",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADgX//5OI\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-03T22:29:51Z",
+      "side": 1,
+      "message": "No underscore, docs.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
