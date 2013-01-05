@@ -1,5 +1,5 @@
 <?php
-	/**
+/**
  * MediaWiki math extension
  *
  * (c)2012 Moritz Schubotz
@@ -7,7 +7,6 @@
  *
  * Contains the driver function for the LaTeXML daemon
  * @file
- * @ingroup Parser
  */
 
 
@@ -18,21 +17,21 @@ class MathLaTeXML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	function render($purge=false) {
-		if ( $purge||!$this->_readFromDB() || !self::isValidMathML($this->mathml) || $this->isPurge() ) { // ||
+		if ( $purge||!$this->readFromDB() || !self::isValidMathML($this->mathml) || $this->isPurge() ) { // ||
 			wfDebugLog( "Math", "no recall" );
 			$this->recall=false;
 			$this->dorender();
 		}
-		return $this->_embedMathML();
+		return $this->getMathML();
 	}
 
 	/* (non-PHPdoc)
 	 * @see MathRenderer::writeCache()
-	 */
+	*/
 	function writeCache() {
 		if ( !$this->isRecall() ){
 			$this->hash=0;
-			$this->_writeDBentry();
+			$this->writeDBentry();
 		}
 	}
 	/**
@@ -51,7 +50,7 @@ class MathLaTeXML extends MathRenderer {
 		return $host;
 	}
 	private static function generalize($bad,$correct,$input){
-	return str_replace($bad,$correct,str_replace($correct,$bad,$input));
+		return str_replace($bad,$correct,str_replace($correct,$bad,$input));
 	}
 	/**
 	 * @return boolean
@@ -59,18 +58,25 @@ class MathLaTeXML extends MathRenderer {
 	private function dorender() {
 		global $wgDebugMath;
 		$host = self::pickHost();
-		/*$tex=self::generalize('$','\$',$this->tex); //in texvc both $ and \$ are treated as \$
-		$tex=self::generalize('%','\%',$tex); //in texvc both % and \% are treated as \%
-		$tex=self::generalize('\part','\partial',$tex); //in texvc both \part and \partial are treated as \partial
-		$tex=self::generalize('\or','\vee',$tex); 
-		if(substr($tex,0,5)=='\text'){
-			$tex='$\ '.$tex.'$';
-		}*/
 		$texcmd = 'literal:' . urlencode( $this->tex );
-        $post='format=xhtml&whatsin=math&whatsout=math&pmml&cmml&preload=LaTeX.pool&preload=article.cls&'.
-        'preload=amsmath&preload=amsthm&preload=amstext&preload=amssymb&preload=eucal&preload=[dvipsnames]xcolor&preload=url&preload=hyperref&preload=mws&';
-		$post .= //'timeout='.LaTeXMLTimeout.
-        'preload=texvc&tex='.$texcmd;
+		$post='format=xhtml&'.
+				'whatsin=math&'.
+				'whatsout=math&'.
+				'pmml&'.
+				'cmml&'.
+				'preload=LaTeX.pool&'.
+				'preload=article.cls&'.
+				'preload=amsmath&'.
+				'preload=amsthm&'.
+				'preload=amstext&'.
+				'preload=amssymb&'.
+				'preload=eucal&'.
+				'preload=[dvipsnames]xcolor&'.
+				'preload=url&'.
+				'preload=hyperref&'.
+				'preload=mws&'.
+				'preload=texvc';
+		$post .='&tex='.$texcmd;
 		$time_start = microtime( true );
 		$res = Http::post( $host, array( "postData" => $post, "timeout" => LaTeXMLTimeout) );
 		$time_end = microtime( true );
@@ -116,13 +122,13 @@ class MathLaTeXML extends MathRenderer {
 		return ( $wgRequest->getVal( 'mathpurge' ) === "true" );
 	}
 	/**
-	 * Checks if the input is valid MathML, 
+	 * Checks if the input is valid MathML,
 	 * and if the root element has the name math
 	 * @param string $XML
 	 * @return boolean
 	 */
 	static public function isValidMathML($XML){
-		//TODO: Check: Is simpleXML core php? 
+		//TODO: Check: Is simpleXML core php?
 		//	Is libxml_use_internal_error permanent (side effects with other methods)?
 		libxml_use_internal_errors( true );
 		$xml = simplexml_load_string( $XML );
@@ -143,13 +149,20 @@ class MathLaTeXML extends MathRenderer {
 			}
 		}
 	}
-	
+
 	/**
+	 * internal version of @link self::embedMathML
 	 * @return string
+	 * @return html element with rendered math
 	 */
-	private function _embedMathML() {
+	private function getMathML() {
 		return self::embedMathML($this->mathml,urldecode($this->tex));
 	}
+	/**
+	 * @param string $mml: the MathML string 
+	 * @param string $tagId: optional tagID for references like (pagename#equation2)
+	 * @return html element with rendered math
+	 */
 	public static function embedMathML($mml,$tagId=''){
 		$mml = str_replace( "\n", " ", $mml );
 		return Xml::tags( 'span',
@@ -157,7 +170,7 @@ class MathLaTeXML extends MathRenderer {
 						array(
 								'class' => 'tex',
 								'dir' => 'ltr',
-								'id' => $tagId 
+								'id' => $tagId
 						)
 				),
 				$mml

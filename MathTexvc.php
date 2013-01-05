@@ -24,20 +24,20 @@ class MathTexvc extends MathRenderer {
 		if ( trim( $this->tex ) == '' ) {
 			return; # bug 8372
 		}
-		if ( $purge||!$this->_recall() ) { // cache miss
+		if ( $purge||!$this->recall() ) { // cache miss
 			$result = $this->callTexvc();
 			if ( $result != MW_TEXVC_SUCCESS )
 				return $result;
 		}
-		return $this->_doRender();
+		return $this->doRender();
 	}
 
 	/**
 	 * @return string Storage directory
 	 */
-	function _getHashPath() {
+	function getHashPath() {
 		$path = $this->getBackend()->getRootStoragePath() .
-		'/math-render/' . $this->_getHashSubPath();
+		'/math-render/' . $this->getHashSubPath();
 		wfDebug( "TeX: getHashPath, hash is: $this->hash, path is: $path\n" );
 		return $path;
 	}
@@ -45,22 +45,22 @@ class MathTexvc extends MathRenderer {
 	/**
 	 * @return string Relative directory
 	 */
-	function _getHashSubPath() {
+	function getHashSubPath() {
 		return substr( $this->hash, 0, 1 )
 		. '/' . substr( $this->hash, 1, 1 )
 		. '/' . substr( $this->hash, 2, 1 );
 	}
 
-	function _mathImageUrl() {
+	function mathImageUrl() {
 		global $wgMathPath;
-		$dir = $this->_getHashSubPath();
+		$dir = $this->getHashSubPath();
 		return "$wgMathPath/$dir/{$this->hash}.png";
 	}
-	function _linkToMathImage() {
-		$url = $this->_mathImageUrl();
+	function linkToMathImage() {
+		$url = $this->mathImageUrl();
 
 		return Xml::element( 'img',
-				$this->_attribs(
+				$this->getAttribs(
 						'img',
 						array(
 								'class' => 'tex',
@@ -78,7 +78,7 @@ class MathTexvc extends MathRenderer {
 		global $wgTexvc, $wgTexvcBackgroundColor, $wgUseSquid;
 		global $wgTexvc, $wgMathCheckFiles, $wgTexvcBackgroundColor;
 		if ( !is_executable( $wgTexvc ) ) {
-			return $this->_error( 'math_notexvc' );
+			return $this->error( 'math_notexvc' );
 		}
 		$cmd = $wgTexvc . ' ' .
 				wfEscapeShellArg( $tmpDir ) . ' ' .
@@ -98,9 +98,9 @@ class MathTexvc extends MathRenderer {
 
 		if ( strlen( $contents ) == 0 ) {
 			if ( !file_exists( $tmpDir ) || !is_writable( $tmpDir ) ) {
-				return $this->_error( 'math_bad_tmpdir' );
+				return $this->error( 'math_bad_tmpdir' );
 			} else {
-				return $this->_error( 'math_unknown_error' );
+				return $this->error( 'math_unknown_error' );
 			}
 		}
 
@@ -145,16 +145,16 @@ class MathTexvc extends MathRenderer {
 			$errbit = htmlspecialchars( substr( $contents, 1 ) );
 			switch( $retval ) {
 				case 'E':
-					$errmsg = $this->_error( 'math_lexing_error', $errbit );
+					$errmsg = $this->error( 'math_lexing_error', $errbit );
 					break;
 				case 'S':
-					$errmsg = $this->_error( 'math_syntax_error', $errbit );
+					$errmsg = $this->error( 'math_syntax_error', $errbit );
 					break;
 				case 'F':
-					$errmsg = $this->_error( 'math_unknown_function', $errbit );
+					$errmsg = $this->error( 'math_unknown_function', $errbit );
 					break;
 				default:
-					$errmsg = $this->_error( 'math_unknown_error', $errbit );
+					$errmsg = $this->error( 'math_unknown_error', $errbit );
 			}
 		}
 
@@ -167,26 +167,26 @@ class MathTexvc extends MathRenderer {
 		if ( $errmsg ) {
 			return $errmsg;
 		} elseif ( !preg_match( "/^[a-f0-9]{32}$/", $this->hash ) ) {
-			return $this->_error( 'math_unknown_error' );
+			return $this->error( 'math_unknown_error' );
 		} elseif ( !file_exists( "$tmpDir/{$this->hash}.png" ) ) {
-			return $this->_error( 'math_image_error' );
+			return $this->error( 'math_image_error' );
 		} elseif ( filesize( "$tmpDir/{$this->hash}.png" ) == 0 ) {
-			return $this->_error( 'math_image_error' );
+			return $this->error( 'math_image_error' );
 		}
 
-		$hashpath = $this->_getHashPath(); // final storage directory
+		$hashpath = $this->getHashPath(); // final storage directory
 
 		$backend = $this->getBackend();
 		# Create any containers/directories as needed...
 		if ( !$backend->prepare( array( 'dir' => $hashpath ) )->isOK() ) {
-			return $this->_error( 'math_output_error' );
+			return $this->error( 'math_output_error' );
 		}
 		// Store the file at the final storage path...
 		if ( !$backend->quickStore( array(
 				'src' => "$tmpDir/{$this->hash}.png", 'dst' => "$hashpath/{$this->hash}.png"
 		) )->isOK()
 		) {
-			return $this->_error( 'math_output_error' );
+			return $this->error( 'math_output_error' );
 		}
 		return MW_TEXVC_SUCCESS;
 
@@ -212,10 +212,10 @@ class MathTexvc extends MathRenderer {
 			return $backend;
 		}
 	}
-	function _doRender() {
+	function doRender() {
 		if ( $this->mode == MW_MATH_MATHML && $this->mathml != '' ) {
 			return Xml::tags( 'math',
-					$this->_attribs( 'math',
+					$this->getAttribs( 'math',
 							array( 'xmlns' => 'http://www.w3.org/1998/Math/MathML' ) ),
 					$this->mathml );
 		}
@@ -224,10 +224,10 @@ class MathTexvc extends MathRenderer {
 				( ( $this->mode == MW_MATH_MODERN || $this->mode == MW_MATH_MATHML ) && ( $this->conservativeness == 0 ) )
 		)
 		{
-			return $this->_linkToMathImage();
+			return $this->linkToMathImage();
 		} else {
 			return Xml::tags( 'span',
-					$this->_attribs( 'span',
+					$this->getAttribs( 'span',
 							array( 'class' => 'texhtml',
 									'dir' => 'ltr'
 							) ),
@@ -240,22 +240,22 @@ class MathTexvc extends MathRenderer {
 		if ( !$this->isRecall() ) {
 			return;
 		}
-		$this->_writeDBentry();
+		$this->writeDBentry();
 		// If we're replacing an older version of the image, make sure it's current.
 		if ( $wgUseSquid ) {
-			$urls = array( $this->_mathImageUrl() );
+			$urls = array( $this->mathImageUrl() );
 			$u = new SquidUpdate( $urls );
 			$u->doUpdate();
 		}
 	}
-	function _recall() {
+	function recall() {
 		global $wgMathCheckFiles;
-		if ( $this->_readFromDB() ) {
+		if ( $this->readFromDB() ) {
 			if ( !$wgMathCheckFiles ) {
 				// Short-circuit the file existence & migration checks
 				return true;
 			}
-			$filename = $this->_getHashPath() . "/{$this->hash}.png"; // final storage path
+			$filename = $this->getHashPath() . "/{$this->hash}.png"; // final storage path
 			$backend = $this->getBackend();
 			if ( $backend->fileExists( array( 'src' => $filename ) ) ) {
 				if ( $backend->getFileSize( array( 'src' => $filename ) ) == 0 ) {

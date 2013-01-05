@@ -19,17 +19,17 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 // Extension credits that will show up on Special:Version
 $wgExtensionCredits['parserhook'][] = array(
-	'path' => __FILE__,
-	'name' => 'Math',
-	'version' => '1.0',
-	'author' => array( 'Tomasz Wegrzanowski', 'Brion Vibber', '...' ),
-	'descriptionmsg' => 'math-desc',
-	'url' => 'https://www.mediawiki.org/wiki/Extension:Math',
+		'path' => __FILE__,
+		'name' => 'Math',
+		'version' => '1.0',
+		'author' => array( 'Tomasz Wegrzanowski', 'Brion Vibber', '...' ),
+		'descriptionmsg' => 'math-desc',
+		'url' => 'https://www.mediawiki.org/wiki/Extension:Math',
 );
 
 /**@{
  * Maths constants
- */
+*/
 define( 'MW_MATH_PNG',    0 );
 define( 'MW_MATH_SIMPLE', 1 ); /// @deprecated
 define( 'MW_MATH_HTML',   2 ); /// @deprecated
@@ -145,31 +145,31 @@ $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 
 $moduleTemplate = array(
-	'localBasePath' => dirname( __FILE__ ) . '/modules',
-	'remoteExtPath' => 'Math/modules',
+		'localBasePath' => dirname( __FILE__ ) . '/modules',
+		'remoteExtPath' => 'Math/modules',
 );
 
 if(isset($_SERVER['HTTP_USER_AGENT'])){
-$UA=$_SERVER['HTTP_USER_AGENT'];
+	$UA=$_SERVER['HTTP_USER_AGENT'];
 } else
 {$UA="undefined"; //required for maitenance script runs
 }
- if (!preg_match('/Firefox/',$UA)){ //Don't use MathJax with Firefox this has to be extenden to other browser that suppert MathML maybe a function supports MathML was the correct way to go 
-$wgResourceModules['ext.math.mathjax'] = array(
-	'scripts' => array(
-		'MathJax/MathJax.js',
-		// We'll let the other parts be loaded by MathJax's
-		// own module/config loader.
-	),
-		'group' => 'ext.math.mathjax',
-) + $moduleTemplate;
+if (!preg_match('/Firefox/',$UA)){ //Don't use MathJax with Firefox this has to be extenden to other browser that suppert MathML maybe a function supports MathML was the correct way to go
+	$wgResourceModules['ext.math.mathjax'] = array(
+			'scripts' => array(
+					'MathJax/MathJax.js',
+					// We'll let the other parts be loaded by MathJax's
+					// own module/config loader.
+			),
+			'group' => 'ext.math.mathjax',
+	) + $moduleTemplate;
 }
 
 
 $wgResourceModules['ext.math.mathjax.enabler'] = array(
-	'scripts' => 'ext.math.mathjax.enabler.js',
+		'scripts' => 'ext.math.mathjax.enabler.js',
 ) + $moduleTemplate;
 // Customized module for LaTeXML
 $wgResourceModules['ext.math.mathjax.enabler.mml'] = array(
-	'scripts' => 'ext.math.mathjax.enabler.mml.js',
+		'scripts' => 'ext.math.mathjax.enabler.mml.js',
 ) + $moduleTemplate;
