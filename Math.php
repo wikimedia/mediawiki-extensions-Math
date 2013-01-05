@@ -119,7 +119,11 @@ $wgMathJaxUrl = 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS
  * <https://svn.mathweb.org/repos/LaTeXML/branches/arXMLiv/INSTALL>
  */
 $wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
-
+/**
+ * Rendering math is a process that is quite tricky.
+ * To resolve errors it is good to enable wgDebugMath to see what causes errors and or problems.
+ */
+$wgDebugMath = false;
 ////////// end of config settings.
 
 $wgDefaultUserOptions['math'] = MW_MATH_LATEXML;
