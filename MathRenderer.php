@@ -210,7 +210,8 @@ abstract class MathRenderer {
 		if ( $this->hash )
 			$outmd5_sql = $dbr->encodeBlob( pack( 'H32', $this->hash ) );
 		else
-			$outmd5_sql = null;
+			$outmd5_sql = 0; //field cannot be null
+		//TODO: Change Database layout to allow for null values
 		$out= array(
 				'math_inputhash' => $this->getInputHash(),
 				'math_outputhash' => $outmd5_sql ,
