@@ -138,10 +138,19 @@ class MathHooks {
 				'db2' => 'math.db2.sql',
 		);
 		$type = $updater->getDB()->getType();
-		if ( isset( $map[$type] ) ){
-			$sql = dirname( __FILE__ ) . '/db/' . $map[$type];
-			$updater->addExtensionTable( 'math', $sql );
+		if ($wgDebugMath){
+			if($type =='mysql' ){
+				$sql = dirname( __FILE__ ) . '/db/debug_' . $map[$type];
+				$updater->addExtensionTable( 'math', $sql );
+			} else {
+				throw new MWException( "Math extension does not currently support $type database for debugging.\n"
+						.'Please set $wgDebugMath =false; in your LocalSettings.php' );
+			}
 		} else {
+			if ( isset( $map[$type] ) ) {
+				$sql = dirname( __FILE__ ) . '/db/' . $map[$type];
+				$updater->addExtensionTable( 'math', $sql );
+			} else {
 			throw new MWException( "Math extension does not currently support $type database for debugging.\n"
 					.'Please set $wgDebugMath =false; in your LocalSettings.php' );
 		}
