@@ -213,17 +213,17 @@ abstract class MathRenderer {
 			$outmd5_sql = 0; //field cannot be null
 		//TODO: Change Database layout to allow for null values
 		$out= array(
-				'math_inputhash' => $this->getInputHash(),
-				'math_outputhash' => $outmd5_sql ,
-				'math_html_conservativeness' => $this->conservativeness,
-				'math_html' => $this->html,
-				'math_mathml' => utf8_encode($this->mathml));
+			'math_inputhash' => $this->getInputHash(),
+			'math_outputhash' => $outmd5_sql ,
+			'math_html_conservativeness' => $this->conservativeness,
+			'math_html' => $this->html,
+			'math_mathml' => utf8_encode($this->mathml));
 		if ($wgDebugMath){
 			$debug_out= array(
-					'math_status' => $this->status_code,
-					'valid_xml' => $this->valid_xml,
-					'math_tex' => $this->tex,
-					'math_log' => $this->status."\n".$this->log);
+				'math_status' => $this->status_code,
+				'valid_xml' => $this->valid_xml,
+				'math_tex' => $this->tex,
+				'math_log' => $this->status."\n".$this->log);
 			$out=array_merge($out,$debug_out);
 		}
 		wfDebugLog("Math","storeVAL:".var_export(utf8_encode ( $this->mathml),true)."ENDStoreVAL");
