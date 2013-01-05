@@ -142,7 +142,6 @@ abstract class MathRenderer {
 			$this->tex=$rpage->math_tex;
 			$this->status_code=$rpage->math_status;
 			$this->valid_xml=$rpage->valid_xml;
-			$this->tex=$rpage->math_tex;
 			$this->log=$rpage->math_log;
 			$this->timestamp=$rpage->math_timestamp;
 		}
