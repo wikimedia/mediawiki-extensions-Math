@@ -48,18 +48,19 @@ class MathHooks {
 		}
 		$mode = $parser->getOptions()->getMath();
 		$renderer = MathRenderer::getRenderer(
-			$content, $attributes, $mode
+				$content, $attributes, $mode
 		);
 		$renderedMath = $renderer->render();
 		wfRunHooks( 'MathFormulaRendered',
-			array( &$renderer,&$renderedMath,$parser->getTitle()->getArticleID(), $parser->nextLinkID()) );//Enables indexing of math formula
+		array( &$renderer,&$renderedMath,$parser->getTitle()->getArticleID(),
+		$parser->nextLinkID()) );//Enables indexing of math formula
 		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
 			// $renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		} elseif ( $wgUseMathJax && $mode == MW_MATH_LATEXML ) {
 			// $renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler.mml' ) );
-		} 
+		}
 		$renderer->writeCache();
 		return $wgContLang->armourMath( $renderedMath);
 	}
@@ -73,10 +74,10 @@ class MathHooks {
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
 		$defaultPreferences['math'] = array(
-			'type' => 'radio',
-			'options' => array_flip( self::getMathNames() ),
-			'label' => '&#160;',
-			'section' => 'rendering/math',
+				'type' => 'radio',
+				'options' => array_flip( self::getMathNames() ),
+				'label' => '&#160;',
+				'section' => 'rendering/math',
 		);
 		return true;
 	}
@@ -88,9 +89,9 @@ class MathHooks {
 	 */
 	private static function getMathNames() {
 		$names = array(
-			MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
-			MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
-			MW_MATH_LATEXML => wfMessage( 'mw_math_latexml' )->escaped(),
+				MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
+				MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
+				MW_MATH_LATEXML => wfMessage( 'mw_math_latexml' )->escaped(),
 		);
 
 		global $wgUseMathJax;
@@ -128,12 +129,12 @@ class MathHooks {
 			throw new MWException( "Math extension is only necessary in 1.18 or above" );
 		}
 		$map = array(
-			'mysql' => 'math.sql',
-			'sqlite' => 'math.sql',
-			'postgres' => 'math.pg.sql',
-			'oracle' => 'math.oracle.sql',
-			'mssql' => 'math.mssql.sql',
-			'db2' => 'math.db2.sql',
+				'mysql' => 'math.sql',
+				'sqlite' => 'math.sql',
+				'postgres' => 'math.pg.sql',
+				'oracle' => 'math.oracle.sql',
+				'mssql' => 'math.mssql.sql',
+				'db2' => 'math.db2.sql',
 		);
 		$type = $updater->getDB()->getType();
 		if ( isset( $map[$type] ) ) {
@@ -170,7 +171,13 @@ class MathHooks {
 		$wgMathPath = '/images/math';
 		return true;
 	}
-	
+
+	/**
+	 * Links to the unit test files for the test cases.
+	 *
+	 * @param string $files
+	 * @return boolean (true)
+	 */
 	static function onRegisterUnitTests( &$files ) {
 		$testDir = __DIR__ . '/tests/';
 		$files = array_merge( $files, glob( "$testDir/*Test.php" ) );

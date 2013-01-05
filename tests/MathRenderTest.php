@@ -5,7 +5,7 @@
 class MathLaTeXMLTest extends MediaWikiTestCase {
 
 	public function testPlainText(){
-		$real=MathRenderer::renderMath("a+b",array(),MW_MATH_LATEXML);
+		$real=MathRenderer::renderMath("a+b",array(),MW_MATH_SOURCE);
 		$this->assertEquals('<span class="tex" dir="ltr">$ a+b $</span>', $real, "Rendering of a+b in plain Text mode");
 	}
 

@@ -20,18 +20,18 @@
 class MathSource extends MathRenderer {
 
 	function render($purge=false) {
-			# No need to render or parse anything more!
-			# New lines are replaced with spaces, which avoids confusing our parser (bugs 23190, 22818)
-			return Xml::element( 'span',
-				$this->_attribs(
-					'span',
-					array(
-						'class' => 'tex',
-						'dir' => 'ltr'
-					)
-				),
-				'$ ' . str_replace( "\n", " ", $this->tex ) . ' $'
-			);
-		}
+		# No need to render or parse anything more!
+		# New lines are replaced with spaces, which avoids confusing our parser (bugs 23190, 22818)
+		return Xml::element( 'span',
+		$this->getAttribs(
+		'span',
+		array(
+		'class' => 'tex',
+		'dir' => 'ltr'
+				)
+		),
+		'$ ' . str_replace( "\n", " ", $this->tex ) . ' $'
+				);
+	}
 
 }

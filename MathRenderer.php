@@ -5,20 +5,26 @@
  * (c) 2002-2012 Tomasz Wegrzanowski, Brion Vibber, and other MediaWiki contributors
  * GPLv2 license; info in main package.
  *
- * Contains everything related to <math> </math> parsing
  * @file
- * @ingroup Parser
  */
 
 /**
- * Takes LaTeX fragments, sends them to a helper program (texvc) for rendering
- * to rasterized PNG and HTML and MathML approximations. An appropriate
- * rendering form is picked and returned.
+ * This is an abstract class with static methods for rendering the <math> tags.
+ * This static methods create a new istance of the extending classes and render the math tags based on the
+ * mode setting of the user.
+ * Furthermore this class handles the caching of the rendered output and provides debug information,
+ * if run in mathdebug mode.
+ *
  *
  * @author Tomasz Wegrzanowski, with additions by Brion Vibber (2003, 2004) rewritten 2012 by Moritz Schubotz
- * @ingroup Parser
  */
 abstract class MathRenderer {
+	// 	The following variables should made private, as soon it can be verified that they are not
+	// 	being directly accessed by other extensions.
+	/**
+	 * TODO: Why is this variable set by default.
+	 * @var MW_MATH_...
+	 */
 	var $mode = MW_MATH_PNG;
 	var $tex = '';
 	var $inputhash = '';
@@ -36,8 +42,8 @@ abstract class MathRenderer {
 
 
 	/**
-	 * @param string $tex
-	 * @param array $params
+	 * @param string $tex (the TeX content of the <math>-tag)
+	 * @param array $params (an arry of parameters, due to compatiblity reasons?, never used?)
 	 */
 	public function __construct( $tex='', $params = array() ) {
 		$this->tex = $tex;
@@ -46,7 +52,7 @@ abstract class MathRenderer {
 	/**
 	 * @param string $tex
 	 * @param array $params
-	 * @param string $mode
+	 * @param int $mode: constant indicating rendering mode
 	 */
 	public static function renderMath( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
 		$renderer = self::getRenderer( $tex, $params, $mode );
@@ -55,7 +61,7 @@ abstract class MathRenderer {
 	/**
 	 * @param string $tex
 	 * @param unknown $params
-	 * @param Maths constants $mode
+	 * @param int $mode: constant indicating rendering mode
 	 * @return MathRenderer
 	 */
 	public static function getRenderer( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
@@ -83,17 +89,20 @@ abstract class MathRenderer {
 
 
 	/**
-	 * @return misc
+	 * Performs the rendering and returns the rendered element that needs to be embedded.
+	 * @return string:html element with rendered math
 	 */
 	abstract public function render($purge=false);
 
 
 	/**
+	 * Artefact from the texvc error messages
+	 * TODO: update to MathML
 	 * @param unknown $msg
 	 * @param string $append
 	 * @return string
-	 */
-	protected function _error( $msg, $append = '' ) {
+	*/
+	protected function error( $msg, $append = '' ) {
 		$mf = wfMessage( 'math_failure' )->inContentLanguage()->escaped();
 		$errmsg = wfMessage( $msg )->inContentLanguage()->escaped();
 		$source = htmlspecialchars( str_replace( "\n", ' ', $this->tex ) );
@@ -139,9 +148,10 @@ abstract class MathRenderer {
 		}
 	}
 	/**
-	 * @return boolean
+	 * Tries to read from the DB cache, and initilizies the fields of this class according to the stored entries
+	 * @return boolean: true if the entry was found in the database.
 	 */
-	protected function _readFromDB() {
+	protected function readFromDB() {
 		global $wgDebugMath;
 		$dbr = wfGetDB( DB_SLAVE );
 		$rpage = $dbr->selectRow(
@@ -154,7 +164,6 @@ abstract class MathRenderer {
 		);
 
 		if ( $rpage !== false ) {
-			# Trailing 0x20s can get dropped by the database, add it back on if necessary:
 			$this->initializeFromDBRow($rpage);
 			return true;
 		}
@@ -166,7 +175,7 @@ abstract class MathRenderer {
 	/**
 	 *
 	 */
-	protected function _writeDBentry() {
+	protected function writeDBentry() {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
 			$dbw = wfGetDB( DB_MASTER );
@@ -186,13 +195,13 @@ abstract class MathRenderer {
 	 * @param array $overrides
 	 * @return array
 	 */
-	protected function _attribs( $tag, $defaults = array(), $overrides = array() ) {
+	protected function getAttribs( $tag, $defaults = array(), $overrides = array() ) {
 		$attribs = Sanitizer::validateTagAttributes( $this->params, $tag );
 		$attribs = Sanitizer::mergeAttributes( $defaults, $attribs );
 		$attribs = Sanitizer::mergeAttributes( $attribs, $overrides );
 		return $attribs;
 	}
-	
+
 	/**
 	 * @return Ambigous <multitype:, multitype:unknown number string mixed >
 	 */
@@ -204,17 +213,17 @@ abstract class MathRenderer {
 		else
 			$outmd5_sql = null;
 		$out= array(
-			'math_inputhash' => $this->getInputHash(),
-			'math_outputhash' => $outmd5_sql ,
-			'math_html_conservativeness' => $this->conservativeness,
-			'math_html' => $this->html,
-			'math_mathml' => utf8_encode($this->mathml));
+				'math_inputhash' => $this->getInputHash(),
+				'math_outputhash' => $outmd5_sql ,
+				'math_html_conservativeness' => $this->conservativeness,
+				'math_html' => $this->html,
+				'math_mathml' => utf8_encode($this->mathml));
 		if ($wgDebugMath){
 			$debug_out= array(
-				'math_status' => $this->status_code,
-				'valid_xml' => $this->valid_xml,
-				'math_tex' => $this->tex,
-				'math_log' => $this->status."\n".$this->log);
+					'math_status' => $this->status_code,
+					'valid_xml' => $this->valid_xml,
+					'math_tex' => $this->tex,
+					'math_log' => $this->status."\n".$this->log);
 			$out=array_merge($out,$debug_out);
 		}
 		wfDebugLog("Math","storeVAL:".var_export(utf8_encode ( $this->mathml),true)."ENDStoreVAL");
@@ -253,6 +262,10 @@ abstract class MathRenderer {
 	public function isRecall() {
 		return $this->recall;
 	}
+	/**
+	 * returns the TeX code of the <math>-tag
+	 * @return string
+	 */
 	public function getTex() {
 		return $this->tex;
 	}

@@ -24,21 +24,21 @@ class MathLaTeXMLImages extends MathRenderer {
 		if ( trim( $this->tex ) == '' ) {
 			return; # bug 8372
 		}
-		if (!$this->_recall() ) { // cache miss
+		if (!$this->recall() ) { // cache miss
 			wfDebugLog( 'Math', "cache miss" );
 			$result = $this->callTexvc();
 			if ( $result != MW_TEXVC_SUCCESS )
 				return $result;
 		}
-		return $this->_doRender();
+		return $this->doRender();
 	}
 
 	/**
 	 * @return string Storage directory
 	 */
-	function _getHashPath() {
+	function getHashPath() {
 		$path = $this->getBackend()->getRootStoragePath() .
-		'/math-render/' . $this->_getHashSubPath();
+		'/math-render/' . $this->getHashSubPath();
 		wfDebug( "TeX: getHashPath, hash is: {$this->getMd5()}, path is: $path\n" );
 		return $path;
 	}
@@ -46,22 +46,22 @@ class MathLaTeXMLImages extends MathRenderer {
 	/**
 	 * @return string Relative directory
 	 */
-	function _getHashSubPath() {
+	function getHashSubPath() {
 		return substr( $this->getMd5(), 0, 1 )
 		. '/' . substr( $this->getMd5(), 1, 1 )
 		. '/' . substr( $this->getMd5(), 2, 1 );
 	}
 
-	function _mathImageUrl() {
+	function mathImageUrl() {
 		global $wgMathPath;
-		$dir = $this->_getHashSubPath();
+		$dir = $this->getHashSubPath();
 		return "$wgMathPath/$dir/{$this->getMd5()}.png";
 	}
-	function _linkToMathImage() {
-		$url = $this->_mathImageUrl();
+	function linkToMathImage() {
+		$url = $this->mathImageUrl();
 
 		return Xml::element( 'img',
-				$this->_attribs(
+				$this->getAttribs(
 						'img',
 						array(
 								'class' => 'tex',
@@ -78,18 +78,18 @@ class MathLaTeXMLImages extends MathRenderer {
 		global $wgTmpDirectory;
 		global $wgLaTeXML, $wgTexvcBackgroundColor, $wgUseSquid;
 		if ( !is_executable( $wgLaTeXML ) ) {
-			return $this->_error( 'math_notexvc' );
+			return $this->error( 'math_notexvc' );
 		}
 		$cmd = $wgLaTeXML . ' --preload=amsmath  --preload=amssymb'.
 				' --preload=amsfonts --preload=cancel --preload=color --preload=upgreek --verbose'.
-				 ' --mathimage=' .	wfEscapeShellArg( $tmpDir.'/'.$this->getMd5().'.png' ) .
-				 ' --pmml='. 	wfEscapeShellArg( $tmpDir.'/'.$this->getMd5().'.pmml' ) .
-				 ' --cmml='. 	wfEscapeShellArg( $tmpDir.'/'.$this->getMd5().'.cmml' ) .
+				' --mathimage=' .	wfEscapeShellArg( $tmpDir.'/'.$this->getMd5().'.png' ) .
+				' --pmml='. 	wfEscapeShellArg( $tmpDir.'/'.$this->getMd5().'.pmml' ) .
+				' --cmml='. 	wfEscapeShellArg( $tmpDir.'/'.$this->getMd5().'.cmml' ) .
 				' -- ' .wfEscapeShellArg( str_replace('', '', $this->tex) ). ' 2>'
-				.wfEscapeShellArg( $tmpDir.'/'.$this->getMd5().'.log' );
-			//TODO: CHECK IF encoding and background matter
-				//wfEscapeShellArg( 'UTF-8' ) . ' ' .
-				//wfEscapeShellArg( $wgTexvcBackgroundColor );
+						.wfEscapeShellArg( $tmpDir.'/'.$this->getMd5().'.log' );
+		//TODO: CHECK IF encoding and background matter
+		//wfEscapeShellArg( 'UTF-8' ) . ' ' .
+		//wfEscapeShellArg( $wgTexvcBackgroundColor );
 
 		if ( wfIsWindows() ) {
 			# Invoke it within cygwin sh, because texvc expects sh features in its default shell
@@ -99,90 +99,90 @@ class MathLaTeXMLImages extends MathRenderer {
 		wfDebugLog( 'Math', "TeX: $cmd\n" );
 		$contents = wfShellExec( $cmd);
 		wfDebugLog( 'Math', "TeX output:\n $contents\n---\n" );
-/*		if ( strlen( $contents ) == 0 ) {
+		/*		if ( strlen( $contents ) == 0 ) {
 			if ( !file_exists( $tmpDir ) || !is_writable( $tmpDir ) ) {
-				return $this->_error( 'math_bad_tmpdir' );
-			} else {
-				return $this->_error( 'math_unknown_error' );
-			}
+		return $this->error( 'math_bad_tmpdir' );
+		} else {
+		return $this->error( 'math_unknown_error' );
+		}
 		}*/
 
 		$tempFsFile = new TempFSFile( "$tmpDir/{$this->hash}.png" );
 		$tempFsFile->autocollect(); // destroy file when $tempFsFile leaves scope
-/*
-		$retval = substr( $contents, 0, 1 );
+		/*
+		 $retval = substr( $contents, 0, 1 );
 		$errmsg = '';
 		if ( ( $retval == 'C' ) || ( $retval == 'M' ) || ( $retval == 'L' ) ) {
-			if ( $retval == 'C' ) {
-				$this->conservativeness = 2;
-			} elseif ( $retval == 'M' ) {
-				$this->conservativeness = 1;
-			} else {
-				$this->conservativeness = 0;
-			}
-			$outdata = substr( $contents, 33 );
-
-			$i = strpos( $outdata, "\000" );
-
-			$this->html = substr( $outdata, 0, $i );
-			$this->mathml = substr( $outdata, $i + 1 );
-		} elseif ( ( $retval == 'c' ) || ( $retval == 'm' ) || ( $retval == 'l' ) ) {
-			$this->html = substr( $contents, 33 );
-			if ( $retval == 'c' ) {
-				$this->conservativeness = 2;
-			} elseif ( $retval == 'm' ) {
-				$this->conservativeness = 1;
-			} else {
-				$this->conservativeness = 0;
-			}
-			$this->mathml = null;
-		} elseif ( $retval == 'X' ) {
-			$this->html = null;
-			$this->mathml = substr( $contents, 33 );
-			$this->conservativeness = 0;
-		} elseif ( $retval == '+' ) {
-			$this->html = null;
-			$this->mathml = null;
-			$this->conservativeness = 0;
+		if ( $retval == 'C' ) {
+		$this->conservativeness = 2;
+		} elseif ( $retval == 'M' ) {
+		$this->conservativeness = 1;
 		} else {
-			$errbit = htmlspecialchars( substr( $contents, 1 ) );
-			switch( $retval ) {
-				case 'E':
-					$errmsg = $this->_error( 'math_lexing_error', $errbit );
-					break;
-				case 'S':
-					$errmsg = $this->_error( 'math_syntax_error', $errbit );
-					break;
-				case 'F':
-					$errmsg = $this->_error( 'math_unknown_function', $errbit );
-					break;
-				default:
-					$errmsg = $this->_error( 'math_unknown_error', $errbit );
-			}
+		$this->conservativeness = 0;
+		}
+		$outdata = substr( $contents, 33 );
+
+		$i = strpos( $outdata, "\000" );
+
+		$this->html = substr( $outdata, 0, $i );
+		$this->mathml = substr( $outdata, $i + 1 );
+		} elseif ( ( $retval == 'c' ) || ( $retval == 'm' ) || ( $retval == 'l' ) ) {
+		$this->html = substr( $contents, 33 );
+		if ( $retval == 'c' ) {
+		$this->conservativeness = 2;
+		} elseif ( $retval == 'm' ) {
+		$this->conservativeness = 1;
+		} else {
+		$this->conservativeness = 0;
+		}
+		$this->mathml = null;
+		} elseif ( $retval == 'X' ) {
+		$this->html = null;
+		$this->mathml = substr( $contents, 33 );
+		$this->conservativeness = 0;
+		} elseif ( $retval == '+' ) {
+		$this->html = null;
+		$this->mathml = null;
+		$this->conservativeness = 0;
+		} else {
+		$errbit = htmlspecialchars( substr( $contents, 1 ) );
+		switch( $retval ) {
+		case 'E':
+		$errmsg = $this->error( 'math_lexing_error', $errbit );
+		break;
+		case 'S':
+		$errmsg = $this->error( 'math_syntax_error', $errbit );
+		break;
+		case 'F':
+		$errmsg = $this->error( 'math_unknown_function', $errbit );
+		break;
+		default:
+		$errmsg = $this->error( 'math_unknown_error', $errbit );
+		}
 		}
 
 		if ( !$errmsg ) {
-			$this->hash = substr( $contents, 1, 32 );
+		$this->hash = substr( $contents, 1, 32 );
 		}*/
 
 		/*wfRunHooks( 'MathAfterTexvc', array( &$this, &$errmsg ) );
 
 		if ( $errmsg ) {
-			return $errmsg;
+		return $errmsg;
 		} elseif ( !preg_match( "/^[a-f0-9]{32}$/",  ) ) {
-			return $this->_error( 'math_unknown_error' );
+		return $this->error( 'math_unknown_error' );
 		} elseif ( !file_exists( "$tmpDir/{}.png" ) ) {
-			return $this->_error( 'math_image_error' );
+		return $this->error( 'math_image_error' );
 		} elseif ( filesize( "$tmpDir/{}.png" ) == 0 ) {
-			return $this->_error( 'math_image_error' );
+		return $this->error( 'math_image_error' );
 		}*/
 
-		$hashpath = $this->_getHashPath(); // final storage directory
+		$hashpath = $this->getHashPath(); // final storage directory
 
 		$backend = $this->getBackend();
 		# Create any containers/directories as needed...
 		if ( !$backend->prepare( array( 'dir' => $hashpath ) )->isOK() ) {
-			return $this->_error( 'math_output_error' );
+			return $this->error( 'math_output_error' );
 		}
 		// Store the file at the final storage path...
 		$fResult= $backend->quickStore( array(
@@ -192,7 +192,7 @@ class MathLaTeXMLImages extends MathRenderer {
 		if ( !$fResult->isOK()
 		) {
 			wfDebugLog("Math", 'error moving file:'.var_export($fResult,true));
-			return $this->_error( 'math_output_error' );
+			return $this->error( 'math_output_error' );
 		}
 		return MW_TEXVC_SUCCESS;
 
@@ -218,10 +218,10 @@ class MathLaTeXMLImages extends MathRenderer {
 			return $backend;
 		}
 	}
-	function _doRender() {
+	function doRender() {
 		if ( $this->mode == MW_MATH_MATHML && $this->mathml != '' ) {
 			return Xml::tags( 'math',
-					$this->_attribs( 'math',
+					$this->getAttribs( 'math',
 							array( 'xmlns' => 'http://www.w3.org/1998/Math/MathML' ) ),
 					$this->mathml );
 		}
@@ -230,10 +230,10 @@ class MathLaTeXMLImages extends MathRenderer {
 				( ( $this->mode == MW_MATH_MODERN || $this->mode == MW_MATH_MATHML ) && ( $this->conservativeness == 0 ) )
 		)
 		{
-			return $this->_linkToMathImage();
+			return $this->linkToMathImage();
 		} else {
 			return Xml::tags( 'span',
-					$this->_attribs( 'span',
+					$this->getAttribs( 'span',
 							array( 'class' => 'texhtml',
 									'dir' => 'ltr'
 							) ),
@@ -246,22 +246,22 @@ class MathLaTeXMLImages extends MathRenderer {
 		if ( !$this->isRecall() ) {
 			return;
 		}
-		//$this->_writeDBentry();
+		//$this->writeDBentry();
 		// If we're replacing an older version of the image, make sure it's current.
 		if ( $wgUseSquid ) {
-			$urls = array( $this->_mathImageUrl() );
+			$urls = array( $this->mathImageUrl() );
 			$u = new SquidUpdate( $urls );
 			$u->doUpdate();
 		}
 	}
-	function _recall() {
+	function recall() {
 		/*global $wgMathCheckFiles;
-		if ( $this->_readFromDB() ) {
-			if ( !$wgMathCheckFiles ) {
-				// Short-circuit the file existence & migration checks
-				return true;
-			}*/
-		$filename = $this->_getHashPath() . "/{$this->getMd5()}.png"; // final storage path
+		 if ( $this->readFromDB() ) {
+		if ( !$wgMathCheckFiles ) {
+		// Short-circuit the file existence & migration checks
+		return true;
+		}*/
+		$filename = $this->getHashPath() . "/{$this->getMd5()}.png"; // final storage path
 		$backend = $this->getBackend();
 		if ( $backend->fileExists( array( 'src' => $filename ) ) ) {
 			if ( $backend->getFileSize( array( 'src' => $filename ) ) == 0 ) {
