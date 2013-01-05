@@ -124,6 +124,7 @@ class MathHooks {
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
+		global $wgDebugMath;
 		if ( is_null( $updater ) ) {
 			throw new MWException( "Math extension is only necessary in 1.18 or above" );
 		}
@@ -136,11 +137,21 @@ class MathHooks {
 				'db2' => 'math.db2.sql',
 		);
 		$type = $updater->getDB()->getType();
-		if ( isset( $map[$type] ) ) {
-			$sql = dirname( __FILE__ ) . '/db/' . $map[$type];
-			$updater->addExtensionTable( 'math', $sql );
+		if ($wgDebugMath){
+			if($type =='mysql' ){
+				$sql = dirname( __FILE__ ) . '/db/debug_' . $map[$type];
+				$updater->addExtensionTable( 'math', $sql );
+			} else {
+				throw new MWException( "Math extension does not currently support $type database for debugging.\n"
+						.'Please set $wgDebugMath =false; in your LocalSettings.php' );
+			}
 		} else {
-			throw new MWException( "Math extension does not currently support $type database." );
+			if ( isset( $map[$type] ) ) {
+				$sql = dirname( __FILE__ ) . '/db/' . $map[$type];
+				$updater->addExtensionTable( 'math', $sql );
+			} else {
+				throw new MWException( "Math extension does not currently support $type database." );
+			}
 		}
 		return true;
 	}
