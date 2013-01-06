@@ -293,6 +293,16 @@ $messages['az'] = array(
 	'math_syntax_error' => 'sintaksis xətası',
 );
 
+/** South Azerbaijani (تورکجه)
+ * @author Ebrahimi-amir
+ */
+$messages['azb'] = array(
+	'prefs-math' => 'ریاضیات گؤستریشی',
+	'mw_math_png' => 'بوتونلوکله PNG چکیلسین',
+	'mw_math_source' => 'TeX قالیبینده قالسین (یازی بروزرلر اوچون)',
+	'mw_math_mathjax' => 'MathJax (آزمایشی؛ چوخونلوق بروزئرلراوچون ان یاخشی‌سی)',
+);
+
 /** Bashkir (башҡортса)
  * @author Assele
  * @author Haqmar
