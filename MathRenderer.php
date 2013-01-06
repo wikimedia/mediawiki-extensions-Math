@@ -37,9 +37,9 @@ abstract class MathRenderer {
 	var $status='';
 	var $status_code='';
 	var $valid_xml='';
+	private $success=false;
 	protected $timestamp;
 	protected $recall;
-
 
 	/**
 	 * @param string $tex (the TeX content of the <math>-tag)
@@ -261,6 +261,18 @@ abstract class MathRenderer {
 	 */
 	public function isRecall() {
 		return $this->recall;
+	}
+	/**
+	 * @return boolean
+	 */
+	public function isSuccess() {
+		return $this->success;
+	}
+	/**
+	 * 
+	 */
+	public function setSuccess($b) {
+		$this->success=$b;
 	}
 	/**
 	 * returns the TeX code of the <math>-tag

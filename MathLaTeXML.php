@@ -31,7 +31,7 @@ class MathLaTeXML extends MathRenderer {
 		if (!$recall) {
 			wfDebugLog( "Math", "no recall" );
 			$this->recall=false;
-			$this->dorender();
+			$this->setSuccess($this->dorender());
 		}
 		return $this->getMathML();
 	}
@@ -40,7 +40,7 @@ class MathLaTeXML extends MathRenderer {
 	 * @see MathRenderer::writeCache()
 	*/
 	function writeCache() {
-		if ( !$this->isRecall() ){
+		if ( !$this->isRecall() && $this->isSuccess() ){
 			$this->hash=0;
 			$this->writeDBentry();
 		}
@@ -117,7 +117,11 @@ class MathLaTeXML extends MathRenderer {
 			}
 		}
 		else {
-			wfDebugLog( "Math", "\nLaTeXML Error:" . var_export( array( $result, $post, $host ), true ) . "\n\n" );
+			if($res==falase){
+				wfDebugLog( "Math", "\nLaTeXML Error: no response from $host \n" );
+			} else {
+				wfDebugLog( "Math", "\nLaTeXML Error:" . var_export( array( $result, $post, $host ), true ) . "\n" );
+			}
 			return false;
 		}
 		wfDebugLog( "Math", "Latexml request: $post\n processed in $time seconds." );
