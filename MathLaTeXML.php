@@ -17,16 +17,14 @@ class MathLaTeXML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	function render($purge=false) {
-		$recall =true;
-		if ( $purge|| $this->isPurge()){
-			$recall =false;
-		} else {
-				$dbres=$this->readFromDB();
-				if ($dbres) {
-					if (self::isValidMathML($this->mathml)){
-						$recall=false;
-					}
-				}
+		$recall =false;
+		if ( !$purge|| !$this->isPurge()){
+			$dbres=$this->readFromDB();
+			if ($dbres) {
+				if (self::isValidMathML($this->mathml)){
+					$recall=true;
+				} 
+			}
 		}
 		if (!$recall) {
 			wfDebugLog( "Math", "no recall" );
@@ -39,10 +37,10 @@ class MathLaTeXML extends MathRenderer {
 	/* (non-PHPdoc)
 	 * @see MathRenderer::writeCache()
 	*/
-	function writeCache() {
+	function writeCache($dbw=null) {
 		if ( !$this->isRecall() && $this->isSuccess() ){
 			$this->hash=0;
-			$this->writeDBentry();
+			$this->writeDBentry($dbw);
 		}
 	}
 	/**
@@ -117,7 +115,7 @@ class MathLaTeXML extends MathRenderer {
 			}
 		}
 		else {
-			if($res==falase){
+			if($res==false){
 				wfDebugLog( "Math", "\nLaTeXML Error: no response from $host \n" );
 			} else {
 				wfDebugLog( "Math", "\nLaTeXML Error:" . var_export( array( $result, $post, $host ), true ) . "\n" );

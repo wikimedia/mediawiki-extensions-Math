@@ -174,11 +174,13 @@ abstract class MathRenderer {
 	/**
 	 *
 	 */
-	protected function writeDBentry() {
+	protected function writeDBentry($dbw=null) {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
-			$dbw = wfGetDB( DB_MASTER );
-			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->getInputHash() . ')\n' );
+			if($dbw==null){
+				$dbw = wfGetDB( DB_MASTER );
+			}
+				wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->getInputHash() . ')\n' );
 			$dbw->replace(
 					'math',
 					array( 'math_inputhash' ),
