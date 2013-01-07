@@ -180,12 +180,12 @@ abstract class MathRenderer {
 			if($dbw==null){
 				$dbw = wfGetDB( DB_MASTER );
 			}
-				wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->getInputHash() . ')\n' );
-			$dbw->replace(
-					'math',
-					array( 'math_inputhash' ),
-					$this->dbOutArray(),
-					__METHOD__
+			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->getInputHash() . ')\n' );
+			$outArray=$this->dbOutArray();
+			$dbw->onTransactionIdle(
+				function () use ($dbw,$outArray){
+					$dbw->replace('math', array( 'math_inputhash' ), $outArray, __METHOD__);
+					}
 			);
 		}
 	}

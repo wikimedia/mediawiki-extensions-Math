@@ -23,13 +23,15 @@ class MathLaTeXML extends MathRenderer {
 			if ($dbres) {
 				if (self::isValidMathML($this->mathml)){
 					$recall=true;
+					$this->setSuccess(true);
 				} 
 			}
 		}
 		if (!$recall) {
 			wfDebugLog( "Math", "no recall" );
 			$this->recall=false;
-			$this->setSuccess($this->dorender());
+			$success=$this->dorender();
+			$this->setSuccess($success);
 		}
 		return $this->getMathML();
 	}
@@ -37,10 +39,10 @@ class MathLaTeXML extends MathRenderer {
 	/* (non-PHPdoc)
 	 * @see MathRenderer::writeCache()
 	*/
-	function writeCache($dbw=null) {
+	function writeCache() {
 		if ( !$this->isRecall() && $this->isSuccess() ){
 			$this->hash=0;
-			$this->writeDBentry($dbw);
+			$this->writeDBentry();
 		}
 	}
 	/**
