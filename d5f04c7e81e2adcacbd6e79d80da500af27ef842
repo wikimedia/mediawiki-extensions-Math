@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "AAADhH//++U\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Class comment changed",
+      "parentUuid": "AAADgX//5TQ\u003d",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAADgX//5TI\u003d",
         "filename": "MathRenderer.php",
         "patchSetId": 19
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "AAADhH//++Q\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5R0\u003d",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAADgX//5R8\u003d",
         "filename": "MathRenderer.php",
         "patchSetId": 19
@@ -81,6 +117,24 @@
       "writtenOn": "2013-01-03T22:29:51Z",
       "side": 1,
       "message": "Why unknown?  Isn\u0027t it always an array, per above?\n\nAlso, document return type.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADhH//++M\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5R8\u003d",
       "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -121,6 +175,24 @@
     },
     {
       "key": {
+        "uuid": "AAADhH//++I\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5RY\u003d",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAADgX//5RM\u003d",
         "filename": "MathRenderer.php",
         "patchSetId": 19
@@ -132,6 +204,24 @@
       "writtenOn": "2013-01-03T22:29:51Z",
       "side": 1,
       "message": "Fix docs; see above",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADhH//+94\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5RM\u003d",
       "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -155,6 +245,24 @@
     },
     {
       "key": {
+        "uuid": "AAADhH//+9w\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5RE\u003d",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAADgX//5Ok\u003d",
         "filename": "MathRenderer.php",
         "patchSetId": 19
@@ -166,6 +274,24 @@
       "writtenOn": "2013-01-03T22:29:51Z",
       "side": 1,
       "message": "No underscore",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADhH//+9s\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5Ok\u003d",
       "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -189,6 +315,24 @@
     },
     {
       "key": {
+        "uuid": "AAADhH//+9o\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5RA\u003d",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAADgX//5Q4\u003d",
         "filename": "MathRenderer.php",
         "patchSetId": 19
@@ -200,6 +344,24 @@
       "writtenOn": "2013-01-03T22:29:51Z",
       "side": 1,
       "message": "Fix docs; add meaning of return value and method description.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADhH//+9k\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5Q4\u003d",
       "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -223,6 +385,24 @@
     },
     {
       "key": {
+        "uuid": "AAADhH//+9g\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5Qo\u003d",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAADgX//5Qk\u003d",
         "filename": "MathRenderer.php",
         "patchSetId": 19
@@ -234,6 +414,24 @@
       "writtenOn": "2013-01-03T22:29:51Z",
       "side": 1,
       "message": "Document.  No underscore",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADhH//+9Y\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5Qk\u003d",
       "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -274,6 +472,24 @@
     },
     {
       "key": {
+        "uuid": "AAADhH//+9M\u003d",
+        "filename": "MathSource.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5QM\u003d",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAADgX//5QE\u003d",
         "filename": "MathTexvc.php",
         "patchSetId": 19
@@ -285,6 +501,24 @@
       "writtenOn": "2013-01-03T22:29:51Z",
       "side": 1,
       "message": "No underscore.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADhH//+9I\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5QE\u003d",
       "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -308,6 +542,24 @@
     },
     {
       "key": {
+        "uuid": "AAADhH//+9E\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5P8\u003d",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAADgX//5P4\u003d",
         "filename": "MathTexvc.php",
         "patchSetId": 19
@@ -319,6 +571,24 @@
       "writtenOn": "2013-01-03T22:29:51Z",
       "side": 1,
       "message": "getMathImageUrl()",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADhH//+9A\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5P4\u003d",
       "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -342,6 +612,24 @@
     },
     {
       "key": {
+        "uuid": "AAADhH//+88\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "I used getMathImageHTML() as it\u0027s clearer.",
+      "parentUuid": "AAADgX//5Pg\u003d",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAADgX//5Pc\u003d",
         "filename": "MathTexvc.php",
         "patchSetId": 19
@@ -353,6 +641,24 @@
       "writtenOn": "2013-01-03T22:29:51Z",
       "side": 1,
       "message": "Don\u0027t do the same escaping twice.  Use a variable.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADhH//+80\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5Pc\u003d",
       "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -376,6 +682,24 @@
     },
     {
       "key": {
+        "uuid": "AAADhH//+8o\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5PI\u003d",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAADgX//5Ow\u003d",
         "filename": "MathTexvc.php",
         "patchSetId": 19
@@ -393,6 +717,24 @@
     },
     {
       "key": {
+        "uuid": "AAADhH//+8k\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5Ow\u003d",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAADgX//5Oo\u003d",
         "filename": "MathTexvc.php",
         "patchSetId": 19
@@ -404,6 +746,24 @@
       "writtenOn": "2013-01-03T22:29:51Z",
       "side": 1,
       "message": "Underscore, docs.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADhH//+8g\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5Oo\u003d",
       "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -444,6 +804,24 @@
     },
     {
       "key": {
+        "uuid": "AAADhH//+8c\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5OQ\u003d",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAADgX//5OI\u003d",
         "filename": "MathTexvc.php",
         "patchSetId": 19
@@ -455,6 +833,24 @@
       "writtenOn": "2013-01-03T22:29:51Z",
       "side": 1,
       "message": "No underscore, docs.",
+      "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADhH//+8Y\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-01-17T03:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAADgX//5OI\u003d",
       "revId": "d5f04c7e81e2adcacbd6e79d80da500af27ef842",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
