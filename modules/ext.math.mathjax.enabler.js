@@ -29,8 +29,8 @@ mathJax.Load = function(element) {
   }
 
   // create configuration element
-  var config = 'mathJax.Config();';
-  var script = document.createElement( 'script' );
+  var config = 'mathJax.Config();',
+      script = document.createElement( 'script' );
   script.setAttribute( 'type', 'text/x-mathjax-config' );
   if ( window.opera ) {
     script.innerHTML = config;
