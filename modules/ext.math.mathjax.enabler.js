@@ -51,9 +51,9 @@ mathJax.Init = function() {
   this.Load( document.getElementById("bodyContent") || document.body );
 
   // compatibility with wikEd
-  if ( typeof(wikEd) == "undefined" ) { wikEd = {}; }
-  if ( typeof(wikEd.config) == "undefined" ) { wikEd.config = {}; }
-  if ( typeof(wikEd.config.previewHook) == "undefined" ) { wikEd.config.previewHook = []; }
+  if ( typeof(wikEd) === "undefined" ) { wikEd = {}; }
+  if ( typeof(wikEd.config) === "undefined" ) { wikEd.config = {}; }
+  if ( typeof(wikEd.config.previewHook) === "undefined" ) { wikEd.config.previewHook = []; }
   wikEd.config.previewHook.push( function(){
     if (window.mathJax.Load(document.getElementById("wikEdPreviewBox") || document.body)) {
       MathJax.Hub.Queue(["Typeset", MathJax.Hub, "wikEdPreviewBox"]);
