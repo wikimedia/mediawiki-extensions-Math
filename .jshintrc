@@ -15,7 +15,7 @@
 	"noarg": true,
 	"noempty": true,
 	"nonew": true,
-	"quotmark": "single",
+	"quotmark": "false",
 	"regexp": false,
 	"undef": true,
 	"unused": true,
