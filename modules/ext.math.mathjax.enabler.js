@@ -2,7 +2,9 @@
  * From https://en.wikipedia.org/wiki/User:Nageh/mathJax.js
  */
 
-if ( typeof(mathJax) === "undefined" ) mathJax = {};
+if ( typeof(mathJax) === "undefined" ) {
+  mathJax = {};
+}
 
 mathJax.version = "0.2";
 
@@ -22,14 +24,19 @@ mathJax.Config = function() {
 };
 
 mathJax.Load = function(element) {
-  if (this.loaded)
+  if (this.loaded) {
     return true;
+  }
 
   // create configuration element
   var config = 'mathJax.Config();';
   var script = document.createElement( 'script' );
   script.setAttribute( 'type', 'text/x-mathjax-config' );
-  if ( window.opera ) script.innerHTML = config; else script.text = config;
+  if ( window.opera ) {
+    script.innerHTML = config;
+  } else {
+    script.text = config;
+  }
   document.getElementsByTagName('head')[0].appendChild( script );
 
   // create startup element
@@ -47,13 +54,21 @@ mathJax.Init = function() {
   if ( typeof(wikEd) == "undefined" ) { wikEd = {}; }
   if ( typeof(wikEd.config) == "undefined" ) { wikEd.config = {}; }
   if ( typeof(wikEd.config.previewHook) == "undefined" ) { wikEd.config.previewHook = []; }
-  wikEd.config.previewHook.push( function(){ if (window.mathJax.Load(document.getElementById("wikEdPreviewBox") || document.body)) MathJax.Hub.Queue(["Typeset", MathJax.Hub, "wikEdPreviewBox"]); } );
+  wikEd.config.previewHook.push( function(){
+    if (window.mathJax.Load(document.getElementById("wikEdPreviewBox") || document.body)) {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub, "wikEdPreviewBox"]);
+    }
+  } );
 
   // compatibility with ajaxPreview
   this.oldAjaxPreviewExec = window.ajaxPreviewExec;
   window.ajaxPreviewExec = function(previewArea) {
-    if ( typeof(mathJax.oldAjaxPreviewExec) !== "undefined" ) mathJax.oldAjaxPreviewExec(previewArea);
-    if ( mathJax.Load(previewArea) ) MathJax.Hub.Queue( ["Typeset", MathJax.Hub, previewArea] );
+    if ( typeof(mathJax.oldAjaxPreviewExec) !== "undefined" ) {
+      mathJax.oldAjaxPreviewExec(previewArea);
+    }
+    if ( mathJax.Load(previewArea) ) {
+      MathJax.Hub.Queue( ["Typeset", MathJax.Hub, previewArea] );
+    }
   };
 };
 
