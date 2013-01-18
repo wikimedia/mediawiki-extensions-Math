@@ -47,14 +47,14 @@ mathJax.Init = function() {
   if ( typeof(wikEd) == "undefined" ) { wikEd = {}; }
   if ( typeof(wikEd.config) == "undefined" ) { wikEd.config = {}; }
   if ( typeof(wikEd.config.previewHook) == "undefined" ) { wikEd.config.previewHook = []; }
-  wikEd.config.previewHook.push( function(){ if (window.mathJax.Load(document.getElementById("wikEdPreviewBox") || document.body)) MathJax.Hub.Queue(["Typeset", MathJax.Hub, "wikEdPreviewBox"]) } );
+  wikEd.config.previewHook.push( function(){ if (window.mathJax.Load(document.getElementById("wikEdPreviewBox") || document.body)) MathJax.Hub.Queue(["Typeset", MathJax.Hub, "wikEdPreviewBox"]); } );
 
   // compatibility with ajaxPreview
   this.oldAjaxPreviewExec = window.ajaxPreviewExec;
   window.ajaxPreviewExec = function(previewArea) {
     if ( typeof(mathJax.oldAjaxPreviewExec) !== "undefined" ) mathJax.oldAjaxPreviewExec(previewArea);
     if ( mathJax.Load(previewArea) ) MathJax.Hub.Queue( ["Typeset", MathJax.Hub, previewArea] );
-  }
+  };
 };
 
 jQuery( document ).ready( function() {
