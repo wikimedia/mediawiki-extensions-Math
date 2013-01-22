@@ -3114,11 +3114,13 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'math-desc' => "Inderprete le formule matemateche 'mbrà le tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	'math_sample' => "Mitte 'a formule aqquà",
 	'math_tip' => 'Formula matemateche (LaTeX)',
 	'prefs-math' => 'Math',
 	'mw_math_png' => "Fà sembre 'u render de le PNG",
 	'mw_math_source' => "Lassele cumme a 'nu TeX (pe le browser de teste)",
+	'mw_math_mathjax' => "MathJax (sperimendale; 'u megghie pe quase tutte le browser)",
 	'math_failure' => 'Analisi fallite',
 	'math_unknown_error' => 'errore scanusciute',
 	'math_unknown_function' => 'funziona scanusciute',
