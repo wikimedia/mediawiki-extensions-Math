@@ -445,14 +445,6 @@ $messages['bg'] = array(
 	'math_notexvc' => 'Липсва изпълнимият файл на texvc. Прегледайте math/README за информация относно конфигурирането.',
 );
 
-/** bh (भोजपुरी)
- * @author Ganesh
- */
-$messages['bh'] = array(
-	'math_tip' => 'गणितिय सूत्र (LaTeX)',
-	'prefs-math' => 'गणित',
-);
-
 /** Bhojpuri (भोजपुरी)
  * @author Ganesh
  */
