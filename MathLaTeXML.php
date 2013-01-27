@@ -18,7 +18,7 @@ class MathLaTeXML extends MathRenderer {
 	*/
 	function render($purge=false) {
 		$recall =false;
-		if ( !$purge|| !$this->isPurge()){
+		if ( !$purge&& !$this->isPurge()){
 			$dbres=$this->readFromDB();
 			if ($dbres) {
 				if (self::isValidMathML($this->mathml)){
