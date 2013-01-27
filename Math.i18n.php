@@ -445,7 +445,7 @@ $messages['bg'] = array(
 	'math_notexvc' => 'Липсва изпълнимият файл на texvc. Прегледайте math/README за информация относно конфигурирането.',
 );
 
-/** Bihari (भोजपुरी)
+/** bh (भोजपुरी)
  * @author Ganesh
  */
 $messages['bh'] = array(
@@ -2645,7 +2645,7 @@ $messages['nds'] = array(
 	'math_notexvc' => 'Dat texvc-Programm kann nich funnen warrn. Kiek ok math/README.',
 );
 
-/** Nedersaksisch (Nedersaksisch)
+/** Nedersaksies (Nedersaksies)
  * @author Servien
  */
 $messages['nds-nl'] = array(
