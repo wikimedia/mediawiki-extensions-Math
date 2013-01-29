@@ -156,8 +156,13 @@ class MathHooks {
 		}
 		if ($wgDebugMath){
 			if($type =='mysql' ){
-				$sql = dirname( __FILE__ ) . '/db/debug_fields_' . $map[$type];
-				$updater->addExtensionField('math', 'debug fields', $sql);
+				$dir = dirname( __FILE__ ) . '/db/debug_fields_';
+				$updater->addExtensionField('math', 'math_tex', $dir.'math_tex.sql');
+				$updater->addExtensionField('math', 'math_status', $dir.'math_status.sql');
+				$updater->addExtensionField('math', 'valid_xml', $dir.'valid_xml.sql');
+				$updater->addExtensionField('math', 'math_log', $dir.'math_log.sql');
+				$updater->addExtensionField('math', 'math_timestamp', $dir.'math_timestamp.sql');
+				
 			} else {
 				throw new MWException( "Math extension does not currently support $type database." );
 			}
