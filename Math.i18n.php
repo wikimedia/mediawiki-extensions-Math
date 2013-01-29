@@ -2682,6 +2682,7 @@ $messages['new'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author Romaine
  * @author SPQRobin
  * @author Siebrand
  */
@@ -2692,7 +2693,7 @@ $messages['nl'] = array(
 	'prefs-math' => 'Formules',
 	'mw_math_png' => 'Altijd als PNG weergeven',
 	'mw_math_source' => 'De TeX-broncode behouden (voor tekstbrowsers)',
-	'mw_math_mathjax' => 'MathJax (experimenteel; het beste voor meeste browsers)',
+	'mw_math_mathjax' => 'MathJax (experimenteel; het beste voor de meeste browsers)',
 	'math_failure' => 'Parsen mislukt',
 	'math_unknown_error' => 'onbekende fout',
 	'math_unknown_function' => 'onbekende functie',
