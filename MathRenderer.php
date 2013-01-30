@@ -283,4 +283,11 @@ abstract class MathRenderer {
 	public function getTex() {
 		return $this->tex;
 	}
+	
+	/**
+	 * 
+	 */
+	public function getTimestamp(){
+		return $this->timestamp;
+	}
 }
