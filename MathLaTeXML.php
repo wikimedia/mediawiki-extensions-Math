@@ -86,6 +86,7 @@ class MathLaTeXML extends MathRenderer {
 				'preload=url&'.
 				'preload=hyperref&'.
 				'preload=mws&'.
+				'preload=ids&'.
 				'preload=texvc';
 		$post .='&tex='.$texcmd;
 		$time_start = microtime( true );
