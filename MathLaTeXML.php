@@ -13,6 +13,37 @@
 
 define('LaTeXMLTimeout',240);
 class MathLaTeXML extends MathRenderer {
+	
+	private $LaTeXMLSettings='';
+	
+	public function getLaTeXMLSettings(){
+		if($this->LaTeXMLSettings){
+			return $this->LaTeXMLSettings;
+		} else {
+			return 'xhtml&'.
+				'whatsin=math&'.
+				'whatsout=math&'.
+				'pmml&'.
+				'cmml&'.
+				'preload=LaTeX.pool&'.
+				'preload=article.cls&'.
+				'preload=amsmath&'.
+				'preload=amsthm&'.
+				'preload=amstext&'.
+				'preload=amssymb&'.
+				'preload=eucal&'.
+				'preload=[dvipsnames]xcolor&'.
+				'preload=url&'.
+				'preload=hyperref&'.
+				'preload=mws&'.
+				'preload=ids&'.
+				'preload=texvc';
+		}
+	}
+	
+	public function setLaTeXMLSettings($sesttings){
+		$this->LaTeXMLSettings=$sesttings;
+	}
 	/* (non-PHPdoc)
 	 * @see MathRenderer::render()
 	*/
@@ -70,24 +101,7 @@ class MathLaTeXML extends MathRenderer {
 		global $wgDebugMath;
 		$host = self::pickHost();
 		$texcmd = 'literal:' . urlencode( $this->tex );
-		$post='format=xhtml&'.
-				'whatsin=math&'.
-				'whatsout=math&'.
-				'pmml&'.
-				'cmml&'.
-				'preload=LaTeX.pool&'.
-				'preload=article.cls&'.
-				'preload=amsmath&'.
-				'preload=amsthm&'.
-				'preload=amstext&'.
-				'preload=amssymb&'.
-				'preload=eucal&'.
-				'preload=[dvipsnames]xcolor&'.
-				'preload=url&'.
-				'preload=hyperref&'.
-				'preload=mws&'.
-				'preload=ids&'.
-				'preload=texvc';
+		$post= $this->getLaTeXMLSettings();
 		$post .='&tex='.$texcmd;
 		$time_start = microtime( true );
 		$res = Http::post( $host, array( "postData" => $post, "timeout" => LaTeXMLTimeout) );
