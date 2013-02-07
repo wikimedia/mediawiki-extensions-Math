@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAADi3///aI\u003d",
+        "filename": "Math.hooks.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "No parentheses. Please see the PHPdoc documentation:\nhttp://www.phpdoc.org/docs/latest/index.html",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///Y4\u003d",
+        "filename": "Math.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "you can replace this with __DIR__",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///Yk\u003d",
+        "filename": "MathMathJax.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "This comment will quickly become confusing to people, especially to newcomers who are not aware of the previous code.",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///X4\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "Just leave them public, IMO.",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///X0\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "What value(s) are you expecting to be captured by \u0027default\u0027:?",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///Wc\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "False, NULL, and empty strings produce an MD5 hash of \"d41d8cd98f00b204e9800998ecf8427e\". It\u0027s easy to imagine how some silly bug somewhere causes this value to manifest a lot, so you might as well check for it and save the database calls.",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///WQ\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "Can\u0027t you just return here? i.e., do you still need to call the database?",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///WI\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "Confusing comment.",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///WE\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "Why does this need a getter/setter? (Why not make anchorID public instead?)",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///V0\u003d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "I\u0027m not sure why you need getters for $this-\u003erecall and $this-\u003etex. (Maybe you\u0027re just preserving the existing interface -- in that case it\u0027s OK.)",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///VU\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "Why have both getHashPath and getHashSubPath?",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///VA\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "IMHO this needs to be broken up into about four or five smaller functions; it\u0027s gigantic and overly complex.",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///U4\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "Function #1: getTexvcInvocation(); returns command.",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///VE\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "Do you need to escape $cmd *again*, when you\u0027ve escaped every chunk individually?",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///UQ\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "Function #2: parseConservativeness( $content )",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///Ts\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "Why not a switch statement or an associative array mapping symbols to options?",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///UE\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "What does 33 represent?",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///T0\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "On line 194 you just return if $errmsg is set; can\u0027t you move that check here and avoid the need for this if? (I guess not if it\u0027s important MathAfterTexvc should run in all cases, but wanted to check.)",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///Tk\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "Function #3",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///Tw\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "Might be more informative to call this math_image_file_error, since it appears to be used for file-related problems (file is missing or empty)",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///To\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "Function #4",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///TU\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "Would be nicer to return false if nothing is retrieved.",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAADi3///TY\u003d",
+        "filename": "MathTexvc.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-07T04:43:02Z",
+      "side": 1,
+      "message": "\"recall\" has multiple meanings and is confusing. Would it be possible to name this? \"readCache\" perhaps?",
+      "revId": "16fcae2846be60b666abf45d3cdae8b4c58669d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
