@@ -11,20 +11,30 @@
 
   mathJax.loaded = false;
 
-  mathJax.Config = function() {
+  mathJax.Config = function () {
     MathJax.Hub.Config({
-      root: mediaWiki.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax',
+      root: mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax',
       config: ['TeX-AMS-texvc_HTML.js'],
       'v1.0-compatible': false,
-      styles: { '.mtext': { 'font-family': 'sans-serif ! important', 'font-size': '80%' } },
+      styles: {
+        '.mtext': {
+          'font-family': 'sans-serif ! important',
+          'font-size': '80%'
+        }
+      },
       displayAlign: 'left',
-      menuSettings: { zoom: 'Click' },
-      'HTML-CSS': { imageFont: null, availableFonts: ['TeX'] }
+      menuSettings: {
+        zoom: 'Click'
+      },
+      'HTML-CSS': {
+        imageFont: null,
+        availableFonts: ['TeX']
+      }
     });
     MathJax.OutputJax.fontDir = mathJax.fontDir = mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
   };
 
-  mathJax.Load = function(element) {
+  mathJax.Load = function () {
     var config, script;
     if (this.loaded) {
       return true;
@@ -42,27 +52,27 @@
     document.getElementsByTagName('head')[0].appendChild( script );
 
     // create startup element
-    mediaWiki.loader.load('ext.math.mathjax');
+    mw.loader.load('ext.math.mathjax');
 
     this.loaded = true;
 
     return false;
   };
 
-  mathJax.Init = function() {
+  mathJax.Init = function () {
     this.Load( document.getElementById('bodyContent') || document.body );
 
     // compatibility with wikEd
-    if ( typeof(wikEd) == 'undefined' ) {
+    if ( typeof wikEd === 'undefined' ) {
       wikEd = {};
     }
-    if ( typeof(wikEd.config) == 'undefined' ) {
+    if ( wikEd.config === undefined ) {
       wikEd.config = {};
     }
-    if ( typeof(wikEd.config.previewHook) == 'undefined' ) {
+    if ( wikEd.config.previewHook === undefined ) {
       wikEd.config.previewHook = [];
     }
-    wikEd.config.previewHook.push( function(){
+    wikEd.config.previewHook.push( function (){
       if (window.mathJax.Load(document.getElementById('wikEdPreviewBox') || document.body)) {
         MathJax.Hub.Queue(['Typeset', MathJax.Hub, 'wikEdPreviewBox']);
       }
@@ -70,8 +80,8 @@
 
     // compatibility with ajaxPreview
     this.oldAjaxPreviewExec = window.ajaxPreviewExec;
-    window.ajaxPreviewExec = function(previewArea) {
-      if ( typeof(mathJax.oldAjaxPreviewExec) !== 'undefined' ) {
+    window.ajaxPreviewExec = function (previewArea) {
+      if ( mathJax.oldAjaxPreviewExec !== undefined ) {
         mathJax.oldAjaxPreviewExec(previewArea);
       }
       if ( mathJax.Load(previewArea) ) {
@@ -80,7 +90,7 @@
     };
   };
 
-  $( document ).ready( function() {
+  $( document ).ready( function () {
     mathJax.Init();
   } );
 
