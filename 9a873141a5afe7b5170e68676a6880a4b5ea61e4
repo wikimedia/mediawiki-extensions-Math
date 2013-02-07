@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAADi3///Ys\u003d",
+        "filename": ".jshintrc",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2013-02-07T04:01:36Z",
+      "side": 1,
+      "message": "Should be a boolean, not a string.",
+      "revId": "9a873141a5afe7b5170e68676a6880a4b5ea61e4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
