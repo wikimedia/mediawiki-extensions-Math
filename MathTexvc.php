@@ -232,7 +232,7 @@ class MathTexvc extends MathRenderer {
 			if ( !$backend ) {
 				$backend = new FSFileBackend( array(
 					'name'           => 'math-backend',
-					'lockManager'    => 'fsLockManager',
+					'lockManager'    => 'nullLockManager',
 					'containerPaths' => array( 'math-render' => $wgMathDirectory ),
 					'fileMode'       => 0777
 				) );
