@@ -165,9 +165,10 @@ if (!preg_match('/Firefox/',$UA)){ //Don't use MathJax with Firefox this has to 
 					// We'll let the other parts be loaded by MathJax's
 					// own module/config loader.
 			),
-	'group' => 'ext.math.mathjax',
+			'group' => 'ext.math.mathjax',
 	) + $moduleTemplate;
 }
+
 
 $wgResourceModules['ext.math.mathjax.enabler'] = array(
 		'scripts' => 'ext.math.mathjax.enabler.js',
