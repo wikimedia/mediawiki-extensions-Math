@@ -43,12 +43,12 @@ class MathHooks {
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		global $wgContLang, $wgUseMathJax;
-		if (  trim( $content )  === "" ) { // bug 8372
+		if ( trim( $content )  === "" ) { // bug 8372
 			return "";
 		}
 		$mode = $parser->getOptions()->getMath();
 		$renderer = MathRenderer::getRenderer(
-				$content, $attributes, $mode
+			$content, $attributes, $mode
 		);
 		$renderedMath = $renderer->render();
 		wfRunHooks( 'MathFormulaRendered',
@@ -73,10 +73,10 @@ class MathHooks {
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
 		$defaultPreferences['math'] = array(
-				'type' => 'radio',
-				'options' => array_flip( self::getMathNames() ),
-				'label' => '&#160;',
-				'section' => 'rendering/math',
+			'type' => 'radio',
+			'options' => array_flip( self::getMathNames() ),
+			'label' => '&#160;',
+			'section' => 'rendering/math',
 		);
 		return true;
 	}
@@ -88,9 +88,9 @@ class MathHooks {
 	 */
 	private static function getMathNames() {
 		$names = array(
-				MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
-				MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
-				MW_MATH_LATEXML => wfMessage( 'mw_math_latexml' )->escaped(),
+			MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
+			MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
+			MW_MATH_LATEXML => wfMessage( 'mw_math_latexml' )->escaped(),
 		);
 
 		global $wgUseMathJax;

@@ -2,26 +2,27 @@
 /**
  * MediaWiki math extension
  *
- * (c) 2002-2012 Tomasz Wegrzanowski, Brion Vibber, and other MediaWiki contributors
+ * (c) 2002-2012 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz, and other MediaWiki contributors
  * GPLv2 license; info in main package.
  *
  * @file
  */
 
 /**
- * This is an abstract class with static methods for rendering the <math> tags.
+ * Abstract base class with static methods for rendering the <math> tags using different technologies.
  * This static methods create a new istance of the extending classes and render the math tags based on the
  * mode setting of the user.
  * Furthermore this class handles the caching of the rendered output and provides debug information,
  * if run in mathdebug mode.
  *
- *
- * @author Tomasz Wegrzanowski, with additions by Brion Vibber (2003, 2004) rewritten 2012 by Moritz Schubotz
+ * @author Tomasz Wegrzanowski
+ * @author Brion Vibber
+ * @author Moritz Schubotz
  */
 abstract class MathRenderer {
-	// 	The following variables should made private, as soon it can be verified that they are not
-	// 	being directly accessed by other extensions.
 	/**
+	* The following variables should made private, as soon it can be verified that they are not
+	* being directly accessed by other extensions.
 	 * TODO: Why is this variable set by default.
 	 * @var MW_MATH_...
 	 */
@@ -42,27 +43,34 @@ abstract class MathRenderer {
 	protected $recall;
 
 	/**
-	 * @param string $tex (the TeX content of the <math>-tag)
-	 * @param array $params (an arry of parameters, due to compatiblity reasons?, never used?)
+	 * Constructs a base MathRenderer
+	 *
+	 * @param string $tex LaTeX markup
+	 * @param array $params HTML attributes
 	 */
 	public function __construct( $tex='', $params = array() ) {
 		$this->tex = $tex;
 		$this->params = $params;
 	}
 	/**
-	 * @param string $tex
-	 * @param array $params
-	 * @param int $mode: constant indicating rendering mode
+	 * Static method for rendering math tag
+	 *
+	 * @param string $tex LaTeX markup
+	 * @param array $params HTML attributes
+	 * @param int $mode constant indicating rendering mode
+	 * @return string HTML for math tag
 	 */
-	public static function renderMath( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
-		$renderer = self::getRenderer( $tex, $params, $mode );
+	public static function renderMath( $tex, $params = array(), $mode = MW_MATH_PNG ) {
+		$renderer = getRenderer( $tex, $params, $mode );
 		return $renderer->render();
 	}
 	/**
-	 * @param string $tex
-	 * @param unknown $params
-	 * @param int $mode: constant indicating rendering mode
-	 * @return MathRenderer
+	 * Static factory method for getting a renderer based on mode
+	 *
+	 * @param string $tex LaTeX markup
+	 * @param array $params HTML attributes
+	 * @param int $mode constant indicating rendering mode
+	 * @return MathRenderer appropriate renderer for mode
 	 */
 	public static function getRenderer( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
 		global $wgDefaultUserOptions;
@@ -98,9 +106,11 @@ abstract class MathRenderer {
 	/**
 	 * Artefact from the texvc error messages
 	 * TODO: update to MathML
-	 * @param unknown $msg
-	 * @param string $append
-	 * @return string
+	 * Returns an internationalized HTML error string
+	 *
+	 * @param string $msg message key for specific error
+	 * @param string $append string to append after error
+	 * @return string HTML error string
 	*/
 	protected function error( $msg, $append = '' ) {
 		$mf = wfMessage( 'math_failure' )->inContentLanguage()->escaped();
@@ -111,7 +121,9 @@ abstract class MathRenderer {
 
 
 	/**
-	 * @return mixed
+	 * Return hash of input
+	 *
+	 * @return string hash
 	 */
 	public function getInputHash() {
 		// TODO: What happens if $tex is empty?
@@ -191,10 +203,12 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * @param string $tag
-	 * @param array $defaults
-	 * @param array $overrides
-	 * @return array
+	 * Returns sanitized attributes
+	 *
+	 * @param string $tag element name
+	 * @param array $defaults default attributes
+	 * @param array $overrides attributes to override defaults
+	 * @return array HTML attributes
 	 */
 	protected function getAttribs( $tag, $defaults = array(), $overrides = array() ) {
 		$attribs = Sanitizer::validateTagAttributes( $this->params, $tag );
