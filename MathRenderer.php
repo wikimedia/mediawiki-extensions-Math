@@ -159,7 +159,12 @@ abstract class MathRenderer {
 			} else {
 				$outmd5_sql = null;
 			}
-			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->getInputHash() . ')\n' );
+			# Some Databases use the Blob type which doesnt turn into a string.
+			$hash = $this->getInputHash();
+			if ( $hash instanceof Blob ) {
+				$hash = $hash->fetch();
+			}
+			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $hash . ')\n' );
 			$dbw->replace(
 				'math',
 				array( 'math_inputhash' ),
