@@ -159,7 +159,7 @@ abstract class MathRenderer {
 			} else {
 				$outmd5_sql = null;
 			}
-			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->getInputHash() . ')\n' );
+			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $dbw->decodeBlob( $this->getInputHash() ) . ')\n' );
 			$dbw->replace(
 				'math',
 				array( 'math_inputhash' ),
