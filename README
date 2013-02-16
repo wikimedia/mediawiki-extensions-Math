@@ -7,3 +7,7 @@ This version (for MediaWiki 1.19) has some changes since previous versions:
 See the README in the math subdirectory for more info on setting up the
 low-level conversion tools.
 
+For testing your installation run
+php tests/phpunit/phpunit.php extensions/Math/tests/
+from your MediWiki home path.
+
