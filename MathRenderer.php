@@ -50,7 +50,7 @@ abstract class MathRenderer {
 	 * @return string HTML for math tag
 	 */
 	public static function renderMath( $tex, $params = array(), $mode = MW_MATH_PNG ) {
-		$renderer = getRenderer( $tex, $params, $mode );
+		$renderer = self::getRenderer( $tex, $params, $mode );
 		return $renderer->render();
 	}
 
