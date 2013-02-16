@@ -162,4 +162,16 @@ class MathHooks {
 		$wgMathPath = '/images/math';
 		return true;
 	}
+
+	/**
+	 * Links to the unit test files for the test cases.
+	 *
+	 * @param string $files
+	 * @return boolean (true)
+	 */
+	static function onRegisterUnitTests( &$files ) {
+		$testDir = __DIR__ . '/tests/';
+		$files = array_merge( $files, glob( "$testDir/*Test.php" ) );
+		return true;
+	}
 }
