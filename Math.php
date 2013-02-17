@@ -109,6 +109,12 @@ $wgUseMathJax = false;
  */
 $wgMathJaxUrl = 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML';
 
+/**
+ * Debugging options for this extension.
+ * Run the update.php maintenance script after activation.
+ */
+$wgDebugMath = false;
+
 ////////// end of config settings.
 
 $wgDefaultUserOptions['math'] = MW_MATH_PNG;
