@@ -112,7 +112,7 @@ class MathTexvc extends MathRenderer {
 		$cmd = $wgTexvc . ' ' .
 			$escapedTmpDir . ' ' .
 			$escapedTmpDir . ' ' .
-			wfEscapeShellArg( $this->tex ) . ' ' .
+			wfEscapeShellArg( $this->getTex() ) . ' ' .
 			wfEscapeShellArg( 'UTF-8' ) . ' ' .
 			wfEscapeShellArg( $wgTexvcBackgroundColor );
 
@@ -132,43 +132,43 @@ class MathTexvc extends MathRenderer {
 			}
 		}
 
-		$tempFsFile = new TempFSFile( "$tmpDir/{$this->hash}.png" );
+		$tempFsFile = new TempFSFile( "$tmpDir/{$this->getHash()}.png" );
 		$tempFsFile->autocollect(); // destroy file when $tempFsFile leaves scope
 
 		$retval = substr( $contents, 0, 1 );
 		$errmsg = '';
 		if ( ( $retval == 'C' ) || ( $retval == 'M' ) || ( $retval == 'L' ) ) {
 			if ( $retval == 'C' ) {
-				$this->conservativeness = self::CONSERVATIVE;
+				$this->setConservativeness( self::CONSERVATIVE);
 			} elseif ( $retval == 'M' ) {
-				$this->conservativeness = self::MODERATE;
+				$this->setConservativeness(  self::MODERATE );
 			} else {
-				$this->conservativeness = self::LIBERAL;
+				$this->setConservativeness(  self::LIBERAL );
 			}
 			$outdata = substr( $contents, 33 );
 
 			$i = strpos( $outdata, "\000" );
 
-			$this->html = substr( $outdata, 0, $i );
-			$this->mathml = substr( $outdata, $i + 1 );
+			$this->setHtml( substr( $outdata, 0, $i ) );
+			$this->setMathml( substr( $outdata, $i + 1 ));
 		} elseif ( ( $retval == 'c' ) || ( $retval == 'm' ) || ( $retval == 'l' ) ) {
-			$this->html = substr( $contents, 33 );
+			$this->setHtml( substr( $contents, 33 ) );
 			if ( $retval == 'c' ) {
-				$this->conservativeness = self::CONSERVATIVE;
+				$this->setConservativeness( self::CONSERVATIVE ) ;
 			} elseif ( $retval == 'm' ) {
-				$this->conservativeness = self::MODERATE;
+				$this->setConservativeness( self::MODERATE);
 			} else {
-				$this->conservativeness = self::LIBERAL;
+				$this->setConservativeness( self::LIBERAL);
 			}
-			$this->mathml = null;
+			$this->setMathml( null );
 		} elseif ( $retval == 'X' ) {
-			$this->html = null;
-			$this->mathml = substr( $contents, 33 );
-			$this->conservativeness = self::LIBERAL;
+			$this->setHtml( null );
+			$this->setMathml( substr( $contents, 33 ) );
+			$this->setConservativeness( self::LIBERAL );
 		} elseif ( $retval == '+' ) {
-			$this->html = null;
-			$this->mathml = null;
-			$this->conservativeness = self::LIBERAL;
+			$this->setHtml( null );
+			$this->setMathml( null );
+			$this->setConservativeness( self::LIBERAL );
 		} else {
 			$errbit = htmlspecialchars( substr( $contents, 1 ) );
 			switch( $retval ) {
@@ -187,7 +187,7 @@ class MathTexvc extends MathRenderer {
 		}
 
 		if ( !$errmsg ) {
-			$this->hash = substr( $contents, 1, 32 );
+			$this->SetHash( substr( $contents, 1, 32 ) );
 		}
 
 		wfRunHooks( 'MathAfterTexvc', array( &$this, &$errmsg ) );
@@ -248,15 +248,15 @@ class MathTexvc extends MathRenderer {
 	 * @return string HTML string
 	 */
 	function doHTMLRender() {
-		if ( $this->mode == MW_MATH_MATHML && $this->mathml != '' ) {
+		if ( $this->getMode() == MW_MATH_MATHML && $this->getMathml() != '' ) {
 			return Xml::tags( 'math',
 				$this->getAttributes( 'math',
 					array( 'xmlns' => 'http://www.w3.org/1998/Math/MathML' ) ),
 				$this->mathml );
 		}
-		if ( ( $this->mode == MW_MATH_PNG ) || ( $this->html == '' ) ||
-			( ( $this->mode == MW_MATH_SIMPLE ) && ( $this->conservativeness != self::CONSERVATIVE ) ) ||
-			( ( $this->mode == MW_MATH_MODERN || $this->mode == MW_MATH_MATHML ) && ( $this->conservativeness == self::LIBERAL ) )
+		if ( ( $this->getMode() == MW_MATH_PNG ) || ( $this->getHtml() == '' ) ||
+			( ( $this->getMode() == MW_MATH_SIMPLE ) && ( $this->getConservativeness() != self::CONSERVATIVE ) ) ||
+			( ( $this->getMode() == MW_MATH_MODERN || $this->getMode() == MW_MATH_MATHML ) && ( $this->getConservativeness() == self::LIBERAL ) )
 		)
 		{
 			return $this->getMathImageHTML();
@@ -276,10 +276,10 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function writeCache() {
 		global $wgUseSquid;
-		if ( !$this->isRecall() ) {
-			return;
+		if ( $this->wasChanged() ) {
+			$this->writeDatabaseEntry();
 		}
-		$this->writeDBEntry();
+
 		// If we're replacing an older version of the image, make sure it's current.
 		if ( $wgUseSquid ) {
 			$urls = array( $this->getMathImageUrl() );
@@ -295,7 +295,7 @@ class MathTexvc extends MathRenderer {
 	 */
 	function readCache() {
 		global $wgMathCheckFiles;
-		if ( $this->readFromDB() ) {
+		if ( $this->readDatabaseEntry() ) {
 			if ( !$wgMathCheckFiles ) {
 				// Short-circuit the file existence & migration checks
 				return true;
