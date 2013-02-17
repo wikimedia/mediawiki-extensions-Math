@@ -50,11 +50,12 @@ class MathHooks {
 		$renderer = MathRenderer::getRenderer(
 			$content, $attributes, $mode
 		);
-		$renderer->setAnchorID( $parser->nextLinkID() ); // Add an ID for referencing the equation later on only used by LaTeXML
 		$renderedMath = $renderer->render();
 		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
+		// Writes cache if rendering was successful
+		$renderer->writeCache();
 		return $wgContLang->armourMath( $renderedMath );
 	}
 
@@ -115,6 +116,7 @@ class MathHooks {
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
+		global $wgDebugMath;
 		if ( is_null( $updater ) ) {
 			throw new MWException( "Math extension is only necessary in 1.18 or above" );
 		}
@@ -132,6 +134,22 @@ class MathHooks {
 			$updater->addExtensionTable( 'math', $sql );
 		} else {
 			throw new MWException( "Math extension does not currently support $type database." );
+		}
+
+		if ( $wgDebugMath ) {
+
+			if ( $type == 'mysql' ) {
+				$dir = dirname( __FILE__ ) . '/db/debug_fields_';
+				$updater->addExtensionField( 'math', 'math_tex', $dir . 'math_tex.sql' );
+				$updater->addExtensionField( 'math', 'math_status', $dir . 'math_status.sql' );
+				$updater->addExtensionField( 'math', 'valid_xml', $dir . 'valid_xml.sql' );
+				$updater->addExtensionField( 'math', 'math_log', $dir . 'math_log.sql' );
+				$updater->addExtensionField( 'math', 'math_timestamp', $dir . 'math_timestamp.sql' );
+
+			} else {
+				throw new MWException( "Math extension does not currently support $type database for debugging.\n"
+					. 'Please set $wgDebugMath = false; in your LocalSettings.php' );
+			}
 		}
 		return true;
 	}
