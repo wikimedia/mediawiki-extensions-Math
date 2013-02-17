@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "Dl5oj0ao",
+        "filename": "tests/MathSourceTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-17T20:08:32Z",
+      "side": 1,
+      "message": "Trailing whitespace.",
+      "revId": "83428058f16b5127b1311c1335d0e518b2bc9068",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
