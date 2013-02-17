@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "DlxowAec",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-17T20:15:43Z",
+      "side": 1,
+      "message": "Use present progressive to make the meaning clearer:\n\u0027Starting to render\u0027",
+      "revId": "88e24e6fc8cc0c884125b646ed57601017c82c7e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dl-pNNXQ",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-17T20:15:43Z",
+      "side": 1,
+      "message": "Spaces inside parens and around \u003d\u003d operator. Also, Use strict equality.",
+      "revId": "88e24e6fc8cc0c884125b646ed57601017c82c7e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dl9pSeRI",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-17T20:15:43Z",
+      "side": 1,
+      "message": "What exactly is this big block of whitespace?",
+      "revId": "88e24e6fc8cc0c884125b646ed57601017c82c7e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dl7pXrQA",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-17T20:15:43Z",
+      "side": 1,
+      "message": "dedent; space before \u0027\u003d\u0027 in line above.",
+      "revId": "88e24e6fc8cc0c884125b646ed57601017c82c7e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dl5pc8SM",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-17T20:15:43Z",
+      "side": 1,
+      "message": "Our PHP conventions stipulate you should use curly braces even around single-statement blocks.",
+      "revId": "88e24e6fc8cc0c884125b646ed57601017c82c7e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
