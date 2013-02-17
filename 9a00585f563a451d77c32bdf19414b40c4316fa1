@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "Dl0Udjgo",
+        "filename": "tests/MathRendererTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-17T22:33:19Z",
+      "side": 1,
+      "message": "The only tabs in the code should be for leading indentation. Different editors set the width of tabs differently, so having tabs in the middle of lines tends to looks OK in one editor but broken in another. Just use a single space on either side of the \u0027\u003d\u0027 and don\u0027t try to align them too prettily.",
+      "revId": "9a00585f563a451d77c32bdf19414b40c4316fa1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DlyUaghQ",
+        "filename": "tests/MathRendererTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-17T22:33:19Z",
+      "side": 1,
+      "message": "You should still start each line in the comment block with \u0027*\u0027, even if the comment block contains sample code. The additional indentation makes it clear that the \u0027*\u0027 is not part of the code itself.",
+      "revId": "9a00585f563a451d77c32bdf19414b40c4316fa1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dl.XUeh8",
+        "filename": "tests/MathRendererTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-17T22:33:19Z",
+      "side": 1,
+      "message": "It seems that PHP",
+      "revId": "9a00585f563a451d77c32bdf19414b40c4316fa1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DlwXQpik",
+        "filename": "tests/MathRendererTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-17T22:33:19Z",
+      "side": 1,
+      "message": "According",
+      "revId": "9a00585f563a451d77c32bdf19414b40c4316fa1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dl6Xecjk",
+        "filename": "tests/MathRendererTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-17T22:33:19Z",
+      "side": 1,
+      "message": "You can use test doubles to test protected methods:\nhttp://www.phpunit.de/manual/current/en/test-doubles.html#test-doubles.mock-objects\n\nIt won\u0027t work for private methods. Private methods can be tested using reflection, as you do here.",
+      "revId": "9a00585f563a451d77c32bdf19414b40c4316fa1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dl8XZflU",
+        "filename": "tests/MathRendererTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-17T22:33:19Z",
+      "side": 1,
+      "message": "No space before comma.",
+      "revId": "9a00585f563a451d77c32bdf19414b40c4316fa1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dl4XklhE",
+        "filename": "tests/MathRendererTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-17T22:33:19Z",
+      "side": 1,
+      "message": "entry",
+      "revId": "9a00585f563a451d77c32bdf19414b40c4316fa1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
