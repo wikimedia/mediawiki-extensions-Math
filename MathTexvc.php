@@ -32,6 +32,7 @@ class MathTexvc extends MathRenderer {
 		if ( !$this->readCache() ) { // cache miss
 			$result = $this->callTexvc();
 			if ( $result != MW_TEXVC_SUCCESS ) {
+				$this->setSuccess(true);
 				return $result;
 			}
 		}
@@ -150,6 +151,7 @@ class MathTexvc extends MathRenderer {
 
 			$this->html = substr( $outdata, 0, $i );
 			$this->mathml = substr( $outdata, $i + 1 );
+			wfDebugLog( 'Math', "HTML output:\n $this->html \n" );
 		} elseif ( ( $retval == 'c' ) || ( $retval == 'm' ) || ( $retval == 'l' ) ) {
 			$this->html = substr( $contents, 33 );
 			if ( $retval == 'c' ) {
@@ -275,9 +277,10 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function writeCache() {
 		global $wgUseSquid;
-		if ( !$this->isRecall() ) {
+		if ( $this->isRecall() ) {
 			return;
 		}
+		wfDebugLog("Math","write Cache for:".$this->getTex());
 		$this->writeDBEntry();
 		// If we're replacing an older version of the image, make sure it's current.
 		if ( $wgUseSquid ) {
