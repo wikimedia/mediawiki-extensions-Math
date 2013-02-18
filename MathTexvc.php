@@ -46,7 +46,6 @@ class MathTexvc extends MathRenderer {
 	function getHashPath() {
 		$path = $this->getBackend()->getRootStoragePath() .
 			'/math-render/' . $this->getHashSubPath();
-		wfDebug( "TeX: getHashPath, hash is: $this->hash, path is: $path\n" );
 		return $path;
 	}
 
@@ -275,7 +274,8 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function writeCache() {
 		global $wgUseSquid;
-		if ( !$this->isRecall() ) {
+		if ( $this->isRecall() ) {
+			// Skip writing cache, if the tex code was already stored in the database.
 			return;
 		}
 		$this->writeDBEntry();
