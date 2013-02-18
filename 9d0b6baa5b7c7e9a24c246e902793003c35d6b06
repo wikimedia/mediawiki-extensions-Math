@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "Dl8XN-jI",
+        "filename": "MathTexvc.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-02-18T02:02:00Z",
+      "side": 1,
+      "message": "This comment is inaccurate now. You want to say something like, \"Cache the output in the database.\"",
+      "revId": "9d0b6baa5b7c7e9a24c246e902793003c35d6b06",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
