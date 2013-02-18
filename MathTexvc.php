@@ -46,7 +46,6 @@ class MathTexvc extends MathRenderer {
 	function getHashPath() {
 		$path = $this->getBackend()->getRootStoragePath() .
 			'/math-render/' . $this->getHashSubPath();
-		wfDebug( "TeX: getHashPath, hash is: $this->hash, path is: $path\n" );
 		return $path;
 	}
 
@@ -276,9 +275,10 @@ class MathTexvc extends MathRenderer {
 	public function writeCache() {
 		global $wgUseSquid;
 		if ( !$this->isRecall() ) {
-			return;
+			// Cache the output in the database.
+			$this->writeDBEntry();
 		}
-		$this->writeDBEntry();
+
 		// If we're replacing an older version of the image, make sure it's current.
 		if ( $wgUseSquid ) {
 			$urls = array( $this->getMathImageUrl() );
@@ -288,7 +288,8 @@ class MathTexvc extends MathRenderer {
 	}
 
 	/**
-	 * Reads the rendering information from the database.  If configured, checks whether files exist
+	 * Reads the rendering information from the database.  
+	 * If configured, checks whether files exist.
 	 *
 	 * @return boolean true if retrieved, false otherwise
 	 */
