@@ -1,0 +1,9 @@
+Verified+1: jenkins-bot
+Code-Review+2: Physikerwelt <wiki@physikerwelt.de>
+Verified+2: Physikerwelt <wiki@physikerwelt.de>
+Code-Review+1: Mattflaschen <mflaschen@wikimedia.org>
+Submitted-by: Physikerwelt <wiki@physikerwelt.de>
+Submitted-at: Wed, 20 Feb 2013 09:36:50 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/49612
+Project: mediawiki/extensions/Math
+Branch: refs/heads/master
