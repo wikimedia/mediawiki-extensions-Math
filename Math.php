@@ -127,6 +127,9 @@ $wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
 $wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
 $wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
 $wgAutoloadClasses['MathMathJax'] = $dir . 'MathMathJax.php';
+$wgAutoloadClasses['SpecialMathDebug'] = $dir . 'SpecialMathDebug.php';
+
+$wgSpecialPages['Math'] = 'SpecialMathDebug';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
