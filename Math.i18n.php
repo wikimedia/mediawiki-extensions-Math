@@ -10,6 +10,7 @@ $messages = array();
 
 /** English */
 $messages['en'] = array(
+	'math' => 'Math',
 	'math-desc' => 'Render mathematical formulas between <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> tags',
 	// Edit toolbar stuff shown on ?action=edit (example text & tooltip)
 	'math_sample' => 'Insert formula here',
