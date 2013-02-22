@@ -34,6 +34,7 @@ class MathTexvc extends MathRenderer {
 			if ( $result != MW_TEXVC_SUCCESS ) {
 				return $result;
 			}
+			$this->writeCache();
 		}
 		return $this->doHTMLRender();
 	}
