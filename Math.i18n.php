@@ -1583,12 +1583,13 @@ per favor vide math/README pro configurar lo.",
 
 /** Indonesian (Bahasa Indonesia)
  * @author IvanLanin
+ * @author Iwan Novirion
  */
 $messages['id'] = array(
 	'math_sample' => 'Masukkan rumus di sini',
 	'math_tip' => 'Rumus matematika (LaTeX)',
 	'prefs-math' => 'Matematika',
-	'mw_math_png' => 'Selalu buat PNG',
+	'mw_math_png' => 'Taruih buek PNG',
 	'mw_math_source' => 'Biarkan sebagai TeX (untuk penjelajah web teks)',
 	'math_failure' => 'Gagal memparse',
 	'math_unknown_error' => 'Kesalahan yang tidak diketahui',
@@ -2365,11 +2366,13 @@ $messages['mhr'] = array(
 );
 
 /** Minangkabau (Baso Minangkabau)
+ * @author Iwan Novirion
  * @author VoteITP
  */
 $messages['min'] = array(
 	'math_sample' => 'Masuakkan rumus di siko',
 	'math_tip' => 'Rumus matematika (LaTeX)',
+	'mw_math_source' => 'Biakan sabagai TeX (untuak panjalajah web teks)',
 );
 
 /** Macedonian (македонски)
