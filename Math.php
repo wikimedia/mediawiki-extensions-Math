@@ -119,7 +119,6 @@ $wgHooks['GetPreferences'][] = 'MathHooks::onGetPreferences';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'MathHooks::onLoadExtensionSchemaUpdates';
 $wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
 $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
-$wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
 
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
@@ -127,6 +126,9 @@ $wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
 $wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
 $wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
 $wgAutoloadClasses['MathMathJax'] = $dir . 'MathMathJax.php';
+$wgAutoloadClasses['SpecialMathDebug'] = $dir . 'SpecialMathDebug.php';
+
+$wgSpecialPages['Math'] = 'SpecialMathDebug';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
