@@ -10,6 +10,7 @@ $messages = array();
 
 /** English */
 $messages['en'] = array(
+	'math' => 'Math',
 	'math-desc' => 'Render mathematical formulas between <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> tags',
 	// Edit toolbar stuff shown on ?action=edit (example text & tooltip)
 	'math_sample' => 'Insert formula here',
@@ -42,6 +43,7 @@ $messages['en'] = array(
  * @author Siebrand
  */
 $messages['qqq'] = array(
+	'math' => "The name of the extension's entry in Special:Math",
 	'math-desc' => '{{desc|name=Math|url=http://www.mediawiki.org/wiki/Extension:Math}}',
 	'math_sample' => 'The sample formula text that you get when you press the fourth button from the right on the edit toolbar.',
 	'math_tip' => 'This is the text that appears when you hover the mouse over the fourth button from the right on the edit toolbar.',
