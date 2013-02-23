@@ -28,7 +28,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return string rendered TeK
 	 */
-	function render() {
+	function render($purge=false) {
 		if ( !$this->readCache() ) { // cache miss
 			$result = $this->callTexvc();
 			if ( $result != MW_TEXVC_SUCCESS ) {
