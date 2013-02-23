@@ -9,7 +9,11 @@
  */
 
 /**
- * Abstract base class for math renderers using different technologies.
+ * Abstract base class with static methods for rendering the <math> tags using different technologies.
+ * This static methods create a new istance of the extending classes and render the math tags based on the
+ * mode setting of the user.
+ * Furthermore this class handles the caching of the rendered output and provides debug information,
+ * if run in mathdebug mode.
  *
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
@@ -52,11 +56,10 @@ abstract class MathRenderer {
 	 * @param string $tex LaTeX markup
 	 * @param array $params HTML attributes
 	 */
-	public function __construct( $tex, $params = array() ) {
+	public function __construct( $tex='', $params = array() ) {
 		$this->tex = $tex;
 		$this->params = $params;
 	}
-
 	/**
 	 * Static method for rendering math tag
 	 *
@@ -69,7 +72,6 @@ abstract class MathRenderer {
 		$renderer = self::getRenderer( $tex, $params, $mode );
 		return $renderer->render ();
 	}
-
 	/**
 	 * Static factory method for getting a renderer based on mode
 	 *
@@ -98,14 +100,18 @@ abstract class MathRenderer {
 		return $renderer;
 	}
 
+
 	/**
 	 * Performs the rendering and returns the rendered element that needs to be embedded.
 	 *
 	 * @return string of rendered HTML
 	 */
-	abstract public function render();
+	abstract public function render($purge=false);
+
 
 	/**
+	 * Artefact from the texvc error messages
+	 * TODO: update to MathML
 	 * Returns an internationalized HTML error string
 	 *
 	 * @param string $msg message key for specific error
@@ -118,6 +124,7 @@ abstract class MathRenderer {
 		$source = htmlspecialchars ( str_replace ( "\n", ' ', $this->tex ) );
 		return "<strong class='error'>$mf ($errmsg$append): $source</strong>\n";
 	}
+
 
 	/**
 	 * Return hash of input
@@ -173,9 +180,31 @@ abstract class MathRenderer {
 		return $in;
 	}
 	/**
-	 * Reads rendering data from database
-	 *
-	 * @return boolean true if read successfully, false otherwise
+	 * @return string
+	 */
+	public function getMd5() {
+		return  md5( $this->tex ) ; # Binary packed, not hex
+	}
+	public function initializeFromDBRow($rpage){
+		global $wgDebugMath;
+		$dbr = wfGetDB( DB_SLAVE );
+		$xhash = unpack( 'H32md5', $dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
+		$this->hash = $xhash['md5'];
+		$this->conservativeness = $rpage->math_html_conservativeness;
+		$this->html = $rpage->math_html;
+		$this->mathml =utf8_decode( $rpage->math_mathml);
+		$this->recall = true;
+		if($wgDebugMath){
+			$this->tex=$rpage->math_tex;
+			$this->status_code=$rpage->math_status;
+			$this->valid_xml=$rpage->valid_xml;
+			$this->log=$rpage->math_log;
+			$this->timestamp=$rpage->math_timestamp;
+		}
+	}
+	/**
+	 * Tries to read from the DB cache, and initilizies the fields of this class according to the stored entries
+	 * @return boolean: true if the entry was found in the database.
 	 */
 	public function readDatabaseEntry() {
 		$dbr = wfGetDB ( DB_SLAVE );
@@ -252,6 +281,57 @@ abstract class MathRenderer {
 		$attribs = Sanitizer::mergeAttributes ( $attribs, $overrides );
 		return $attribs;
 	}
+
+	/**
+	 * @return Ambigous <multitype:, multitype:unknown number string mixed >
+	 */
+	private function dbOutArray(){
+		global $wgDebugMath;
+		$dbr = wfGetDB( DB_SLAVE );
+		if ( $this->hash )
+			$outmd5_sql = $dbr->encodeBlob( pack( 'H32', $this->hash ) );
+		else
+			$outmd5_sql = 0; //field cannot be null
+		//TODO: Change Database layout to allow for null values
+		$out= array(
+			'math_inputhash' => $this->getInputHash(),
+			'math_outputhash' => $outmd5_sql ,
+			'math_html_conservativeness' => $this->conservativeness,
+			'math_html' => $this->html,
+			'math_mathml' => utf8_encode($this->mathml));
+		if ($wgDebugMath){
+			$debug_out= array(
+				'math_status' => $this->status_code,
+				'valid_xml' => $this->valid_xml,
+				'math_tex' => $this->tex,
+				'math_log' => $this->status."\n".$this->log);
+			$out=array_merge($out,$debug_out);
+		}
+		wfDebugLog("Math","storeVAL:".var_export(utf8_encode ( $this->mathml),true)."ENDStoreVAL");
+		return $out;
+	}
+	/**
+	 * @return Ambigous <multitype:, multitype:unknown number string mixed >
+	 */
+	private function dbInArray(){
+		global $wgDebugMath;
+		$in= array(
+				'math_inputhash',
+				'math_outputhash'  ,
+				'math_html_conservativeness' ,
+				'math_html',
+				'math_mathml');
+		if ($wgDebugMath){
+			$debug_in= array(
+					'math_status' ,
+					'valid_xml' ,
+					'math_tex' ,
+					'math_log',
+					'math_timestamp');
+			$in=array_merge($in,$debug_in);
+		}
+		return $in;
+	}
 	/**
 	 * Writes cache.  Writes the database entry if values were changed
 	 */
@@ -260,7 +340,6 @@ abstract class MathRenderer {
 			$this->writeDatabaseEntry ();
 		}
 	}
-
 	/**
 	 * Determines if the class instance was changed.
 	 * e.g. to determine if the oject needs to be stored in the databse
@@ -283,11 +362,9 @@ abstract class MathRenderer {
 	public function setSuccess( $b ) {
 		$this->success = $b;
 	}
-
 	/**
-	 * Gets TeX markup
-	 *
-	 * @return string TeX markup
+	 * returns the TeX code of the <math>-tag
+	 * @return string
 	 */
 	public function getTex() {
 		return $this->tex;

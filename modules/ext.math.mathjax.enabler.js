@@ -1,97 +1,78 @@
 /**
  * From https://en.wikipedia.org/wiki/User:Nageh/mathJax.js
  */
-/*global mathJax:true, MathJax, wikEd:true */
-( function ( mw, $ ) {
-  if ( typeof mathJax === 'undefined' ) {
-    mathJax = {};
-  }
+(function ( mw, $ ) {
+/**
+ * renders all TeX inside the given elements, executes optional callback function after everything is rendered
+ * @param callback {function} optional callback function
+ */
+$.fn.renderTeX = function ( callback ) {
+	var elem = this.find( '.tex' ).parent() //get all elements containing an element with class tex
+		.toArray();
 
-  mathJax.version = '0.2';
+	if ( !$.isFunction( callback ) ) {
+		callback = $.noop;
+	}
 
-  mathJax.loaded = false;
+	function render () {
+		MathJax.Hub.Queue( ['Typeset', MathJax.Hub, elem, callback] );
+	}
 
-  mathJax.Config = function () {
-    MathJax.Hub.Config({
-      root: mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax',
-      config: ['TeX-AMS-texvc_HTML.js'],
-      'v1.0-compatible': false,
-      styles: {
-        '.mtext': {
-          'font-family': 'sans-serif ! important',
-          'font-size': '80%'
-        }
-      },
-      displayAlign: 'left',
-      menuSettings: {
-        zoom: 'Click'
-      },
-      'HTML-CSS': {
-        imageFont: null,
-        availableFonts: ['TeX']
-      }
-    });
-    MathJax.OutputJax.fontDir = mathJax.fontDir = mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
-  };
+	mw.loader.using( 'ext.math.mathjax', function () {
+		if ( MathJax.isReady ) {
+			render();
+		} else {
+			MathJax.Hub.Startup.signal.MessageHook( 'End', render );
+		}
+	} );
 
-  mathJax.Load = function () {
-    var config, script;
-    if (this.loaded) {
-      return true;
-    }
+	return this;
+};
 
-    // create configuration element
-    config = 'mathJax.Config();';
-    script = document.createElement( 'script' );
-    script.setAttribute( 'type', 'text/x-mathjax-config' );
-    if ( window.opera ) {
-      script.innerHTML = config;
-    } else {
-      script.text = config;
-    }
-    document.getElementsByTagName('head')[0].appendChild( script );
+if ( mw.mathJax === undefined ) {
+	mw.mathJax = {};
+}
 
-    // create startup element
-    mw.loader.load('ext.math.mathjax');
+mw.mathJax.config = $.extend( true, {
+	root: mw.config.get( 'wgExtensionAssetsPath' ) + '/Math/modules/MathJax',
+	config: ['TeX-AMS-texvc_HTML.js'],
+	'v1.0-compatible': false,
+	styles: {
+		'.mtext': {
+			'font-family': 'sans-serif ! important',
+			'font-size': '80%'
+		}
+	},
+	displayAlign: 'left',
+	menuSettings: {
+		zoom: 'Click'
+	},
+	'HTML-CSS': {
+		imageFont: null,
+		availableFonts: ['TeX']
+	}
+}, mw.mathJax.config );
 
-    this.loaded = true;
+mw.mathJax.Config = function () {
+	MathJax.Hub.Config( mw.mathJax.config );
+	MathJax.OutputJax.fontDir = mw.config.get( 'wgExtensionAssetsPath' ) + '/Math/modules/MathJax/fonts';
+};
 
-    return false;
-  };
+function init () {
+	// create configuration element
+	var	config = 'mediaWiki.mathJax.Config();',
+		script = document.createElement( 'script' );
+	script.setAttribute( 'type', 'text/x-mathjax-config' );
+	if ( window.opera ) {
+		script.innerHTML = config;
+	} else {
+		script.text = config;
+	}
+	document.getElementsByTagName( 'head' )[0].appendChild( script );
 
-  mathJax.Init = function () {
-    this.Load( document.getElementById('bodyContent') || document.body );
+	mw.loader.load( 'ext.math.mathjax' );
+}
 
-    // compatibility with wikEd
-    if ( typeof wikEd === 'undefined' ) {
-      wikEd = {};
-    }
-    if ( wikEd.config === undefined ) {
-      wikEd.config = {};
-    }
-    if ( wikEd.config.previewHook === undefined ) {
-      wikEd.config.previewHook = [];
-    }
-    wikEd.config.previewHook.push( function (){
-      if (window.mathJax.Load(document.getElementById('wikEdPreviewBox') || document.body)) {
-        MathJax.Hub.Queue(['Typeset', MathJax.Hub, 'wikEdPreviewBox']);
-      }
-    } );
+init();
 
-    // compatibility with ajaxPreview
-    this.oldAjaxPreviewExec = window.ajaxPreviewExec;
-    window.ajaxPreviewExec = function (previewArea) {
-      if ( mathJax.oldAjaxPreviewExec !== undefined ) {
-        mathJax.oldAjaxPreviewExec(previewArea);
-      }
-      if ( mathJax.Load(previewArea) ) {
-        MathJax.Hub.Queue( ['Typeset', MathJax.Hub, previewArea] );
-      }
-    };
-  };
-
-  $( document ).ready( function () {
-    mathJax.Init();
-  } );
-
-}( mediaWiki, jQuery ) );
+})( mediaWiki, jQuery );

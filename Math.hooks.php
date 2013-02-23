@@ -51,12 +51,18 @@ class MathHooks {
 			$content, $attributes, $mode
 		);
 		$renderedMath = $renderer->render();
+		wfRunHooks( 'MathFormulaRendered',
+		array( &$renderer,&$renderedMath,$parser->getTitle()->getArticleID(),
+		$parser->nextLinkID()) );//Enables indexing of math formula
 		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
+			// $renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
+		} elseif ( $wgUseMathJax && $mode == MW_MATH_LATEXML ) {
+			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler.mml' ) );
 		}
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
-		return $wgContLang->armourMath( $renderedMath );
+		return $wgContLang->armourMath( $renderedMath);
 	}
 
 	/**
@@ -82,11 +88,13 @@ class MathHooks {
 	 * @return array of strings
 	 */
 	private static function getMathNames() {
-		global $wgUseMathJax;
 		$names = array(
 			MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
 			MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
+			MW_MATH_LATEXML => wfMessage( 'mw_math_latexml' )->escaped(),
 		);
+
+		global $wgUseMathJax;
 		if ( $wgUseMathJax ) {
 			$names[MW_MATH_MATHJAX] = wfMessage( 'mw_math_mathjax' )->escaped();
 		}
@@ -105,6 +113,7 @@ class MathHooks {
 
 		# Don't generate TeX PNGs (lack of a sensible current directory causes errors anyway)
 		$wgUser->setOption( 'math', MW_MATH_SOURCE );
+
 		return true;
 	}
 
@@ -121,19 +130,33 @@ class MathHooks {
 			throw new MWException( "Math extension is only necessary in 1.18 or above" );
 		}
 		$map = array(
-			'mysql' => 'math.sql',
-			'sqlite' => 'math.sql',
-			'postgres' => 'math.pg.sql',
-			'oracle' => 'math.oracle.sql',
-			'mssql' => 'math.mssql.sql',
-			'db2' => 'math.db2.sql',
+				'mysql' => 'math.sql',
+				'sqlite' => 'math.sql',
+				'postgres' => 'math.pg.sql',
+				'oracle' => 'math.oracle.sql',
+				'mssql' => 'math.mssql.sql',
+				'db2' => 'math.db2.sql',
 		);
 		$type = $updater->getDB()->getType();
-		if ( isset( $map[$type] ) ) {
+		if ( isset( $map[$type] ) ){
 			$sql = dirname( __FILE__ ) . '/db/' . $map[$type];
 			$updater->addExtensionTable( 'math', $sql );
 		} else {
-			throw new MWException( "Math extension does not currently support $type database." );
+			throw new MWException( "Math extension does not currently support $type database for debugging.\n"
+					.'Please set $wgDebugMath =false; in your LocalSettings.php' );
+		}
+		if ($wgDebugMath){
+			if($type =='mysql' ){
+				$dir = dirname( __FILE__ ) . '/db/debug_fields_';
+				$updater->addExtensionField('math', 'math_tex', $dir.'math_tex.sql');
+				$updater->addExtensionField('math', 'math_status', $dir.'math_status.sql');
+				$updater->addExtensionField('math', 'valid_xml', $dir.'valid_xml.sql');
+				$updater->addExtensionField('math', 'math_log', $dir.'math_log.sql');
+				$updater->addExtensionField('math', 'math_timestamp', $dir.'math_timestamp.sql');
+				
+			} else {
+				throw new MWException( "Math extension does not currently support $type database." );
+			}
 		}
 
 		if ( $wgDebugMath ) {

@@ -7,7 +7,6 @@
  * @version 1.0
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
- * @author Moritz Schubotz
  * @copyright © 2002-2012 various MediaWiki contributors
  * @license GPLv2 license; info in main package.
  * @link http://www.mediawiki.org/wiki/Extension:Math Documentation
@@ -20,17 +19,17 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 // Extension credits that will show up on Special:Version
 $wgExtensionCredits['parserhook'][] = array(
-	'path' => __FILE__,
-	'name' => 'Math',
-	'version' => '1.0',
-	'author' => array( 'Tomasz Wegrzanowski', 'Brion Vibber', '...' ),
-	'descriptionmsg' => 'math-desc',
-	'url' => 'https://www.mediawiki.org/wiki/Extension:Math',
+		'path' => __FILE__,
+		'name' => 'Math',
+		'version' => '1.0',
+		'author' => array( 'Tomasz Wegrzanowski', 'Brion Vibber', '...' ),
+		'descriptionmsg' => 'math-desc',
+		'url' => 'https://www.mediawiki.org/wiki/Extension:Math',
 );
 
 /**@{
  * Maths constants
- */
+*/
 define( 'MW_MATH_PNG',    0 );
 define( 'MW_MATH_SIMPLE', 1 ); /// @deprecated
 define( 'MW_MATH_HTML',   2 ); /// @deprecated
@@ -38,6 +37,7 @@ define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 ); /// @deprecated
 define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
+define( 'MW_MATH_LATEXML', 7 ); /// new in 1.21
 /**@}*/
 
 /** For back-compat */
@@ -45,6 +45,8 @@ $wgUseTeX = true;
 
 /** Location of the texvc binary */
 $wgTexvc = dirname( __FILE__ ) . '/math/texvc';
+/** Location of the latexmlmath binary */
+$wgLaTeXML = '/usr/local/bin/latexmlmath';
 /**
  * Texvc background color
  * use LaTeX color format as used in \special function
@@ -99,7 +101,7 @@ $wgMathDirectory = false;
  *
  * Not guaranteed to be stable at this time.
  */
-$wgUseMathJax = false;
+$wgUseMathJax = true;
 
 /**
  * Use of MathJax's CDN is governed by terms of service
@@ -109,9 +111,22 @@ $wgUseMathJax = false;
  */
 $wgMathJaxUrl = 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML';
 
+/**
+ * Use of LaTeXML for details see
+ * <http://latexml.mathweb.org/help>
+ *
+ * If you don't like them, install your own server see
+ * <https://svn.mathweb.org/repos/LaTeXML/branches/arXMLiv/INSTALL>
+ */
+$wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
+/**
+ * Rendering math is a process that is quite tricky.
+ * To resolve errors it is good to enable wgDebugMath to see what causes errors and or problems.
+ */
+$wgDebugMath = false;
 ////////// end of config settings.
 
-$wgDefaultUserOptions['math'] = MW_MATH_PNG;
+$wgDefaultUserOptions['math'] = MW_MATH_LATEXML;
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
@@ -119,6 +134,7 @@ $wgHooks['GetPreferences'][] = 'MathHooks::onGetPreferences';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'MathHooks::onLoadExtensionSchemaUpdates';
 $wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
 $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
+$wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
 
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
@@ -134,19 +150,31 @@ $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 
 $moduleTemplate = array(
-	'localBasePath' => dirname( __FILE__ ) . '/modules',
-	'remoteExtPath' => 'Math/modules',
+		'localBasePath' => dirname( __FILE__ ) . '/modules',
+		'remoteExtPath' => 'Math/modules',
 );
 
-$wgResourceModules['ext.math.mathjax'] = array(
-	'scripts' => array(
-		'MathJax/MathJax.js',
-		// We'll let the other parts be loaded by MathJax's
-		// own module/config loader.
-	),
-	'group' => 'ext.math.mathjax',
-) + $moduleTemplate;
+if(isset($_SERVER['HTTP_USER_AGENT'])){
+	$UA=$_SERVER['HTTP_USER_AGENT'];
+} else
+{$UA="undefined"; //required for maitenance script runs
+}
+if (!preg_match('/Firefox/',$UA)){ //Don't use MathJax with Firefox this has to be extenden to other browser that suppert MathML maybe a function supports MathML was the correct way to go
+	$wgResourceModules['ext.math.mathjax'] = array(
+			'scripts' => array(
+					'MathJax/MathJax.js',
+					// We'll let the other parts be loaded by MathJax's
+					// own module/config loader.
+			),
+			'group' => 'ext.math.mathjax',
+	) + $moduleTemplate;
+}
+
 
 $wgResourceModules['ext.math.mathjax.enabler'] = array(
-	'scripts' => 'ext.math.mathjax.enabler.js',
+		'scripts' => 'ext.math.mathjax.enabler.js',
+) + $moduleTemplate;
+// Customized module for LaTeXML
+$wgResourceModules['ext.math.mathjax.enabler.mml'] = array(
+		'scripts' => 'ext.math.mathjax.enabler.mml.js',
 ) + $moduleTemplate;

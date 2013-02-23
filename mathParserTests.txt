@@ -26,7 +26,7 @@ math
 !! input
 [[Image:foobar.jpg|thumb|<math>2+2</math>]]
 !! result
-<div class="thumb tright"><div class="thumbinner" style="width:182px;"><a href="/wiki/File:Foobar.jpg" class="image"><img alt="" src="http://example.com/images/thumb/3/3a/Foobar.jpg/180px-Foobar.jpg" width="180" height="20" class="thumbimage" srcset="http://example.com/images/thumb/3/3a/Foobar.jpg/270px-Foobar.jpg 1.5x, http://example.com/images/thumb/3/3a/Foobar.jpg/360px-Foobar.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Foobar.jpg" class="internal" title="Enlarge"><img src="/skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div><img class="tex" alt="2+2" src="/images/math/f/a/5/fa50b8b616463173474302ca3e63586b.png" /></div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:182px;"><a href="/wiki/File:Foobar.jpg" class="image"><img alt="" src="http://example.com/images/thumb/3/3a/Foobar.jpg/180px-Foobar.jpg" width="180" height="20" class="thumbimage" srcset="http://example.com/images/thumb/3/3a/Foobar.jpg/270px-Foobar.jpg 1.5x, http://example.com/images/thumb/3/3a/Foobar.jpg/360px-Foobar.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Foobar.jpg" class="internal" title="Enlarge"><img src="/skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div><a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=0" id="math0"><span class="tex" dir="ltr" id="2 2"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="2+2" display="inline">   <semantics>     <mrow>       <mn>2</mn>       <mo>+</mo>       <mn>2</mn>     </mrow>     <annotation-xml encoding="MathML-Content">       <apply>         <plus/>         <cn type="integer">2</cn>         <cn type="integer">2</cn>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">2+2</annotation>   </semantics> </math></span></a></div></div></div>
 
 !! end
 
@@ -59,12 +59,13 @@ BUG 27324: Euro symbol for math
 <math>\geneurowide</math>
 <math>\officialeuro</math>
 !! result
-<p><img class="tex" alt="\euro 200" src="/images/math/1/8/8/18867d4c568a19ae7b2388346e504ec3.png" />
-<img class="tex" alt="\geneuro" src="/images/math/9/8/b/98b63c235ee187a38267e0e170b10e9d.png" />
-<img class="tex" alt="\geneuronarrow" src="/images/math/a/a/4/aa4a1ed370f4ee705c6930384bf89502.png" />
-<img class="tex" alt="\geneurowide" src="/images/math/4/4/0/4404468e6187fb04e4f7e1f15e550825.png" />
-<img class="tex" alt="\officialeuro" src="/images/math/d/7/0/d708de0eed23dbd6f02b99ea9073547b.png" />
+<p><a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=0" id="math0"><span class="tex" dir="ltr" id="\euro 200"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\euro 200" display="inline">   <semantics>     <mrow>       <mtext mathvariant="italic">\euro</mtext>       <mo>⁢</mo>       <mn>200</mn>     </mrow>     <annotation-xml encoding="MathML-Content">       <apply>         <times/>         <mtext>\euro</mtext>         <cn type="integer">200</cn>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\euro 200</annotation>   </semantics> </math></span></a>
 </p>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=1" id="math1"><span class="tex" dir="ltr" id="\geneuro"><div xmlns="http://www.w3.org/1999/xhtml" class="document"> <div id="p1" class="para"> <p class="p"><span class="text italic"><span class="ERROR undefined">\geneuro</span></span></p> </div> </div></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=2" id="math2"><span class="tex" dir="ltr" id="\geneuronarrow"><div xmlns="http://www.w3.org/1999/xhtml" class="document"> <div id="p1" class="para"> <p class="p"><span class="text italic"><span class="ERROR undefined">\geneuronarrow</span></span></p> </div> </div></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=3" id="math3"><span class="tex" dir="ltr" id="\geneurowide"><div xmlns="http://www.w3.org/1999/xhtml" class="document"> <div id="p1" class="para"> <p class="p"><span class="text italic"><span class="ERROR undefined">\geneurowide</span></span></p> </div> </div></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=4" id="math4"><span class="tex" dir="ltr" id="\officialeuro"><div xmlns="http://www.w3.org/1999/xhtml" class="document"> <div id="p1" class="para"> <p class="p"><span class="text italic"><span class="ERROR undefined">\officialeuro</span></span></p> </div> </div></span></a>
+
 !! end
 
 !! test
@@ -77,13 +78,14 @@ BUG 27754: Archaic Greek letters for math (may require texlive-lang-greek)
 <math>\Sampi\sampi</math>
 <math>\Stigma\stigma\varstigma</math>
 !! result
-<p><img class="tex" alt="\digamma" src="/images/math/2/f/0/2f057b6e514c8ca2d9cf9a3e549f8865.png" />
-<img class="tex" alt="\Coppa\coppa\varcoppa" src="/images/math/8/3/0/8308ee5003aa36112414cad8ef874f85.png" />
-<img class="tex" alt="\Digamma" src="/images/math/5/c/f/5cfd6e5df6c87798542dca2e22c1e7cb.png" />
-<img class="tex" alt="\Koppa\koppa" src="/images/math/5/2/5/52593a0cdac178d165985ac014788b97.png" />
-<img class="tex" alt="\Sampi\sampi" src="/images/math/e/9/d/e9dabb19e4c27bf23d3c2a3629474562.png" />
-<img class="tex" alt="\Stigma\stigma\varstigma" src="/images/math/7/b/9/7b9233276816994a33a5e968202cef6e.png" />
+<p><a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=0" id="math0"><span class="tex" dir="ltr" id="\digamma"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\digamma" display="inline">   <semantics>     <mi>ϝ</mi>     <annotation-xml encoding="MathML-Content">       <ci>ϝ</ci>     </annotation-xml>     <annotation encoding="application/x-tex">\digamma</annotation>   </semantics> </math></span></a>
 </p>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=1" id="math1"><span class="tex" dir="ltr" id="\Coppa\coppa\varcoppa"><div xmlns="http://www.w3.org/1999/xhtml" class="document"> <div id="p1" class="para"> <p class="p"><span class="text italic"><span class="ERROR undefined">\Coppa</span><span class="ERROR undefined">\coppa</span><span class="ERROR undefined">\varcoppa</span></span></p> </div> </div></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=2" id="math2"><span class="tex" dir="ltr" id="\Digamma"><div xmlns="http://www.w3.org/1999/xhtml" class="document"> <div id="p1" class="para"> <p class="p"><span class="text italic"><span class="ERROR undefined">\Digamma</span></span></p> </div> </div></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=3" id="math3"><span class="tex" dir="ltr" id="\Koppa\koppa"><div xmlns="http://www.w3.org/1999/xhtml" class="document"> <div id="p1" class="para"> <p class="p"><span class="text italic"><span class="ERROR undefined">\Koppa</span><span class="ERROR undefined">\koppa</span></span></p> </div> </div></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=4" id="math4"><span class="tex" dir="ltr" id="\Sampi\sampi"><div xmlns="http://www.w3.org/1999/xhtml" class="document"> <div id="p1" class="para"> <p class="p"><span class="text italic"><span class="ERROR undefined">\Sampi</span><span class="ERROR undefined">\sampi</span></span></p> </div> </div></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=5" id="math5"><span class="tex" dir="ltr" id="\Stigma\stigma\varstigma"><div xmlns="http://www.w3.org/1999/xhtml" class="document"> <div id="p1" class="para"> <p class="p"><span class="text italic"><span class="ERROR undefined">\Stigma</span><span class="ERROR undefined">\stigma</span><span class="ERROR undefined">\varstigma</span></span></p> </div> </div></span></a>
+
 !! end
 
 !! test
@@ -93,10 +95,10 @@ BUG 19547: Apostrophe / single quotes in math \text{...}
 <math>\text{next year's}</math>
 <math>\text{`next' year}</math>
 !! result
-<p><img class="tex" alt="\text{next years}" src="/images/math/6/6/9/6691dbc0b36631a68b78dd5ace256d80.png" />
-<img class="tex" alt="\text{next year&#39;s}" src="/images/math/2/3/6/236fd262b1976d04bc0e7a969d61aede.png" />
-<img class="tex" alt="\text{`next&#39; year}" src="/images/math/0/5/8/05854b483a833f067cb6ae72319b44bc.png" />
-</p>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=0" id="math0"><span class="tex" dir="ltr" id="\text{next years}"><div xmlns="http://www.w3.org/1999/xhtml" class="document"> <div id="p1" class="para"> <p class="p">next years</p> </div> </div></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=1" id="math1"><span class="tex" dir="ltr" id="\text{next year&#39;s}"><div xmlns="http://www.w3.org/1999/xhtml" class="document"> <div id="p1" class="para"> <p class="p">next year’s</p> </div> </div></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=2" id="math2"><span class="tex" dir="ltr" id="\text{`next&#39; year}"><div xmlns="http://www.w3.org/1999/xhtml" class="document"> <div id="p1" class="para"> <p class="p">‘next’ year</p> </div> </div></span></a>
+
 !! end
 
 !! test
@@ -110,12 +112,12 @@ BUG 6722: Spacing fix for functions in math HTML output
 <math>\sin(x) \,</math>
 <math>\sin{x} \,</math>
 !!result
-<p><img class="tex" alt="\sin x" src="/images/math/c/d/b/cdba58911c590ced3e2435dfa39f6873.png" />
-<img class="tex" alt="\sin(x)" src="/images/math/3/e/2/3e21673ce6c9b09f9ec50b7237248576.png" />
-<img class="tex" alt="\sin{x}" src="/images/math/f/b/5/fb5551723991d4dcb974a23c162ae813.png" />
-</p><p><img class="tex" alt="\sin x \," src="/images/math/7/6/a/76a8e1a01bd233c1e4e16d63b2bbf939.png" />
-<img class="tex" alt="\sin(x) \," src="/images/math/1/6/c/16c69b0a3658d3b398f72c518d869a03.png" />
-<img class="tex" alt="\sin{x} \," src="/images/math/8/3/9/839639707da39f691e702c2399cbf943.png" />
+<p><a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=0" id="math0"><span class="tex" dir="ltr" id="\sin x"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\sin x" display="inline">   <semantics>     <mrow>       <mi>sin</mi>       <mo>⁡</mo>       <mi>x</mi>     </mrow>     <annotation-xml encoding="MathML-Content">       <apply>         <sin/>         <ci>x</ci>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\sin x</annotation>   </semantics> </math></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=1" id="math1"><span class="tex" dir="ltr" id="\sin(x)"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\sin(x)" display="inline">   <semantics>     <mrow>       <mi>sin</mi>       <mo>⁡</mo>       <mrow>         <mo>(</mo>         <mi>x</mi>         <mo>)</mo>       </mrow>     </mrow>     <annotation-xml encoding="MathML-Content">       <apply>         <sin/>         <ci>x</ci>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\sin(x)</annotation>   </semantics> </math></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=2" id="math2"><span class="tex" dir="ltr" id="\sin{x}"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\sin{x}" display="inline">   <semantics>     <mrow>       <mi>sin</mi>       <mo>⁡</mo>       <mi>x</mi>     </mrow>     <annotation-xml encoding="MathML-Content">       <apply>         <sin/>         <ci>x</ci>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\sin{x}</annotation>   </semantics> </math></span></a>
+</p><p><a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=3" id="math3"><span class="tex" dir="ltr" id="\sin x \,"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\sin x\," display="inline">   <semantics>     <mrow>       <mi>sin</mi>       <mo>⁡</mo>       <mpadded width="+1.666667pt">         <mi>x</mi>       </mpadded>     </mrow>     <annotation-xml encoding="MathML-Content">       <apply>         <sin/>         <ci>x</ci>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\sin x\,</annotation>   </semantics> </math></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=4" id="math4"><span class="tex" dir="ltr" id="\sin(x) \,"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\sin(x)\," display="inline">   <semantics>     <mrow>       <mi>sin</mi>       <mo>⁡</mo>       <mrow>         <mo>(</mo>         <mi>x</mi>         <mo>)</mo>       </mrow>     </mrow>     <annotation-xml encoding="MathML-Content">       <apply>         <sin/>         <ci>x</ci>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\sin(x)\,</annotation>   </semantics> </math></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=5" id="math5"><span class="tex" dir="ltr" id="\sin{x} \,"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\sin{x}\," display="inline">   <semantics>     <mrow>       <mi>sin</mi>       <mo>⁡</mo>       <mpadded width="+1.666667pt">         <mi>x</mi>       </mpadded>     </mrow>     <annotation-xml encoding="MathML-Content">       <apply>         <sin/>         <ci>x</ci>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\sin{x}\,</annotation>   </semantics> </math></span></a>
 </p>
 !! end
 
@@ -130,12 +132,12 @@ BUG 18912: Add \sen function for Spanish sin to math
 <math>\sen(x) \,</math>
 <math>\sen{x} \,</math>
 !! result
-<p><img class="tex" alt="\sen x" src="/images/math/f/b/8/fb82a78d580396c62cecb4cf018f3769.png" />
-<img class="tex" alt="\sen(x)" src="/images/math/8/3/a/83a10e6756c8e59055178dc1f593130a.png" />
-<img class="tex" alt="\sen{x}" src="/images/math/0/4/f/04fde4f7a7e478015066f378050b1979.png" />
-</p><p><img class="tex" alt="\sen x \," src="/images/math/0/a/c/0ac592b8f31b4698766c50c532f446a7.png" />
-<img class="tex" alt="\sen(x) \," src="/images/math/b/b/5/bb5469d24fcdd52aa60cb9ee90ba697d.png" />
-<img class="tex" alt="\sen{x} \," src="/images/math/d/4/8/d4882a4bcf5db1da3e30d905da8b394e.png" />
+<p><a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=0" id="math0"><span class="tex" dir="ltr" id="\sen x"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\sen x" display="inline">   <semantics>     <mrow>       <mtext mathvariant="italic">\sen</mtext>       <mo>⁢</mo>       <mi>x</mi>     </mrow>     <annotation-xml encoding="MathML-Content">       <apply>         <times/>         <mtext>\sen</mtext>         <ci>x</ci>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\sen x</annotation>   </semantics> </math></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=1" id="math1"><span class="tex" dir="ltr" id="\sen(x)"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\sen(x)" display="inline">   <semantics>     <mrow>       <mtext mathvariant="italic">\sen</mtext>       <mo>⁢</mo>       <mrow>         <mo>(</mo>         <mi>x</mi>         <mo>)</mo>       </mrow>     </mrow>     <annotation-xml encoding="MathML-Content">       <apply>         <times/>         <mtext>\sen</mtext>         <ci>x</ci>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\sen(x)</annotation>   </semantics> </math></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=2" id="math2"><span class="tex" dir="ltr" id="\sen{x}"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\sen{x}" display="inline">   <semantics>     <mrow>       <mtext mathvariant="italic">\sen</mtext>       <mo>⁢</mo>       <mi>x</mi>     </mrow>     <annotation-xml encoding="MathML-Content">       <apply>         <times/>         <mtext>\sen</mtext>         <ci>x</ci>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\sen{x}</annotation>   </semantics> </math></span></a>
+</p><p><a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=3" id="math3"><span class="tex" dir="ltr" id="\sen x \,"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\sen x\," display="inline">   <semantics>     <mrow>       <mtext mathvariant="italic">\sen</mtext>       <mo>⁢</mo>       <mpadded width="+1.666667pt">         <mi>x</mi>       </mpadded>     </mrow>     <annotation-xml encoding="MathML-Content">       <apply>         <times/>         <mtext>\sen</mtext>         <ci>x</ci>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\sen x\,</annotation>   </semantics> </math></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=4" id="math4"><span class="tex" dir="ltr" id="\sen(x) \,"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\sen(x)\," display="inline">   <semantics>     <mrow>       <mtext mathvariant="italic">\sen</mtext>       <mo>⁢</mo>       <mrow>         <mo>(</mo>         <mi>x</mi>         <mo>)</mo>       </mrow>     </mrow>     <annotation-xml encoding="MathML-Content">       <apply>         <times/>         <mtext>\sen</mtext>         <ci>x</ci>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\sen(x)\,</annotation>   </semantics> </math></span></a>
+<a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=5" id="math5"><span class="tex" dir="ltr" id="\sen{x} \,"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\sen{x}\," display="inline">   <semantics>     <mrow>       <mtext mathvariant="italic">\sen</mtext>       <mo>⁢</mo>       <mpadded width="+1.666667pt">         <mi>x</mi>       </mpadded>     </mrow>     <annotation-xml encoding="MathML-Content">       <apply>         <times/>         <mtext>\sen</mtext>         <ci>x</ci>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\sen{x}\,</annotation>   </semantics> </math></span></a>
 </p>
 !! end
 
@@ -144,7 +146,7 @@ BUG 18912: \operatorname{sen} x gets wrong spacing in math
 !! input
 <math>\operatorname{sen}</math>
 !! result
-<p><img class="tex" alt="\operatorname{sen}" src="/images/math/f/a/9/fa9660c7eb053ca8d3c9a87fa86635d9.png" />
+<p><a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=0" id="math0"><span class="tex" dir="ltr" id="\operatorname{sen}"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\operatorname{sen}" display="inline">   <semantics>     <mo>sen</mo>     <annotation-xml encoding="MathML-Content">       <ci>sen</ci>     </annotation-xml>     <annotation encoding="application/x-tex">\operatorname{sen}</annotation>   </semantics> </math></span></a>
 </p>
 !! end
 
@@ -153,7 +155,7 @@ BUG 31442: Multiple math accents without braces fails to parse
 !! input
 <math>\dot \vec B</math>
 !! result
-<p><img class="tex" alt="\dot \vec B" src="/images/math/e/6/4/e64939568ecb506a86a392373cec0458.png" />
+<p><a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=0" id="math0"><span class="tex" dir="ltr" id="\dot \vec B"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\dot{\vec{B}}" display="inline">   <semantics>     <mover accent="true">       <mover accent="true">         <mi>B</mi>         <mo>→</mo>       </mover>       <mo>˙</mo>     </mover>     <annotation-xml encoding="MathML-Content">       <apply>         <ci>normal-˙</ci>         <apply>           <ci>normal-→</ci>           <ci>B</ci>         </apply>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\dot{\vec{B}}</annotation>   </semantics> </math></span></a>
 </p>
 !! end
 
@@ -162,7 +164,7 @@ BUG 31442: Math accents with math font fail to parse if braces not used
 !! input
 <math>\tilde \mathcal{M}</math>
 !! result
-<p><img class="tex" alt="\tilde \mathcal{M}" src="/images/math/5/5/0/55072ce6ef8c840c4b7687bd8a028bde.png" />
+<p><a href="/index.php/Special:FormulaInfo?pid=0&amp;eid=0" id="math0"><span class="tex" dir="ltr" id="\tilde \mathcal{M}"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\tilde{\mathcal{M}}" display="inline">   <semantics>     <mover accent="true">       <mi>ℳ</mi>       <mo>~</mo>     </mover>     <annotation-xml encoding="MathML-Content">       <apply>         <ci>normal-~</ci>         <ci>ℳ</ci>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex">\tilde{\mathcal{M}}</annotation>   </semantics> </math></span></a>
 </p>
 !! end
 
