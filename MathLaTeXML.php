@@ -52,7 +52,7 @@ class MathLaTeXML extends MathRenderer {
 		if ( !$purge&& !$this->isPurge()){
 			$dbres=$this->readDatabaseEntry();
 			if ($dbres) {
-				if (self::isValidMathML($this->mathml)){
+				if (self::isValidMathML($this->getMathml())){
 					$recall=true;
 					$this->setSuccess(true);
 				} 
@@ -71,9 +71,9 @@ class MathLaTeXML extends MathRenderer {
 	 * @see MathRenderer::writeCache()
 	*/
 	function writeCache() {
-		if ( $this->wasChanged() && $this->isSuccess() ){
+		if ( $this->wasChanged() && $this->getSuccess() ){
 			$this->hash=0;
-			$this->writeDBentry();
+			$this->writeDatabaseEntry();
 		}
 	}
 	/**
@@ -115,19 +115,18 @@ class MathLaTeXML extends MathRenderer {
 		$result = json_decode( $res );
 		if ( $result ) {// &&is_array($result)&&is_array($result['result'])&&count($result['result'])>0){
 			if ($wgDebugMath or $result->status != "No obvious problems" ) {
-				$this->status = $result->status;
-				$this->log = $result->log;
-				$this->status_code = $result->status_code;
+				$this->setStatusCode($result->status_code);
+				$this->setLog($result->log);
 			}
 			if ( ( strpos( $result->result, '<?xml version="1.0" encoding="utf-8"?>' ) === 0 ) )
 			{
 				wfDebugLog( "Math", "ERROR: Result is invalid " . $result->result );
 				return false;
 			}
-			$this->mathml = $result->result;
-			$this->valid_xml=self::isValidMathML($this->mathml);
-			if(!$this->valid_xml){
-				$this->mathml = "[ERROR (invalid)]".$result->result;
+			$this->setMathml( $result->result);
+			$this->setValidXml(self::isValidMathML($this->getMathml()));
+			if(!$this->getValidXml()){
+				$this->setMathml( "[ERROR (invalid)]".$result->result);
 				wfDebugLog( "Math", "\nLaTeXML Error:" . var_export( array( $result, $post, $host ), true ) . "\n\n" );
 			}
 		}
