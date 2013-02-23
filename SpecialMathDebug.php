@@ -33,12 +33,16 @@ class SpecialMathDebug extends SpecialPage {
 	function testParser() {
 		$out = $this->getOutput();
 		$out->addModules( array( 'ext.math.mathjax.enabler' ));
+		$i=0;
 		foreach ( self::testQuery() as $t ) {
+			$out->addWikiText('==='.$i++.'===');
 			$out->addWikiText( "MW_MATH_SOURCE:" . str_replace('class="tex"','class="-NO-JAX-"',MathRenderer::renderMath( $t, array(), MW_MATH_SOURCE )) );
 			$out->addWikiText( "MW_MATH_PNG:", false );
 			$out->addHTML( MathRenderer::renderMath( $t, array(), MW_MATH_PNG ) . "<br \>" );
 			$out->addWikiText( "MW_MATH_MATHJAX:", false );
-			$out->addHTML( MathRenderer::renderMath( $t, array(), MW_MATH_MATHJAX ) );
+			$out->addHTML( MathRenderer::renderMath( $t, array(), MW_MATH_MATHJAX )  . "<br \>" );
+			$out->addWikiText( "MW_MATH_MATHML:", false );
+			$out->addHTML( MathRenderer::renderMath( $t, array(), MW_MATH_MATHML ) );
 		}
 	}
 
@@ -48,12 +52,12 @@ class SpecialMathDebug extends SpecialPage {
 				'\\definecolor{red}{RGB}{255,0,0}\\pagecolor{red}e^{i \\pi} + 1 = 0\\,\\!',
 				'\\sqrt{\\pi}',
 				'\\text{abc}',
-				'\\text {abcdefghijklmnopqrstuvwxyzàáâãäåæçčďèéěêëìíîïňñòóôõöřšť÷øùúůûüýÿž}',
-				'\\text {abcdefghijklmnopqrstuvwxyzàáâãäåæçčďèéěêëìíîïňñòóôõöřšť÷øùúůûüýÿž}\\,',
-				'\\mbox {abcdefghijklmnopqrstuvwxyzàáâãäåæçčďèéěêëìíîïňñòóôõöřšť÷øùúůûüýÿž}',
-				'\\mbox {abcdefghijklmnopqrstuvwxyzàáâãäåæçčďèéěêëìíîïňñòóôõöřšť÷øùúůûüýÿž}\\,',
-				'\\mbox {ð}',
-				'\\mbox {þ}',
+				'\\text {abcdefghijklmnopqrstuvwxyzÃ Ã¡Ã¢Ã£Ã¤Ã¥Ã¦Ã§Ä�Ä�Ã¨Ã©Ä›ÃªÃ«Ã¬Ã­Ã®Ã¯ÅˆÃ±Ã²Ã³Ã´ÃµÃ¶Å™Å¡Å¥Ã·Ã¸Ã¹ÃºÅ¯Ã»Ã¼Ã½Ã¿Å¾}',
+				'\\text {abcdefghijklmnopqrstuvwxyzÃ Ã¡Ã¢Ã£Ã¤Ã¥Ã¦Ã§Ä�Ä�Ã¨Ã©Ä›ÃªÃ«Ã¬Ã­Ã®Ã¯ÅˆÃ±Ã²Ã³Ã´ÃµÃ¶Å™Å¡Å¥Ã·Ã¸Ã¹ÃºÅ¯Ã»Ã¼Ã½Ã¿Å¾}\\,',
+				'\\mbox {abcdefghijklmnopqrstuvwxyzÃ Ã¡Ã¢Ã£Ã¤Ã¥Ã¦Ã§Ä�Ä�Ã¨Ã©Ä›ÃªÃ«Ã¬Ã­Ã®Ã¯ÅˆÃ±Ã²Ã³Ã´ÃµÃ¶Å™Å¡Å¥Ã·Ã¸Ã¹ÃºÅ¯Ã»Ã¼Ã½Ã¿Å¾}',
+				'\\mbox {abcdefghijklmnopqrstuvwxyzÃ Ã¡Ã¢Ã£Ã¤Ã¥Ã¦Ã§Ä�Ä�Ã¨Ã©Ä›ÃªÃ«Ã¬Ã­Ã®Ã¯ÅˆÃ±Ã²Ã³Ã´ÃµÃ¶Å™Å¡Å¥Ã·Ã¸Ã¹ÃºÅ¯Ã»Ã¼Ã½Ã¿Å¾}\\,',
+				'\\mbox {Ã°}',
+				'\\mbox {Ã¾}',
 				'\\alpha\\,\\!',
 				' f(x) = x^2\\,\\!',
 				'\\sqrt{2}',
