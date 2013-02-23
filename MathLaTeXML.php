@@ -50,7 +50,7 @@ class MathLaTeXML extends MathRenderer {
 	function render($purge=false) {
 		$recall =false;
 		if ( !$purge&& !$this->isPurge()){
-			$dbres=$this->readFromDB();
+			$dbres=$this->readDatabaseEntry();
 			if ($dbres) {
 				if (self::isValidMathML($this->mathml)){
 					$recall=true;
@@ -64,14 +64,14 @@ class MathLaTeXML extends MathRenderer {
 			$success=$this->dorender();
 			$this->setSuccess($success);
 		}
-		return $this->getMathML();
+		return $this->getEncodedMathML();
 	}
 
 	/* (non-PHPdoc)
 	 * @see MathRenderer::writeCache()
 	*/
 	function writeCache() {
-		if ( !$this->isRecall() && $this->isSuccess() ){
+		if ( $this->wasChanged() && $this->isSuccess() ){
 			$this->hash=0;
 			$this->writeDBentry();
 		}
@@ -185,7 +185,7 @@ class MathLaTeXML extends MathRenderer {
 	 * @return string
 	 * @return html element with rendered math
 	 */
-	private function getMathML() {
+	private function getEncodedMathML() {
 		return self::embedMathML($this->mathml,urldecode($this->tex));
 	}
 	/**

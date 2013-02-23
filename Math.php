@@ -143,6 +143,8 @@ $wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
 $wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
 $wgAutoloadClasses['MathMathJax'] = $dir . 'MathMathJax.php';
 $wgAutoloadClasses['SpecialMathDebug'] = $dir . 'SpecialMathDebug.php';
+$wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
+$wgAutoloadClasses['MathLaTeXMLImages'] = $dir . 'MathLaTeXMLImages.php';
 
 $wgSpecialPages['Math'] = 'SpecialMathDebug';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';

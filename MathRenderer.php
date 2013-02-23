@@ -82,7 +82,7 @@ abstract class MathRenderer {
 	 */
 	public static function getRenderer( $tex, $params = array(), $mode = MW_MATH_PNG ) {
 		global $wgDefaultUserOptions;
-		$validModes = array(MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHJAX);
+		$validModes = array(MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHJAX, MW_MATH_LATEXML);
 		if ( !in_array ( $mode, $validModes ) )
 			$mode = $wgDefaultUserOptions['math'];
 		switch ( $mode ) {
@@ -91,6 +91,9 @@ abstract class MathRenderer {
 			break;
 		case MW_MATH_MATHJAX:
 			$renderer = new MathMathJax( $tex, $params );
+			break;
+		case MW_MATH_LATEXML:
+			$renderer = new MathLaTeXML( $tex, $params );
 			break;
 		case MW_MATH_PNG:
 		default:
