@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "DncLsw8o",
+        "filename": "SpecialMathDebug.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-02-25T23:46:00Z",
+      "side": 1,
+      "message": "Spelling: available",
+      "revId": "5d84aca0b373c9e62c511080a75cfa5682e1195b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DnYI5Kz8",
+        "filename": "SpecialMathDebug.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-02-25T23:46:00Z",
+      "side": 1,
+      "message": "I think you should use getRenderer and loop through the possible modes, to be more like the tag hook.",
+      "revId": "5d84aca0b373c9e62c511080a75cfa5682e1195b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DncIF43o",
+        "filename": "SpecialMathDebug.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-02-25T23:46:00Z",
+      "side": 1,
+      "message": "Remove \u0027math_tex\u0027.",
+      "revId": "5d84aca0b373c9e62c511080a75cfa5682e1195b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
