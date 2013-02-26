@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "DnZgmPNA",
+        "filename": "SpecialMathDebug.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-02-26T10:47:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "DncLsw8o",
+      "revId": "5d84aca0b373c9e62c511080a75cfa5682e1195b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "DnYI5Kz8",
         "filename": "SpecialMathDebug.php",
         "patchSetId": 8
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "DnRgbbIA",
+        "filename": "SpecialMathDebug.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-02-26T10:47:43Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you mean.\nin MathRenderer line 83 there is\n$validModes \u003d array(MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHJAX);\nChanging the mode of an instance is not implemented.",
+      "parentUuid": "DnYI5Kz8",
+      "revId": "5d84aca0b373c9e62c511080a75cfa5682e1195b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "DncIF43o",
         "filename": "SpecialMathDebug.php",
         "patchSetId": 8
@@ -47,6 +83,24 @@
       "writtenOn": "2013-02-25T23:46:00Z",
       "side": 1,
       "message": "Remove \u0027math_tex\u0027.",
+      "revId": "5d84aca0b373c9e62c511080a75cfa5682e1195b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DnbgZ.IQ",
+        "filename": "SpecialMathDebug.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-02-26T10:47:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "DncIF43o",
       "revId": "5d84aca0b373c9e62c511080a75cfa5682e1195b",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
