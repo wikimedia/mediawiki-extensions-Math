@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "DnXYwMAE",
+        "filename": "SpecialMathDebug.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-02-26T21:30:57Z",
+      "side": 1,
+      "message": "Yes. That\u0027s the problem I want to avoid here. The admin (in his admin role) must see that all users get rendered math in high quality.\nTherefore calling the renderes one after the other is intended. I can share a screenshot.\nhttp://wikidemo.formulasearchengine.com/images/SpecialpageMathLaTeXML.png",
+      "parentUuid": "DndNhNjs",
+      "revId": "5d84aca0b373c9e62c511080a75cfa5682e1195b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "DncIF43o",
         "filename": "SpecialMathDebug.php",
         "patchSetId": 8
