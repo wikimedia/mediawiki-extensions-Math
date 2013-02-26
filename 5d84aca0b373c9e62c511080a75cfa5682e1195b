@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "DndNhNjs",
+        "filename": "SpecialMathDebug.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-02-26T20:29:16Z",
+      "side": 1,
+      "message": "Isn\u0027t the effective mode also influenced by user preferences? \n\nMy main point is that you are calling the renderer differently from the tag hook (which is what normally does the rendering).",
+      "parentUuid": "DnRgbbIA",
+      "revId": "5d84aca0b373c9e62c511080a75cfa5682e1195b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "DncIF43o",
         "filename": "SpecialMathDebug.php",
         "patchSetId": 8
