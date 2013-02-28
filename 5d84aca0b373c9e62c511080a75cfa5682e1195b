@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "DnTKb2xc",
+        "filename": "SpecialMathDebug.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-02-28T06:49:09Z",
+      "side": 1,
+      "message": "I\u0027m fine with calling them all.  I\u0027m just saying, use getRenderer, to be consistent with the call in the hook (mathTagHook).",
+      "parentUuid": "DnXYwMAE",
+      "revId": "5d84aca0b373c9e62c511080a75cfa5682e1195b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "DncIF43o",
         "filename": "SpecialMathDebug.php",
         "patchSetId": 8
