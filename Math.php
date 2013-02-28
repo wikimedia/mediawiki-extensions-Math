@@ -142,7 +142,6 @@ $wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
 $wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
 $wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
 $wgAutoloadClasses['MathMathJax'] = $dir . 'MathMathJax.php';
-$wgAutoloadClasses['SpecialMathDebug'] = $dir . 'SpecialMathDebug.php';
 $wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
 $wgAutoloadClasses['MathLaTeXMLImages'] = $dir . 'MathLaTeXMLImages.php';
 
