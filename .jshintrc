@@ -1,31 +1,32 @@
 {
 	"predef": [
-		"mediaWiki",
-		"jQuery"
+		"ve",
+
+		"setImmediate",
+
+		"QUnit"
 	],
 
 	"bitwise": true,
-	"camelcase": true,
 	"curly": true,
 	"eqeqeq": true,
-	"forin": false,
 	"immed": true,
 	"latedef": true,
 	"newcap": true,
 	"noarg": true,
 	"noempty": true,
 	"nonew": true,
-	"quotmark": "single",
 	"regexp": false,
 	"undef": true,
-	"unused": true,
 	"strict": false,
 	"trailing": true,
 
 	"smarttabs": true,
+	"multistr": true,
 
-	"browser": true,
+	"node": true,
 
-	"nomen": true,
-	"onevar": true
+	"nomen": false,
+	"loopfunc": true
+	//"onevar": true
 }
