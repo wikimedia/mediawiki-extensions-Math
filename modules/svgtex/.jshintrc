@@ -1,0 +1,65 @@
+{
+<<<<<<< HEAD
+	"predef": [
+		"mediaWiki",
+		"jQuery"
+	],
+
+	"bitwise": true,
+	"camelcase": true,
+	"curly": true,
+	"eqeqeq": true,
+	"forin": false,
+	"immed": true,
+	"latedef": true,
+	"newcap": true,
+	"noarg": true,
+	"noempty": true,
+	"nonew": true,
+	"quotmark": "single",
+	"regexp": false,
+	"undef": true,
+	"unused": true,
+	"strict": false,
+	"trailing": true,
+
+	"smarttabs": true,
+
+	"browser": true,
+
+	"nomen": true,
+	"onevar": true
+}
+=======
+         /* Common */
+ 
+        // Enforcing
+        "camelcase": true,
+        "curly": true,
+        "eqeqeq": true,
+        "immed": true,
+        "latedef": true,
+        "newcap": true,
+        "noarg": true,
+        "noempty": true,
+        "nonew": true,
+        "quotmark": "single",
+        "trailing": true,
+        "undef": true,
+        "unused": true,
+        // Legacy
+        "onevar": true,
+
+        /* Local */
+        "supernew":true,
+ 
+        "predef": [
+                "window",
+                "console",
+                "phantom",
+                "MathJax",
+                "document",
+                "require"
+        ]
+}
+>>>>>>> 5242b33... Appling the Mediawiki syle convention and error handling
