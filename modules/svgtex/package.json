@@ -1,0 +1,13 @@
+{
+	"name": "Storoid",
+	"description": "Mediawiki storage API",
+	"version": "0.0.1",
+	"dependencies": {
+		"request": "2.x.x",
+		"querystring": "0.x.x",
+		"async": "0.x.x",
+		"express": "2.5.x",
+		"node-uuid": "1.x.x",
+		"node-cassandra-cql": "git://github.com/jorgebay/node-cassandra-cql.git#5b52dca200eba3c5e388a132c9a5e88b911dc64a"
+	}
+}
