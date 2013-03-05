@@ -1,2 +1,6 @@
 # third-party lib
 modules/MathJax
+
+# browser code in the middle of node code
+mathoid/main.js
+mathoid/engine.js
