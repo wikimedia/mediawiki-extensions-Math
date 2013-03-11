@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "DqF36D7w",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 26
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-03-11T21:51:15Z",
+      "side": 1,
+      "message": "cached",
+      "revId": "8412ca0471d5e82e74ac99fa3522a70d3bd84234",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DqL0Ui-Q",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 26
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-03-11T21:51:15Z",
+      "side": 1,
+      "message": "Move the bug fix up to the top, and explain the actual fix further.  I\u0027d like to understand the actual bug better\n\nWhy exactly do we need to check if the values are changed?  Shouldn\u0027t it be enough to just write it (only) on cache miss?",
+      "revId": "8412ca0471d5e82e74ac99fa3522a70d3bd84234",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DqL0ta0Y",
+        "filename": "Math.php",
+        "patchSetId": 26
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-03-11T21:51:15Z",
+      "side": 1,
+      "message": "Don\u0027t have spurious changes like this, because then people open the diff only to see nothing really changed.",
+      "revId": "8412ca0471d5e82e74ac99fa3522a70d3bd84234",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DqH3hE-8",
+        "filename": "MathRenderer.php",
+        "patchSetId": 26
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-03-11T21:51:15Z",
+      "side": 1,
+      "message": "\"object needs to be stored in the database\"\n\nAgain, I don\u0027t understand why it matters whether it was changed.  Can you explain why we can\u0027t just write on cache miss?\n\nBy structuring it this way, you\u0027re making every subclass handle the cache miss/was changed logic inside writeCache.  See comment in Texvc.\n\nA better structure would be to have writeCache write the cache, and something else decide when to call writeCache.",
+      "revId": "8412ca0471d5e82e74ac99fa3522a70d3bd84234",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DqB3u1.4",
+        "filename": "MathRenderer.php",
+        "patchSetId": 26
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-03-11T21:51:15Z",
+      "side": 1,
+      "message": "Update comment.",
+      "revId": "8412ca0471d5e82e74ac99fa3522a70d3bd84234",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DqF3kTxA",
+        "filename": "MathRenderer.php",
+        "patchSetId": 26
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-03-11T21:51:15Z",
+      "side": 1,
+      "message": "Why are you adding new deprecated methods?  If you don\u0027t want people to use them (that\u0027s what deprecated means), don\u0027t add them.",
+      "revId": "8412ca0471d5e82e74ac99fa3522a70d3bd84234",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DqD3rm98",
+        "filename": "MathTexvc.php",
+        "patchSetId": 26
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-03-11T21:51:15Z",
+      "side": 1,
+      "message": "This comment doesn\u0027t make any sense, since you\u0027re not writing the cache here, and \"end of the process\" is vague.",
+      "revId": "8412ca0471d5e82e74ac99fa3522a70d3bd84234",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DqF3NL4Y",
+        "filename": "MathTexvc.php",
+        "patchSetId": 26
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-03-11T21:51:15Z",
+      "side": 1,
+      "message": "This goes back to what i said earlier about the structure of writeCache.  It looks like you\u0027re writing the DB sometimes (since parent::writeCache is conditional), but Squid always, which doesn\u0027t make sense.",
+      "revId": "8412ca0471d5e82e74ac99fa3522a70d3bd84234",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
