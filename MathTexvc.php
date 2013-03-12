@@ -276,7 +276,7 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function writeCache() {
 		global $wgUseSquid;
-		if ( !$this->isRecall() ) {
+		if ( $this->isRecall() ) {
 			return;
 		}
 		$this->writeDBEntry();
