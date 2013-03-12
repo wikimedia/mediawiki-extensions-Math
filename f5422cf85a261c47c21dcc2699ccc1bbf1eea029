@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "DqMBAclw",
+        "filename": "MathTexvc.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-03-12T04:20:21Z",
+      "side": 1,
+      "message": "See the outer comment.  There should only be one part of the code determining whether to write the cache.  Right now,\n\nMathTexvc::render and MathTexvc::writeCache both have conditional code for this.",
+      "revId": "f5422cf85a261c47c21dcc2699ccc1bbf1eea029",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
