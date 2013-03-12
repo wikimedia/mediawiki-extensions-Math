@@ -34,7 +34,6 @@ class MathTexvc extends MathRenderer {
 			if ( $result != MW_TEXVC_SUCCESS ) {
 				return $result;
 			}
-			$this->writeCache();
 		}
 		return $this->doHTMLRender();
 	}
@@ -276,7 +275,8 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function writeCache() {
 		global $wgUseSquid;
-		if ( !$this->isRecall() ) {
+		// If cache hit, don't write anything.
+		if ( $this->isRecall() ) {
 			return;
 		}
 		$this->writeDBEntry();
