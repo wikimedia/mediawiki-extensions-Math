@@ -154,10 +154,10 @@ abstract class MathRenderer {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
 			$dbw = wfGetDB( DB_MASTER );
-			if ( $this->hash ) {
+			if ( $this->hash !== '' ) {
 				$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ) );
 			} else {
-				$outmd5_sql = null;
+				$outmd5_sql = '';
 			}
 			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->getInputHash() . ')\n' );
 			$dbw->replace(
