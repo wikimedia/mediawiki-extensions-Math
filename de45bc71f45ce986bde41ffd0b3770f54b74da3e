@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "DqBpO0pc",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-03-13T13:23:10Z",
+      "side": 1,
+      "message": "This generates the following warning for the\n\nWarning: pack(): Type H: not enough characters in string in extensions/Math/MathRenderer.php on line 158\n\nwhile executing\nwfShellExec: /bin/bash \u0027/home/wiki/bin/ulimit5.sh\u0027 180 128000000 102400 180 \u0027/usr/bin/texvc \u0027\\\u0027\u0027/home/wiki/images/math\u0027\\\u0027\u0027 \u0027\\\u0027\u0027/home/wiki/images/math\u0027\\\u0027\u0027 \u0027\\\u0027\u0027x \u003d h + kk \\:\u0027\\\u0027\u0027 \u0027\\\u0027\u0027UTF-8\u0027\\\u0027\u0027 \u0027\\\u0027\u0027transparent\u0027\\\u0027\u0027\u0027\n[Math] TeX output:\nE\n---\n[Math] store entry for $x \u003d h + kk \\:$ in database (hash:\u003c\u0017\u0010÷ÔÞÖ™qò4¥Š5\u003dÅ)\\n\nDatabaseBase::query: Writes done: REPLACE INTO `math` (math_inputhash,math_outputhash,math_html_conservativeness,math_html,math_mathml) VALUES (\u0027\u003c\u0017\u0010÷ÔÞÖ™qò4¥Š5\u003dÅ\u0027,\u0027\u0027,\u00270\u0027,\u0027\u0027,\u0027\u0027)",
+      "revId": "de45bc71f45ce986bde41ffd0b3770f54b74da3e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
