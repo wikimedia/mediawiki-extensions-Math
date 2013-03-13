@@ -154,7 +154,7 @@ abstract class MathRenderer {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
 			$dbw = wfGetDB( DB_MASTER );
-			if ( $this->hash ) {
+			if ( is_string( $this->hash ) ) {
 				$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ) );
 			} else {
 				$outmd5_sql = null;
