@@ -3017,11 +3017,13 @@ verifique se o latex, dvips, gs e convert estão corretamente instalados',
  * @author AlimanRuna
  */
 $messages['qu'] = array(
+	'math-desc' => 'Huchhawa minuywakunata <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> unanchachapura qillqamuy',
 	'math_sample' => 'Kayman minuywata qillqamuy',
 	'math_tip' => 'Yupana minuywa (LaTeX)',
 	'prefs-math' => 'Minuywa',
 	'mw_math_png' => "Hayk'appas PNG-ta ruray",
 	'mw_math_source' => "TeX hinatam saqiy (qillqa wamp'unapaq)",
+	'mw_math_mathjax' => "MathJax (llanchina; lliwmanta aswan wamp'unapaq allinmi)",
 	'math_failure' => "Manam hap'inichu",
 	'math_unknown_error' => 'mana riqsisqa pantasqa',
 	'math_unknown_function' => 'mana riqsisqa rurana',
