@@ -46,8 +46,25 @@ $messages['qqq'] = array(
 	'math_sample' => 'The sample formula text that you get when you press the fourth button from the right on the edit toolbar.',
 	'math_tip' => 'This is the text that appears when you hover the mouse over the fourth button from the right on the edit toolbar.',
 	'prefs-math' => 'Used in user preferences.',
-	'mw_math_png' => 'In user preferences. All mw_math_* messages MUST be different, things will break otherwise!',
-	'mw_math_source' => 'In user preferences (math). All mw_math_* messages MUST be different, things will break otherwise!',
+	'mw_math_png' => 'In user preferences. All mw_math_* messages MUST be different, things will break otherwise!
+
+Used as label for radio button.
+
+See also:
+* {{msg-mw|Mw math source}}
+* {{msg-mw|Mw math mathjax}}',
+	'mw_math_source' => 'In user preferences (math). All mw_math_* messages MUST be different, things will break otherwise!
+
+Used as label for radio button.
+
+See also:
+* {{msg-mw|Mw math png}}
+* {{msg-mw|Mw math mathjax}}',
+	'mw_math_mathjax' => 'Used as label for radio button.
+
+See also:
+* {{msg-mw|Mw math png}}
+* {{msg-mw|Mw math source}}',
 	'math_syntax_error' => '{{Identical|Syntax error}}',
 );
 
