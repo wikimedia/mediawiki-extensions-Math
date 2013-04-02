@@ -65,7 +65,48 @@ See also:
 See also:
 * {{msg-mw|Mw math png}}
 * {{msg-mw|Mw math source}}',
-	'math_syntax_error' => '{{Identical|Syntax error}}',
+	'math_failure' => 'Used as error message.
+
+This message is followed by "(", Error message(*1), Additional message, "): "  and Source code.
+
+(*1) The error message is any one of the following messages:
+* {{msg-mw|Math unknown error}}
+* {{msg-mw|Math unknown function}}
+* {{msg-mw|Math lexing error}}
+* {{msg-mw|Math syntax error}}
+* {{msg-mw|Math image error}}
+* {{msg-mw|Math bad tmpdir}}
+* {{msg-mw|Math bad output}}
+* {{msg-mw|Math notexvc}}
+* {{msg-mw|Math output error}}',
+	'math_unknown_error' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.
+{{Identical|Unknown error}}',
+	'math_unknown_function' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.',
+	'math_lexing_error' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.',
+	'math_syntax_error' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.
+{{Identical|Syntax error}}',
+	'math_image_error' => '{{doc-important|Do not change <code>latex</code>, <code>dvipng</code>, <code>dvips</code>, <code>gs</code> and <code>convert</code>. These are UNIX commands.}}
+
+Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.',
+	'math_bad_tmpdir' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.',
+	'math_bad_output' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.',
+	'math_notexvc' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.',
 );
 
 /** Achinese (Acèh)
