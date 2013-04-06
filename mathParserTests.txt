@@ -180,3 +180,12 @@ BUG 31824: Empty math tag returns uniq
 !! result
 !! end
 
+!! test
+BUG 30463: Add support for Farsi Digits and Scripts in LaTeX Mathematical Formulae
+!! input
+<math>\panj</math>
+!!result
+<p><img class="tex" alt="\panj" src="/images/math/" />
+<!-- image to be added. -->
+</p>
+!!end
