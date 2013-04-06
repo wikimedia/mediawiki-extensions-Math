@@ -48,6 +48,7 @@ let modules_encoding = ref UTF8
 let modules_color = ref false
 let modules_teubner = ref false
 let modules_euro = ref false 
+let modules_farsi = ref false
 
 (* wrappers to easily set / reset module properties *)
 let tex_use_ams ()     = modules_ams := true
@@ -55,6 +56,7 @@ let tex_use_nonascii () = modules_nonascii := true
 let tex_use_color ()  = modules_color := true
 let tex_use_teubner ()  = modules_teubner := true
 let tex_use_euro ()  = modules_euro := true
+let tex_use_farsi () = modules_farsi :=true
 let tex_mod_reset ()   = (
         modules_ams := false;
         modules_nonascii := false;
@@ -78,6 +80,22 @@ let get_preface ()  = "\\nonstopmode\n\\documentclass[12pt]{article}\n" ^
               (if !modules_teubner then "\\usepackage[greek]{babel}\n\\usepackage{teubner}\n" else "") ^
               (if !modules_euro then "\\usepackage{eurosym}\n" else "") ^
               "\\usepackage{cancel}\n\\pagestyle{empty}\n\\begin{document}\n$$\n"
+              (if !modules_farsi then 
+              "\\usepackage[T1,LFE,LAE]{fontenc}
+               \\usepackage[utf8]{inputenc}
+               \\usepackage[farsi,arabic,english]{babel}
+               \\TOCLanguage{farsi}
+               \\makeatletter
+               %due to a bug in ARABI in which the command \\textRL is not
+               %changed to write Farsi though the main TOC language is Farsi.
+               \\def\\textRL#1{{\\expandafter\\@farsi@R{#1}}}
+               %due to a bug in ARABI in which the quotaion marks are not
+               %assigned to their counterpart font-glyphs in lfeenc.def
+               \\DeclareTextSymbol{\\guillemotright}{LFE}{62}
+               \\DeclareTextSymbol{\\guillemotleft}{LFE}{60}
+               \\makeatother"
+              else "") ^
+              "\\usepackage{cancel}\n\\pagestyle{empty}\n\\begin{document}\n"
 
 (* TeX fragment appended after the content *)
 let get_footer  ()  = "\n$$\n\\end{document}\n"
@@ -748,4 +766,5 @@ let find = function
     | "\\color"            -> (tex_use_color (); LITERAL (TEX_ONLY "\\color"))
     | "\\pagecolor"        -> (tex_use_color (); LITERAL (TEX_ONLY "\\pagecolor"))
     | "\\definecolor"      -> (tex_use_color (); LITERAL (TEX_ONLY "\\definecolor"))
+    | "\\farsi"            -> (tex_use_farsi (); LITERAL (TEX_ONLY "\\selectlanguage{farsi}"))
     | s                    -> raise (Illegal_tex_function s)
