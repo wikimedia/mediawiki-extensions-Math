@@ -118,7 +118,7 @@ abstract class MathRenderer {
 	 *
 	 * @return boolean true if read successfully, false otherwise
 	 */
-	protected function readFromDB() {
+	public function readFromDB() {
 		$dbr = wfGetDB( DB_SLAVE );
 		$rpage = $dbr->selectRow(
 			'math',
@@ -150,7 +150,7 @@ abstract class MathRenderer {
 	/**
 	 * Writes rendering entry to database
 	 */
-	protected function writeDBEntry() {
+	public function writeDBEntry() {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
 			$dbw = wfGetDB( DB_MASTER );
