@@ -100,7 +100,7 @@ class MathLaTeXML extends MathRenderer {
 	private function dorender() {
 		global $wgDebugMath;
 		$host = self::pickHost();
-		$texcmd = 'literal:' . urlencode( $this->tex );
+		$texcmd = urlencode( $this->tex );
 		$post= $this->getLaTeXMLSettings();
 		$post .='&tex='.$texcmd;
 		$time_start = microtime( true );
