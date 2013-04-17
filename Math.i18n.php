@@ -46,9 +46,67 @@ $messages['qqq'] = array(
 	'math_sample' => 'The sample formula text that you get when you press the fourth button from the right on the edit toolbar.',
 	'math_tip' => 'This is the text that appears when you hover the mouse over the fourth button from the right on the edit toolbar.',
 	'prefs-math' => 'Used in user preferences.',
-	'mw_math_png' => 'In user preferences. All mw_math_* messages MUST be different, things will break otherwise!',
-	'mw_math_source' => 'In user preferences (math). All mw_math_* messages MUST be different, things will break otherwise!',
-	'math_syntax_error' => '{{Identical|Syntax error}}',
+	'mw_math_png' => 'In user preferences. All mw_math_* messages MUST be different, things will break otherwise!
+
+Used as label for radio button.
+
+See also:
+* {{msg-mw|Mw math source}}
+* {{msg-mw|Mw math mathjax}}',
+	'mw_math_source' => 'In user preferences (math). All mw_math_* messages MUST be different, things will break otherwise!
+
+Used as label for radio button.
+
+See also:
+* {{msg-mw|Mw math png}}
+* {{msg-mw|Mw math mathjax}}',
+	'mw_math_mathjax' => 'Used as label for radio button.
+
+See also:
+* {{msg-mw|Mw math png}}
+* {{msg-mw|Mw math source}}',
+	'math_failure' => 'Used as error message.
+
+This message is followed by "(", Error message(*1), Additional message, "): "  and Source code.
+
+(*1) The error message is any one of the following messages:
+* {{msg-mw|Math unknown error}}
+* {{msg-mw|Math unknown function}}
+* {{msg-mw|Math lexing error}}
+* {{msg-mw|Math syntax error}}
+* {{msg-mw|Math image error}}
+* {{msg-mw|Math bad tmpdir}}
+* {{msg-mw|Math bad output}}
+* {{msg-mw|Math notexvc}}
+* {{msg-mw|Math output error}}',
+	'math_unknown_error' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.
+{{Identical|Unknown error}}',
+	'math_unknown_function' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.',
+	'math_lexing_error' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.',
+	'math_syntax_error' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.
+{{Identical|Syntax error}}',
+	'math_image_error' => '{{doc-important|Do not change <code>latex</code>, <code>dvipng</code>, <code>dvips</code>, <code>gs</code> and <code>convert</code>. These are UNIX commands.}}
+
+Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.',
+	'math_bad_tmpdir' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.',
+	'math_bad_output' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.',
+	'math_notexvc' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.',
 );
 
 /** Test (site admin only) (Test (site admin only)) */
@@ -1717,13 +1775,13 @@ $messages['ja'] = array(
 	'prefs-math' => '数式',
 	'mw_math_png' => '常にPNGで描画',
 	'mw_math_source' => 'TeX のまま (テキスト ブラウザー向け)',
-	'mw_math_mathjax' => 'MathJax（開発中; ほとんどのブラウザーに最適）',
+	'mw_math_mathjax' => 'MathJax (開発中; ほとんどのブラウザーに最適)',
 	'math_failure' => '構文解析に失敗',
 	'math_unknown_error' => '不明なエラー',
 	'math_unknown_function' => '不明な関数',
 	'math_lexing_error' => '字句解析エラー',
 	'math_syntax_error' => '構文エラー',
-	'math_image_error' => 'PNGへの変換に失敗しました。dvipng（もしくはdvipsとgsとconvert）およびlatexが正しくインストールされているか確認してください。',
+	'math_image_error' => 'PNG への変換に失敗しました。latex および dvipng (または dvips + gs + convert) が正しくインストールされているか確認してください。',
 	'math_bad_tmpdir' => '数式一時ディレクトリでの書き込みまたは作成ができません',
 	'math_bad_output' => '数式出力ディレクトリでの書き込みまたは作成ができません',
 	'math_notexvc' => 'texvc の実行可能ファイルが見つかりません。math/README を読んで設定してください。',
@@ -3006,11 +3064,13 @@ verifique se o latex, dvips, gs e convert estão corretamente instalados',
  * @author AlimanRuna
  */
 $messages['qu'] = array(
+	'math-desc' => 'Huchhawa minuywakunata <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> unanchachapura qillqamuy',
 	'math_sample' => 'Kayman minuywata qillqamuy',
 	'math_tip' => 'Yupana minuywa (LaTeX)',
 	'prefs-math' => 'Minuywa',
 	'mw_math_png' => "Hayk'appas PNG-ta ruray",
 	'mw_math_source' => "TeX hinatam saqiy (qillqa wamp'unapaq)",
+	'mw_math_mathjax' => "MathJax (llanchina; lliwmanta aswan wamp'unapaq allinmi)",
 	'math_failure' => "Manam hap'inichu",
 	'math_unknown_error' => 'mana riqsisqa pantasqa',
 	'math_unknown_function' => 'mana riqsisqa rurana',
