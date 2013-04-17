@@ -145,7 +145,6 @@ $wgAutoloadClasses['MathMathJax'] = $dir . 'MathMathJax.php';
 $wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
 $wgAutoloadClasses['MathLaTeXMLImages'] = $dir . 'MathLaTeXMLImages.php';
 
-$wgSpecialPages['Math'] = 'SpecialMathDebug';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
