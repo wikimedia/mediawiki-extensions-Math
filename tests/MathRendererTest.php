@@ -4,7 +4,7 @@
  *
  * @group Math
  */
-class MathRendererTest extends MediaWikiTestCase {
+class MathRendererTests extends MediaWikiTestCase {
 	/**
 	 * Checks the tex and hash functions
 	 * @covers MathRenderer::getTex()
