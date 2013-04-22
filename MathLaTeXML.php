@@ -20,7 +20,7 @@ class MathLaTeXML extends MathRenderer {
 		if($this->LaTeXMLSettings){
 			return $this->LaTeXMLSettings;
 		} else {
-			return 'xhtml&'.
+			return 'format=xhtml&'.
 				'whatsin=math&'.
 				'whatsout=math&'.
 				'pmml&'.
