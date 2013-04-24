@@ -50,7 +50,6 @@ class MathHooks {
 		$renderer = MathRenderer::getRenderer(
 			$content, $attributes, $mode
 		);
-		$renderer->setAnchorID( $parser->nextLinkID() ); // Add an ID for referencing the equation later on only used by LaTeXML
 		$renderedMath = $renderer->render();
 		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
