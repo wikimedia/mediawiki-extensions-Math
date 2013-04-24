@@ -9,7 +9,11 @@
  */
 
 /**
- * Abstract base class for math renderers using different technologies.
+ * Abstract base class with static methods for rendering the <math> tags using different technologies.
+ * This static methods create a new istance of the extending classes and render the math tags based on the
+ * mode setting of the user.
+ * Furthermore this class handles the caching of the rendered output and provides debug information,
+ * if run in mathdebug mode.
  *
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
@@ -17,11 +21,15 @@
  */
 abstract class MathRenderer {
 	/**
-	 *  The following variables should made private, as soon it can be verified that they are not being directly accessed by other extensions.
+	 *  The following variables should made private, as soon it can be verified
+	 *  that they are not being directly accessed by other extensions.
 	 */
 	var $mode = MW_MATH_PNG;
 	var $tex = '';
-	var $inputhash = '';
+	/**
+	 * is calculated by texvc.
+	 * @var string
+	 */
 	var $hash = '';
 	var $html = '';
 	var $mathml = '';
@@ -35,7 +43,7 @@ abstract class MathRenderer {
 	 * @param string $tex LaTeX markup
 	 * @param array $params HTML attributes
 	 */
-	public function __construct( $tex, $params = array() ) {
+	public function __construct( $tex='', $params = array() ) {
 		$this->tex = $tex;
 		$this->params = $params;
 	}
@@ -77,17 +85,21 @@ abstract class MathRenderer {
 			default:
 				$renderer = new MathTexvc( $tex, $params );
 		}
+		wfDebugLog ( "Math", 'start rendering $' . $renderer->tex . '$' );
 		return $renderer;
 	}
 
 	/**
-	 * Returns TeX to HTML
+	 * Performs the rendering and returns the rendered element that needs to be embedded.
 	 *
 	 * @return string of rendered HTML
 	 */
 	abstract public function render();
 
+
 	/**
+	 * texvc error messages
+	 * TODO: update to MathML
 	 * Returns an internationalized HTML error string
 	 *
 	 * @param string $msg message key for specific error
@@ -147,7 +159,13 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * Writes rendering entry to database
+	 * Writes rendering entry to database.
+	 *
+	 * WARNING: Use writeCache() instead of this method to be sure that all
+	 * renderer specific (such as squid caching) are taken into account.
+	 * This function stores the values that are currently present in the class to the database even if they are empty.
+	 *
+	 * This function can be seen as protected function.
 	 */
 	public function writeToDatabase() {
 		# Now save it back to the DB:
