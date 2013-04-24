@@ -22,11 +22,11 @@ class MathRendererTest extends MediaWikiTestCase {
 	 */
 	public function testWriteCacheSkip() {
 		$renderer = $this->getMockBuilder( 'MathRenderer' )
-			->setMethods( array( 'writeDBEntry' , 'render' ) )
+			->setMethods( array( 'writeToDatabase' , 'render' ) )
 			->disableOriginalConstructor()
 			->getMock();
 		$renderer->expects( $this->never() )
-		->method( 'writeDBEntry' );
+		->method( 'writeToDatabase' );
 		$renderer->writeCache();
 	}
 
@@ -36,11 +36,11 @@ class MathRendererTest extends MediaWikiTestCase {
 	 */
 	public function testWriteCache() {
 		$renderer = $this->getMockBuilder( 'MathRenderer' )
-			->setMethods( array( 'writeDBEntry' , 'render' ) )
+			->setMethods( array( 'writeToDatabase' , 'render' ) )
 			->disableOriginalConstructor()
 			->getMock();
 		$renderer->expects( $this->never() )
-			->method( 'writeDBEntry' );
+			->method( 'writeToDatabase' );
 		$renderer->writeCache();
 	}
 }

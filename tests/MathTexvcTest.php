@@ -25,10 +25,10 @@ class MathTexvcTest extends MediaWikiTestCase {
 		// will backup / restore global state on test setup / teardown.)
 		$wgMathCheckFiles = false;
 
-		// Create a MathTexvc mock, replacing methods 'readFromDB',
+		// Create a MathTexvc mock, replacing methods 'readFromDatabase',
 		// 'callTexvc', and 'doHTMLRender' with test doubles.
 		$texvc = $this->getMockBuilder( 'MathTexvc' )
-			->setMethods( array( 'readFromDB', 'callTexvc', 'doHTMLRender' ) )
+			->setMethods( array( 'readFromDatabase', 'callTexvc', 'doHTMLRender' ) )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -36,7 +36,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 
 		// ... first check if the item exists in the database cache:
 		$texvc->expects( $this->once() )
-			->method( 'readFromDB' )
+			->method( 'readFromDatabase' )
 			->with()
 			->will( $this->returnValue( true ) );
 

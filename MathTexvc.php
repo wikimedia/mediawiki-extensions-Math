@@ -279,7 +279,7 @@ class MathTexvc extends MathRenderer {
 		if ( $this->isRecall() ) {
 			return;
 		}
-		$this->writeDBEntry();
+		$this->writeToDatabase();
 		// If we're replacing an older version of the image, make sure it's current.
 		if ( $wgUseSquid ) {
 			$urls = array( $this->getMathImageUrl() );
@@ -295,7 +295,7 @@ class MathTexvc extends MathRenderer {
 	 */
 	function readCache() {
 		global $wgMathCheckFiles;
-		if ( $this->readFromDB() ) {
+		if ( $this->readFromDatabase() ) {
 			if ( !$wgMathCheckFiles ) {
 				// Short-circuit the file existence & migration checks
 				return true;

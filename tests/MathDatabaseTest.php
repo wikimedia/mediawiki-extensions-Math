@@ -65,10 +65,10 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->setValues();
 		$wgDebugMath = false;
 
-		$this->renderer->writeDBEntry();
+		$this->renderer->writeToDatabase();
 
 		$renderer2 = $this->getMockForAbstractClass( 'MathRenderer', array ( self::SOME_TEX ) );
-		$renderer2->readFromDB();
+		$renderer2->readFromDatabase();
 		// comparing the class object does now work due to null values etc.
 		// $this->assertEquals($this->renderer,$renderer2);
 		$this->assertEquals( $this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same" );
@@ -90,7 +90,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$dbu->doUpdates( array( "extensions" ) );
 		$this->expectOutputRegex( '/(.*)Creating math table(.*)/' );
 		$this->setValues();
-		$this->renderer->writeDBEntry();
+		$this->renderer->writeToDatabase();
 		$res = $this->db->select( "math", "*" );
 		$row = $res->fetchRow();
 		$this->assertEquals( sizeof( $row ), 2 * self::NUM_BASIC_FIELDS );
