@@ -46,7 +46,7 @@ class MathTexvc extends MathRenderer {
 	function getHashPath() {
 		$path = $this->getBackend()->getRootStoragePath() .
 			'/math-render/' . $this->getHashSubPath();
-		wfDebug( "TeX: getHashPath, hash is: $this->hash, path is: $path\n" );
+		wfDebugLog("Math", "TeX: getHashPath, hash is: {$this->getHash()}, path is: $path\n" );
 		return $path;
 	}
 
@@ -56,9 +56,9 @@ class MathTexvc extends MathRenderer {
 	 * @return string Relative directory
 	 */
 	function getHashSubPath() {
-		return substr( $this->hash, 0, 1 )
-			. '/' . substr( $this->hash, 1, 1 )
-			. '/' . substr( $this->hash, 2, 1 );
+		return substr( $this->getHash(), 0, 1 )
+			. '/' . substr( $this->getHash(), 1, 1 )
+			. '/' . substr( $this->getHash(), 2, 1 );
 	}
 
 	/**
@@ -69,7 +69,7 @@ class MathTexvc extends MathRenderer {
 	function getMathImageUrl() {
 		global $wgMathPath;
 		$dir = $this->getHashSubPath();
-		return "$wgMathPath/$dir/{$this->hash}.png";
+		return "$wgMathPath/$dir/{$this->getHash()}.png";
 	}
 
 	/**
@@ -111,7 +111,7 @@ class MathTexvc extends MathRenderer {
 		$cmd = $wgTexvc . ' ' .
 			$escapedTmpDir . ' ' .
 			$escapedTmpDir . ' ' .
-			wfEscapeShellArg( $this->tex ) . ' ' .
+			wfEscapeShellArg( $this->getTex() ) . ' ' .
 			wfEscapeShellArg( 'UTF-8' ) . ' ' .
 			wfEscapeShellArg( $wgTexvcBackgroundColor );
 
@@ -131,43 +131,43 @@ class MathTexvc extends MathRenderer {
 			}
 		}
 
-		$tempFsFile = new TempFSFile( "$tmpDir/{$this->hash}.png" );
+		$tempFsFile = new TempFSFile( "$tmpDir/{$this->getHash()}.png" );
 		$tempFsFile->autocollect(); // destroy file when $tempFsFile leaves scope
 
 		$retval = substr( $contents, 0, 1 );
 		$errmsg = '';
 		if ( ( $retval == 'C' ) || ( $retval == 'M' ) || ( $retval == 'L' ) ) {
 			if ( $retval == 'C' ) {
-				$this->conservativeness = self::CONSERVATIVE;
+				$this->setConservativeness( self::CONSERVATIVE );
 			} elseif ( $retval == 'M' ) {
-				$this->conservativeness = self::MODERATE;
+				$this->setConservativeness(  self::MODERATE );
 			} else {
-				$this->conservativeness = self::LIBERAL;
+				$this->setConservativeness(  self::LIBERAL );
 			}
 			$outdata = substr( $contents, 33 );
 
 			$i = strpos( $outdata, "\000" );
 
-			$this->html = substr( $outdata, 0, $i );
-			$this->mathml = substr( $outdata, $i + 1 );
+			$this->setHtml( substr( $outdata, 0, $i ) );
+			$this->setMathml( substr( $outdata, $i + 1 ) );
 		} elseif ( ( $retval == 'c' ) || ( $retval == 'm' ) || ( $retval == 'l' ) ) {
-			$this->html = substr( $contents, 33 );
+			$this->setHtml( substr( $contents, 33 ) );
 			if ( $retval == 'c' ) {
-				$this->conservativeness = self::CONSERVATIVE;
+				$this->setConservativeness( self::CONSERVATIVE ) ;
 			} elseif ( $retval == 'm' ) {
-				$this->conservativeness = self::MODERATE;
+				$this->setConservativeness( self::MODERATE );
 			} else {
-				$this->conservativeness = self::LIBERAL;
+				$this->setConservativeness( self::LIBERAL );
 			}
-			$this->mathml = null;
+			$this->setMathml( null );
 		} elseif ( $retval == 'X' ) {
-			$this->html = null;
-			$this->mathml = substr( $contents, 33 );
-			$this->conservativeness = self::LIBERAL;
+			$this->setHtml( null );
+			$this->setMathml( substr( $contents, 33 ) );
+			$this->setConservativeness( self::LIBERAL );
 		} elseif ( $retval == '+' ) {
-			$this->html = null;
-			$this->mathml = null;
-			$this->conservativeness = self::LIBERAL;
+			$this->setHtml( null );
+			$this->setMathml( null );
+			$this->setConservativeness( self::LIBERAL );
 		} else {
 			$errbit = htmlspecialchars( substr( $contents, 1 ) );
 			switch( $retval ) {
@@ -186,18 +186,18 @@ class MathTexvc extends MathRenderer {
 		}
 
 		if ( !$errmsg ) {
-			$this->hash = substr( $contents, 1, 32 );
+			$this->setHash( substr( $contents, 1, 32 ) );
 		}
 
 		wfRunHooks( 'MathAfterTexvc', array( &$this, &$errmsg ) );
 
 		if ( $errmsg ) {
 			return $errmsg;
-		} elseif ( !preg_match( "/^[a-f0-9]{32}$/", $this->hash ) ) {
+		} elseif ( !preg_match( "/^[a-f0-9]{32}$/", $this->getHash() ) ) {
 			return $this->getError( 'math_unknown_error' );
-		} elseif ( !file_exists( "$tmpDir/{$this->hash}.png" ) ) {
+		} elseif ( !file_exists( "$tmpDir/{$this->getHash()}.png" ) ) {
 			return $this->getError( 'math_image_error' );
-		} elseif ( filesize( "$tmpDir/{$this->hash}.png" ) == 0 ) {
+		} elseif ( filesize( "$tmpDir/{$this->getHash()}.png" ) == 0 ) {
 			return $this->getError( 'math_image_error' );
 		}
 
@@ -210,7 +210,7 @@ class MathTexvc extends MathRenderer {
 		}
 		// Store the file at the final storage path...
 		if ( !$backend->quickStore( array(
-			'src' => "$tmpDir/{$this->hash}.png", 'dst' => "$hashpath/{$this->hash}.png"
+			'src' => "$tmpDir/{$this->getHash()}.png", 'dst' => "$hashpath/{$this->getHash()}.png"
 		) )->isOK()
 		) {
 			return $this->getError( 'math_output_error' );
@@ -247,15 +247,15 @@ class MathTexvc extends MathRenderer {
 	 * @return string HTML string
 	 */
 	function doHTMLRender() {
-		if ( $this->mode == MW_MATH_MATHML && $this->mathml != '' ) {
+		if ( $this->getMode() == MW_MATH_MATHML && $this->getMathml() != '' ) {
 			return Xml::tags( 'math',
 				$this->getAttributes( 'math',
 					array( 'xmlns' => 'http://www.w3.org/1998/Math/MathML' ) ),
 				$this->mathml );
 		}
-		if ( ( $this->mode == MW_MATH_PNG ) || ( $this->html == '' ) ||
-			( ( $this->mode == MW_MATH_SIMPLE ) && ( $this->conservativeness != self::CONSERVATIVE ) ) ||
-			( ( $this->mode == MW_MATH_MODERN || $this->mode == MW_MATH_MATHML ) && ( $this->conservativeness == self::LIBERAL ) )
+		if ( ( $this->getMode() == MW_MATH_PNG ) || ( $this->getHtml() == '' ) ||
+			( ( $this->getMode() == MW_MATH_SIMPLE ) && ( $this->getConservativeness() != self::CONSERVATIVE ) ) ||
+			( ( $this->getMode() == MW_MATH_MODERN || $this->getMode() == MW_MATH_MATHML ) && ( $this->getConservativeness() == self::LIBERAL ) )
 		)
 		{
 			return $this->getMathImageHTML();
@@ -300,7 +300,7 @@ class MathTexvc extends MathRenderer {
 				// Short-circuit the file existence & migration checks
 				return true;
 			}
-			$filename = $this->getHashPath() . "/{$this->hash}.png"; // final storage path
+			$filename = $this->getHashPath() . "/{$this->getHash()}.png"; // final storage path
 			$backend = $this->getBackend();
 			if ( $backend->fileExists( array( 'src' => $filename ) ) ) {
 				if ( $backend->getFileSize( array( 'src' => $filename ) ) == 0 ) {
