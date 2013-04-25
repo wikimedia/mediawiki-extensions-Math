@@ -51,9 +51,9 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 */
 	public function setValues() {
 		// set some values
-		$this->renderer->tex = self::SOME_TEX ;
-		$this->renderer->html = self::SOME_HTML;
-		$this->renderer->mathml = self::SOME_MATHML;
+		$this->renderer->setTex( self::SOME_TEX );
+		$this->renderer->setHtml( self::SOME_HTML );
+		$this->renderer->setMathml( self::SOME_MATHML );
 	}
 	/**
 	 * Checks database access. Writes an etry and reads it back.
@@ -102,4 +102,28 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->assertEquals( sizeof( $row ), 2 * self::NUM_BASIC_FIELDS );
 	}
 
+	/**
+	 * Demonstrates that get does hardly effect performance
+	 * @group Stub
+	 */
+	public function testPerformanceGetter() {
+		$noTests=3;
+		$this->setValues();
+		$this->expectOutputString('Hash test');
+		$tmpb='';
+		$time=-microtime(true);
+		$myTex=$this->renderer->getMathML();
+		for($i=0;$i<$noTests;$i++){
+			$tmpb.= $myTex;
+		}
+		$timeHash= microtime(true)+$time ;
+		$tmp='';
+		$time = -microtime(true);
+		for($i=0;$i<$noTests;$i++){
+			$tmp.= $this->renderer->getMathML();
+		}
+		$timeGet = microtime(true) + $time;
+		echo "Get : $timeGet vs \n Hash: $timeHash \n diff: "
+			.($timeGet-$timeHash)/$noTests;
+	}
 }
