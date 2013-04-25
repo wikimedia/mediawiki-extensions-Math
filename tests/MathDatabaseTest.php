@@ -51,9 +51,9 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 */
 	public function setValues() {
 		// set some values
-		$this->renderer->tex = self::SOME_TEX ;
-		$this->renderer->html = self::SOME_HTML;
-		$this->renderer->mathml = self::SOME_MATHML;
+		$this->renderer->setTex( self::SOME_TEX );
+		$this->renderer->setHtml( self::SOME_HTML );
+		$this->renderer->setMathml( self::SOME_MATHML );
 	}
 	/**
 	 * Checks database access. Writes an etry and reads it back.
