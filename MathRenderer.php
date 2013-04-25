@@ -36,6 +36,7 @@ abstract class MathRenderer {
 	var $mathml = '';
 	var $conservativeness = 0;
 	var $params = '';
+	var $changed = false;
 	protected $recall;
 
 	/**
@@ -230,4 +231,119 @@ abstract class MathRenderer {
 	public function getTex() {
 		return $this->tex;
 	}
+
+	/**
+	 * gets the rendering mode MW_MATH_*
+	 *
+	 * @return int
+	 */
+	public function getMode() {
+		return $this->mode;
+	}
+
+	/**
+	 * Sets the TeX code
+	 *
+	 * @param string $tex
+	 */
+	public function setTex( $tex ) {
+		$this->changed = true;
+		$this->tex = $tex;
+	}
+
+	/**
+	 * Get the hash calculated by texvc
+	 * 
+	 * @return string hash
+	 */
+	public function getHash() {
+		return $this->hash;
+	}
+
+	/**
+	 * @param string $hash
+	 */
+	public function setHash( $hash ) {
+		$this->changed = true;
+		$this->hash = $hash;
+	}
+
+	/**
+	 * Returns the html-representation of the mathematical formula.
+	 * @return string
+	 */
+	public function getHtml() {
+		return $this->html;
+	}
+
+	/**
+	 * @param string $html
+	 */
+	public function setHtml( $html ) {
+		$this->changed = true;
+		$this->html = $html;
+	}
+
+	/**
+	 * Gets the MathML XML element
+	 * @return string in UTF-8 encoding
+	 */
+	public function getMathml() {
+		return $this->mathml;
+	}
+
+	/**
+	 * @param string $mathml use UTF-8 encoding
+	 */
+	public function setMathml( $mathml ) {
+		$this->changed = true;
+		$this->mathml = $mathml;
+	}
+
+	/**
+	 * Gets the so called 'conservativeness' calculated by texvc
+	 *
+	 * @return int
+	 */
+	public function getConservativeness() {
+		return $this->conservativeness;
+	}
+
+	/**
+	 * @param int $conservativeness
+	 */
+	public function setConservativeness( $conservativeness ) {
+		$this->changed = true;
+		$this->conservativeness = $conservativeness;
+	}
+
+	/**
+	 * Get the attributes of the math tag
+	 * 
+	 * @return array()
+	 */
+	public function getParams() {
+		//TODO: Are this the attributes?
+		//TODO: Are they used?
+		return $this->params;
+	}
+
+	/**
+	 * @param array() $params
+	 */
+	public function setParams( $params ) {
+		//Are they ever used?
+		$this->params = $params;
+	}
+
+	/**
+	 * Checks if the instance was modified i.e., because math was rendered
+	 *
+	 * @return boolean true if something was changed false otherwise
+	 */
+	public function isChanged() {
+		return $this->changed;
+	}
+
 }
+
