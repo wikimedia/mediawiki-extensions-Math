@@ -35,7 +35,7 @@ class MathSource extends MathRenderer {
 					'dir' => 'ltr'
 				)
 			),
-			'$ ' . str_replace( "\n", " ", $this->tex ) . ' $'
+			'$ ' . str_replace( "\n", " ", $this->getTex() ) . ' $'
 		);
 	}
 
