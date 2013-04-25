@@ -14,6 +14,7 @@ class MathRendererTest extends MediaWikiTestCase {
 		$renderer = $this->getMockForAbstractClass( 'MathRenderer', array ( MathDatabaseTest::SOME_TEX ) );
 		// check if the TeX input was corretly passed to the class
 		$this->assertEquals( MathDatabaseTest::SOME_TEX, $renderer->getTex(), "test getTex" );
+		$this->assertEquals( $renderer->isChanged(), false, "test if chande is initially false");
 	}
 
 	/**
@@ -42,5 +43,19 @@ class MathRendererTest extends MediaWikiTestCase {
 		$renderer->expects( $this->never() )
 			->method( 'writeToDatabase' );
 		$renderer->writeCache();
+	}
+
+	/**
+	 *  Test behavior $change when the rendered hash was changed
+	 * @covers MathRenderer::setHash()
+	 */
+	public function testChangeHash() {
+		$renderer = $this->getMockBuilder( 'MathRenderer' )
+		->setMethods( array( 'render' ) )
+		->disableOriginalConstructor()
+		->getMock();
+		$this->assertEquals( $renderer->isChanged(), false, "test if changed is initially false");
+		$renderer->setHash('0000');
+		$this->assertEquals( $renderer->isChanged(), true, "assumes that changing a hash sets chaned to true");
 	}
 }
