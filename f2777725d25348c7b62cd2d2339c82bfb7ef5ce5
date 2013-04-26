@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "Dv8kQla0",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-04-26T22:10:59Z",
+      "side": 1,
+      "message": "Remove all these carriage returns (\\r) (any other files with it too).  You may want to change your git settings to prevent this.",
+      "revId": "f2777725d25348c7b62cd2d2339c82bfb7ef5ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dv6kPWYg",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-04-26T22:10:59Z",
+      "side": 1,
+      "message": "\"These static methods\", \"instance\",",
+      "revId": "f2777725d25348c7b62cd2d2339c82bfb7ef5ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dv0klhQs",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-04-26T22:10:59Z",
+      "side": 1,
+      "message": "Remove linebreak.",
+      "revId": "f2777725d25348c7b62cd2d2339c82bfb7ef5ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dv6mIuek",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-04-26T22:10:59Z",
+      "side": 1,
+      "message": "Mark the parameters as optional in the docblock.",
+      "revId": "f2777725d25348c7b62cd2d2339c82bfb7ef5ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
