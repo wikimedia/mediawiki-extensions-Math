@@ -83,6 +83,12 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 * @covers MathHooks::onLoadExtensionSchemaUpdates
 	 */
 	public function testBasicCreateTable() {
+		if( $this->db->getType() === 'sqlite' ) {
+			$this->markTestSkipped( "SQLite has global indices. We cannot " .
+				"create the `unitest_math` table, its math_inputhash index " .
+				"would conflict with the one from the real `math` table."
+			);
+		}
 		global $wgDebugMath;
 		$this->db->dropTable( "math", __METHOD__ );
 		$wgDebugMath = false;
@@ -95,7 +101,5 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$row = $res->fetchRow();
 		$this->assertEquals( sizeof( $row ), 2 * self::NUM_BASIC_FIELDS );
 	}
-
-
 
 }
