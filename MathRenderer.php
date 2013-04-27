@@ -28,7 +28,6 @@ abstract class MathRenderer {
 	var $conservativeness = 0;
 	var $params = '';
 	protected $recall;
-	protected $anchorID = 0;
 
 	/**
 	 * Constructs a base MathRenderer
@@ -202,24 +201,6 @@ abstract class MathRenderer {
 	 */
 	public function isRecall() {
 		return $this->recall;
-	}
-
-	/**
-	 * Gets anchor ID
-	 *
-	 * @return string anchor ID
-	 */
-	public function getAnchorID() {
-		return $this->anchorID;
-	}
-
-	/**
-	 * Sets anchor ID
-	 *
-	 * @param string ID anchor ID
-	 */
-	public function setAnchorID( $ID ) {
-		$this->anchorID = $ID;
 	}
 
 	/**
