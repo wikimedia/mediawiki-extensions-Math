@@ -11,27 +11,29 @@
 
   mathJax.loaded = false;
 
-  mathJax.Config = function () {
-    MathJax.Hub.Config({
-      root: mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax',
-      config: ['TeX-AMS-texvc_HTML.js'],
-      'v1.0-compatible': false,
-      styles: {
-        '.mtext': {
-          'font-family': 'sans-serif ! important',
-          'font-size': '80%'
-        }
-      },
-      displayAlign: 'left',
-      menuSettings: {
-        zoom: 'Click'
-      },
-      'HTML-CSS': {
-        imageFont: null,
-        availableFonts: ['TeX']
+  mathJax.config = $.extend( true, {
+    root: mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax',
+    config: ['TeX-AMS-texvc_HTML.js'],
+    'v1.0-compatible': false,
+    styles: {
+      '.mtext': {
+        'font-family': 'sans-serif ! important',
+        'font-size': '80%'
       }
-    });
-    MathJax.OutputJax.fontDir = mathJax.fontDir = mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
+    },
+    displayAlign: 'left',
+    menuSettings: {
+      zoom: 'Click'
+    },
+    'HTML-CSS': {
+      imageFont: null,
+      availableFonts: ['TeX']
+    }
+  }, mathJax.config );
+
+  mathJax.Config = function () {
+    MathJax.Hub.Config( mathJax.config );
+    MathJax.OutputJax.fontDir = mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
   };
 
   mathJax.Load = function () {
