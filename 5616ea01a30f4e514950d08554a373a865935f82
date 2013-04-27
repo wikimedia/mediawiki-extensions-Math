@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "Dv3LhRv8",
+        "filename": "MathRenderer.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-04-27T19:41:18Z",
+      "side": 1,
+      "message": "Not a big deal, but try to word-wrap a little better so you don\u0027t have odd line breaks like this (after \"debug information,\").",
+      "revId": "5616ea01a30f4e514950d08554a373a865935f82",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
