@@ -36,6 +36,31 @@
     MathJax.OutputJax.fontDir = mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
   };
 
+  /**
+   * Renders all Math TeX inside the given elements.
+   * @param {function} callback to be executed after text elements have rendered [optional]
+   */
+  $.fn.renderTex = function ( callback ) {
+    var elem = this.find( '.tex' ).parent().toArray();
+
+    if ( !$.isFunction( callback ) ) {
+      callback = $.noop;
+    }
+
+    function render () {
+      MathJax.Hub.Queue( ['Typeset', MathJax.Hub, elem, callback] );
+    }
+
+    mw.loader.using( 'ext.math.mathjax', function () {
+      if ( MathJax.isReady ) {
+        render();
+      } else {
+        MathJax.Hub.Startup.signal.MessageHook( 'End', render );
+      }
+    });
+    return this;
+  };
+
   mathJax.Load = function () {
     var config, script;
     if (this.loaded) {
