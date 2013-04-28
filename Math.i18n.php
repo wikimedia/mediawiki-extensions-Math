@@ -1649,6 +1649,7 @@ $messages['id'] = array(
 	'prefs-math' => 'Matematika',
 	'mw_math_png' => 'Taruih buek PNG',
 	'mw_math_source' => 'Biarkan sebagai TeX (untuk penjelajah web teks)',
+	'mw_math_mathjax' => 'MathJax (eksperimen; baik untuk kebanyakan penjelajah web)',
 	'math_failure' => 'Gagal memparse',
 	'math_unknown_error' => 'Kesalahan yang tidak diketahui',
 	'math_unknown_function' => 'fungsi yang tidak diketahui',
@@ -2430,7 +2431,8 @@ $messages['mhr'] = array(
 $messages['min'] = array(
 	'math_sample' => 'Masuakkan rumus di siko',
 	'math_tip' => 'Rumus matematika (LaTeX)',
-	'mw_math_source' => 'Biakan sabagai TeX (untuak panjalajah web teks)',
+	'mw_math_source' => 'Biakan sabagai TeX (untuak paramban web teks)',
+	'mw_math_mathjax' => 'MathJax (uji-cubo; elok buek kabanyakan paramban web)',
 );
 
 /** Macedonian (македонски)
