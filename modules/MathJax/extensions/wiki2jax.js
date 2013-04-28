@@ -32,6 +32,11 @@ MathJax.Extension.wiki2jax = {
   setupPrefilter: function() {  // used to fix a number of common wiki math hacks
     MathJax.Hub.Register.StartupHook("TeX Jax Ready", function() {
       MathJax.InputJax.TeX.prefilterHooks.Add( function(data) {
+        var outputJax = MathJax.OutputJax["HTML-CSS"];
+	// TeX font does not support \oiint and \oiiint
+        if (outputJax && outputJax.fontInUse == "TeX" && MathJax.Hub.config.menuSettings.renderer == "HTML-CSS") {
+          data.math = data.math.replace(/\\oiint([^A-Za-z])/g,"\\rlap{\\;\\subset}\\iint\\!\\!\\!\\!\\!\\!\\mkern-0.04em\\supset\\mkern-0.4em\\rlap{\\phantom\\iint}$1").replace(/\\oiiint([^A-Za-z])/g,"\\rlap{\\mkern1em\\!\\!\\!\\!\\!\\subset}\\rlap\\int\\mkern0.34em\\rlap\\int\\mkern0.24em\\int\\!\\!\\!\\!\\!\\!\\!\\supset\\mkern-0.3em\\rlap{\\phantom\\iiint}$1");
+        }
         data.math = data.math.replace(/^\s*\\scriptstyle(\W)/,"\\textstyle$1").replace(/^\s*\\scriptscriptstyle(\W)/,"\\scriptstyle$1");
         if (data.script.type.match(/(;|\s|\n)mode\s*=\s*display-nobreak(;|\s|\n|$)/) != null)
           data.math = "\\displaystyle " + data.math;
@@ -53,7 +58,7 @@ MathJax.Extension.wiki2jax = {
     // We don't allow comments (%) in texvc and escape all literal % by default.
     tex = tex.replace(/([^\\])%/g, "$1\\%" );
 
-    tex = tex.replace(/\\iiint([^!]*)!\\!\\!\\!\\!.*\\subset\\!\\supset/g,"\\iiint$1mkern-2.5em\\subset\\!\\supset").replace(/\\iint([^!]*)!\\!\\!\\!\\!\\!\\!\\!\\!\\!\\!(.*)\\subset\\!\\supset/g,"\\iint$1mkern-1.65em$2\\subset\\!\\!\\supset").replace(/\\int\\!\\!\\!(\\!)+\\int\\!\\!\\!(\\!)+\\int([^!]*)!\\!\\!\\!\\!.*\\bigcirc(\\,)*/g,"\\iiint$3mkern-2.5em\\subset\\!\\supset").replace(/\\int\\!\\!\\!(\\!)+\\int([^!]*)!\\!\\!\\!\\!\\!\\!\\!\\!(.*)\\bigcirc(\\,)*/g,"\\iint$2mkern-1.65em$3\\subset\\!\\!\\supset");
+    tex = tex.replace(/\\iiint((?:[^\\!]|\\(?!!))*)\\!\\!\\!\\!\\!.*\\subset\\!\\supset/g,"\\oiiint$1").replace(/\\iint((?:[^\\!]|\\(?!!))*)\\!\\!\\!\\!\\!\\!\\!\\!\\!\\!\\!.*\\subset\\!\\supset/g,"\\oiint$1").replace(/\\int\\!\\!\\!(\\!)+\\int\\!\\!\\!(\\!)+\\int((?:[^\\!]|\\(?!!))*)\\!\\!\\!\\!\\!.*\\bigcirc(\\,)*/g,"\\oiiint$3").replace(/\\int\\!\\!\\!(\\!)+\\int((?:[^\\!]|\\(?!!))*)\\!\\!\\!\\!\\!\\!\\!\\!\\!.*\\bigcirc(\\,)*/g,"\\oiint$2");
 
     if (mode === "" && parent.firstChild === node) mode = "; mode=display-nobreak";
 
