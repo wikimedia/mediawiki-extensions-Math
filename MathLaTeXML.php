@@ -11,7 +11,7 @@
 
 
 
-define('LaTeXMLTimeout',240);
+
 class MathLaTeXML extends MathRenderer {
 	
 	private $LaTeXMLSettings='';
@@ -98,18 +98,18 @@ class MathLaTeXML extends MathRenderer {
 	 * @return boolean
 	 */
 	private function dorender() {
-		global $wgDebugMath;
+		global $wgDebugMath,$wgLaTeXMLTimeout;
 		$host = self::pickHost();
 		$texcmd = urlencode( $this->tex );
 		$post= $this->getLaTeXMLSettings();
 		$post .='&tex='.$texcmd;
 		$time_start = microtime( true );
-		$res = Http::post( $host, array( "postData" => $post, "timeout" => LaTeXMLTimeout) );
+		$res = Http::post( $host, array( "postData" => $post, "timeout" => $wgLaTeXMLTimeout) );
 		$time_end = microtime( true );
 		$time = $time_end - $time_start;
-		if($time>LaTeXMLTimeout){
+		if($time>$wgLaTeXMLTimeout){
 			$this->mathml = "[ERROR (timeout)]";
-			wfDebugLog( "Math", "\nLaTeXML Timeout:" . var_export( array( LaTeXMLTimeout, $post, $host ), true ) . "\n\n" );
+			wfDebugLog( "Math", "\nLaTeXML Timeout:" . var_export( array( $wgLaTeXMLTimeout, $post, $host ), true ) . "\n\n" );
 			return false;
 		}
 		$result = json_decode( $res );

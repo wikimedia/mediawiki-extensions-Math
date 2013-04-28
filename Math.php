@@ -120,6 +120,13 @@ $wgMathJaxUrl = 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS
  */
 $wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
 /**
+ * Allows to use LaTeXML as renderer for  mathematical equation, if used in
+ *  combination with $wgUseMathJax the MathML elements are rendered in browser
+ *  by MathJaX.
+ */
+$wgAllowLaTeXML = true;
+$wgLaTeXMLTimout=240;
+/**
  * Rendering math is a process that is quite tricky.
  * To resolve errors it is good to enable wgDebugMath to see what causes errors and or problems.
  */
