@@ -1,78 +1,93 @@
 /**
  * From https://en.wikipedia.org/wiki/User:Nageh/mathJax.js
  */
-(function ( mw, $ ) {
-/**
- * renders all TeX inside the given elements, executes optional callback function after everything is rendered
- * @param callback {function} optional callback function
- */
-$.fn.renderTeX = function ( callback ) {
-	var elem = this.find( '.tex' ).parent() //get all elements containing an element with class tex
-		.toArray();
+/*global mathJax:true, MathJax */
+( function ( mw, $ ) {
+  if ( typeof mathJax === 'undefined' ) {
+    mathJax = {};
+  }
 
-	if ( !$.isFunction( callback ) ) {
-		callback = $.noop;
-	}
+  mathJax.version = '0.2';
 
-	function render () {
-		MathJax.Hub.Queue( ['Typeset', MathJax.Hub, elem, callback] );
-	}
+  mathJax.loaded = false;
 
-	mw.loader.using( 'ext.math.mathjax', function () {
-		if ( MathJax.isReady ) {
-			render();
-		} else {
-			MathJax.Hub.Startup.signal.MessageHook( 'End', render );
-		}
-	} );
+  mathJax.config = $.extend( true, {
+    root: mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax',
+    config: ['TeX-AMS-texvc_HTML.js'],
+    'v1.0-compatible': false,
+    styles: {
+      '.mtext': {
+        'font-family': 'sans-serif ! important',
+        'font-size': '80%'
+      }
+    },
+    displayAlign: 'left',
+    menuSettings: {
+      zoom: 'Click'
+    },
+    'HTML-CSS': {
+      imageFont: null,
+      availableFonts: ['TeX']
+    }
+  }, mathJax.config );
 
-	return this;
-};
+  mathJax.Config = function () {
+    MathJax.Hub.Config( mathJax.config );
+    MathJax.OutputJax.fontDir = mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
+  };
 
-if ( mw.mathJax === undefined ) {
-	mw.mathJax = {};
-}
+  /**
+   * Renders all Math TeX inside the given elements.
+   * @param {function} callback to be executed after text elements have rendered [optional]
+   */
+  $.fn.renderTex = function ( callback ) {
+    var elem = this.find( '.tex' ).parent().toArray();
 
-mw.mathJax.config = $.extend( true, {
-	root: mw.config.get( 'wgExtensionAssetsPath' ) + '/Math/modules/MathJax',
-	config: ['TeX-AMS-texvc_HTML.js'],
-	'v1.0-compatible': false,
-	styles: {
-		'.mtext': {
-			'font-family': 'sans-serif ! important',
-			'font-size': '80%'
-		}
-	},
-	displayAlign: 'left',
-	menuSettings: {
-		zoom: 'Click'
-	},
-	'HTML-CSS': {
-		imageFont: null,
-		availableFonts: ['TeX']
-	}
-}, mw.mathJax.config );
+    if ( !$.isFunction( callback ) ) {
+      callback = $.noop;
+    }
 
-mw.mathJax.Config = function () {
-	MathJax.Hub.Config( mw.mathJax.config );
-	MathJax.OutputJax.fontDir = mw.config.get( 'wgExtensionAssetsPath' ) + '/Math/modules/MathJax/fonts';
-};
+    function render () {
+      MathJax.Hub.Queue( ['Typeset', MathJax.Hub, elem, callback] );
+    }
 
-function init () {
-	// create configuration element
-	var	config = 'mediaWiki.mathJax.Config();',
-		script = document.createElement( 'script' );
-	script.setAttribute( 'type', 'text/x-mathjax-config' );
-	if ( window.opera ) {
-		script.innerHTML = config;
-	} else {
-		script.text = config;
-	}
-	document.getElementsByTagName( 'head' )[0].appendChild( script );
+    mw.loader.using( 'ext.math.mathjax', function () {
+      if ( MathJax.isReady ) {
+        render();
+      } else {
+        MathJax.Hub.Startup.signal.MessageHook( 'End', render );
+      }
+    });
+    return this;
+  };
 
-	mw.loader.load( 'ext.math.mathjax' );
-}
+  mathJax.Load = function () {
+    var config, script;
+    if (this.loaded) {
+      return true;
+    }
 
-init();
+    // create configuration element
+    config = 'mathJax.Config();';
+    script = document.createElement( 'script' );
+    script.setAttribute( 'type', 'text/x-mathjax-config' );
+    if ( window.opera ) {
+      script.innerHTML = config;
+    } else {
+      script.text = config;
+    }
+    document.getElementsByTagName('head')[0].appendChild( script );
 
-})( mediaWiki, jQuery );
+    // create startup element
+    mw.loader.load('ext.math.mathjax');
+
+    this.loaded = true;
+
+    return false;
+  };
+
+  $( document ).ready( function () {
+    mathJax.Load();
+  } );
+
+}( mediaWiki, jQuery ) );
