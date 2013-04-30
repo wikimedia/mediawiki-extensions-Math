@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "Dv-4UE-U",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-04-30T19:37:59Z",
+      "side": 1,
+      "message": "This is already implemented, so I don\u0027t think you should say \"in preparation\".",
+      "revId": "f33f259924cb994426656845dc87449dfc6fdee2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dv-7eUzo",
+        "filename": "MathRenderer.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-04-30T19:37:59Z",
+      "side": 1,
+      "message": "I just want to confirm to make sure I follow.  You\u0027re deliberately not using the setters here because reading from the db isn\u0027t considered a change?",
+      "revId": "f33f259924cb994426656845dc87449dfc6fdee2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dv55IfzE",
+        "filename": "MathTexvc.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-04-30T19:37:59Z",
+      "side": 1,
+      "message": "Cache it locally within the function if you\u0027re sure it hasn\u0027t changed, to avoid unnecessary method calls.  This applies various places",
+      "revId": "f33f259924cb994426656845dc87449dfc6fdee2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dvz7Vyxk",
+        "filename": "MathTexvc.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-04-30T19:37:59Z",
+      "side": 1,
+      "message": "Use getter for consistency.",
+      "revId": "f33f259924cb994426656845dc87449dfc6fdee2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dvz5iq7E",
+        "filename": "MathTexvc.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-04-30T19:37:59Z",
+      "side": 1,
+      "message": "This is the last time it can be set, so after the if, you can cache it locally, to avoid e.g. to getHash calls on the same line at the end.",
+      "revId": "f33f259924cb994426656845dc87449dfc6fdee2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dvz6nC8I",
+        "filename": "MathTexvc.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-04-30T19:37:59Z",
+      "side": 1,
+      "message": "Call getMathml once and cache it, then use the local one here.",
+      "revId": "f33f259924cb994426656845dc87449dfc6fdee2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dvx6iT7I",
+        "filename": "MathTexvc.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-04-30T19:37:59Z",
+      "side": 1,
+      "message": "Use getHtml for consistency (you\u0027re already using it earlier).  You probably want to cache it up top of the method.",
+      "revId": "f33f259924cb994426656845dc87449dfc6fdee2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dvz4Li9k",
+        "filename": "tests/MathDatabaseTest.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-04-30T19:37:59Z",
+      "side": 1,
+      "message": "Use the same case as the method definition.",
+      "revId": "f33f259924cb994426656845dc87449dfc6fdee2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
