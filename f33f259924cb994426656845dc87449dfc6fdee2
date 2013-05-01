@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "Dv6Qgzkw",
+        "filename": "MathRenderer.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-01T13:30:40Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "Dv-7eUzo",
+      "revId": "f33f259924cb994426656845dc87449dfc6fdee2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Dv55IfzE",
         "filename": "MathTexvc.php",
         "patchSetId": 7
@@ -47,6 +65,24 @@
       "writtenOn": "2013-04-30T19:37:59Z",
       "side": 1,
       "message": "Cache it locally within the function if you\u0027re sure it hasn\u0027t changed, to avoid unnecessary method calls.  This applies various places",
+      "revId": "f33f259924cb994426656845dc87449dfc6fdee2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DwMV5zPs",
+        "filename": "MathTexvc.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-01T13:30:40Z",
+      "side": 1,
+      "message": "what do you mean by \u0027unnecessary method calls\u0027?",
+      "parentUuid": "Dv55IfzE",
       "revId": "f33f259924cb994426656845dc87449dfc6fdee2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -132,6 +168,24 @@
       "writtenOn": "2013-04-30T19:37:59Z",
       "side": 1,
       "message": "Use the same case as the method definition.",
+      "revId": "f33f259924cb994426656845dc87449dfc6fdee2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DwEX7-HY",
+        "filename": "tests/MathDatabaseTest.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-01T13:30:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dvz4Li9k",
       "revId": "f33f259924cb994426656845dc87449dfc6fdee2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
