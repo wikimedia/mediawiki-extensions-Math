@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "DwNzP5Yo",
+        "filename": "MathTexvc.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-02T01:35:20Z",
+      "side": 1,
+      "message": "For example, here you\u0027re calling getHash 3 times even though it\u0027s the same every time (nothing you do in this method can change the hash).   Cache it locally like:\n\n$hash \u003d $this-\u003egetHash();\n\nthen use $hash.\n\nThe same applies to some other places.",
+      "parentUuid": "DwMV5zPs",
+      "revId": "f33f259924cb994426656845dc87449dfc6fdee2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Dvz7Vyxk",
         "filename": "MathTexvc.php",
         "patchSetId": 7
