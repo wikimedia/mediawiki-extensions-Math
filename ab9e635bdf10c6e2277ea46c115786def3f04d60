@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "DwLzUoR4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-02T01:35:37Z",
+      "side": 1,
+      "message": "See patch set 7 comment on the commit message.",
+      "revId": "ab9e635bdf10c6e2277ea46c115786def3f04d60",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DwJHu5uw",
+        "filename": "MathRenderer.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-02T01:35:37Z",
+      "side": 1,
+      "message": "\u0027Sets\u0027 (capital)",
+      "revId": "ab9e635bdf10c6e2277ea46c115786def3f04d60",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DwPzeKTo",
+        "filename": "MathTexvc.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-02T01:35:37Z",
+      "side": 1,
+      "message": "See patch set 7.  Use a local variable to cache the mathml and use that.  It\u0027s weird to use the getter once then the field the second time.",
+      "revId": "ab9e635bdf10c6e2277ea46c115786def3f04d60",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
