@@ -22,7 +22,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'Math',
-	'version' => '1.0',
+	'version' => '1.1',
 	'author' => array( 'Tomasz Wegrzanowski', 'Brion Vibber', '...' ),
 	'descriptionmsg' => 'math-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Math',
@@ -38,6 +38,7 @@ define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 ); /// @deprecated
 define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
+define( 'MW_MATH_LATEXML', 7 ); /// new in 1.21
 /**@}*/
 
 /** For back-compat */
@@ -109,6 +110,24 @@ $wgUseMathJax = false;
  */
 $wgMathJaxUrl = 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML';
 
+/**
+ * Use of LaTeXML for details see
+ * <http://latexml.mathweb.org/help>
+ *
+ * If you don't like them, install your own server see
+ * <https://svn.mathweb.org/repos/LaTeXML/branches/arXMLiv/INSTALL>
+ */
+$wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
+/**
+ * Allows to use LaTeXML as renderer for  mathematical equation, if used in
+ * combination with $wgUseMathJax the MathML elements are rendered in browser
+ * by MathJaX.
+ */
+$wgUseLaTeXML = true;
+/**
+ * The timeout for the LaTeXML server to render an equaiton.
+ */
+$wgLaTeXMLTimout=240;
 ////////// end of config settings.
 
 $wgDefaultUserOptions['math'] = MW_MATH_PNG;
@@ -127,6 +146,7 @@ $wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
 $wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
 $wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
 $wgAutoloadClasses['MathMathJax'] = $dir . 'MathMathJax.php';
+$wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
