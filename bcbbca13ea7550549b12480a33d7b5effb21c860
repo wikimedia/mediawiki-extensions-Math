@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "DwOJfm0g",
+        "filename": "MathRenderer.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-03T03:28:09Z",
+      "side": 1,
+      "message": "Yes.  See the call to validateTagAttributes.  Remove the TODOs.\n\nSanitizer::validateTagAttributes is in includes/Sanitizer.php in core.",
+      "revId": "bcbbca13ea7550549b12480a33d7b5effb21c860",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DwMJkFyY",
+        "filename": "MathRenderer.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-03T03:28:09Z",
+      "side": 1,
+      "message": "Yes, they\u0027re used (see above), and you may want to set changed true here.",
+      "revId": "bcbbca13ea7550549b12480a33d7b5effb21c860",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DwCJqI.8",
+        "filename": "tests/MathRendererTest.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-03T03:28:09Z",
+      "side": 1,
+      "message": "Spelling: \u0027changed\u0027",
+      "revId": "bcbbca13ea7550549b12480a33d7b5effb21c860",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
