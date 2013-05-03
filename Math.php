@@ -101,14 +101,6 @@ $wgMathDirectory = false;
  */
 $wgUseMathJax = false;
 
-/**
- * Use of MathJax's CDN is governed by terms of service
- * <http://www.mathjax.org/download/mathjax-cdn-terms-of-service/>
- *
- * If you don't like them, install your own copy to load.
- */
-$wgMathJaxUrl = 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML';
-
 ////////// end of config settings.
 
 $wgDefaultUserOptions['math'] = MW_MATH_PNG;
