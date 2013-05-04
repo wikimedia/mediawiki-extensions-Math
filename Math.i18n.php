@@ -4009,6 +4009,7 @@ latex، dvips، gs کی صحیح تنصیب کی جانچ کرنے کے بعد �
 /** Uzbek (oʻzbekcha)
  * @author Abdulla
  * @author CoderSI
+ * @author Sociologist
  */
 $messages['uz'] = array(
 	'math_sample' => 'Formula qoʻying',
@@ -4016,7 +4017,7 @@ $messages['uz'] = array(
 	'prefs-math' => 'Formulalar',
 	'mw_math_png' => 'Har doim PNGga aylantirish',
 	'mw_math_source' => 'Ishoralarda TeX ni qoldirish (matnli brauzerlar uchun)',
-	'mw_math_mathjax' => "MathJax (tajribaviy moslama, ko'pchilik brauzerlar uchun eng maqbuli)",
+	'mw_math_mathjax' => 'MathJax (tajribaviy moslama, koʻpchilik brauzerlar uchun eng maqbuli)',
 );
 
 /** vèneto (vèneto)
