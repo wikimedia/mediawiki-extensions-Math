@@ -81,7 +81,7 @@ class MathHooks {
 	 * @return array of strings
 	 */
 	private static function getMathNames() {
-		global $wgUseMathJax;
+		global $wgUseMathJax, $wgUseLaTeXML;
 		$names = array(
 			MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
 			MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
@@ -89,7 +89,9 @@ class MathHooks {
 		if ( $wgUseMathJax ) {
 			$names[MW_MATH_MATHJAX] = wfMessage( 'mw_math_mathjax' )->escaped();
 		}
-
+		if ( $wgUseLaTeXML ) {
+			$names[MW_MATH_LATEXML] = wfMessage( 'mw_math_latexml' )->escaped();
+		}
 		return $names;
 	}
 
