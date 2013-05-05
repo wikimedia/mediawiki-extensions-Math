@@ -1647,7 +1647,7 @@ $messages['id'] = array(
 	'math_sample' => 'Masukkan rumus di sini',
 	'math_tip' => 'Rumus matematika (LaTeX)',
 	'prefs-math' => 'Matematika',
-	'mw_math_png' => 'Taruih buek PNG',
+	'mw_math_png' => 'Selalu jadikan PNG',
 	'mw_math_source' => 'Biarkan sebagai TeX (untuk penjelajah web teks)',
 	'mw_math_mathjax' => 'MathJax (eksperimen; baik untuk kebanyakan penjelajah web)',
 	'math_failure' => 'Gagal memparse',
@@ -2431,6 +2431,7 @@ $messages['mhr'] = array(
 $messages['min'] = array(
 	'math_sample' => 'Masuakkan rumus di siko',
 	'math_tip' => 'Rumus matematika (LaTeX)',
+	'mw_math_png' => 'Taruih jadian PNG',
 	'mw_math_source' => 'Biakan sabagai TeX (untuak paramban web teks)',
 	'mw_math_mathjax' => 'MathJax (uji-cubo; elok buek kabanyakan paramban web)',
 );
