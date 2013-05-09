@@ -22,6 +22,7 @@ $messages['en'] = array(
 	'mw_math_png' => 'Always render PNG',
 	'mw_math_source' => 'Leave it as TeX (for text browsers)',
 	'mw_math_mathjax' => 'MathJax (experimental; best for most browsers)',
+	'mw_math_latexml' => 'LaTeXML (experimental; uses MathML)',
 
 	// Math errors
 	'math_failure' => 'Failed to parse',
