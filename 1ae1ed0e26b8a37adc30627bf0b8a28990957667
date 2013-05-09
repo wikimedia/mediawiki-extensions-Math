@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "DwvhhB60",
+        "filename": "Math.i18n.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2013-05-09T15:06:46Z",
+      "side": 1,
+      "message": "Please add message documentation when adding new message keys. See https://www.mediawiki.org/wiki/I18n#Message_documentation for details.",
+      "revId": "1ae1ed0e26b8a37adc30627bf0b8a28990957667",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
