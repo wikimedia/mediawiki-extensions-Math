@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "Dw.KISOs",
+        "filename": "Math.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-10T10:19:18Z",
+      "side": 1,
+      "message": "I think it\u0027s time to raise the version Number",
+      "revId": "91aa620293f03318b9a075b22d63ec7119634131",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw0JuVDE",
+        "filename": "Math.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-10T10:19:18Z",
+      "side": 1,
+      "message": "I suggest to use true as default. But I could also live with false. This raises the effort for non wmf wikimedia installations.",
+      "revId": "91aa620293f03318b9a075b22d63ec7119634131",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DwwKETNU",
+        "filename": "Math.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-10T10:19:18Z",
+      "side": 1,
+      "message": "We can discuss that default value.",
+      "revId": "91aa620293f03318b9a075b22d63ec7119634131",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw6J.QN8",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-10T10:19:18Z",
+      "side": 1,
+      "message": "This works locally. But fails at the server.\nI don\u0027t understand why?",
+      "revId": "91aa620293f03318b9a075b22d63ec7119634131",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
