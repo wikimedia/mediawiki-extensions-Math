@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "Dw3mnx6o",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-11T18:38:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "DwzP3INQ",
+      "revId": "91aa620293f03318b9a075b22d63ec7119634131",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Dw1MjxFk",
         "filename": "MathLaTeXML.php",
         "patchSetId": 15
@@ -81,6 +99,24 @@
       "writtenOn": "2013-05-10T20:50:55Z",
       "side": 1,
       "message": "Yes, I believe so.  In PHP, each file does not have its own execution environment.  You can get the old value like:\n\n$prevInternalErrors \u003d libxml_use_internal_errors( true );\n\nthen restore it before you leave the method.  This will be easier if you change it to only return once:\n\nlibxml_use_internal_errors( $prevInternalErrors );",
+      "revId": "91aa620293f03318b9a075b22d63ec7119634131",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw9m0E9U",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-11T18:38:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw1MjxFk",
       "revId": "91aa620293f03318b9a075b22d63ec7119634131",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
