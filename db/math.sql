@@ -16,7 +16,7 @@ CREATE TABLE /*_*/math (
   -- HTML output from texvc, if any
   math_html text,
 
-  -- MathML output from texvc, if any
+  -- MathML output from texvc, or from LaTeXML
   math_mathml text
 ) /*$wgDBTableOptions*/;
 
