@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "Dw9H7QkM",
+        "filename": "Math.i18n.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw-EKxtI",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Dw1EQ0gA",
         "filename": "Math.i18n.php",
         "patchSetId": 16
@@ -30,6 +48,24 @@
       "writtenOn": "2013-05-14T06:32:45Z",
       "side": 1,
       "message": "\"label for LaTeXML radio button\".  Kind of obvious, but this way they don\u0027t have to read the keys.\n\nIt would be great if you also changed the old ones (mw_math_source and mw_math_mathjax)",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw7H4Pkg",
+        "filename": "Math.i18n.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw1EQ0gA",
       "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "DwxGWSu8",
+        "filename": "Math.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw9EE4sQ",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Dw7EBXrQ",
         "filename": "Math.php",
         "patchSetId": 16
@@ -64,6 +118,24 @@
       "writtenOn": "2013-05-14T06:32:45Z",
       "side": 1,
       "message": "\"don\u0027t like them\" is probably not the best phrasing.  How about:\n\n\"If you want or need to run your own server, follow these installation instructions and override $wgLaTeXMLUrl:\"\n\nAlso note that it can be an array (or remove that code).\n\nYou should also note the copyright status of the web service\u0027s code (public domain, if https://svn.mathweb.org/repos/LaTeXML/branches/arXMLiv/LICENSE applies) for people who choose to install their own instance of the web service.",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DwzGlTlY",
+        "filename": "Math.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw7EBXrQ",
       "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "Dw1Gg0kY",
+        "filename": "Math.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "no longer. but you are right for this commit.",
+      "parentUuid": "Dw7Hy-pY",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Dw5H7enY",
         "filename": "Math.php",
         "patchSetId": 16
@@ -98,6 +188,24 @@
       "writtenOn": "2013-05-14T06:32:45Z",
       "side": 1,
       "message": "Set it to false to start out with.",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw5GKWr8",
+        "filename": "Math.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw5H7enY",
       "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "Dw3GH1rg",
+        "filename": "Math.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw-Ez5qg",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "DwxEvakE",
         "filename": "Math.php",
         "patchSetId": 16
@@ -132,6 +258,24 @@
       "writtenOn": "2013-05-14T06:32:45Z",
       "side": 1,
       "message": "Misspelled (wgLaTeXMLTimeout) and spacing.\n\nThis is a pretty long timeout, by the way.  It\u0027s not a big deal for WMF, since they could override the wg variable for their cluster, but 60-120 is more reasonable in general (third party users too) IMHO (there may be multiple equations, but four minutes is a lot for a single one).",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw7Gq-hc",
+        "filename": "Math.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done.\nOh I thought I had already corrected that. oups.\nThere is an equation the expansion of the\nhttp://en.wikipedia.org/wiki/Ackermann_function\nthat takes quite long.\nFor the rest of the english Wikipedia 60s was sufficient.",
+      "parentUuid": "DwxEvakE",
       "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "Dw3Q-xLE",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw9HDQjo",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Dw3HGtk0",
         "filename": "MathLaTeXML.php",
         "patchSetId": 16
@@ -166,6 +328,24 @@
       "writtenOn": "2013-05-14T06:32:45Z",
       "side": 1,
       "message": "\"Gets the settings\"",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw9RM0HM",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw3HGtk0",
       "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "Dw7RJTGM",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw7HAPi8",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Dw3HP1lc",
         "filename": "MathLaTeXML.php",
         "patchSetId": 16
@@ -200,6 +398,24 @@
       "writtenOn": "2013-05-14T06:32:45Z",
       "side": 1,
       "message": "Is this necessary?  I\u0027m just wondering if checking the XML on these reads could cause performance problems.\n\nPresumably, it should be valid if it makes it to the db (unless there was previously a bug, or the schema changes).  Perhaps these cases could be handled through job queue cleanup jobs, or purging the database..",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw-ScdL4",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Short answer: Yes.\nLong answer:\nI didn\u0027t want to change the db layout now. In the LaTeXML branch I saved it in the database.\nHowever I\u0027d strongly suggest to check it every time at this stage.   If the xml is mal formatted for whatever reason the whole page layout might break.\nDuring my experiments I observed this behaviour, and I don\u0027t want to see it again;-)",
+      "parentUuid": "Dw3HP1lc",
       "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -223,6 +439,24 @@
     },
     {
       "key": {
+        "uuid": "Dw-R71Ic",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw5HSWv4",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Dw9Hc4hE",
         "filename": "MathLaTeXML.php",
         "patchSetId": 16
@@ -234,6 +468,24 @@
       "writtenOn": "2013-05-14T06:32:45Z",
       "side": 1,
       "message": "Why are you checking the timeout here?  Shouldn\u0027t the Http code you\u0027re calling handle that?",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw1SigAA",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Yes. But there is no feedback from the HTTP post method",
+      "parentUuid": "Dw9Hc4hE",
       "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -257,6 +509,24 @@
     },
     {
       "key": {
+        "uuid": "Dw7SzDEw",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw7HZXiE",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "DwxEHaoY",
         "filename": "MathLaTeXML.php",
         "patchSetId": 16
@@ -268,6 +538,24 @@
       "writtenOn": "2013-05-14T06:32:45Z",
       "side": 1,
       "message": "Always specify (private, protected, or public) explicitly for new code: https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Classes",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw9S2kDw",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "DwxEHaoY",
       "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -291,6 +579,24 @@
     },
     {
       "key": {
+        "uuid": "DwxSBGFE",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw-EL5o0",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Dw1EB8m0",
         "filename": "MathLaTeXML.php",
         "patchSetId": 16
@@ -302,6 +608,24 @@
       "writtenOn": "2013-05-14T06:32:45Z",
       "side": 1,
       "message": "Maybe add a comment \"Does the actual web request to convert TeX to MathML\"",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw3SphN4",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw1EB8m0",
       "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -325,6 +649,24 @@
     },
     {
       "key": {
+        "uuid": "Dw5SsCPE",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "DwzEG7oY",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "DwxHQCio",
         "filename": "MathRenderer.php",
         "patchSetId": 16
@@ -336,6 +678,24 @@
       "writtenOn": "2013-05-14T06:32:45Z",
       "side": 1,
       "message": "Use explicit terms (\"private\", \"protected\", \"public\") for new fields.  var means \"public\" in PHP.",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw7SMrIE",
+        "filename": "MathRenderer.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "I\u0027d like to get them all uniform.\nCan we postpone this to the next commit?",
+      "parentUuid": "DwxHQCio",
       "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -359,6 +719,24 @@
     },
     {
       "key": {
+        "uuid": "Dw5TeyGg",
+        "filename": "MathRenderer.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "From a conceptual perspective I agree with you. However I believe that this feature is really helpful for people that change from texvc to latexml and have problems.\nBy adding this parameter you can ensure that the problem whatever it is is not related to caching.\nIf no problems occur and everything works fine you are right.",
+      "parentUuid": "Dw-HUhh8",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Dw1Hakkk",
         "filename": "tests/MathLaTeXMLTest.php",
         "patchSetId": 16
@@ -370,6 +748,24 @@
       "writtenOn": "2013-05-14T06:32:45Z",
       "side": 1,
       "message": "It\u0027s a little annoying because of the static methods.\n\nOne idea, pass in a $httpRequestClass variable to getRenderer, defaulted to \u0027MWHttpRequest\u0027.  Then call $httpRequestClass::factory() to get the actual request objects (it takes a url and options).\n\nFor the test, pass in a custom test class that extends MWHttpRequest and has a suitable factory method.\n\nIf you do this, you should make a note that $httpRequestClass is for testability.\n\nIt will allow you to not use the real domain names below, though, which would be good.",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw7F7Hrs",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "ok. This is an option. However I don\u0027t like to add additional complexity to the real code in order to make it testable.\nI\u0027ll think about it for a while.",
+      "parentUuid": "Dw1Hakkk",
       "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -393,6 +789,24 @@
     },
     {
       "key": {
+        "uuid": "Dw5F0GtA",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw5HkGhI",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Dw3Hhlv8",
         "filename": "tests/MathLaTeXMLTest.php",
         "patchSetId": 16
@@ -404,6 +818,24 @@
       "writtenOn": "2013-05-14T06:32:45Z",
       "side": 1,
       "message": "Make clear what you are testing.  How about something like \"requestReturn is false for \u0027no response\u0027 case\".\n\nBut can\u0027t no_response also occur for an unsuccessful response (e.g. I think the Google example is HTTP 405).  I think it should be renamed.\n\nRename the other \"bad call\"s below, too, please.",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DwxFJKpA",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw3Hhlv8",
       "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -427,6 +859,24 @@
     },
     {
       "key": {
+        "uuid": "Dw3Fxlt0",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done\n\nBy the way... is there a spellchecker for eclipse",
+      "parentUuid": "Dw5HJul4",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Dw9Huou0",
         "filename": "tests/MathLaTeXMLTest.php",
         "patchSetId": 16
@@ -438,6 +888,24 @@
       "writtenOn": "2013-05-14T06:32:45Z",
       "side": 1,
       "message": "Use $this-\u003esetMwGlobals for test code.  E.g.\n\n$this-\u003esetMwGlobals( \u0027wgLaTeXMLTimeout\u0027, 1);\n\nTechnically, you only need to do it one or more more times per test, but I think it\u0027s simpler to do it every time.\n\nThis ensures it discards the change after the test.",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw9F.oqs",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-05-14T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "Dw9Huou0",
       "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
