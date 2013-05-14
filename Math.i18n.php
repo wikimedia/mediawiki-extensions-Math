@@ -22,6 +22,7 @@ $messages['en'] = array(
 	'mw_math_png' => 'Always render PNG',
 	'mw_math_source' => 'Leave it as TeX (for text browsers)',
 	'mw_math_mathjax' => 'MathJax (experimental; best for most browsers)',
+	'mw_math_latexml' => 'LaTeXML (experimental; uses MathML)',
 
 	// Math errors
 	'math_failure' => 'Failed to parse',
@@ -34,6 +35,10 @@ $messages['en'] = array(
 	'math_bad_output' => 'Cannot write to or create math output directory',
 	'math_notexvc' => 'Missing texvc executable; please see math/README to configure.',
 	'math_output_error' => 'Cannot store math image on filesystem.',
+	'math_latexml_timeout' => 'LaTeXML Timeout from \'$1\'',
+	'math_latexml_invalidresponse' => 'LaTeXML Invalid response from server \'$1\':',
+	'math_latexml_invalidxml' => 'LaTeXML MathML is invalid XML.',
+	'math_latexml_invalidjson'  => 'LaTeXML Server response is invalid JSON.',
 );
 
 /** Message documentation (Message documentation)
@@ -41,6 +46,7 @@ $messages['en'] = array(
  * @author Kizito
  * @author Shirayuki
  * @author Siebrand
+ * @author Physikerwelt
  */
 $messages['qqq'] = array(
 	'math-desc' => '{{desc|name=Math|url=http://www.mediawiki.org/wiki/Extension:Math}}',
@@ -53,19 +59,28 @@ Used as label for radio button.
 
 See also:
 * {{msg-mw|Mw math source}}
-* {{msg-mw|Mw math mathjax}}',
+* {{msg-mw|Mw math mathjax}}
+* {{msg-mw|Mw math latexml}}',
 	'mw_math_source' => 'In user preferences (math). All mw_math_* messages MUST be different, things will break otherwise!
 
-Used as label for radio button.
+Used as label for source radio button.
 
 See also:
 * {{msg-mw|Mw math png}}
+* {{msg-mw|Mw math mathjax}}
+* {{msg-mw|Mw math latexml}}',
+	'mw_math_mathjax' => 'Used as label for mathjax radio button.
+
+See also:
+* {{msg-mw|Mw math png}}
+* {{msg-mw|Mw math source}}
+* {{msg-mw|Mw math latexml}}',
+	'mw_math_latexml' => 'Used as label for latexml radio button.
+
+See also:
+* {{msg-mw|Mw math png}}
+* {{msg-mw|Mw math source}}
 * {{msg-mw|Mw math mathjax}}',
-	'mw_math_mathjax' => 'Used as label for radio button.
-
-See also:
-* {{msg-mw|Mw math png}}
-* {{msg-mw|Mw math source}}',
 	'math_failure' => 'Used as error message.
 
 This message is followed by "(", Error message(*1), Additional message, "): "  and Source code.
@@ -79,7 +94,12 @@ This message is followed by "(", Error message(*1), Additional message, "): "  a
 * {{msg-mw|Math bad tmpdir}}
 * {{msg-mw|Math bad output}}
 * {{msg-mw|Math notexvc}}
-* {{msg-mw|Math output error}}',
+* {{msg-mw|Math output error}}
+* {{msg-mw|Math latexml timeout}}
+* {{msg-mw|Math latexml noresponse}}
+* {{msg-mw|Math latexml invalidxml}}
+* {{msg-mw|Math latexml invalidjson}}
+',
 	'math_unknown_error' => 'Used as error message for unknown texvc error.
 
 This message follows the message {{msg-mw|Math failure}}.
@@ -113,6 +133,18 @@ This message follows the message {{msg-mw|Math failure}}.',
 	'math_output_error' => 'Used as error message if the texvc output file could not be stored.
 
 This message follows the message {{msg-mw|Math failure}}.',
+	'math_latexml_timeout' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}. ',
+	'math_latexml_invalidresponse' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}. ',
+	'math_latexml_invalidxml' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}. ',
+	'math_latexml_invalidjson'  => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}. ',
 );
 
 /** Achinese (Acèh)
