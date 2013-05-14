@@ -22,7 +22,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'Math',
-	'version' => '1.0',
+	'version' => '1.1',
 	'author' => array( 'Tomasz Wegrzanowski', 'Brion Vibber', '...' ),
 	'descriptionmsg' => 'math-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Math',
@@ -38,6 +38,7 @@ define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 ); /// @deprecated
 define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
+define( 'MW_MATH_LATEXML', 7 ); /// new in 1.22
 /**@}*/
 
 /** For back-compat */
@@ -101,6 +102,29 @@ $wgMathDirectory = false;
  */
 $wgUseMathJax = false;
 
+/**
+ * Use of LaTeXML for details see
+ * <http://latexml.mathweb.org/help>
+ *
+ * If you want or need to run your own server, follow these installation
+ * instructions and override $wgLaTeXMLUrl:
+ * <https://svn.mathweb.org/repos/LaTeXML/branches/arXMLiv/INSTALL>
+ *
+ * If you expect heavy load you can specify multiple servers. In that case one
+ * server is randomly chosen for each rendering process. Specify the list of
+ * servers in an array e.g $wgLaTeXMLUrl = array ( 'http://latexml.example.com/convert',
+ * 'http://latexml2.example.com/convert');
+ */
+$wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
+/**
+ * Allows to use LaTeXML as renderer for mathematical equation.
+ */
+$wgUseLaTeXML = false;
+/**
+ * The timeout for the LaTeXML server to render an equation, in seconds.
+ */
+$wgLaTeXMLTimeout = 240;
+
 ////////// end of config settings.
 
 $wgDefaultUserOptions['math'] = MW_MATH_PNG;
@@ -119,6 +143,7 @@ $wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
 $wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
 $wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
 $wgAutoloadClasses['MathMathJax'] = $dir . 'MathMathJax.php';
+$wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
