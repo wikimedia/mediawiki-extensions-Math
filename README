@@ -7,6 +7,16 @@ This version (for MediaWiki 1.19) has some changes since previous versions:
 See the README in the math subdirectory for more info on setting up the
 low-level conversion tools.
 
+MathML support:
+If you prefer MathML rather than images you can use LaTeXML to convert the
+math tags to MathML. To use that feature you have to enable LaTeXML by setting
+$wgUseLaTeXML = true;
+It is possible to choose LaTeXML as default option (for anonymous user) by setting
+$wgDefaultUserOptions['math'] = MW_MATH_LATEXML;
+in the LocalSettings.php file.
+The LaTeXML option requires php5-curl to be installed. Without php5-curl no proper
+error handling can be guaranteed.
+
 MathJax configuration:
 Client-side configuration of MathJax can be done by specifying a mathJax.config
 table, which takes a table as described in:
