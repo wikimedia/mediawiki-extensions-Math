@@ -492,6 +492,24 @@
     },
     {
       "key": {
+        "uuid": "Dw7oa0xE",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-14T18:40:38Z",
+      "side": 1,
+      "message": "Well, at least only do it if it fails (check $res before returning math_latexml timeout).  As is, it might succeed, then get forced to fail due to the timeout (besides the miniscule time difference before the check, often timeouts in networking code are not exact).",
+      "parentUuid": "Dw1SigAA",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "Dw7HZXiE",
         "filename": "MathLaTeXML.php",
         "patchSetId": 16
@@ -871,6 +889,24 @@
       "side": 1,
       "message": "Done\n\nBy the way... is there a spellchecker for eclipse",
       "parentUuid": "Dw5HJul4",
+      "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dw9rut.0",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-14T18:40:38Z",
+      "side": 1,
+      "message": "Haven\u0027t tried it, but see both answers at http://goo.gl/E4dzf",
+      "parentUuid": "Dw3Fxlt0",
       "revId": "943df681802a6574fa5e3e8d2e8eba00c704d65d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
