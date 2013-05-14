@@ -9,8 +9,8 @@
  */
 
 /**
- * Abstract base class with static methods for rendering the <math> tags using 
- * different technologies. These static methods create a new instance of the 
+ * Abstract base class with static methods for rendering the <math> tags using
+ * different technologies. These static methods create a new instance of the
  * extending classes and render the math tags based on the mode setting of the user.
  * Furthermore this class handles the caching of the rendered output and provides
  *  debug information,
@@ -37,6 +37,10 @@ abstract class MathRenderer {
 	var $conservativeness = 0;
 	var $params = '';
 	var $changed = false;
+	/**
+	 * @var boolean forces rerendering if set to true
+	 */
+	var $purge = false;
 	protected $recall;
 
 	/**
@@ -73,7 +77,7 @@ abstract class MathRenderer {
 	 */
 	public static function getRenderer( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
 		global $wgDefaultUserOptions;
-		$validModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHJAX );
+		$validModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHJAX, MW_MATH_LATEXML );
 		if ( !in_array( $mode, $validModes ) )
 			$mode = $wgDefaultUserOptions['math'];
 		switch ( $mode ) {
@@ -83,11 +87,14 @@ abstract class MathRenderer {
 			case MW_MATH_MATHJAX:
 				$renderer = new MathMathJax( $tex, $params );
 				break;
+			case MW_MATH_LATEXML:
+				$renderer = new MathLaTeXML( $tex, $params );
+				break;
 			case MW_MATH_PNG:
 			default:
 				$renderer = new MathTexvc( $tex, $params );
 		}
-		wfDebugLog ( "Math", 'start rendering $' . $renderer->tex . '$' );
+		wfDebugLog ( "Math", 'start rendering $' . $renderer->tex . '$ in mode '.$mode );
 		return $renderer;
 	}
 
@@ -208,6 +215,8 @@ abstract class MathRenderer {
 		$attribs = Sanitizer::mergeAttributes( $attribs, $overrides );
 		return $attribs;
 	}
+
+
 	/**
 	 * Writes cache.  Does nothing by default
 	 */
@@ -253,7 +262,7 @@ abstract class MathRenderer {
 
 	/**
 	 * Get the hash calculated by texvc
-	 * 
+	 *
 	 * @return string hash
 	 */
 	public function getHash() {
@@ -319,7 +328,7 @@ abstract class MathRenderer {
 
 	/**
 	 * Get the attributes of the math tag
-	 * 
+	 *
 	 * @return array()
 	 */
 	public function getParams() {
@@ -332,8 +341,8 @@ abstract class MathRenderer {
 	public function setParams( $params ) {
 		//$changed is not set to true here, because the attributes do not affect
 		//the rendering in the current implementation.
-		//If this behavior will change in the future $this->tex is no longer a 
-		//primary key and the input hash cannot be calculate form $this->tex 
+		//If this behavior will change in the future $this->tex is no longer a
+		//primary key and the input hash cannot be calculate form $this->tex
 		//only. See the discussion 'Tag extensions in Block mode' on wikitech-l.
 		$this->params = $params;
 	}
@@ -347,5 +356,28 @@ abstract class MathRenderer {
 		return $this->changed;
 	}
 
+	/**
+	 * Checks if there is an explicit user request to rerender the math-tag.
+	 * @return boolean
+	 */
+	function isPurge( ) {
+		if ( $this->purge ) {
+			return true;
+		}
+		// TODO: Figure out if ?action=purge
+		// until this issue is resolved we use ?mathpurge=true instead
+		global $wgRequest;
+		return ( $wgRequest->getVal( 'mathpurge' ) === "true" );
+	}
+
+	/**
+	 * Sets purge. If set to true the render is forced to rerender and must not
+	 * use a cached version.
+	 * @return boolean
+	 */
+	function setPurge( $purge = true) {
+		$this->changed = true;
+		$this->purge = $purge;
+	}
 }
 
