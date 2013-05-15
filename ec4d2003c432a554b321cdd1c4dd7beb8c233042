@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "DxCQ2tuY",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 20
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-15T22:34:04Z",
+      "side": 1,
+      "message": "And you get the string response with:\n\n$req-\u003egetContent();",
+      "parentUuid": "DxIEfvLM",
+      "revId": "ec4d2003c432a554b321cdd1c4dd7beb8c233042",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "DxEQQIk8",
         "filename": "README",
         "patchSetId": 20
