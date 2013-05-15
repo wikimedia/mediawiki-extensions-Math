@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "DxKEVmJs",
+        "filename": "Math.php",
+        "patchSetId": 20
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-15T22:32:19Z",
+      "side": 1,
+      "message": "http://latexml.example.com/convert",
+      "revId": "ec4d2003c432a554b321cdd1c4dd7beb8c233042",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DxIEfvLM",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 20
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-15T22:32:19Z",
+      "side": 1,
+      "message": "It turns out you can check if it failed due to timeout.  You have to use MWHttpRequest::factory instead of calling Http::Post:\n\n$req \u003d MWHttpRequest::factory( $url, $options );\n\n$status \u003d $req-\u003eexecute();\n\nif ( $status-\u003ehasMessage( \u0027http-timed-out\u0027 ) )\n\nSo I think you should take this out, leave the timeout handling to the networking code, and use hasMessage to determine the error message on failure.\n\n$status-\u003eisOK() true means it succeeded.",
+      "revId": "ec4d2003c432a554b321cdd1c4dd7beb8c233042",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DxEQQIk8",
+        "filename": "README",
+        "patchSetId": 20
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-15T22:32:19Z",
+      "side": 1,
+      "message": "Recommending it as defualt is premature.  Let\u0027s get it merged, encourage people to use it, then see if there are any bugs.\n\nThe obvious problem with enabling it for everyone/anons is that it will basically only work if you have either Firefox or Opera 12.1.  This commit doesn\u0027t yet include the MathJax handling so it works in other browsers with JavaScript.  And remember not all readers will have JavaScript.\n\nYou should also mention about running your own server and link to https://svn.mathweb.org/repos/LaTeXML/branches/arXMLiv/INSTALL .\n\nFinally, note that you have to also set:\n\n$wgUseLaTeXML \u003d true;\n\nin LocalSettings.php if you want to try this.\n\nAlso, please add an empty line between paragraphs.",
+      "revId": "ec4d2003c432a554b321cdd1c4dd7beb8c233042",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
