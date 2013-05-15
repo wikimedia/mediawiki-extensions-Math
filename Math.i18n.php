@@ -632,10 +632,12 @@ $messages['cdo'] = array(
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
 	'math_sample' => 'Каьчдинарг чудила кхузе',
 	'math_tip' => 'Матlематlекхиа каьчйар (барам LaTeX)',
+	'prefs-math' => 'Формулаш гар',
 );
 
 /** Cebuano (Cebuano)
