@@ -95,6 +95,32 @@ class MathTexvc extends MathRenderer {
 	}
 
 	/**
+	 * Converts an error returned by texvc to a localized exception
+	 *
+	 * @param string $texvcResult error result returned by texvc
+	 */
+	public function convertTexvcError( $texvcResult ) {
+		$texvcStatus = substr( $texvcResult, 0, 1 );
+
+		$errDetails = htmlspecialchars( substr( $texvcResult, 1 ) );
+		switch( $texvcStatus ) {
+			case 'E':
+				$errMsg = $this->getError( 'math_lexing_error', $errDetails );
+				break;
+			case 'S':
+				$errMsg = $this->getError( 'math_syntax_error', $errDetails );
+				break;
+			case 'F':
+				$errMsg = $this->getError( 'math_unknown_function', $errDetails );
+				break;
+			default:
+				$errMsg = $this->getError( 'math_unknown_error', $errDetails );
+		}
+
+		return $errMsg;
+	}
+
+	/**
 	 * Does the actual call to texvc
 	 *
 	 * @return int|string MW_TEXVC_SUCCESS or error string
@@ -169,20 +195,7 @@ class MathTexvc extends MathRenderer {
 			$this->setMathml( null );
 			$this->setConservativeness( self::LIBERAL );
 		} else {
-			$errbit = htmlspecialchars( substr( $contents, 1 ) );
-			switch( $retval ) {
-				case 'E':
-					$errmsg = $this->getError( 'math_lexing_error', $errbit );
-					break;
-				case 'S':
-					$errmsg = $this->getError( 'math_syntax_error', $errbit );
-					break;
-				case 'F':
-					$errmsg = $this->getError( 'math_unknown_function', $errbit );
-					break;
-				default:
-					$errmsg = $this->getError( 'math_unknown_error', $errbit );
-			}
+			$errmsg = $this->convertTexvcError( $contents );
 		}
 
 		if ( !$errmsg ) {
