@@ -105,14 +105,16 @@ abstract class MathRenderer {
 	 * Returns an internationalized HTML error string
 	 *
 	 * @param string $msg message key for specific error
-	 * @param string $append string to append after error
+	 * @param Varargs $parameters (optional) zero or more message parameters for specific error
 	 * @return string HTML error string
 	 */
-	protected function getError( $msg, $append = '' ) {
+	protected function getError( $msg /*, ... */ ) {
 		$mf = wfMessage( 'math_failure' )->inContentLanguage()->escaped();
-		$errmsg = wfMessage( $msg )->inContentLanguage()->escaped();
+		$parameters = func_get_args();
+		array_shift( $parameters );
+		$errmsg = wfMessage( $msg, $parameters )->inContentLanguage()->escaped();
 		$source = htmlspecialchars( str_replace( "\n", ' ', $this->tex ) );
-		return "<strong class='error'>$mf ($errmsg$append): $source</strong>\n";
+		return "<strong class='error'>$mf ($errmsg): $source</strong>\n";
 	}
 
 	/**
