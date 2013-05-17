@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "DxUzSBwE",
+        "filename": "Math.i18n.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-17T09:38:01Z",
+      "side": 1,
+      "message": "There\u0027s your test whitespace.  Unicode byte order mark (U+FEFF).  Be sure to disable this in your editor (or use a different one) for PHP.",
+      "revId": "c758b89893ae7a8d25c7a85902f7b5d27db66f89",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DxYzDbzs",
+        "filename": "Math.i18n.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-17T09:38:01Z",
+      "side": 1,
+      "message": "I changed getError to use i18n parameters (pending review).  See https://gerrit.wikimedia.org/r/#/c/64263/ and https://www.mediawiki.org/wiki/I18n#Message_parameters .  Use that here ($1 for the URL).",
+      "revId": "c758b89893ae7a8d25c7a85902f7b5d27db66f89",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DxbF.iN8",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-17T09:38:01Z",
+      "side": 1,
+      "message": "This is not a factory.  It\u0027s a class that has a factory.  How about $httpRequestClass?",
+      "revId": "c758b89893ae7a8d25c7a85902f7b5d27db66f89",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DxXF1IPc",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-17T09:38:01Z",
+      "side": 1,
+      "message": "First, can you make an $options variable, so it\u0027s more readable?  Also, you don\u0027t need to use call_user_func, just:\n\n$httpRequestClass::factory( $host, $options );",
+      "revId": "c758b89893ae7a8d25c7a85902f7b5d27db66f89",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DxWzAoy4",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-17T09:38:01Z",
+      "side": 1,
+      "message": "Remove space before parens.\n\nBut I\u0027m not sure you should be revealing the low-level HTML error details like this.",
+      "revId": "c758b89893ae7a8d25c7a85902f7b5d27db66f89",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DxczddxM",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-17T09:38:01Z",
+      "side": 1,
+      "message": "Use commas to separate parameters.  See https://gerrit.wikimedia.org/r/#/c/64263/",
+      "revId": "c758b89893ae7a8d25c7a85902f7b5d27db66f89",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DxYzcDxE",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-17T09:38:01Z",
+      "side": 1,
+      "message": "Use public for all of these.",
+      "revId": "c758b89893ae7a8d25c7a85902f7b5d27db66f89",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DxQwBH28",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-17T09:38:01Z",
+      "side": 1,
+      "message": "I get the same error as you locally in my Vagrant.  Instead of a HTTP timeout, PHPUnit seems to be timing it out.\n\nYou\u0027re not using the real URL-encoded data for the post, which is another thing that complicates this test.",
+      "revId": "c758b89893ae7a8d25c7a85902f7b5d27db66f89",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DxUz7J3c",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-17T09:38:01Z",
+      "side": 1,
+      "message": "I also get the same as you here.  I\u0027m not sure why, but it may be a bug in the PHP timeout handling.",
+      "revId": "c758b89893ae7a8d25c7a85902f7b5d27db66f89",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
