@@ -26,13 +26,14 @@ $messages['en'] = array(
 	// Math errors
 	'math_failure' => 'Failed to parse',
 	'math_unknown_error' => 'unknown error',
-	'math_unknown_function' => 'unknown function',
+	'math_unknown_function' => 'unknown function \'$1\'',
 	'math_lexing_error' => 'lexing error',
 	'math_syntax_error' => 'syntax error',
 	'math_image_error' => 'PNG conversion failed; check for correct installation of latex and dvipng (or dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Cannot write to or create math temp directory',
 	'math_bad_output' => 'Cannot write to or create math output directory',
 	'math_notexvc' => 'Missing texvc executable; please see math/README to configure.',
+	'math_output_error' => 'Cannot store math image on filesystem.',
 );
 
 /** Message documentation (Message documentation)
@@ -79,17 +80,19 @@ This message is followed by "(", Error message(*1), Additional message, "): "  a
 * {{msg-mw|Math bad output}}
 * {{msg-mw|Math notexvc}}
 * {{msg-mw|Math output error}}',
-	'math_unknown_error' => 'Used as error message.
+	'math_unknown_error' => 'Used as error message for unknown texvc error.
 
 This message follows the message {{msg-mw|Math failure}}.
 {{Identical|Unknown error}}',
-	'math_unknown_function' => 'Used as error message.
+	'math_unknown_function' => 'Used as error message when texvc encounters an unknown function.
+
+$1 - Name of unknown function
 
 This message follows the message {{msg-mw|Math failure}}.',
-	'math_lexing_error' => 'Used as error message.
+	'math_lexing_error' => 'Used as error message for a texvc lexing error.
 
 This message follows the message {{msg-mw|Math failure}}.',
-	'math_syntax_error' => 'Used as error message.
+	'math_syntax_error' => 'Used as error message for a texvc syntax error.
 
 This message follows the message {{msg-mw|Math failure}}.
 {{Identical|Syntax error}}',
@@ -105,6 +108,12 @@ This message follows the message {{msg-mw|Math failure}}.',
 
 This message follows the message {{msg-mw|Math failure}}.',
 	'math_notexvc' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.',
+	'math_output_error' => 'Used as error message.
+
+This message follows the message {{msg-mw|Math failure}}.',
+	'math_image_error' => 'Used as error message.
 
 This message follows the message {{msg-mw|Math failure}}.',
 );
