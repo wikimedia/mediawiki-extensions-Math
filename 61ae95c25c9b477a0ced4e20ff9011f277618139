@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "DxZ9rjoY",
+        "filename": "Math.i18n.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-18T05:33:28Z",
+      "side": 1,
+      "message": "math_image_error is defined right above.",
+      "revId": "61ae95c25c9b477a0ced4e20ff9011f277618139",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
