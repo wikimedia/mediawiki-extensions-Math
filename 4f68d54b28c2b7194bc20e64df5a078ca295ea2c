@@ -16,6 +16,24 @@
       "revId": "4f68d54b28c2b7194bc20e64df5a078ca295ea2c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DxX9oQok",
+        "filename": "Math.i18n.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-18T05:33:16Z",
+      "side": 1,
+      "message": "Actually, if you look at math/texvc.ml, it\u0027s pretty clear that the only one that can really have a parameter (extra info after the single-letter code) is Illegal_tex_function/F.\n\nI was being conservative before, but this is a valid issue, so I\u0027m just going to reove the parameters for the other one.\n\n^ is string concatenation.",
+      "parentUuid": "DxawsawM",
+      "revId": "4f68d54b28c2b7194bc20e64df5a078ca295ea2c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
