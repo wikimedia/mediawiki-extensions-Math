@@ -13,6 +13,7 @@
 
   mathJax.config = $.extend( true, {
     root: mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax',
+    extensions: ['Safe.js'],
     config: ['TeX-AMS-texvc_HTML.js'],
     'v1.0-compatible': false,
     displayAlign: 'left',
@@ -23,6 +24,13 @@
       imageFont: null,
       availableFonts: ['TeX'],
       mtextFontInherit: true
+    },
+    Safe: {
+      allow: {
+        URLs: "none",
+        styles: "none",
+        require: "none"
+      }
     }
   }, mathJax.config );
 
