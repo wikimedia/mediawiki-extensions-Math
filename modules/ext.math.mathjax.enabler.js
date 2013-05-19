@@ -28,6 +28,9 @@
     'HTML-CSS': {
       imageFont: null,
       availableFonts: ['TeX']
+    },
+    MathMenu: {
+      showFontMenu: true
     }
   }, mathJax.config );
 
