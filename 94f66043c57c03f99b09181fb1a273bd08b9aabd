@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "DxXVrQ7k",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-19T19:12:24Z",
+      "side": 1,
+      "message": "Maybe \"href and style itself are also blacklisted in texvc config, but require, classes and CSS ids, are not.\"\n\nThe configuration of texvc does not affect MathJax.",
+      "revId": "94f66043c57c03f99b09181fb1a273bd08b9aabd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
