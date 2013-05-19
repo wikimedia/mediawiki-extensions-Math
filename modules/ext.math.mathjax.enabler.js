@@ -27,7 +27,7 @@
     },
     'HTML-CSS': {
       imageFont: null,
-      availableFonts: ['TeX']
+      preferredFont: ['STIX']
     }
   }, mathJax.config );
 
