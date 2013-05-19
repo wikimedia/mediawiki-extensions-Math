@@ -26,7 +26,8 @@
       mtextFontInherit: true
     },
     MathMenu: {
-      showLocale: false
+      showLocale: false,
+      showFontMenu: true
     }
   }, mathJax.config );
 
