@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "DxpB4pPE",
+        "filename": "Math.php",
+        "patchSetId": 30
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-23T23:28:54Z",
+      "side": 1,
+      "message": "example is misspelled.",
+      "revId": "658d0faed4a913dad24975b4386a97e655e4f0be",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "DxjBrkCE",
+        "filename": "README",
+        "patchSetId": 30
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-23T23:28:54Z",
+      "side": 1,
+      "message": "See https://gerrit.wikimedia.org/r/#/c/61987/20/README .  It is not ready to be recommended as default.  There are various small issues (limited browser support, no validation, etc.)",
+      "revId": "658d0faed4a913dad24975b4386a97e655e4f0be",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
