@@ -308,13 +308,14 @@ $messages['ast'] = array(
 	'mw_math_mathjax' => 'MathJax (esperimental; lo meyor pa la mayoría de navegadores)',
 	'math_failure' => 'Fallu al revisar la fórmula',
 	'math_unknown_error' => 'error desconocíu',
-	'math_unknown_function' => 'función desconocida',
+	'math_unknown_function' => "función '$1' desconocida",
 	'math_lexing_error' => 'Error lléxicu',
 	'math_syntax_error' => 'error de sintaxis',
 	'math_image_error' => 'Falló la conversión PNG; comprueba que tea bien la instalación de latex y dvipng (o dvips + gs + convert)',
 	'math_bad_tmpdir' => "Nun se pue escribir o crear el direutoriu temporal 'math'",
 	'math_bad_output' => "Nun se pue escribir o crear el direutoriu de salida 'math'",
 	'math_notexvc' => "Falta l'executable 'texvc'; por favor mira 'math/README' pa configuralo.",
+	'math_output_error' => 'Nun pue guardase la imaxe matemática nel sistema de ficheros.',
 );
 
 /** Avaric (авар)
@@ -848,13 +849,14 @@ $messages['de'] = array(
 	'mw_math_mathjax' => 'MathJax (experimentell; für alle Browser geeignet)',
 	'math_failure' => 'Fehler beim Parsen',
 	'math_unknown_error' => 'Unbekannter Fehler',
-	'math_unknown_function' => 'Unbekannte Funktion ',
+	'math_unknown_function' => 'Unbekannte Funktion „$1“',
 	'math_lexing_error' => 'Lexikalischer Fehler',
 	'math_syntax_error' => 'Syntaxfehler',
 	'math_image_error' => 'PNG-Konvertierung fehlgeschlagen. Bitte die korrekte Installation von LaTeX und dvipng überprüfen (oder dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Das temporäre Verzeichnis für mathematische Formeln kann nicht angelegt oder beschrieben werden.',
 	'math_bad_output' => 'Das Ausgabeverzeichnis für mathematische Formeln kann nicht angelegt oder beschrieben werden.',
 	'math_notexvc' => 'Das texvc-Programm wurde nicht gefunden. Bitte zur Konfiguration die Hinweise in der Datei math/README beachten.',
+	'math_output_error' => 'Das Formelbild kann auf dem Dateisystem nicht gespeichert werden.',
 );
 
 /** Zazaki (Zazaki)
@@ -1313,13 +1315,14 @@ $messages['gl'] = array(
 	'mw_math_mathjax' => 'MathJax (experimental; o mellor para a maioría dos navegadores)',
 	'math_failure' => 'Fallou a conversión do código',
 	'math_unknown_error' => 'erro descoñecido',
-	'math_unknown_function' => 'función descoñecida',
+	'math_unknown_function' => 'descoñécese a función "$1"',
 	'math_lexing_error' => 'erro de léxico',
 	'math_syntax_error' => 'erro de sintaxe',
-	'math_image_error' => 'Fallou a conversión a PNG; comprobe que latex, dvips, gs e convert están ben instalados (ou dvips + gs + convert)',
-	'math_bad_tmpdir' => 'Non se puido crear ou escribir no directorio temporal de fórmulas',
-	'math_bad_output' => 'Non se puido crear ou escribir no directorio de saída de fórmulas',
-	'math_notexvc' => 'Falta o executable texvc. Por favor consulte math/README para configurar.',
+	'math_image_error' => 'Fallou a conversión a PNG; comprobe que latex e dvipng están ben instalados (ou dvips + gs + convert)',
+	'math_bad_tmpdir' => 'Non se pode crear ou escribir no directorio matemático temporal',
+	'math_bad_output' => 'Non se pode crear ou escribir no directorio matemático de saída',
+	'math_notexvc' => 'Falta o executable texvc. Consulte math/README para configuralo.',
+	'math_output_error' => 'Non se pode almacenar a imaxe matemática no sistema de ficheiros.',
 );
 
 /** Guarani (Avañe'ẽ)
@@ -1791,13 +1794,14 @@ $messages['ja'] = array(
 	'mw_math_mathjax' => 'MathJax (開発中; ほとんどのブラウザーに最適)',
 	'math_failure' => '構文解析に失敗',
 	'math_unknown_error' => '不明なエラー',
-	'math_unknown_function' => '不明な関数',
+	'math_unknown_function' => '不明な関数「$1」',
 	'math_lexing_error' => '字句解析エラー',
 	'math_syntax_error' => '構文エラー',
 	'math_image_error' => 'PNG への変換に失敗しました。latex および dvipng (または dvips + gs + convert) が正しくインストールされているか確認してください。',
 	'math_bad_tmpdir' => '数式一時ディレクトリでの書き込みまたは作成ができません',
 	'math_bad_output' => '数式出力ディレクトリでの書き込みまたは作成ができません',
 	'math_notexvc' => 'texvc の実行可能ファイルが見つかりません。math/README を読んで設定してください。',
+	'math_output_error' => '数式画像をファイルシステムに格納できません。',
 );
 
 /** Jamaican Creole English (Patois)
@@ -3190,7 +3194,7 @@ $messages['roa-tara'] = array(
 	'mw_math_mathjax' => "MathJax (sperimendale; 'u megghie pe quase tutte le browser)",
 	'math_failure' => 'Analisi fallite',
 	'math_unknown_error' => 'errore scanusciute',
-	'math_unknown_function' => 'funziona scanusciute',
+	'math_unknown_function' => "funziona scanusciute '$1'",
 	'math_lexing_error' => 'errore de lessiche',
 	'math_syntax_error' => 'errore de sintassi',
 	'math_image_error' => "'A conversione d'u PNG ha fallite;
@@ -3199,6 +3203,7 @@ condrolle ce l'installazione de latex e dvips (o dvipg + gs + convertitore) jè 
 	'math_bad_output' => "Non ge puè scrivere o ccrejà 'na cartelle de destinazzione de math",
 	'math_notexvc' => 'texvc eseguibbele perdute;
 pe piacere vide math/README pe configurà.',
+	'math_output_error' => "Non ge pozze memorizzà immaggine sus a 'u file system.",
 );
 
 /** Russian (русский)
@@ -3979,6 +3984,7 @@ latex، dvips، gs، ۋە convert توغرا قاچىلانغانلىقىنى ت
 /** Ukrainian (українська)
  * @author Base
  * @author Olvin
+ * @author Ата
  * @author Тест
  */
 $messages['uk'] = array(
@@ -3991,13 +3997,14 @@ $messages['uk'] = array(
 	'mw_math_mathjax' => 'MathJax (експериментально; найкраще підходить для більшості оглядачів)',
 	'math_failure' => 'Неможливо розібрати вираз',
 	'math_unknown_error' => 'невідома помилка',
-	'math_unknown_function' => 'невідома функція',
+	'math_unknown_function' => "невідома функція '$1'",
 	'math_lexing_error' => 'лексична помилка',
 	'math_syntax_error' => 'синтаксична помилка',
 	'math_image_error' => 'PNG перетворення не вдалося; перевірте правильність установки latex і dvipng (або dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Не вдається створити чи записати в тимчасовий каталог математики',
 	'math_bad_output' => 'Не вдається створити чи записати в вихідний каталог математики',
 	'math_notexvc' => 'Не знайдено програму texvc; Див. math/README — довідку про налаштування.',
+	'math_output_error' => 'Не можна зберегти математичне зображення у файловій системі.',
 );
 
 /** Urdu (اردو)
