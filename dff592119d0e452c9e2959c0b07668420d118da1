@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "Dxn9rK4c",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 27
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-23T03:26:36Z",
+      "side": 1,
+      "message": "Mark new functions explicitly (\u0027public\u0027 here).",
+      "revId": "dff592119d0e452c9e2959c0b07668420d118da1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
