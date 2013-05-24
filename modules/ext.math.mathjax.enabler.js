@@ -15,19 +15,14 @@
     root: mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax',
     config: ['TeX-AMS-texvc_HTML.js'],
     'v1.0-compatible': false,
-    styles: {
-      '.mtext': {
-        'font-family': 'sans-serif ! important',
-        'font-size': '80%'
-      }
-    },
     displayAlign: 'left',
     menuSettings: {
       zoom: 'Click'
     },
     'HTML-CSS': {
       imageFont: null,
-      availableFonts: ['TeX']
+      availableFonts: ['TeX'],
+      mtextFontInherit: true
     }
   }, mathJax.config );
 
