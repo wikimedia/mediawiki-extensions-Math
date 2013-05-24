@@ -1119,6 +1119,7 @@ $messages['fo'] = array(
 
 /** French (français)
  * @author Gomoko
+ * @author Hello71
  * @author Peter17
  * @author Sherbrooke
  */
@@ -1132,7 +1133,7 @@ $messages['fr'] = array(
 	'mw_math_mathjax' => 'MathJax (expérimental; meilleur pour la plupart des navigateurs)',
 	'math_failure' => 'Erreur math',
 	'math_unknown_error' => 'erreur indéterminée',
-	'math_unknown_function' => 'fonction inconnue',
+	'math_unknown_function' => "fonction inconnue '$1'",
 	'math_lexing_error' => 'erreur lexicale',
 	'math_syntax_error' => 'erreur de syntaxe',
 	'math_image_error' => 'La conversion en PNG a échoué ; vérifiez l’installation de latex et dvipng (ou dvips + gs + convert)',
@@ -1184,13 +1185,14 @@ $messages['frr'] = array(
 	'mw_math_mathjax' => 'MathJax (eksperimentel; best för a miast browsers)',
 	'math_failure' => "Bi't auersaaten as wat skiaf gingen.",
 	'math_unknown_error' => 'Ünbekäänd feeler',
-	'math_unknown_function' => 'Ünbekäänd funktsjuun',
+	'math_unknown_function' => 'Ünbekäänd funktjuun „$1“',
 	'math_lexing_error' => 'Leksikaalisk feeler',
 	'math_syntax_error' => 'Süntaksfeeler',
 	'math_image_error' => 'PNG konwertiarin as skiaf gingen. Preewe det iinrachtang faan LaTeX an dvipng (of dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Det föörluupen fertiaknis för matemaatisk formeln küd ei brükt of iinracht wurd.',
 	'math_bad_output' => 'Det fertiaknis för matemaatisk formeln küd ei brükt of iinracht wurd.',
 	'math_notexvc' => "Det texvc program as ei diar. Luke hü det iinrachten gongt uun't datei math/README.",
+	'math_output_error' => 'Det formelbil koon üüb det dateisüsteem ei seekert wurd.',
 );
 
 /** Friulian (furlan)
@@ -1768,7 +1770,7 @@ $messages['it'] = array(
 	'mw_math_mathjax' => 'MathJax (sperimentale; il migliore per la maggior parte dei browser)',
 	'math_failure' => 'Errore del parser',
 	'math_unknown_error' => 'errore sconosciuto',
-	'math_unknown_function' => 'funzione sconosciuta',
+	'math_unknown_function' => "funzione sconosciuta '$1'",
 	'math_lexing_error' => 'errore lessicale',
 	'math_syntax_error' => 'errore di sintassi',
 	'math_image_error' => 'Conversione in PNG non riuscita; verificare che siano correttamente installati i seguenti programmi: latex e dvipng (o dvips, gs e convert).',
@@ -2461,7 +2463,7 @@ $messages['mk'] = array(
 	'mw_math_mathjax' => 'MathJax (експериментално; најдобро за највеќето прелистувачи)',
 	'math_failure' => 'Не можев да парсирам',
 	'math_unknown_error' => 'непозната грешка',
-	'math_unknown_function' => 'непозната функција',
+	'math_unknown_function' => 'непозната функција „$1“',
 	'math_lexing_error' => 'лексичка грешка',
 	'math_syntax_error' => 'синтаксна грешка',
 	'math_image_error' => 'Претворањето во PNG не успеа. Проверете дали правилно ги имате инсталирано latex и dvipng (или dvips + gs + convert)',
@@ -2469,6 +2471,7 @@ $messages['mk'] = array(
 	'math_bad_output' => 'Не можев да запишам во или создадам излезен директориум математички операции',
 	'math_notexvc' => 'Недостасува извршната податотека texvc;
 погледнете math/README за нејзино нагодување.',
+	'math_output_error' => 'Не можам да ја зачувам математичката слика на податочниот систем',
 );
 
 /** Malayalam (മലയാളം)
@@ -2772,13 +2775,14 @@ $messages['nl'] = array(
 	'mw_math_mathjax' => 'MathJax (experimenteel; het beste voor de meeste browsers)',
 	'math_failure' => 'Parsen mislukt',
 	'math_unknown_error' => 'onbekende fout',
-	'math_unknown_function' => 'onbekende functie',
+	'math_unknown_function' => 'onbekende functie "$1"',
 	'math_lexing_error' => 'lexicografische fout',
 	'math_syntax_error' => 'syntactische fout',
 	'math_image_error' => 'De PNG-omzetting is mislukt. Controleer of LaTeX en dvipng (of dvips + gs + convert) correct zijn geïnstalleerd.',
 	'math_bad_tmpdir' => 'De map voor tijdelijke bestanden voor wiskundige formules bestaat niet of kan niet gemaakt worden',
 	'math_bad_output' => 'De map voor bestanden met wiskundige formules bestaat niet of kan niet gemaakt worden.',
 	'math_notexvc' => 'Kan het programma texvc niet vinden; stel alles in volgens de beschrijving in math/README.',
+	'math_output_error' => 'De Mathafbeelding kan niet op het bestandssysteem worden opgeslagen.',
 );
 
 /** Norwegian Nynorsk (norsk (nynorsk)‎)
@@ -3557,6 +3561,7 @@ $messages['sq'] = array(
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
+ * @author Milicevic01
  * @author Rancher
  */
 $messages['sr-ec'] = array(
@@ -3567,7 +3572,7 @@ $messages['sr-ec'] = array(
 	'mw_math_source' => 'Остави у формату ТеХ (за текстуалне прегледаче)',
 	'math_failure' => 'Рашчлањивање није успело',
 	'math_unknown_error' => 'непозната грешка',
-	'math_unknown_function' => 'непозната функција',
+	'math_unknown_function' => "непозната функција '$1'",
 	'math_lexing_error' => 'речничка грешка',
 	'math_syntax_error' => 'синтактичка грешка',
 	'math_image_error' => 'Претварање у формат PNG није успело. Проверите да ли су добро инсталирани latex, dvips, gs и convert',
@@ -4230,7 +4235,7 @@ $messages['yi'] = array(
 	'math_tip' => 'מאטעמאטישע פארמל (LaTeX)',
 	'prefs-math' => 'פאָרמאַל',
 	'math_unknown_error' => 'אומבאַקאַנטער פֿעלער',
-	'math_unknown_function' => 'אומבאַקאַנטע פֿונקציע',
+	'math_unknown_function' => "אומבאַקאַנטע פֿונקציע '$1'",
 	'math_lexing_error' => 'לעקסינג טעות',
 	'math_syntax_error' => 'סינטאקס גרייז',
 );
@@ -4299,13 +4304,14 @@ $messages['zh-hans'] = array(
 	'mw_math_mathjax' => 'MathJax（实验性；适合大多数浏览器）',
 	'math_failure' => '解析失败',
 	'math_unknown_error' => '未知错误',
-	'math_unknown_function' => '未知函数',
+	'math_unknown_function' => "未知函数 '$1'",
 	'math_lexing_error' => '句法错误',
 	'math_syntax_error' => '语法错误',
 	'math_image_error' => 'PNG 转换失败 ；检查正确安装的 latex 和 dvipng （或 dvips + gs + convert）',
 	'math_bad_tmpdir' => '无法写入或建立数学公式临时目录',
 	'math_bad_output' => '无法写入或建立数学公式输出目录',
 	'math_notexvc' => '"texvc"执行文件遗失；请参照math/README进行配置。',
+	'math_output_error' => '无法在文件系统上存储数学图像。',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
