@@ -44,7 +44,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 			, "requestReturn is false if HTTP::post returns false." );
 		$this->assertEquals( false, $res
 			, "res is false if HTTP:post returns false." );
-		$errmsg = wfMessage( 'math_latexml_invalidresponse' , $url )
+		$errmsg = wfMessage( 'math_latexml_invalidresponse' , $url,'' )
 			->inContentLanguage()->escaped();
 		$this->assertContains( $errmsg, $error
 			, "return an error if HTTP::post returns false" );
