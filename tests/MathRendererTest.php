@@ -63,4 +63,14 @@ class MathRendererTest extends MediaWikiTestCase {
 		$this->assertEquals( $renderer->isChanged(), true
 			, "assumes that changing a hash sets changed to true");
 	}
+
+	public function testSetPurge(){
+		$renderer = $this->getMockBuilder( 'MathRenderer' )
+		->setMethods( array( 'render' ) )
+		->disableOriginalConstructor()
+		->getMock();
+		$renderer->setPurge();
+		$this->assertEquals( $renderer->isPurge(), true, "Test purge." );
+
+	}
 }
