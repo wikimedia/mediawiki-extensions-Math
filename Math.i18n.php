@@ -36,7 +36,7 @@ $messages['en'] = array(
 	'math_notexvc' => 'Missing texvc executable; please see math/README to configure.',
 	'math_output_error' => 'Cannot store math image on filesystem.',
 	'math_latexml_timeout' => 'LaTeXML Timeout from \'$1\'',
-	'math_latexml_invalidresponse' => 'LaTeXML Invalid response from server \'$1\':',
+	'math_latexml_invalidresponse' => 'LaTeXML Invalid response (\'$2\') from server \'$1\':',
 	'math_latexml_invalidxml' => 'LaTeXML MathML is invalid XML.',
 	'math_latexml_invalidjson'  => 'LaTeXML Server response is invalid JSON.',
 );
