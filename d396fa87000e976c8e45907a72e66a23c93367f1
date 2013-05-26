@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "Dxu4pQYw",
+        "filename": "Math.php",
+        "patchSetId": 33
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2013-05-26T11:58:24Z",
+      "side": 1,
+      "message": "New line needed.",
+      "revId": "d396fa87000e976c8e45907a72e66a23c93367f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dxk4flVg",
+        "filename": "Math.php",
+        "patchSetId": 33
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2013-05-26T11:58:24Z",
+      "side": 1,
+      "message": "New line needed.",
+      "revId": "d396fa87000e976c8e45907a72e66a23c93367f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dxi4kybA",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 33
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2013-05-26T11:58:24Z",
+      "side": 1,
+      "message": "Maybe, just call it $settings?",
+      "revId": "d396fa87000e976c8e45907a72e66a23c93367f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dxo45ndg",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 33
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2013-05-26T11:58:24Z",
+      "side": 1,
+      "message": "New line needed.",
+      "revId": "d396fa87000e976c8e45907a72e66a23c93367f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dxm420ec",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 33
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2013-05-26T11:58:24Z",
+      "side": 1,
+      "message": "New line.",
+      "revId": "d396fa87000e976c8e45907a72e66a23c93367f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dxs4zpfQ",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 33
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2013-05-26T11:58:24Z",
+      "side": 1,
+      "message": "New line.",
+      "revId": "d396fa87000e976c8e45907a72e66a23c93367f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dxu5S4RE",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 33
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2013-05-26T11:58:24Z",
+      "side": 1,
+      "message": "Two variables different only by case is evil.",
+      "revId": "d396fa87000e976c8e45907a72e66a23c93367f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dxk5YNTA",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 33
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2013-05-26T11:58:24Z",
+      "side": 1,
+      "message": "We generally don\u0027t use this comma style.",
+      "revId": "d396fa87000e976c8e45907a72e66a23c93367f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dxg53TaA",
+        "filename": "MathRenderer.php",
+        "patchSetId": 33
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2013-05-26T11:58:24Z",
+      "side": 1,
+      "message": "It has a getter and setter, thus no need to make it externally accessible.",
+      "revId": "d396fa87000e976c8e45907a72e66a23c93367f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Dxg6Y7cg",
+        "filename": "tests/MathRendererTest.php",
+        "patchSetId": 33
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2013-05-26T11:58:24Z",
+      "side": 1,
+      "message": "Spacing.",
+      "revId": "d396fa87000e976c8e45907a72e66a23c93367f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
