@@ -43,6 +43,8 @@ abstract class MathRenderer {
 	protected $purge = false;
 	protected $recall;
 	protected $lastError = '';
+	protected $log = '';
+	protected $storedInDatabase = false;
 
 	/**
 	 * Constructs a base MathRenderer
@@ -104,7 +106,7 @@ abstract class MathRenderer {
 	 *
 	 * @return string of rendered HTML
 	 */
-	abstract public function render();
+	abstract public function render( );
 
 
 	/**
@@ -143,24 +145,10 @@ abstract class MathRenderer {
 	 */
 	public function readFromDatabase() {
 		$dbr = wfGetDB( DB_SLAVE );
-		$rpage = $dbr->selectRow(
-			'math',
-			array(
-				'math_outputhash', 'math_html_conservativeness', 'math_html',
-				'math_mathml'
-			),
-			array(
-				'math_inputhash' => $this->getInputHash()
-			),
-			__METHOD__
-		);
+		$rpage = $dbr->selectRow('math',$this->dbInArray(),
+			array('math_inputhash' => $this->getInputHash ()), __METHOD__);
 		if ( $rpage !== false ) {
-			# Trailing 0x20s can get dropped by the database, add it back on if necessary:
-			$xhash = unpack( 'H32md5', $dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
-			$this->hash = $xhash['md5'];
-			$this->conservativeness = $rpage->math_html_conservativeness;
-			$this->html = $rpage->math_html;
-			$this->mathml = utf8_decode( $rpage->math_mathml);
+			$this->initializeFromDatabaseRow ( $rpage );
 			if ( StringUtils::isUtf8( $this->mathml ) ) {
 				$this->recall = true;
 				return true;
@@ -173,6 +161,51 @@ abstract class MathRenderer {
 	}
 
 	/**
+	 * @return array with the database column names
+	 */
+	private function dbInArray() {
+		global $wgDebugMath;
+		$in = array('math_inputhash', 'math_outputhash', 'math_html_conservativeness', 'math_html',
+				'math_mathml');
+		if ( $wgDebugMath ) {
+			$debug_in = array('math_status', 'math_tex', 'math_log', 'math_timestamp');
+			$in = array_merge ( $in, $debug_in );
+		}
+		return $in;
+	}
+
+	/**
+	 * 
+	 * @param database_row $rpage
+	 */
+	public function initializeFromDatabaseRow( $rpage ) {
+		global $wgDebugMath;
+		$dbr = wfGetDB ( DB_SLAVE );
+		$xhash = unpack ( 'H32md5',
+				$dbr->decodeBlob ( $rpage->math_outputhash ) . "                " );
+		$this->hash = $xhash['md5'];
+		$this->conservativeness = $rpage->math_html_conservativeness;
+		$this->html = $rpage->math_html;
+		$this->mathml = utf8_decode ( $rpage->math_mathml );
+		$this->storedInDatabase = true;
+		if ( $wgDebugMath ) {
+			if(! isset($rpage->math_tex))
+			var_dump($rpage);
+			$dbtex = $rpage->math_tex;
+			if ( $dbtex != $this->tex ) {
+				if ( $this->tex != "" ) {
+					wfDebugLog ( "Math",
+					"WARNING database text is $dbtex whereas" . " input text was" . $this->tex );
+				} else {
+					$this->tex = $dbtex;
+				}
+			}
+			$this->statusCode = $rpage->math_status;
+			$this->log = $rpage->math_log;
+			$this->timestamp = $rpage->math_timestamp;
+		}
+	}
+	/**
 	 * Writes rendering entry to database.
 	 *
 	 * WARNING: Use writeCache() instead of this method to be sure that all
@@ -181,31 +214,46 @@ abstract class MathRenderer {
 	 *
 	 * This function can be seen as protected function.
 	 */
-	public function writeToDatabase() {
+	public function writeToDatabase( $dbw = null ) {
 		# Now save it back to the DB:
-		if ( !wfReadOnly() ) {
-			$dbw = wfGetDB( DB_MASTER );
-			if ( $this->hash !== '' ) {
-				$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ) );
-			} else {
-				$outmd5_sql = '';
+		if ( !wfReadOnly () ) {
+			if ( $dbw == null ) {
+				$dbw = wfGetDB ( DB_MASTER );
 			}
-			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->hash . ')\n' );
-			$dbw->replace(
-				'math',
-				array( 'math_inputhash' ),
-				array(
-					'math_inputhash' => $this->getInputHash(),
-					'math_outputhash' => $outmd5_sql ,
-					'math_html_conservativeness' => $this->conservativeness,
-					'math_html' => $this->html,
-					'math_mathml' => utf8_encode( $this->mathml ),
-					),
-				__METHOD__
-			);
+			wfDebugLog ( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->hash . ')\n' );
+			$outArray = $this->dbOutArray();
+			$dbw->onTransactionIdle (
+					function () use ($dbw, $outArray) {
+						$dbw->replace ( 'math', array('math_inputhash'), $outArray, __METHOD__ );
+					} );
 		}
 	}
 
+	/**
+	 * Gets an array that matches the variables of the class to the database columns
+	 * @return array
+	 */
+	private function dbOutArray() {
+		global $wgDebugMath;
+		$dbr = wfGetDB ( DB_SLAVE );
+		if ( $this->hash ){
+			$outmd5_sql = $dbr->encodeBlob ( pack ( 'H32', $this->hash ) );
+		}else{
+			$outmd5_sql = 0; // field cannot be null
+			// TODO: Change Database layout to allow for null values
+		}
+		$out = array('math_inputhash' => $this->getInputHash (), 'math_outputhash' => $outmd5_sql,
+				'math_html_conservativeness' => $this->conservativeness, 'math_html' => $this->html,
+				'math_mathml' => utf8_encode ( $this->mathml ));
+		if ( $wgDebugMath ) {
+			$debug_out = array('math_status' => $this->statusCode,
+				'math_tex' => $this->tex, 'math_log' => $this->log);
+			$out = array_merge ( $out, $debug_out );
+		}
+		wfDebugLog ( "Math", "Store Data:" . var_export ( $out, true ) . "\n\n" );
+		return $out;
+	}
+	
 	/**
 	 * Returns sanitized attributes
 	 *
@@ -223,9 +271,12 @@ abstract class MathRenderer {
 
 
 	/**
-	 * Writes cache.  Does nothing by default
+	 * Writes cache.  Writes the database entry if values were changed
 	 */
 	public function writeCache() {
+		if ( $this->isChanged() ) {
+			$this->writeToDatabase();
+		}
 	}
 
 	/**
@@ -244,6 +295,13 @@ abstract class MathRenderer {
 	 */
 	public function getTex() {
 		return $this->tex;
+	}
+	/**
+	 * get the timestamp, of the last rending of that equation
+	 * @return int
+	 */
+	public function getTimestamp() {
+		return $this->timestamp;
 	}
 
 	/**
@@ -387,6 +445,44 @@ abstract class MathRenderer {
 
 	function getLastError(){
 		return $this->lastError;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getLog() {
+		return $this->log;
+	}
+	
+	/**
+	 * @param string $log
+	 */
+	public function setLog( $log ) {
+		$this->changed = true;
+		$this->log = $log;
+	}
+	
+	/**
+	 * @param int $timestamp
+	 */
+	public function setTimestamp( $timestamp ) {
+		$this->changed = true;
+		$this->timestamp = $timestamp;
+	}
+	
+	/**
+	 * @return int
+	 */
+	public function getStatusCode() {
+		return $this->statusCode;
+	}
+	
+	/**
+	 * @param unknown_type $statusCode
+	 */
+	public function setStatusCode( $statusCode ) {
+		$this->changed = true;
+		$this->statusCode = $statusCode;
 	}
 }
 

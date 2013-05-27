@@ -15,7 +15,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	const SOME_TIMESTAMP = 1272509157;
 	const SOME_VALIDXML = true;
 	const NUM_BASIC_FIELDS = 5;
-	const NUM_DEBUG_FIELDS = 5;
+	const NUM_DEBUG_FIELDS = 4;
 
 	/**
 	 * creates a new database connection and a new math renderer
@@ -58,7 +58,6 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->renderer->setLog( self::SOME_LOG );
 		$this->renderer->setStatusCode( self::SOME_STATUSCODE );
 		$this->renderer->setTimestamp( self::SOME_TIMESTAMP );
-		// $this->renderer->validxml = self::SOME_VALIDXML;
 	}
 	/**
 	 * Checks database access. Writes an etry and reads it back.
@@ -120,7 +119,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$dbu->doUpdates( array( "extensions" ) );
 		$this->expectOutputRegex( '/(.*)Creating math table(.*)/' );
 		$this->setValues();
-		$this->renderer->writeDatabaseEntry();
+		$this->renderer->writeToDatabase();
 		$res = $this->db->select( "math", "*" );
 		$row = $res->fetchRow();
 		$this->assertEquals( sizeof( $row ), 2 * ( self::NUM_BASIC_FIELDS + self::NUM_DEBUG_FIELDS ) );
@@ -138,17 +137,17 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->setValues();
 		$wgDebugMath = true;
 	
-		$this->renderer->writeDatabaseEntry();
+		$this->renderer->writeToDatabase();
 	
 		$renderer2 = $this->getMockForAbstractClass( 'MathRenderer', array ( self::SOME_TEX ) );
-		$renderer2->readDatabaseEntry();
+		$renderer2->readFromDatabase();
 		// comparing the class object does now work due to null values etc.
 		// $this->assertEquals($this->renderer,$renderer2);
 		$this->assertEquals( $this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same" );
-		$this->assertEquals( $this->renderer->mathml, $renderer2->mathml, "Check MathML encoding" );
-		$this->assertEquals( $this->renderer->html, $renderer2->html ,"test html");
-		$this->assertEquals( $this->renderer->log, $renderer2->log , "test log");
-		$this->assertEquals( $this->renderer->statusCode, $renderer2->statusCode , "test status code");
+		$this->assertEquals( $this->renderer->getMathml(), $renderer2->getMathml(), "Check MathML encoding" );
+		$this->assertEquals( $this->renderer->getHtml(), $renderer2->getHtml() ,"test html");
+		$this->assertEquals( $this->renderer->getLog(), $renderer2->getLog() , "test log");
+		$this->assertEquals( $this->renderer->getStatusCode(), $renderer2->getStatusCode() , "test status code");
 	}
 	
 
