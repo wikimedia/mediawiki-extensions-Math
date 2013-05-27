@@ -52,9 +52,9 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 */
 	public function setValues() {
 		// set some values
-		$this->renderer->SetTex( self::SOME_TEX );
-		$this->renderer->SetHtml( self::SOME_HTML );
-		$this->renderer->SetMathml( self::SOME_MATHML );
+		$this->renderer->setTex( self::SOME_TEX );
+		$this->renderer->setHtml( self::SOME_HTML );
+		$this->renderer->setMathml( self::SOME_MATHML );
 		$this->renderer->setLog( self::SOME_LOG );
 		$this->renderer->setStatusCode( self::SOME_STATUSCODE );
 		$this->renderer->setTimestamp( self::SOME_TIMESTAMP );
@@ -70,15 +70,15 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->setValues();
 		$wgDebugMath = false;
 
-		$this->renderer->writeDatabaseEntry();
+		$this->renderer->writeToDatabase();
 
 		$renderer2 = $this->getMockForAbstractClass( 'MathRenderer', array ( self::SOME_TEX ) );
-		$renderer2->readDatabaseEntry();
+		$renderer2->readFromDatabase();
 		// comparing the class object does now work due to null values etc.
 		// $this->assertEquals($this->renderer,$renderer2);
 		$this->assertEquals( $this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same" );
-		$this->assertEquals( $this->renderer->mathml, $renderer2->mathml, "Check MathML encoding" );
-		$this->assertEquals( $this->renderer->html, $renderer2->html );
+		$this->assertEquals( $this->renderer->getMathml(), $renderer2->getMathml(), "Check MathML encoding" );
+		$this->assertEquals( $this->renderer->getHtml(), $renderer2->getHtml() );
 	}
 
 
@@ -88,6 +88,12 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 * @covers MathHooks::onLoadExtensionSchemaUpdates
 	 */
 	public function testBasicCreateTable() {
+		if( $this->db->getType() === 'sqlite' ) {
+			$this->markTestSkipped( "SQLite has global indices. We cannot " .
+				"create the `unitest_math` table, its math_inputhash index " .
+				"would conflict with the one from the real `math` table."
+			);
+		}
 		global $wgDebugMath;
 		$this->db->dropTable( "math", __METHOD__ );
 		$wgDebugMath = false;
@@ -95,7 +101,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$dbu->doUpdates( array( "extensions" ) );
 		$this->expectOutputRegex( '/(.*)Creating math table(.*)/' );
 		$this->setValues();
-		$this->renderer->writeDatabaseEntry();
+		$this->renderer->writeToDatabase();
 		$res = $this->db->select( "math", "*" );
 		$row = $res->fetchRow();
 		$this->assertEquals( sizeof( $row ), 2 * self::NUM_BASIC_FIELDS );

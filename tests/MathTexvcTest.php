@@ -25,10 +25,10 @@ class MathTexvcTest extends MediaWikiTestCase {
 		// will backup / restore global state on test setup / teardown.)
 		$wgMathCheckFiles = false;
 
-		// Create a MathTexvc mock, replacing methods 'readDatabaseEntry',
+		// Create a MathTexvc mock, replacing methods 'readFromDatabase',
 		// 'callTexvc', and 'doHTMLRender' with test doubles.
 		$texvc = $this->getMockBuilder( 'MathTexvc' )
-			->setMethods( array( 'readDatabaseEntry', 'callTexvc', 'doHTMLRender' ) )
+			->setMethods( array( 'readFromDatabase', 'callTexvc', 'doHTMLRender' ) )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -36,7 +36,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 
 		// ... first check if the item exists in the database cache:
 		$texvc->expects( $this->once() )
-			->method( 'readDatabaseEntry' )
+			->method( 'readFromDatabase' )
 			->with()
 			->will( $this->returnValue( true ) );
 
@@ -113,5 +113,40 @@ class MathTexvcTest extends MediaWikiTestCase {
 
 		// ... it will return the error result instead:
 		$this->assertEquals( $texvc->render(), 'error' );
+	}
+
+	/**
+	 * Tests behavior of convertTexvcError
+	 *
+	 * @covers MathTexvc::convertTexvcError
+	 */
+	public function testConvertTexvcError() {
+		$texvc = $this->getMockBuilder( 'MathTexvc' )
+			->setMethods(NULL)
+			->disableOriginalConstructor()
+			->getMock();
+
+		$mathFailure = wfMessage( 'math_failure' )->inContentLanguage()->escaped();
+
+		$actualLexing = $texvc->convertTexvcError( 'E' );
+		$expectedLexing = wfMessage( 'math_lexing_error', '' )->inContentLanguage()->escaped();
+		$this->assertContains( $mathFailure, $actualLexing, 'Lexing error contains general math failure message' );
+		$this->assertContains( $expectedLexing, $actualLexing, 'Lexing error contains detailed error for lexing' );
+
+		$actualSyntax = $texvc->convertTexvcError( 'S' );
+		$expectedSyntax = wfMessage( 'math_syntax_error', '' )->inContentLanguage()->escaped();
+		$this->assertContains( $mathFailure, $actualSyntax, 'Syntax error contains general math failure message' );
+		$this->assertContains( $expectedSyntax, $actualSyntax, 'Syntax error contains detailed error for syntax' );
+
+		$unknownFunction = 'figureEightIntegral';
+		$actualUnknownFunction = $texvc->convertTexvcError( "F$unknownFunction" );
+		$expectedUnknownFunction = wfMessage( 'math_unknown_function', $unknownFunction )->inContentLanguage()->escaped();
+		$this->assertContains( $mathFailure, $actualUnknownFunction, 'Unknown function error contains general math failure message' );
+		$this->assertContains( $expectedUnknownFunction, $actualUnknownFunction, 'Unknown function error contains detailed error for unknown function' );
+
+		$actualUnknownError = $texvc->convertTexvcError( 'Q' );
+		$expectedUnknownError = wfMessage( 'math_unknown_error', '' )->inContentLanguage()->escaped();
+		$this->assertContains( $mathFailure, $actualUnknownError, 'Unknown error contains general math failure message' );
+		$this->assertContains( $expectedUnknownError, $actualUnknownError, 'Unknown error contains detailed error for unknownError' );
 	}
 }

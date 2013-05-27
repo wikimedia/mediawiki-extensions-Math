@@ -7,22 +7,6 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
 
   var MML = MathJax.ElementJax.mml;
 
-  /*
-   *  Get an RGB color (a triplet of values between 0 and 255)
-   */
-  MathJax.Extension["TeX/color"].get_RGB = function (rgb) {
-    rgb = rgb.split(/,/); var RGB = "#";
-    if (rgb.length !== 3) {this.TEX.Error("RGB colors require 3 decimal numbers")}
-    for (var i = 0; i < 3; i++) {
-      if (!rgb[i].match(/^(\d{1,3})$/)) {this.TEX.Error("Invalid decimal number")}
-      var n = parseInt(rgb[i], 10);
-      if (n < 0 || n > 255) {this.TEX.Error("RGB values must be between 0 and 255")}
-      n = n.toString(16); if (n.length < 2) {n = "0"+n}
-      RGB += n;
-    }
-    return RGB;
-  }
-
   MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions,{
 
     mathchar0mi: {
@@ -36,14 +20,17 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
       C:            ['0043',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       cnums:        ['0043',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       Complex:      ['0043',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
+      H:            ['210D',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       N:            ['004E',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       natnums:      ['004E',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
+      Q:            ['0051',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       R:            ['0052',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       reals:        ['0052',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       Reals:        ['0052',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       Z:            ['005A',{mathvariant: MML.VARIANT.DOUBLESTRUCK}],
       sect:         '00A7',  // S
       P:            '00B6',
+      AA:           ['00C5',{mathvariant: MML.VARIANT.NORMAL}],  // Å, used for Angstrom
       alef:         ['2135',{mathvariant: MML.VARIANT.NORMAL}],  // aleph
       alefsym:      ['2135',{mathvariant: MML.VARIANT.NORMAL}],  // aleph
       weierp:       ['2118',{mathvariant: MML.VARIANT.NORMAL}],  // wp
@@ -133,10 +120,12 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
       arccot:             'NamedFn',
       arcsec:             'NamedFn',
       arccsc:             'NamedFn',
-      bold:               ['Macro','\\boldsymbol'],  // boldsymbol
+      bold:               ['Macro','\\mathbf{#1}',1],  // boldsymbol
       href:               'NamedFn', // disable dangerous command
       style:              'NamedFn', // disable dangerous command
-      pagecolor:          ['Macro','',1]  // ignore \pagecolor{}
+      pagecolor:          ['Macro','',1],  // ignore \pagecolor{}
+      vline:              ['Macro','\\smash{\\large\\lvert}',0],
+      image:              ['Macro','\\Im']
     }
 
   });
