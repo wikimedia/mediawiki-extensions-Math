@@ -44,9 +44,9 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Jon Harald Søby
  * @author Kizito
+ * @author Physikerwelt
  * @author Shirayuki
  * @author Siebrand
- * @author Physikerwelt
  */
 $messages['qqq'] = array(
 	'math-desc' => '{{desc|name=Math|url=http://www.mediawiki.org/wiki/Extension:Math}}',
@@ -98,8 +98,7 @@ This message is followed by "(", Error message(*1), Additional message, "): "  a
 * {{msg-mw|Math latexml timeout}}
 * {{msg-mw|Math latexml noresponse}}
 * {{msg-mw|Math latexml invalidxml}}
-* {{msg-mw|Math latexml invalidjson}}
-',
+* {{msg-mw|Math latexml invalidjson}}',
 	'math_unknown_error' => 'Used as error message for unknown texvc error.
 
 This message follows the message {{msg-mw|Math failure}}.
@@ -135,16 +134,16 @@ This message follows the message {{msg-mw|Math failure}}.',
 This message follows the message {{msg-mw|Math failure}}.',
 	'math_latexml_timeout' => 'Used as error message.
 
-This message follows the message {{msg-mw|Math failure}}. ',
+This message follows the message {{msg-mw|Math failure}}.',
 	'math_latexml_invalidresponse' => 'Used as error message.
 
-This message follows the message {{msg-mw|Math failure}}. ',
+This message follows the message {{msg-mw|Math failure}}.',
 	'math_latexml_invalidxml' => 'Used as error message.
 
-This message follows the message {{msg-mw|Math failure}}. ',
-	'math_latexml_invalidjson'  => 'Used as error message.
+This message follows the message {{msg-mw|Math failure}}.',
+	'math_latexml_invalidjson' => 'Used as error message.
 
-This message follows the message {{msg-mw|Math failure}}. ',
+This message follows the message {{msg-mw|Math failure}}.',
 );
 
 /** Achinese (Acèh)
@@ -561,6 +560,7 @@ $messages['bjn'] = array(
 );
 
 /** Bengali (বাংলা)
+ * @author Aftab1995
  * @author Bellayet
  * @author Zaheen
  */
@@ -572,7 +572,7 @@ $messages['bn'] = array(
 	'mw_math_source' => 'টেক (TeX) আকারে রেখে দাও (টেক্সট ব্রাউজারগুলোর জন্য)',
 	'math_failure' => 'পার্স করতে ব্যর্থ',
 	'math_unknown_error' => 'অজানা ত্রুটি',
-	'math_unknown_function' => 'অজানা ফাংশন',
+	'math_unknown_function' => "'$1' অজানা ফাংশন",
 	'math_lexing_error' => 'লেক্সিং ত্রুটি',
 	'math_syntax_error' => 'সিনট্যাক্স ত্রুটি',
 	'math_image_error' => 'PNG রূপান্তর ব্যর্থ; latex, dvips, gs, এবং convert ঠিকমত ইন্সটল হয়েছে কি না পরীক্ষা করুন', # Fuzzy
@@ -781,13 +781,14 @@ $messages['cs'] = array(
 	'mw_math_mathjax' => 'MathJax (experimentální; pro většinu prohlížečů nejlepší)',
 	'math_failure' => 'Nelze pochopit',
 	'math_unknown_error' => 'neznámá chyba',
-	'math_unknown_function' => 'neznámá funkce',
+	'math_unknown_function' => 'neznámá funkce „$1“',
 	'math_lexing_error' => 'chyba při lexingu',
 	'math_syntax_error' => 'syntaktická chyba',
 	'math_image_error' => 'Selhala konverze do PNG; zkontrolujte správnou instalaci latexu a dvipng (nebo dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Nelze zapsat nebo vytvořit dočasný adresář pro matematiku',
 	'math_bad_output' => 'Nelze zapsat nebo vytvořit adresář pro výstup matematiky',
 	'math_notexvc' => 'Chybí spustitelný texvc; podívejte se prosím do math/README na konfiguraci.',
+	'math_output_error' => 'Matematický obrázek nelze uložit do souborového systému.',
 );
 
 /** Kashubian (kaszëbsczi)
@@ -4350,6 +4351,7 @@ $messages['zh-hans'] = array(
 /** Traditional Chinese (中文（繁體）‎)
  * @author Liangent
  * @author Mark85296341
+ * @author Simon Shek
  */
 $messages['zh-hant'] = array(
 	'math-desc' => '在<code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code>標籤間生成數學公式',
@@ -4361,13 +4363,14 @@ $messages['zh-hant'] = array(
 	'mw_math_mathjax' => 'MathJax（實驗性；適合大多數瀏覽器）',
 	'math_failure' => '解析失敗',
 	'math_unknown_error' => '未知錯誤',
-	'math_unknown_function' => '未知函數',
+	'math_unknown_function' => '未知函數', # Fuzzy
 	'math_lexing_error' => '句法錯誤',
 	'math_syntax_error' => '語法錯誤',
 	'math_image_error' => 'PNG 轉換失敗；請檢查是否正確安裝了 latex, dvipng（或dvips + gs + convert）',
 	'math_bad_tmpdir' => '無法寫入或建立數學公式臨時目錄',
 	'math_bad_output' => '無法寫入或建立數學公式輸出目錄',
 	'math_notexvc' => '"texvc"執行檔案遺失；請參照 math/README 進行配置。',
+	'math_output_error' => '無法在檔案系統上儲存數學圖像。',
 );
 
 /** Chinese (Taiwan) (‪中文(台灣)‬) */
