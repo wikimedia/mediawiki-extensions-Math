@@ -191,16 +191,15 @@ abstract class MathRenderer {
 		$this->mathml = utf8_decode ( $rpage->math_mathml );
 		$this->storedInDatabase = true;
 		if ( $wgDebugMath ) {
-			if(! isset($rpage->math_tex))
+			$dbtex='';
 			$dbtex = $rpage->math_tex;
 			if ( $dbtex != $this->tex ) {
 				if ( $this->tex != "" ) {
-					wfDebugLog ( "Math",
-					"WARNING database text is $dbtex whereas" . " input text was" . $this->tex );
-				} else {
-					$this->tex = $dbtex;
+					wfDebugLog ( "Math", 'WARNING database text is '.
+						var_export($dbtex,true).' whereas input text was' . $this->tex );
 				}
 			}
+			$this->tex = $dbtex;
 			$this->statusCode = $rpage->math_status;
 			$this->log = $rpage->math_log;
 			$this->timestamp = $rpage->math_timestamp;
