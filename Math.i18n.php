@@ -880,6 +880,7 @@ $messages['de'] = array(
 	'mw_math_png' => 'Immer als PNG darstellen',
 	'mw_math_source' => 'Als TeX belassen (für Textbrowser)',
 	'mw_math_mathjax' => 'MathJax (experimentell; für alle Browser geeignet)',
+	'mw_math_latexml' => 'LaTeXML (experimentell; verwendet MathML)',
 	'math_failure' => 'Fehler beim Parsen',
 	'math_unknown_error' => 'Unbekannter Fehler',
 	'math_unknown_function' => 'Unbekannte Funktion „$1“',
@@ -890,6 +891,10 @@ $messages['de'] = array(
 	'math_bad_output' => 'Das Ausgabeverzeichnis für mathematische Formeln kann nicht angelegt oder beschrieben werden.',
 	'math_notexvc' => 'Das texvc-Programm wurde nicht gefunden. Bitte zur Konfiguration die Hinweise in der Datei math/README beachten.',
 	'math_output_error' => 'Das Formelbild kann auf dem Dateisystem nicht gespeichert werden.',
+	'math_latexml_timeout' => 'LaTeXML Zeitüberschreitung von „$1“',
+	'math_latexml_invalidresponse' => 'LaTeXML Ungültige Antwort („$2“) von Server „$1“:',
+	'math_latexml_invalidxml' => 'LaTeXML MathML ist ungültiges XML.',
+	'math_latexml_invalidjson' => 'LaTeXML Serverantwort ist ungültiges JSON.',
 );
 
 /** Zazaki (Zazaki)
@@ -1216,6 +1221,7 @@ $messages['frr'] = array(
 	'mw_math_png' => 'Leewen üs PNG uunwise',
 	'mw_math_source' => 'Uun TeX-formoot läät (för tekst-browsers)',
 	'mw_math_mathjax' => 'MathJax (eksperimentel; best för a miast browsers)',
+	'mw_math_latexml' => 'LaTeXML (experimentel; werket mä MathML)',
 	'math_failure' => "Bi't auersaaten as wat skiaf gingen.",
 	'math_unknown_error' => 'Ünbekäänd feeler',
 	'math_unknown_function' => 'Ünbekäänd funktjuun „$1“',
@@ -1226,6 +1232,10 @@ $messages['frr'] = array(
 	'math_bad_output' => 'Det fertiaknis för matemaatisk formeln küd ei brükt of iinracht wurd.',
 	'math_notexvc' => "Det texvc program as ei diar. Luke hü det iinrachten gongt uun't datei math/README.",
 	'math_output_error' => 'Det formelbil koon üüb det dateisüsteem ei seekert wurd.',
+	'math_latexml_timeout' => 'LaTeXML time-out faan „$1“',
+	'math_latexml_invalidresponse' => "LaTeXML ferkiard oonswaar ('$2') faan server '$1':",
+	'math_latexml_invalidxml' => 'LaTeXML MathML as ferkiard XML.',
+	'math_latexml_invalidjson' => 'LaTeXML server oonswaar as ferkiard JSON.',
 );
 
 /** Friulian (furlan)
@@ -1827,6 +1837,7 @@ $messages['ja'] = array(
 	'mw_math_png' => '常に PNG で描画',
 	'mw_math_source' => 'TeX のまま (テキスト ブラウザー向け)',
 	'mw_math_mathjax' => 'MathJax (開発中; ほとんどのブラウザーに最適)',
+	'mw_math_latexml' => 'LaTeXML (開発中; MathML を使用)',
 	'math_failure' => '構文解析に失敗',
 	'math_unknown_error' => '不明なエラー',
 	'math_unknown_function' => '不明な関数「$1」',
@@ -2807,6 +2818,7 @@ $messages['nl'] = array(
 	'mw_math_png' => 'Altijd als PNG weergeven',
 	'mw_math_source' => 'De TeX-broncode behouden (voor tekstbrowsers)',
 	'mw_math_mathjax' => 'MathJax (experimenteel; het beste voor de meeste browsers)',
+	'mw_math_latexml' => 'LaTeXML (experimenteel; gebruikt MathML)',
 	'math_failure' => 'Parsen mislukt',
 	'math_unknown_error' => 'onbekende fout',
 	'math_unknown_function' => 'onbekende functie "$1"',
@@ -2817,6 +2829,10 @@ $messages['nl'] = array(
 	'math_bad_output' => 'De map voor bestanden met wiskundige formules bestaat niet of kan niet gemaakt worden.',
 	'math_notexvc' => 'Kan het programma texvc niet vinden; stel alles in volgens de beschrijving in math/README.',
 	'math_output_error' => 'De Mathafbeelding kan niet op het bestandssysteem worden opgeslagen.',
+	'math_latexml_timeout' => 'LaTeXML: timeout van "$1"',
+	'math_latexml_invalidresponse' => 'LaTeXML: Ongeldig antwoord ("$2") van server "$1":',
+	'math_latexml_invalidxml' => 'LaTeXML: MathML is ongeldige XML.',
+	'math_latexml_invalidjson' => 'LaTeXML: het antwoord van de server is ongeldige JSON.',
 );
 
 /** Norwegian Nynorsk (norsk (nynorsk)‎)
@@ -3230,6 +3246,7 @@ $messages['roa-tara'] = array(
 	'mw_math_png' => "Fà sembre 'u render de le PNG",
 	'mw_math_source' => "Lassele cumme a 'nu TeX (pe le browser de teste)",
 	'mw_math_mathjax' => "MathJax (sperimendale; 'u megghie pe quase tutte le browser)",
+	'mw_math_latexml' => 'LaTeXML (sperimendale; ause MathML)',
 	'math_failure' => 'Analisi fallite',
 	'math_unknown_error' => 'errore scanusciute',
 	'math_unknown_function' => "funziona scanusciute '$1'",
@@ -3242,6 +3259,10 @@ condrolle ce l'installazione de latex e dvips (o dvipg + gs + convertitore) jè 
 	'math_notexvc' => 'texvc eseguibbele perdute;
 pe piacere vide math/README pe configurà.',
 	'math_output_error' => "Non ge pozze memorizzà immaggine sus a 'u file system.",
+	'math_latexml_timeout' => "LaTeXML fore tiembe da '$1'",
+	'math_latexml_invalidresponse' => "LaTeXML resposte invalide ('$2') da 'u server '$1':",
+	'math_latexml_invalidxml' => "LaTeXML MathML tène 'n'XML invalide.",
+	'math_latexml_invalidjson' => "'U server LaTeXML ave resposte cu 'nu JSON invalide.",
 );
 
 /** Russian (русский)
