@@ -45,6 +45,8 @@ abstract class MathRenderer {
 	protected $lastError = '';
 	protected $log = '';
 	protected $storedInDatabase = false;
+	protected $statusCode = 0;
+	protected $timestamp;
 
 	/**
 	 * Constructs a base MathRenderer
@@ -190,7 +192,6 @@ abstract class MathRenderer {
 		$this->storedInDatabase = true;
 		if ( $wgDebugMath ) {
 			if(! isset($rpage->math_tex))
-			var_dump($rpage);
 			$dbtex = $rpage->math_tex;
 			if ( $dbtex != $this->tex ) {
 				if ( $this->tex != "" ) {
