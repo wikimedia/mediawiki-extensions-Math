@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "DxoZvsvw",
+        "filename": "modules/ext.math.mathjax.enabler.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-05-30T23:39:48Z",
+      "side": 1,
+      "message": "I don\u0027t really see any reason to block regular external links (http, https).  After all, they can be used outside math.  I guess the only potential reason is simplicity.",
+      "revId": "312b05240772a7b2c7c6c4a2ffcd48136932e5c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
