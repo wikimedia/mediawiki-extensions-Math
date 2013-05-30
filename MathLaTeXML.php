@@ -152,14 +152,21 @@ class MathLaTeXML extends MathRenderer {
 	}
 
 	/**
+	 * Calculates the HTTP POST Data for the request. Depends on the settings
+	 * and the input string only.
+	 * @return string HTTP POST data
+	 */
+	public function getPostData(){
+		$texcmd = urlencode( $this->tex );
+		return $this->getLaTeXMLSettings() . '&tex=' . $texcmd;
+	}
+	/**
 	 * Does the actual web request to convert TeX to MathML.
 	 * @return boolean
 	 */
 	private function doRender( ) {
 		$host = self::pickHost();
-		$texcmd = urlencode( $this->tex );
-		$post = $this->getLaTeXMLSettings();
-		$post .= '&tex=' . $texcmd;
+		$post = $this->getPostData();
 		$this->lastError = '';
 		if ( $this->makeRequest( $host, $post, $res, $this->lastError ) ) {
 			$result = json_decode( $res );
