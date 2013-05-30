@@ -150,11 +150,13 @@ class MathLaTeXML extends MathRenderer {
 		wfDebugLog( "Math", "picking host " . $host );
 		return $host;
 	}
+
 	/**
-	 * 
-	 * @return string
+	 * Calculates the HTTP POST Data for the request. Depends on the settings
+	 * and the input string only.
+	 * @return string HTTP POST data
 	 */
-	public function getPostValue(){
+	public function getPostData(){
 		$texcmd = urlencode( $this->tex );
 		return $this->getLaTeXMLSettings() . '&tex=' . $texcmd;
 	}
@@ -164,7 +166,7 @@ class MathLaTeXML extends MathRenderer {
 	 */
 	private function doRender( ) {
 		$host = self::pickHost();
-		$post = $this->getPostValue();
+		$post = $this->getPostData();
 		$this->lastError = '';
 		if ( $this->makeRequest( $host, $post, $res, $this->lastError ) ) {
 			$result = json_decode( $res );
@@ -201,25 +203,19 @@ class MathLaTeXML extends MathRenderer {
 	 * @return boolean
 	 */
 	static public function isValidMathML( $XML ) {
-		libxml_disable_entity_loader(true);
 		$out = false;
-		$prevInternalErrors = libxml_use_internal_errors( true );
-		$xmlObject = simplexml_load_string( $XML );
-		if ( !$xmlObject ) {
+		$xmlObject = new XmlTypeCheckString($XML);
+		if ( $xmlObject->wellFormed ) {
 			wfDebugLog( "Math", "XML validation error:\n " . var_export( $XML, true ) . "\n" );
-			foreach ( libxml_get_errors() as $error ) {
-				wfDebugLog( "Math", "\t" . $error->message );
-			}
-			libxml_clear_errors();
 		} else {
-			$name = $xmlObject->getName();
+			$name = $xmlObject->getRootElement();
+			$name = str_replace('http://www.w3.org/1998/Math/MathML:', '', $name);
 			if ( $name == "math" or $name == "table" or $name == "div" ) {
 				$out = true;
 			} else {
 				wfDebugLog( "Math", "got wrong root element " . $name );
 			}
 		}
-		libxml_use_internal_errors( $prevInternalErrors );
 		return $out;
 	}
 
@@ -239,7 +235,7 @@ class MathLaTeXML extends MathRenderer {
 	 * @return html element with rendered math
 	 */
 	public static function embedMathML( $mml, $tagId = '', $attribs = false ) {
-		$mml = str_replace( "\n", " ", $mml);
+		$mml = str_replace( "\n", " ", $mml );
 		if ( ! $attribs ) {
 			$attribs = array( 'class' => 'tex', 'dir' => 'ltr' );
 			if ( $tagId ) {
