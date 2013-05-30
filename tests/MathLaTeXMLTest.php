@@ -89,7 +89,19 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 			->inContentLanguage()->escaped();
 		$this->assertContains( $errmsg, $error, "timeout call errormessage" );
 	}
-
+	/**
+	 * 
+	 * see issue http://html5sec.org/#130
+	 */
+	public function testInsecureResult(){
+		$bad_mml='<math href="javascript:alert(1)">CLICKME</math>';
+		$bad_mml2='<math> <!-- up to FF 13 --> <maction actiontype="statusline#http://google.com" xlink:href="javascript:alert(2)">CLICKME</maction>  <!-- FF 14+ --> <maction actiontype="statusline" xlink:href="javascript:alert(3)">CLICKME<mtext>http://http://google.com</mtext></maction> </math>';
+		$final_mml=MathLaTeXML::embedMathML($bad_mml2);
+		echo(var_dump(MathLaTeXML::isValidMathML($bad_mml))."\n");
+		echo(var_dump(MathLaTeXML::isValidMathML($bad_mml2))."\n");
+		echo($final_mml);
+		
+	}
 	/**
 	 * Checks the basic functionallity
 	 * i.e. if the span element is generated right.

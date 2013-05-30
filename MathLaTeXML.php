@@ -150,16 +150,21 @@ class MathLaTeXML extends MathRenderer {
 		wfDebugLog( "Math", "picking host " . $host );
 		return $host;
 	}
-
+	/**
+	 * 
+	 * @return string
+	 */
+	public function getPostValue(){
+		$texcmd = urlencode( $this->tex );
+		return $this->getLaTeXMLSettings() . '&tex=' . $texcmd;
+	}
 	/**
 	 * Does the actual web request to convert TeX to MathML.
 	 * @return boolean
 	 */
 	private function doRender( ) {
 		$host = self::pickHost();
-		$texcmd = urlencode( $this->tex );
-		$post = $this->getLaTeXMLSettings();
-		$post .= '&tex=' . $texcmd;
+		$post = $this->getPostValue();
 		$this->lastError = '';
 		if ( $this->makeRequest( $host, $post, $res, $this->lastError ) ) {
 			$result = json_decode( $res );
@@ -196,6 +201,7 @@ class MathLaTeXML extends MathRenderer {
 	 * @return boolean
 	 */
 	static public function isValidMathML( $XML ) {
+		libxml_disable_entity_loader(true);
 		$out = false;
 		$prevInternalErrors = libxml_use_internal_errors( true );
 		$xmlObject = simplexml_load_string( $XML );
@@ -233,7 +239,7 @@ class MathLaTeXML extends MathRenderer {
 	 * @return html element with rendered math
 	 */
 	public static function embedMathML( $mml, $tagId = '', $attribs = false ) {
-		$mml = str_replace( "\n", " ", $mml );
+		$mml = str_replace( "\n", " ", $mml);
 		if ( ! $attribs ) {
 			$attribs = array( 'class' => 'tex', 'dir' => 'ltr' );
 			if ( $tagId ) {
