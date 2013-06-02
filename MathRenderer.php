@@ -220,7 +220,7 @@ abstract class MathRenderer {
 			if ( $dbw == null ) {
 				$dbw = wfGetDB ( DB_MASTER );
 			}
-			wfDebugLog ( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->hash . ')\n' );
+			wfDebugLog ( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . bin2hex($this->hash) . ')\n' );
 			$outArray = $this->dbOutArray();
 			$dbw->onTransactionIdle (
 					function () use ($dbw, $outArray) {

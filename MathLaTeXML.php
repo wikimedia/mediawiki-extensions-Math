@@ -204,8 +204,9 @@ class MathLaTeXML extends MathRenderer {
 	 */
 	static public function isValidMathML( $XML ) {
 		$out = false;
-		$xmlObject = new XmlTypeCheckString($XML);
-		if ( $xmlObject->wellFormed ) {
+		//depends on https://gerrit.wikimedia.org/r/#/c/66365/
+		$xmlObject = new XmlTypeCheck($XML, null, false);
+		if ( ! $xmlObject->wellFormed ) {
 			wfDebugLog( "Math", "XML validation error:\n " . var_export( $XML, true ) . "\n" );
 		} else {
 			$name = $xmlObject->getRootElement();
