@@ -337,6 +337,7 @@ $messages['ast'] = array(
 	'mw_math_png' => 'Renderizar siempre PNG',
 	'mw_math_source' => 'Dexalo como TeX (pa navegadores de testu)',
 	'mw_math_mathjax' => 'MathJax (esperimental; lo meyor pa la mayoría de navegadores)',
+	'mw_math_latexml' => 'LaTeXML (esperimental; usa MathML)',
 	'math_failure' => 'Fallu al revisar la fórmula',
 	'math_unknown_error' => 'error desconocíu',
 	'math_unknown_function' => "función '$1' desconocida",
@@ -347,6 +348,10 @@ $messages['ast'] = array(
 	'math_bad_output' => "Nun se pue escribir o crear el direutoriu de salida 'math'",
 	'math_notexvc' => "Falta l'executable 'texvc'; por favor mira 'math/README' pa configuralo.",
 	'math_output_error' => 'Nun pue guardase la imaxe matemática nel sistema de ficheros.',
+	'math_latexml_timeout' => "Tiempu escosáu de LaTeXML dende '$1'",
+	'math_latexml_invalidresponse' => "Rempuesta inválida de LaTeXML ('$2') dende'l sirvidor '$1':",
+	'math_latexml_invalidxml' => 'El MathML de LaTeXML ye XML inválidu.',
+	'math_latexml_invalidjson' => 'La rempuesta del sirvidor LaTeXML ye JSON inválidu.',
 );
 
 /** Avaric (авар)
@@ -779,6 +784,7 @@ $messages['cs'] = array(
 	'mw_math_png' => 'Vždy jako PNG',
 	'mw_math_source' => 'Ponechat jako TeX (pro textové prohlížeče)',
 	'mw_math_mathjax' => 'MathJax (experimentální; pro většinu prohlížečů nejlepší)',
+	'mw_math_latexml' => 'LaTeXML (experimentální; používá MathML)',
 	'math_failure' => 'Nelze pochopit',
 	'math_unknown_error' => 'neznámá chyba',
 	'math_unknown_function' => 'neznámá funkce „$1“',
@@ -789,6 +795,10 @@ $messages['cs'] = array(
 	'math_bad_output' => 'Nelze zapsat nebo vytvořit adresář pro výstup matematiky',
 	'math_notexvc' => 'Chybí spustitelný texvc; podívejte se prosím do math/README na konfiguraci.',
 	'math_output_error' => 'Matematický obrázek nelze uložit do souborového systému.',
+	'math_latexml_timeout' => 'Vypršel časový limit LaTeXML z „$1“',
+	'math_latexml_invalidresponse' => 'Neplatná odpověď LaTeXML („$2“) od serveru „$1“:',
+	'math_latexml_invalidxml' => 'MathML z LaTeXML není platné XML.',
+	'math_latexml_invalidjson' => 'Odpověď LaTeXML Serveru není platný JSON.',
 );
 
 /** Kashubian (kaszëbsczi)
@@ -1120,6 +1130,7 @@ $messages['fa'] = array(
 
 /** Finnish (suomi)
  * @author Crt
+ * @author Nike
  * @author VezonThunder
  * @author Wix
  */
@@ -1131,9 +1142,10 @@ $messages['fi'] = array(
 	'mw_math_png' => 'Näytä aina PNG:nä',
 	'mw_math_source' => 'Näytä TeX-muodossa (tekstiselaimille)',
 	'mw_math_mathjax' => 'MathJax (kokeellinen; paras useimmille selaimille)',
+	'mw_math_latexml' => 'LaTeXML (kokeellinen; käyttää MathML:ää)',
 	'math_failure' => 'Jäsentäminen epäonnistui',
 	'math_unknown_error' => 'Tuntematon virhe',
-	'math_unknown_function' => 'Tuntematon funktio',
+	'math_unknown_function' => 'Tuntematon funktio', # Fuzzy
 	'math_lexing_error' => 'Tulkintavirhe',
 	'math_syntax_error' => 'Jäsennysvirhe',
 	'math_image_error' => 'Muuntaminen PNG-tiedostomuotoon epäonnistui; tarkista, että latex ja dvipng (tai dvips, gs ja convert) on asennettu oikein.',
@@ -1168,16 +1180,22 @@ $messages['fr'] = array(
 	'prefs-math' => 'Rendu des maths',
 	'mw_math_png' => 'Toujours produire une image PNG',
 	'mw_math_source' => 'Laisser le code TeX original (pour les navigateurs en mode texte)',
-	'mw_math_mathjax' => 'MathJax (expérimental; meilleur pour la plupart des navigateurs)',
-	'math_failure' => 'Erreur math',
+	'mw_math_mathjax' => 'MathJax (expérimental ; meilleur pour la plupart des navigateurs)',
+	'mw_math_latexml' => 'LaTeXML (expérimental, utilise MathML)',
+	'math_failure' => 'Pas réussi à analyser',
 	'math_unknown_error' => 'erreur indéterminée',
-	'math_unknown_function' => "fonction inconnue '$1'",
+	'math_unknown_function' => 'fonction inconnue « $1 »',
 	'math_lexing_error' => 'erreur lexicale',
 	'math_syntax_error' => 'erreur de syntaxe',
 	'math_image_error' => 'La conversion en PNG a échoué ; vérifiez l’installation de latex et dvipng (ou dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Impossible de créer ou d’écrire dans le répertoire math temporaire',
 	'math_bad_output' => 'Impossible de créer ou d’écrire dans le répertoire math de sortie',
 	'math_notexvc' => 'L’exécutable « texvc » est introuvable. Lisez math/README pour le configurer.',
+	'math_output_error' => 'Ne peut sauvegarder les images mathématiques dans le système de fichiers.',
+	'math_latexml_timeout' => "Délai d'attente de LaTeXML de « $1 »",
+	'math_latexml_invalidresponse' => 'Réponse non valide pour LaTeXML (« $2 ») du serveur « $1 » :',
+	'math_latexml_invalidxml' => "MathML de LaTeXML n'est pas du XML valide.",
+	'math_latexml_invalidjson' => "Réponse du serveur LaTeXML n'est pas du JSON valide.",
 );
 
 /** Cajun French (français cadien)
@@ -1356,8 +1374,9 @@ $messages['gl'] = array(
 	'math_tip' => 'Fórmula matemática (LaTeX)',
 	'prefs-math' => 'Fórmulas matemáticas',
 	'mw_math_png' => 'Orixinar sempre unha imaxe PNG',
-	'mw_math_source' => 'Deixalo como TeX (para navegadores de texto)',
+	'mw_math_source' => 'Deixalo como TeX (para os navegadores de texto)',
 	'mw_math_mathjax' => 'MathJax (experimental; o mellor para a maioría dos navegadores)',
+	'mw_math_latexml' => 'LaTeXML (experimental; usa MathML)',
 	'math_failure' => 'Fallou a conversión do código',
 	'math_unknown_error' => 'erro descoñecido',
 	'math_unknown_function' => 'descoñécese a función "$1"',
@@ -1368,6 +1387,10 @@ $messages['gl'] = array(
 	'math_bad_output' => 'Non se pode crear ou escribir no directorio matemático de saída',
 	'math_notexvc' => 'Falta o executable texvc. Consulte math/README para configuralo.',
 	'math_output_error' => 'Non se pode almacenar a imaxe matemática no sistema de ficheiros.',
+	'math_latexml_timeout' => 'Excedeuse o tempo de espera de LaTeXML de "$1"',
+	'math_latexml_invalidresponse' => 'Resposta non válida de LaTeXML ("$2") desde o servidor "$1":',
+	'math_latexml_invalidxml' => 'MathML de LaTeXML non é un XML válido.',
+	'math_latexml_invalidjson' => 'A resposta do servidor de LaTeXML non é un JSON válido.',
 );
 
 /** Guarani (Avañe'ẽ)
@@ -1428,6 +1451,7 @@ $messages['gsw'] = array(
 );
 
 /** Gujarati (ગુજરાતી)
+ * @author Ashok modhvadia
  * @author Dsvyas
  * @author Mohit.dalal
  * @author Sushant savla
@@ -1438,15 +1462,18 @@ $messages['gu'] = array(
 	'prefs-math' => 'ગણિત',
 	'mw_math_png' => 'PNG હંમેશા હાજર કરો',
 	'mw_math_source' => 'આને TeX તરીકે રહેવા દો (ટેક્સ્ટ બ્રાઉઝરો માટે)',
+	'mw_math_latexml' => 'LaTeXML (પ્રાયોગીક; MathML વાપરે છે)',
 	'math_failure' => 'પદચ્છેદ અસફળ',
 	'math_unknown_error' => 'અજ્ઞાત ત્રુટિ',
-	'math_unknown_function' => 'અજ્ઞાત કાર્ય',
+	'math_unknown_function' => "અજ્ઞાત કાર્ય '$1'",
 	'math_lexing_error' => 'નિયમ ભંગ',
 	'math_syntax_error' => 'સૂત્રલેખન ત્રુટિ',
 	'math_image_error' => 'PNG રૂપાંતરણ નિષ્ફળ;  latex અને dvipng (or dvips + gs + convert)નું પ્રતિષ્ઠાપન બરાબર થયું છે કે નહી તે ચકાસો',
 	'math_bad_tmpdir' => 'હંગામી ગણિત ડીરેક્ટરીમાં લખવું કે નવી બનાવવી શક્ય નથી',
 	'math_bad_output' => 'ગણિત પરિણામ ડીરેક્ટરીમાં લખવું કે નવી બનાવવી શક્ય નથી',
 	'math_notexvc' => 'ચલાવી શકાય તેવી texvc ગાયબ ; આને ચડાવવા math/README  જુઓ.',
+	'math_latexml_invalidxml' => 'LaTeXML MathML અમાન્ય XML છે.',
+	'math_latexml_invalidjson' => 'LaTeXML સર્વર પ્રતિભાવ અમાન્ય JSON છે.',
 );
 
 /** Manx (Gaelg)
@@ -1498,6 +1525,7 @@ $messages['haw'] = array(
 
 /** Hebrew (עברית)
  * @author Amire80
+ * @author ExampleTomer
  */
 $messages['he'] = array(
 	'math-desc' => 'הדפסת נוסחאות מתמטיות בין התגים <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
@@ -1507,15 +1535,20 @@ $messages['he'] = array(
 	'mw_math_png' => 'תמיד להציג כ־PNG',
 	'mw_math_source' => 'להשאיר כקוד TeX (לדפדפני טקסט)',
 	'mw_math_mathjax' => 'MathJax (ניסיוני; מומלץ לרוב הדפדפנים)',
+	'mw_math_latexml' => 'LaTeXML (נסיוני; משתמש ב־MathML)',
 	'math_failure' => 'עיבוד הנוסחה נכשל',
 	'math_unknown_error' => 'שגיאה לא ידועה',
-	'math_unknown_function' => 'פונקציה לא מוכרת',
+	'math_unknown_function' => 'פונקציה לא מוכרת', # Fuzzy
 	'math_lexing_error' => 'שגיאת לקסינג',
 	'math_syntax_error' => 'שגיאת תחביר',
 	'math_image_error' => 'ההמרה ל־PNG נכשלה; אנא בדקו אם התקנתם נכון את latex ואת dvipng (או צירוף של dvips‏, gs ו־convert)',
 	'math_bad_tmpdir' => 'התוכנה לא הצליחה לכתוב או ליצור את הספרייה הזמנית של המתמטיקה',
 	'math_bad_output' => 'התוכנה לא הצליחה לכתוב או ליצור את ספריית הפלט של המתמטיקה',
 	'math_notexvc' => 'קובץ בר־ביצוע של texvc אינו זמין; אנא צפו בקובץ math/README למידע על ההגדרות.',
+	'math_latexml_timeout' => "התנתקות LaTeXML מ־'$1'",
+	'math_latexml_invalidresponse' => "תגובת LaTeXML לא חוקית ('$2') משרת '$1':",
+	'math_latexml_invalidxml' => 'קוד MathML של LaTeXML אינו XML תקין.',
+	'math_latexml_invalidjson' => 'תשובת LaTeXML מהשרת אינה JSON תקין.',
 );
 
 /** Hindi (हिन्दी)
@@ -2099,15 +2132,18 @@ $messages['ko'] = array(
 	'mw_math_png' => '항상 PNG로 표시',
 	'mw_math_source' => 'TeX로 남겨둠 (텍스트 브라우저용)',
 	'mw_math_mathjax' => 'MathJax (실험중; 대부분의 브라우저에서 최적)',
+	'mw_math_latexml' => 'LaTeXML (실험중인 기능; MathML 사용)',
 	'math_failure' => '해석 실패',
 	'math_unknown_error' => '알 수 없는 오류',
-	'math_unknown_function' => '알 수 없는 함수',
+	'math_unknown_function' => '알 수 없는 함수 "$1"',
 	'math_lexing_error' => '어휘 오류',
 	'math_syntax_error' => '구문 오류',
 	'math_image_error' => 'PNG 변환 실패 - latex, dvipng(혹은 dvips, gs, convert)가 올바르게 설치되어 있는지 확인해 주세요.',
 	'math_bad_tmpdir' => '수식을 임시 폴더에 저장하거나 폴더를 만들 수 없습니다.',
 	'math_bad_output' => '수식을 출력 폴더에 저장하거나 폴더를 만들 수 없습니다.',
 	'math_notexvc' => '실행할 수 있는 texvc이 없습니다. 설정을 위해 math/README를 읽어 주세요.',
+	'math_output_error' => '파일 시스템에 수식 이미지를 저장할 수 없습니다.',
+	'math_latexml_timeout' => "'$1'에서 LateXML 시간 종료",
 );
 
 /** Komi-Permyak (Перем Коми)
@@ -2506,6 +2542,7 @@ $messages['mk'] = array(
 	'mw_math_png' => 'Секогаш исцртувај во PNG',
 	'mw_math_source' => 'Остави го како TeX (за текстуални прелистувачи)',
 	'mw_math_mathjax' => 'MathJax (експериментално; најдобро за највеќето прелистувачи)',
+	'mw_math_latexml' => 'LaTeXML (експериментално; користи MathML)',
 	'math_failure' => 'Не можев да парсирам',
 	'math_unknown_error' => 'непозната грешка',
 	'math_unknown_function' => 'непозната функција „$1“',
@@ -2517,6 +2554,10 @@ $messages['mk'] = array(
 	'math_notexvc' => 'Недостасува извршната податотека texvc;
 погледнете math/README за нејзино нагодување.',
 	'math_output_error' => 'Не можам да ја зачувам математичката слика на податочниот систем',
+	'math_latexml_timeout' => 'Времето за LaTeXML на „$1“ истече',
+	'math_latexml_invalidresponse' => 'Неважечки одѕив на LaTeXML („$2“) од опслужувачот „$1“:',
+	'math_latexml_invalidxml' => 'MathML за LaTeXML е неважечки XML.',
+	'math_latexml_invalidjson' => 'Одѕивот на опслужувачот за LaTeXML е неважечки JSON.',
 );
 
 /** Malayalam (മലയാളം)
@@ -2619,15 +2660,21 @@ $messages['ms'] = array(
 	'mw_math_png' => 'Sentiasa lakar PNG',
 	'mw_math_source' => 'Biarkan sebagai TeX (untuk pelayar teks)',
 	'mw_math_mathjax' => 'MathJax (dalam percubaan; paling sesuai untuk kebanyakan pelayar)',
+	'mw_math_latexml' => 'LaTeXML (percubaan; menggunakan MathML)',
 	'math_failure' => 'Gagal menghurai',
 	'math_unknown_error' => 'ralat yang tidak dikenali',
-	'math_unknown_function' => 'fungsi yang tidak dikenali',
+	'math_unknown_function' => "fungsi '$1' yang tidak dikenali",
 	'math_lexing_error' => "ralat ''lexing''",
 	'math_syntax_error' => 'ralat sintaks',
 	'math_image_error' => 'Penukaran PNG gagal; periksa sama ada latex dan dvipng (atau dvips + gs + convert) telah dipasang dengan betul',
 	'math_bad_tmpdir' => 'Direktori temp matematik tidak boleh ditulis atau dicipta',
 	'math_bad_output' => 'Direktori output matematik tidak boleh ditulis atau dicipta',
 	'math_notexvc' => 'Atur cara texvc hilang; sila lihat fail math/README untuk maklumat konfigurasi.',
+	'math_output_error' => 'Imej matematik tidak dapat disimpan di dalam sistem fail.',
+	'math_latexml_timeout' => "Tamat masa LaTeXML dari  $1'",
+	'math_latexml_invalidresponse' => "Respons tidak sah LaTeXML ('$2') dari pelayan '$1':",
+	'math_latexml_invalidxml' => 'LaTeXML MathML adalah XML yang tidak sah.',
+	'math_latexml_invalidjson' => 'Respons Pelayan LaTeXML adalah JSON yang tidak sah.',
 );
 
 /** Maltese (Malti)
@@ -4370,6 +4417,7 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (中文（繁體）‎)
+ * @author Justincheng12345
  * @author Liangent
  * @author Mark85296341
  * @author Simon Shek
@@ -4382,9 +4430,10 @@ $messages['zh-hant'] = array(
 	'mw_math_png' => '永遠使用PNG圖片',
 	'mw_math_source' => '顯示TeX代碼（供文字瀏覽器使用）',
 	'mw_math_mathjax' => 'MathJax（實驗性；適合大多數瀏覽器）',
+	'mw_math_latexml' => 'LaTeXML（實驗性；使用MathML）',
 	'math_failure' => '解析失敗',
 	'math_unknown_error' => '未知錯誤',
-	'math_unknown_function' => '未知函數', # Fuzzy
+	'math_unknown_function' => '未知參數「$1」',
 	'math_lexing_error' => '句法錯誤',
 	'math_syntax_error' => '語法錯誤',
 	'math_image_error' => 'PNG 轉換失敗；請檢查是否正確安裝了 latex, dvipng（或dvips + gs + convert）',
@@ -4392,6 +4441,10 @@ $messages['zh-hant'] = array(
 	'math_bad_output' => '無法寫入或建立數學公式輸出目錄',
 	'math_notexvc' => '"texvc"執行檔案遺失；請參照 math/README 進行配置。',
 	'math_output_error' => '無法在檔案系統上儲存數學圖像。',
+	'math_latexml_timeout' => 'LaTeXML 「$1」超時',
+	'math_latexml_invalidresponse' => 'LaTeXML 從伺服器「$1」收到不正確回應（「$2」）',
+	'math_latexml_invalidxml' => 'LaTeXML MathML並非正確XML。',
+	'math_latexml_invalidjson' => 'LaTeXML 伺服器回應了不正確JSON。',
 );
 
 /** Chinese (Taiwan) (‪中文(台灣)‬) */
