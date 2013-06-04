@@ -23,13 +23,16 @@
       imageFont: null,
       availableFonts: ['TeX'],
       mtextFontInherit: true
+    },
+    MathMenu: {
+      showLocale: false
     }
   }, mathJax.config );
 
   mathJax.Config = function () {
     MathJax.Hub.Config( mathJax.config );
     MathJax.OutputJax.fontDir = mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
-    MathJax.Localization.locale = MathJax.Hub.config.menuSettings.locale = mw.config.get('wgUserLanguage');
+    MathJax.Localization.locale = mw.config.get('wgUserLanguage');
   };
 
   /**
