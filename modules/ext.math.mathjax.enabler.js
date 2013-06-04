@@ -29,6 +29,7 @@
   mathJax.Config = function () {
     MathJax.Hub.Config( mathJax.config );
     MathJax.OutputJax.fontDir = mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
+    MathJax.Localization.locale = MathJax.Hub.config.menuSettings.locale = mw.config.get('wgUserLanguage');
   };
 
   /**
