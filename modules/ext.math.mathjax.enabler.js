@@ -17,6 +17,7 @@
     'v1.0-compatible': false,
     displayAlign: 'left',
     menuSettings: {
+      locale: mw.config.get('wgUserLanguage'),
       zoom: 'Click'
     },
     'HTML-CSS': {
@@ -32,7 +33,6 @@
   mathJax.Config = function () {
     MathJax.Hub.Config( mathJax.config );
     MathJax.OutputJax.fontDir = mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
-    MathJax.Localization.locale = mw.config.get('wgUserLanguage');
   };
 
   /**
