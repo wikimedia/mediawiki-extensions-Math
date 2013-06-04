@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "Dx3M2tuc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-06-04T20:29:33Z",
+      "side": 1,
+      "message": "Does \"selected language\" only mean a language the user manually chooses in the GUI, or does it also refer to us setting the language in the enabler?",
+      "revId": "df9cfe846bb3a635414f76492c26e4197ea2951c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
