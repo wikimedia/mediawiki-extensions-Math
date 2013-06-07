@@ -14,7 +14,7 @@ let cmd_dvipng tmpprefix finalpath backcolor = "dvipng -bg \'" ^ backcolor ^ "\'
 exception ExternalCommandFailure of string
 
 let render tmppath finalpath outtex md5 backcolor =
-    let tmpprefix0 = (*(string_of_int (Unix.getpid ()))^"_"^*)md5 in
+    let tmpprefix0 = (string_of_int (Unix.getpid ()))^"_"^md5 in
     let tmpprefix = (tmppath^"/"^tmpprefix0) in
     let unlink_all () =
       begin
@@ -22,7 +22,7 @@ let render tmppath finalpath outtex md5 backcolor =
         Sys.remove (tmpprefix ^ ".dvi");
         Sys.remove (tmpprefix ^ ".aux");
         Sys.remove (tmpprefix ^ ".log");
-        (*Sys.remove (tmpprefix ^ ".tex");*)
+        Sys.rename (tmpprefix ^ ".tex") (tmppath^"/"^md5^".tex");
         if Sys.file_exists (tmpprefix ^ ".ps")
         then Sys.remove (tmpprefix ^ ".ps");
       end in
