@@ -197,6 +197,7 @@ abstract class MathRenderer {
 				if ( $this->tex != "" ) {
 					wfDebugLog ( "Math", 'WARNING database text is '.
 						var_export($dbtex,true).' whereas input text was' . $this->tex );
+					$dbtex = $this->tex;
 				}
 			}
 			$this->tex = $dbtex;
