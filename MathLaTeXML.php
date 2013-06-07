@@ -204,23 +204,19 @@ class MathLaTeXML extends MathRenderer {
 	 */
 	static public function isValidMathML( $XML ) {
 		$out = false;
-		$prevInternalErrors = libxml_use_internal_errors( true );
-		$xmlObject = simplexml_load_string( $XML );
-		if ( !$xmlObject ) {
+		//depends on https://gerrit.wikimedia.org/r/#/c/66365/
+		$xmlObject = new XmlTypeCheck($XML, null, false);
+		if ( ! $xmlObject->wellFormed ) {
 			wfDebugLog( "Math", "XML validation error:\n " . var_export( $XML, true ) . "\n" );
-			foreach ( libxml_get_errors() as $error ) {
-				wfDebugLog( "Math", "\t" . $error->message );
-			}
-			libxml_clear_errors();
 		} else {
-			$name = $xmlObject->getName();
+			$name = $xmlObject->getRootElement();
+			$name = str_replace('http://www.w3.org/1998/Math/MathML:', '', $name);
 			if ( $name == "math" or $name == "table" or $name == "div" ) {
 				$out = true;
 			} else {
 				wfDebugLog( "Math", "got wrong root element " . $name );
 			}
 		}
-		libxml_use_internal_errors( $prevInternalErrors );
 		return $out;
 	}
 
