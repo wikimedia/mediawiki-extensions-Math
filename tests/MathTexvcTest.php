@@ -74,7 +74,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 		// ... on cache miss, MathTexvc will shell out to texvc:
 		$texvc->expects( $this->once() )
 			->method( 'callTexvc' )
-			->will( $this->returnValue( MW_TEXVC_SUCCESS ) );
+			->will( $this->returnValue( MathTexvc::MW_TEXVC_SUCCESS ) );
 
 		// ... if texvc succeeds, MathTexvc will generate HTML:
 		$texvc->expects( $this->once() )
