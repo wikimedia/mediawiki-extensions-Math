@@ -121,13 +121,19 @@ $wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
 /**
  * Allows to use LaTeXML as renderer for mathematical equation.
  */
-$wgUseLaTeXML = false;
+$wgUseLaTeXML = true;
 
 /**
  * The timeout for the HTTP-Request sent to the LaTeXML to render an equation,
  * in seconds.
  */
 $wgLaTeXMLTimeout = 240;
+/**
+ * Option to disable the tex filter. If set to true any LaTeX espression is parsed
+ * this can be a potential security risk. If set to false only a subset of the tex
+ * commands is allowed. See the wikipedia page Help:Math for details.
+ */
+$wgDisableTexFilter = false;
 
 ////////// end of config settings.
 

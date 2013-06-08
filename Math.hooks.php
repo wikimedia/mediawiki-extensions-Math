@@ -36,13 +36,13 @@ class MathHooks {
 	/**
 	 * Callback function for the <math> parser hook.
 	 *
-	 * @param $content (the LaTeX input)
+	 * @param $content the LaTeX input
 	 * @param $attributes
 	 * @param $parser Parser
 	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgContLang, $wgUseMathJax;
+		global $wgContLang, $wgUseMathJax, $wgDisableTexFilter;
 		if ( trim( $content )  === "" ) { // bug 8372
 			return "";
 		}
@@ -50,6 +50,13 @@ class MathHooks {
 		$renderer = MathRenderer::getRenderer(
 			$content, $attributes, $mode
 		);
+		if (! $wgDisableTexFilter){
+			$checkResult = $renderer->checkTex();
+			if (! ($checkResult === true)){
+				//returns the error message
+				return $checkResult;
+			}
+		}
 		$renderedMath = $renderer->render();
 		wfRunHooks( 'MathFormulaRendered',
 		array( &$renderer,&$renderedMath,$parser->getTitle()->getArticleID(),

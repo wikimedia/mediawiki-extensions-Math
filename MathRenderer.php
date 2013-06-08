@@ -47,6 +47,7 @@ abstract class MathRenderer {
 	protected $storedInDatabase = false;
 	protected $statusCode = 0;
 	protected $timestamp;
+	protected $texSecure = false;
 
 	/**
 	 * Constructs a base MathRenderer
@@ -484,6 +485,31 @@ abstract class MathRenderer {
 	public function setStatusCode( $statusCode ) {
 		$this->changed = true;
 		$this->statusCode = $statusCode;
+	}
+
+	/**
+	 * Get if the input tex was marked as secure
+	 * @return boolean
+	 */
+	public function isTexSecure (){
+		return $this->texSecure;
+	}
+	
+	public function checkTex(){
+		$this->texSecure = false;
+		//TODO Update tex checking
+		$renderer=self::getRenderer($this->tex,$this->params,MW_MATH_PNG);
+		$texvcResult = $renderer->callTexvc();
+		if( $texvcResult === MathTexvc::MW_TEXVC_SUCCESS) {
+			$this->tex = $renderer->getSecureTex();
+			$this->texSecure = true;
+			wfDebugLog('Math', 'checkTex successful tex is now: '.$this->tex);
+			return true;
+		} else {
+			wfDebugLog('Math', 'checkTex failed:'.$texvcResult);
+			return $texvcResult;
+		}
+
 	}
 }
 
