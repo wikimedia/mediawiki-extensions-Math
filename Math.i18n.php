@@ -1549,7 +1549,7 @@ $messages['he'] = array(
 	'math_latexml_timeout' => "התנתקות LaTeXML מ־'$1'",
 	'math_latexml_invalidresponse' => "תגובת LaTeXML לא חוקית ('$2') משרת '$1':",
 	'math_latexml_invalidxml' => 'קוד MathML של LaTeXML אינו XML תקין.',
-	'math_latexml_invalidjson' => 'תשובת LaTeXML מהשרת אינה JSON תקין.',
+	'math_latexml_invalidjson' => 'תשובת LaTeXML מהשרת אינה בפורמט JSON תקין.',
 );
 
 /** Hindi (हिन्दी)
@@ -1845,6 +1845,7 @@ $messages['it'] = array(
 	'mw_math_png' => 'Mostra sempre in PNG',
 	'mw_math_source' => 'Lascia in formato TeX (per browser testuali)',
 	'mw_math_mathjax' => 'MathJax (sperimentale; il migliore per la maggior parte dei browser)',
+	'mw_math_latexml' => 'LaTeXML (sperimentale; usa MathML)',
 	'math_failure' => 'Errore del parser',
 	'math_unknown_error' => 'errore sconosciuto',
 	'math_unknown_function' => "funzione sconosciuta '$1'",
@@ -1858,6 +1859,7 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Ant176
+ * @author Eseki
  * @author Ohgi
  * @author Shirayuki
  * @author Whym
@@ -1882,6 +1884,8 @@ $messages['ja'] = array(
 	'math_bad_output' => '数式出力ディレクトリでの書き込みまたは作成ができません',
 	'math_notexvc' => 'texvc の実行可能ファイルが見つかりません。math/README を読んで設定してください。',
 	'math_output_error' => '数式画像をファイルシステムに格納できません。',
+	'math_latexml_timeout' => "LaTeXML タイムアウトから ' $1 '",
+	'math_latexml_invalidxml' => 'LaTeXML MathML は無効な XML です。',
 );
 
 /** Jamaican Creole English (Patois)
@@ -2124,27 +2128,31 @@ latex, dvips, gs, ಸರಿಯಾಗಿ ಸ್ಥಾಪಿತವಾಗಿದೆ�
  * @author Klutzy
  * @author Kwj2772
  * @author PuzzletChung
+ * @author 아라
  */
 $messages['ko'] = array(
-	'math-desc' => '<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> 태그 사이에 수학 수식을 표시함',
-	'math_sample' => '여기에 수식을 쓰세요',
+	'math-desc' => '<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> 태그 사이에 수학 수식을 표시합니다',
+	'math_sample' => '여기에 수식을 넣으세요',
 	'math_tip' => '수식(LaTeX)',
 	'prefs-math' => '수식',
 	'mw_math_png' => '항상 PNG로 표시',
 	'mw_math_source' => 'TeX로 남겨둠 (텍스트 브라우저용)',
 	'mw_math_mathjax' => 'MathJax (실험중; 대부분의 브라우저에서 최적)',
-	'mw_math_latexml' => 'LaTeXML (실험중인 기능; MathML 사용)',
+	'mw_math_latexml' => 'LaTeXML (실험 기능; MathML 사용)',
 	'math_failure' => '해석 실패',
 	'math_unknown_error' => '알 수 없는 오류',
-	'math_unknown_function' => '알 수 없는 함수 "$1"',
+	'math_unknown_function' => "알 수 없는 함수 '$1'",
 	'math_lexing_error' => '어휘 오류',
 	'math_syntax_error' => '구문 오류',
 	'math_image_error' => 'PNG 변환 실패 - latex, dvipng(혹은 dvips, gs, convert)가 올바르게 설치되어 있는지 확인해 주세요.',
 	'math_bad_tmpdir' => '수식을 임시 폴더에 저장하거나 폴더를 만들 수 없습니다.',
 	'math_bad_output' => '수식을 출력 폴더에 저장하거나 폴더를 만들 수 없습니다.',
 	'math_notexvc' => '실행할 수 있는 texvc이 없습니다. 설정을 위해 math/README를 읽어 주세요.',
-	'math_output_error' => '파일 시스템에 수식 이미지를 저장할 수 없습니다.',
+	'math_output_error' => '파일 시스템에 수식 그림을 저장할 수 없습니다.',
 	'math_latexml_timeout' => "'$1'에서 LateXML 시간 종료",
+	'math_latexml_invalidresponse' => "'$1' 서버에서 잘못된 LaTeXML 응답 ('$2'):",
+	'math_latexml_invalidxml' => 'LaTeXML MathML은 잘못된 XML입니다.',
+	'math_latexml_invalidjson' => 'LaTeXML 서버 응답은 잘못된 JSON입니다.',
 );
 
 /** Komi-Permyak (Перем Коми)
@@ -2219,7 +2227,7 @@ $messages['ku-latn'] = array(
  * @author Nrowe
  */
 $messages['kw'] = array(
-	'math_sample' => 'Keworrewgh an furvel obma',
+	'math_sample' => 'Keworrewgh an furvel omma',
 	'math_tip' => 'Furvel galkoriethek (LaTeX)',
 );
 
