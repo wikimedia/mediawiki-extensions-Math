@@ -96,7 +96,7 @@ This message is followed by "(", Error message(*1), Additional message, "): "  a
 * {{msg-mw|Math notexvc}}
 * {{msg-mw|Math output error}}
 * {{msg-mw|Math latexml timeout}}
-* {{msg-mw|Math latexml noresponse}}
+* {{msg-mw|Math latexml invalidresponse}}
 * {{msg-mw|Math latexml invalidxml}}
 * {{msg-mw|Math latexml invalidjson}}',
 	'math_unknown_error' => 'Used as error message for unknown texvc error.
@@ -134,7 +134,8 @@ This message follows the message {{msg-mw|Math failure}}.',
 This message follows the message {{msg-mw|Math failure}}.',
 	'math_latexml_timeout' => 'Used as error message.
 
-This message follows the message {{msg-mw|Math failure}}.',
+Parameters:
+* $1 - hostname or URL',
 	'math_latexml_invalidresponse' => 'Used as error message.
 
 This message follows the message {{msg-mw|Math failure}}.',
@@ -844,7 +845,7 @@ $messages['cy'] = array(
 	'mw_math_mathjax' => "MathJax (arbrofol; yn orau i'r mwyafrif o borwyr)",
 	'math_failure' => 'Wedi methu dosrannu',
 	'math_unknown_error' => 'gwall anhysbys',
-	'math_unknown_function' => 'ffwythiant anhysbys', # Fuzzy
+	'math_unknown_function' => "ffwythiant anhysbys, '$1'",
 	'math_lexing_error' => 'gwall lecsio',
 	'math_syntax_error' => 'gwall cystrawen',
 	'math_image_error' => "Trosiad PNG wedi methu; gwiriwch fod latex a dvips (neu dvips + gs + convert) wedi'u gosod yn gywir cyn trosi.",
@@ -1884,7 +1885,7 @@ $messages['ja'] = array(
 	'math_bad_output' => '数式出力ディレクトリでの書き込みまたは作成ができません',
 	'math_notexvc' => 'texvc の実行可能ファイルが見つかりません。math/README を読んで設定してください。',
 	'math_output_error' => '数式画像をファイルシステムに格納できません。',
-	'math_latexml_timeout' => "LaTeXML タイムアウトから ' $1 '",
+	'math_latexml_timeout' => '「$1」からの LaTeXML タイムアウト',
 	'math_latexml_invalidxml' => 'LaTeXML MathML は無効な XML です。',
 );
 
