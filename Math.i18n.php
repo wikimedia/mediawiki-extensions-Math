@@ -3210,13 +3210,14 @@ $messages['qu'] = array(
 	'mw_math_mathjax' => "MathJax (llanchina; lliwmanta aswan wamp'unapaq allinmi)",
 	'math_failure' => "Manam hap'inichu",
 	'math_unknown_error' => 'mana riqsisqa pantasqa',
-	'math_unknown_function' => 'mana riqsisqa rurana', # Fuzzy
+	'math_unknown_function' => "mana riqsisqa rurana '$1'",
 	'math_lexing_error' => 'rima pantasqa',
 	'math_syntax_error' => 'rimay ukhunpuray pantasqa',
 	'math_image_error' => "Manam atinichu PNG-man t'ikrayta; latex nisqawan dvipng (icha dvips + gs + convert) nisqakunap tiyachisqa kayninta llanchiy",
 	'math_bad_tmpdir' => "Manam atinichu <em>math</em> nisqapaq mit'alla willañiqi churanata kamayta icha qillqayta",
 	'math_bad_output' => 'Manam atinichu <em>math</em> nisqapaq lluqsichina willañiqi churanata kamayta icha qillqayta',
 	'math_notexvc' => 'Manam kanchu ruranalla <strong>texvc</strong>. Ama hina kaspa, <em>math/README</em> nisqata ñawiriy allinkachinaykipaq.',
+	'math_output_error' => "Manam atinichu huchhawa rikch'ata willañiqi llikapi qullqachayta.",
 );
 
 /** Romagnol (Rumagnôl)
