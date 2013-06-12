@@ -17,21 +17,21 @@
  * @author Brion Vibber
  * @author Moritz Schubotz
  */
-define( 'MW_TEXVC_SUCCESS', -1 );
 class MathTexvc extends MathRenderer {
 	const CONSERVATIVE = 2;
 	const MODERATE = 1;
 	const LIBERAL = 0;
+	const MW_TEXVC_SUCCESS = -1;
 
 	/**
 	 * Renders TeX using texvc
 	 *
 	 * @return string rendered TeK
 	 */
-	function render() {
+	public function render() {
 		if ( !$this->readCache() ) { // cache miss
 			$result = $this->callTexvc();
-			if ( $result != MW_TEXVC_SUCCESS ) {
+			if ( $result != self::MW_TEXVC_SUCCESS ) {
 				return $result;
 			}
 		}
@@ -43,7 +43,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return string Storage directory
 	 */
-	function getHashPath() {
+	public function getHashPath() {
 		$path = $this->getBackend()->getRootStoragePath() .
 			'/math-render/' . $this->getHashSubPath();
 		wfDebugLog("Math", "TeX: getHashPath, hash is: {$this->getHash()}, path is: $path\n" );
@@ -55,7 +55,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return string Relative directory
 	 */
-	function getHashSubPath() {
+	public function getHashSubPath() {
 		return substr( $this->getHash(), 0, 1 )
 			. '/' . substr( $this->getHash(), 1, 1 )
 			. '/' . substr( $this->getHash(), 2, 1 );
@@ -66,7 +66,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return string image URL
 	 */
-	function getMathImageUrl() {
+	public function getMathImageUrl() {
 		global $wgMathPath;
 		$dir = $this->getHashSubPath();
 		return "$wgMathPath/$dir/{$this->getHash()}.png";
@@ -77,7 +77,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return string img HTML
 	 */
-	function getMathImageHTML() {
+	public function getMathImageHTML() {
 		$url = $this->getMathImageUrl();
 
 		return Xml::element( 'img',
@@ -125,7 +125,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return int|string MW_TEXVC_SUCCESS or error string
 	 */
-	function callTexvc() {
+	public function callTexvc() {
 		global $wgTexvc, $wgTexvcBackgroundColor, $wgUseSquid, $wgMathCheckFiles;
 		$tmpDir = wfTempDir();
 		if ( !is_executable( $wgTexvc ) ) {
@@ -228,7 +228,7 @@ class MathTexvc extends MathRenderer {
 		) {
 			return $this->getError( 'math_output_error' );
 		}
-		return MW_TEXVC_SUCCESS;
+		return self::MW_TEXVC_SUCCESS;
 	}
 
 	/**
@@ -236,7 +236,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return FileBackend appropriate file backend
 	 */
-	function getBackend() {
+	public function getBackend() {
 		global $wgMathFileBackend, $wgMathDirectory;
 		if ( $wgMathFileBackend ) {
 			return FileBackendGroup::singleton()->get( $wgMathFileBackend );
@@ -259,7 +259,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return string HTML string
 	 */
-	function doHTMLRender() {
+	public function doHTMLRender() {
 		if ( $this->getMode() == MW_MATH_MATHML && $this->getMathml() != '' ) {
 			return Xml::tags( 'math',
 				$this->getAttributes( 'math',
@@ -306,7 +306,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return boolean true if retrieved, false otherwise
 	 */
-	function readCache() {
+	public function readCache() {
 		global $wgMathCheckFiles;
 		if ( $this->readFromDatabase() ) {
 			if ( !$wgMathCheckFiles ) {
