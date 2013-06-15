@@ -3607,9 +3607,10 @@ $messages['sl'] = array(
 	'mw_math_png' => 'Vedno prikaži PNG',
 	'mw_math_source' => 'Pusti v TeX-ovi obliki (za besedilne brskalnike)',
 	'mw_math_mathjax' => 'MathJax (poskusno; najboljše za večino brskalnikov)',
+	'mw_math_latexml' => 'LaTeXML (poskusno; uporablja MathML)',
 	'math_failure' => 'Ni mi uspelo razčleniti',
 	'math_unknown_error' => 'neznana napaka',
-	'math_unknown_function' => 'neznana funkcija', # Fuzzy
+	'math_unknown_function' => "neznana funkcija '$1'",
 	'math_lexing_error' => 'slovarska napaka',
 	'math_syntax_error' => 'skladenjska napaka',
 	'math_image_error' => 'Pretvarjanje v PNG ni uspelo; preverite, ali sta latex in dvips (ali dvips + gs + convert) pravilno nameščena.',
@@ -3617,6 +3618,11 @@ $messages['sl'] = array(
 	'math_bad_output' => 'Izhodne mape za math ne morem ustvariti ali pisati vanjo.',
 	'math_notexvc' => 'Manjka izvedbena datoteka texvc;
 za njeno namestitev si poglejte math/README.',
+	'math_output_error' => 'Ne morem shraniti matematičnih slik na datotečni sistem.',
+	'math_latexml_timeout' => "LaTeXML Časovna omejitev od '$1'",
+	'math_latexml_invalidresponse' => "LaTeXML Neveljavni odziv ('$2') strežnika '$1':",
+	'math_latexml_invalidxml' => 'LaTeXML MathML ni veljaven XML.',
+	'math_latexml_invalidjson' => 'LaTeXML Odziv strežnika ni veljaven JSON.',
 );
 
 /** Lower Silesian (Schläsch)
