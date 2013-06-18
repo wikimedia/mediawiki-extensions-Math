@@ -111,6 +111,12 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 * @covers MathHooks::onLoadExtensionSchemaUpdates
 	 */
 	public function testDebugCreateTable() {
+		if( $this->db->getType() === 'sqlite' ) {
+			$this->markTestSkipped( "SQLite has global indices. We cannot " .
+					"create the `unitest_math` table, its math_inputhash index " .
+					"would conflict with the one from the real `math` table."
+			);
+		}
 		global $wgDebugMath;
 		sleep( 1 ); // see https://bugzilla.wikimedia.org/show_bug.cgi?id=45194
 		$this->db->dropTable( "math", __METHOD__ );
