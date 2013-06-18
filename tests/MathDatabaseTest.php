@@ -118,7 +118,6 @@ class MathDatabaseTest extends MediaWikiTestCase {
 			);
 		}
 		global $wgDebugMath;
-		sleep( 1 ); // see https://bugzilla.wikimedia.org/show_bug.cgi?id=45194
 		$this->db->dropTable( "math", __METHOD__ );
 		$wgDebugMath = true;
 		$dbu = DatabaseUpdater::newForDB( $this->db );
