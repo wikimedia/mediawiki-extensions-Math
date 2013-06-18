@@ -165,6 +165,14 @@ $wgResourceModules['ext.math.mathjax'] = array(
 	'group' => 'ext.math.mathjax',
 ) + $moduleTemplate;
 
+$wgResourceModules['ext.math.mathjax.enabler.base'] = array(
+		'scripts' => 'ext.math.mathjax.enabler.base.js',
+) + $moduleTemplate;
+// Customized module for plain tex (MathJax)
 $wgResourceModules['ext.math.mathjax.enabler'] = array(
 	'scripts' => 'ext.math.mathjax.enabler.js',
+) + $moduleTemplate;
+// Customized module for LaTeXML
+$wgResourceModules['ext.math.mathjax.enabler.mml'] = array(
+	'scripts' => 'ext.math.mathjax.enabler.mml.js',
 ) + $moduleTemplate;
