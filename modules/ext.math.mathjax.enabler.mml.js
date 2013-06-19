@@ -2,6 +2,9 @@
  * From https://en.wikipedia.org/wiki/User:Nageh/mathJax.js
  */
 /*global mathJax:true, MathJax */
+if (navigator.userAgent.search("Firefox") >= 0){
+	return true;
+}
 ( function ( mw, $ ) {
   if ( typeof mathJax === 'undefined' ) {
     mathJax = {};

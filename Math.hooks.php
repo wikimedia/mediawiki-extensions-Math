@@ -65,14 +65,7 @@ class MathHooks {
 			// $renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		} elseif ( $wgUseMathJax && $mode == MW_MATH_LATEXML ) {
-			if(isset($_SERVER['HTTP_USER_AGENT'])){
-				$UA=$_SERVER['HTTP_USER_AGENT'];
-			} else
-			{$UA="undefined"; //required for maitenance script runs
-			}
-			if (!preg_match('/Firefox/',$UA)){ //Don't use MathJax with Firefox this has to be extenden to other browser that suppert MathML maybe a function supports MathML was the correct way to go
-				$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler.mml' ) );
-			}
+			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler.mml' ) );
 		}
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
