@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "D1EOVxIU",
+        "filename": "modules/ext.math.mathjax.enabler.mml.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-06-19T04:49:47Z",
+      "side": 1,
+      "message": "indexOf should have better performance, and you don\u0027t need a regex here.",
+      "revId": "57650bc97e41f3082cc0ebe11b813f6dcd283b59",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "D1COSOJ8",
+        "filename": "modules/ext.math.mathjax.enabler.mml.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-06-19T04:49:47Z",
+      "side": 1,
+      "message": "You\u0027re not in a function, so you can\u0027t return.",
+      "revId": "57650bc97e41f3082cc0ebe11b813f6dcd283b59",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
