@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "D1GgtP6g",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-06-19T04:49:29Z",
+      "side": 1,
+      "message": "except",
+      "revId": "b032eb09294b73603b2b7ad589d7b07a79226e4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "D1GMXIEU",
+        "filename": "Math.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-06-19T04:49:29Z",
+      "side": 1,
+      "message": "Extra tab",
+      "revId": "b032eb09294b73603b2b7ad589d7b07a79226e4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "D1EM5RNU",
+        "filename": "modules/ext.math.mathjax.enabler.mml.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-06-19T04:49:29Z",
+      "side": 1,
+      "message": "What about the settings in ext.math.mathjax.enabler.js?  I think you need to factor out the common stuff (e.g. the locale setup) into a shared modul.  Or, you could have this one depend on the ext.math.mathjax.enabler.js module and override it.",
+      "revId": "b032eb09294b73603b2b7ad589d7b07a79226e4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "D1KOFiF0",
+        "filename": "modules/ext.math.mathjax.enabler.mml.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-06-19T04:49:29Z",
+      "side": 1,
+      "message": "Also refactor this duplicate code (same as enabler.js",
+      "revId": "b032eb09294b73603b2b7ad589d7b07a79226e4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
