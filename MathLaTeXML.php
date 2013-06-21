@@ -16,6 +16,8 @@ class MathLaTeXML extends MathRenderer {
 	 */
 	private $LaTeXMLSettings = '';
 	const DEFAULT_LATEXML_SETTING = 'format=xhtml&whatsin=math&whatsout=math&pmml&cmml&nodefaultresources&preload=LaTeX.pool&preload=article.cls&preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty&preload=amssymb.sty&preload=eucal.sty&preload=[dvipsnames]xcolor.sty&preload=url.sty&preload=hyperref.sty&preload=[ids]latexml.sty&preload=texvc';
+	private static $DEFAULT_ALLOWED_ROOT_ELEMENTS = array('math', 'div', 'table', 'query');
+	private $allowedRootElements = '';
 
 	/**
 	 * Gets the settings for the LaTeXML daemon.
@@ -42,6 +44,28 @@ class MathLaTeXML extends MathRenderer {
 		$this->LaTeXMLSettings = $settings;
 	}
 
+	/**
+	 * Gets the allowed root elements the rendered math tag might have.
+	 *
+	 * @return array
+	 */
+	public function getAllowedRootElements() {
+		if ( $this->allowedRootElements ) {
+			return $this->allowedRootElements;
+		} else {
+			return self::$DEFAULT_ALLOWED_ROOT_ELEMENTS;
+		}
+	}
+	
+	/**
+	 * Sets the allowed root elements the rendered math tag might have.
+	 * An empty value indicates to use the default settings.
+	 * @param array $settings
+	 */
+	public function setAllowedRootElments( $settings ) {
+		$this->allowedRootElements = $settings;
+	}
+	
 	/* (non-PHPdoc)
 	 * @see MathRenderer::render()
 	*/
@@ -211,7 +235,7 @@ class MathLaTeXML extends MathRenderer {
 		} else {
 			$name = $xmlObject->getRootElement();
 			$name = str_replace('http://www.w3.org/1998/Math/MathML:', '', $name);
-			if ( $name == "math" or $name == "table" or $name == "div" ) {
+			if ( in_array($name, $this->allowedRootElements) ) {
 				$out = true;
 			} else {
 				wfDebugLog( "Math", "got wrong root element " . $name );
