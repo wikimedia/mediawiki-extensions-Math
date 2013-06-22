@@ -93,7 +93,7 @@ class MathLaTeXML extends MathRenderer {
 		} else {
 			$dbres = $this->readFromDatabase();
 			if ( $dbres ) {
-				if ( self::isValidMathML( $this->getMathml() ) ) {
+				if ( $this->isValidMathML( $this->getMathml() ) ) {
 					wfDebugLog( "Math", "Valid entry found in database." );
 					return false;
 				} else {
@@ -195,7 +195,7 @@ class MathLaTeXML extends MathRenderer {
 		if ( $this->makeRequest( $host, $post, $res, $this->lastError ) ) {
 			$result = json_decode( $res );
 			if ( json_last_error() === JSON_ERROR_NONE ) {
-				if ( self::isValidMathML( $result->result ) ) {
+				if ( $this->isValidMathML( $result->result ) ) {
 					$this->setMathml( $result->result );
 					return true;
 				} else {
@@ -226,7 +226,7 @@ class MathLaTeXML extends MathRenderer {
 	 * @param string $XML
 	 * @return boolean
 	 */
-	static public function isValidMathML( $XML ) {
+	public function isValidMathML( $XML ) {
 		$out = false;
 		//depends on https://gerrit.wikimedia.org/r/#/c/66365/
 		$xmlObject = new XmlTypeCheck($XML, null, false);
@@ -235,7 +235,7 @@ class MathLaTeXML extends MathRenderer {
 		} else {
 			$name = $xmlObject->getRootElement();
 			$name = str_replace('http://www.w3.org/1998/Math/MathML:', '', $name);
-			if ( in_array($name, $this->allowedRootElements) ) {
+			if ( in_array($name, $this->getAllowedRootElements()) ) {
 				$out = true;
 			} else {
 				wfDebugLog( "Math", "got wrong root element " . $name );
