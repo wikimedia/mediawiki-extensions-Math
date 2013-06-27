@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "D1t0k7LY",
+        "filename": "modules/ext.math.mathjax.enabler.mml.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2013-06-27T09:06:58Z",
+      "side": 1,
+      "message": "This needs a more precise match, or preferably a feature test. Blinding excluding a browser is unacceptable and has lead to many problems in the past. Among others it has pestered microsoft so much they changed the User-Agent key identifier (\"MSIE\") to something else as of v11.0.",
+      "revId": "6eb6982af3719c0f5dc97c54094da91dfb4486c6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "D1n0XuEQ",
+        "filename": "modules/ext.math.mathjax.enabler.mml.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2013-06-27T09:06:58Z",
+      "side": 1,
+      "message": "It seems this is the local configuration, not the MathJax lib itself (which uses a capitalised variable name). So why is this a global variable? Though I know (see below), even then this doesn\u0027t work as expected because it re-uses an existing one and overrides random properties of it... ?",
+      "revId": "6eb6982af3719c0f5dc97c54094da91dfb4486c6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "D1j0NMDc",
+        "filename": "modules/ext.math.mathjax.enabler.mml.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2013-06-27T09:06:58Z",
+      "side": 1,
+      "message": "Implied global variable.",
+      "revId": "6eb6982af3719c0f5dc97c54094da91dfb4486c6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "D1h0GdB8",
+        "filename": "modules/ext.math.mathjax.enabler.mml.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2013-06-27T09:06:58Z",
+      "side": 1,
+      "message": "Assign using property .type instead of attribute.",
+      "revId": "6eb6982af3719c0f5dc97c54094da91dfb4486c6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "D1r0AAAU",
+        "filename": "modules/ext.math.mathjax.enabler.mml.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2013-06-27T09:06:58Z",
+      "side": 1,
+      "message": ".text ? You mean textContent? It seems some browsers implement a non-standard \"text\" property (neither is cross-browser reliable, and assigning it as innerHTML in opera doesn\u0027t make sense either as that might conflict if there\u0027s any special characters).\n\n\nGoogling this pattern suggests that MathJax is the only user of this pattern. Documented at http://www.mathjax.org/mathjax/docs/rst/dynamic.rst :\n\n The ``window.opera`` test is because\n Opera doesn\u0027t handle setting ``script.text`` properly, while\n Internet Explorer doesn\u0027t handle setting the ``innerHTML`` of a script tag.\n\nThis seems like an extremely dated pattern. And when I try to figure out what the reason is for this whole pattern I just want to cry. This seems deliberately foolish and extremely stupid beyond reason. This is injecting a non-javascript script tag (note \"type\u003dtext/x-mathjax-config\") with 1 line of javascript (!) code. Though the code is not interpreted as javascript (yet), it refers to a (local) implied global (!) object (\"mathJax\", not MathJax), presumably then grabbed by the real MathJax on load and evaluated to initialise the \"local\" configuration.\n\nI won\u0027t blame anyone here since I know this is the typical result of braindead copy/paste behaviour that nobody bothered to think about how insane this is.\n\nBut please, this is just beyond the widest tolerance. This needs to be fixed, whatever it takes. Nothing can be worse than this.",
+      "revId": "6eb6982af3719c0f5dc97c54094da91dfb4486c6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "D1mIm99I",
+        "filename": "modules/ext.math.mathjax.enabler.mml.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2013-06-27T09:06:58Z",
+      "side": 1,
+      "message": "Why does this return false? This is ignored below.",
+      "revId": "6eb6982af3719c0f5dc97c54094da91dfb4486c6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "D1gJB810",
+        "filename": "modules/ext.math.mathjax.enabler.mml.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2013-06-27T09:06:58Z",
+      "side": 1,
+      "message": "No need for the function wrapper, use ready( mathJax.Load ) to pass the function by reference directly.",
+      "revId": "6eb6982af3719c0f5dc97c54094da91dfb4486c6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
