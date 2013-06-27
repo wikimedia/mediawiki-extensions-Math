@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09d66d82_501c64be",
+        "filename": "Math.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-06-27T20:38:46Z",
+      "side": 1,
+      "message": "Add a newline between the modules.  That will also make it clear which comment is referring to which module.",
+      "revId": "92b97e39de017e5c5b6f37f2df8304b7fff821ad",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09d66d82_50df44d3",
+        "filename": "modules/ext.math.mathjax.enabler.base.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-06-27T20:38:46Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be gloabal.  It can be under mw.math.  E.g.\n\nmediaWiki.math.mathJaxEnabler",
+      "revId": "92b97e39de017e5c5b6f37f2df8304b7fff821ad",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09d66d82_b07960fc",
+        "filename": "modules/ext.math.mathjax.enabler.mml.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-06-27T20:38:46Z",
+      "side": 1,
+      "message": "Use a static dependency in Math.php, rather than using.  See https://www.mediawiki.org/wiki/ResourceLoader/Developing_with_ResourceLoader#Registering .",
+      "revId": "92b97e39de017e5c5b6f37f2df8304b7fff821ad",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
