@@ -225,13 +225,14 @@ comprebe si latex, dvips, gs y convert son bien instalatos.', # Fuzzy
 );
 
 /** Old English (Ænglisc)
+ * @author Gott wisst
  * @author Wōdenhelm
  */
 $messages['ang'] = array(
-	'math_sample' => 'Ƿiċunge hēr ēacian',
-	'math_tip' => 'Rīmcræftisc ƿiċung (LaTeX)',
+	'math_sample' => 'Settan endebyrdunge hēr',
+	'math_tip' => 'Rīmcræftlīc endebyrdung (LaTeX)',
 	'prefs-math' => 'Rīmcræft',
-	'math_unknown_error' => 'uncūþ ƿōh',
+	'math_unknown_error' => 'uncūþ wōh',
 );
 
 /** Angika (अङ्गिका)
