@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09d66d82_39e43b10",
+        "filename": "modules/ext.math.mathjax.enabler.mml.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-06-28T05:49:20Z",
+      "side": 1,
+      "message": "I would be happy if someone could give me a hint how to improve that TODO.\nMy idea was that I only tested Firefox. Firefox does for some years (I tested it since 2008) quite well. I don\u0027t see an efficient way to test other browsers as well. If there are users that use other browsers and don\u0027t want to use MathJax, they will complain.",
+      "revId": "fac6a6c426fbcb06ba399199f7414369a0caf452",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
