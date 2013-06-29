@@ -684,6 +684,9 @@ $messages['ce'] = array(
 	'math_sample' => 'Каьчдинарг чудила кхузе',
 	'math_tip' => 'Матlематlекхиа каьчйар (барам LaTeX)',
 	'prefs-math' => 'Формулаш гар',
+	'mw_math_png' => 'Даима генерировать ян PNG',
+	'mw_math_source' => 'Йита белгалонехь ТеХ (йизан браузершан)',
+	'mw_math_mathjax' => 'MathJax (экспериментальни опци, дукху йолчу браузершан)',
 );
 
 /** Cebuano (Cebuano)
