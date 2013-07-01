@@ -515,9 +515,10 @@ $messages['be-tarask'] = array(
 	'mw_math_png' => 'Заўсёды паказваць як PNG',
 	'mw_math_source' => 'Пакідаць у выглядзе TeX (для тэкставых браўзэраў)',
 	'mw_math_mathjax' => 'MathJax (экспэрымэнтальна; найлепей для большасьці браўзэраў)',
+	'mw_math_latexml' => 'LaTeXML (экспэрымэнтальна; ужывае MathML)',
 	'math_failure' => 'Немагчыма разабраць',
 	'math_unknown_error' => 'невядомая памылка',
-	'math_unknown_function' => 'невядомая функцыя', # Fuzzy
+	'math_unknown_function' => "невядомая функцыя '$1'",
 	'math_lexing_error' => 'лексычная памылка',
 	'math_syntax_error' => 'сынтаксычная памылка',
 	'math_image_error' => 'Памылка пераўтварэньня ў фармат PNG;
@@ -526,6 +527,7 @@ $messages['be-tarask'] = array(
 	'math_bad_output' => 'Немагчыма запісаць ці стварыць выходную матэматычную дырэкторыю',
 	'math_notexvc' => 'Выканаўчы модуль texvc ня знойдзены.
 Калі ласка, прачытайце math/README пра яго канфігурацыю.',
+	'math_output_error' => 'Не ўдалося захаваць выяву выразу ў файлавай сыстэме.',
 );
 
 /** Bulgarian (български)
@@ -3567,7 +3569,7 @@ $messages['si'] = array(
 	'mw_math_mathjax' => 'MathJax (පරික්ෂණාත්මක; ගොඩක් ගවේෂකයන් සඳහා හොදයි)',
 	'math_failure' => 'ව්‍යාකරණ විග්‍රහය අසමත් විය',
 	'math_unknown_error' => 'හඳුනා නොගත් දෝෂය',
-	'math_unknown_function' => 'හඳුනා නොගත් ශ්‍රිතය', # Fuzzy
+	'math_unknown_function' => "නොදන්නා ශ්‍රිතය '$1'",
 	'math_lexing_error' => 'රීතිමය දෝෂයකි',
 	'math_syntax_error' => 'කාරක-රීති දෝෂය',
 	'math_image_error' => 'PNG අන්වර්තනය අසාර්ථකවිය;latex, සහ dvipng (හෝ dvips + gs + convert) හී නිදොස්  ස්ථාපනය සිදුවී ඇතිදැයි පිරික්සන්න',
@@ -3782,6 +3784,7 @@ $messages['su'] = array(
  * @author Martinwiss
  * @author Nghtwlkr
  * @author Sannab
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'math-desc' => 'Ritar matematiska ekvationer mellan <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-taggar',
@@ -3793,7 +3796,7 @@ $messages['sv'] = array(
 	'mw_math_mathjax' => 'MathJax (i försöksstadium; fungerar bäst för de flesta webbläsare)',
 	'math_failure' => 'Misslyckades med att tolka formel.',
 	'math_unknown_error' => 'okänt fel',
-	'math_unknown_function' => 'okänd funktion', # Fuzzy
+	'math_unknown_function' => "okänd funktion '$1'",
 	'math_lexing_error' => 'regelfel',
 	'math_syntax_error' => 'syntaxfel',
 	'math_image_error' => 'Konvertering till PNG-format misslyckades; kontrollera om latex och dvipng (eller dvips + gs + convert) är korrekt installerade',
