@@ -671,11 +671,12 @@ $messages['ca'] = array(
 );
 
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄)
+ * @author Yejianfei
  */
 $messages['cdo'] = array(
-	'prefs-math' => 'Só-hŏk',
-	'math_unknown_error' => 'muôi báik gì dâng',
-	'math_unknown_function' => 'muôi báik hàng-só', # Fuzzy
+	'prefs-math' => '數學',
+	'math_unknown_error' => '𣍐八其鄭',
+	'math_unknown_function' => '𣍐八其函數「$1」',
 );
 
 /** Chechen (нохчийн)
