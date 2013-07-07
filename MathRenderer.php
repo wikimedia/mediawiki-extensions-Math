@@ -161,7 +161,14 @@ abstract class MathRenderer {
 			$this->conservativeness = $rpage->math_html_conservativeness;
 			$this->html = $rpage->math_html;
 			$this->mathml = utf8_decode( $rpage->math_mathml);
-			if ( StringUtils::isUtf8( $this->mathml ) ) {
+			if ( ! is_callable( 'StringUtils::isUtf8' ) ) {
+				$msg = wfMessage( 'math_latexml_xmlversion' )->inContentLanguage()->escaped();
+				trigger_error( $msg, E_USER_NOTICE );
+				wfDebugLog( 'Math', $msg );
+				//If we can not check if mathml output is valid, we skip the test and assume that it is valid.
+				$this->recall = true;
+				return true;
+			} elseif( StringUtils::isUtf8( $this->mathml ) ) {
 				$this->recall = true;
 				return true;
 			}

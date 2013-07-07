@@ -156,7 +156,7 @@ class MathLaTeXML extends MathRenderer {
 	 * and the input string only.
 	 * @return string HTTP POST data
 	 */
-	public function getPostData(){
+	public function getPostData() {
 		$texcmd = urlencode( $this->tex );
 		return $this->getLaTeXMLSettings() . '&tex=' . $texcmd;
 	}
@@ -204,13 +204,19 @@ class MathLaTeXML extends MathRenderer {
 	 */
 	static public function isValidMathML( $XML ) {
 		$out = false;
-		//depends on https://gerrit.wikimedia.org/r/#/c/66365/
-		$xmlObject = new XmlTypeCheck($XML, null, false);
+		// depends on https://gerrit.wikimedia.org/r/#/c/66365/
+		if ( ! is_callable( 'XmlTypeCheck::newFromString' ) ) {
+			$msg = wfMessage( 'math_latexml_xmlversion' )->inContentLanguage()->escaped();
+			trigger_error( $msg, E_USER_NOTICE );
+			wfDebugLog( 'Math', $msg );
+			return true;
+		}
+		$xmlObject = new XmlTypeCheck( $XML, null, false );
 		if ( ! $xmlObject->wellFormed ) {
 			wfDebugLog( "Math", "XML validation error:\n " . var_export( $XML, true ) . "\n" );
 		} else {
 			$name = $xmlObject->getRootElement();
-			$name = str_replace('http://www.w3.org/1998/Math/MathML:', '', $name);
+			$name = str_replace( 'http://www.w3.org/1998/Math/MathML:', '', $name );
 			if ( $name == "math" or $name == "table" or $name == "div" ) {
 				$out = true;
 			} else {
