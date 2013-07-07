@@ -44,7 +44,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 			, "requestReturn is false if HTTP::post returns false." );
 		$this->assertEquals( false, $res
 			, "res is false if HTTP:post returns false." );
-		$errmsg = wfMessage( 'math_latexml_invalidresponse' , $url,'' )
+		$errmsg = wfMessage( 'math_latexml_invalidresponse' , $url, '' )
 			->inContentLanguage()->escaped();
 		$this->assertContains( $errmsg, $error
 			, "return an error if HTTP::post returns false" );
@@ -66,13 +66,13 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 			, 'LaTeXMLHttpRequestTester' );
 		$this->assertEquals( true, $requestReturn, "successful call return" );
 		$this->isTrue( $res, "successfull call" );
-		$this->assertEquals( $error,'', "successfull call errormessage" );
+		$this->assertEquals( $error, '', "successfull call errormessage" );
 	}
 
 	/**
 	 * Tests behavior of makeRequest() that communicates with the host.
 	 * Testcase: Timeout.
-	 * @covers MathTexvc::makeRequest
+	 * @covers MathLaTeXML::makeRequest
 	 */
 	public function testMakeRequestTimeout() {
 		self::setMockValues( false, true, true );
@@ -90,6 +90,17 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 		$this->assertContains( $errmsg, $error, "timeout call errormessage" );
 	}
 
+	/**
+	 * Checks if a String is a valid MathML element
+	 * @covers MathLaTeXML::isValidXML
+	 */
+	public function testisValidXML() {
+		$validSample = '<math>content</math>';
+		$invalidSample = '<notmath />';
+		$this->assertTrue( MathLaTeXML::isValidMathML( $validSample ), 'test if math expression is valid mathml sample' );
+		$this->assertFalse( MathLaTeXML::isValidMathML( $invalidSample ), 'test if math expression is invalid mathml sample' );
+
+	}
 	/**
 	 * Checks the basic functionallity
 	 * i.e. if the span element is generated right.

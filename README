@@ -16,6 +16,9 @@ $wgDefaultUserOptions['math'] = MW_MATH_LATEXML;
 in the LocalSettings.php file.
 The LaTeXML option requires php5-curl to be installed. Without php5-curl no proper
 error handling can be guaranteed.
+Furthermore, a core version of wmf/1.22wmf7 or newer is recommended.
+Otherwise, errors in LaTeXML can lead to mal-formatted XML output and disturb the
+page layout.
 
 MathJax configuration:
 Client-side configuration of MathJax can be done by specifying a mathJax.config
