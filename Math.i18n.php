@@ -39,6 +39,7 @@ $messages['en'] = array(
 	'math_latexml_invalidresponse' => 'LaTeXML Invalid response (\'$2\') from server \'$1\':',
 	'math_latexml_invalidxml' => 'LaTeXML MathML is invalid XML.',
 	'math_latexml_invalidjson'  => 'LaTeXML Server response is invalid JSON.',
+	'math_latexml_xmlversion' => 'Warning: XML Type check skipped! Check if your MediaWiki installation is version wmf/1.22wmf7 or newer.'
 );
 
 /** Message documentation (Message documentation)
@@ -145,6 +146,8 @@ This message follows the message {{msg-mw|Math failure}}.',
 	'math_latexml_invalidjson' => 'Used as error message.
 
 This message follows the message {{msg-mw|Math failure}}.',
+
+	'math_latexml_xmlversion' => 'Warning that XML checking of MathML requires wmf/1.22wmf7 or newer.'
 );
 
 /** Achinese (Acèh)
