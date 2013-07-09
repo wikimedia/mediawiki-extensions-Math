@@ -26,6 +26,28 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	}
 
 	/**
+	 * Test rendering the string '0' see 
+	 * https://trac.mathweb.org/LaTeXML/ticket/1752
+	 */
+	public function testSpecialCase0(){
+		$renderer = MathRenderer::getRenderer( "0", array(), MW_MATH_LATEXML );
+		$expected = '<span class="tex" dir="ltr"><math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.1.m1" class="ltx_Math" alttext="0" xml:id="p1.1.m1.1" display="inline" xref="p1.1.m1.1.cmml">   <semantics xml:id="p1.1.m1.1a" xref="p1.1.m1.1.cmml">     <mn xml:id="p1.1.m1.1.1" xref="p1.1.m1.1.1.cmml">0</mn>     <annotation-xml xml:id="p1.1.m1.1.cmml" encoding="MathML-Content" xref="p1.1.m1.1">       <cn type="integer" xml:id="p1.1.m1.1.1.cmml" xref="p1.1.m1.1.1">0</cn>     </annotation-xml>     <annotation xml:id="p1.1.m1.1b" encoding="application/x-tex" xref="p1.1.m1.1.cmml">0</annotation>   </semantics> </math></span>';
+		$real = $renderer->render();
+		$this->assertEquals( $expected, $real ,'Rendering the String "0"' );
+	}
+
+		/**
+	 * Test rendering the string '0' see 
+	 * https://trac.mathweb.org/LaTeXML/ticket/1752
+	 */
+	public function testSpecialCaseText(){
+		//$this->markTestSkipped( "Bug in LaTeXML");
+		$renderer = MathRenderer::getRenderer( "\text{CR}", array(), MW_MATH_LATEXML );
+		$expected = '<span class="tex" dir="ltr" id=".09ext.7BCR.7D"><math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.1.m1" class="ltx_Math" alttext="ext{CR}" xml:id="p1.1.m1.1" display="inline" xref="p1.1.m1.1.cmml">   <semantics xml:id="p1.1.m1.1a" xref="p1.1.m1.1.cmml">     <mrow xml:id="p1.1.m1.1.6" xref="p1.1.m1.1.6.cmml">       <mi xml:id="p1.1.m1.1.1" xref="p1.1.m1.1.1.cmml">e</mi>       <mo xml:id="p1.1.m1.1.6.1" xref="p1.1.m1.1.6.1.cmml">⁢</mo>       <mi xml:id="p1.1.m1.1.2" xref="p1.1.m1.1.2.cmml">x</mi>       <mo xml:id="p1.1.m1.1.6.1a" xref="p1.1.m1.1.6.1.cmml">⁢</mo>       <mi xml:id="p1.1.m1.1.3" xref="p1.1.m1.1.3.cmml">t</mi>       <mo xml:id="p1.1.m1.1.6.1b" xref="p1.1.m1.1.6.1.cmml">⁢</mo>       <mi xml:id="p1.1.m1.1.4" xref="p1.1.m1.1.4.cmml">C</mi>       <mo xml:id="p1.1.m1.1.6.1c" xref="p1.1.m1.1.6.1.cmml">⁢</mo>       <mi xml:id="p1.1.m1.1.5" xref="p1.1.m1.1.5.cmml">R</mi>     </mrow>     <annotation-xml xml:id="p1.1.m1.1.cmml" encoding="MathML-Content" xref="p1.1.m1.1">       <apply xml:id="p1.1.m1.1.6.cmml" xref="p1.1.m1.1.6">         <times xml:id="p1.1.m1.1.6.1.cmml" xref="p1.1.m1.1.6.1"/>         <ci xml:id="p1.1.m1.1.1.cmml" xref="p1.1.m1.1.1">e</ci>         <ci xml:id="p1.1.m1.1.2.cmml" xref="p1.1.m1.1.2">x</ci>         <ci xml:id="p1.1.m1.1.3.cmml" xref="p1.1.m1.1.3">t</ci>         <ci xml:id="p1.1.m1.1.4.cmml" xref="p1.1.m1.1.4">C</ci>         <ci xml:id="p1.1.m1.1.5.cmml" xref="p1.1.m1.1.5">R</ci>       </apply>     </annotation-xml>     <annotation xml:id="p1.1.m1.1b" encoding="application/x-tex" xref="p1.1.m1.1.cmml">ext{CR}</annotation>   </semantics> </math></span>';
+		$real = $renderer->render();
+		$this->assertEquals( $expected, $real ,'Rendering the String "\text{CR}"' );
+	}
+	/**
 	 * Tests behavior of makeRequest() that communicates with the host.
 	 * Testcase: Invalid request.
 	 * @covers MathTexvc::makeRequest
@@ -99,7 +121,8 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 		//$final_mml=MathLaTeXML::embedMathML($bad_mml);
 		//$plain_tex=MathRenderer::renderMath($bad_mml,array(),MW_MATH_SOURCE);
 		//echo(var_dump(MathLaTeXML::isValidMathML($bad_mml))."\n");
-		$this->assertFalse(MathLaTeXML::isValidMathML($bad_mml2));
+		$renderer = new MathLaTeXML($bad_mml2);
+		$this->assertFalse($renderer->isValidMathML($bad_mml2));
 		//echo($final_mml);
 		//echo($plain_tex);
 		
