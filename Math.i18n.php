@@ -1868,6 +1868,7 @@ $messages['it'] = array(
 /** Japanese (日本語)
  * @author Ant176
  * @author Eseki
+ * @author Fryed-peach
  * @author Ohgi
  * @author Shirayuki
  * @author Whym
@@ -1893,7 +1894,9 @@ $messages['ja'] = array(
 	'math_notexvc' => 'texvc の実行可能ファイルが見つかりません。math/README を読んで設定してください。',
 	'math_output_error' => '数式画像をファイルシステムに格納できません。',
 	'math_latexml_timeout' => '「$1」からの LaTeXML タイムアウト',
+	'math_latexml_invalidresponse' => "LaTeXML サーバー '$1' から無効な応答 ('$2'):",
 	'math_latexml_invalidxml' => 'LaTeXML MathML は無効な XML です。',
+	'math_latexml_invalidjson' => 'LaTeXML サーバーの応答は無効な JSON です。',
 );
 
 /** Jamaican Creole English (Patois)
