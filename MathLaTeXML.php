@@ -234,11 +234,11 @@ class MathLaTeXML extends MathRenderer {
 			wfDebugLog( "Math", "XML validation error:\n " . var_export( $XML, true ) . "\n" );
 		} else {
 			$name = $xmlObject->getRootElement();
-			$name = str_replace('http://www.w3.org/1998/Math/MathML:', '', $name);
-			if ( in_array($name, $this->getAllowedRootElements()) ) {
+			$elementSplit = explode(':',$name);
+			if ( in_array(array_pop($elementSplit), $this->getAllowedRootElements()) ) {
 				$out = true;
 			} else {
-				wfDebugLog( "Math", "got wrong root element " . $name );
+				wfDebugLog( "Math", "got wrong root element " . $element );
 			}
 		}
 		return $out;

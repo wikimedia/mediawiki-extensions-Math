@@ -133,7 +133,7 @@ $wgLaTeXMLTimeout = 240;
  * this can be a potential security risk. If set to false only a subset of the tex
  * commands is allowed. See the wikipedia page Help:Math for details.
  */
-$wgDisableTexFilter = false;
+$wgDisableTexFilter = true;
 
 ////////// end of config settings.
 
