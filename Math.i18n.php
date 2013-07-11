@@ -3061,6 +3061,7 @@ $messages['pfl'] = array(
 
 /** Polish (polski)
  * @author BeginaFelicysym
+ * @author Chrumps
  * @author Sp5uhe
  */
 $messages['pl'] = array(
@@ -3073,7 +3074,7 @@ $messages['pl'] = array(
 	'mw_math_mathjax' => 'MathJax (doświadczalny; najlepszy dla większości przeglądarek)',
 	'math_failure' => 'Parser nie mógł rozpoznać',
 	'math_unknown_error' => 'nieznany błąd',
-	'math_unknown_function' => 'nieznana funkcja', # Fuzzy
+	'math_unknown_function' => "nieznana funkcja '$1'",
 	'math_lexing_error' => 'błędna nazwa',
 	'math_syntax_error' => 'błąd składni',
 	'math_image_error' => 'Konwersja z lub do formatu PNG nie powiodła się. Sprawdź, czy poprawnie zainstalowane są latex i dvipng (lub dvips, gs i convert)',
