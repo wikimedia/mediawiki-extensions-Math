@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49c305cb_249d2755",
+        "filename": "Math.i18n.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2013-07-12T03:10:03Z",
+      "side": 1,
+      "message": "Since 1.22 isn\u0027t released yet, it\u0027s helpful to say \"wmf/1.22wmf7 or newer\" (click \"Included in\" at https://gerrit.wikimedia.org/r/#/c/66365/).\n\nSame goes anywhere else you mention 1.22",
+      "revId": "1806f2fe0662ed74efa988a8ff2f9e396a364eca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
