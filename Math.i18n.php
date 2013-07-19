@@ -146,8 +146,7 @@ This message follows the message {{msg-mw|Math failure}}.',
 	'math_latexml_invalidjson' => 'Used as error message.
 
 This message follows the message {{msg-mw|Math failure}}.',
-
-	'math_latexml_xmlversion' => 'Warning that XML checking of MathML requires wmf/1.22wmf7 or newer.'
+	'math_latexml_xmlversion' => 'Warning that XML checking of MathML requires wmf/1.22wmf7 or newer.',
 );
 
 /** Achinese (Acèh)
@@ -916,6 +915,7 @@ $messages['de'] = array(
 	'math_latexml_invalidresponse' => 'LaTeXML Ungültige Antwort („$2“) von Server „$1“:',
 	'math_latexml_invalidxml' => 'LaTeXML MathML ist ungültiges XML.',
 	'math_latexml_invalidjson' => 'LaTeXML Serverantwort ist ungültiges JSON.',
+	'math_latexml_xmlversion' => 'Warnung: Die XML-Typ-Überprüfung wurde übersprungen! Überprüfe, ob die Version deiner MediaWiki-Installation wmf/1.22wmf7 oder neuer ist.',
 );
 
 /** Zazaki (Zazaki)
@@ -1184,6 +1184,7 @@ $messages['fo'] = array(
  * @author Hello71
  * @author Peter17
  * @author Sherbrooke
+ * @author Wyz
  */
 $messages['fr'] = array(
 	'math-desc' => 'Rendre les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
@@ -1208,6 +1209,7 @@ $messages['fr'] = array(
 	'math_latexml_invalidresponse' => 'Réponse non valide pour LaTeXML (« $2 ») du serveur « $1 » :',
 	'math_latexml_invalidxml' => "MathML de LaTeXML n'est pas du XML valide.",
 	'math_latexml_invalidjson' => "Réponse du serveur LaTeXML n'est pas du JSON valide.",
+	'math_latexml_xmlversion' => 'Attention : Vérification du type XML ignorée ! Vérifiez si votre installation de MediaWiki est en version wmf/1.22wmf7 ou plus récente.',
 );
 
 /** Cajun French (français cadien)
@@ -1266,6 +1268,7 @@ $messages['frr'] = array(
 	'math_latexml_invalidresponse' => "LaTeXML ferkiard oonswaar ('$2') faan server '$1':",
 	'math_latexml_invalidxml' => 'LaTeXML MathML as ferkiard XML.',
 	'math_latexml_invalidjson' => 'LaTeXML server oonswaar as ferkiard JSON.',
+	'math_latexml_xmlversion' => 'Paase üüb: Det XML-typ preew as auersprüngen wurden. Din MediaWiki-instalatjuun skul wmf/1.22wmf7 of neier wees.',
 );
 
 /** Friulian (furlan)
@@ -1900,6 +1903,7 @@ $messages['ja'] = array(
 	'math_latexml_invalidresponse' => "LaTeXML サーバー '$1' から無効な応答 ('$2'):",
 	'math_latexml_invalidxml' => 'LaTeXML MathML は無効な XML です。',
 	'math_latexml_invalidjson' => 'LaTeXML サーバーの応答は無効な JSON です。',
+	'math_latexml_xmlversion' => '警告: XML の型チェックをスキップしました。インストールされている MediaWiki が wmf/1.22wmf7 以降か確認してください。',
 );
 
 /** Jamaican Creole English (Patois)
@@ -3066,6 +3070,7 @@ $messages['pfl'] = array(
  * @author BeginaFelicysym
  * @author Chrumps
  * @author Sp5uhe
+ * @author Woytecr
  */
 $messages['pl'] = array(
 	'math-desc' => 'Renderowanie formuł matematycznych między znacznikami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
@@ -3075,6 +3080,7 @@ $messages['pl'] = array(
 	'mw_math_png' => 'Zawsze generuj grafikę PNG',
 	'mw_math_source' => 'Pozostaw w TeXu (dla przeglądarek tekstowych)',
 	'mw_math_mathjax' => 'MathJax (doświadczalny; najlepszy dla większości przeglądarek)',
+	'mw_math_latexml' => 'LaTeXML (eksperymentalne; wykorzystuje MathML)',
 	'math_failure' => 'Parser nie mógł rozpoznać',
 	'math_unknown_error' => 'nieznany błąd',
 	'math_unknown_function' => "nieznana funkcja '$1'",
@@ -3085,6 +3091,7 @@ $messages['pl'] = array(
 	'math_bad_output' => 'Nie można utworzyć lub zapisywać w wyjściowym katalogu dla wzorów matematycznych',
 	'math_notexvc' => 'Brak programu texvc.
 Zapoznaj się z math/README w celu konfiguracji.',
+	'math_output_error' => 'Nie można zapisać obrazu z wzorem w systemie plików.',
 );
 
 /** Piedmontese (Piemontèis)
@@ -3170,6 +3177,7 @@ $messages['ps'] = array(
 
 /** Portuguese (português)
  * @author Hamilton Abreu
+ * @author Luckas
  */
 $messages['pt'] = array(
 	'math_sample' => 'Inserir fórmula aqui',
@@ -3184,8 +3192,8 @@ $messages['pt'] = array(
 	'math_syntax_error' => 'Erro de sintaxe',
 	'math_image_error' => 'Falha na conversão para PNG;
 verifique que o latex, dvips, gs e convert foram correctamente instalados',
-	'math_bad_tmpdir' => "Não foi possível criar o directório temporário ''math'' ou, se já existe, escrever nele",
-	'math_bad_output' => "Não foi possível criar o directório de resultados ''math'' ou, se já existe, escrever nele",
+	'math_bad_tmpdir' => "Não foi possível criar o diretório temporário ''math'' ou, se já existe, escrever nele",
+	'math_bad_output' => "Não foi possível criar o diretório de resultados ''math'' ou, se já existe, escrever nele",
 	'math_notexvc' => 'O executável texvc não foi encontrado. Consulte math/README para instruções da configuração.',
 );
 
