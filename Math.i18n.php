@@ -1406,6 +1406,7 @@ $messages['gl'] = array(
 	'math_latexml_invalidresponse' => 'Resposta non válida de LaTeXML ("$2") desde o servidor "$1":',
 	'math_latexml_invalidxml' => 'MathML de LaTeXML non é un XML válido.',
 	'math_latexml_invalidjson' => 'A resposta do servidor de LaTeXML non é un JSON válido.',
+	'math_latexml_xmlversion' => 'Atención: Saltouse a comprobación do tipo XML! Verifique que a súa instalación de MediaWiki é a versión wmf/1.22wmf7 ou posterior.',
 );
 
 /** Guarani (Avañe'ẽ)
@@ -2585,6 +2586,7 @@ $messages['mk'] = array(
 	'math_latexml_invalidresponse' => 'Неважечки одѕив на LaTeXML („$2“) од опслужувачот „$1“:',
 	'math_latexml_invalidxml' => 'MathML за LaTeXML е неважечки XML.',
 	'math_latexml_invalidjson' => 'Одѕивот на опслужувачот за LaTeXML е неважечки JSON.',
+	'math_latexml_xmlversion' => 'Предупредување: Прескокната е провереката на XML-тип! Проверете дали вашата инсталација на МедијаВики е верзија wmf/1.22wmf7 или понова.',
 );
 
 /** Malayalam (മലയാളം)
