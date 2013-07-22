@@ -2704,6 +2704,7 @@ $messages['ms'] = array(
 	'math_latexml_invalidresponse' => "Respons tidak sah LaTeXML ('$2') dari pelayan '$1':",
 	'math_latexml_invalidxml' => 'LaTeXML MathML adalah XML yang tidak sah.',
 	'math_latexml_invalidjson' => 'Respons Pelayan LaTeXML adalah JSON yang tidak sah.',
+	'math_latexml_xmlversion' => 'Amaran: Semakan Jenis XML dilangkau! Semak sama ada pemasangan MediaWiki anda adalah versi wmf/1.22wmf7 ke atas.',
 );
 
 /** Maltese (Malti)
