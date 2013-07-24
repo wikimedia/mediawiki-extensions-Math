@@ -3346,6 +3346,7 @@ pe piacere vide math/README pe configurà.',
 	'math_latexml_invalidresponse' => "LaTeXML resposte invalide ('$2') da 'u server '$1':",
 	'math_latexml_invalidxml' => "LaTeXML MathML tène 'n'XML invalide.",
 	'math_latexml_invalidjson' => "'U server LaTeXML ave resposte cu 'nu JSON invalide.",
+	'math_latexml_xmlversion' => "Attenziò: 'A verifiche de le tipe XML ha state zumbate! Verifiche ce l'installazione d'a MediaUicchi toje jè 'a versione wmf/1.22wmf7 o cchiù nuève.",
 );
 
 /** Russian (русский)
