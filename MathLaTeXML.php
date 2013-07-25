@@ -15,7 +15,6 @@ class MathLaTeXML extends MathRenderer {
 	 * @var String settings for LaTeXML daemon
 	 */
 	private $LaTeXMLSettings = '';
-	const DEFAULT_LATEXML_SETTING = 'format=xhtml&whatsin=math&whatsout=math&pmml&cmml&nodefaultresources&preload=LaTeX.pool&preload=article.cls&preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty&preload=amssymb.sty&preload=eucal.sty&preload=[dvipsnames]xcolor.sty&preload=url.sty&preload=hyperref.sty&preload=[ids]latexml.sty&preload=texvc';
 
 	/**
 	 * Gets the settings for the LaTeXML daemon.
@@ -23,10 +22,11 @@ class MathLaTeXML extends MathRenderer {
 	 * @return string
 	 */
 	public function getLaTeXMLSettings() {
+		global $wgDefaultLaTeXMLSetting;
 		if ( $this->LaTeXMLSettings ) {
 			return $this->LaTeXMLSettings;
 		} else {
-			return self::DEFAULT_LATEXML_SETTING;
+			return $wgDefaultLaTeXMLSetting;
 		}
 	}
 
