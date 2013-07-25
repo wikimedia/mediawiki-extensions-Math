@@ -99,7 +99,27 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 		$invalidSample = '<notmath />';
 		$this->assertTrue( MathLaTeXML::isValidMathML( $validSample ), 'test if math expression is valid mathml sample' );
 		$this->assertFalse( MathLaTeXML::isValidMathML( $invalidSample ), 'test if math expression is invalid mathml sample' );
+	}
 
+	/**
+	 * Tests the serialiazation of the LaTeXML settings
+	 * @covers MathLaTeXML::serializeSettings
+	 */
+	public function testSerializeSettings() {
+		$renderer = $this->getMockBuilder( 'MathLaTeXML' )
+			->setMethods( NULL )
+			->disableOriginalConstructor()
+			->getMock();
+		$sampleSettings = array(
+			'k1'=>'v1',
+			'k2&='=>'v2 + & *üö',
+			'k3' => array(
+				'v3A', 'v3b',
+				'shoudNotAppear' => 'v3c öäöü'
+			));
+		$expected = 'k1=v1&k2%26%3D=v2+%2B+%26+%2A%C3%BC%C3%B6&k3=v3A&k3=v3b&k3=v3c+%C3%B6%C3%A4%C3%B6%C3%BC';
+		$this->assertEquals( $expected,$renderer->serializeSettings($sampleSettings), 'test serialization of array settings' );
+		$this->assertEquals( $expected,$renderer->serializeSettings($expected), 'test serialization of a string setting' );
 	}
 	/**
 	 * Checks the basic functionallity
