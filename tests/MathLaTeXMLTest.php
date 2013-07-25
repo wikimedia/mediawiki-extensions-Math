@@ -26,7 +26,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Test rendering the string '0' see 
+	 * Test rendering the string '0' see
 	 * https://trac.mathweb.org/LaTeXML/ticket/1752
 	 */
 	public function testSpecialCase0(){
@@ -37,7 +37,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	}
 
 		/**
-	 * Test rendering the string '0' see 
+	 * Test rendering the string '0' see
 	 * https://trac.mathweb.org/LaTeXML/ticket/1752
 	 */
 	public function testSpecialCaseText(){
@@ -111,21 +111,34 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 			->inContentLanguage()->escaped();
 		$this->assertContains( $errmsg, $error, "timeout call errormessage" );
 	}
+
+
+//	public function testisValidXML() {
+//		$validSample = '<math>content</math>';
+//		$invalidSample = '<notmath />';
+//		$this->assertTrue( MathLaTeXML::isValidMathML( $validSample ), 'test if math expression is valid mathml sample' );
+//		$this->assertFalse( MathLaTeXML::isValidMathML( $invalidSample ), 'test if math expression is invalid mathml sample' );
+//	}
+
 	/**
-	 * 
-	 * see issue http://html5sec.org/#130
+	 * Tests the serialiazation of the LaTeXML settings
+	 * @covers MathLaTeXML::serializeSettings
 	 */
-	public function testInsecureResult(){
-		$bad_mml='<math href="javascript:alert(1)">CLICKME</math>';
-		$bad_mml2='<math> <!-- up to FF 13 --> <maction actiontype="statusline#http://google.com" xlink:href="javascript:alert(2)">CLICKME</maction>  <!-- FF 14+ --> <maction actiontype="statusline" xlink:href="javascript:alert(3)">CLICKME<mtext>http://http://google.com</mtext></maction> </math>';
-		//$final_mml=MathLaTeXML::embedMathML($bad_mml);
-		//$plain_tex=MathRenderer::renderMath($bad_mml,array(),MW_MATH_SOURCE);
-		//echo(var_dump(MathLaTeXML::isValidMathML($bad_mml))."\n");
-		$renderer = new MathLaTeXML($bad_mml2);
-		$this->assertFalse($renderer->isValidMathML($bad_mml2));
-		//echo($final_mml);
-		//echo($plain_tex);
-		
+	public function testSerializeSettings() {
+		$renderer = $this->getMockBuilder( 'MathLaTeXML' )
+			->setMethods( NULL )
+			->disableOriginalConstructor()
+			->getMock();
+		$sampleSettings = array(
+			'k1'=>'v1',
+			'k2&='=>'v2 + & *üö',
+			'k3' => array(
+				'v3A', 'v3b',
+				'shoudNotAppear' => 'v3c öäöü'
+			));
+		$expected = 'k1=v1&k2%26%3D=v2+%2B+%26+%2A%C3%BC%C3%B6&k3=v3A&k3=v3b&k3=v3c+%C3%B6%C3%A4%C3%B6%C3%BC';
+		$this->assertEquals( $expected,$renderer->serializeSettings($sampleSettings), 'test serialization of array settings' );
+		$this->assertEquals( $expected,$renderer->serializeSettings($expected), 'test serialization of a string setting' );
 	}
 	/**
 	 * Checks the basic functionallity
