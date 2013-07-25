@@ -127,7 +127,11 @@ $wgUseLaTeXML = false;
  * in seconds.
  */
 $wgLaTeXMLTimeout = 240;
-
+/**
+ * Setting for the LaTeXML renderer.
+ * See http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml for details.
+ */
+$wgDefaultLaTeXMLSetting = 'format=xhtml&whatsin=math&whatsout=math&pmml&cmml&nodefaultresources&preload=LaTeX.pool&preload=article.cls&preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty&preload=amssymb.sty&preload=eucal.sty&preload=[dvipsnames]xcolor.sty&preload=url.sty&preload=hyperref.sty&preload=[ids]latexml.sty&preload=texvc';
 ////////// end of config settings.
 
 $wgDefaultUserOptions['math'] = MW_MATH_PNG;
