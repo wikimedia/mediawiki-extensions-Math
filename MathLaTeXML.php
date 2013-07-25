@@ -15,20 +15,49 @@ class MathLaTeXML extends MathRenderer {
 	 * @var String settings for LaTeXML daemon
 	 */
 	private $LaTeXMLSettings = '';
-	const DEFAULT_LATEXML_SETTING = 'format=xhtml&whatsin=math&whatsout=math&pmml&cmml&nodefaultresources&preload=LaTeX.pool&preload=article.cls&preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty&preload=amssymb.sty&preload=eucal.sty&preload=[dvipsnames]xcolor.sty&preload=url.sty&preload=hyperref.sty&preload=[ids]latexml.sty&preload=texvc';
 	private static $DEFAULT_ALLOWED_ROOT_ELEMENTS = array('math', 'div', 'table', 'query');
 	private $allowedRootElements = '';
 
+	/**
+	 * Converts an array with LaTeXML settings to a URL encoded String.
+	 * If the argument is a string the input will be returned.
+	 * Thus the function has projector properties and can be applied a second time safely.
+	 * @param (string|array) $array
+	 * @return string
+	 */
+	public function serializeSettings($array){
+		if(!is_array($array)){
+			return $array;
+		}
+		$string = "";
+		foreach ($array as $key => $value) {
+			$sKey = urlencode($key);
+			if(is_array($value)){
+				foreach ($value as $innerValue) {
+					$sValue = urlencode($innerValue);
+					$string .= "&$sKey=$sValue";
+				}
+			} else {
+				$sValue = urlencode($value);
+				$string .= "&$sKey=$sValue";
+			}
+		}
+		if($string){
+			$string = substr($string, 1);
+		}
+		return $string;
+	}
 	/**
 	 * Gets the settings for the LaTeXML daemon.
 	 *
 	 * @return string
 	 */
 	public function getLaTeXMLSettings() {
+		global $wgDefaultLaTeXMLSetting;
 		if ( $this->LaTeXMLSettings ) {
 			return $this->LaTeXMLSettings;
 		} else {
-			return self::DEFAULT_LATEXML_SETTING;
+			return $wgDefaultLaTeXMLSetting;
 		}
 	}
 
@@ -38,7 +67,7 @@ class MathLaTeXML extends MathRenderer {
 	 * For a list of possible settings see:
 	 * http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml
 	 * An empty value indicates to use the default settings.
-	 * @param string $settings
+	 * @param string|array $settings
 	 */
 	public function setLaTeXMLSettings( $settings ) {
 		$this->LaTeXMLSettings = $settings;
@@ -182,7 +211,8 @@ class MathLaTeXML extends MathRenderer {
 	 */
 	public function getPostData(){
 		$texcmd = urlencode( $this->tex );
-		return $this->getLaTeXMLSettings() . '&tex=' . $texcmd;
+		$settings = $this->serializeSettings($this->getLaTeXMLSettings());
+		return  $settings. '&tex=' . $texcmd;
 	}
 	/**
 	 * Does the actual web request to convert TeX to MathML.
