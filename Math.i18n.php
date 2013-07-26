@@ -3351,6 +3351,7 @@ pe piacere vide math/README pe configurà.',
 
 /** Russian (русский)
  * @author Amire80
+ * @author KPu3uC B Poccuu
  * @author Kalan
  * @author MaxSem
  */
@@ -3364,7 +3365,7 @@ $messages['ru'] = array(
 	'mw_math_mathjax' => 'MathJax (экспериментальная опция, оптимальная для большинства браузеров)',
 	'math_failure' => 'Невозможно разобрать выражение',
 	'math_unknown_error' => 'неизвестная ошибка',
-	'math_unknown_function' => 'неизвестная функция', # Fuzzy
+	'math_unknown_function' => 'неизвестная функция «$1»',
 	'math_lexing_error' => 'лексическая ошибка',
 	'math_syntax_error' => 'синтаксическая ошибка',
 	'math_image_error' => 'Преобразование в PNG прошло с ошибкой — проверьте правильность установки latex и dvips (или dvips + gs + convert)',
