@@ -809,6 +809,7 @@ $messages['cs'] = array(
 	'math_latexml_invalidresponse' => 'Neplatná odpověď LaTeXML („$2“) od serveru „$1“:',
 	'math_latexml_invalidxml' => 'MathML z LaTeXML není platné XML.',
 	'math_latexml_invalidjson' => 'Odpověď LaTeXML Serveru není platný JSON.',
+	'math_latexml_xmlversion' => 'Upozornění: Kontrola XML typu přeskočena! Zkontrolujte, zda je vaše instalace MediaWiki verze wmf/1.22wmf7 nebo novější.',
 );
 
 /** Kashubian (kaszëbsczi)
@@ -2172,6 +2173,7 @@ $messages['ko'] = array(
 	'math_latexml_invalidresponse' => "'$1' 서버에서 잘못된 LaTeXML 응답 ('$2'):",
 	'math_latexml_invalidxml' => 'LaTeXML MathML은 잘못된 XML입니다.',
 	'math_latexml_invalidjson' => 'LaTeXML 서버 응답은 잘못된 JSON입니다.',
+	'math_latexml_xmlversion' => '경고: XML 형식 검사를 건너뛰었습니다! 미디어위키 설치가 wmf/1.22wmf7 이상인지 확인하세요.',
 );
 
 /** Komi-Permyak (Перем Коми)
@@ -2910,6 +2912,7 @@ $messages['nl'] = array(
 	'math_latexml_invalidresponse' => 'LaTeXML: Ongeldig antwoord ("$2") van server "$1":',
 	'math_latexml_invalidxml' => 'LaTeXML: MathML is ongeldige XML.',
 	'math_latexml_invalidjson' => 'LaTeXML: het antwoord van de server is ongeldige JSON.',
+	'math_latexml_xmlversion' => 'Waarschuwing: XML-typecontrole overgeslagen. Controleer of uw MediaWikiinstallatie versie 1.22wmf7 or later is.',
 );
 
 /** Norwegian Nynorsk (norsk nynorsk)
