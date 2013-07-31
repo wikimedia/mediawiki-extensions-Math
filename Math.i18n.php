@@ -356,6 +356,7 @@ $messages['ast'] = array(
 	'math_latexml_invalidresponse' => "Rempuesta inválida de LaTeXML ('$2') dende'l sirvidor '$1':",
 	'math_latexml_invalidxml' => 'El MathML de LaTeXML ye XML inválidu.',
 	'math_latexml_invalidjson' => 'La rempuesta del sirvidor LaTeXML ye JSON inválidu.',
+	'math_latexml_xmlversion' => 'Atención: ¡Saltóse la comprobación del tipu XML! Compruebe si la instalación de MediaWiki ye la versión wmf/1.22wmf7 o posterior.',
 );
 
 /** Avaric (авар)
