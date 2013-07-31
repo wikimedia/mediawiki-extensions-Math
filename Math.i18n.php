@@ -1623,6 +1623,7 @@ $messages['hil'] = array(
 
 /** Croatian (hrvatski)
  * @author Herr Mlinka
+ * @author Roberta F.
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
@@ -1632,10 +1633,10 @@ $messages['hr'] = array(
 	'mw_math_png' => 'Uvijek kao PNG',
 	'mw_math_source' => 'Ostavi u formatu TeX (za tekstualne preglednike)',
 	'math_failure' => 'Obrada nije uspjela.',
-	'math_unknown_error' => 'nepoznata pogreška',
+	'math_unknown_error' => 'nepoznata pogrješka',
 	'math_unknown_function' => 'nepoznata funkcija', # Fuzzy
-	'math_lexing_error' => 'rječnička pogreška (lexing error)',
-	'math_syntax_error' => 'sintaksna pogreška',
+	'math_lexing_error' => 'rječnička pogrješka (lexing error)',
+	'math_syntax_error' => 'sintaksna pogrješka',
 	'math_image_error' => 'Pretvorba u PNG nije uspjela; provjerite jesu li dobro instalirani latex, dvips, gs, i convert',
 	'math_bad_tmpdir' => 'Ne mogu otvoriti ili pisati u privremeni direktorij za matematiku',
 	'math_bad_output' => 'Ne mogu otvoriti ili pisati u odredišni direktorij za matematiku',
