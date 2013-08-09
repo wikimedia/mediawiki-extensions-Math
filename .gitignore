@@ -3,3 +3,10 @@
 *~
 *.kate-swp
 .*.swp
+# modules/MathJax/config/
+# modules/MathJax/docs/
+# modules/MathJax/extensions/
+# modules/MathJax/fonts/HTML-CSS/TeX/png/
+# modules/MathJax/jax/
+# modules/MathJax/localization/
+# modules/MathJax/test/

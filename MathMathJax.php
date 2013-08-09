@@ -22,15 +22,16 @@ class MathMathJax extends MathRenderer {
 	function render() {
 		# No need to render or parse anything more!
 		# New lines are replaced with spaces, which avoids confusing our parser (bugs 23190, 22818)
-		return Xml::element( 'span',
+		return Xml::openElement( 'span',
 			$this->getAttributes(
 				'span',
 				array(
 					'class' => 'tex',
 					'dir' => 'ltr'
 				)
-			),
-			'$ ' . str_replace( "\n", " ", $this->getTex() ) . ' $'
-		);
+			)).Xml::element( 'script',
+				array( 'type' => 'math/tex'),
+				str_replace( "\n", " ", $this->getTex() )
+			).Xml::closeElement( 'span' );
 	}
 }
