@@ -10,10 +10,8 @@
   mathJax.version = '0.2';
 
   mathJax.loaded = false;
-
   mathJax.config = $.extend( true, {
-    root: mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax',
-    config: ['TeX-AMS-texvc_HTML.js'],
+    root: mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/unpacked/',
     'v1.0-compatible': false,
     displayAlign: 'left',
     menuSettings: {
@@ -27,12 +25,19 @@
     },
     MathMenu: {
       showLocale: false
-    }
+    },
+    extensions: ['MathEvents.js','MathZoom.js','MathMenu.js','toMathML.js'],
+    jax: ['input/TeX','output/HTML-CSS'],
+    TeX: { extensions: ['noUndefined.js','AMSmath.js','AMSsymbols.js','texvc.js', 'color.js', 'cancel.js'] }
   }, mathJax.config );
 
   mathJax.Config = function () {
     MathJax.Hub.Config( mathJax.config );
+    MathJax.Localization.resetLocale(mw.config.get('wgUserLanguage'));
     MathJax.OutputJax.fontDir = mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
+    mw.loader.using( 'ext.math.mathjax.localization', function() {
+      MathJax.Hub.Configured();
+    });
   };
 
   /**
@@ -61,24 +66,11 @@
   };
 
   mathJax.Load = function () {
-    var config, script;
     if (this.loaded) {
       return true;
     }
 
-    // create configuration element
-    config = 'mathJax.Config();';
-    script = document.createElement( 'script' );
-    script.setAttribute( 'type', 'text/x-mathjax-config' );
-    if ( window.opera ) {
-      script.innerHTML = config;
-    } else {
-      script.text = config;
-    }
-    document.getElementsByTagName('head')[0].appendChild( script );
-
-    // create startup element
-    mw.loader.load('ext.math.mathjax');
+    mw.loader.using( 'ext.math.mathjax', this.Config);
 
     this.loaded = true;
 

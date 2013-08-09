@@ -151,20 +151,33 @@ $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 
-$moduleTemplate = array(
+$mathJaxModuleTemplate = array(
 	'localBasePath' => dirname( __FILE__ ) . '/modules',
 	'remoteExtPath' => 'Math/modules',
+        'group' => 'ext.math.mathjax'
 );
 
-$wgResourceModules['ext.math.mathjax'] = array(
-	'scripts' => array(
-		'MathJax/MathJax.js',
-		// We'll let the other parts be loaded by MathJax's
-		// own module/config loader.
+$wgResourceModules += array(
+	'ext.math.mathjax' => $mathJaxModuleTemplate + array(
+		'scripts' => array(
+			'MathJax/unpacked/MathJax.js',
+		)
 	),
-	'group' => 'ext.math.mathjax',
-) + $moduleTemplate;
+        'ext.math.mathjax.enabler' => $mathJaxModuleTemplate + array(
+		'scripts' => 'ext.math.mathjax.enabler.js'
+	)
+);
 
-$wgResourceModules['ext.math.mathjax.enabler'] = array(
-	'scripts' => 'ext.math.mathjax.enabler.js',
-) + $moduleTemplate;
+$wgResourceModules['ext.math.mathjax.localization'] = array(
+	'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/localization',
+	'remoteExtPath' => 'Math/modules/MathJax/unpacked/localization',
+        'group' => 'ext.math.mathjax',
+        'languageScripts' => array(
+            // No 'en' since MathJax always specifies English fallback when using a string...
+            'de' => array ('de/de.js', 'de/HelpDialog.js', 'de/MathMenu.js', 'de/TeX.js', 'de/FontWarnings.js', 'de/HTML-CSS.js', 'de/MathML.js'),
+            'fr' => array ('fr/fr.js', 'fr/HelpDialog.js', 'fr/MathMenu.js', 'fr/TeX.js', 'fr/FontWarnings.js', 'fr/HTML-CSS.js', 'fr/MathML.js'),
+            'it' => array ('it/it.js', 'it/HelpDialog.js', 'it/MathMenu.js', 'it/TeX.js', 'it/FontWarnings.js', 'it/HTML-CSS.js', 'it/MathML.js'),
+            'pl' => array ('pl/pl.js', 'pl/HelpDialog.js', 'pl/MathMenu.js', 'pl/TeX.js', 'pl/FontWarnings.js', 'pl/HTML-CSS.js', 'pl/MathML.js'),
+            'pt-br' => array ('pt-br/pt-br.js', 'pt-br/HelpDialog.js', 'pt-br/MathMenu.js', 'pt-br/TeX.js', 'pt-br/FontWarnings.js', 'pt-br/HTML-CSS.js', 'pt-br/MathML.js')
+        ) 
+);

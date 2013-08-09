@@ -18,19 +18,35 @@
  * @author Moritz Schubotz
  * @ingroup Parser
  */
-class MathMathJax extends MathRenderer {
+class MathMathJax extends MathTexvc {
 	function render() {
-		# No need to render or parse anything more!
-		# New lines are replaced with spaces, which avoids confusing our parser (bugs 23190, 22818)
-		return Xml::element( 'span',
+		$imagePreview = true;
+		if ( !$this->readCache() ) { // cache miss
+			$result = $this->callTexvc();
+			if ( $result != self::MW_TEXVC_SUCCESS ) {
+				$imagePreview = false;
+			}
+		}
+		if ($imagePreview) {
+			$preview = self::getMathImageHTML();
+                } else {
+			$preview = $this->getTex();
+                }
+		return Xml::openElement( 'span',
 			$this->getAttributes(
 				'span',
 				array(
 					'class' => 'tex',
 					'dir' => 'ltr'
 				)
-			),
-			'$ ' . str_replace( "\n", " ", $this->getTex() ) . ' $'
-		);
+			)).Xml::openElement( 'span',
+				array(
+					'class' => 'MathJax_Preview'
+				)
+			).$preview.Xml::closeElement( 'span' ).
+			Xml::element( 'script',
+				array( 'type' => 'math/tex'),
+				str_replace( "\n", " ", $this->getTex() )
+			).Xml::closeElement( 'span' );
 	}
 }
