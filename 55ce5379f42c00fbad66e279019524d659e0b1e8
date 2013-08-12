@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "898eddaf_97b33a09",
+        "filename": "MathMathJax.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-08-12T04:55:29Z",
+      "side": 1,
+      "message": "That won\u0027t work. And I think texvc and mathjax should not be mixed.",
+      "revId": "55ce5379f42c00fbad66e279019524d659e0b1e8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
