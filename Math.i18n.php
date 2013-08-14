@@ -3663,6 +3663,7 @@ za njeno namestitev si poglejte math/README.',
 	'math_latexml_invalidresponse' => "LaTeXML Neveljavni odziv ('$2') strežnika '$1':",
 	'math_latexml_invalidxml' => 'LaTeXML MathML ni veljaven XML.',
 	'math_latexml_invalidjson' => 'LaTeXML Odziv strežnika ni veljaven JSON.',
+	'math_latexml_xmlversion' => 'Opozorilo: Preverjanje vrste XML sem preskočil! Preverite, če je vaša namestitev MediaWiki različice wmf/1.22wmf7 ali novejša.',
 );
 
 /** Lower Silesian (Schläsch)
