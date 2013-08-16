@@ -4148,6 +4148,7 @@ latex، dvips، gs، ۋە convert توغرا قاچىلانغانلىقىنى ت
 );
 
 /** Ukrainian (українська)
+ * @author Andriykopanytsia
  * @author Base
  * @author Olvin
  * @author Ата
@@ -4161,6 +4162,7 @@ $messages['uk'] = array(
 	'mw_math_png' => 'Завжди генерувати PNG',
 	'mw_math_source' => 'Залишити в вигляді ТеХ (для текстових браузерів)',
 	'mw_math_mathjax' => 'MathJax (експериментально; найкраще підходить для більшості оглядачів)',
+	'mw_math_latexml' => 'LaTeXML (експериментально; використовує MathML)',
 	'math_failure' => 'Неможливо розібрати вираз',
 	'math_unknown_error' => 'невідома помилка',
 	'math_unknown_function' => "невідома функція '$1'",
@@ -4171,6 +4173,11 @@ $messages['uk'] = array(
 	'math_bad_output' => 'Не вдається створити чи записати в вихідний каталог математики',
 	'math_notexvc' => 'Не знайдено програму texvc; Див. math/README — довідку про налаштування.',
 	'math_output_error' => 'Не можна зберегти математичне зображення у файловій системі.',
+	'math_latexml_timeout' => "Час очікування LaTeXML від '$1'",
+	'math_latexml_invalidresponse' => "LaTeXML Невірна відповідь ('$2') з сервера '$1':",
+	'math_latexml_invalidxml' => 'LaTeXML MathML є невірним XML.',
+	'math_latexml_invalidjson' => 'LaTeXML Відповідь сервера є  невірним JSON.',
+	'math_latexml_xmlversion' => 'Попередження: Перевірка типу XML пропущена! Перевірте, чи ваша установка Медіавікі має версію wmf/1.22wmf7 або новішу.',
 );
 
 /** Urdu (اردو)
