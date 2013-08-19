@@ -3215,6 +3215,7 @@ verifique que o latex, dvips, gs e convert foram correctamente instalados',
 
 /** Brazilian Portuguese (português do Brasil)
  * @author Giro720
+ * @author Luckas
  * @author 555
  */
 $messages['pt-br'] = array(
@@ -3225,7 +3226,7 @@ $messages['pt-br'] = array(
 	'mw_math_source' => 'Deixar como TeX (para navegadores de texto)',
 	'math_failure' => 'Falhou ao verificar gramática',
 	'math_unknown_error' => 'Erro desconhecido',
-	'math_unknown_function' => 'Função desconhecida', # Fuzzy
+	'math_unknown_function' => "função desconhecida '$1'",
 	'math_lexing_error' => 'Erro léxico',
 	'math_syntax_error' => 'Erro de sintaxe',
 	'math_image_error' => 'Falha na conversão para PNG;
