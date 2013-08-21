@@ -2444,6 +2444,7 @@ $messages['lus'] = array(
 
 /** Latvian (latviešu)
  * @author Marozols
+ * @author Papuass
  * @author Yyy
  */
 $messages['lv'] = array(
@@ -2454,7 +2455,7 @@ $messages['lv'] = array(
 	'mw_math_source' => 'Saglabāt kā TeX (teksta pārlūkiem)',
 	'math_failure' => 'Pārsēšanas kļūda',
 	'math_unknown_error' => 'nezināma kļūda',
-	'math_unknown_function' => 'nezināma funkcija', # Fuzzy
+	'math_unknown_function' => "nezināma funkcija '$1'",
 	'math_lexing_error' => 'leksikas kļūda',
 	'math_syntax_error' => 'sintakses kļūda',
 	'math_image_error' => 'Kļūda konvertējot uz PNG formātu;
