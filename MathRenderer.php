@@ -43,6 +43,13 @@ abstract class MathRenderer {
 	protected $purge = false;
 	protected $recall;
 	protected $lastError = '';
+	/**
+	 *
+	 * @var boolean by default all equations are rendered in inline style
+	 * set to true for displaystyle
+	 */
+	protected $displaytyle = true;
+	private $displaystyleIndicators = array( '\displaystyle', '\begin' );
 
 	/**
 	 * Constructs a base MathRenderer
@@ -94,6 +101,17 @@ abstract class MathRenderer {
 				$renderer = new MathTexvc( $tex, $params );
 		}
 		wfDebugLog ( "Math", 'start rendering $' . $renderer->tex . '$ in mode ' . $mode );
+		if ( isset($params['display']) ){
+			$layoutMode = $params['display'];
+			if( $layoutMode == 'inline' ){
+				$renderer->setDisplaytyle( false );
+				//if the user has not specified how displaystyle should be obtained this method is used
+				if(! $renderer->guessDisplaytyleFromTex()){
+					$tex= '{\textstyle'. $tex.'}';
+					$renderer->setTex( $tex );
+				}
+			}
+		}
 		return $renderer;
 	}
 
@@ -392,6 +410,33 @@ abstract class MathRenderer {
 
 	function getLastError(){
 		return $this->lastError;
+	}
+	/**
+	 *
+	 * @param boolean $displaytyle
+	 */
+	public function setDisplaytyle($displaystyle= true){
+		$this->changed = true; //Discuss if this is a change
+		$this->displaytyle = $displaystyle;
+	}
+	public function getDisplaytyle(){
+		return $this->displaytyle;
+	}
+
+	/**
+	 * Checks if there are indicators in the tex code speified be the user
+	 * that the math tag (or part of it) should be rendered in a kind of
+	 * displaystyle.
+	 * @return boolean (true if displaystyle indicators are found)
+	 */
+	protected function guessDisplaytyleFromTex(){
+		$tex=  $this->getTex();
+		foreach ($this->displaystyleIndicators as $indicator) {
+			if ( strpos($tex, $indicator) ){
+				return true;
+			}
+		}
+		return false;
 	}
 }
 

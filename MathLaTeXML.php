@@ -157,8 +157,14 @@ class MathLaTeXML extends MathRenderer {
 	 * @return string HTTP POST data
 	 */
 	public function getPostData() {
-		$texcmd = urlencode( $this->tex );
-		return $this->getLaTeXMLSettings() . '&tex=' . $texcmd;
+		$tex =  $this->tex;
+		if ($this->getDisplaytyle()){
+			if (! $this->guessDisplaytyleFromTex() ){
+				$tex = '{\displaystyle '. $tex . '}';
+			}
+		}
+		$texcmd = urlencode($tex);
+		return $this->getLaTeXMLSettings() . '&tex=' . $texcmd ;
 	}
 	/**
 	 * Does the actual web request to convert TeX to MathML.
