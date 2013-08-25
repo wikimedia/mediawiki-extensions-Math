@@ -47,7 +47,7 @@ let modules_nonascii = ref false
 let modules_encoding = ref UTF8
 let modules_color = ref false
 let modules_teubner = ref false
-let modules_euro = ref false 
+let modules_euro = ref false
 
 (* wrappers to easily set / reset module properties *)
 let tex_use_ams ()     = modules_ams := true
@@ -77,10 +77,10 @@ let get_preface ()  = "\\nonstopmode\n\\documentclass[12pt]{article}\n" ^
               (if !modules_color then "\\usepackage[dvips,usenames]{color}\n" else "") ^
               (if !modules_teubner then "\\usepackage[greek]{babel}\n\\usepackage{teubner}\n" else "") ^
               (if !modules_euro then "\\usepackage{eurosym}\n" else "") ^
-              "\\usepackage{cancel}\n\\pagestyle{empty}\n\\begin{document}\n$$\n"
+              "\\usepackage{cancel}\n\\pagestyle{empty}\n\\begin{document}\n$\n"
 
 (* TeX fragment appended after the content *)
-let get_footer  ()  = "\n$$\n\\end{document}\n"
+let get_footer  ()  = "\n$\n\\end{document}\n"
 
 (* Default to UTF8 *)
 let set_encoding = function

@@ -55,6 +55,11 @@ class MathLaTeXML extends MathRenderer {
 				return $this->getLastError();
 			}
 		}
+		if ( $this->getDisplaytyle() ){
+			$mathml =  $this->getMathml();
+			$mathml = preg_replace('|display="inline"|', 'mode="block"', $mathml);
+			$this->setMathml($mathml);
+		}
 		return $this->getMathMLTag();
 	}
 
