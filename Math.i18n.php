@@ -140,7 +140,11 @@ Parameters:
 * $1 - hostname or URL',
 	'math_latexml_invalidresponse' => 'Used as error message.
 
-This message follows the message {{msg-mw|Math failure}}.',
+Follows the message {{msg-mw|Math failure}}.
+
+Parameters:
+* $1 - hostname
+* $2 - error message',
 	'math_latexml_invalidxml' => 'Used as error message.
 
 This message follows the message {{msg-mw|Math failure}}.',
