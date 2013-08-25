@@ -48,6 +48,13 @@ abstract class MathRenderer {
 	protected $statusCode = 0;
 	protected $timestamp;
 	protected $texSecure = false;
+	/**
+	 *
+	 * @var boolean by default all equations are rendered in inline style
+	 * set to true for displaystyle
+	 */
+	protected $displaytyle = true;
+	private $displaystyleIndicators = array( '\displaystyle', '\begin' );
 
 	/**
 	 * Constructs a base MathRenderer
@@ -101,6 +108,17 @@ abstract class MathRenderer {
 				$renderer = new MathTexvc( $tex, $params );
 		}
 		wfDebugLog ( "Math", 'start rendering $' . $renderer->tex . '$ in mode ' . $mode );
+		if ( isset($params['display']) ){
+			$layoutMode = $params['display'];
+			if( $layoutMode == 'inline' ){
+				$renderer->setDisplaytyle( false );
+				//if the user has not specified how displaystyle should be obtained this method is used
+				if(! $renderer->guessDisplaytyleFromTex()){
+					$tex= '{\textstyle'. $tex.'}';
+					$renderer->setTex( $tex );
+				}
+			}
+		}
 		return $renderer;
 	}
 
@@ -185,7 +203,7 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param database_row $rpage
 	 */
 	public function initializeFromDatabaseRow( $rpage ) {
@@ -262,7 +280,7 @@ abstract class MathRenderer {
 		wfDebugLog ( "Math", "Store Data:" . var_export ( $out, true ) . "\n\n" );
 		return $out;
 	}
-	
+
 	/**
 	 * Returns sanitized attributes
 	 *
@@ -455,14 +473,29 @@ abstract class MathRenderer {
 	function getLastError(){
 		return $this->lastError;
 	}
-	
+
 	/**
 	 * @return string
 	 */
 	public function getLog() {
 		return $this->log;
 	}
-	
+	/**
+	 *
+	 * @param boolean $displaytyle
+	 */
+	public function setDisplaytyle( $displaystyle= true ){
+		$this->changed = true; //Discuss if this is a change
+		$this->displaytyle = $displaystyle;
+	}
+	/**
+	 *
+	 * @param boolean $displaytyle
+	 */
+	public function getDisplaytyle(){
+		return $this->displaytyle;
+	}
+
 	/**
 	 * @param string $log
 	 */
@@ -470,7 +503,7 @@ abstract class MathRenderer {
 		$this->changed = true;
 		$this->log = $log;
 	}
-	
+
 	/**
 	 * @param int $timestamp
 	 */
@@ -478,14 +511,14 @@ abstract class MathRenderer {
 		$this->changed = true;
 		$this->timestamp = $timestamp;
 	}
-	
+
 	/**
 	 * @return int
 	 */
 	public function getStatusCode() {
 		return $this->statusCode;
 	}
-	
+
 	/**
 	 * @param unknown_type $statusCode
 	 */
@@ -501,7 +534,7 @@ abstract class MathRenderer {
 	public function isTexSecure (){
 		return $this->texSecure;
 	}
-	
+
 	public function checkTex(){
 		$this->texSecure = false;
 		//TODO Update tex checking
@@ -517,6 +550,23 @@ abstract class MathRenderer {
 			return $texvcResult;
 		}
 
+	}
+
+
+	/**
+	 * Checks if there are indicators in the tex code speified be the user
+	 * that the math tag (or part of it) should be rendered in a kind of
+	 * displaystyle.
+	 * @return boolean (true if displaystyle indicators are found)
+	 */
+	protected function guessDisplaytyleFromTex(){
+		$tex=  $this->getTex();
+		foreach ($this->displaystyleIndicators as $indicator) {
+			if ( strpos($tex, $indicator) !== false){
+				return true;
+			}
+		}
+		return false;
 	}
 }
 

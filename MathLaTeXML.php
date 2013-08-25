@@ -211,7 +211,13 @@ class MathLaTeXML extends MathRenderer {
 	 * @return string HTTP POST data
 	 */
 	public function getPostData() {
-		$texcmd = urlencode( $this->tex );
+		$tex =  $this->tex;
+		if ($this->getDisplaytyle()){
+			if (! $this->guessDisplaytyleFromTex() ){
+				$tex = '{\displaystyle '. $tex . '}';
+			}
+		}
+		$texcmd = urlencode($tex);
 		$settings = $this->serializeSettings($this->getLaTeXMLSettings());
 		return  $settings. '&tex=' . $texcmd;
 	}
@@ -287,7 +293,13 @@ class MathLaTeXML extends MathRenderer {
 	 * @return html element with rendered math
 	 */
 	private function getMathMLTag() {
-		return self::embedMathML( $this->getMathml(), urldecode( $this->getTex() ) );
+		if ( $this->getDisplaytyle() ){
+			$mml = preg_replace('|display="inline"|', 'display="block"', $this->getMathml());
+			$mml = preg_replace('/mode="(inline|block)"/', 'display="block"', $mml);
+		} else {
+			$mml = $this->getMathml();
+		}
+		return self::embedMathML( $mml, urldecode( $this->getTex() ) );
 	}
 
 	/**

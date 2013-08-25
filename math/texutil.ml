@@ -47,7 +47,7 @@ let modules_nonascii = ref false
 let modules_encoding = ref UTF8
 let modules_color = ref false
 let modules_teubner = ref false
-let modules_euro = ref false 
+let modules_euro = ref false
 
 (* wrappers to easily set / reset module properties *)
 let tex_use_ams ()     = modules_ams := true

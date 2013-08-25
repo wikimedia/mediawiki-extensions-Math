@@ -91,13 +91,17 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function getMathImageHTML() {
 		$url = $this->getMathImageUrl();
-
+		$style = '';
+		if ($this->getDisplaytyle()){
+			$style = 'display:block;margin:auto';
+		}
 		return Xml::element( 'img',
 			$this->getAttributes(
 				'img',
 				array(
 					'class' => 'tex',
 					'alt' => $this->getTex(),
+					'style'=>$style
 				),
 				array(
 					'src' => $url
@@ -347,7 +351,7 @@ class MathTexvc extends MathRenderer {
 	}
 
 	/**
-	 * 
+	 *
 	 * @return string texvc secured tex code
 	 */
 	public function getSecureTex(){
