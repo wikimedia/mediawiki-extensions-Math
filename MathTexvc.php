@@ -29,6 +29,12 @@ class MathTexvc extends MathRenderer {
 	 * @return string rendered TeK
 	 */
 	public function render() {
+		if($this->getDisplaytyle()){
+			if(! $this->guessDisplaytyleFromTex()){
+				$tex= '{\displaystyle'. $this->getTex().'}';
+				$this->setTex($tex);
+			}
+		}
 		if ( !$this->readCache() ) { // cache miss
 			$result = $this->callTexvc();
 			if ( $result != self::MW_TEXVC_SUCCESS ) {

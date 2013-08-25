@@ -43,6 +43,14 @@ abstract class MathRenderer {
 	protected $purge = false;
 	protected $recall;
 	protected $lastError = '';
+	/**
+	 *
+	 * @var boolean by default all equations are rendered in inline style
+	 * set to true for displaystyle
+	 */
+	protected $displaytyle = false;
+	private $displaystyleIndicators = array( 'displaystyle',
+			'align', 'equation' );
 
 	/**
 	 * Constructs a base MathRenderer
@@ -96,6 +104,12 @@ abstract class MathRenderer {
 				$renderer = new MathTexvc( $tex, $params );
 		}
 		wfDebugLog ( "Math", 'start rendering $' . $renderer->tex . '$ in mode ' . $mode );
+		if ( isset($params['display']) ){
+			$layoutMode = $params['display'];
+			if($layoutMode=='block'){
+				$renderer->setDisplaytyle ();
+			}
+		}
 		return $renderer;
 	}
 
@@ -394,6 +408,24 @@ abstract class MathRenderer {
 
 	function getLastError(){
 		return $this->lastError;
+	}
+
+	public function setDisplaytyle($displaytyle= true){
+		$this->changed = true; //Discuss if this is a change
+		$this->displaytyle = $displaytyle;
+	}
+	public function getDisplaytyle(){
+		return $this->displaytyle;
+	}
+
+		protected function guessDisplaytyleFromTex(){
+		$tex=  $this->getTex();
+		foreach ($this->displaystyleIndicators as $indicator) {
+			if ( strpos($tex, $indicator) ){
+				return true;
+			}
+		}
+		return false;
 	}
 }
 

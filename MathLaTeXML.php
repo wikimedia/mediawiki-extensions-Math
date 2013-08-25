@@ -46,6 +46,12 @@ class MathLaTeXML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	public function render( $forceReRendering = false ) {
+		if($this->getDisplaytyle()){
+			if(! $this->guessDisplaytyleFromTex()){
+				$tex= '{\displaystyle'. $this->getTex().'}';
+				$this->setTex($tex);
+			}
+		}
 		if ( $forceReRendering ) {
 			$this->setPurge( true );
 		}
@@ -54,6 +60,11 @@ class MathLaTeXML extends MathRenderer {
 			if ( ! $res ) {
 				return $this->getLastError();
 			}
+		}
+		if ( $this->getDisplaytyle() ){
+			$mathml =  $this->getMathml();
+			$mathml = preg_replace('|display="inline"|', 'mode="block"', $mathml);
+			$this->setMathml($mathml);
 		}
 		return $this->getMathMLTag();
 	}
