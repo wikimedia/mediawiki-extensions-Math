@@ -1816,15 +1816,22 @@ $messages['ilo'] = array(
 	'mw_math_png' => 'Kanayon nga ipaay ti PNG',
 	'mw_math_source' => 'Ibati lattan a kas ti TeX (para kadagiti testo a pagbasabasa)',
 	'mw_math_mathjax' => 'MathJax (eksperimento; kasayaatan para kadagiti kaaduan a pagbasabasa)',
+	'mw_math_latexml' => 'LaTeXML (eksperimental; agus-usar ti MathML)',
 	'math_failure' => 'Napaay a na-parse',
 	'math_unknown_error' => 'di amammo a biddut',
-	'math_unknown_function' => 'di amammo a pamay-an', # Fuzzy
+	'math_unknown_function' => "di ammo a pamay-an ti '$1'",
 	'math_lexing_error' => 'lexing a biddut',
 	'math_syntax_error' => 'biddut ti gramatika',
 	'math_image_error' => 'Napaay ti panagbalbaliw ti PNG ; kitaen para kadagiti husto a panagikabil iti latex ken dvipng (wenno dvips + gs + panagbalbaliw)',
 	'math_bad_tmpdir' => 'Saan a makasurat wenno makapartuat ti temporario a direktorio ti math',
 	'math_bad_output' => 'Saan a makasurat wenno makapartuat ti maiparang a direktorio ti math',
 	'math_notexvc' => 'Awan dagiti mapabalin a texvc; pangngaasi a kitaen ti math/README tapno maaramid.',
+	'math_output_error' => 'Saan a maidulin ti ladawan ti math iti sistema ti papeles',
+	'math_latexml_timeout' => "Ti LaTeXML Ket nagsardeng manipud iti '$1'",
+	'math_latexml_invalidresponse' => "LaTeXML Imbalido a sungbat ('$2') manipud ti server '$1':",
+	'math_latexml_invalidxml' => 'LaTeXML MathML ket imbalido a XML.',
+	'math_latexml_invalidjson' => 'LaTeXML Ti server a sungbat ket imbalido a JSON.',
+	'math_latexml_xmlversion' => 'Ballaag: Ti kita ti XML apanagkita ket limmaktaw! Kitaen no ti panangikabilmo ti MediaWiki ket bersion wmf/1.22wmf7 wenno kabarbaro.',
 );
 
 /** Ido (Ido)
