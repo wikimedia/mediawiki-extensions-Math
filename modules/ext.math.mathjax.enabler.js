@@ -17,12 +17,16 @@
     'v1.0-compatible': false,
     displayAlign: 'left',
     menuSettings: {
+      locale: mw.config.get('wgUserLanguage'),
       zoom: 'Click'
     },
     'HTML-CSS': {
       imageFont: null,
       availableFonts: ['TeX'],
       mtextFontInherit: true
+    },
+    MathMenu: {
+      showLocale: false
     }
   }, mathJax.config );
 

@@ -1,4 +1,3 @@
-
 !! test
 pre-save transform: comment containing math
 !! options
@@ -22,7 +21,7 @@ pst
 !! test
 BUG 1887, part 2: A <math> with a thumbnail- math enabled
 !! options
-math
+texvc
 !! input
 [[Image:foobar.jpg|thumb|<math>2+2</math>]]
 !! result
@@ -41,6 +40,8 @@ math
 
 !! test
 BUG 26380: Add \widetilde support to match \widehat
+!! options
+texvc
 !! input
 <math>\widehat{x}</math>
 <math>\widetilde{x}</math>
@@ -52,6 +53,8 @@ BUG 26380: Add \widetilde support to match \widehat
 
 !! test
 BUG 27324: Euro symbol for math
+!! options
+texvc
 !! input
 <math>\euro 200</math>
 <math>\geneuro</math>
@@ -70,6 +73,8 @@ BUG 27324: Euro symbol for math
 
 !! test
 BUG 27754: Archaic Greek letters for math (may require texlive-lang-greek)
+!! options
+texvc
 !! input
 <math>\digamma</math><!-- Lowercase digamma was already available -->
 <math>\Coppa\coppa\varcoppa</math>
@@ -90,6 +95,8 @@ BUG 27754: Archaic Greek letters for math (may require texlive-lang-greek)
 
 !! test
 BUG 19547: Apostrophe / single quotes in math \text{...}
+!! options
+texvc
 !! input
 <math>\text{next years}</math>
 <math>\text{next year's}</math>
@@ -103,6 +110,8 @@ BUG 19547: Apostrophe / single quotes in math \text{...}
 
 !! test
 BUG 6722: Spacing fix for functions in math HTML output
+!! options
+texvc
 !! input
 <math>\sin x</math>
 <math>\sin(x)</math>
@@ -123,6 +132,8 @@ BUG 6722: Spacing fix for functions in math HTML output
 
 !! test
 BUG 18912: Add \sen function for Spanish sin to math
+!! options
+texvc
 !! input
 <math>\sen x</math>
 <math>\sen(x)</math>
@@ -143,6 +154,8 @@ BUG 18912: Add \sen function for Spanish sin to math
 
 !! test
 BUG 18912: \operatorname{sen} x gets wrong spacing in math
+!! options
+texvc
 !! input
 <math>\operatorname{sen}</math>
 !! result
@@ -152,6 +165,8 @@ BUG 18912: \operatorname{sen} x gets wrong spacing in math
 
 !! test
 BUG 31442: Multiple math accents without braces fails to parse
+!! options
+texvc
 !! input
 <math>\dot \vec B</math>
 !! result
@@ -161,6 +176,8 @@ BUG 31442: Multiple math accents without braces fails to parse
 
 !! test
 BUG 31442: Math accents with math font fail to parse if braces not used
+!! options
+texvc
 !! input
 <math>\tilde \mathcal{M}</math>
 !! result
@@ -170,6 +187,8 @@ BUG 31442: Math accents with math font fail to parse if braces not used
 
 !! test
 BUG 31824: Empty math tag returns uniq
+!! options
+texvc
 !! input
 <math></math>
 !! result
@@ -177,8 +196,9 @@ BUG 31824: Empty math tag returns uniq
 
 !! test
 BUG 31824: Empty math tag returns uniq
+!! options
+texvc
 !! input
 <math> </math>
 !! result
 !! end
-

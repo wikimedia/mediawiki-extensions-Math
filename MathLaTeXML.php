@@ -85,7 +85,7 @@ class MathLaTeXML extends MathRenderer {
 			return self::$DEFAULT_ALLOWED_ROOT_ELEMENTS;
 		}
 	}
-	
+
 	/**
 	 * Sets the allowed root elements the rendered math tag might have.
 	 * An empty value indicates to use the default settings.
@@ -94,7 +94,8 @@ class MathLaTeXML extends MathRenderer {
 	public function setAllowedRootElments( $settings ) {
 		$this->allowedRootElements = $settings;
 	}
-	
+
+
 	/* (non-PHPdoc)
 	 * @see MathRenderer::render()
 	*/
@@ -209,7 +210,7 @@ class MathLaTeXML extends MathRenderer {
 	 * and the input string only.
 	 * @return string HTTP POST data
 	 */
-	public function getPostData(){
+	public function getPostData() {
 		$texcmd = urlencode( $this->tex );
 		$settings = $this->serializeSettings($this->getLaTeXMLSettings());
 		return  $settings. '&tex=' . $texcmd;
@@ -258,8 +259,14 @@ class MathLaTeXML extends MathRenderer {
 	 */
 	public function isValidMathML( $XML ) {
 		$out = false;
-		//depends on https://gerrit.wikimedia.org/r/#/c/66365/
-		$xmlObject = new XmlTypeCheck($XML, null, false);
+		// depends on https://gerrit.wikimedia.org/r/#/c/66365/
+		if ( ! is_callable( 'XmlTypeCheck::newFromString' ) ) {
+			$msg = wfMessage( 'math_latexml_xmlversion' )->inContentLanguage()->escaped();
+			trigger_error( $msg, E_USER_NOTICE );
+			wfDebugLog( 'Math', $msg );
+			return true;
+		}
+		$xmlObject = new XmlTypeCheck( $XML, null, false );
 		if ( ! $xmlObject->wellFormed ) {
 			wfDebugLog( "Math", "XML validation error:\n " . var_export( $XML, true ) . "\n" );
 		} else {
@@ -268,7 +275,7 @@ class MathLaTeXML extends MathRenderer {
 			if ( in_array(array_pop($elementSplit), $this->getAllowedRootElements()) ) {
 				$out = true;
 			} else {
-				wfDebugLog( "Math", "got wrong root element " . $element );
+				wfDebugLog( "Math", "got wrong root element " . $name );
 			}
 		}
 		return $out;

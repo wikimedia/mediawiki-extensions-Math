@@ -89,7 +89,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return string img HTML
 	 */
-	function getMathImageHTML() {
+	public function getMathImageHTML() {
 		$url = $this->getMathImageUrl();
 
 		return Xml::element( 'img',

@@ -152,7 +152,14 @@ abstract class MathRenderer {
 			array('math_inputhash' => $this->getInputHash ()), __METHOD__);
 		if ( $rpage !== false ) {
 			$this->initializeFromDatabaseRow ( $rpage );
-			if ( StringUtils::isUtf8( $this->mathml ) ) {
+			if ( ! is_callable( 'StringUtils::isUtf8' ) ) {
+				$msg = wfMessage( 'math_latexml_xmlversion' )->inContentLanguage()->escaped();
+				trigger_error( $msg, E_USER_NOTICE );
+				wfDebugLog( 'Math', $msg );
+				//If we can not check if mathml output is valid, we skip the test and assume that it is valid.
+				$this->recall = true;
+				return true;
+			} elseif( StringUtils::isUtf8( $this->mathml ) ) {
 				$this->recall = true;
 				return true;
 			}
