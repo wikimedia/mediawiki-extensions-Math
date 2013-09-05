@@ -305,7 +305,23 @@ class MathLaTeXML extends MathRenderer {
 			}
 			$attribs = Sanitizer::validateTagAttributes( $attribs, 'span' );
 		}
-		return Xml::tags( 'span', $attribs, $mml );
+		//TODO: Fix double printing of mathml output
+		//Tables
+		$attribs['class'] = "MathJax_Preview";
+		$normal = Xml::tags( 'span', $attribs, $mml );
+		$jax = preg_replace_callback('|<math(.*?)</math>|',
+	/**
+	 * Callback function that sourrouds math elements with mathjax preview span elements
+	 * @param string $match
+	 * @return string the xml tag script tag
+	 */
+				function($match) use ($attribs) {
+					$previewAttribs = $attribs;
+					$previewAttribs['class'] = "MathJax_Preview";
+					$preview = Xml::tags( 'span', $previewAttribs, $match[0] );
+					$jax=Xml::tags( 'script', array( 'type' => 'math/mml'), $match[0] );
+					return $preview.$jax;
+				}, $mml);
+		return $jax;
 	}
-
 }
