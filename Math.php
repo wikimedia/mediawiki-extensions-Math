@@ -170,20 +170,64 @@ $moduleTemplate = array(
 		'remoteExtPath' => 'Math/modules',
 );
 
-	$wgResourceModules['ext.math.mathjax'] = array(
-			'scripts' => array(
-					'MathJax/MathJax.js',
-					// We'll let the other parts be loaded by MathJax's
-					// own module/config loader.
-			),
-			'group' => 'ext.math.mathjax',
-	) + $moduleTemplate;
-
-
-$wgResourceModules['ext.math.mathjax.enabler'] = array(
-		'scripts' => 'ext.math.mathjax.enabler.js',
-) + $moduleTemplate;
-// Customized module for LaTeXML
-$wgResourceModules['ext.math.mathjax.enabler.mml'] = array(
-		'scripts' => 'ext.math.mathjax.enabler.mml.js',
-) + $moduleTemplate;
+$wgResourceModules += array(
+        'ext.math.mathjax' => array(
+                'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked',
+                'remoteExtPath' => 'Math/modules/MathJax/unpacked',
+                'scripts' => 'MathJax.js'
+        ),
+        'ext.math.mathjax.enabler' => array(
+                'localBasePath' => dirname( __FILE__ ) . '/modules',
+                'remoteExtPath' => 'Math/modules',
+                'scripts' => 'ext.math.mathjax.enabler.js'
+        ),
+        'ext.math.mathjax.localization' => array(
+                'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/localization',
+                'remoteExtPath' => 'Math/modules/MathJax/unpacked/localization',
+                'languageScripts' => array(
+			'en' => array (), // Empty since an English fallback is always specified in MathJax's code when a string is used.
+			'de' => array ('de/de.js', 'de/HelpDialog.js', 'de/MathMenu.js', 'de/TeX.js', 'de/FontWarnings.js', 'de/HTML-CSS.js', 'de/MathML.js'),
+			'fr' => array ('fr/fr.js', 'fr/HelpDialog.js', 'fr/MathMenu.js', 'fr/TeX.js', 'fr/FontWarnings.js', 'fr/HTML-CSS.js', 'fr/MathML.js'),
+			'it' => array ('it/it.js', 'it/HelpDialog.js', 'it/MathMenu.js', 'it/TeX.js', 'it/FontWarnings.js', 'it/HTML-CSS.js', 'it/MathML.js'),
+			'pl' => array ('pl/pl.js', 'pl/HelpDialog.js', 'pl/MathMenu.js', 'pl/TeX.js', 'pl/FontWarnings.js', 'pl/HTML-CSS.js', 'pl/MathML.js'),
+			'pt-br' => array ('pt-br/pt-br.js', 'pt-br/HelpDialog.js', 'pt-br/MathMenu.js', 'pt-br/TeX.js', 'pt-br/FontWarnings.js', 'pt-br/HTML-CSS.js', 'pt-br/MathML.js'),
+		),
+		'dependencies' => 'ext.math.mathjax'
+	),
+	'ext.math.mathjax.jax.config' => array(
+		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax',
+		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax',
+		'scripts' => array('input/TeX/config.js','input/MathML/config.js','output/HTML-CSS/config.js','output/NativeMML/config.js','output/SVG/config.js'),
+		'dependencies' => 'ext.math.mathjax'
+	),
+	'ext.math.mathjax.ui' => array(
+		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/extensions',
+		'remoteExtPath' => 'Math/modules/MathJax/unpacked/extensions',
+		'scripts' => array('MathEvents.js','MathZoom.js','MathMenu.js','toMathML.js'),
+		'dependencies' => 'ext.math.mathjax'
+	),
+	'ext.math.mathjax.jax.element.mml' => array(
+		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/element/mml',
+		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/element/mml',
+		'scripts' => array('jax.js'),
+		'dependencies' => 'ext.math.mathjax'
+	),
+	'ext.math.mathjax.jax.input.TeX' => array(
+		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked',
+		'remoteExtPath' => 'Math/modules/MathJax/unpacked',
+		'scripts' => array('extensions/wiki2jax.js','jax/input/TeX/jax.js','extensions/TeX/noUndefined.js','extensions/TeX/AMSmath.js','extensions/TeX/AMSsymbols.js','extensions/TeX/texvc.js'),
+		'dependencies' => array('ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml')
+	),
+	'ext.math.mathjax.jax.output.HTML-CSS' => array(
+		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/HTML-CSS',
+		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/HTML-CSS',
+		'scripts' => array('jax.js','autoload/multiline.js','autoload/mtable.js'),
+		'dependencies' => array('ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml', 'ext.math.mathjax.ui')
+	),
+	'ext.math.mathjax.all' => array(
+                                        'dependencies' => array('ext.math.mathjax.localization','ext.math.mathjax.jax.input.TeX','ext.math.mathjax.ui')
+        )
+	,'ext.math.mathjax.jax.input.MathML' => array(
+		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked',
+		'remoteExtPath' => 'Math/modules/MathJax/unpacked')
+);

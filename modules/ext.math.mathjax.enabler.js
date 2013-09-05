@@ -1,7 +1,7 @@
 /**
  * From https://en.wikipedia.org/wiki/User:Nageh/mathJax.js
  */
-/*global mathJax:true, MathJax */
+/*global mathJax:true, MathJax:true */
 ( function ( mw, $ ) {
   if ( typeof mathJax === 'undefined' ) {
     mathJax = {};
@@ -11,13 +11,12 @@
 
   mathJax.loaded = false;
 
+  mathJax.locale = mw.config.get('wgUserLanguage');
   mathJax.config = $.extend( true, {
-    root: mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax',
-    config: ['TeX-AMS-texvc_HTML.js'],
+    root: mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/unpacked',
     'v1.0-compatible': false,
     displayAlign: 'left',
     menuSettings: {
-      locale: mw.config.get('wgUserLanguage'),
       zoom: 'Click'
     },
     'HTML-CSS': {
@@ -27,12 +26,58 @@
     },
     MathMenu: {
       showLocale: false
-    }
+    },
+    jax: ['input/TeX','input/MathML','output/HTML-CSS']
   }, mathJax.config );
 
-  mathJax.Config = function () {
+  mathJax.Init = function () {
+    // Configure MathJax
     MathJax.Hub.Config( mathJax.config );
     MathJax.OutputJax.fontDir = mw.config.get('wgExtensionAssetsPath') + '/Math/modules/MathJax/fonts';
+
+    // Set MathJax's locale
+    MathJax.Localization.resetLocale(mathJax.locale);
+    mathJax.locale = MathJax.Localization.locale;
+    MathJax.Hub.config.menuSettings.locale = mathJax.locale;
+
+    // Redefine MathJax.Hub.Startup.Jax
+    MathJax.Hub.Startup.Jax = function () {
+      var config, jax, i, k, name, queue, callback;
+      //  Save the order of the output jax since they are loading asynchronously
+      config = MathJax.Hub.config;
+      jax = MathJax.Hub.outputJax;
+      for ( i = 0, k = 0; i < config.jax.length; i++ ) {
+        name = config.jax[i].substr(7);
+        if (config.jax[i].substr(0,7) === 'output/' && jax.order[name] === null) {
+            jax.order[name] = k;
+            k++;
+        }
+      }
+      queue = MathJax.Callback.Queue();
+      callback = MathJax.Callback({});
+      return queue.Push(
+        ['Post', MathJax.Hub.Startup.signal, 'Begin Jax'],
+        ['using', mw.loader, 'ext.math.mathjax.jax.config', callback],
+        callback,
+        ['Post', MathJax.Hub.Startup.signal, 'End Jax']
+      );
+    };
+
+    // Redefine MathJax.Hub.Startup.Extensions
+    MathJax.Hub.Startup.Extensions = function () {
+      var queue, callback;
+      queue = MathJax.Callback.Queue();
+      callback = MathJax.Callback({});
+      return queue.Push(
+        ['Post', MathJax.Hub.Startup.signal, 'Begin Extensions'],
+        ['using', mw.loader, 'ext.math.mathjax.all', callback],
+        callback,
+        ['Post', MathJax.Hub.Startup.signal, 'End Extensions']
+      );
+    };
+
+    // Now continue the MathJax's startup sequence
+    MathJax.Hub.Configured();
   };
 
   /**
@@ -61,21 +106,15 @@
   };
 
   mathJax.Load = function () {
-    var config, script;
     if (this.loaded) {
       return true;
     }
 
-    // create configuration element
-    config = 'mathJax.Config();';
-    script = document.createElement( 'script' );
-    script.setAttribute( 'type', 'text/x-mathjax-config' );
-    if ( window.opera ) {
-      script.innerHTML = config;
-    } else {
-      script.text = config;
-    }
-    document.getElementsByTagName('head')[0].appendChild( script );
+    // create the global MathJax variable to hook into MathJax startup
+    MathJax = {
+      delayStartupUntil: 'configured',
+      AuthorInit: mathJax.Init
+    };
 
     // create startup element
     mw.loader.load('ext.math.mathjax');
