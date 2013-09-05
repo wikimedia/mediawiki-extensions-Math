@@ -65,7 +65,7 @@ class MathHooks {
 			// $renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		} elseif ( $wgUseMathJax && $mode == MW_MATH_LATEXML ) {
-			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler.mml' ) );
+			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
@@ -160,7 +160,7 @@ class MathHooks {
 				$updater->addExtensionField('math', 'math_status', $dir.'math_status.sql');
 				$updater->addExtensionField('math', 'math_log', $dir.'math_log.sql');
 				$updater->addExtensionField('math', 'math_timestamp', $dir.'math_timestamp.sql');
-				
+
 			} else {
 				throw new MWException( "Math extension does not currently support $type database for debugging.\n"
 					. 'Please set $wgDebugMath = false; in your LocalSettings.php' );
