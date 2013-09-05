@@ -107,9 +107,10 @@ This message follows the message {{msg-mw|Math failure}}.
 {{Identical|Unknown error}}',
 	'math_unknown_function' => 'Used as error message when texvc encounters an unknown function.
 
-$1 - Name of unknown function
+Preceded by the message {{msg-mw|Math failure}}.
 
-This message follows the message {{msg-mw|Math failure}}.',
+Parameters:
+* $1 - name of unknown function',
 	'math_lexing_error' => 'Used as error message for a texvc lexing error.
 
 This message follows the message {{msg-mw|Math failure}}.',
