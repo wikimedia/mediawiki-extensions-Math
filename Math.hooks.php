@@ -160,7 +160,7 @@ class MathHooks {
 				$updater->addExtensionField('math', 'math_status', $dir.'math_status.sql');
 				$updater->addExtensionField('math', 'math_log', $dir.'math_log.sql');
 				$updater->addExtensionField('math', 'math_timestamp', $dir.'math_timestamp.sql');
-				
+
 			} else {
 				throw new MWException( "Math extension does not currently support $type database for debugging.\n"
 					. 'Please set $wgDebugMath = false; in your LocalSettings.php' );
