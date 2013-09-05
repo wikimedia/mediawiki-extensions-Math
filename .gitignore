@@ -3,3 +3,18 @@
 *~
 *.kate-swp
 .*.swp
+
+# Ignore some files from the official MathJax distribution.
+modules/MathJax/.gitignore # .gitignore from the MathJax repository
+modules/MathJax/MathJax.js # packed file.
+modules/MathJax/config/ # packed files.
+modules/MathJax/docs/
+modules/MathJax/extensions/ # packed files.
+modules/MathJax/fonts/HTML-CSS/TeX/png # We don't use the image fallback.
+modules/MathJax/jax/ # packed files.
+modules/MathJax/localization/ # packed files.
+modules/MathJax/test/
+modules/MathJax/unpacked/config/ # We don't use predefined config files.
+modules/MathJax/unpacked/jax/input/AsciiMath/ # We don't use the AsciiMath input Jax.
+modules/MathJax/unpacked/jax/input/MathML/entities # We don't use MathML entity names.
+modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/STIX # We don't use the STIX fonts.
