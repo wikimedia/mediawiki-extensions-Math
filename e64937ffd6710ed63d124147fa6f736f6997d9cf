@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4946a543_8c76dc3a",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2013-09-08T13:44:41Z",
+      "side": 1,
+      "message": "Better use wfArrayToCgi() here",
+      "revId": "e64937ffd6710ed63d124147fa6f736f6997d9cf",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
