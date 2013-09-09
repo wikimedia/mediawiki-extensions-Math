@@ -82,11 +82,9 @@ abstract class MathRenderer {
 		if ( !in_array( $mode, $validModes ) )
 			$mode = $wgDefaultUserOptions['math'];
 		switch ( $mode ) {
+			case MW_MATH_MATHJAX:
 			case MW_MATH_SOURCE:
 				$renderer = new MathSource( $tex, $params );
-				break;
-			case MW_MATH_MATHJAX:
-				$renderer = new MathMathJax( $tex, $params );
 				break;
 			case MW_MATH_LATEXML:
 				$renderer = new MathLaTeXML( $tex, $params );
