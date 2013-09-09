@@ -8,10 +8,6 @@ MathJax.Extension.wiki2jax = {
   config: {
     element: null,    // The ID of the element to be processed
                       //   (defaults to full document)
-
-    preview: "TeX"    // Set to "none" to prevent preview strings from being inserted
-                      //   or to an array that specifies an HTML snippet to use for
-                      //   the preview.
   },
 
   PreProcess: function (element) {
@@ -63,21 +59,13 @@ MathJax.Extension.wiki2jax = {
 
     if (node.nextSibling) {parent.insertBefore(script,node.nextSibling)}
       else {parent.appendChild(script)}
-    if (this.config.preview !== "none") {this.createPreview(node)}
-    parent.removeChild(node);
-  },
 
-  createPreview: function (node) {
-    var preview;
-    if (this.config.preview === "TeX") {preview = [this.filterPreview($(node).text())]}
-    else if (this.config.preview instanceof Array) {preview = this.config.preview}
-    if (preview) {
-      preview = MathJax.HTML.Element("span",{className: MathJax.Hub.config.preRemoveClass},preview);
-      node.parentNode.insertBefore(preview,node);
-    }
+    var preview = MathJax.HTML.Element("span", {
+      className: MathJax.Hub.config.preRemoveClass
+    });
+    preview.appendChild(parent.removeChild(node));
+    parent.insertBefore(preview, script);
   },
-
-  filterPreview: function (tex) {return tex}
 
 };
 
