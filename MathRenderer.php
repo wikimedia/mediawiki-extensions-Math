@@ -85,12 +85,10 @@ abstract class MathRenderer {
 			case MW_MATH_SOURCE:
 				$renderer = new MathSource( $tex, $params );
 				break;
-			case MW_MATH_MATHJAX:
-				$renderer = new MathMathJax( $tex, $params );
-				break;
 			case MW_MATH_LATEXML:
 				$renderer = new MathLaTeXML( $tex, $params );
 				break;
+			case MW_MATH_MATHJAX:
 			case MW_MATH_PNG:
 			default:
 				$renderer = new MathTexvc( $tex, $params );
