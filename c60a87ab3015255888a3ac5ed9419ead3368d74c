@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4946a543_8754ee52",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2013-09-10T18:17:18Z",
+      "side": 1,
+      "message": "I guess you mean $this-\u003eguessDisplaytyleFromTex() (without exclamation mark) here.\n\nNote the distinction  between display math and display style:\nhttp://www.artofproblemsolving.com/Wiki/index.php/LaTeX:Math\n\n(i.e. \"display math\" \u003d \"display style\" + \"math in its own centered paragraph\")\n\nI guess what we want is to support display math here, which corresponds to \u003cmath display\u003d\"block\"\u003e. So we\u0027d rather want to insert \"$$\" and \"$\" in the TeX source here.",
+      "revId": "c60a87ab3015255888a3ac5ed9419ead3368d74c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_a751ea62",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2013-09-10T18:17:18Z",
+      "side": 1,
+      "message": "mode is deprecated. It should be display\u003d\"block\"",
+      "revId": "c60a87ab3015255888a3ac5ed9419ead3368d74c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_e77932fb",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2013-09-10T18:17:18Z",
+      "side": 1,
+      "message": "Where is setDisplaystyle called?",
+      "revId": "c60a87ab3015255888a3ac5ed9419ead3368d74c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_077f1ede",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2013-09-10T18:17:18Z",
+      "side": 1,
+      "message": "I don\u0027t think just testing command names as substring  will work very well, for example\n\n$\n   \\sum_{i\u003d0}^n \\displaystyle{\\frac{i}{n}}\n$\n\nis in inline mode. In general I think we\u0027d want the inline/display mode to be specified explicitly by users in the wiki source rather than guessing it...",
+      "revId": "c60a87ab3015255888a3ac5ed9419ead3368d74c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_07c9de26",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2013-09-10T18:17:18Z",
+      "side": 1,
+      "message": "Here again, we\u0027d better use \"$\" and \"$$\". Also, we\u0027ll want to insert the \u003cimg\u003e in its own centered paragraph.",
+      "revId": "c60a87ab3015255888a3ac5ed9419ead3368d74c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
