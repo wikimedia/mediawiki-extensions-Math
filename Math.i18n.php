@@ -1151,6 +1151,7 @@ $messages['fa'] = array(
 /** Finnish (suomi)
  * @author Crt
  * @author Nike
+ * @author Samoasambia
  * @author VezonThunder
  * @author Wix
  */
@@ -1165,7 +1166,7 @@ $messages['fi'] = array(
 	'mw_math_latexml' => 'LaTeXML (kokeellinen; käyttää MathML:ää)',
 	'math_failure' => 'Jäsentäminen epäonnistui',
 	'math_unknown_error' => 'Tuntematon virhe',
-	'math_unknown_function' => 'Tuntematon funktio', # Fuzzy
+	'math_unknown_function' => "tuntematon funktio '$1'",
 	'math_lexing_error' => 'Tulkintavirhe',
 	'math_syntax_error' => 'Jäsennysvirhe',
 	'math_image_error' => 'Muuntaminen PNG-tiedostomuotoon epäonnistui; tarkista, että latex ja dvipng (tai dvips, gs ja convert) on asennettu oikein.',
