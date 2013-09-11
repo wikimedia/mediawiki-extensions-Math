@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4946a543_98fb6b44",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2013-09-11T08:26:00Z",
+      "side": 1,
+      "message": "still need to be display\u003d\"block\" here ; mode is deprecated since MathML2",
+      "revId": "87f6a5e630039b37a7122d433c954212b6948e5f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_38a51756",
+        "filename": "MathTexvc.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2013-09-11T08:26:00Z",
+      "side": 1,
+      "message": "\"major\" is an overstatement here, that\u0027s basically just passing a new \"display\" option:\n\nIn texutil.ml, add a \"modules_display\" property in the  \"module properties\" section. Then use that property in \"get_preface\" and \"get_footer\" to decide whether you should use one or two dollars. Define a function \"set_display\" to set the \"modules_display\" property. Now in texcv.ml, calls \"set_display\" with a 6th command line argument \"display\". Finally, in callTexvc(), you\u0027ll need  to append that 6th \"display\" argument to $cmd.",
+      "revId": "87f6a5e630039b37a7122d433c954212b6948e5f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
