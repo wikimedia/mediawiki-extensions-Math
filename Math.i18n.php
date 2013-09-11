@@ -43,6 +43,7 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author Cainamarques
  * @author Jon Harald Søby
  * @author Kizito
  * @author Physikerwelt
@@ -53,7 +54,7 @@ $messages['qqq'] = array(
 	'math-desc' => '{{desc|name=Math|url=http://www.mediawiki.org/wiki/Extension:Math}}',
 	'math_sample' => 'The sample formula text that you get when you press the fourth button from the right on the edit toolbar.',
 	'math_tip' => 'This is the text that appears when you hover the mouse over the fourth button from the right on the edit toolbar.',
-	'prefs-math' => 'Used in user preferences.
+	'prefs-math' => 'Used in user preferences as a section heading.
 {{Identical|Math}}',
 	'mw_math_png' => 'In user preferences. All mw_math_* messages MUST be different, things will break otherwise!
 
@@ -3228,26 +3229,30 @@ verifique que o latex, dvips, gs e convert foram correctamente instalados',
 );
 
 /** Brazilian Portuguese (português do Brasil)
+ * @author Cainamarques
  * @author Giro720
  * @author Luckas
  * @author 555
  */
 $messages['pt-br'] = array(
+	'math-desc' => 'Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Inserir fórmula aqui',
 	'math_tip' => 'Fórmula matemática (LaTeX)',
 	'prefs-math' => 'Matemática',
 	'mw_math_png' => 'Gerar sempre como PNG',
 	'mw_math_source' => 'Deixar como TeX (para navegadores de texto)',
+	'mw_math_mathjax' => 'MathJax (experimental; ideal para a maioria dos navegadores)',
+	'mw_math_latexml' => 'LaTeXML (experimental; usa MathML)',
 	'math_failure' => 'Falhou ao verificar gramática',
 	'math_unknown_error' => 'Erro desconhecido',
 	'math_unknown_function' => "função desconhecida '$1'",
 	'math_lexing_error' => 'Erro léxico',
 	'math_syntax_error' => 'Erro de sintaxe',
-	'math_image_error' => 'Falha na conversão para PNG;
-verifique se o latex, dvips, gs e convert estão corretamente instalados',
+	'math_image_error' => 'Falha na conversão para PNG; verifique se o latex e o dvipng (ou dvips + gs + convert) estão corretamente instalados',
 	'math_bad_tmpdir' => 'Ocorreram problemas na criação ou escrita no diretório temporário math',
 	'math_bad_output' => 'Ocorreram problemas na criação ou escrita no diretório de resultados math',
 	'math_notexvc' => 'O executável texvc não foi encontrado. Consulte math/README para instruções da configuração.',
+	'math_output_error' => 'Não foi possível armazenar imagem no sistema de arquivos.',
 );
 
 /** Quechua (Runa Simi)
