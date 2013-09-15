@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4946a543_198db37c",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2013-09-15T11:56:07Z",
+      "side": 1,
+      "message": "remove the if block and just do\n$texcmd \u003d urlencode(forceDisplayStyle($tex))",
+      "revId": "585cf03cf5ca840d4d07af6a2a05655c35d67732",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_39ea6f11",
+        "filename": "MathRenderer.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2013-09-15T11:56:07Z",
+      "side": 1,
+      "message": "Remove that.",
+      "revId": "585cf03cf5ca840d4d07af6a2a05655c35d67732",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_59ef3b1f",
+        "filename": "MathRenderer.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2013-09-15T11:56:07Z",
+      "side": 1,
+      "message": "remove that",
+      "revId": "585cf03cf5ca840d4d07af6a2a05655c35d67732",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_79f4f7f0",
+        "filename": "MathRenderer.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2013-09-15T11:56:07Z",
+      "side": 1,
+      "message": "remove these two functions.",
+      "revId": "585cf03cf5ca840d4d07af6a2a05655c35d67732",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_99f9a3e9",
+        "filename": "MathRenderer.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2013-09-15T11:56:07Z",
+      "side": 1,
+      "message": "replace this by\n\nforceDisplayStyle($tex)\n\nwhich will do a regexp check for \\begin. It will return the $tex if the regexp matches and  \"\\displaystyle { $tex }\" otherwise.\n\nAlso, this can be moved to MathLaTeXML",
+      "revId": "585cf03cf5ca840d4d07af6a2a05655c35d67732",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_f98f0774",
+        "filename": "math/texutil.ml",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2013-09-15T11:56:07Z",
+      "side": 1,
+      "message": "white space change not needed.",
+      "revId": "585cf03cf5ca840d4d07af6a2a05655c35d67732",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
