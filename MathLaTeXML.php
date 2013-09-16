@@ -272,10 +272,10 @@ class MathLaTeXML extends MathRenderer {
 		} else {
 			$name = $xmlObject->getRootElement();
 			$elementSplit = explode(':',$name);
-			if ( in_array(array_pop($elementSplit), $this->getAllowedRootElements()) ) {
+			if ( in_array(end($elementSplit), $this->getAllowedRootElements()) ) {
 				$out = true;
 			} else {
-				wfDebugLog( "Math", "got wrong root element " . $name );
+				wfDebugLog( "Math", 'got wrong root element :' . end($elementSplit). ' with namespace '.$name );
 			}
 		}
 		return $out;
