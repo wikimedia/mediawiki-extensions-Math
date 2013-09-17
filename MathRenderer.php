@@ -53,7 +53,7 @@ abstract class MathRenderer {
 	 * @var boolean by default all equations are rendered in inline style
 	 * set to true for displaystyle
 	 */
-	protected $displaytyle = true;
+	protected $displaytyle = false;
 	private $displaystyleIndicators = array( '\displaystyle', '\begin' );
 
 	/**
@@ -110,13 +110,17 @@ abstract class MathRenderer {
 		wfDebugLog ( "Math", 'start rendering $' . $renderer->tex . '$ in mode ' . $mode );
 		if ( isset($params['display']) ){
 			$layoutMode = $params['display'];
-			if( $layoutMode == 'inline' ){
-				$renderer->setDisplaytyle( false );
+			if( $layoutMode == 'block' ){
+				$renderer->setDisplaytyle( true );
 				//if the user has not specified how displaystyle should be obtained this method is used
 				if(! $renderer->guessDisplaytyleFromTex()){
-					$tex= '{\textstyle'. $tex.'}';
+					$tex= '{\displaystyle'. $tex.'}';
 					$renderer->setTex( $tex );
 				}
+			} elseif ($layoutMode == 'inline'){
+				$renderer->setDisplaytyle( false );
+				$tex= '{\textstyle'. $tex.'}';
+				$renderer->setTex( $tex );
 			}
 		}
 		return $renderer;
