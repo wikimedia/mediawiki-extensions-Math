@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4946a543_bc0c8243",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-09-17T20:36:57Z",
+      "side": 1,
+      "message": "This is also kind of a hack... however it works",
+      "revId": "6cdbc3725c4876c91f870081e990e1e949ec4d19",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_3c2092af",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-09-17T20:36:57Z",
+      "side": 1,
+      "message": "Dropping that line would make Frederic happy.",
+      "revId": "6cdbc3725c4876c91f870081e990e1e949ec4d19",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_5c155e47",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-09-17T20:36:57Z",
+      "side": 1,
+      "message": "this function can be removed",
+      "revId": "6cdbc3725c4876c91f870081e990e1e949ec4d19",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
