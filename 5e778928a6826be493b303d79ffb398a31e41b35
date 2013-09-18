@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4946a543_69ea5412",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2013-09-18T21:48:10Z",
+      "side": 1,
+      "message": "Spacing here is not like the rest of the code at all",
+      "revId": "5e778928a6826be493b303d79ffb398a31e41b35",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_89ef801e",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2013-09-18T21:48:10Z",
+      "side": 1,
+      "message": "Strange spacing",
+      "revId": "5e778928a6826be493b303d79ffb398a31e41b35",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_a9f43cf1",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2013-09-18T21:48:10Z",
+      "side": 1,
+      "message": "Why not just return the array instead of using $in?",
+      "revId": "5e778928a6826be493b303d79ffb398a31e41b35",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_69d33460",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2013-09-18T21:48:10Z",
+      "side": 1,
+      "message": "You can use:\n\n$dbw \u003d $dbw ?: wfGetDB ( DB_MASTER );",
+      "revId": "5e778928a6826be493b303d79ffb398a31e41b35",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
