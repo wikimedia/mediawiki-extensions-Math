@@ -141,24 +141,10 @@ abstract class MathRenderer {
 	 */
 	public function readFromDatabase() {
 		$dbr = wfGetDB( DB_SLAVE );
-		$rpage = $dbr->selectRow(
-			'math',
-			array(
-				'math_outputhash', 'math_html_conservativeness', 'math_html',
-				'math_mathml'
-			),
-			array(
-				'math_inputhash' => $this->getInputHash()
-			),
-			__METHOD__
-		);
+		$rpage = $dbr->selectRow('math',$this->dbInArray(),
+			array('math_inputhash' => $this->getInputHash ()), __METHOD__);
 		if ( $rpage !== false ) {
-			# Trailing 0x20s can get dropped by the database, add it back on if necessary:
-			$xhash = unpack( 'H32md5', $dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
-			$this->hash = $xhash['md5'];
-			$this->conservativeness = $rpage->math_html_conservativeness;
-			$this->html = $rpage->math_html;
-			$this->mathml = utf8_decode( $rpage->math_mathml);
+			$this->initializeFromDatabaseRow ( $rpage );
 			if ( ! is_callable( 'StringUtils::isUtf8' ) ) {
 				$msg = wfMessage( 'math_latexml_xmlversion' )->inContentLanguage()->escaped();
 				trigger_error( $msg, E_USER_NOTICE );
@@ -176,7 +162,31 @@ abstract class MathRenderer {
 		$this->recall = false;
 		return false;
 	}
+	/**
+	 *
+	 * @param database_row $rpage
+	 */
+	public function initializeFromDatabaseRow( $rpage ) {
+		global $wgDebugMath;
+		$dbr = wfGetDB ( DB_SLAVE );
+		$xhash = unpack ( 'H32md5',
+				$dbr->decodeBlob ( $rpage->math_outputhash ) . "                " );
+		$this->hash = $xhash['md5'];
+		$this->conservativeness = $rpage->math_html_conservativeness;
+		$this->html = $rpage->math_html;
+		$this->mathml = utf8_decode ( $rpage->math_mathml );
+		$this->storedInDatabase = true;
+	}
 
+	/**
+	 * @return array with the database column names
+	 */
+	private function dbInArray() {
+		global $wgDebugMath;
+		$in = array('math_inputhash', 'math_outputhash', 'math_html_conservativeness', 'math_html',
+				'math_mathml');
+		return $in;
+	}
 	/**
 	 * Writes rendering entry to database.
 	 *
@@ -186,29 +196,39 @@ abstract class MathRenderer {
 	 *
 	 * This function can be seen as protected function.
 	 */
-	public function writeToDatabase() {
+	public function writeToDatabase( $dbw = null ) {
 		# Now save it back to the DB:
-		if ( !wfReadOnly() ) {
-			$dbw = wfGetDB( DB_MASTER );
-			if ( $this->hash !== '' ) {
-				$outmd5_sql = $dbw->encodeBlob( pack( 'H32', $this->hash ) );
-			} else {
-				$outmd5_sql = '';
+		if ( !wfReadOnly () ) {
+			if ( $dbw == null ) {
+				$dbw = wfGetDB ( DB_MASTER );
 			}
-			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->hash . ')\n' );
-			$dbw->replace(
-				'math',
-				array( 'math_inputhash' ),
-				array(
-					'math_inputhash' => $this->getInputHash(),
-					'math_outputhash' => $outmd5_sql ,
-					'math_html_conservativeness' => $this->conservativeness,
-					'math_html' => $this->html,
-					'math_mathml' => utf8_encode( $this->mathml ),
-					),
-				__METHOD__
-			);
+			wfDebugLog ( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . bin2hex($this->hash) . ')\n' );
+			$outArray = $this->dbOutArray();
+			$dbw->onTransactionIdle (
+					function () use ($dbw, $outArray) {
+						$dbw->replace ( 'math', array('math_inputhash'), $outArray, __METHOD__ );
+					} );
 		}
+	}
+
+	/**
+	 * Gets an array that matches the variables of the class to the database columns
+	 * @return array
+	 */
+	private function dbOutArray() {
+		global $wgDebugMath;
+		$dbr = wfGetDB ( DB_SLAVE );
+		if ( $this->hash ){
+			$outmd5_sql = $dbr->encodeBlob ( pack ( 'H32', $this->hash ) );
+		}else{
+			$outmd5_sql = 0; // field cannot be null
+			// TODO: Change Database layout to allow for null values
+		}
+		$out = array('math_inputhash' => $this->getInputHash (), 'math_outputhash' => $outmd5_sql,
+				'math_html_conservativeness' => $this->conservativeness, 'math_html' => $this->html,
+				'math_mathml' => utf8_encode ( $this->mathml ));
+		wfDebugLog ( "Math", "Store Data:" . var_export ( $out, true ) . "\n\n" );
+		return $out;
 	}
 
 	/**
@@ -228,9 +248,12 @@ abstract class MathRenderer {
 
 
 	/**
-	 * Writes cache.  Does nothing by default
+	 * Writes cache. Writes the database entry if values were changed
 	 */
 	public function writeCache() {
+		if ( $this->isChanged() ) {
+			$this->writeToDatabase();
+		}
 	}
 
 	/**
