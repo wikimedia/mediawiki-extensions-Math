@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4946a543_49a83879",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1001
+      },
+      "writtenOn": "2013-09-18T22:25:33Z",
+      "side": 1,
+      "message": "Extra whitespace between function name and arg list:\n\n  $this-\u003einitializeFromDatabaseRow( $rpage );",
+      "revId": "7a3c8dc89692fb68d9e427e9f285f3ccee1f9a15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_89ba20bc",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1001
+      },
+      "writtenOn": "2013-09-18T22:25:33Z",
+      "side": 1,
+      "message": "Whitespace:\n  $dbr \u003d wfGetDB( DB_SLAVE );",
+      "revId": "7a3c8dc89692fb68d9e427e9f285f3ccee1f9a15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_c9b428d2",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1001
+      },
+      "writtenOn": "2013-09-18T22:25:33Z",
+      "side": 1,
+      "message": "Whitespace:\n  $xhash \u003d unpack( \u0027H32md5\u0027,",
+      "revId": "7a3c8dc89692fb68d9e427e9f285f3ccee1f9a15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_e9c9e45c",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1001
+      },
+      "writtenOn": "2013-09-18T22:25:33Z",
+      "side": 1,
+      "message": "Whitespace:\n  $dbr-\u003edecodeBlob( $rpage-\u003emath_outputhash ) . \"                \" );",
+      "revId": "7a3c8dc89692fb68d9e427e9f285f3ccee1f9a15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_09c71049",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1001
+      },
+      "writtenOn": "2013-09-18T22:25:33Z",
+      "side": 1,
+      "message": "Whitespace:\n  $this-\u003emathml \u003d utf8_decode( $rpage-\u003emath_mathml );",
+      "revId": "7a3c8dc89692fb68d9e427e9f285f3ccee1f9a15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_49c11831",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1001
+      },
+      "writtenOn": "2013-09-18T22:25:33Z",
+      "side": 1,
+      "message": "Whitespace:\n  if ( !wfReadOnly() ) {",
+      "revId": "7a3c8dc89692fb68d9e427e9f285f3ccee1f9a15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_69ded40f",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1001
+      },
+      "writtenOn": "2013-09-18T22:25:33Z",
+      "side": 1,
+      "message": "Whitespace:\n  $dbw \u003d $dbw ?: wfGetDB( DB_MASTER );",
+      "revId": "7a3c8dc89692fb68d9e427e9f285f3ccee1f9a15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_e9d2c4fe",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1001
+      },
+      "writtenOn": "2013-09-18T22:25:33Z",
+      "side": 1,
+      "message": "Whitespace and special char quoting:\n  wfDebugLog( \"Math\", \u0027store entry for $\u0027 . $this-\u003etex . \u0027$ in database (hash:\u0027 . bin2hex( $this-\u003ehash ) . \")\\n\" );",
+      "revId": "7a3c8dc89692fb68d9e427e9f285f3ccee1f9a15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_29ddac0b",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1001
+      },
+      "writtenOn": "2013-09-18T22:25:33Z",
+      "side": 1,
+      "message": "Whitespace:\n  $dbw-\u003ereplace( \u0027math\u0027, array( \u0027math_inputhash\u0027 ), $outArray, __METHOD__ );",
+      "revId": "7a3c8dc89692fb68d9e427e9f285f3ccee1f9a15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_49daf814",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1001
+      },
+      "writtenOn": "2013-09-18T22:25:33Z",
+      "side": 1,
+      "message": "Whitespace:\n  $dbr \u003d wfGetDB( DB_SLAVE );",
+      "revId": "7a3c8dc89692fb68d9e427e9f285f3ccee1f9a15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_6907b485",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1001
+      },
+      "writtenOn": "2013-09-18T22:25:33Z",
+      "side": 1,
+      "message": "Whitespace:\n  $outmd5_sql \u003d $dbr-\u003eencodeBlob( pack( \u0027H32\u0027, $this-\u003ehash ) );",
+      "revId": "7a3c8dc89692fb68d9e427e9f285f3ccee1f9a15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_890ce0a7",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1001
+      },
+      "writtenOn": "2013-09-18T22:25:33Z",
+      "side": 1,
+      "message": "Whitespace:\n  $this-\u003egetInputHash()",
+      "revId": "7a3c8dc89692fb68d9e427e9f285f3ccee1f9a15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_692894f0",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1001
+      },
+      "writtenOn": "2013-09-18T22:25:33Z",
+      "side": 1,
+      "message": "Whitespace:\n  utf8_encode( $this-\u003emathml )",
+      "revId": "7a3c8dc89692fb68d9e427e9f285f3ccee1f9a15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_c937c84a",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1001
+      },
+      "writtenOn": "2013-09-18T22:25:33Z",
+      "side": 1,
+      "message": "Whitespace:\n  wfDebugLog( \"Math\", \"Store Data:\" . var_export( $out, true ) . \"\\n\\n\" );",
+      "revId": "7a3c8dc89692fb68d9e427e9f285f3ccee1f9a15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
