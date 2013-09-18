@@ -61,7 +61,7 @@ class MathLaTeXMLImages extends MathRenderer {
 		$url = $this->mathImageUrl();
 
 		return Xml::element( 'img',
-				$this->getAttribs(
+				$this->getAttributes(
 						'img',
 						array(
 								'class' => 'tex',
@@ -73,12 +73,16 @@ class MathLaTeXMLImages extends MathRenderer {
 				)
 		);
 	}
+	private function getMd5(){
+		return md5( $this->tex );
+	}
 	function callTexvc() {
 		$tmpDir = wfTempDir();
 		global $wgTmpDirectory;
 		global $wgLaTeXML, $wgTexvcBackgroundColor, $wgUseSquid;
 		if ( !is_executable( $wgLaTeXML ) ) {
-			return $this->error( 'math_notexvc' );
+			wfDebugLog("Math", "$wgLaTeXML seems to be no executable");
+			return $this->getError( 'math_notexvc' );
 		}
 		$cmd = $wgLaTeXML . ' --preload=amsmath  --preload=amssymb'.
 				' --preload=amsfonts --preload=cancel --preload=color --preload=upgreek --verbose'.
@@ -99,90 +103,16 @@ class MathLaTeXMLImages extends MathRenderer {
 		wfDebugLog( 'Math', "TeX: $cmd\n" );
 		$contents = wfShellExec( $cmd);
 		wfDebugLog( 'Math', "TeX output:\n $contents\n---\n" );
-		/*		if ( strlen( $contents ) == 0 ) {
-			if ( !file_exists( $tmpDir ) || !is_writable( $tmpDir ) ) {
-		return $this->error( 'math_bad_tmpdir' );
-		} else {
-		return $this->error( 'math_unknown_error' );
-		}
-		}*/
 
 		$tempFsFile = new TempFSFile( "$tmpDir/{$this->hash}.png" );
 		$tempFsFile->autocollect(); // destroy file when $tempFsFile leaves scope
-		/*
-		 $retval = substr( $contents, 0, 1 );
-		$errmsg = '';
-		if ( ( $retval == 'C' ) || ( $retval == 'M' ) || ( $retval == 'L' ) ) {
-		if ( $retval == 'C' ) {
-		$this->conservativeness = 2;
-		} elseif ( $retval == 'M' ) {
-		$this->conservativeness = 1;
-		} else {
-		$this->conservativeness = 0;
-		}
-		$outdata = substr( $contents, 33 );
-
-		$i = strpos( $outdata, "\000" );
-
-		$this->html = substr( $outdata, 0, $i );
-		$this->mathml = substr( $outdata, $i + 1 );
-		} elseif ( ( $retval == 'c' ) || ( $retval == 'm' ) || ( $retval == 'l' ) ) {
-		$this->html = substr( $contents, 33 );
-		if ( $retval == 'c' ) {
-		$this->conservativeness = 2;
-		} elseif ( $retval == 'm' ) {
-		$this->conservativeness = 1;
-		} else {
-		$this->conservativeness = 0;
-		}
-		$this->mathml = null;
-		} elseif ( $retval == 'X' ) {
-		$this->html = null;
-		$this->mathml = substr( $contents, 33 );
-		$this->conservativeness = 0;
-		} elseif ( $retval == '+' ) {
-		$this->html = null;
-		$this->mathml = null;
-		$this->conservativeness = 0;
-		} else {
-		$errbit = htmlspecialchars( substr( $contents, 1 ) );
-		switch( $retval ) {
-		case 'E':
-		$errmsg = $this->error( 'math_lexing_error', $errbit );
-		break;
-		case 'S':
-		$errmsg = $this->error( 'math_syntax_error', $errbit );
-		break;
-		case 'F':
-		$errmsg = $this->error( 'math_unknown_function', $errbit );
-		break;
-		default:
-		$errmsg = $this->error( 'math_unknown_error', $errbit );
-		}
-		}
-
-		if ( !$errmsg ) {
-		$this->hash = substr( $contents, 1, 32 );
-		}*/
-
-		/*wfRunHooks( 'MathAfterTexvc', array( &$this, &$errmsg ) );
-
-		if ( $errmsg ) {
-		return $errmsg;
-		} elseif ( !preg_match( "/^[a-f0-9]{32}$/",  ) ) {
-		return $this->error( 'math_unknown_error' );
-		} elseif ( !file_exists( "$tmpDir/{}.png" ) ) {
-		return $this->error( 'math_image_error' );
-		} elseif ( filesize( "$tmpDir/{}.png" ) == 0 ) {
-		return $this->error( 'math_image_error' );
-		}*/
 
 		$hashpath = $this->getHashPath(); // final storage directory
 
 		$backend = $this->getBackend();
 		# Create any containers/directories as needed...
 		if ( !$backend->prepare( array( 'dir' => $hashpath ) )->isOK() ) {
-			return $this->error( 'math_output_error' );
+			return $this->getError( 'math_output_error' );
 		}
 		// Store the file at the final storage path...
 		$fResult= $backend->quickStore( array(
@@ -192,7 +122,7 @@ class MathLaTeXMLImages extends MathRenderer {
 		if ( !$fResult->isOK()
 		) {
 			wfDebugLog("Math", 'error moving file:'.var_export($fResult,true));
-			return $this->error( 'math_output_error' );
+			return $this->getError( 'math_output_error' );
 		}
 		return MW_TEXVC_SUCCESS;
 
@@ -221,7 +151,7 @@ class MathLaTeXMLImages extends MathRenderer {
 	function doRender() {
 		if ( $this->mode == MW_MATH_MATHML && $this->mathml != '' ) {
 			return Xml::tags( 'math',
-					$this->getAttribs( 'math',
+					$this->getAttributes( 'math',
 							array( 'xmlns' => 'http://www.w3.org/1998/Math/MathML' ) ),
 					$this->mathml );
 		}
@@ -233,7 +163,7 @@ class MathLaTeXMLImages extends MathRenderer {
 			return $this->linkToMathImage();
 		} else {
 			return Xml::tags( 'span',
-					$this->getAttribs( 'span',
+					$this->getAttributes( 'span',
 							array( 'class' => 'texhtml',
 									'dir' => 'ltr'
 							) ),
@@ -261,6 +191,9 @@ class MathLaTeXMLImages extends MathRenderer {
 		// Short-circuit the file existence & migration checks
 		return true;
 		}*/
+		if($this->isPurge()){
+			return false;
+		}
 		$filename = $this->getHashPath() . "/{$this->getMd5()}.png"; // final storage path
 		$backend = $this->getBackend();
 		if ( $backend->fileExists( array( 'src' => $filename ) ) ) {
@@ -272,6 +205,7 @@ class MathLaTeXMLImages extends MathRenderer {
 			}
 			//}
 		}
+		return false;
 	}
 
 }
