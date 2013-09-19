@@ -155,16 +155,19 @@ $wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
 $wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
-$wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
+$wgAutoloadClasses['MathSvg'] = $dir . 'MathSvg.php';
 $wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
 $wgAutoloadClasses['MathMathJax'] = $dir . 'MathMathJax.php';
 $wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
 $wgAutoloadClasses['MathLaTeXMLImages'] = $dir . 'MathLaTeXMLImages.php';
+$wgAutoloadClasses['SpecialMathShowSvg'] = $dir . 'SpecialMathShowSvg.php';
 
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 
+#$wgSpecialPageGroups['MathIndex'] = 'mathsearch';
+$wgSpecialPages['MathShowSvg'] = 'SpecialMathShowSvg';
 // MathJax module
 // If you modify these arrays, update ext.math.mathjax.enabler.js to ensure
 // that getModuleNameFromFile knows how to map files to MediaWiki modules.

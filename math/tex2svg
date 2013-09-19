@@ -1,0 +1,10 @@
+#bin/bash
+TMP=$(mktemp -d)
+cd $TMP
+echo $1>input.tex
+pdflatex input.tex
+pdfcrop input.pdf crop.pdf
+pdf2svg crop.pdf out.svg
+echo "SVGOUTPUT:"
+cat out.svg
+rm $TMP

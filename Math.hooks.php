@@ -153,6 +153,9 @@ class MathHooks {
 			throw new MWException( "Math extension does not currently support $type database for debugging.\n"
 					.'Please set $wgDebugMath =false; in your LocalSettings.php' );
 		}
+		if($type =='mysql' ){
+			$updater->addExtensionField('math','math_svg',dirname( __FILE__ ) . '/db/field_svg.sql');
+		}
 		if ($wgDebugMath){
 			if($type =='mysql' ){
 				$dir = dirname( __FILE__ ) . '/db/debug_fields_';
