@@ -70,7 +70,7 @@ class MathTexvc extends MathRenderer {
 	public function getMathImageUrl() {
 		global $wgMathPath;
 		$dir = $this->getHashSubPath();
-		return "$wgMathPath/$dir/{$this->getHash()}.png";
+		return "$wgMathPath/$dir/{$this->getHash()}.svg";
 	}
 
 	/**
@@ -173,7 +173,7 @@ class MathTexvc extends MathRenderer {
 			}
 		}
 
-		$tempFsFile = new TempFSFile( "$tmpDir/{$this->getHash()}.png" );
+		$tempFsFile = new TempFSFile( "$tmpDir/{$this->getHash()}.svg" );
 		$tempFsFile->autocollect(); // destroy file when $tempFsFile leaves scope
 		$tempFsFile = new TempFSFile( "$tmpDir/{$this->getHash()}.tex" );
 		$tempFsFile->autocollect(); // destroy file when $tempFsFile leaves scope
@@ -225,9 +225,9 @@ class MathTexvc extends MathRenderer {
 			return $errmsg;
 		} elseif ( !preg_match( "/^[a-f0-9]{32}$/", $this->getHash() ) ) {
 			return $this->getError( 'math_unknown_error' );
-		} elseif ( !file_exists( "$tmpDir/{$this->getHash()}.png" ) ) {
+		} elseif ( !file_exists( "$tmpDir/{$this->getHash()}.svg" ) ) {
 			return $this->getError( 'math_image_error' );
-		} elseif ( filesize( "$tmpDir/{$this->getHash()}.png" ) == 0 ) {
+		} elseif ( filesize( "$tmpDir/{$this->getHash()}.svg" ) == 0 ) {
 			return $this->getError( 'math_image_error' );
 		}
 
@@ -240,7 +240,7 @@ class MathTexvc extends MathRenderer {
 		}
 		// Store the file at the final storage path...
 		if ( !$backend->quickStore( array(
-			'src' => "$tmpDir/{$this->getHash()}.png", 'dst' => "$hashpath/{$this->getHash()}.png"
+			'src' => "$tmpDir/{$this->getHash()}.svg", 'dst' => "$hashpath/{$this->getHash()}.svg"
 		) )->isOK()
 		) {
 			return $this->getError( 'math_output_error' );
@@ -335,7 +335,7 @@ class MathTexvc extends MathRenderer {
 				// Short-circuit the file existence & migration checks
 				return true;
 			}
-			$filename = $this->getHashPath() . "/{$this->getHash()}.png"; // final storage path
+			$filename = $this->getHashPath() . "/{$this->getHash()}.svg"; // final storage path
 			$backend = $this->getBackend();
 			if ( $backend->fileExists( array( 'src' => $filename ) ) ) {
 				if ( $backend->getFileSize( array( 'src' => $filename ) ) == 0 ) {
