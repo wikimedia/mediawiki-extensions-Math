@@ -213,9 +213,7 @@ class MathLaTeXML extends MathRenderer {
 	public function getPostData() {
 		$tex =  $this->tex;
 		if ($this->getDisplaytyle()){
-			if (! $this->guessDisplaytyleFromTex() ){
-				$tex = '{\displaystyle '. $tex . '}';
-			}
+			$tex = '{\displaystyle '. $tex . '}';
 		}
 		$texcmd = urlencode($tex);
 		$settings = $this->serializeSettings($this->getLaTeXMLSettings());
