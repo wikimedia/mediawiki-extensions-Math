@@ -8,7 +8,6 @@
 class MathDatabaseTest extends MediaWikiTestCase {
 	var $renderer;
 	const SOME_TEX = "a+b";
-	const SOME_HTML = "a<sub>b</sub>";
 	const SOME_MATHML = "i⁢ℏ⁢∂t⁡Ψ=H^⁢Ψ<mrow><\ci>";
 	const SOME_LOG = "Sample Log Text.";
 	const SOME_STATUSCODE = 2;
@@ -53,7 +52,6 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	public function setValues() {
 		// set some values
 		$this->renderer->setTex( self::SOME_TEX );
-		$this->renderer->setHtml( self::SOME_HTML );
 		$this->renderer->setMathml( self::SOME_MATHML );
 		$this->renderer->setLog( self::SOME_LOG );
 		$this->renderer->setStatusCode( self::SOME_STATUSCODE );
@@ -77,7 +75,6 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		// $this->assertEquals($this->renderer,$renderer2);
 		$this->assertEquals( $this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same" );
 		$this->assertEquals( $this->renderer->getMathml(), $renderer2->getMathml(), "Check MathML encoding" );
-		$this->assertEquals( $this->renderer->getHtml(), $renderer2->getHtml() );
 	}
 
 
@@ -129,7 +126,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$row = $res->fetchRow();
 		$this->assertEquals( sizeof( $row ), 2 * ( self::NUM_BASIC_FIELDS + self::NUM_DEBUG_FIELDS ) );
 	}
-	
+
 	/**
 	 * Checks database access. Writes an etry and reads it back.
 	 * @convers MathRenderer::writeDatabaseEntry()
@@ -141,19 +138,18 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		// ;
 		$this->setValues();
 		$wgDebugMath = true;
-	
+
 		$this->renderer->writeToDatabase();
-	
+
 		$renderer2 = $this->getMockForAbstractClass( 'MathRenderer', array ( self::SOME_TEX ) );
 		$renderer2->readFromDatabase();
 		// comparing the class object does now work due to null values etc.
 		// $this->assertEquals($this->renderer,$renderer2);
 		$this->assertEquals( $this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same" );
 		$this->assertEquals( $this->renderer->getMathml(), $renderer2->getMathml(), "Check MathML encoding" );
-		$this->assertEquals( $this->renderer->getHtml(), $renderer2->getHtml() ,"test html");
 		$this->assertEquals( $this->renderer->getLog(), $renderer2->getLog() , "test log");
 		$this->assertEquals( $this->renderer->getStatusCode(), $renderer2->getStatusCode() , "test status code");
 	}
-	
+
 
 }

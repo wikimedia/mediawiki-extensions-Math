@@ -18,9 +18,6 @@
  * @author Moritz Schubotz
  */
 class MathTexvc extends MathRenderer {
-	const CONSERVATIVE = 2;
-	const MODERATE = 1;
-	const LIBERAL = 0;
 	const MW_TEXVC_SUCCESS = -1;
 
 	/**
@@ -70,7 +67,7 @@ class MathTexvc extends MathRenderer {
 	public function getMathImageUrl() {
 		global $wgMathPath;
 		$dir = $this->getHashSubPath();
-		return "$wgMathPath/$dir/{$this->getHash()}.png";
+		return "$wgMathPath/$dir/{$this->getHash()}.svg";
 	}
 
 	/**
@@ -142,7 +139,7 @@ class MathTexvc extends MathRenderer {
 	 * @return int|string MW_TEXVC_SUCCESS or error string
 	 */
 	public function callTexvc() {
-		global $wgTexvc, $wgTexvcBackgroundColor, $wgUseSquid, $wgMathCheckFiles;
+		global $wgTexvc;
 		$tmpDir = wfTempDir();
 		if ( !is_executable( $wgTexvc ) ) {
 			return $this->getError( 'math_notexvc' );
@@ -152,10 +149,8 @@ class MathTexvc extends MathRenderer {
 
 		$cmd = $wgTexvc . ' ' .
 			$escapedTmpDir . ' ' .
-			$escapedTmpDir . ' ' .
-			wfEscapeShellArg( $this->getTex() ) . ' ' .
-			wfEscapeShellArg( 'UTF-8' ) . ' ' .
-			wfEscapeShellArg( $wgTexvcBackgroundColor );
+			wfEscapeShellArg( $this->getTex() ). ' '.
+			wfEscapeShellArg( bin2hex( $this->getInputHash()) );
 
 		if ( wfIsWindows() ) {
 			# Invoke it within cygwin sh, because texvc expects sh features in its default shell
@@ -173,61 +168,38 @@ class MathTexvc extends MathRenderer {
 			}
 		}
 
-		$tempFsFile = new TempFSFile( "$tmpDir/{$this->getHash()}.png" );
+		$tempFsFile = new TempFSFile( "$tmpDir/{$this->getHash()}.svg" );
 		$tempFsFile->autocollect(); // destroy file when $tempFsFile leaves scope
 		$tempFsFile = new TempFSFile( "$tmpDir/{$this->getHash()}.tex" );
 		$tempFsFile->autocollect(); // destroy file when $tempFsFile leaves scope
 		$retval = substr( $contents, 0, 1 );
 		$errmsg = '';
-		if ( ( $retval == 'C' ) || ( $retval == 'M' ) || ( $retval == 'L' ) ) {
-			if ( $retval == 'C' ) {
-				$this->setConservativeness( self::CONSERVATIVE );
-			} elseif ( $retval == 'M' ) {
-				$this->setConservativeness(  self::MODERATE );
-			} else {
-				$this->setConservativeness(  self::LIBERAL );
-			}
-			$outdata = substr( $contents, 33 );
-
-			$i = strpos( $outdata, "\000" );
-
-			$this->setHtml( substr( $outdata, 0, $i ) );
-			$this->setMathml( substr( $outdata, $i + 1 ) );
-		} elseif ( ( $retval == 'c' ) || ( $retval == 'm' ) || ( $retval == 'l' ) ) {
-			$this->setHtml( substr( $contents, 33 ) );
-			if ( $retval == 'c' ) {
-				$this->setConservativeness( self::CONSERVATIVE ) ;
-			} elseif ( $retval == 'm' ) {
-				$this->setConservativeness( self::MODERATE );
-			} else {
-				$this->setConservativeness( self::LIBERAL );
-			}
-			$this->setMathml( null );
-		} elseif ( $retval == 'X' ) {
-			$this->setHtml( null );
-			$this->setMathml( substr( $contents, 33 ) );
-			$this->setConservativeness( self::LIBERAL );
-		} elseif ( $retval == '+' ) {
-			$this->setHtml( null );
-			$this->setMathml( null );
-			$this->setConservativeness( self::LIBERAL );
-		} else {
-			$errmsg = $this->convertTexvcError( $contents );
+		switch ($retval) {
+			case 'C':
+			case 'M':
+			case 'L':
+			case 'c':
+			case 'm':
+			case 'l':
+			case 'X':
+			case '+':
+				break;
+			default:
+				$errmsg = $this->convertTexvcError( $contents );
 		}
-
 		if ( !$errmsg ) {
 			$this->setHash( substr( $contents, 1, 32 ) );
 		}
-
+		//TODO: check if this was ever used
 		wfRunHooks( 'MathAfterTexvc', array( &$this, &$errmsg ) );
 
 		if ( $errmsg ) {
 			return $errmsg;
 		} elseif ( !preg_match( "/^[a-f0-9]{32}$/", $this->getHash() ) ) {
 			return $this->getError( 'math_unknown_error' );
-		} elseif ( !file_exists( "$tmpDir/{$this->getHash()}.png" ) ) {
+		} elseif ( !file_exists( "$tmpDir/{$this->getHash()}.svg" ) ) {
 			return $this->getError( 'math_image_error' );
-		} elseif ( filesize( "$tmpDir/{$this->getHash()}.png" ) == 0 ) {
+		} elseif ( filesize( "$tmpDir/{$this->getHash()}.svg" ) == 0 ) {
 			return $this->getError( 'math_image_error' );
 		}
 
@@ -240,7 +212,7 @@ class MathTexvc extends MathRenderer {
 		}
 		// Store the file at the final storage path...
 		if ( !$backend->quickStore( array(
-			'src' => "$tmpDir/{$this->getHash()}.png", 'dst' => "$hashpath/{$this->getHash()}.png"
+			'src' => "$tmpDir/{$this->getHash()}.svg", 'dst' => "$hashpath/{$this->getHash()}.svg"
 		) )->isOK()
 		) {
 			return $this->getError( 'math_output_error' );
@@ -282,27 +254,7 @@ class MathTexvc extends MathRenderer {
 	 * @return string HTML string
 	 */
 	public function doHTMLRender() {
-		if ( $this->getMode() == MW_MATH_MATHML && $this->getMathml() != '' ) {
-			return Xml::tags( 'math',
-				$this->getAttributes( 'math',
-					array( 'xmlns' => 'http://www.w3.org/1998/Math/MathML' ) ),
-				$this->mathml );
-		}
-		if ( ( $this->getMode() == MW_MATH_PNG ) || ( $this->getHtml() == '' ) ||
-			( ( $this->getMode() == MW_MATH_SIMPLE ) && ( $this->getConservativeness() != self::CONSERVATIVE ) ) ||
-			( ( $this->getMode() == MW_MATH_MODERN || $this->getMode() == MW_MATH_MATHML ) && ( $this->getConservativeness() == self::LIBERAL ) )
-		)
-		{
-			return $this->getMathImageHTML();
-		} else {
-			return Xml::tags( 'span',
-				$this->getAttributes( 'span',
-					array( 'class' => 'texhtml',
-						'dir' => 'ltr'
-					) ),
-				$this->getHtml()
-			);
-		}
+		return $this->getMathImageHTML();
 	}
 
 	/**
@@ -335,7 +287,7 @@ class MathTexvc extends MathRenderer {
 				// Short-circuit the file existence & migration checks
 				return true;
 			}
-			$filename = $this->getHashPath() . "/{$this->getHash()}.png"; // final storage path
+			$filename = $this->getHashPath() . "/{$this->getHash()}.svg"; // final storage path
 			$backend = $this->getBackend();
 			if ( $backend->fileExists( array( 'src' => $filename ) ) ) {
 				if ( $backend->getFileSize( array( 'src' => $filename ) ) == 0 ) {

@@ -510,11 +510,11 @@ let find = function
     | "\\sideset"         -> (tex_use_ams (); FUN_AR2nb "\\sideset ")
     | "\\underset"         -> (tex_use_ams (); FUN_AR2 "\\underset ")
     | "\\overset"         -> (tex_use_ams (); FUN_AR2 "\\overset ")
-    | "\\frac"             -> FUN_AR2h ("\\frac ", fun num den -> Html.html_render [num], "<hr style=\"{background: black}\"/>", Html.html_render [den])
+    | "\\frac"             -> FUN_AR2 "\\frac "
     | "\\dfrac"             -> (tex_use_ams () ; FUN_AR2 "\\dfrac ")
-    | "\\tfrac"             -> (tex_use_ams () ; FUN_AR2h ("\\tfrac ", fun num den -> Html.html_render [num], "<hr style=\"background: black\">", Html.html_render [den]))
-    | "\\cfrac"            -> (tex_use_ams (); FUN_AR2h ("\\cfrac ", fun num den -> Html.html_render [num], "<hr style=\"{background: black}\">", Html.html_render [den]))
-    | "\\over"             -> FUN_INFIXh ("\\over ", fun num den -> Html.html_render num, "<hr style=\"{background: black}\"/>", Html.html_render den)
+    | "\\tfrac"             -> (tex_use_ams () ; FUN_AR2 "\\tfrac ")
+    | "\\cfrac"            -> (tex_use_ams (); FUN_AR2 "\\cfrac " )
+    | "\\over"             -> FUN_INFIX "\\over "
     | "\\sqrt"             -> FUN_AR1 "\\sqrt "
     | "\\cancel"           -> FUN_AR1 "\\cancel "
     | "\\bcancel"           -> FUN_AR1 "\\bcancel "

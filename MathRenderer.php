@@ -32,9 +32,8 @@ abstract class MathRenderer {
 	 * @var string
 	 */
 	protected $hash = '';
-	protected $html = '';
 	protected $mathml = '';
-	protected $conservativeness = 0;
+	protected $svg = '';
 	protected $params = '';
 	protected $changed = false;
 	/**
@@ -197,7 +196,7 @@ abstract class MathRenderer {
 	 */
 	private function dbInArray() {
 		global $wgDebugMath;
-		$in = array('math_inputhash', 'math_outputhash', 'math_html_conservativeness', 'math_html',
+		$in = array('math_inputhash', 'math_outputhash',
 				'math_mathml');
 		if ( $wgDebugMath ) {
 			$debug_in = array('math_status', 'math_tex', 'math_log', 'math_timestamp');
@@ -216,8 +215,6 @@ abstract class MathRenderer {
 		$xhash = unpack ( 'H32md5',
 				$dbr->decodeBlob ( $rpage->math_outputhash ) . "                " );
 		$this->hash = $xhash['md5'];
-		$this->conservativeness = $rpage->math_html_conservativeness;
-		$this->html = $rpage->math_html;
 		$this->mathml = utf8_decode ( $rpage->math_mathml );
 		$this->storedInDatabase = true;
 		if ( $wgDebugMath ) {
@@ -274,7 +271,6 @@ abstract class MathRenderer {
 			// TODO: Change Database layout to allow for null values
 		}
 		$out = array('math_inputhash' => $this->getInputHash (), 'math_outputhash' => $outmd5_sql,
-				'math_html_conservativeness' => $this->conservativeness, 'math_html' => $this->html,
 				'math_mathml' => utf8_encode ( $this->mathml ));
 		if ( $wgDebugMath ) {
 			$debug_out = array('math_status' => $this->statusCode,
@@ -371,21 +367,6 @@ abstract class MathRenderer {
 		$this->hash = $hash;
 	}
 
-	/**
-	 * Returns the html-representation of the mathematical formula.
-	 * @return string
-	 */
-	public function getHtml() {
-		return $this->html;
-	}
-
-	/**
-	 * @param string $html
-	 */
-	public function setHtml( $html ) {
-		$this->changed = true;
-		$this->html = $html;
-	}
 
 	/**
 	 * Gets the MathML XML element
@@ -401,23 +382,6 @@ abstract class MathRenderer {
 	public function setMathml( $mathml ) {
 		$this->changed = true;
 		$this->mathml = $mathml;
-	}
-
-	/**
-	 * Gets the so called 'conservativeness' calculated by texvc
-	 *
-	 * @return int
-	 */
-	public function getConservativeness() {
-		return $this->conservativeness;
-	}
-
-	/**
-	 * @param int $conservativeness
-	 */
-	public function setConservativeness( $conservativeness ) {
-		$this->changed = true;
-		$this->conservativeness = $conservativeness;
 	}
 
 	/**
