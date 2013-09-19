@@ -31,10 +31,8 @@ abstract class MathRenderer {
 	 * is calculated by texvc.
 	 * @var string
 	 */
-	protected $hash = '';
-	protected $html = '';
 	protected $mathml = '';
-	protected $conservativeness = 0;
+	protected $svg = '';
 	protected $params = '';
 	protected $changed = false;
 	/**
@@ -90,39 +88,36 @@ abstract class MathRenderer {
 	 */
 	public static function getRenderer( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
 		global $wgDefaultUserOptions;
+
+		$displaytyle = false;
+		if ( isset($params['display']) ){
+			$layoutMode = $params['display'];
+			if( $layoutMode == 'block' ){
+				$displaytyle = true ;
+				$tex= '{\displaystyle'. $tex.'}';
+			} elseif ($layoutMode == 'inline'){
+				$displaytyle = false;
+				$tex= '{\textstyle'. $tex.'}';
+			}
+		}
+
 		$validModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHJAX, MW_MATH_LATEXML );
 		if ( !in_array( $mode, $validModes ) )
 			$mode = $wgDefaultUserOptions['math'];
 		switch ( $mode ) {
 			case MW_MATH_SOURCE:
-				$renderer = new MathSource( $tex, $params );
-				break;
 			case MW_MATH_MATHJAX:
-				$renderer = new MathMathJax( $tex, $params );
+				$renderer = new MathSource( $tex, $params );
 				break;
 			case MW_MATH_LATEXML:
 				$renderer = new MathLaTeXML( $tex, $params );
 				break;
 			case MW_MATH_PNG:
 			default:
-				$renderer = new MathTexvc( $tex, $params );
+				$renderer = new MathSvg( $tex, $params );
 		}
 		wfDebugLog ( "Math", 'start rendering $' . $renderer->tex . '$ in mode ' . $mode );
-		if ( isset($params['display']) ){
-			$layoutMode = $params['display'];
-			if( $layoutMode == 'block' ){
-				$renderer->setDisplaytyle( true );
-				//if the user has not specified how displaystyle should be obtained this method is used
-				if(! $renderer->guessDisplaytyleFromTex()){
-					$tex= '{\displaystyle'. $tex.'}';
-					$renderer->setTex( $tex );
-				}
-			} elseif ($layoutMode == 'inline'){
-				$renderer->setDisplaytyle( false );
-				$tex= '{\textstyle'. $tex.'}';
-				$renderer->setTex( $tex );
-			}
-		}
+		$renderer->setDisplaytyle( $displaytyle );
 		return $renderer;
 	}
 
@@ -143,7 +138,7 @@ abstract class MathRenderer {
 	 * @param Varargs $parameters (optional) zero or more message parameters for specific error
 	 * @return string HTML error string
 	 */
-	protected function getError( $msg /*, ... */ ) {
+	public static function getError( $msg /*, ... */ ) {
 		$mf = wfMessage( 'math_failure' )->inContentLanguage()->escaped();
 		$parameters = func_get_args();
 		array_shift( $parameters );
@@ -197,8 +192,8 @@ abstract class MathRenderer {
 	 */
 	private function dbInArray() {
 		global $wgDebugMath;
-		$in = array('math_inputhash', 'math_outputhash', 'math_html_conservativeness', 'math_html',
-				'math_mathml');
+		$in = array('math_inputhash',
+				'math_mathml','math_svg');
 		if ( $wgDebugMath ) {
 			$debug_in = array('math_status', 'math_tex', 'math_log', 'math_timestamp');
 			$in = array_merge ( $in, $debug_in );
@@ -213,11 +208,6 @@ abstract class MathRenderer {
 	public function initializeFromDatabaseRow( $rpage ) {
 		global $wgDebugMath;
 		$dbr = wfGetDB ( DB_SLAVE );
-		$xhash = unpack ( 'H32md5',
-				$dbr->decodeBlob ( $rpage->math_outputhash ) . "                " );
-		$this->hash = $xhash['md5'];
-		$this->conservativeness = $rpage->math_html_conservativeness;
-		$this->html = $rpage->math_html;
 		$this->mathml = utf8_decode ( $rpage->math_mathml );
 		$this->storedInDatabase = true;
 		if ( $wgDebugMath ) {
@@ -251,7 +241,7 @@ abstract class MathRenderer {
 			if ( $dbw == null ) {
 				$dbw = wfGetDB ( DB_MASTER );
 			}
-			wfDebugLog ( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . bin2hex($this->hash) . ')\n' );
+			wfDebugLog ( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . bin2hex($this->getInputHash()) . ')\n' );
 			$outArray = $this->dbOutArray();
 			$dbw->onTransactionIdle (
 					function () use ($dbw, $outArray) {
@@ -267,15 +257,9 @@ abstract class MathRenderer {
 	private function dbOutArray() {
 		global $wgDebugMath;
 		$dbr = wfGetDB ( DB_SLAVE );
-		if ( $this->hash ){
-			$outmd5_sql = $dbr->encodeBlob ( pack ( 'H32', $this->hash ) );
-		}else{
-			$outmd5_sql = 0; // field cannot be null
-			// TODO: Change Database layout to allow for null values
-		}
-		$out = array('math_inputhash' => $this->getInputHash (), 'math_outputhash' => $outmd5_sql,
-				'math_html_conservativeness' => $this->conservativeness, 'math_html' => $this->html,
-				'math_mathml' => utf8_encode ( $this->mathml ));
+		$out = array('math_inputhash' => $this->getInputHash (),
+				'math_mathml' => utf8_encode ( $this->mathml ),
+				'math_svg' => $this->getSvg());
 		if ( $wgDebugMath ) {
 			$debug_out = array('math_status' => $this->statusCode,
 				'math_tex' => $this->tex, 'math_log' => $this->log);
@@ -355,39 +339,6 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * Get the hash calculated by texvc
-	 *
-	 * @return string hash
-	 */
-	public function getHash() {
-		return $this->hash;
-	}
-
-	/**
-	 * @param string $hash
-	 */
-	public function setHash( $hash ) {
-		$this->changed = true;
-		$this->hash = $hash;
-	}
-
-	/**
-	 * Returns the html-representation of the mathematical formula.
-	 * @return string
-	 */
-	public function getHtml() {
-		return $this->html;
-	}
-
-	/**
-	 * @param string $html
-	 */
-	public function setHtml( $html ) {
-		$this->changed = true;
-		$this->html = $html;
-	}
-
-	/**
 	 * Gets the MathML XML element
 	 * @return string in UTF-8 encoding
 	 */
@@ -401,23 +352,6 @@ abstract class MathRenderer {
 	public function setMathml( $mathml ) {
 		$this->changed = true;
 		$this->mathml = $mathml;
-	}
-
-	/**
-	 * Gets the so called 'conservativeness' calculated by texvc
-	 *
-	 * @return int
-	 */
-	public function getConservativeness() {
-		return $this->conservativeness;
-	}
-
-	/**
-	 * @param int $conservativeness
-	 */
-	public function setConservativeness( $conservativeness ) {
-		$this->changed = true;
-		$this->conservativeness = $conservativeness;
 	}
 
 	/**
@@ -540,37 +474,23 @@ abstract class MathRenderer {
 	}
 
 	public function checkTex(){
-		$this->texSecure = false;
-		//TODO Update tex checking
-		$renderer=self::getRenderer($this->tex,$this->params,MW_MATH_PNG);
-		$texvcResult = $renderer->callTexvc();
-		if( $texvcResult === MathTexvc::MW_TEXVC_SUCCESS) {
-			$this->tex = $renderer->getSecureTex();
+		$checker = new MathTexvcInputCheck( $this->tex );
+		if ( $checker->isSecure() ){
 			$this->texSecure = true;
-			wfDebugLog('Math', 'checkTex successful tex is now: '.$this->tex);
 			return true;
 		} else {
-			wfDebugLog('Math', 'checkTex failed:'.$texvcResult);
-			return $texvcResult;
+			$this->lastError = $checker->getError();
+			return false;
 		}
-
 	}
 
+	public function setSvg($svg){
+		$this->changed = true;
+		$this->svg = trim($svg);
+	}
 
-	/**
-	 * Checks if there are indicators in the tex code speified be the user
-	 * that the math tag (or part of it) should be rendered in a kind of
-	 * displaystyle.
-	 * @return boolean (true if displaystyle indicators are found)
-	 */
-	protected function guessDisplaytyleFromTex(){
-		$tex=  $this->getTex();
-		foreach ($this->displaystyleIndicators as $indicator) {
-			if ( strpos($tex, $indicator) !== false){
-				return true;
-			}
-		}
-		return false;
+	public function getSvg(){
+		//Spaces will prevent the image from beeing displayed correctly in the browser
+		return trim($this->svg);
 	}
 }
-
