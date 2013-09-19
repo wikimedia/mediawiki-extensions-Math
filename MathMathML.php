@@ -9,7 +9,7 @@
  * @file
  */
 
-class MathLaTeXML extends MathRenderer {
+class MathMathML extends MathRenderer {
 
 	/**
 	 * @var String settings for LaTeXML daemon
@@ -213,13 +213,13 @@ class MathLaTeXML extends MathRenderer {
 	public function getPostData() {
 		$tex =  $this->tex;
 		if ($this->getDisplaytyle()){
-			if (! $this->guessDisplaytyleFromTex() ){
-				$tex = '{\displaystyle '. $tex . '}';
-			}
+			$tex = '{\displaystyle '. $tex . '}';
 		}
 		$texcmd = urlencode($tex);
 		$settings = $this->serializeSettings($this->getLaTeXMLSettings());
-		return  $settings. '&tex=' . $texcmd;
+		$settings = $settings. '&tex=' . $texcmd;
+		wfDebugLog("Mat", 'Posting: '.$settings);
+		return $settings;
 	}
 	/**
 	 * Does the actual web request to convert TeX to MathML.

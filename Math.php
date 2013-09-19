@@ -30,70 +30,23 @@ $wgExtensionCredits['parserhook'][] = array(
 /**@{
  * Maths constants
 */
-define( 'MW_MATH_PNG',    0 );
+define( 'MW_MATH_PNG',    0 ); /// @deprecated
 define( 'MW_MATH_SIMPLE', 1 ); /// @deprecated
 define( 'MW_MATH_HTML',   2 ); /// @deprecated
 define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
-define( 'MW_MATH_MATHML', 5 ); /// @deprecated
-define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
-define( 'MW_MATH_LATEXML', 7 ); /// new in 1.22
+define( 'MW_MATH_MATHML', 5 );
+define( 'MW_MATH_MATHJAX', 6 ); /// @deprecated
+define( 'MW_MATH_FAST', 7);
 /**@}*/
 
 /** For back-compat */
 $wgUseTeX = true;
 
 /** Location of the texvc binary */
-$wgTexvc = dirname( __FILE__ ) . '/math/texvc';
+$wgTexvc = dirname( __FILE__ ) . '/texvc/texvc';
 /** Location of the latexmlmath binary */
-$wgLaTeXML = '/usr/local/bin/latexmlmath';
-/**
- * Texvc background color
- * use LaTeX color format as used in \special function
- * for transparent background use value 'Transparent' for alpha transparency or
- * 'transparent' for binary transparency.
- */
-$wgTexvcBackgroundColor = 'transparent';
-
-/**
- * Normally when generating math images, we double-check that the
- * directories we want to write to exist, and that files that have
- * been generated still exist when we need to bring them up again.
- *
- * This lets us give useful error messages in case of permission
- * problems, and automatically rebuild images that have been lost.
- *
- * On a big site with heavy NFS traffic this can be slow and flaky,
- * so sometimes we want to short-circuit it by setting this to false.
- */
-$wgMathCheckFiles = true;
-
-/**
- * The URL path of the math directory. Defaults to "{$wgUploadPath}/math".
- *
- * See http://www.mediawiki.org/wiki/Manual:Enable_TeX for details about how to
- * set up mathematical formula display.
- */
-$wgMathPath = false;
-
-/**
- * The name of a file backend ($wgFileBackends) to use for storing math renderings.
- * Defaults to FSFileBackend using $wgMathDirectory as a base path.
- *
- * See http://www.mediawiki.org/wiki/Manual:Enable_TeX for details about how to
- * set up mathematical formula display.
- */
-$wgMathFileBackend = false;
-
-/**
- * The filesystem path of the math directory.
- * Defaults to "{$wgUploadDirectory}/math".
- *
- * See http://www.mediawiki.org/wiki/Manual:Enable_TeX for details about how to
- * set up mathematical formula display.
- */
-$wgMathDirectory = false;
-
+$wgTex2Svg = dirname( __FILE__ ) . '/texvc/tex2svg';
 /**
  * Experimental option to use MathJax library to do client-side math rendering
  * when JavaScript is available. In supporting browsers this makes nice output
@@ -142,7 +95,7 @@ $wgDisableTexFilter = true;
 $wgDefaultLaTeXMLSetting = 'format=xhtml&whatsin=math&whatsout=math&pmml&cmml&nodefaultresources&preload=LaTeX.pool&preload=article.cls&preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty&preload=amssymb.sty&preload=eucal.sty&preload=[dvipsnames]xcolor.sty&preload=url.sty&preload=hyperref.sty&preload=[ids]latexml.sty&preload=texvc';
 ////////// end of config settings.
 
-$wgDefaultUserOptions['math'] = MW_MATH_LATEXML;
+$wgDefaultUserOptions['math'] = MW_MATH_MATHML;
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
@@ -155,16 +108,18 @@ $wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
 $wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
-$wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
+$wgAutoloadClasses['MathSvg'] = $dir . 'MathSvg.php';
 $wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
 $wgAutoloadClasses['MathMathJax'] = $dir . 'MathMathJax.php';
-$wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
-$wgAutoloadClasses['MathLaTeXMLImages'] = $dir . 'MathLaTeXMLImages.php';
+$wgAutoloadClasses['MathMathML'] = $dir . 'MathMathML.php';
+$wgAutoloadClasses['SpecialMathShowImage'] = $dir . 'SpecialMathShowImage.php';
 
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 
+#$wgSpecialPageGroups['MathIndex'] = 'mathsearch';
+$wgSpecialPages['MathShowImage'] = 'SpecialMathShowImage';
 // MathJax module
 // If you modify these arrays, update ext.math.mathjax.enabler.js to ensure
 // that getModuleNameFromFile knows how to map files to MediaWiki modules.

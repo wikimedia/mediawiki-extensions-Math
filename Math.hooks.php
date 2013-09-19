@@ -64,7 +64,7 @@ class MathHooks {
 		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
 			// $renderer->addModules(&$parser);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
-		} elseif ( $wgUseMathJax && $mode == MW_MATH_LATEXML ) {
+		} elseif ( $wgUseMathJax && $mode == MW_MATH_MATHML ) {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler.mml' ) );
 		}
 		// Writes cache if rendering was successful
@@ -99,13 +99,13 @@ class MathHooks {
 		$names = array(
 			MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
 			MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
-			MW_MATH_LATEXML => wfMessage( 'mw_math_latexml' )->escaped(),
+			MW_MATH_MATHML => wfMessage( 'mw_math_latexml' )->escaped(),
 		);
 		if ( $wgUseMathJax ) {
 			$names[MW_MATH_MATHJAX] = wfMessage( 'mw_math_mathjax' )->escaped();
 		}
 		if ( $wgUseLaTeXML ) {
-			$names[MW_MATH_LATEXML] = wfMessage( 'mw_math_latexml' )->escaped();
+			$names[MW_MATH_MATHML] = wfMessage( 'mw_math_latexml' )->escaped();
 		}
 		return $names;
 	}
@@ -153,14 +153,21 @@ class MathHooks {
 			throw new MWException( "Math extension does not currently support $type database for debugging.\n"
 					.'Please set $wgDebugMath =false; in your LocalSettings.php' );
 		}
+		if($type =='mysql' ){
+			$dir = dirname( __FILE__ ) . '/db/';
+			$updater->addExtensionField('math', 'math_svg', $dir . 'field_math_svg.sql');
+			$updater->addExtensionField('math', 'math_inputtex', $dir .'field_math_inputtex.sql');
+			$updater->addExtensionField('math', 'math_png', $dir .'field_math_png.sql');
+			$updater->dropExtensionField('math', 'math_outputhash', $dir . 'drop_math_outputhash.sql');
+			$updater->dropExtensionField('math', 'math_html', $dir . 'drop_math_html.sql');
+		}
 		if ($wgDebugMath){
 			if($type =='mysql' ){
 				$dir = dirname( __FILE__ ) . '/db/debug_fields_';
-				$updater->addExtensionField('math', 'math_tex', $dir.'math_tex.sql');
 				$updater->addExtensionField('math', 'math_status', $dir.'math_status.sql');
-				$updater->addExtensionField('math', 'math_log', $dir.'math_log.sql');
 				$updater->addExtensionField('math', 'math_timestamp', $dir.'math_timestamp.sql');
-
+				$updater->addExtensionField('math', 'math_log', $dir.'math_log.sql');
+				$updater->addExtensionField('math', 'math_tex', $dir.'math_tex.sql');
 			} else {
 				throw new MWException( "Math extension does not currently support $type database for debugging.\n"
 					. 'Please set $wgDebugMath = false; in your LocalSettings.php' );

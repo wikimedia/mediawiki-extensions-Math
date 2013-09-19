@@ -1,6 +1,5 @@
 {
     open Parser
-    open Render_info
     open Tex
 }
 let space = [' ' '\t' '\n' '\r']

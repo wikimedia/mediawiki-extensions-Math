@@ -1,14 +1,13 @@
 %{
     open Tex
-    open Render_info
     
     let sq_close_ri = HTMLABLEC(FONT_UFH,"]", "]")
 %}
-%token <Render_info.t> LITERAL DELIMITER
+%token <Tex.render_t> LITERAL DELIMITER
 %token <string> FUN_AR2 FUN_INFIX FUN_AR1 DECL FUN_AR1nb FUN_AR1opt BIG FUN_AR2nb
 %token <string*string> BOX
 %token <string*(string*string)> FUN_AR1hl
-%token <string*Render_info.font_force> FUN_AR1hf DECLh
+%token <string*Tex.font_force> FUN_AR1hf DECLh
 %token <string*(Tex.t->Tex.t->string*string*string)> FUN_AR2h
 %token <string*(Tex.t list->Tex.t list->string*string*string)> FUN_INFIXh
 %token EOF CURLY_OPEN CURLY_CLOSE SUB SUP SQ_CLOSE NEXT_CELL NEXT_ROW
