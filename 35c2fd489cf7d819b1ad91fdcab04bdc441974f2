@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4946a543_a767fcb8",
+        "filename": "SpecialMathShowPNG.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-09-20T05:56:13Z",
+      "side": 1,
+      "message": "Here, I\u0027m really stuck.",
+      "revId": "35c2fd489cf7d819b1ad91fdcab04bdc441974f2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4946a543_c706c8d0",
+        "filename": "math/tex2svg",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-09-20T05:56:13Z",
+      "side": 1,
+      "message": "Is that the way to go?",
+      "revId": "35c2fd489cf7d819b1ad91fdcab04bdc441974f2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
