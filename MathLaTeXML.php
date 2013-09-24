@@ -1,4 +1,5 @@
 <?php
+
 /**
  * MediaWiki math extension
  *
@@ -8,14 +9,12 @@
  * Contains the driver function for the LaTeXML daemon
  * @file
  */
-
-class MathLaTeXML extends MathRenderer {
+class MathLaTeXML extends MathMathML {
 
 	/**
 	 * @var String settings for LaTeXML daemon
 	 */
 	private $LaTeXMLSettings = '';
-
 	/**
 	 * Converts an array with LaTeXML settings to a URL encoded String.
 	 * If the argument is a string the input will be returned.
@@ -23,27 +22,31 @@ class MathLaTeXML extends MathRenderer {
 	 * @param (string|array) $array
 	 * @return string
 	 */
-	public function serializeSettings($array){
-		if(!is_array($array)){
+	public function serializeSettings( $array ) {
+		if ( !is_array( $array ) ) {
 			return $array;
 		} else {
 			//removes the [1] [2]... for the unnamed subarrays since LaTeXML
 			//assigns multiple values to one key e.g.
 			//preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty
-			return preg_replace('|\%5B\d+\%5D|', '', wfArrayToCgi($array)) ;
+			$cgi_string = wfArrayToCgi( $array );
+			$cgi_string = preg_replace( '|\%5B\d+\%5D|', '', $cgi_string );
+			$cgi_string = preg_replace( '|&\d+=|', '&', $cgi_string );
+			return $cgi_string;
 		}
 	}
+
 	/**
 	 * Gets the settings for the LaTeXML daemon.
 	 *
 	 * @return string
 	 */
 	public function getLaTeXMLSettings() {
-		global $wgDefaultLaTeXMLSetting;
+		global $wgMathDefaultLaTeXMLSetting;
 		if ( $this->LaTeXMLSettings ) {
 			return $this->LaTeXMLSettings;
 		} else {
-			return $wgDefaultLaTeXMLSetting;
+			return $wgMathDefaultLaTeXMLSetting;
 		}
 	}
 
@@ -59,50 +62,6 @@ class MathLaTeXML extends MathRenderer {
 		$this->LaTeXMLSettings = $settings;
 	}
 
-	/* (non-PHPdoc)
-	 * @see MathRenderer::render()
-	*/
-	public function render( $forceReRendering = false ) {
-		wfProfileIn( __METHOD__ );
-		if ( $forceReRendering ) {
-			$this->setPurge( true );
-		}
-		if ( $this->renderingRequired() ) {
-			$res = $this->doRender( );
-			if ( ! $res ) {
-				wfProfileOut( __METHOD__ );
-				return $this->getLastError();
-			}
-		}
-		$result = $this->getMathMLTag();
-		wfProfileOut( __METHOD__ );
-		return $result;
-	}
-
-	/**
-	 * Helper function to checks if the math tag must be rendered.
-	 * @return boolean
-	 */
-	private function renderingRequired() {
-		if ( $this->isPurge() ) {
-			wfDebugLog( "Math", "Rerendering was requested." );
-			return true;
-		} else {
-			$dbres = $this->readFromDatabase();
-			if ( $dbres ) {
-				if ( self::isValidMathML( $this->getMathml() ) ) {
-					wfDebugLog( "Math", "Valid entry found in database." );
-					return false;
-				} else {
-					wfDebugLog( "Math", "Malformatted entry found in database" );
-					return true;
-				}
-			} else {
-				wfDebugLog( "Math", "No entry found in database." );
-				return true;
-			}
-		}
-	}
 
 	/**
 	 * Performs a HTTP Post request to the given host.
@@ -118,46 +77,41 @@ class MathLaTeXML extends MathRenderer {
 	 * @return boolean success
 	 */
 	public function makeRequest( $host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest' ) {
-		global $wgLaTeXMLTimeout;
-
-		wfProfileIn( __METHOD__ );
+		global $wgMathLaTeXMLTimeout;
 		$error = '';
 		$res = null;
-		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgLaTeXMLTimeout );
+		if ( !$host ) {
+			$host = self::pickHost();
+		}
+		if ( !$post ) {
+			$this->getPostData();
+		}
+		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
 		$req = $httpRequestClass::factory( $host, $options );
 		$status = $req->execute();
+
 		if ( $status->isGood() ) {
 			$res = $req->getContent();
-			wfProfileOut( __METHOD__ );
 			return true;
 		} else {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
 				$error = $this->getError( 'math_latexml_timeout', $host );
 				$res = false;
 				wfDebugLog( "Math", "\nLaTeXML Timeout:"
-					. var_export( array( 'post' => $post, 'host' => $host
-						, 'wgLaTeXMLTimeout' => $wgLaTeXMLTimeout ), true ) . "\n\n" );
+						. var_export( array( 'post' => $post, 'host' => $host
+							, 'wgLaTeXMLTimeout' => $wgMathLaTeXMLTimeout ), true ) . "\n\n" );
 			} else {
 				// for any other unkonwn http error
 				$errormsg = $status->getHtml();
 				$error = $this->getError( 'math_latexml_invalidresponse', $host, $errormsg );
 				wfDebugLog( "Math", "\nLaTeXML NoResponse:"
-					. var_export( array( 'post' => $post, 'host' => $host
-						, 'errormsg' => $errormsg ), true ) . "\n\n" );
+						. var_export( array( 'post' => $post, 'host' => $host
+							, 'errormsg' => $errormsg ), true ) . "\n\n" );
 			}
-			wfProfileOut( __METHOD__ );
 			return false;
 		}
 	}
 
-	/* (non-PHPdoc)
-	 * @see MathRenderer::writeCache()
-	*/
-	public function writeCache() {
-		if ( $this->isChanged() ) {
-			$this->writeToDatabase();
-		}
-	}
 
 	/**
 	 * Picks a LaTeXML daemon.
@@ -166,11 +120,11 @@ class MathLaTeXML extends MathRenderer {
 	 * @return string
 	 */
 	private static function pickHost() {
-		global $wgLaTeXMLUrl;
-		if ( is_array( $wgLaTeXMLUrl ) ) {
-			$host = array_rand( $wgLaTeXMLUrl );
+		global $wgMathLaTeXMLUrl;
+		if ( is_array( $wgMathLaTeXMLUrl ) ) {
+			$host = array_rand( $wgMathLaTeXMLUrl );
 		} else {
-			$host = $wgLaTeXMLUrl;
+			$host = $wgMathLaTeXMLUrl;
 		}
 		wfDebugLog( "Math", "picking host " . $host );
 		return $host;
@@ -182,47 +136,64 @@ class MathLaTeXML extends MathRenderer {
 	 * @return string HTTP POST data
 	 */
 	public function getPostData() {
-		$texcmd = urlencode( $this->tex );
-		$settings = $this->serializeSettings($this->getLaTeXMLSettings());
-		return  $settings. '&tex=' . $texcmd;
+		$tex = $this->getTex();
+		if ( is_null( $this->getDisplayStyle() ) ){
+			//default preserve the (broken) layout as it was
+			$tex= '{\displaystyle '. $tex.'}';
+		}
+		$texcmd = rawurlencode( $tex );
+		$settings = $this->serializeSettings( $this->getLaTeXMLSettings() );
+		$postData = $settings . '&tex=' . $texcmd;
+		wfDebugLog( "Math", 'Get post data: ' . $postData );
+		return $postData;
 	}
+
+
 	/**
 	 * Does the actual web request to convert TeX to MathML.
 	 * @return boolean
 	 */
-	private function doRender( ) {
-		wfProfileIn( __METHOD__ );
+	protected function doRender() {
+		global $wgMathDefaultLaTeXMLSetting, $wgMathDebug;
+		if ( !$this->getTex() ) {
+			wfDebugLog( "Math", "Rendering was requested, but no TeX string is specified.");
+			$this->lastError = $this->getError( 'math_empty_tex' );
+			return false;
+		}
+		$res = '';
 		$host = self::pickHost();
+		$this->setLaTeXMLSettings( $wgMathDefaultLaTeXMLSetting );
 		$post = $this->getPostData();
 		$this->lastError = '';
-		if ( $this->makeRequest( $host, $post, $res, $this->lastError ) ) {
+		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
+		if ( $requestResult ) {
 			$result = json_decode( $res );
-			if ( json_last_error() === JSON_ERROR_NONE ) {
-				if ( self::isValidMathML( $result->result ) ) {
+			if ( $result && json_last_error() === JSON_ERROR_NONE ) {
+				if ( $this->isValidMathML( $result->result ) ) {
 					$this->setMathml( $result->result );
-					wfProfileOut( __METHOD__ );
+					if ( $wgMathDebug ) {
+						$this->setLog( $result->log );
+						$this->setStatusCode( $result->status_code );
+					}
 					return true;
 				} else {
 					// Do not print bad mathml. It's probably too verbose and might
 					// mess up the browser output.
 					$this->lastError = $this->getError( 'math_latexml_invalidxml', $host );
 					wfDebugLog( "Math", "\nLaTeXML InvalidMathML:"
-						. var_export( array( 'post' => $post, 'host' => $host
-							, 'result' => $result ), true ) . "\n\n" );
-					wfProfileOut( __METHOD__ );
+							. var_export( array( 'post' => $post, 'host' => $host
+								, 'result' => $res ), true ) . "\n\n" );
 					return false;
 				}
 			} else {
-					$this->lastError = $this->getError( 'math_latexml_invalidjson', $host );
-					wfDebugLog( "Math", "\nLaTeXML InvalidJSON:"
+				$this->lastError = $this->getError( 'math_latexml_invalidjson', $host );
+				wfDebugLog( "Math", "\nLaTeXML InvalidJSON:"
 						. var_export( array( 'post' => $post, 'host' => $host
 							, 'res' => $res ), true ) . "\n\n" );
-					wfProfileOut( __METHOD__ );
-					return false;
-				}
+				return false;
+			}
 		} else {
 			// Error message has already been set.
-			wfProfileOut( __METHOD__ );
 			return false;
 		}
 	}
@@ -233,55 +204,28 @@ class MathLaTeXML extends MathRenderer {
 	 * @param string $XML
 	 * @return boolean
 	 */
-	static public function isValidMathML( $XML ) {
+	public function isValidMathML( $XML ) {
 		$out = false;
 		// depends on https://gerrit.wikimedia.org/r/#/c/66365/
-		if ( ! is_callable( 'XmlTypeCheck::newFromString' ) ) {
+		if ( !is_callable( 'XmlTypeCheck::newFromString' ) ) {
 			$msg = wfMessage( 'math_latexml_xmlversion' )->inContentLanguage()->escaped();
 			trigger_error( $msg, E_USER_NOTICE );
 			wfDebugLog( 'Math', $msg );
 			return true;
 		}
 		$xmlObject = new XmlTypeCheck( $XML, null, false );
-		if ( ! $xmlObject->wellFormed ) {
+		if ( !$xmlObject->wellFormed ) {
 			wfDebugLog( "Math", "XML validation error:\n " . var_export( $XML, true ) . "\n" );
 		} else {
 			$name = $xmlObject->getRootElement();
-			$name = str_replace( 'http://www.w3.org/1998/Math/MathML:', '', $name );
-			if ( $name == "math" or $name == "table" or $name == "div" ) {
+			$elementSplit = explode( ':', $name );
+			if ( in_array( end( $elementSplit ), $this->getAllowedRootElements() ) ) {
 				$out = true;
 			} else {
-				wfDebugLog( "Math", "got wrong root element " . $name );
+				wfDebugLog( "Math", 'got wrong root element :' . end( $elementSplit ) . ' with namespace ' . $name );
 			}
 		}
 		return $out;
-	}
-
-	/**
-	 * Internal version of @link self::embedMathML
-	 * @return string
-	 * @return html element with rendered math
-	 */
-	private function getMathMLTag() {
-		return self::embedMathML( $this->getMathml(), urldecode( $this->getTex() ) );
-	}
-
-	/**
-	 * Embeds the MathML-XML element in a HTML span element with class tex
-	 * @param string $mml: the MathML string
-	 * @param string $tagId: optional tagID for references like (pagename#equation2)
-	 * @return html element with rendered math
-	 */
-	public static function embedMathML( $mml, $tagId = '', $attribs = false ) {
-		$mml = str_replace( "\n", " ", $mml );
-		if ( ! $attribs ) {
-			$attribs = array( 'class' => 'tex', 'dir' => 'ltr' );
-			if ( $tagId ) {
-				$attribs['id'] = $tagId;
-			}
-			$attribs = Sanitizer::validateTagAttributes( $attribs, 'span' );
-		}
-		return Xml::tags( 'span', $attribs, $mml );
 	}
 
 }
