@@ -6,6 +6,10 @@ CREATE TABLE /*_*/math (
   -- Binary MD5 hash of the latex fragment, used as an identifier key.
   math_inputhash varbinary(16) NOT NULL,
 
+  -- MathML output from texvc, or from LaTeXML
+  math_mathml text,
+
+  -- DEPRECATED FIELDS
   -- Not sure what this is, exactly...
   math_outputhash varbinary(16) NOT NULL,
 
@@ -14,10 +18,7 @@ CREATE TABLE /*_*/math (
   math_html_conservativeness tinyint NOT NULL,
 
   -- HTML output from texvc, if any
-  math_html text,
-
-  -- MathML output from texvc, or from LaTeXML
-  math_mathml text
+  math_html text
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/math_inputhash ON /*_*/math (math_inputhash);

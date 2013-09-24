@@ -21,8 +21,9 @@ $messages['en'] = array(
 	// Math options
 	'mw_math_png' => 'Always render PNG',
 	'mw_math_source' => 'Leave it as TeX (for text browsers)',
-	'mw_math_mathjax' => 'MathJax (experimental; best for most browsers)',
 	'mw_math_latexml' => 'LaTeXML (experimental; uses MathML)',
+	'mw_math_mathml' => 'MathML (with SVG fallback)',
+	'mw_math_mathjax' => 'MathJax (experimental; best for most browsers)',
 
 	// Math errors
 	'math_failure' => 'Failed to parse',
@@ -3144,7 +3145,7 @@ Zapoznaj się z math/README w celu konfiguracji.',
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'math-desc' => 'Rende le fòrmule matemàtiche antra le tichëtte <code>&lt;math&gt;</code> ... 
+	'math-desc' => 'Rende le fòrmule matemàtiche antra le tichëtte <code>&lt;math&gt;</code> ...
 <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Che a buta la fòrmula ambelessì',
 	'math_tip' => 'Fòrmula matemàtica (LaTeX)',
@@ -3323,7 +3324,7 @@ $messages['rm'] = array(
 	'math_unknown_function' => 'funcziun nunenconuschenta', # Fuzzy
 	'math_lexing_error' => 'Errur lexicala',
 	'math_syntax_error' => 'Sbagl da la sintaxta',
-	'math_image_error' => "La conversiun da PNG n'è betg reussida; 
+	'math_image_error' => "La conversiun da PNG n'è betg reussida;
 controllescha l'installaziun correcta da latext, dvips, gs e convertescha lura", # Fuzzy
 	'math_bad_tmpdir' => "Betg pussaivel da scriver u crear l'ordinatur temporar math",
 	'math_bad_output' => "Betg pussaivel da scriver u crear l'ordinatur da destinaziun math",
