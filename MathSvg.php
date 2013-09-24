@@ -18,7 +18,8 @@
  * @author Moritz Schubotz
  * @ingroup Parser
  */
-class MathSource extends MathRenderer {
+class MathSvg extends MathRenderer {
+	private $svg='';
 	/**
 	 * Renders TeX by outputting it to the browser in a span tag
 	 *
@@ -43,8 +44,20 @@ class MathSource extends MathRenderer {
 	 * @return boolean
 	 */
 	function render(){
-		//assume unchanged to avoid unnecessary database access
-		$this->changed=false;
-		return true;
+		global $wgMathLaTeXMLTimeout;
+		$post = $this->getTex();
+		$host = 'http://localhost:16000/';
+		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
+		$req = MWHttpRequest::factory( $host, $options );
+		$status = $req->execute();
+		if ( $status->isGood() ) {
+			$this->svg = $req->getContent();
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public function getSvg(){
+		return $this->svg;
 	}
 }
