@@ -4,29 +4,25 @@
  *
  * @group Math
  */
-class MathRendererTest extends MediaWikiTestCase {
+class MathRendererTests extends MediaWikiTestCase {
 	/**
 	 * Checks the tex and hash functions
 	 * @covers MathRenderer::getTex()
 	 * @covers MathRenderer::__construct()
 	 */
 	public function testBasics() {
-		$renderer = $this->getMockForAbstractClass( 'MathRenderer'
-			, array ( MathDatabaseTest::SOME_TEX ) );
+		$renderer = $this->getMockForAbstractClass( 'MathRenderer', array ( MathDatabaseTest::SOME_TEX ) );
 		// check if the TeX input was corretly passed to the class
-		$this->assertEquals( MathDatabaseTest::SOME_TEX, $renderer->getTex()
-			, "test getTex" );
-		$this->assertEquals( $renderer->isChanged(), false
-			, "test if changed is initially false");
+		$this->assertEquals( MathDatabaseTest::SOME_TEX, $renderer->getTex(), "test getTex" );
 	}
 
 	/**
-	 * Test behavior of writeCache() when nothing was changed
+	 *  Test behavior of writeCache() when nothing was changed
 	 * @covers MathRenderer::writeCache()
 	 */
 	public function testWriteCacheSkip() {
 		$renderer = $this->getMockBuilder( 'MathRenderer' )
-			->setMethods( array( 'writeToDatabase' , 'render' ) )
+			->setMethods( array( 'writeToDatabase' , 'render' , 'getHtmlOutput') )
 			->disableOriginalConstructor()
 			->getMock();
 		$renderer->expects( $this->never() )
@@ -40,37 +36,12 @@ class MathRendererTest extends MediaWikiTestCase {
 	 */
 	public function testWriteCache() {
 		$renderer = $this->getMockBuilder( 'MathRenderer' )
-			->setMethods( array( 'writeToDatabase' , 'render' ) )
+			->setMethods( array( 'writeToDatabase' , 'render' , 'getHtmlOutput') )
 			->disableOriginalConstructor()
 			->getMock();
-		$renderer->expects( $this->never() )
+		$renderer->setLog('log'); //do a random change to set changed to true
+		$renderer->expects( $this->once() )
 			->method( 'writeToDatabase' );
 		$renderer->writeCache();
-	}
-
-	/**
-	 * Test behavior $change when the rendered hash was changed
-	 * @covers MathRenderer::setHash()
-	 */
-	public function testChangeHash() {
-		$renderer = $this->getMockBuilder( 'MathRenderer' )
-		->setMethods( array( 'render' ) )
-		->disableOriginalConstructor()
-		->getMock();
-		$this->assertEquals( $renderer->isChanged(), false
-			, "test if changed is initially false");
-		$renderer->setHash('0000');
-		$this->assertEquals( $renderer->isChanged(), true
-			, "assumes that changing a hash sets changed to true");
-	}
-
-	public function testSetPurge(){
-		$renderer = $this->getMockBuilder( 'MathRenderer' )
-		->setMethods( array( 'render' ) )
-		->disableOriginalConstructor()
-		->getMock();
-		$renderer->setPurge();
-		$this->assertEquals( $renderer->isPurge(), true, "Test purge." );
-
 	}
 }
