@@ -24,7 +24,7 @@ class MathSource extends MathRenderer {
 	 *
 	 * @return string span tag with TeX
 	 */
-	function render() {
+	function getHtmlOutput() {
 		# No need to render or parse anything more!
 		# New lines are replaced with spaces, which avoids confusing our parser (bugs 23190, 22818)
 		return Xml::element( 'span',
@@ -38,5 +38,11 @@ class MathSource extends MathRenderer {
 			'$ ' . str_replace( "\n", " ", $this->getTex() ) . ' $'
 		);
 	}
-
+	/**
+	 * No rendering required in plain text mode
+	 * @return boolean
+	 */
+	function render(){
+		return true;
+	}
 }
