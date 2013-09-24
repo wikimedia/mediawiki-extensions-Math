@@ -1,0 +1,77 @@
+== About texvc-lite ==
+
+texvc takes the user input validates it and replaces MediaWiki specific functions.
+Input data is parsed and scrutinized for safety.
+
+texvc was written by Tomasz Wegrzanowski for use with MediaWiki; it's
+included as part of the MediaWiki package (http://www.mediawiki.org) and is
+under the GPL license.
+
+texvc-lite, was extracted from the original texvc program in 2013 by
+Moritz Schubotz and uses only the sanitizing and custumation part.
+
+The list of all commands can be viewed by bowsing the source files.
+Most commands are listed at
+http://sdrv.ms/15w2gVw
+there is also a tool for convienet whitelisting of special commands
+that are used in local wikis.
+
+Please report bugs at: https://bugzilla.wikimedia.org/
+with "MediaWiki extensions" as product and "Math" as component.
+
+== Setup ==
+
+=== Requirements ===
+
+OCaml 3.06 or later is required to compile texvc; this can be acquired from
+http://caml.inria.fr/ if your system doesn't have it available.
+
+The makefile requires GNU make.
+
+In Ubuntu Precise, all dependencies can be installed using:
+
+  $ sudo apt-get install ocaml
+
+=== Installation ===
+
+Run 'make' (or 'gmake' if GNU make is not your default make). This should
+produce the texvc executable.
+
+By default,
+MediaWiki will search in this directory for texvc, if you moved it elsewhere,
+you'll have to modify $wgTexvc and set it to the path of the texvc executable.
+
+== Usage ==
+
+Normally texvc is called from MediaWiki's Math modules and everything
+Just Works. It can be run manually for testing or for use in another app.
+
+=== Command-line parameters ===
+
+    texvc '\TeX input string'
+
+Be sure to properly quote the TeX code!
+
+Example:
+
+    texvc "y=x+2"
+
+=== Output format ===
+
+The outout is the sanitized and customized tex string.
+
+texvc output format is like this:
+    +%s		ok 
+    S		syntax error
+    E		lexing error
+    F%s		unknown function %s
+    -		other error
+
+== Hacking ==
+
+Before you start hacking on the math package its good to know the workflow,
+which is basically:
+
+1. texvc gets called by Math/Math.body.php (check out the line begining with "$cmd")
+2. texvc does its magic, which is basically to check for invalid latex code.
+3. texvc takes the user input validates it and replaces MediaWiki specific functions
