@@ -3,3 +3,24 @@
 *~
 *.kate-swp
 .*.swp
+grammar/*
+# Ignore some files from the official MathJax distribution.
+modules/MathJax/.gitignore # .gitignore from the MathJax repository
+modules/MathJax/bower.json # bower.json from the MathJax repository
+modules/MathJax/MathJax.js # packed file.
+modules/MathJax/config/ # packed files.
+modules/MathJax/docs/
+modules/MathJax/extensions/ # packed files.
+modules/MathJax/fonts/HTML-CSS/TeX/png # We don't use the image fallback.
+modules/MathJax/jax/ # packed files.
+modules/MathJax/localization/ # packed files.
+modules/MathJax/test/
+modules/MathJax/unpacked/config/ # We don't use predefined config files.
+modules/MathJax/unpacked/jax/input/AsciiMath/ # We don't use the AsciiMath input Jax.
+modules/MathJax/unpacked/jax/input/MathML/entities # We don't use MathML entity names.
+modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/Asana-Math/ # We don't use the Asana-Math fonts.
+modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/Gyre-Pagella/ # We don't use the Gyre-Pagella fonts.
+modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/Gyre-Termes/ # We don't use the Gyre-Termes fonts.
+modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/Latin-Modern/ # We don't use the Latin-Modern fonts.
+modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/Neo-Euler/ # We don't use the Neo-Euler fonts.
+modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/STIX-Web/ # We don't use the STIX-Web fonts.
