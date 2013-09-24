@@ -1,0 +1,22 @@
+/*
+   Document   : ext.math
+   Created on : 23.09.2013, 13:55:00
+   Author     : Physikerwelt (Moritz Schubotz)
+   Description:
+       Shows broswer dependet math output.
+*/
+
+span.mwe-math-mathml-inline { display: none;}
+div.mwe-math-mathml-display { display: none ;}
+img.mwe-math-fallback-svg-inline { display: inline; vertical-align: middle}
+img.mwe-math-fallback-svg-display { display:block; margin:auto}
+img.mwe-math-fallback-png-inline { display: none;}
+img.mwe-math-fallback-png-display { display: none;}
+
+
+@-moz-document url-prefix() {
+   span.mwe-math-mathml-inline { display: inline !important; }
+   div.mwe-math-mathml-display { display: block !important;  margin:auto!important;}
+   img.mwe-math-fallback-svg-inline { display: none !important;}
+   img.mwe-math-fallback-svg-display { display: none !important;}
+   }
