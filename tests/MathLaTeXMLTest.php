@@ -1,10 +1,10 @@
-<?php
+﻿<?php
 /**
 * Test the LaTeXML output format.
 *
 * @group Math
 */
-class MathLaTeXMLTest extends MediaWikiTestCase {
+class MathMathMLTest extends MediaWikiTestCase {
 
 	// State-variables for HTTP Mockup classes
 	public static $content = null;
@@ -26,6 +26,32 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	}
 
 	/**
+	 * Test rendering the string '0' see
+	 * https://trac.mathweb.org/LaTeXML/ticket/1752
+	 */
+	public function testSpecialCase0(){
+		global $wgMathFastDisplay;
+		$wgMathFastDisplay = false;
+		$this->markTestSkipped( "Bug in LaTeXML");
+		$renderer = MathRenderer::getRenderer( '0', array(), MW_MATH_MATHML );
+		$expected = '0</cn>';
+		$this->assertTrue( $renderer->render() ) ;
+		$this->assertContains( $expected, $renderer->getHtmlOutput() ,'Rendering the String "0"' );
+	}
+
+		/**
+	 * Test rendering the string '0' see
+	 * https://trac.mathweb.org/LaTeXML/ticket/1752
+	 */
+	public function testSpecialCaseText(){
+		global $wgMathFastDisplay;
+		$wgMathFastDisplay = false;
+		$renderer = MathRenderer::getRenderer( 'x^2+\text{a sample Text}', array(), MW_MATH_MATHML );
+		$expected = 'a sample Text</mtext>';
+		$this->assertTrue( $renderer->render() ) ;
+		$this->assertContains( $expected, $renderer->getHtmlOutput() , 'Rendering the String "\text{CR}"' );
+	}
+	/**
 	 * Tests behavior of makeRequest() that communicates with the host.
 	 * Testcase: Invalid request.
 	 * @covers MathTexvc::makeRequest
@@ -34,7 +60,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 		self::setMockValues( false, false, false );
 		$url = 'http://example.com/invalid';
 
-		$renderer = $this->getMockBuilder( 'MathLaTeXML' )
+		$renderer = $this->getMockBuilder( 'MathMathML' )
 			->setMethods( NULL )
 			->disableOriginalConstructor()
 			->getMock();
@@ -58,7 +84,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	public function testMakeRequestSuccess() {
 		self::setMockValues( true, true, false );
 		$url = 'http://example.com/valid';
-		$renderer = $this->getMockBuilder( 'MathLaTeXML' )
+		$renderer = $this->getMockBuilder( 'MathMathML' )
 			->setMethods( NULL )
 			->disableOriginalConstructor()
 			->getMock();
@@ -72,12 +98,12 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	/**
 	 * Tests behavior of makeRequest() that communicates with the host.
 	 * Testcase: Timeout.
-	 * @covers MathLaTeXML::makeRequest
+	 * @covers MathMathML::makeRequest
 	 */
 	public function testMakeRequestTimeout() {
 		self::setMockValues( false, true, true );
 		$url = 'http://example.com/timeout';
-		$renderer = $this->getMockBuilder( 'MathLaTeXML' )
+		$renderer = $this->getMockBuilder( 'MathMathML' )
 			->setMethods( NULL )
 			->disableOriginalConstructor()
 			->getMock();
@@ -90,23 +116,36 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 		$this->assertContains( $errmsg, $error, "timeout call errormessage" );
 	}
 
+
+//	public function testisValidXML() {
+//		$validSample = '<math>content</math>';
+//		$invalidSample = '<notmath />';
+//		$this->assertTrue( MathMathML::isValidMathML( $validSample ), 'test if math expression is valid mathml sample' );
+//		$this->assertFalse( MathMathML::isValidMathML( $invalidSample ), 'test if math expression is invalid mathml sample' );
+//	}
+
 	/**
 	 * Checks if a String is a valid MathML element
-	 * @covers MathLaTeXML::isValidXML
+	 * @covers MathMathML::isValidXML
 	 */
 	public function testisValidXML() {
+		$renderer = $this->getMockBuilder( 'MathMathML' )
+			->setMethods( NULL )
+			->disableOriginalConstructor()
+			->getMock();
 		$validSample = '<math>content</math>';
 		$invalidSample = '<notmath />';
-		$this->assertTrue( MathLaTeXML::isValidMathML( $validSample ), 'test if math expression is valid mathml sample' );
-		$this->assertFalse( MathLaTeXML::isValidMathML( $invalidSample ), 'test if math expression is invalid mathml sample' );
+		$this->assertTrue( $renderer->isValidMathML( $validSample ), 'test if math expression is valid mathml sample' );
+		$this->assertFalse( $renderer->isValidMathML( $invalidSample ), 'test if math expression is invalid mathml sample' );
+
 	}
 
 	/**
 	 * Tests the serialiazation of the LaTeXML settings
-	 * @covers MathLaTeXML::serializeSettings
+	 * @covers MathMathML::serializeSettings
 	 */
 	public function testSerializeSettings() {
-		$renderer = $this->getMockBuilder( 'MathLaTeXML' )
+		$renderer = $this->getMockBuilder( 'MathMathML' )
 			->setMethods( NULL )
 			->disableOriginalConstructor()
 			->getMock();
@@ -125,12 +164,15 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	 * i.e. if the span element is generated right.
 	 */
 	public function testIntegration() {
-		global $wgLaTeXMLTimeout;
-		$wgLaTeXMLTimeout = 20;
-		$renderer = MathRenderer::getRenderer( "a+b", array(), MW_MATH_LATEXML );
-		$real = $renderer->render( true );
-		$expected = '<span class="tex" dir="ltr" id="a_b"><math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.1.m1" class="ltx_Math" alttext="a+b" xml:id="p1.1.m1.1" display="inline" xref="p1.1.m1.1.cmml">   <semantics xml:id="p1.1.m1.1a" xref="p1.1.m1.1.cmml">     <mrow xml:id="p1.1.m1.1.4" xref="p1.1.m1.1.4.cmml">       <mi xml:id="p1.1.m1.1.1" xref="p1.1.m1.1.1.cmml">a</mi>       <mo xml:id="p1.1.m1.1.2" xref="p1.1.m1.1.2.cmml">+</mo>       <mi xml:id="p1.1.m1.1.3" xref="p1.1.m1.1.3.cmml">b</mi>     </mrow>     <annotation-xml xml:id="p1.1.m1.1.cmml" encoding="MathML-Content" xref="p1.1.m1.1">       <apply xml:id="p1.1.m1.1.4.cmml" xref="p1.1.m1.1.4">         <plus xml:id="p1.1.m1.1.2.cmml" xref="p1.1.m1.1.2"/>         <ci xml:id="p1.1.m1.1.1.cmml" xref="p1.1.m1.1.1">a</ci>         <ci xml:id="p1.1.m1.1.3.cmml" xref="p1.1.m1.1.3">b</ci>       </apply>     </annotation-xml>     <annotation xml:id="p1.1.m1.1b" encoding="application/x-tex" xref="p1.1.m1.1.cmml">a+b</annotation>   </semantics> </math></span>';
-		$this->assertEquals( $expected, $real
+		global $wgMathLaTeXMLTimeout;
+				global $wgMathFastDisplay;
+		$wgMathFastDisplay = false;
+		$wgMathLaTeXMLTimeout = 20;
+		$renderer = MathRenderer::getRenderer( "a+b", array(), MW_MATH_MATHML );
+		$this->assertTrue($renderer->render( true ));
+		$real = str_replace("\n", '', $renderer->getHtmlOutput());
+		$expected = '<plus';
+		$this->assertContains( $expected, $real
 				, "Rendering of a+b in plain Text mode" );
 	}
 }
@@ -149,7 +191,7 @@ class LaTeXMLHttpRequestTester {
 		return new LaTeXMLTestStatus();
 	}
 	public static function getContent() {
-		return MathLaTeXMLTest::$content;
+		return MathMathMLTest::$content;
 	}
 }
 
@@ -160,17 +202,17 @@ class LaTeXMLHttpRequestTester {
  */
 class LaTeXMLTestStatus {
 	static function isGood() {
-		return MathLaTeXMLTest::$good;
+		return MathMathMLTest::$good;
 	}
 
 	static function hasMessage( $s ) {
 		if ( $s == 'http-timed-out' ) {
-			return MathLaTeXMLTest::$timeout;
+			return MathMathMLTest::$timeout;
 		} else {
 			return false;
 		}
 	}
 	static function getHtml() {
-		return MathLaTeXMLTest::$html;
+		return MathMathMLTest::$html;
 	}
 }
