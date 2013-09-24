@@ -1,0 +1,8 @@
+/* Standard rendering with MathML */
+
+span.mwe-math-mathml-inline { display: inline !important; }
+div.mwe-math-mathml-display { display: block !important; margin: auto; }
+img.mwe-math-fallback-svg-inline { display: none !important; }
+img.mwe-math-fallback-svg-display { display: none !important; }
+img.mwe-math-fallback-png-inline { display: none !important; }
+img.mwe-math-fallback-png-display { display: none !important; }
