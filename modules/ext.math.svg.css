@@ -1,0 +1,8 @@
+/* Fallback rendering with SVG */
+
+span.mwe-math-mathml-inline { display: none !important; }
+div.mwe-math-mathml-display { display: none !important; }
+img.mwe-math-fallback-svg-inline { display: inline !important; vertical-align: middle; }
+img.mwe-math-fallback-svg-display { display: block !important; margin: auto; }
+img.mwe-math-fallback-png-inline { display: none !important; }
+img.mwe-math-fallback-png-display { display: none !important; }
