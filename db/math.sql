@@ -7,7 +7,18 @@ CREATE TABLE /*_*/math (
   math_inputhash varbinary(16) NOT NULL,
 
   -- MathML output from texvc, or from LaTeXML
-  math_mathml text
+  math_mathml text,
+
+--DEPRECATED FIELDS (availible for backwards compatibility only)
+  -- Not sure what this is, exactly...
+  math_outputhash varbinary(16) NOT NULL,
+
+  -- texvc reports how well it thinks the HTML conversion worked;
+  -- if it's a low level the PNG rendering may be preferred.
+  math_html_conservativeness tinyint NOT NULL,
+
+  -- HTML output from texvc, if any
+  math_html text
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/math_inputhash ON /*_*/math (math_inputhash);

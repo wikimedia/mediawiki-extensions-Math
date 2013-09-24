@@ -4,10 +4,11 @@
  *
  * @file
  * @ingroup Extensions
- * @version 1.0
+ * @version 2.0
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
- * @copyright © 2002-2012 various MediaWiki contributors
+ * @author Moritz Schubotz
+ * @copyright © 2002-2013 various MediaWiki contributors
  * @license GPLv2 license; info in main package.
  * @link http://www.mediawiki.org/wiki/Extension:Math Documentation
  * @see https://bugzilla.wikimedia.org/show_bug.cgi?id=14202
@@ -21,8 +22,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'Math',
-	'version' => '1.1',
-	'author' => array( 'Tomasz Wegrzanowski', 'Brion Vibber', '...' ),
+	'version' => '2.0',
+	'author' => array( 'Tomasz Wegrzanowski', 'Brion Vibber', 'Moritz Schubotz', '...' ),
 	'descriptionmsg' => 'math-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Math',
 );
@@ -37,16 +38,12 @@ define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 );
 define( 'MW_MATH_MATHJAX', 6 ); /// @deprecated
-define( 'MW_MATH_FAST', 7);
+define( 'MW_MATH_MATHML_LOCAL', 7 );
 /**@}*/
 
-/** For back-compat */
-$wgUseTeX = true;
+/** Stores debug information in the database and proviedes more detailed debug output*/
+$wgDebugMath = false;
 
-/** Location of the texvc binary */
-$wgTexvc = dirname( __FILE__ ) . '/texvc/texvc';
-/** Location of the latexmlmath binary */
-$wgTex2Svg = dirname( __FILE__ ) . '/texvc/tex2svg';
 /**
  * Experimental option to use MathJax library to do client-side math rendering
  * when JavaScript is available. In supporting browsers this makes nice output
@@ -69,35 +66,75 @@ $wgUseMathJax = true;
  * servers in an array e.g $wgLaTeXMLUrl = array ( 'http://latexml.example.com/convert',
  * 'http://latexml2.example.com/convert');
  */
-$wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
+$wgLaTeXMLUrl = 'http://localhost:8082';
+/**
+ * Location of the LaTeXML executable (only needed in local mode)
+ */
+$wgLaTeXMLExecutable = '/user/local/bin/latexml-wiki';
 
 /**
- * Allows to use LaTeXML as renderer for mathematical equation.
+ * If true local a remote servers are used,
+ * if false a shellout to a local installation is performed
  */
-$wgUseLaTeXML = true;
+$wgLaTeXMLRemote = true;
 
+$wgUseLaTeXML = true;
 /**
  * The timeout for the HTTP-Request sent to the LaTeXML to render an equation,
  * in seconds.
  */
 $wgLaTeXMLTimeout = 240;
 /**
- * Setting for the LaTeXML renderer.
- * See http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml for details.
- */
-$wgDefaultLaTeXMLSetting = 'format=xhtml&whatsin=math&whatsout=math&pmml&cmml&nodefaultresources&preload=LaTeX.pool&preload=article.cls&preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty&preload=amssymb.sty&preload=eucal.sty&preload=[dvipsnames]xcolor.sty&preload=url.sty&preload=hyperref.sty&preload=[ids]latexml.sty&preload=texvc';
-/**
  * Option to disable the tex filter. If set to true any LaTeX espression is parsed
  * this can be a potential security risk. If set to false only a subset of the tex
  * commands is allowed. See the wikipedia page Help:Math for details.
  */
-$wgDisableTexFilter = true;
+$wgDisableTexFilter = false;
 
 /**
  * Setting for the LaTeXML renderer.
  * See http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml for details.
  */
-$wgDefaultLaTeXMLSetting = 'format=xhtml&whatsin=math&whatsout=math&pmml&cmml&nodefaultresources&preload=LaTeX.pool&preload=article.cls&preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty&preload=amssymb.sty&preload=eucal.sty&preload=[dvipsnames]xcolor.sty&preload=url.sty&preload=hyperref.sty&preload=[ids]latexml.sty&preload=texvc';
+$wgDefaultLaTeXMLSetting = array('format' => 'xhtml',
+	'whatsin' => 'math',
+	'whatsout' => 'math',
+	'pmml',
+	'cmml',
+	'nodefaultresources',
+	'preload' => array('LaTeX.pool',
+		'article.cls',
+		'amsmath.sty',
+		'amsthm.sty',
+		'amstext.sty',
+		'amssymb.sty',
+		'eucal.sty',
+		'[dvipsnames]xcolor.sty',
+		'url.sty',
+		'hyperref.sty',
+		'[ids]latexml.sty',
+		'texvc'),
+	'latexheader' => '\documentclass[12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
+\nonstopmode
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[dvips,usenames]{color}
+\usepackage[greek]{babel}
+\usepackage{teubner}
+\usepackage{eurosym}
+\usepackage{cancel}
+
+\pagestyle{empty}
+\begin{document}'
+	);
+
+$wgMathFastDisplay = true;
+$wgMathTexvcCheckExecutable = dirname( __FILE__ ) . '/texvc/texvc';
 ////////// end of config settings.
 
 $wgDefaultUserOptions['math'] = MW_MATH_MATHML;
@@ -113,17 +150,34 @@ $wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
 $wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
-$wgAutoloadClasses['MathSvg'] = $dir . 'MathSvg.php';
 $wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
 $wgAutoloadClasses['MathMathML'] = $dir . 'MathMathML.php';
+$wgAutoloadClasses['MathMathMLLocal'] = $dir . 'MathMathMLLocal.php';
+$wgAutoloadClasses['MathInputCheck'] = $dir . 'MathInputCheck.php';
+$wgAutoloadClasses['MathInputCheckTexvc'] = $dir . 'MathInputCheckTexvc.php';
 $wgAutoloadClasses['SpecialMathShowImage'] = $dir . 'SpecialMathShowImage.php';
 
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
+$wgExtensionMessagesFiles[ 'MathAlias' ] = $dir. '/Math.alias.php'; # Location of an aliases file (Tell MediaWiki to load this file)
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 
-#$wgSpecialPageGroups['MathIndex'] = 'mathsearch';
+//TODO: Is that needed since the page should not be listed
+#$wgSpecialPageGroups['MathShowImage'] = 'math';
 $wgSpecialPages['MathShowImage'] = 'SpecialMathShowImage';
+
+
+$wgResourceModules['ext.math.styles'] = array(
+	'styles' => 'ext.math.css',
+
+	// You need to declare the base path of the file paths in 'scripts' and 'styles'
+	'localBasePath' => __DIR__,
+	// ... and the base from the browser as well. For extensions this is made easy,
+	// you can use the 'remoteExtPath' property to declare it relative to where the wiki
+	// has $wgExtensionAssetsPath configured:
+	'remoteExtPath' => 'Math'
+);
+
 // MathJax module
 // If you modify these arrays, update ext.math.mathjax.enabler.js to ensure
 // that getModuleNameFromFile knows how to map files to MediaWiki modules.
@@ -337,3 +391,63 @@ $wgResourceModules += array(
 		'scripts' => array('Fraktur/Bold/BasicLatin.js','Fraktur/Bold/Other.js','Fraktur/Bold/PUA.js','Fraktur/Regular/BasicLatin.js','Fraktur/Regular/Other.js','Fraktur/Regular/PUA.js','SansSerif/Bold/BasicLatin.js','SansSerif/Bold/CombDiacritMarks.js','SansSerif/Bold/Other.js','SansSerif/Italic/BasicLatin.js','SansSerif/Italic/CombDiacritMarks.js','SansSerif/Italic/Other.js','SansSerif/Regular/BasicLatin.js','SansSerif/Regular/CombDiacritMarks.js','SansSerif/Regular/Other.js','Script/Regular/BasicLatin.js','Typewriter/Regular/BasicLatin.js','Typewriter/Regular/CombDiacritMarks.js','Typewriter/Regular/Other.js')
 	) + $moduleTemplateSVG
 );
+
+
+//DEPRECATED SETTINGS WILL BE DELETED
+/** For back-compat */
+$wgUseTeX = true; //TODO: find out why we need this
+
+/** Allows to use the deprecated texvc libraries*/
+$wgUseTexvc = true;
+
+
+/** @deprecated since version  2.0 Location of the texvc binary */
+$wgTexvc = dirname( __FILE__ ) . '/math/texvc';
+
+/* Texvc background color
+ * use LaTeX color format as used in \special function
+ * for transparent background use value 'Transparent' for alpha transparency or
+ * 'transparent' for binary transparency.
+ */
+$wgTexvcBackgroundColor = 'transparent';
+
+/**
+ * Normally when generating math images, we double-check that the
+ * directories we want to write to exist, and that files that have
+ * been generated still exist when we need to bring them up again.
+ *
+ * This lets us give useful error messages in case of permission
+ * problems, and automatically rebuild images that have been lost.
+ *
+ * On a big site with heavy NFS traffic this can be slow and flaky,
+ * so sometimes we want to short-circuit it by setting this to false.
+ */
+$wgMathCheckFiles = false;
+
+/**
+ * The URL path of the math directory. Defaults to "{$wgUploadPath}/math".
+ *
+ * See http://www.mediawiki.org/wiki/Manual:Enable_TeX for details about how to
+ * set up mathematical formula display.
+ */
+$wgMathPath = false;
+
+/**
+ * The name of a file backend ($wgFileBackends) to use for storing math renderings.
+ * Defaults to FSFileBackend using $wgMathDirectory as a base path.
+ *
+ * See http://www.mediawiki.org/wiki/Manual:Enable_TeX for details about how to
+ * set up mathematical formula display.
+ */
+$wgMathFileBackend = false;
+
+/**
+ * The filesystem path of the math directory.
+ * Defaults to "{$wgUploadDirectory}/math".
+ *
+ * See http://www.mediawiki.org/wiki/Manual:Enable_TeX for details about how to
+ * set up mathematical formula display.
+ */
+$wgMathDirectory = false;
+
+$wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';

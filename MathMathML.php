@@ -32,7 +32,10 @@ class MathMathML extends MathRenderer {
 			//removes the [1] [2]... for the unnamed subarrays since LaTeXML
 			//assigns multiple values to one key e.g.
 			//preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty
-			return preg_replace('|\%5B\d+\%5D|', '', wfArrayToCgi($array)) ;
+			$cgi_string = wfArrayToCgi($array);
+			$cgi_string = preg_replace('|\%5B\d+\%5D|', '', $cgi_string);
+			$cgi_string = preg_replace('|&\d+=|', '&', $cgi_string);
+			return $cgi_string ;
 		}
 	}
 	/**
@@ -88,16 +91,20 @@ class MathMathML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	public function render( $forceReRendering = false ) {
+		global $wgMathFastDisplay;
 		if ( $forceReRendering ) {
 			$this->setPurge( true );
 		}
 		if ( $this->renderingRequired() ) {
-			$res = $this->doRender( );
-			if ( ! $res ) {
-				return $this->getLastError();
+			if( $wgMathFastDisplay && !$this->isInDatabase() ){
+				$this->writeToDatabase();
+				return $this->getMathImageHTML();
 			}
+			$res = $this->doRender( );
+			return $res;
+			var_dump($res);
 		}
-		return $this->getMathMLTag();
+		return true;
 	}
 
 	/**
@@ -112,7 +119,15 @@ class MathMathML extends MathRenderer {
 			$dbres = $this->readFromDatabase();
 			if ( $dbres ) {
 				if ( $this->isValidMathML( $this->getMathml() ) ) {
-					wfDebugLog( "Math", "Valid entry found in database." );
+					wfDebugLog( "Math", "Valid MathML entry found in database." );
+					if ( ! $this->getSvg() ){
+						wfDebugLog( "Math", "No SVG rendering found in database." );
+						return true;
+					}
+					if ( ! $this->getPng() ){
+						wfDebugLog( "Math", "No PNG rendering found in database." );
+						return true;
+					}
 					return false;
 				} else {
 					wfDebugLog( "Math", "Malformatted entry found in database" );
@@ -142,6 +157,12 @@ class MathMathML extends MathRenderer {
 		global $wgLaTeXMLTimeout;
 		$error = '';
 		$res = null;
+		if ($host == ''){
+			$host = self::pickHost();
+		}
+		if ( $post ){
+			$this->getPostData();
+		}
 		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgLaTeXMLTimeout );
 		$req = $httpRequestClass::factory( $host, $options );
 		$status = $req->execute();
@@ -199,29 +220,44 @@ class MathMathML extends MathRenderer {
 	 * @return string HTTP POST data
 	 */
 	public function getPostData() {
-		$tex =  $this->tex;
+		$tex =  $this->getTex();
 		if ($this->getDisplaytyle()){
 			$tex = '{\displaystyle '. $tex . '}';
 		}
-		$texcmd = urlencode($tex);
+		$texcmd = rawurlencode($tex);
 		$settings = $this->serializeSettings($this->getLaTeXMLSettings());
-		$settings = $settings. '&tex=' . $texcmd;
-		wfDebugLog("Mat", 'Posting: '.$settings);
-		return $settings;
+		$postData = $settings. '&tex=' . $texcmd;
+		wfDebugLog("Mat", 'Posting: '.$postData);
+		return $postData;
 	}
+
 	/**
 	 * Does the actual web request to convert TeX to MathML.
 	 * @return boolean
 	 */
 	private function doRender( ) {
+		global $wgLaTeXMLRemote,$wgDefaultLaTeXMLSetting;
+		if ( ! $this->getTex()){
+			$this->lastError = $this->getError( 'math_empty_tex');
+			return false;
+		}
+		$res='';
 		$host = self::pickHost();
+		$this->setLaTeXMLSettings($wgDefaultLaTeXMLSetting);
 		$post = $this->getPostData();
 		$this->lastError = '';
-		if ( $this->makeRequest( $host, $post, $res, $this->lastError ) ) {
+		if ( $wgLaTeXMLRemote ){
+			$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
+		} else {
+			$requestResult = $this->makeShellRequest( '', $post, $res, $this->lastError );
+		}
+		if ( $requestResult ) {
 			$result = json_decode( $res );
-			if ( json_last_error() === JSON_ERROR_NONE ) {
+			if ($result && json_last_error() === JSON_ERROR_NONE ) {
 				if ( $this->isValidMathML( $result->result ) ) {
 					$this->setMathml( $result->result );
+					$this->setSvg( $result->svg );
+					$this->setPng( $result->png );
 					return true;
 				} else {
 					// Do not print bad mathml. It's probably too verbose and might
@@ -276,52 +312,135 @@ class MathMathML extends MathRenderer {
 	}
 
 	/**
+	 *
+	 * @return DOMDocument
+	 */
+	public function getDom(){
+		$dom = new DOMDocument;
+		return $dom->loadXML( $this->getMathml() );
+	}
+	private function getFallbackImageUrl($png = false){
+		return SpecialPage::getTitleFor('MathShowImage')->getLocalURL(array(
+			'hash'=>$this->getMd5(),
+			'png' => $png)
+				);
+	}
+	/**
+	 * Gets img tag for math image
+	 *
+	 * @return string img HTML
+	 */
+	public function getFallbackImage($png = false) {
+		$url = $this->getFallbackImageUrl( $png );
+		$class = $this->getClassName( true , $png);
+		return Xml::element( 'img',
+			$this->getAttributes(
+				'img',
+				array(
+					'class' => $class
+//					,'alt' => $this->getTex()
+				),
+				array(
+					'src' => $url
+				)
+			)
+		);
+	}
+	private function getClassName( $fallback = false, $png = false ){
+		$class = "mwe-math-";
+		if ( $fallback ){
+			$class .= 'fallback-';
+			if ($png){
+				$class .= 'png-';
+			} else {
+				$class .= 'svg-';
+			}
+		} else {
+			$class .= 'mathml-';
+		}
+		if ( $this->getDisplaytyle()){
+			$class .= 'display';
+		} else {
+			$class .= 'inline';
+		}
+		return $class;
+	}
+	/**
 	 * Internal version of @link self::embedMathML
 	 * @return string
 	 * @return html element with rendered math
 	 */
-	private function getMathMLTag() {
-		if ( $this->getDisplaytyle() ){
-			$mml = preg_replace('|display="inline"|', 'display="block"', $this->getMathml());
-			$mml = preg_replace('/mode="(inline|block)"/', 'display="block"', $mml);
-		} else {
-			$mml = $this->getMathml();
-	}
-		return self::embedMathML( $mml, urldecode( $this->getTex() ) );
-	}
+	public function getHtmlOutput() {
+		global $wgDebugMath;
+		$output = $wgDebugMath ? "\n<!--Math Block Beginn-->\n" :'' ;
+		$output .= $this->getFallbackImage(false)."\n";
+		$output .= $this->getFallbackImage(true)."\n";
+		$class = $this->getClassName();
+		//MathML has to be wrapped into a div or span in order to be able to hide it.
+		$element = $this->getDisplaytyle()? 'div':'span';
+
+		//$output .= Html::rawElement( $element, array( 'class' => $class ) , $this->getMathML());
+		$output .= Xml::tags( $element, array( 'class' => $class ) , $this->getMathML() );
+		$output .= $wgDebugMath ? "\n<!--Math Block End-->\n" :'' ;
+		return $output;
+
+		}
+//$mDom = $this->getDom();
+//		$mDom->getElementsByTagName('math');
+//
+//					$domRes=$dom->getElementById($node["xref"][0]);
+//					if ($domRes){
+//						$domRes->setAttribute('mathcolor', '#cc0000');
+//						$out->addHtml( $domRes->ownerDocument->saveXML());
+//		if ( $displaystyle ){
+//			$mml = preg_replace('|display="inline"|', 'display="block"', $this->getMathml());
+//			$mml = preg_replace('/mode="(inline|block)"/', 'display="block"', $mml);
+//		} else {
+//			$mml = $this->getMathml();
+//		}
+//		$mml = str_replace( "\n", " ", $mml );
+//		if ( ! $attribs ) {
+//			$attribs = array( 'class' => 'tex', 'dir' => 'ltr' );
+//			if ( $tagId ) {
+//				$attribs['id'] = $tagId;
+//			}
+//			$attribs = Sanitizer::validateTagAttributes( $attribs, 'span' );
+//		}
+//		//TODO: Fix double printing of mathml output
+//		//Tables
+//		$attribs['class'] = "MathJax_Preview";
+//		$normal = Xml::tags( 'span', $attribs, $mml );
+//		$jax = preg_replace_callback('|<math(.*?)</math>|',
+//	/**
+//	 * Callback function that sourrouds math elements with mathjax preview span elements
+//	 * @param string $match
+//	 * @return string the xml tag script tag
+//	 */
+//				function($match) use ($attribs) {
+//					$previewAttribs = $attribs;
+//					$previewAttribs['class'] = "MathJax_Preview";
+//					$preview = Xml::tags( 'span', $previewAttribs, $match[0] );
+//					$jax=Xml::tags( 'script', array( 'type' => 'math/mml'), $match[0] );
+//					return $preview.$jax;
+//				}, $mml);
+//		return $jax;
 
 	/**
-	 * Embeds the MathML-XML element in a HTML span element with class tex
-	 * @param string $mml: the MathML string
-	 * @param string $tagId: optional tagID for references like (pagename#equation2)
-	 * @return html element with rendered math
+	 *
+	 * @param type $host
+	 * @param type $post
+	 * @param type $res
+	 * @param type $error
+	 * @return boolean
 	 */
-	public static function embedMathML( $mml, $tagId = '', $attribs = false ) {
-		$mml = str_replace( "\n", " ", $mml );
-		if ( ! $attribs ) {
-			$attribs = array( 'class' => 'tex', 'dir' => 'ltr' );
-			if ( $tagId ) {
-				$attribs['id'] = $tagId;
-			}
-			$attribs = Sanitizer::validateTagAttributes( $attribs, 'span' );
+	private function makeShellRequest($host, $post, &$res, &$error = ''){
+		$cmd = 'latexmlmediawiki'.' '.wfEscapeShellArg($this->getPostData());
+		$retval = false;
+		$res = wfShellExec($cmd,$retval);
+		if ( $retval !== 0){
+			return false;
+		} else {
+			return true;
 		}
-		//TODO: Fix double printing of mathml output
-		//Tables
-		$attribs['class'] = "MathJax_Preview";
-		$normal = Xml::tags( 'span', $attribs, $mml );
-		$jax = preg_replace_callback('|<math(.*?)</math>|',
-	/**
-	 * Callback function that sourrouds math elements with mathjax preview span elements
-	 * @param string $match
-	 * @return string the xml tag script tag
-	 */
-				function($match) use ($attribs) {
-					$previewAttribs = $attribs;
-					$previewAttribs['class'] = "MathJax_Preview";
-					$preview = Xml::tags( 'span', $previewAttribs, $match[0] );
-					$jax=Xml::tags( 'script', array( 'type' => 'math/mml'), $match[0] );
-					return $preview.$jax;
-				}, $mml);
-		return $jax;
 	}
 }

@@ -7,7 +7,7 @@
  *
  * @author Moritz Schubotz
  */
-class MathTexvcInputCheck extends MathInputCheck{
+class MathInputCheckTexvc extends MathInputCheck{
 	/**
 	 * Converts an error returned by texvc to a localized exception
 	 *
@@ -40,12 +40,13 @@ class MathTexvcInputCheck extends MathInputCheck{
 	 * @return boolean
 	 */
 	public function isSecure() {
-		global $wgTexvc;
-		if ( !is_executable( $wgTexvc ) ) {
+		global $wgMathTexvcCheckExecutable;
+		if ( !is_executable( $wgMathTexvcCheckExecutable ) ) {
 			$this->lastError = MathRenderer::getError( 'math_notexvc' );
+			return false;
 		}
 
-		$cmd = $wgTexvc . ' ' . wfEscapeShellArg( $this->inputTeX );
+		$cmd = $wgMathTexvcCheckExecutable . ' ' . wfEscapeShellArg( $this->inputTeX );
 
 		if ( wfIsWindows() ) {
 			# Invoke it within cygwin sh, because texvc expects sh features in its default shell
@@ -69,7 +70,7 @@ class MathTexvcInputCheck extends MathInputCheck{
 		} else {
 			$this->secureTeX = substr( $contents, 1 ) ;
 			$this->isSecure = true;
-			wfDebugLog('Math', 'checkTex successful tex is now: '.$this->tex);
+			wfDebugLog('Math', 'checkTex successful tex is now: '.$this->secureTeX);
 			return true;
 		}
 	}

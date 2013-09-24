@@ -2,26 +2,11 @@
 /**
  * MediaWiki math extension
  *
- * (c) 2002-2012 various MediaWiki contributors
+ * (c) 2002-2013 various MediaWiki contributors
  * GPLv2 license; info in main package.
  */
 
 class MathHooks {
-	/**
-	 * Set up $wgMathPath and $wgMathDirectory globals if they're not already
-	 * set.
-	 */
-	static function setup() {
-		global $wgMathPath, $wgMathDirectory;
-		global $wgUploadPath, $wgUploadDirectory;
-		if ( $wgMathPath === false ) {
-			$wgMathPath = "{$wgUploadPath}/math";
-		}
-		if ( $wgMathDirectory === false ) {
-			$wgMathDirectory = "{$wgUploadDirectory}/math";
-		}
-	}
-
 	/**
 	 * Register the <math> tag with the Parser.
 	 *
@@ -42,7 +27,7 @@ class MathHooks {
 	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgContLang, $wgUseMathJax, $wgDisableTexFilter;
+		global $wgUseMathJax, $wgDisableTexFilter, $wgUser;
 		if ( trim( $content )  === "" ) { // bug 8372
 			return "";
 		}
@@ -57,19 +42,21 @@ class MathHooks {
 				return $checkResult;
 			}
 		}
-		$renderedMath = $renderer->render();
+		$renderer->render();
+		$renderedMath = $renderer->getHtmlOutput();
 		wfRunHooks( 'MathFormulaRendered',
-		array( &$renderer,&$renderedMath,$parser->getTitle()->getArticleID(),
-		$parser->nextLinkID()) );//Enables indexing of math formula
-		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
-			// $renderer->addModules(&$parser);
-			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
-		} elseif ( $wgUseMathJax && $mode == MW_MATH_MATHML ) {
-			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler.mml' ) );
+			array( &$renderer,
+				&$renderedMath,
+				$parser->getTitle()->getArticleID(),
+				$parser->nextLinkID()) );//Enables indexing of math formula
+		if ( $wgUseMathJax && $wgUser->getOption('MathJax')) {
+			$parser->getOutput()->addModuleStyles ( array( 'ext.math.mathjax.enabler' ) );
 		}
+		$parser->getOutput()->addModules( array( 'ext.math.styles' ) );
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
-		return $wgContLang->armourMath( $renderedMath);
+		//Check if we needed that MathRenderer::armourMath( $renderedMath);
+		return array($renderedMath, "markerType" => 'nowiki' );
 	}
 
 	/**
@@ -80,12 +67,20 @@ class MathHooks {
 	 * @return Boolean: true
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
+		global $wgUseMathJax;
 		$defaultPreferences['math'] = array(
 			'type' => 'radio',
 			'options' => array_flip( self::getMathNames() ),
 			'label' => '&#160;',
 			'section' => 'rendering/math',
 		);
+		if ( $wgUseMathJax ) {
+			$defaultPreferences['mathjax'] = array(
+				'type' => 'toggle',
+				'label-message' => 'mw_math_mathjax',
+				'section' => 'rendering/math',
+			);
+		}
 		return true;
 	}
 
@@ -95,17 +90,13 @@ class MathHooks {
 	 * @return array of strings
 	 */
 	private static function getMathNames() {
-		global $wgUseMathJax, $wgUseLaTeXML;
-		$names = array(
-			MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
-			MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
-			MW_MATH_MATHML => wfMessage( 'mw_math_latexml' )->escaped(),
-		);
-		if ( $wgUseMathJax ) {
-			$names[MW_MATH_MATHJAX] = wfMessage( 'mw_math_mathjax' )->escaped();
+		global $wgUseTexvc, $wgUseLaTeXML;
+		$names[MW_MATH_SOURCE] = wfMessage( 'mw_math_source' )->escaped();
+		if ( $wgUseTexvc ){
+			$names[MW_MATH_PNG] = wfMessage( 'mw_math_png' )->escaped();
 		}
-		if ( $wgUseLaTeXML ) {
-			$names[MW_MATH_MATHML] = wfMessage( 'mw_math_latexml' )->escaped();
+		if ( $wgUseLaTeXML){
+			$names[MW_MATH_MATHML] = wfMessage( 'mw_math_mathml' )->escaped();
 		}
 		return $names;
 	}
@@ -120,6 +111,7 @@ class MathHooks {
 		global $wgUser;
 
 		# Don't generate TeX PNGs (lack of a sensible current directory causes errors anyway)
+		//TODO: revalidate that
 		$wgUser->setOption( 'math', MW_MATH_SOURCE );
 
 		return true;
@@ -158,8 +150,9 @@ class MathHooks {
 			$updater->addExtensionField('math', 'math_svg', $dir . 'field_math_svg.sql');
 			$updater->addExtensionField('math', 'math_inputtex', $dir .'field_math_inputtex.sql');
 			$updater->addExtensionField('math', 'math_png', $dir .'field_math_png.sql');
-			$updater->dropExtensionField('math', 'math_outputhash', $dir . 'drop_math_outputhash.sql');
-			$updater->dropExtensionField('math', 'math_html', $dir . 'drop_math_html.sql');
+			//TODO: Delete deprecated database fields
+//			$updater->dropExtensionField('math', 'math_outputhash', $dir . 'drop_math_outputhash.sql');
+//			$updater->dropExtensionField('math', 'math_html', $dir . 'drop_math_html.sql');
 		}
 		if ($wgDebugMath){
 			if($type =='mysql' ){
@@ -189,20 +182,6 @@ class MathHooks {
 	}
 
 	/**
-	 * Hack to fake a default $wgMathPath value so parser test output
-	 * that renders to images doesn't vary by who runs it.
-	 *
-	 * @global string $wgMathPath
-	 * @param Parser $parser
-	 * @return bool
-	 */
-	static function onParserTestParser( &$parser ) {
-		global $wgMathPath;
-		$wgMathPath = '/images/math';
-		return true;
-	}
-
-	/**
 	 * Links to the unit test files for the test cases.
 	 *
 	 * @param string $files
@@ -212,5 +191,36 @@ class MathHooks {
 		$testDir = __DIR__ . '/tests/';
 		$files = array_merge( $files, glob( "$testDir/*Test.php" ) );
 		return true;
+	}
+
+	/**
+	 * Hack to fake a default $wgMathPath value so parser test output
+	 * that renders to images doesn't vary by who runs it.
+	 *
+	 * @global string $wgMathPath
+	 * @param Parser $parser
+	 * @return bool
+	 * @deprecated since version 2.0
+	 */
+	static function onParserTestParser( &$parser ) {
+		global $wgMathPath;
+		$wgMathPath = '/images/math';
+		return true;
+	}
+
+	/**
+	 * Set up $wgMathPath and $wgMathDirectory globals if they're not already
+	 * set.
+	 * @deprecated since version 2.0
+	 */
+	static function setup() {
+		global $wgMathPath, $wgMathDirectory;
+		global $wgUploadPath, $wgUploadDirectory;
+		if ( $wgMathPath === false ) {
+			$wgMathPath = "{$wgUploadPath}/math";
+		}
+		if ( $wgMathDirectory === false ) {
+			$wgMathDirectory = "{$wgUploadDirectory}/math";
+		}
 	}
 }

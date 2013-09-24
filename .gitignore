@@ -3,7 +3,7 @@
 *~
 *.kate-swp
 .*.swp
-
+grammar/*
 # Ignore some files from the official MathJax distribution.
 modules/MathJax/.gitignore # .gitignore from the MathJax repository
 modules/MathJax/MathJax.js # packed file.

@@ -2,14 +2,14 @@
 TMP=$(mktemp -d)
 cd $TMP
 echo $1>input.tex
-pdflatex input.tex &>cout.log
-pdfcrop input.pdf crop.pdf &>cout.log
-pdf2svg crop.pdf out.svg &>cout.log
-rsvg-convert out.svg
-echo "<!--seperator-->"
+pdflatex input.tex
+pdfcrop input.pdf crop.pdf
+pdf2svg crop.pdf out.svg
+#rsvg-convert out.svg
+#echo "<!--seperator-->"
 cat out.svg
-echo "<!--seperator-->"
-latexmlmath '$2'
-echo "<!--seperator-->"
-cat cout.log
+#echo "<!--seperator-->"
+#latexmlmath '$2'
+#echo "<!--seperator-->"
+#cat cout.log
 rm -rf $TMP
