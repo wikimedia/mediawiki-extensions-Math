@@ -16,26 +16,82 @@
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
  * @author Moritz Schubotz
+ * @deprecated will be deleted in one of the next versions without further notice
  */
 class MathTexvc extends MathRenderer {
+	private $hash = '';
+	private $html = '';
+	private $conservativeness = 0;
 	const CONSERVATIVE = 2;
 	const MODERATE = 1;
 	const LIBERAL = 0;
 	const MW_TEXVC_SUCCESS = -1;
 
 	/**
+	 * Gets an array that matches the variables of the class to the database columns
+	 * @return array
+	 */
+	public function dbOutArray() {
+		$out = parent::dbOutArray();
+
+		$dbr = wfGetDB( DB_SLAVE );
+		if ( $this->hash ) {
+			$outmd5_sql = $dbr->encodeBlob( pack( 'H32', $this->hash ) );
+		} else {
+			$outmd5_sql = 0; // field cannot be null
+			// TODO: Change Database layout to allow for null values
+		}
+		$out['math_outputhash'] = $outmd5_sql;
+		$out['math_html_conservativeness'] = $this->conservativeness;
+		$out['math_html'] = $this->html;
+		wfDebugLog( 'Math', 'Store Hashpath of image'. bin2hex($outmd5_sql));
+		return $out;
+	}
+
+	public function dbInArray() {
+		$deprecatedfields = array('math_outputhash',
+				'math_html_conservativeness',
+				'math_html');
+		$newFields = parent::dbInArray();
+
+		return array_merge ( $newFields, $deprecatedfields );
+	}
+	/**
+	 * @param database_row $rpage
+	 */
+	 function initializeFromDatabaseRow( $rpage ) {
+		$result = parent::initializeFromDatabaseRow($rpage);
+		//get deprecated fields
+		if ( $rpage->math_outputhash ){
+			$dbr = wfGetDB( DB_SLAVE );
+			$xhash = unpack( 'H32md5',
+				$dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
+			$this->hash = $xhash['md5'];
+			wfDebugLog( 'Math', 'Hashpath of PNG-File:'.bin2hex($this->hash));
+			$this->conservativeness = $rpage->math_html_conservativeness;
+			$this->html = $rpage->math_html;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
 	 * Renders TeX using texvc
 	 *
 	 * @return string rendered TeK
 	 */
-	public function render() {
+	 function render() {
 		if ( !$this->readCache() ) { // cache miss
 			$result = $this->callTexvc();
-			if ( $result != self::MW_TEXVC_SUCCESS ) {
-				return $result;
+			if ( $result == self::MW_TEXVC_SUCCESS ) {
+				return true;
+			} else {
+				$this->lastError = $result;
+				return false;
 			}
 		}
-		return $this->doHTMLRender();
+		return true;
 	}
 
 	/**
@@ -126,7 +182,7 @@ class MathTexvc extends MathRenderer {
 	 * @return int|string MW_TEXVC_SUCCESS or error string
 	 */
 	public function callTexvc() {
-		global $wgTexvc, $wgTexvcBackgroundColor, $wgUseSquid, $wgMathCheckFiles;
+		global $wgTexvc, $wgTexvcBackgroundColor;
 		$tmpDir = wfTempDir();
 		if ( !is_executable( $wgTexvc ) ) {
 			return $this->getError( 'math_notexvc' );
@@ -137,7 +193,7 @@ class MathTexvc extends MathRenderer {
 		$cmd = $wgTexvc . ' ' .
 			$escapedTmpDir . ' ' .
 			$escapedTmpDir . ' ' .
-			wfEscapeShellArg( $this->getTex() ) . ' ' .
+			wfEscapeShellArg( $this->getUserInputTex() ) . ' ' .
 			wfEscapeShellArg( 'UTF-8' ) . ' ' .
 			wfEscapeShellArg( $wgTexvcBackgroundColor );
 
@@ -175,7 +231,6 @@ class MathTexvc extends MathRenderer {
 			$i = strpos( $outdata, "\000" );
 
 			$this->setHtml( substr( $outdata, 0, $i ) );
-			$this->setMathml( substr( $outdata, $i + 1 ) );
 		} elseif ( ( $retval == 'c' ) || ( $retval == 'm' ) || ( $retval == 'l' ) ) {
 			$this->setHtml( substr( $contents, 33 ) );
 			if ( $retval == 'c' ) {
@@ -185,14 +240,11 @@ class MathTexvc extends MathRenderer {
 			} else {
 				$this->setConservativeness( self::LIBERAL );
 			}
-			$this->setMathml( null );
 		} elseif ( $retval == 'X' ) {
 			$this->setHtml( null );
-			$this->setMathml( substr( $contents, 33 ) );
 			$this->setConservativeness( self::LIBERAL );
 		} elseif ( $retval == '+' ) {
 			$this->setHtml( null );
-			$this->setMathml( null );
 			$this->setConservativeness( self::LIBERAL );
 		} else {
 			$errmsg = $this->convertTexvcError( $contents );
@@ -259,13 +311,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return string HTML string
 	 */
-	public function doHTMLRender() {
-		if ( $this->getMode() == MW_MATH_MATHML && $this->getMathml() != '' ) {
-			return Xml::tags( 'math',
-				$this->getAttributes( 'math',
-					array( 'xmlns' => 'http://www.w3.org/1998/Math/MathML' ) ),
-				$this->mathml );
-		}
+	public function getHtmlOutput() {
 		if ( ( $this->getMode() == MW_MATH_PNG ) || ( $this->getHtml() == '' ) ||
 			( ( $this->getMode() == MW_MATH_SIMPLE ) && ( $this->getConservativeness() != self::CONSERVATIVE ) ) ||
 			( ( $this->getMode() == MW_MATH_MODERN || $this->getMode() == MW_MATH_MATHML ) && ( $this->getConservativeness() == self::LIBERAL ) )
@@ -288,10 +334,6 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function writeCache() {
 		global $wgUseSquid;
-		// If cache hit, don't write anything.
-		if ( $this->isRecall() ) {
-			return;
-		}
 		$this->writeToDatabase();
 		// If we're replacing an older version of the image, make sure it's current.
 		if ( $wgUseSquid ) {
@@ -308,7 +350,7 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function readCache() {
 		global $wgMathCheckFiles;
-		if ( $this->readFromDatabase() ) {
+		if ( $this->readFromDatabase() && $this->hash) {
 			if ( !$wgMathCheckFiles ) {
 				// Short-circuit the file existence & migration checks
 				return true;
@@ -327,5 +369,60 @@ class MathTexvc extends MathRenderer {
 			return false;
 		}
 	}
+	public function getPng(){
+		$backend = $this->getBackend();
+		return $backend->getFileContents( array('src'=>$this->getHashPath(). "/". $this->getHash() . '.png' ) );
+	}
+
+	/**
+	 * Get the hash calculated by texvc
+	 *
+	 * @return string hash
+	 */
+	public function getHash() {
+		return $this->hash;
+	}
+
+	/**
+	 * @param string $hash
+	 */
+	public function setHash( $hash ) {
+		$this->changed = true;
+		$this->hash = $hash;
+	}
+
+	/**
+	 * Returns the html-representation of the mathematical formula.
+	 * @return string
+	 */
+	public function getHtml() {
+		return $this->html;
+	}
+
+	/**
+	 * @param string $html
+	 */
+	public function setHtml( $html ) {
+		$this->changed = true;
+		$this->html = $html;
+	}
+
+		/**
+	 * Gets the so called 'conservativeness' calculated by texvc
+	 *
+	 * @return int
+	 */
+	public function getConservativeness() {
+		return $this->conservativeness;
+	}
+
+	/**
+	 * @param int $conservativeness
+	 */
+	public function setConservativeness( $conservativeness ) {
+		$this->changed = true;
+		$this->conservativeness = $conservativeness;
+	}
+
 
 }
