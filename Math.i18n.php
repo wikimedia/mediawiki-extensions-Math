@@ -2302,6 +2302,7 @@ $messages['lad'] = array(
 
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
+ * @author Soued031
  */
 $messages['lb'] = array(
 	'math_sample' => 'Formel hei asetzen',
@@ -2315,7 +2316,7 @@ $messages['lb'] = array(
 	'math_unknown_function' => "Onbekannte Funktioun '$1'",
 	'math_lexing_error' => "'Lexing'-Feeler",
 	'math_syntax_error' => 'Syntaxfeeler',
-	'math_image_error' => "D'PNG-Konvertéierung huet net fonctionnéiert;
+	'math_image_error' => "D'PNG-Konvertéierung huet net funktionéiert;
 iwwerpréift déi korrekt Installatioun vu LaTeX an dvipng (oder dvips + gs + convert)",
 	'math_bad_tmpdir' => 'Den temporäre Repertire fir mathematesch Formele kann net ugeluecht ginn oder et kann näischt do gespäichert ginn.',
 	'math_bad_output' => 'Den Zilrepertoire fir mathematesch Formele kann net ugeluecht ginn oder et kann näischt do gespäichert ginn.',
@@ -4286,15 +4287,22 @@ $messages['vi'] = array(
 	'mw_math_png' => 'Luôn cho ra dạng hình PNG',
 	'mw_math_source' => 'Để nguyên mã TeX (dành cho trình duyệt văn bản)',
 	'mw_math_mathjax' => 'MathJax (chưa ổn định; được khuyên cho phần nhiều trình duyệt)',
+	'mw_math_latexml' => 'LaTeXML (thử nghiệm; sử dụng MathML)',
 	'math_failure' => 'Không thể phân tích cú pháp',
 	'math_unknown_error' => 'lỗi lạ',
-	'math_unknown_function' => 'hàm lạ', # Fuzzy
+	'math_unknown_function' => 'hàm không rõ “$1”',
 	'math_lexing_error' => 'lỗi chính tả',
 	'math_syntax_error' => 'lỗi cú pháp',
 	'math_image_error' => 'Không chuyển sang định dạng PNG được; xin kiểm tra lại cài đặt latex, dvips, gs, và convert (hoặc dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Không tạo mới hay viết vào thư mục toán tạm thời được',
 	'math_bad_output' => 'Không tạo mới hay viết vào thư mục kết quả được',
 	'math_notexvc' => 'Không thấy hàm thực thi texvc; xin xem math/README để biết cách cấu hình.',
+	'math_output_error' => 'Không thể lưu hình toán học trên hệ thống tập tin.',
+	'math_latexml_timeout' => 'Hết hạn LaTeXML từ “$1”',
+	'math_latexml_invalidresponse' => 'Phản hồi LaTeXML không hợp lệ (“$2”) từ máy chủ “$1”:',
+	'math_latexml_invalidxml' => 'MathML LaTeXML là XML không hợp lệ.',
+	'math_latexml_invalidjson' => 'Phản hồi từ máy chủ LaTeXML là JSON không hợp lệ.',
+	'math_latexml_xmlversion' => 'Cảnh báo: Đã bỏ qua việc kiểm tra kiểu XML! Hãy kiểm tra bản MediaWiki của bạn là phiên bản wmf/1.22wmf7 trở lên.',
 );
 
 /** Upper Franconian (Mainfränkisch)
