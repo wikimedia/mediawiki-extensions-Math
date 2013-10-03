@@ -120,14 +120,17 @@ window.engine = (new (function() {
 		if (this.math === null) {
 			this.buffer.push( [latex, cb] );
 		} else {
-			this.processCB(latex, this.bind(function( ) {
-			var jax = MathJax.Hub.getAllJax(),
-				mergedSVG = this.merge(document.getElementsByTagName('svg')[1].cloneNode(true));
-			toMathML(jax[0],function (mml) {
-				mml = mml;
-				cb([latex, mergedSVG, mml]);
-			});
-			}));
+			try{
+				this.processCB(latex, this.bind(function( ) {
+					var jax = MathJax.Hub.getAllJax(),
+						mergedSVG = this.merge(document.getElementsByTagName('svg')[1].cloneNode(true));
+					toMathML(jax[0],function (mml) {
+						cb([latex, mergedSVG, mml]);
+					});
+				}));
+			} catch (err) {
+				cb([latex, err.message, '-']);
+			}
 		}
 	};
 
