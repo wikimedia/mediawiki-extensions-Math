@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29433135_d176b2a2",
+        "filename": "modules/svgtex/install",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2013-10-03T05:26:54Z",
+      "side": 1,
+      "message": "do we really need a script for this?",
+      "revId": "84eb315ebde3a3e3b3a3cb7ac4a14745353dacef",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29433135_b1492663",
+        "filename": "modules/svgtex/kill",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2013-10-03T05:26:54Z",
+      "side": 1,
+      "message": "argh!",
+      "revId": "84eb315ebde3a3e3b3a3cb7ac4a14745353dacef",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29433135_914c2a73",
+        "filename": "modules/svgtex/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2013-10-03T05:26:54Z",
+      "side": 1,
+      "message": "hmm.. a temporary script I guess",
+      "revId": "84eb315ebde3a3e3b3a3cb7ac4a14745353dacef",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
