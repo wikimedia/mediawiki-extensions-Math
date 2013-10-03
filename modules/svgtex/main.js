@@ -24,23 +24,26 @@ function utf8Strlen(str) {
 
 page.onCallback = function(data) {
 	var out,
+		log = '',
 		record = activeRequests[data[0]],
 		resp = record[0],
 		t = ', took ' + (((new Date()).getTime() - record[1])) + 'ms.';
 
 	if ((typeof data[1]) === 'string') {
 		resp.statusCode = 200;
-		out = JSON.stringify({tex:data[0],svg:data[1],mml:data[2]});
+		log = data[0].substr(0, 30) + '.. ' + data[0].length + 'B query, OK ' + data[1].length  + '/' + data[2].length  + 'B result' + t;
+		out = JSON.stringify({tex:data[0],svg:data[1],mml:data[2],'log':log, 'sucess':true});
 		resp.setHeader('Content-Type', 'application/json');
 		resp.setHeader('Content-Length', utf8Strlen(out) );
 		resp.write(out);
-		console.log(data[0].substr(0, 30) + '.. ' +
-				utf8Strlen( data[0] ) + 'B query, OK ' + utf8Strlen(out) + 'B result' + t);
+		console.log(log);
 	} else {
 		resp.statusCode = 400;
-		resp.write(data[1][0]);
-		console.log(data[0].substr(0, 30) + '.. ' +
-				data[0].length + 'B query, ERR ' + data[1][0] + t);
+		log = data[0].substr(0, 30) + '.. ' +
+		data[0].length + 'B query, ERR ' + data[1][0] + t;
+		out = JSON.stringify({err:data[1][0],svg:data[1],mml:data[2],'log':log,'sucess':false});
+		resp.write(out);
+		console.log(log);
 	}
 	resp.close();
 	if (!(--REQ_TO_LIVE)) {
