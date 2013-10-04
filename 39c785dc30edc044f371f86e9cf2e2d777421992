@@ -52,6 +52,24 @@
       "revId": "39c785dc30edc044f371f86e9cf2e2d777421992",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0932edd2_744c1572",
+        "filename": "Math.hooks.php",
+        "patchSetId": 34
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-10-04T20:25:05Z",
+      "side": 1,
+      "message": "Oh sorry. Of course you are right.\n\nWould it be sufficient to add\nreturn  strtr($renderer-\u003egetLastError(), array( \u0027-{\u0027 \u003d\u003e \u0027-\u0026#123;\u0027, \u0027}-\u0027 \u003d\u003e \u0027\u0026#125;-\u0027 ) );\nor is there more magic happening inside the language classes?",
+      "parentUuid": "0932edd2_51cf2357",
+      "revId": "39c785dc30edc044f371f86e9cf2e2d777421992",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
