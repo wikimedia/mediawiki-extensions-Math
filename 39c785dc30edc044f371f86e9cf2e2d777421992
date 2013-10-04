@@ -34,6 +34,24 @@
       "revId": "39c785dc30edc044f371f86e9cf2e2d777421992",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0932edd2_51cf2357",
+        "filename": "Math.hooks.php",
+        "patchSetId": 34
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 90
+      },
+      "writtenOn": "2013-10-04T18:57:41Z",
+      "side": 1,
+      "message": "Hrm it seems it\u0027s not here. I guess \"markerType\" \u003d\u003e \u0027nowiki\u0027 should be enough (it refers to stripState-\u003eaddNoWiki() the output, right?). However, the `return $renderer-\u003egetLastError();` exit path is returning stuff that will be processed by the converter.",
+      "parentUuid": "0932edd2_517c831c",
+      "revId": "39c785dc30edc044f371f86e9cf2e2d777421992",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
