@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0932edd2_a7b49dd3",
+        "filename": "mathoid/mathoid-worker.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-10-04T23:58:56Z",
+      "side": 1,
+      "message": "This is not needed?",
+      "revId": "10d993d828fb597b0de5d1f810380b2033bee9bc",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0932edd2_c7b991ca",
+        "filename": "mathoid/mathoid.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-10-04T23:58:56Z",
+      "side": 1,
+      "message": "Do we need this?",
+      "revId": "10d993d828fb597b0de5d1f810380b2033bee9bc",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
