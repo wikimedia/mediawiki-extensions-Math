@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0932edd2_7976d33d",
+        "filename": "Math.hooks.php",
+        "patchSetId": 34
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 90
+      },
+      "writtenOn": "2013-10-04T08:30:30Z",
+      "side": 1,
+      "message": "It still seems needed.\n\nTo test it, write \u003cmath\u003e-{1}-\u003c/math\u003e on a wiki with $wgLanguageCode \u003d \u0027zh\u0027; with nothing else configured (so the whole string is echoed back with \u0027texvc missing\u0027 message).",
+      "revId": "39c785dc30edc044f371f86e9cf2e2d777421992",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
