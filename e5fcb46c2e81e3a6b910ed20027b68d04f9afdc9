@@ -16,6 +16,24 @@
       "revId": "e5fcb46c2e81e3a6b910ed20027b68d04f9afdc9",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0932edd2_673385f6",
+        "filename": "modules/svgtex/mathoid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2013-10-04T22:58:06Z",
+      "side": 1,
+      "message": "This is only needed in the master.",
+      "parentUuid": "0932edd2_f49f25fe",
+      "revId": "e5fcb46c2e81e3a6b910ed20027b68d04f9afdc9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
