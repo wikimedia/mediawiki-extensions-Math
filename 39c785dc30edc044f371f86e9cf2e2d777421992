@@ -16,6 +16,24 @@
       "revId": "39c785dc30edc044f371f86e9cf2e2d777421992",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0932edd2_517c831c",
+        "filename": "Math.hooks.php",
+        "patchSetId": 34
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-10-04T18:47:22Z",
+      "side": 1,
+      "message": "Thank you for your comment.\ndoes that even hold for \narray($renderedMath, \"markerType\" \u003d\u003e \u0027nowiki\u0027 )\nThe amourMath changes almost nothing. It would be great if we found a way to make the output final.",
+      "parentUuid": "0932edd2_7976d33d",
+      "revId": "39c785dc30edc044f371f86e9cf2e2d777421992",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
