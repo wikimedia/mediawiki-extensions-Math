@@ -42,7 +42,7 @@ class MathHooks {
 	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgContLang, $wgUseMathJax;
+		global $wgUseMathJax;
 		if ( trim( $content )  === "" ) { // bug 8372
 			return "";
 		}
@@ -55,7 +55,7 @@ class MathHooks {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
 		$renderer->writeCache();
-		return $wgContLang->armourMath( $renderedMath );
+		return $parser->getConverterLanguage()->armourMath( $renderedMath );
 	}
 
 	/**
