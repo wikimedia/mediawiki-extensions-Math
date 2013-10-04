@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0932edd2_f49f25fe",
+        "filename": "modules/svgtex/mathoid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-10-04T22:34:54Z",
+      "side": 1,
+      "message": "Is there a reason for this cf. l11",
+      "revId": "e5fcb46c2e81e3a6b910ed20027b68d04f9afdc9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
