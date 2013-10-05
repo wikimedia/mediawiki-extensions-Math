@@ -41,11 +41,12 @@ page.onCallback = function(data) {
 			data[0].length + 'B query, ERR ' + data[1][0] + t;
 			out = JSON.stringify({err:data[1].message ,'log':log,'sucess':false});
 			resp.write(out);
-			console.log('error'+log);
+			//console.log('error'+log);
 		}catch(err){
 			true;
 		}
 			//shutdown and wait for reboot
+		console.log('committing suicide on port '+PORT);
 		phantom.exit(1);
 	}
 	resp.close();
@@ -72,7 +73,8 @@ page.open('index.html', function ( ) {
       window.engine.process(q, window.callPhantom);
     }, query);
 	}catch(err){
-		console.log('Unhandled error: ' + err.message);
+		//console.log('Unhandled error: ' + err.message);
+		console.log('committing suicide on port '+PORT);
 		phantom.exit(1);
 	}	
   });
@@ -86,5 +88,5 @@ page.open('index.html', function ( ) {
     console.log(".. or by sending tex source in POST (not url encoded)");
   }*/
 });
-
+console.log('READY on port '+PORT);
 

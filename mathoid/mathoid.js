@@ -12,7 +12,7 @@ if (cluster.isMaster) {
 	// long-running request would otherwise hold up all concurrent short requests.
 	var numCPUs = require('os').cpus().length + 3;
 	// Fork workers.
-	for (var i = 0; i < numCPUs; i++) {
+	for (var i = 0; i < 1; i++) {
 		cluster.fork();
 	}
 
