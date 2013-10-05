@@ -34,12 +34,19 @@ page.onCallback = function(data) {
 		resp.write(out);
 		//console.log(log);
 	} else {
-		resp.statusCode = 400;
-		log = data[0].substr(0, 30) + '.. ' +
-		data[0].length + 'B query, ERR ' + data[1][0] + t;
-		out = JSON.stringify({err:data[1][0],svg:data[1],mml:data[2],'log':log,'sucess':false});
-		resp.write(out);
-		//console.log(log);
+		try{
+			// throw "dummy-error"; //test error handling
+			resp.statusCode = 200;
+			log = data[0].substr(0, 30) + '.. ' +
+			data[0].length + 'B query, ERR ' + data[1][0] + t;
+			out = JSON.stringify({err:data[1].message ,'log':log,'sucess':false});
+			resp.write(out);
+			console.log('error'+log);
+		}catch(err){
+			true;
+		}
+			//shutdown and wait for reboot
+		phantom.exit(1);
 	}
 	resp.close();
 };
@@ -57,11 +64,17 @@ page.open('index.html', function ( ) {
 	if (query === undefined) {
 		return resp.close();
 	}
+	console.log('query'+query);
+	try{
     activeRequests[query] = [resp, (new Date()).getTime()];
     // this is just queueing call, it will return at once.
     page.evaluate(function(q) {
       window.engine.process(q, window.callPhantom);
     }, query);
+	}catch(err){
+		console.log('Unhandled error: ' + err.message);
+		phantom.exit(1);
+	}	
   });
 
   if (!service) {
