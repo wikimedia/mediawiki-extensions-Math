@@ -55,48 +55,45 @@ window.engine = (new (function() {
 	// the begining of the DOM, this function should take two
 	// SVGs and return one stand-alone svg which could be
 	// displayed like an image on some different page.
-	this.merge = function(svg) {
-		var uses,
-			copied,
-			k,
-			id,
-			texts,
-			i,
-			tmpDiv,
-			defs = document.getElementById('MathJax_SVG_Hidden')
-			.nextSibling.childNodes[0].cloneNode(false);
+  this.merge = function(svg) {
+    var origDefs = document.getElementById('MathJax_SVG_Hidden')
+      .nextSibling.childNodes[0];
+    var defs = origDefs.cloneNode(false);
 
-		// clone and copy all used paths into local defs.
-		// xlink:href in uses FIX
-		uses = svg.getElementsByTagName('use');
+    // append shalow defs and change xmlns.
+    svg.insertBefore(defs, svg.childNodes[0]);
+    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+
+    // clone and copy all used paths into local defs.
+    // xlink:href in uses FIX
+    var uses = svg.getElementsByTagName("use"),
 		copied = {};
-		for ( k = 0; k < uses.length; ++k) {
-			id = uses[k].getAttribute('href');
-		if (id && copied[id]) {
-			uses[k].setAttribute('xlink:href', id);
-			// Already copied, skip
-			continue;
-		}
-			defs.appendChild(
-				document.getElementById(id.substr(1)).cloneNode(true)
-			);
-			uses[k].setAttribute('xlink:href', id);
-		copied[id] = true;
-		}
+    for (var k = 0; k < uses.length; ++k) {
+      var id = uses[k].getAttribute("href");
+	  if (copied[id]) {
+		  // Already copied, skip
+		  continue;
+	  }
+      defs.appendChild(
+        document.getElementById(id.substr(1)).cloneNode(true)
+      );
+      uses[k].setAttribute("xlink:href", id);
+	  copied[id] = true;
+    }
 
-		// check for errors in svg.
-		texts = document.getElementsByTagName('text', svg);
-		for ( i = 0; i < texts.length; ++i) {
-			if (this.TextIsError(texts[i])) {
-				return [texts[i].textContent];
-			}
-		}
+    // check for errors in svg.
+    var texts = document.getElementsByTagName("text", svg);
+    for (var i = 0; i < texts.length; ++i) {
+      if (this.TextIsError(texts[i])) {
+        return [texts[i].textContent];
+      }
+    }
 
-		svg.style.position = 'static';
-		tmpDiv = document.createElement('div');
-		tmpDiv.appendChild(svg);
-		return tmpDiv.innerHTML;
-	};
+    svg.style.position = "static";
+    var tmpDiv = document.createElement('div');
+    tmpDiv.appendChild(svg);
+    return tmpDiv.innerHTML;
+  };
 
 	// if someone calls process before init is complete,
 	// that call will be stored into buffer. After the init
