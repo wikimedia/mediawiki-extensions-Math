@@ -70,6 +70,24 @@
       "revId": "39c785dc30edc044f371f86e9cf2e2d777421992",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0932edd2_2a10744e",
+        "filename": "Math.hooks.php",
+        "patchSetId": 34
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 90
+      },
+      "writtenOn": "2013-10-05T08:11:54Z",
+      "side": 1,
+      "message": "I didn\u0027t track how getLastError works for other markups (for example, \"\u003c\" \"\u003e\"), but in theory you can just wfEscapeWikitext() it, if you think that\u0027s not too aggressive (it does much more replacing than -{ }- and \u003c \u003e).",
+      "parentUuid": "0932edd2_744c1572",
+      "revId": "39c785dc30edc044f371f86e9cf2e2d777421992",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
