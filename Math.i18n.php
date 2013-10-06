@@ -2870,11 +2870,14 @@ $messages['nds'] = array(
  * @author Servien
  */
 $messages['nds-nl'] = array(
-	'math_sample' => 'a^2 + b^2 = c^2',
+	'math-desc' => 'Wiskundige formules tussen <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-etiketten zetten',
+	'math_sample' => 'Voer de formule in',
 	'math_tip' => 'Wiskundige formule (in LaTeX)',
 	'prefs-math' => 'Wiskundige formules',
-	'mw_math_png' => 'Altied as PNG weergeven',
-	'mw_math_source' => 'Laot TeX-bronkode staon (veur tekstblaojeraars)',
+	'mw_math_png' => 'Altied as PNG laoten zien',
+	'mw_math_source' => 'Laot TeX-bronkode staon (veur tekstwebkiekers)',
+	'mw_math_mathjax' => 'MathJax (experimenteel; t beste veur de meeste webkiekers)',
+	'mw_math_latexml' => 'LaTeXML (experimenteel; gebruukt MathML)',
 	'math_failure' => 'Wiskundige formule niet begriepelik',
 	'math_unknown_error' => 'Onbekende fout in formule',
 	'math_unknown_function' => 'onbekende funksie "$1"',
@@ -2884,6 +2887,12 @@ $messages['nds-nl'] = array(
 	'math_bad_tmpdir' => 'De map veur tiedelike bestaanden veur wiskundige formules besteet niet of is kan niet an-emaakt wörden.',
 	'math_bad_output' => 'De map veur wiskundebestaanden besteet niet of is niet an te maken.',
 	'math_notexvc' => 'Kan t programma texvc niet vienen; configureer volgens de beschrieving in math/README.',
+	'math_output_error' => 'De formule-aofbeelding kan niet op t bestaandssysteem op-esleugen wörden.',
+	'math_latexml_timeout' => 'LaTeXML: tiedsoverschriejing van "$1"',
+	'math_latexml_invalidresponse' => 'LaTeXML: ongeldig antwoord ("$2") van server "$1":',
+	'math_latexml_invalidxml' => 'LaTeXML: MathML is ongeldige XML.',
+	'math_latexml_invalidjson' => 'LaTeXML: t antwoord van de server is ongeldige JSON.',
+	'math_latexml_xmlversion' => 'Waorschuwing: XML-typekontraole overesleugen. Kiek nao of joew MediaWiki-installasie versie 1.22wmf7 of laoter is.',
 );
 
 /** Nepali (नेपाली)
