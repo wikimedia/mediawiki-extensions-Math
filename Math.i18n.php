@@ -1128,6 +1128,7 @@ $messages['ext'] = array(
 
 /** Persian (فارسی)
  * @author Huji
+ * @author Omidh
  * @author ZxxZxxZ
  */
 $messages['fa'] = array(
@@ -1140,7 +1141,7 @@ $messages['fa'] = array(
 	'mw_math_mathjax' => 'MathJax (آزمایشی؛ بهترین برای بیشتر مرورگرها)',
 	'math_failure' => 'شکست در تجزیه',
 	'math_unknown_error' => 'خطای ناشناخته',
-	'math_unknown_function' => 'تابع ناشناختهٔ', # Fuzzy
+	'math_unknown_function' => "تابع ناشناختهٔ '$1'",
 	'math_lexing_error' => 'خطای lexing',
 	'math_syntax_error' => 'خطای نحوی',
 	'math_image_error' => 'تبدیل به PNG شکست خورد؛ از نصب درست لاتکس و dvipng (یا dvips و gs و convert) اطمینان حاصل کنید',
@@ -1520,7 +1521,7 @@ $messages['ha'] = array(
 	'math_tip' => 'Haɗin lissafi (LaTeX)',
 );
 
-/** Hakka (Hak-kâ-fa)
+/** Hakka (客家語/Hak-kâ-ngî)
  * @author Hakka
  */
 $messages['hak'] = array(
@@ -2269,7 +2270,7 @@ $messages['kw'] = array(
 	'math_tip' => 'Furvel galkoriethek (LaTeX)',
 );
 
-/** Kirghiz (Кыргызча)
+/** Kyrgyz (Кыргызча)
  */
 $messages['ky'] = array(
 	'math_unknown_error' => 'белгисиз ката',
