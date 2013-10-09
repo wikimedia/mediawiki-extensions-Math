@@ -50,11 +50,11 @@ var startBackend = function () {
 	var backendCB = function (err, stdout, stderr) {
 		if (err) {
 			restarts--;
-			if (restarts > 0) {
+			if (true || restarts > 0) {
 				startBackend();
 			}
 			console.error(err.toString());
-			process.exit(1);
+			//process.exit(1);
 		}
 	};
 	backendPort = Math.floor(9000 + Math.random() * 50000);
@@ -111,7 +111,20 @@ function handleRequest(req, res, tex) {
 		};
 	var chunks = [];
 	//console.log(options);
+	function errorHandler(err, code) {
+		res.writeHead(code || 500);
+		res.end();
+		// don't retry the request
+		requestQueue.shift();
+		startBackend();
+		return handleRequests();
+	}
 	var httpreq = http.request(options, function(httpres) {
+		if (httpres.statusCode !== 200) {
+			return errorHandler('Backend error', httpres.statusCode);
+		}
+		httpres.setTimeout(1000, errorHandler);
+
 		httpres.on('data', function(chunk) {
 			chunks.push(chunk);
 		});
@@ -128,11 +141,7 @@ function handleRequest(req, res, tex) {
 			handleRequests();
 		});
 	});
-	httpreq.on('error', function(err) {
-		console.log('error', err.toString());
-		res.writeHead(500);
-		return res.end(JSON.stringify({error: "Backend error: " + err.toString()}));
-	});
+	httpreq.on('error', errorHandler);
 
 	httpreq.end(query);
 }
