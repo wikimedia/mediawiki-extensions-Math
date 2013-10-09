@@ -10,6 +10,7 @@ var express = require('express'),
 	http = require('http'),
 	fs = require('fs'),
 	child_process = require('child_process'),
+	request = require('request'),
 	querystring = require('querystring');
 
 var config;
@@ -50,17 +51,17 @@ var startBackend = function () {
 	var backendCB = function (err, stdout, stderr) {
 		if (err) {
 			restarts--;
-			if (restarts > 0) {
+			if (true || restarts > 0) {
 				startBackend();
 			}
 			console.error(err.toString());
-			process.exit(1);
+			//process.exit(1);
 		}
 	};
 	backendPort = Math.floor(9000 + Math.random() * 50000);
 	console.error(instanceName + ': Starting backend on port ' + backendPort);
 	backend = child_process.exec('phantomjs main.js ' + backendPort, backendCB);
-	backend.stdout.pipe(process.stdout);
+	backend.stdout.pipe(process.stderr);
 	backend.stderr.pipe(process.stderr);
 };
 startBackend();
@@ -96,45 +97,43 @@ var handleRequests = function() {
 
 function handleRequest(req, res, tex) {
 	// do the backend request
-	var query = new Buffer(querystring.stringify({tex:tex})),
+	var reqbody = new Buffer(querystring.stringify({tex: tex})),
 		options = {
-			hostname: 'localhost',
-			port: backendPort.toString(),
-			path: '/',
-			method: 'POST',
-			headers: {
-				'Content-Length': query.length,
-				'Content-Type': 'application/x-www-form-urlencoded',
-				'Connection': 'close'
-			},
-			agent: false
-		};
-	var chunks = [];
-	//console.log(options);
-	var httpreq = http.request(options, function(httpres) {
-		httpres.on('data', function(chunk) {
-			chunks.push(chunk);
-		});
-		httpres.on('end', function() {
-			var buf = Buffer.concat(chunks);
-			res.writeHead(200,
-			{
-				'Content-type': 'application/json',
-				'Content-length': buf.length
-			});
-			res.write(buf);
-			res.end();
+		method: 'POST',
+		uri: 'http://localhost:' + backendPort.toString() + '/',
+		body: reqbody,
+		headers: {
+			'Content-Length': reqbody.length,
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
+		timeout: 2000
+	};
+	request(options, function (err, response, body) {
+		if (err) {
+			var errBuf = new Buffer(JSON.stringify({
+				tex: tex,
+				error: err.toString()
+			}));
+			res.writeHead(500,
+				{
+					'Content-Type': 'application/json',
+					'Content-Length': errBuf.length
+				});
+			res.end(errBuf);
+			// don't retry the request
 			requestQueue.shift();
-			handleRequests();
-		});
+			startBackend();
+			return handleRequests();
+		}
+		res.writeHead(200,
+			{
+				'Content-Type': 'application/json',
+				'Content-length': body.length
+			});
+		res.end(body);
+		requestQueue.shift();
+		handleRequests();
 	});
-	httpreq.on('error', function(err) {
-		console.log('error', err.toString());
-		res.writeHead(500);
-		return res.end(JSON.stringify({error: "Backend error: " + err.toString()}));
-	});
-
-	httpreq.end(query);
 }
 
 app.post(/^\/$/, function ( req, res ) {
