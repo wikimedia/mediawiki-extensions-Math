@@ -57,7 +57,7 @@ window.engine = (new (function() {
 	// displayed like an image on some different page.
 	this.merge = function(svg) {
 		var uses,
-			copied,
+			copied = {},
 			k,
 			id,
 			texts,
@@ -69,19 +69,18 @@ window.engine = (new (function() {
 		// clone and copy all used paths into local defs.
 		// xlink:href in uses FIX
 		uses = svg.getElementsByTagName('use');
-		copied = {};
 		for ( k = 0; k < uses.length; ++k) {
 			id = uses[k].getAttribute('href');
-		if (id && copied[id]) {
-			uses[k].setAttribute('xlink:href', id);
-			// Already copied, skip
-			continue;
-		}
+			if (id && copied[id]) {
+				uses[k].setAttribute('xlink:href', id);
+				// Already copied, skip
+				continue;
+			}
 			defs.appendChild(
-				document.getElementById(id.substr(1)).cloneNode(true)
-			);
+					document.getElementById(id.substr(1)).cloneNode(true)
+					);
 			uses[k].setAttribute('xlink:href', id);
-		copied[id] = true;
+			copied[id] = true;
 		}
 
 		// check for errors in svg.
@@ -94,6 +93,7 @@ window.engine = (new (function() {
 
 		svg.style.position = 'static';
 		tmpDiv = document.createElement('div');
+		tmpDiv.appendChild(defs);
 		tmpDiv.appendChild(svg);
 		return tmpDiv.innerHTML;
 	};
@@ -125,7 +125,7 @@ window.engine = (new (function() {
 					});
 				}));
 			} catch (err) {
-				cb([latex, err.message, '-']);
+				cb([latex, err, err]);
 			}
 		}
 	};
