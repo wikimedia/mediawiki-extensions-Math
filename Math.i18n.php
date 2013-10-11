@@ -1633,6 +1633,7 @@ $messages['hil'] = array(
 
 /** Croatian (hrvatski)
  * @author Herr Mlinka
+ * @author MaGa
  * @author Roberta F.
  * @author SpeedyGonsales
  */
@@ -1642,6 +1643,7 @@ $messages['hr'] = array(
 	'prefs-math' => 'Prikaz matematičkih formula',
 	'mw_math_png' => 'Uvijek kao PNG',
 	'mw_math_source' => 'Ostavi u formatu TeX (za tekstualne preglednike)',
+	'mw_math_mathjax' => 'MathJax (eksperimentalno; najbolje za većinu preglednika)',
 	'math_failure' => 'Obrada nije uspjela.',
 	'math_unknown_error' => 'nepoznata pogrješka',
 	'math_unknown_function' => 'nepoznata funkcija', # Fuzzy
