@@ -93,8 +93,8 @@ window.engine = (new (function() {
 
 		svg.style.position = 'static';
 		tmpDiv = document.createElement('div');
-		tmpDiv.appendChild(defs);
 		tmpDiv.appendChild(svg);
+		svg.insertBefore(defs, svg.firstChild);
 		return tmpDiv.innerHTML;
 	};
 
