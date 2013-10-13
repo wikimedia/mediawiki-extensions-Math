@@ -92,6 +92,7 @@ window.engine = (new (function() {
 		}
 
 		svg.style.position = 'static';
+		svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 		tmpDiv = document.createElement('div');
 		tmpDiv.appendChild(svg);
 		svg.insertBefore(defs, svg.firstChild);
