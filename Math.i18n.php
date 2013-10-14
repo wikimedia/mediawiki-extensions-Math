@@ -35,11 +35,11 @@ $messages['en'] = array(
 	'math_bad_output' => 'Cannot write to or create math output directory',
 	'math_notexvc' => 'Missing texvc executable; please see math/README to configure.',
 	'math_output_error' => 'Cannot store math image on filesystem.',
-	'math_latexml_timeout' => 'LaTeXML Timeout from \'$1\'',
+	'math_latexml_timeout' => 'LaTeXML timeout from \'$1\'',
 	'math_latexml_invalidresponse' => 'LaTeXML Invalid response (\'$2\') from server \'$1\':',
 	'math_latexml_invalidxml' => 'LaTeXML MathML is invalid XML.',
 	'math_latexml_invalidjson'  => 'LaTeXML Server response is invalid JSON.',
-	'math_latexml_xmlversion' => 'Warning: XML Type check skipped! Check if your MediaWiki installation is version wmf/1.22wmf7 or newer.'
+	'math_latexml_xmlversion' => 'Warning: XML type check skipped! Check if your MediaWiki installation is version wmf/1.22wmf7 or newer.'
 );
 
 /** Message documentation (Message documentation)
