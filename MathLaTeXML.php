@@ -87,7 +87,7 @@ class MathLaTeXML extends MathRenderer {
 			$dbres = $this->readFromDatabase();
 			if ( $dbres ) {
 				if ( self::isValidMathML( $this->getMathml() ) ) {
-					wfDebugLog( "Math", "Valid entry found in database." );
+					wfDebugLog( "Math-verbose", "Valid entry found in database." );
 					return false;
 				} else {
 					wfDebugLog( "Math", "Malformatted entry found in database" );
@@ -164,7 +164,7 @@ class MathLaTeXML extends MathRenderer {
 		} else {
 			$host = $wgLaTeXMLUrl;
 		}
-		wfDebugLog( "Math", "picking host " . $host );
+		wfDebugLog( "Math-verbose", "picking host " . $host );
 		return $host;
 	}
 

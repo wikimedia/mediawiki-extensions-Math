@@ -46,7 +46,7 @@ class MathTexvc extends MathRenderer {
 	public function getHashPath() {
 		$path = $this->getBackend()->getRootStoragePath() .
 			'/math-render/' . $this->getHashSubPath();
-		wfDebugLog("Math", "TeX: getHashPath, hash is: {$this->getHash()}, path is: $path\n" );
+		wfDebugLog("Math-verbose", "TeX: getHashPath, hash is: {$this->getHash()}, path is: $path\n" );
 		return $path;
 	}
 
@@ -147,7 +147,7 @@ class MathTexvc extends MathRenderer {
 		}
 		wfDebugLog( 'Math', "TeX: $cmd\n" );
 		$contents = wfShellExec( $cmd );
-		wfDebugLog( 'Math', "TeX output:\n $contents\n---\n" );
+		wfDebugLog( 'Math-verbose', "TeX output:\n $contents\n---\n" );
 
 		if ( strlen( $contents ) == 0 ) {
 			if ( !file_exists( $tmpDir ) || !is_writable( $tmpDir ) ) {

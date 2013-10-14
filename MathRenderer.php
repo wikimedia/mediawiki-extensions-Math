@@ -93,7 +93,7 @@ abstract class MathRenderer {
 			default:
 				$renderer = new MathTexvc( $tex, $params );
 		}
-		wfDebugLog ( "Math", 'start rendering $' . $renderer->tex . '$ in mode ' . $mode );
+		wfDebugLog ( "Math-verbose", 'start rendering $' . $renderer->tex . '$ in mode ' . $mode );
 		return $renderer;
 	}
 
@@ -222,7 +222,7 @@ abstract class MathRenderer {
 		$out = array( 'math_inputhash' => $this->getInputHash(), 'math_outputhash' => $outmd5_sql,
 				'math_html_conservativeness' => $this->conservativeness, 'math_html' => $this->html,
 				'math_mathml' => utf8_encode( $this->mathml ) );
-		wfDebugLog( "Math", "Store Data:" . var_export( $out, true ) . "\n\n" );
+		wfDebugLog( "Math-verbose", "Store Data:" . var_export( $out, true ) . "\n\n" );
 		return $out;
 	}
 
