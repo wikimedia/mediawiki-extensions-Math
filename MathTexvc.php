@@ -129,6 +129,7 @@ class MathTexvc extends MathRenderer {
 		global $wgTexvc, $wgTexvcBackgroundColor, $wgUseSquid, $wgMathCheckFiles;
 		$tmpDir = wfTempDir();
 		if ( !is_executable( $wgTexvc ) ) {
+			wfDebugLog( 'texvc', "$wgTexvc does not exist or is not executable." );
 			return $this->getError( 'math_notexvc' );
 		}
 
@@ -146,13 +147,17 @@ class MathTexvc extends MathRenderer {
 			$cmd = 'sh -c ' . wfEscapeShellArg( $cmd );
 		}
 		wfDebugLog( 'Math', "TeX: $cmd\n" );
-		$contents = wfShellExec( $cmd );
+		wfDebugLog( 'texvc', "Executing '$cmd'." );
+		$retval = null;
+		$contents = wfShellExec( $cmd, $retval );
 		wfDebugLog( 'Math', "TeX output:\n $contents\n---\n" );
 
 		if ( strlen( $contents ) == 0 ) {
 			if ( !file_exists( $tmpDir ) || !is_writable( $tmpDir ) ) {
+				wfDebugLog( 'texvc', "TeX output directory $tmpDir is missing or not writable" );
 				return $this->getError( 'math_bad_tmpdir' );
 			} else {
+				wfDebugLog( 'texvc', "TeX command '$cmd' returned no output and status code $retval." );
 				return $this->getError( 'math_unknown_error' );
 			}
 		}
