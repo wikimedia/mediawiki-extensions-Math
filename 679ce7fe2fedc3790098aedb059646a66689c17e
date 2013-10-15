@@ -16,6 +16,24 @@
       "revId": "679ce7fe2fedc3790098aedb059646a66689c17e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0932edd2_ec347fac",
+        "filename": "MathTexvc.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 255
+      },
+      "writtenOn": "2013-10-15T08:41:51Z",
+      "side": 1,
+      "message": "Unfortunately the Math log group is very verbose even when things are working properly; there are many debug statements that describe ordinary conditions. As a result, on the Wikimedia production cluster it generates over a megabyte a minute.",
+      "parentUuid": "0932edd2_8cc3038c",
+      "revId": "679ce7fe2fedc3790098aedb059646a66689c17e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
