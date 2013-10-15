@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0932edd2_8cc3038c",
+        "filename": "MathTexvc.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-10-15T08:35:14Z",
+      "side": 1,
+      "message": "I\u0027d prefere log group Math rather than texvc so that all debug messages go to the same group",
+      "revId": "679ce7fe2fedc3790098aedb059646a66689c17e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
