@@ -2324,6 +2324,7 @@ iwwerpréift déi korrekt Installatioun vu LaTeX an dvipng (oder dvips + gs + co
 	'math_bad_tmpdir' => 'Den temporäre Repertire fir mathematesch Formele kann net ugeluecht ginn oder et kann näischt do gespäichert ginn.',
 	'math_bad_output' => 'Den Zilrepertoire fir mathematesch Formele kann net ugeluecht ginn oder et kann näischt do gespäichert ginn.',
 	'math_notexvc' => 'Den texvc Programm feelt: Liest w.e.g. math/README fir en anzestellen.',
+	'math_latexml_xmlversion' => "Opgepasst: D'Kontroll vum Typ vun XML gouf iwwersprong! Kuckt no op Är MediaWiki Installatioun ass an der Versioun wmf/1.22wmf7 oder méi rezent.",
 );
 
 /** Lingua Franca Nova (Lingua Franca Nova)
