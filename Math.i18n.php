@@ -4500,6 +4500,7 @@ $messages['zea'] = array(
 );
 
 /** Simplified Chinese (中文（简体）‎)
+ * @author Liuxinyu970226
  * @author Xiaomingyan
  * @author Yfdyh000
  */
@@ -4521,6 +4522,8 @@ $messages['zh-hans'] = array(
 	'math_bad_output' => '无法写入或建立数学公式输出目录',
 	'math_notexvc' => '"texvc"执行文件遗失；请参照math/README进行配置。',
 	'math_output_error' => '无法在文件系统上存储数学图像。',
+	'math_latexml_timeout' => "从'$1'的LaTeXML超时",
+	'math_latexml_xmlversion' => '警告：XML类型检查被跳过！请检查您所安装的MediaWiki版本是否wmf/1.22wmf7或更高。',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
