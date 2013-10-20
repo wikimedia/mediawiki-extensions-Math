@@ -685,7 +685,7 @@ $messages['ca'] = array(
  */
 $messages['cdo'] = array(
 	'prefs-math' => '數學',
-	'math_unknown_error' => '𣍐八其鄭',
+	'math_unknown_error' => '𣍐八其賺',
 	'math_unknown_function' => '𣍐八其函數「$1」',
 );
 
