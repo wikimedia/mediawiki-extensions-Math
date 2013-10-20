@@ -1,0 +1,9 @@
+# Compiled source
+*.mli
+!tex.mli
+*.cmi
+*.cmx
+*.o
+
+# The binaries
+texvccheck
