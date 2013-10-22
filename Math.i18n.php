@@ -3401,6 +3401,7 @@ pe piacere vide math/README pe configurà.',
  * @author KPu3uC B Poccuu
  * @author Kalan
  * @author MaxSem
+ * @author Okras
  */
 $messages['ru'] = array(
 	'math-desc' => 'Отображает математические формулы в тегах <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
@@ -3410,6 +3411,7 @@ $messages['ru'] = array(
 	'mw_math_png' => 'Всегда генерировать PNG',
 	'mw_math_source' => 'Оставить в разметке ТеХ (для текстовых браузеров)',
 	'mw_math_mathjax' => 'MathJax (экспериментальная опция, оптимальная для большинства браузеров)',
+	'mw_math_latexml' => 'LaTeXML (экспериментальный; использует MathML)',
 	'math_failure' => 'Невозможно разобрать выражение',
 	'math_unknown_error' => 'неизвестная ошибка',
 	'math_unknown_function' => 'неизвестная функция «$1»',
@@ -3419,6 +3421,12 @@ $messages['ru'] = array(
 	'math_bad_tmpdir' => 'Не удаётся создать или записать во временный каталог математики',
 	'math_bad_output' => 'Не удаётся создать или записать в выходной каталог математики',
 	'math_notexvc' => 'Выполняемый файл texvc не найден; См. math/README — справку по настройке.',
+	'math_output_error' => 'Не удаётся сохранить математическое изображение в файловой системе.',
+	'math_latexml_timeout' => "Истекло время ожидания LaTeXML от '$1'",
+	'math_latexml_invalidresponse' => "Недопустимый ответ LaTeXML ('$2') от сервера '$1':",
+	'math_latexml_invalidxml' => 'LaTeXML MathML содержит недопустимый XML-код.',
+	'math_latexml_invalidjson' => 'Серверный ответ LaTeXML — в неверном JSON-формате.',
+	'math_latexml_xmlversion' => 'Внимание: проверка XML-формата пропущена! Проверьте, что ваша MediaWiki имеет версию wmf/1.22wmf7 или более позднюю.',
 );
 
 /** Rusyn (русиньскый)
