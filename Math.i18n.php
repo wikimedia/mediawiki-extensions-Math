@@ -1979,7 +1979,7 @@ $messages['ka'] = array(
 	'mw_math_mathjax' => 'MathJax (ექსპერიმენტული; ყველაზე შესაფერისი ბრაუზერების უმეტესობისათვის)',
 	'math_failure' => 'შეუძლებელია გამონათქვამის გარჩევაშ',
 	'math_unknown_error' => 'უცნობი შეცდომა',
-	'math_unknown_function' => 'უცნობი ფუნქცია', # Fuzzy
+	'math_unknown_function' => 'უცნობი ფუნქცია „$1“',
 	'math_lexing_error' => 'ლექსიკური შეცდომა',
 	'math_syntax_error' => 'სინტაქსი არასწორია',
 	'math_image_error' => 'PNG-ში გარდაქმნისას წარმოიშვა შეცდომა; შეამოწმეთ latex, dvips, gs და convert-ის დაყენების სისწორე',
@@ -2462,6 +2462,7 @@ $messages['lus'] = array(
 );
 
 /** Latvian (latviešu)
+ * @author Edgars2007
  * @author Marozols
  * @author Papuass
  * @author Yyy
@@ -2472,6 +2473,7 @@ $messages['lv'] = array(
 	'prefs-math' => 'Formulas',
 	'mw_math_png' => 'Vienmēr attēlot PNG',
 	'mw_math_source' => 'Saglabāt kā TeX (teksta pārlūkiem)',
+	'mw_math_mathjax' => 'MathJax (eksperimentāls; labākais variants lielākajai daļai pārlūku)',
 	'math_failure' => 'Parsēšanas kļūda',
 	'math_unknown_error' => 'nezināma kļūda',
 	'math_unknown_function' => "nezināma funkcija '$1'",
