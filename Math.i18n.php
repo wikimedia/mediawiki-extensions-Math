@@ -3774,6 +3774,7 @@ $messages['sr-ec'] = array(
 	'prefs-math' => 'Приказ математичких формула',
 	'mw_math_png' => 'Увек прикажи као PNG',
 	'mw_math_source' => 'Остави у формату ТеХ (за текстуалне прегледаче)',
+	'mw_math_mathjax' => 'MathJax (експериментално; најбоље за већину прегледача)',
 	'math_failure' => 'Рашчлањивање није успело',
 	'math_unknown_error' => 'непозната грешка',
 	'math_unknown_function' => "непозната функција '$1'",
@@ -3786,13 +3787,15 @@ $messages['sr-ec'] = array(
 );
 
 /** Serbian (Latin script) (srpski (latinica)‎)
+ * @author Milicevic01
  */
 $messages['sr-el'] = array(
 	'math_sample' => 'Ovde unesite formulu',
 	'math_tip' => 'Matematička formula (LaTeX)',
-	'prefs-math' => 'Matematike',
+	'prefs-math' => 'Prikaz matematičkih formula',
 	'mw_math_png' => 'Uvek prikaži PNG',
-	'mw_math_source' => 'Ostavi kao TeH (za tekstualne brauzere)',
+	'mw_math_source' => 'Ostavi u formatu ТеХ (za tekstualne pregledače)',
+	'mw_math_mathjax' => 'MathJax (eksperimentalno; najbolje za većinu pregledača)',
 	'math_failure' => 'Neuspeh pri parsiranju',
 	'math_unknown_error' => 'nepoznata greška',
 	'math_unknown_function' => 'nepoznata funkcija', # Fuzzy
