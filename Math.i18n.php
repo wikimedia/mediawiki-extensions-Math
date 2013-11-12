@@ -930,12 +930,13 @@ $messages['de'] = array(
 /** Zazaki (Zazaki)
  * @author Aspar
  * @author Erdemaslancan
+ * @author Gorizon
  * @author Xoser
  */
 $messages['diq'] = array(
 	'math_sample' => 'Formula itiya ra bınus',
 	'math_tip' => 'Formulayo Matematik (LaTeX)',
-	'prefs-math' => 'Math',
+	'prefs-math' => 'Matematigane simgey',
 	'mw_math_png' => 'Herzeman PNG render bike',
 	'mw_math_source' => 'Bi TeX biman (qe nuşte browseroği)',
 	'math_failure' => 'Parse de ğeleti biyo',
@@ -4513,6 +4514,7 @@ $messages['zea'] = array(
 );
 
 /** Simplified Chinese (中文（简体）‎)
+ * @author Hzy980512
  * @author Liuxinyu970226
  * @author Xiaomingyan
  * @author Yfdyh000
@@ -4525,6 +4527,7 @@ $messages['zh-hans'] = array(
 	'mw_math_png' => '总生成PNG',
 	'mw_math_source' => '显示TeX代码（供文字浏览器使用）',
 	'mw_math_mathjax' => 'MathJax（实验性；适合大多数浏览器）',
+	'mw_math_latexml' => 'LaTeXML（实验性；使用MathML）',
 	'math_failure' => '解析失败',
 	'math_unknown_error' => '未知错误',
 	'math_unknown_function' => "未知函数 '$1'",
@@ -4536,6 +4539,9 @@ $messages['zh-hans'] = array(
 	'math_notexvc' => '"texvc"执行文件遗失；请参照math/README进行配置。',
 	'math_output_error' => '无法在文件系统上存储数学图像。',
 	'math_latexml_timeout' => "从'$1'的LaTeXML超时",
+	'math_latexml_invalidresponse' => 'LaTeXML从服务器“$1”返回无效的响应（“$2”）：',
+	'math_latexml_invalidxml' => 'LaTeXML MathML是无效的XML。',
+	'math_latexml_invalidjson' => 'LaTeXML服务器响应是无效的JSON。',
 	'math_latexml_xmlversion' => '警告：XML类型检查被跳过！请检查您所安装的MediaWiki版本是否wmf/1.22wmf7或更高。',
 );
 
