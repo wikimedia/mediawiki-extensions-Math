@@ -63,16 +63,20 @@ class MathLaTeXML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	public function render( $forceReRendering = false ) {
+		wfProfileIn( __METHOD__ );
 		if ( $forceReRendering ) {
 			$this->setPurge( true );
 		}
 		if ( $this->renderingRequired() ) {
 			$res = $this->doRender( );
 			if ( ! $res ) {
+				wfProfileOut( __METHOD__ );
 				return $this->getLastError();
 			}
 		}
-		return $this->getMathMLTag();
+		$result = $this->getMathMLTag();
+		wfProfileOut( __METHOD__ );
+		return $result;
 	}
 
 	/**
@@ -115,6 +119,8 @@ class MathLaTeXML extends MathRenderer {
 	 */
 	public function makeRequest( $host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest' ) {
 		global $wgLaTeXMLTimeout;
+
+		wfProfileIn( __METHOD__ );
 		$error = '';
 		$res = null;
 		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgLaTeXMLTimeout );
@@ -122,6 +128,7 @@ class MathLaTeXML extends MathRenderer {
 		$status = $req->execute();
 		if ( $status->isGood() ) {
 			$res = $req->getContent();
+			wfProfileOut( __METHOD__ );
 			return true;
 		} else {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
@@ -138,6 +145,7 @@ class MathLaTeXML extends MathRenderer {
 					. var_export( array( 'post' => $post, 'host' => $host
 						, 'errormsg' => $errormsg ), true ) . "\n\n" );
 			}
+			wfProfileOut( __METHOD__ );
 			return false;
 		}
 	}
@@ -183,6 +191,7 @@ class MathLaTeXML extends MathRenderer {
 	 * @return boolean
 	 */
 	private function doRender( ) {
+		wfProfileIn( __METHOD__ );
 		$host = self::pickHost();
 		$post = $this->getPostData();
 		$this->lastError = '';
@@ -191,6 +200,7 @@ class MathLaTeXML extends MathRenderer {
 			if ( json_last_error() === JSON_ERROR_NONE ) {
 				if ( self::isValidMathML( $result->result ) ) {
 					$this->setMathml( $result->result );
+					wfProfileOut( __METHOD__ );
 					return true;
 				} else {
 					// Do not print bad mathml. It's probably too verbose and might
@@ -199,6 +209,7 @@ class MathLaTeXML extends MathRenderer {
 					wfDebugLog( "Math", "\nLaTeXML InvalidMathML:"
 						. var_export( array( 'post' => $post, 'host' => $host
 							, 'result' => $result ), true ) . "\n\n" );
+					wfProfileOut( __METHOD__ );
 					return false;
 				}
 			} else {
@@ -206,10 +217,12 @@ class MathLaTeXML extends MathRenderer {
 					wfDebugLog( "Math", "\nLaTeXML InvalidJSON:"
 						. var_export( array( 'post' => $post, 'host' => $host
 							, 'res' => $res ), true ) . "\n\n" );
+					wfProfileOut( __METHOD__ );
 					return false;
 				}
 		} else {
 			// Error message has already been set.
+			wfProfileOut( __METHOD__ );
 			return false;
 		}
 	}

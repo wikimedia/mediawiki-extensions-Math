@@ -140,6 +140,7 @@ abstract class MathRenderer {
 	 * @return boolean true if read successfully, false otherwise
 	 */
 	public function readFromDatabase() {
+		wfProfileIn( __METHOD__ );
 		$dbr = wfGetDB( DB_SLAVE );
 		$rpage = $dbr->selectRow( 'math', $this->dbInArray(),
 			array( 'math_inputhash' => $this->getInputHash() ), __METHOD__ );
@@ -151,15 +152,18 @@ abstract class MathRenderer {
 				wfDebugLog( 'Math', $msg );
 				// If we can not check if mathml output is valid, we skip the test and assume that it is valid.
 				$this->recall = true;
+				wfProfileOut( __METHOD__ );
 				return true;
 			} elseif ( StringUtils::isUtf8( $this->mathml ) ) {
 				$this->recall = true;
+				wfProfileOut( __METHOD__ );
 				return true;
 			}
 		}
 
 		# Missing from the database and/or the render cache
 		$this->recall = false;
+		wfProfileOut( __METHOD__ );
 		return false;
 	}
 	/**

@@ -46,6 +46,7 @@ class MathHooks {
 		if ( trim( $content )  === "" ) { // bug 8372
 			return "";
 		}
+		wfProfileIn( __METHOD__ );
 		$mode = $parser->getOptions()->getMath();
 		$renderer = MathRenderer::getRenderer(
 			$content, $attributes, $mode
@@ -55,7 +56,9 @@ class MathHooks {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
 		$renderer->writeCache();
-		return $wgContLang->armourMath( $renderedMath );
+		$result = $wgContLang->armourMath( $renderedMath );
+		wfProfileOut( __METHOD__ );
+		return $result;
 	}
 
 	/**
