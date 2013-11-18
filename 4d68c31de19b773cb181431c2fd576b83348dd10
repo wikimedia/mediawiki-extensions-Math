@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "291c1151_9855aafb",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-11-18T11:21:59Z",
+      "side": 1,
+      "message": "Do you think this style is better?",
+      "revId": "4d68c31de19b773cb181431c2fd576b83348dd10",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
