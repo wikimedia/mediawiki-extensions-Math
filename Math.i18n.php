@@ -589,6 +589,7 @@ $messages['bn'] = array(
 	'prefs-math' => 'গণিত',
 	'mw_math_png' => 'সবসময় পিএনজি (PNG) দেখাও',
 	'mw_math_source' => 'টেক (TeX) আকারে রেখে দাও (টেক্সট ব্রাউজারগুলোর জন্য)',
+	'mw_math_mathjax' => 'MathJax (পরীক্ষামূলক; অধিকাংশ ব্রাউজারের জন্য ভালো)',
 	'math_failure' => 'পার্স করতে ব্যর্থ',
 	'math_unknown_error' => 'অজানা ত্রুটি',
 	'math_unknown_function' => "'$1' অজানা ফাংশন",
@@ -1644,7 +1645,7 @@ $messages['hr'] = array(
 	'prefs-math' => 'Prikaz matematičkih formula',
 	'mw_math_png' => 'Uvijek kao PNG',
 	'mw_math_source' => 'Ostavi u formatu TeX (za tekstualne preglednike)',
-	'mw_math_mathjax' => 'MathJax (eksperimentalno; najbolje za većinu preglednika)',
+	'mw_math_mathjax' => 'MathJax (pokusno; najbolje za većinu preglednika)',
 	'math_failure' => 'Obrada nije uspjela.',
 	'math_unknown_error' => 'nepoznata pogrješka',
 	'math_unknown_function' => 'nepoznata funkcija', # Fuzzy
@@ -3359,13 +3360,13 @@ $messages['ro'] = array(
 	'mw_math_source' => 'Lasă ca TeX (pentru navigatoarele text)',
 	'math_failure' => 'Nu s-a putut interpreta',
 	'math_unknown_error' => 'eroare necunoscută',
-	'math_unknown_function' => 'funcție necunoscută', # Fuzzy
+	'math_unknown_function' => 'funcție „$1” necunoscută',
 	'math_lexing_error' => 'eroare lexicală',
 	'math_syntax_error' => 'eroare de sintaxă',
 	'math_image_error' => 'Conversie în PNG eșuată; verificați corectitudinea instalării sistemelor LaTex sau dvipng (sau dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Nu se poate crea sau nu se poate scrie în directorul temporar pentru formule matematice',
 	'math_bad_output' => 'Nu se poate crea sau nu se poate scrie în directorul de ieșire pentru formule matematice',
-	'math_notexvc' => 'Lipsește executabilul texvc; vezi math/README pentru configurare.',
+	'math_notexvc' => 'Lipsește executabilul texvc; vedeți math/README pentru configurare.',
 );
 
 /** tarandíne (tarandíne)
