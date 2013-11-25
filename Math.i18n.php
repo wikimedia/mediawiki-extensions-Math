@@ -2799,7 +2799,7 @@ $messages['myv'] = array(
 	'mw_math_source' => 'Кадык TeX хорматсо (текст вальмас)',
 	'math_failure' => 'А ловнови',
 	'math_unknown_error' => 'апак содань ильведькс',
-	'math_unknown_function' => 'апак содань функция', # Fuzzy
+	'math_unknown_function' => 'апак содань функция «$1»',
 	'math_lexing_error' => 'лексиконь манявкс',
 	'math_syntax_error' => 'синтаксонь ильведевкс',
 );
