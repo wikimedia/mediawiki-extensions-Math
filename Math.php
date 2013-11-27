@@ -38,6 +38,7 @@ define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 );
 define( 'MW_MATH_MATHJAX', 6); /// @deprecated
+define( 'MW_MATH_LATEXML', 7 );
 /**@}*/
 
 /** Stores debug information in the database and proviedes more detailed debug output*/
@@ -69,7 +70,56 @@ $wgMathMathMLTimeout = 2;
  * commands is allowed. See the wikipedia page Help:Math for details.
  */
 $wgMathDisableTexFilter = false;
-
+/**
+ * Use of LaTeXML for details see
+ * <http://latexml.mathweb.org/help>
+ *
+ * If you want or need to run your own server, follow these installation
+ * instructions and override $wgLaTeXMLUrl:
+ * <https://svn.mathweb.org/repos/LaTeXML/branches/arXMLiv/INSTALL>
+ *
+ * If you expect heavy load you can specify multiple servers. In that case one
+ * server is randomly chosen for each rendering process. Specify the list of
+ * servers in an array e.g $wgLaTeXMLUrl = array ( 'http://latexml.example.com/convert',
+ * 'http://latexml2.example.com/convert');
+ */
+$wgMathLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
+/* enable to use LaTeXML */
+$wgMathUseLaTeXML = true;
+/**
+ * The timeout for the HTTP-Request sent to the LaTeXML to render an equation,
+ * in seconds.
+ */
+$wgMathLaTeXMLTimeout = 240;
+/**
+ * Setting for the LaTeXML renderer.
+ * See http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml for details.
+ */
+$wgMathDefaultLaTeXMLSetting = array('format' => 'xhtml',
+   'whatsin' => 'math',
+   'whatsout' => 'math',
+   'pmml',
+   //'cmml',
+   'nodefaultresources',
+   'preload' => array('LaTeX.pool',
+       'article.cls',
+       'amsmath.sty',
+       'amsthm.sty',
+       'amstext.sty',
+       'amssymb.sty',
+       'eucal.sty',
+       '[dvipsnames]xcolor.sty',
+       'url.sty',
+       'hyperref.sty',
+       //'[ids]latexml.sty',
+       'texvc'
+       ),
+   );
+/**
+ * Experimental feature that preformes aynchronous rendering of the equations
+ * (the final equation will show up the second page load)
+ */
+$wgMathFastDisplay = false;
 /**
  * The link to the texvc executable
  * TODO: Replace that by an latex grammar implemented in php
@@ -80,7 +130,7 @@ $wgMathTexvcCheckExecutable = dirname( __FILE__ ) . '/texvccheck/texvccheck';
 /*
  * The default rendering mode for anonymous users.
  */
-$wgDefaultUserOptions['math'] = MW_MATH_MATHML;
+$wgDefaultUserOptions['math'] = MW_MATH_LATEXML;
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
@@ -96,7 +146,7 @@ $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
 $wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
 $wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
 $wgAutoloadClasses['MathMathML'] = $dir . 'MathMathML.php';
-$wgAutoloadClasses['MathMathMLLocal'] = $dir . 'MathMathMLLocal.php';
+$wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
 $wgAutoloadClasses['MathInputCheck'] = $dir . 'MathInputCheck.php';
 $wgAutoloadClasses['MathInputCheckTexvc'] = $dir . 'MathInputCheckTexvc.php';
 $wgAutoloadClasses['SpecialMathShowImage'] = $dir . 'SpecialMathShowImage.php';

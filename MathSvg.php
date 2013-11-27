@@ -19,7 +19,7 @@
  * @ingroup Parser
  */
 class MathSvg extends MathRenderer {
-	private $svg='';
+	public $svg='';
 	/**
 	 * Renders TeX by outputting it to the browser in a span tag
 	 *

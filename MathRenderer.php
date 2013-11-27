@@ -132,7 +132,7 @@ abstract class MathRenderer {
 		if ( isset($params['id']) ) {
 			$id= $params['id'];
 		}
-		$validModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHML );
+		$validModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHML, MW_MATH_LATEXML );
 		if ( !in_array( $mode, $validModes ) )
 			$mode = $wgDefaultUserOptions['math'];
 		switch ( $mode ) {
@@ -142,6 +142,9 @@ abstract class MathRenderer {
 				break;
 			case MW_MATH_PNG:
 				$renderer = new MathTexvc( $tex, $params );
+				break;
+			case MW_MATH_LATEXML:
+				$renderer = new MathLaTeXML( $tex, $params );
 				break;
 			case MW_MATH_MATHML:
 			default:
