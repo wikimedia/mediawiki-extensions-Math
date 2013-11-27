@@ -6,4 +6,4 @@
 *.o
 
 # The binaries
-texvc
+texvccheck

@@ -212,7 +212,6 @@ let find cmd = match cmd with
   | "\\lambda"
   | "\\Lambda"
   | "\\land"
-  | "\\lbrack"
   | "\\ldots"
   | "\\leftarrow"
   | "\\Leftarrow"
@@ -356,7 +355,6 @@ let find cmd = match cmd with
   | "\\Psi"
   | "\\qquad"
   | "\\quad"
-  | "\\rbrack"
   | "\\Re"
   | "\\rho"
   | "\\rightarrow"
@@ -524,7 +522,10 @@ let find cmd = match cmd with
   | "\\urcorner"
   | "\\Vert"
   | "\\vert"
+  | "\\lbrack"
+  | "\\rbrack"
   -> DELIMITER( TEX_ONLY( cmd ^ " ") )
+
   | "\\acute"
   | "\\bar"
   | "\\bcancel"
@@ -602,13 +603,14 @@ let find cmd = match cmd with
   | "\\varstigma"
   -> LITERAL ( TEX_ONLY( "\\mbox{" ^ cmd ^ "} " ) )
 
-  | "\\C"
-  | "\\H"
-  | "\\N"
-  | "\\Q"
-  | "\\R"
-  | "\\Z"
-  -> LITERAL ( TEX_ONLY( "\\mathbb{" ^ cmd ^ "} " ) )
+  | "\\C" -> LITERAL ( TEX_ONLY( "\\mathbb{C}" ^ " " ) )
+  | "\\H" -> LITERAL ( TEX_ONLY( "\\mathbb{H}" ^ " " ) )
+  | "\\N" -> LITERAL ( TEX_ONLY( "\\mathbb{N}" ^ " " ) )
+  | "\\Q" -> LITERAL ( TEX_ONLY( "\\mathbb{Q}" ^ " " ) )
+  | "\\R" -> LITERAL ( TEX_ONLY( "\\mathbb{R}" ^ " " ) )
+  | "\\Z" -> LITERAL ( TEX_ONLY( "\\mathbb{Z }" ^ " " ) )
+ (* | "\\lbrack" -> LITERAL ( TEX_ONLY( "[" ^ " " ) )
+  | "\\rbrack" -> LITERAL ( TEX_ONLY( "]" ^ " " ) )*)
 
   | "\\darr" -> DELIMITER( TEX_ONLY( "\\downarrow" ^ " " ) )
   | "\\dArr" -> DELIMITER( TEX_ONLY( "\\Downarrow" ^ " " ) )

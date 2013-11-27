@@ -43,28 +43,24 @@ class SpecialMathShowImage extends SpecialPage {
 		$request = $this->getRequest();
 		$output = '';
 		$hash = $request->getText('hash','');
-		$this->png = $request->getBool('png',false);
+		$this->isPng = $request->getBool('png',false);
 		if ( !$hash ){
 			$this->setHeaders(false);
 			$output = $this->printSvgError( 'No Inputhash specified' );
 		} else {
-			if ( $this->png ){
+			if ( $this->isPng ){
 				$this->renderer = MathTexvc::newFromMd5( $hash );
-				$this->noRender = $request->getBool('noRender',false);
-				if ( $this->noRender ){
-					$success = $this->renderer->readFromDatabase();
-				} else {
-					$success = $this->renderer->render();
-				}
 			} else {
-				$this->renderer  = MathSvg::newFromMd5( $hash );
-				$this->renderer->render();
-
-				$output = $this->renderer ->getSvg();
-				$success = true;
+				$this->renderer = MathMathML::newFromMd5( $hash );
+			}
+			$this->noRender = $request->getBool('noRender',false);
+			if ( $this->noRender ){
+				$success = $this->renderer->readFromDatabase();
+			} else {
+				$success = $this->renderer->render();
 			}
 			if ( $success ){
-				if ( $this->png ){
+				if ( $this->isPng ){
 					$output = $this->renderer->getPng();
 				} else {
 					$output = $this->renderer->getSvg();

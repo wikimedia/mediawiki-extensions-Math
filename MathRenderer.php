@@ -25,8 +25,10 @@ abstract class MathRenderer {
 	//REPRESENTATIONS OF THE MATHEMATCAL CONTENT
 	/** @var string tex representation */
 	protected $tex = '';
-	/** @var XML MathML content and presentation */
+	/** @var string MathML content and presentation */
 	protected $mathml = '';
+	/** @var string SVG layot only (no semantics)*/
+	protected $svg = '';
 	/** @var string the original user input string (which was used to caculate the inputhash) */
 	protected $userInputTex = '';
 	//FURTHER PROPERTIES OF THE MATHEMATICAL CONTENT
@@ -235,6 +237,7 @@ abstract class MathRenderer {
 	 * @return boolean true if read successfully, false otherwise
 	 */
 	public function readFromDatabase() {
+		wfProfileIn( __METHOD__ );
 		/** @var DatabaseBase */
 		$dbr = wfGetDB( DB_SLAVE );
 		/** @var ResultWrapper asdf */
@@ -246,14 +249,15 @@ abstract class MathRenderer {
 		if ( $rpage !== false ) {
 			$this->initializeFromDatabaseRow( $rpage );
 			$this->storedInDatabase = true;
+			wfProfileOut( __METHOD__ );
 			return true;
 		} else {
 			# Missing from the database and/or the render cache
 			$this->storedInDatabase = false;
+			wfProfileOut( __METHOD__ );
 			return false;
 		}
 	}
-
 	/**
 	 * @return array with the database column names
 	 */
@@ -262,7 +266,8 @@ abstract class MathRenderer {
 		$in = array('math_inputhash',
 			'math_mathml',
 			'math_inputtex',
-			'math_tex'
+			'math_tex',
+			'math_svg'
 			);
 		if ( $wgMathDebug ) {
 			$debug_in = array('math_status',
@@ -283,12 +288,15 @@ abstract class MathRenderer {
 		$this->md5 = self::dbHash2md5($this->inputHash);
 		if ( $rpage->math_mathml ){
 			$this->mathml = utf8_decode ( $rpage->math_mathml );
-		}
+	}
 		if ( $rpage->math_inputtex ) { //in the current database the field is probably not set.
 			$this->userInputTex = $rpage->math_inputtex;
 		}
 		if ( $rpage->math_tex ) {
 			$this->tex = $rpage->math_tex;
+		}
+		if ( $rpage->math_svg ) {
+			$this->svg = $rpage->math_svg;
 		}
 		if ( $wgMathDebug ) {
 			if ( $rpage->math_status !== null){
@@ -327,11 +335,11 @@ abstract class MathRenderer {
 			$inputHash = $this->getInputHash();
 			$method = __METHOD__;
 			if ( $this->isInDatabase() ){
-				$dbw->onTransactionIdle(
+			$dbw->onTransactionIdle(
 						function() use( $dbw, $outArray, $wgMathDebug, $inputHash, $method ) {
 							$dbw->update( 'math', $outArray ,array( 'math_inputhash' => $inputHash ), $method );
 							if ($wgMathDebug) wfDebugLog( "Math", 'Row updated after db transaction was idle: ' . var_export( $outArray , true ). " to database \n" );
-						} );
+					} );
 			} else {
 				$dbw->onTransactionIdle(
 						function() use( $dbw, $outArray, $wgMathDebug, $method ) {
@@ -341,8 +349,8 @@ abstract class MathRenderer {
 								if ( $dbw->affectedRows() == 0 ){
 									//That's the price for the delayed update.
 									wfDebugLog( "Math", 'Entry could not be written. Might be changed in between. ' );
-								}
-							}
+		}
+	}
 						} );
 			}
 		}
@@ -355,15 +363,16 @@ abstract class MathRenderer {
 	protected function dbOutArray() {
 		global $wgMathDebug;
 		$out = array('math_inputhash' => $this->getInputHash (),
-				'math_mathml' => utf8_encode ( $this->mathml ),
-				'math_inputtex'=> $this->userInputTex,
-				'math_tex' => $this->tex
+			'math_mathml' => utf8_encode ( $this->mathml ),
+			'math_inputtex'=> $this->userInputTex,
+			'math_tex' => $this->tex,
+			'math_svg' => $this->svg
 			);
 		if ( $wgMathDebug ) {
 			$debug_out = array('math_status' => $this->statusCode,
 				'math_log' => $this->log);
 			$out = array_merge ( $out, $debug_out );
-	}
+		}
 		return $out;
 	}
 
@@ -384,7 +393,7 @@ abstract class MathRenderer {
 
 
 	/**
-	 * Writes cache.  Writes the database entry if values were changed
+	 * Writes cache. Writes the database entry if values were changed
 	 */
 	public function writeCache() {
 		wfDebugLog( "Math" , "writing of cache requested." );
@@ -431,7 +440,8 @@ abstract class MathRenderer {
 		if( $this->tex != $tex){
 			$this->changed = true;
 			$this->tex = $tex;
-		}
+			//wfDebugLog('Math', 'tex changed');
+	}
 	}
 
 	/**
@@ -508,7 +518,7 @@ abstract class MathRenderer {
 			return true;
 		} else {
 			return false;
-		}
+	}
 	}
 
 	/**
@@ -536,7 +546,7 @@ abstract class MathRenderer {
 	 *
 	 * @param boolean $displaytyle
 	 */
-	public function setDisplaytyle( $displaystyle= true ){
+	public function setDisplaytyle( $displaystyle = true ){
 		$this->changed = true; //Discuss if this is a change
 		$this->displaytyle = $displaystyle;
 	}
@@ -639,4 +649,21 @@ abstract class MathRenderer {
 		return $this->id = $id;
 	}
 
+		/**
+	 *
+	 * @param type $svg
+	 */
+	public function setSvg($svg){
+		$this->changed = true;
+		$this->svg = trim($svg);
+	}
+
+	/**
+	 *
+	 * @return type
+	 */
+	public function getSvg(){
+		//Spaces will prevent the image from beeing displayed correctly in the browser
+		return trim($this->svg);
+	}
 }

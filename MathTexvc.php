@@ -182,8 +182,12 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function callTexvc() {
 		global $wgTexvc, $wgTexvcBackgroundColor;
+
+		wfProfileIn( __METHOD__ );
 		$tmpDir = wfTempDir();
 		if ( !is_executable( $wgTexvc ) ) {
+			wfDebugLog( 'texvc', "$wgTexvc does not exist or is not executable." );
+			wfProfileOut( __METHOD__ );
 			return $this->getError( 'math_notexvc' );
 		}
 
@@ -201,13 +205,19 @@ class MathTexvc extends MathRenderer {
 			$cmd = 'sh -c ' . wfEscapeShellArg( $cmd );
 		}
 		wfDebugLog( 'Math', "TeX: $cmd\n" );
-		$contents = wfShellExec( $cmd );
+		wfDebugLog( 'texvc', "Executing '$cmd'." );
+		$retval = null;
+		$contents = wfShellExec( $cmd, $retval );
 		wfDebugLog( 'Math', "TeX output:\n $contents\n---\n" );
 
 		if ( strlen( $contents ) == 0 ) {
 			if ( !file_exists( $tmpDir ) || !is_writable( $tmpDir ) ) {
+				wfDebugLog( 'texvc', "TeX output directory $tmpDir is missing or not writable" );
+				wfProfileOut( __METHOD__ );
 				return $this->getError( 'math_bad_tmpdir' );
 			} else {
+				wfDebugLog( 'texvc', "TeX command '$cmd' returned no output and status code $retval." );
+				wfProfileOut( __METHOD__ );
 				return $this->getError( 'math_unknown_error' );
 			}
 		}
@@ -256,12 +266,16 @@ class MathTexvc extends MathRenderer {
 		wfRunHooks( 'MathAfterTexvc', array( &$this, &$errmsg ) );
 
 		if ( $errmsg ) {
+			wfProfileOut( __METHOD__ );
 			return $errmsg;
 		} elseif ( !preg_match( "/^[a-f0-9]{32}$/", $this->getHash() ) ) {
+			wfProfileOut( __METHOD__ );
 			return $this->getError( 'math_unknown_error' );
 		} elseif ( !file_exists( "$tmpDir/{$this->getHash()}.png" ) ) {
+			wfProfileOut( __METHOD__ );
 			return $this->getError( 'math_image_error' );
 		} elseif ( filesize( "$tmpDir/{$this->getHash()}.png" ) == 0 ) {
+			wfProfileOut( __METHOD__ );
 			return $this->getError( 'math_image_error' );
 		}
 
@@ -270,6 +284,7 @@ class MathTexvc extends MathRenderer {
 		$backend = $this->getBackend();
 		# Create any containers/directories as needed...
 		if ( !$backend->prepare( array( 'dir' => $hashpath ) )->isOK() ) {
+			wfProfileOut( __METHOD__ );
 			return $this->getError( 'math_output_error' );
 		}
 		// Store the file at the final storage path...
@@ -277,11 +292,13 @@ class MathTexvc extends MathRenderer {
 			'src' => "$tmpDir/{$this->getHash()}.png", 'dst' => "$hashpath/{$this->getHash()}.png"
 		) )->isOK())
 		) {
+			wfProfileOut( __METHOD__ );
 			if ( $wgMathDebug ){
 				wfDebugLog('Math','problem storing image' . $php_errormsg );
 			}
 			return $this->getError( 'math_output_error' );
 		}
+		wfProfileOut( __METHOD__ );
 		return self::MW_TEXVC_SUCCESS;
 	}
 
@@ -336,6 +353,8 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function writeCache() {
 		global $wgUseSquid;
+
+		wfProfileIn( __METHOD__ );
 		$this->writeToDatabase();
 		// If we're replacing an older version of the image, make sure it's current.
 		if ( $wgUseSquid ) {
@@ -343,6 +362,7 @@ class MathTexvc extends MathRenderer {
 			$u = new SquidUpdate( $urls );
 			$u->doUpdate();
 		}
+		wfProfileOut( __METHOD__ );
 	}
 
 	/**
@@ -352,9 +372,12 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function readCache() {
 		global $wgMathCheckFiles;
+
+		wfProfileIn( __METHOD__ );
 		if ( $this->readFromDatabase() ) {
 			if ( !$wgMathCheckFiles ) {
 				// Short-circuit the file existence & migration checks
+				wfProfileOut( __METHOD__ );
 				return true;
 			}
 			$filename = $this->getHashPath() . "/{$this->getHash()}.png"; // final storage path
@@ -364,12 +387,13 @@ class MathTexvc extends MathRenderer {
 					// Some horrible error corrupted stuff :(
 					$backend->quickDelete( array( 'src' => $filename ) );
 				} else {
+					wfProfileOut( __METHOD__ );
 					return true; // cache hit
 				}
 			}
-		} else {
-			return false;
 		}
+		wfProfileOut( __METHOD__ );
+		return false;
 	}
 	public function getPng(){
 		$backend = $this->getBackend();

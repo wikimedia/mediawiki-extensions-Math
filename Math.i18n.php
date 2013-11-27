@@ -21,8 +21,9 @@ $messages['en'] = array(
 	// Math options
 	'mw_math_png' => 'Always render PNG',
 	'mw_math_source' => 'Leave it as TeX (for text browsers)',
-	'mw_math_mathjax' => 'MathJax (experimental; best for most browsers)',
 	'mw_math_latexml' => 'LaTeXML (experimental; uses MathML)',
+	'mw_math_mathml' => 'MathML (with SVG fallback)',
+	'mw_math_mathjax' => 'MathJax (experimental; best for most browsers)',
 
 	// Math errors
 	'math_failure' => 'Failed to parse',
@@ -35,11 +36,11 @@ $messages['en'] = array(
 	'math_bad_output' => 'Cannot write to or create math output directory',
 	'math_notexvc' => 'Missing texvc executable; please see math/README to configure.',
 	'math_output_error' => 'Cannot store math image on filesystem.',
-	'math_latexml_timeout' => 'LaTeXML Timeout from \'$1\'',
+	'math_latexml_timeout' => 'LaTeXML timeout from \'$1\'',
 	'math_latexml_invalidresponse' => 'LaTeXML Invalid response (\'$2\') from server \'$1\':',
 	'math_latexml_invalidxml' => 'LaTeXML MathML is invalid XML.',
 	'math_latexml_invalidjson'  => 'LaTeXML Server response is invalid JSON.',
-	'math_latexml_xmlversion' => 'Warning: XML Type check skipped! Check if your MediaWiki installation is version wmf/1.22wmf7 or newer.'
+	'math_latexml_xmlversion' => 'Warning: XML type check skipped! Check if your MediaWiki installation is version wmf/1.22wmf7 or newer.'
 );
 
 /** Message documentation (Message documentation)
@@ -589,6 +590,7 @@ $messages['bn'] = array(
 	'prefs-math' => 'গণিত',
 	'mw_math_png' => 'সবসময় পিএনজি (PNG) দেখাও',
 	'mw_math_source' => 'টেক (TeX) আকারে রেখে দাও (টেক্সট ব্রাউজারগুলোর জন্য)',
+	'mw_math_mathjax' => 'MathJax (পরীক্ষামূলক; অধিকাংশ ব্রাউজারের জন্য ভালো)',
 	'math_failure' => 'পার্স করতে ব্যর্থ',
 	'math_unknown_error' => 'অজানা ত্রুটি',
 	'math_unknown_function' => "'$1' অজানা ফাংশন",
@@ -685,7 +687,7 @@ $messages['ca'] = array(
  */
 $messages['cdo'] = array(
 	'prefs-math' => '數學',
-	'math_unknown_error' => '𣍐八其鄭',
+	'math_unknown_error' => '𣍐八其賺',
 	'math_unknown_function' => '𣍐八其函數「$1」',
 );
 
@@ -930,12 +932,13 @@ $messages['de'] = array(
 /** Zazaki (Zazaki)
  * @author Aspar
  * @author Erdemaslancan
+ * @author Gorizon
  * @author Xoser
  */
 $messages['diq'] = array(
 	'math_sample' => 'Formula itiya ra bınus',
 	'math_tip' => 'Formulayo Matematik (LaTeX)',
-	'prefs-math' => 'Math',
+	'prefs-math' => 'Matematigane simgey',
 	'mw_math_png' => 'Herzeman PNG render bike',
 	'mw_math_source' => 'Bi TeX biman (qe nuşte browseroği)',
 	'math_failure' => 'Parse de ğeleti biyo',
@@ -1128,6 +1131,7 @@ $messages['ext'] = array(
 
 /** Persian (فارسی)
  * @author Huji
+ * @author Omidh
  * @author ZxxZxxZ
  */
 $messages['fa'] = array(
@@ -1140,7 +1144,7 @@ $messages['fa'] = array(
 	'mw_math_mathjax' => 'MathJax (آزمایشی؛ بهترین برای بیشتر مرورگرها)',
 	'math_failure' => 'شکست در تجزیه',
 	'math_unknown_error' => 'خطای ناشناخته',
-	'math_unknown_function' => 'تابع ناشناختهٔ', # Fuzzy
+	'math_unknown_function' => "تابع ناشناختهٔ '$1'",
 	'math_lexing_error' => 'خطای lexing',
 	'math_syntax_error' => 'خطای نحوی',
 	'math_image_error' => 'تبدیل به PNG شکست خورد؛ از نصب درست لاتکس و dvipng (یا dvips و gs و convert) اطمینان حاصل کنید',
@@ -1520,7 +1524,7 @@ $messages['ha'] = array(
 	'math_tip' => 'Haɗin lissafi (LaTeX)',
 );
 
-/** Hakka (Hak-kâ-fa)
+/** Hakka (客家語/Hak-kâ-ngî)
  * @author Hakka
  */
 $messages['hak'] = array(
@@ -1632,6 +1636,7 @@ $messages['hil'] = array(
 
 /** Croatian (hrvatski)
  * @author Herr Mlinka
+ * @author MaGa
  * @author Roberta F.
  * @author SpeedyGonsales
  */
@@ -1641,6 +1646,7 @@ $messages['hr'] = array(
 	'prefs-math' => 'Prikaz matematičkih formula',
 	'mw_math_png' => 'Uvijek kao PNG',
 	'mw_math_source' => 'Ostavi u formatu TeX (za tekstualne preglednike)',
+	'mw_math_mathjax' => 'MathJax (pokusno; najbolje za većinu preglednika)',
 	'math_failure' => 'Obrada nije uspjela.',
 	'math_unknown_error' => 'nepoznata pogrješka',
 	'math_unknown_function' => 'nepoznata funkcija', # Fuzzy
@@ -1976,7 +1982,7 @@ $messages['ka'] = array(
 	'mw_math_mathjax' => 'MathJax (ექსპერიმენტული; ყველაზე შესაფერისი ბრაუზერების უმეტესობისათვის)',
 	'math_failure' => 'შეუძლებელია გამონათქვამის გარჩევაშ',
 	'math_unknown_error' => 'უცნობი შეცდომა',
-	'math_unknown_function' => 'უცნობი ფუნქცია', # Fuzzy
+	'math_unknown_function' => 'უცნობი ფუნქცია „$1“',
 	'math_lexing_error' => 'ლექსიკური შეცდომა',
 	'math_syntax_error' => 'სინტაქსი არასწორია',
 	'math_image_error' => 'PNG-ში გარდაქმნისას წარმოიშვა შეცდომა; შეამოწმეთ latex, dvips, gs და convert-ის დაყენების სისწორე',
@@ -2135,7 +2141,7 @@ $messages['km'] = array(
 	'mw_math_source' => 'ទុកឱ្យនៅជា TeX (ចំពោះឧបករណ៍រាវរកអត្ថបទ)',
 	'math_failure' => 'បរាជ័យ​ក្នុង​ការ​ញែក​ចេញ​',
 	'math_unknown_error' => 'កំហុសមិនស្គាល់',
-	'math_unknown_function' => 'អនុគមន៍​មិន​ស្គាល់', # Fuzzy
+	'math_unknown_function' => "អនុគមន៍​មិន​ស្គាល់ '$1'",
 	'math_lexing_error' => 'បញ្ហាក្នុងការអានតួអក្សរ',
 	'math_syntax_error' => 'កំហុសពាក្យសម្ព័ន្ធ',
 	'math_image_error' => 'ការបម្លែងជា PNG បានបរាជ័យ។
@@ -2269,7 +2275,7 @@ $messages['kw'] = array(
 	'math_tip' => 'Furvel galkoriethek (LaTeX)',
 );
 
-/** Kirghiz (Кыргызча)
+/** Kyrgyz (Кыргызча)
  */
 $messages['ky'] = array(
 	'math_unknown_error' => 'белгисиз ката',
@@ -2302,6 +2308,7 @@ $messages['lad'] = array(
 
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
+ * @author Soued031
  */
 $messages['lb'] = array(
 	'math_sample' => 'Formel hei asetzen',
@@ -2315,11 +2322,12 @@ $messages['lb'] = array(
 	'math_unknown_function' => "Onbekannte Funktioun '$1'",
 	'math_lexing_error' => "'Lexing'-Feeler",
 	'math_syntax_error' => 'Syntaxfeeler',
-	'math_image_error' => "D'PNG-Konvertéierung huet net fonctionnéiert;
+	'math_image_error' => "D'PNG-Konvertéierung huet net funktionéiert;
 iwwerpréift déi korrekt Installatioun vu LaTeX an dvipng (oder dvips + gs + convert)",
 	'math_bad_tmpdir' => 'Den temporäre Repertire fir mathematesch Formele kann net ugeluecht ginn oder et kann näischt do gespäichert ginn.',
 	'math_bad_output' => 'Den Zilrepertoire fir mathematesch Formele kann net ugeluecht ginn oder et kann näischt do gespäichert ginn.',
 	'math_notexvc' => 'Den texvc Programm feelt: Liest w.e.g. math/README fir en anzestellen.',
+	'math_latexml_xmlversion' => "Opgepasst: D'Kontroll vum Typ vun XML gouf iwwersprong! Kuckt no op Är MediaWiki Installatioun ass an der Versioun wmf/1.22wmf7 oder méi rezent.",
 );
 
 /** Lingua Franca Nova (Lingua Franca Nova)
@@ -2457,6 +2465,7 @@ $messages['lus'] = array(
 );
 
 /** Latvian (latviešu)
+ * @author Edgars2007
  * @author Marozols
  * @author Papuass
  * @author Yyy
@@ -2467,7 +2476,8 @@ $messages['lv'] = array(
 	'prefs-math' => 'Formulas',
 	'mw_math_png' => 'Vienmēr attēlot PNG',
 	'mw_math_source' => 'Saglabāt kā TeX (teksta pārlūkiem)',
-	'math_failure' => 'Pārsēšanas kļūda',
+	'mw_math_mathjax' => 'MathJax (eksperimentāls; labākais variants lielākajai daļai pārlūku)',
+	'math_failure' => 'Parsēšanas kļūda',
 	'math_unknown_error' => 'nezināma kļūda',
 	'math_unknown_function' => "nezināma funkcija '$1'",
 	'math_lexing_error' => 'leksikas kļūda',
@@ -2790,7 +2800,7 @@ $messages['myv'] = array(
 	'mw_math_source' => 'Кадык TeX хорматсо (текст вальмас)',
 	'math_failure' => 'А ловнови',
 	'math_unknown_error' => 'апак содань ильведькс',
-	'math_unknown_function' => 'апак содань функция', # Fuzzy
+	'math_unknown_function' => 'апак содань функция «$1»',
 	'math_lexing_error' => 'лексиконь манявкс',
 	'math_syntax_error' => 'синтаксонь ильведевкс',
 );
@@ -2869,11 +2879,14 @@ $messages['nds'] = array(
  * @author Servien
  */
 $messages['nds-nl'] = array(
-	'math_sample' => 'a^2 + b^2 = c^2',
+	'math-desc' => 'Wiskundige formules tussen <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-etiketten zetten',
+	'math_sample' => 'Voer de formule in',
 	'math_tip' => 'Wiskundige formule (in LaTeX)',
 	'prefs-math' => 'Wiskundige formules',
-	'mw_math_png' => 'Altied as PNG weergeven',
-	'mw_math_source' => 'Laot TeX-bronkode staon (veur tekstblaojeraars)',
+	'mw_math_png' => 'Altied as PNG laoten zien',
+	'mw_math_source' => 'Laot TeX-bronkode staon (veur tekstwebkiekers)',
+	'mw_math_mathjax' => 'MathJax (experimenteel; t beste veur de meeste webkiekers)',
+	'mw_math_latexml' => 'LaTeXML (experimenteel; gebruukt MathML)',
 	'math_failure' => 'Wiskundige formule niet begriepelik',
 	'math_unknown_error' => 'Onbekende fout in formule',
 	'math_unknown_function' => 'onbekende funksie "$1"',
@@ -2883,6 +2896,12 @@ $messages['nds-nl'] = array(
 	'math_bad_tmpdir' => 'De map veur tiedelike bestaanden veur wiskundige formules besteet niet of is kan niet an-emaakt wörden.',
 	'math_bad_output' => 'De map veur wiskundebestaanden besteet niet of is niet an te maken.',
 	'math_notexvc' => 'Kan t programma texvc niet vienen; configureer volgens de beschrieving in math/README.',
+	'math_output_error' => 'De formule-aofbeelding kan niet op t bestaandssysteem op-esleugen wörden.',
+	'math_latexml_timeout' => 'LaTeXML: tiedsoverschriejing van "$1"',
+	'math_latexml_invalidresponse' => 'LaTeXML: ongeldig antwoord ("$2") van server "$1":',
+	'math_latexml_invalidxml' => 'LaTeXML: MathML is ongeldige XML.',
+	'math_latexml_invalidjson' => 'LaTeXML: t antwoord van de server is ongeldige JSON.',
+	'math_latexml_xmlversion' => 'Waorschuwing: XML-typekontraole overesleugen. Kiek nao of joew MediaWiki-installasie versie 1.22wmf7 of laoter is.',
 );
 
 /** Nepali (नेपाली)
@@ -3130,7 +3149,7 @@ Zapoznaj się z math/README w celu konfiguracji.',
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'math-desc' => 'Rende le fòrmule matemàtiche antra le tichëtte <code>&lt;math&gt;</code> ... 
+	'math-desc' => 'Rende le fòrmule matemàtiche antra le tichëtte <code>&lt;math&gt;</code> ...
 <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Che a buta la fòrmula ambelessì',
 	'math_tip' => 'Fòrmula matemàtica (LaTeX)',
@@ -3309,7 +3328,7 @@ $messages['rm'] = array(
 	'math_unknown_function' => 'funcziun nunenconuschenta', # Fuzzy
 	'math_lexing_error' => 'Errur lexicala',
 	'math_syntax_error' => 'Sbagl da la sintaxta',
-	'math_image_error' => "La conversiun da PNG n'è betg reussida; 
+	'math_image_error' => "La conversiun da PNG n'è betg reussida;
 controllescha l'installaziun correcta da latext, dvips, gs e convertescha lura", # Fuzzy
 	'math_bad_tmpdir' => "Betg pussaivel da scriver u crear l'ordinatur temporar math",
 	'math_bad_output' => "Betg pussaivel da scriver u crear l'ordinatur da destinaziun math",
@@ -3342,13 +3361,13 @@ $messages['ro'] = array(
 	'mw_math_source' => 'Lasă ca TeX (pentru navigatoarele text)',
 	'math_failure' => 'Nu s-a putut interpreta',
 	'math_unknown_error' => 'eroare necunoscută',
-	'math_unknown_function' => 'funcție necunoscută', # Fuzzy
+	'math_unknown_function' => 'funcție „$1” necunoscută',
 	'math_lexing_error' => 'eroare lexicală',
 	'math_syntax_error' => 'eroare de sintaxă',
 	'math_image_error' => 'Conversie în PNG eșuată; verificați corectitudinea instalării sistemelor LaTex sau dvipng (sau dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Nu se poate crea sau nu se poate scrie în directorul temporar pentru formule matematice',
 	'math_bad_output' => 'Nu se poate crea sau nu se poate scrie în directorul de ieșire pentru formule matematice',
-	'math_notexvc' => 'Lipsește executabilul texvc; vezi math/README pentru configurare.',
+	'math_notexvc' => 'Lipsește executabilul texvc; vedeți math/README pentru configurare.',
 );
 
 /** tarandíne (tarandíne)
@@ -3387,6 +3406,7 @@ pe piacere vide math/README pe configurà.',
  * @author KPu3uC B Poccuu
  * @author Kalan
  * @author MaxSem
+ * @author Okras
  */
 $messages['ru'] = array(
 	'math-desc' => 'Отображает математические формулы в тегах <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
@@ -3396,6 +3416,7 @@ $messages['ru'] = array(
 	'mw_math_png' => 'Всегда генерировать PNG',
 	'mw_math_source' => 'Оставить в разметке ТеХ (для текстовых браузеров)',
 	'mw_math_mathjax' => 'MathJax (экспериментальная опция, оптимальная для большинства браузеров)',
+	'mw_math_latexml' => 'LaTeXML (экспериментальный; использует MathML)',
 	'math_failure' => 'Невозможно разобрать выражение',
 	'math_unknown_error' => 'неизвестная ошибка',
 	'math_unknown_function' => 'неизвестная функция «$1»',
@@ -3405,6 +3426,12 @@ $messages['ru'] = array(
 	'math_bad_tmpdir' => 'Не удаётся создать или записать во временный каталог математики',
 	'math_bad_output' => 'Не удаётся создать или записать в выходной каталог математики',
 	'math_notexvc' => 'Выполняемый файл texvc не найден; См. math/README — справку по настройке.',
+	'math_output_error' => 'Не удаётся сохранить математическое изображение в файловой системе.',
+	'math_latexml_timeout' => "Истекло время ожидания LaTeXML от '$1'",
+	'math_latexml_invalidresponse' => "Недопустимый ответ LaTeXML ('$2') от сервера '$1':",
+	'math_latexml_invalidxml' => 'LaTeXML MathML содержит недопустимый XML-код.',
+	'math_latexml_invalidjson' => 'Серверный ответ LaTeXML — в неверном JSON-формате.',
+	'math_latexml_xmlversion' => 'Внимание: проверка XML-формата пропущена! Проверьте, что ваша MediaWiki имеет версию wmf/1.22wmf7 или более позднюю.',
 );
 
 /** Rusyn (русиньскый)
@@ -3750,6 +3777,7 @@ $messages['sr-ec'] = array(
 	'prefs-math' => 'Приказ математичких формула',
 	'mw_math_png' => 'Увек прикажи као PNG',
 	'mw_math_source' => 'Остави у формату ТеХ (за текстуалне прегледаче)',
+	'mw_math_mathjax' => 'MathJax (експериментално; најбоље за већину прегледача)',
 	'math_failure' => 'Рашчлањивање није успело',
 	'math_unknown_error' => 'непозната грешка',
 	'math_unknown_function' => "непозната функција '$1'",
@@ -3762,13 +3790,15 @@ $messages['sr-ec'] = array(
 );
 
 /** Serbian (Latin script) (srpski (latinica)‎)
+ * @author Milicevic01
  */
 $messages['sr-el'] = array(
 	'math_sample' => 'Ovde unesite formulu',
 	'math_tip' => 'Matematička formula (LaTeX)',
-	'prefs-math' => 'Matematike',
+	'prefs-math' => 'Prikaz matematičkih formula',
 	'mw_math_png' => 'Uvek prikaži PNG',
-	'mw_math_source' => 'Ostavi kao TeH (za tekstualne brauzere)',
+	'mw_math_source' => 'Ostavi u formatu ТеХ (za tekstualne pregledače)',
+	'mw_math_mathjax' => 'MathJax (eksperimentalno; najbolje za većinu pregledača)',
 	'math_failure' => 'Neuspeh pri parsiranju',
 	'math_unknown_error' => 'nepoznata greška',
 	'math_unknown_function' => 'nepoznata funkcija', # Fuzzy
@@ -4286,15 +4316,22 @@ $messages['vi'] = array(
 	'mw_math_png' => 'Luôn cho ra dạng hình PNG',
 	'mw_math_source' => 'Để nguyên mã TeX (dành cho trình duyệt văn bản)',
 	'mw_math_mathjax' => 'MathJax (chưa ổn định; được khuyên cho phần nhiều trình duyệt)',
+	'mw_math_latexml' => 'LaTeXML (thử nghiệm; sử dụng MathML)',
 	'math_failure' => 'Không thể phân tích cú pháp',
 	'math_unknown_error' => 'lỗi lạ',
-	'math_unknown_function' => 'hàm lạ', # Fuzzy
+	'math_unknown_function' => 'hàm không rõ “$1”',
 	'math_lexing_error' => 'lỗi chính tả',
 	'math_syntax_error' => 'lỗi cú pháp',
 	'math_image_error' => 'Không chuyển sang định dạng PNG được; xin kiểm tra lại cài đặt latex, dvips, gs, và convert (hoặc dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Không tạo mới hay viết vào thư mục toán tạm thời được',
 	'math_bad_output' => 'Không tạo mới hay viết vào thư mục kết quả được',
 	'math_notexvc' => 'Không thấy hàm thực thi texvc; xin xem math/README để biết cách cấu hình.',
+	'math_output_error' => 'Không thể lưu hình toán học trên hệ thống tập tin.',
+	'math_latexml_timeout' => 'Hết hạn LaTeXML từ “$1”',
+	'math_latexml_invalidresponse' => 'Phản hồi LaTeXML không hợp lệ (“$2”) từ máy chủ “$1”:',
+	'math_latexml_invalidxml' => 'MathML LaTeXML là XML không hợp lệ.',
+	'math_latexml_invalidjson' => 'Phản hồi từ máy chủ LaTeXML là JSON không hợp lệ.',
+	'math_latexml_xmlversion' => 'Cảnh báo: Đã bỏ qua việc kiểm tra kiểu XML! Hãy kiểm tra bản MediaWiki của bạn là phiên bản wmf/1.22wmf7 trở lên.',
 );
 
 /** Upper Franconian (Mainfränkisch)
@@ -4479,6 +4516,8 @@ $messages['zea'] = array(
 );
 
 /** Simplified Chinese (中文（简体）‎)
+ * @author Hzy980512
+ * @author Liuxinyu970226
  * @author Xiaomingyan
  * @author Yfdyh000
  */
@@ -4490,6 +4529,7 @@ $messages['zh-hans'] = array(
 	'mw_math_png' => '总生成PNG',
 	'mw_math_source' => '显示TeX代码（供文字浏览器使用）',
 	'mw_math_mathjax' => 'MathJax（实验性；适合大多数浏览器）',
+	'mw_math_latexml' => 'LaTeXML（实验性；使用MathML）',
 	'math_failure' => '解析失败',
 	'math_unknown_error' => '未知错误',
 	'math_unknown_function' => "未知函数 '$1'",
@@ -4500,6 +4540,11 @@ $messages['zh-hans'] = array(
 	'math_bad_output' => '无法写入或建立数学公式输出目录',
 	'math_notexvc' => '"texvc"执行文件遗失；请参照math/README进行配置。',
 	'math_output_error' => '无法在文件系统上存储数学图像。',
+	'math_latexml_timeout' => "从'$1'的LaTeXML超时",
+	'math_latexml_invalidresponse' => 'LaTeXML从服务器“$1”返回无效的响应（“$2”）：',
+	'math_latexml_invalidxml' => 'LaTeXML MathML是无效的XML。',
+	'math_latexml_invalidjson' => 'LaTeXML服务器响应是无效的JSON。',
+	'math_latexml_xmlversion' => '警告：XML类型检查被跳过！请检查您所安装的MediaWiki版本是否wmf/1.22wmf7或更高。',
 );
 
 /** Traditional Chinese (中文（繁體）‎)

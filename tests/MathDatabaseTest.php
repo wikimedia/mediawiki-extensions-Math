@@ -15,7 +15,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	//const SOME_PNG = "PNG";
 	//const SOME_SVG = "<?xml </svg >>%%LIKE;'\" DROP TABLE math;";
 	const SOME_VALIDXML = true;
-	const NUM_BASIC_FIELDS = 7;
+	const NUM_BASIC_FIELDS = 8;
 	const NUM_DEBUG_FIELDS = 3;
 
 	/**

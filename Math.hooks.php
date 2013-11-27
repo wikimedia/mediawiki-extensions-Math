@@ -7,6 +7,20 @@
  */
 
 class MathHooks {
+	/*
+	 *
+	 * @param &$confstr The to-be-hashed key string that is being constructed
+	 */
+	public static function onPageRenderingHash( &$confstr ) {
+		global $wgUser,$wgMathJax;
+		$user = $wgUser;
+		$confstr .= "!" . $user->getOption('math');
+		if ( $wgMathJax &&  $user->getOption('mathJax') ){
+			$confstr .= "!" . 1;
+		}
+		wfDebugLog('Math', 'New cache key'.$confstr);
+		return true;
+	}
 	/**
 	 * Register the <math> tag with the Parser.
 	 *
@@ -23,7 +37,7 @@ class MathHooks {
 	 *
 	 * @param $content the LaTeX input
 	 * @param $attributes
-	 * @param $parser Parser
+	 * @param Parser $parser
 	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
@@ -31,7 +45,9 @@ class MathHooks {
 		if ( trim( $content )  === "" ) { // bug 8372
 			return "";
 		}
-		$mode = $parser->getOptions()->getMath();
+		wfProfileIn( __METHOD__ );
+		$mode = (int) $parser->getUser()->getOption('math');
+		$parser->getOptions()->addExtraKey($mode);
 		$renderer = MathRenderer::getRenderer(
 			$content, $attributes, $mode
 		);
@@ -54,14 +70,17 @@ class MathHooks {
 				&$renderedMath,
 				$parser->getTitle()->getArticleID(),
 				$parser->nextLinkID()) );//Enables indexing of math formula
-		if ( $wgMathJax && $wgUser->getOption('mathJax')) {
+		if ( $wgMathJax && $parser->getUser()->getOption('mathJax')) {
+			//maybe this can be checked in the javascript, this would be better for caching
+			$parser->getOptions()->addExtraKey(1);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
-		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
+		$parser->getOutput()->addModules( array( 'ext.math.selector' ) );
 
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
 		//Check if we needed that MathRenderer::armourMath( $renderedMath);
+		wfProfileOut( __METHOD__ );
 		return array($renderedMath, "markerType" => 'nowiki' );
 	}
 
@@ -96,12 +115,12 @@ class MathHooks {
 	 * @return array of strings
 	 */
 	private static function getMathNames() {
-		global $wgMathUseTexvc, $wgMathUseLaTeXML;
+		global $wgMathUseTexvc, $wgMathUseMathML;
 		$names[MW_MATH_SOURCE] = wfMessage( 'mw_math_source' )->escaped();
 		if ( $wgMathUseTexvc ){
 			$names[MW_MATH_PNG] = wfMessage( 'mw_math_png' )->escaped();
 		}
-		if ( $wgMathUseLaTeXML){
+		if ( $wgMathUseMathML){
 			$names[MW_MATH_MATHML] = wfMessage( 'mw_math_mathml' )->escaped();
 		}
 		return $names;
@@ -155,6 +174,7 @@ class MathHooks {
 			$dir = dirname( __FILE__ ) . '/db/';
 			$updater->addExtensionField('math', 'math_tex', $dir .'field_math_tex.sql');
 			$updater->addExtensionField('math', 'math_inputtex', $dir.'field_math_inputtex.sql');
+			$updater->addExtensionField('math', 'math_svg', $dir . 'field_math_svg.sql');
 			//TODO: Delete deprecated database fields
 //			$updater->dropExtensionField('math', 'math_outputhash', $dir . 'drop_math_outputhash.sql');
 //			$updater->dropExtensionField('math', 'math_html', $dir . 'drop_math_html.sql');

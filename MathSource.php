@@ -43,6 +43,8 @@ class MathSource extends MathRenderer {
 	 * @return boolean
 	 */
 	function render(){
+		//assume unchanged to avoid unnecessary database access
+		$this->changed=false;
 		return true;
 	}
 }

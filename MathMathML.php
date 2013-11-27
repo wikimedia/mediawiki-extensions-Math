@@ -6,64 +6,13 @@
  * (c)2012 Moritz Schubotz
  * GPLv2 license; info in main package.
  *
- * Contains the driver function for the LaTeXML daemon
+ * Contains the driver function for the MathML daemon
  * @file
  */
 class MathMathML extends MathRenderer {
 
-	/**
-	 * @var String settings for LaTeXML daemon
-	 */
-	private $LaTeXMLSettings = '';
 	private static $DEFAULT_ALLOWED_ROOT_ELEMENTS = array( 'math', 'div', 'table', 'query' );
 	private $allowedRootElements = '';
-
-	/**
-	 * Converts an array with LaTeXML settings to a URL encoded String.
-	 * If the argument is a string the input will be returned.
-	 * Thus the function has projector properties and can be applied a second time safely.
-	 * @param (string|array) $array
-	 * @return string
-	 */
-	public function serializeSettings( $array ) {
-		if ( !is_array( $array ) ) {
-			return $array;
-		} else {
-			//removes the [1] [2]... for the unnamed subarrays since LaTeXML
-			//assigns multiple values to one key e.g.
-			//preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty
-			$cgi_string = wfArrayToCgi( $array );
-			$cgi_string = preg_replace( '|\%5B\d+\%5D|', '', $cgi_string );
-			$cgi_string = preg_replace( '|&\d+=|', '&', $cgi_string );
-			return $cgi_string;
-		}
-	}
-
-	/**
-	 * Gets the settings for the LaTeXML daemon.
-	 *
-	 * @return string
-	 */
-	public function getLaTeXMLSettings() {
-		global $wgMathDefaultLaTeXMLSetting;
-		if ( $this->LaTeXMLSettings ) {
-			return $this->LaTeXMLSettings;
-		} else {
-			return $wgMathDefaultLaTeXMLSetting;
-		}
-	}
-
-	/**
-	 * Sets the settings for the LaTeXML daemon.
-	 * The settings affect only the current instance of the class.
-	 * For a list of possible settings see:
-	 * http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml
-	 * An empty value indicates to use the default settings.
-	 * @param string|array $settings
-	 */
-	public function setLaTeXMLSettings( $settings ) {
-		$this->LaTeXMLSettings = $settings;
-	}
 
 	/**
 	 * Gets the allowed root elements the rendered math tag might have.
@@ -90,7 +39,6 @@ class MathMathML extends MathRenderer {
 	/* (non-PHPdoc)
 	 * @see MathRenderer::render()
 	 */
-
 	public function render( $forceReRendering = false ) {
 		global $wgMathFastDisplay;
 		if ( $forceReRendering ) {
@@ -98,10 +46,6 @@ class MathMathML extends MathRenderer {
 		}
 		if ( $this->renderingRequired() ) {
 			wfDebugLog( "Math", "Rendering was requested." );
-			if ( $wgMathFastDisplay && !$this->isInDatabase() ) {
-				$this->writeCache();
-				return true;
-			}
 			$res = $this->doRender();
 			return $res;
 		}
@@ -121,7 +65,13 @@ class MathMathML extends MathRenderer {
 			if ( $dbres ) {
 				if ( $this->isValidMathML( $this->getMathml() ) ) {
 					wfDebugLog( "Math", "Valid MathML entry found in database." );
-					return false;
+					if ( $this->getSvg()  ) {
+						wfDebugLog( "Math", "SVG-fallback found in database." );
+						return false;
+					} else {
+						wfDebugLog( "Math", "SVG-fallback missing." );
+						return true;
+					}
 				} else {
 					wfDebugLog( "Math", "Malformatted entry found in database" );
 					return true;
@@ -135,7 +85,7 @@ class MathMathML extends MathRenderer {
 
 	/**
 	 * Performs a HTTP Post request to the given host.
-	 * Uses $wgLaTeXMLTimeout as timeout.
+	 * Uses $wgMathMLTimeout as timeout.
 	 * Generates error messages on failure
 	 * @see Http::post()
 	 *
@@ -147,7 +97,7 @@ class MathMathML extends MathRenderer {
 	 * @return boolean success
 	 */
 	public function makeRequest( $host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest' ) {
-		global $wgMathLaTeXMLTimeout;
+		global $wgMathMathMLTimeout;
 		$error = '';
 		$res = null;
 		if ( !$host ) {
@@ -156,7 +106,7 @@ class MathMathML extends MathRenderer {
 		if ( !$post ) {
 			$this->getPostData();
 		}
-		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
+		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathMathMLTimeout );
 		$req = $httpRequestClass::factory( $host, $options );
 		$status = $req->execute();
 		if ( $status->isGood() ) {
@@ -166,14 +116,14 @@ class MathMathML extends MathRenderer {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
 				$error = $this->getError( 'math_latexml_timeout', $host );
 				$res = false;
-				wfDebugLog( "Math", "\nLaTeXML Timeout:"
+				wfDebugLog( "Math", "\nMathML Timeout:"
 						. var_export( array( 'post' => $post, 'host' => $host
-							, 'wgLaTeXMLTimeout' => $wgMathLaTeXMLTimeout ), true ) . "\n\n" );
+							, 'wgMathMLTimeout' => $wgMathMathMLTimeout ), true ) . "\n\n" );
 			} else {
 				// for any other unkonwn http error
 				$errormsg = $status->getHtml();
 				$error = $this->getError( 'math_latexml_invalidresponse', $host, $errormsg );
-				wfDebugLog( "Math", "\nLaTeXML NoResponse:"
+				wfDebugLog( "Math", "\nMathML NoResponse:"
 						. var_export( array( 'post' => $post, 'host' => $host
 							, 'errormsg' => $errormsg ), true ) . "\n\n" );
 			}
@@ -183,17 +133,17 @@ class MathMathML extends MathRenderer {
 
 
 	/**
-	 * Picks a LaTeXML daemon.
+	 * Picks a MathML daemon.
 	 * If more than one demon are availible one is chosen from the
-	 * $wgLaTeXMLUrl array.
+	 * $wgMathMLUrl array.
 	 * @return string
 	 */
 	private static function pickHost() {
-		global $wgMathLaTeXMLUrl;
-		if ( is_array( $wgMathLaTeXMLUrl ) ) {
-			$host = array_rand( $wgMathLaTeXMLUrl );
+		global $wgMathMathMLUrl;
+		if ( is_array( $wgMathMathMLUrl ) ) {
+			$host = array_rand( $wgMathMathMLUrl );
 		} else {
-			$host = $wgMathLaTeXMLUrl;
+			$host = $wgMathMathMLUrl;
 		}
 		wfDebugLog( "Math", "picking host " . $host );
 		return $host;
@@ -210,11 +160,8 @@ class MathMathML extends MathRenderer {
 			//default preserve the (broken) layout as it was
 			$tex= '{\displaystyle '. $tex.'}';
 		}
-		$texcmd = rawurlencode( $tex );
-		$settings = $this->serializeSettings( $this->getLaTeXMLSettings() );
-		$postData = $settings . '&tex=' . $texcmd;
-		wfDebugLog( "Math", 'Get post data: ' . $postData );
-		return $postData;
+		wfDebugLog( "Math", 'Get post data: ' . $tex );
+		return 'tex='.rawurlencode( $tex );
 	}
 
 	/**
@@ -222,40 +169,43 @@ class MathMathML extends MathRenderer {
 	 * @return boolean
 	 */
 	private function doRender() {
-		global $wgMathDefaultLaTeXMLSetting, $wgMathDebug;
-		if ( !$this->getTex() ) {
+		global  $wgMathDebug;
+		if ( $this->getTex() ==='' ) {
 			wfDebugLog( "Math", "Rendering was requested, but no TeX string is specified.");
 			$this->lastError = $this->getError( 'math_empty_tex' );
 			return false;
 		}
 		$res = '';
 		$host = self::pickHost();
-		$this->setLaTeXMLSettings( $wgMathDefaultLaTeXMLSetting );
 		$post = $this->getPostData();
 		$this->lastError = '';
 		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
 		if ( $requestResult ) {
 			$result = json_decode( $res );
 			if ( $result && json_last_error() === JSON_ERROR_NONE ) {
-				if ( $this->isValidMathML( $result->result ) ) {
-					$this->setMathml( $result->result );
-					if ( $wgMathDebug ) {
-						$this->setLog( $result->log );
-						$this->setStatusCode( $result->status_code );
+				if ( $result->sucess ){
+					if ( $this->isValidMathML( $result->mml ) ) {
+						$this->setMathml( $result->mml );
+						$this->setSvg( $result->svg );
+						if ( $wgMathDebug ) {
+							$this->setLog( $result->log );
+						}
+						return true;
+					} else {
+						$this->lastError = $this->getError( 'math_unknown_error', $host );
 					}
-					return true;
 				} else {
 					// Do not print bad mathml. It's probably too verbose and might
 					// mess up the browser output.
 					$this->lastError = $this->getError( 'math_latexml_invalidxml', $host );
-					wfDebugLog( "Math", "\nLaTeXML InvalidMathML:"
+					wfDebugLog( "Math", "\nMathML InvalidMathML:"
 							. var_export( array( 'post' => $post, 'host' => $host
 								, 'result' => $res ), true ) . "\n\n" );
 					return false;
 				}
 			} else {
 				$this->lastError = $this->getError( 'math_latexml_invalidjson', $host );
-				wfDebugLog( "Math", "\nLaTeXML InvalidJSON:"
+				wfDebugLog( "Math", "\nMathML InvalidJSON:"
 						. var_export( array( 'post' => $post, 'host' => $host
 							, 'res' => $res ), true ) . "\n\n" );
 				return false;
@@ -301,10 +251,10 @@ class MathMathML extends MathRenderer {
 	 * @param boolean $noRender
 	 * @return type
 	 */
-	private function getFallbackImageUrl( $noRender = false,$png=false  ) {
+	private function getFallbackImageUrl( $png = false, $noRender = false ) {
 		return SpecialPage::getTitleFor( 'MathShowImage' )->getLocalURL( array(
 					'hash' => $this->getMd5(),
-					'png' => false,
+					'png' => $png,
 					'noRender' => $noRender)
 		);
 	}
@@ -315,29 +265,48 @@ class MathMathML extends MathRenderer {
 	 * @param string|false $classOverride if classOverride is false the class name will be calcuated by getClassName
 	 * @return string XML the image html tag
 	 */
-	public function getFallbackImage( $noRender = false, $classOverride = false ) {
-		$url = $this->getFallbackImageUrl( $noRender);
+	public function getFallbackImage( $png = false, $noRender = false, $classOverride = false ) {
+		$url = $this->getFallbackImageUrl( $png , $noRender);
 		$style = '';
 		$attribs = array();
-		if( $classOverride === false ){
-			$class = $this->getClassName( true );
+		if( $classOverride === false ){ //$class ='' osuppresses class attribute
+			$class = $this->getClassName( true, $png );
+			$style = $png ? 'display: none;' : '';
 		} else {
 			$class  = $classOverride;
+			$style = '';
+		}
+		if ( !$png){
+			$svg = $this->getSvg();
+			if( preg_match('/style="([^"]*)"/', $svg, $styles) ){
+				$style = $styles[1];
+				if ( $this->getDisplaytyle()===true){
+					$style = preg_replace('/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style);
+					$style .= 'display:block;  margin-left: auto;  margin-right: auto;';
+				}
+			}
 		}
 		if ( $class ) { $attribs['class'] = $class; }
 		if ( $style ) { $attribs['style'] = $style; }
+		//an alteranative for svg might be an object with type="image/svg+xml"
 		return Xml::element( 'img', $this->getAttributes( 'img', $attribs , array( 'src' => $url )) );
 	}
 
 	/**
 	 * Calculates the default class name for a math element
 	 * @param boolean $fallback
+	 * @param boolean $png
 	 * @return string the class name
 	 */
-	private function getClassName( $fallback = false ) {
+	private function getClassName( $fallback = false, $png = false ) {
 		$class = "mwe-math-";
 		if ( $fallback ) {
-			$class .= 'fallback-png-';
+			$class .= 'fallback-';
+			if ( $png ) {
+				$class .= 'png-';
+			} else {
+				$class .= 'svg-';
+			}
 		} else {
 			$class .= 'mathml-';
 		}
@@ -365,24 +334,20 @@ class MathMathML extends MathRenderer {
 			$attribs['id'] = $this->getID();
 		}
 		$output = HTML::openElement($element , $attribs);
-		if ( $this->getMathml() ){
-			$class = $this->getClassName();
-			//MathML has to be wrapped into a div or span in order to be able to hide it.
-			if ( $this->getDisplaytyle() == true ){
-				$mml = preg_replace('|display="inline"|', 'display="block"', $this->getMathml());
-				$mml = preg_replace('/mode="(inline|block)"/', 'display="block"', $mml);
-			} else {
-				$mml = $this->getMathml();
-			}
-			$output .= Xml::tags( $element, array( 'class' => $class,
-				'style'=>'display: none;' ),
-				$mml );
+		//MathML has to be wrapped into a div or span in order to be able to hide it.
+		if ( $this->getDisplaytyle() == true ){
+			//Remove displaystyle attributes set by the MathML converter
+			$mml = preg_replace('/(display|mode)=["\'](inline|block)["\']/', '', $this->getMathml());
+			//and isert the corrent value
+			$mml = preg_replace('/<math/', '<math display="block"', $mml);
+		} else {
+			$mml = $this->getMathml();
 		}
-		//Extension should
-		//$output .= $this->getFallbackImage( ) . "\n";
-		$this->renderer  = MathSvg::newFromMd5( $this->getMd5() );
-		$this->renderer->render();
-		$output .= $this->renderer ->getSvg();
+		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(),
+			'style'=>'display: none;' ),
+			$mml );
+		$output .= $this->getFallbackImage( false ) . "\n";
+		$output .= $this->getFallbackImage( true ) . "\n";
 		$output .= HTML::closeElement($element);
 		return $output;
 	}
