@@ -660,6 +660,7 @@ $messages['bs'] = array(
 
 /** Catalan (català)
  * @author Martorell
+ * @author Papapep
  * @author SMP
  * @author Toniher
  * @author Vriullop
@@ -676,8 +677,8 @@ $messages['ca'] = array(
 	'math_lexing_error' => 'error de lèxic',
 	'math_syntax_error' => 'error de sintaxi',
 	'math_image_error' => 'Hi ha hagut una errada en la conversió a PNG. Verifiqueu la instaŀlació de latex i dvipng (o dvips, gs i convert).',
-	'math_bad_tmpdir' => 'No ha estat possible crear el directori temporal de math o escriure-hi dins.',
-	'math_bad_output' => "No ha estat possible crear el directori d'eixida de math o escriure-hi dins.",
+	'math_bad_tmpdir' => "No s'ha pogut crear el directori temporal de math o escriure-hi dins.",
+	'math_bad_output' => "No s'ha pogut crear el directori d'eixida de math o escriure-hi dins.",
 	'math_notexvc' => "No s'ha trobat el fitxer executable ''texvc''; si us plau, vegeu math/README per a configurar-lo.",
 );
 
