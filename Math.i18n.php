@@ -659,6 +659,7 @@ $messages['bs'] = array(
 );
 
 /** Catalan (català)
+ * @author Alvaro Vidal-Abarca
  * @author Martorell
  * @author Papapep
  * @author SMP
@@ -673,7 +674,7 @@ $messages['ca'] = array(
 	'mw_math_source' => 'Deixa com a TeX (per a navegadors de text)',
 	'math_failure' => "No s'ha pogut entendre",
 	'math_unknown_error' => 'error desconegut',
-	'math_unknown_function' => 'funció desconeguda', # Fuzzy
+	'math_unknown_function' => "funció '$1' desconeguda",
 	'math_lexing_error' => 'error de lèxic',
 	'math_syntax_error' => 'error de sintaxi',
 	'math_image_error' => 'Hi ha hagut una errada en la conversió a PNG. Verifiqueu la instaŀlació de latex i dvipng (o dvips, gs i convert).',
