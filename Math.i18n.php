@@ -793,7 +793,7 @@ $messages['crh-latn'] = array(
 	'math_syntax_error' => 'sintaksis hatası',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Danny B.
  * @author Mormegil
  */
@@ -836,7 +836,7 @@ $messages['csb'] = array(
 	'math_failure' => 'Parser nie rozmiôł rozpòznac',
 );
 
-/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
