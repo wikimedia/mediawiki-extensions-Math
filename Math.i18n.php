@@ -876,6 +876,7 @@ $messages['cy'] = array(
 );
 
 /** Danish (dansk)
+ * @author Christian List
  * @author Nghtwlkr
  * @author Peter Alberti
  */
@@ -887,15 +888,22 @@ $messages['da'] = array(
 	'mw_math_png' => 'Vis altid som PNG',
 	'mw_math_source' => 'Lad være som TeX (for tekstbrowsere)',
 	'mw_math_mathjax' => 'MathJax (på forsøgsstadiet; virker bedst for mange browsere)',
+	'mw_math_latexml' => 'LaTeXML (eksperimentel; anvender MathML)',
 	'math_failure' => 'Fejl i matematikken',
 	'math_unknown_error' => 'ukendt fejl',
-	'math_unknown_function' => 'ukendt funktion', # Fuzzy
+	'math_unknown_function' => "ukendt funktion '$1'",
 	'math_lexing_error' => 'lexerfejl',
 	'math_syntax_error' => 'syntaksfejl',
 	'math_image_error' => 'PNG-konvertering mislykkedes; undersøg om latex og dvipng (eller dvips + gs + convert) er installeret korrekt',
 	'math_bad_tmpdir' => 'Kan ikke skrive til eller oprette temp-mappe til math',
 	'math_bad_output' => 'Kan ikke skrive til eller oprette uddata-mappe til math',
 	'math_notexvc' => 'Manglende eksekvérbar texvc; se math/README for opsætningsoplysninger.',
+	'math_output_error' => 'Kan ikke gemme matematikbillede på filsystem.',
+	'math_latexml_timeout' => "LaTeXML timeout fra '$1'",
+	'math_latexml_invalidresponse' => "LaTeXML ugyldigt svar ('$2') fra serveren '$1':",
+	'math_latexml_invalidxml' => 'LaTeXML MathML er ugyldig XML.',
+	'math_latexml_invalidjson' => 'LaTeXML svar fra serveren er ugyldig JSON.',
+	'math_latexml_xmlversion' => 'Advarsel: XML typetjek springes over! Tjek om din MediaWiki-installation er version wmf/1.22wmf7 eller nyere.',
 );
 
 /** German (Deutsch)
