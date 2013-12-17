@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ee75395_3ce02723",
+        "filename": "MathRenderer.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-17T20:22:55Z",
+      "side": 1,
+      "message": "This could be an issue if the database update is not performed.\nAn option would be to check if the field exists in the database... however that would be really bad for the performance.\nWhat do you think?",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
