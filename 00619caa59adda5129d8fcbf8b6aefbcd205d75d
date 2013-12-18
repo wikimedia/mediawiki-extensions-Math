@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_0b2e3389",
+        "filename": "Math.hooks.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "The ida was to to move this functionallity to ext.math.selector. But since I got complains about the blinking of equation caused by the math selector, that might not a good idea.",
+      "parentUuid": "0ee75395_df2a4d2a",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_5f1e3d12",
         "filename": "Math.hooks.php",
         "patchSetId": 53
@@ -30,6 +48,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "suggest a followup change that depends on this change set with a maintenance task to do this. Otherwise the todo is gonna be there forever and the task won\u0027t materialize until someone thinks to \u0027clean\u0027 the database again.",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_cb4bab61",
+        "filename": "Math.hooks.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "I will change that, so that we get a new table for the new math extension.",
+      "parentUuid": "0ee75395_5f1e3d12",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_50006a38",
+        "filename": "Math.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_1f1435ec",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_9fdf253f",
         "filename": "Math.php",
         "patchSetId": 53
@@ -64,6 +118,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "why the \u0027experimental\u0027 \u0027not stable\u0027 comments here ?",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_c52f1a39",
+        "filename": "Math.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_9fdf253f",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_85259258",
+        "filename": "Math.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "I think it\u0027s a good idea to follow the naming convention. ExtensionSomething",
+      "parentUuid": "0ee75395_9fe165cd",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_bfac299e",
         "filename": "Math.php",
         "patchSetId": 53
@@ -98,6 +188,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "This MathJax stuff is gonna be hard to maintain... We should see if we can write some sort of \u0027validator\u0027 to check if all files are mentioned and/or present.",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_251486ec",
+        "filename": "Math.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Year that would be great. Do you know if there is already an aproach for that. In principle a simple phpunit test could do that.",
+      "parentUuid": "0ee75395_bfac299e",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_65edeeed",
+        "filename": "Math.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_bf92e94c",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_3f9ed958",
         "filename": "Math.php",
         "patchSetId": 53
@@ -132,6 +258,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "Why this change ?",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_c5c5da65",
+        "filename": "Math.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "That caused a lot of problems in the past. Often directories had wrong permissions for example. Since the png images are now chached by squid the files should be used only once (in theory)",
+      "parentUuid": "0ee75395_3f9ed958",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_90995224",
+        "filename": "MathInputCheck.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_9f5cc583",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_5fd99df6",
         "filename": "MathInputCheck.php",
         "patchSetId": 53
@@ -166,6 +328,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "I\u0027d call this validate() instead. That is the action that you are performing here.",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_50874aba",
+        "filename": "MathInputCheck.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "I\u0027m not sure if the interface should define when the actual computing is done.\nI\u0027ll think about that.",
+      "parentUuid": "0ee75395_5fd99df6",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -206,6 +386,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_3084c6b3",
+        "filename": "MathMathML.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_1f5af552",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_7f4b4188",
         "filename": "MathMathML.php",
         "patchSetId": 53
@@ -217,6 +415,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "wgMathMathMLUrl",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_108d42d8",
+        "filename": "MathMathML.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_7f4b4188",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -308,6 +524,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_50ae2a2c",
+        "filename": "MathMathML.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_e2fd7405",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_8256a807",
         "filename": "MathMathML.php",
         "patchSetId": 53
@@ -319,6 +553,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "alternative",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_70b5ae77",
+        "filename": "MathMathML.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_8256a807",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -342,6 +594,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_70748ecc",
+        "filename": "MathRenderer.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_0242983e",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_a2688cb8",
         "filename": "MathRenderer.php",
         "patchSetId": 53
@@ -353,6 +623,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "identifier",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_307a86b8",
+        "filename": "MathRenderer.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_a2688cb8",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -376,6 +664,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_1083029d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_0259782c",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_a2a76c07",
         "filename": "MathRenderer.php",
         "patchSetId": 53
@@ -387,6 +693,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "occurred",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_d050fa38",
+        "filename": "MathRenderer.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_a2a76c07",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -410,6 +734,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_9046f27e",
+        "filename": "MathRenderer.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_82834856",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_e2efb419",
         "filename": "MathRenderer.php",
         "patchSetId": 53
@@ -421,6 +763,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "available",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_704b6e88",
+        "filename": "MathRenderer.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_e2efb419",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -455,6 +815,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "!\u003d\u003d",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_30616600",
+        "filename": "MathRenderer.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_42e0a023",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -529,6 +907,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_70192e88",
+        "filename": "MathRenderer.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_a252ccdb",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_6270446f",
         "filename": "MathRenderer.php",
         "patchSetId": 53
@@ -540,6 +936,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "indent",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_d01eba74",
+        "filename": "MathRenderer.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_6270446f",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -563,6 +977,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_f0041e1c",
+        "filename": "MathRenderer.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_c20830df",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_a209ace1",
         "filename": "MathRenderer.php",
         "patchSetId": 53
@@ -574,6 +1006,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "getDisplayStyle()",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_300f263c",
+        "filename": "MathRenderer.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_a209ace1",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -631,6 +1081,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_cbfdeb05",
+        "filename": "MathTexvc.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_a2b64cf4",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_c2def043",
         "filename": "MathTexvc.php",
         "patchSetId": 53
@@ -642,6 +1110,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "double spacing",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_ab02a70a",
+        "filename": "MathTexvc.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_c2def043",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -665,6 +1151,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_6b081f2b",
+        "filename": "SpecialMathShowImage.php",
+        "patchSetId": 53
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "ok do you have a link how this is usually done",
+      "parentUuid": "0ee75395_a293ec50",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_02d29800",
         "filename": "math/_WARNING",
         "patchSetId": 53
@@ -676,6 +1180,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "DELETATION",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_4b11db55",
+        "filename": "math/_WARNING",
+        "patchSetId": 53
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_02d29800",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -699,6 +1221,24 @@
     },
     {
       "key": {
+        "uuid": "0ee75395_eb130f5b",
+        "filename": "modules/ext.math.mathjax.enabler.js",
+        "patchSetId": 53
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee75395_22ec7cb7",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee75395_4242e0b1",
         "filename": "modules/ext.math.mathml.css",
         "patchSetId": 53
@@ -710,6 +1250,24 @@
       "writtenOn": "2013-12-17T23:15:49Z",
       "side": 1,
       "message": "!important yuckiness. do we really need it can\u0027t we solve it with specificity ?",
+      "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ee75395_2b0e9736",
+        "filename": "modules/ext.math.mathml.css",
+        "patchSetId": 53
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-18T08:46:25Z",
+      "side": 1,
+      "message": "mh I introduced it to the mozilla specific css rule",
+      "parentUuid": "0ee75395_4242e0b1",
       "revId": "00619caa59adda5129d8fcbf8b6aefbcd205d75d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
