@@ -667,11 +667,14 @@ $messages['bs'] = array(
  * @author Vriullop
  */
 $messages['ca'] = array(
+	'math-desc' => 'Composa fórmules matemàtiques escrites entre les etiquetes <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Inseriu una fórmula ací',
 	'math_tip' => 'Fórmula matemàtica (LaTeX)',
 	'prefs-math' => 'Com es mostren les fórmules',
 	'mw_math_png' => 'Produeix sempre PNG',
 	'mw_math_source' => 'Deixa com a TeX (per a navegadors de text)',
+	'mw_math_mathjax' => 'MathJax (experimental; òptim per a la majoria de navegadors)',
+	'mw_math_latexml' => 'LaTeXML (experimental; utilitza MathML)',
 	'math_failure' => "No s'ha pogut entendre",
 	'math_unknown_error' => 'error desconegut',
 	'math_unknown_function' => "funció '$1' desconeguda",
@@ -681,6 +684,12 @@ $messages['ca'] = array(
 	'math_bad_tmpdir' => "No s'ha pogut crear el directori temporal de math o escriure-hi dins.",
 	'math_bad_output' => "No s'ha pogut crear el directori d'eixida de math o escriure-hi dins.",
 	'math_notexvc' => "No s'ha trobat el fitxer executable ''texvc''; si us plau, vegeu math/README per a configurar-lo.",
+	'math_output_error' => "No es pot emmagatzemar imatge de fórmula matemàtica al sistema d'arxius.",
+	'math_latexml_timeout' => "LaTeXML - s'ha excedit el temps d'espera a '$1'",
+	'math_latexml_invalidresponse' => "LaTeXML Resposta invàlida ('$2') del servidor '$1':",
+	'math_latexml_invalidxml' => 'LaTeXML MathML conté XML invàlid.',
+	'math_latexml_invalidjson' => 'LaTeXML La resposta del servidor és un JSON invàlid.',
+	'math_latexml_xmlversion' => "Advertència: s'ha obviat la comprovació del tipus XML! Comproveu si la vostra instal·lació de MediaWiki és la versió wmf/1.22wmf7 o més recent.",
 );
 
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄)
