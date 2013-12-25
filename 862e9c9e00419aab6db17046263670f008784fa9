@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eeebdf60_4cbf43f7",
+        "filename": ".gitignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2013-12-25T09:36:25Z",
+      "side": 1,
+      "message": "I think we don\u0027t need that.",
+      "revId": "862e9c9e00419aab6db17046263670f008784fa9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
