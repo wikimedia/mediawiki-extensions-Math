@@ -16,6 +16,24 @@
       "revId": "862e9c9e00419aab6db17046263670f008784fa9",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_0c601b9f",
+        "filename": ".gitignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2013-12-25T09:44:17Z",
+      "side": 1,
+      "message": "There are some nbproject entries in other ignores. It doesn\u0027t really hurt anything, and can tricky to avoid adding things there. I think NetBeans has an option to put project files in a specific dir instead of alongside the code, but it doesn\u0027t seem to matter.",
+      "parentUuid": "eeebdf60_4cbf43f7",
+      "revId": "862e9c9e00419aab6db17046263670f008784fa9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
