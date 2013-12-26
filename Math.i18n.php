@@ -3372,11 +3372,14 @@ $messages['rmy'] = array(
  * @author Strainu
  */
 $messages['ro'] = array(
+	'math-desc' => 'Randează formulele matematice cuprinse între etichetele <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Introduceți formula aici',
 	'math_tip' => 'Formulă matematică (LaTeX)',
 	'prefs-math' => 'Aspect formule',
 	'mw_math_png' => 'Întodeauna afișează PNG',
 	'mw_math_source' => 'Lasă ca TeX (pentru navigatoarele text)',
+	'mw_math_mathjax' => 'MathJax (experimental; potrivit pentru majoritatea navigatoarelor)',
+	'mw_math_latexml' => 'LaTeXML (experimental; folosește MathML)',
 	'math_failure' => 'Nu s-a putut interpreta',
 	'math_unknown_error' => 'eroare necunoscută',
 	'math_unknown_function' => 'funcție „$1” necunoscută',
@@ -3386,6 +3389,12 @@ $messages['ro'] = array(
 	'math_bad_tmpdir' => 'Nu se poate crea sau nu se poate scrie în directorul temporar pentru formule matematice',
 	'math_bad_output' => 'Nu se poate crea sau nu se poate scrie în directorul de ieșire pentru formule matematice',
 	'math_notexvc' => 'Lipsește executabilul texvc; vedeți math/README pentru configurare.',
+	'math_output_error' => 'Nu se poate stoca imaginea matematică în sistemul de fișiere.',
+	'math_latexml_timeout' => 'Timp de așteptare expirat pentru LaTeXML de la „$1”',
+	'math_latexml_invalidresponse' => 'Răspuns incorect pentru LaTeXML („$2”) de la serverul „$1”:',
+	'math_latexml_invalidxml' => 'LaTeXML MathML este un XML incorect.',
+	'math_latexml_invalidjson' => 'Răspunsul de la server pentru LaTeXML este un JSON incorect.',
+	'math_latexml_xmlversion' => 'Avertisment: verificarea tipului de XML a fost omisă! Verificați dacă versiunea instalată de MediaWiki este wmf/1.22wmf7 sau mai nouă.',
 );
 
 /** tarandíne (tarandíne)
