@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "eeebdf60_3ceb0c0b",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2013-12-26T20:37:31Z",
+      "side": 1,
+      "message": "\"writes\" as in \"write operations\"",
+      "parentUuid": "eeebdf60_f7b26491",
+      "revId": "862e9c9e00419aab6db17046263670f008784fa9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeebdf60_d7b76080",
         "filename": "MathTexvc.php",
         "patchSetId": 1
@@ -83,6 +101,24 @@
       "writtenOn": "2013-12-26T12:56:13Z",
       "side": 1,
       "message": "ref is not documented at\nhttps://doc.wikimedia.org/mediawiki-core/master/php/html/classFileBackend.html#a32d192d05c2a6fbffc825590907d1030\nI don\u0027t understand the comment... will the file be deleted if the last reference to the file gets out of memory?",
+      "revId": "862e9c9e00419aab6db17046263670f008784fa9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_1ce8480a",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2013-12-26T20:37:31Z",
+      "side": 1,
+      "message": "Correct. \u0027ref\u0027 is just there so the file doesn\u0027t get deleted yet. FileBackend doesn\u0027t care if you pass it bogus params, so I\u0027m just abusing that.",
+      "parentUuid": "eeebdf60_d7b76080",
       "revId": "862e9c9e00419aab6db17046263670f008784fa9",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
