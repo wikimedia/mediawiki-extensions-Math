@@ -125,6 +125,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	 * i.e. if the span element is generated right.
 	 */
 	public function testIntegration() {
+		$this->markTestSkipped( 'currently no live LaTeXML server reachable from jenkins' );
 		global $wgLaTeXMLTimeout;
 		$wgLaTeXMLTimeout = 20;
 		$renderer = MathRenderer::getRenderer( "a+b", array(), MW_MATH_LATEXML );
