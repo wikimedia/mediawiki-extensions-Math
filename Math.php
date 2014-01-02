@@ -143,6 +143,7 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'MathHooks::onLoadExtensionSchemaUpda
 $wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
 $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
 $wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
+$wgHooks['PageRenderingHash'][] = 'MathHooks::onPageRenderingHash';
 
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
