@@ -7,6 +7,22 @@
  */
 
 class MathHooks {
+
+	/*
+	 * Generate a user dependent hash cache key.
+	 * The hash key depends on the rendering mode.
+	 * @param &$confstr The to-be-hashed key string that is being constructed
+	 */
+	public static function onPageRenderingHash( &$confstr, $user = false ) {
+		global $wgUser;
+		if ( $user===false ){
+			$user = $wgUser;
+		}
+		$confstr .= "!" . $user->getOption('math');
+		wfDebugLog('Math', 'New cache key'.$confstr);
+		return true;
+	}
+	/**
 	/**
 	 * Set up $wgMathPath and $wgMathDirectory globals if they're not already
 	 * set.
@@ -43,11 +59,12 @@ class MathHooks {
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		global $wgContLang, $wgUseMathJax;
-		if ( trim( $content )  === "" ) { // bug 8372
+		if ( trim( $content ) === "" ) { // bug 8372
 			return "";
 		}
 		wfProfileIn( __METHOD__ );
-		$mode = $parser->getOptions()->getMath();
+		$mode = (int) $parser->getUser()->getOption('math');
+		$parser->getOptions()->addExtraKey($mode);
 		$renderer = MathRenderer::getRenderer(
 			$content, $attributes, $mode
 		);
