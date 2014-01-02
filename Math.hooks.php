@@ -7,6 +7,41 @@
  */
 
 class MathHooks {
+	const mathCacheKey = 'math=';
+
+	/*
+	 * Generate a user dependent hash cache key.
+	 * The hash key depends on the rendering mode.
+	 * @param &$confstr The to-be-hashed key string that is being constructed
+	 * @param User $user reference to the current user
+	 * @param array &$forOptions userOptions used on that page
+	 */
+	public static function onPageRenderingHash( &$confstr, $user = false, &$forOptions = array( ) ) {
+		global $wgUser;
+
+		if ( in_array( 'math' , $forOptions) ){
+			if ( $user === false ){
+				$user = $wgUser;
+			}
+			//Check if the key already contains the math option part:
+			if ( ! preg_match('/(^|!)' . self::mathCacheKey . $user->getOption('math') . '(!|$)/', $confstr )){
+				//The math part of cache key starts with "math=" followed by a star or a number for the math mode
+				//and the optional letter j that indicates if clientside MathJax rendering is used.
+				if( preg_match('/(^|!)' . self::mathCacheKey.'[*\d]m?(!|$)/' , $confstr ) ){
+					$confstr = preg_replace( '/(^|!)'.self::mathCacheKey.'[*\d]m?(!|$)/',
+						'\1' . self::mathCacheKey . $user->getOption('math') .'\2', $confstr);
+				} else {
+					$confstr .= '!' . self::mathCacheKey . $user->getOption('math');
+				}
+				wfDebugLog( 'Math', "New cache key: $confstr" );
+			} else {
+				wfDebugLog( 'Math', "Cache key found $confstr" );
+			}
+		}
+		return true;
+	}
+
+	/**
 	/**
 	 * Set up $wgMathPath and $wgMathDirectory globals if they're not already
 	 * set.
@@ -38,16 +73,22 @@ class MathHooks {
 	 *
 	 * @param $content (the LaTeX input)
 	 * @param $attributes
-	 * @param $parser Parser
+	 * @param Parser $parser 
 	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		global $wgContLang, $wgUseMathJax;
-		if ( trim( $content )  === "" ) { // bug 8372
-			return "";
+
+		if ( trim( $content ) === '' ) { // bug 8372
+			return '';
 		}
 		wfProfileIn( __METHOD__ );
-		$mode = $parser->getOptions()->getMath();
+		$mode = (int)$parser->getUser()->getOption( 'math' );
+		if ( is_callable( 'ParserOptions::getMath' ) ){
+			$parser->getOptions()->getMath();
+		} else {
+			$parser->getOptions()->optionUsed('math');
+		}
 		$renderer = MathRenderer::getRenderer(
 			$content, $attributes, $mode
 		);
