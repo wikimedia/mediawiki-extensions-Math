@@ -129,7 +129,6 @@ class MathHooks {
 			'postgres' => 'math.pg.sql',
 			'oracle' => 'math.oracle.sql',
 			'mssql' => 'math.mssql.sql',
-			'db2' => 'math.db2.sql',
 		);
 		$type = $updater->getDB()->getType();
 		if ( isset( $map[$type] ) ) {
