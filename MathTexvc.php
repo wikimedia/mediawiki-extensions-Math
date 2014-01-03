@@ -100,24 +100,8 @@ class MathTexvc extends MathRenderer {
 	 * @param string $texvcResult error result returned by texvc
 	 */
 	public function convertTexvcError( $texvcResult ) {
-		$texvcStatus = substr( $texvcResult, 0, 1 );
-
-		$errDetails = htmlspecialchars( substr( $texvcResult, 1 ) );
-		switch( $texvcStatus ) {
-			case 'E':
-				$errMsg = $this->getError( 'math_lexing_error' );
-				break;
-			case 'S':
-				$errMsg = $this->getError( 'math_syntax_error' );
-				break;
-			case 'F':
-				$errMsg = $this->getError( 'math_unknown_function', $errDetails );
-				break;
-			default:
-				$errMsg = $this->getError( 'math_unknown_error' );
-		}
-
-		return $errMsg;
+		$errorConverter = new MathInputCheckTexvc();
+		return $errorConverter->convertTexvcError($texvcResult, $this);
 	}
 
 	/**
