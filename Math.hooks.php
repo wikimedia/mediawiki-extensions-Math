@@ -42,7 +42,7 @@ class MathHooks {
 	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgContLang, $wgUseMathJax;
+		global $wgMathDisableTexFilter, $wgContLang, $wgUseMathJax;
 		if ( trim( $content )  === "" ) { // bug 8372
 			return "";
 		}
@@ -51,6 +51,13 @@ class MathHooks {
 		$renderer = MathRenderer::getRenderer(
 			$content, $attributes, $mode
 		);
+		if (! $wgMathDisableTexFilter){
+			$checkResult = $renderer->checkTex();
+			if ( $checkResult !== true ){
+				//returns the error message
+				return $renderer->getLastError();
+			}
+		}
 		$renderedMath = $renderer->render();
 		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );

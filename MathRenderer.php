@@ -27,6 +27,8 @@ abstract class MathRenderer {
 	 */
 	protected $mode = MW_MATH_PNG;
 	protected $tex = '';
+	/** @var string the original user input string (which was used to caculate the inputhash) */
+	protected $userInputTex = '';
 	/**
 	 * is calculated by texvc.
 	 * @var string
@@ -36,6 +38,9 @@ abstract class MathRenderer {
 	protected $mathml = '';
 	protected $conservativeness = 0;
 	protected $params = '';
+	//STATE OF THE CLASS INSTANCE
+	/** @var boolean has variable tex been security-checked */
+	protected $texSecure = false;
 	protected $changed = false;
 	/**
 	 * @var boolean forces rerendering if set to true
@@ -51,6 +56,7 @@ abstract class MathRenderer {
 	 * @param array $params (optional) HTML attributes
 	 */
 	public function __construct( $tex = '', $params = array() ) {
+		$this->userInputTex = $tex;
 		$this->tex = $tex;
 		$this->params = $params;
 	}
@@ -114,7 +120,7 @@ abstract class MathRenderer {
 	 * @param Varargs $parameters (optional) zero or more message parameters for specific error
 	 * @return string HTML error string
 	 */
-	protected function getError( $msg /*, ... */ ) {
+	public function getError( $msg /*, ... */ ) {
 		$mf = wfMessage( 'math_failure' )->inContentLanguage()->escaped();
 		$parameters = func_get_args();
 		array_shift( $parameters );
@@ -414,6 +420,28 @@ abstract class MathRenderer {
 
 	function getLastError() {
 		return $this->lastError;
+	}
+	
+		/**
+	 * Get if the input tex was marked as secure
+	 * @return boolean
+	 */
+	public function isTexSecure (){
+		return $this->texSecure;
+	}
+
+	public function checkTex(){
+		if (!$this->texSecure) {
+			$checker = new MathInputCheckTexvc( $this->userInputTex );
+			if ( $checker->isValid() ){
+				$this->setTex( $checker->getValidTex() );
+				$this->texSecure = true;
+				return true;
+			} else {
+				$this->lastError = $checker->getError();
+				return false;
+			}
+		}
 	}
 }
 
