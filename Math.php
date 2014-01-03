@@ -132,6 +132,16 @@ $wgLaTeXMLTimeout = 240;
  * See http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml for details.
  */
 $wgDefaultLaTeXMLSetting = 'format=xhtml&whatsin=math&whatsout=math&pmml&cmml&nodefaultresources&preload=LaTeX.pool&preload=article.cls&preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty&preload=amssymb.sty&preload=eucal.sty&preload=[dvipsnames]xcolor.sty&preload=url.sty&preload=hyperref.sty&preload=[ids]latexml.sty&preload=texvc';
+/**
+ * The link to the texvc executable
+ */
+$wgMathTexvcCheckExecutable = dirname( __FILE__ ) . '/texvccheck/texvccheck';
+/**
+ * Option to disable the tex filter. If set to true any LaTeX espression is parsed
+ * this can be a potential security risk. If set to false only a subset of the tex
+ * commands is allowed. See the wikipedia page Help:Math for details.
+ */
+$wgMathDisableTexFilter = is_executable( $wgMathTexvcCheckExecutable )? false : true;
 ////////// end of config settings.
 
 $wgDefaultUserOptions['math'] = MW_MATH_PNG;
@@ -150,6 +160,8 @@ $wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
 $wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
 $wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
 $wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
+$wgAutoloadClasses['MathInputCheck'] = $dir . 'MathInputCheck.php';
+$wgAutoloadClasses['MathInputCheckTexvc'] = $dir . 'MathInputCheckTexvc.php';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
