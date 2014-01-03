@@ -331,7 +331,7 @@ $messages['as'] = array(
 	'math_tip' => 'গণিতীয় সুত্ৰ (LaTeX)',
 	'prefs-math' => 'গণিত',
 	'math_failure' => 'পাৰ্চ কৰিব অসমৰ্থ',
-	'math_unknown_error' => 'অপৰিচিত সমস্যা',
+	'math_unknown_error' => 'অজ্ঞাত ত্ৰুটি',
 	'math_unknown_function' => 'অজ্ঞাত কাৰ্য্য', # Fuzzy
 	'math_syntax_error' => 'চীন্‌টেক্স ত্ৰুটি',
 );
