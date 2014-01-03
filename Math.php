@@ -18,6 +18,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point to MediaWiki.\n" );
 }
 
+$wgHTTPProxy = 'brewster.wikimedia.org:8080';
+
 // Extension credits that will show up on Special:Version
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
