@@ -230,7 +230,7 @@ class MathLaTeXML extends MathRenderer {
 		}
 		$res = '';
 		$host = self::pickHost();
-		$this->setLaTeXMLSettings( $wgMathDefaultLaTeXMLSetting );
+		//$this->setLaTeXMLSettings( $wgMathDefaultLaTeXMLSetting );
 		$post = $this->getPostData();
 		$this->lastError = '';
 		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
