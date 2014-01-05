@@ -47,7 +47,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 		if ( !is_executable( $wgMathTexvcCheckExecutable ) ) {
 			$this->markTestSkipped( "No texvc installed on server" );
 		}
-		$this->assertFalse($this->BadObject->isSecure());
+		$this->assertFalse($this->BadObject->isValid());
 		// Remove the following lines when you implement this test.
 	}
 

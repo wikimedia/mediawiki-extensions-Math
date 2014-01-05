@@ -42,7 +42,7 @@ class MathHooks {
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		global $wgMathJax, $wgMathDisableTexFilter;
-		if ( trim( $content )  === "" ) { // bug 8372
+		if ( trim( $content ) === "" ) { // bug 8372
 			return "";
 		}
 		wfProfileIn( __METHOD__ );
@@ -75,7 +75,9 @@ class MathHooks {
 			$parser->getOptions()->addExtraKey(1);
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
-		$parser->getOutput()->addModules( array( 'ext.math.selector' ) );
+		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
+		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles.fonts' ) );
+		//$parser->getOutput()->addModules( array( 'ext.math.selector' ) );
 
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
@@ -115,13 +117,16 @@ class MathHooks {
 	 * @return array of strings
 	 */
 	private static function getMathNames() {
-		global $wgMathUseTexvc, $wgMathUseMathML;
-		$names[MW_MATH_SOURCE] = wfMessage( 'mw_math_source' )->escaped();
-		if ( $wgMathUseTexvc ){
-			$names[MW_MATH_PNG] = wfMessage( 'mw_math_png' )->escaped();
-		}
-		if ( $wgMathUseMathML){
-			$names[MW_MATH_MATHML] = wfMessage( 'mw_math_mathml' )->escaped();
+		global $wgMathValidModes;
+		$MathConstantNames = array(
+			MW_MATH_SOURCE => 'mw_math_source',
+			MW_MATH_PNG => 'mw_math_png',
+			MW_MATH_MATHML => 'mw_math_mathml',
+			MW_MATH_LATEXML => 'mw_math_latexml'
+		);
+		$names=array();
+		foreach ($wgMathValidModes as $mode) {
+			$names[$mode] = wfMessage( $MathConstantNames[$mode] )->escaped();
 		}
 		return $names;
 	}
@@ -154,39 +159,28 @@ class MathHooks {
 		if ( is_null( $updater ) ) {
 			throw new MWException( "Math extension is only necessary in 1.18 or above" );
 		}
-		$map = array(
-			'mysql' => 'math.sql',
-			'sqlite' => 'math.sql',
-			'postgres' => 'math.pg.sql',
-			'oracle' => 'math.oracle.sql',
-			'mssql' => 'math.mssql.sql',
-		);
+		$map = array( 'mysql', 'sqlite', 'postgres', 'oracle', 'mssql');
 		$type = $updater->getDB()->getType();
-		if ( isset( $map[$type] ) ){
-			$sql = dirname( __FILE__ ) . '/db/' . $map[$type];
-			$updater->addExtensionTable( 'math', $sql );
-		} else {
-			throw new MWException( "Math extension does not currently support $type database for debugging.\n"
-					.'Please set $wgDebugMath =false; in your LocalSettings.php' );
+		if ( $type == 'sqlite' ){
+			$type = 'mysql'; //The commands used from the updater are the same
 		}
-		if($type =='mysql' ){
-			$dir = dirname( __FILE__ ) . '/db/';
-			$updater->addExtensionField('math', 'math_tex', $dir .'field_math_tex.sql');
-			$updater->addExtensionField('math', 'math_inputtex', $dir.'field_math_inputtex.sql');
-			$updater->addExtensionField('math', 'math_svg', $dir . 'field_math_svg.sql');
-			//TODO: Delete deprecated database fields
-//			$updater->dropExtensionField('math', 'math_outputhash', $dir . 'drop_math_outputhash.sql');
-//			$updater->dropExtensionField('math', 'math_html', $dir . 'drop_math_html.sql');
+		if (in_array( $type, $map ) ){
+			$sql = dirname( __FILE__ ) . '/db/math.' . $type .'.sql';
+			$updater->addExtensionTable( 'math', $sql );
+			$sql = dirname( __FILE__ ) . '/db/mathoid.' . $type .'.sql';
+			$updater->addExtensionTable( 'mathoid', $sql );
+		} else {
+			throw new MWException( "Math extension does not currently support $type database.\n" );
 		}
 		if ($wgMathDebug){
 			if($type =='mysql' ){
 				$dir = dirname( __FILE__ ) . '/db/debug_fields_';
-				$updater->addExtensionField('math', 'math_status', $dir.'math_status.sql');
-				$updater->addExtensionField('math', 'math_timestamp', $dir.'math_timestamp.sql');
-				$updater->addExtensionField('math', 'math_log', $dir.'math_log.sql');
+				$updater->addExtensionField('mathoid', 'math_status', $dir.'math_status.sql');
+				$updater->addExtensionField('mathoid', 'math_timestamp', $dir.'math_timestamp.sql');
+				$updater->addExtensionField('mathoid', 'math_log', $dir.'math_log.sql');
 			} else {
 				throw new MWException( "Math extension does not currently support $type database for debugging.\n"
-					. 'Please set $wgDebugMath = false; in your LocalSettings.php' );
+					. 'Please set $wgMathDebug = false; in your LocalSettings.php' );
 			}
 		}
 		return true;
@@ -201,6 +195,19 @@ class MathHooks {
 	 */
 	static function onParserTestTables( &$tables ) {
 		$tables[] = 'math';
+		$tables[] = 'mathoid';
+		return true;
+	}
+
+	/**
+	 * Links to the unit test files for the test cases.
+	 *
+	 * @param string $files
+	 * @return boolean (true)
+	 */
+	static function onRegisterUnitTests( &$files ) {
+		$testDir = __DIR__ . '/tests/';
+		$files = array_merge( $files, glob( "$testDir/*Test.php" ) );
 		return true;
 	}
 

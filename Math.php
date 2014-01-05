@@ -38,12 +38,21 @@ define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 );
 define( 'MW_MATH_MATHJAX', 6); /// @deprecated
+define( 'MW_MATH_LATEXML', 7 );
 /**@}*/
+
+/**@var array defines the mode allowed on the server */ 
+$wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHML );
+
+/*
+ * The default rendering mode for anonymous users.
+ */
+$wgDefaultUserOptions['math'] = MW_MATH_MATHML;
 
 /** Stores debug information in the database and proviedes more detailed debug output*/
 $wgMathDebug = false;
 /**
- * Experimental option to use MathJax library to do client-side math rendering
+ * Option to use MathJax library to do client-side math rendering
  * when JavaScript is available. In supporting browsers this makes nice output
  * that's scalable for zooming, printing, and high-resolution displays.
  *
@@ -56,8 +65,7 @@ $wgMathJax = true;
  * modules/svgtex/readme.md
  */
 $wgMathMathMLUrl = 'http://localhost:8010';
-/* enable to use MathML */
-$wgMathUseMathML = true;
+
 /**
  * The timeout for the HTTP-Request sent to the MathML to render an equation,
  * in seconds.
@@ -69,18 +77,58 @@ $wgMathMathMLTimeout = 2;
  * commands is allowed. See the wikipedia page Help:Math for details.
  */
 $wgMathDisableTexFilter = false;
+/**
+ * Use of LaTeXML for details see
+ * <http://latexml.mathweb.org/help>
+ *
+ * If you want or need to run your own server, follow these installation
+ * instructions and override $wgLaTeXMLUrl:
+ * <https://svn.mathweb.org/repos/LaTeXML/branches/arXMLiv/INSTALL>
+ *
+ * If you expect heavy load you can specify multiple servers. In that case one
+ * server is randomly chosen for each rendering process. Specify the list of
+ * servers in an array e.g $wgLaTeXMLUrl = array ( 'http://latexml.example.com/convert',
+ * 'http://latexml2.example.com/convert');
+ */
+$wgMathLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
+
+/**
+ * The timeout for the HTTP-Request sent to the LaTeXML to render an equation,
+ * in seconds.
+ */
+$wgLaTeXMLTimeout = 240;
+
+/**
+ * Setting for the LaTeXML renderer.
+ * See http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml for details.
+ */
+$wgMathDefaultLaTeXMLSetting = array('format' => 'xhtml',
+	'whatsin' => 'math',
+	'whatsout' => 'math',
+	'pmml',
+	'cmml',
+	'nodefaultresources',
+	'preload' => array('LaTeX.pool',
+		'article.cls',
+		'amsmath.sty',
+		'amsthm.sty',
+		'amstext.sty',
+		'amssymb.sty',
+		'eucal.sty',
+		'[dvipsnames]xcolor.sty',
+		'url.sty',
+		'hyperref.sty',
+		'[ids]latexml.sty',
+		'texvc'),
+	);
 
 /**
  * The link to the texvc executable
- * TODO: Replace that by an latex grammar implemented in php
  */
 $wgMathTexvcCheckExecutable = dirname( __FILE__ ) . '/texvccheck/texvccheck';
 
 ////////// end of config settings.
-/*
- * The default rendering mode for anonymous users.
- */
-$wgDefaultUserOptions['math'] = MW_MATH_MATHML;
+
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
@@ -100,7 +148,7 @@ $wgAutoloadClasses['MathMathMLLocal'] = $dir . 'MathMathMLLocal.php';
 $wgAutoloadClasses['MathInputCheck'] = $dir . 'MathInputCheck.php';
 $wgAutoloadClasses['MathInputCheckTexvc'] = $dir . 'MathInputCheckTexvc.php';
 $wgAutoloadClasses['SpecialMathShowImage'] = $dir . 'SpecialMathShowImage.php';
-$wgAutoloadClasses['MathSvg'] = $dir . 'MathSvg.php';
+$wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
 
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 $wgExtensionMessagesFiles['MathAlias'] = $dir . 'Math.alias.php';
@@ -111,8 +159,18 @@ $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 #$wgSpecialPageGroups['MathShowImage'] = 'math';
 $wgSpecialPages['MathShowImage'] = 'SpecialMathShowImage';
 
+$wgResourceModules['ext.math.styles'] = array(
+	'localBasePath' => dirname( __FILE__ ) . '/modules',
+	'remoteExtPath' => 'Math/modules',
+	'styles' => 'ext.math.css',
+);
+$wgResourceModules['ext.math.styles.fonts'] = array(
+	'localBasePath' => dirname( __FILE__ ) . '/modules',
+	'remoteExtPath' => 'Math/modules',
+	'styles' => 'ext.math.fonts.css',
+);
 // Conditional rendering of the MathML output.
-$wgResourceModules = array(
+$wgResourceModules += array(
 	// Module to choose the best rendering option.
 	'ext.math.selector' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules',
@@ -370,9 +428,6 @@ $wgResourceModules += array(
 );
 
 //DEPRECATED SETTINGS WILL BE DELETED
-/** For back-compat */
-$wgUseTeX = true; //TODO: find out why we need this
-
 /** Allows to use the deprecated texvc libraries*/
 $wgMathUseTexvc = true;
 

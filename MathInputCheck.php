@@ -9,8 +9,8 @@
  */
 abstract class MathInputCheck {
 	protected $inputTeX;
-	protected $secureTeX;
-	protected $isSecure = false;
+	protected $validTeX;
+	protected $isValid = false;
 	protected $lastError = '';
 
 	/**
@@ -20,15 +20,15 @@ abstract class MathInputCheck {
 	 */
 	public function __construct( $tex = '') {
 		$this->inputTeX = $tex;
-		$this->isSecure = false;
+		$this->isValid = false;
 	}
 
 	/**
-	 * Returns true if the TeX input String is secure
+	 * Returns true if the TeX input String is valid
 	 * @return boolean
 	 */
-	public function isSecure(){
-		return $this->isSecure;
+	public function isValid(){
+		return $this->isValid;
 	}
 
 	/**
@@ -43,9 +43,9 @@ abstract class MathInputCheck {
 	 * Some Tex checking programs may return
 	 * a modified tex string after having checked it.
 	 * You can get the alterd tex string with this method
-	 * @return string A secure Tex string
+	 * @return string A valid Tex string
 	 */
-	public function getSecureTex(){
-		return $this->secureTeX;
+	public function getValidTex(){
+		return $this->validTeX;
 	}
 }

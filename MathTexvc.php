@@ -32,7 +32,7 @@ class MathTexvc extends MathRenderer {
 	 * @return array
 	 */
 	public function dbOutArray() {
-		$out = parent::dbOutArray();
+		$out = array();
 		$dbr = wfGetDB( DB_SLAVE );
 		if ( $this->hash ) {
 			$outmd5_sql = $dbr->encodeBlob( pack( 'H32', $this->hash ) );
@@ -48,12 +48,9 @@ class MathTexvc extends MathRenderer {
 	}
 
 	public function dbInArray() {
-		$deprecatedfields = array('math_outputhash',
+		return array('math_inputhash','math_outputhash',
 				'math_html_conservativeness',
 				'math_html');
-		$newFields = parent::dbInArray();
-
-		return array_merge ( $newFields, $deprecatedfields );
 	}
 	/**
 	 * @param database_row $rpage
@@ -83,7 +80,7 @@ class MathTexvc extends MathRenderer {
 	 function render() {
 		if ( !$this->readCache() ) { // cache miss
 			$result = $this->callTexvc();
-			if ( $result == self::MW_TEXVC_SUCCESS ) {
+			if ( $result === self::MW_TEXVC_SUCCESS ) {
 				return true;
 			} else {
 				$this->lastError = $result;
@@ -288,6 +285,7 @@ class MathTexvc extends MathRenderer {
 			return $this->getError( 'math_output_error' );
 		}
 		// Store the file at the final storage path...
+<<<<<<< HEAD
 		// Bug 56769: buffer the writes and do them at the end.
 		if ( !isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
 			$backend->mathBufferedWrites = array();
@@ -297,6 +295,17 @@ class MathTexvc extends MathRenderer {
 				$backend->doQuickOperations( $backend->mathBufferedWrites );
 				unset( $backend->mathBufferedWrites );
 			};
+=======
+		if ( @(!$backend->quickStore( array(
+			'src' => "$tmpDir/{$this->getHash()}.png", 'dst' => "$hashpath/{$this->getHash()}.png"
+		) )->isOK())
+		) {
+			wfProfileOut( __METHOD__ );
+			if ( $wgMathDebug ){
+				wfDebugLog('Math','problem storing image' . $php_errormsg );
+			}
+			return $this->getError( 'math_output_error' );
+>>>>>>> Math 2.0
 		}
 		$backend->mathBufferedWrites[] = array(
 			'op'  => 'store',
@@ -411,7 +420,7 @@ class MathTexvc extends MathRenderer {
 
 	public function readFromDatabase() {
 		$return = parent::readFromDatabase();
-		if ( $this->hash  && $return ){
+		if ( $this->hash && $return ){
 			return true;
 		} else {
 			return false;
@@ -465,6 +474,10 @@ class MathTexvc extends MathRenderer {
 	public function setConservativeness( $conservativeness ) {
 		$this->changed = true;
 		$this->conservativeness = $conservativeness;
+	}
+
+	protected function getMathTableName(){
+		return 'math';
 	}
 
 

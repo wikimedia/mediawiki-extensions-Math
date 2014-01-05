@@ -40,7 +40,7 @@ class MathInputCheckTexvc extends MathInputCheck {
 	 * @global type $wgTexvc
 	 * @return boolean
 	 */
-	public function isSecure() {
+	public function isValid() {
 		global $wgMathTexvcCheckExecutable;
 		if (!is_executable($wgMathTexvcCheckExecutable)) {
 			$errorRenderer = new MathSource($this->inputTeX);
@@ -70,9 +70,9 @@ class MathInputCheckTexvc extends MathInputCheck {
 			wfDebugLog('Math', 'checkTex failed:' . $this->lastError);
 			return false;
 		} else {
-			$this->secureTeX = substr($contents, 1);
+			$this->validTeX = substr($contents, 1);
 			$this->isSecure = true;
-			wfDebugLog('Math', 'checkTex successful tex is now: ' . $this->secureTeX);
+			wfDebugLog('Math', 'checkTex successful tex is now: ' . $this->validTeX);
 			return true;
 		}
 	}

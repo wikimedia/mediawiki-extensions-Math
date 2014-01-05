@@ -15,7 +15,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	//const SOME_PNG = "PNG";
 	//const SOME_SVG = "<?xml </svg >>%%LIKE;'\" DROP TABLE math;";
 	const SOME_VALIDXML = true;
-	const NUM_BASIC_FIELDS = 8;
+	const NUM_BASIC_FIELDS = 5;
 	const NUM_DEBUG_FIELDS = 3;
 
 	/**
@@ -99,15 +99,17 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		}
 		global $wgMathDebug;
 		$this->db->dropTable( "math", __METHOD__ );
+                $this->db->dropTable( "mathoid", __METHOD__ );
 		$wgMathDebug = false;
 		$dbu = DatabaseUpdater::newForDB( $this->db );
 		$dbu->doUpdates( array( "extensions" ) );
 		$this->expectOutputRegex( '/(.*)Creating math table(.*)/' );
+                $this->expectOutputRegex( '/(.*)Creating mathoid table(.*)/' );
 		$this->setValues();
 		$this->renderer->writeToDatabase();
-		$res = $this->db->select( "math", "*" );
+		$res = $this->db->select( "mathoid", "*" );
 		$row = $res->fetchRow();
-		$this->assertEquals( sizeof( $row ), 2 * self::NUM_BASIC_FIELDS );
+		$this->assertEquals( 2 * self::NUM_BASIC_FIELDS,  sizeof( $row ) );
 	}
 
 	/**
@@ -124,15 +126,17 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		global $wgMathDebug;
 		sleep(2);
 		$this->db->dropTable( "math", __METHOD__ );
+                $this->db->dropTable( "mathoid", __METHOD__ );
 		$wgMathDebug = true;
 		$dbu = DatabaseUpdater::newForDB( $this->db );
 		$dbu->doUpdates( array( "extensions" ) );
 		$this->expectOutputRegex( '/(.*)Creating math table(.*)/' );
+                $this->expectOutputRegex( '/(.*)Creating mathoid table(.*)/' );
 		$this->setValues();
 		$this->renderer->writeToDatabase();
-		$res = $this->db->select( "math", "*" );
+		$res = $this->db->select( "mathoid", "*" );
 		$row = $res->fetchRow();
-		$this->assertEquals( sizeof( $row ), 2 * ( self::NUM_BASIC_FIELDS + self::NUM_DEBUG_FIELDS ) );
+		$this->assertEquals( 2 * ( self::NUM_BASIC_FIELDS + self::NUM_DEBUG_FIELDS ), sizeof( $row ) );
 	}
 
 	/**

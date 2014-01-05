@@ -86,8 +86,7 @@
       }
     }
 
-    // FIXME: report that in debug mode?
-    // console.warn( 'MathJax resource not handled by MediaWiki: ' + file );
+    mw.log( 'MathJax resource not handled by MediaWiki: ' + file );
 
     return null;
   };

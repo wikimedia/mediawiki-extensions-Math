@@ -11,8 +11,8 @@
  */
 class MathMathML extends MathRenderer {
 
-	private static $DEFAULT_ALLOWED_ROOT_ELEMENTS = array( 'math', 'div', 'table', 'query' );
-	private $allowedRootElements = '';
+	protected static $DEFAULT_ALLOWED_ROOT_ELEMENTS = array( 'math', 'div', 'table', 'query' );
+	protected $allowedRootElements = '';
 
 	/**
 	 * Gets the allowed root elements the rendered math tag might have.
@@ -32,7 +32,7 @@ class MathMathML extends MathRenderer {
 	 * An empty value indicates to use the default settings.
 	 * @param array $settings
 	 */
-	public function setAllowedRootElments( $settings ) {
+	public function setAllowedRootElements( $settings ) {
 		$this->allowedRootElements = $settings;
 	}
 
@@ -40,7 +40,6 @@ class MathMathML extends MathRenderer {
 	 * @see MathRenderer::render()
 	 */
 	public function render( $forceReRendering = false ) {
-		global $wgMathFastDisplay;
 		if ( $forceReRendering ) {
 			$this->setPurge( true );
 		}
@@ -51,21 +50,21 @@ class MathMathML extends MathRenderer {
 		}
 		return true;
 	}
-
+        
 	/**
 	 * Helper function to checks if the math tag must be rendered.
 	 * @return boolean
 	 */
 	private function renderingRequired() {
 		if ( $this->isPurge() ) {
-			wfDebugLog( "Math", "Rerendering was requested." );
+			wfDebugLog( "Math", "Re-Rendering was requested." );
 			return true;
 		} else {
 			$dbres = $this->readFromDatabase();
 			if ( $dbres ) {
 				if ( $this->isValidMathML( $this->getMathml() ) ) {
 					wfDebugLog( "Math", "Valid MathML entry found in database." );
-					if ( $this->getSvg()  ) {
+					if ( $this->getSvg() ) {
 						wfDebugLog( "Math", "SVG-fallback found in database." );
 						return false;
 					} else {
@@ -73,7 +72,7 @@ class MathMathML extends MathRenderer {
 						return true;
 					}
 				} else {
-					wfDebugLog( "Math", "Malformatted entry found in database" );
+					wfDebugLog( "Math", "Mal formatted entry found in database" );
 					return true;
 				}
 			} else {
@@ -134,8 +133,8 @@ class MathMathML extends MathRenderer {
 
 	/**
 	 * Picks a MathML daemon.
-	 * If more than one demon are availible one is chosen from the
-	 * $wgMathMLUrl array.
+	 * If more than one demon are available one is chosen from the
+	 * $wgMathMathMLUrl array.
 	 * @return string
 	 */
 	private static function pickHost() {
@@ -156,9 +155,9 @@ class MathMathML extends MathRenderer {
 	 */
 	public function getPostData() {
 		$tex = $this->getTex();
-		if ( is_null( $this->getDisplaytyle() ) ){
+		if ( is_null( $this->getDisplaystyle() ) ){
 			//default preserve the (broken) layout as it was
-			$tex= '{\displaystyle '. $tex.'}';
+			$tex= '{\\displaystyle '. $tex.'}';
 		}
 		wfDebugLog( "Math", 'Get post data: ' . $tex );
 		return 'tex='.rawurlencode( $tex );
@@ -168,10 +167,10 @@ class MathMathML extends MathRenderer {
 	 * Does the actual web request to convert TeX to MathML.
 	 * @return boolean
 	 */
-	private function doRender() {
+	protected function doRender() {
 		global  $wgMathDebug;
-		if ( $this->getTex() ==='' ) {
-			wfDebugLog( "Math", "Rendering was requested, but no TeX string is specified.");
+		if ( $this->getTex() === '' ) {
+			wfDebugLog( 'Math', 'Rendering was requested, but no TeX string is specified.');
 			$this->lastError = $this->getError( 'math_empty_tex' );
 			return false;
 		}
@@ -198,14 +197,14 @@ class MathMathML extends MathRenderer {
 					// Do not print bad mathml. It's probably too verbose and might
 					// mess up the browser output.
 					$this->lastError = $this->getError( 'math_latexml_invalidxml', $host );
-					wfDebugLog( "Math", "\nMathML InvalidMathML:"
+					wfDebugLog( 'Math', "\nMathML InvalidMathML:"
 							. var_export( array( 'post' => $post, 'host' => $host
 								, 'result' => $res ), true ) . "\n\n" );
 					return false;
 				}
 			} else {
 				$this->lastError = $this->getError( 'math_latexml_invalidjson', $host );
-				wfDebugLog( "Math", "\nMathML InvalidJSON:"
+				wfDebugLog( 'Math', "\nMathML InvalidJSON:"
 						. var_export( array( 'post' => $post, 'host' => $host
 							, 'res' => $res ), true ) . "\n\n" );
 				return false;
@@ -224,7 +223,6 @@ class MathMathML extends MathRenderer {
 	 */
 	public function isValidMathML( $XML ) {
 		$out = false;
-		// depends on https://gerrit.wikimedia.org/r/#/c/66365/
 		if ( !is_callable( 'XmlTypeCheck::newFromString' ) ) {
 			$msg = wfMessage( 'math_latexml_xmlversion' )->inContentLanguage()->escaped();
 			trigger_error( $msg, E_USER_NOTICE );
@@ -247,7 +245,7 @@ class MathMathML extends MathRenderer {
 	}
 
 	/**
-	 *
+	 * @param boolean $png
 	 * @param boolean $noRender
 	 * @return type
 	 */
@@ -261,26 +259,27 @@ class MathMathML extends MathRenderer {
 
 	/**
 	 * Gets img tag for math image
+     * @param boolean $png if true a png is used instead of an svg image
 	 * @param boolean $noRender if true no rendering will be performed if the image is not stored in the database
 	 * @param string|false $classOverride if classOverride is false the class name will be calcuated by getClassName
-	 * @return string XML the image html tag
+     * @return string XML the image html tag
 	 */
 	public function getFallbackImage( $png = false, $noRender = false, $classOverride = false ) {
 		$url = $this->getFallbackImageUrl( $png , $noRender);
 		$style = '';
 		$attribs = array();
-		if( $classOverride === false ){ //$class ='' osuppresses class attribute
+		if( $classOverride === false ){ //$class ='' suppresses class attribute
 			$class = $this->getClassName( true, $png );
 			$style = $png ? 'display: none;' : '';
 		} else {
 			$class  = $classOverride;
 			$style = '';
 		}
-		if ( !$png){
+		if ( !$png ){
 			$svg = $this->getSvg();
 			if( preg_match('/style="([^"]*)"/', $svg, $styles) ){
 				$style = $styles[1];
-				if ( $this->getDisplaytyle()===true){
+				if ( $this->getDisplayStyle() === true ){
 					$style = preg_replace('/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style);
 					$style .= 'display:block;  margin-left: auto;  margin-right: auto;';
 				}
@@ -288,7 +287,7 @@ class MathMathML extends MathRenderer {
 		}
 		if ( $class ) { $attribs['class'] = $class; }
 		if ( $style ) { $attribs['style'] = $style; }
-		//an alteranative for svg might be an object with type="image/svg+xml"
+		//an alternative for svg might be an object with type="image/svg+xml"
 		return Xml::element( 'img', $this->getAttributes( 'img', $attribs , array( 'src' => $url )) );
 	}
 
@@ -298,7 +297,7 @@ class MathMathML extends MathRenderer {
 	 * @param boolean $png
 	 * @return string the class name
 	 */
-	private function getClassName( $fallback = false, $png = false ) {
+	protected function getClassName( $fallback = false, $png = false ) {
 		$class = "mwe-math-";
 		if ( $fallback ) {
 			$class .= 'fallback-';
@@ -310,7 +309,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$class .= 'mathml-';
 		}
-		if ( $this->getDisplaytyle() ) {
+		if ( $this->getDisplaystyle() ) {
 			$class .= 'display';
 		} else {
 			$class .= 'inline';
@@ -324,7 +323,7 @@ class MathMathML extends MathRenderer {
 	 * @return html element with rendered math
 	 */
 	public function getHtmlOutput() {
-		if ( $this->getDisplaytyle() ){
+		if ( $this->getDisplaystyle() ){
 			$element = 'div';
 		} else {
 			$element = 'span';
@@ -335,10 +334,10 @@ class MathMathML extends MathRenderer {
 		}
 		$output = HTML::openElement($element , $attribs);
 		//MathML has to be wrapped into a div or span in order to be able to hide it.
-		if ( $this->getDisplaytyle() == true ){
-			//Remove displaystyle attributes set by the MathML converter
+		if ( $this->getDisplaystyle() == true ){
+			//Remove displayStyle attributes set by the MathML converter
 			$mml = preg_replace('/(display|mode)=["\'](inline|block)["\']/', '', $this->getMathml());
-			//and isert the corrent value
+			//and insert the correct value
 			$mml = preg_replace('/<math/', '<math display="block"', $mml);
 		} else {
 			$mml = $this->getMathml();

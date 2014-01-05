@@ -31,3 +31,23 @@ For testing your installation run
 php tests/phpunit/phpunit.php extensions/Math/tests/
 from your MediWiki home path.
 
+Local installation on debian:
+Mathoid:
+change to the subdirectory mathoid and run the following commands
+
+sudo apt-get install npm phantomjs && npm install -g express querystring request
+export NODE_PATH=/usr/lib/node_modules
+
+to run mathoid use
+
+node mathoid.js
+
+after that you can test with
+
+curl -d 'tex=E=mc^2' localhost:8010
+
+Texvccheck:
+change to the subdirectory texvccheck and run the following commands
+
+sudo apt-get install ocaml_native_compilers
+make
