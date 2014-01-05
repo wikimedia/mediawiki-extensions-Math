@@ -551,11 +551,11 @@ abstract class MathRenderer {
 	 */
 	public function setDisplayStyle( $displayStyle = true ){
 		$this->changed = true; //Discuss if this is a change
-		$this->displaytyle = $displayStyle;
+		$this->displayStyle = $displayStyle;
 	}
 
 	public function getDisplayStyle(){
-		return $this->displaytyle;
+		return $this->displayStyle;
 	}
 
 	/**

@@ -285,7 +285,6 @@ class MathTexvc extends MathRenderer {
 			return $this->getError( 'math_output_error' );
 		}
 		// Store the file at the final storage path...
-<<<<<<< HEAD
 		// Bug 56769: buffer the writes and do them at the end.
 		if ( !isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
 			$backend->mathBufferedWrites = array();
@@ -295,17 +294,6 @@ class MathTexvc extends MathRenderer {
 				$backend->doQuickOperations( $backend->mathBufferedWrites );
 				unset( $backend->mathBufferedWrites );
 			};
-=======
-		if ( @(!$backend->quickStore( array(
-			'src' => "$tmpDir/{$this->getHash()}.png", 'dst' => "$hashpath/{$this->getHash()}.png"
-		) )->isOK())
-		) {
-			wfProfileOut( __METHOD__ );
-			if ( $wgMathDebug ){
-				wfDebugLog('Math','problem storing image' . $php_errormsg );
-			}
-			return $this->getError( 'math_output_error' );
->>>>>>> Math 2.0
 		}
 		$backend->mathBufferedWrites[] = array(
 			'op'  => 'store',

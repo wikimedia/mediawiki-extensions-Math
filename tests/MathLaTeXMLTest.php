@@ -25,7 +25,11 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 		self::$html = $html;
 		self::$timeout = $timeout;
 	}
-
+	protected function setUp() {
+		global $wgMathValidModes;
+		$wgMathValidModes[]=MW_MATH_LATEXML;
+		parent::setUp();
+	}
 	/**
 	 * Test rendering the string '0' see
 	 * https://trac.mathweb.org/LaTeXML/ticket/1752
@@ -33,6 +37,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	public function testSpecialCase0() {
 		global $wgMathFastDisplay;
 		$wgMathFastDisplay = false;
+		//FIXME:
 		$this->markTestSkipped( "Bug in LaTeXML" );
 		$renderer = MathRenderer::getRenderer( '0', array( ), MW_MATH_LATEXML );
 		$expected = '0</cn>';
@@ -174,7 +179,6 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	public function testIntegration() {
 		global $wgMathLaTeXMLTimeout;
 		global $wgMathFastDisplay;
-                $this->markTestSkipped( 'currently no live LaTeXML server availible' );
 		$wgMathFastDisplay = false;
 		$wgMathLaTeXMLTimeout = 20;
 		$renderer = MathRenderer::getRenderer( "a+b", array( ), MW_MATH_LATEXML );

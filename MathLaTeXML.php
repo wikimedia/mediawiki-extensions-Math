@@ -62,6 +62,27 @@ class MathLaTeXML extends MathMathML {
 		$this->LaTeXMLSettings = $settings;
 	}
 
+	/**
+	 * Gets the allowed root elements the rendered math tag might have.
+	 *
+	 * @return array
+	 */
+	public function getAllowedRootElements() {
+		if ( $this->allowedRootElements ) {
+			return $this->allowedRootElements;
+		} else {
+			return self::$DEFAULT_ALLOWED_ROOT_ELEMENTS;
+		}
+	}
+
+	/**
+	 * Sets the allowed root elements the rendered math tag might have.
+	 * An empty value indicates to use the default settings.
+	 * @param array $settings
+	 */
+	public function setAllowedRootElments( $settings ) {
+		$this->allowedRootElements = $settings;
+	}
 
 	/**
 	 * Performs a HTTP Post request to the given host.
@@ -162,7 +183,6 @@ class MathLaTeXML extends MathMathML {
 		}
 		$res = '';
 		$host = self::pickHost();
-		$this->setLaTeXMLSettings( $wgMathDefaultLaTeXMLSetting );
 		$post = $this->getPostData();
 		$this->lastError = '';
 		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
