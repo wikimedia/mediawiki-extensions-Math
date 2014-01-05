@@ -55,9 +55,9 @@ remove:
 
 lexer.cmo: parser.cmi tex.cmi texutil.cmi
 lexer.cmx: parser.cmx tex.cmi texutil.cmx
-parser.cmo: tex.cmi parser.cmi 
-parser.cmx: tex.cmi parser.cmi 
-parser.cmi: tex.cmi 
+parser.cmo: tex.cmi parser.cmi
+parser.cmx: tex.cmi parser.cmi
+parser.cmi: tex.cmi
 texutil.cmo: parser.cmi tex.cmi util.cmo texutil.cmi
 texutil.cmx: parser.cmx tex.cmi util.cmx texutil.cmi
 texutil.cmi: parser.cmi tex.cmi

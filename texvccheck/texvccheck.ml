@@ -15,9 +15,7 @@ let render tree =
 
 (* TODO: document
  * Arguments:
- * 1st :
- * 2nd :
- * 3rd :
+ * 1st : tex input string
  *
  * Output one character:
  *  E : Lexer exception raised

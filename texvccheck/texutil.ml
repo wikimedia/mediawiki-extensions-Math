@@ -609,8 +609,6 @@ let find cmd = match cmd with
   | "\\Q" -> LITERAL ( TEX_ONLY( "\\mathbb{Q}" ^ " " ) )
   | "\\R" -> LITERAL ( TEX_ONLY( "\\mathbb{R}" ^ " " ) )
   | "\\Z" -> LITERAL ( TEX_ONLY( "\\mathbb{Z }" ^ " " ) )
- (* | "\\lbrack" -> LITERAL ( TEX_ONLY( "[" ^ " " ) )
-  | "\\rbrack" -> LITERAL ( TEX_ONLY( "]" ^ " " ) )*)
 
   | "\\darr" -> DELIMITER( TEX_ONLY( "\\downarrow" ^ " " ) )
   | "\\dArr" -> DELIMITER( TEX_ONLY( "\\Downarrow" ^ " " ) )

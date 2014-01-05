@@ -1,4 +1,4 @@
-== About texvc-lite ==
+== About texvccheck ==
 
 texvc takes the user input validates it and replaces MediaWiki specific functions.
 Input data is parsed and scrutinized for safety.
@@ -8,12 +8,12 @@ included as part of the MediaWiki package (http://www.mediawiki.org) and is
 under the GPL license.
 
 texvc-lite, was extracted from the original texvc program in 2013 by
-Moritz Schubotz and uses only the sanitizing and custumation part.
+Moritz Schubotz and uses only the sanitizing and customization part.
 
-The list of all commands can be viewed by bowsing the source files.
+The list of all commands can be viewed by browsing the source files.
 Most commands are listed at
 http://sdrv.ms/15w2gVw
-there is also a tool for convienet whitelisting of special commands
+there is also a tool for convenient whitelisting of special commands
 that are used in local wikis.
 
 Please report bugs at: https://bugzilla.wikimedia.org/
@@ -35,7 +35,7 @@ In Ubuntu Precise, all dependencies can be installed using:
 === Installation ===
 
 Run 'make' (or 'gmake' if GNU make is not your default make). This should
-produce the texvc executable.
+produce the texvccheck executable.
 
 By default,
 MediaWiki will search in this directory for texvc, if you moved it elsewhere,
@@ -48,7 +48,7 @@ Just Works. It can be run manually for testing or for use in another app.
 
 === Command-line parameters ===
 
-    texvc '\TeX input string'
+    texvccheck '\TeX input string'
 
 Be sure to properly quote the TeX code!
 
@@ -58,10 +58,10 @@ Example:
 
 === Output format ===
 
-The outout is the sanitized and customized tex string.
+The output is the sanitized and customized tex string.
 
 texvc output format is like this:
-    +%s		ok 
+    +%s		ok
     S		syntax error
     E		lexing error
     F%s		unknown function %s

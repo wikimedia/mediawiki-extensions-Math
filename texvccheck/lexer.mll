@@ -35,11 +35,11 @@ rule token = parse
 				  BOX ("\\vbox", String.sub str n (String.length str - n - 1)) }
   | "\\text" space * '{' boxchars + '}'
 				{  let str = Lexing.lexeme lexbuf in
-				  let n = String.index str '{' + 1 in				  
+				  let n = String.index str '{' + 1 in
 				  BOX ("\\text", String.sub str n (String.length str - n - 1)) }
   | "\\mbox" space * '{' boxchars + '}'
 				{ let str = Lexing.lexeme lexbuf in
-				  let n = String.index str '{' + 1 in			  
+				  let n = String.index str '{' + 1 in
 				  BOX ("\\mbox", String.sub str n (String.length str - n - 1)) }
   | "\\hbox" space * '{' boxchars + '}'
 				{ let str = Lexing.lexeme lexbuf in
@@ -61,10 +61,10 @@ rule token = parse
   | "\\xleftarrow" space * "["	{  FUN_AR1opt "\\xleftarrow" }
   | "\\xrightarrow" space * "["	{  FUN_AR1opt "\\xrightarrow" }
   | "\\" (latex_function_names as name) space * "("  { LITERAL (TEX_ONLY ("\\" ^ name ^ "(")) }
-  | "\\" (latex_function_names as name) space * "["  { LITERAL (TEX_ONLY ("\\" ^ name ^ "[") )}  
+  | "\\" (latex_function_names as name) space * "["  { LITERAL (TEX_ONLY ("\\" ^ name ^ "[") )}
   | "\\" (latex_function_names as name) space * "\\{"  { LITERAL (TEX_ONLY ("\\" ^ name ^ "\\{")) }
   | "\\" (latex_function_names as name) space * { LITERAL (TEX_ONLY("\\" ^ name ^ " ")) }
-  | "\\" (mediawiki_function_names as name) space * "("    { ( LITERAL (TEX_ONLY ("\\operatorname{" ^ name ^ "}("))) }  
+  | "\\" (mediawiki_function_names as name) space * "("    { ( LITERAL (TEX_ONLY ("\\operatorname{" ^ name ^ "}("))) }
   | "\\" (mediawiki_function_names as name) space * "["    { ( LITERAL (TEX_ONLY ("\\operatorname{" ^ name ^ "}[")))}
   | "\\" (mediawiki_function_names as name) space * "\\{"  { ( LITERAL (TEX_ONLY ("\\operatorname{" ^ name ^ "}\\{")))}
   | "\\" (mediawiki_function_names as name) space *        { ( LITERAL (TEX_ONLY ("\\operatorname{" ^ name ^ "} "))) }

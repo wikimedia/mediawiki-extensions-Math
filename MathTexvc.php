@@ -181,7 +181,7 @@ class MathTexvc extends MathRenderer {
 	 * @return int|string MW_TEXVC_SUCCESS or error string
 	 */
 	public function callTexvc() {
-		global $wgTexvc, $wgTexvcBackgroundColor;
+		global $wgTexvc, $wgTexvcBackgroundColor, $wgUseSquid, $wgMathCheckFiles, $wgHooks;
 
 		wfProfileIn( __METHOD__ );
 		$tmpDir = wfTempDir();
@@ -288,16 +288,23 @@ class MathTexvc extends MathRenderer {
 			return $this->getError( 'math_output_error' );
 		}
 		// Store the file at the final storage path...
-		if ( @(!$backend->quickStore( array(
-			'src' => "$tmpDir/{$this->getHash()}.png", 'dst' => "$hashpath/{$this->getHash()}.png"
-		) )->isOK())
-		) {
-			wfProfileOut( __METHOD__ );
-			if ( $wgMathDebug ){
-				wfDebugLog('Math','problem storing image' . $php_errormsg );
-			}
-			return $this->getError( 'math_output_error' );
+		// Bug 56769: buffer the writes and do them at the end.
+		if ( !isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
+			$backend->mathBufferedWrites = array();
+			$wgHooks['ParserAfterParse']['FlushMathBackend'] = function() use ( $backend ) {
+				global $wgHooks;
+				unset( $wgHooks['ParserAfterParse']['FlushMathBackend'] );
+				$backend->doQuickOperations( $backend->mathBufferedWrites );
+				unset( $backend->mathBufferedWrites );
+			};
 		}
+		$backend->mathBufferedWrites[] = array(
+			'op'  => 'store',
+			'src' => "$tmpDir/{$this->getHash()}.png",
+			'dst' => "$hashpath/{$this->getHash()}.png",
+			'ref' => $tempFsFile // keep file alive
+		);
+
 		wfProfileOut( __METHOD__ );
 		return self::MW_TEXVC_SUCCESS;
 	}
@@ -316,7 +323,8 @@ class MathTexvc extends MathRenderer {
 			if ( !$backend ) {
 				$backend = new FSFileBackend( array(
 					'name'           => 'math-backend',
-					'lockManager'    => 'nullLockManager',
+					'wikiId' 	 => wfWikiId(),
+					'lockManager'    => new NullLockManager(array() ),
 					'containerPaths' => array( 'math-render' => $wgMathDirectory ),
 					'fileMode'       => 0777
 				) );

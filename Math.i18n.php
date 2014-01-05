@@ -660,26 +660,37 @@ $messages['bs'] = array(
 );
 
 /** Catalan (català)
+ * @author Alvaro Vidal-Abarca
  * @author Martorell
+ * @author Papapep
  * @author SMP
  * @author Toniher
  * @author Vriullop
  */
 $messages['ca'] = array(
+	'math-desc' => 'Composa fórmules matemàtiques escrites entre les etiquetes <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Inseriu una fórmula ací',
 	'math_tip' => 'Fórmula matemàtica (LaTeX)',
 	'prefs-math' => 'Com es mostren les fórmules',
 	'mw_math_png' => 'Produeix sempre PNG',
 	'mw_math_source' => 'Deixa com a TeX (per a navegadors de text)',
+	'mw_math_mathjax' => 'MathJax (experimental; òptim per a la majoria de navegadors)',
+	'mw_math_latexml' => 'LaTeXML (experimental; utilitza MathML)',
 	'math_failure' => "No s'ha pogut entendre",
 	'math_unknown_error' => 'error desconegut',
-	'math_unknown_function' => 'funció desconeguda', # Fuzzy
+	'math_unknown_function' => "funció '$1' desconeguda",
 	'math_lexing_error' => 'error de lèxic',
 	'math_syntax_error' => 'error de sintaxi',
 	'math_image_error' => 'Hi ha hagut una errada en la conversió a PNG. Verifiqueu la instaŀlació de latex i dvipng (o dvips, gs i convert).',
-	'math_bad_tmpdir' => 'No ha estat possible crear el directori temporal de math o escriure-hi dins.',
-	'math_bad_output' => "No ha estat possible crear el directori d'eixida de math o escriure-hi dins.",
+	'math_bad_tmpdir' => "No s'ha pogut crear el directori temporal de math o escriure-hi dins.",
+	'math_bad_output' => "No s'ha pogut crear el directori d'eixida de math o escriure-hi dins.",
 	'math_notexvc' => "No s'ha trobat el fitxer executable ''texvc''; si us plau, vegeu math/README per a configurar-lo.",
+	'math_output_error' => "No es pot emmagatzemar imatge de fórmula matemàtica al sistema d'arxius.",
+	'math_latexml_timeout' => "LaTeXML - s'ha excedit el temps d'espera a '$1'",
+	'math_latexml_invalidresponse' => "LaTeXML Resposta invàlida ('$2') del servidor '$1':",
+	'math_latexml_invalidxml' => 'LaTeXML MathML conté XML invàlid.',
+	'math_latexml_invalidjson' => 'LaTeXML La resposta del servidor és un JSON invàlid.',
+	'math_latexml_xmlversion' => "Advertència: s'ha obviat la comprovació del tipus XML! Comproveu si la vostra instal·lació de MediaWiki és la versió wmf/1.22wmf7 o més recent.",
 );
 
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄)
@@ -792,7 +803,7 @@ $messages['crh-latn'] = array(
 	'math_syntax_error' => 'sintaksis hatası',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Danny B.
  * @author Mormegil
  */
@@ -835,7 +846,7 @@ $messages['csb'] = array(
 	'math_failure' => 'Parser nie rozmiôł rozpòznac',
 );
 
-/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -875,6 +886,7 @@ $messages['cy'] = array(
 );
 
 /** Danish (dansk)
+ * @author Christian List
  * @author Nghtwlkr
  * @author Peter Alberti
  */
@@ -886,15 +898,22 @@ $messages['da'] = array(
 	'mw_math_png' => 'Vis altid som PNG',
 	'mw_math_source' => 'Lad være som TeX (for tekstbrowsere)',
 	'mw_math_mathjax' => 'MathJax (på forsøgsstadiet; virker bedst for mange browsere)',
+	'mw_math_latexml' => 'LaTeXML (eksperimentel; anvender MathML)',
 	'math_failure' => 'Fejl i matematikken',
 	'math_unknown_error' => 'ukendt fejl',
-	'math_unknown_function' => 'ukendt funktion', # Fuzzy
+	'math_unknown_function' => "ukendt funktion '$1'",
 	'math_lexing_error' => 'lexerfejl',
 	'math_syntax_error' => 'syntaksfejl',
 	'math_image_error' => 'PNG-konvertering mislykkedes; undersøg om latex og dvipng (eller dvips + gs + convert) er installeret korrekt',
 	'math_bad_tmpdir' => 'Kan ikke skrive til eller oprette temp-mappe til math',
 	'math_bad_output' => 'Kan ikke skrive til eller oprette uddata-mappe til math',
 	'math_notexvc' => 'Manglende eksekvérbar texvc; se math/README for opsætningsoplysninger.',
+	'math_output_error' => 'Kan ikke gemme matematikbillede på filsystem.',
+	'math_latexml_timeout' => "LaTeXML timeout fra '$1'",
+	'math_latexml_invalidresponse' => "LaTeXML ugyldigt svar ('$2') fra serveren '$1':",
+	'math_latexml_invalidxml' => 'LaTeXML MathML er ugyldig XML.',
+	'math_latexml_invalidjson' => 'LaTeXML svar fra serveren er ugyldig JSON.',
+	'math_latexml_xmlversion' => 'Advarsel: XML typetjek springes over! Tjek om din MediaWiki-installation er version wmf/1.22wmf7 eller nyere.',
 );
 
 /** German (Deutsch)
@@ -969,7 +988,7 @@ $messages['dsb'] = array(
 	'mw_math_mathjax' => 'MathJax (eksperimentelny; pśigódny za nejwěcej wobglědowakow)',
 	'math_failure' => 'Zmólka',
 	'math_unknown_error' => 'njeznata zmólka',
-	'math_unknown_function' => 'njeznata funkcija', # Fuzzy
+	'math_unknown_function' => 'njeznata funkcija "$1"',
 	'math_lexing_error' => 'leksikaliska zmólka',
 	'math_syntax_error' => 'syntaktiska zmólka',
 	'math_image_error' => 'PNG-konwertěrowanje njejo se raźiło; pśekontrolěruj korektnu instalaciju latex a dvipng (abo dvips + gs + konwertěruj)',
@@ -3354,11 +3373,14 @@ $messages['rmy'] = array(
  * @author Strainu
  */
 $messages['ro'] = array(
+	'math-desc' => 'Randează formulele matematice cuprinse între etichetele <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Introduceți formula aici',
 	'math_tip' => 'Formulă matematică (LaTeX)',
 	'prefs-math' => 'Aspect formule',
 	'mw_math_png' => 'Întodeauna afișează PNG',
 	'mw_math_source' => 'Lasă ca TeX (pentru navigatoarele text)',
+	'mw_math_mathjax' => 'MathJax (experimental; potrivit pentru majoritatea navigatoarelor)',
+	'mw_math_latexml' => 'LaTeXML (experimental; folosește MathML)',
 	'math_failure' => 'Nu s-a putut interpreta',
 	'math_unknown_error' => 'eroare necunoscută',
 	'math_unknown_function' => 'funcție „$1” necunoscută',
@@ -3368,6 +3390,12 @@ $messages['ro'] = array(
 	'math_bad_tmpdir' => 'Nu se poate crea sau nu se poate scrie în directorul temporar pentru formule matematice',
 	'math_bad_output' => 'Nu se poate crea sau nu se poate scrie în directorul de ieșire pentru formule matematice',
 	'math_notexvc' => 'Lipsește executabilul texvc; vedeți math/README pentru configurare.',
+	'math_output_error' => 'Nu se poate stoca imaginea matematică în sistemul de fișiere.',
+	'math_latexml_timeout' => 'Timp de așteptare expirat pentru LaTeXML de la „$1”',
+	'math_latexml_invalidresponse' => 'Răspuns incorect pentru LaTeXML („$2”) de la serverul „$1”:',
+	'math_latexml_invalidxml' => 'LaTeXML MathML este un XML incorect.',
+	'math_latexml_invalidjson' => 'Răspunsul de la server pentru LaTeXML este un JSON incorect.',
+	'math_latexml_xmlversion' => 'Avertisment: verificarea tipului de XML a fost omisă! Verificați dacă versiunea instalată de MediaWiki este wmf/1.22wmf7 sau mai nouă.',
 );
 
 /** tarandíne (tarandíne)
