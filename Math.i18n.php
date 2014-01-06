@@ -39,7 +39,14 @@ $messages['en'] = array(
 	'math_latexml_invalidresponse' => 'LaTeXML Invalid response (\'$2\') from server \'$1\':',
 	'math_latexml_invalidxml' => 'LaTeXML MathML is invalid XML.',
 	'math_latexml_invalidjson'  => 'LaTeXML Server response is invalid JSON.',
-	'math_latexml_xmlversion' => 'Warning: XML type check skipped! Check if your MediaWiki installation is version wmf/1.22wmf7 or newer.'
+	'math_latexml_xmlversion' => 'Warning: XML type check skipped! Check if your MediaWiki installation is version wmf/1.22wmf7 or newer.',
+
+	// VisualEditor math plugin
+	'math-visualeditor-mwmathinspector-title' => 'Formula',
+	'math-preference-mwmathinspector-description' => 'Add experimental support to VisualEditor for creating and editing of mathematical formulae for testing, ahead of general release. Please remember to always review your changes before saving when using experimental features.',
+	'math-preference-mwmathinspector-discussion-link' => '//mediawiki.org/wiki/Special:MyLanguage/Talk:VisualEditor/Beta_Features/Formulae',
+	'math-preference-mwmathinspector-info-link' => '//mediawiki.org/wiki/Special:MyLanguage/VisualEditor/Beta_Features/Formulae',
+	'math-preference-mwmathinspector-label' => 'VisualEditor formulae editing',
 );
 
 /** Message documentation (Message documentation)
@@ -154,6 +161,21 @@ This message follows the message {{msg-mw|Math failure}}.',
 
 This message follows the message {{msg-mw|Math failure}}.',
 	'math_latexml_xmlversion' => 'Warning that XML checking of MathML requires wmf/1.22wmf7 or newer.',
+	'math-visualeditor-mwmathinspector-title' => 'Title for the inspector to edit <nowiki><math></nowiki> formula blocks.
+{{Identical|Formula}}',
+	'math-preference-mwmathinspector-description' => 'Used in [[Special:Preferences]].
+
+Used as description for the checkbox to enable editing of mathematical formulae in VisualEditor.
+
+The label for this checkbox is {{msg-mw|Visualeditor-preference-mwmath-label}}.',
+	'math-preference-mwmathinspector-discussion-link' => '{{optional|Used on [[Special:Preferences]] as a link to a page where users can discuss this Beta Feature. Defaults to a page on MediaWiki.org.}}',
+	'math-preference-mwmathinspector-info-link' => '{{optional|Used on [[Special:Preferences]] as a link to a page where users can learn about this Beta Feature. Defaults to a page on MediaWiki.org.}}',
+	'math-preference-mwmathinspector-label' => 'Used in [[Special:Preferences]].
+
+Used as label for checkbox to enable editing of mathematical formulae in VisualEditor.
+
+The description for this checkbox is:
+* {{msg-mw|Visualeditor-preference-mwmath-description}}',
 );
 
 /** Achinese (Acèh)
