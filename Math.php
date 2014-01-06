@@ -147,6 +147,7 @@ $wgDefaultUserOptions['math'] = MW_MATH_PNG;
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
+$wgHooks['GetBetaFeaturePreferences'][] = 'MathHooks::onGetBetaPreferences';
 $wgHooks['GetPreferences'][] = 'MathHooks::onGetPreferences';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'MathHooks::onLoadExtensionSchemaUpdates';
 $wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
@@ -396,3 +397,26 @@ $wgResourceModules += array(
 		'scripts' => array( 'Fraktur/Bold/BasicLatin.js', 'Fraktur/Bold/Other.js', 'Fraktur/Bold/PUA.js', 'Fraktur/Regular/BasicLatin.js', 'Fraktur/Regular/Other.js', 'Fraktur/Regular/PUA.js', 'SansSerif/Bold/BasicLatin.js', 'SansSerif/Bold/CombDiacritMarks.js', 'SansSerif/Bold/Other.js', 'SansSerif/Italic/BasicLatin.js', 'SansSerif/Italic/CombDiacritMarks.js', 'SansSerif/Italic/Other.js', 'SansSerif/Regular/BasicLatin.js', 'SansSerif/Regular/CombDiacritMarks.js', 'SansSerif/Regular/Other.js', 'Script/Regular/BasicLatin.js', 'Typewriter/Regular/BasicLatin.js', 'Typewriter/Regular/CombDiacritMarks.js', 'Typewriter/Regular/Other.js' )
 	) + $moduleTemplateSVG
 );
+
+$moduleTemplate = array(
+    'localBasePath' => dirname( __FILE__ ) . '/modules',
+    'remoteExtPath' => 'Math/modules',
+);
+
+$wgResourceModules['ext.math.visualEditor'] = array(
+	'scripts' => array(
+		'VisualEditor/ve.dm.MWMathNode.js',
+		'VisualEditor/ve.ce.MWMathNode.js',
+		'VisualEditor/ve.ui.MWMathInspector.js',
+		'VisualEditor/ve.ui.MWMathInspectorTool.js',
+	),
+	'dependencies' => array(
+		'ext.visualEditor.mwcore',
+	),
+	'messages' => array(
+		'math-visualeditor-mwmathinspector-title',
+	),
+	'targets' => array( 'desktop', 'mobile' ),
+) + $moduleTemplate;
+
+$wgVisualEditorPreferenceModules['math-enable-visualeditor'] = 'ext.math.visualEditor';
