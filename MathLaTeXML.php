@@ -15,6 +15,8 @@ class MathLaTeXML extends MathMathML {
 	 * @var String settings for LaTeXML daemon
 	 */
 	private $LaTeXMLSettings = '';
+	/** @var boolean if false LaTeXML output is not validated*/
+	private $XMLValidation = true;
 	/**
 	 * Converts an array with LaTeXML settings to a URL encoded String.
 	 * If the argument is a string the input will be returned.
@@ -217,6 +219,14 @@ class MathLaTeXML extends MathMathML {
 			return false;
 		}
 	}
+	/**
+	 * Sets the XML validaton.
+	 * If set to false the output of LaTeXML is not validated.
+	 * @param boolean $newval
+	 */
+	public function setXMLValidaton($newval = true){
+		$this->XMLValidation = $newval;
+	}
 
 	/**
 	 * Checks if the input is valid MathML,
@@ -225,6 +235,9 @@ class MathLaTeXML extends MathMathML {
 	 * @return boolean
 	 */
 	public function isValidMathML( $XML ) {
+		if ( !$this->XMLValidation ){
+			return true;
+		}
 		$out = false;
 		// depends on https://gerrit.wikimedia.org/r/#/c/66365/
 		if ( !is_callable( 'XmlTypeCheck::newFromString' ) ) {
