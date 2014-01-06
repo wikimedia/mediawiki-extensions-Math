@@ -78,6 +78,27 @@ class MathHooks {
 		return true;
 	}
 
+	public static function onGetBetaPreferences( $user, &$preferences ) {
+		global $wgExtensionAssetsPath;
+		if ( class_exists( 'VisualEditorHooks' ) ) {
+			// Add beta feature if VisualEditor is installed
+			$preferences['math-enable-visualeditor'] = array(
+				'version' => '1.0',
+				'label-message' => 'math-preference-mwmathinspector-label',
+				'desc-message' => 'math-preference-mwmathinspector-description',
+				'screenshot' => $wgExtensionAssetsPath .
+					"/Math/betafeatures-icon-VisualEditor-formulae-$dir.svg",
+				'info-message' => 'math-preference-mwmathinspector-info-link',
+				'discussion-message' => 'math-preference-mwmathinspector-info-link',
+				'requirements' => array(
+					'betafeatures' => array(
+						'visualeditor-enable',
+					),
+				),
+			);
+		}
+	}
+
 	/**
 	 * List of message keys for the various math output settings.
 	 *
