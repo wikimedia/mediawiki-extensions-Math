@@ -138,6 +138,7 @@ $wgDefaultUserOptions['math'] = MW_MATH_PNG;
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
+$wgHooks['GetBetaFeaturePreferences'][] = 'MathHooks::onGetBetaPreferences';
 $wgHooks['GetPreferences'][] = 'MathHooks::onGetPreferences';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'MathHooks::onLoadExtensionSchemaUpdates';
 $wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
@@ -171,3 +172,21 @@ $wgResourceModules['ext.math.mathjax'] = array(
 $wgResourceModules['ext.math.mathjax.enabler'] = array(
 	'scripts' => 'ext.math.mathjax.enabler.js',
 ) + $moduleTemplate;
+
+$wgResourceModules['ext.math.visualEditor'] = array(
+	'scripts' => array(
+		'VisualEditor/ve.dm.MWMathNode.js',
+		'VisualEditor/ve.ce.MWMathNode.js',
+		'VisualEditor/ve.ui.MWMathInspector.js',
+		'VisualEditor/ve.ui.MWMathInspectorTool.js',
+	),
+	'dependencies' => array(
+		'ext.visualEditor.mwcore',
+	),
+	'messages' => array(
+		'math-visualeditor-mwmathinspector-title',
+	),
+	'targets' => array( 'desktop', 'mobile' ),
+) + $moduleTemplate;
+
+$wgVisualEditorPreferenceModules['math-enable-visualeditor'] = 'ext.math.visualEditor';
