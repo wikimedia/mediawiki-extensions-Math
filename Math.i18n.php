@@ -39,7 +39,14 @@ $messages['en'] = array(
 	'math_latexml_invalidresponse' => 'LaTeXML Invalid response (\'$2\') from server \'$1\':',
 	'math_latexml_invalidxml' => 'LaTeXML MathML is invalid XML.',
 	'math_latexml_invalidjson'  => 'LaTeXML Server response is invalid JSON.',
-	'math_latexml_xmlversion' => 'Warning: XML type check skipped! Check if your MediaWiki installation is version wmf/1.22wmf7 or newer.'
+	'math_latexml_xmlversion' => 'Warning: XML type check skipped! Check if your MediaWiki installation is version wmf/1.22wmf7 or newer.',
+
+	// VisualEditor math plugin
+	'math-visualeditor-mwmathinspector-title' => 'Formula',
+	'math-preference-mwmathinspector-description'=> 'Add experimental support to VisualEditor for creating and editing of mathematical formulae for testing, ahead of general release. Please remember to always review your changes before saving when using experimental features.',
+	'math-preference-mwmathinspector-discussion-link'=> '//mediawiki.org/wiki/Special:MyLanguage/Talk:VisualEditor/Beta_Features/Formulae',
+	'math-preference-mwmathinspector-info-link' => '//mediawiki.org/wiki/Special:MyLanguage/VisualEditor/Beta_Features/Formulae',
+	'math-preference-mwmathinspector-label' => 'VisualEditor formulae editing',
 );
 
 /** Message documentation (Message documentation)
