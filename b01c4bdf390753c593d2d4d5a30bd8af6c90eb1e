@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "eeebdf60_e9c929af",
+        "filename": "Math.hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2014-01-07T08:47:20Z",
+      "side": 1,
+      "message": "Yeah, this probably just shouldn\u0027t have a version. Good catch.",
+      "parentUuid": "eeebdf60_3e2189ac",
+      "revId": "b01c4bdf390753c593d2d4d5a30bd8af6c90eb1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeebdf60_09ae8de4",
         "filename": "Math.hooks.php",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2014-01-07T08:01:13Z",
       "side": 1,
       "message": "$dir isn\u0027t defined.",
+      "revId": "b01c4bdf390753c593d2d4d5a30bd8af6c90eb1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_c9c42597",
+        "filename": "Math.hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2014-01-07T08:47:20Z",
+      "side": 1,
+      "message": "Whooops",
+      "parentUuid": "eeebdf60_09ae8de4",
       "revId": "b01c4bdf390753c593d2d4d5a30bd8af6c90eb1e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "eeebdf60_a9c3218b",
+        "filename": "Math.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2014-01-07T08:47:20Z",
+      "side": 1,
+      "message": "Yeah I suppose that works too. I copied this from the VisualEditor extension; will fix it there too.",
+      "parentUuid": "eeebdf60_29ab91d6",
+      "revId": "b01c4bdf390753c593d2d4d5a30bd8af6c90eb1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeebdf60_694bd963",
         "filename": "modules/VisualEditor/ve.ce.MWMathNode.js",
         "patchSetId": 4
@@ -64,6 +118,24 @@
       "writtenOn": "2014-01-07T07:38:05Z",
       "side": 1,
       "message": "I think we should make this configurable. \nIn Math2.0 we have the following css rules\nspan.mwe-math-mathml-inline { display: none;}\ndiv.mwe-math-mathml-display { display: none ;}\nimg.mwe-math-fallback-svg-inline { display: inline; vertical-align: middle}\nimg.mwe-math-fallback-svg-display { display:block; margin:auto}\nimg.mwe-math-fallback-png-inline { display: none;}\nimg.mwe-math-fallback-png-display { display: none;}",
+      "revId": "b01c4bdf390753c593d2d4d5a30bd8af6c90eb1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_4938159b",
+        "filename": "modules/VisualEditor/ve.ce.MWMathNode.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2014-01-07T08:47:20Z",
+      "side": 1,
+      "message": "I agree that the math code should be improved. However, all this commit is meant to do is just move it from one repo to another, so I suggest enhancements should be in separate commits.",
+      "parentUuid": "eeebdf60_694bd963",
       "revId": "b01c4bdf390753c593d2d4d5a30bd8af6c90eb1e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
