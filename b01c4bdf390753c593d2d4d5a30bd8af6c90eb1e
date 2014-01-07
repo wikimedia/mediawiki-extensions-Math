@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eeebdf60_3e2189ac",
+        "filename": "Math.hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-01-07T07:38:05Z",
+      "side": 1,
+      "message": "What\u0027s this version?\nI think it\u0027s a little bit confusing if we have a Wiki version, an extension version and an extension-visual editor version.\nMath is version 1.1",
+      "revId": "b01c4bdf390753c593d2d4d5a30bd8af6c90eb1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_694bd963",
+        "filename": "modules/VisualEditor/ve.ce.MWMathNode.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-01-07T07:38:05Z",
+      "side": 1,
+      "message": "I think we should make this configurable. \nIn Math2.0 we have the following css rules\nspan.mwe-math-mathml-inline { display: none;}\ndiv.mwe-math-mathml-display { display: none ;}\nimg.mwe-math-fallback-svg-inline { display: inline; vertical-align: middle}\nimg.mwe-math-fallback-svg-display { display:block; margin:auto}\nimg.mwe-math-fallback-png-inline { display: none;}\nimg.mwe-math-fallback-png-display { display: none;}",
+      "revId": "b01c4bdf390753c593d2d4d5a30bd8af6c90eb1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
