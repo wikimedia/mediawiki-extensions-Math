@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "eeebdf60_09ae8de4",
+        "filename": "Math.hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2014-01-07T08:01:13Z",
+      "side": 1,
+      "message": "$dir isn\u0027t defined.",
+      "revId": "b01c4bdf390753c593d2d4d5a30bd8af6c90eb1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_29ab91d6",
+        "filename": "Math.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2014-01-07T08:01:13Z",
+      "side": 1,
+      "message": "Just register the hook normally, this isn\u0027t needed (nor will it work correctly in all situations).",
+      "revId": "b01c4bdf390753c593d2d4d5a30bd8af6c90eb1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeebdf60_694bd963",
         "filename": "modules/VisualEditor/ve.ce.MWMathNode.js",
         "patchSetId": 4
