@@ -27,7 +27,7 @@ class MathTexvc extends MathRenderer {
 	const LIBERAL = 0;
 	const MW_TEXVC_SUCCESS = -1;
 
-	/**
+		/**
 	 * Gets an array that matches the variables of the class to the database columns
 	 * @return array
 	 */
@@ -47,15 +47,14 @@ class MathTexvc extends MathRenderer {
 		return $out;
 	}
 
-	public function dbInArray() {
+	protected function dbInArray() {
 		return array('math_inputhash','math_outputhash',
-				'math_html_conservativeness',
-				'math_html');
+				'math_html_conservativeness','math_html');
 	}
 	/**
 	 * @param database_row $rpage
 	 */
-	 function initializeFromDatabaseRow( $rpage ) {
+	protected function initializeFromDatabaseRow( $rpage ) {
 		$result = parent::initializeFromDatabaseRow($rpage);
 		//get deprecated fields
 		if ( $rpage->math_outputhash ){

@@ -289,26 +289,28 @@ abstract class MathRenderer {
 		global $wgMathDebug;
 		$this->inputHash = $rpage->math_inputhash; //MUST NOT BE NULL
 		$this->md5 = self::dbHash2md5($this->inputHash);
-		if ( $rpage->math_mathml ){
+		if ( ! empty( $rpage->math_mathml ) ){
 			$this->mathml = utf8_decode ( $rpage->math_mathml );
 	}
-		if ( $rpage->math_inputtex ) { //in the current database the field is probably not set.
+		if ( ! empty( $rpage->math_inputtex ) ) { //in the current database the field is probably not set.
 			$this->userInputTex = $rpage->math_inputtex;
 		}
-		if ( $rpage->math_tex ) {
+		if ( ! empty( $rpage->math_tex ) ) {
 			$this->tex = $rpage->math_tex;
 		}
-		if ( $rpage->math_svg ) {
+		if ( ! empty( $rpage->math_svg ) ) {
 			$this->svg = $rpage->math_svg;
 		}
 		if ( $wgMathDebug ) {
-			if ( $rpage->math_status !== null){
+			if ( ! empty( $rpage->math_status ) ){
 				$this->statusCode = $rpage->math_status;
 			}
-			if ( $rpage->math_log ){
+			if ( ! empty( $rpage->math_log ) ){
+				$this->timestamp = $rpage->math_log;
+			}
+			if ( ! empty( $rpage->math_timestamp ) ){
 				$this->log = $rpage->math_log;
 			}
-			$this->timestamp = $rpage->math_timestamp;
 			if ( $this->userInputTex ){
 				if ( $this->md5 !== md5( $this->getUserInputTex() )) {
 						wfDebugLog ( "Math", 'Hash in the database does not match the hash of the user inputtext.');
