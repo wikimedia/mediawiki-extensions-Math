@@ -3246,23 +3246,27 @@ $messages['ps'] = array(
 /** Portuguese (português)
  * @author Hamilton Abreu
  * @author Luckas
+ * @author Vitorvicentevalente
  */
 $messages['pt'] = array(
 	'math_sample' => 'Inserir fórmula aqui',
 	'math_tip' => 'Fórmula matemática (LaTeX)',
 	'prefs-math' => 'Matemática',
 	'mw_math_png' => 'Gerar sempre como PNG',
-	'mw_math_source' => 'Deixar como TeX (para browsers de texto)',
+	'mw_math_source' => 'Deixar como TeX (para navegadores de texto)',
+	'mw_math_mathjax' => 'MathJax (experimental; melhor para a maioria dos navegadores)',
+	'mw_math_latexml' => 'LaTeXML (experimental; usa MathML)',
 	'math_failure' => 'Falhou ao verificar gramática',
-	'math_unknown_error' => 'Erro desconhecido',
-	'math_unknown_function' => 'Função desconhecida', # Fuzzy
-	'math_lexing_error' => 'Erro léxico',
-	'math_syntax_error' => 'Erro de sintaxe',
+	'math_unknown_error' => 'erro desconhecido',
+	'math_unknown_function' => "Função desconhecida: '$1'",
+	'math_lexing_error' => 'erro léxico',
+	'math_syntax_error' => 'erro de sintaxe',
 	'math_image_error' => 'Falha na conversão para PNG;
-verifique que o latex, dvips, gs e convert foram correctamente instalados',
-	'math_bad_tmpdir' => "Não foi possível criar o diretório temporário ''math'' ou, se já existe, escrever nele",
-	'math_bad_output' => "Não foi possível criar o diretório de resultados ''math'' ou, se já existe, escrever nele",
+verifique se o latex, dvips, gs e convert foram correctamente instalados',
+	'math_bad_tmpdir' => 'Não foi possível editar ou criar o directório temporário de matemática',
+	'math_bad_output' => 'Não foi possível editar ou criar o directório de saída de matemática',
 	'math_notexvc' => 'O executável texvc não foi encontrado. Consulte math/README para instruções da configuração.',
+	'math_output_error' => 'Não é possível armazenar imagem matemática no sistema de ficheiros.',
 );
 
 /** Brazilian Portuguese (português do Brasil)
