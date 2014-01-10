@@ -1058,6 +1058,7 @@ $messages['eo'] = array(
 
 /** Spanish (español)
  * @author Armando-Martin
+ * @author Ciencia Al Poder
  * @author Dferg
  * @author Fitoschido
  * @author MarcoAurelio
@@ -1074,7 +1075,7 @@ $messages['es'] = array(
 	'mw_math_mathjax' => 'MathJax (experimental; el mejor para la mayoría de los navegadores)',
 	'math_failure' => 'No se pudo entender',
 	'math_unknown_error' => 'error desconocido',
-	'math_unknown_function' => 'función desconocida', # Fuzzy
+	'math_unknown_function' => 'función desconocida «$1».',
 	'math_lexing_error' => 'error léxico',
 	'math_syntax_error' => 'error de sintaxis',
 	'math_image_error' => 'La conversión a PNG ha fallado; comprueba que latex, dvips, gs, y convert estén instalados correctamente',
@@ -2026,6 +2027,7 @@ $messages['kaa'] = array(
 
 /** Kabyle (Taqbaylit)
  * @author Agurzil
+ * @author Mmistmurt
  */
 $messages['kab'] = array(
 	'math_sample' => 'Ssekcem tasemselt dagi',
@@ -2035,10 +2037,10 @@ $messages['kab'] = array(
 	'mw_math_source' => 'Eǧǧ-it s TeX (i browsers/explorateurs n weḍris)',
 	'math_failure' => 'Agul n tusnakt',
 	'math_unknown_error' => 'Agul mačči d aḍahri',
-	'math_unknown_function' => 'Tawuri mačči d taḍahrit', # Fuzzy
+	'math_unknown_function' => 'tawuri warisem « $1 »',
 	'math_lexing_error' => 'Agul n tmawalt',
 	'math_syntax_error' => 'Agul n tseddast',
-	'math_image_error' => 'Abeddil ɣer PNG yexser; ssenqed installation n latex, dvips, gs, umbeɛd eg abeddel', # Fuzzy
+	'math_image_error' => 'Aselket ɣer PNG yexser ; ssenqed aserkeb n latex d dvipng (neɣ dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Ur yezmir ara ad yaru ɣef/ɣer tusnakt n temp directory/dossier',
 	'math_bad_output' => 'Ur yezmir ara ad yaru ɣef/ɣer tusnakt n tuffɣa directory/dossier',
 	'math_notexvc' => "''texvc executable'' / ''executable texvc'' ulac-it; ẓer math/README akken a textareḍ isemyifiyen.",
@@ -2625,7 +2627,7 @@ $messages['mk'] = array(
 	'math_unknown_function' => 'непозната функција „$1“',
 	'math_lexing_error' => 'лексичка грешка',
 	'math_syntax_error' => 'синтаксна грешка',
-	'math_image_error' => 'Претворањето во PNG не успеа. Проверете дали правилно ги имате инсталирано latex и dvipng (или dvips + gs + convert)',
+	'math_image_error' => 'Претворањето во PNG не успеа. Проверете дали правилно ги имате воспоставено LaTeX и dvipng (или dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Не можам да запишам во или да создадам привремен директориум за математички операции',
 	'math_bad_output' => 'Не можев да запишам во или создадам излезен директориум математички операции',
 	'math_notexvc' => 'Недостасува извршната податотека texvc;
@@ -2635,7 +2637,7 @@ $messages['mk'] = array(
 	'math_latexml_invalidresponse' => 'Неважечки одѕив на LaTeXML („$2“) од опслужувачот „$1“:',
 	'math_latexml_invalidxml' => 'MathML за LaTeXML е неважечки XML.',
 	'math_latexml_invalidjson' => 'Одѕивот на опслужувачот за LaTeXML е неважечки JSON.',
-	'math_latexml_xmlversion' => 'Предупредување: Прескокната е провереката на XML-тип! Проверете дали вашата инсталација на МедијаВики е верзија wmf/1.22wmf7 или понова.',
+	'math_latexml_xmlversion' => 'Предупредување: Прескокната е провереката на XML-тип! Проверете дали вашата воспоставка на МедијаВики е верзија wmf/1.22wmf7 или понова.',
 );
 
 /** Malayalam (മലയാളം)
@@ -3247,23 +3249,27 @@ $messages['ps'] = array(
 /** Portuguese (português)
  * @author Hamilton Abreu
  * @author Luckas
+ * @author Vitorvicentevalente
  */
 $messages['pt'] = array(
 	'math_sample' => 'Inserir fórmula aqui',
 	'math_tip' => 'Fórmula matemática (LaTeX)',
 	'prefs-math' => 'Matemática',
 	'mw_math_png' => 'Gerar sempre como PNG',
-	'mw_math_source' => 'Deixar como TeX (para browsers de texto)',
+	'mw_math_source' => 'Deixar como TeX (para navegadores de texto)',
+	'mw_math_mathjax' => 'MathJax (experimental; melhor para a maioria dos navegadores)',
+	'mw_math_latexml' => 'LaTeXML (experimental; usa MathML)',
 	'math_failure' => 'Falhou ao verificar gramática',
-	'math_unknown_error' => 'Erro desconhecido',
-	'math_unknown_function' => 'Função desconhecida', # Fuzzy
-	'math_lexing_error' => 'Erro léxico',
-	'math_syntax_error' => 'Erro de sintaxe',
+	'math_unknown_error' => 'erro desconhecido',
+	'math_unknown_function' => "Função desconhecida: '$1'",
+	'math_lexing_error' => 'erro léxico',
+	'math_syntax_error' => 'erro de sintaxe',
 	'math_image_error' => 'Falha na conversão para PNG;
-verifique que o latex, dvips, gs e convert foram correctamente instalados',
-	'math_bad_tmpdir' => "Não foi possível criar o diretório temporário ''math'' ou, se já existe, escrever nele",
-	'math_bad_output' => "Não foi possível criar o diretório de resultados ''math'' ou, se já existe, escrever nele",
+verifique se o latex, dvips, gs e convert foram correctamente instalados',
+	'math_bad_tmpdir' => 'Não foi possível editar ou criar o directório temporário de matemática',
+	'math_bad_output' => 'Não foi possível editar ou criar o directório de saída de matemática',
 	'math_notexvc' => 'O executável texvc não foi encontrado. Consulte math/README para instruções da configuração.',
+	'math_output_error' => 'Não é possível armazenar imagem matemática no sistema de ficheiros.',
 );
 
 /** Brazilian Portuguese (português do Brasil)
@@ -3634,6 +3640,7 @@ $messages['sgs'] = array(
 );
 
 /** Serbo-Croatian (srpskohrvatski / српскохрватски)
+ * @author Kolega2357
  * @author OC Ripper
  */
 $messages['sh'] = array(
@@ -3646,7 +3653,7 @@ $messages['sh'] = array(
 	'math_unknown_error' => 'nepoznata greška',
 	'math_unknown_function' => 'nepoznata funkcija', # Fuzzy
 	'math_lexing_error' => 'riječnička greška',
-	'math_syntax_error' => 'sintaksna greška',
+	'math_syntax_error' => 'greška u sintaksi - грешка у синтакси',
 	'math_image_error' => 'PNG konverzija neuspješna; provjerite tačnu instalaciju latex-a i dvipng-a (ili dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Ne može se napisati ili napraviti privremeni matematički direktorijum',
 	'math_bad_output' => 'Ne može se napisati ili napraviti direktorijum za matematički izvještaj.',
