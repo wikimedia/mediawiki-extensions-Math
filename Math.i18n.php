@@ -1057,6 +1057,7 @@ $messages['eo'] = array(
 
 /** Spanish (español)
  * @author Armando-Martin
+ * @author Ciencia Al Poder
  * @author Dferg
  * @author Fitoschido
  * @author MarcoAurelio
@@ -1073,7 +1074,7 @@ $messages['es'] = array(
 	'mw_math_mathjax' => 'MathJax (experimental; el mejor para la mayoría de los navegadores)',
 	'math_failure' => 'No se pudo entender',
 	'math_unknown_error' => 'error desconocido',
-	'math_unknown_function' => 'función desconocida', # Fuzzy
+	'math_unknown_function' => 'función desconocida «$1».',
 	'math_lexing_error' => 'error léxico',
 	'math_syntax_error' => 'error de sintaxis',
 	'math_image_error' => 'La conversión a PNG ha fallado; comprueba que latex, dvips, gs, y convert estén instalados correctamente',
