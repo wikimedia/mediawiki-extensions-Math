@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cef0db4e_95332ec0",
+        "filename": "Math.hooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-01-11T08:15:19Z",
+      "side": 1,
+      "message": "I don\u0027t know Mediawiki\u0027s coding style, but it seems to me that there should be a space after the \"//\" for the comment, space before the two opening fences and that the spacing inside if statements is inconsistent.",
+      "revId": "8b7226a14848a14c6b2f746f85da2919c0f19d77",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cef0db4e_955a0ef8",
+        "filename": "Math.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-01-11T08:15:19Z",
+      "side": 1,
+      "message": "tex \u003d\u003e TeX",
+      "revId": "8b7226a14848a14c6b2f746f85da2919c0f19d77",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cef0db4e_7538aa9b",
+        "filename": "Math.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-01-11T08:15:19Z",
+      "side": 1,
+      "message": "Should there be a space before the \"?\"  operator.",
+      "revId": "8b7226a14848a14c6b2f746f85da2919c0f19d77",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cef0db4e_755f8ae9",
+        "filename": "MathInputCheck.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-01-11T08:15:19Z",
+      "side": 1,
+      "message": "copyright should be 2002-2014 now...",
+      "revId": "8b7226a14848a14c6b2f746f85da2919c0f19d77",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cef0db4e_553da689",
+        "filename": "MathInputCheck.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-01-11T08:15:19Z",
+      "side": 1,
+      "message": "constructor?",
+      "revId": "8b7226a14848a14c6b2f746f85da2919c0f19d77",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cef0db4e_35422214",
+        "filename": "MathInputCheck.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-01-11T08:15:19Z",
+      "side": 1,
+      "message": "space before the {",
+      "revId": "8b7226a14848a14c6b2f746f85da2919c0f19d77",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cef0db4e_15471e24",
+        "filename": "MathInputCheck.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-01-11T08:15:19Z",
+      "side": 1,
+      "message": "space before the {",
+      "revId": "8b7226a14848a14c6b2f746f85da2919c0f19d77",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cef0db4e_b54d1242",
+        "filename": "MathInputCheck.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-01-11T08:15:19Z",
+      "side": 1,
+      "message": "I guess for consistency, everything should be written \"TeX\".\nalterd \u003d\u003e altered",
+      "revId": "8b7226a14848a14c6b2f746f85da2919c0f19d77",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cef0db4e_f5439a13",
+        "filename": "MathInputCheck.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-01-11T08:15:19Z",
+      "side": 1,
+      "message": "space before the {",
+      "revId": "8b7226a14848a14c6b2f746f85da2919c0f19d77",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cef0db4e_555486c9",
+        "filename": "MathInputCheckTexvc.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-01-11T08:15:19Z",
+      "side": 1,
+      "message": "2013 \u003d\u003e 2014",
+      "revId": "8b7226a14848a14c6b2f746f85da2919c0f19d77",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cef0db4e_35590202",
+        "filename": "MathInputCheckTexvc.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-01-11T08:15:19Z",
+      "side": 1,
+      "message": "space before {\n\nAgain, the space inside the if seems inconsistent with other places.",
+      "revId": "8b7226a14848a14c6b2f746f85da2919c0f19d77",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cef0db4e_9501eebb",
+        "filename": "MathInputCheckTexvc.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-01-11T08:15:19Z",
+      "side": 1,
+      "message": "I don\u0027t know MediaWiki convention, but you don\u0027t need to put the last block in its own else statement since all the other cases should already have returned false.",
+      "revId": "8b7226a14848a14c6b2f746f85da2919c0f19d77",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cef0db4e_550b66d9",
+        "filename": "MathRenderer.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-01-11T08:15:19Z",
+      "side": 1,
+      "message": "Same here. The second block don\u0027t need to be in a else block.\n\nAgain some missing space before \"{\"  and inconsistent spacing inside if.",
+      "revId": "8b7226a14848a14c6b2f746f85da2919c0f19d77",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
