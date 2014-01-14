@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aef5673e_1744bf1b",
+        "filename": "Math.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-01-14T22:35:25Z",
+      "side": 1,
+      "message": "Is this a good idea ? I think this might make debugging a bit more difficult. I\u0027d default to false, and throw a warning if set to true. Also throw a separate error for is_executable \u003d\u003d\u003d false",
+      "revId": "4b1503448266dbd4a9f7e7d2a0bfb23f9fe7c459",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aef5673e_f7503bdb",
+        "filename": "tests/MathInputCheckTexvcTest.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-01-14T22:35:25Z",
+      "side": 1,
+      "message": "dangling whitespace.",
+      "revId": "4b1503448266dbd4a9f7e7d2a0bfb23f9fe7c459",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
