@@ -2026,6 +2026,7 @@ $messages['kaa'] = array(
 
 /** Kabyle (Taqbaylit)
  * @author Agurzil
+ * @author Mmistmurt
  */
 $messages['kab'] = array(
 	'math_sample' => 'Ssekcem tasemselt dagi',
@@ -2035,10 +2036,10 @@ $messages['kab'] = array(
 	'mw_math_source' => 'Eǧǧ-it s TeX (i browsers/explorateurs n weḍris)',
 	'math_failure' => 'Agul n tusnakt',
 	'math_unknown_error' => 'Agul mačči d aḍahri',
-	'math_unknown_function' => 'Tawuri mačči d taḍahrit', # Fuzzy
+	'math_unknown_function' => 'tawuri warisem « $1 »',
 	'math_lexing_error' => 'Agul n tmawalt',
 	'math_syntax_error' => 'Agul n tseddast',
-	'math_image_error' => 'Abeddil ɣer PNG yexser; ssenqed installation n latex, dvips, gs, umbeɛd eg abeddel', # Fuzzy
+	'math_image_error' => 'Aselket ɣer PNG yexser ; ssenqed aserkeb n latex d dvipng (neɣ dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Ur yezmir ara ad yaru ɣef/ɣer tusnakt n temp directory/dossier',
 	'math_bad_output' => 'Ur yezmir ara ad yaru ɣef/ɣer tusnakt n tuffɣa directory/dossier',
 	'math_notexvc' => "''texvc executable'' / ''executable texvc'' ulac-it; ẓer math/README akken a textareḍ isemyifiyen.",
