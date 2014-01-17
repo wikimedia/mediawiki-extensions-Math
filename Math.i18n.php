@@ -2626,7 +2626,7 @@ $messages['mk'] = array(
 	'math_unknown_function' => 'непозната функција „$1“',
 	'math_lexing_error' => 'лексичка грешка',
 	'math_syntax_error' => 'синтаксна грешка',
-	'math_image_error' => 'Претворањето во PNG не успеа. Проверете дали правилно ги имате инсталирано latex и dvipng (или dvips + gs + convert)',
+	'math_image_error' => 'Претворањето во PNG не успеа. Проверете дали правилно ги имате воспоставено LaTeX и dvipng (или dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Не можам да запишам во или да создадам привремен директориум за математички операции',
 	'math_bad_output' => 'Не можев да запишам во или создадам излезен директориум математички операции',
 	'math_notexvc' => 'Недостасува извршната податотека texvc;
@@ -2636,7 +2636,7 @@ $messages['mk'] = array(
 	'math_latexml_invalidresponse' => 'Неважечки одѕив на LaTeXML („$2“) од опслужувачот „$1“:',
 	'math_latexml_invalidxml' => 'MathML за LaTeXML е неважечки XML.',
 	'math_latexml_invalidjson' => 'Одѕивот на опслужувачот за LaTeXML е неважечки JSON.',
-	'math_latexml_xmlversion' => 'Предупредување: Прескокната е провереката на XML-тип! Проверете дали вашата инсталација на МедијаВики е верзија wmf/1.22wmf7 или понова.',
+	'math_latexml_xmlversion' => 'Предупредување: Прескокната е провереката на XML-тип! Проверете дали вашата воспоставка на МедијаВики е верзија wmf/1.22wmf7 или понова.',
 );
 
 /** Malayalam (മലയാളം)
