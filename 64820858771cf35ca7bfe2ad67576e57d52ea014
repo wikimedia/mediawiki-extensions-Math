@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aef5673e_8410835c",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-01-19T19:05:51Z",
+      "side": 1,
+      "message": "The page rendering hook was changed recently. It happens that people upgrade math but not core. This allows to use the new version of the math extension with an old core version... there are some places where it was required to do such workarounds.",
+      "parentUuid": "aef5673e_a44dc79d",
+      "revId": "64820858771cf35ca7bfe2ad67576e57d52ea014",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aef5673e_c448cb8e",
         "filename": "Math.hooks.php",
         "patchSetId": 11
@@ -30,6 +48,24 @@
       "writtenOn": "2014-01-19T18:48:02Z",
       "side": 1,
       "message": "Given that various extensions can subscribe to this hook, its not clear we can  rely on the order always being the same. Perhaps should do something like $confstr .\u003d \u0027!math\u003d\u0027 . $option",
+      "revId": "64820858771cf35ca7bfe2ad67576e57d52ea014",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aef5673e_a70a6922",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-01-19T19:05:51Z",
+      "side": 1,
+      "message": "I don\u0027t know if the content of the cachekey is used at all... I think that the only function of the confstr is to be differntiable from another one.\nI\u0027m wondering why the other options in the cache key have values only. I\u0027ll have a look how other extension do this.",
+      "parentUuid": "aef5673e_c448cb8e",
       "revId": "64820858771cf35ca7bfe2ad67576e57d52ea014",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
