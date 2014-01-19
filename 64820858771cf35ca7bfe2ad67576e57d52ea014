@@ -105,6 +105,24 @@
       "revId": "64820858771cf35ca7bfe2ad67576e57d52ea014",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aef5673e_673a21c2",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 99
+      },
+      "writtenOn": "2014-01-19T19:16:45Z",
+      "side": 1,
+      "message": "I agree about recordOption. I think the extensions adding options interface needs to be rethought. Perhaps extensions can add options (as a name-\u003evalue pair), and then core could add them to the hash, giving them some deterministic order, as opposed to the current situation where if you rearrange your LocalSettings (changing order when hooks are registered) you could potentially invalidate the parser cache of every single page on the wiki.",
+      "parentUuid": "aef5673e_a7582936",
+      "revId": "64820858771cf35ca7bfe2ad67576e57d52ea014",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
