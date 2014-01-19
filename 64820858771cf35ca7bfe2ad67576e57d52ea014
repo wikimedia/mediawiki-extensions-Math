@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "aef5673e_a41b8781",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2014-01-19T19:10:51Z",
+      "side": 1,
+      "message": "It appears the circumstances would be that someone is using a version of MediaWiki from before January 2014. See I32a1df52.",
+      "parentUuid": "aef5673e_a44dc79d",
+      "revId": "64820858771cf35ca7bfe2ad67576e57d52ea014",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aef5673e_c448cb8e",
         "filename": "Math.hooks.php",
         "patchSetId": 11
@@ -65,6 +83,24 @@
       "writtenOn": "2014-01-19T19:05:51Z",
       "side": 1,
       "message": "I don\u0027t know if the content of the cachekey is used at all... I think that the only function of the confstr is to be differntiable from another one.\nI\u0027m wondering why the other options in the cache key have values only. I\u0027ll have a look how other extension do this.",
+      "parentUuid": "aef5673e_c448cb8e",
+      "revId": "64820858771cf35ca7bfe2ad67576e57d52ea014",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aef5673e_a7582936",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2014-01-19T19:10:51Z",
+      "side": 1,
+      "message": "Seconded. And it should be omitted unless mathTagHook has been called to avoid needlessly fragmenting the cache.\n\nIdeally, I\u0027d say that ParserOutput\u0027s recordOption() shouldn\u0027t be pseudo-private so extensions can have a sane way to record when they\u0027re used, and then the $forOptions option to ParserOptions::optionsHash should be passed to this hook for the hook function to check.",
       "parentUuid": "aef5673e_c448cb8e",
       "revId": "64820858771cf35ca7bfe2ad67576e57d52ea014",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
