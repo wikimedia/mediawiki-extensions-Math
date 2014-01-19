@@ -3639,6 +3639,7 @@ $messages['sgs'] = array(
 );
 
 /** Serbo-Croatian (srpskohrvatski / српскохрватски)
+ * @author Kolega2357
  * @author OC Ripper
  */
 $messages['sh'] = array(
@@ -3651,7 +3652,7 @@ $messages['sh'] = array(
 	'math_unknown_error' => 'nepoznata greška',
 	'math_unknown_function' => 'nepoznata funkcija', # Fuzzy
 	'math_lexing_error' => 'riječnička greška',
-	'math_syntax_error' => 'sintaksna greška',
+	'math_syntax_error' => 'greška u sintaksi - грешка у синтакси',
 	'math_image_error' => 'PNG konverzija neuspješna; provjerite tačnu instalaciju latex-a i dvipng-a (ili dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Ne može se napisati ili napraviti privremeni matematički direktorijum',
 	'math_bad_output' => 'Ne može se napisati ili napraviti direktorijum za matematički izvještaj.',
