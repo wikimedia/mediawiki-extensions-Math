@@ -1149,6 +1149,7 @@ $messages['ext'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Armin1392
  * @author Huji
  * @author Omidh
  * @author ZxxZxxZ
@@ -1170,6 +1171,8 @@ $messages['fa'] = array(
 	'math_bad_tmpdir' => 'امکان ایجاد یا نوشتن اطلاعات در پوشه موقت (temp) ریاضی وجود ندارد.',
 	'math_bad_output' => 'امکان ایجاد یا نوشتن اطلاعات در پوشه خروجی (output) ریاضی وجود ندارد.',
 	'math_notexvc' => 'برنامهٔ اجرایی texvc موجود نیست. برای اطلاعات بیشتر به <span dir=ltr>math/README</span> مراجعه کنید.',
+	'math_latexml_invalidxml' => 'لاته ایکس‌ام‌ال مت‌ام‌ال، ایکس‌ام‌ال نامعتبر است.',
+	'math_latexml_invalidjson' => 'پاسخ سرور لاته‌ ایکس‌ام‌ال، جی‌سون نامعتبر است.',
 );
 
 /** Finnish (suomi)
