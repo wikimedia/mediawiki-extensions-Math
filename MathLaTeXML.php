@@ -28,9 +28,9 @@ class MathLaTeXML extends MathMathML {
 		if ( !is_array( $array ) ) {
 			return $array;
 		} else {
-			//removes the [1] [2]... for the unnamed subarrays since LaTeXML
-			//assigns multiple values to one key e.g.
-			//preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty
+			// removes the [1] [2]... for the unnamed subarrays since LaTeXML
+			// assigns multiple values to one key e.g.
+			// preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty
 			$cgi_string = wfArrayToCgi( $array );
 			$cgi_string = preg_replace( '|\%5B\d+\%5D|', '', $cgi_string );
 			$cgi_string = preg_replace( '|&\d+=|', '&', $cgi_string );
@@ -160,9 +160,9 @@ class MathLaTeXML extends MathMathML {
 	 */
 	public function getPostData() {
 		$tex = $this->getTex();
-		if ( is_null( $this->getDisplayStyle() ) ){
-			//default preserve the (broken) layout as it was
-			$tex= '{\displaystyle '. $tex.'}';
+		if ( is_null( $this->getDisplayStyle() ) ) {
+			// default preserve the (broken) layout as it was
+			$tex = '{\displaystyle ' . $tex . '}';
 		}
 		$texcmd = rawurlencode( $tex );
 		$settings = $this->serializeSettings( $this->getLaTeXMLSettings() );
@@ -179,7 +179,7 @@ class MathLaTeXML extends MathMathML {
 	protected function doRender() {
 		global $wgMathDefaultLaTeXMLSetting, $wgMathDebug;
 		if ( !$this->getTex() ) {
-			wfDebugLog( "Math", "Rendering was requested, but no TeX string is specified.");
+			wfDebugLog( "Math", "Rendering was requested, but no TeX string is specified." );
 			$this->lastError = $this->getError( 'math_empty_tex' );
 			return false;
 		}
@@ -224,7 +224,7 @@ class MathLaTeXML extends MathMathML {
 	 * If set to false the output of LaTeXML is not validated.
 	 * @param boolean $newval
 	 */
-	public function setXMLValidaton($newval = true){
+	public function setXMLValidaton( $newval = true ) {
 		$this->XMLValidation = $newval;
 	}
 
@@ -235,7 +235,7 @@ class MathLaTeXML extends MathMathML {
 	 * @return boolean
 	 */
 	public function isValidMathML( $XML ) {
-		if ( !$this->XMLValidation ){
+		if ( !$this->XMLValidation ) {
 			return true;
 		}
 		$out = false;

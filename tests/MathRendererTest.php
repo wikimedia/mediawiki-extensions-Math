@@ -41,7 +41,7 @@ class MathRendererTests extends MediaWikiTestCase {
 				->setMethods( array( 'writeToDatabase', 'render', 'getHtmlOutput' ) )
 				->disableOriginalConstructor()
 				->getMock();
-		$renderer->setLog( 'log' ); //do a random change to set changed to true
+		$renderer->setLog( 'log' ); // do a random change to set changed to true
 		$renderer->expects( $this->once() )
 				->method( 'writeToDatabase' );
 		$renderer->writeCache();

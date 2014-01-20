@@ -12,8 +12,8 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	const SOME_LOG = "Sample Log Text.";
 	const SOME_STATUSCODE = 2;
 	const SOME_TIMESTAMP = 1272509157;
-	//const SOME_PNG = "PNG";
-	//const SOME_SVG = "<?xml </svg >>%%LIKE;'\" DROP TABLE math;";
+	// const SOME_PNG = "PNG";
+	// const SOME_SVG = "<?xml </svg >>%%LIKE;'\" DROP TABLE math;";
 	const SOME_VALIDXML = true;
 	const NUM_BASIC_FIELDS = 5;
 	const NUM_DEBUG_FIELDS = 3;
@@ -64,7 +64,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 */
 	public function testDBBasics() {
 		global $wgMathDebug;
-		if( $this->db->getType() === 'sqlite' ) {
+		if ( $this->db->getType() === 'sqlite' ) {
 			$this->markTestSkipped( "SQLite has global indices. We cannot " .
 					"create the `unitest_math` table, its math_inputhash index " .
 					"would conflict with the one from the real `math` table."
@@ -91,7 +91,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 * @covers MathHooks::onLoadExtensionSchemaUpdates
 	 */
 	public function testBasicCreateTable() {
-		if( $this->db->getType() === 'sqlite' ) {
+		if ( $this->db->getType() === 'sqlite' ) {
 			$this->markTestSkipped( "SQLite has global indices. We cannot " .
 				"create the `unitest_math` table, its math_inputhash index " .
 				"would conflict with the one from the real `math` table."
@@ -117,14 +117,14 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 * @covers MathHooks::onLoadExtensionSchemaUpdates
 	 */
 	public function testDebugCreateTable() {
-		if( $this->db->getType() === 'sqlite' ) {
+		if ( $this->db->getType() === 'sqlite' ) {
 			$this->markTestSkipped( "SQLite has global indices. We cannot " .
 					"create the `unitest_math` table, its math_inputhash index " .
 					"would conflict with the one from the real `math` table."
 			);
 		}
 		global $wgMathDebug;
-		sleep(2);
+		sleep( 2 );
 		$this->db->dropTable( "math", __METHOD__ );
                 $this->db->dropTable( "mathoid", __METHOD__ );
 		$wgMathDebug = true;
@@ -159,8 +159,8 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		// $this->assertEquals($this->renderer,$renderer2);
 		$this->assertEquals( $this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same" );
 		$this->assertEquals( $this->renderer->getMathml(), $renderer2->getMathml(), "Check MathML encoding" );
-		$this->assertEquals( $this->renderer->getLog(), $renderer2->getLog() , "test log");
-		$this->assertEquals( $this->renderer->getStatusCode(), $renderer2->getStatusCode() , "test status code");
+		$this->assertEquals( $this->renderer->getLog(), $renderer2->getLog() , "test log" );
+		$this->assertEquals( $this->renderer->getStatusCode(), $renderer2->getStatusCode() , "test status code" );
 	}
 
 

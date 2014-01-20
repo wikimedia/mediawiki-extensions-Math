@@ -19,7 +19,7 @@
  * @ingroup Parser
  */
 class MathSvg extends MathRenderer {
-	private $svg='';
+	private $svg = '';
 	/**
 	 * Renders TeX by outputting it to the browser in a span tag
 	 *
@@ -43,7 +43,7 @@ class MathSvg extends MathRenderer {
 	 * No rendering required in plain text mode
 	 * @return boolean
 	 */
-	function render(){
+	function render() {
 		global $wgMathLaTeXMLTimeout;
 		$post = $this->getTex();
 		$host = 'http://localhost:16000/';
@@ -57,7 +57,7 @@ class MathSvg extends MathRenderer {
 			return false;
 		}
 	}
-	public function getSvg(){
+	public function getSvg() {
 		return $this->svg;
 	}
 }

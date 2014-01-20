@@ -27,7 +27,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	}
 	protected function setUp() {
 		global $wgMathValidModes;
-		$wgMathValidModes[]=MW_MATH_LATEXML;
+		$wgMathValidModes[] = MW_MATH_LATEXML;
 		parent::setUp();
 	}
 	/**
@@ -37,7 +37,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	public function testSpecialCase0() {
 		global $wgMathFastDisplay;
 		$wgMathFastDisplay = false;
-		//FIXME:
+		// FIXME:
 		$this->markTestSkipped( "Bug in LaTeXML" );
 		$renderer = MathRenderer::getRenderer( '0', array( ), MW_MATH_LATEXML );
 		$expected = '0</cn>';

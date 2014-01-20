@@ -43,26 +43,26 @@ class MathTexvc extends MathRenderer {
 		$out['math_outputhash'] = $outmd5_sql;
 		$out['math_html_conservativeness'] = $this->conservativeness;
 		$out['math_html'] = $this->html;
-		wfDebugLog( 'Math', 'Store Hashpath of image'. bin2hex($outmd5_sql));
+		wfDebugLog( 'Math', 'Store Hashpath of image' . bin2hex( $outmd5_sql ) );
 		return $out;
 	}
 
 	protected function dbInArray() {
-		return array('math_inputhash','math_outputhash',
-				'math_html_conservativeness','math_html');
+		return array( 'math_inputhash', 'math_outputhash',
+				'math_html_conservativeness', 'math_html' );
 	}
 	/**
 	 * @param database_row $rpage
 	 */
 	protected function initializeFromDatabaseRow( $rpage ) {
-		$result = parent::initializeFromDatabaseRow($rpage);
-		//get deprecated fields
-		if ( $rpage->math_outputhash ){
+		$result = parent::initializeFromDatabaseRow( $rpage );
+		// get deprecated fields
+		if ( $rpage->math_outputhash ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$xhash = unpack( 'H32md5',
 				$dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
 			$this->hash = $xhash['md5'];
-			wfDebugLog( 'Math', 'Hashpath of PNG-File:'.bin2hex($this->hash));
+			wfDebugLog( 'Math', 'Hashpath of PNG-File:' . bin2hex( $this->hash ) );
 			$this->conservativeness = $rpage->math_html_conservativeness;
 			$this->html = $rpage->math_html;
 			return true;
@@ -97,7 +97,7 @@ class MathTexvc extends MathRenderer {
 	public function getHashPath() {
 		$path = $this->getBackend()->getRootStoragePath() .
 			'/math-render/' . $this->getHashSubPath();
-		wfDebugLog("Math", "TeX: getHashPath, hash is: {$this->getHash()}, path is: $path\n" );
+		wfDebugLog( "Math", "TeX: getHashPath, hash is: {$this->getHash()}, path is: $path\n" );
 		return $path;
 	}
 
@@ -292,7 +292,7 @@ class MathTexvc extends MathRenderer {
 				unset( $wgHooks['ParserAfterParse']['FlushMathBackend'] );
 				$backend->doQuickOperations( $backend->mathBufferedWrites );
 				unset( $backend->mathBufferedWrites );
-			};
+			} ;
 		}
 		$backend->mathBufferedWrites[] = array(
 			'op'  => 'store',
@@ -320,7 +320,7 @@ class MathTexvc extends MathRenderer {
 				$backend = new FSFileBackend( array(
 					'name'           => 'math-backend',
 					'wikiId' 	 => wfWikiId(),
-					'lockManager'    => new NullLockManager(array() ),
+					'lockManager'    => new NullLockManager( array() ),
 					'containerPaths' => array( 'math-render' => $wgMathDirectory ),
 					'fileMode'       => 0777
 				) );
@@ -399,15 +399,15 @@ class MathTexvc extends MathRenderer {
 		wfProfileOut( __METHOD__ );
 		return false;
 	}
-	public function getPng(){
+	public function getPng() {
 		$backend = $this->getBackend();
-		//echo $this->getHashPath(). "/". $this->getHash() . '.png';
-		return $backend->getFileContents( array('src'=>$this->getHashPath(). "/". $this->getHash() . '.png' ) );
+		// echo $this->getHashPath(). "/". $this->getHash() . '.png';
+		return $backend->getFileContents( array( 'src' => $this->getHashPath() . "/" . $this->getHash() . '.png' ) );
 	}
 
 	public function readFromDatabase() {
 		$return = parent::readFromDatabase();
-		if ( $this->hash && $return ){
+		if ( $this->hash && $return ) {
 			return true;
 		} else {
 			return false;
@@ -463,7 +463,7 @@ class MathTexvc extends MathRenderer {
 		$this->conservativeness = $conservativeness;
 	}
 
-	protected function getMathTableName(){
+	protected function getMathTableName() {
 		return 'math';
 	}
 

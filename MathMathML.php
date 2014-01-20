@@ -50,7 +50,7 @@ class MathMathML extends MathRenderer {
 		}
 		return true;
 	}
-        
+
 	/**
 	 * Helper function to checks if the math tag must be rendered.
 	 * @return boolean
@@ -155,12 +155,12 @@ class MathMathML extends MathRenderer {
 	 */
 	public function getPostData() {
 		$tex = $this->getTex();
-		if ( is_null( $this->getDisplaystyle() ) ){
-			//default preserve the (broken) layout as it was
-			$tex= '{\\displaystyle '. $tex.'}';
+		if ( is_null( $this->getDisplaystyle() ) ) {
+			// default preserve the (broken) layout as it was
+			$tex = '{\\displaystyle ' . $tex . '}';
 		}
 		wfDebugLog( "Math", 'Get post data: ' . $tex );
-		return 'tex='.rawurlencode( $tex );
+		return 'tex=' . rawurlencode( $tex );
 	}
 
 	/**
@@ -170,7 +170,7 @@ class MathMathML extends MathRenderer {
 	protected function doRender() {
 		global  $wgMathDebug;
 		if ( $this->getTex() === '' ) {
-			wfDebugLog( 'Math', 'Rendering was requested, but no TeX string is specified.');
+			wfDebugLog( 'Math', 'Rendering was requested, but no TeX string is specified.' );
 			$this->lastError = $this->getError( 'math_empty_tex' );
 			return false;
 		}
@@ -182,7 +182,7 @@ class MathMathML extends MathRenderer {
 		if ( $requestResult ) {
 			$result = json_decode( $res );
 			if ( $result && json_last_error() === JSON_ERROR_NONE ) {
-				if ( $result->sucess ){
+				if ( $result->sucess ) {
 					if ( $this->isValidMathML( $result->mml ) ) {
 						$this->setMathml( $result->mml );
 						$this->setSvg( $result->svg );
@@ -253,7 +253,7 @@ class MathMathML extends MathRenderer {
 		return SpecialPage::getTitleFor( 'MathShowImage' )->getLocalURL( array(
 					'hash' => $this->getMd5(),
 					'png' => $png,
-					'noRender' => $noRender)
+					'noRender' => $noRender )
 		);
 	}
 
@@ -265,30 +265,30 @@ class MathMathML extends MathRenderer {
      * @return string XML the image html tag
 	 */
 	public function getFallbackImage( $png = false, $noRender = false, $classOverride = false ) {
-		$url = $this->getFallbackImageUrl( $png , $noRender);
+		$url = $this->getFallbackImageUrl( $png , $noRender );
 		$style = '';
 		$attribs = array();
-		if( $classOverride === false ){ //$class ='' suppresses class attribute
+		if ( $classOverride === false ) { // $class ='' suppresses class attribute
 			$class = $this->getClassName( true, $png );
 			$style = $png ? 'display: none;' : '';
 		} else {
 			$class  = $classOverride;
 			$style = '';
 		}
-		if ( !$png ){
+		if ( !$png ) {
 			$svg = $this->getSvg();
-			if( preg_match('/style="([^"]*)"/', $svg, $styles) ){
+			if ( preg_match( '/style="([^"]*)"/', $svg, $styles ) ) {
 				$style = $styles[1];
-				if ( $this->getDisplayStyle() === true ){
-					$style = preg_replace('/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style);
+				if ( $this->getDisplayStyle() === true ) {
+					$style = preg_replace( '/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style );
 					$style .= 'display:block;  margin-left: auto;  margin-right: auto;';
 				}
 			}
 		}
 		if ( $class ) { $attribs['class'] = $class; }
 		if ( $style ) { $attribs['style'] = $style; }
-		//an alternative for svg might be an object with type="image/svg+xml"
-		return Xml::element( 'img', $this->getAttributes( 'img', $attribs , array( 'src' => $url )) );
+		// an alternative for svg might be an object with type="image/svg+xml"
+		return Xml::element( 'img', $this->getAttributes( 'img', $attribs , array( 'src' => $url ) ) );
 	}
 
 	/**
@@ -323,31 +323,31 @@ class MathMathML extends MathRenderer {
 	 * @return html element with rendered math
 	 */
 	public function getHtmlOutput() {
-		if ( $this->getDisplaystyle() ){
+		if ( $this->getDisplaystyle() ) {
 			$element = 'div';
 		} else {
 			$element = 'span';
 		}
 		$attribs = array();
-		if ( $this->getID() !=='' ){
+		if ( $this->getID() !== '' ) {
 			$attribs['id'] = $this->getID();
 		}
-		$output = HTML::openElement($element , $attribs);
-		//MathML has to be wrapped into a div or span in order to be able to hide it.
-		if ( $this->getDisplaystyle() == true ){
-			//Remove displayStyle attributes set by the MathML converter
-			$mml = preg_replace('/(display|mode)=["\'](inline|block)["\']/', '', $this->getMathml());
-			//and insert the correct value
-			$mml = preg_replace('/<math/', '<math display="block"', $mml);
+		$output = HTML::openElement( $element , $attribs );
+		// MathML has to be wrapped into a div or span in order to be able to hide it.
+		if ( $this->getDisplaystyle() == true ) {
+			// Remove displayStyle attributes set by the MathML converter
+			$mml = preg_replace( '/(display|mode)=["\'](inline|block)["\']/', '', $this->getMathml() );
+			// and insert the correct value
+			$mml = preg_replace( '/<math/', '<math display="block"', $mml );
 		} else {
 			$mml = $this->getMathml();
 		}
 		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(),
-			'style'=>'display: none;' ),
+			'style' => 'display: none;' ),
 			$mml );
 		$output .= $this->getFallbackImage( false ) . "\n";
 		$output .= $this->getFallbackImage( true ) . "\n";
-		$output .= HTML::closeElement($element);
+		$output .= HTML::closeElement( $element );
 		return $output;
 	}
 }

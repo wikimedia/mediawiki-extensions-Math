@@ -14,22 +14,22 @@ class MathInputCheckTexvc extends MathInputCheck {
 	 *
 	 * @param string $texvcResult error result returned by texvc
 	 */
-	public function convertTexvcError($texvcResult) {
-		$texvcStatus = substr($texvcResult, 0, 1);
-		$errorRenderer = new MathSource($this->inputTeX);
-		$errDetails = htmlspecialchars(substr($texvcResult, 1));
-		switch ($texvcStatus) {
+	public function convertTexvcError( $texvcResult ) {
+		$texvcStatus = substr( $texvcResult, 0, 1 );
+		$errorRenderer = new MathSource( $this->inputTeX );
+		$errDetails = htmlspecialchars( substr( $texvcResult, 1 ) );
+		switch ( $texvcStatus ) {
 			case 'E':
-				$errMsg = $errorRenderer->getError('math_lexing_error');
+				$errMsg = $errorRenderer->getError( 'math_lexing_error' );
 				break;
 			case 'S':
-				$errMsg = $errorRenderer->getError('math_syntax_error');
+				$errMsg = $errorRenderer->getError( 'math_syntax_error' );
 				break;
 			case 'F':
-				$errMsg = $errorRenderer->getError('math_unknown_function', $errDetails);
+				$errMsg = $errorRenderer->getError( 'math_unknown_function', $errDetails );
 				break;
 			default:
-				$errMsg = $errorRenderer->getError('math_unknown_error');
+				$errMsg = $errorRenderer->getError( 'math_unknown_error' );
 		}
 
 		return $errMsg;
@@ -42,37 +42,37 @@ class MathInputCheckTexvc extends MathInputCheck {
 	 */
 	public function isValid() {
 		global $wgMathTexvcCheckExecutable;
-		if (!is_executable($wgMathTexvcCheckExecutable)) {
-			$errorRenderer = new MathSource($this->inputTeX);
-			$this->lastError = $errorRenderer->getError('math_notexvc');
+		if ( !is_executable( $wgMathTexvcCheckExecutable ) ) {
+			$errorRenderer = new MathSource( $this->inputTeX );
+			$this->lastError = $errorRenderer->getError( 'math_notexvc' );
 			return false;
 		}
 
-		$cmd = $wgMathTexvcCheckExecutable . ' ' . wfEscapeShellArg($this->inputTeX);
+		$cmd = $wgMathTexvcCheckExecutable . ' ' . wfEscapeShellArg( $this->inputTeX );
 
-		if (wfIsWindows()) {
+		if ( wfIsWindows() ) {
 			# Invoke it within cygwin sh, because texvc expects sh features in its default shell
-			$cmd = 'sh -c ' . wfEscapeShellArg($cmd);
+			$cmd = 'sh -c ' . wfEscapeShellArg( $cmd );
 		}
-		wfDebugLog('Math', "TeX check command: $cmd\n");
-		$contents = wfShellExec($cmd);
-		wfDebugLog('Math', "TeX check result:\n $contents\n---\n");
+		wfDebugLog( 'Math', "TeX check command: $cmd\n" );
+		$contents = wfShellExec( $cmd );
+		wfDebugLog( 'Math', "TeX check result:\n $contents\n---\n" );
 
-		if (strlen($contents) == 0) {
-			wfDebugLog('Math', "TeX check output was empty. \n");
-			$this->lastError = MathRenderer::getError('math_unknown_error');
+		if ( strlen( $contents ) == 0 ) {
+			wfDebugLog( 'Math', "TeX check output was empty. \n" );
+			$this->lastError = MathRenderer::getError( 'math_unknown_error' );
 			return false;
 		}
 
-		$retval = substr($contents, 0, 1);
-		if ($retval != "+") {
-			$this->lastError = $this->convertTexvcError($contents);
-			wfDebugLog('Math', 'checkTex failed:' . $this->lastError);
+		$retval = substr( $contents, 0, 1 );
+		if ( $retval != "+" ) {
+			$this->lastError = $this->convertTexvcError( $contents );
+			wfDebugLog( 'Math', 'checkTex failed:' . $this->lastError );
 			return false;
 		} else {
-			$this->validTeX = substr($contents, 1);
+			$this->validTeX = substr( $contents, 1 );
 			$this->isSecure = true;
-			wfDebugLog('Math', 'checkTex successful tex is now: ' . $this->validTeX);
+			wfDebugLog( 'Math', 'checkTex successful tex is now: ' . $this->validTeX );
 			return true;
 		}
 	}

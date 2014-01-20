@@ -42,9 +42,9 @@ class MathSource extends MathRenderer {
 	 * No rendering required in plain text mode
 	 * @return boolean
 	 */
-	function render(){
-		//assume unchanged to avoid unnecessary database access
-		$this->changed=false;
+	function render() {
+		// assume unchanged to avoid unnecessary database access
+		$this->changed = false;
 		return true;
 	}
 }

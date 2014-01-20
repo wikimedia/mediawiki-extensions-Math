@@ -37,11 +37,11 @@ define( 'MW_MATH_HTML',   2 ); /// @deprecated
 define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 );
-define( 'MW_MATH_MATHJAX', 6); /// @deprecated
+define( 'MW_MATH_MATHJAX', 6 ); /// @deprecated
 define( 'MW_MATH_LATEXML', 7 );
 /**@}*/
 
-/**@var array defines the mode allowed on the server */ 
+/**@var array defines the mode allowed on the server */
 $wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHML );
 
 /*
@@ -102,13 +102,13 @@ $wgLaTeXMLTimeout = 240;
  * Setting for the LaTeXML renderer.
  * See http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml for details.
  */
-$wgMathDefaultLaTeXMLSetting = array('format' => 'xhtml',
+$wgMathDefaultLaTeXMLSetting = array( 'format' => 'xhtml',
 	'whatsin' => 'math',
 	'whatsout' => 'math',
 	'pmml',
 	'cmml',
 	'nodefaultresources',
-	'preload' => array('LaTeX.pool',
+	'preload' => array( 'LaTeX.pool',
 		'article.cls',
 		'amsmath.sty',
 		'amsthm.sty',
@@ -119,7 +119,7 @@ $wgMathDefaultLaTeXMLSetting = array('format' => 'xhtml',
 		'url.sty',
 		'hyperref.sty',
 		'[ids]latexml.sty',
-		'texvc'),
+		'texvc' ),
 	);
 
 /**
@@ -155,8 +155,8 @@ $wgExtensionMessagesFiles['MathAlias'] = $dir . 'Math.alias.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 
-//TODO: Is that needed since the page should not be listed
-#$wgSpecialPageGroups['MathShowImage'] = 'math';
+// TODO: Is that needed since the page should not be listed
+# $wgSpecialPageGroups['MathShowImage'] = 'math';
 $wgSpecialPages['MathShowImage'] = 'SpecialMathShowImage';
 
 $wgResourceModules['ext.math.styles'] = array(
@@ -220,35 +220,35 @@ $wgResourceModules += array(
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/localization',
 		'languageScripts' => array(
 			// The localization data for 'en' are actually never used since an English fallback is always specified in MathJax's code when a string is used.
-			'br' => array ('br/br.js', 'br/HelpDialog.js', 'br/MathMenu.js', 'br/TeX.js', 'br/FontWarnings.js', 'br/HTML-CSS.js', 'br/MathML.js'),
-			'cdo' => array ('cdo/cdo.js', 'cdo/HelpDialog.js', 'cdo/MathMenu.js', 'cdo/TeX.js', 'cdo/FontWarnings.js', 'cdo/HTML-CSS.js', 'cdo/MathML.js'),
-			'cs' => array ('cs/cs.js', 'cs/HelpDialog.js', 'cs/MathMenu.js', 'cs/TeX.js', 'cs/FontWarnings.js', 'cs/HTML-CSS.js', 'cs/MathML.js'),
-			'da' => array ('da/da.js', 'da/HelpDialog.js', 'da/MathMenu.js', 'da/TeX.js', 'da/FontWarnings.js', 'da/HTML-CSS.js', 'da/MathML.js'),
-			'de' => array ('de/de.js', 'de/HelpDialog.js', 'de/MathMenu.js', 'de/TeX.js', 'de/FontWarnings.js', 'de/HTML-CSS.js', 'de/MathML.js'),
-			'eo' => array ('eo/eo.js', 'eo/HelpDialog.js', 'eo/MathMenu.js', 'eo/TeX.js', 'eo/FontWarnings.js', 'eo/HTML-CSS.js', 'eo/MathML.js'),
-			'es' => array ('es/es.js', 'es/HelpDialog.js', 'es/MathMenu.js', 'es/TeX.js', 'es/FontWarnings.js', 'es/HTML-CSS.js', 'es/MathML.js'),
-			'fa' => array ('fa/fa.js', 'fa/HelpDialog.js', 'fa/MathMenu.js', 'fa/TeX.js', 'fa/FontWarnings.js', 'fa/HTML-CSS.js', 'fa/MathML.js'),
-			'fi' => array ('fi/fi.js', 'fi/HelpDialog.js', 'fi/MathMenu.js', 'fi/TeX.js', 'fi/FontWarnings.js', 'fi/HTML-CSS.js', 'fi/MathML.js'),
-			'fr' => array ('fr/fr.js', 'fr/HelpDialog.js', 'fr/MathMenu.js', 'fr/TeX.js', 'fr/FontWarnings.js', 'fr/HTML-CSS.js', 'fr/MathML.js'),
-			'gl' => array ('gl/gl.js', 'gl/HelpDialog.js', 'gl/MathMenu.js', 'gl/TeX.js', 'gl/FontWarnings.js', 'gl/HTML-CSS.js', 'gl/MathML.js'),
-			'he' => array ('he/he.js', 'he/HelpDialog.js', 'he/MathMenu.js', 'he/TeX.js', 'he/FontWarnings.js', 'he/HTML-CSS.js', 'he/MathML.js'),
-			'ia' => array ('ia/ia.js', 'ia/HelpDialog.js', 'ia/MathMenu.js', 'ia/TeX.js', 'ia/FontWarnings.js', 'ia/HTML-CSS.js', 'ia/MathML.js'),
-			'it' => array ('it/it.js', 'it/HelpDialog.js', 'it/MathMenu.js', 'it/TeX.js', 'it/FontWarnings.js', 'it/HTML-CSS.js', 'it/MathML.js'),
-			'ja' => array ('ja/ja.js', 'ja/HelpDialog.js', 'ja/MathMenu.js', 'ja/TeX.js', 'ja/FontWarnings.js', 'ja/HTML-CSS.js', 'ja/MathML.js'),
-			'ko' => array ('ko/ko.js', 'ko/HelpDialog.js', 'ko/MathMenu.js', 'ko/TeX.js', 'ko/FontWarnings.js', 'ko/HTML-CSS.js', 'ko/MathML.js'),
-			'lb' => array ('lb/lb.js', 'lb/HelpDialog.js', 'lb/MathMenu.js', 'lb/TeX.js', 'lb/FontWarnings.js', 'lb/HTML-CSS.js', 'lb/MathML.js'),
-			'mk' => array ('mk/mk.js', 'mk/HelpDialog.js', 'mk/MathMenu.js', 'mk/TeX.js', 'mk/FontWarnings.js', 'mk/HTML-CSS.js', 'mk/MathML.js'),
-			'nl' => array ('nl/nl.js', 'nl/HelpDialog.js', 'nl/MathMenu.js', 'nl/TeX.js', 'nl/FontWarnings.js', 'nl/HTML-CSS.js', 'nl/MathML.js'),
-			'oc' => array ('oc/oc.js', 'oc/HelpDialog.js', 'oc/MathMenu.js', 'oc/TeX.js', 'oc/FontWarnings.js', 'oc/HTML-CSS.js', 'oc/MathML.js'),
-			'pl' => array ('pl/pl.js', 'pl/HelpDialog.js', 'pl/MathMenu.js', 'pl/TeX.js', 'pl/FontWarnings.js', 'pl/HTML-CSS.js', 'pl/MathML.js'),
-			'pt' => array ('pt/pt.js', 'pt/HelpDialog.js', 'pt/MathMenu.js', 'pt/TeX.js', 'pt/FontWarnings.js', 'pt/HTML-CSS.js', 'pt/MathML.js'),
-			'pt-br' => array ('pt-br/pt-br.js', 'pt-br/HelpDialog.js', 'pt-br/MathMenu.js', 'pt-br/TeX.js', 'pt-br/FontWarnings.js', 'pt-br/HTML-CSS.js', 'pt-br/MathML.js'),
-			'ru' => array ('ru/ru.js', 'ru/HelpDialog.js', 'ru/MathMenu.js', 'ru/TeX.js', 'ru/FontWarnings.js', 'ru/HTML-CSS.js', 'ru/MathML.js'),
-			'sl' => array ('sl/sl.js', 'sl/HelpDialog.js', 'sl/MathMenu.js', 'sl/TeX.js', 'sl/FontWarnings.js', 'sl/HTML-CSS.js', 'sl/MathML.js'),
-			'sv' => array ('sv/sv.js', 'sv/HelpDialog.js', 'sv/MathMenu.js', 'sv/TeX.js', 'sv/FontWarnings.js', 'sv/HTML-CSS.js', 'sv/MathML.js'),
-			'tr' => array ('tr/tr.js', 'tr/HelpDialog.js', 'tr/MathMenu.js', 'tr/TeX.js', 'tr/FontWarnings.js', 'tr/HTML-CSS.js', 'tr/MathML.js'),
-			'uk' => array ('uk/uk.js', 'uk/HelpDialog.js', 'uk/MathMenu.js', 'uk/TeX.js', 'uk/FontWarnings.js', 'uk/HTML-CSS.js', 'uk/MathML.js'),
-			'zh-hans' => array ('zh-hans/zh-hans.js', 'zh-hans/HelpDialog.js', 'zh-hans/MathMenu.js', 'zh-hans/TeX.js', 'zh-hans/FontWarnings.js', 'zh-hans/HTML-CSS.js', 'zh-hans/MathML.js')
+			'br' => array ( 'br/br.js', 'br/HelpDialog.js', 'br/MathMenu.js', 'br/TeX.js', 'br/FontWarnings.js', 'br/HTML-CSS.js', 'br/MathML.js' ),
+			'cdo' => array ( 'cdo/cdo.js', 'cdo/HelpDialog.js', 'cdo/MathMenu.js', 'cdo/TeX.js', 'cdo/FontWarnings.js', 'cdo/HTML-CSS.js', 'cdo/MathML.js' ),
+			'cs' => array ( 'cs/cs.js', 'cs/HelpDialog.js', 'cs/MathMenu.js', 'cs/TeX.js', 'cs/FontWarnings.js', 'cs/HTML-CSS.js', 'cs/MathML.js' ),
+			'da' => array ( 'da/da.js', 'da/HelpDialog.js', 'da/MathMenu.js', 'da/TeX.js', 'da/FontWarnings.js', 'da/HTML-CSS.js', 'da/MathML.js' ),
+			'de' => array ( 'de/de.js', 'de/HelpDialog.js', 'de/MathMenu.js', 'de/TeX.js', 'de/FontWarnings.js', 'de/HTML-CSS.js', 'de/MathML.js' ),
+			'eo' => array ( 'eo/eo.js', 'eo/HelpDialog.js', 'eo/MathMenu.js', 'eo/TeX.js', 'eo/FontWarnings.js', 'eo/HTML-CSS.js', 'eo/MathML.js' ),
+			'es' => array ( 'es/es.js', 'es/HelpDialog.js', 'es/MathMenu.js', 'es/TeX.js', 'es/FontWarnings.js', 'es/HTML-CSS.js', 'es/MathML.js' ),
+			'fa' => array ( 'fa/fa.js', 'fa/HelpDialog.js', 'fa/MathMenu.js', 'fa/TeX.js', 'fa/FontWarnings.js', 'fa/HTML-CSS.js', 'fa/MathML.js' ),
+			'fi' => array ( 'fi/fi.js', 'fi/HelpDialog.js', 'fi/MathMenu.js', 'fi/TeX.js', 'fi/FontWarnings.js', 'fi/HTML-CSS.js', 'fi/MathML.js' ),
+			'fr' => array ( 'fr/fr.js', 'fr/HelpDialog.js', 'fr/MathMenu.js', 'fr/TeX.js', 'fr/FontWarnings.js', 'fr/HTML-CSS.js', 'fr/MathML.js' ),
+			'gl' => array ( 'gl/gl.js', 'gl/HelpDialog.js', 'gl/MathMenu.js', 'gl/TeX.js', 'gl/FontWarnings.js', 'gl/HTML-CSS.js', 'gl/MathML.js' ),
+			'he' => array ( 'he/he.js', 'he/HelpDialog.js', 'he/MathMenu.js', 'he/TeX.js', 'he/FontWarnings.js', 'he/HTML-CSS.js', 'he/MathML.js' ),
+			'ia' => array ( 'ia/ia.js', 'ia/HelpDialog.js', 'ia/MathMenu.js', 'ia/TeX.js', 'ia/FontWarnings.js', 'ia/HTML-CSS.js', 'ia/MathML.js' ),
+			'it' => array ( 'it/it.js', 'it/HelpDialog.js', 'it/MathMenu.js', 'it/TeX.js', 'it/FontWarnings.js', 'it/HTML-CSS.js', 'it/MathML.js' ),
+			'ja' => array ( 'ja/ja.js', 'ja/HelpDialog.js', 'ja/MathMenu.js', 'ja/TeX.js', 'ja/FontWarnings.js', 'ja/HTML-CSS.js', 'ja/MathML.js' ),
+			'ko' => array ( 'ko/ko.js', 'ko/HelpDialog.js', 'ko/MathMenu.js', 'ko/TeX.js', 'ko/FontWarnings.js', 'ko/HTML-CSS.js', 'ko/MathML.js' ),
+			'lb' => array ( 'lb/lb.js', 'lb/HelpDialog.js', 'lb/MathMenu.js', 'lb/TeX.js', 'lb/FontWarnings.js', 'lb/HTML-CSS.js', 'lb/MathML.js' ),
+			'mk' => array ( 'mk/mk.js', 'mk/HelpDialog.js', 'mk/MathMenu.js', 'mk/TeX.js', 'mk/FontWarnings.js', 'mk/HTML-CSS.js', 'mk/MathML.js' ),
+			'nl' => array ( 'nl/nl.js', 'nl/HelpDialog.js', 'nl/MathMenu.js', 'nl/TeX.js', 'nl/FontWarnings.js', 'nl/HTML-CSS.js', 'nl/MathML.js' ),
+			'oc' => array ( 'oc/oc.js', 'oc/HelpDialog.js', 'oc/MathMenu.js', 'oc/TeX.js', 'oc/FontWarnings.js', 'oc/HTML-CSS.js', 'oc/MathML.js' ),
+			'pl' => array ( 'pl/pl.js', 'pl/HelpDialog.js', 'pl/MathMenu.js', 'pl/TeX.js', 'pl/FontWarnings.js', 'pl/HTML-CSS.js', 'pl/MathML.js' ),
+			'pt' => array ( 'pt/pt.js', 'pt/HelpDialog.js', 'pt/MathMenu.js', 'pt/TeX.js', 'pt/FontWarnings.js', 'pt/HTML-CSS.js', 'pt/MathML.js' ),
+			'pt-br' => array ( 'pt-br/pt-br.js', 'pt-br/HelpDialog.js', 'pt-br/MathMenu.js', 'pt-br/TeX.js', 'pt-br/FontWarnings.js', 'pt-br/HTML-CSS.js', 'pt-br/MathML.js' ),
+			'ru' => array ( 'ru/ru.js', 'ru/HelpDialog.js', 'ru/MathMenu.js', 'ru/TeX.js', 'ru/FontWarnings.js', 'ru/HTML-CSS.js', 'ru/MathML.js' ),
+			'sl' => array ( 'sl/sl.js', 'sl/HelpDialog.js', 'sl/MathMenu.js', 'sl/TeX.js', 'sl/FontWarnings.js', 'sl/HTML-CSS.js', 'sl/MathML.js' ),
+			'sv' => array ( 'sv/sv.js', 'sv/HelpDialog.js', 'sv/MathMenu.js', 'sv/TeX.js', 'sv/FontWarnings.js', 'sv/HTML-CSS.js', 'sv/MathML.js' ),
+			'tr' => array ( 'tr/tr.js', 'tr/HelpDialog.js', 'tr/MathMenu.js', 'tr/TeX.js', 'tr/FontWarnings.js', 'tr/HTML-CSS.js', 'tr/MathML.js' ),
+			'uk' => array ( 'uk/uk.js', 'uk/HelpDialog.js', 'uk/MathMenu.js', 'uk/TeX.js', 'uk/FontWarnings.js', 'uk/HTML-CSS.js', 'uk/MathML.js' ),
+			'zh-hans' => array ( 'zh-hans/zh-hans.js', 'zh-hans/HelpDialog.js', 'zh-hans/MathMenu.js', 'zh-hans/TeX.js', 'zh-hans/FontWarnings.js', 'zh-hans/HTML-CSS.js', 'zh-hans/MathML.js' )
 		),
 		'dependencies' => 'ext.math.mathjax.mathjax'
 	),
@@ -257,7 +257,7 @@ $wgResourceModules += array(
 	'ext.math.mathjax.jax.config' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax',
-		'scripts' => array('input/TeX/config.js','input/MathML/config.js','output/HTML-CSS/config.js','output/NativeMML/config.js','output/SVG/config.js'),
+		'scripts' => array( 'input/TeX/config.js', 'input/MathML/config.js', 'output/HTML-CSS/config.js', 'output/NativeMML/config.js', 'output/SVG/config.js' ),
 		'dependencies' => 'ext.math.mathjax.mathjax'
 	),
 
@@ -269,36 +269,36 @@ $wgResourceModules += array(
 	'ext.math.mathjax.extensions.ui' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/extensions',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/extensions',
-		'scripts' => array('MathEvents.js','MathZoom.js','MathMenu.js','toMathML.js'),
+		'scripts' => array( 'MathEvents.js', 'MathZoom.js', 'MathMenu.js', 'toMathML.js' ),
 		'dependencies' => 'ext.math.mathjax.mathjax'
 	),
 	'ext.math.mathjax.extensions.TeX' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/extensions',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/extensions',
-		'scripts' => array('wiki2jax.js','TeX/noUndefined.js','TeX/AMSmath.js','TeX/AMSsymbols.js','TeX/boldsymbol.js','TeX/texvc.js'),
-		'dependencies' => array('ext.math.mathjax.mathjax')
+		'scripts' => array( 'wiki2jax.js', 'TeX/noUndefined.js', 'TeX/AMSmath.js', 'TeX/AMSsymbols.js', 'TeX/boldsymbol.js', 'TeX/texvc.js' ),
+		'dependencies' => array( 'ext.math.mathjax.mathjax' )
 	),
 	'ext.math.mathjax.extensions.mml2jax' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/extensions',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/extensions',
-		'scripts' => array('mml2jax.js'),
+		'scripts' => array( 'mml2jax.js' ),
 		'dependencies' => 'ext.math.mathjax.mathjax'
 	),
 	'ext.math.mathjax.extensions' => array(
-		'dependencies' => array('ext.math.mathjax.extensions.ui','ext.math.mathjax.extensions.TeX','ext.math.mathjax.extensions.mml2jax')
+		'dependencies' => array( 'ext.math.mathjax.extensions.ui', 'ext.math.mathjax.extensions.TeX', 'ext.math.mathjax.extensions.mml2jax' )
 	),
 
 	// MathJax module for representing MathML elements
 	'ext.math.mathjax.jax.element.mml.optable' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/element/mml/optable',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/element/mml/optable',
-		'scripts' => array('Arrows.js','BasicLatin.js','CombDiacritMarks.js','CombDiactForSymbols.js','Dingbats.js','GeneralPunctuation.js','GeometricShapes.js','GreekAndCoptic.js','Latin1Supplement.js','LetterlikeSymbols.js','MathOperators.js','MiscMathSymbolsA.js','MiscMathSymbolsB.js','MiscSymbolsAndArrows.js','MiscTechnical.js','SpacingModLetters.js','SupplementalArrowsA.js','SupplementalArrowsB.js','SuppMathOperators.js'),
-		'dependencies' => array('ext.math.mathjax.jax.element.mml')
+		'scripts' => array( 'Arrows.js', 'BasicLatin.js', 'CombDiacritMarks.js', 'CombDiactForSymbols.js', 'Dingbats.js', 'GeneralPunctuation.js', 'GeometricShapes.js', 'GreekAndCoptic.js', 'Latin1Supplement.js', 'LetterlikeSymbols.js', 'MathOperators.js', 'MiscMathSymbolsA.js', 'MiscMathSymbolsB.js', 'MiscSymbolsAndArrows.js', 'MiscTechnical.js', 'SpacingModLetters.js', 'SupplementalArrowsA.js', 'SupplementalArrowsB.js', 'SuppMathOperators.js' ),
+		'dependencies' => array( 'ext.math.mathjax.jax.element.mml' )
 	),
 	'ext.math.mathjax.jax.element.mml' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/element/mml',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/element/mml',
-		'scripts' => array('jax.js'),
+		'scripts' => array( 'jax.js' ),
 		'dependencies' => 'ext.math.mathjax.mathjax'
 	),
 
@@ -311,24 +311,24 @@ $wgResourceModules += array(
 	'ext.math.mathjax.jax.input.MathML' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/input/MathML',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/input/MathML',
-		'scripts' => array('jax.js'),
-		'dependencies' => array('ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml')
+		'scripts' => array( 'jax.js' ),
+		'dependencies' => array( 'ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml' )
 	),
 
 	// MathJax TeX input processor
 	'ext.math.mathjax.jax.input.TeX' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/input/TeX',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/input/TeX',
-		'scripts' => array('jax.js'),
-		'dependencies' => array('ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml')
+		'scripts' => array( 'jax.js' ),
+		'dependencies' => array( 'ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml' )
 	),
 
 	// MathJax NativeMML output processor
 	'ext.math.mathjax.jax.output.NativeMML' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/NativeMML',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/NativeMML',
-		'scripts' => array('jax.js'),
-		'dependencies' => array('ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml')
+		'scripts' => array( 'jax.js' ),
+		'dependencies' => array( 'ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml' )
 	),
 
 	// MathJax HTML-CSS output processor
@@ -336,40 +336,40 @@ $wgResourceModules += array(
 	'ext.math.mathjax.jax.output.HTML-CSS.autoload' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/HTML-CSS/autoload',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/HTML-CSS/autoload',
-		'scripts' => array('annotation-xml.js','maction.js','menclose.js','mglyph.js','mmultiscripts.js','ms.js','mtable.js','multiline.js'),
-		'dependencies' => array('ext.math.mathjax.jax.output.HTML-CSS')
+		'scripts' => array( 'annotation-xml.js', 'maction.js', 'menclose.js', 'mglyph.js', 'mmultiscripts.js', 'ms.js', 'mtable.js', 'multiline.js' ),
+		'dependencies' => array( 'ext.math.mathjax.jax.output.HTML-CSS' )
 	),
 	'ext.math.mathjax.jax.output.HTML-CSS' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/HTML-CSS',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/HTML-CSS',
-		'scripts' => array('jax.js'),
-		'dependencies' => array('ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml')
+		'scripts' => array( 'jax.js' ),
+		'dependencies' => array( 'ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml' )
 	),
 	'ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.fontdata' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX',
-		'scripts' => array('fontdata.js','fontdata-extra.js'),
-		'dependencies' => array('ext.math.mathjax.jax.output.HTML-CSS')
+		'scripts' => array( 'fontdata.js', 'fontdata-extra.js' ),
+		'dependencies' => array( 'ext.math.mathjax.jax.output.HTML-CSS' )
 	),
 
 	// MathJax SVG output processor
 	'ext.math.mathjax.jax.output.SVG.autoload' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/SVG/autoload',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/SVG/autoload',
-		'scripts' => array('annotation-xml.js','maction.js','menclose.js','mglyph.js','mmultiscripts.js','ms.js','mtable.js','multiline.js'),
-		'dependencies' => array('ext.math.mathjax.jax.output.SVG')
+		'scripts' => array( 'annotation-xml.js', 'maction.js', 'menclose.js', 'mglyph.js', 'mmultiscripts.js', 'ms.js', 'mtable.js', 'multiline.js' ),
+		'dependencies' => array( 'ext.math.mathjax.jax.output.SVG' )
 	),
 	'ext.math.mathjax.jax.output.SVG' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/SVG',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/SVG',
-		'scripts' => array('jax.js'),
-		'dependencies' => array('ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml')
+		'scripts' => array( 'jax.js' ),
+		'dependencies' => array( 'ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml' )
 	),
 	'ext.math.mathjax.jax.output.SVG.fonts.TeX.fontdata' => array(
 		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/SVG/fonts/TeX',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/SVG/fonts/TeX',
-		'scripts' => array('fontdata.js','fontdata-extra.js'),
-		'dependencies' => array('ext.math.mathjax.jax.output.SVG')
+		'scripts' => array( 'fontdata.js', 'fontdata-extra.js' ),
+		'dependencies' => array( 'ext.math.mathjax.jax.output.SVG' )
 	)
 );
 
@@ -379,55 +379,55 @@ $wgResourceModules += array(
 $moduleTemplateHTMLCSS = array(
 	'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX',
 	'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX',
-	'dependencies' => array('ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.fontdata')
+	'dependencies' => array( 'ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.fontdata' )
 );
 $wgResourceModules += array(
 	'ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.MainJS' => array(
-		'scripts' => array('Size1/Regular/Main.js','Size2/Regular/Main.js','Size3/Regular/Main.js','Size4/Regular/Main.js','Main/Bold/Main.js','Main/Italic/Main.js','Main/Regular/Main.js','AMS/Regular/Main.js','Caligraphic/Bold/Main.js','Caligraphic/Regular/Main.js','Fraktur/Bold/Main.js','Fraktur/Regular/Main.js','Greek/BoldItalic/Main.js','Greek/Bold/Main.js','Greek/Italic/Main.js','Greek/Regular/Main.js','Math/BoldItalic/Main.js','Math/Italic/Main.js','SansSerif/Bold/Main.js','SansSerif/Italic/Main.js','SansSerif/Regular/Main.js','Script/Regular/Main.js','Typewriter/Regular/Main.js','WinChrome/Regular/Main.js','WinIE6/Regular/Main.js')
+		'scripts' => array( 'Size1/Regular/Main.js', 'Size2/Regular/Main.js', 'Size3/Regular/Main.js', 'Size4/Regular/Main.js', 'Main/Bold/Main.js', 'Main/Italic/Main.js', 'Main/Regular/Main.js', 'AMS/Regular/Main.js', 'Caligraphic/Bold/Main.js', 'Caligraphic/Regular/Main.js', 'Fraktur/Bold/Main.js', 'Fraktur/Regular/Main.js', 'Greek/BoldItalic/Main.js', 'Greek/Bold/Main.js', 'Greek/Italic/Main.js', 'Greek/Regular/Main.js', 'Math/BoldItalic/Main.js', 'Math/Italic/Main.js', 'SansSerif/Bold/Main.js', 'SansSerif/Italic/Main.js', 'SansSerif/Regular/Main.js', 'Script/Regular/Main.js', 'Typewriter/Regular/Main.js', 'WinChrome/Regular/Main.js', 'WinIE6/Regular/Main.js' )
 	) + $moduleTemplateHTMLCSS
 );
 $wgResourceModules += array(
 	'ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.Main' => array(
-		'scripts' => array('Main/Bold/Arrows.js','Main/Bold/CombDiacritMarks.js','Main/Bold/CombDiactForSymbols.js','Main/Bold/GeneralPunctuation.js','Main/Bold/GeometricShapes.js','Main/Bold/Latin1Supplement.js','Main/Bold/LatinExtendedA.js','Main/Bold/LatinExtendedB.js','Main/Bold/LetterlikeSymbols.js','Main/Bold/MathOperators.js','Main/Bold/MiscMathSymbolsA.js','Main/Bold/MiscSymbols.js','Main/Bold/MiscTechnical.js','Main/Bold/SpacingModLetters.js','Main/Bold/SupplementalArrowsA.js','Main/Bold/SuppMathOperators.js','Main/Italic/CombDiacritMarks.js','Main/Italic/GeneralPunctuation.js','Main/Italic/Latin1Supplement.js','Main/Italic/LetterlikeSymbols.js','Main/Regular/CombDiacritMarks.js','Main/Regular/GeometricShapes.js','Main/Regular/MiscSymbols.js','Main/Regular/SpacingModLetters.js')
+		'scripts' => array( 'Main/Bold/Arrows.js', 'Main/Bold/CombDiacritMarks.js', 'Main/Bold/CombDiactForSymbols.js', 'Main/Bold/GeneralPunctuation.js', 'Main/Bold/GeometricShapes.js', 'Main/Bold/Latin1Supplement.js', 'Main/Bold/LatinExtendedA.js', 'Main/Bold/LatinExtendedB.js', 'Main/Bold/LetterlikeSymbols.js', 'Main/Bold/MathOperators.js', 'Main/Bold/MiscMathSymbolsA.js', 'Main/Bold/MiscSymbols.js', 'Main/Bold/MiscTechnical.js', 'Main/Bold/SpacingModLetters.js', 'Main/Bold/SupplementalArrowsA.js', 'Main/Bold/SuppMathOperators.js', 'Main/Italic/CombDiacritMarks.js', 'Main/Italic/GeneralPunctuation.js', 'Main/Italic/Latin1Supplement.js', 'Main/Italic/LetterlikeSymbols.js', 'Main/Regular/CombDiacritMarks.js', 'Main/Regular/GeometricShapes.js', 'Main/Regular/MiscSymbols.js', 'Main/Regular/SpacingModLetters.js' )
 	) + $moduleTemplateHTMLCSS
 );
 $wgResourceModules += array(
 	'ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.AMS' => array(
-		'scripts' => array('AMS/Regular/Arrows.js','AMS/Regular/BBBold.js','AMS/Regular/BoxDrawing.js','AMS/Regular/CombDiacritMarks.js','AMS/Regular/Dingbats.js','AMS/Regular/EnclosedAlphanum.js','AMS/Regular/GeneralPunctuation.js','AMS/Regular/GeometricShapes.js','AMS/Regular/GreekAndCoptic.js','AMS/Regular/Latin1Supplement.js','AMS/Regular/LatinExtendedA.js','AMS/Regular/LetterlikeSymbols.js','AMS/Regular/MathOperators.js','AMS/Regular/MiscMathSymbolsB.js','AMS/Regular/MiscSymbols.js','AMS/Regular/MiscTechnical.js','AMS/Regular/PUA.js','AMS/Regular/SpacingModLetters.js','AMS/Regular/SuppMathOperators.js')
+		'scripts' => array( 'AMS/Regular/Arrows.js', 'AMS/Regular/BBBold.js', 'AMS/Regular/BoxDrawing.js', 'AMS/Regular/CombDiacritMarks.js', 'AMS/Regular/Dingbats.js', 'AMS/Regular/EnclosedAlphanum.js', 'AMS/Regular/GeneralPunctuation.js', 'AMS/Regular/GeometricShapes.js', 'AMS/Regular/GreekAndCoptic.js', 'AMS/Regular/Latin1Supplement.js', 'AMS/Regular/LatinExtendedA.js', 'AMS/Regular/LetterlikeSymbols.js', 'AMS/Regular/MathOperators.js', 'AMS/Regular/MiscMathSymbolsB.js', 'AMS/Regular/MiscSymbols.js', 'AMS/Regular/MiscTechnical.js', 'AMS/Regular/PUA.js', 'AMS/Regular/SpacingModLetters.js', 'AMS/Regular/SuppMathOperators.js' )
 	) + $moduleTemplateHTMLCSS
 );
 $wgResourceModules += array(
 	'ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.Extra' => array(
-		'scripts' => array('Fraktur/Bold/BasicLatin.js','Fraktur/Bold/Other.js','Fraktur/Bold/PUA.js','Fraktur/Regular/BasicLatin.js','Fraktur/Regular/Other.js','Fraktur/Regular/PUA.js','SansSerif/Bold/BasicLatin.js','SansSerif/Bold/CombDiacritMarks.js','SansSerif/Bold/Other.js','SansSerif/Italic/BasicLatin.js','SansSerif/Italic/CombDiacritMarks.js','SansSerif/Italic/Other.js','SansSerif/Regular/BasicLatin.js','SansSerif/Regular/CombDiacritMarks.js','SansSerif/Regular/Other.js','Script/Regular/BasicLatin.js','Script/Regular/Other.js','Typewriter/Regular/BasicLatin.js','Typewriter/Regular/CombDiacritMarks.js','Typewriter/Regular/Other.js','WinIE6/Regular/AMS.js','WinIE6/Regular/Bold.js')
+		'scripts' => array( 'Fraktur/Bold/BasicLatin.js', 'Fraktur/Bold/Other.js', 'Fraktur/Bold/PUA.js', 'Fraktur/Regular/BasicLatin.js', 'Fraktur/Regular/Other.js', 'Fraktur/Regular/PUA.js', 'SansSerif/Bold/BasicLatin.js', 'SansSerif/Bold/CombDiacritMarks.js', 'SansSerif/Bold/Other.js', 'SansSerif/Italic/BasicLatin.js', 'SansSerif/Italic/CombDiacritMarks.js', 'SansSerif/Italic/Other.js', 'SansSerif/Regular/BasicLatin.js', 'SansSerif/Regular/CombDiacritMarks.js', 'SansSerif/Regular/Other.js', 'Script/Regular/BasicLatin.js', 'Script/Regular/Other.js', 'Typewriter/Regular/BasicLatin.js', 'Typewriter/Regular/CombDiacritMarks.js', 'Typewriter/Regular/Other.js', 'WinIE6/Regular/AMS.js', 'WinIE6/Regular/Bold.js' )
 	) + $moduleTemplateHTMLCSS
 );
 $moduleTemplateSVG = array(
 	'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/SVG/fonts/TeX',
 	'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/SVG/fonts/TeX',
-	'dependencies' => array('ext.math.mathjax.jax.output.SVG.fonts.TeX.fontdata')
+	'dependencies' => array( 'ext.math.mathjax.jax.output.SVG.fonts.TeX.fontdata' )
 );
 $wgResourceModules += array(
 	'ext.math.mathjax.jax.output.SVG.fonts.TeX.MainJS' => array(
-		'scripts' => array('Size1/Regular/Main.js','Size2/Regular/Main.js','Size3/Regular/Main.js','Size4/Regular/Main.js','Main/Bold/Main.js','Main/Italic/Main.js','Main/Regular/Main.js','AMS/Regular/Main.js','Caligraphic/Bold/Main.js','Caligraphic/Regular/Main.js','Fraktur/Bold/Main.js','Fraktur/Regular/Main.js','Math/BoldItalic/Main.js','Math/Italic/Main.js','SansSerif/Bold/Main.js','SansSerif/Italic/Main.js','SansSerif/Regular/Main.js','Script/Regular/Main.js','Typewriter/Regular/Main.js')
+		'scripts' => array( 'Size1/Regular/Main.js', 'Size2/Regular/Main.js', 'Size3/Regular/Main.js', 'Size4/Regular/Main.js', 'Main/Bold/Main.js', 'Main/Italic/Main.js', 'Main/Regular/Main.js', 'AMS/Regular/Main.js', 'Caligraphic/Bold/Main.js', 'Caligraphic/Regular/Main.js', 'Fraktur/Bold/Main.js', 'Fraktur/Regular/Main.js', 'Math/BoldItalic/Main.js', 'Math/Italic/Main.js', 'SansSerif/Bold/Main.js', 'SansSerif/Italic/Main.js', 'SansSerif/Regular/Main.js', 'Script/Regular/Main.js', 'Typewriter/Regular/Main.js' )
 	) + $moduleTemplateSVG
 );
 $wgResourceModules += array(
 	'ext.math.mathjax.jax.output.SVG.fonts.TeX.Main' => array(
-		'scripts' => array('Main/Bold/Arrows.js','Main/Bold/BasicLatin.js','Main/Bold/CombDiacritMarks.js','Main/Bold/CombDiactForSymbols.js','Main/Bold/GeneralPunctuation.js','Main/Bold/GeometricShapes.js','Main/Bold/GreekAndCoptic.js','Main/Bold/Latin1Supplement.js','Main/Bold/LatinExtendedA.js','Main/Bold/LatinExtendedB.js','Main/Bold/LetterlikeSymbols.js','Main/Bold/MathOperators.js','Main/Bold/MiscMathSymbolsA.js','Main/Bold/MiscSymbols.js','Main/Bold/MiscTechnical.js','Main/Bold/SpacingModLetters.js','Main/Bold/SupplementalArrowsA.js','Main/Bold/SuppMathOperators.js','Main/Italic/BasicLatin.js','Main/Italic/CombDiacritMarks.js','Main/Italic/GeneralPunctuation.js','Main/Italic/GreekAndCoptic.js','Main/Italic/LatinExtendedA.js','Main/Italic/LatinExtendedB.js','Main/Italic/LetterlikeSymbols.js','Main/Italic/MathOperators.js','Main/Regular/BasicLatin.js','Main/Regular/CombDiacritMarks.js','Main/Regular/GeometricShapes.js','Main/Regular/GreekAndCoptic.js','Main/Regular/LatinExtendedA.js','Main/Regular/LatinExtendedB.js','Main/Regular/LetterlikeSymbols.js','Main/Regular/MathOperators.js','Main/Regular/MiscSymbols.js','Main/Regular/SpacingModLetters.js','Main/Regular/SuppMathOperators.js')
+		'scripts' => array( 'Main/Bold/Arrows.js', 'Main/Bold/BasicLatin.js', 'Main/Bold/CombDiacritMarks.js', 'Main/Bold/CombDiactForSymbols.js', 'Main/Bold/GeneralPunctuation.js', 'Main/Bold/GeometricShapes.js', 'Main/Bold/GreekAndCoptic.js', 'Main/Bold/Latin1Supplement.js', 'Main/Bold/LatinExtendedA.js', 'Main/Bold/LatinExtendedB.js', 'Main/Bold/LetterlikeSymbols.js', 'Main/Bold/MathOperators.js', 'Main/Bold/MiscMathSymbolsA.js', 'Main/Bold/MiscSymbols.js', 'Main/Bold/MiscTechnical.js', 'Main/Bold/SpacingModLetters.js', 'Main/Bold/SupplementalArrowsA.js', 'Main/Bold/SuppMathOperators.js', 'Main/Italic/BasicLatin.js', 'Main/Italic/CombDiacritMarks.js', 'Main/Italic/GeneralPunctuation.js', 'Main/Italic/GreekAndCoptic.js', 'Main/Italic/LatinExtendedA.js', 'Main/Italic/LatinExtendedB.js', 'Main/Italic/LetterlikeSymbols.js', 'Main/Italic/MathOperators.js', 'Main/Regular/BasicLatin.js', 'Main/Regular/CombDiacritMarks.js', 'Main/Regular/GeometricShapes.js', 'Main/Regular/GreekAndCoptic.js', 'Main/Regular/LatinExtendedA.js', 'Main/Regular/LatinExtendedB.js', 'Main/Regular/LetterlikeSymbols.js', 'Main/Regular/MathOperators.js', 'Main/Regular/MiscSymbols.js', 'Main/Regular/SpacingModLetters.js', 'Main/Regular/SuppMathOperators.js' )
 	) + $moduleTemplateSVG
 );
 $wgResourceModules += array(
 	'ext.math.mathjax.jax.output.SVG.fonts.TeX.AMS' => array(
-		'scripts' => array('AMS/Regular/Arrows.js','AMS/Regular/BoxDrawing.js','AMS/Regular/CombDiacritMarks.js','AMS/Regular/Dingbats.js','AMS/Regular/EnclosedAlphanum.js','AMS/Regular/GeneralPunctuation.js','AMS/Regular/GeometricShapes.js','AMS/Regular/GreekAndCoptic.js','AMS/Regular/Latin1Supplement.js','AMS/Regular/LatinExtendedA.js','AMS/Regular/LetterlikeSymbols.js','AMS/Regular/MathOperators.js','AMS/Regular/MiscMathSymbolsB.js','AMS/Regular/MiscSymbols.js','AMS/Regular/MiscTechnical.js','AMS/Regular/PUA.js','AMS/Regular/SpacingModLetters.js','AMS/Regular/SuppMathOperators.js')
+		'scripts' => array( 'AMS/Regular/Arrows.js', 'AMS/Regular/BoxDrawing.js', 'AMS/Regular/CombDiacritMarks.js', 'AMS/Regular/Dingbats.js', 'AMS/Regular/EnclosedAlphanum.js', 'AMS/Regular/GeneralPunctuation.js', 'AMS/Regular/GeometricShapes.js', 'AMS/Regular/GreekAndCoptic.js', 'AMS/Regular/Latin1Supplement.js', 'AMS/Regular/LatinExtendedA.js', 'AMS/Regular/LetterlikeSymbols.js', 'AMS/Regular/MathOperators.js', 'AMS/Regular/MiscMathSymbolsB.js', 'AMS/Regular/MiscSymbols.js', 'AMS/Regular/MiscTechnical.js', 'AMS/Regular/PUA.js', 'AMS/Regular/SpacingModLetters.js', 'AMS/Regular/SuppMathOperators.js' )
 	) + $moduleTemplateSVG
 );
 $wgResourceModules += array(
 	'ext.math.mathjax.jax.output.SVG.fonts.TeX.Extra' => array(
-		'scripts' => array('Fraktur/Bold/BasicLatin.js','Fraktur/Bold/Other.js','Fraktur/Bold/PUA.js','Fraktur/Regular/BasicLatin.js','Fraktur/Regular/Other.js','Fraktur/Regular/PUA.js','SansSerif/Bold/BasicLatin.js','SansSerif/Bold/CombDiacritMarks.js','SansSerif/Bold/Other.js','SansSerif/Italic/BasicLatin.js','SansSerif/Italic/CombDiacritMarks.js','SansSerif/Italic/Other.js','SansSerif/Regular/BasicLatin.js','SansSerif/Regular/CombDiacritMarks.js','SansSerif/Regular/Other.js','Script/Regular/BasicLatin.js','Typewriter/Regular/BasicLatin.js','Typewriter/Regular/CombDiacritMarks.js','Typewriter/Regular/Other.js')
+		'scripts' => array( 'Fraktur/Bold/BasicLatin.js', 'Fraktur/Bold/Other.js', 'Fraktur/Bold/PUA.js', 'Fraktur/Regular/BasicLatin.js', 'Fraktur/Regular/Other.js', 'Fraktur/Regular/PUA.js', 'SansSerif/Bold/BasicLatin.js', 'SansSerif/Bold/CombDiacritMarks.js', 'SansSerif/Bold/Other.js', 'SansSerif/Italic/BasicLatin.js', 'SansSerif/Italic/CombDiacritMarks.js', 'SansSerif/Italic/Other.js', 'SansSerif/Regular/BasicLatin.js', 'SansSerif/Regular/CombDiacritMarks.js', 'SansSerif/Regular/Other.js', 'Script/Regular/BasicLatin.js', 'Typewriter/Regular/BasicLatin.js', 'Typewriter/Regular/CombDiacritMarks.js', 'Typewriter/Regular/Other.js' )
 	) + $moduleTemplateSVG
 );
 
-//DEPRECATED SETTINGS WILL BE DELETED
+// DEPRECATED SETTINGS WILL BE DELETED
 /** Allows to use the deprecated texvc libraries*/
 $wgMathUseTexvc = true;
 

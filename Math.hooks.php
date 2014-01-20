@@ -12,13 +12,13 @@ class MathHooks {
 	 * @param &$confstr The to-be-hashed key string that is being constructed
 	 */
 	public static function onPageRenderingHash( &$confstr ) {
-		global $wgUser,$wgMathJax;
+		global $wgUser, $wgMathJax;
 		$user = $wgUser;
-		$confstr .= "!" . $user->getOption('math');
-		if ( $wgMathJax &&  $user->getOption('mathJax') ){
+		$confstr .= "!" . $user->getOption( 'math' );
+		if ( $wgMathJax &&  $user->getOption( 'mathJax' ) ) {
 			$confstr .= "!" . 1;
 		}
-		wfDebugLog('Math', 'New cache key'.$confstr);
+		wfDebugLog( 'Math', 'New cache key' . $confstr );
 		return true;
 	}
 	/**
@@ -46,44 +46,44 @@ class MathHooks {
 			return "";
 		}
 		wfProfileIn( __METHOD__ );
-		$mode = (int) $parser->getUser()->getOption('math');
-		$parser->getOptions()->addExtraKey($mode);
+		$mode = (int) $parser->getUser()->getOption( 'math' );
+		$parser->getOptions()->addExtraKey( $mode );
 		$renderer = MathRenderer::getRenderer(
 			$content, $attributes, $mode
 		);
-		if (! $wgMathDisableTexFilter){
+		if ( ! $wgMathDisableTexFilter ) {
 			$checkResult = $renderer->checkTex();
-			if ( $checkResult !== true ){
-				//returns the error message
+			if ( $checkResult !== true ) {
+				// returns the error message
 				return $renderer->getLastError();
 			}
 		}
-		if ( $renderer->render() ){
-			wfDebugLog( "Math" , "Rendering successfull. Writing output");
+		if ( $renderer->render() ) {
+			wfDebugLog( "Math" , "Rendering successfull. Writing output" );
 			$renderedMath = $renderer->getHtmlOutput();
 		} else {
-			wfDebugLog( "Math" , "Rendering failed. Prining error message.");
+			wfDebugLog( "Math" , "Rendering failed. Prining error message." );
 			return $renderer->getLastError();
 		}
 		wfRunHooks( 'MathFormulaRendered',
 			array( &$renderer,
 				&$renderedMath,
 				$parser->getTitle()->getArticleID(),
-				$parser->nextLinkID()) );//Enables indexing of math formula
-		if ( $wgMathJax && $parser->getUser()->getOption('mathJax')) {
-			//maybe this can be checked in the javascript, this would be better for caching
-			$parser->getOptions()->addExtraKey(1);
+				$parser->nextLinkID() ) );// Enables indexing of math formula
+		if ( $wgMathJax && $parser->getUser()->getOption( 'mathJax' ) ) {
+			// maybe this can be checked in the javascript, this would be better for caching
+			$parser->getOptions()->addExtraKey( 1 );
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles.fonts' ) );
-		//$parser->getOutput()->addModules( array( 'ext.math.selector' ) );
+		// $parser->getOutput()->addModules( array( 'ext.math.selector' ) );
 
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
-		//Check if we needed that MathRenderer::armourMath( $renderedMath);
+		// Check if we needed that MathRenderer::armourMath( $renderedMath);
 		wfProfileOut( __METHOD__ );
-		return array($renderedMath, "markerType" => 'nowiki' );
+		return array( $renderedMath, "markerType" => 'nowiki' );
 	}
 
 	/**
@@ -124,8 +124,8 @@ class MathHooks {
 			MW_MATH_MATHML => 'mw_math_mathml',
 			MW_MATH_LATEXML => 'mw_math_latexml'
 		);
-		$names=array();
-		foreach ($wgMathValidModes as $mode) {
+		$names = array();
+		foreach ( $wgMathValidModes as $mode ) {
 			$names[$mode] = wfMessage( $MathConstantNames[$mode] )->escaped();
 		}
 		return $names;
@@ -141,7 +141,7 @@ class MathHooks {
 		global $wgUser;
 
 		# Don't generate TeX PNGs (lack of a sensible current directory causes errors anyway)
-		//TODO: revalidate that
+		// TODO: revalidate that
 		$wgUser->setOption( 'math', MW_MATH_SOURCE );
 
 		return true;
@@ -159,25 +159,25 @@ class MathHooks {
 		if ( is_null( $updater ) ) {
 			throw new MWException( "Math extension is only necessary in 1.18 or above" );
 		}
-		$map = array( 'mysql', 'sqlite', 'postgres', 'oracle', 'mssql');
+		$map = array( 'mysql', 'sqlite', 'postgres', 'oracle', 'mssql' );
 		$type = $updater->getDB()->getType();
-		if ( $type == 'sqlite' ){
-			$type = 'mysql'; //The commands used from the updater are the same
+		if ( $type == 'sqlite' ) {
+			$type = 'mysql'; // The commands used from the updater are the same
 		}
-		if (in_array( $type, $map ) ){
-			$sql = dirname( __FILE__ ) . '/db/math.' . $type .'.sql';
+		if ( in_array( $type, $map ) ) {
+			$sql = dirname( __FILE__ ) . '/db/math.' . $type . '.sql';
 			$updater->addExtensionTable( 'math', $sql );
-			$sql = dirname( __FILE__ ) . '/db/mathoid.' . $type .'.sql';
+			$sql = dirname( __FILE__ ) . '/db/mathoid.' . $type . '.sql';
 			$updater->addExtensionTable( 'mathoid', $sql );
 		} else {
 			throw new MWException( "Math extension does not currently support $type database.\n" );
 		}
-		if ($wgMathDebug){
-			if($type =='mysql' ){
+		if ( $wgMathDebug ) {
+			if ( $type == 'mysql' ) {
 				$dir = dirname( __FILE__ ) . '/db/debug_fields_';
-				$updater->addExtensionField('mathoid', 'math_status', $dir.'math_status.sql');
-				$updater->addExtensionField('mathoid', 'math_timestamp', $dir.'math_timestamp.sql');
-				$updater->addExtensionField('mathoid', 'math_log', $dir.'math_log.sql');
+				$updater->addExtensionField( 'mathoid', 'math_status', $dir . 'math_status.sql' );
+				$updater->addExtensionField( 'mathoid', 'math_timestamp', $dir . 'math_timestamp.sql' );
+				$updater->addExtensionField( 'mathoid', 'math_log', $dir . 'math_log.sql' );
 			} else {
 				throw new MWException( "Math extension does not currently support $type database for debugging.\n"
 					. 'Please set $wgMathDebug = false; in your LocalSettings.php' );

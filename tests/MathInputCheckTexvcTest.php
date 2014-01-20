@@ -16,7 +16,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 	 */
 	protected function setUp() {
 		parent::setUp();
-		$this->BadObject = new MathInputCheckTexvc('\newcommand{\text{do evil things}}');
+		$this->BadObject = new MathInputCheckTexvc( '\newcommand{\text{do evil things}}' );
 	}
 
 	/**
@@ -47,7 +47,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 		if ( !is_executable( $wgMathTexvcCheckExecutable ) ) {
 			$this->markTestSkipped( "No texvc installed on server" );
 		}
-		$this->assertFalse($this->BadObject->isValid());
+		$this->assertFalse( $this->BadObject->isValid() );
 		// Remove the following lines when you implement this test.
 	}
 

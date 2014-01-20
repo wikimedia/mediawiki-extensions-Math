@@ -18,7 +18,7 @@ abstract class MathInputCheck {
 	 * (performs no checking)
 	 * @param String $tex the TeX InputString to be checked
 	 */
-	public function __construct( $tex = '') {
+	public function __construct( $tex = '' ) {
 		$this->inputTeX = $tex;
 		$this->isValid = false;
 	}
@@ -27,7 +27,7 @@ abstract class MathInputCheck {
 	 * Returns true if the TeX input String is valid
 	 * @return boolean
 	 */
-	public function isValid(){
+	public function isValid() {
 		return $this->isValid;
 	}
 
@@ -35,7 +35,7 @@ abstract class MathInputCheck {
 	 * Returns the string of the last error.
 	 * @return string
 	 */
-	public function getError(){
+	public function getError() {
 		return $this->lastError;
 	}
 
@@ -45,7 +45,7 @@ abstract class MathInputCheck {
 	 * You can get the alterd tex string with this method
 	 * @return string A valid Tex string
 	 */
-	public function getValidTex(){
+	public function getValidTex() {
 		return $this->validTeX;
 	}
 }
