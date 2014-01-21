@@ -706,6 +706,7 @@ $messages['cdo'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
+	'math-desc' => 'Гойту математикан формулш тегашкахь <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
 	'math_sample' => 'Каьчдинарг чудила кхузе',
 	'math_tip' => 'Матlематlекхиа каьчйар (барам LaTeX)',
 	'prefs-math' => 'Формулаш гар',
