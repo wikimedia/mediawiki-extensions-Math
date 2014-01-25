@@ -41,8 +41,13 @@ class MathHooks {
 	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
+<<<<<<< HEAD   (4bb5ca Style: Apply stylize.php)
 		global $wgMathJax, $wgMathDisableTexFilter;
 		if ( trim( $content ) === "" ) { // bug 8372
+=======
+		global $wgMathDisableTexFilter, $wgContLang, $wgUseMathJax;
+		if ( trim( $content )  === "" ) { // bug 8372
+>>>>>>> BRANCH (6a0af8 Validate TeX input for all renderers, not just texvc)
 			return "";
 		}
 		wfProfileIn( __METHOD__ );
@@ -51,6 +56,7 @@ class MathHooks {
 		$renderer = MathRenderer::getRenderer(
 			$content, $attributes, $mode
 		);
+<<<<<<< HEAD   (4bb5ca Style: Apply stylize.php)
 		if ( ! $wgMathDisableTexFilter ) {
 			$checkResult = $renderer->checkTex();
 			if ( $checkResult !== true ) {
@@ -73,6 +79,19 @@ class MathHooks {
 		if ( $wgMathJax && $parser->getUser()->getOption( 'mathJax' ) ) {
 			// maybe this can be checked in the javascript, this would be better for caching
 			$parser->getOptions()->addExtraKey( 1 );
+=======
+
+		if ( !$wgMathDisableTexFilter ) {
+			$checkResult = $renderer->checkTex();
+			if ( $checkResult !== true ){
+				// returns the error message
+				return $renderer->getLastError();
+			}
+		}
+
+		$renderedMath = $renderer->render();
+		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
+>>>>>>> BRANCH (6a0af8 Validate TeX input for all renderers, not just texvc)
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );

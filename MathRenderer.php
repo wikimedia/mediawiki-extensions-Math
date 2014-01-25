@@ -25,8 +25,20 @@ abstract class MathRenderer {
 	// REPRESENTATIONS OF THE MATHEMATCAL CONTENT
 	/** @var string tex representation */
 	protected $tex = '';
+<<<<<<< HEAD   (4bb5ca Style: Apply stylize.php)
 	/** @var string MathML content and presentation */
+=======
+	/** @var string the original user input string (which was used to caculate the inputhash) */
+	protected $userInputTex = '';
+	/**
+	 * is calculated by texvc.
+	 * @var string
+	 */
+	protected $hash = '';
+	protected $html = '';
+>>>>>>> BRANCH (6a0af8 Validate TeX input for all renderers, not just texvc)
 	protected $mathml = '';
+<<<<<<< HEAD   (4bb5ca Style: Apply stylize.php)
 	/** @var string SVG layot only (no semantics)*/
 	protected $svg = '';
 	/** @var string the original user input string (which was used to caculate the inputhash) */
@@ -52,6 +64,13 @@ abstract class MathRenderer {
 	/** @var boolean has variable tex been security-checked */
 	protected $texSecure = false;
 	/** @var boolean has the mathtematical content changed */
+=======
+	protected $conservativeness = 0;
+	protected $params = '';
+	//STATE OF THE CLASS INSTANCE
+	/** @var boolean has variable tex been security-checked */
+	protected $texSecure = false;
+>>>>>>> BRANCH (6a0af8 Validate TeX input for all renderers, not just texvc)
 	protected $changed = false;
 	/** @var boolean is there a database entry for the mathematical content */
 	protected $storedInDatabase = null;
@@ -185,6 +204,7 @@ abstract class MathRenderer {
 		$errmsg = wfMessage( $msg, $parameters )->inContentLanguage()->escaped();
 		$source = htmlspecialchars( str_replace( "\n", ' ', $this->tex ) );
 		return "<strong class='error texerror'>$mf($errmsg): $source</strong>\n";
+<<<<<<< HEAD   (4bb5ca Style: Apply stylize.php)
 	}
 
 	/**
@@ -207,6 +227,8 @@ abstract class MathRenderer {
 	 */
 	public function setMd5( $md5 ) {
 		$this->md5 = $md5;
+=======
+>>>>>>> BRANCH (6a0af8 Validate TeX input for all renderers, not just texvc)
 	}
 
 	/**
@@ -539,6 +561,32 @@ abstract class MathRenderer {
 	function getLastError() {
 		return $this->lastError;
 	}
+<<<<<<< HEAD   (4bb5ca Style: Apply stylize.php)
+=======
+
+	/**
+	 * Get if the input tex was marked as secure
+	 * @return boolean
+	 */
+	public function isTexSecure() {
+		return $this->texSecure;
+	}
+
+	public function checkTex() {
+		if ( !$this->texSecure ) {
+			$checker = new MathInputCheckTexvc( $this->userInputTex );
+			if ( $checker->isValid() ){
+				$this->setTex( $checker->getValidTex() );
+				$this->texSecure = true;
+				return true;
+			} else {
+				$this->lastError = $checker->getError();
+				return false;
+			}
+		}
+	}
+}
+>>>>>>> BRANCH (6a0af8 Validate TeX input for all renderers, not just texvc)
 
 	/**
 	 * @return string

@@ -4,6 +4,7 @@
  */
 class MathInputCheckTest extends MediaWikiTestCase
 {
+<<<<<<< HEAD   (4bb5ca Style: Apply stylize.php)
     /**
      * @var MathInputCheck
      */
@@ -45,4 +46,32 @@ class MathInputCheckTest extends MediaWikiTestCase
 //          'This test has not been implemented yet.'
 //        );
 //    }
+=======
+	/**
+	 * @covers MathInputCheck::isValid
+	 */
+	public function testIsValid() {
+		$InputCheck = $this->getMockBuilder( 'MathInputCheck' )->getMock();
+		$this->assertEquals( $InputCheck->IsValid() , false );
+	}
+
+	/**
+	 * @covers MathInputCheck::getError
+	 * @todo   Implement testGetError().
+	 */
+	public function testGetError() {
+		$InputCheck = $this->getMockBuilder( 'MathInputCheck' )->getMock();
+		$this->assertNull( $InputCheck->getError() );
+	}
+
+	/**
+	 * @covers MathInputCheck::getValidTex
+	 */
+	public function testGetValidTex() {
+		$InputCheck = $this->getMockBuilder( 'MathInputCheck' )
+			->setConstructorArgs(array('some tex input'))
+			->getMock();
+		$this->assertNull( $InputCheck->getValidTex() );
+	}
+>>>>>>> BRANCH (6a0af8 Validate TeX input for all renderers, not just texvc)
 }

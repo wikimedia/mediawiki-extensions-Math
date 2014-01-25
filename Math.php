@@ -481,4 +481,99 @@ $wgMathFileBackend = false;
  */
 $wgMathDirectory = false;
 
+<<<<<<< HEAD   (4bb5ca Style: Apply stylize.php)
+=======
+/**
+ * Experimental option to use MathJax library to do client-side math rendering
+ * when JavaScript is available. In supporting browsers this makes nice output
+ * that's scalable for zooming, printing, and high-resolution displays.
+ *
+ * Not guaranteed to be stable at this time.
+ */
+$wgUseMathJax = false;
+
+/**
+ * Use of LaTeXML for details see
+ * <http://latexml.mathweb.org/help>
+ *
+ * If you want or need to run your own server, follow these installation
+ * instructions and override $wgLaTeXMLUrl:
+ * <https://svn.mathweb.org/repos/LaTeXML/branches/arXMLiv/INSTALL>
+ *
+ * If you expect heavy load you can specify multiple servers. In that case one
+ * server is randomly chosen for each rendering process. Specify the list of
+ * servers in an array e.g $wgLaTeXMLUrl = array ( 'http://latexml.example.com/convert',
+ * 'http://latexml2.example.com/convert');
+ */
+$wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
+
+/**
+ * Allows to use LaTeXML as renderer for mathematical equation.
+ */
+$wgUseLaTeXML = false;
+
+/**
+ * The timeout for the HTTP-Request sent to the LaTeXML to render an equation,
+ * in seconds.
+ */
+$wgLaTeXMLTimeout = 240;
+/**
+ * Setting for the LaTeXML renderer.
+ * See http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml for details.
+ */
+$wgDefaultLaTeXMLSetting = 'format=xhtml&whatsin=math&whatsout=math&pmml&cmml&nodefaultresources&preload=LaTeX.pool&preload=article.cls&preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty&preload=amssymb.sty&preload=eucal.sty&preload=[dvipsnames]xcolor.sty&preload=url.sty&preload=hyperref.sty&preload=[ids]latexml.sty&preload=texvc';
+/**
+ * The link to the texvc executable
+ */
+$wgMathTexvcCheckExecutable = dirname( __FILE__ ) . '/texvccheck/texvccheck';
+/**
+ * Option to disable the tex filter. If set to true any LaTeX espression is parsed
+ * this can be a potential security risk. If set to false only a subset of the TeX
+ * commands is allowed. See the wikipedia page Help:Math for details.
+ */
+$wgMathDisableTexFilter = false;
+////////// end of config settings.
+
+$wgDefaultUserOptions['math'] = MW_MATH_PNG;
+
+$wgExtensionFunctions[] = 'MathHooks::setup';
+$wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
+$wgHooks['GetPreferences'][] = 'MathHooks::onGetPreferences';
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'MathHooks::onLoadExtensionSchemaUpdates';
+$wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
+$wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
+$wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
+
+$dir = dirname( __FILE__ ) . '/';
+$wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
+$wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
+>>>>>>> BRANCH (6a0af8 Validate TeX input for all renderers, not just texvc)
 $wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
+<<<<<<< HEAD   (4bb5ca Style: Apply stylize.php)
+=======
+$wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
+$wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
+$wgAutoloadClasses['MathInputCheck'] = $dir . 'MathInputCheck.php';
+$wgAutoloadClasses['MathInputCheckTexvc'] = $dir . 'MathInputCheckTexvc.php';
+$wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
+
+$wgParserTestFiles[] = $dir . 'mathParserTests.txt';
+
+$moduleTemplate = array(
+	'localBasePath' => dirname( __FILE__ ) . '/modules',
+	'remoteExtPath' => 'Math/modules',
+);
+
+$wgResourceModules['ext.math.mathjax'] = array(
+	'scripts' => array(
+		'MathJax/MathJax.js',
+		// We'll let the other parts be loaded by MathJax's
+		// own module/config loader.
+	),
+	'group' => 'ext.math.mathjax',
+) + $moduleTemplate;
+
+$wgResourceModules['ext.math.mathjax.enabler'] = array(
+	'scripts' => 'ext.math.mathjax.enabler.js',
+) + $moduleTemplate;
+>>>>>>> BRANCH (6a0af8 Validate TeX input for all renderers, not just texvc)
