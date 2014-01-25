@@ -83,10 +83,10 @@ abstract class MathRenderer {
 	 * @return MathRenderer appropriate renderer for mode
 	 */
 	public static function getRenderer( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
-		global $wgDefaultUserOptions;
-		$validModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHJAX, MW_MATH_LATEXML );
-		if ( !in_array( $mode, $validModes ) )
+		global $wgDefaultUserOptions, $wgMathValidModes;
+		if ( !in_array( $mode, $wgMathValidModes ) ) {
 			$mode = $wgDefaultUserOptions['math'];
+		}
 		switch ( $mode ) {
 			case MW_MATH_MATHJAX:
 			case MW_MATH_SOURCE:
