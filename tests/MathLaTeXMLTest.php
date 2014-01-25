@@ -177,6 +177,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	 * i.e. if the span element is generated right.
 	 */
 	public function testIntegration() {
+<<<<<<< HEAD   (4bb5ca Style: Apply stylize.php)
 		global $wgMathLaTeXMLTimeout;
 		global $wgMathFastDisplay;
 		$wgMathFastDisplay = false;
@@ -186,6 +187,14 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 		$real = str_replace( "\n", '', $renderer->getHtmlOutput() );
 		$expected = '<plus';
 		$this->assertContains( $expected, $real
+=======
+		global $wgLaTeXMLTimeout;
+		$wgLaTeXMLTimeout = 20;
+		$renderer = MathRenderer::getRenderer( "a+b", array(), MW_MATH_LATEXML );
+		$real = $renderer->render( true );
+		$expected = '<span class="tex" dir="ltr" id="a_b"><math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.1.m1" class="ltx_Math" alttext="a+b" display="inline" xml:id="p1.1.m1.1" xref="p1.1.m1.1.cmml">   <semantics xml:id="p1.1.m1.1a" xref="p1.1.m1.1.cmml">     <mrow xml:id="p1.1.m1.1.4" xref="p1.1.m1.1.4.cmml">       <mi xml:id="p1.1.m1.1.1" xref="p1.1.m1.1.1.cmml">a</mi>       <mo xml:id="p1.1.m1.1.2" xref="p1.1.m1.1.2.cmml">+</mo>       <mi xml:id="p1.1.m1.1.3" xref="p1.1.m1.1.3.cmml">b</mi>     </mrow>     <annotation-xml encoding="MathML-Content" xml:id="p1.1.m1.1.cmml" xref="p1.1.m1.1">       <apply xml:id="p1.1.m1.1.4.cmml" xref="p1.1.m1.1.4">         <plus xml:id="p1.1.m1.1.2.cmml" xref="p1.1.m1.1.2"/>         <ci xml:id="p1.1.m1.1.1.cmml" xref="p1.1.m1.1.1">a</ci>         <ci xml:id="p1.1.m1.1.3.cmml" xref="p1.1.m1.1.3">b</ci>       </apply>     </annotation-xml>     <annotation encoding="application/x-tex" xml:id="p1.1.m1.1b" xref="p1.1.m1.1.cmml">a+b</annotation>   </semantics> </math></span>';
+		$this->assertEquals( $expected, $real
+>>>>>>> BRANCH (6a0af8 Validate TeX input for all renderers, not just texvc)
 				, "Rendering of a+b in plain Text mode" );
 	}
 
