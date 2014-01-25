@@ -151,6 +151,7 @@ $wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
 $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
 $wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
 $wgHooks['PageRenderingHash'][] = 'MathHooks::onPageRenderingHash';
+$wgHooks['EditPageBeforeEditToolbar'][] = 'MathHooks::onEditPageBeforeEditToolbar';
 
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
@@ -394,3 +395,10 @@ $wgResourceModules += array(
 		'scripts' => array( 'Fraktur/Bold/BasicLatin.js', 'Fraktur/Bold/Other.js', 'Fraktur/Bold/PUA.js', 'Fraktur/Regular/BasicLatin.js', 'Fraktur/Regular/Other.js', 'Fraktur/Regular/PUA.js', 'SansSerif/Bold/BasicLatin.js', 'SansSerif/Bold/CombDiacritMarks.js', 'SansSerif/Bold/Other.js', 'SansSerif/Italic/BasicLatin.js', 'SansSerif/Italic/CombDiacritMarks.js', 'SansSerif/Italic/Other.js', 'SansSerif/Regular/BasicLatin.js', 'SansSerif/Regular/CombDiacritMarks.js', 'SansSerif/Regular/Other.js', 'Script/Regular/BasicLatin.js', 'Typewriter/Regular/BasicLatin.js', 'Typewriter/Regular/CombDiacritMarks.js', 'Typewriter/Regular/Other.js' )
 	) + $moduleTemplateSVG
 );
+$wgResourceModules['ext.math.mathjax.enabler'] = array(
+	'scripts' => 'ext.math.mathjax.enabler.js',
+) + $moduleTemplate;
+
+$wgResourceModules['ext.math.editbutton.enabler'] = array(
+	'scripts' => 'ext.math.editbutton.js',
+) + $moduleTemplate;
