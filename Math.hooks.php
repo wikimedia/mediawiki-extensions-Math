@@ -156,19 +156,17 @@ class MathHooks {
 	 * @return array of strings
 	 */
 	private static function getMathNames() {
-		global $wgUseMathJax, $wgUseLaTeXML;
-
-		$names = array(
-			MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
-			MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
+		global $wgMathValidModes;
+		$MathConstantNames = array(
+			MW_MATH_SOURCE => 'mw_math_source',
+			MW_MATH_PNG => 'mw_math_png',
+			MW_MATH_MATHML => 'mw_math_mathml',
+			MW_MATH_LATEXML => 'mw_math_latexml',
+			MW_MATH_MATHJAX => 'mw_math_mathjax'
 		);
-
-		if ( $wgUseMathJax ) {
-			$names[MW_MATH_MATHJAX] = wfMessage( 'mw_math_mathjax' )->escaped();
-		}
-
-		if ( $wgUseLaTeXML ) {
-			$names[MW_MATH_LATEXML] = wfMessage( 'mw_math_latexml' )->escaped();
+		$names = array();
+		foreach ( $wgMathValidModes as $mode ) {
+			$names[$mode] = wfMessage( $MathConstantNames[$mode] )->escaped();
 		}
 
 		return $names;

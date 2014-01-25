@@ -41,6 +41,14 @@ define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
 define( 'MW_MATH_LATEXML', 7 ); /// new in 1.22
 /**@}*/
 
+/**@var array defines the mode allowed on the server */
+$wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE );
+
+/*
+ * The default rendering mode for anonymous users.
+ * Valid options are defined in $wgMathValidModes.
+ */
+$wgDefaultUserOptions['math'] = MW_MATH_PNG;
 /** Location of the texvc binary */
 $wgTexvc = dirname( __FILE__ ) . '/math/texvc';
 /**
@@ -117,11 +125,6 @@ $wgUseMathJax = false;
 $wgMathLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
 
 /**
- * Allows to use LaTeXML as renderer for mathematical equation.
- */
-$wgUseLaTeXML = false;
-
-/**
  * The timeout for the HTTP-Request sent to the LaTeXML to render an equation,
  * in seconds.
  */
@@ -161,8 +164,6 @@ $wgMathTexvcCheckExecutable = dirname( __FILE__ ) . '/texvccheck/texvccheck';
  */
 $wgMathDisableTexFilter = false;
 ////////// end of config settings.
-
-$wgDefaultUserOptions['math'] = MW_MATH_PNG;
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
