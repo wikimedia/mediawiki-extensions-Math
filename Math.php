@@ -115,11 +115,6 @@ $wgUseMathJax = false;
 $wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
 
 /**
- * Allows to use LaTeXML as renderer for mathematical equation.
- */
-$wgUseLaTeXML = false;
-
-/**
  * The timeout for the HTTP-Request sent to the LaTeXML to render an equation,
  * in seconds.
  */
@@ -141,8 +136,6 @@ $wgMathTexvcCheckExecutable = dirname( __FILE__ ) . '/texvccheck/texvccheck';
 $wgMathDisableTexFilter = false;
 ////////// end of config settings.
 
-$wgDefaultUserOptions['math'] = MW_MATH_PNG;
-
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
 $wgHooks['GetPreferences'][] = 'MathHooks::onGetPreferences';
@@ -150,6 +143,7 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'MathHooks::onLoadExtensionSchemaUpda
 $wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
 $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
 $wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
+$wgHooks['EditPageBeforeEditToolbar'][] = 'MathHooks::onEditPageBeforeEditToolbar';
 $wgHooks['PageRenderingHash'][] = 'MathHooks::onPageRenderingHash';
 
 $dir = dirname( __FILE__ ) . '/';
@@ -394,3 +388,10 @@ $wgResourceModules += array(
 		'scripts' => array( 'Fraktur/Bold/BasicLatin.js', 'Fraktur/Bold/Other.js', 'Fraktur/Bold/PUA.js', 'Fraktur/Regular/BasicLatin.js', 'Fraktur/Regular/Other.js', 'Fraktur/Regular/PUA.js', 'SansSerif/Bold/BasicLatin.js', 'SansSerif/Bold/CombDiacritMarks.js', 'SansSerif/Bold/Other.js', 'SansSerif/Italic/BasicLatin.js', 'SansSerif/Italic/CombDiacritMarks.js', 'SansSerif/Italic/Other.js', 'SansSerif/Regular/BasicLatin.js', 'SansSerif/Regular/CombDiacritMarks.js', 'SansSerif/Regular/Other.js', 'Script/Regular/BasicLatin.js', 'Typewriter/Regular/BasicLatin.js', 'Typewriter/Regular/CombDiacritMarks.js', 'Typewriter/Regular/Other.js' )
 	) + $moduleTemplateSVG
 );
+$wgResourceModules['ext.math.mathjax.enabler'] = array(
+	'scripts' => 'ext.math.mathjax.enabler.js',
+) + $moduleTemplate;
+
+$wgResourceModules['ext.math.editbutton.enabler'] = array(
+	'scripts' => 'ext.math.editbutton.js',
+) + $moduleTemplate;
