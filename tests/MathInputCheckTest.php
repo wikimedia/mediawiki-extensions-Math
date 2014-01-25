@@ -4,45 +4,30 @@
  */
 class MathInputCheckTest extends MediaWikiTestCase
 {
-    /**
-     * @var MathInputCheck
-     */
-    protected $object;
+	/**
+	 * @covers MathInputCheck::isValid
+	 */
+	public function testIsValid() {
+		$InputCheck = $this->getMockBuilder( 'MathInputCheck' )->getMock();
+		$this->assertEquals( $InputCheck->IsValid() , false );
+	}
 
+	/**
+	 * @covers MathInputCheck::getError
+	 * @todo   Implement testGetError().
+	 */
+	public function testGetError() {
+		$InputCheck = $this->getMockBuilder( 'MathInputCheck' )->getMock();
+		$this->assertNull( $InputCheck->getError() );
+	}
 
-//    /**
-//     * @covers MathInputCheck::isSecure
-//     * @todo   Implement testIsSecure().
-//     */
-//    public function testIsSecure()
-//    {
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete(
-//          'This test has not been implemented yet.'
-//        );
-//    }
-//
-//    /**
-//     * @covers MathInputCheck::getError
-//     * @todo   Implement testGetError().
-//     */
-//    public function testGetError()
-//    {
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete(
-//          'This test has not been implemented yet.'
-//        );
-//    }
-//
-//    /**
-//     * @covers MathInputCheck::getSecureTex
-//     * @todo   Implement testGetSecureTex().
-//     */
-//    public function testGetSecureTex()
-//    {
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete(
-//          'This test has not been implemented yet.'
-//        );
-//    }
+	/**
+	 * @covers MathInputCheck::getValidTex
+	 */
+	public function testGetValidTex() {
+		$InputCheck = $this->getMockBuilder( 'MathInputCheck' )
+			->setConstructorArgs(array('some tex input'))
+			->getMock();
+		$this->assertNull( $InputCheck->getValidTex() );
+	}
 }
