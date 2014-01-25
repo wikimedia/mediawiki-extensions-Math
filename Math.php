@@ -153,6 +153,7 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'MathHooks::onLoadExtensionSchemaUpda
 $wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
 $wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
 $wgHooks['PageRenderingHash'][] = 'MathHooks::onPageRenderingHash';
+$wgHooks['EditPageBeforeEditToolbar'][] = 'MathHooks::onEditPageBeforeEditToolbar';
 
 $dir = __DIR__ . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
@@ -403,6 +404,12 @@ $moduleTemplate = array(
     'remoteExtPath' => 'Math/modules',
 );
 
+$wgResourceModules['ext.math.editbutton.enabler'] = array(
+	'localBasePath' => dirname( __FILE__ ) . '/modules/',
+	'remoteExtPath' => 'Math/modules',
+	'scripts' => 'ext.math.editbutton.js',
+);
+
 $wgResourceModules['ext.math.visualEditor'] = array(
 	'scripts' => array(
 		'VisualEditor/ve.dm.MWMathNode.js',
@@ -420,3 +427,4 @@ $wgResourceModules['ext.math.visualEditor'] = array(
 ) + $moduleTemplate;
 
 $wgVisualEditorPreferenceModules['math-enable-visualeditor'] = 'ext.math.visualEditor';
+
