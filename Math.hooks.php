@@ -269,4 +269,14 @@ class MathHooks {
 
 		return true;
 	}
+
+	/**
+	 *
+	 * @global type $wgOut
+	 * @param type $toolbar
+	 */
+	static function onEditPageBeforeEditToolbar( &$toolbar ) {
+		global $wgOut;
+		$wgOut->addModules( array( 'ext.math.editbutton.enabler' ) );
+	}
 }
