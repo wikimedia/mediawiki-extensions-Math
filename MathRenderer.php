@@ -52,6 +52,9 @@ abstract class MathRenderer {
 	/** @var boolean has variable tex been security-checked */
 	protected $texSecure = false;
 	/** @var boolean has the mathtematical content changed */
+	//STATE OF THE CLASS INSTANCE
+	/** @var boolean has variable tex been security-checked */
+	protected $texSecure = false;
 	protected $changed = false;
 	/** @var boolean is there a database entry for the mathematical content */
 	protected $storedInDatabase = null;

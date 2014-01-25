@@ -14,11 +14,15 @@ class MathInputCheckTexvc extends MathInputCheck {
 	 *
 	 * @param string $texvcResult error result returned by texvc
 	 */
-	public function convertTexvcError( $texvcResult ) {
+	public function convertTexvcError( $texvcResult, $errorRenderer = false ) {
 		$texvcStatus = substr( $texvcResult, 0, 1 );
-		$errorRenderer = new MathSource( $this->inputTeX );
 		$errDetails = htmlspecialchars( substr( $texvcResult, 1 ) );
-		switch ( $texvcStatus ) {
+
+		if ( $errorRenderer === false ) {
+			$errorRenderer =  new MathSource( $this->inputTeX );
+		}
+
+		switch ($texvcStatus) {
 			case 'E':
 				$errMsg = $errorRenderer->getError( 'math_lexing_error' );
 				break;
@@ -43,36 +47,42 @@ class MathInputCheckTexvc extends MathInputCheck {
 	public function isValid() {
 		global $wgMathTexvcCheckExecutable;
 		if ( !is_executable( $wgMathTexvcCheckExecutable ) ) {
-			$errorRenderer = new MathSource( $this->inputTeX );
-			$this->lastError = $errorRenderer->getError( 'math_notexvc' );
-			return false;
+			$msg = wfMessage( 'math_notexvc' )->inContentLanguage()->escaped();
+			trigger_error( $msg, E_USER_NOTICE );
+			wfDebugLog( 'Math', $msg );
+			return true;
 		}
 
 		$cmd = $wgMathTexvcCheckExecutable . ' ' . wfEscapeShellArg( $this->inputTeX );
 
 		if ( wfIsWindows() ) {
 			# Invoke it within cygwin sh, because texvc expects sh features in its default shell
-			$cmd = 'sh -c ' . wfEscapeShellArg( $cmd );
+			$cmd = 'sh -c ' . wfEscapeShellArg($cmd);
 		}
+
 		wfDebugLog( 'Math', "TeX check command: $cmd\n" );
 		$contents = wfShellExec( $cmd );
 		wfDebugLog( 'Math', "TeX check result:\n $contents\n---\n" );
 
-		if ( strlen( $contents ) == 0 ) {
+		if ( strlen($contents) === 0 ) {
 			wfDebugLog( 'Math', "TeX check output was empty. \n" );
 			$this->lastError = MathRenderer::getError( 'math_unknown_error' );
+
 			return false;
 		}
 
 		$retval = substr( $contents, 0, 1 );
-		if ( $retval != "+" ) {
+
+		if ( $retval !== '+' ) {
 			$this->lastError = $this->convertTexvcError( $contents );
 			wfDebugLog( 'Math', 'checkTex failed:' . $this->lastError );
+
 			return false;
 		} else {
 			$this->validTeX = substr( $contents, 1 );
 			$this->isSecure = true;
 			wfDebugLog( 'Math', 'checkTex successful tex is now: ' . $this->validTeX );
+
 			return true;
 		}
 	}
