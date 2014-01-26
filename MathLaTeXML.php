@@ -35,15 +35,15 @@ class MathLaTeXML extends MathRenderer {
 	}
 	/**
 	 * Gets the settings for the LaTeXML daemon.
-	 *
+	 * @global type $wgMathDefaultLaTeXMLSetting
 	 * @return string
 	 */
 	public function getLaTeXMLSettings() {
-		global $wgDefaultLaTeXMLSetting;
+		global $wgMathDefaultLaTeXMLSetting;
 		if ( $this->LaTeXMLSettings ) {
 			return $this->LaTeXMLSettings;
 		} else {
-			return $wgDefaultLaTeXMLSetting;
+			return $wgMathDefaultLaTeXMLSetting;
 		}
 	}
 
@@ -106,10 +106,11 @@ class MathLaTeXML extends MathRenderer {
 
 	/**
 	 * Performs a HTTP Post request to the given host.
-	 * Uses $wgLaTeXMLTimeout as timeout.
+	 * Uses $wgMathLaTeXMLTimeout as timeout.
 	 * Generates error messages on failure
 	 * @see Http::post()
 	 *
+	 * @global type $wgMathLaTeXMLTimeout
 	 * @param string $host
 	 * @param string $post the encoded post request
 	 * @param mixed $res the result
@@ -118,12 +119,12 @@ class MathLaTeXML extends MathRenderer {
 	 * @return boolean success
 	 */
 	public function makeRequest( $host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest' ) {
-		global $wgLaTeXMLTimeout;
+		global $wgMathLaTeXMLTimeout;
 
 		wfProfileIn( __METHOD__ );
 		$error = '';
 		$res = null;
-		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgLaTeXMLTimeout );
+		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
 		$req = $httpRequestClass::factory( $host, $options );
 		$status = $req->execute();
 		if ( $status->isGood() ) {
@@ -136,7 +137,7 @@ class MathLaTeXML extends MathRenderer {
 				$res = false;
 				wfDebugLog( "Math", "\nLaTeXML Timeout:"
 					. var_export( array( 'post' => $post, 'host' => $host
-						, 'wgLaTeXMLTimeout' => $wgLaTeXMLTimeout ), true ) . "\n\n" );
+						, 'timeout' => $wgMathLaTeXMLTimeout ), true ) . "\n\n" );
 			} else {
 				// for any other unkonwn http error
 				$errormsg = $status->getHtml();
@@ -162,15 +163,15 @@ class MathLaTeXML extends MathRenderer {
 	/**
 	 * Picks a LaTeXML daemon.
 	 * If more than one demon are availible one is chosen from the
-	 * $wgLaTeXMLUrl array.
+	 * $wgMathLaTeXMLUrl array.
 	 * @return string
 	 */
 	private static function pickHost() {
-		global $wgLaTeXMLUrl;
-		if ( is_array( $wgLaTeXMLUrl ) ) {
-			$host = array_rand( $wgLaTeXMLUrl );
+		global $wgMathLaTeXMLUrl;
+		if ( is_array( $wgMathLaTeXMLUrl ) ) {
+			$host = array_rand( $wgMathLaTeXMLUrl );
 		} else {
-			$host = $wgLaTeXMLUrl;
+			$host = $wgMathLaTeXMLUrl;
 		}
 		wfDebugLog( "Math", "picking host " . $host );
 		return $host;
