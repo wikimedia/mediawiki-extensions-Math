@@ -42,7 +42,7 @@ class MathHooks {
 	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgMathDisableTexFilter, $wgContLang, $wgUseMathJax;
+		global $wgMathDisableTexFilter, $wgContLang, $wgMathJax;
 		if ( trim( $content )  === "" ) { // bug 8372
 			return "";
 		}
@@ -61,7 +61,7 @@ class MathHooks {
 		}
 
 		$renderedMath = $renderer->render();
-		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
+		if ( $wgMathJax && $mode == MW_MATH_MATHJAX ) {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
 		$renderer->writeCache();
@@ -93,12 +93,12 @@ class MathHooks {
 	 * @return array of strings
 	 */
 	private static function getMathNames() {
-		global $wgUseMathJax, $wgUseLaTeXML;
+		global $wgMathJax, $wgUseLaTeXML;
 		$names = array(
 			MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
 			MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
 		);
-		if ( $wgUseMathJax ) {
+		if ( $wgMathJax ) {
 			$names[MW_MATH_MATHJAX] = wfMessage( 'mw_math_mathjax' )->escaped();
 		}
 		if ( $wgUseLaTeXML ) {

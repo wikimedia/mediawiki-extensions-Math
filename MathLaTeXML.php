@@ -39,11 +39,11 @@ class MathLaTeXML extends MathRenderer {
 	 * @return string
 	 */
 	public function getLaTeXMLSettings() {
-		global $wgDefaultLaTeXMLSetting;
+		global $wgMathDefaultLaTeXMLSetting;
 		if ( $this->LaTeXMLSettings ) {
 			return $this->LaTeXMLSettings;
 		} else {
-			return $wgDefaultLaTeXMLSetting;
+			return $wgMathDefaultLaTeXMLSetting;
 		}
 	}
 
@@ -118,12 +118,12 @@ class MathLaTeXML extends MathRenderer {
 	 * @return boolean success
 	 */
 	public function makeRequest( $host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest' ) {
-		global $wgLaTeXMLTimeout;
+		global $wgMathLaTeXMLTimeout;
 
 		wfProfileIn( __METHOD__ );
 		$error = '';
 		$res = null;
-		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgLaTeXMLTimeout );
+		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
 		$req = $httpRequestClass::factory( $host, $options );
 		$status = $req->execute();
 		if ( $status->isGood() ) {
@@ -136,7 +136,7 @@ class MathLaTeXML extends MathRenderer {
 				$res = false;
 				wfDebugLog( "Math", "\nLaTeXML Timeout:"
 					. var_export( array( 'post' => $post, 'host' => $host
-						, 'wgLaTeXMLTimeout' => $wgLaTeXMLTimeout ), true ) . "\n\n" );
+						, 'wgLaTeXMLTimeout' => $wgMathLaTeXMLTimeout ), true ) . "\n\n" );
 			} else {
 				// for any other unkonwn http error
 				$errormsg = $status->getHtml();
@@ -166,11 +166,11 @@ class MathLaTeXML extends MathRenderer {
 	 * @return string
 	 */
 	private static function pickHost() {
-		global $wgLaTeXMLUrl;
-		if ( is_array( $wgLaTeXMLUrl ) ) {
-			$host = array_rand( $wgLaTeXMLUrl );
+		global $wgMathLaTeXMLUrl;
+		if ( is_array( $wgMathLaTeXMLUrl ) ) {
+			$host = array_rand( $wgMathLaTeXMLUrl );
 		} else {
-			$host = $wgLaTeXMLUrl;
+			$host = $wgMathLaTeXMLUrl;
 		}
 		wfDebugLog( "Math", "picking host " . $host );
 		return $host;
