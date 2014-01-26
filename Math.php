@@ -41,9 +41,6 @@ define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
 define( 'MW_MATH_LATEXML', 7 ); /// new in 1.22
 /**@}*/
 
-/** For back-compat */
-$wgUseTeX = true;
-
 /** Location of the texvc binary */
 $wgTexvc = dirname( __FILE__ ) . '/math/texvc';
 /**
