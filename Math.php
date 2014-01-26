@@ -99,6 +99,8 @@ $wgMathDirectory = false;
  * that's scalable for zooming, printing, and high-resolution displays.
  *
  * Not guaranteed to be stable at this time.
+ * 
+ * @todo Rename to $wgMathJaX
  */
 $wgUseMathJax = false;
 
@@ -115,7 +117,7 @@ $wgUseMathJax = false;
  * servers in an array e.g $wgLaTeXMLUrl = array ( 'http://latexml.example.com/convert',
  * 'http://latexml2.example.com/convert');
  */
-$wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
+$wgMathLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
 
 /**
  * Allows to use LaTeXML as renderer for mathematical equation.
@@ -126,12 +128,12 @@ $wgUseLaTeXML = false;
  * The timeout for the HTTP-Request sent to the LaTeXML to render an equation,
  * in seconds.
  */
-$wgLaTeXMLTimeout = 240;
+$wgMathLaTeXMLTimeout = 240;
 /**
  * Setting for the LaTeXML renderer.
  * See http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml for details.
  */
-$wgDefaultLaTeXMLSetting = 'format=xhtml&whatsin=math&whatsout=math&pmml&cmml&nodefaultresources&preload=LaTeX.pool&preload=article.cls&preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty&preload=amssymb.sty&preload=eucal.sty&preload=[dvipsnames]xcolor.sty&preload=url.sty&preload=hyperref.sty&preload=[ids]latexml.sty&preload=texvc';
+$wgMathDefaultLaTeXMLSetting = 'format=xhtml&whatsin=math&whatsout=math&pmml&cmml&nodefaultresources&preload=LaTeX.pool&preload=article.cls&preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty&preload=amssymb.sty&preload=eucal.sty&preload=[dvipsnames]xcolor.sty&preload=url.sty&preload=hyperref.sty&preload=[ids]latexml.sty&preload=texvc';
 /**
  * The link to the texvc executable
  */
