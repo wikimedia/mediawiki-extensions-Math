@@ -187,4 +187,14 @@ class MathHooks {
 		$files = array_merge( $files, glob( "$testDir/*Test.php" ) );
 		return true;
 	}
+
+	/**
+	 * 
+	 * @global type $wgOut
+	 * @param type $toolbar
+	 */
+	static function onEditPageBeforeEditToolbar( &$toolbar ){
+		global $wgOut;
+		$wgOut->addModules( array( 'ext.math.editbutton.enabler' ) );
+	}
 }

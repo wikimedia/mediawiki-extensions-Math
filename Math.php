@@ -155,6 +155,7 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'MathHooks::onLoadExtensionSchemaUpda
 $wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
 $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
 $wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
+$wgHooks['EditPageBeforeEditToolbar'][] = 'MathHooks::onEditPageBeforeEditToolbar';
 
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
@@ -184,4 +185,8 @@ $wgResourceModules['ext.math.mathjax'] = array(
 
 $wgResourceModules['ext.math.mathjax.enabler'] = array(
 	'scripts' => 'ext.math.mathjax.enabler.js',
+) + $moduleTemplate;
+
+$wgResourceModules['ext.math.editbutton.enabler'] = array(
+	'scripts' => 'ext.math.editbutton.js',
 ) + $moduleTemplate;
