@@ -42,8 +42,7 @@ In Ubuntu Precise, all dependencies can be installed using:
 Run 'make' (or 'gmake' if GNU make is not your default make). This should
 produce the texvc executable.
 
-Then you'll need to set $wgUseTeX to true in your LocalSettings.php. By default,
-MediaWiki will search in this directory for texvc, if you moved it elsewhere,
+By default, MediaWiki will search in this directory for texvc, if you moved it elsewhere,
 you'll have to modify $wgTexvc and set it to the path of the texvc executable.
 
 == Usage ==
