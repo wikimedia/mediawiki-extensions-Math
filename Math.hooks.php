@@ -92,7 +92,8 @@ class MathHooks {
 	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgUseMathJax, $wgMathDisableTexFilter;
+		global $wgMathJax, $wgMathDisableTexFilter;
+
 
 		if ( trim( $content ) === '' ) { // bug 8372
 			return '';
@@ -122,7 +123,7 @@ class MathHooks {
 
 		$renderedMath = $renderer->render();
 
-		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
+		if ( $wgMathJax ) {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
 
@@ -140,13 +141,20 @@ class MathHooks {
 	 * @return Boolean: true
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
+		global $wgMathJax;
 		$defaultPreferences['math'] = array(
 			'type' => 'radio',
 			'options' => array_flip( self::getMathNames() ),
 			'label' => '&#160;',
 			'section' => 'rendering/math',
 		);
-
+		if ( $wgMathJax ) {
+			$defaultPreferences['mathJax'] = array(
+				'type' => 'toggle',
+				'label-message' => 'mw_math_mathjax',
+				'section' => 'rendering/math',
+			);
+		}
 		return true;
 	}
 
