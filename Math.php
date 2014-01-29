@@ -37,7 +37,7 @@ define( 'MW_MATH_HTML',   2 ); /// @deprecated
 define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 ); /// @deprecated
-define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
+define( 'MW_MATH_MATHJAX', 6 ); /// @deprecated
 define( 'MW_MATH_LATEXML', 7 ); /// new in 1.22
 /**@}*/
 
@@ -99,15 +99,14 @@ $wgMathFileBackend = false;
 $wgMathDirectory = false;
 
 /**
- * Experimental option to use MathJax library to do client-side math rendering
+ * Enables the option to use MathJax library to do client-side math rendering
  * when JavaScript is available. In supporting browsers this makes nice output
- * that's scalable for zooming, printing, and high-resolution displays.
- *
- * Not guaranteed to be stable at this time.
+ * that's scalable for zooming, printing, and high-resolution displays, even if
+ * the browsers do not support HTML5 (i.e. MathML).
  *
  * @todo Rename to $wgMathJax
  */
-$wgUseMathJax = false;
+$wgMathJax = false;
 
 /**
  * Use of LaTeXML for details see

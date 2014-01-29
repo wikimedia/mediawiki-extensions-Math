@@ -3,6 +3,10 @@
  */
 /*global mathJax:true, MathJax:true */
 ( function ( mw, $ ) {
+
+  if( ! mw.user.options.get( 'mathJax' ) ) {
+    return true;
+  }
   if ( typeof mathJax === 'undefined' ) {
     mathJax = {};
   }
@@ -243,5 +247,4 @@
   $( document ).ready( function () {
     mathJax.Load();
   } );
-
 }( mediaWiki, jQuery ) );
