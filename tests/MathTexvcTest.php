@@ -28,7 +28,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 		// Create a MathTexvc mock, replacing methods 'readFromDatabase',
 		// 'callTexvc', and 'doHTMLRender' with test doubles.
 		$texvc = $this->getMockBuilder( 'MathTexvc' )
-			->setMethods( array( 'readFromDatabase', 'callTexvc', 'doHTMLRender' ) )
+			->setMethods( array( 'readFromDatabase', 'callTexvc', 'getHtmlOutput' ) )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -46,7 +46,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 
 		// ... instead, MathTexvc will skip to HTML generation:
 		$texvc->expects( $this->once() )
-			->method( 'doHTMLRender' );
+			->method( 'getHtmlOutput' );
 
 		$texvc->render();
 	}
@@ -60,7 +60,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 	 */
 	function testRenderCacheMiss() {
 		$texvc = $this->getMockBuilder( 'MathTexvc' )
-			->setMethods( array( 'readCache', 'callTexvc', 'doHTMLRender' ) )
+			->setMethods( array( 'readCache', 'callTexvc', 'getHtmlOutput' ) )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -78,7 +78,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 
 		// ... if texvc succeeds, MathTexvc will generate HTML:
 		$texvc->expects( $this->once() )
-			->method( 'doHTMLRender' );
+			->method( 'getHtmlOutput' );
 
 		$texvc->render();
 	}
@@ -149,4 +149,5 @@ class MathTexvcTest extends MediaWikiTestCase {
 		$this->assertContains( $mathFailure, $actualUnknownError, 'Unknown error contains general math failure message' );
 		$this->assertContains( $expectedUnknownError, $actualUnknownError, 'Unknown error contains detailed error for unknownError' );
 	}
+
 }
