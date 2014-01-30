@@ -21,22 +21,17 @@
  * @author Moritz Schubotz
  */
 abstract class MathRenderer {
-	/**
-	 *  The following variables should made private, as soon it can be verified
-	 *  that they are not being directly accessed by other extensions.
-	 */
-	protected $mode = MW_MATH_PNG;
+
+	// REPRESENTATIONS OF THE MATHEMATCAL CONTENT
+	/** @var string tex representation */
 	protected $tex = '';
+	/** @var string MathML content and presentation */
+	protected $mathml = '';
+	/** @var string SVG layot only (no semantics)*/
+	protected $svg = '';
 	/** @var string the original user input string (which was used to caculate the inputhash) */
 	protected $userInputTex = '';
-	/**
-	 * is calculated by texvc.
-	 * @var string
-	 */
-	protected $hash = '';
-	protected $html = '';
-	protected $mathml = '';
-	protected $conservativeness = 0;
+	protected $mode = MW_MATH_PNG;
 	protected $params = '';
 	//STATE OF THE CLASS INSTANCE
 	/** @var boolean has variable tex been security-checked */
@@ -48,7 +43,8 @@ abstract class MathRenderer {
 	protected $purge = false;
 	protected $recall;
 	protected $lastError = '';
-
+	/** @var string md5 value from userInputTex */
+	protected $md5 = '';
 	/**
 	 * Constructs a base MathRenderer
 	 *
@@ -134,10 +130,33 @@ abstract class MathRenderer {
 	 *
 	 * @return string hash
 	 */
+	public function getMd5() {
+		if ( $this->md5 ) {
+			return $this->md5;
+		} else {
+			return md5( $this->userInputTex );
+		}
+	}
+	/**
+	 * Return hash of input
+	 *
+	 * @return string hash
+	 */
 	public function getInputHash() {
 		// TODO: What happens if $tex is empty?
 		$dbr = wfGetDB( DB_SLAVE );
 		return $dbr->encodeBlob( pack( "H32", md5( $this->tex ) ) ); # Binary packed, not hex
+	}
+
+	/**
+	 * Decode binary packed hash from the database to md5 of input_tex
+	 * @param binary $hash
+	 * @return string md5
+	 */
+	private static function dbHash2md5( $hash ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		$xhash = unpack( 'H32md5', $dbr->decodeBlob( $hash ) . "                " );
+		return $xhash['md5'];
 	}
 
 	/**
@@ -148,8 +167,10 @@ abstract class MathRenderer {
 	public function readFromDatabase() {
 		wfProfileIn( __METHOD__ );
 		$dbr = wfGetDB( DB_SLAVE );
-		$rpage = $dbr->selectRow( 'math', $this->dbInArray(),
-			array( 'math_inputhash' => $this->getInputHash() ), __METHOD__ );
+		$rpage = $dbr->selectRow( $this->getMathTableName(),
+			$this->dbInArray(),
+			array( 'math_inputhash' => $this->getInputHash() ),
+			__METHOD__ );
 		if ( $rpage !== false ) {
 			$this->initializeFromDatabaseRow( $rpage );
 			if ( ! is_callable( 'StringUtils::isUtf8' ) ) {
@@ -176,23 +197,34 @@ abstract class MathRenderer {
 	 *
 	 * @param database_row $rpage
 	 */
-	public function initializeFromDatabaseRow( $rpage ) {
-		$dbr = wfGetDB( DB_SLAVE );
-		$xhash = unpack( 'H32md5',
-			$dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
-		$this->hash = $xhash['md5'];
-		$this->conservativeness = $rpage->math_html_conservativeness;
-		$this->html = $rpage->math_html;
-		$this->mathml = utf8_decode( $rpage->math_mathml );
-		$this->storedInDatabase = true;
+	protected function initializeFromDatabaseRow( $rpage ) {
+		$this->inputHash = $rpage->math_inputhash; // MUST NOT BE NULL
+		$this->md5 = self::dbHash2md5( $this->inputHash );
+		if ( ! empty( $rpage->math_mathml ) ) {
+			$this->mathml = utf8_decode ( $rpage->math_mathml );
+		}
+		if ( ! empty( $rpage->math_inputtex ) ) { // in the current database the field is probably not set.
+			$this->userInputTex = $rpage->math_inputtex;
+		}
+		if ( ! empty( $rpage->math_tex ) ) {
+			$this->tex = $rpage->math_tex;
+		}
+		if ( ! empty( $rpage->math_svg ) ) {
+			$this->svg = $rpage->math_svg;
+		}
 	}
 
 	/**
 	 * @return array with the database column names
 	 */
-	private function dbInArray() {
-		return array( 'math_inputhash', 'math_outputhash', 'math_html_conservativeness', 'math_html',
-				'math_mathml' );
+	protected function dbInArray() {
+		$in = array( 'math_inputhash',
+			'math_mathml',
+			'math_inputtex',
+			'math_tex',
+			'math_svg'
+			);
+		return $in;
 	}
 	/**
 	 * Writes rendering entry to database.
@@ -206,13 +238,15 @@ abstract class MathRenderer {
 	public function writeToDatabase( $dbw = null ) {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
-			$dbw = $dbw ?: wfGetDB( DB_MASTER );
-			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . bin2hex( $this->hash ) . ")\n" );
+			$dbw = $dbw ? : wfGetDB( DB_MASTER );
+			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->getMd5() . ")\n" );
 			$outArray = $this->dbOutArray();
+			$method = __METHOD__;
+			$mathTableName = $this->getMathTableName();
 			$dbw->onTransactionIdle(
-					function() use( $dbw, $outArray ) {
-						$dbw->replace( 'math', array( 'math_inputhash' ), $outArray, __METHOD__ );
-					} );
+				function() use( $dbw, $outArray, $method, $mathTableName ) {
+					$dbw->insert( $mathTableName, $outArray, $method , array ( 'IGNORE' ) );
+				} );
 		}
 	}
 
@@ -220,19 +254,13 @@ abstract class MathRenderer {
 	 * Gets an array that matches the variables of the class to the database columns
 	 * @return array
 	 */
-	private function dbOutArray() {
-		global $wgDebugMath;
-		$dbr = wfGetDB( DB_SLAVE );
-		if ( $this->hash ) {
-			$outmd5_sql = $dbr->encodeBlob( pack( 'H32', $this->hash ) );
-		} else {
-			$outmd5_sql = 0; // field cannot be null
-			// TODO: Change Database layout to allow for null values
-		}
-		$out = array( 'math_inputhash' => $this->getInputHash(), 'math_outputhash' => $outmd5_sql,
-				'math_html_conservativeness' => $this->conservativeness, 'math_html' => $this->html,
-				'math_mathml' => utf8_encode( $this->mathml ) );
-		wfDebugLog( "Math", "Store Data:" . var_export( $out, true ) . "\n\n" );
+	protected function dbOutArray() {
+		$out = array( 'math_inputhash' => $this->getInputHash (),
+			'math_mathml' => utf8_encode ( $this->mathml ),
+			'math_inputtex' => $this->userInputTex,
+			'math_tex' => $this->tex,
+			'math_svg' => $this->svg
+			);
 		return $out;
 	}
 
@@ -296,23 +324,6 @@ abstract class MathRenderer {
 	public function setTex( $tex ) {
 		$this->changed = true;
 		$this->tex = $tex;
-	}
-
-	/**
-	 * Get the hash calculated by texvc
-	 *
-	 * @return string hash
-	 */
-	public function getHash() {
-		return $this->hash;
-	}
-
-	/**
-	 * @param string $hash
-	 */
-	public function setHash( $hash ) {
-		$this->changed = true;
-		$this->hash = $hash;
 	}
 
 	/**
@@ -442,6 +453,10 @@ abstract class MathRenderer {
 				return false;
 			}
 		}
+	}
+
+	protected function getMathTableName() {
+		return 'mathoid';
 	}
 }
 
