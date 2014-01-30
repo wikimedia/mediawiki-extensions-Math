@@ -16,26 +16,78 @@
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
  * @author Moritz Schubotz
+ * @deprecated will be deleted in one of the next versions without further notice
  */
 class MathTexvc extends MathRenderer {
+	private $hash = '';
+	private $html = '';
+	private $conservativeness = 0;
 	const CONSERVATIVE = 2;
 	const MODERATE = 1;
 	const LIBERAL = 0;
 	const MW_TEXVC_SUCCESS = -1;
+
+		/**
+	 * Gets an array that matches the variables of the class to the database columns
+	 * @return array
+	 */
+	public function dbOutArray() {
+		$out = array();
+		$dbr = wfGetDB( DB_SLAVE );
+		if ( $this->hash ) {
+			$outmd5_sql = $dbr->encodeBlob( pack( 'H32', $this->hash ) );
+		} else {
+			$outmd5_sql = 0; // field cannot be null
+			// TODO: Change Database layout to allow for null values
+		}
+		$out['math_outputhash'] = $outmd5_sql;
+		$out['math_html_conservativeness'] = $this->conservativeness;
+		$out['math_html'] = $this->html;
+		$out['math_inputhash'] = $this->getInputHash();
+		wfDebugLog( 'Math', 'Store Hashpath of image' . bin2hex( $outmd5_sql ) );
+		return $out;
+	}
+
+	protected function dbInArray() {
+		return array( 'math_inputhash', 'math_outputhash',
+				'math_html_conservativeness', 'math_html' );
+	}
+	/**
+	 * @param database_row $rpage
+	 */
+	protected function initializeFromDatabaseRow( $rpage ) {
+		$result = parent::initializeFromDatabaseRow( $rpage );
+		// get deprecated fields
+		if ( $rpage->math_outputhash ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$xhash = unpack( 'H32md5',
+				$dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
+			$this->hash = $xhash['md5'];
+			wfDebugLog( 'Math', 'Hashpath of PNG-File:' . bin2hex( $this->hash ) );
+			$this->conservativeness = $rpage->math_html_conservativeness;
+			$this->html = $rpage->math_html;
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	/**
 	 * Renders TeX using texvc
 	 *
 	 * @return string rendered TeK
 	 */
-	public function render() {
+	 function render() {
 		if ( !$this->readCache() ) { // cache miss
 			$result = $this->callTexvc();
-			if ( $result != self::MW_TEXVC_SUCCESS ) {
+			if ( $result === self::MW_TEXVC_SUCCESS ) {
+				return $this->getHtmlOutput();
+			} else {
+				$this->lastError = $result;
 				return $result;
 			}
 		}
-		return $this->doHTMLRender();
+		return $this->getHtmlOutput();
 	}
 
 	/**
@@ -46,7 +98,7 @@ class MathTexvc extends MathRenderer {
 	public function getHashPath() {
 		$path = $this->getBackend()->getRootStoragePath() .
 			'/math-render/' . $this->getHashSubPath();
-		wfDebugLog("Math", "TeX: getHashPath, hash is: {$this->getHash()}, path is: $path\n" );
+		wfDebugLog( "Math", "TeX: getHashPath, hash is: {$this->getHash()}, path is: $path\n" );
 		return $path;
 	}
 
@@ -169,7 +221,6 @@ class MathTexvc extends MathRenderer {
 			$i = strpos( $outdata, "\000" );
 
 			$this->setHtml( substr( $outdata, 0, $i ) );
-			$this->setMathml( substr( $outdata, $i + 1 ) );
 		} elseif ( ( $retval == 'c' ) || ( $retval == 'm' ) || ( $retval == 'l' ) ) {
 			$this->setHtml( substr( $contents, 33 ) );
 			if ( $retval == 'c' ) {
@@ -179,14 +230,11 @@ class MathTexvc extends MathRenderer {
 			} else {
 				$this->setConservativeness( self::LIBERAL );
 			}
-			$this->setMathml( null );
 		} elseif ( $retval == 'X' ) {
 			$this->setHtml( null );
-			$this->setMathml( substr( $contents, 33 ) );
 			$this->setConservativeness( self::LIBERAL );
 		} elseif ( $retval == '+' ) {
 			$this->setHtml( null );
-			$this->setMathml( null );
 			$this->setConservativeness( self::LIBERAL );
 		} else {
 			$errmsg = $this->convertTexvcError( $contents );
@@ -233,7 +281,7 @@ class MathTexvc extends MathRenderer {
 				unset( $wgHooks['ParserAfterParse']['FlushMathBackend'] );
 				$backend->doQuickOperations( $backend->mathBufferedWrites );
 				unset( $backend->mathBufferedWrites );
-			};
+			} ;
 		}
 		$backend->mathBufferedWrites[] = array(
 			'op'  => 'store',
@@ -261,7 +309,7 @@ class MathTexvc extends MathRenderer {
 				$backend = new FSFileBackend( array(
 					'name'           => 'math-backend',
 					'wikiId' 	 => wfWikiId(),
-					'lockManager'    => new NullLockManager(array() ),
+					'lockManager'    => new NullLockManager( array() ),
 					'containerPaths' => array( 'math-render' => $wgMathDirectory ),
 					'fileMode'       => 0777
 				) );
@@ -275,13 +323,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return string HTML string
 	 */
-	public function doHTMLRender() {
-		if ( $this->getMode() == MW_MATH_MATHML && $this->getMathml() != '' ) {
-			return Xml::tags( 'math',
-				$this->getAttributes( 'math',
-					array( 'xmlns' => 'http://www.w3.org/1998/Math/MathML' ) ),
-				$this->mathml );
-		}
+	public function getHtmlOutput() {
 		if ( ( $this->getMode() == MW_MATH_PNG ) || ( $this->getHtml() == '' ) ||
 			( ( $this->getMode() == MW_MATH_SIMPLE ) && ( $this->getConservativeness() != self::CONSERVATIVE ) ) ||
 			( ( $this->getMode() == MW_MATH_MODERN || $this->getMode() == MW_MATH_MATHML ) && ( $this->getConservativeness() == self::LIBERAL ) )
@@ -306,11 +348,6 @@ class MathTexvc extends MathRenderer {
 		global $wgUseSquid;
 
 		wfProfileIn( __METHOD__ );
-		// If cache hit, don't write anything.
-		if ( $this->isRecall() ) {
-			wfProfileOut( __METHOD__ );
-			return;
-		}
 		$this->writeToDatabase();
 		// If we're replacing an older version of the image, make sure it's current.
 		if ( $wgUseSquid ) {
@@ -351,5 +388,73 @@ class MathTexvc extends MathRenderer {
 		wfProfileOut( __METHOD__ );
 		return false;
 	}
+	public function getPng() {
+		$backend = $this->getBackend();
+		// echo $this->getHashPath(). "/". $this->getHash() . '.png';
+		return $backend->getFileContents( array( 'src' => $this->getHashPath() . "/" . $this->getHash() . '.png' ) );
+	}
+
+	public function readFromDatabase() {
+		$return = parent::readFromDatabase();
+		if ( $this->hash && $return ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	/**
+	 * Get the hash calculated by texvc
+	 *
+	 * @return string hash
+	 */
+	public function getHash() {
+		return $this->hash;
+	}
+
+	/**
+	 * @param string $hash
+	 */
+	public function setHash( $hash ) {
+		$this->changed = true;
+		$this->hash = $hash;
+	}
+
+	/**
+	 * Returns the html-representation of the mathematical formula.
+	 * @return string
+	 */
+	public function getHtml() {
+		return $this->html;
+	}
+
+	/**
+	 * @param string $html
+	 */
+	public function setHtml( $html ) {
+		$this->changed = true;
+		$this->html = $html;
+	}
+
+		/**
+	 * Gets the so called 'conservativeness' calculated by texvc
+	 *
+	 * @return int
+	 */
+	public function getConservativeness() {
+		return $this->conservativeness;
+	}
+
+	/**
+	 * @param int $conservativeness
+	 */
+	public function setConservativeness( $conservativeness ) {
+		$this->changed = true;
+		$this->conservativeness = $conservativeness;
+	}
+
+	protected function getMathTableName() {
+		return 'math';
+	}
+
 
 }

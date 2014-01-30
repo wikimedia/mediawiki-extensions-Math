@@ -198,26 +198,21 @@ class MathHooks {
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
 		if ( is_null( $updater ) ) {
-			throw new MWException( 'Math extension is only necessary in 1.18 or above' );
+			throw new MWException( "Math extension is only necessary in 1.18 or above" );
 		}
-
-		$map = array(
-			'mysql' => 'math.sql',
-			'sqlite' => 'math.sql',
-			'postgres' => 'math.pg.sql',
-			'oracle' => 'math.oracle.sql',
-			'mssql' => 'math.mssql.sql',
-		);
-
+		$map = array( 'mysql', 'sqlite', 'postgres', 'oracle', 'mssql' );
 		$type = $updater->getDB()->getType();
-
-		if ( isset( $map[$type] ) ) {
-			$sql = dirname( __FILE__ ) . '/db/' . $map[$type];
-			$updater->addExtensionTable( 'math', $sql );
-		} else {
-			throw new MWException( "Math extension does not currently support $type database." );
+		if ( $type == 'sqlite' ) {
+			$type = 'mysql'; // The commands used from the updater are the same
 		}
-
+		if ( in_array( $type, $map ) ) {
+			$sql = dirname( __FILE__ ) . '/db/math.' . $type . '.sql';
+			$updater->addExtensionTable( 'math', $sql );
+			$sql = dirname( __FILE__ ) . '/db/mathoid.' . $type . '.sql';
+			$updater->addExtensionTable( 'mathoid', $sql );
+		} else {
+			throw new MWException( "Math extension does not currently support $type database.\n" );
+		}
 		return true;
 	}
 
@@ -230,7 +225,7 @@ class MathHooks {
 	 */
 	static function onParserTestTables( &$tables ) {
 		$tables[] = 'math';
-
+		$tables[] = 'mathoid';
 		return true;
 	}
 
