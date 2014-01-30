@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ef7ef47_2b82b7a9",
+        "filename": "Math.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2014-01-30T00:09:33Z",
+      "side": 1,
+      "message": "Fix the two wgLaTeXMLUrl mentions in the comment.",
+      "revId": "8412802dad9f849799dead65d977ea1e881bf977",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ef7ef47_ced4814e",
+        "filename": "Math.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2014-01-30T00:09:33Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be wgMathUseLaTeXML (if we\u0027re breaking backwards-compatibility on LaTeXML anyway)?",
+      "revId": "8412802dad9f849799dead65d977ea1e881bf977",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ef7ef47_0ec26988",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2014-01-30T00:09:33Z",
+      "side": 1,
+      "message": "Fix comment",
+      "revId": "8412802dad9f849799dead65d977ea1e881bf977",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ef7ef47_eebe1dfa",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2014-01-30T00:09:33Z",
+      "side": 1,
+      "message": "Fix string to match.",
+      "revId": "8412802dad9f849799dead65d977ea1e881bf977",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ef7ef47_eb8bafc2",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2014-01-30T00:09:33Z",
+      "side": 1,
+      "message": "Fix comment",
+      "revId": "8412802dad9f849799dead65d977ea1e881bf977",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
