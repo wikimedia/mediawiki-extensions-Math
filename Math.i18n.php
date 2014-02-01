@@ -2618,7 +2618,7 @@ $messages['min'] = array(
  */
 $messages['mk'] = array(
 	'math-desc' => 'Испис на математички формули помеѓу ознаките <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
-	'math_sample' => 'Овде вметни формула',
+	'math_sample' => 'Овде вметнете формула',
 	'math_tip' => 'Математичка формула (LaTeX)',
 	'prefs-math' => 'Матем. формули',
 	'mw_math_png' => 'Секогаш исцртувај во PNG',
