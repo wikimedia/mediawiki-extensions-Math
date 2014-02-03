@@ -89,10 +89,10 @@ class MathHooks {
 	 * @param $content (the LaTeX input)
 	 * @param $attributes
 	 * @param Parser $parser
-	 * @return string
+	 * @return array
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgContLang, $wgUseMathJax, $wgMathDisableTexFilter;
+		global $wgUseMathJax, $wgMathDisableTexFilter;
 
 		if ( trim( $content ) === '' ) { // bug 8372
 			return '';
@@ -128,10 +128,9 @@ class MathHooks {
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
 
 		$renderer->writeCache();
-		$result = $wgContLang->armourMath( $renderedMath );
 		wfProfileOut( __METHOD__ );
 
-		return $result;
+		return array( $renderedMath, "markerType" => 'nowiki' );
 	}
 
 	/**
