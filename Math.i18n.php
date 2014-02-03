@@ -1579,6 +1579,7 @@ $messages['haw'] = array(
 /** Hebrew (עברית)
  * @author Amire80
  * @author ExampleTomer
+ * @author Yona b
  */
 $messages['he'] = array(
 	'math-desc' => 'הדפסת נוסחאות מתמטיות בין התגים <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
@@ -1591,7 +1592,7 @@ $messages['he'] = array(
 	'mw_math_latexml' => 'LaTeXML (נסיוני; משתמש ב־MathML)',
 	'math_failure' => 'עיבוד הנוסחה נכשל',
 	'math_unknown_error' => 'שגיאה לא ידועה',
-	'math_unknown_function' => 'פונקציה לא מוכרת', # Fuzzy
+	'math_unknown_function' => 'פונקציה $1 לא מוכרת',
 	'math_lexing_error' => 'שגיאת לקסינג',
 	'math_syntax_error' => 'שגיאת תחביר',
 	'math_image_error' => 'ההמרה ל־PNG נכשלה; אנא בדקו אם התקנתם נכון את latex ואת dvipng (או צירוף של dvips‏, gs ו־convert)',
