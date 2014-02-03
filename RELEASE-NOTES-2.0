@@ -7,4 +7,4 @@ production.
 
 === Configuration changes in 2.0 ===
 * $wgLaTeXMLUrl was renamed to $wgMathLaTeXMLUrl
-* $wgLaTeXMLUrl was renamed to $wgMathLaTeXMLTimeout
+* $$wgLaTeXMLTimeout was renamed to $wgMathLaTeXMLTimeout
