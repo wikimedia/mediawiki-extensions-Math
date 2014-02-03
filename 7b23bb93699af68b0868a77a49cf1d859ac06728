@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ef7ef47_19173aaa",
+        "filename": "Math.hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-02-03T23:06:20Z",
+      "side": 1,
+      "message": "what armourMath does is something like\n\t/**\n\t * (Moved from core)\n\t * Armour rendered math against conversion.\n\t * Escape special chars in parsed math text. (in most cases are img elements)\n\t *\n\t * @param $text String: text to armour against conversion\n\t * @return String: armoured text where { and } have been converted to\n\t *                 \u0026#123; and \u0026#125;\n\t */\n\tpublic static function armourMath( $text ) {\n\t\t// convert \u0027-{\u0027 and \u0027}-\u0027 to \u0027-\u0026#123;\u0027 and \u0027\u0026#125;-\u0027 to prevent\n\t\t// any unwanted markup appearing in the math image tag.\n\t\t$text \u003d strtr( $text, array( \u0027-{\u0027 \u003d\u003e \u0027-\u0026#123;\u0027, \u0027}-\u0027 \u003d\u003e \u0027\u0026#125;-\u0027 ) );\n\t\treturn $text;\n\t}\nMy proposal is to use\n\t\treturn array( $renderedMath, \"markerType\" \u003d\u003e \u0027nowiki\u0027 );\nand everything is fine",
+      "revId": "7b23bb93699af68b0868a77a49cf1d859ac06728",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
