@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ef7ef47_03b349e9",
+        "filename": "MathRenderer.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-02-03T21:02:39Z",
+      "side": 1,
+      "message": "s/layot/layout/",
+      "revId": "2a52c9ee80d2fdfba7bb822a25dc69772411a2b1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ef7ef47_c3ac4187",
+        "filename": "MathRenderer.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-02-03T21:02:39Z",
+      "side": 1,
+      "message": "s/userdefined/user-defined/",
+      "revId": "2a52c9ee80d2fdfba7bb822a25dc69772411a2b1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
