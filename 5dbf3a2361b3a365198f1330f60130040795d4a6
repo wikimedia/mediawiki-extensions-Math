@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ef7ef47_83999982",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-02-03T20:53:21Z",
+      "side": 1,
+      "message": "MathJax (lowercase X)",
+      "revId": "5dbf3a2361b3a365198f1330f60130040795d4a6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ef7ef47_63cfad83",
+        "filename": "Math.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-02-03T20:53:21Z",
+      "side": 1,
+      "message": "So do we want to consider $wgUseMathJax for backward compatibility?\n\nAlso should the new option be called $wgMathUseMathJax?",
+      "revId": "5dbf3a2361b3a365198f1330f60130040795d4a6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ef7ef47_03d8e956",
+        "filename": "modules/ext.math.mathjax.enabler.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-02-03T20:53:21Z",
+      "side": 1,
+      "message": "I think you can just leave the function immediately with a \"return\" here. That will avoid wrong indentation. Also, I think the still is one space after the if and one space before the {.",
+      "revId": "5dbf3a2361b3a365198f1330f60130040795d4a6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ef7ef47_4316f1f7",
+        "filename": "modules/ext.math.mathjax.enabler.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-02-03T20:53:21Z",
+      "side": 1,
+      "message": "useless whitespace change",
+      "revId": "5dbf3a2361b3a365198f1330f60130040795d4a6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
