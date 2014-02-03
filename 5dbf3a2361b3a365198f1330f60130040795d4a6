@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6ef7ef47_59cca28c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-02-03T22:43:46Z",
+      "side": 1,
+      "message": "Seems to be hard for me to learn that;-)",
+      "parentUuid": "6ef7ef47_83999982",
+      "revId": "5dbf3a2361b3a365198f1330f60130040795d4a6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ef7ef47_63cfad83",
         "filename": "Math.php",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2014-02-03T20:53:21Z",
       "side": 1,
       "message": "So do we want to consider $wgUseMathJax for backward compatibility?\n\nAlso should the new option be called $wgMathUseMathJax?",
+      "revId": "5dbf3a2361b3a365198f1330f60130040795d4a6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ef7ef47_79cf5e83",
+        "filename": "Math.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-02-03T22:43:46Z",
+      "side": 1,
+      "message": "I think it\u0027s ok to change that. Admins that upgrade to Math2.0 have to change some settings like this or that.\nMy preference is\n1) $wgMathJax\n2) $wgMathAllowMathJax\n3) $wgMathUseJax\n4) $wgUseMathJax\nMaybe we can vote, or use a RFC.",
+      "parentUuid": "6ef7ef47_63cfad83",
       "revId": "5dbf3a2361b3a365198f1330f60130040795d4a6",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6ef7ef47_19bf3acf",
+        "filename": "modules/ext.math.mathjax.enabler.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-02-03T22:43:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ef7ef47_03d8e956",
+      "revId": "5dbf3a2361b3a365198f1330f60130040795d4a6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ef7ef47_4316f1f7",
         "filename": "modules/ext.math.mathjax.enabler.js",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2014-02-03T20:53:21Z",
       "side": 1,
       "message": "useless whitespace change",
+      "revId": "5dbf3a2361b3a365198f1330f60130040795d4a6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ef7ef47_39f2f6cd",
+        "filename": "modules/ext.math.mathjax.enabler.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-02-03T22:43:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ef7ef47_4316f1f7",
       "revId": "5dbf3a2361b3a365198f1330f60130040795d4a6",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
