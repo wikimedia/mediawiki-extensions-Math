@@ -127,10 +127,9 @@ class MathHooks {
 		}
 
 		$renderer->writeCache();
-		$result = $wgContLang->armourMath( $renderedMath );
 		wfProfileOut( __METHOD__ );
 
-		return $result;
+		return array( $renderedMath, "markerType" => 'nowiki' );
 	}
 
 	/**
