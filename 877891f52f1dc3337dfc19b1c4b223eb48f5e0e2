@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ef7ef47_afb7d480",
+        "filename": "Math.hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 90
+      },
+      "writtenOn": "2014-02-04T07:57:08Z",
+      "side": 1,
+      "message": "I guess this works but there\u0027s still an unused $wgContLang here.",
+      "revId": "877891f52f1dc3337dfc19b1c4b223eb48f5e0e2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
