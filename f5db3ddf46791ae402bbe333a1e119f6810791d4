@@ -69,6 +69,24 @@
       "revId": "f5db3ddf46791ae402bbe333a1e119f6810791d4",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ef7ef47_29f16dda",
+        "filename": "Math.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 370
+      },
+      "writtenOn": "2014-02-06T14:36:13Z",
+      "side": 1,
+      "message": "My impression is that master gets at one point tagged and turned into a branch no matter what happened in the meantime. I may very well be wrong. However I subscribe to the semantic versioning policy. I believe this is more about making sure that master does not end up in production. Yeah WMF programmers will be better advisors for you than me.",
+      "parentUuid": "6ef7ef47_e9e6e53e",
+      "revId": "f5db3ddf46791ae402bbe333a1e119f6810791d4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
