@@ -30,7 +30,13 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function render() {
 		if ( !$this->readCache() ) { // cache miss
-			$result = $this->callTexvc();
+			$t = $this;
+			$renderWork = new PoolCounterWorkViaCallback( 'MathTexvc-render', "", array(
+				'doWork' => function() use ( $t ) {
+					return $t->callTexvc();
+				},
+			) );
+			$result = $renderWork->execute();
 			if ( $result != self::MW_TEXVC_SUCCESS ) {
 				return $result;
 			}
