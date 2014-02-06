@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ef7ef47_696e55c6",
+        "filename": "Math.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 370
+      },
+      "writtenOn": "2014-02-06T13:41:48Z",
+      "side": 1,
+      "message": "This needs an update",
+      "revId": "f5db3ddf46791ae402bbe333a1e119f6810791d4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ef7ef47_896be1b4",
+        "filename": "Math.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 370
+      },
+      "writtenOn": "2014-02-06T13:41:48Z",
+      "side": 1,
+      "message": "I strongly recommend incrementing the version to e.g. 1.2 since this change introduces breaking changes to the configuration",
+      "revId": "f5db3ddf46791ae402bbe333a1e119f6810791d4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
