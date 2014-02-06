@@ -40,11 +40,23 @@ class MathInputCheckTexvc extends MathInputCheck {
 	}
 
 	/**
-	 *
-	 * @global type $wgTexvc
 	 * @return boolean
 	 */
 	public function isValid() {
+		$us = $this;
+		$checkWork = new PoolCounterWorkViaCallback( 'MathTexvc-check', "", array(
+			'doWork' => function() use ( $us ) {
+				return $us->doValidCheck();
+			}
+		) );
+		return $checkWork->execute();
+	}
+
+	/**
+	 * @global type $wgTexvc
+	 * @return boolean
+	 */
+	public function doValidCheck() {
 		global $wgMathTexvcCheckExecutable;
 		if ( !is_executable( $wgMathTexvcCheckExecutable ) ) {
 			$msg = wfMessage( 'math_notexvc' )->inContentLanguage()->escaped();
