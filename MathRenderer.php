@@ -443,5 +443,12 @@ abstract class MathRenderer {
 			}
 		}
 	}
+
+    /**
+     * @return string TeX the original tex string specified by the user
+     */
+    public function getUserInputTex(){
+        return $this->userInputTex;
+    }
 }
 
