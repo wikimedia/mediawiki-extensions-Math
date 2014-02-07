@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ef7ef47_d4ebbd75",
+        "filename": "MathRenderer.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1434
+      },
+      "writtenOn": "2014-02-07T08:50:58Z",
+      "side": 1,
+      "message": "Please use tabs instead of spaces.",
+      "revId": "a98a66c3a137eac3329ba08d5e6ee4dfb523594b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
