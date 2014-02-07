@@ -137,7 +137,7 @@ abstract class MathRenderer {
 	public function getInputHash() {
 		// TODO: What happens if $tex is empty?
 		$dbr = wfGetDB( DB_SLAVE );
-		return $dbr->encodeBlob( pack( "H32", md5( $this->tex ) ) ); # Binary packed, not hex
+		return $dbr->encodeBlob( pack( "H32", md5( $this->getUserInputTex() ) ) ); # Binary packed, not hex
 	}
 
 	/**
@@ -442,6 +442,13 @@ abstract class MathRenderer {
 				return false;
 			}
 		}
+	}
+
+	/**
+	 * @return string original tex string specified by the user
+	 */
+	public function getUserInputTex(){
+		return $this->userInputTex;
 	}
 }
 
