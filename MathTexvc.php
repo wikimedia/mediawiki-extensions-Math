@@ -110,7 +110,7 @@ class MathTexvc extends MathRenderer {
 	 * @return int|string MW_TEXVC_SUCCESS or error string
 	 */
 	public function callTexvc() {
-		global $wgTexvc, $wgTexvcBackgroundColor, $wgUseSquid, $wgMathCheckFiles, $wgHooks;
+		global $wgTexvc, $wgTexvcBackgroundColor, $wgHooks;
 
 		wfProfileIn( __METHOD__ );
 		$tmpDir = wfTempDir();
@@ -125,7 +125,7 @@ class MathTexvc extends MathRenderer {
 		$cmd = $wgTexvc . ' ' .
 			$escapedTmpDir . ' ' .
 			$escapedTmpDir . ' ' .
-			wfEscapeShellArg( $this->getTex() ) . ' ' .
+			wfEscapeShellArg( $this->getUserInputTex() ) . ' ' .
 			wfEscapeShellArg( 'UTF-8' ) . ' ' .
 			wfEscapeShellArg( $wgTexvcBackgroundColor );
 
