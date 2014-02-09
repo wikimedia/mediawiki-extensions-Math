@@ -21,7 +21,7 @@ class MathHooks {
 
 		// To be independent of the MediaWiki core version,
 		// we check if the core caching logic for math is still available.
-		if ( ! is_callable( 'ParserOptions::getMath' ) && in_array( 'math', $forOptions) ) {
+		if ( ! is_callable( 'ParserOptions::getMath' ) && in_array( 'math', $forOptions ) ) {
 			if ( $user === false ) {
 				$user = $wgUser;
 			}
@@ -36,7 +36,7 @@ class MathHooks {
 			) {
 				// The math part of cache key starts with "math=" followed by a star or a number for the math mode
 				// and the optional letter j that indicates if clientside MathJax rendering is used.
-				if ( preg_match( '/(^|!)' . self::mathCacheKey.'[*\d]m?(!|$)/', $confstr ) ) {
+				if ( preg_match( '/(^|!)' . self::mathCacheKey . '[*\d]m?(!|$)/', $confstr ) ) {
 					$confstr = preg_replace(
 						'/(^|!)' . self::mathCacheKey . '[*\d]m?(!|$)/',
 						'\1' . self::mathCacheKey . $mathOption . '\2',
@@ -231,22 +231,6 @@ class MathHooks {
 	 */
 	static function onParserTestTables( &$tables ) {
 		$tables[] = 'math';
-
-		return true;
-	}
-
-	/**
-	 * Hack to fake a default $wgMathPath value so parser test output
-	 * that renders to images doesn't vary by who runs it.
-	 *
-	 * @global string $wgMathPath
-	 * @param Parser $parser
-	 * @return bool
-	 */
-	static function onParserTestParser( &$parser ) {
-		global $wgMathPath;
-
-		$wgMathPath = '/images/math';
 
 		return true;
 	}

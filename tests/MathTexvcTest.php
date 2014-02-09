@@ -122,7 +122,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 	 */
 	public function testConvertTexvcError() {
 		$texvc = $this->getMockBuilder( 'MathTexvc' )
-			->setMethods(NULL)
+			->setMethods( NULL )
 			->disableOriginalConstructor()
 			->getMock();
 

@@ -150,7 +150,6 @@ $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
 $wgHooks['GetPreferences'][] = 'MathHooks::onGetPreferences';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'MathHooks::onLoadExtensionSchemaUpdates';
 $wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
-$wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
 $wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
 $wgHooks['PageRenderingHash'][] = 'MathHooks::onPageRenderingHash';
 
