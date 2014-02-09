@@ -1,0 +1,91 @@
+<?php
+/**
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * http://www.gnu.org/copyleft/gpl.html
+ *
+ * @ingroup Maintenance
+ */
+
+require_once( dirname( __FILE__ ) . '/../../../maintenance/Maintenance.php' );
+
+class MathGenerateTests extends Maintenance {
+	const ReferencePage = 'mediawikiwiki:Extension:Math/CoverageTest';
+	public function __construct() {
+		parent::__construct();
+		$this->mDescription = 'Rebuilds the MathCoverage tests';
+		$this->addArg('page', "The page ues for the testset generation.", false);
+		$this->addOption( 'offset', "If set the first n equations on the page are skipped", false, true, "o" );
+		$this->addOption( 'length', "If set the only n equations were processed", false, true, "l" );
+		$this->addOption( 'user', "User with rights to view the page", false, true, "u" );
+
+	}
+
+	private static function getMathTagsFromPage( $titleString  ) {
+		global $wgEnableScaryTranscluding;
+		$title = Title::newFromText( $titleString );
+		if ( $title->exists() ){
+			$article = new Article( $title );
+			$wikiText = $article->getPage()->getContent()->getNativeData();
+		} else {
+			if( $title == self::ReferencePage ){
+					$wgEnableScaryTranscluding = true;
+					$parser = new Parser();
+					$wikiText = $parser->interwikiTransclude( $title, 'raw' );
+			} else {
+				return 'Page does not exist';
+			}
+		}
+		// TODO: find a better way to extract math elements from a page
+
+		$wikiText = Sanitizer::removeHTMLcomments( $wikiText );
+		$wikiText = preg_replace( '#<nowiki>(.*)</nowiki>#', '', $wikiText );
+		$matches = preg_match_all( "#<math>(.*?)</math>#s", $wikiText,  $math );
+		// TODO: Find a way to specify a key e.g '\nRenderTest:(.?)#<math>(.*?)</math>#s\n'
+		// leads to array('\1'->'\2') with \1 eg Bug 2345 and \2 the math content
+		return $math[1];
+
+	}
+
+	public function execute() {
+		global $wgUser;
+		$parserTests= array();
+		$page = $this->getArg( 0 ,self::ReferencePage);
+		$offset = $this->getOption('offset',0);
+		$length = $this->getOption('length',PHP_INT_MAX);
+		$userName = $this->getOption( 'user', 'Maintenance script' );
+		$wgUser = User::newFromName( $userName );
+		$allEquations =  self::getMathTagsFromPage( $page );
+		if ( ! is_array( $allEquations ) ){
+			echo "Could not get equations from page '$page'\n";
+			echo $allEquations . PHP_EOL;
+			return;
+		} else {
+			echo 'got ' . sizeof($allEquations) . " math tags. Start processing.";
+		}
+		$i=0;
+		foreach ( array_slice( $allEquations, $offset , $length , true) as $key => $input ) {
+			$output = MathRenderer::renderMath( $input, array(), MW_MATH_PNG );
+			$parserTests[ ]= array( (string) $input , $output);
+			$i++;
+			echo '.';
+		}
+		echo "Generated $i tests\n";
+		file_put_contents(dirname( __FILE__ ).'/../tests/ParserTest.data',serialize($parserTests));
+	}
+}
+
+$maintClass = "MathGenerateTests";
+require_once( RUN_MAINTENANCE_IF_MAIN );
