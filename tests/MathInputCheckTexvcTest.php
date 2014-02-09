@@ -26,8 +26,8 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 		} else {
 			# Attempt to compile
 			wfDebugLog( __CLASS__, " compiling texvccheck..." );
-			$cmd = 'cd ' . dirname(__DIR__) . '/texvccheck; make --always-make 2>&1';
-			$stdout = wfShellExec( $cmd, $retval );
+			$cmd = 'cd ' . dirname( __DIR__ ) . '/texvccheck; make --always-make 2>&1';
+			wfShellExec( $cmd, $retval );
 			if ( $retval === 0 ) {
 				self::$hasTexvccheck = true;
 				self::$texvccheckPath = dirname( __DIR__ ) . '/texvccheck/texvccheck';
@@ -43,7 +43,6 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 	 * This method is called before a test is executed.
 	 */
 	protected function setUp() {
-		global $wgMathTexvcCheckExecutable;
 		parent::setUp();
 		$this->BadObject = new MathInputCheckTexvc( '\newcommand{\text{do evil things}}' );
 		$this->GoodObject = new MathInputCheckTexvc( '\sin\left(\frac12x\right)' );
@@ -72,7 +71,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 		$maxAvgTime = .001;
 		$tstart = microtime( true );
 
-		for ($i = 1; $i <= $numberOfRuns; $i++){
+		for ( $i = 1; $i <= $numberOfRuns; $i++ ) {
 			is_executable( $wgMathTexvcCheckExecutable );
 		}
 
@@ -97,7 +96,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 		$this->GoodObject->isValid();
 		$this->assertNull( $this->GoodObject->getError() );
 		$expectedMessage = wfMessage( 'math_unknown_function', '\newcommand' )->inContentLanguage()->escaped();
-		$this->assertContains( $expectedMessage , $this->BadObject->getError());
+		$this->assertContains( $expectedMessage , $this->BadObject->getError() );
 	}
 
 	/**
@@ -142,7 +141,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 	 */
 	public function testConvertTexvcError() {
 		$texvc = $this->getMockBuilder( 'MathInputCheckTexvc' )
-			->setMethods(NULL)
+			->setMethods( NULL )
 			->disableOriginalConstructor()
 			->getMock();
 

@@ -17,7 +17,7 @@ class MathRendererTest extends MediaWikiTestCase {
 		$this->assertEquals( MathDatabaseTest::SOME_TEX, $renderer->getTex()
 			, "test getTex" );
 		$this->assertEquals( $renderer->isChanged(), false
-			, "test if changed is initially false");
+			, "test if changed is initially false" );
 	}
 
 	/**
@@ -58,13 +58,13 @@ class MathRendererTest extends MediaWikiTestCase {
 		->disableOriginalConstructor()
 		->getMock();
 		$this->assertEquals( $renderer->isChanged(), false
-			, "test if changed is initially false");
-		$renderer->setHash('0000');
+			, "test if changed is initially false" );
+		$renderer->setHash( '0000' );
 		$this->assertEquals( $renderer->isChanged(), true
-			, "assumes that changing a hash sets changed to true");
+			, "assumes that changing a hash sets changed to true" );
 	}
 
-	public function testSetPurge(){
+	public function testSetPurge() {
 		$renderer = $this->getMockBuilder( 'MathRenderer' )
 		->setMethods( array( 'render' ) )
 		->disableOriginalConstructor()

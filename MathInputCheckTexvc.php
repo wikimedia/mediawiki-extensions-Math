@@ -13,6 +13,8 @@ class MathInputCheckTexvc extends MathInputCheck {
 	 * Converts an error returned by texvc to a localized exception
 	 *
 	 * @param string $texvcResult error result returned by texvc
+	 * @param bool|MathRenderer $errorRenderer
+	 * @return string
 	 */
 	public function convertTexvcError( $texvcResult, $errorRenderer = false ) {
 		$texvcStatus = substr( $texvcResult, 0, 1 );
@@ -22,7 +24,7 @@ class MathInputCheckTexvc extends MathInputCheck {
 			$errorRenderer =  new MathSource( $this->inputTeX );
 		}
 
-		switch ($texvcStatus) {
+		switch ( $texvcStatus ) {
 			case 'E':
 				$errMsg = $errorRenderer->getError( 'math_lexing_error' );
 				break;
@@ -69,14 +71,14 @@ class MathInputCheckTexvc extends MathInputCheck {
 
 		if ( wfIsWindows() ) {
 			# Invoke it within cygwin sh, because texvc expects sh features in its default shell
-			$cmd = 'sh -c ' . wfEscapeShellArg($cmd);
+			$cmd = 'sh -c ' . wfEscapeShellArg( $cmd );
 		}
 
 		wfDebugLog( 'Math', "TeX check command: $cmd\n" );
 		$contents = wfShellExec( $cmd );
 		wfDebugLog( 'Math', "TeX check result:\n $contents\n---\n" );
 
-		if ( strlen($contents) === 0 ) {
+		if ( strlen( $contents ) === 0 ) {
 			wfDebugLog( 'Math', "TeX check output was empty. \n" );
 			$this->lastError = MathRenderer::getError( 'math_unknown_error' );
 
