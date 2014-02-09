@@ -23,14 +23,14 @@ class MathLaTeXML extends MathRenderer {
 	 * @param (string|array) $array
 	 * @return string
 	 */
-	public function serializeSettings($array){
-		if(!is_array($array)){
+	public function serializeSettings( $array ) {
+		if ( !is_array( $array ) ) {
 			return $array;
 		} else {
-			//removes the [1] [2]... for the unnamed subarrays since LaTeXML
-			//assigns multiple values to one key e.g.
-			//preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty
-			return preg_replace('|\%5B\d+\%5D|', '', wfArrayToCgi($array)) ;
+			// removes the [1] [2]... for the unnamed subarrays since LaTeXML
+			// assigns multiple values to one key e.g.
+			// preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty
+			return preg_replace( '|\%5B\d+\%5D|', '', wfArrayToCgi( $array ) ) ;
 		}
 	}
 	/**
@@ -184,8 +184,8 @@ class MathLaTeXML extends MathRenderer {
 	 */
 	public function getPostData() {
 		$texcmd = urlencode( $this->tex );
-		$settings = $this->serializeSettings($this->getLaTeXMLSettings());
-		return  $settings. '&tex=' . $texcmd;
+		$settings = $this->serializeSettings( $this->getLaTeXMLSettings() );
+		return  $settings . '&tex=' . $texcmd;
 	}
 	/**
 	 * Does the actual web request to convert TeX to MathML.
@@ -269,8 +269,9 @@ class MathLaTeXML extends MathRenderer {
 
 	/**
 	 * Embeds the MathML-XML element in a HTML span element with class tex
-	 * @param string $mml: the MathML string
-	 * @param string $tagId: optional tagID for references like (pagename#equation2)
+	 * @param string $mml : the MathML string
+	 * @param string $tagId : optional tagID for references like (pagename#equation2)
+	 * @param bool $attribs
 	 * @return html element with rendered math
 	 */
 	public static function embedMathML( $mml, $tagId = '', $attribs = false ) {

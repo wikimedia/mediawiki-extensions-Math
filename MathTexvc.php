@@ -46,7 +46,7 @@ class MathTexvc extends MathRenderer {
 	public function getHashPath() {
 		$path = $this->getBackend()->getRootStoragePath() .
 			'/math-render/' . $this->getHashSubPath();
-		wfDebugLog("Math", "TeX: getHashPath, hash is: {$this->getHash()}, path is: $path\n" );
+		wfDebugLog( "Math", "TeX: getHashPath, hash is: {$this->getHash()}, path is: $path\n" );
 		return $path;
 	}
 
@@ -98,6 +98,8 @@ class MathTexvc extends MathRenderer {
 	 * Converts an error returned by texvc to a localized exception
 	 *
 	 * @param string $texvcResult error result returned by texvc
+	 * @return string
+	 * @return string
 	 */
 	public function convertTexvcError( $texvcResult ) {
 		$errorConverter = new MathInputCheckTexvc();
@@ -233,7 +235,7 @@ class MathTexvc extends MathRenderer {
 				unset( $wgHooks['ParserAfterParse']['FlushMathBackend'] );
 				$backend->doQuickOperations( $backend->mathBufferedWrites );
 				unset( $backend->mathBufferedWrites );
-			};
+			} ;
 		}
 		$backend->mathBufferedWrites[] = array(
 			'op'  => 'store',
@@ -261,7 +263,7 @@ class MathTexvc extends MathRenderer {
 				$backend = new FSFileBackend( array(
 					'name'           => 'math-backend',
 					'wikiId' 	 => wfWikiId(),
-					'lockManager'    => new NullLockManager(array() ),
+					'lockManager'    => new NullLockManager( array() ),
 					'containerPaths' => array( 'math-render' => $wgMathDirectory ),
 					'fileMode'       => 0777
 				) );

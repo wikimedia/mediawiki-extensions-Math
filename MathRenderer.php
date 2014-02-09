@@ -38,7 +38,7 @@ abstract class MathRenderer {
 	protected $mathml = '';
 	protected $conservativeness = 0;
 	protected $params = '';
-	//STATE OF THE CLASS INSTANCE
+	// STATE OF THE CLASS INSTANCE
 	/** @var boolean has variable tex been security-checked */
 	protected $texSecure = false;
 	protected $changed = false;
@@ -117,7 +117,7 @@ abstract class MathRenderer {
 	 * Returns an internationalized HTML error string
 	 *
 	 * @param string $msg message key for specific error
-	 * @param Varargs $parameters (optional) zero or more message parameters for specific error
+	 * @internal param \Varargs $parameters (optional) zero or more message parameters for specific error
 	 * @return string HTML error string
 	 */
 	public function getError( $msg /*, ... */ ) {
@@ -206,7 +206,7 @@ abstract class MathRenderer {
 	public function writeToDatabase( $dbw = null ) {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
-			$dbw = $dbw ?: wfGetDB( DB_MASTER );
+			$dbw = $dbw ? : wfGetDB( DB_MASTER );
 			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . bin2hex( $this->hash ) . ")\n" );
 			$outArray = $this->dbOutArray();
 			$dbw->onTransactionIdle(
@@ -221,7 +221,6 @@ abstract class MathRenderer {
 	 * @return array
 	 */
 	private function dbOutArray() {
-		global $wgDebugMath;
 		$dbr = wfGetDB( DB_SLAVE );
 		if ( $this->hash ) {
 			$outmd5_sql = $dbr->encodeBlob( pack( 'H32', $this->hash ) );
@@ -411,6 +410,7 @@ abstract class MathRenderer {
 	/**
 	 * Sets purge. If set to true the render is forced to rerender and must not
 	 * use a cached version.
+	 * @param bool $purge
 	 * @return boolean
 	 */
 	function setPurge( $purge = true ) {
@@ -433,7 +433,7 @@ abstract class MathRenderer {
 	public function checkTex() {
 		if ( !$this->texSecure ) {
 			$checker = new MathInputCheckTexvc( $this->userInputTex );
-			if ( $checker->isValid() ){
+			if ( $checker->isValid() ) {
 				$this->setTex( $checker->getValidTex() );
 				$this->texSecure = true;
 				return true;
@@ -441,13 +441,15 @@ abstract class MathRenderer {
 				$this->lastError = $checker->getError();
 				return false;
 			}
+		} else {
+			return true;
 		}
 	}
 
 	/**
 	 * @return string original tex string specified by the user
 	 */
-	public function getUserInputTex(){
+	public function getUserInputTex() {
 		return $this->userInputTex;
 	}
 }
