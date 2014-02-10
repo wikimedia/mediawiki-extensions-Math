@@ -4572,16 +4572,16 @@ $messages['zh-hans'] = array(
 	'mw_math_png' => '总生成PNG',
 	'mw_math_source' => '显示TeX代码（供文字浏览器使用）',
 	'mw_math_mathjax' => 'MathJax（实验性；适合大多数浏览器）',
-	'mw_math_latexml' => 'LaTeXML（实验性；使用MathML）',
+	'mw_math_latexml' => 'LaTeXML（试验中；使用MathML）',
 	'math_failure' => '解析失败',
 	'math_unknown_error' => '未知错误',
-	'math_unknown_function' => "未知函数 '$1'",
+	'math_unknown_function' => "未知函数'$1'",
 	'math_lexing_error' => '句法错误',
 	'math_syntax_error' => '语法错误',
-	'math_image_error' => 'PNG 转换失败 ；检查正确安装的 latex 和 dvipng （或 dvips + gs + convert）',
+	'math_image_error' => 'PNG转换失败；检查latex和dvipng（或dvips + gs + convert）是否正确安装',
 	'math_bad_tmpdir' => '无法写入或建立数学公式临时目录',
 	'math_bad_output' => '无法写入或建立数学公式输出目录',
-	'math_notexvc' => '"texvc"执行文件遗失；请参照math/README进行配置。',
+	'math_notexvc' => 'texvc执行文件遗失；请参照math/README进行配置。',
 	'math_output_error' => '无法在文件系统上存储数学图像。',
 	'math_latexml_timeout' => "从'$1'的LaTeXML超时",
 	'math_latexml_invalidresponse' => 'LaTeXML从服务器“$1”返回无效的响应（“$2”）：',
@@ -4593,6 +4593,7 @@ $messages['zh-hans'] = array(
 /** Traditional Chinese (中文（繁體）‎)
  * @author Justincheng12345
  * @author Liangent
+ * @author Liuxinyu970226
  * @author Mark85296341
  * @author Simon Shek
  */
@@ -4619,6 +4620,7 @@ $messages['zh-hant'] = array(
 	'math_latexml_invalidresponse' => 'LaTeXML 從伺服器「$1」收到不正確回應（「$2」）',
 	'math_latexml_invalidxml' => 'LaTeXML MathML並非正確XML。',
 	'math_latexml_invalidjson' => 'LaTeXML 伺服器回應了不正確JSON。',
+	'math_latexml_xmlversion' => '警告：XML類型檢查被跳過！檢查您安裝的MediaWiki版本是否wmf/1.22wmf7或更高。',
 );
 
 /** Chinese (Taiwan) (‪中文(台灣)‬) */
