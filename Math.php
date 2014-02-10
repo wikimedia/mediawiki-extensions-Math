@@ -132,7 +132,7 @@ $wgMathLaTeXMLTimeout = 240;
  */
 $wgMathDefaultLaTeXMLSetting = 'format=xhtml&whatsin=math&whatsout=math&pmml&cmml&nodefaultresources&preload=LaTeX.pool&preload=article.cls&preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty&preload=amssymb.sty&preload=eucal.sty&preload=[dvipsnames]xcolor.sty&preload=url.sty&preload=hyperref.sty&preload=[ids]latexml.sty&preload=texvc';
 /**
- * The link to the texvc executable
+ * The link to the texvccheck executable
  */
 $wgMathTexvcCheckExecutable = dirname( __FILE__ ) . '/texvccheck/texvccheck';
 /**
