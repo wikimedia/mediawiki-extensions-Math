@@ -34,6 +34,7 @@ $messages['en'] = array(
 	'math_bad_tmpdir' => 'Cannot write to or create math temp directory',
 	'math_bad_output' => 'Cannot write to or create math output directory',
 	'math_notexvc' => 'Missing texvc executable; please see math/README to configure.',
+	'math_notexvccheck' => 'Missing texvccheck executable; please see math/README to configure.',
 	'math_output_error' => 'Cannot store math image on filesystem.',
 	'math_latexml_timeout' => 'LaTeXML timeout from \'$1\'',
 	'math_latexml_invalidresponse' => 'LaTeXML Invalid response (\'$2\') from server \'$1\':',
@@ -154,6 +155,7 @@ This message follows the message {{msg-mw|Math failure}}.',
 
 This message follows the message {{msg-mw|Math failure}}.',
 	'math_latexml_xmlversion' => 'Warning that XML checking of MathML requires wmf/1.22wmf7 or newer.',
+	'math_notexvccheck' => 'texvccheck executable is missing. Very similar to math_notexvc.',
 );
 
 /** Achinese (Acèh)
