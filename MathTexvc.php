@@ -117,7 +117,7 @@ class MathTexvc extends MathRenderer {
 		if ( !is_executable( $wgTexvc ) ) {
 			wfDebugLog( 'texvc', "$wgTexvc does not exist or is not executable." );
 			wfProfileOut( __METHOD__ );
-			return $this->getError( 'math_notexvc' );
+			return $this->getError( 'math_notexvc', 'texvc' );
 		}
 
 		$escapedTmpDir = wfEscapeShellArg( $tmpDir );

@@ -33,7 +33,7 @@ $messages['en'] = array(
 	'math_image_error' => 'PNG conversion failed; check for correct installation of latex and dvipng (or dvips + gs + convert)',
 	'math_bad_tmpdir' => 'Cannot write to or create math temp directory',
 	'math_bad_output' => 'Cannot write to or create math output directory',
-	'math_notexvc' => 'Missing texvc executable; please see math/README to configure.',
+	'math_notexvc' => 'Missing $1 executable; please see math/README to configure.',
 	'math_output_error' => 'Cannot store math image on filesystem.',
 	'math_latexml_timeout' => 'LaTeXML timeout from \'$1\'',
 	'math_latexml_invalidresponse' => 'LaTeXML Invalid response (\'$2\') from server \'$1\':',
@@ -132,7 +132,9 @@ This message follows the message {{msg-mw|Math failure}}.',
 This message follows the message {{msg-mw|Math failure}}.',
 	'math_notexvc' => 'Used as error message.
 
-This message follows the message {{msg-mw|Math failure}}.',
+This message follows the message {{msg-mw|Math failure}}.
+Parameters:
+* $1 - name of the missing program',
 	'math_output_error' => 'Used as error message if the texvc output file could not be stored.
 
 This message follows the message {{msg-mw|Math failure}}.',
