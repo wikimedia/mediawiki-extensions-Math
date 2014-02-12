@@ -61,10 +61,11 @@ $wgMathDebug = false;
 $wgMathJax = true;
 
 /**
- * Use of MathML for details see
- * modules/svgtex/readme.md
+ * The url of the mathoid server.
+ * see http://www.formulasearchengine.com/mathoid
+ * TODO: Move documentation to WMF
  */
-$wgMathMathMLUrl = 'http://localhost:8010';
+$wgMathMathMLUrl = 'http://localhost:10024';
 
 /**
  * The timeout for the HTTP-Request sent to the MathML to render an equation,
