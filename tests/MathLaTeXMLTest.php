@@ -236,4 +236,7 @@ class LaTeXMLTestStatus {
 		return MathLaTeXMLTest::$html;
 	}
 
+	static function getWikiText() {
+		return MathLaTeXMLTest::$html;
+	}
 }

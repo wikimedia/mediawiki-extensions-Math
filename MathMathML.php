@@ -99,6 +99,7 @@ class MathMathML extends MathRenderer {
 		global $wgMathMathMLTimeout;
 		$error = '';
 		$res = null;
+		$modeStr = $this->getModeStr();
 		if ( !$host ) {
 			$host = self::pickHost();
 		}
@@ -106,23 +107,25 @@ class MathMathML extends MathRenderer {
 			$this->getPostData();
 		}
 		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathMathMLTimeout );
+		/**@var MWHttpRequest the request*/
 		$req = $httpRequestClass::factory( $host, $options );
+		/**@var Status the request status */
 		$status = $req->execute();
 		if ( $status->isGood() ) {
 			$res = $req->getContent();
 			return true;
 		} else {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
-				$error = $this->getError( 'math_latexml_timeout', $host );
+				$error = $this->getError( 'math_timeout', $modeStr, $host );
 				$res = false;
-				wfDebugLog( "Math", "\nMathML Timeout:"
+				wfDebugLog( "Math", "$modeStr Timeout:"
 						. var_export( array( 'post' => $post, 'host' => $host
 							, 'wgMathMLTimeout' => $wgMathMathMLTimeout ), true ) . "\n\n" );
 			} else {
 				// for any other unkonwn http error
-				$errormsg = $status->getHtml();
-				$error = $this->getError( 'math_latexml_invalidresponse', $host, $errormsg );
-				wfDebugLog( "Math", "\nMathML NoResponse:"
+				$errormsg = $status->getWikiText();
+				$error = $this->getError( 'math_invalidresponse', $modeStr, $host, $errormsg );
+				wfDebugLog( "Math", "$modeStr NoResponse:"
 						. var_export( array( 'post' => $post, 'host' => $host
 							, 'errormsg' => $errormsg ), true ) . "\n\n" );
 			}
