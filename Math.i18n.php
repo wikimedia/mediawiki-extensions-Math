@@ -36,10 +36,10 @@ $messages['en'] = array(
 	'math_bad_output' => 'Cannot write to or create math output directory',
 	'math_notexvc' => 'Missing texvc executable; please see math/README to configure.',
 	'math_output_error' => 'Cannot store math image on filesystem.',
-	'math_latexml_timeout' => 'LaTeXML timeout from \'$1\'',
-	'math_latexml_invalidresponse' => 'LaTeXML Invalid response (\'$2\') from server \'$1\':',
-	'math_latexml_invalidxml' => 'LaTeXML MathML is invalid XML.',
-	'math_latexml_invalidjson'  => 'LaTeXML Server response is invalid JSON.',
+	'math_timeout' => '$1 timeout from \'$2\'',
+	'math_invalidresponse' => '$1: Invalid response (\'$3\') from server \'$2\':',
+	'math_invalidxml' => 'MathML is invalid XML.',
+	'math_invalidjson'  => '$1 server response is invalid JSON.',
 	'math_latexml_xmlversion' => 'Warning: XML type check skipped! Check if your MediaWiki installation is version wmf/1.22wmf7 or newer.'
 );
 
@@ -99,10 +99,10 @@ This message is followed by "(", Error message(*1), Additional message, "): "  a
 * {{msg-mw|Math bad output}}
 * {{msg-mw|Math notexvc}}
 * {{msg-mw|Math output error}}
-* {{msg-mw|Math latexml timeout}}
-* {{msg-mw|Math latexml invalidresponse}}
-* {{msg-mw|Math latexml invalidxml}}
-* {{msg-mw|Math latexml invalidjson}}',
+* {{msg-mw|Math timeout}}
+* {{msg-mw|Math invalidresponse}}
+* {{msg-mw|Math invalidxml}}
+* {{msg-mw|Math invalidjson}}',
 	'math_unknown_error' => 'Used as error message for unknown texvc error.
 
 This message follows the message {{msg-mw|Math failure}}.
@@ -137,21 +137,26 @@ This message follows the message {{msg-mw|Math failure}}.',
 	'math_output_error' => 'Used as error message if the texvc output file could not be stored.
 
 This message follows the message {{msg-mw|Math failure}}.',
-	'math_latexml_timeout' => 'Used as error message.
+	'math_timeout' => 'Used as error message.
 
 Parameters:
-* $1 - hostname or URL',
-	'math_latexml_invalidresponse' => 'Used as error message.
+* $1 - redering type (either LaTeXML or Mathoid)
+* $2 - hostname or URL',
+	'math_invalidresponse' => 'Used as error message.
 
 Follows the message {{msg-mw|Math failure}}.
 
 Parameters:
-* $1 - hostname
-* $2 - error message',
-	'math_latexml_invalidxml' => 'Used as error message.
+* $1 - redering type (either LaTeXML or Mathoid)
+* $2 - hostname
+* $3 - error message',
+	'math_invalidxml' => 'Used as error message.
 
 This message follows the message {{msg-mw|Math failure}}.',
-	'math_latexml_invalidjson' => 'Used as error message.
+	'math_invalidjson' => 'Used as error message.
+
+Parameters:
+* $1 - redering type (either LaTeXML or Mathoid)
 
 This message follows the message {{msg-mw|Math failure}}.',
 	'math_latexml_xmlversion' => 'Warning that XML checking of MathML requires wmf/1.22wmf7 or newer.',

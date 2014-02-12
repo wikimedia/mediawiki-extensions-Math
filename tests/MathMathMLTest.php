@@ -65,7 +65,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 				, "requestReturn is false if HTTP::post returns false." );
 		$this->assertEquals( false, $res
 				, "res is false if HTTP:post returns false." );
-		$errmsg = wfMessage( 'math_latexml_invalidresponse', $url, '' )
+		$errmsg = wfMessage( 'math_invalidresponse', wfMessage('mw_math_mathml'), $url, '' )
 						->inContentLanguage()->escaped();
 		$this->assertContains( $errmsg, $error
 				, "return an error if HTTP::post returns false" );
@@ -106,7 +106,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 				, $error, 'MathMLHttpRequestTester' );
 		$this->assertEquals( false, $requestReturn, "timeout call return" );
 		$this->assertEquals( false, $res, "timeout call return" );
-		$errmsg = wfMessage( 'math_latexml_timeout', $url )
+		$errmsg = wfMessage( 'math_timeout',  wfMessage('mw_math_mathml'), $url )
 						->inContentLanguage()->escaped();
 		$this->assertContains( $errmsg, $error, "timeout call errormessage" );
 	}
@@ -139,7 +139,8 @@ class MathMathMLTest extends MediaWikiTestCase {
 	 * i.e. if the span element is generated right.
 	 */
 	public function testIntegration() {
-		global $wgMathMathMLTimeout;
+		global $wgMathMathMLTimeout, $wgServer;
+		echo $wgServer; die();
 		$this->markTestSkipped( 'currently no live svgtex server availible' );
 		$wgMathMathMLTimeout = 20;
 		$renderer = MathRenderer::getRenderer( "a+b", array( ), MW_MATH_MATHML );
@@ -194,6 +195,10 @@ class MathMLTestStatus {
 	}
 
 	static function getHtml() {
+		return MathMathMLTest::$html;
+	}
+
+	static function getWikiText() {
 		return MathMathMLTest::$html;
 	}
 
