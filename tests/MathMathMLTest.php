@@ -32,12 +32,8 @@ class MathMathMLTest extends MediaWikiTestCase {
 	 * https://trac.mathweb.org/LaTeXML/ticket/1752
 	 */
 	public function testSpecialCaseText() {
-		$this->markTestSkipped( 'currently no live svgtex server availible' );
-		if ( wfGetDB( DB_MASTER )->getType() === 'sqlite' ) {
-			$this->markTestSkipped( "SQLite has global indices. We cannot " .
-					"create the `unitest_math` table, its math_inputhash index " .
-					"would conflict with the one from the real `math` table."
-			);
+		if ( gethostname() === 'gallium' ) {
+			$this->markTestSkipped( 'currently no live svgtex server availible' );
 		}
 
 		$renderer = MathRenderer::getRenderer( 'x^2+\text{a sample Text}', array( ), MW_MATH_MATHML );
@@ -65,7 +61,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 				, "requestReturn is false if HTTP::post returns false." );
 		$this->assertEquals( false, $res
 				, "res is false if HTTP:post returns false." );
-		$errmsg = wfMessage( 'math_latexml_invalidresponse', $url, '' )
+		$errmsg = wfMessage( 'math_invalidresponse', wfMessage('mw_math_mathml'), $url, '' )
 						->inContentLanguage()->escaped();
 		$this->assertContains( $errmsg, $error
 				, "return an error if HTTP::post returns false" );
@@ -106,7 +102,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 				, $error, 'MathMLHttpRequestTester' );
 		$this->assertEquals( false, $requestReturn, "timeout call return" );
 		$this->assertEquals( false, $res, "timeout call return" );
-		$errmsg = wfMessage( 'math_latexml_timeout', $url )
+		$errmsg = wfMessage( 'math_timeout',  wfMessage('mw_math_mathml'), $url )
 						->inContentLanguage()->escaped();
 		$this->assertContains( $errmsg, $error, "timeout call errormessage" );
 	}
@@ -140,14 +136,15 @@ class MathMathMLTest extends MediaWikiTestCase {
 	 */
 	public function testIntegration() {
 		global $wgMathMathMLTimeout;
-		$this->markTestSkipped( 'currently no live svgtex server availible' );
+		if ( gethostname() === 'gallium' ) {
+			$this->markTestSkipped( 'currently no live svgtex server availible' );
+		}
 		$wgMathMathMLTimeout = 20;
 		$renderer = MathRenderer::getRenderer( "a+b", array( ), MW_MATH_MATHML );
 		$this->assertTrue( $renderer->render( true ) );
 		$real = str_replace( "\n", '', $renderer->getHtmlOutput() );
-		$expected = '<plus';
-		$this->assertContains( $expected, $real
-				, "Rendering of a+b in plain Text mode" );
+		$expected = '<mo>+</mo>';
+		$this->assertContains( $expected, $real, "Rendering of a+b in plain MathML mode" );
 	}
 
 }
@@ -194,6 +191,10 @@ class MathMLTestStatus {
 	}
 
 	static function getHtml() {
+		return MathMathMLTest::$html;
+	}
+
+	static function getWikiText() {
 		return MathMathMLTest::$html;
 	}
 

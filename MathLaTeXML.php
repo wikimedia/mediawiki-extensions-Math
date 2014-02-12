@@ -87,56 +87,6 @@ class MathLaTeXML extends MathMathML {
 	}
 
 	/**
-	 * Performs a HTTP Post request to the given host.
-	 * Uses $wgLaTeXMLTimeout as timeout.
-	 * Generates error messages on failure
-	 * @see Http::post()
-	 *
-	 * @param string $host
-	 * @param string $post the encoded post request
-	 * @param mixed $res the result
-	 * @param mixed $error the formatted error message or null
-	 * @param String $httpRequestClass class name of MWHttpRequest (needed for testing only)
-	 * @return boolean success
-	 */
-	public function makeRequest( $host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest' ) {
-		global $wgMathLaTeXMLTimeout;
-		$error = '';
-		$res = null;
-		if ( !$host ) {
-			$host = self::pickHost();
-		}
-		if ( !$post ) {
-			$this->getPostData();
-		}
-		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
-		$req = $httpRequestClass::factory( $host, $options );
-		$status = $req->execute();
-
-		if ( $status->isGood() ) {
-			$res = $req->getContent();
-			return true;
-		} else {
-			if ( $status->hasMessage( 'http-timed-out' ) ) {
-				$error = $this->getError( 'math_latexml_timeout', $host );
-				$res = false;
-				wfDebugLog( "Math", "\nLaTeXML Timeout:"
-						. var_export( array( 'post' => $post, 'host' => $host
-							, 'wgLaTeXMLTimeout' => $wgMathLaTeXMLTimeout ), true ) . "\n\n" );
-			} else {
-				// for any other unkonwn http error
-				$errormsg = $status->getHtml();
-				$error = $this->getError( 'math_latexml_invalidresponse', $host, $errormsg );
-				wfDebugLog( "Math", "\nLaTeXML NoResponse:"
-						. var_export( array( 'post' => $post, 'host' => $host
-							, 'errormsg' => $errormsg ), true ) . "\n\n" );
-			}
-			return false;
-		}
-	}
-
-
-	/**
 	 * Picks a LaTeXML daemon.
 	 * If more than one demon are availible one is chosen from the
 	 * $wgLaTeXMLUrl array.
@@ -201,14 +151,14 @@ class MathLaTeXML extends MathMathML {
 				} else {
 					// Do not print bad mathml. It's probably too verbose and might
 					// mess up the browser output.
-					$this->lastError = $this->getError( 'math_latexml_invalidxml', $host );
+					$this->lastError = $this->getError( 'math_invalidxml', $this->getModeStr(), $host );
 					wfDebugLog( "Math", "\nLaTeXML InvalidMathML:"
 							. var_export( array( 'post' => $post, 'host' => $host
 								, 'result' => $res ), true ) . "\n\n" );
 					return false;
 				}
 			} else {
-				$this->lastError = $this->getError( 'math_latexml_invalidjson', $host );
+				$this->lastError = $this->getError( 'math_invalidjson', $this->getModeStr(), $host );
 				wfDebugLog( "Math", "\nLaTeXML InvalidJSON:"
 						. var_export( array( 'post' => $post, 'host' => $host
 							, 'res' => $res ), true ) . "\n\n" );
@@ -226,39 +176,6 @@ class MathLaTeXML extends MathMathML {
 	 */
 	public function setXMLValidaton( $newval = true ) {
 		$this->XMLValidation = $newval;
-	}
-
-	/**
-	 * Checks if the input is valid MathML,
-	 * and if the root element has the name math
-	 * @param string $XML
-	 * @return boolean
-	 */
-	public function isValidMathML( $XML ) {
-		if ( !$this->XMLValidation ) {
-			return true;
-		}
-		$out = false;
-		// depends on https://gerrit.wikimedia.org/r/#/c/66365/
-		if ( !is_callable( 'XmlTypeCheck::newFromString' ) ) {
-			$msg = wfMessage( 'math_latexml_xmlversion' )->inContentLanguage()->escaped();
-			trigger_error( $msg, E_USER_NOTICE );
-			wfDebugLog( 'Math', $msg );
-			return true;
-		}
-		$xmlObject = new XmlTypeCheck( $XML, null, false );
-		if ( !$xmlObject->wellFormed ) {
-			wfDebugLog( "Math", "XML validation error:\n " . var_export( $XML, true ) . "\n" );
-		} else {
-			$name = $xmlObject->getRootElement();
-			$elementSplit = explode( ':', $name );
-			if ( in_array( end( $elementSplit ), $this->getAllowedRootElements() ) ) {
-				$out = true;
-			} else {
-				wfDebugLog( "Math", 'got wrong root element :' . end( $elementSplit ) . ' with namespace ' . $name );
-			}
-		}
-		return $out;
 	}
 
 }

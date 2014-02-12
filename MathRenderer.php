@@ -671,4 +671,9 @@ abstract class MathRenderer {
 	protected function getMathTableName() {
 		return 'mathoid';
 	}
+
+	public function getModeStr( ){
+		$names = MathHooks::getMathNames();
+		return $names[ $this->getMode() ];
+	}
 }
