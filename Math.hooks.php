@@ -116,7 +116,7 @@ class MathHooks {
 	 *
 	 * @return array of strings
 	 */
-	private static function getMathNames() {
+	public static function getMathNames() {
 		global $wgMathValidModes;
 		$MathConstantNames = array(
 			MW_MATH_SOURCE => 'mw_math_source',
