@@ -1611,25 +1611,33 @@ $messages['he'] = array(
 
 /** Hindi (हिन्दी)
  * @author Kaustubh
+ * @author Siddhartha Ghai
  * @author आलोक
  */
 $messages['hi'] = array(
+	'math-desc' => '<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> टैगों के बीच गणितीय सूत्र रेंडर करें',
 	'math_sample' => 'गणितीय सूत्र यहाँ डालें',
 	'math_tip' => 'गणितीय सूत्र (लेटेक्स)',
 	'prefs-math' => 'गणित',
 	'mw_math_png' => 'हमेशा PNG बनायें',
-	'mw_math_source' => 'उसे TeX ही रखियें (पाठ ब्राउज़र के लिये)',
-	'math_failure' => 'पार्स नहीं कर पायें',
-	'math_unknown_error' => 'अपरिचीत समस्या',
-	'math_unknown_function' => 'अज्ञात कार्य', # Fuzzy
-	'math_lexing_error' => 'लेक्सींग समस्या',
-	'math_syntax_error' => 'सिन्टैक्स गलती',
-	'math_image_error' => 'PNG में रुपांतरण अयशस्वी;
-latex, dvips, gs, और convert के इन्स्टॉलेशन की जाँच करें', # Fuzzy
-	'math_bad_tmpdir' => 'मैथ अस्थायी डाइरेक्टरी या तो बना नहीं सकतें या फिर उसमें लिख नहीं सकतें',
-	'math_bad_output' => 'मैथ आउटपुट डाइरेक्टरी या तो बना नहीं सकतें या फिर उसमें लिख नहीं सकतें',
-	'math_notexvc' => 'texvc एक्झीक्यूटेबल फ़ाईल मिल नहीं रहीं;
-समनुरूप बनाने के लियें math/README देखें।',
+	'mw_math_source' => 'उसे TeX ही रखें (पाठ ब्राउज़र के लिये)',
+	'mw_math_mathjax' => 'मैथजैक्स (प्रयोगात्मक; अधिकांश ब्राउज़रों के लिए सबसे बेहतर)',
+	'mw_math_latexml' => 'लेटेक्सएमएल (प्रयोगात्मक; मैथ॰एम॰एल का प्रयोग करता है)',
+	'math_failure' => 'पार्स नहीं कर पाये',
+	'math_unknown_error' => 'अज्ञात त्रुटि',
+	'math_unknown_function' => "अज्ञात फंक्शन '$1'",
+	'math_lexing_error' => 'लेक्सिंग त्रुटि',
+	'math_syntax_error' => 'सिन्टैक्स त्रुटि',
+	'math_image_error' => 'PNG रूपांतरण विफल; latex और dvipng (अथवा dvips, gs, और convert) के इन्स्टॉलेशन की जाँच करें',
+	'math_bad_tmpdir' => 'मैथ अस्थायी डाइरेक्टरी या तो बना नहीं सकते या फिर उसमें लिख नहीं सकते',
+	'math_bad_output' => 'मैथ आउटपुट डाइरेक्टरी या तो बना नहीं सकते या फिर उसमें लिख नहीं सकते',
+	'math_notexvc' => 'texvc एक्ज़ीक्यूटेबल फ़ाइल मिल नहीं रहीं; कन्फिगर करने के लिए के लिये math/README देखें।',
+	'math_output_error' => 'फ़ाइल सिस्टम पर मैथ चित्र नहीं सहेजा जा सकता।',
+	'math_latexml_timeout' => "'$1' से लेटेक्सएमएल टाइमआउट",
+	'math_latexml_invalidresponse' => "सर्वर '$1' से अमान्य लेटेक्सएमएल उत्तर ('$2')",
+	'math_latexml_invalidxml' => 'लेटेक्सएमएल मैथएमएल अमान्य एक्सएमएल है।',
+	'math_latexml_invalidjson' => 'लेटेक्सएमएल सर्वर का उत्तर अमान्य JSON है।',
+	'math_latexml_xmlversion' => 'चेतावनी: XML प्रकार जाँच छोड़ी गयी! जाँचें कि आपका मीडियाविकि इंस्टॉलेशन wmf/1.22wmf7 या उससे नया है अथवा नहीं।',
 );
 
 /** Fiji Hindi (Latin script) (Fiji Hindi)
