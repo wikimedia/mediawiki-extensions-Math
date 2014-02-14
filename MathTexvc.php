@@ -193,7 +193,11 @@ class MathTexvc extends MathRenderer {
 		}
 
 		if ( !$errmsg ) {
-			$this->setHash( substr( $contents, 1, 32 ) );
+			$newHash = substr( $contents, 1, 32 );
+			if ( $this->hash !== $newHash ) {
+				$this->recall = false; // DB needs update in writeCache() (bug 60997)
+			}
+			$this->setHash( $newHash );
 		}
 
 		wfRunHooks( 'MathAfterTexvc', array( &$this, &$errmsg ) );
