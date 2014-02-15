@@ -98,6 +98,7 @@ This message is followed by "(", Error message(*1), Additional message, "): "  a
 * {{msg-mw|Math bad tmpdir}}
 * {{msg-mw|Math bad output}}
 * {{msg-mw|Math notexvc}}
+* {{msg-mw|Math notexvccheck}}
 * {{msg-mw|Math output error}}
 * {{msg-mw|Math latexml timeout}}
 * {{msg-mw|Math latexml invalidresponse}}
@@ -133,10 +134,16 @@ This message follows the message {{msg-mw|Math failure}}.',
 This message follows the message {{msg-mw|Math failure}}.',
 	'math_notexvc' => 'Used as error message.
 
-This message follows the message {{msg-mw|Math failure}}.',
+This message follows the message {{msg-mw|Math failure}}.
+
+See also:
+* {{msg-mw|Math notexvccheck}}',
 	'math_notexvccheck' => 'Used as error message.
 
-This message follows the message {{msg-mw|Math failure}}.',
+This message follows the message {{msg-mw|Math failure}}.
+
+See also:
+* {{msg-mw|Math notexvc}}',
 	'math_output_error' => 'Used as error message if the texvc output file could not be stored.
 
 This message follows the message {{msg-mw|Math failure}}.',
@@ -1310,6 +1317,7 @@ $messages['frr'] = array(
 	'math_bad_tmpdir' => 'Det föörluupen fertiaknis för matemaatisk formeln küd ei brükt of iinracht wurd.',
 	'math_bad_output' => 'Det fertiaknis för matemaatisk formeln küd ei brükt of iinracht wurd.',
 	'math_notexvc' => "Det texvc program as ei diar. Luke hü det iinrachten gongt uun't datei math/README.",
+	'math_notexvccheck' => "Det program texvccheck as ei diar. Luke hü det iinrachten gongt uun't datei math/README.",
 	'math_output_error' => 'Det formelbil koon üüb det dateisüsteem ei seekert wurd.',
 	'math_latexml_timeout' => 'LaTeXML time-out faan „$1“',
 	'math_latexml_invalidresponse' => "LaTeXML ferkiard oonswaar ('$2') faan server '$1':",
@@ -1965,6 +1973,7 @@ $messages['ja'] = array(
 	'math_bad_tmpdir' => '数式一時ディレクトリでの書き込みまたは作成ができません',
 	'math_bad_output' => '数式出力ディレクトリでの書き込みまたは作成ができません',
 	'math_notexvc' => 'texvc の実行可能ファイルが見つかりません。math/README を読んで設定してください。',
+	'math_notexvccheck' => 'texvccheck の実行可能ファイルが見つかりません。設定については math/README を参照してください。',
 	'math_output_error' => '数式画像をファイルシステムに格納できません。',
 	'math_latexml_timeout' => '「$1」からの LaTeXML タイムアウト',
 	'math_latexml_invalidresponse' => "LaTeXML サーバー '$1' から無効な応答 ('$2'):",
@@ -2213,6 +2222,7 @@ latex, dvips, gs, ಸರಿಯಾಗಿ ಸ್ಥಾಪಿತವಾಗಿದೆ�
  * @author IRTC1015
  * @author Klutzy
  * @author Kwj2772
+ * @author Priviet
  * @author PuzzletChung
  * @author 아라
  */
@@ -2234,6 +2244,7 @@ $messages['ko'] = array(
 	'math_bad_tmpdir' => '수식을 임시 폴더에 저장하거나 폴더를 만들 수 없습니다.',
 	'math_bad_output' => '수식을 출력 폴더에 저장하거나 폴더를 만들 수 없습니다.',
 	'math_notexvc' => '실행할 수 있는 texvc이 없습니다. 설정을 위해 math/README를 읽어 주세요.',
+	'math_notexvccheck' => '실행 가능한 texvccheck 없음; 설정에 대해서는 math/README를 읽어주세요.',
 	'math_output_error' => '파일 시스템에 수식 그림을 저장할 수 없습니다.',
 	'math_latexml_timeout' => "'$1'에서 LateXML 시간 종료",
 	'math_latexml_invalidresponse' => "'$1' 서버에서 잘못된 LaTeXML 응답 ('$2'):",
