@@ -155,7 +155,7 @@ class MathHooks {
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
-		global $wgMathDebug;
+		global $wgMathDebug, $wgMathValidModes;
 		if ( is_null( $updater ) ) {
 			throw new MWException( "Math extension is only necessary in 1.18 or above" );
 		}
@@ -171,6 +171,15 @@ class MathHooks {
 			$updater->addExtensionTable( 'mathoid', $sql );
 		} else {
 			throw new MWException( "Math extension does not currently support $type database.\n" );
+		}
+		if ( in_array( MW_MATH_LATEXML, $wgMathValidModes ) ){
+			if ( $type == 'mysql' ) {
+				//keep $type rather than mysql here for forward compatibility
+				$sql = dirname( __FILE__ ) . '/db/math_latexml.' . $type . '.sql';
+				$updater->addExtensionTable( 'math_latexml', $sql );
+			} else {
+				throw new MWException( "Math extension does not currently support $type database for LaTeXML." );
+			}
 		}
 		if ( $wgMathDebug ) {
 			if ( $type == 'mysql' ) {
