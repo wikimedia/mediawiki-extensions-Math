@@ -41,7 +41,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 		$maxAvgTime = .001;
 		$tstart = microtime( true );
 
-		for ($i = 1; $i <= $numberOfRuns; $i++){
+		for ( $i = 1; $i <= $numberOfRuns; $i++ ) {
 			is_executable( $wgMathTexvcCheckExecutable );
 		}
 
@@ -66,7 +66,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 		$this->GoodObject->isValid();
 		$this->assertNull( $this->GoodObject->getError() );
 		$expectedMessage = wfMessage( 'math_unknown_function', '\newcommand' )->inContentLanguage()->escaped();
-		$this->assertContains( $expectedMessage , $this->BadObject->getError());
+		$this->assertContains( $expectedMessage , $this->BadObject->getError() );
 	}
 
 	/**
@@ -111,7 +111,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 	 */
 	public function testConvertTexvcError() {
 		$texvc = $this->getMockBuilder( 'MathInputCheckTexvc' )
-			->setMethods(NULL)
+			->setMethods( NULL )
 			->disableOriginalConstructor()
 			->getMock();
 

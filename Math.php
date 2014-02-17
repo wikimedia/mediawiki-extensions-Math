@@ -71,7 +71,7 @@ $wgMathMathMLUrl = 'http://localhost:10042';
  * The timeout for the HTTP-Request sent to the MathML to render an equation,
  * in seconds.
  */
-$wgMathMathMLTimeout = 2;
+$wgMathMathMLTimeout = 20;
 /**
  * Option to disable the tex filter. If set to true any LaTeX espression is parsed
  * this can be a potential security risk. If set to false only a subset of the tex
