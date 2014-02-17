@@ -10,13 +10,17 @@
  * @file
  */
 class MathLaTeXML extends MathMathML {
-
-	/**
-	 * @var String settings for LaTeXML daemon
-	 */
+	protected static $DEFAULT_ALLOWED_ROOT_ELEMENTS = array( 'math', 'div', 'table', 'query' );
+	/** @var String settings for LaTeXML daemon	 */
 	private $LaTeXMLSettings = '';
 	/** @var boolean if false LaTeXML output is not validated*/
 	private $XMLValidation = true;
+
+	public function __construct( $tex = '', $params = array() ) {
+		global $wgMathLaTeXMLUrl;
+		parent::__construct( $tex, $params );
+		$this->hosts = $wgMathLaTeXMLUrl;
+	}
 	/**
 	 * Converts an array with LaTeXML settings to a URL encoded String.
 	 * If the argument is a string the input will be returned.
@@ -65,50 +69,11 @@ class MathLaTeXML extends MathMathML {
 	}
 
 	/**
-	 * Gets the allowed root elements the rendered math tag might have.
-	 *
-	 * @return array
-	 */
-	public function getAllowedRootElements() {
-		if ( $this->allowedRootElements ) {
-			return $this->allowedRootElements;
-		} else {
-			return self::$DEFAULT_ALLOWED_ROOT_ELEMENTS;
-		}
-	}
-
-	/**
-	 * Sets the allowed root elements the rendered math tag might have.
-	 * An empty value indicates to use the default settings.
-	 * @param array $settings
-	 */
-	public function setAllowedRootElments( $settings ) {
-		$this->allowedRootElements = $settings;
-	}
-
-	/**
-	 * Picks a LaTeXML daemon.
-	 * If more than one demon are availible one is chosen from the
-	 * $wgLaTeXMLUrl array.
-	 * @return string
-	 */
-	private static function pickHost() {
-		global $wgMathLaTeXMLUrl;
-		if ( is_array( $wgMathLaTeXMLUrl ) ) {
-			$host = array_rand( $wgMathLaTeXMLUrl );
-		} else {
-			$host = $wgMathLaTeXMLUrl;
-		}
-		wfDebugLog( "Math", "picking host " . $host );
-		return $host;
-	}
-
-	/**
 	 * Calculates the HTTP POST Data for the request. Depends on the settings
 	 * and the input string only.
 	 * @return string HTTP POST data
 	 */
-	public function getPostData() {
+	public function getLaTeXMLPostData() {
 		$tex = $this->getTex();
 		if ( is_null( $this->getDisplayStyle() ) ) {
 			// default preserve the (broken) layout as it was
@@ -116,7 +81,7 @@ class MathLaTeXML extends MathMathML {
 		}
 		$texcmd = rawurlencode( $tex );
 		$settings = $this->serializeSettings( $this->getLaTeXMLSettings() );
-		$postData = $settings . '&tex=' . $texcmd;
+		$postData = $settings . '&tex=literal:' . $texcmd;
 		wfDebugLog( "Math", 'Get post data: ' . $postData );
 		return $postData;
 	}
@@ -134,8 +99,8 @@ class MathLaTeXML extends MathMathML {
 			return false;
 		}
 		$res = '';
-		$host = self::pickHost();
-		$post = $this->getPostData();
+		$host = $this->pickHost();
+		$post = $this->getLaTeXMLPostData();
 		$this->lastError = '';
 		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
 		if ( $requestResult ) {
@@ -178,4 +143,34 @@ class MathLaTeXML extends MathMathML {
 		$this->XMLValidation = $newval;
 	}
 
+	/**
+	 * Caclualates the SVG image based on the MathML input
+	 * No cache is used.
+	 * @return boolean
+	 */
+	public function calulateSvg(){
+		$renderer = new MathMathML( $this->getTex() );
+		$renderer->setMathml( $this->getMathml() );
+		$renderer->setMode( MW_MATH_LATEXML );
+		$renderer->setPurge( true );
+		$res = $renderer->render();
+		if ( $res == true ){
+			$this->svg = $renderer->getSvg();
+		} else{
+			$lastError = $renderer->getLastError();
+			wfDebugLog('Math','failed to convert LaTeXML-MathML to SVG:' . $lastError);
+		}
+
+		return $res;
+	}
+	/**
+	 * gets the svg image... supports lazy evaluation
+	 * @return string XML-Document of the rendered SVG
+	 */
+	public function getSvg(){
+		if( $this->isPurge() || $this->svg == ''  ){
+			$this->calulateSvg();
+		}
+		return $this->svg;
+	}
 }
