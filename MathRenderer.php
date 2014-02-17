@@ -438,6 +438,20 @@ abstract class MathRenderer {
 	}
 
 	/**
+	 * Sets the rendering mode
+	 * @param int $newMode element of the array $wgMathValidModes
+	 * @return bool
+	 */
+	public function setMode($newMode){
+		global$wgMathValidModes;
+		if (in_array($newMode, $wgMathValidModes )){
+			$this->mode = $newMode;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	/**
 	 * Sets the TeX code
 	 *
 	 * @param string $tex

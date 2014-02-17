@@ -13,7 +13,7 @@
 class SpecialMathShowImage extends SpecialPage {
 	private $noRender = false;
 	private $renderer = null;
-	private $isPng = false;
+	private $mode = false;
 
 	function __construct() {
 		parent::__construct( 'MathShowImage' );
@@ -28,7 +28,7 @@ class SpecialMathShowImage extends SpecialPage {
 		$out->setArticleRelated( false );
 		$out->setRobotPolicy( "noindex,nofollow" );
 		$out->disable();
-		if ( $success && $this->isPng ) {
+		if ( $success && $this->mode == MW_MATH_PNG ) {
 			$request->response()->header( "Content-type: image/png;" );
 		} else {
 			$request->response()->header( "Content-type: image/svg+xml; charset=utf-8" );
@@ -43,14 +43,19 @@ class SpecialMathShowImage extends SpecialPage {
 		$request = $this->getRequest();
 		$output = '';
 		$hash = $request->getText( 'hash', '' );
-		$this->isPng = $request->getBool( 'png', false );
+		$this->mode = $request->getBool( 'png', MW_MATH_MATHML );
 		if ( !$hash ) {
 			$this->setHeaders( false );
 			$output = $this->printSvgError( 'No Inputhash specified' );
 		} else {
-			if ( $this->isPng ) {
+			switch ( $this->mode ){
+			case MW_MATH_PNG:
 				$this->renderer = MathTexvc::newFromMd5( $hash );
-			} else {
+				break;
+			case MW_MATH_LATEXML:
+				$this->renderer = MathLaTeXML::newFromMd5( $hash );
+				break;
+			default:
 				$this->renderer = MathMathML::newFromMd5( $hash );
 			}
 			$this->noRender = $request->getBool( 'noRender', false );
@@ -60,7 +65,7 @@ class SpecialMathShowImage extends SpecialPage {
 				$success = $this->renderer->render();
 			}
 			if ( $success ) {
-				if ( $this->isPng ) {
+				if ( $this->mode == MW_MATH_PNG ) {
 					$output = $this->renderer->getPng();
 				} else {
 					$output = $this->renderer->getSvg();
