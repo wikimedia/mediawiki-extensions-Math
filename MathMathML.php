@@ -11,8 +11,15 @@
  */
 class MathMathML extends MathRenderer {
 
-	protected static $DEFAULT_ALLOWED_ROOT_ELEMENTS = array( 'math', 'div', 'table', 'query' );
+	protected static $DEFAULT_ALLOWED_ROOT_ELEMENTS = array( 'math' );
 	protected $allowedRootElements = '';
+	protected $hosts;
+
+	public function __construct( $tex = '', $params = array() ) {
+		global $wgMathMathMLUrl;
+		parent::__construct( $tex, $params );
+		$this->hosts = $wgMathMathMLUrl;
+	}
 
 	/**
 	 * Gets the allowed root elements the rendered math tag might have.
@@ -140,12 +147,11 @@ class MathMathML extends MathRenderer {
 	 * $wgMathMathMLUrl array.
 	 * @return string
 	 */
-	private static function pickHost() {
-		global $wgMathMathMLUrl;
-		if ( is_array( $wgMathMathMLUrl ) ) {
-			$host = array_rand( $wgMathMathMLUrl );
+	protected function pickHost() {
+		if ( is_array( $this->hosts ) ) {
+			$host = array_rand( $this->hosts );
 		} else {
-			$host = $wgMathMathMLUrl;
+			$host = $this->hosts;
 		}
 		wfDebugLog( "Math", "picking host " . $host );
 		return $host;
@@ -157,13 +163,18 @@ class MathMathML extends MathRenderer {
 	 * @return string HTTP POST data
 	 */
 	public function getPostData() {
+		global $wgMathValidModes;
 		$tex = $this->getTex();
 		if ( is_null( $this->getDisplaystyle() ) ) {
 			// default preserve the (broken) layout as it was
 			$tex = '{\\displaystyle ' . $tex . '}';
 		}
+		$out = 'tex=' . rawurlencode( $tex );
+		if ( $this->getMode() == MW_MATH_LATEXML &&  $this->getMathml() ){
+			$out .= '&mml='.rawurlencode( $this->getMathml() );
+		}
 		wfDebugLog( "Math", 'Get post data: ' . $tex );
-		return 'tex=' . rawurlencode( $tex );
+		return $out;
 	}
 
 	/**
@@ -171,7 +182,7 @@ class MathMathML extends MathRenderer {
 	 * @return boolean
 	 */
 	protected function doRender() {
-		global  $wgMathDebug;
+		global  $wgMathDebug, $wgMathValidModes;
 		if ( $this->getTex() === '' ) {
 			wfDebugLog( 'Math', 'Rendering was requested, but no TeX string is specified.' );
 			$this->lastError = $this->getError( 'math_empty_tex' );
@@ -187,10 +198,12 @@ class MathMathML extends MathRenderer {
 			if ( $result && json_last_error() === JSON_ERROR_NONE ) {
 				if ( $result->sucess ) {
 					if ( $this->isValidMathML( $result->mml ) ) {
-						$this->setMathml( $result->mml );
 						$this->setSvg( $result->svg );
 						if ( $wgMathDebug ) {
 							$this->setLog( $result->log );
+						}
+						if ( $this->getMode() != MW_MATH_LATEXML ) {
+							$this->setMathml( $result->mml );
 						}
 						return true;
 					} else {
@@ -252,24 +265,29 @@ class MathMathML extends MathRenderer {
 	 * @param boolean $noRender
 	 * @return type
 	 */
-	private function getFallbackImageUrl( $png = false, $noRender = false ) {
+	private function getFallbackImageUrl( $mode = MW_MATH_MATHML, $noRender = false ) {
 		return SpecialPage::getTitleFor( 'MathShowImage' )->getLocalURL( array(
 					'hash' => $this->getMd5(),
-					'png' => $png,
+					'mode' => $mode,
 					'noRender' => $noRender )
 		);
 	}
 
 	/**
 	 * Gets img tag for math image
-     * @param boolean $png if true a png is used instead of an svg image
+	 * @param int $mode if true a png is used instead of an svg image
 	 * @param boolean $noRender if true no rendering will be performed if the image is not stored in the database
-	 * @param string|false $classOverride if classOverride is false the class name will be calcuated by getClassName
-     * @return string XML the image html tag
+	 * @param bool $classOverride
+	 * @internal param $ (string|false) $classOverride if classOverride is false the class name will be calculated by getClassName
+	 * @return string XML the image html tag
 	 */
-	public function getFallbackImage( $png = false, $noRender = false, $classOverride = false ) {
-		$url = $this->getFallbackImageUrl( $png , $noRender );
-		$style = '';
+	public function getFallbackImage( $mode = MW_MATH_MATHML, $noRender = false, $classOverride = false ) {
+		$url = $this->getFallbackImageUrl( $mode , $noRender );
+		if ( $mode == MW_MATH_PNG ){
+			$png = true;
+		} else {
+			$png = false;
+		}
 		$attribs = array();
 		if ( $classOverride === false ) { // $class ='' suppresses class attribute
 			$class = $this->getClassName( true, $png );
@@ -348,9 +366,13 @@ class MathMathML extends MathRenderer {
 		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(),
 			'style' => 'display: none;' ),
 			$mml );
-		$output .= $this->getFallbackImage( false ) . "\n";
-		$output .= $this->getFallbackImage( true ) . "\n";
+		$output .= $this->getFallbackImage( $this->getMode() ) . "\n";
+		$output .= $this->getFallbackImage( MW_MATH_PNG ) . "\n";
 		$output .= HTML::closeElement( $element );
 		return $output;
+	}
+
+	protected function getMathTableName() {
+		return 'math_latexml';
 	}
 }
