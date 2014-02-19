@@ -11,6 +11,33 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 	protected $BadObject;
 	protected $GoodObject;
 
+	protected static $hasTexvccheck;
+	protected static $texvccheckPath;
+
+	public static function setUpBeforeClass() {
+		global $wgMathTexvcCheckExecutable;
+
+		if ( is_executable( $wgMathTexvcCheckExecutable ) ) {
+			wfDebugLog( __CLASS__, " using build in texvccheck from "
+				. "\$wgMathTexvcCheckExecutable = $wgMathTexvcCheckExecutable" );
+			# Using build-in
+			self::$hasTexvccheck = true;
+			self::$texvccheckPath = $wgMathTexvcCheckExecutable;
+		} else {
+			# Attempt to compile
+			wfDebugLog( __CLASS__, " compiling texvccheck..." );
+			$cmd = 'cd ' . dirname(__DIR__) . '/texvccheck; make --always-make 2>&1';
+			$stdout = wfShellExec( $cmd, $retval );
+			if ( $retval === 0 ) {
+				self::$hasTexvccheck = true;
+				self::$texvccheckPath = dirname( __DIR__ ) . '/texvccheck/texvccheck';
+				wfDebugLog( __CLASS__, ' compiled texvccheck at ' . self::$texvccheckPath );
+			} else {
+				wfDebugLog( __CLASS__, ' ocaml not available or compilation of texvccheck failed' );
+			}
+		}
+	}
+
 	/**
 	 * Sets up the fixture, for example, opens a network connection.
 	 * This method is called before a test is executed.
@@ -20,8 +47,12 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 		parent::setUp();
 		$this->BadObject = new MathInputCheckTexvc( '\newcommand{\text{do evil things}}' );
 		$this->GoodObject = new MathInputCheckTexvc( '\sin\left(\frac12x\right)' );
-		if ( !is_executable( $wgMathTexvcCheckExecutable ) ) {
+
+		if ( ! self::$hasTexvccheck ) {
 			$this->markTestSkipped( "No texvc installed on server" );
+		} else {
+			$this->setMwGlobals( 'wgMathTexvcCheckExecutable',
+				self::$texvccheckPath );
 		}
 	}
 
