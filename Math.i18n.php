@@ -837,6 +837,7 @@ $messages['cs'] = array(
 	'math_bad_tmpdir' => 'Nelze zapsat nebo vytvořit dočasný adresář pro matematiku',
 	'math_bad_output' => 'Nelze zapsat nebo vytvořit adresář pro výstup matematiky',
 	'math_notexvc' => 'Chybí spustitelný texvc; podívejte se prosím do math/README na konfiguraci.',
+	'math_notexvccheck' => 'Chybí spustitelný texvccheck; podívejte se prosím do math/README na konfiguraci.',
 	'math_output_error' => 'Matematický obrázek nelze uložit do souborového systému.',
 	'math_latexml_timeout' => 'Vypršel časový limit LaTeXML z „$1“',
 	'math_latexml_invalidresponse' => 'Neplatná odpověď LaTeXML („$2“) od serveru „$1“:',
