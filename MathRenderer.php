@@ -126,7 +126,7 @@ abstract class MathRenderer {
 		array_shift( $parameters );
 		$errmsg = wfMessage( $msg, $parameters )->inContentLanguage()->escaped();
 		$source = htmlspecialchars( str_replace( "\n", ' ', $this->tex ) );
-		return "<strong class='error texerror'>$mf($errmsg): $source</strong>\n";
+		return "<strong class='error texerror'>$mf ($errmsg): $source</strong>\n";
 	}
 
 	/**
