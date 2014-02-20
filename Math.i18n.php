@@ -1187,11 +1187,13 @@ $messages['fa'] = array(
 	'math_bad_tmpdir' => 'امکان ایجاد یا نوشتن اطلاعات در پوشه موقت (temp) ریاضی وجود ندارد.',
 	'math_bad_output' => 'امکان ایجاد یا نوشتن اطلاعات در پوشه خروجی (output) ریاضی وجود ندارد.',
 	'math_notexvc' => 'برنامهٔ اجرایی texvc موجود نیست. برای اطلاعات بیشتر به <span dir=ltr>math/README</span> مراجعه کنید.',
+	'math_notexvccheck' => 'بررسی قابل اجرای تکس‌وی‌سی موجود نیست؛ لطفاً برای ایجاد پیکربندی مت/رید‌می را مشاهده کنید.',
 	'math_output_error' => 'نمی‌تواند عکس مت را در سیستم های پوشه ذخیره کند.',
 	'math_latexml_timeout' => "لته ایکس‌ام‌ال از '$1' متوقف شده",
 	'math_latexml_invalidresponse' => "پاسخ نامعتبر لته ایکس‌ام‌ال ('$2') از سرور '$1':",
 	'math_latexml_invalidxml' => 'لاته ایکس‌ام‌ال مت‌ام‌ال، ایکس‌ام‌ال نامعتبر است.',
 	'math_latexml_invalidjson' => 'پاسخ سرور لاته‌ ایکس‌ام‌ال، جی‌سون نامعتبر است.',
+	'math_latexml_xmlversion' => 'هشدار: بررسی نوع ایکس‌ام‌ال نادیده گرفته شد! بررسی کنید اگر نصب مدیاویکی شما نسخهٔ دبلیو‌ام‌اف/۱.۲۲دبلیو‌ام‌اف۷ یا جدیدتر است.',
 );
 
 /** Finnish (suomi)
@@ -3601,6 +3603,7 @@ $messages['scn'] = array(
 );
 
 /** Scots (Scots)
+ * @author John Reid
  * @author OchAyeTheNoo
  */
 $messages['sco'] = array(
@@ -3609,6 +3612,7 @@ $messages['sco'] = array(
 	'prefs-math' => 'Renderin math',
 	'mw_math_png' => 'Aye render PNG',
 	'mw_math_source' => 'Leave it as TeX (for text brousers)',
+	'math_notexvccheck' => 'Tint texvccheck executable; please see math/README tae configure.',
 );
 
 /** Sindhi (سنڌي)
