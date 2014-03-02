@@ -3611,7 +3611,7 @@ $messages['sco'] = array(
 	'math_tip' => 'Mathematical formula (LaTeX)',
 	'prefs-math' => 'Renderin math',
 	'mw_math_png' => 'Aye render PNG',
-	'mw_math_source' => 'Leave it as TeX (for text brousers)',
+	'mw_math_source' => 'Lea it aes TeX (fer tex brousers)',
 	'math_notexvccheck' => 'Tint texvccheck executable; please see math/README tae configure.',
 );
 
