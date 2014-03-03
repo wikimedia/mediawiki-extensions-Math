@@ -11,7 +11,7 @@
  */
 class MathMathML extends MathRenderer {
 
-	protected static $DEFAULT_ALLOWED_ROOT_ELEMENTS = array( 'math' );
+	protected $defaultAllowedRootElements = array( 'math' );
 	protected $allowedRootElements = '';
 	protected $hosts;
 
@@ -30,7 +30,7 @@ class MathMathML extends MathRenderer {
 		if ( $this->allowedRootElements ) {
 			return $this->allowedRootElements;
 		} else {
-			return self::$DEFAULT_ALLOWED_ROOT_ELEMENTS;
+			return $this->defaultAllowedRootElements;
 		}
 	}
 
@@ -163,7 +163,6 @@ class MathMathML extends MathRenderer {
 	 * @return string HTTP POST data
 	 */
 	public function getPostData() {
-		global $wgMathValidModes;
 		$tex = $this->getTex();
 		if ( is_null( $this->getDisplaystyle() ) ) {
 			// default preserve the (broken) layout as it was
@@ -184,7 +183,7 @@ class MathMathML extends MathRenderer {
 	 * @return boolean
 	 */
 	protected function doRender() {
-		global  $wgMathDebug, $wgMathValidModes;
+		global  $wgMathDebug;
 		if ( $this->getTex() === '' ) {
 			wfDebugLog( 'Math', 'Rendering was requested, but no TeX string is specified.' );
 			$this->lastError = $this->getError( 'math_empty_tex' );

@@ -19,8 +19,6 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	public function testSpecialCase0() {
 		global $wgMathFastDisplay;
 		$wgMathFastDisplay = false;
-		// FIXME:
-		$this->markTestSkipped( "Bug in LaTeXML" );
 		$renderer = MathRenderer::getRenderer( '0', array( ), MW_MATH_LATEXML );
 		$expected = '0</cn>';
 		$this->assertTrue( $renderer->render() );

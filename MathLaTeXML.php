@@ -10,7 +10,7 @@
  * @file
  */
 class MathLaTeXML extends MathMathML {
-	protected static $DEFAULT_ALLOWED_ROOT_ELEMENTS = array( 'math', 'div', 'table', 'query' );
+	protected $defaultAllowedRootElements = array( 'math', 'div', 'table', 'query' );
 	/** @var String settings for LaTeXML daemon	 */
 	private $LaTeXMLSettings = '';
 	/** @var boolean if false LaTeXML output is not validated*/
@@ -92,8 +92,8 @@ class MathLaTeXML extends MathMathML {
 	 * @return boolean
 	 */
 	protected function doRender() {
-		global $wgMathDefaultLaTeXMLSetting, $wgMathDebug;
-		if ( !$this->getTex() ) {
+		global $wgMathDebug;
+		if ( trim( $this->getTex() ) === '' ) {
 			wfDebugLog( "Math", "Rendering was requested, but no TeX string is specified." );
 			$this->lastError = $this->getError( 'math_empty_tex' );
 			return false;
