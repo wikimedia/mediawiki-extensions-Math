@@ -1948,6 +1948,7 @@ $messages['it'] = array(
 	'math_bad_tmpdir' => 'Impossibile scrivere o creare la directory temporanea per math',
 	'math_bad_output' => 'Impossibile scrivere o creare la directory di output per math',
 	'math_notexvc' => 'Eseguibile texvc mancante; per favore consultare math/README per la configurazione.',
+	'math_output_error' => "Non è possibile archiviare l'immagine della formula matematica sul filesystem.",
 );
 
 /** Japanese (日本語)
