@@ -34,11 +34,12 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->db = wfGetDB( DB_MASTER );
 		// Create a new instance of MathSource
 		$this->renderer = $this->getMockForAbstractClass( 'MathRenderer', array ( self::SOME_TEX ) );
-		$this->tablesUsed[] = 'math';
+		//MathHooks::onParserTestTables( $this->tablesUsed );
 		self::setupTestDB( $this->db, "mathtest" );
 
 		$wgMathDebug = FALSE;
 	}
+
 	/**
 	 * Checks the tex and hash functions
 	 * @covers MathRenderer::getInputHash()
@@ -57,6 +58,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->renderer->setLog( self::SOME_LOG );
 		$this->renderer->setStatusCode( self::SOME_STATUSCODE );
 	}
+
 	/**
 	 * Checks database access. Writes an etry and reads it back.
 	 * @convers MathRenderer::writeDatabaseEntry()
@@ -86,6 +88,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 
 
 
+
 	/**
 	 * Checks the creation of the math table without debugging endabled.
 	 * @covers MathHooks::onLoadExtensionSchemaUpdates
@@ -99,12 +102,12 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		}
 		global $wgMathDebug;
 		$this->db->dropTable( "math", __METHOD__ );
-                $this->db->dropTable( "mathoid", __METHOD__ );
+        $this->db->dropTable( "mathoid", __METHOD__ );
 		$wgMathDebug = false;
 		$dbu = DatabaseUpdater::newForDB( $this->db );
 		$dbu->doUpdates( array( "extensions" ) );
 		$this->expectOutputRegex( '/(.*)Creating math table(.*)/' );
-                $this->expectOutputRegex( '/(.*)Creating mathoid table(.*)/' );
+        $this->expectOutputRegex( '/(.*)Creating mathoid table(.*)/' );
 		$this->setValues();
 		$this->renderer->writeToDatabase();
 		$res = $this->db->select( "mathoid", "*" );
