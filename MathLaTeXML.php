@@ -112,7 +112,9 @@ class MathLaTeXML extends MathMathML {
 			$result = json_decode( $res );
 			if ( $result && json_last_error() === JSON_ERROR_NONE ) {
 				if ( $this->isValidMathML( $result->result ) ) {
-					$this->setMathml( $result->result );
+					//add inputhash as id to the MathML element
+					$mml = preg_replace( '/id="p1.1.m1"/', 'id="' . $this->getMd5() . '"' , $result->result , 1);
+					$this->setMathml( $mml );
 					if ( $wgMathDebug ) {
 						$this->setLog( $result->log );
 						$this->setStatusCode( $result->status_code );
