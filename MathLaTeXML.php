@@ -20,6 +20,7 @@ class MathLaTeXML extends MathMathML {
 		global $wgMathLaTeXMLUrl;
 		parent::__construct( $tex, $params );
 		$this->hosts = $wgMathLaTeXMLUrl;
+		$this->setMode( MW_MATH_LATEXML );
 	}
 	/**
 	 * Converts an array with LaTeXML settings to a URL encoded String.

@@ -103,10 +103,10 @@ class MathHooks {
 			}
 		}
 		if ( $renderer->render() ) {
-			wfDebugLog( "Math" , "Rendering successfull. Writing output" );
+			wfDebugLog( "Math" , "Rendering successful. Writing output" );
 			$renderedMath = $renderer->getHtmlOutput();
 		} else {
-			wfDebugLog( "Math" , "Rendering failed. Prining error message." );
+			wfDebugLog( "Math" , "Rendering failed. Printing error message." );
 			return $renderer->getLastError();
 		}
 		wfRunHooks( 'MathFormulaRendered',
