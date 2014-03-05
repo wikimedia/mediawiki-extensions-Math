@@ -210,7 +210,9 @@ class MathMathML extends MathRenderer {
 							$this->setLog( $result->log );
 						}
 						if ( $this->getMode() != MW_MATH_LATEXML ) {
-							$this->setMathml( $result->mml );
+							//add the inputhash used for the generation to the MathML element
+							$mml = '<math id="' . $this->getMd5() . '" ' . substr( $result->mml , 5 );
+							$this->setMathml( $mml );
 						}
 						return true;
 					} else {
