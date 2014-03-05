@@ -4,7 +4,7 @@
 --
 CREATE TABLE /*_*/math (
   -- Binary MD5 hash of the latex fragment, used as an identifier key.
-  math_inputhash varbinary(16) NOT NULL,
+  math_inputhash varbinary(16) NOT NULL PRIMARY KEY,
 
   -- MathML output from texvc, or from LaTeXML
   math_mathml text,
@@ -20,5 +20,3 @@ CREATE TABLE /*_*/math (
   -- HTML output from texvc, if any
   math_html text
 ) /*$wgDBTableOptions*/;
-
-CREATE UNIQUE INDEX /*i*/math_inputhash ON /*_*/math (math_inputhash);

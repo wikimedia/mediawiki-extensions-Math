@@ -2,25 +2,59 @@
 /**
  * MediaWiki math extension
  *
- * (c) 2002-2013 various MediaWiki contributors
+ * (c) 2002-2014 various MediaWiki contributors
  * GPLv2 license; info in main package.
  */
 
 class MathHooks {
+	const mathCacheKey = 'math=';
+
 	/*
-	 *
+	 * Generate a user dependent hash cache key.
+	 * The hash key depends on the rendering mode.
 	 * @param &$confstr The to-be-hashed key string that is being constructed
+	 * @param User $user reference to the current user
+	 * @param array &$forOptions userOptions used on that page
 	 */
-	public static function onPageRenderingHash( &$confstr ) {
-		global $wgUser, $wgMathJax;
-		$user = $wgUser;
-		$confstr .= "!" . $user->getOption( 'math' );
-		if ( $wgMathJax &&  $user->getOption( 'mathJax' ) ) {
-			$confstr .= "!" . 1;
+	public static function onPageRenderingHash( &$confstr, $user = false, &$forOptions = array() ) {
+		global $wgUser;
+
+		// To be independent of the MediaWiki core version,
+		// we check if the core caching logic for math is still available.
+		if ( ! is_callable( 'ParserOptions::getMath' ) && in_array( 'math', $forOptions) ) {
+			if ( $user === false ) {
+				$user = $wgUser;
+			}
+
+			$mathOption = $user->getOption( 'math' );
+			// Check if the key already contains the math option part
+			if (
+				!preg_match(
+					'/(^|!)' . self::mathCacheKey . $mathOption . '(!|$)/',
+					$confstr
+				)
+			) {
+				// The math part of cache key starts with "math=" followed by a star or a number for the math mode
+				// and the optional letter j that indicates if clientside MathJax rendering is used.
+				if ( preg_match( '/(^|!)' . self::mathCacheKey.'[*\d]m?(!|$)/', $confstr ) ) {
+					$confstr = preg_replace(
+						'/(^|!)' . self::mathCacheKey . '[*\d]m?(!|$)/',
+						'\1' . self::mathCacheKey . $mathOption . '\2',
+						$confstr
+					);
+				} else {
+					$confstr .= '!' . self::mathCacheKey . $mathOption;
+				}
+
+				wfDebugLog( 'Math', "New cache key: $confstr" );
+			} else {
+				wfDebugLog( 'Math', "Cache key found $confstr" );
+			}
 		}
-		wfDebugLog( 'Math', 'New cache key' . $confstr );
+
 		return true;
 	}
+
 	/**
 	 * Register the <math> tag with the Parser.
 	 *
@@ -42,19 +76,29 @@ class MathHooks {
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		global $wgMathJax, $wgMathDisableTexFilter;
-		if ( trim( $content ) === "" ) { // bug 8372
-			return "";
+
+		if ( trim( $content ) === '' ) { // bug 8372
+			return '';
 		}
+
 		wfProfileIn( __METHOD__ );
-		$mode = (int) $parser->getUser()->getOption( 'math' );
-		$parser->getOptions()->addExtraKey( $mode );
-		$renderer = MathRenderer::getRenderer(
-			$content, $attributes, $mode
-		);
-		if ( ! $wgMathDisableTexFilter ) {
+		$mode = (int)$parser->getUser()->getOption( 'math' );
+
+		// Indicate that this page uses math.
+		// This affects the page caching behavior.
+		if ( is_callable( 'ParserOptions::getMath' ) ) {
+			$parser->getOptions()->getMath();
+		} else {
+			$parser->getOptions()->optionUsed( 'math' );
+		}
+
+		$renderer = MathRenderer::getRenderer( $content, $attributes, $mode );
+
+		if ( !$wgMathDisableTexFilter ) {
 			$checkResult = $renderer->checkTex();
+
 			if ( $checkResult !== true ) {
-				// returns the error message
+				// Returns the error message
 				return $renderer->getLastError();
 			}
 		}
@@ -205,6 +249,7 @@ class MathHooks {
 	static function onParserTestTables( &$tables ) {
 		$tables[] = 'math';
 		$tables[] = 'mathoid';
+		$tables[] = 'math_latexml';
 		return true;
 	}
 

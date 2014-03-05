@@ -18,6 +18,12 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	 */
 	public function testSpecialCase0() {
 		global $wgMathFastDisplay;
+		if ( wfGetDB( DB_MASTER )->getType() === 'sqlite' ) {
+			$this->markTestSkipped( "SQLite has global indices. We cannot " .
+				"create the `unitest_math` table, its math_inputhash index " .
+				"would conflict with the one from the real `math` table."
+			);
+		}
 		$wgMathFastDisplay = false;
 		$renderer = MathRenderer::getRenderer( '0', array( ), MW_MATH_LATEXML );
 		$expected = '0</cn>';
