@@ -1165,6 +1165,7 @@ $messages['ext'] = array(
 
 /** Persian (فارسی)
  * @author Armin1392
+ * @author Ebraminio
  * @author Huji
  * @author Omidh
  * @author ZxxZxxZ
@@ -1188,7 +1189,7 @@ $messages['fa'] = array(
 	'math_bad_output' => 'امکان ایجاد یا نوشتن اطلاعات در پوشه خروجی (output) ریاضی وجود ندارد.',
 	'math_notexvc' => 'برنامهٔ اجرایی texvc موجود نیست. برای اطلاعات بیشتر به <span dir=ltr>math/README</span> مراجعه کنید.',
 	'math_notexvccheck' => 'بررسی قابل اجرای تکس‌وی‌سی موجود نیست؛ لطفاً برای ایجاد پیکربندی مت/رید‌می را مشاهده کنید.',
-	'math_output_error' => 'نمی‌تواند عکس مت را در سیستم های پوشه ذخیره کند.',
+	'math_output_error' => 'نمی‌تواند عکس ریاضی را در سامانه‌های پرونده ذخیره کند.',
 	'math_latexml_timeout' => "لته ایکس‌ام‌ال از '$1' متوقف شده",
 	'math_latexml_invalidresponse' => "پاسخ نامعتبر لته ایکس‌ام‌ال ('$2') از سرور '$1':",
 	'math_latexml_invalidxml' => 'لاته ایکس‌ام‌ال مت‌ام‌ال، ایکس‌ام‌ال نامعتبر است.',
