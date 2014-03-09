@@ -2143,13 +2143,15 @@ latex, dvips, gs جانە convert باعدارلامالارىنىڭ دۇرىس 
 );
 
 /** Kazakh (Cyrillic script) (қазақша (кирил)‎)
+ * @author Arystanbek
  */
 $messages['kk-cyrl'] = array(
 	'math_sample' => 'Өрнекті мында енгізіңіз',
 	'math_tip' => 'Математика өрнегі (LaTeX)',
-	'prefs-math' => 'Өрнектер',
+	'prefs-math' => 'Математикалық өрнектер',
 	'mw_math_png' => 'Әрқашан PNG пішінімен көрсеткіз',
 	'mw_math_source' => 'Бұны TeX пішімінде қалдыр (мәтіндік шолғыштарға)',
+	'mw_math_mathjax' => 'MathJax (тәжірибелік; көп броузердер үшін ең жақсысы)',
 	'math_failure' => 'Құрылымын талдатуы сәтсіз бітті',
 	'math_unknown_error' => 'белгісіз қате',
 	'math_unknown_function' => 'белгісіз жете', # Fuzzy
@@ -3785,6 +3787,7 @@ $messages['sl'] = array(
 	'math_bad_output' => 'Izhodne mape za math ne morem ustvariti ali pisati vanjo.',
 	'math_notexvc' => 'Manjka izvedbena datoteka texvc;
 za njeno namestitev si poglejte math/README.',
+	'math_notexvccheck' => 'Manjka izvršljiva datoteka texvccheck; prosimo, oglejte si math/README za konfiguracijo.',
 	'math_output_error' => 'Ne morem shraniti matematičnih slik na datotečni sistem.',
 	'math_latexml_timeout' => "LaTeXML Časovna omejitev od '$1'",
 	'math_latexml_invalidresponse' => "LaTeXML Neveljavni odziv ('$2') strežnika '$1':",
