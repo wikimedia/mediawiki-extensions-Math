@@ -19,3 +19,9 @@ $parser->nextLinkID(): the next available linkID (enables indexing of math formu
 'MathAfterTexvc':
 &$this: MathTexvc object
 &$errmsg: error message
+
+'MathMLChanged': Is called before the MathML property is changed
+	can be used e.g. for compression, normalization or introduction of
+	custom hyperlinks etc.
+&$this: MathRenderer object
+&$mathml: error message

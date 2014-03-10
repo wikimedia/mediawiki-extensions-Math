@@ -484,6 +484,7 @@ abstract class MathRenderer {
 	 */
 	public function setMathml( $mathml ) {
 		$this->changed = true;
+		wfRunHooks( 'MathMLChanged', array( &$this , &$mathml) );
 		$this->mathml = $mathml;
 	}
 
