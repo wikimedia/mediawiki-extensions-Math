@@ -1,0 +1,21 @@
+hooks.txt
+
+For information how event hooks work in MediaWiki; how to add hooks for
+an event; and how to run hooks for an event look at
+path/to/mediawiki/docs/hooks.txt
+
+==Hooks of the math extension==
+
+This is a list of known events and parameters; please add to it if you're going
+to add events to the MediaWiki code.
+
+'MathFormulaRendered': after rendering of the math tag. Hook can be used for postprocessing
+of the rendered math content
+&$renderer: MathRenderer instance
+&$renderedMath: the HTML-output that should be integrated to the page
+$parser->getTitle()->getArticleID(): the Id of the current article
+$parser->nextLinkID(): the next available linkID (enables indexing of math formula)
+
+'MathAfterTexvc':
+&$this: MathTexvc object
+&$errmsg: error message
