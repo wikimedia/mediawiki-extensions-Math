@@ -1461,6 +1461,7 @@ $messages['gl'] = array(
 	'math_bad_tmpdir' => 'Non se pode crear ou escribir no directorio matemático temporal',
 	'math_bad_output' => 'Non se pode crear ou escribir no directorio matemático de saída',
 	'math_notexvc' => 'Falta o executable texvc. Consulte math/README para configuralo.',
+	'math_notexvccheck' => 'Falta o executable texvccheck. Consulte math/README para configuralo.',
 	'math_output_error' => 'Non se pode almacenar a imaxe matemática no sistema de ficheiros.',
 	'math_latexml_timeout' => 'Excedeuse o tempo de espera de LaTeXML de "$1"',
 	'math_latexml_invalidresponse' => 'Resposta non válida de LaTeXML ("$2") desde o servidor "$1":',
