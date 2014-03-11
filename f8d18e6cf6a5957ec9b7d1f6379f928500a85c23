@@ -53,6 +53,23 @@
     },
     {
       "key": {
+        "uuid": "2e0177f3_41ce16bb",
+        "filename": "maintenance/MathGenerateTests.php",
+        "patchSetId": 18
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 95
+      },
+      "writtenOn": "2014-03-11T13:20:00Z",
+      "side": 1,
+      "message": "In PHP, sizeof() is simply an alias of count(). It performs differently to its C/C++ \u0027sizeof\u0027 brethren, so there is really no reason not to use count().",
+      "revId": "f8d18e6cf6a5957ec9b7d1f6379f928500a85c23",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e0177f3_e16082ce",
         "filename": "maintenance/MathGenerateTests.php",
         "patchSetId": 18
@@ -64,6 +81,23 @@
       "writtenOn": "2014-03-11T12:54:56Z",
       "side": 1,
       "message": "spaces around the \u003d",
+      "revId": "f8d18e6cf6a5957ec9b7d1f6379f928500a85c23",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e0177f3_6138f29b",
+        "filename": "maintenance/MathGenerateTests.php",
+        "patchSetId": 18
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 95
+      },
+      "writtenOn": "2014-03-11T13:20:00Z",
+      "side": 1,
+      "message": "[ ] probably doesn\u0027t need the space. Also, no space between (string) and $input. Also, space after $output.",
       "revId": "f8d18e6cf6a5957ec9b7d1f6379f928500a85c23",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
