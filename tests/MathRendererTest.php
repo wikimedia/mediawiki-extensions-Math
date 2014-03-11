@@ -57,11 +57,16 @@ class MathRendererTest extends MediaWikiTestCase {
 		->setMethods( array( 'render' ) )
 		->disableOriginalConstructor()
 		->getMock();
-		$this->assertEquals( $renderer->isChanged(), false
-			, "test if changed is initially false" );
+		$this->assertEquals(
+			$renderer->isChanged(),
+			false,
+			"test if changed is initially false"
+		);
 		$renderer->setHash( '0000' );
-		$this->assertEquals( $renderer->isChanged(), true
-			, "assumes that changing a hash sets changed to true" );
+		$this->assertEquals(
+			$renderer->isChanged(),
+			true,
+			"assumes that changing a hash sets changed to true" );
 	}
 
 	public function testSetPurge() {
