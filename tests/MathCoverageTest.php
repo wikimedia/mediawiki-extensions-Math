@@ -68,7 +68,11 @@ class MathCoverageTest extends MediaWikiTestCase {
 		// TODO: Make rendering mode configurable
 		// TODO: Provide test-ids
 		// TODO: Link to the wikipage that contains the reference rendering
-		$this->assertEquals( $this->normalize( $output ),  $this->normalize( MathRenderer::renderMath( $input , array(), MW_MATH_PNG ) ), "Failed to render $input" );
+		$this->assertEquals(
+			$this->normalize( $output ),
+			$this->normalize( MathRenderer::renderMath( $input, array(), MW_MATH_PNG ) ),
+			"Failed to render $input"
+		);
 	}
 
 	/**

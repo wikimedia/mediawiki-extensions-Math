@@ -76,7 +76,10 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 		}
 
 		$time = microtime( true ) - $tstart;
-		$this->assertTrue( $time < $maxAvgTime * $numberOfRuns, 'function is_executable consumes too much time' );
+		$this->assertTrue(
+			$time < $maxAvgTime * $numberOfRuns,
+			'function is_executable consumes too much time'
+		);
 	}
 
 	/**
@@ -118,7 +121,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 		$this->assertNull( $this->BadObject->getValidTex() );
 
 		// Be aware of the additional brackets and spaces inserted here
-		$this->assertEquals( $this->GoodObject->getValidTex() , "\\sin \\left({\\frac  12}x\\right)" );
+		$this->assertEquals( $this->GoodObject->getValidTex(), "\\sin \\left({\\frac  12}x\\right)" );
 	}
 
 	/**

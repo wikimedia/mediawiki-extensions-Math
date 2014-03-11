@@ -98,7 +98,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->renderer->writeToDatabase();
 		$res = $this->db->select( "math", "*" );
 		$row = $res->fetchRow();
-		$this->assertEquals( sizeof( $row ), 2 * self::NUM_BASIC_FIELDS );
+		$this->assertEquals( count( $row ), 2 * self::NUM_BASIC_FIELDS );
 	}
 
 }
