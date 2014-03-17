@@ -3083,6 +3083,7 @@ $messages['oc'] = array(
 	'prefs-math' => 'Rendut de las matas',
 	'mw_math_png' => 'Totjorn produire un imatge PNG',
 	'mw_math_source' => "Daissar lo còde TeX d'origina",
+	'mw_math_mathjax' => 'MathJax (experimental ; melhor per la màger part dels navigadors)',
 	'math_failure' => 'Error matas',
 	'math_unknown_error' => 'error indeterminada',
 	'math_unknown_function' => 'foncion desconeguda « $1 »',
