@@ -79,19 +79,26 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function getMathImageHTML() {
 		$url = $this->getMathImageUrl();
-
+		$attributes = array(
+			// the former class name was 'tex'
+			// for backwards compatibility we keep that classname
+			'class' => 'mwe-math-fallback-png-inline tex',
+			'alt' => $this->getTex()
+		);
+		if ( $this->getDisplayStyle() === MW_MATHSTYLE_DISPLAY ){
+			// if DisplayStyle is true, the equation will be centered in a new line
+			$attributes[ 'class' ] = 'mwe-math-fallback-png-display tex';
+		}
 		return Xml::element( 'img',
 			$this->getAttributes(
 				'img',
-				array(
-					'class' => 'tex',
-					'alt' => $this->getTex(),
-				),
+				$attributes,
 				array(
 					'src' => $url
 				)
 			)
 		);
+
 	}
 
 	/**
