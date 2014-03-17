@@ -21,33 +21,29 @@
 
 require_once( dirname( __FILE__ ) . '/../../../maintenance/Maintenance.php' );
 
-class MathGenerateTests extends Maintenance
-{
-	const REFERENCE_PAGE = 'mediawikiwiki:Extension:Math/CoverageTest';
-
-	public function __construct()
-	{
+class MathGenerateTests extends Maintenance {
+	const ReferencePage = 'mediawikiwiki:Extension:Math/CoverageTest';
+	public function __construct() {
 		parent::__construct();
 		$this->mDescription = 'Rebuilds the MathCoverage tests';
-		$this->addArg( 'page', "The page ues for the testset generation.", false );
+		$this->addArg('page', "The page ues for the testset generation.", false);
 		$this->addOption( 'offset', "If set the first n equations on the page are skipped", false, true, "o" );
 		$this->addOption( 'length', "If set the only n equations were processed", false, true, "l" );
 		$this->addOption( 'user', "User with rights to view the page", false, true, "u" );
 
 	}
 
-	private static function getMathTagsFromPage( $titleString )
-	{
+	private static function getMathTagsFromPage( $titleString  ) {
 		global $wgEnableScaryTranscluding;
 		$title = Title::newFromText( $titleString );
-		if ( $title->exists() ) {
+		if ( $title->exists() ){
 			$article = new Article( $title );
 			$wikiText = $article->getPage()->getContent()->getNativeData();
 		} else {
-			if ( $title == self::REFERENCE_PAGE ) {
-				$wgEnableScaryTranscluding = true;
-				$parser = new Parser();
-				$wikiText = $parser->interwikiTransclude( $title, 'raw' );
+			if( $title == self::ReferencePage ){
+					$wgEnableScaryTranscluding = true;
+					$parser = new Parser();
+					$wikiText = $parser->interwikiTransclude( $title, 'raw' );
 			} else {
 				return 'Page does not exist';
 			}
@@ -56,39 +52,38 @@ class MathGenerateTests extends Maintenance
 
 		$wikiText = Sanitizer::removeHTMLcomments( $wikiText );
 		$wikiText = preg_replace( '#<nowiki>(.*)</nowiki>#', '', $wikiText );
-		preg_match_all( "#<math>(.*?)</math>#s", $wikiText, $math );
+		$matches = preg_match_all( "#<math>(.*?)</math>#s", $wikiText,  $math );
 		// TODO: Find a way to specify a key e.g '\nRenderTest:(.?)#<math>(.*?)</math>#s\n'
 		// leads to array('\1'->'\2') with \1 eg Bug 2345 and \2 the math content
 		return $math[1];
 
 	}
 
-	public function execute()
-	{
+	public function execute() {
 		global $wgUser;
-		$parserTests = array();
-		$page = $this->getArg( 0, self::REFERENCE_PAGE );
-		$offset = $this->getOption( 'offset', 0 );
-		$length = $this->getOption( 'length', PHP_INT_MAX );
+		$parserTests= array();
+		$page = $this->getArg( 0 ,self::ReferencePage);
+		$offset = $this->getOption('offset',0);
+		$length = $this->getOption('length',PHP_INT_MAX);
 		$userName = $this->getOption( 'user', 'Maintenance script' );
 		$wgUser = User::newFromName( $userName );
-		$allEquations = self::getMathTagsFromPage( $page );
-		if ( !is_array( $allEquations ) ) {
+		$allEquations =  self::getMathTagsFromPage( $page );
+		if ( ! is_array( $allEquations ) ){
 			echo "Could not get equations from page '$page'\n";
 			echo $allEquations . PHP_EOL;
 			return;
 		} else {
-			echo 'got ' . count( $allEquations ) . " math tags. Start processing.";
+			echo 'got ' . sizeof($allEquations) . " math tags. Start processing.";
 		}
-		$i = 0;
-		foreach ( array_slice( $allEquations, $offset, $length, true ) as $input ) {
+		$i=0;
+		foreach ( array_slice( $allEquations, $offset , $length , true) as $key => $input ) {
 			$output = MathRenderer::renderMath( $input, array(), MW_MATH_PNG );
-			$parserTests[] = array( (string)$input, $output );
+			$parserTests[ ]= array( (string) $input , $output);
 			$i++;
 			echo '.';
 		}
 		echo "Generated $i tests\n";
-		file_put_contents( dirname( __FILE__ ) . '/../tests/ParserTest.data', serialize( $parserTests ) );
+		file_put_contents(dirname( __FILE__ ).'/../tests/ParserTest.data',serialize($parserTests));
 	}
 }
 

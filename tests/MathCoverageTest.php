@@ -32,8 +32,8 @@ class MathCoverageTest extends MediaWikiTestCase {
 		} else {
 			# Attempt to compile
 			wfDebugLog( __CLASS__, " compiling texvc..." );
-			$cmd = 'cd ' . dirname( __DIR__ ) . '/math; make --always-make 2>&1';
-			wfShellExec( $cmd, $retval );
+			$cmd = 'cd ' . dirname(__DIR__) . '/math; make --always-make 2>&1';
+			$stdout = wfShellExec( $cmd, $retval );
 			if ( $retval === 0 ) {
 				self::$hasTexvc = true;
 				self::$texvcPath = dirname( __DIR__ ) . '/math/texvc';
@@ -49,6 +49,7 @@ class MathCoverageTest extends MediaWikiTestCase {
 	 * This method is called before a test is executed.
 	 */
 	protected function setUp() {
+		global $wgMathTexvcExecutable;
 		parent::setUp();
 
 		if ( ! self::$hasTexvc ) {
@@ -61,30 +62,27 @@ class MathCoverageTest extends MediaWikiTestCase {
 	/**
 	 * Loops over all test cases provided by the provider function.
 	 * Compares each the rendering result of each input with the expected output.
-	 * @dataProvider testProvider
+	 * @dataProvider provider
 	 */
-	public function testCoverage( $input, $output )
+	public function testCoverage($input, $output)
 	{
-		// TODO: Make rendering mode configurable
-		// TODO: Provide test-ids
-		// TODO: Link to the wikipage that contains the reference rendering
-		$this->assertEquals(
-			$this->normalize( $output ),
-			$this->normalize( MathRenderer::renderMath( $input, array(), MW_MATH_PNG ) ),
-			"Failed to render $input"
-		);
+		//TODO: Make rendering mode confurable
+		//TODO: Provide test-ids
+		//TODO: Link to the Wikipage that contains the reference rendering
+		$this->assertEquals( $this->normalize( $output ),  $this->normalize( MathRenderer::renderMath( $input , array(), MW_MATH_PNG ) ), "Failed to render $input" );
 	}
 
 	/**
 	 * Gets the test-data from the file ParserTest.data
+	 * @file
 	 * @return array($input, $output) where $input is the test input string and $output is the rendered html5-output string
 	 */
-	public function testProvider()
+	public function provider()
 	{
-		return unserialize( file_get_contents( dirname( __FILE__ ) . '/ParserTest.data' ) );
+		return unserialize( file_get_contents( dirname( __FILE__ ) .'/ParserTest.data' ) );
 	}
 
-	private function normalize( $input ) {
-		return preg_replace( '#src="(.*?)/(([a-f]|\d)*).png"#', 'src="\2.png"', $input );
+	private function normalize( $input ){
+		return preg_replace('#src="(.*?)/(([a-f]|\d)*).png"#','src="\2.png"',$input);
 	}
 }
