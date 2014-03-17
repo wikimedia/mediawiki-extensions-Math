@@ -12,7 +12,7 @@ class MathSourceTest extends MediaWikiTestCase {
 	public function testBasics() {
 		$real = MathRenderer::renderMath( "a+b", array(), MW_MATH_SOURCE );
 		$this->assertEquals(
-			'<span class="tex" dir="ltr">$ a+b $</span>',
+			'<span class="mwe-math-fallback-source-inline tex" dir="ltr">$ a+b $</span>',
 			$real,
 			"Rendering of a+b in plain Text mode"
 		);
@@ -24,7 +24,7 @@ class MathSourceTest extends MediaWikiTestCase {
 	public function testNewLines() {
 		$real = MathRenderer::renderMath( "a\n b", array(), MW_MATH_SOURCE );
 		$this->assertSame(
-			'<span class="tex" dir="ltr">$ a  b $</span>',
+			'<span class="mwe-math-fallback-source-inline tex" dir="ltr">$ a  b $</span>',
 			$real,
 			"converting newlines to spaces"
 		);
