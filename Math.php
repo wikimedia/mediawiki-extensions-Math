@@ -41,6 +41,16 @@ define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
 define( 'MW_MATH_LATEXML', 7 ); /// new in 1.22
 /**@}*/
 
+/**@{
+ * Mathstyle constants
+ */
+define( 'MW_MATHSTYLE_DISPLAY_INLINE',  0 ); //default
+define( 'MW_MATHSTYLE_DISPLAY_DISPLAY', 1 );
+define( 'MW_MATHSTYLE_INLINE_INLINE',   2 );
+// There is no MW_MATHSTYLE_INLINE_DISPLAY which would render small operators
+// but display the equation centered in a new line
+/**@}*/
+
 /** Location of the texvc binary */
 $wgTexvc = __DIR__ . '/math/texvc';
 /**
