@@ -35,6 +35,22 @@ if ( typeof mathJax === 'undefined' ) {
   };
 }
 
+Attributes of the <math /> element:
+attribute "display":
+possible values: "inline" or "block" (and not set)
+
+Not set reproduces the he old texvc behavior:
+The equation is rendered with large height operands (texvc used $$ $tex $$ to render)
+but the equation printed to the current line of the output and not centered in a new line.
+In Wikipedia users use :<math>$tex</math> to move the math element closer to the center.
+
+"inline" renders the equation in with small height operands by adding {\textstyle $tex } to the
+users input ($tex). The equation is displayed in the current text line.
+
+"block" renders the equation in with large height operands centered in a new line by adding
+{\displaystyle $tex } to the user input ($tex).
+
+
 For testing your installation run
 php tests/phpunit/phpunit.php extensions/Math/tests/
 from your MediWiki home path.
