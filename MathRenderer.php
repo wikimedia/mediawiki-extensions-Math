@@ -29,6 +29,8 @@ abstract class MathRenderer {
 	protected $tex = '';
 	/** @var string the original user input string (which was used to caculate the inputhash) */
 	protected $userInputTex = '';
+	/** @var (MW_MATHSTYLE_DISPLAY_INLINE|MW_MATHSTYLE_DISPLAY_DISPLAY|MW_MATHSTYLE_INLINE_INLINE) the rendering style */
+	protected $displayStyle = MW_MATHSTYLE_DISPLAY_INLINE;
 	/**
 	 * is calculated by texvc.
 	 * @var string
@@ -84,6 +86,27 @@ abstract class MathRenderer {
 	 */
 	public static function getRenderer( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
 		global $wgDefaultUserOptions;
+		$displayStyle = null;
+		if ( isset( $params['display'] ) ) {
+			$layoutMode = $params['display'];
+			if ( $layoutMode == 'block' ) {
+				$displayStyle = MW_MATHSTYLE_DISPLAY_DISPLAY ;
+				// TODO: Implement caching for attributes of the math tag
+				// Currently the key for the database entry relating to an equation
+				// is md5($tex) the new option to determine if the tex input
+				// is rendered in displaystyle or textstyle would require a database
+				// layout change to use a composite key e.g. (md5($tex),$displayStyle).
+				// As a workaround we use the prefix \displaystyle so that the key becomes
+				// md5((\{\\displaystyle|\{\\textstyle)?\s?$tex\}?)
+				// The new value of $tex string describes now how the rendering should look like.
+				// The variable MathRenderer::displayStyle determines if the rendered equation should
+				// be centered in a new line, or just in be displayed in the current line.
+				$tex = '{\displaystyle ' . $tex . '}';
+			} elseif ( $layoutMode == 'inline' ) {
+				$displayStyle = MW_MATHSTYLE_INLINE_INLINE;
+				$tex = '{\textstyle ' . $tex . '}';
+			}
+		}
 		$validModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHJAX, MW_MATH_LATEXML );
 		if ( !in_array( $mode, $validModes ) )
 			$mode = $wgDefaultUserOptions['math'];
@@ -100,6 +123,7 @@ abstract class MathRenderer {
 				$renderer = new MathTexvc( $tex, $params );
 		}
 		wfDebugLog ( "Math", 'start rendering $' . $renderer->tex . '$ in mode ' . $mode );
+		$renderer->setDisplayStyle( $displayStyle );
 		return $renderer;
 	}
 
@@ -420,6 +444,49 @@ abstract class MathRenderer {
 
 	function getLastError() {
 		return $this->lastError;
+	}
+
+
+	/**
+	 *
+	 * @param (MW_MATHSTYLE_DISPLAY_INLINE|MW_MATHSTYLE_DISPLAY_DISPLAY|MW_MATHSTYLE_INLINE_INLINE) $displayStyle
+	 */
+	public function setDisplayStyle( $displayStyle = MW_MATHSTYLE_DISPLAY_DISPLAY ) {
+		if ( $this->displayStyle !== $displayStyle ){
+			$this->changed = true;
+		}
+		$this->displayStyle = $displayStyle;
+	}
+
+	/**
+	 * Returns the value of the DisplayStyle attribute
+	 * @return (MW_MATHSTYLE_DISPLAY_INLINE|MW_MATHSTYLE_DISPLAY_DISPLAY|MW_MATHSTYLE_INLINE_INLINE) the DisplayStyle
+	 */
+	public function getDisplayStyle() {
+		return $this->displayStyle;
+	}
+
+	/**
+	 * @param string $log
+	 */
+	public function setLog( $log ) {
+		$this->changed = true;
+		$this->log = $log;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getStatusCode() {
+		return $this->statusCode;
+	}
+
+	/**
+	 * @param unknown_type $statusCode
+	 */
+	public function setStatusCode( $statusCode ) {
+		$this->changed = true;
+		$this->statusCode = $statusCode;
 	}
 
 	/**
