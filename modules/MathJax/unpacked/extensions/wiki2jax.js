@@ -37,7 +37,8 @@ MathJax.Extension.wiki2jax = {
 
   ConvertMath: function (node) {
     var parent = node.parentNode,
-        mode = parent.tagName === "DD" && parent.childNodes.length === 1 ? "; mode=display" : "",
+        mode = "", //Bug 61051 (heuristic unwanted by the community)
+        //mode = parent.tagName === "DD" && parent.childNodes.length === 1 ? "; mode=display" : "",
 		tex;
 	if (node.nodeName == 'IMG') {
 		tex = node.alt;
@@ -49,7 +50,9 @@ MathJax.Extension.wiki2jax = {
           }
           tex = tex.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&").replace(/&nbsp;/g," ");
 	}
-
+    if ( tex.match(/^\s*\{?\s*\\displaystyle/) ){
+      mode = "; mode=display";
+    }
     // We don't allow comments (%) in texvc and escape all literal % by default.
     tex = tex.replace(/([^\\])%/g, "$1\\%" );
 
