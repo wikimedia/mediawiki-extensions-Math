@@ -41,6 +41,16 @@ define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
 define( 'MW_MATH_LATEXML', 7 ); /// new in 1.22
 /**@}*/
 
+/**@{
+ * Mathstyle constants
+ */
+define( 'MW_MATHSTYLE_INLINE_DISPLAYSTYLE',  0 ); //default large operator inline
+define( 'MW_MATHSTYLE_DISPLAY', 1 ); // large operators centered in a new line
+define( 'MW_MATHSTYLE_INLINE',  2 ); // small operators inline
+// There is no style which renders small operators
+// but display the equation centered in a new line.
+/**@}*/
+
 /** Location of the texvc binary */
 $wgTexvc = __DIR__ . '/math/texvc';
 /**
@@ -167,6 +177,12 @@ $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 
+
+$wgResourceModules['ext.math.styles'] = array(
+	'localBasePath' => __DIR__ . '/modules',
+	'remoteExtPath' => 'Math/modules',
+	'styles' => 'ext.math.css',
+);
 
 // MathJax module
 // If you modify these arrays, update ext.math.mathjax.enabler.js to ensure
