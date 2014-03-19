@@ -1243,6 +1243,7 @@ $messages['fo'] = array(
  * @author Peter17
  * @author Sherbrooke
  * @author Wyz
+ * @author Yona b
  */
 $messages['fr'] = array(
 	'math-desc' => 'Rendre les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>',
@@ -1263,7 +1264,7 @@ $messages['fr'] = array(
 	'math_bad_output' => 'Impossible de créer ou d’écrire dans le répertoire math de sortie',
 	'math_notexvc' => 'L’exécutable « texvc » est introuvable. Lisez math/README pour le configurer.',
 	'math_notexvccheck' => 'Exécutable texvccheck absent ; veuillez voir math/README pour le configurer.',
-	'math_output_error' => 'Ne peut sauvegarder les images mathématiques dans le système de fichiers.',
+	'math_output_error' => 'Ne peut pas sauvegarder les images mathématiques dans le système de fichiers.',
 	'math_latexml_timeout' => "Délai d'attente de LaTeXML de « $1 »",
 	'math_latexml_invalidresponse' => 'Réponse non valide pour LaTeXML (« $2 ») du serveur « $1 » :',
 	'math_latexml_invalidxml' => "MathML de LaTeXML n'est pas du XML valide.",
@@ -1623,10 +1624,13 @@ $messages['he'] = array(
 	'math_bad_tmpdir' => 'התוכנה לא הצליחה לכתוב או ליצור את הספרייה הזמנית של המתמטיקה',
 	'math_bad_output' => 'התוכנה לא הצליחה לכתוב או ליצור את ספריית הפלט של המתמטיקה',
 	'math_notexvc' => 'קובץ בר־ביצוע של texvc אינו זמין; אנא צפו בקובץ math/README למידע על ההגדרות.',
+	'math_notexvccheck' => 'קובץ הפעלה texvccheck חסר; נא עיינו ב־math/README כדי להגדירו.',
+	'math_output_error' => 'לא ניתן לאחסן תמונה מתמטית במערכת קבצים.',
 	'math_latexml_timeout' => "התנתקות LaTeXML מ־'$1'",
 	'math_latexml_invalidresponse' => "תגובת LaTeXML לא חוקית ('$2') משרת '$1':",
 	'math_latexml_invalidxml' => 'קוד MathML של LaTeXML אינו XML תקין.',
 	'math_latexml_invalidjson' => 'תשובת LaTeXML מהשרת אינה בפורמט JSON תקין.',
+	'math_latexml_xmlversion' => 'אזהרה:לא נבדק XML! בדקו אם גרסת מדיה־ויקי שלכם היא wmf/1.22wmf7 או גרסה חדשה יותר.',
 );
 
 /** Hindi (हिन्दी)
