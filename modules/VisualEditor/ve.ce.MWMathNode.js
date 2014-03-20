@@ -29,9 +29,12 @@ ve.ce.MWMathNode = function VeCeMWMathNode( model, config ) {
 
 OO.inheritClass( ve.ce.MWMathNode, ve.ce.MWExtensionNode );
 
+
 /* Static Properties */
 
 ve.ce.MWMathNode.static.name = 'mwMath';
+
+ve.ce.MWMathNode.static.primaryCommandName = 'math';
 
 /* Methods */
 
