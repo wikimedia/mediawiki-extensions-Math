@@ -55,6 +55,7 @@ $messages['en'] = array(
  * @author Jon Harald Søby
  * @author Kizito
  * @author Physikerwelt
+ * @author Raymond
  * @author Shirayuki
  * @author Siebrand
  */
@@ -866,6 +867,9 @@ $messages['cs'] = array(
 	'math_latexml_invalidxml' => 'MathML z LaTeXML není platné XML.',
 	'math_latexml_invalidjson' => 'Odpověď LaTeXML Serveru není platný JSON.',
 	'math_latexml_xmlversion' => 'Upozornění: Kontrola XML typu přeskočena! Zkontrolujte, zda je vaše instalace MediaWiki verze wmf/1.22wmf7 nebo novější.',
+	'math-visualeditor-mwmathinspector-title' => 'Vzorec',
+	'math-preference-mwmathinspector-description' => 'Přidá do VisualEditoru experimentální podporu tvorby a editace matematických vzorců kvůli testování před zveřejněním této funkce. Při užívání experimentálních funkcí prosím nezapomeňte vždy zkontrolovat provedené změny.', # Fuzzy
+	'math-preference-mwmathinspector-label' => 'Editace vzorců VisualEditorem', # Fuzzy
 );
 
 /** Kashubian (kaszëbsczi)
@@ -982,6 +986,9 @@ $messages['de'] = array(
 	'math_latexml_invalidxml' => 'LaTeXML MathML ist ungültiges XML.',
 	'math_latexml_invalidjson' => 'LaTeXML Serverantwort ist ungültiges JSON.',
 	'math_latexml_xmlversion' => 'Warnung: Die XML-Typ-Überprüfung wurde übersprungen! Überprüfe, ob die Version deiner MediaWiki-Installation wmf/1.22wmf7 oder neuer ist.',
+	'math-visualeditor-mwmathinspector-title' => 'Formel',
+	'math-preference-mwmathinspector-description' => 'Ergänzt experimentellen Testsupport zum Erstellen und Bearbeiten von mathematischen Formeln vor der allgemeinen Freigabe. Bitte überprüfe vor dem Speichern immer deine Änderungen, wenn du experimentelle Funktionen benutzt.',
+	'math-preference-mwmathinspector-label' => 'VisualEditor-Formelbearbeitung',
 );
 
 /** Zazaki (Zazaki)
@@ -1292,6 +1299,9 @@ $messages['fr'] = array(
 	'math_latexml_invalidxml' => "MathML de LaTeXML n'est pas du XML valide.",
 	'math_latexml_invalidjson' => "Réponse du serveur LaTeXML n'est pas du JSON valide.",
 	'math_latexml_xmlversion' => 'Attention : Vérification du type XML ignorée ! Vérifiez si votre installation de MediaWiki est en version wmf/1.22wmf7 ou plus récente.',
+	'math-visualeditor-mwmathinspector-title' => 'Formule',
+	'math-preference-mwmathinspector-description' => 'Ajouter le support expérimental à l’ÉditeurVisuel pour créer et modifier des formules mathématiques, à des fins de test avant la version généralisée. Rappelez-vous de toujours vérifier vos modifications avant d’enregistrer lors de l’utilisation de fonctionnalités expérimentales.',
+	'math-preference-mwmathinspector-label' => 'Modification de formules dans l’ÉditeurVisuel',
 );
 
 /** Cajun French (français cadien)
@@ -1653,6 +1663,8 @@ $messages['he'] = array(
 	'math_latexml_invalidxml' => 'קוד MathML של LaTeXML אינו XML תקין.',
 	'math_latexml_invalidjson' => 'תשובת LaTeXML מהשרת אינה בפורמט JSON תקין.',
 	'math_latexml_xmlversion' => 'אזהרה:לא נבדק XML! בדקו אם גרסת מדיה־ויקי שלכם היא wmf/1.22wmf7 או גרסה חדשה יותר.',
+	'math-preference-mwmathinspector-description' => 'הוספה לעורך החזותי של תמיכה ניסיונית ביצירה ועריכה של נוסחאות מתמטיות לבדיקה לפני הוצאת הגרסה הכללי. נא לזכור תמיד לסקור את השינויים שלך לפני שמירה תוך כדי שימוש באפשרויות ניסיוניות.', # Fuzzy
+	'math-preference-mwmathinspector-label' => 'עריכת נוסחאות בעורך החזותי', # Fuzzy
 );
 
 /** Hindi (हिन्दी)
@@ -1760,6 +1772,9 @@ $messages['hsb'] = array(
 	'math_bad_tmpdir' => 'Njemóžno do nachwilneho matematiskeho zapisa pisać abo jón wutworić',
 	'math_bad_output' => 'Njemóžno do matematiskeho zapisa za wudaće pisać abo jón wutworić',
 	'math_notexvc' => 'Wuwjedźomny texvc pobrachuje; prošu hlej math/README za konfiguraciju.',
+	'math-visualeditor-mwmathinspector-title' => 'Formla',
+	'math-preference-mwmathinspector-description' => 'Dodawa VisualEditorej eksperimentelnu podpěru za wutworjenje a wobdźěłowanje matematiskich formlow za testowanje do powšitkowneho dopušćenja. Prošu přepruwuj přeco swoje změny, prjedy hač składuješ, hdyž wužiwaš eksperimentelne funkcije.',
+	'math-preference-mwmathinspector-label' => 'Visual Editor - wobdźěłowanje formlow',
 );
 
 /** Haitian (Kreyòl ayisyen)
@@ -1977,6 +1992,9 @@ $messages['it'] = array(
 	'math_bad_output' => 'Impossibile scrivere o creare la directory di output per math',
 	'math_notexvc' => 'Eseguibile texvc mancante; per favore consultare math/README per la configurazione.',
 	'math_output_error' => "Non è possibile archiviare l'immagine della formula matematica sul filesystem.",
+	'math-visualeditor-mwmathinspector-title' => 'Formula',
+	'math-preference-mwmathinspector-description' => 'Aggiunge strumenti sperimentali a VisualEditor per testare la creazione e la modifica di formule matematiche, prima del rilascio generale. Ricorda di controllare sempre le modifiche prima di salvare quando usi le funzionalità sperimentali.',
+	'math-preference-mwmathinspector-label' => 'Modifica formule con VisualEditor',
 );
 
 /** Japanese (日本語)
@@ -2190,6 +2208,7 @@ latex, dvips, gs және convert бағдарламаларының дұрыс 
 	'math_bad_output' => 'math деген беріс қалтасына жазылмады, не қалта құрылмады',
 	'math_notexvc' => 'texvc атқарылмалысы табылмады;
 баптау үшін math/README құжатын қараңыз.',
+	'math-preference-mwmathinspector-label' => 'VisualEditor‎-мен формула өңдеу', # Fuzzy
 );
 
 /** Kazakh (Latin script) (qazaqşa (latın)‎)
@@ -2707,6 +2726,9 @@ $messages['mk'] = array(
 	'math_latexml_invalidxml' => 'MathML за LaTeXML е неважечки XML.',
 	'math_latexml_invalidjson' => 'Одѕивот на опслужувачот за LaTeXML е неважечки JSON.',
 	'math_latexml_xmlversion' => 'Предупредување: Прескокната е провереката на XML-тип! Проверете дали вашата воспоставка на МедијаВики е верзија wmf/1.22wmf7 или понова.',
+	'math-visualeditor-mwmathinspector-title' => 'Формула',
+	'math-preference-mwmathinspector-description' => 'Додава експериментална поддршка за ВизуеленУредник за создавање и уредување на математички формули за испробување пред да се пушти во јавноста. Не заборавајте секогаш да ги проверувате направените промени пред да зачувате кога користите експериментални функции.',
+	'math-preference-mwmathinspector-label' => 'Уредување на формули со ВизуеленУредник',
 );
 
 /** Malayalam (മലയാളം)
@@ -3119,6 +3141,8 @@ $messages['oc'] = array(
 	'math_bad_tmpdir' => 'Impossible de crear o d’escriure dins lo repertòri math temporari',
 	'math_bad_output' => 'Impossible de crear o d’escriure dins lo repertòri math de sortida',
 	'math_notexvc' => 'L’executable « texvc » es introbable. Legissètz math/README per lo configurar.',
+	'math-preference-mwmathinspector-description' => "Apondre d'aisinas experimentalas a VisualEditor per crear o modificar de formulas matematicas, per dire d'o ensajar, abans la mesa en produccion. Doblidètz pas d'enregistrar las modificacions abans d'utilizar las foncions experimentalas.", # Fuzzy
+	'math-preference-mwmathinspector-label' => "Modificacion de formulas amb l'EditorVisual", # Fuzzy
 );
 
 /** Oriya (ଓଡ଼ିଆ)
@@ -3259,6 +3283,8 @@ $messages['pms'] = array(
 	'math_bad_tmpdir' => "Ël sistema a-i la fa pa a creé la diretriss '''math temp''', ò pura a-i la fa nen a scriv-je andrinta",
 	'math_bad_output' => "Ël sistema a-i la fa pa a creé la diretriss '''math output''', ò pura a-i la fa nen a scriv-je andrinta",
 	'math_notexvc' => 'Pa gnun texvc executable; për piasì, che a contròla math/README për la configurassion.',
+	'math-preference-mwmathinspector-description' => "Gionté ël manteniment ësperimental a l'Editor Visual për creé e modifiché dle fórmole matemàtiche për preuva, prima dla publicassion general. Për piasì, ch'as visa ëd controlé sempe soe modìfiche prima ëd salvé cand ch'a deuvra 'd fonsionalità sperimentaj.",
+	'math-preference-mwmathinspector-label' => "Modìfica ëd fórmole ant l'Editor Visual", # Fuzzy
 );
 
 /** Western Punjabi (پنجابی)
@@ -3539,6 +3565,9 @@ $messages['ru'] = array(
 	'math_latexml_invalidxml' => 'LaTeXML MathML содержит недопустимый XML-код.',
 	'math_latexml_invalidjson' => 'Серверный ответ LaTeXML — в неверном JSON-формате.',
 	'math_latexml_xmlversion' => 'Внимание: проверка XML-формата пропущена! Проверьте, что ваша MediaWiki имеет версию wmf/1.22wmf7 или более позднюю.',
+	'math-visualeditor-mwmathinspector-title' => 'Формула',
+	'math-preference-mwmathinspector-description' => 'Добавляет в Визуальный редактор экспериментальную поддержку для создания и редактирования математических формул (для тестирования, перед общим запуском). Пожалуйста, не забывайте при использовании экспериментальных функций всегда просматривать ваши изменения перед сохранением.',
+	'math-preference-mwmathinspector-label' => 'Редактирование формул в Визуальном редакторе',
 );
 
 /** Rusyn (русиньскый)
@@ -3898,6 +3927,7 @@ $messages['sr-ec'] = array(
 	'math_bad_tmpdir' => 'Стварање или писање у привремену фасциклу за математику није успело',
 	'math_bad_output' => 'Стварање или писање у одредишној фасцикли за математику није успело',
 	'math_notexvc' => 'Недостаје извршна датотека texvc-а. Погледајте math/README за подешавање.',
+	'math-preference-mwmathinspector-label' => 'Уређивање формула у VisualEditor-у',
 );
 
 /** Serbian (Latin script) (srpski (latinica)‎)
@@ -4444,6 +4474,8 @@ $messages['vi'] = array(
 	'math_latexml_invalidxml' => 'MathML LaTeXML là XML không hợp lệ.',
 	'math_latexml_invalidjson' => 'Phản hồi từ máy chủ LaTeXML là JSON không hợp lệ.',
 	'math_latexml_xmlversion' => 'Cảnh báo: Đã bỏ qua việc kiểm tra kiểu XML! Hãy kiểm tra bản MediaWiki của bạn là phiên bản wmf/1.22wmf7 trở lên.',
+	'math-preference-mwmathinspector-description' => 'Thêm chức năng thử nghiệm cơ bản vào Trình soạn thảo trực quan để viết và sửa công thức toán học, để thử thách trước khi phát hành cho mọi người. Sau khi bật lên tính năng thử nghiệm này, xin vui lòng nhớ luôn xem lại các thay đổi trước khi lưu.',
+	'math-preference-mwmathinspector-label' => 'Sửa công thức trong Trình soạn thảo trực quan',
 );
 
 /** Upper Franconian (Mainfränkisch)
