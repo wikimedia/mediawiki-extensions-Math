@@ -356,6 +356,7 @@ $messages['arz'] = array(
 );
 
 /** Assamese (অসমীয়া)
+ * @author Bishnu Saikia
  * @author Chaipau
  * @author Gitartha.bordoloi
  * @author Rajuonline
@@ -368,6 +369,9 @@ $messages['as'] = array(
 	'math_unknown_error' => 'অজ্ঞাত ত্ৰুটি',
 	'math_unknown_function' => 'অজ্ঞাত কাৰ্য্য', # Fuzzy
 	'math_syntax_error' => 'চীন্‌টেক্স ত্ৰুটি',
+	'math-visualeditor-mwmathinspector-title' => 'সূত্ৰ',
+	'math-preference-mwmathinspector-description' => 'সাধাৰণ মুক্তিৰ আগতে পৰীক্ষাৰ বাবে গাণিতিক সূত্ৰ সৃষ্টি আৰু সম্পাদনা কৰিবলৈ ভিজুৱেল‌এডিটৰত পৰীক্ষামূলক সমৰ্থন যোগ কৰক। পৰীক্ষামূলক বৈশিষ্টসমূহ ব্যৱহাৰ কৰোঁতে সাঁচি ৰখাৰ আগতে সদায় আপোনাৰ সালসলনি পুনৰীক্ষণ কৰিবলৈ নাপাহৰিব।', # Fuzzy
+	'math-preference-mwmathinspector-label' => 'ভিজুৱেলএডিটৰ সূত্ৰ সম্পাদনা', # Fuzzy
 );
 
 /** Asturian (asturianu)
@@ -868,8 +872,8 @@ $messages['cs'] = array(
 	'math_latexml_invalidjson' => 'Odpověď LaTeXML Serveru není platný JSON.',
 	'math_latexml_xmlversion' => 'Upozornění: Kontrola XML typu přeskočena! Zkontrolujte, zda je vaše instalace MediaWiki verze wmf/1.22wmf7 nebo novější.',
 	'math-visualeditor-mwmathinspector-title' => 'Vzorec',
-	'math-preference-mwmathinspector-description' => 'Přidá do VisualEditoru experimentální podporu tvorby a editace matematických vzorců kvůli testování před zveřejněním této funkce. Při užívání experimentálních funkcí prosím nezapomeňte vždy zkontrolovat provedené změny.', # Fuzzy
-	'math-preference-mwmathinspector-label' => 'Editace vzorců VisualEditorem', # Fuzzy
+	'math-preference-mwmathinspector-description' => 'Přidá do VisualEditoru experimentální podporu tvorby a editace matematických vzorců kvůli testování před zveřejněním této funkce. Při užívání experimentálních funkcí prosím nezapomeňte vždy zkontrolovat provedené změny.',
+	'math-preference-mwmathinspector-label' => 'Editace vzorců VisualEditorem',
 );
 
 /** Kashubian (kaszëbsczi)
@@ -995,6 +999,7 @@ $messages['de'] = array(
  * @author Aspar
  * @author Erdemaslancan
  * @author Gorizon
+ * @author Mirzali
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -1013,6 +1018,7 @@ $messages['diq'] = array(
 	'math_bad_output' => 'Nieşkeno binusi ya zi direktorê mathi ye outputi virazi',
 	'math_notexvc' => "xebetnayekarê texvc'i vindbiyo
 qey 'eyar kerdışi bıewnê math/README'yi.",
+	'math-preference-mwmathinspector-label' => 'Vurnayışo vênaye de formulan vurnayış',
 );
 
 /** Lower Sorbian (dolnoserbski)
@@ -1125,6 +1131,9 @@ $messages['es'] = array(
 	'math_bad_tmpdir' => 'No se puede escribir o crear el directorio temporal de <em>math</em>',
 	'math_bad_output' => 'No se puede escribir o crear el directorio de salida de <em>math</em>',
 	'math_notexvc' => 'Falta el ejecutable de <strong>texvc</strong>. Por favor, lea <em>math/README</em> para configurarlo.',
+	'math-visualeditor-mwmathinspector-title' => 'Fórmula',
+	'math-preference-mwmathinspector-description' => 'Añade al editor visual la función experimental de crear y editar fórmulas matemáticas para probarla antes de su lanzamiento a los usuarios en general. Al usar herramientas experimentales, recuerda siempre revisar tus cambios antes de guardar.',
+	'math-preference-mwmathinspector-label' => 'Edición de fórmulas en el editor visual',
 );
 
 /** Estonian (eesti)
@@ -2031,6 +2040,9 @@ $messages['ja'] = array(
 	'math_latexml_invalidxml' => 'LaTeXML MathML は無効な XML です。',
 	'math_latexml_invalidjson' => 'LaTeXML サーバーの応答は無効な JSON です。',
 	'math_latexml_xmlversion' => '警告: XML の型チェックをスキップしました。インストールされている MediaWiki が wmf/1.22wmf7 以降か確認してください。',
+	'math-visualeditor-mwmathinspector-title' => '数式',
+	'math-preference-mwmathinspector-description' => 'ビジュアルエディターに、数式を作成および編集するための実験的な機能を、一般へのリリースの前の試験用として追加します。実験的な機能を使用する際は、常に保存前に変更内容を確認してください。', # Fuzzy
+	'math-preference-mwmathinspector-label' => 'ビジュアルエディターでの数式の編集', # Fuzzy
 );
 
 /** Jamaican Creole English (Patois)
@@ -2592,6 +2604,7 @@ $messages['lv'] = array(
 	'math_syntax_error' => 'sintakses kļūda',
 	'math_image_error' => 'Kļūda konvertējot uz PNG formātu;
 pārbaudi vai ir korekti uzinstalēti latex, dvips, gs, un convert', # Fuzzy
+	'math-visualeditor-mwmathinspector-title' => 'Formula',
 );
 
 /** Literary Chinese (文言)
@@ -3676,6 +3689,7 @@ $messages['sco'] = array(
 	'mw_math_png' => 'Aye render PNG',
 	'mw_math_source' => 'Lea it aes TeX (fer tex brousers)',
 	'math_notexvccheck' => 'Tint texvccheck executable; please see math/README tae configure.',
+	'math-visualeditor-mwmathinspector-title' => 'Formula',
 );
 
 /** Sindhi (سنڌي)
@@ -4029,6 +4043,9 @@ $messages['sv'] = array(
 	'math_bad_tmpdir' => 'Kan inte skriva till eller skapa temporär mapp för matematikresultat',
 	'math_bad_output' => 'Kan inte skriva till eller skapa mapp för matematikresultat',
 	'math_notexvc' => 'Applicationen texvc saknas; läs math/README för konfigureringsanvisningar.',
+	'math-visualeditor-mwmathinspector-title' => 'Formel',
+	'math-preference-mwmathinspector-description' => 'Lägg till experimentellt stöd i VisualEditor för att skapa och redigera matematiska formler. Du kan testa innan den breda lanseringen. Kom ihåg att alltid granska ändringarna innan du sparar när du använder experimentella funktioner.', # Fuzzy
+	'math-preference-mwmathinspector-label' => 'VisualEditor formelredigering', # Fuzzy
 );
 
 /** Swahili (Kiswahili)
