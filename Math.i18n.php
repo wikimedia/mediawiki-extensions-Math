@@ -1672,8 +1672,9 @@ $messages['he'] = array(
 	'math_latexml_invalidxml' => 'קוד MathML של LaTeXML אינו XML תקין.',
 	'math_latexml_invalidjson' => 'תשובת LaTeXML מהשרת אינה בפורמט JSON תקין.',
 	'math_latexml_xmlversion' => 'אזהרה:לא נבדק XML! בדקו אם גרסת מדיה־ויקי שלכם היא wmf/1.22wmf7 או גרסה חדשה יותר.',
-	'math-preference-mwmathinspector-description' => 'הוספה לעורך החזותי של תמיכה ניסיונית ביצירה ועריכה של נוסחאות מתמטיות לבדיקה לפני הוצאת הגרסה הכללי. נא לזכור תמיד לסקור את השינויים שלך לפני שמירה תוך כדי שימוש באפשרויות ניסיוניות.', # Fuzzy
-	'math-preference-mwmathinspector-label' => 'עריכת נוסחאות בעורך החזותי', # Fuzzy
+	'math-visualeditor-mwmathinspector-title' => 'נוסחה',
+	'math-preference-mwmathinspector-description' => 'הוספה של תמיכה ניסיונית ביצירה ועריכה של נוסחאות מתמטיות לעורך החזותי, לבדיקה לפני הוצאת הגרסה הכללית. נא לזכור תמיד לסקור את השינויים שלך לפני שמירה תוך כדי שימוש באפשרויות ניסיוניות.',
+	'math-preference-mwmathinspector-label' => 'עריכת נוסחאות בעורך החזותי',
 );
 
 /** Hindi (हिन्दी)
@@ -2448,6 +2449,7 @@ iwwerpréift déi korrekt Installatioun vu LaTeX an dvipng (oder dvips + gs + co
 	'math_bad_output' => 'Den Zilrepertoire fir mathematesch Formele kann net ugeluecht ginn oder et kann näischt do gespäichert ginn.',
 	'math_notexvc' => 'Den texvc Programm feelt: Liest w.e.g. math/README fir en anzestellen.',
 	'math_latexml_xmlversion' => "Opgepasst: D'Kontroll vum Typ vun XML gouf iwwersprong! Kuckt no op Är MediaWiki Installatioun ass an der Versioun wmf/1.22wmf7 oder méi rezent.",
+	'math-visualeditor-mwmathinspector-title' => 'Formel',
 );
 
 /** Lingua Franca Nova (Lingua Franca Nova)
@@ -3084,6 +3086,9 @@ $messages['nl'] = array(
 	'math_latexml_invalidxml' => 'LaTeXML: MathML is ongeldige XML.',
 	'math_latexml_invalidjson' => 'LaTeXML: het antwoord van de server is ongeldige JSON.',
 	'math_latexml_xmlversion' => 'Waarschuwing: XML-typecontrole overgeslagen. Controleer of uw MediaWikiinstallatie versie 1.22wmf7 or later is.',
+	'math-visualeditor-mwmathinspector-title' => 'Formule',
+	'math-preference-mwmathinspector-description' => 'Voegt experimentele ondersteuning toe aan de Visuele tekstbewerker voor het aanmaken en bewerken van wiskundige formules. Controleer altijd uw wijzigingen voordat u ze opslaat als u experimentele hulpmiddelen gebruikt.', # Fuzzy
+	'math-preference-mwmathinspector-label' => 'Formulebewerking in Visuele tekstbewerker', # Fuzzy
 );
 
 /** Norwegian Nynorsk (norsk nynorsk)
