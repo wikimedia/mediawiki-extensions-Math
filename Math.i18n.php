@@ -2779,6 +2779,9 @@ latex, dvips,എന്നിവ ശരിയായാണോ ഇൻസ്റ്�
 	'math_latexml_invalidxml' => 'ലാറ്റെക്സ്‌എംഎൽ മാത്‌എംഎൽ (LaTeXML MathML) അസാധുവായ എക്സ്.എക്.എൽ. ആണ്.',
 	'math_latexml_invalidjson' => 'ലാറ്റെക്സ്‌എംഎൽ (LaTeXML) സെർവർ പ്രതികരണം അസാധുവായ ജെസണിൽ (JSON) ആണ്.',
 	'math_latexml_xmlversion' => 'മുന്നറിയിപ്പ്: എക്സ്.എം.എൽ. ടൈപ്പ് പരിശോധന ഒഴിവാക്കിയിരിക്കുന്നു! താങ്കളുടെ മീഡിയവിക്കി ഇൻസ്റ്റലേഷൻ പതിപ്പ് wmf/1.22wmf7 അല്ലെങ്കിൽ അതിലും പുതിയത് ആണോയെന്ന് പരിശോധിക്കുക.',
+	'math-visualeditor-mwmathinspector-title' => 'സൂത്രവാക്യം',
+	'math-preference-mwmathinspector-description' => 'സാർവ്വജനികമായി ലഭ്യമാവുന്നതിനു മുമ്പേ, കണ്ടുതിരുത്തൽ സൗകര്യത്തിൽ ഗണിതശാസ്ത്ര സൂത്രവാക്യങ്ങൾ നിർമ്മിക്കാനും തിരുത്തുവാനുമുള്ള പിന്തുണ പരീക്ഷണാടിസ്ഥാനത്തിൽ ചേർക്കുക. പരീക്ഷണാടിസ്ഥാനത്തിലുള്ള സവിശേഷതകൾ ഉപയോഗിക്കുമ്പോൾ താങ്കളുടെ തിരുത്തുകൾ സംശോധനം ചെയ്ത് മാത്രം സേവ് ചെയ്യാൻ ഓർമ്മിക്കുക.',
+	'math-preference-mwmathinspector-label' => 'കണ്ടുതിരുത്തൽ സൗകര്യത്തിൽ സൂത്രവാക്യങ്ങൾ തിരുത്തൽ',
 );
 
 /** Mongolian (монгол)
@@ -3088,7 +3091,7 @@ $messages['nl'] = array(
 	'math_latexml_xmlversion' => 'Waarschuwing: XML-typecontrole overgeslagen. Controleer of uw MediaWikiinstallatie versie 1.22wmf7 or later is.',
 	'math-visualeditor-mwmathinspector-title' => 'Formule',
 	'math-preference-mwmathinspector-description' => 'Voegt experimentele ondersteuning toe aan de Visuele tekstbewerker voor het aanmaken en bewerken van wiskundige formules. Controleer altijd uw wijzigingen voordat u ze opslaat als u experimentele hulpmiddelen gebruikt.', # Fuzzy
-	'math-preference-mwmathinspector-label' => 'Formulebewerking in Visuele tekstbewerker', # Fuzzy
+	'math-preference-mwmathinspector-label' => 'Formulebewerking in visuele tekstbewerker',
 );
 
 /** Norwegian Nynorsk (norsk nynorsk)
