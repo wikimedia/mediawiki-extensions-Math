@@ -149,6 +149,21 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$this->assertEquals( $svgRef, $renderer->getSvg() );
 	}
 
+	/**
+	 * Checks the experimental option to 'render' MathML input
+	 */
+	public function testPmmlInput(){
+		// sample from 'Navajo Coal Combustion and Respiratory Health Near Shiprock, New Mexico' in ''Journal of Environmental and Public Health'' , vol. 2010p.
+		// authors  Joseph E. Bunnell;  Linda V. Garcia;  Jill M. Furst;  Harry Lerch;  Ricardo A. Olea;  Stephen E. Suitt;  Allan Kolker
+		$inputSample = '<msub>  <mrow>  <mi> P</mi> </mrow>  <mrow>  <mi> i</mi>  <mi> j</mi> </mrow> </msub>  <mo> =</mo>  <mfrac>  <mrow>  <mn> 100</mn>  <msub>  <mrow>  <mi> d</mi> </mrow>  <mrow>  <mi> i</mi>  <mi> j</mi> </mrow> </msub> </mrow>  <mrow>  <mn> 6.75</mn>  <msub>  <mrow>  <mi> r</mi> </mrow>  <mrow>  <mi> j</mi> </mrow> </msub> </mrow> </mfrac>  <mo> ,</mo> </math>';
+		$attribs = array( 'type' => 'pmml' );
+		$renderer = new MathMathML( $inputSample , $attribs );
+		$this->assertEquals( 'pmml' , $renderer->getInputType(), 'Input type was not set correctly' );
+		$this->assertTrue($renderer->render(), 'Failed to render' );
+		$real = MathRenderer::renderMath( $inputSample, $attribs );
+		$expected = 'hash=5628b8248b79267ecac656102334d5e3&amp;mode=5';
+		$this->assertContains( $expected, $real, 'Link to SVG image missing');
+	}
 }
 
 /**

@@ -135,6 +135,13 @@ abstract class MathRenderer {
 		if ( !in_array( $mode, $wgMathValidModes ) ) {
 			$mode = $wgDefaultUserOptions['math'];
 		}
+		// Support of MathML input (experimental)
+		// Currently support for mode MW_MATH_MATHML only
+		if ( isset( $params['type'] ) ) {
+			if( $params['type'] == 'pmml' ){
+				$mode = MW_MATH_MATHML;
+			}
+		}
 		switch ( $mode ) {
 			case MW_MATH_SOURCE:
 			case MW_MATH_MATHJAX:
