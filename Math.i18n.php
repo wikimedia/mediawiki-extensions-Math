@@ -1371,6 +1371,9 @@ $messages['frr'] = array(
 	'math_latexml_invalidxml' => 'LaTeXML MathML as ferkiard XML.',
 	'math_latexml_invalidjson' => 'LaTeXML server oonswaar as ferkiard JSON.',
 	'math_latexml_xmlversion' => 'Paase üüb: Det XML-typ preew as auersprüngen wurden. Din MediaWiki-instalatjuun skul wmf/1.22wmf7 of neier wees.',
+	'math-visualeditor-mwmathinspector-title' => 'Formel',
+	'math-preference-mwmathinspector-description' => "Diar kem eksperimentel werktjüügen tu, am matemaatisk formeln tu bewerkin, iar jodiar werktjüügen för aaltumaal tu brüken san. Kontroliare din feranrangen föör't seekrin arke tooch, wan dü eksperimentel werktjüügen brükt heest.",
+	'math-preference-mwmathinspector-label' => 'VisualEditor bewerkin faan formeln',
 );
 
 /** Friulian (furlan)
@@ -3083,6 +3086,7 @@ $messages['nl'] = array(
 	'math_bad_tmpdir' => 'De map voor tijdelijke bestanden voor wiskundige formules bestaat niet of kan niet gemaakt worden',
 	'math_bad_output' => 'De map voor bestanden met wiskundige formules bestaat niet of kan niet gemaakt worden.',
 	'math_notexvc' => 'Kan het programma texvc niet vinden; stel alles in volgens de beschrijving in math/README.',
+	'math_notexvccheck' => 'Het uitvoerbare bestand <code>texvccheck</code> ontbreekt. Zie <code>math/README</code> voor instellingen.',
 	'math_output_error' => 'De Mathafbeelding kan niet op het bestandssysteem worden opgeslagen.',
 	'math_latexml_timeout' => 'LaTeXML: timeout van "$1"',
 	'math_latexml_invalidresponse' => 'LaTeXML: Ongeldig antwoord ("$2") van server "$1":',
@@ -3090,7 +3094,7 @@ $messages['nl'] = array(
 	'math_latexml_invalidjson' => 'LaTeXML: het antwoord van de server is ongeldige JSON.',
 	'math_latexml_xmlversion' => 'Waarschuwing: XML-typecontrole overgeslagen. Controleer of uw MediaWikiinstallatie versie 1.22wmf7 or later is.',
 	'math-visualeditor-mwmathinspector-title' => 'Formule',
-	'math-preference-mwmathinspector-description' => 'Voegt experimentele ondersteuning toe aan de Visuele tekstbewerker voor het aanmaken en bewerken van wiskundige formules. Controleer altijd uw wijzigingen voordat u ze opslaat als u experimentele hulpmiddelen gebruikt.', # Fuzzy
+	'math-preference-mwmathinspector-description' => 'Voegt experimentele ondersteuning toe aan de Visuele tekstbewerker voor het aanmaken en bewerken van wiskundige formules. Controleer altijd uw wijzigingen voordat u ze opslaat als u experimentele hulpmiddelen gebruikt.',
 	'math-preference-mwmathinspector-label' => 'Formulebewerking in visuele tekstbewerker',
 );
 
@@ -3873,6 +3877,9 @@ za njeno namestitev si poglejte math/README.',
 	'math_latexml_invalidxml' => 'LaTeXML MathML ni veljaven XML.',
 	'math_latexml_invalidjson' => 'LaTeXML Odziv strežnika ni veljaven JSON.',
 	'math_latexml_xmlversion' => 'Opozorilo: Preverjanje vrste XML sem preskočil! Preverite, če je vaša namestitev MediaWiki različice wmf/1.22wmf7 ali novejša.',
+	'math-visualeditor-mwmathinspector-title' => 'Formula',
+	'math-preference-mwmathinspector-description' => 'Dodaj preizkusno podporo za ustvarjanje in urejanje matematičnih izrazov v VirtualEditor za preizkušanje pred splošnim izidom. Prosimo, da pri uporabi preizkusnih funkcij vedno pregledate svoje spremembe pred shranjevanjem.',
+	'math-preference-mwmathinspector-label' => 'Urejanje formul VisualEditor',
 );
 
 /** Lower Silesian (Schläsch)
@@ -4395,6 +4402,9 @@ $messages['uk'] = array(
 	'math_latexml_invalidxml' => 'LaTeXML MathML є невірним XML.',
 	'math_latexml_invalidjson' => 'LaTeXML Відповідь сервера є  невірним JSON.',
 	'math_latexml_xmlversion' => 'Попередження: Перевірка типу XML пропущена! Перевірте, чи ваша установка Медіавікі має версію wmf/1.22wmf7 або новішу.',
+	'math-visualeditor-mwmathinspector-title' => 'Формула',
+	'math-preference-mwmathinspector-description' => 'Додати експериментальні інструменти до візуального редактора для створення і редагування математичних формул з метою тестування, напередодні загального випуску. Будь ласка, не забувайте завжди переглянути зміни перед збереженням при використанні експериментальних функцій.',
+	'math-preference-mwmathinspector-label' => 'Редагування формул у Візуальному редакторі',
 );
 
 /** Urdu (اردو)
