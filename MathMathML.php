@@ -14,11 +14,34 @@ class MathMathML extends MathRenderer {
 	protected $defaultAllowedRootElements = array( 'math' );
 	protected $allowedRootElements = '';
 	protected $hosts;
+	protected $inputType = 'tex';
+
+	/**
+	 * @param string $inputType
+	 */
+	public function setInputType($inputType)
+	{
+		$this->inputType = $inputType;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getInputType()
+	{
+		return $this->inputType;
+	}
 
 	public function __construct( $tex = '', $params = array() ) {
 		global $wgMathMathMLUrl;
 		parent::__construct( $tex, $params );
 		$this->hosts = $wgMathMathMLUrl;
+		if ( isset( $params['type'] ) ) {
+			if( $params['type'] == 'pmml' ){
+				$this->inputType = 'pmml';
+				$this->setMathml( '<math>' . $tex . '</math>' );
+			}
+		}
 	}
 
 	/**
@@ -164,12 +187,11 @@ class MathMathML extends MathRenderer {
 	 */
 	public function getPostData() {
 		$tex = $this->getTex();
-		if ( is_null( $this->getDisplaystyle() ) ) {
+		if ( $this->inputType == 'tex' && is_null( $this->getDisplaystyle() ) ) {
 			// default preserve the (broken) layout as it was
 			$tex = '{\\displaystyle ' . $tex . '}';
 		}
-
-		if ( $this->getMode() == MW_MATH_LATEXML &&  $this->getMathml() ) {
+		if (  $this->inputType == 'pmml' || $this->getMode() == MW_MATH_LATEXML &&  $this->getMathml() ) {
 			$out = 'type=mml&q=' . rawurlencode( $this->getMathml() );
 		} else {
 			$out = 'type=tex&q=' . rawurlencode( $tex );
@@ -198,7 +220,9 @@ class MathMathML extends MathRenderer {
 			$result = json_decode( $res );
 			if ( $result && json_last_error() === JSON_ERROR_NONE ) {
 				if ( $result->success ) {
-					if ( $this->getMode() == MW_MATH_LATEXML || $this->isValidMathML( $result->mml ) ) {
+					if ( $this->getMode() == MW_MATH_LATEXML ||
+							$this->inputType == 'pmml' ||
+							$this->isValidMathML( $result->mml ) ) {
 						$xmlObject = new XmlTypeCheck( $result->svg, null, false );
 						if ( ! $xmlObject->wellFormed ) {
 							$this->lastError = $this->getError( 'math_latexml_invalidxml', $host );
@@ -209,7 +233,7 @@ class MathMathML extends MathRenderer {
 						if ( $wgMathDebug ) {
 							$this->setLog( $result->log );
 						}
-						if ( $this->getMode() != MW_MATH_LATEXML ) {
+						if ( $this->getMode() != MW_MATH_LATEXML && $this->inputType != 'pmml') {
 							//add the inputhash used for the generation to the MathML element
 							$mml = '<math id="' . $this->getMd5() . '" ' . substr( $result->mml , 5 );
 							$this->setMathml( $mml );
@@ -217,6 +241,7 @@ class MathMathML extends MathRenderer {
 						return true;
 					} else {
 						$this->lastError = $this->getError( 'math_unknown_error', $host );
+						return false;
 					}
 				} else {
 					// Do not print bad mathml. It's probably too verbose and might
