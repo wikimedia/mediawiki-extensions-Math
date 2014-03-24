@@ -73,7 +73,7 @@ $wgMathMathMLUrl = 'http://localhost:10042';
  */
 $wgMathMathMLTimeout = 20;
 /**
- * Option to disable the tex filter. If set to true any LaTeX espression is parsed
+ * Option to disable the tex filter. If set to true any LaTeX expression is parsed
  * this can be a potential security risk. If set to false only a subset of the tex
  * commands is allowed. See the wikipedia page Help:Math for details.
  */
