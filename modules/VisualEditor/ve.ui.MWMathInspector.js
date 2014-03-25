@@ -34,7 +34,7 @@ ve.ui.MWMathInspector.static.name = 'math';
 
 ve.ui.MWMathInspector.static.icon = 'math';
 
-ve.ui.MWMathInspector.static.titleMessage = 'math-visualeditor-mwmathinspector-title';
+ve.ui.MWMathInspector.static.title = OO.ui.deferMsg( 'math-visualeditor-mwmathinspector-title' );
 
 ve.ui.MWMathInspector.static.nodeView = ve.ce.MWMathNode;
 
