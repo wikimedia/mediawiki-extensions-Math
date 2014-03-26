@@ -4753,12 +4753,15 @@ $messages['zh-hant'] = array(
 	'math_bad_tmpdir' => '無法寫入或建立數學公式臨時目錄',
 	'math_bad_output' => '無法寫入或建立數學公式輸出目錄',
 	'math_notexvc' => '"texvc"執行檔案遺失；請參照 math/README 進行配置。',
+	'math_notexvccheck' => '缺少可執行texvccheck；請參見數學/自述文檔進行配置。',
 	'math_output_error' => '無法在檔案系統上儲存數學圖像。',
 	'math_latexml_timeout' => 'LaTeXML 「$1」超時',
 	'math_latexml_invalidresponse' => 'LaTeXML 從伺服器「$1」收到不正確回應（「$2」）',
 	'math_latexml_invalidxml' => 'LaTeXML MathML並非正確XML。',
 	'math_latexml_invalidjson' => 'LaTeXML 伺服器回應了不正確JSON。',
 	'math_latexml_xmlversion' => '警告：XML類型檢查被跳過！檢查您安裝的MediaWiki版本是否wmf/1.22wmf7或更高。',
+	'math-preference-mwmathinspector-description' => '用於創建和編輯數學公式進行測試，一般發行將實驗支援添加到可視化編輯器。請記住始終檢查您在保存之前的更改時使用實驗性的功能。', # Fuzzy
+	'math-preference-mwmathinspector-label' => '可眎化編輯器公式編輯', # Fuzzy
 );
 
 /** Chinese (Taiwan) (‪中文(台灣)‬) */
