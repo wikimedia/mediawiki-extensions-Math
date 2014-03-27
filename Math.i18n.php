@@ -1062,6 +1062,14 @@ $messages['dz'] = array(
 	'math_tip' => 'ཨང་རྩིས་ཐབས་རྟགས་ (LaTeX)',
 );
 
+/** Emiliàn (Emiliàn)
+ * @author Lévi
+ */
+$messages['egl'] = array(
+	'math-preference-mwmathinspector-description' => "Al zûnta strumèint per sperimèint al VisualEditor per pruvêr ed fêr e la mudéfica dal fōrmuli matemâtichi, préma 'd l'edisiòun finêla. Ricôrdet ed controlêr sèimper al mudéfichi préma 'd salvêr quând  ét drōv al funsiòun da sperimèint.",
+	'math-preference-mwmathinspector-label' => 'Mudéfica fōrmuli cun al VisualEditor.',
+);
+
 /** Greek (Ελληνικά)
  * @author Badseed
  * @author Geraki
@@ -4726,6 +4734,9 @@ $messages['zh-hans'] = array(
 	'math_latexml_invalidxml' => 'LaTeXML MathML是无效的XML。',
 	'math_latexml_invalidjson' => 'LaTeXML服务器响应是无效的JSON。',
 	'math_latexml_xmlversion' => '警告：XML类型检查被跳过！请检查您所安装的MediaWiki版本是否wmf/1.22wmf7或更高。',
+	'math-visualeditor-mwmathinspector-title' => '公式',
+	'math-preference-mwmathinspector-description' => '给可视化编辑器添加创建和编辑编辑数学公式的试验功能支持，用于正式发布前的测试。当使用实验功能时，请始终在保存前检查你的更改。',
+	'math-preference-mwmathinspector-label' => '可视化编辑器公式编辑',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
@@ -4760,8 +4771,9 @@ $messages['zh-hant'] = array(
 	'math_latexml_invalidxml' => 'LaTeXML MathML並非正確XML。',
 	'math_latexml_invalidjson' => 'LaTeXML 伺服器回應了不正確JSON。',
 	'math_latexml_xmlversion' => '警告：XML類型檢查被跳過！檢查您安裝的MediaWiki版本是否wmf/1.22wmf7或更高。',
-	'math-preference-mwmathinspector-description' => '用於創建和編輯數學公式進行測試，一般發行將實驗支援添加到可視化編輯器。請記住始終檢查您在保存之前的更改時使用實驗性的功能。', # Fuzzy
-	'math-preference-mwmathinspector-label' => '可眎化編輯器公式編輯', # Fuzzy
+	'math-visualeditor-mwmathinspector-title' => '公式',
+	'math-preference-mwmathinspector-description' => '用於創建和編輯數學公式進行測試，一般發行將實驗支援添加到視覺化編輯器。請記住始終檢查您在保存之前的更改時使用實驗性的功能。',
+	'math-preference-mwmathinspector-label' => '視覺化編輯器公式編輯',
 );
 
 /** Chinese (Taiwan) (‪中文(台灣)‬) */
