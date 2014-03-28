@@ -4,7 +4,7 @@
             "Bjankuloski06"
         ]
     },
-    "math-desc": "Испис на математички формули помеѓу ознаките <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+    "math-desc": "Испис на математички формули помеѓу ознаките \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
     "math_sample": "Овде вметнете формула",
     "math_tip": "Математичка формула (LaTeX)",
     "prefs-math": "Матем. формули",

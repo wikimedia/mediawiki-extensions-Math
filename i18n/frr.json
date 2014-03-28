@@ -5,7 +5,7 @@
             "Pyt"
         ]
     },
-    "math-desc": "Wiset matemaatisk formeln tesken <code>&lt;math&gt;</code> an <code>&lt;/math&gt;</code> uun.",
+    "math-desc": "Wiset matemaatisk formeln tesken \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E an \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E uun.",
     "math_sample": "Formel heer önjfäige",
     "math_tip": "Matemaatisch formel (LaTex)",
     "prefs-math": "TeX",

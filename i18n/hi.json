@@ -6,7 +6,7 @@
             "आलोक"
         ]
     },
-    "math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> टैगों के बीच गणितीय सूत्र रेंडर करें",
+    "math-desc": "\u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E टैगों के बीच गणितीय सूत्र रेंडर करें",
     "math_sample": "गणितीय सूत्र यहाँ डालें",
     "math_tip": "गणितीय सूत्र (लेटेक्स)",
     "prefs-math": "गणित",
@@ -28,5 +28,8 @@
     "math_latexml_invalidresponse": "सर्वर '$1' से अमान्य लेटेक्सएमएल उत्तर ('$2')",
     "math_latexml_invalidxml": "लेटेक्सएमएल मैथएमएल अमान्य एक्सएमएल है।",
     "math_latexml_invalidjson": "लेटेक्सएमएल सर्वर का उत्तर अमान्य JSON है।",
-    "math_latexml_xmlversion": "चेतावनी: XML प्रकार जाँच छोड़ी गयी! जाँचें कि आपका मीडियाविकि इंस्टॉलेशन wmf/1.22wmf7 या उससे नया है अथवा नहीं।"
+    "math_latexml_xmlversion": "चेतावनी: XML प्रकार जाँच छोड़ी गयी! जाँचें कि आपका मीडियाविकि इंस्टॉलेशन wmf/1.22wmf7 या उससे नया है अथवा नहीं।",
+    "math-visualeditor-mwmathinspector-title": "सूत्र",
+    "math-preference-mwmathinspector-description": "विज़ुअल सम्पादक में जाँच हेतु गणितीय सूत्र (फ़ॉर्मुले) जोड़ने और सम्पादित करने की प्रयोगात्मक सुविधा जोड़ें, उसके सामान्य रूप से जारी होने से पहले। प्रयोगात्मक सुविधाओं का उपयोग करते समय कृपया अपने बदलाव सहेजने से पहले सदैव जाँचें।",
+    "math-preference-mwmathinspector-label": "विज़ुअल सम्पादक फ़ॉर्मुला सम्पादन"
 }

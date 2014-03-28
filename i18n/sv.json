@@ -9,7 +9,7 @@
             "WikiPhoenix"
         ]
     },
-    "math-desc": "Ritar matematiska ekvationer mellan <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-taggar",
+    "math-desc": "Ritar matematiska ekvationer mellan \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E-taggar",
     "math_sample": "Skriv formeln här",
     "math_tip": "Matematisk formel (LaTeX)",
     "prefs-math": "Matematik",

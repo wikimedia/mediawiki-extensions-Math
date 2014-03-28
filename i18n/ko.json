@@ -9,7 +9,7 @@
             "아라"
         ]
     },
-    "math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> 태그 사이에 수학 수식을 표시합니다",
+    "math-desc": "\u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E 태그 사이에 수학 수식을 표시합니다",
     "math_sample": "여기에 수식을 넣으세요",
     "math_tip": "수식(LaTeX)",
     "prefs-math": "수식",
@@ -32,5 +32,7 @@
     "math_latexml_invalidresponse": "'$1' 서버에서 잘못된 LaTeXML 응답 ('$2'):",
     "math_latexml_invalidxml": "LaTeXML MathML은 잘못된 XML입니다.",
     "math_latexml_invalidjson": "LaTeXML 서버 응답은 잘못된 JSON입니다.",
-    "math_latexml_xmlversion": "경고: XML 형식 검사를 건너뛰었습니다! 미디어위키 설치가 wmf/1.22wmf7 이상인지 확인하세요."
+    "math_latexml_xmlversion": "경고: XML 형식 검사를 건너뛰었습니다! 미디어위키 설치가 wmf/1.22wmf7 이상인지 확인하세요.",
+    "math-preference-mwmathinspector-description": "실험용 시각편집기 수식 편집기를 활성화합니다. 실험 기능을 사용할 때 저장하기 전에 문서의 바뀐 내용을 확인하는 것을 잊지 마세요.",
+    "math-preference-mwmathinspector-label": "시각편집기에서 수식 편집"
 }

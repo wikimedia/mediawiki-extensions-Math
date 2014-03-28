@@ -4,7 +4,7 @@
             "Dbc334"
         ]
     },
-    "math-desc": "Izriši matematične formule med oznakama <code>&lt;math&gt;</code> in <code>&lt;/math&gt;</code>",
+    "math-desc": "Izriši matematične formule med oznakama \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E in \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
     "math_sample": "Tu vnesite enačbo",
     "math_tip": "Matematična enačba (LaTeX)",
     "prefs-math": "Prikaz matematičnega besedila",

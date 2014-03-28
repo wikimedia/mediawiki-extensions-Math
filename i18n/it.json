@@ -4,7 +4,7 @@
             "Beta16"
         ]
     },
-    "math-desc": "Esegue il rendering di formule matematiche tra i tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+    "math-desc": "Esegue il rendering di formule matematiche tra i tag \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
     "math_sample": "Inserire qui la formula",
     "math_tip": "Formula matematica (LaTeX)",
     "prefs-math": "Formule matematiche",

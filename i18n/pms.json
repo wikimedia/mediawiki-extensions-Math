@@ -5,7 +5,7 @@
             "Dragonòt"
         ]
     },
-    "math-desc": "Rende le fòrmule matemàtiche antra le tichëtte <code>&lt;math&gt;</code> ... \n<code>&lt;/math&gt;</code>",
+    "math-desc": "Rende le fòrmule matemàtiche antra le tichëtte \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \n\u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
     "math_sample": "Che a buta la fòrmula ambelessì",
     "math_tip": "Fòrmula matemàtica (LaTeX)",
     "prefs-math": "Fòrmule ëd matemàtica",

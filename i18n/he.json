@@ -6,7 +6,7 @@
             "Yona b"
         ]
     },
-    "math-desc": "הדפסת נוסחאות מתמטיות בין התגים <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+    "math-desc": "הדפסת נוסחאות מתמטיות בין התגים \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
     "math_sample": "formula",
     "math_tip": "נוסחה מתמטית (LaTeX)",
     "prefs-math": "נוסחאות מתמטיות",

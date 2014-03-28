@@ -4,7 +4,7 @@
             "Michawiki"
         ]
     },
-    "math-desc": "Přidawa matematiske formle mjez tafličkomaj <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+    "math-desc": "Přidawa matematiske formle mjez tafličkomaj \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
     "math_sample": "Zasuń tu formulu",
     "math_tip": "Matematiska formula (LaTeX)",
     "prefs-math": "Math",

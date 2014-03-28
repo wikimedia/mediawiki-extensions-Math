@@ -5,7 +5,7 @@
             "Mormegil"
         ]
     },
-    "math-desc": "Vykresluje matematické vzorce vyznačené pomocí <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
+    "math-desc": "Vykresluje matematické vzorce vyznačené pomocí \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E … \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
     "math_sample": "Vložit sem vzorec",
     "math_tip": "Matematický vzorec (LaTeX)",
     "prefs-math": "Matematika",

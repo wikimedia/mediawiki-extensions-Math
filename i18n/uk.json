@@ -8,7 +8,7 @@
             "Тест"
         ]
     },
-    "math-desc": "Відображає математичні формули у теґах <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
+    "math-desc": "Відображає математичні формули у теґах \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E … \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
     "math_sample": "Вставте сюди формулу",
     "math_tip": "Математична формула (LaTeX)",
     "prefs-math": "Відображення формул",

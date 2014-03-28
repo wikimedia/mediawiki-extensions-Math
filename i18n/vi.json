@@ -5,7 +5,7 @@
             "Vinhtantran"
         ]
     },
-    "math-desc": "Kết xuất các công thức nằm giữa thẻ <code>&lt;math&gt;</code> …<code>&lt;/math&gt;</code>",
+    "math-desc": "Kết xuất các công thức nằm giữa thẻ \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E …\u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
     "math_sample": "Nhập công thức toán vào đây",
     "math_tip": "Công thức toán (LaTeX)",
     "prefs-math": "Công thức toán",

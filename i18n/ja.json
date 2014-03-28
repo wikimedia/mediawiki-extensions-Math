@@ -10,7 +10,7 @@
             "青子守歌"
         ]
     },
-    "math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング",
+    "math-desc": "\u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E タグで囲まれた数式をレンダリング",
     "math_sample": "ここに数式を挿入",
     "math_tip": "数式 (LaTeX)",
     "prefs-math": "数式",
