@@ -1,0 +1,24 @@
+{
+    "@metadata": {
+        "authors": [
+            "Purodha",
+            "Reedy"
+        ]
+    },
+    "math-desc": "Zeisch Fomelle us de Mathematik aan, die ennerhallef vun <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> schtonn.",
+    "math_sample": "Heh schriev de Formel en „LaTeX“ Forrem eren",
+    "math_tip": "En mathematisch Formel",
+    "prefs-math": "Mathematisch Formele",
+    "mw_math_png": "Immer nor PNG aanzeije",
+    "mw_math_source": "Lohß et als TeX (jod för de Tex-Brausere)",
+    "mw_math_mathjax": "MathJax (för zom Ußprobeere un et bäß för de miehtsde Brausere)",
+    "math_failure": "Fähler vum Parser",
+    "math_unknown_error": "Fähler, dä mer nit kenne",
+    "math_unknown_function": "en Funktion, die mer nit kenne",
+    "math_lexing_error": "Fähler beim Lexing",
+    "math_syntax_error": "Fähler en de Syntax",
+    "math_image_error": "Dat Ömwandele noh PNG es donevve jejange. Dun ens noh de richtije Enstallation luure bei <code lang=\"en\">latex</code> un <code lang=\"en\">dvips</code>, udder bei <code lang=\"en\">dvips</code>, un <code lang=\"en\">gs</code>, un <code lang=\"en\">convert</code>.",
+    "math_bad_tmpdir": "Dat Zwescheverzeichnis för de mathematische Formele lööt sich nit aanläje oder nix eren schrieve. Dat es Dress. Sag et enem Wiki-Köbes oder enem ẞööver-Minsch.",
+    "math_bad_output": "Dat Verzeichnis för de mathematische Formele lööt sich nit aanläje oder mer kann nix eren schrieve. Dat es Dress. Sag et enem Wiki-Köbes oder enem ẞööver-Minsch.",
+    "math_notexvc": "Dat Projamm <code>texvc</code> haM_mer nit jefunge.\nSag et enemWiki-Köbes, enem ẞööver-Minsch, oder luur ens en dä\n<code>math/README</code>."
+}

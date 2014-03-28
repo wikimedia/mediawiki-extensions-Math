@@ -1,0 +1,32 @@
+{
+    "@metadata": {
+        "authors": [
+            "Esbardu",
+            "Xuacu"
+        ]
+    },
+    "math-desc": "Dibuxa les fórmules matemátiques ente les etiquetes <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+    "math_sample": "Inxertar fórmula equí",
+    "math_tip": "Fórmula matemática",
+    "prefs-math": "Fórmules matemátiques",
+    "mw_math_png": "Renderizar siempre PNG",
+    "mw_math_source": "Dexalo como TeX (pa navegadores de testu)",
+    "mw_math_mathjax": "MathJax (esperimental; lo meyor pa la mayoría de navegadores)",
+    "mw_math_latexml": "LaTeXML (esperimental; usa MathML)",
+    "math_failure": "Fallu al revisar la fórmula",
+    "math_unknown_error": "error desconocíu",
+    "math_unknown_function": "función '$1' desconocida",
+    "math_lexing_error": "Error lléxicu",
+    "math_syntax_error": "error de sintaxis",
+    "math_image_error": "Falló la conversión PNG; comprueba que tea bien la instalación de latex y dvipng (o dvips + gs + convert)",
+    "math_bad_tmpdir": "Nun se pue escribir o crear el direutoriu temporal 'math'",
+    "math_bad_output": "Nun se pue escribir o crear el direutoriu de salida 'math'",
+    "math_notexvc": "Falta l'executable texvc; por favor vea math/README pa configuralu.",
+    "math_notexvccheck": "Falta l'executable texvccheck; por favor vea 'math/README' pa configuralu.",
+    "math_output_error": "Nun pue guardase la imaxe matemática nel sistema de ficheros.",
+    "math_latexml_timeout": "Tiempu escosáu de LaTeXML dende '$1'",
+    "math_latexml_invalidresponse": "Rempuesta inválida de LaTeXML ('$2') dende'l sirvidor '$1':",
+    "math_latexml_invalidxml": "El MathML de LaTeXML ye XML inválidu.",
+    "math_latexml_invalidjson": "La rempuesta del sirvidor LaTeXML ye JSON inválidu.",
+    "math_latexml_xmlversion": "Atención: ¡Saltóse la comprobación del tipu XML! Compruebe si la instalación de MediaWiki ye la versión wmf/1.22wmf7 o posterior."
+}

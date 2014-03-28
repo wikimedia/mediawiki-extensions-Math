@@ -1,0 +1,28 @@
+{
+    "@metadata": {
+        "authors": [
+            "Emperyan",
+            "Erkan Yilmaz",
+            "Hcagri",
+            "Joseph",
+            "Runningfridgesrule",
+            "Srhat",
+            "Uğur Başak"
+        ]
+    },
+    "math_sample": "Matematiksel-ifadeyi-girin",
+    "math_tip": "Matematik formülü (LaTeX formatında)",
+    "prefs-math": "Matematiksel simgeler",
+    "mw_math_png": "Daima PNG resim formatına çevir",
+    "mw_math_source": "Değiştirmeden TeX olarak bırak  (metin tabanlı tarayıcılar için)",
+    "mw_math_mathjax": "MathJax (deneysel; çoğu tarayıcıya uygun)",
+    "math_failure": "Ayrıştırılamadı",
+    "math_unknown_error": "bilinmeyen hata",
+    "math_unknown_function": "bilinmeyen fonksiyon",
+    "math_lexing_error": "lexing hatası",
+    "math_syntax_error": "sözdizim hatası",
+    "math_image_error": "PNG çevirisi başarısız; latex, dvips ve gs programlarının doğru yüklendiğine emin olun ve çeviri işlemini başlatın.",
+    "math_bad_tmpdir": "Math geçici dizinine yazılamıyor ya da oluşturulamıyor",
+    "math_bad_output": "Math çıktı dizinine yazılamıyor ya da oluşturulamıyor",
+    "math_notexvc": "texvc çalıştırılabiliri kayıp;\nayarlamak için math/README'ye bakın."
+}

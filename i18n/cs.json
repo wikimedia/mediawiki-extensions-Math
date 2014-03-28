@@ -1,0 +1,35 @@
+{
+    "@metadata": {
+        "authors": [
+            "Danny B.",
+            "Mormegil"
+        ]
+    },
+    "math-desc": "Vykresluje matematické vzorce vyznačené pomocí <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
+    "math_sample": "Vložit sem vzorec",
+    "math_tip": "Matematický vzorec (LaTeX)",
+    "prefs-math": "Matematika",
+    "mw_math_png": "Vždy jako PNG",
+    "mw_math_source": "Ponechat jako TeX (pro textové prohlížeče)",
+    "mw_math_mathjax": "MathJax (experimentální; pro většinu prohlížečů nejlepší)",
+    "mw_math_latexml": "LaTeXML (experimentální; používá MathML)",
+    "math_failure": "Nelze pochopit",
+    "math_unknown_error": "neznámá chyba",
+    "math_unknown_function": "neznámá funkce „$1“",
+    "math_lexing_error": "chyba při lexingu",
+    "math_syntax_error": "syntaktická chyba",
+    "math_image_error": "Selhala konverze do PNG; zkontrolujte správnou instalaci latexu a dvipng (nebo dvips + gs + convert)",
+    "math_bad_tmpdir": "Nelze zapsat nebo vytvořit dočasný adresář pro matematiku",
+    "math_bad_output": "Nelze zapsat nebo vytvořit adresář pro výstup matematiky",
+    "math_notexvc": "Chybí spustitelný texvc; podívejte se prosím do math/README na konfiguraci.",
+    "math_notexvccheck": "Chybí spustitelný texvccheck; podívejte se prosím do math/README na konfiguraci.",
+    "math_output_error": "Matematický obrázek nelze uložit do souborového systému.",
+    "math_latexml_timeout": "Vypršel časový limit LaTeXML z „$1“",
+    "math_latexml_invalidresponse": "Neplatná odpověď LaTeXML („$2“) od serveru „$1“:",
+    "math_latexml_invalidxml": "MathML z LaTeXML není platné XML.",
+    "math_latexml_invalidjson": "Odpověď LaTeXML Serveru není platný JSON.",
+    "math_latexml_xmlversion": "Upozornění: Kontrola XML typu přeskočena! Zkontrolujte, zda je vaše instalace MediaWiki verze wmf/1.22wmf7 nebo novější.",
+    "math-visualeditor-mwmathinspector-title": "Vzorec",
+    "math-preference-mwmathinspector-description": "Přidá do VisualEditoru experimentální podporu tvorby a editace matematických vzorců kvůli testování před zveřejněním této funkce. Při užívání experimentálních funkcí prosím nezapomeňte vždy zkontrolovat provedené změny.",
+    "math-preference-mwmathinspector-label": "Editace vzorců VisualEditorem"
+}

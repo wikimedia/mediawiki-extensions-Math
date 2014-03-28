@@ -1,0 +1,35 @@
+{
+    "@metadata": {
+        "authors": [
+            "Murma174",
+            "Pyt"
+        ]
+    },
+    "math-desc": "Wiset matemaatisk formeln tesken <code>&lt;math&gt;</code> an <code>&lt;/math&gt;</code> uun.",
+    "math_sample": "Formel heer önjfäige",
+    "math_tip": "Matemaatisch formel (LaTex)",
+    "prefs-math": "TeX",
+    "mw_math_png": "Leewen üs PNG uunwise",
+    "mw_math_source": "Uun TeX-formoot läät (för tekst-browsers)",
+    "mw_math_mathjax": "MathJax (eksperimentel; best för a miast browsers)",
+    "mw_math_latexml": "LaTeXML (experimentel; werket mä MathML)",
+    "math_failure": "Bi't auersaaten as wat skiaf gingen.",
+    "math_unknown_error": "Ünbekäänd feeler",
+    "math_unknown_function": "Ünbekäänd funktjuun „$1“",
+    "math_lexing_error": "Leksikaalisk feeler",
+    "math_syntax_error": "Süntaksfeeler",
+    "math_image_error": "PNG konwertiarin as skiaf gingen. Preewe det iinrachtang faan LaTeX an dvipng (of dvips + gs + convert)",
+    "math_bad_tmpdir": "Det föörluupen fertiaknis för matemaatisk formeln küd ei brükt of iinracht wurd.",
+    "math_bad_output": "Det fertiaknis för matemaatisk formeln küd ei brükt of iinracht wurd.",
+    "math_notexvc": "Det texvc program as ei diar. Luke hü det iinrachten gongt uun't datei math/README.",
+    "math_notexvccheck": "Det program texvccheck as ei diar. Luke hü det iinrachten gongt uun't datei math/README.",
+    "math_output_error": "Det formelbil koon üüb det dateisüsteem ei seekert wurd.",
+    "math_latexml_timeout": "LaTeXML time-out faan „$1“",
+    "math_latexml_invalidresponse": "LaTeXML ferkiard oonswaar ('$2') faan server '$1':",
+    "math_latexml_invalidxml": "LaTeXML MathML as ferkiard XML.",
+    "math_latexml_invalidjson": "LaTeXML server oonswaar as ferkiard JSON.",
+    "math_latexml_xmlversion": "Paase üüb: Det XML-typ preew as auersprüngen wurden. Din MediaWiki-instalatjuun skul wmf/1.22wmf7 of neier wees.",
+    "math-visualeditor-mwmathinspector-title": "Formel",
+    "math-preference-mwmathinspector-description": "Diar kem eksperimentel werktjüügen tu, am matemaatisk formeln tu bewerkin, iar jodiar werktjüügen för aaltumaal tu brüken san. Kontroliare din feranrangen föör't seekrin arke tooch, wan dü eksperimentel werktjüügen brükt heest.",
+    "math-preference-mwmathinspector-label": "VisualEditor bewerkin faan formeln"
+}

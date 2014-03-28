@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Edgars2007",
+            "Marozols",
+            "Papuass",
+            "Yyy"
+        ]
+    },
+    "math_sample": "Šeit ievieto formulu",
+    "math_tip": "Matemātikas formula (LaTeX)",
+    "prefs-math": "Formulas",
+    "mw_math_png": "Vienmēr attēlot PNG",
+    "mw_math_source": "Saglabāt kā TeX (teksta pārlūkiem)",
+    "mw_math_mathjax": "MathJax (eksperimentāls; labākais variants lielākajai daļai pārlūku)",
+    "math_failure": "Parsēšanas kļūda",
+    "math_unknown_error": "nezināma kļūda",
+    "math_unknown_function": "nezināma funkcija '$1'",
+    "math_lexing_error": "leksikas kļūda",
+    "math_syntax_error": "sintakses kļūda",
+    "math_image_error": "Kļūda konvertējot uz PNG formātu;\npārbaudi vai ir korekti uzinstalēti latex, dvips, gs, un convert",
+    "math-visualeditor-mwmathinspector-title": "Formula"
+}

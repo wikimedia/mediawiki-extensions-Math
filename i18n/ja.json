@@ -1,0 +1,40 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ant176",
+            "Eseki",
+            "Fryed-peach",
+            "Ohgi",
+            "Shirayuki",
+            "Whym",
+            "青子守歌"
+        ]
+    },
+    "math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング",
+    "math_sample": "ここに数式を挿入",
+    "math_tip": "数式 (LaTeX)",
+    "prefs-math": "数式",
+    "mw_math_png": "常に PNG で描画",
+    "mw_math_source": "TeX のまま (テキスト ブラウザー向け)",
+    "mw_math_mathjax": "MathJax (開発中; ほとんどのブラウザーに最適)",
+    "mw_math_latexml": "LaTeXML (開発中; MathML を使用)",
+    "math_failure": "構文解析に失敗",
+    "math_unknown_error": "不明なエラー",
+    "math_unknown_function": "不明な関数「$1」",
+    "math_lexing_error": "字句解析エラー",
+    "math_syntax_error": "構文エラー",
+    "math_image_error": "PNG への変換に失敗しました。latex および dvipng (または dvips + gs + convert) が正しくインストールされているか確認してください。",
+    "math_bad_tmpdir": "数式一時ディレクトリでの書き込みまたは作成ができません",
+    "math_bad_output": "数式出力ディレクトリでの書き込みまたは作成ができません",
+    "math_notexvc": "texvc の実行可能ファイルが見つかりません。math/README を読んで設定してください。",
+    "math_notexvccheck": "texvccheck の実行可能ファイルが見つかりません。設定については math/README を参照してください。",
+    "math_output_error": "数式画像をファイルシステムに格納できません。",
+    "math_latexml_timeout": "「$1」からの LaTeXML タイムアウト",
+    "math_latexml_invalidresponse": "LaTeXML サーバー '$1' から無効な応答 ('$2'):",
+    "math_latexml_invalidxml": "LaTeXML MathML は無効な XML です。",
+    "math_latexml_invalidjson": "LaTeXML サーバーの応答は無効な JSON です。",
+    "math_latexml_xmlversion": "警告: XML の型チェックをスキップしました。インストールされている MediaWiki が wmf/1.22wmf7 以降か確認してください。",
+    "math-visualeditor-mwmathinspector-title": "数式",
+    "math-preference-mwmathinspector-description": "ビジュアルエディターに、数式を作成および編集するための実験的な機能を、一般へのリリースの前の試験用として追加します。実験的な機能を使用する際は、常に保存前に変更内容を確認してください。",
+    "math-preference-mwmathinspector-label": "ビジュアルエディターでの数式の編集"
+}

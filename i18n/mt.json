@@ -1,0 +1,22 @@
+{
+    "@metadata": {
+        "authors": [
+            "Chrisportelli",
+            "Giangian15"
+        ]
+    },
+    "math_sample": "Daħħal formula hawnhekk",
+    "math_tip": "Formula matematika (LaTeX)",
+    "prefs-math": "Formuli matematiċi",
+    "mw_math_png": "Uri dejjem f'PNG",
+    "mw_math_source": "Ħallija bħala TeX (għal browsers ta' test)",
+    "math_failure": "Problema fil-''parser''",
+    "math_unknown_error": "Problema mhux magħrufa",
+    "math_unknown_function": "funżjoni mhux magħrufa",
+    "math_lexing_error": "żball lessikali",
+    "math_syntax_error": "żball fis-sintassi",
+    "math_image_error": "Konverżjoni għal PNG falliet; iċċekkja għall-installazzjoni tajba ta' latex jew dvipng (jew dvips, gs u convert).",
+    "math_bad_tmpdir": "Impossibli tikteb jew toħloq direttorju temporanju għal ''math''",
+    "math_bad_output": "Impossibli tikteb jew toħloq direttorju tal-''output'' tal-''math''",
+    "math_notexvc": "Esekuzzjoni ''texvc'' nieqes; jekk jogħġbok konsultà ''math/README'' għal konfigurazzjoni."
+}

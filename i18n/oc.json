@@ -1,0 +1,24 @@
+{
+    "@metadata": {
+        "authors": [
+            "Cedric31"
+        ]
+    },
+    "math_sample": "Picatz vòstra formula aicí",
+    "math_tip": "Formula matematica (LaTeX)",
+    "prefs-math": "Rendut de las matas",
+    "mw_math_png": "Totjorn produire un imatge PNG",
+    "mw_math_source": "Daissar lo còde TeX d'origina",
+    "mw_math_mathjax": "MathJax (experimental ; melhor per la màger part dels navigadors)",
+    "math_failure": "Error matas",
+    "math_unknown_error": "error indeterminada",
+    "math_unknown_function": "foncion desconeguda « $1 »",
+    "math_lexing_error": "error lexicala",
+    "math_syntax_error": "error de sintaxi",
+    "math_image_error": "La conversion en PNG a pas capitat ; verificatz l’installacion de Latex, dvips, gs e convert",
+    "math_bad_tmpdir": "Impossible de crear o d’escriure dins lo repertòri math temporari",
+    "math_bad_output": "Impossible de crear o d’escriure dins lo repertòri math de sortida",
+    "math_notexvc": "L’executable « texvc » es introbable. Legissètz math/README per lo configurar.",
+    "math-preference-mwmathinspector-description": "Apondre d'aisinas experimentalas a VisualEditor per crear o modificar de formulas matematicas, per dire d'o ensajar, abans la mesa en produccion. Doblidètz pas d'enregistrar las modificacions abans d'utilizar las foncions experimentalas.",
+    "math-preference-mwmathinspector-label": "Modificacion de formulas amb l'EditorVisual"
+}

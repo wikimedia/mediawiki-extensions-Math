@@ -1,0 +1,42 @@
+{
+    "@metadata": {
+        "authors": [
+            "Cainamarques",
+            "Jon Harald Søby",
+            "Kizito",
+            "Physikerwelt",
+            "Raymond",
+            "Shirayuki",
+            "Siebrand"
+        ]
+    },
+    "math-desc": "{{desc|name=Math|url=http://www.mediawiki.org/wiki/Extension:Math}}",
+    "math_sample": "The sample formula text that you get when you press the fourth button from the right on the edit toolbar.",
+    "math_tip": "This is the text that appears when you hover the mouse over the fourth button from the right on the edit toolbar.",
+    "prefs-math": "Used in user preferences as a section heading.\n{{Identical|Math}}",
+    "mw_math_png": "In user preferences. All mw_math_* messages MUST be different, things will break otherwise!\n\nUsed as label for radio button.\n\nSee also:\n* {{msg-mw|Mw math source}}\n* {{msg-mw|Mw math mathjax}}\n* {{msg-mw|Mw math latexml}}",
+    "mw_math_source": "In user preferences (math). All mw_math_* messages MUST be different, things will break otherwise!\n\nUsed as label for source radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math mathjax}}\n* {{msg-mw|Mw math latexml}}",
+    "mw_math_mathjax": "Used as label for mathjax radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math source}}\n* {{msg-mw|Mw math latexml}}",
+    "mw_math_latexml": "Used as label for latexml radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math source}}\n* {{msg-mw|Mw math mathjax}}",
+    "math_failure": "Used as error message.\n\nThis message is followed by \"(\", Error message(*1), Additional message, \"): \"  and Source code.\n\n(*1) The error message is any one of the following messages:\n* {{msg-mw|Math unknown error}}\n* {{msg-mw|Math unknown function}}\n* {{msg-mw|Math lexing error}}\n* {{msg-mw|Math syntax error}}\n* {{msg-mw|Math image error}}\n* {{msg-mw|Math bad tmpdir}}\n* {{msg-mw|Math bad output}}\n* {{msg-mw|Math notexvc}}\n* {{msg-mw|Math notexvccheck}}\n* {{msg-mw|Math output error}}\n* {{msg-mw|Math latexml timeout}}\n* {{msg-mw|Math latexml invalidresponse}}\n* {{msg-mw|Math latexml invalidxml}}\n* {{msg-mw|Math latexml invalidjson}}",
+    "math_unknown_error": "Used as error message for unknown texvc error.\n\nThis message follows the message {{msg-mw|Math failure}}.\n{{Identical|Unknown error}}",
+    "math_unknown_function": "Used as error message when texvc encounters an unknown function.\n\nPreceded by the message {{msg-mw|Math failure}}.\n\nParameters:\n* $1 - name of unknown function",
+    "math_lexing_error": "Used as error message for a texvc lexing error.\n\nThis message follows the message {{msg-mw|Math failure}}.",
+    "math_syntax_error": "Used as error message for a texvc syntax error.\n\nThis message follows the message {{msg-mw|Math failure}}.\n{{Identical|Syntax error}}",
+    "math_image_error": "{{doc-important|Do not change <code>latex</code>, <code>dvipng</code>, <code>dvips</code>, <code>gs</code> and <code>convert</code>. These are UNIX commands.}}\n\nUsed as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.",
+    "math_bad_tmpdir": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.",
+    "math_bad_output": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.",
+    "math_notexvc": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.\n\nSee also:\n* {{msg-mw|Math notexvccheck}}",
+    "math_notexvccheck": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.\n\nSee also:\n* {{msg-mw|Math notexvc}}",
+    "math_output_error": "Used as error message if the texvc output file could not be stored.\n\nThis message follows the message {{msg-mw|Math failure}}.",
+    "math_latexml_timeout": "Used as error message.\n\nParameters:\n* $1 - hostname or URL",
+    "math_latexml_invalidresponse": "Used as error message.\n\nFollows the message {{msg-mw|Math failure}}.\n\nParameters:\n* $1 - hostname\n* $2 - error message",
+    "math_latexml_invalidxml": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.",
+    "math_latexml_invalidjson": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.",
+    "math_latexml_xmlversion": "Warning that XML checking of MathML requires wmf/1.22wmf7 or newer.",
+    "math-visualeditor-mwmathinspector-title": "Title for the inspector to edit <nowiki><math></nowiki> formula blocks.\n{{Identical|Formula}}",
+    "math-preference-mwmathinspector-description": "Used in [[Special:Preferences]].\n\nUsed as description for the checkbox to enable editing of mathematical formulae in VisualEditor.\n\nThe label for this checkbox is {{msg-mw|Visualeditor-preference-mwmath-label}}.",
+    "math-preference-mwmathinspector-discussion-link": "{{optional|Used on [[Special:Preferences]] as a link to a page where users can discuss this Beta Feature. Defaults to a page on MediaWiki.org.}}",
+    "math-preference-mwmathinspector-info-link": "{{optional|Used on [[Special:Preferences]] as a link to a page where users can learn about this Beta Feature. Defaults to a page on MediaWiki.org.}}",
+    "math-preference-mwmathinspector-label": "Used in [[Special:Preferences]].\n\nUsed as label for checkbox to enable editing of mathematical formulae in VisualEditor.\n\nThe description for this checkbox is:\n* {{msg-mw|Visualeditor-preference-mwmath-description}}"
+}

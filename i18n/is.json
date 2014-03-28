@@ -1,0 +1,18 @@
+{
+    "@metadata": {
+        "authors": [
+            "Krun",
+            "S.Örvarr.S"
+        ]
+    },
+    "math_sample": "Sláið inn formúlu hér",
+    "math_tip": "Stærðfræðiformúla (LaTeX)",
+    "prefs-math": "Stærðfræðiformúlur",
+    "mw_math_png": "Alltaf birta PNG mynd",
+    "mw_math_source": "Sýna TeX jöfnu (fyrir textavafra)",
+    "math_failure": "Þáttun mistókst",
+    "math_unknown_error": "óþekkt villa",
+    "math_unknown_function": "óþekkt virkni",
+    "math_lexing_error": "lestrarvilla",
+    "math_syntax_error": "málfræðivilla"
+}

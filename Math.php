@@ -22,7 +22,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'Math',
-	'version' => '1.1',
+	'version' => '1.2.0',
 	'author' => array( 'Tomasz Wegrzanowski', 'Brion Vibber', '...' ),
 	'descriptionmsg' => 'math-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Math',
@@ -42,7 +42,7 @@ define( 'MW_MATH_LATEXML', 7 ); /// new in 1.22
 /**@}*/
 
 /** Location of the texvc binary */
-$wgTexvc = dirname( __FILE__ ) . '/math/texvc';
+$wgTexvc = __DIR__ . '/math/texvc';
 /**
  * Texvc background color
  * use LaTeX color format as used in \special function
@@ -134,7 +134,7 @@ $wgMathDefaultLaTeXMLSetting = 'format=xhtml&whatsin=math&whatsout=math&pmml&cmm
 /**
  * The link to the texvccheck executable
  */
-$wgMathTexvcCheckExecutable = dirname( __FILE__ ) . '/texvccheck/texvccheck';
+$wgMathTexvcCheckExecutable = __DIR__ . '/texvccheck/texvccheck';
 /**
  * Option to disable the tex filter. If set to true any LaTeX espression is parsed
  * this can be a potential security risk. If set to false only a subset of the TeX
@@ -154,7 +154,7 @@ $wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
 $wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
 $wgHooks['PageRenderingHash'][] = 'MathHooks::onPageRenderingHash';
 
-$dir = dirname( __FILE__ ) . '/';
+$dir = __DIR__ . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
 $wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
 $wgAutoloadClasses['MathTexvc'] = $dir . 'MathTexvc.php';
@@ -162,6 +162,7 @@ $wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
 $wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
 $wgAutoloadClasses['MathInputCheck'] = $dir . 'MathInputCheck.php';
 $wgAutoloadClasses['MathInputCheckTexvc'] = $dir . 'MathInputCheckTexvc.php';
+$wgMessagesDirs['Math'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
@@ -173,20 +174,20 @@ $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 $wgResourceModules += array(
 	// This enables MathJax.
 	'ext.math.mathjax.enabler' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules',
+		'localBasePath' => __DIR__ . '/modules',
 		'remoteExtPath' => 'Math/modules',
 		'scripts' => 'ext.math.mathjax.enabler.js'
 	),
 	// Main MathJax file
 	'ext.math.mathjax.mathjax' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked',
 		'scripts' => 'MathJax.js'
 	),
 
 	// Localization data for the current language
 	'ext.math.mathjax.localization' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/localization',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/localization',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/localization',
 		'languageScripts' => array(
 			// The localization data for 'en' are actually never used since an English fallback is always specified in MathJax's code when a string is used.
@@ -225,7 +226,7 @@ $wgResourceModules += array(
 
 	// Configuration files for the MathJax input/output processors
 	'ext.math.mathjax.jax.config' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/jax',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax',
 		'scripts' => array( 'input/TeX/config.js', 'input/MathML/config.js', 'output/HTML-CSS/config.js', 'output/NativeMML/config.js', 'output/SVG/config.js' ),
 		'dependencies' => 'ext.math.mathjax.mathjax'
@@ -237,19 +238,19 @@ $wgResourceModules += array(
 	// dependencies. Hence we only specify 'ext.math.mathjax.mathjax' here so that
 	// we can load them in MathJax.Hub.Startup.Extensions.
 	'ext.math.mathjax.extensions.ui' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/extensions',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/extensions',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/extensions',
 		'scripts' => array( 'MathEvents.js', 'MathZoom.js', 'MathMenu.js', 'toMathML.js' ),
 		'dependencies' => 'ext.math.mathjax.mathjax'
 	),
 	'ext.math.mathjax.extensions.TeX' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/extensions',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/extensions',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/extensions',
 		'scripts' => array( 'wiki2jax.js', 'TeX/noUndefined.js', 'TeX/AMSmath.js', 'TeX/AMSsymbols.js', 'TeX/boldsymbol.js', 'TeX/texvc.js' ),
 		'dependencies' => array( 'ext.math.mathjax.mathjax' )
 	),
 	'ext.math.mathjax.extensions.mml2jax' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/extensions',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/extensions',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/extensions',
 		'scripts' => array( 'mml2jax.js' ),
 		'dependencies' => 'ext.math.mathjax.mathjax'
@@ -260,13 +261,13 @@ $wgResourceModules += array(
 
 	// MathJax module for representing MathML elements
 	'ext.math.mathjax.jax.element.mml.optable' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/element/mml/optable',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/jax/element/mml/optable',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/element/mml/optable',
 		'scripts' => array( 'Arrows.js', 'BasicLatin.js', 'CombDiacritMarks.js', 'CombDiactForSymbols.js', 'Dingbats.js', 'GeneralPunctuation.js', 'GeometricShapes.js', 'GreekAndCoptic.js', 'Latin1Supplement.js', 'LetterlikeSymbols.js', 'MathOperators.js', 'MiscMathSymbolsA.js', 'MiscMathSymbolsB.js', 'MiscSymbolsAndArrows.js', 'MiscTechnical.js', 'SpacingModLetters.js', 'SupplementalArrowsA.js', 'SupplementalArrowsB.js', 'SuppMathOperators.js' ),
 		'dependencies' => array( 'ext.math.mathjax.jax.element.mml' )
 	),
 	'ext.math.mathjax.jax.element.mml' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/element/mml',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/jax/element/mml',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/element/mml',
 		'scripts' => array( 'jax.js' ),
 		'dependencies' => 'ext.math.mathjax.mathjax'
@@ -279,7 +280,7 @@ $wgResourceModules += array(
 	// We don't use these files because these entities are now well
 	// supported by modern HTML5 rendering engines anyway.
 	'ext.math.mathjax.jax.input.MathML' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/input/MathML',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/jax/input/MathML',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/input/MathML',
 		'scripts' => array( 'jax.js' ),
 		'dependencies' => array( 'ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml' )
@@ -287,7 +288,7 @@ $wgResourceModules += array(
 
 	// MathJax TeX input processor
 	'ext.math.mathjax.jax.input.TeX' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/input/TeX',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/jax/input/TeX',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/input/TeX',
 		'scripts' => array( 'jax.js' ),
 		'dependencies' => array( 'ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml' )
@@ -295,7 +296,7 @@ $wgResourceModules += array(
 
 	// MathJax NativeMML output processor
 	'ext.math.mathjax.jax.output.NativeMML' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/NativeMML',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/jax/output/NativeMML',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/NativeMML',
 		'scripts' => array( 'jax.js' ),
 		'dependencies' => array( 'ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml' )
@@ -304,19 +305,19 @@ $wgResourceModules += array(
 	// MathJax HTML-CSS output processor
 	// Note: at the moment, we use neither image fonts nor STIX/STIX-Web/Asana/GyrePagella/GyreTermes/NeoEuler/LatinModern fonts.
 	'ext.math.mathjax.jax.output.HTML-CSS.autoload' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/HTML-CSS/autoload',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/jax/output/HTML-CSS/autoload',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/HTML-CSS/autoload',
 		'scripts' => array( 'annotation-xml.js', 'maction.js', 'menclose.js', 'mglyph.js', 'mmultiscripts.js', 'ms.js', 'mtable.js', 'multiline.js' ),
 		'dependencies' => array( 'ext.math.mathjax.jax.output.HTML-CSS' )
 	),
 	'ext.math.mathjax.jax.output.HTML-CSS' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/HTML-CSS',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/jax/output/HTML-CSS',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/HTML-CSS',
 		'scripts' => array( 'jax.js' ),
 		'dependencies' => array( 'ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml' )
 	),
 	'ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.fontdata' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX',
 		'scripts' => array( 'fontdata.js', 'fontdata-extra.js' ),
 		'dependencies' => array( 'ext.math.mathjax.jax.output.HTML-CSS' )
@@ -324,19 +325,19 @@ $wgResourceModules += array(
 
 	// MathJax SVG output processor
 	'ext.math.mathjax.jax.output.SVG.autoload' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/SVG/autoload',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/jax/output/SVG/autoload',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/SVG/autoload',
 		'scripts' => array( 'annotation-xml.js', 'maction.js', 'menclose.js', 'mglyph.js', 'mmultiscripts.js', 'ms.js', 'mtable.js', 'multiline.js' ),
 		'dependencies' => array( 'ext.math.mathjax.jax.output.SVG' )
 	),
 	'ext.math.mathjax.jax.output.SVG' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/SVG',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/jax/output/SVG',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/SVG',
 		'scripts' => array( 'jax.js' ),
 		'dependencies' => array( 'ext.math.mathjax.jax.config', 'ext.math.mathjax.jax.element.mml' )
 	),
 	'ext.math.mathjax.jax.output.SVG.fonts.TeX.fontdata' => array(
-		'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/SVG/fonts/TeX',
+		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/jax/output/SVG/fonts/TeX',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/SVG/fonts/TeX',
 		'scripts' => array( 'fontdata.js', 'fontdata-extra.js' ),
 		'dependencies' => array( 'ext.math.mathjax.jax.output.SVG' )
@@ -347,7 +348,7 @@ $wgResourceModules += array(
 // - The two sets for HTML-CSS and SVG are slightly different, so we can't really use a foreach loop.
 // - the Main.js files must be executed before the other files (the former define the MathJax.OutputJax[*].FONTDATA.FONTS[*] object while the latter extend that object). Hence we create separate *MainJS modules for them.
 $moduleTemplateHTMLCSS = array(
-	'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX',
+	'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX',
 	'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX',
 	'dependencies' => array( 'ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.fontdata' )
 );
@@ -372,7 +373,7 @@ $wgResourceModules += array(
 	) + $moduleTemplateHTMLCSS
 );
 $moduleTemplateSVG = array(
-	'localBasePath' => dirname( __FILE__ ) . '/modules/MathJax/unpacked/jax/output/SVG/fonts/TeX',
+	'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/jax/output/SVG/fonts/TeX',
 	'remoteExtPath' => 'Math/modules/MathJax/unpacked/jax/output/SVG/fonts/TeX',
 	'dependencies' => array( 'ext.math.mathjax.jax.output.SVG.fonts.TeX.fontdata' )
 );
@@ -398,7 +399,7 @@ $wgResourceModules += array(
 );
 
 $moduleTemplate = array(
-    'localBasePath' => dirname( __FILE__ ) . '/modules',
+    'localBasePath' => __DIR__ . '/modules',
     'remoteExtPath' => 'Math/modules',
 );
 
