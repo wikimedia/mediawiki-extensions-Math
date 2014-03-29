@@ -7,7 +7,7 @@
             "Yfdyh000"
         ]
     },
-    "math-desc": "在\u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E...\u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E标签间生成数学公式",
+    "math-desc": "在<code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code>标签间生成数学公式",
     "math_sample": "在此插入数学公式",
     "math_tip": "插入数学公式 （LaTeX）",
     "prefs-math": "数学公式",

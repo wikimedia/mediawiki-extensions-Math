@@ -5,13 +5,13 @@
             "Умар"
         ]
     },
-    "math-desc": "Гойту математикан формулш тегашкахь \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
+    "math-desc": "Гойту математикан формулш тегашкахь <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
     "math_sample": "Каьчдинарг чудила кхузе",
     "math_tip": "Матlематlекхиа каьчйар (барам LaTeX)",
     "prefs-math": "Формулаш гар",
     "mw_math_png": "Даима генерировать ян PNG",
     "mw_math_source": "Йита белгалонехь ТеХ (йизан браузершан)",
-    "mw_math_mathjax": "MathJax (экспериментальни опци, дукху йолчу браузершан)",
-    "math-preference-mwmathinspector-description": "VisualEditor на тӀетуху формулаш таян аьтту. Дехар до, хьой бина хийцамаш Ӏалаш бале царга даимна хьажа.",
-    "math-preference-mwmathinspector-label": "VisualEditor ца формулаш таяр"
+    "mw_math_mathjax": "MathJax (экспериментан опци, дукху йолчу браузершан)",
+    "math-preference-mwmathinspector-description": "Визуальни тадарна тӀетуху математикан формулаш кхолла а таян а аьтту. Дехар до, хьой бина хийцамаш Ӏалаш бале царга даиман хьажа.",
+    "math-preference-mwmathinspector-label": "Визуальни тадарца ца формулаш таяр"
 }

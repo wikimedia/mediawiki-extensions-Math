@@ -7,7 +7,7 @@
             "555"
         ]
     },
-    "math-desc": "Renderiza fórmulas matemáticas entre etiquetas \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
+    "math-desc": "Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
     "math_sample": "Inserir fórmula aqui",
     "math_tip": "Fórmula matemática (LaTeX)",
     "prefs-math": "Matemática",

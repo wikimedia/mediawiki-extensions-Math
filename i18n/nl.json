@@ -6,7 +6,7 @@
             "Siebrand"
         ]
     },
-    "math-desc": "Wiskundige formules tussen \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E-tags weergeven",
+    "math-desc": "Wiskundige formules tussen <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-tags weergeven",
     "math_sample": "Voer de formule in",
     "math_tip": "Wiskundige formule (in LaTeX)",
     "prefs-math": "Formules",
@@ -23,7 +23,7 @@
     "math_bad_tmpdir": "De map voor tijdelijke bestanden voor wiskundige formules bestaat niet of kan niet gemaakt worden",
     "math_bad_output": "De map voor bestanden met wiskundige formules bestaat niet of kan niet gemaakt worden.",
     "math_notexvc": "Kan het programma texvc niet vinden; stel alles in volgens de beschrijving in math/README.",
-    "math_notexvccheck": "Het uitvoerbare bestand \u003Ccode\u003Etexvccheck\u003C/code\u003E ontbreekt. Zie \u003Ccode\u003Emath/README\u003C/code\u003E voor instellingen.",
+    "math_notexvccheck": "Het uitvoerbare bestand <code>texvccheck</code> ontbreekt. Zie <code>math/README</code> voor instellingen.",
     "math_output_error": "De Mathafbeelding kan niet op het bestandssysteem worden opgeslagen.",
     "math_latexml_timeout": "LaTeXML: timeout van \"$1\"",
     "math_latexml_invalidresponse": "LaTeXML: Ongeldig antwoord (\"$2\") van server \"$1\":",

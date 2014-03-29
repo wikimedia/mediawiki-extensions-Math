@@ -6,7 +6,7 @@
             "आलोक"
         ]
     },
-    "math-desc": "\u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E टैगों के बीच गणितीय सूत्र रेंडर करें",
+    "math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> टैगों के बीच गणितीय सूत्र रेंडर करें",
     "math_sample": "गणितीय सूत्र यहाँ डालें",
     "math_tip": "गणितीय सूत्र (लेटेक्स)",
     "prefs-math": "गणित",
