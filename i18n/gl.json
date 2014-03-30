@@ -6,7 +6,7 @@
             "Xosé"
         ]
     },
-    "math-desc": "Renderiza fórmulas matemáticas entre etiquetas \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
+    "math-desc": "Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
     "math_sample": "Insira unha fórmula aquí",
     "math_tip": "Fórmula matemática (LaTeX)",
     "prefs-math": "Fórmulas matemáticas",
@@ -30,6 +30,7 @@
     "math_latexml_invalidxml": "MathML de LaTeXML non é un XML válido.",
     "math_latexml_invalidjson": "A resposta do servidor de LaTeXML non é un JSON válido.",
     "math_latexml_xmlversion": "Atención: Saltouse a comprobación do tipo XML! Verifique que a súa instalación de MediaWiki é a versión wmf/1.22wmf7 ou posterior.",
+    "math-visualeditor-mwmathinspector-title": "Fórmula",
     "math-preference-mwmathinspector-description": "Engadir ao editor visual o soporte experimental de creación e edición de fórmulas matemáticas para facer probas, antes do lanzamento xeral. Lembre revisar sempre os seus cambios antes de gardalos ao usar as características experimentais.",
     "math-preference-mwmathinspector-label": "Edición de fórmulas matemáticas do editor visual"
 }

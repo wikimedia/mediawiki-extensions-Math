@@ -5,7 +5,7 @@
             "Xuacu"
         ]
     },
-    "math-desc": "Dibuxa les fórmules matemátiques ente les etiquetes \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
+    "math-desc": "Dibuxa les fórmules matemátiques ente les etiquetes <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
     "math_sample": "Inxertar fórmula equí",
     "math_tip": "Fórmula matemática",
     "prefs-math": "Fórmules matemátiques",
@@ -29,6 +29,7 @@
     "math_latexml_invalidxml": "El MathML de LaTeXML ye XML inválidu.",
     "math_latexml_invalidjson": "La rempuesta del sirvidor LaTeXML ye JSON inválidu.",
     "math_latexml_xmlversion": "Atención: ¡Saltóse la comprobación del tipu XML! Compruebe si la instalación de MediaWiki ye la versión wmf/1.22wmf7 o posterior.",
+    "math-visualeditor-mwmathinspector-title": "Fórmula",
     "math-preference-mwmathinspector-description": "Amestar encontu esperimental a VisualEditor pa crear y editar fórmules matemátiques en pruebes, enantes de la so disponibilidá xeneral. Por favor, recuerde revisar siempre los cambios enantes de guardar cuando use carauterístiques esperimentales.",
     "math-preference-mwmathinspector-label": "Edición de fórmules en VisualEditor"
 }

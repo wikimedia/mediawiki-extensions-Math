@@ -5,7 +5,8 @@
             "Nike",
             "Samoasambia",
             "VezonThunder",
-            "Wix"
+            "Wix",
+            "Stryn"
         ]
     },
     "math-desc": "Esittää matemaattiset kaavat tunnisteiden <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> välillä",
@@ -24,5 +25,8 @@
     "math_image_error": "Muuntaminen PNG-tiedostomuotoon epäonnistui; tarkista, että latex ja dvipng (tai dvips, gs ja convert) on asennettu oikein.",
     "math_bad_tmpdir": "Matematiikan kirjoittaminen väliaikaishakemistoon tai tiedostonluonti ei onnistu",
     "math_bad_output": "Matematiikan tulostehakemistoon kirjoittaminen tai tiedostonluonti ei onnistu",
-    "math_notexvc": "Texvc-sovellus puuttuu, lue math/READMEstä asennustietoja"
+    "math_notexvc": "Texvc-sovellus puuttuu, lue math/READMEstä asennustietoja",
+    "math-visualeditor-mwmathinspector-title": "Kaava",
+    "math-preference-mwmathinspector-description": "Lisää kokeellinen tuki Visuaaliseen muokkaimeen, jotta voit luoda ja muokata matemaattisia kaavoja, ennen yleistä julkaisua. Muista aina tarkastaa muutoksesi ennen tallentamista, kun käytät kokeellisia toimintoja.",
+    "math-preference-mwmathinspector-label": "Kaavojen muokkaaminen Visuaalisella muokkaimella"
 }
