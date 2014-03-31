@@ -48,7 +48,9 @@ ve.ce.MWMathNode.prototype.onParseSuccess = function ( deferred, response ) {
 };
 
 /** */
-ve.ce.MWExtensionNode.prototype.afterRender = function ( domElements ) {
+ve.ce.MWMathNode.prototype.afterRender = function ( domElements ) {
+	var $img;
+
 	if ( this.$( domElements ).is( 'span.tex' ) ) {
 		// MathJax
 		MathJax.Hub.Queue(
@@ -56,10 +58,16 @@ ve.ce.MWExtensionNode.prototype.afterRender = function ( domElements ) {
 			[ this, this.emit, 'rerender' ]
 		);
 	} else {
+		$img = this.$element.find( 'img.tex' );
 		// Rerender after image load
-		this.$element.find( 'img.tex' ).on( 'load', ve.bind( function () {
+		if ( $img.length ) {
+			$img.on( 'load', ve.bind( function () {
+				this.emit( 'rerender' );
+			}, this ) );
+		} else {
+			// Passing an empty string returns no image, so rerender immediately
 			this.emit( 'rerender' );
-		}, this ) );
+		}
 	}
 };
 
