@@ -17,5 +17,5 @@
     "math_image_error": "بدل کتن PNGپروش وارت;\nکنترل کنیت په نصب latex, dvips, gs, و convert",
     "math_bad_tmpdir": "نه نونیت بنویسیت یا مسیر غیر دایمی ریاضی شرکنت",
     "math_bad_output": "نه تونیت بنویسیت یا مشیر خروجی ریاضی شرکنت.",
-    "math_notexvc": "ترکیب کتن texvc  قابل اجرا;\nلطفا بچار math/README په تنظیم کتن."
+    "math_notexvc": "ترکیب کتن <code>texvc</code>  قابل اجرا;\nلطفا بچار math/README په تنظیم کتن."
 }

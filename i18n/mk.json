@@ -4,7 +4,7 @@
             "Bjankuloski06"
         ]
     },
-    "math-desc": "Испис на математички формули помеѓу ознаките \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
+    "math-desc": "Испис на математички формули помеѓу ознаките <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
     "math_sample": "Овде вметнете формула",
     "math_tip": "Математичка формула (LaTeX)",
     "prefs-math": "Матем. формули",
@@ -20,8 +20,8 @@
     "math_image_error": "Претворањето во PNG не успеа. Проверете дали правилно ги имате воспоставено LaTeX и dvipng (или dvips + gs + convert)",
     "math_bad_tmpdir": "Не можам да запишам во или да создадам привремен директориум за математички операции",
     "math_bad_output": "Не можев да запишам во или создадам излезен директориум математички операции",
-    "math_notexvc": "Недостасува извршната податотека texvc;\nпогледнете math/README за нејзино нагодување.",
-    "math_notexvccheck": "Недостасува извршниот texvccheck. Погледајте го math/README за да ги наместите поставките.",
+    "math_notexvc": "Недостасува извршната податотека <code>texvc</code>.\nПогледнете ја math/README за нејзино нагодување.",
+    "math_notexvccheck": "Недостасува извршниот <code>texvccheck</code>. Погледајте ја math/README за нејзино нагодување.",
     "math_output_error": "Не можам да ја зачувам математичката слика на податочниот систем",
     "math_latexml_timeout": "Времето за LaTeXML на „$1“ истече",
     "math_latexml_invalidresponse": "Неважечки одѕив на LaTeXML („$2“) од опслужувачот „$1“:",

@@ -17,5 +17,5 @@
     "math_image_error": "A conversión enta PNG ha tenito errors;\ncomprebe si latex, dvips, gs y convert son bien instalatos.",
     "math_bad_tmpdir": "No s'ha puesto escribir u creyar o directorio temporal d'esprisions matematicas",
     "math_bad_output": "No s'ha puesto escribir u creyar o directorio de salida d'esprisions matematicas",
-    "math_notexvc": "No s'ha trobato o fichero executable ''texvc''. Por favor, leiga <em>math/README</em> ta confegurar-lo correctament."
+    "math_notexvc": "No s'ha trobato o fichero executable ''<code>texvc</code>''. Por favor, leiga <em>math/README</em> ta confegurar-lo correctament."
 }

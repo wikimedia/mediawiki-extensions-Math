@@ -18,5 +18,7 @@
     "math_image_error": "فشل التحويل إلى صيغة PNG؛ تحقق من تثبيت كل من Latex و dvipng (أو dvips + gs + محول)",
     "math_bad_tmpdir": "لا يمكن الكتابة إلى أو إنشاء مجلد الرياضيات المؤقت",
     "math_bad_output": "لا يمكن الكتابة إلى أو إنشاء مجلد الخرج للرياضيات",
-    "math_notexvc": "مفقود texvc executable؛\nمن فضلك انظر math/README للضبط."
+    "math_notexvc": "مفقود <code>texvc</code> executable؛\nمن فضلك انظر math/README للضبط.",
+    "math-preference-mwmathinspector-description": "إضافة دعم تجريبي للمحرر المرئي لإنشاء وتحرير الصيغ الرياضية لاختبارها قبل الإطلاق العام. الرجاء تذكر مراجعة تعديلاتك دائمًا قبل الحفظ عند استخدام المزايا التجريبية.",
+    "math-preference-mwmathinspector-label": "المحرر المرئي تحرير الصيغ"
 }

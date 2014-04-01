@@ -19,5 +19,6 @@
     "math_image_error": "Trosiad PNG wedi methu; gwiriwch fod latex a dvips (neu dvips + gs + convert) wedi'u gosod yn gywir cyn trosi.",
     "math_bad_tmpdir": "Yn methu creu cyfeiriadur mathemateg dros dro, nac ysgrifennu iddo",
     "math_bad_output": "Yn methu creu cyfeiriadur allbwn mathemateg nac ysgrifennu iddo",
-    "math_notexvc": "Rhaglen texvc yn eisiau; gwelwch math/README er mwyn ei chyflunio."
+    "math_notexvc": "Rhaglen <code>texvc</code> yn eisiau; gwelwch math/README er mwyn ei chyflunio.",
+    "math-preference-mwmathinspector-label": "Golygu fformwlâu gyda'r Golygydd Gweledol"
 }

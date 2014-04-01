@@ -18,5 +18,5 @@
     "math_image_error": "ju PNG-Konvertierenge sluuch fail; korrekte Installation fon LaTeX un dvipng wröigje (of dvips + gs + convert)",
     "math_bad_tmpdir": "Kon dät Temporärferteeknis foar mathematiske Formeln nit anlääse of beskrieuwe.",
     "math_bad_output": "Kon dät Sielferteeknis foar mathematiske Formeln nit anlääse of beskrieuwe.",
-    "math_notexvc": "Dät texvc-Program kon nit fuunen wäide. Beoachte jädden math/README."
+    "math_notexvc": "Dät <code>texvc</code>-Program kon nit fuunen wäide. Beoachte jädden math/README."
 }

@@ -5,7 +5,7 @@
             "Vinhtantran"
         ]
     },
-    "math-desc": "Kết xuất các công thức nằm giữa thẻ \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E …\u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
+    "math-desc": "Kết xuất các công thức nằm giữa thẻ <code>&lt;math&gt;</code> …<code>&lt;/math&gt;</code>",
     "math_sample": "Nhập công thức toán vào đây",
     "math_tip": "Công thức toán (LaTeX)",
     "prefs-math": "Công thức toán",
@@ -21,7 +21,7 @@
     "math_image_error": "Không chuyển sang định dạng PNG được; xin kiểm tra lại cài đặt latex, dvips, gs, và convert (hoặc dvips + gs + convert)",
     "math_bad_tmpdir": "Không tạo mới hay viết vào thư mục toán tạm thời được",
     "math_bad_output": "Không tạo mới hay viết vào thư mục kết quả được",
-    "math_notexvc": "Không thấy hàm thực thi texvc; xin xem math/README để biết cách cấu hình.",
+    "math_notexvc": "Không thấy hàm thực thi <code>texvc</code>; xin xem math/README để biết cách cấu hình.",
     "math_output_error": "Không thể lưu hình toán học trên hệ thống tập tin.",
     "math_latexml_timeout": "Hết hạn LaTeXML từ “$1”",
     "math_latexml_invalidresponse": "Phản hồi LaTeXML không hợp lệ (“$2”) từ máy chủ “$1”:",

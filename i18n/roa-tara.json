@@ -20,11 +20,12 @@
     "math_image_error": "'A conversione d'u PNG ha fallite;\ncondrolle ce l'installazione de latex e dvips (o dvipg + gs + convertitore) jè corrette",
     "math_bad_tmpdir": "Non ge puè scrivere o ccrejà 'na cartelle temboranea de math",
     "math_bad_output": "Non ge puè scrivere o ccrejà 'na cartelle de destinazzione de math",
-    "math_notexvc": "texvc eseguibbele perdute;\npe piacere vide math/README pe configurà.",
+    "math_notexvc": "<code>texvc</code> eseguibbele perdute;\npe piacere vide math/README pe configurà.",
     "math_output_error": "Non ge pozze memorizzà immaggine sus a 'u file system.",
     "math_latexml_timeout": "LaTeXML fore tiembe da '$1'",
     "math_latexml_invalidresponse": "LaTeXML resposte invalide ('$2') da 'u server '$1':",
     "math_latexml_invalidxml": "LaTeXML MathML tène 'n'XML invalide.",
     "math_latexml_invalidjson": "'U server LaTeXML ave resposte cu 'nu JSON invalide.",
-    "math_latexml_xmlversion": "Attenziò: 'A verifiche de le tipe XML ha state zumbate! Verifiche ce l'installazione d'a MediaUicchi toje jè 'a versione wmf/1.22wmf7 o cchiù nuève."
+    "math_latexml_xmlversion": "Attenziò: 'A verifiche de le tipe XML ha state zumbate! Verifiche ce l'installazione d'a MediaUicchi toje jè 'a versione wmf/1.22wmf7 o cchiù nuève.",
+    "math-preference-mwmathinspector-label": "Cangiamende de le formule de VisualEditor"
 }

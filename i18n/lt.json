@@ -17,5 +17,5 @@
     "math_image_error": "PNG konvertavimas nepavyko; patikrinkite, ar teisingai įdiegta latex ir dvipng (arba dvips, gs ir convert)",
     "math_bad_tmpdir": "Nepavyksta sukurti arba rašyti į matematikos laikinąjį aplanką",
     "math_bad_output": "Nepavyksta sukurti arba rašyti į matematikos išvesties aplanką",
-    "math_notexvc": "Trūksta texvc vykdomojo failo; pažiūrėkite math/README kaip konfigūruoti."
+    "math_notexvc": "Trūksta <code>texvc</code> vykdomojo failo; pažiūrėkite math/README kaip konfigūruoti."
 }

@@ -19,5 +19,5 @@
     "math_image_error": "Le conversion in PNG ha fallite;\nverifica le installation del programmas ''latex\" e \"dvipng\" (o \"dvips\" + \"gs\" + ''convert'').",
     "math_bad_tmpdir": "Non pote scriber in o crear le directorio temporari \"math\".",
     "math_bad_output": "Non pote scriber in o crear le directorio de output \"math\".",
-    "math_notexvc": "Le executabile ''texvc'' manca;\nper favor vide math/README pro configurar lo."
+    "math_notexvc": "Le executabile ''<code>texvc</code>'' manca;\nper favor vide math/README pro configurar lo."
 }

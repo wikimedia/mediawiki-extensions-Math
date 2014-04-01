@@ -17,5 +17,5 @@
     "math_image_error": "PNG chón-von sṳt-phai; chhiáng kiám-chhà he-feu chṳn-khok ôn-chông latex, dvips, gs lâu convert",
     "math_bad_tmpdir": "Mò-fap siá-ngi̍p fe̍t-chá kien-li̍p su-ho̍k kûng-sṳt lìm-sṳ̀ muk-liu̍k",
     "math_bad_output": "Mò-fap siá-ngi̍p fe̍t-chá kien-li̍p su-ho̍k kûng-sṳt sû-chhut muk-liu̍k",
-    "math_notexvc": "Mò-fap chṳp-hàng \"texvc\"; chhiáng chhâm-cheu math/README chin-hàng phi-chṳ."
+    "math_notexvc": "Mò-fap chṳp-hàng \"<code>texvc</code>\"; chhiáng chhâm-cheu math/README chin-hàng phi-chṳ."
 }

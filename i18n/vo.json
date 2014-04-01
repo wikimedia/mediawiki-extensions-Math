@@ -17,5 +17,5 @@
     "math_image_error": "Feajafam ela PNG no eplöpon;\nvestigolös stitami verätik ela latex, ela dvips, ela gs, e feajafön",
     "math_bad_tmpdir": "No mögos ad penön ini / jafön ragiviär(i) matematik nelaidüpik.",
     "math_bad_output": "No mögos ad penön ini / jafön ragiviär(i) matematik labü seks",
-    "math_notexvc": "Program-texvc ledunovik no petuvon;\nlogolös eli math/README ad givulön parametemi."
+    "math_notexvc": "Program-<code>texvc</code> ledunovik no petuvon;\nlogolös eli math/README ad givulön parametemi."
 }

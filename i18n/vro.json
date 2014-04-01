@@ -17,5 +17,5 @@
     "math_image_error": "PNG-muutus lää-s kõrda; kaeq üle, et latex, dvips, gs ja convert ommaq õigõhe paika säedüq",
     "math_bad_tmpdir": "Matõmaatigateksti kirotaminõ aotlistõ kausta vai taa kausta luuminõ ei lääq kõrdaq",
     "math_bad_output": "Matõmaatigateksti kirotaminõ välläandmiskausta vai sääntse kausta luuminõ ei lääq kõrda",
-    "math_notexvc": "Olõ-i texvc-tüüriista; loeq tuu paikasäädmise kotsilõ math/README-st."
+    "math_notexvc": "Olõ-i <code>texvc</code>-tüüriista; loeq tuu paikasäädmise kotsilõ math/README-st."
 }

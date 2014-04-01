@@ -17,5 +17,5 @@
     "math_image_error": "Konversi PNG gagal; priksa apa latex, dvips, gs, lan convert wis diinstalasi sing bener",
     "math_bad_tmpdir": "Ora bisa nulis utawa nggawé dirèktori sauntara math",
     "math_bad_output": "Ora bisa nulis utawa nggawé dirèktori paweton math",
-    "math_notexvc": "Executable texvc ilang;\nmangga delengen math/README kanggo cara konfigurasi."
+    "math_notexvc": "Executable <code>texvc</code> ilang;\nmangga delengen math/README kanggo cara konfigurasi."
 }

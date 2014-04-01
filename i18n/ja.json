@@ -10,7 +10,7 @@
             "青子守歌"
         ]
     },
-    "math-desc": "\u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E タグで囲まれた数式をレンダリング",
+    "math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング",
     "math_sample": "ここに数式を挿入",
     "math_tip": "数式 (LaTeX)",
     "prefs-math": "数式",
@@ -26,8 +26,8 @@
     "math_image_error": "PNG への変換に失敗しました。latex および dvipng (または dvips + gs + convert) が正しくインストールされているか確認してください。",
     "math_bad_tmpdir": "数式一時ディレクトリでの書き込みまたは作成ができません",
     "math_bad_output": "数式出力ディレクトリでの書き込みまたは作成ができません",
-    "math_notexvc": "texvc の実行可能ファイルが見つかりません。math/README を読んで設定してください。",
-    "math_notexvccheck": "texvccheck の実行可能ファイルが見つかりません。設定については math/README を参照してください。",
+    "math_notexvc": "<code>texvc</code> の実行可能ファイルが見つかりません。math/README を読んで設定してください。",
+    "math_notexvccheck": "<code>texvc</code>check の実行可能ファイルが見つかりません。設定については math/README を参照してください。",
     "math_output_error": "数式画像をファイルシステムに格納できません。",
     "math_latexml_timeout": "「$1」からの LaTeXML タイムアウト",
     "math_latexml_invalidresponse": "LaTeXML サーバー '$1' から無効な応答 ('$2'):",

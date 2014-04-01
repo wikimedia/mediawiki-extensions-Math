@@ -7,7 +7,7 @@
             "Umherirrender"
         ]
     },
-    "math-desc": "Ergänzt das Tag \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E zum Darstellen mathematischer Formeln",
+    "math-desc": "Ergänzt das Tag <code>&lt;math&gt;</code> zum Darstellen mathematischer Formeln",
     "math_sample": "Formel hier einfügen",
     "math_tip": "Mathematische Formel (LaTeX)",
     "prefs-math": "Mathematische Formeln",
@@ -23,8 +23,8 @@
     "math_image_error": "PNG-Konvertierung fehlgeschlagen. Bitte die korrekte Installation von LaTeX und dvipng überprüfen (oder dvips + gs + convert)",
     "math_bad_tmpdir": "Das temporäre Verzeichnis für mathematische Formeln kann nicht angelegt oder beschrieben werden.",
     "math_bad_output": "Das Ausgabeverzeichnis für mathematische Formeln kann nicht angelegt oder beschrieben werden.",
-    "math_notexvc": "Das texvc-Programm wurde nicht gefunden. Bitte zur Konfiguration die Hinweise in der Datei math/README beachten.",
-    "math_notexvccheck": "Ausführbares texvccheck fehlt; zur Konfiguration siehe bitte math/README.",
+    "math_notexvc": "Das <code>texvc</code>-Programm wurde nicht gefunden. Bitte zur Konfiguration die Hinweise in der Datei math/README beachten.",
+    "math_notexvccheck": "Das <code>texvccheck</code>-Programm fehlt; zur Konfiguration siehe bitte math/README.",
     "math_output_error": "Das Formelbild kann auf dem Dateisystem nicht gespeichert werden.",
     "math_latexml_timeout": "LaTeXML Zeitüberschreitung von „$1“",
     "math_latexml_invalidresponse": "LaTeXML Ungültige Antwort („$2“) von Server „$1“:",

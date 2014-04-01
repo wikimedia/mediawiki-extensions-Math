@@ -18,5 +18,5 @@
     "math_image_error": "Konverżjoni għal PNG falliet; iċċekkja għall-installazzjoni tajba ta' latex jew dvipng (jew dvips, gs u convert).",
     "math_bad_tmpdir": "Impossibli tikteb jew toħloq direttorju temporanju għal ''math''",
     "math_bad_output": "Impossibli tikteb jew toħloq direttorju tal-''output'' tal-''math''",
-    "math_notexvc": "Esekuzzjoni ''texvc'' nieqes; jekk jogħġbok konsultà ''math/README'' għal konfigurazzjoni."
+    "math_notexvc": "Esekuzzjoni ''<code>texvc</code>'' nieqes; jekk jogħġbok konsultà ''math/README'' għal konfigurazzjoni."
 }

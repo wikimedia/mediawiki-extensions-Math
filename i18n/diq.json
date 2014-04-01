@@ -21,6 +21,6 @@
     "math_image_error": "Açarnayışê PNG nêbı;programan de latex, dvips u gs ra rast barbıyayışi ra emel bê u karfinayışê açarnayışi dest pêkerê.",
     "math_bad_tmpdir": "Nieşkeno binusi ya zi direktorê mathi virazi",
     "math_bad_output": "Nieşkeno binusi ya zi direktorê mathi ye outputi virazi",
-    "math_notexvc": "xebetnayekarê texvc'i vindbiyo\nqey 'eyar kerdışi bıewnê math/README'yi.",
+    "math_notexvc": "xebetnayekarê <code>texvc</code>'i vindbiyo\nqey 'eyar kerdışi bıewnê math/README'yi.",
     "math-preference-mwmathinspector-label": "Vurnayışo vênaye de formulan vurnayış"
 }

@@ -1,7 +1,5 @@
 {
-    "@metadata": {
-        "authors": []
-    },
+    "@metadata": [],
     "math_sample": "Örnekti mında engiziñiz",
     "math_tip": "Matematïka örnegi (LaTeX)",
     "prefs-math": "Örnekter",
@@ -15,5 +13,5 @@
     "math_image_error": "PNG awdarısı sätsiz bitti;\nlatex, dvips, gs jäne convert bağdarlamalarınıñ durıs ornatwın tekserip şığıñız",
     "math_bad_tmpdir": "math degen waqıtşa qaltasına jazılmadı, ne qalta qurılmadı",
     "math_bad_output": "math degen beris qaltasına jazılmadı, ne qalta qurılmadı",
-    "math_notexvc": "texvc atqarılmalısı tabılmadı;\nbaptaw üşin math/README qujatın qarañız."
+    "math_notexvc": "<code>texvc</code> atqarılmalısı tabılmadı;\nbaptaw üşin math/README qujatın qarañız."
 }

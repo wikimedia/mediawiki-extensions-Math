@@ -9,7 +9,7 @@
             "아라"
         ]
     },
-    "math-desc": "\u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E 태그 사이에 수학 수식을 표시합니다",
+    "math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> 태그 사이에 수학 수식을 표시합니다",
     "math_sample": "여기에 수식을 넣으세요",
     "math_tip": "수식(LaTeX)",
     "prefs-math": "수식",
@@ -25,8 +25,8 @@
     "math_image_error": "PNG 변환 실패 - latex, dvipng(혹은 dvips, gs, convert)가 올바르게 설치되어 있는지 확인해 주세요.",
     "math_bad_tmpdir": "수식을 임시 폴더에 저장하거나 폴더를 만들 수 없습니다.",
     "math_bad_output": "수식을 출력 폴더에 저장하거나 폴더를 만들 수 없습니다.",
-    "math_notexvc": "실행할 수 있는 texvc이 없습니다. 설정을 위해 math/README를 읽어 주세요.",
-    "math_notexvccheck": "실행 가능한 texvccheck 없음; 설정에 대해서는 math/README를 읽어주세요.",
+    "math_notexvc": "실행할 수 있는 <code>texvc</code>이 없습니다. 설정을 위해 math/README를 읽어 주세요.",
+    "math_notexvccheck": "실행 가능한 <code>texvc</code>check 없음; 설정에 대해서는 math/README를 읽어주세요.",
     "math_output_error": "파일 시스템에 수식 그림을 저장할 수 없습니다.",
     "math_latexml_timeout": "'$1'에서 LateXML 시간 종료",
     "math_latexml_invalidresponse": "'$1' 서버에서 잘못된 LaTeXML 응답 ('$2'):",

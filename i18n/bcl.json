@@ -18,5 +18,5 @@
     "math_image_error": "Nagprakaso an konbersyon kan PNG; sosogon tabî an pagkaag nin latex, dvips, gs, asin ikonbertir",
     "math_bad_tmpdir": "Dai masuratan o magibo an direktoryo nin mat temp",
     "math_bad_output": "Dai masuratan o magibo an direktoryo kan salida nin math",
-    "math_notexvc": "May nawawarang texvc na ehekutable; hilingón tabî an mat/README para makonpigurar."
+    "math_notexvc": "May nawawarang <code>texvc</code> na ehekutable; hilingón tabî an mat/README para makonpigurar."
 }

@@ -1,7 +1,5 @@
 {
-    "@metadata": {
-        "authors": []
-    },
+    "@metadata": [],
     "math_sample": "Formel hier infögen",
     "math_tip": "Mathematsche Formel (LaTeX)",
     "prefs-math": "TeX",
@@ -15,5 +13,5 @@
     "math_image_error": "dat Konverteren na PNG harr keen Spood.",
     "math_bad_tmpdir": "Kann dat Temporärverteken för mathematsche Formeln nich anleggen oder beschrieven.",
     "math_bad_output": "Kann dat Teelverteken för mathematsche Formeln nich anleggen oder beschrieven.",
-    "math_notexvc": "Dat texvc-Programm kann nich funnen warrn. Kiek ok math/README."
+    "math_notexvc": "Dat <code>texvc</code>-Programm kann nich funnen warrn. Kiek ok math/README."
 }

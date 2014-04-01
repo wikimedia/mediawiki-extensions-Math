@@ -18,5 +18,5 @@
     "math_image_error": "PNG-omsetting is mislearre.\nGean nei oft latex, dvips, en gs goed ynstallearre binne en set om",
     "math_bad_tmpdir": "De tydlike formulepad kin net skreaun of makke wêze.",
     "math_bad_output": "De formulepad kin net skreaun of makke wêze.",
-    "math_notexvc": "It programma texvc net fûn; sjoch math/README te ynstallearjen."
+    "math_notexvc": "It programma <code>texvc</code> net fûn; sjoch math/README te ynstallearjen."
 }

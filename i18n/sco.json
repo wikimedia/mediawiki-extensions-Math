@@ -10,6 +10,6 @@
     "prefs-math": "Renderin math",
     "mw_math_png": "Aye render PNG",
     "mw_math_source": "Lea it aes TeX (fer tex brousers)",
-    "math_notexvccheck": "Tint texvccheck executable; please see math/README tae configure.",
+    "math_notexvccheck": "Tint <code>texvc</code>check executable; please see math/README tae configure.",
     "math-visualeditor-mwmathinspector-title": "Formula"
 }

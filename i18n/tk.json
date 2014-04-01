@@ -17,5 +17,5 @@
     "math_image_error": "PNG öwürmeklik şowsuz boldy;\nlatex, dvips, gs we convert gurluşlarynyň dogrulygyny barlaň",
     "math_bad_tmpdir": "Matematikanyň wagtlaýyn katalogyny ýazyp ýa-da döredip bolanok",
     "math_bad_output": "Matematika çykyş katalogyny ýazyp ýa-da döredip bolanok",
-    "math_notexvc": "texvc ýerine ýetirilýän faýl tapylmady;\nkonfigurirlemek üçin math/README serediň."
+    "math_notexvc": "<code>texvc</code> ýerine ýetirilýän faýl tapylmady;\nkonfigurirlemek üçin math/README serediň."
 }

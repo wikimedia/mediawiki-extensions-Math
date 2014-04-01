@@ -17,5 +17,5 @@
     "math_image_error": "Mainasnā en PNG ni izpalla.\nIzbandais, anga latex, dvips, gs be convert ast instalītan tikrōmiskai",
     "math_bad_tmpdir": "Ni mazīngi teīktun anga enpeisātun en kīsmingiskasmu matemātiskan fōlderin",
     "math_bad_output": "Ni mazīngi teīktun anga enpeisātun en izēiseniskasmu matemātiskan fōlderin",
-    "math_notexvc": "Ni ast texvc prōgraman.\nWīdais math/README kāi kōnfigurilai."
+    "math_notexvc": "Ni ast <code>texvc</code> prōgraman.\nWīdais math/README kāi kōnfigurilai."
 }

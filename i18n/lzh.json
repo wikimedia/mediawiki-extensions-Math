@@ -1,7 +1,5 @@
 {
-    "@metadata": {
-        "authors": []
-    },
+    "@metadata": [],
     "math_sample": "此書方程式",
     "math_tip": "數學方程式（LaTeX）",
     "prefs-math": "數學",
@@ -15,5 +13,5 @@
     "math_image_error": "PNG 轉敗之；查已裝 latex, dvipng（或dvips + gs + convert）乎",
     "math_bad_tmpdir": "無寫或建數式臨目",
     "math_bad_output": "無寫或建數式出目",
-    "math_notexvc": "少「texvc」；參 math/README 置之。"
+    "math_notexvc": "少「<code>texvc</code>」；參 math/README 置之。"
 }

@@ -17,5 +17,5 @@
     "math_image_error": "Marru convirtiendu a PNG; compreba que latex, dvips, gs, i convert estén corretamenti istalaus",
     "math_bad_tmpdir": "Nu es posibri escribil u crial el diretoriu temporal de <em>math</em>",
     "math_bad_output": "Nu es posibri escribil u crial el diretoriu e salia e <em>math</em>",
-    "math_notexvc": "Farta el ehecutabri e <strong>texvc</strong>; pol favol, lei <em>math/README</em> pa configuralu."
+    "math_notexvc": "Farta el ehecutabri e <strong><code>texvc</code></strong>; pol favol, lei <em>math/README</em> pa configuralu."
 }

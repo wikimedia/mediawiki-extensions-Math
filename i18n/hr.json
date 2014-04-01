@@ -21,5 +21,7 @@
     "math_image_error": "Pretvorba u PNG nije uspjela; provjerite jesu li dobro instalirani latex, dvips, gs, i convert",
     "math_bad_tmpdir": "Ne mogu otvoriti ili pisati u privremeni direktorij za matematiku",
     "math_bad_output": "Ne mogu otvoriti ili pisati u odredišni direktorij za matematiku",
-    "math_notexvc": "Nedostaje izvršna datoteka texvc-a; pogledajte math/README za postavke."
+    "math_notexvc": "Nedostaje izvršna datoteka <code>texvc</code>-a; pogledajte math/README za postavke.",
+    "math-preference-mwmathinspector-description": "Pokusna podrška VisualEditoru za stvaranje i uređivanje matematičkih formula, prije konačnog izdanja. Kad god koristite pokusne mogućnosti, molimo, uvijek pregledajte izmjene prije spremanja.",
+    "math-preference-mwmathinspector-label": "Uređivanje formula u VisualEditoru"
 }

@@ -4,7 +4,7 @@
             "Michawiki"
         ]
     },
-    "math-desc": "Přidawa matematiske formle mjez tafličkomaj \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
+    "math-desc": "Přidawa matematiske formle mjez tafličkomaj <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
     "math_sample": "Zasuń tu formulu",
     "math_tip": "Matematiska formula (LaTeX)",
     "prefs-math": "Math",
@@ -19,7 +19,7 @@
     "math_image_error": "Konwertowanje do PNG zwrěšćiło; kontroluj prawu instalaciju latex a dvipng (abo dvips + gs + konwertuj)",
     "math_bad_tmpdir": "Njemóžno do nachwilneho matematiskeho zapisa pisać abo jón wutworić",
     "math_bad_output": "Njemóžno do matematiskeho zapisa za wudaće pisać abo jón wutworić",
-    "math_notexvc": "Wuwjedźomny texvc pobrachuje; prošu hlej math/README za konfiguraciju.",
+    "math_notexvc": "Wuwjedźomny <code>texvc</code> pobrachuje; prošu hlej math/README za konfiguraciju.",
     "math-visualeditor-mwmathinspector-title": "Formla",
     "math-preference-mwmathinspector-description": "Dodawa VisualEditorej eksperimentelnu podpěru za wutworjenje a wobdźěłowanje matematiskich formlow za testowanje do powšitkowneho dopušćenja. Prošu přepruwuj přeco swoje změny, prjedy hač składuješ, hdyž wužiwaš eksperimentelne funkcije.",
     "math-preference-mwmathinspector-label": "Visual Editor - wobdźěłowanje formlow"

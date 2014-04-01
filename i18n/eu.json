@@ -18,5 +18,5 @@
     "math_image_error": "PNG bilakatze errorea; egiaztatu latex eta dvipng (edo dvips + gs + convert) ongi instalatuta dauden begiratu",
     "math_bad_tmpdir": "Ezin da math direktorio tenporala sortu edo bertan idatzi",
     "math_bad_output": "Ezin da math direktorioa sortu edo bertan idatzi",
-    "math_notexvc": "texvc exekutagarria falta da; mesedez, ikus math/README konfiguratzeko."
+    "math_notexvc": "<code>texvc</code> exekutagarria falta da; mesedez, ikus math/README konfiguratzeko."
 }

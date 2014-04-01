@@ -22,5 +22,6 @@
     "math_image_error": "PNG-konwertěrowanje njejo se raźiło; pśekontrolěruj korektnu instalaciju latex a dvipng (abo dvips + gs + konwertěruj)",
     "math_bad_tmpdir": "Njejo móžno temporarny zapisk za matematiske formule załožyś resp. do njogo pisaś.",
     "math_bad_output": "Njejo móžno celowy zapisk za matematiske formule załožyś resp. do njogo pisaś.",
-    "math_notexvc": "Program texvc felujo. Pšosym glědaj do math/README."
+    "math_notexvc": "Program <code>texvc</code> felujo. Pšosym glědaj do math/README.",
+    "math-preference-mwmathinspector-label": "Wobźěłanje formulow pśez VisualEditor"
 }

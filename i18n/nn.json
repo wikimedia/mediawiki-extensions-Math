@@ -17,5 +17,5 @@
     "math_image_error": "PNG-konverteringa var mislukka; sjekk at latex og dvipng (eller dvips + gs + convert) er rett installerte",
     "math_bad_tmpdir": "Kan ikkje skrive til eller laga mellombels mattemappe",
     "math_bad_output": "Kan ikkje skrive til eller laga mattemappe",
-    "math_notexvc": "Manglar texvc-program; sjå math/README for konfigurasjon."
+    "math_notexvc": "Manglar <code>texvc</code>-program; sjå math/README for konfigurasjon."
 }

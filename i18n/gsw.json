@@ -17,5 +17,5 @@
     "math_image_error": "D PNG-Konvertierig het nit funktioniert; prief di korrekt Installation vu LaTeX un dvipng (oder dvips + gs + convert)",
     "math_bad_tmpdir": "S temporär Verzeichnis fir mathematischi Formle cha nit aagleit oder bschribe wäre.",
     "math_bad_output": "S Ziilverzeichnis fir mathematischi Formle cha nit aagleit oder bschribe wäre.",
-    "math_notexvc": "S texvc-Programm isch nit gfunde wore. Bitte acht gee uf math/README."
+    "math_notexvc": "S <code>texvc</code>-Programm isch nit gfunde wore. Bitte acht gee uf math/README."
 }

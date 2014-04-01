@@ -21,7 +21,7 @@
     "math_image_error": "Falha na conversão para PNG;\nverifique se o latex, dvips, gs e convert foram correctamente instalados",
     "math_bad_tmpdir": "Não foi possível editar ou criar o directório temporário de matemática",
     "math_bad_output": "Não foi possível editar ou criar o directório de saída de matemática",
-    "math_notexvc": "O executável texvc não foi encontrado. Consulte math/README para instruções da configuração.",
+    "math_notexvc": "O executável <code>texvc</code> não foi encontrado. Consulte math/README para instruções da configuração.",
     "math_output_error": "Não é possível armazenar imagem matemática no sistema de ficheiros.",
     "math-preference-mwmathinspector-description": "Adiciona um suporte experimental no Editor Visual para a criação e edição de fórmulas matemáticas para testes, antes do lançamento global. Ao utilizar os recursos experimentais, lembre-se sempre de rever as suas alterações antes de as guardar.",
     "math-preference-mwmathinspector-label": "Edição de fórmulas no Editor Visual"

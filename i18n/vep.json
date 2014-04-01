@@ -18,5 +18,5 @@
     "math_image_error": "PNG-ks kändmižes ozaižihe petuz;\nkodvgat, oiged-ik oma järgetud latex da dvips (vai dvips + gs + convert).",
     "math_bad_tmpdir": "Ei voi säta pordaigaline matematine katalog vai ei voi kirjutada sinnä",
     "math_bad_output": "Ei voi säta matematine lähtmižkatalog vai ei voi kirjutada sinnä",
-    "math_notexvc": "En voi löuta texvc-töfailad;\nkc. math/README järgendamižen täht."
+    "math_notexvc": "En voi löuta <code>texvc</code>-töfailad;\nkc. math/README järgendamižen täht."
 }

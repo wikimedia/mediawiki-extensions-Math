@@ -19,5 +19,5 @@
     "math_image_error": "PNG-a chhuah a tlawlh; latex leh dvipng  (a nih loh pawhin dvips+gs+convert) i bun dik nge dik lo finfiah rawh",
     "math_bad_tmpdir": "Chhiarkawp báwm lailâwk a siamin a ziaklût thei lo",
     "math_bad_output": "Chhiarkawpa chhuahna báwmah ziaklûtin a siam thei lo",
-    "math_notexvc": "texvc tihnun theih a awm lo; khawngaihin herrem tùrin math/README en rawh."
+    "math_notexvc": "<code>texvc</code> tihnun theih a awm lo; khawngaihin herrem tùrin math/README en rawh."
 }

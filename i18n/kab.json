@@ -18,5 +18,5 @@
     "math_image_error": "Aselket ɣer PNG yexser ; ssenqed aserkeb n latex d dvipng (neɣ dvips + gs + convert)",
     "math_bad_tmpdir": "Ur yezmir ara ad yaru ɣef/ɣer tusnakt n temp directory/dossier",
     "math_bad_output": "Ur yezmir ara ad yaru ɣef/ɣer tusnakt n tuffɣa directory/dossier",
-    "math_notexvc": "''texvc executable'' / ''executable texvc'' ulac-it; ẓer math/README akken a textareḍ isemyifiyen."
+    "math_notexvc": "''<code>texvc</code> executable'' / ''executable <code>texvc</code>'' ulac-it; ẓer math/README akken a textareḍ isemyifiyen."
 }

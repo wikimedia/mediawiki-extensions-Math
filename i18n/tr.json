@@ -24,5 +24,7 @@
     "math_image_error": "PNG çevirisi başarısız; latex, dvips ve gs programlarının doğru yüklendiğine emin olun ve çeviri işlemini başlatın.",
     "math_bad_tmpdir": "Math geçici dizinine yazılamıyor ya da oluşturulamıyor",
     "math_bad_output": "Math çıktı dizinine yazılamıyor ya da oluşturulamıyor",
-    "math_notexvc": "texvc çalıştırılabiliri kayıp;\nayarlamak için math/README'ye bakın."
+    "math_notexvc": "<code>texvc</code> çalıştırılabiliri kayıp;\nayarlamak için math/README'ye bakın.",
+    "math-preference-mwmathinspector-description": "Görsel Düzenleyici'de önümüzdeki dönemde matematiksel formüllerin de oluşturulabilmesini sağlayacak, deneysel amaçlı bir genel test yayınıdır. Deneysel özellikleri kullandığınızda, değişikliklerinizi gözden geçirmeyi lütfen unutmayın.",
+    "math-preference-mwmathinspector-label": "Görsel Düzenleyici'de formülleri düzenleme"
 }

@@ -23,11 +23,13 @@
     "math_image_error": "Penukaran PNG gagal; periksa sama ada latex dan dvipng (atau dvips + gs + convert) telah dipasang dengan betul",
     "math_bad_tmpdir": "Direktori temp matematik tidak boleh ditulis atau dicipta",
     "math_bad_output": "Direktori output matematik tidak boleh ditulis atau dicipta",
-    "math_notexvc": "Atur cara texvc hilang; sila lihat fail math/README untuk maklumat konfigurasi.",
+    "math_notexvc": "Atur cara <code>texvc</code> hilang; sila lihat fail math/README untuk maklumat konfigurasi.",
     "math_output_error": "Imej matematik tidak dapat disimpan di dalam sistem fail.",
     "math_latexml_timeout": "Tamat masa LaTeXML dari  $1'",
     "math_latexml_invalidresponse": "Respons tidak sah LaTeXML ('$2') dari pelayan '$1':",
     "math_latexml_invalidxml": "LaTeXML MathML adalah XML yang tidak sah.",
     "math_latexml_invalidjson": "Respons Pelayan LaTeXML adalah JSON yang tidak sah.",
-    "math_latexml_xmlversion": "Amaran: Semakan Jenis XML dilangkau! Semak sama ada pemasangan MediaWiki anda adalah versi wmf/1.22wmf7 ke atas."
+    "math_latexml_xmlversion": "Amaran: Semakan Jenis XML dilangkau! Semak sama ada pemasangan MediaWiki anda adalah versi wmf/1.22wmf7 ke atas.",
+    "math-preference-mwmathinspector-description": "Tambahkan sokongan percubaan pada VisualEditor untuk mewujudkan dan menyunting rumus matematik untuk diuji sebelum keluaran umum. Sila ingat untuk sentiasa menyemak suntingan anda sebelum menyimpan apabila menggunakan ciri-ciri percubaan.",
+    "math-preference-mwmathinspector-label": "Penyuntingan rumus (formula) VisualEditor"
 }

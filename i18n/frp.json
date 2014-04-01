@@ -17,5 +17,5 @@
     "math_image_error": "La convèrsion en PNG at pas reussia ; controlâd l’enstalacion de LaTeX et dvipng (ou ben dvips + gs + convert)",
     "math_bad_tmpdir": "Empossiblo d’ècrire dens ou ben de fâre lo rèpèrtouèro math temporèro",
     "math_bad_output": "Empossiblo d’ècrire dens ou ben de fâre lo rèpèrtouèro math de sortia",
-    "math_notexvc": "L’ègzécutâblo « texvc » est entrovâblo.\nVolyéd liére « math/README » por lo configurar."
+    "math_notexvc": "L’ègzécutâblo « <code>texvc</code> » est entrovâblo.\nVolyéd liére « math/README » por lo configurar."
 }

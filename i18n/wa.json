@@ -15,5 +15,5 @@
     "math_image_error": "Li cviersaedje e PNG a fwait berwete; verifyîz ki les programes latex et dvipng (ou dvips + gs + convert) ont stî astalés comifåt",
     "math_bad_tmpdir": "Dji n' sai nén scrire ou ahiver l' ridant timporaire po les formules matematikes",
     "math_bad_output": "Dji n' sai nén scrire ou ahiver l' ridant po les fitchîs di rexhowe des formules matematikes",
-    "math_notexvc": "I manke li fitchî enondåve texvc; lijhoz math/README po-z apontyî."
+    "math_notexvc": "I manke li fitchî enondåve <code>texvc</code>; lijhoz math/README po-z apontyî."
 }

@@ -20,5 +20,7 @@
     "math_image_error": "PNG-konversjon mislyktes; sjekk at latex og dvipng (eller dvips + gs + convert) er korrekt installert",
     "math_bad_tmpdir": "Kan ikke skrive til eller opprette midlertidig mappe",
     "math_bad_output": "Kan ikke skrive til eller opprette resultatmappe",
-    "math_notexvc": "Mangler kjørbar texvc;\nse math/README for oppsett."
+    "math_notexvc": "Mangler kjørbar <code>texvc</code>;\nse math/README for oppsett.",
+    "math-preference-mwmathinspector-description": "Aktiver eksperimentell støtte i VisualEditor for å opprette og redigere matematiske formler. Husk å alltid gjennomgå endringene dine før du lagrer når du bruker eksperimentell funksjonalitet.",
+    "math-preference-mwmathinspector-label": "Formelredigering for VisualEditor"
 }

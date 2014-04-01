@@ -17,5 +17,7 @@
     "math_image_error": "Konversioni PNG dështoi; kontrolloni për ndonjë gabim instalimi të latex-it, dvips-it, gs-it, dhe convert-it.",
     "math_bad_tmpdir": "Nuk munda të shkruaj ose krijoj dosjen e përkohshme për matematikë",
     "math_bad_output": "Nuk munda të shkruaj ose të krijoj prodhimin matematik në dosjen",
-    "math_notexvc": "Mungon zbatuesi texvc; ju lutem shikoni math/README për konfigurimin."
+    "math_notexvc": "Mungon zbatuesi <code>texvc</code>; ju lutem shikoni math/README për konfigurimin.",
+    "math-preference-mwmathinspector-description": "Shto në VisualEditor mbështetjen eksperimentale për krijimin dhe redaktimin e formulave matematikore për testim, përpara bërjes publike për të gjithë. Ju lutem, kur përdorni karakteristikat eksperimentale, mos harroni që gjithmonë të shqyrtoni ndryshimet tuaja përpara se të kryeni ndryshimet.",
+    "math-preference-mwmathinspector-label": "Redakto formula me VisualEditor"
 }

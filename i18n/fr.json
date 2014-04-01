@@ -9,7 +9,7 @@
             "Yona b"
         ]
     },
-    "math-desc": "Rendre les formules mathématiques entre les balises \u003Ccode\u003E\u0026lt;math\u0026gt;\u003C/code\u003E ... \u003Ccode\u003E\u0026lt;/math\u0026gt;\u003C/code\u003E",
+    "math-desc": "Rendre les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
     "math_sample": "Entrez votre formule ici",
     "math_tip": "Formule mathématique (LaTeX)",
     "prefs-math": "Rendu des maths",
@@ -25,8 +25,8 @@
     "math_image_error": "La conversion en PNG a échoué ; vérifiez l’installation de latex et dvipng (ou dvips + gs + convert)",
     "math_bad_tmpdir": "Impossible de créer ou d’écrire dans le répertoire math temporaire",
     "math_bad_output": "Impossible de créer ou d’écrire dans le répertoire math de sortie",
-    "math_notexvc": "L’exécutable « texvc » est introuvable. Lisez math/README pour le configurer.",
-    "math_notexvccheck": "Exécutable texvccheck absent ; veuillez voir math/README pour le configurer.",
+    "math_notexvc": "L’exécutable <code>texvc</code> est introuvable. Lisez math/README pour le configurer.",
+    "math_notexvccheck": "Exécutable <code><code>texvc</code>check</code> absent ; veuillez lire math/README pour le configurer.",
     "math_output_error": "Ne peut pas sauvegarder les images mathématiques dans le système de fichiers.",
     "math_latexml_timeout": "Délai d'attente de LaTeXML de « $1 »",
     "math_latexml_invalidresponse": "Réponse non valide pour LaTeXML (« $2 ») du serveur « $1 » :",

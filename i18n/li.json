@@ -18,5 +18,5 @@
     "math_image_error": "PNG-conversie is mislök. Gank nao of LaTeX en dvipng (of dvips + gs + convert) korrek geïnstalleerd zien.",
     "math_bad_tmpdir": "De map veur tiedelike bestenj veur wiskóndige formules bestuit neet of kin neet gemaak waere",
     "math_bad_output": "Kin neet sjrieve nao de output directory veur mattematik",
-    "math_notexvc": "Kin 't programma texvc neet vinje; stel alles in volges de besjrieving in math/README."
+    "math_notexvc": "Kin 't programma <code>texvc</code> neet vinje; stel alles in volges de besjrieving in math/README."
 }
