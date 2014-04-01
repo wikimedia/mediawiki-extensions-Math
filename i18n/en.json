@@ -18,8 +18,8 @@
     "math_image_error": "PNG conversion failed; check for correct installation of latex and dvipng (or dvips + gs + convert)",
     "math_bad_tmpdir": "Cannot write to or create math temp directory",
     "math_bad_output": "Cannot write to or create math output directory",
-    "math_notexvc": "Missing texvc executable; please see math/README to configure.",
-    "math_notexvccheck": "Missing texvccheck executable; please see math/README to configure.",
+    "math_notexvc": "Missing <code>texvc</code> executable. Please see math/README to configure.",
+    "math_notexvccheck": "Missing <code>texvccheck</code> executable. Please see math/README to configure.",
     "math_output_error": "Cannot store math image on filesystem.",
     "math_latexml_timeout": "LaTeXML timeout from '$1'",
     "math_latexml_invalidresponse": "LaTeXML Invalid response ('$2') from server '$1':",
@@ -28,7 +28,7 @@
     "math_latexml_xmlversion": "Warning: XML type check skipped! Check if your MediaWiki installation is version wmf/1.22wmf7 or newer.",
     "math-visualeditor-mwmathinspector-title": "Formula",
     "math-preference-mwmathinspector-description": "Add experimental support to VisualEditor for creating and editing of mathematical formulae for testing, ahead of general release. Please remember to always review your changes before saving when using experimental features.",
-    "math-preference-mwmathinspector-discussion-link": "//mediawiki.org/wiki/Special:MyLanguage/Talk:VisualEditor/Beta_Features/Formulae",
-    "math-preference-mwmathinspector-info-link": "//mediawiki.org/wiki/Special:MyLanguage/VisualEditor/Beta_Features/Formulae",
+    "math-preference-mwmathinspector-discussion-link": "https://mediawiki.org/wiki/Special:MyLanguage/Talk:VisualEditor/Beta_Features/Formulae",
+    "math-preference-mwmathinspector-info-link": "https://mediawiki.org/wiki/Special:MyLanguage/VisualEditor/Beta_Features/Formulae",
     "math-preference-mwmathinspector-label": "VisualEditor formulae editing"
 }
