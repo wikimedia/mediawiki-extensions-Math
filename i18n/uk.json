@@ -25,7 +25,7 @@
     "math_bad_tmpdir": "Не вдається створити чи записати в тимчасовий каталог математики",
     "math_bad_output": "Не вдається створити чи записати в вихідний каталог математики",
     "math_notexvc": "Не знайдено програму <code>texvc</code>; Див. math/README — довідку про налаштування.",
-    "math_notexvccheck": "Відсутній виконуваний <code>texvc</code>check; будь ласка, дивіться math/README для налаштування.",
+    "math_notexvccheck": "Відсутній виконуваний <code>texvccheck</code>; будь ласка, дивіться math/README для налаштування.",
     "math_output_error": "Не можна зберегти математичне зображення у файловій системі.",
     "math_latexml_timeout": "Час очікування LaTeXML від '$1'",
     "math_latexml_invalidresponse": "LaTeXML Невірна відповідь ('$2') з сервера '$1':",

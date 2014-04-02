@@ -27,7 +27,7 @@
     "math_bad_tmpdir": "数式一時ディレクトリでの書き込みまたは作成ができません",
     "math_bad_output": "数式出力ディレクトリでの書き込みまたは作成ができません",
     "math_notexvc": "<code>texvc</code> の実行可能ファイルが見つかりません。math/README を読んで設定してください。",
-    "math_notexvccheck": "<code>texvc</code>check の実行可能ファイルが見つかりません。設定については math/README を参照してください。",
+    "math_notexvccheck": "<code>texvccheck</code> の実行可能ファイルが見つかりません。設定については math/README を参照してください。",
     "math_output_error": "数式画像をファイルシステムに格納できません。",
     "math_latexml_timeout": "「$1」からの LaTeXML タイムアウト",
     "math_latexml_invalidresponse": "LaTeXML サーバー '$1' から無効な応答 ('$2'):",

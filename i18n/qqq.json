@@ -27,7 +27,7 @@
     "math_bad_tmpdir": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.",
     "math_bad_output": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.",
     "math_notexvc": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.\n\nSee also:\n* {{msg-mw|Math notexvccheck}}",
-    "math_notexvccheck": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.\n\nSee also:\n* {{msg-mw|Math no<code>texvc</code>}}",
+    "math_notexvccheck": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.\n\nSee also:\n* {{msg-mw|Math notexvc}}",
     "math_output_error": "Used as error message if the texvc output file could not be stored.\n\nThis message follows the message {{msg-mw|Math failure}}.",
     "math_latexml_timeout": "Used as error message.\n\nParameters:\n* $1 - hostname or URL",
     "math_latexml_invalidresponse": "Used as error message.\n\nFollows the message {{msg-mw|Math failure}}.\n\nParameters:\n* $1 - hostname\n* $2 - error message",

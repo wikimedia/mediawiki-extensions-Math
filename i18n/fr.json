@@ -26,7 +26,7 @@
     "math_bad_tmpdir": "Impossible de créer ou d’écrire dans le répertoire math temporaire",
     "math_bad_output": "Impossible de créer ou d’écrire dans le répertoire math de sortie",
     "math_notexvc": "L’exécutable <code>texvc</code> est introuvable. Lisez math/README pour le configurer.",
-    "math_notexvccheck": "Exécutable <code><code>texvc</code>check</code> absent ; veuillez lire math/README pour le configurer.",
+    "math_notexvccheck": "Exécutable <code>texvccheck</code> absent ; veuillez lire math/README pour le configurer.",
     "math_output_error": "Ne peut pas sauvegarder les images mathématiques dans le système de fichiers.",
     "math_latexml_timeout": "Délai d'attente de LaTeXML de « $1 »",
     "math_latexml_invalidresponse": "Réponse non valide pour LaTeXML (« $2 ») du serveur « $1 » :",

@@ -23,7 +23,7 @@
     "math_bad_tmpdir": "התוכנה לא הצליחה לכתוב או ליצור את הספרייה הזמנית של המתמטיקה",
     "math_bad_output": "התוכנה לא הצליחה לכתוב או ליצור את ספריית הפלט של המתמטיקה",
     "math_notexvc": "קובץ בר־ביצוע של <code>texvc</code> אינו זמין; אנא צפו בקובץ math/README למידע על ההגדרות.",
-    "math_notexvccheck": "קובץ הפעלה <code>texvc</code>check חסר; נא עיינו ב־math/README כדי להגדירו.",
+    "math_notexvccheck": "קובץ הפעלה <code>texvccheck</code> חסר; נא עיינו ב־math/README כדי להגדירו.",
     "math_output_error": "לא ניתן לאחסן תמונה מתמטית במערכת קבצים.",
     "math_latexml_timeout": "התנתקות LaTeXML מ־'$1'",
     "math_latexml_invalidresponse": "תגובת LaTeXML לא חוקית ('$2') משרת '$1':",

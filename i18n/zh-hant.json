@@ -25,7 +25,7 @@
     "math_bad_tmpdir": "無法寫入或建立數學公式臨時目錄",
     "math_bad_output": "無法寫入或建立數學公式輸出目錄",
     "math_notexvc": "\"<code>texvc</code>\"執行檔案遺失；請參照 math/README 進行配置。",
-    "math_notexvccheck": "缺少可執行<code>texvc</code>check；請參見數學/自述文檔進行配置。",
+    "math_notexvccheck": "缺少可執行<code>texvccheck</code>；請參見數學/自述文檔進行配置。",
     "math_output_error": "無法在檔案系統上儲存數學圖像。",
     "math_latexml_timeout": "LaTeXML 「$1」超時",
     "math_latexml_invalidresponse": "LaTeXML 從伺服器「$1」收到不正確回應（「$2」）",

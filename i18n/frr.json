@@ -22,7 +22,7 @@
     "math_bad_tmpdir": "Det föörluupen fertiaknis för matemaatisk formeln küd ei brükt of iinracht wurd.",
     "math_bad_output": "Det fertiaknis för matemaatisk formeln küd ei brükt of iinracht wurd.",
     "math_notexvc": "Det <code>texvc</code> program as ei diar. Luke hü det iinrachten gongt uun't datei math/README.",
-    "math_notexvccheck": "Det program <code>texvc</code>check as ei diar. Luke hü det iinrachten gongt uun't datei math/README.",
+    "math_notexvccheck": "Det program <code>texvccheck</code> as ei diar. Luke hü det iinrachten gongt uun't datei math/README.",
     "math_output_error": "Det formelbil koon üüb det dateisüsteem ei seekert wurd.",
     "math_latexml_timeout": "LaTeXML time-out faan „$1“",
     "math_latexml_invalidresponse": "LaTeXML ferkiard oonswaar ('$2') faan server '$1':",

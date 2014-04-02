@@ -23,7 +23,7 @@
     "math_bad_tmpdir": "Non se pode crear ou escribir no directorio matemático temporal",
     "math_bad_output": "Non se pode crear ou escribir no directorio matemático de saída",
     "math_notexvc": "Falta o executable <code>texvc</code>. Consulte math/README para configuralo.",
-    "math_notexvccheck": "Falta o executable <code>texvc</code>check. Consulte math/README para configuralo.",
+    "math_notexvccheck": "Falta o executable <code>texvccheck</code>. Consulte math/README para configuralo.",
     "math_output_error": "Non se pode almacenar a imaxe matemática no sistema de ficheiros.",
     "math_latexml_timeout": "Excedeuse o tempo de espera de LaTeXML de \"$1\"",
     "math_latexml_invalidresponse": "Resposta non válida de LaTeXML (\"$2\") desde o servidor \"$1\":",
