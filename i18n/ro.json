@@ -30,6 +30,6 @@
     "math_latexml_invalidxml": "LaTeXML MathML este un XML incorect.",
     "math_latexml_invalidjson": "Răspunsul de la server pentru LaTeXML este un JSON incorect.",
     "math_latexml_xmlversion": "Avertisment: verificarea tipului de XML a fost omisă! Verificați dacă versiunea instalată de MediaWiki este wmf/1.22wmf7 sau mai nouă.",
-    "math-preference-mwmathinspector-description": "Adaugă suport experimental EditoruluiVizual pentru crearea și modificarea formulelor matematice, înaintea lansării publice. Nu uitați să vă revizuiți întotdeauna modificările înainte de a salva atunci când folosiți funcții pilot.",
+    "math-preference-mwmathinspector-description": "Adaugă EditoruluiVizual un suport experimental pentru crearea și modificarea formulelor matematice, înaintea lansării publice. Nu uitați să vă revizuiți întotdeauna modificările înainte de a salva atunci când folosiți funcții pilot.",
     "math-preference-mwmathinspector-label": "Editare de formule pentru EditorulVizual"
 }
