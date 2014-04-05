@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_589a6f67",
+        "filename": "Math.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-05T15:58:48Z",
+      "side": 1,
+      "message": "s/Tex/TeX\n\n(if that does not work, you might need to modify ext.math.mathjax.enabler.js, but getModuleNameFromFile seems to say it\u0027s not necessary for extensions)",
+      "revId": "c8023391bb373da64e7123e21384dd53acf569a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
