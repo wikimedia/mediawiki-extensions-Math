@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "8e23439c_588cafff",
+        "filename": "modules/ext.math.mathjax.enabler.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 417
+      },
+      "writtenOn": "2014-04-05T17:27:16Z",
+      "side": 1,
+      "message": "Is there a reason why you didn\u0027t mw.log.deprecate() the entire function?\n\nIf there is, I suggest manually doing something like `mw.track( \u0027mw.deprecate\u0027, \u0027ext.math.renderTex\u0027 ); mw.log.warn( \u0027Use of renderTex() is deprecated. Hook into wikipage.content instead\u0027 );` – that\u0027s what we ended up using in core in a few places, and it basically what mw.log.deprecate does internally.\n\nAlso, this uses tabs for indentation, while the rest of the file uses spaces.",
+      "revId": "d191e584ae5cf73a36890a2a870d15497c476cb8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e23439c_988247cc",
         "filename": "modules/ext.math.mathjax.enabler.js",
         "patchSetId": 1
