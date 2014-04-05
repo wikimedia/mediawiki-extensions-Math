@@ -199,15 +199,18 @@
    * Renders all Math TeX inside the given elements.
    * @param {function} callback to be executed after text elements have rendered [optional]
    */
-  $.fn.renderTex = function ( callback ) {
-    var elem = this.find( '.tex' ).parent().toArray();
+  $.fn.renderTex = function () {
+    mathJax.renderTex( this );
+    return this;
+  };
+  mw.log.deprecate( $.fn, 'renderTex', $.fn.renderTex,
+    'Use the mw.hook wikipage.content instead' );
 
-    if ( !$.isFunction( callback ) ) {
-      callback = $.noop;
-    }
+  mathJax.renderTex = function ( $content ) {
+    var elem = $content.find( '.tex' ).parent().toArray();
 
     function render () {
-      MathJax.Hub.Queue( ['Typeset', MathJax.Hub, elem, callback] );
+      MathJax.Hub.Queue( ['Typeset', MathJax.Hub, elem] );
     }
 
     mw.loader.using( 'ext.math.mathjax.mathjax', function () {
@@ -217,7 +220,6 @@
         MathJax.Hub.Startup.signal.MessageHook( 'End', render );
       }
     } );
-    return this;
   };
 
   mathJax.Load = function () {
@@ -242,5 +244,7 @@
   $( document ).ready( function () {
     mathJax.Load();
   } );
+
+  mw.hook( 'wikipage.content' ).add( mathJax.renderTex );
 
 }( mediaWiki, jQuery ) );
