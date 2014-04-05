@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8e23439c_985fe7e8",
+        "filename": "Math.hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-04-05T13:11:00Z",
+      "side": 1,
+      "message": "Yes I think MathML looks better.",
+      "parentUuid": "8e23439c_783d2b8a",
+      "revId": "c3dc8064aeb3a3a561a2d5e704c568b81953e835",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e23439c_58426f14",
         "filename": "Math.php",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-04-05T12:58:43Z",
       "side": 1,
       "message": "this seems non-intentional",
+      "revId": "c3dc8064aeb3a3a561a2d5e704c568b81953e835",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_78540bca",
+        "filename": "Math.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-04-05T13:11:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e23439c_58426f14",
       "revId": "c3dc8064aeb3a3a561a2d5e704c568b81953e835",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8e23439c_d8643fb1",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-04-05T13:11:00Z",
+      "side": 1,
+      "message": "...mh I don\u0027t understand this comment\nthere are two classes\nmwe-math-fallback-png-inline\nand\nmwe-math-fallback-png-display",
+      "parentUuid": "8e23439c_3847b324",
+      "revId": "c3dc8064aeb3a3a561a2d5e704c568b81953e835",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e23439c_1844f71b",
         "filename": "modules/ext.math.css",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2014-04-05T12:58:43Z",
       "side": 1,
       "message": "We don\u0027t need the img tag selector in here I think. this classname should be more than unique enough.",
+      "revId": "c3dc8064aeb3a3a561a2d5e704c568b81953e835",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_38f573c8",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-04-05T13:11:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e23439c_1844f71b",
       "revId": "c3dc8064aeb3a3a561a2d5e704c568b81953e835",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
