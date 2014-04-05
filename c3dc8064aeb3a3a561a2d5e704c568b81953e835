@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_783d2b8a",
+        "filename": "Math.hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-04-05T12:58:43Z",
+      "side": 1,
+      "message": "Do we need the fonts outside of mathjax ?",
+      "revId": "c3dc8064aeb3a3a561a2d5e704c568b81953e835",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_58426f14",
+        "filename": "Math.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-04-05T12:58:43Z",
+      "side": 1,
+      "message": "this seems non-intentional",
+      "revId": "c3dc8064aeb3a3a561a2d5e704c568b81953e835",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_3847b324",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-04-05T12:58:43Z",
+      "side": 1,
+      "message": "we are removing a class here, a very oft used one. better use two classes.",
+      "revId": "c3dc8064aeb3a3a561a2d5e704c568b81953e835",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_1844f71b",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-04-05T12:58:43Z",
+      "side": 1,
+      "message": "We don\u0027t need the img tag selector in here I think. this classname should be more than unique enough.",
+      "revId": "c3dc8064aeb3a3a561a2d5e704c568b81953e835",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
