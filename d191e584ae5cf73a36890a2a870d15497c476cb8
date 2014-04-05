@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_988247cc",
+        "filename": "modules/ext.math.mathjax.enabler.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-04-05T17:21:07Z",
+      "side": 1,
+      "message": "I see one problem here, that is that init is in the document ready right now, and also should be in here. Is is safe/efficient to fire mathJax.Load() multiple times ?",
+      "revId": "d191e584ae5cf73a36890a2a870d15497c476cb8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
