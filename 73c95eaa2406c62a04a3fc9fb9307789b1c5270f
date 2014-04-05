@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "8e23439c_4dd74fc5",
+        "filename": "MathRenderer.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1024
+      },
+      "writtenOn": "2014-04-05T10:09:41Z",
+      "side": 1,
+      "message": "With this and other instances of $this-\u003echanged, I think it\u0027s better to check if something actually changes (i.e., check the new value against the old one). This may save some time, particularly for those settings which have only a few options to choose from.",
+      "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e23439c_ed205bf4",
         "filename": "MathTexvc.php",
         "patchSetId": 8
@@ -30,6 +47,23 @@
       "writtenOn": "2014-04-05T09:50:57Z",
       "side": 1,
       "message": "this should add a css class, with the styling in there. We are desperately trying to do away with inline styling.",
+      "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_ed4e1bc4",
+        "filename": "README",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1024
+      },
+      "writtenOn": "2014-04-05T10:09:41Z",
+      "side": 1,
+      "message": "Personally, I think this is not a good way to design things. If we look at standard HTML practice, the default option can always be accessed explicitly. This is important to allow for overriding CSS, which could define the math display attribute.\n\nSo I advocate a third option \"display\" which is the default.",
       "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
