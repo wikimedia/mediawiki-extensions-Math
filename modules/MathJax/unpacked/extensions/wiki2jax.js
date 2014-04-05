@@ -20,7 +20,8 @@ MathJax.Extension.wiki2jax = {
       this.configured = true;
     }
     var that = this;
-    $('span.tex, img.tex, strong.texerror', element || document).each(function(i, span) {
+    $('.mwe-math-fallback-png-display, .mwe-math-fallback-png-inline, .mwe-math-fallback-source-display,'+
+          '.mwe-math-fallback-source-inline, strong.texerror', element || document).each(function(i, span) {
 		that.ConvertMath(span);
 	});
   },
@@ -38,6 +39,7 @@ MathJax.Extension.wiki2jax = {
   ConvertMath: function (node) {
     var parent = node.parentNode,
         mode = "", //Bug 61051 (heuristic unwanted by the community)
+        className = node.className,
 		tex;
 	if (node.nodeName == 'IMG') {
 		tex = node.alt;
@@ -49,8 +51,7 @@ MathJax.Extension.wiki2jax = {
           }
           tex = tex.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&").replace(/&nbsp;/g," ");
 	}
-    // TODO: use css class-names to detect DisplayStyle
-    if ( tex.match(/^\s*\{?\s*\\displaystyle/) ){
+    if ( className.match(/display/) ){
       mode = "; mode=display";
     }
     // We don't allow comments (%) in texvc and escape all literal % by default.
