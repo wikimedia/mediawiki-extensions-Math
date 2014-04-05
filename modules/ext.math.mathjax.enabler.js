@@ -22,7 +22,6 @@
     },
     'HTML-CSS': {
       imageFont: null,
-      availableFonts: ['TeX'],
       mtextFontInherit: true
     },
     MathMenu: {
