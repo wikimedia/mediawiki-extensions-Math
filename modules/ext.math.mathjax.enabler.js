@@ -201,48 +201,37 @@
 	 * Renders all Math TeX inside the given elements.
 	 * @param {function} callback to be executed after text elements have rendered [optional]
 	 */
-	$.fn.renderTex = function ( callback ) {
-		var elem = this.find( '.tex' ).parent().toArray();
+	$.fn.renderTex = function () {
+		mathJax.LoadAndRender( this );
+		return this;
+	};
+	mw.log.deprecate( $.fn, 'renderTex', $.fn.renderTex,
+		'Use the mw.hook wikipage.content instead' );
 
-		if ( !$.isFunction( callback ) ) {
-			callback = $.noop;
+	mathJax.LoadAndRender = function ( $content ) {
+		// create the global MathJax variable to hook into MathJax startup
+		if( typeof MathJax === 'undefined' ) {
+			window.MathJax = {
+				delayStartupUntil: 'configured',
+				skipStartupTypeset: true,
+				AuthorInit: mathJax.Init
+			};
 		}
 
 		function render() {
-			MathJax.Hub.Queue( ['Typeset', MathJax.Hub, elem, callback] );
+			var elem = $content.toArray();
+			MathJax.Hub.Queue( ['Typeset', MathJax.Hub, elem] );
 		}
 
-		mw.loader.using( 'ext.math.mathjax.mathjax', function () {
-			if ( MathJax.isReady ) {
-				render();
-			} else {
+		if ( MathJax.isReady ) {
+			render();
+		} else {
+			mw.loader.using( 'ext.math.mathjax.mathjax', function () {
 				MathJax.Hub.Startup.signal.MessageHook( 'End', render );
-			}
-		} );
-		return this;
-	};
-
-	mathJax.Load = function () {
-		if ( this.loaded ) {
-			return true;
+			} );
 		}
-
-		// create the global MathJax variable to hook into MathJax startup
-		window.MathJax = {
-			delayStartupUntil: 'configured',
-			AuthorInit: mathJax.Init
-		};
-
-		// load MathJax.js
-		mw.loader.load('ext.math.mathjax.mathjax');
-
-		this.loaded = true;
-
-		return false;
 	};
 
-	$( document ).ready( function () {
-		mathJax.Load();
-	} );
+	mw.hook( 'wikipage.content' ).add( mathJax.LoadAndRender );
 
 }( mediaWiki, jQuery ) );
