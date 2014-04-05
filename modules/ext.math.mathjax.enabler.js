@@ -199,25 +199,34 @@
    * Renders all Math TeX inside the given elements.
    * @param {function} callback to be executed after text elements have rendered [optional]
    */
-  $.fn.renderTex = function ( callback ) {
-    var elem = this.find( '.tex' ).parent().toArray();
-
-    if ( !$.isFunction( callback ) ) {
-      callback = $.noop;
-    }
-
-    function render () {
-      MathJax.Hub.Queue( ['Typeset', MathJax.Hub, elem, callback] );
-    }
-
-    mw.loader.using( 'ext.math.mathjax.mathjax', function () {
-      if ( MathJax.isReady ) {
-        render();
-      } else {
-        MathJax.Hub.Startup.signal.MessageHook( 'End', render );
-      }
-    } );
+  $.fn.renderTex = function () {
+    mathJax.renderTex( this );
     return this;
+  };
+  mw.log.deprecate( $.fn, 'renderTex', $.fn.renderTex,
+    'Use the mw.hook wikipage.content instead' );
+
+  mathJax.renderTex = function ( $content ) {
+    var alreadyLoaded = mathJax.Load();
+
+    // The loader does the first render.
+    // Any followup events need to force a Typeset run
+    // FIXME this is not safe, script loading is async
+    if( alreadyLoaded ) {
+      var elem = $content.find( '.tex' ).parent().toArray();
+
+      mw.loader.using( 'ext.math.mathjax.mathjax', function () {
+        function render() {
+          MathJax.Hub.Queue( ['Typeset', MathJax.Hub, elem] );
+        }
+
+        if ( MathJax.isReady ) {
+          render();
+        } else {
+          MathJax.Hub.Startup.signal.MessageHook( 'End', render );
+        }
+      } );
+    }
   };
 
   mathJax.Load = function () {
@@ -239,8 +248,6 @@
     return false;
   };
 
-  $( document ).ready( function () {
-    mathJax.Load();
-  } );
+  mw.hook( 'wikipage.content' ).add( mathJax.renderTex );
 
 }( mediaWiki, jQuery ) );
