@@ -178,6 +178,17 @@ $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 
 
+$wgResourceModules['ext.math.styles'] = array(
+	'localBasePath' => __DIR__ . '/modules',
+	'remoteExtPath' => 'Math/modules',
+	'styles' => 'ext.math.css',
+);
+$wgResourceModules['ext.math.styles.fonts'] = array(
+	'localBasePath' => __DIR__ . '/modules',
+	'remoteExtPath' => 'Math/modules',
+	'styles' => 'ext.math.fonts.css',
+);
+
 // MathJax module
 // If you modify these arrays, update ext.math.mathjax.enabler.js to ensure
 // that getModuleNameFromFile knows how to map files to MediaWiki modules.
