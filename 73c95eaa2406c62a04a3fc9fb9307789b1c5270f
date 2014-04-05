@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8e23439c_4d106f5b",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-04-05T10:58:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e23439c_ad902347",
+      "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e23439c_8de447a5",
         "filename": "MathLaTeXML.php",
         "patchSetId": 8
@@ -30,6 +48,24 @@
       "writtenOn": "2014-04-05T10:48:22Z",
       "side": 1,
       "message": "Some spaces seem to have been lost in the above two lines, breaking MW coding convention.",
+      "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_2d0d3342",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-04-05T10:58:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e23439c_8de447a5",
       "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8e23439c_ad3a63e2",
+        "filename": "MathRenderer.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-04-05T10:58:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e23439c_4dd74fc5",
+      "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e23439c_ed205bf4",
         "filename": "MathTexvc.php",
         "patchSetId": 8
@@ -64,6 +118,24 @@
       "writtenOn": "2014-04-05T09:50:57Z",
       "side": 1,
       "message": "this should add a css class, with the styling in there. We are desperately trying to do away with inline styling.",
+      "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_4d298f99",
+        "filename": "MathTexvc.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-04-05T10:58:56Z",
+      "side": 1,
+      "message": "Yes I\u0027d like to this in a follow up commit?",
+      "parentUuid": "8e23439c_ed205bf4",
       "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -105,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "8e23439c_8d48c78d",
+        "filename": "README",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-04-05T10:58:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e23439c_ed4e1bc4",
+      "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e23439c_edea9b9b",
         "filename": "README",
         "patchSetId": 8
@@ -116,6 +206,24 @@
       "writtenOn": "2014-04-05T09:19:58Z",
       "side": 1,
       "message": "he?",
+      "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_6d4d6b9b",
+        "filename": "README",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-04-05T10:58:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e23439c_edea9b9b",
       "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -151,6 +259,41 @@
       "side": 1,
       "message": "agreed",
       "parentUuid": "8e23439c_4dcd0f62",
+      "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_4d62af07",
+        "filename": "modules/MathJax/unpacked/extensions/wiki2jax.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-04-05T10:58:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e23439c_4dcd0f62",
+      "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_2d5f7346",
+        "filename": "modules/MathJax/unpacked/extensions/wiki2jax.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-04-05T10:58:56Z",
+      "side": 1,
+      "message": "I suggest to keep the changes until the new css styles from mathoid are merged.",
       "revId": "73c95eaa2406c62a04a3fc9fb9307789b1c5270f",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
