@@ -178,6 +178,44 @@ $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 
 
+$wgResourceModules['ext.math.styles'] = array(
+	'localBasePath' => __DIR__ . '/modules',
+	'remoteExtPath' => 'Math/modules',
+	'styles' => 'ext.math.css',
+);
+$wgResourceModules['ext.math.styles.fonts'] = array(
+	'localBasePath' => __DIR__ . '/modules',
+	'remoteExtPath' => 'Math/modules',
+	'styles' => 'ext.math.fonts.css',
+);
+// Conditional rendering of the MathML output.
+$wgResourceModules += array(
+	// Module to choose the best rendering option.
+	'ext.math.selector' => array(
+		'localBasePath' => __DIR__ . '/modules',
+		'remoteExtPath' => 'Math/modules',
+                'scripts' => 'ext.math.selector.js'
+	),
+        // Standard rendering with MathML.
+	'ext.math.mathml' => array(
+		'localBasePath' => __DIR__ . '/modules',
+		'remoteExtPath' => 'Math/modules',
+		'styles' => 'ext.math.mathml.css'
+	),
+	// Fallback rendering with SVG.
+	'ext.math.svg' => array(
+		'localBasePath' => __DIR__ . '/modules',
+		'remoteExtPath' => 'Math/modules',
+		'styles' => 'ext.math.svg.css'
+	),
+	// Web Fonts for native MathML.
+	'ext.math.fonts' => array(
+		'localBasePath' => __DIR__ . '/modules',
+		'remoteExtPath' => 'Math/modules',
+		'styles' => 'ext.math.fonts.css'
+	)
+);
+
 // MathJax module
 // If you modify these arrays, update ext.math.mathjax.enabler.js to ensure
 // that getModuleNameFromFile knows how to map files to MediaWiki modules.
