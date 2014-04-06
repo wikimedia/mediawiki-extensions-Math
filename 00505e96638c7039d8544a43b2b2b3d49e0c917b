@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_d9bc41b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-06T15:43:13Z",
+      "side": 1,
+      "message": "inline, display, or inline-displaystyle",
+      "revId": "00505e96638c7039d8544a43b2b2b3d49e0c917b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_b98bc51a",
+        "filename": "Math.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-06T15:43:13Z",
+      "side": 1,
+      "message": "*line*",
+      "revId": "00505e96638c7039d8544a43b2b2b3d49e0c917b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_99900948",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-06T15:43:13Z",
+      "side": 1,
+      "message": "I guess s/was/is/ for consistency",
+      "revId": "00505e96638c7039d8544a43b2b2b3d49e0c917b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_79952d35",
+        "filename": "MathRenderer.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-06T15:43:13Z",
+      "side": 1,
+      "message": "I think the variable should be call \"mathStyle\" since displaystyle is reserved for \\displaystyle TeX \u003d @displaystyle MathML.\n\nAnd similarly the setter should be setMathStyle, the getter getMathStyle etc",
+      "revId": "00505e96638c7039d8544a43b2b2b3d49e0c917b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_599a7167",
+        "filename": "MathSource.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-06T15:43:13Z",
+      "side": 1,
+      "message": "missing space before the {",
+      "revId": "00505e96638c7039d8544a43b2b2b3d49e0c917b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_59b151db",
+        "filename": "README",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-06T15:43:13Z",
+      "side": 1,
+      "message": "I think the default should be called \"inline-displaystyle\" (it does not matter if the string value is long, since it won\u0027t be used explicitly anyway).\n\nThe LaTeX name for the third one is \"display mode\", so it\u0027s not a good idea to use that value for the second one. However, I see that using \"block\" is consistent with the MathML display attribute (MathML1 actually used mode\u003d\"display\"), so you can probably keep it.",
+      "revId": "00505e96638c7039d8544a43b2b2b3d49e0c917b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_39c6954f",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 15
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-06T15:43:13Z",
+      "side": 1,
+      "message": "brower-dependent",
+      "revId": "00505e96638c7039d8544a43b2b2b3d49e0c917b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
