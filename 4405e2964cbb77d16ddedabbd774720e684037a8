@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_2119b77e",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-06T20:16:13Z",
+      "side": 1,
+      "message": "missing space before the */",
+      "revId": "4405e2964cbb77d16ddedabbd774720e684037a8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_0116bb4d",
+        "filename": "maintenance/MathGenerateTests.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-06T20:16:13Z",
+      "side": 1,
+      "message": "what is ues here?",
+      "revId": "4405e2964cbb77d16ddedabbd774720e684037a8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_e1229fa1",
+        "filename": "tests/MathCoverageTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-06T20:16:13Z",
+      "side": 1,
+      "message": "s/confurable/configurable",
+      "revId": "4405e2964cbb77d16ddedabbd774720e684037a8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_c127a3b0",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-06T20:16:13Z",
+      "side": 1,
+      "message": "s/functionallity/functionality/",
+      "revId": "4405e2964cbb77d16ddedabbd774720e684037a8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
