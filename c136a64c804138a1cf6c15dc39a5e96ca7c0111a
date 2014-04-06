@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_6b80b0f9",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-06T18:09:44Z",
+      "side": 1,
+      "message": "mathStyle?",
+      "revId": "c136a64c804138a1cf6c15dc39a5e96ca7c0111a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_0b77fc36",
+        "filename": "MathRenderer.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-06T18:09:44Z",
+      "side": 1,
+      "message": "It looks like the jenkins is not happy with that one.",
+      "revId": "c136a64c804138a1cf6c15dc39a5e96ca7c0111a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
