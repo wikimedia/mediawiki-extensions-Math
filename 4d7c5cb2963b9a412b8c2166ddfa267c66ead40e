@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_d9e7a13a",
+        "filename": "Math.hooks.php",
+        "patchSetId": 13
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-04-06T09:43:55Z",
+      "side": 1,
+      "message": "We should split this off, because webfonts have been proven to be controversial in our infra in the past, so we should discuss this on the list and gets ops involved to double check that it won\u0027t be a problem.",
+      "revId": "4d7c5cb2963b9a412b8c2166ddfa267c66ead40e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_39c8d5a9",
+        "filename": "MathTexvc.php",
+        "patchSetId": 13
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-04-06T09:43:55Z",
+      "side": 1,
+      "message": "You are missing the tex class here.",
+      "revId": "4d7c5cb2963b9a412b8c2166ddfa267c66ead40e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_19de3971",
+        "filename": "modules/MathJax/unpacked/extensions/wiki2jax.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-04-06T09:43:55Z",
+      "side": 1,
+      "message": "Use $( node ).hasClass( \"the specific classname\");",
+      "revId": "4d7c5cb2963b9a412b8c2166ddfa267c66ead40e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
