@@ -33,6 +33,23 @@
       "revId": "c136a64c804138a1cf6c15dc39a5e96ca7c0111a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_0b781cec",
+        "filename": "modules/MathJax/unpacked/extensions/wiki2jax.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-06T19:36:43Z",
+      "side": 1,
+      "message": "I think you can just drop this comment since the heuristic is no longer here  and we use an explicit attribute on \u003cmath\u003e.",
+      "revId": "c136a64c804138a1cf6c15dc39a5e96ca7c0111a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
