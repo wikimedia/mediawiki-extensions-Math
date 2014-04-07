@@ -263,7 +263,7 @@ $wgResourceModules += array(
 	'ext.math.mathjax.extensions.TeX' => array(
 		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/extensions',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/extensions',
-		'scripts' => array( 'wiki2jax.js', 'TeX/noUndefined.js', 'TeX/AMSmath.js', 'TeX/AMSsymbols.js', 'TeX/boldsymbol.js', 'TeX/color.js', 'TeX/cancel.js','TeX/texvc.js' ),
+		'scripts' => array( 'wiki2jax.js', 'TeX/noUndefined.js', 'TeX/AMSmath.js', 'TeX/AMSsymbols.js', 'TeX/boldsymbol.js', 'TeX/color.js', 'TeX/cancel.js', 'TeX/mathchoice.js', 'TeX/texvc.js' ),
 		'dependencies' => array( 'ext.math.mathjax.mathjax' )
 	),
 	'ext.math.mathjax.extensions.mml2jax' => array(
