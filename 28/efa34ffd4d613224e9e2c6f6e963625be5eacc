@@ -1,0 +1,8 @@
+Verified+2: jenkins-bot
+Code-Review+2: Physikerwelt <wiki@physikerwelt.de>
+Code-Review+1: Frédéric Wang <fred.wang@free.fr>
+Submitted-by: Physikerwelt <wiki@physikerwelt.de>
+Submitted-at: Mon, 07 Apr 2014 09:27:16 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/124294
+Project: mediawiki/extensions/Math
+Branch: refs/heads/master
