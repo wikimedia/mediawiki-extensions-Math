@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_bf8282cb",
+        "filename": "Math.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 127
+      },
+      "writtenOn": "2014-04-07T12:28:15Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this declare the dependency \u0027mediawiki.action.edit\u0027?",
+      "revId": "9f7a1e51c4c9d9fb053f1795c265b2fadc704108",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
