@@ -22,7 +22,7 @@
     "math_bad_tmpdir": "Nun se pue escribir o crear el direutoriu temporal 'math'",
     "math_bad_output": "Nun se pue escribir o crear el direutoriu de salida 'math'",
     "math_notexvc": "Falta l'executable <code>texvc</code>; por favor vea math/README pa configuralu.",
-    "math_notexvccheck": "Falta l'executable texvccheck; por favor vea 'math/README' pa configuralu.",
+    "math_notexvccheck": "Falta l'executable <code>texvccheck</code>. Por favor vea math/README pa configuralu.",
     "math_output_error": "Nun pue guardase la imaxe matemática nel sistema de ficheros.",
     "math_latexml_timeout": "Tiempu escosáu de LaTeXML dende '$1'",
     "math_latexml_invalidresponse": "Rempuesta inválida de LaTeXML ('$2') dende'l sirvidor '$1':",

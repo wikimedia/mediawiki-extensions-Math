@@ -12,6 +12,8 @@
     "mw_math_png": "Даима генерировать ян PNG",
     "mw_math_source": "Йита белгалонехь ТеХ (йизан браузершан)",
     "mw_math_mathjax": "MathJax (экспериментан опци, дукху йолчу браузершан)",
+    "math_notexvc": "Лоху файл <code>texvc</code> цакарий; См. math/README — нисяран гӀо.",
+    "math_notexvccheck": "Лоху файл <code>texvccheck</code> цакарий; хьажа кхин. math/README — нисяран гӀо.",
     "math-preference-mwmathinspector-description": "Визуальни тадарна тӀетуху математикан формулаш кхолла а таян а аьтту. Дехар до, хьой бина хийцамаш Ӏалаш бале царга даиман хьажа.",
     "math-preference-mwmathinspector-label": "Визуальни тадарца ца формулаш таяр"
 }

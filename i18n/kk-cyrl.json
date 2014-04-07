@@ -12,13 +12,14 @@
     "mw_math_mathjax": "MathJax (тәжірибелік; көп броузерлер үшін ең жақсысы)",
     "math_failure": "Құрылымын талдатуы сәтсіз бітті",
     "math_unknown_error": "белгісіз қате",
-    "math_unknown_function": "белгісіз жете",
+    "math_unknown_function": "белгісіз функция '$1'",
     "math_lexing_error": "сөз кенінің қатесі",
     "math_syntax_error": "сөйлем жүйесінің қатесі",
     "math_image_error": "PNG аударысы сәтсіз бітті;\nlatex, dvips, gs және convert бағдарламаларының дұрыс орнатуын тексеріп шығыңыз",
     "math_bad_tmpdir": "math деген уақытша қалтасына жазылмады, не қалта құрылмады",
     "math_bad_output": "math деген беріс қалтасына жазылмады, не қалта құрылмады",
     "math_notexvc": "<code>texvc</code> атқарылмалысы табылмады;\nбаптау үшін math/README құжатын қараңыз.",
+    "math-visualeditor-mwmathinspector-title": "Формула",
     "math-preference-mwmathinspector-description": "Сынақ ретінде, жалпы іске қосар алдында математикалық формулаларды құруға және өңдеуге арналған VisualEditor-ға тәжірибелік қолдау қосады. Тәжірибелік функцияларды пайдаланған кезде енгізген өзгерістеріңізді сақтамас бұрын үнемі тексеріп алуыңызды сұраймыз.",
     "math-preference-mwmathinspector-label": "VisualEditor‎-мен формула өңдеу"
 }
