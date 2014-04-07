@@ -6,7 +6,7 @@
 	'use strict';
 
 	if ( typeof mathJax === 'undefined' ) {
-		mathJax = {};
+		window.mathJax = {};
 	}
 
 	mathJax.version = '0.2';
@@ -228,7 +228,7 @@
 		}
 
 		// create the global MathJax variable to hook into MathJax startup
-		MathJax = {
+		window.MathJax = {
 			delayStartupUntil: 'configured',
 			AuthorInit: mathJax.Init
 		};
