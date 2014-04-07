@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_24ff85a9",
+        "filename": "modules/ext.math.editbutton.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-04-07T09:21:16Z",
+      "side": 1,
+      "message": "I just noticed that we changed the id of the button.This should be \u0027mw-editbutton-math\u0027",
+      "revId": "3033d69eb4d88dd68eb3d49605e87845229d1642",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
