@@ -162,7 +162,7 @@ class MathHooks {
 				'label-message' => 'math-preference-mwmathinspector-label',
 				'desc-message' => 'math-preference-mwmathinspector-description',
 				'screenshot' => $wgExtensionAssetsPath .
-					"/Math/betafeatures-icon-VisualEditor-formulae-$dir.svg",
+					"/Math/images/betafeatures-icon-VisualEditor-formulae-$dir.svg",
 				'info-message' => 'math-preference-mwmathinspector-info-link',
 				'discussion-message' => 'math-preference-mwmathinspector-info-link',
 				'requirements' => array(
