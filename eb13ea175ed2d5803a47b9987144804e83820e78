@@ -50,6 +50,24 @@
       "revId": "eb13ea175ed2d5803a47b9987144804e83820e78",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_c16c4308",
+        "filename": "modules/ext.math.editbutton.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-04-07T08:45:33Z",
+      "side": 1,
+      "message": "well spotted, that has to be removed",
+      "parentUuid": "8e23439c_61d7afc5",
+      "revId": "eb13ea175ed2d5803a47b9987144804e83820e78",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
