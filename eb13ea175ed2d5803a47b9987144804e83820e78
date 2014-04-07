@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_a1cdc736",
+        "filename": "Math.hooks.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-07T08:16:52Z",
+      "side": 1,
+      "message": "missing space before the {",
+      "revId": "eb13ea175ed2d5803a47b9987144804e83820e78",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_81d2cbd3",
+        "filename": "Math.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-07T08:16:52Z",
+      "side": 1,
+      "message": "did you add this blank line on purpose?",
+      "revId": "eb13ea175ed2d5803a47b9987144804e83820e78",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_61d7afc5",
+        "filename": "modules/ext.math.editbutton.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-07T08:16:52Z",
+      "side": 1,
+      "message": "is it ok to have this extra comma at the end of the object (old versions of IE treat that an error)",
+      "revId": "eb13ea175ed2d5803a47b9987144804e83820e78",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
