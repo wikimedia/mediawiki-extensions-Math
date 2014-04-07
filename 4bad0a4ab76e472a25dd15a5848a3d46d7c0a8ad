@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_7a6f58c1",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1024
+      },
+      "writtenOn": "2014-04-07T13:29:07Z",
+      "side": 1,
+      "message": "In the new scheme, the return type is an array, not a string.",
+      "revId": "4bad0a4ab76e472a25dd15a5848a3d46d7c0a8ad",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
