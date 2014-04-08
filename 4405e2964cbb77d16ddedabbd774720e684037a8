@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "8e23439c_4e829798",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-08T07:35:57Z",
+      "side": 1,
+      "message": "Why did you remove the space between \"//\" and the comments?",
+      "revId": "4405e2964cbb77d16ddedabbd774720e684037a8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_2e4f5b99",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-08T07:35:57Z",
+      "side": 1,
+      "message": "In the comment and function name, do you mean  setXMLValidation?",
+      "revId": "4405e2964cbb77d16ddedabbd774720e684037a8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e23439c_0116bb4d",
         "filename": "maintenance/MathGenerateTests.php",
         "patchSetId": 3
