@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_01a6adbe",
+        "filename": "modules/ext.math.mathjax.enabler.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-08T15:20:44Z",
+      "side": 1,
+      "message": "it looks like the indentation is incorrect",
+      "revId": "16ac17b25494bf9494a65b5e1df9e3f6d82d6363",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_a18b791f",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-08T15:20:44Z",
+      "side": 1,
+      "message": "Should this set an array instead?\n\nIt looks like jenkins is complaining about that.",
+      "revId": "16ac17b25494bf9494a65b5e1df9e3f6d82d6363",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
