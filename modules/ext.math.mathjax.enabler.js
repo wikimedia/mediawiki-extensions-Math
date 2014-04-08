@@ -5,6 +5,10 @@
 ( function ( mw, $ ) {
 	'use strict';
 
+    if( ! mw.user.options.get( 'mathJax' ) ) {
+        return true;
+    }
+
 	if ( typeof mathJax === 'undefined' ) {
 		window.mathJax = {};
 	}
