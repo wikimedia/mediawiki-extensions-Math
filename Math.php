@@ -37,7 +37,7 @@ define( 'MW_MATH_HTML',   2 ); /// @deprecated
 define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 ); /// @deprecated
-define( 'MW_MATH_MATHJAX', 6 ); /// new in 1.19/1.20
+define( 'MW_MATH_MATHJAX', 6 ); /// @deprecated
 define( 'MW_MATH_LATEXML', 7 ); /// new in 1.22
 /**@}*/
 
@@ -50,6 +50,15 @@ define( 'MW_MATHSTYLE_INLINE',  2 ); // small operators inline
 // There is no style which renders small operators
 // but display the equation centered in a new line.
 /**@}*/
+
+/**@var array defines the mode allowed on the server */
+$wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE );
+
+/*
+ * The default rendering mode for anonymous users.
+ * Valid options are defined in $wgMathValidModes.
+ */
+$wgDefaultUserOptions['math'] = MW_MATH_PNG;
 
 /** Location of the texvc binary */
 $wgTexvc = __DIR__ . '/math/texvc';
@@ -101,11 +110,10 @@ $wgMathFileBackend = false;
 $wgMathDirectory = false;
 
 /**
- * Experimental option to use MathJax library to do client-side math rendering
+ * Enables the option to use MathJax library to do client-side math rendering
  * when JavaScript is available. In supporting browsers this makes nice output
- * that's scalable for zooming, printing, and high-resolution displays.
- *
- * Not guaranteed to be stable at this time.
+ * that's scalable for zooming, printing, and high-resolution displays, even if
+ * the browsers do not support HTML5 (i.e. MathML).
  *
  * @todo Rename to $wgMathJax
  */
@@ -125,11 +133,6 @@ $wgUseMathJax = false;
  * 'http://latexml2.example.com/convert');
  */
 $wgMathLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
-
-/**
- * Allows to use LaTeXML as renderer for mathematical equation.
- */
-$wgUseLaTeXML = false;
 
 /**
  * The timeout for the HTTP-Request sent to the LaTeXML to render an equation,
@@ -152,8 +155,6 @@ $wgMathTexvcCheckExecutable = __DIR__ . '/texvccheck/texvccheck';
  */
 $wgMathDisableTexFilter = false;
 ////////// end of config settings.
-
-$wgDefaultUserOptions['math'] = MW_MATH_PNG;
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';

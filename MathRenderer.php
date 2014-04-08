@@ -85,7 +85,7 @@ abstract class MathRenderer {
 	 * @return MathRenderer appropriate renderer for mode
 	 */
 	public static function getRenderer( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
-		global $wgDefaultUserOptions;
+		global $wgDefaultUserOptions, $wgMathValidModes;
 		$mathStyle = null;
 		if ( isset( $params['display'] ) ) {
 			$layoutMode = $params['display'];
@@ -107,9 +107,9 @@ abstract class MathRenderer {
 				$tex = '{\textstyle ' . $tex . '}';
 			}
 		}
-		$validModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHJAX, MW_MATH_LATEXML );
-		if ( !in_array( $mode, $validModes ) )
+		if ( !in_array( $mode, $wgMathValidModes ) ) {
 			$mode = $wgDefaultUserOptions['math'];
+		}
 		switch ( $mode ) {
 			case MW_MATH_MATHJAX:
 			case MW_MATH_SOURCE:
