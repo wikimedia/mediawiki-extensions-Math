@@ -21,5 +21,8 @@
     "math_image_error": "PNG konvertimine ebaõnnestus; kontrolli, kas latex ja dvipng (või dvips, gs ja convert) on õigesti installitud.",
     "math_bad_tmpdir": "Ajutise matemaatikakataloogi loomine või sinna kirjutamine ebaõnnestus",
     "math_bad_output": "Matemaatika-väljundkataloogi loomine või sinna kirjutamine ebaõnnestus",
-    "math_notexvc": "Texvc-rakendus puudub; häälestamiseks vaata matemaatikakataloogist README-faili"
+    "math_notexvc": "<code>Texvc</code>-rakendus puudub. Häälestamiseks vaata palun faili math/README.",
+    "math_notexvccheck": "<code>Texvccheck</code>-rakendus puudub. Häälestamiseks vaata palun faili math/README.",
+    "math_output_error": "Valemipilti ei saa failisüsteemis talletada.",
+    "math-visualeditor-mwmathinspector-title": "Valem"
 }

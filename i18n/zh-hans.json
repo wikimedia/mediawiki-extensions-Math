@@ -4,14 +4,15 @@
             "Hzy980512",
             "Liuxinyu970226",
             "Xiaomingyan",
-            "Yfdyh000"
+            "Yfdyh000",
+            "乌拉跨氪"
         ]
     },
     "math-desc": "在<code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code>标签间生成数学公式",
     "math_sample": "在此插入数学公式",
     "math_tip": "插入数学公式 （LaTeX）",
     "prefs-math": "数学公式",
-    "mw_math_png": "总生成PNG",
+    "mw_math_png": "总是生成PNG",
     "mw_math_source": "显示TeX代码（供文字浏览器使用）",
     "mw_math_mathjax": "MathJax（实验性；适合大多数浏览器）",
     "mw_math_latexml": "LaTeXML（试验中；使用MathML）",
@@ -30,8 +31,8 @@
     "math_latexml_invalidresponse": "LaTeXML从服务器“$1”返回无效的响应（“$2”）：",
     "math_latexml_invalidxml": "LaTeXML MathML是无效的XML。",
     "math_latexml_invalidjson": "LaTeXML服务器响应是无效的JSON。",
-    "math_latexml_xmlversion": "警告：XML类型检查被跳过！请检查您所安装的MediaWiki版本是否wmf/1.22wmf7或更高。",
+    "math_latexml_xmlversion": "警告：XML类型检查被跳过！请检查您所安装的MediaWiki是否是wmf/1.22wmf7或更高版本。",
     "math-visualeditor-mwmathinspector-title": "公式",
-    "math-preference-mwmathinspector-description": "给可视化编辑器添加创建和编辑编辑数学公式的试验功能支持，用于正式发布前的测试。当使用实验功能时，请始终在保存前检查你的更改。",
+    "math-preference-mwmathinspector-description": "在正式发布前，将创建和编辑数学公式的测试功能加入可视化编辑器。请务必在保存前检查使用测试功能作出的更改。",
     "math-preference-mwmathinspector-label": "可视化编辑器公式编辑"
 }
