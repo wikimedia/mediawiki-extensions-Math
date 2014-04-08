@@ -122,7 +122,7 @@ class MathHooks {
 
 		$renderedMath = $renderer->render();
 
-		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
+		if ( $wgUseMathJax ) {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
@@ -141,13 +141,20 @@ class MathHooks {
 	 * @return Boolean: true
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
+		global $wgUseMathJax;
 		$defaultPreferences['math'] = array(
 			'type' => 'radio',
 			'options' => array_flip( self::getMathNames() ),
 			'label' => '&#160;',
 			'section' => 'rendering/math',
 		);
-
+		if ( $wgUseMathJax ) {
+			$defaultPreferences['mathJax'] = array(
+				'type' => 'toggle',
+				'label-message' => 'mw_math_mathjax',
+				'section' => 'rendering/math',
+			);
+		}
 		return true;
 	}
 
@@ -179,19 +186,17 @@ class MathHooks {
 	 * @return array of strings
 	 */
 	private static function getMathNames() {
-		global $wgUseMathJax, $wgUseLaTeXML;
-
-		$names = array(
-			MW_MATH_PNG => wfMessage( 'mw_math_png' )->escaped(),
-			MW_MATH_SOURCE => wfMessage( 'mw_math_source' )->escaped(),
+		global $wgMathValidModes;
+		$MathConstantNames = array(
+			MW_MATH_SOURCE => 'mw_math_source',
+			MW_MATH_PNG => 'mw_math_png',
+			MW_MATH_MATHML => 'mw_math_mathml',
+			MW_MATH_LATEXML => 'mw_math_latexml',
+			MW_MATH_MATHJAX => 'mw_math_mathjax'
 		);
-
-		if ( $wgUseMathJax ) {
-			$names[MW_MATH_MATHJAX] = wfMessage( 'mw_math_mathjax' )->escaped();
-		}
-
-		if ( $wgUseLaTeXML ) {
-			$names[MW_MATH_LATEXML] = wfMessage( 'mw_math_latexml' )->escaped();
+		$names = array();
+		foreach ( $wgMathValidModes as $mode ) {
+			$names[$mode] = wfMessage( $MathConstantNames[$mode] )->escaped();
 		}
 
 		return $names;
