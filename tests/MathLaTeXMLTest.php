@@ -97,12 +97,16 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	public function testisValidXML() {
 		$validSample = '<math>content</math>';
 		$invalidSample = '<notmath />';
+		$renderer = $this->getMockBuilder( 'MathLaTeXML' )
+			->setMethods( NULL ) // avoid mocking any methods
+			->disableOriginalConstructor()
+			->getMock();
 		$this->assertTrue(
-			MathLaTeXML::isValidMathML( $validSample ),
+			$renderer->isValidMathML( $validSample ),
 			'test if math expression is valid mathml sample'
 		);
 		$this->assertFalse(
-			MathLaTeXML::isValidMathML( $invalidSample ),
+			$renderer->isValidMathML( $invalidSample ),
 			'test if math expression is invalid mathml sample'
 		);
 	}

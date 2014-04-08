@@ -143,7 +143,26 @@ $wgMathLaTeXMLTimeout = 240;
  * Setting for the LaTeXML renderer.
  * See http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml for details.
  */
-$wgMathDefaultLaTeXMLSetting = 'format=xhtml&whatsin=math&whatsout=math&pmml&cmml&nodefaultresources&preload=LaTeX.pool&preload=article.cls&preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty&preload=amssymb.sty&preload=eucal.sty&preload=[dvipsnames]xcolor.sty&preload=url.sty&preload=hyperref.sty&preload=[ids]latexml.sty&preload=texvc';
+$wgMathDefaultLaTeXMLSetting = array(
+	'format' => 'xhtml',
+	'whatsin' => 'math',
+	'whatsout' => 'math',
+	'pmml',
+	'cmml',
+	'nodefaultresources',
+	'preload' => array( 'LaTeX.pool',
+		'article.cls',
+		'amsmath.sty',
+		'amsthm.sty',
+		'amstext.sty',
+		'amssymb.sty',
+		'eucal.sty',
+		'[dvipsnames]xcolor.sty',
+		'url.sty',
+		'hyperref.sty',
+		'[ids]latexml.sty',
+		'texvc' ),
+);
 /**
  * The link to the texvccheck executable
  */
