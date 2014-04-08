@@ -15,6 +15,10 @@ class MathLaTeXML extends MathRenderer {
 	 * @var String settings for LaTeXML daemon
 	 */
 	private $LaTeXMLSettings = '';
+	/** @var boolean if false LaTeXML output is not validated */
+	private $XMLValidation = true;
+	protected static $DEFAULT_ALLOWED_ROOT_ELEMENTS = array( 'math', 'div', 'table', 'query' );
+	protected $allowedRootElements = '';
 
 	/**
 	 * Converts an array with LaTeXML settings to a URL encoded String.
@@ -30,12 +34,15 @@ class MathLaTeXML extends MathRenderer {
 			// removes the [1] [2]... for the unnamed subarrays since LaTeXML
 			// assigns multiple values to one key e.g.
 			// preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty
-			return preg_replace( '|\%5B\d+\%5D|', '', wfArrayToCgi( $array ) ) ;
+			$cgi_string = wfArrayToCgi( $array );
+			$cgi_string = preg_replace( '|\%5B\d+\%5D|', '', $cgi_string );
+			$cgi_string = preg_replace( '|&\d+=|', '&', $cgi_string );
+			return $cgi_string;
 		}
 	}
 	/**
 	 * Gets the settings for the LaTeXML daemon.
-	 * @global type $wgMathDefaultLaTeXMLSetting
+	 * @global (array|string) $wgMathDefaultLaTeXMLSetting
 	 * @return string
 	 */
 	public function getLaTeXMLSettings() {
@@ -57,6 +64,28 @@ class MathLaTeXML extends MathRenderer {
 	 */
 	public function setLaTeXMLSettings( $settings ) {
 		$this->LaTeXMLSettings = $settings;
+	}
+
+	/**
+	 * Gets the allowed root elements the rendered math tag might have.
+	 *
+	 * @return array
+	 */
+	public function getAllowedRootElements() {
+		if ( $this->allowedRootElements ) {
+			return $this->allowedRootElements;
+		} else {
+			return self::$DEFAULT_ALLOWED_ROOT_ELEMENTS;
+		}
+	}
+
+	/**
+	 * Sets the allowed root elements the rendered math tag might have.
+	 * An empty value indicates to use the default settings.
+	 * @param array $settings
+	 */
+	public function setAllowedRootElments( $settings ) {
+		$this->allowedRootElements = $settings;
 	}
 
 	/* (non-PHPdoc)
@@ -90,7 +119,7 @@ class MathLaTeXML extends MathRenderer {
 		} else {
 			$dbres = $this->readFromDatabase();
 			if ( $dbres ) {
-				if ( self::isValidMathML( $this->getMathml() ) ) {
+				if ( $this->isValidMathML( $this->getMathml() ) ) {
 					wfDebugLog( "Math", "Valid entry found in database." );
 					return false;
 				} else {
@@ -110,7 +139,7 @@ class MathLaTeXML extends MathRenderer {
 	 * Generates error messages on failure
 	 * @see Http::post()
 	 *
-	 * @global type $wgMathLaTeXMLTimeout
+	 * @global int $wgMathLaTeXMLTimeout
 	 * @param string $host
 	 * @param string $post the encoded post request
 	 * @param mixed $res the result
@@ -125,6 +154,7 @@ class MathLaTeXML extends MathRenderer {
 		$error = '';
 		$res = null;
 		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
+		/** @var $req (CurlHttpRequest|PhpHttpRequest) the request object  */
 		$req = $httpRequestClass::factory( $host, $options );
 		$status = $req->execute();
 		if ( $status->isGood() ) {
@@ -208,7 +238,7 @@ class MathLaTeXML extends MathRenderer {
 		if ( $this->makeRequest( $host, $post, $res, $this->lastError ) ) {
 			$result = json_decode( $res );
 			if ( json_last_error() === JSON_ERROR_NONE ) {
-				if ( self::isValidMathML( $result->result ) ) {
+				if ( $this->isValidMathML( $result->result ) ) {
 					$this->setMathml( $result->result );
 					wfProfileOut( __METHOD__ );
 					return true;
@@ -238,30 +268,47 @@ class MathLaTeXML extends MathRenderer {
 	}
 
 	/**
+	 * Sets the XML validation.
+	 * If set to false the output of LaTeXML is not validated.
+	 * @param boolean $validation
+	 */
+	public function setXMLValidation( $validation = true ) {
+		$this->XMLValidation = $validation;
+	}
+
+	/**
 	 * Checks if the input is valid MathML,
 	 * and if the root element has the name math
 	 * @param string $XML
 	 * @return boolean
 	 */
-	static public function isValidMathML( $XML ) {
+	public function isValidMathML( $XML ) {
 		$out = false;
+		if ( !$this->XMLValidation ) {
+			return true;
+		}
 		// depends on https://gerrit.wikimedia.org/r/#/c/66365/
-		if ( ! is_callable( 'XmlTypeCheck::newFromString' ) ) {
+		if ( !is_callable( 'XmlTypeCheck::newFromString' ) ) {
 			$msg = wfMessage( 'math_latexml_xmlversion' )->inContentLanguage()->escaped();
 			trigger_error( $msg, E_USER_NOTICE );
 			wfDebugLog( 'Math', $msg );
 			return true;
 		}
 		$xmlObject = new XmlTypeCheck( $XML, null, false );
-		if ( ! $xmlObject->wellFormed ) {
+		if ( !$xmlObject->wellFormed ) {
 			wfDebugLog( "Math", "XML validation error:\n " . var_export( $XML, true ) . "\n" );
 		} else {
 			$name = $xmlObject->getRootElement();
-			$name = str_replace( 'http://www.w3.org/1998/Math/MathML:', '', $name );
-			if ( $name == "math" or $name == "table" or $name == "div" ) {
+			$elementSplit = explode( ':', $name );
+			if ( is_array($elementSplit) ){
+				$localName = end( $elementSplit );
+			} else {
+				$localName = $name;
+			}
+			if ( in_array( $localName , $this->getAllowedRootElements() ) ) {
 				$out = true;
 			} else {
-				wfDebugLog( "Math", "got wrong root element " . $name );
+				wfDebugLog( "Math", "got wrong root element : $name" );
 			}
 		}
 		return $out;
