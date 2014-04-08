@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_945fa044",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-08T11:07:38Z",
+      "side": 1,
+      "message": "will that give the right namespace for XHTML. IIUC, in the old code the XHTML namespace was absent, so $name will be empty here, right?",
+      "revId": "f6e0814fae0b1f34c72648997404ad232fcb7945",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
