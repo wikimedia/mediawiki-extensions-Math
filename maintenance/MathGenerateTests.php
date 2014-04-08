@@ -29,7 +29,7 @@ class MathGenerateTests extends Maintenance
 	{
 		parent::__construct();
 		$this->mDescription = 'Rebuilds the MathCoverage tests';
-		$this->addArg( 'page', "The page ues for the testset generation.", false );
+		$this->addArg( 'page', "The page used for the testset generation.", false );
 		$this->addOption( 'offset', "If set the first n equations on the page are skipped", false, true, "o" );
 		$this->addOption( 'length', "If set the only n equations were processed", false, true, "l" );
 		$this->addOption( 'user', "User with rights to view the page", false, true, "u" );
