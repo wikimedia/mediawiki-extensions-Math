@@ -4,6 +4,7 @@
  *
  * @group Math
  */
+include __DIR__ . "/MathDatabaseTest.php";
 class MathRendererTest extends MediaWikiTestCase {
 	/**
 	 * Checks the tex and hash functions
