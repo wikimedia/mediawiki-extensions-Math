@@ -28,6 +28,11 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 		parent::setUp();
 		// TODO: figure out why this is necessary
 		$this->db = wfGetDB( DB_MASTER );
+		if ( $this->db->getType() === 'sqlite' ){
+			$this->markTestSkipped( "SQLite is currently not supported as a database " .
+				"backend for the LaTeXML rendering mode."
+			);
+		}
 		// Create a new instance of MathSource
 		$this->renderer = new MathLaTeXML( self::SOME_TEX );
 		self::setupTestDB( $this->db, "mathtest" );
@@ -63,7 +68,6 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 		// comparing the class object does now work due to null values etc.
 		$this->assertEquals( $this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same" );
 		$this->assertEquals( $this->renderer->getMathml(), $renderer2->getMathml(), "Check MathML encoding" );
-
 	}
 
 
@@ -78,7 +82,11 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 		$dbu = DatabaseUpdater::newForDB( $this->db );
 		$dbu->doUpdates( array( "extensions" ) );
 		$this->expectOutputRegex( '/(.*)Creating mathlatexml table(.*)/' );
+		$this->setValues();
+		$this->renderer->writeToDatabase();
 		$res = $this->db->select( "mathlatexml", "*" );
+		$row = $res->fetchRow();
+		$this->assertEquals( 20,  sizeof( $row ) );
 	}
 
 }
