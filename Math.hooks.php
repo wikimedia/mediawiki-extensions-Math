@@ -2,7 +2,7 @@
 /**
  * MediaWiki math extension
  *
- * (c) 2002-2012 various MediaWiki contributors
+ * (c) 2002-2014 various MediaWiki contributors
  * GPLv2 license; info in main package.
  */
 
@@ -176,8 +176,7 @@ class MathHooks {
 			MW_MATH_SOURCE => 'mw_math_source',
 			MW_MATH_PNG => 'mw_math_png',
 			MW_MATH_MATHML => 'mw_math_mathml',
-			MW_MATH_LATEXML => 'mw_math_latexml',
-			MW_MATH_MATHJAX => 'mw_math_mathjax'
+			MW_MATH_LATEXML => 'mw_math_latexml'
 		);
 		$names = array();
 		foreach ( $wgMathValidModes as $mode ) {
@@ -210,27 +209,31 @@ class MathHooks {
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
+		global $wgMathDebug, $wgMathValidModes;
 		if ( is_null( $updater ) ) {
 			throw new MWException( 'Math extension is only necessary in 1.18 or above' );
 		}
 
-		$map = array(
-			'mysql' => 'math.sql',
-			'sqlite' => 'math.sql',
-			'postgres' => 'math.pg.sql',
-			'oracle' => 'math.oracle.sql',
-			'mssql' => 'math.mssql.sql',
-		);
+		$map = array( 'mysql', 'sqlite', 'postgres', 'oracle', 'mssql' );
 
 		$type = $updater->getDB()->getType();
 
-		if ( isset( $map[$type] ) ) {
-			$sql = dirname( __FILE__ ) . '/db/' . $map[$type];
-			$updater->addExtensionTable( 'math', $sql );
+		if ( in_array( $type, $map ) ) {
+			if ( in_array( MW_MATH_PNG, $wgMathValidModes ) ){
+				$sql = dirname( __FILE__ ) . '/db/math.' . $type . '.sql';
+				$updater->addExtensionTable( 'math', $sql );
+			}
+			if ( in_array( MW_MATH_LATEXML, $wgMathValidModes ) ){
+				if ( $type == 'mysql' ) {
+					$sql = dirname( __FILE__ ) . '/db/mathlatexml.' . $type . '.sql';
+					$updater->addExtensionTable( 'mathlatexml', $sql );
+				} else {
+					throw new MWException( "Math extension does not currently support $type database for LaTeXML." );
+				}
+			}
 		} else {
 			throw new MWException( "Math extension does not currently support $type database." );
 		}
-
 		return true;
 	}
 
@@ -243,7 +246,7 @@ class MathHooks {
 	 */
 	static function onParserTestTables( &$tables ) {
 		$tables[] = 'math';
-
+		$tables[] = 'mathlatexml';
 		return true;
 	}
 
