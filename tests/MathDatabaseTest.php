@@ -9,12 +9,11 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	var $renderer;
 	const SOME_TEX = "a+b";
 	const SOME_HTML = "a<sub>b</sub>";
-	const SOME_MATHML = "i⁢ℏ⁢∂t⁡Ψ=H^⁢Ψ<mrow><\ci>";
+	const SOME_MATHML = "iℏ∂_tΨ=H^Ψ<mrow><\ci>";
 	const SOME_LOG = "Sample Log Text.";
-	const SOME_STATUSCODE = 2;
 	const SOME_TIMESTAMP = 1272509157;
-	const SOME_VALIDXML = true;
-	const NUM_BASIC_FIELDS = 5;
+	const SOME_SVG = "<?xml </svg >>%%LIKE;'\" DROP TABLE math;";
+
 
 	/**
 	 * creates a new database connection and a new math renderer
@@ -32,7 +31,6 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->db = wfGetDB( DB_MASTER );
 		// Create a new instance of MathSource
 		$this->renderer = $this->getMockForAbstractClass( 'MathRenderer', array ( self::SOME_TEX ) );
-		$this->tablesUsed[] = 'math';
 		self::setupTestDB( $this->db, "mathtest" );
 
 		$wgDebugMath = FALSE;
@@ -52,8 +50,8 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	public function setValues() {
 		// set some values
 		$this->renderer->setTex( self::SOME_TEX );
-		$this->renderer->setHtml( self::SOME_HTML );
 		$this->renderer->setMathml( self::SOME_MATHML );
+		$this->renderer->setLog( self::SOME_LOG );
 	}
 	/**
 	 * Checks database access. Writes an etry and reads it back.
@@ -61,18 +59,14 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 * @convers MathRenderer::readDatabaseEntry()
 	 */
 	public function testDBBasics() {
-		// ;
 		$this->setValues();
-
 		$this->renderer->writeToDatabase();
 
 		$renderer2 = $this->getMockForAbstractClass( 'MathRenderer', array ( self::SOME_TEX ) );
 		$renderer2->readFromDatabase();
 		// comparing the class object does now work due to null values etc.
-		// $this->assertEquals($this->renderer,$renderer2);
 		$this->assertEquals( $this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same" );
 		$this->assertEquals( $this->renderer->getMathml(), $renderer2->getMathml(), "Check MathML encoding" );
-		$this->assertEquals( $this->renderer->getHtml(), $renderer2->getHtml() );
 	}
 
 
@@ -82,23 +76,65 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 * @covers MathHooks::onLoadExtensionSchemaUpdates
 	 */
 	public function testBasicCreateTable() {
-		if ( $this->db->getType() === 'sqlite' ) {
-			$this->markTestSkipped( "SQLite has global indices. We cannot " .
-				"create the `unitest_math` table, its math_inputhash index " .
-				"would conflict with the one from the real `math` table."
-			);
-		}
-		global $wgDebugMath;
+		global $wgMathDebug;
 		$this->db->dropTable( "math", __METHOD__ );
-		$wgDebugMath = false;
+        $this->db->dropTable( "mathoid", __METHOD__ );
+		$wgMathDebug = false;
 		$dbu = DatabaseUpdater::newForDB( $this->db );
 		$dbu->doUpdates( array( "extensions" ) );
 		$this->expectOutputRegex( '/(.*)Creating math table(.*)/' );
+        $this->expectOutputRegex( '/(.*)Creating mathoid table(.*)/' );
 		$this->setValues();
 		$this->renderer->writeToDatabase();
-		$res = $this->db->select( "math", "*" );
+		$res = $this->db->select( "mathoid", "*" );
 		$row = $res->fetchRow();
-		$this->assertEquals( count( $row ), 2 * self::NUM_BASIC_FIELDS );
+		$this->assertEquals( 14,  sizeof( $row ) );
 	}
+
+	/**
+	 * Checks the creation of the math table with debugging endabled.
+	 * @covers MathHooks::onLoadExtensionSchemaUpdates
+	 */
+	public function testDebugCreateTable() {
+		global $wgMathDebug;
+		sleep( 2 );
+		$this->db->dropTable( "math", __METHOD__ );
+        $this->db->dropTable( "mathoid", __METHOD__ );
+		$wgMathDebug = true;
+		$dbu = DatabaseUpdater::newForDB( $this->db );
+		$dbu->doUpdates( array( "extensions" ) );
+		$this->expectOutputRegex( '/(.*)Creating math table(.*)/' );
+        $this->expectOutputRegex( '/(.*)Creating mathoid table(.*)/' );
+		$this->setValues();
+		$this->renderer->writeToDatabase();
+		$res = $this->db->select( "mathoid", "*" );
+		$row = $res->fetchRow();
+		$this->assertEquals( 20, sizeof( $row ) );
+	}
+
+	/**
+	 * Checks database access. Writes an etry and reads it back.
+	 * @convers MathRenderer::writeDatabaseEntry()
+	 * @convers MathRenderer::readDatabaseEntry()
+	 * @depends testDebugCreateTable
+	 */
+	public function testDBDebug() {
+		global $wgMathDebug;
+		// ;
+		$this->setValues();
+		$wgMathDebug = true;
+
+		$this->renderer->writeToDatabase();
+
+		$renderer2 = $this->getMockForAbstractClass( 'MathRenderer', array ( self::SOME_TEX ) );
+		$renderer2->readFromDatabase();
+		// comparing the class object does now work due to null values etc.
+		// $this->assertEquals($this->renderer,$renderer2);
+		$this->assertEquals( $this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same" );
+		$this->assertEquals( $this->renderer->getMathml(), $renderer2->getMathml(), "Check MathML encoding" );
+		$this->assertEquals( $this->renderer->getLog(), $renderer2->getLog() , "test log" );
+		$this->assertEquals( $this->renderer->getStatusCode(), $renderer2->getStatusCode() , "test status code" );
+	}
+
 
 }
