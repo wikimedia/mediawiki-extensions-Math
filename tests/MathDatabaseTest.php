@@ -11,8 +11,6 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	const SOME_HTML = "a<sub>b</sub> and so on";
 	const SOME_MATHML = "iℏ∂_tΨ=H^Ψ<mrow><\ci>";
 	const SOME_CONSERVATIVENESS = 2;
-	const SOME_OUTPUTHASH = 'C65c884f742c8591808a121a828bc09f8<';
-	const NUM_BASIC_FIELDS = 5;
 
 
 
@@ -51,6 +49,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->renderer->setTex( self::SOME_TEX );
 		$this->renderer->setMathml( self::SOME_MATHML );
 		$this->renderer->setHtml( self::SOME_HTML );
+		$this->renderer->setOutputHash( self::SOME_OUTPUTHASH);
 	}
 	/**
 	 * Checks database access. Writes an entry and reads it back.
@@ -84,6 +83,6 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->renderer->writeToDatabase();
 		$res = $this->db->select( "math", "*" );
 		$row = $res->fetchRow();
-		$this->assertEquals( count( $row ), 2 * self::NUM_BASIC_FIELDS );
+		$this->assertEquals( 10,  sizeof( $row ) );
 	}
 }
