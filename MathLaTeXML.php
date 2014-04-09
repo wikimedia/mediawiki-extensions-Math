@@ -192,7 +192,7 @@ class MathLaTeXML extends MathRenderer {
 
 	/**
 	 * Picks a LaTeXML daemon.
-	 * If more than one demon are availible one is chosen from the
+	 * If more than one demon are available one is chosen from the
 	 * $wgMathLaTeXMLUrl array.
 	 * @return string
 	 */
@@ -230,31 +230,42 @@ class MathLaTeXML extends MathRenderer {
 	 * Does the actual web request to convert TeX to MathML.
 	 * @return boolean
 	 */
-	private function doRender( ) {
+	protected function doRender() {
+		global $wgMathDebug;
 		wfProfileIn( __METHOD__ );
+		if ( trim( $this->getTex() ) === '' ) {
+			wfDebugLog( "Math", "Rendering was requested, but no TeX string is specified." );
+			$this->lastError = $this->getError( 'math_empty_tex' );
+			return false;
+		}
+		$res = '';
 		$host = self::pickHost();
 		$post = $this->getPostData();
 		$this->lastError = '';
-		if ( $this->makeRequest( $host, $post, $res, $this->lastError ) ) {
+		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
+		if ( $requestResult ) {
 			$result = json_decode( $res );
-			if ( json_last_error() === JSON_ERROR_NONE ) {
+			if ( $result && json_last_error() === JSON_ERROR_NONE ) {
 				if ( $this->isValidMathML( $result->result ) ) {
 					$this->setMathml( $result->result );
-					wfProfileOut( __METHOD__ );
+					if ( $wgMathDebug ) {
+						$this->setLog( $result->log );
+						$this->setStatusCode( $result->status_code );
+					}
 					return true;
 				} else {
 					// Do not print bad mathml. It's probably too verbose and might
 					// mess up the browser output.
-					$this->lastError = $this->getError( 'math_latexml_invalidxml', $host );
+					$this->lastError = $this->getError( 'math_invalidxml', $this->getModeStr(), $host );
 					wfDebugLog( "Math", "\nLaTeXML InvalidMathML:"
-						. var_export( array( 'post' => $post, 'host' => $host
-							, 'result' => $result ), true ) . "\n\n" );
+							. var_export( array( 'post' => $post, 'host' => $host
+								, 'result' => $res ), true ) . "\n\n" );
 					wfProfileOut( __METHOD__ );
 					return false;
 				}
 			} else {
-					$this->lastError = $this->getError( 'math_latexml_invalidjson', $host );
-					wfDebugLog( "Math", "\nLaTeXML InvalidJSON:"
+				$this->lastError = $this->getError( 'math_invalidjson', $this->getModeStr(), $host );
+				wfDebugLog( "Math", "\nLaTeXML InvalidJSON:"
 						. var_export( array( 'post' => $post, 'host' => $host
 							, 'res' => $res ), true ) . "\n\n" );
 					wfProfileOut( __METHOD__ );
@@ -341,5 +352,7 @@ class MathLaTeXML extends MathRenderer {
 		}
 		return Xml::tags( 'span', $attribs, $mml );
 	}
-
+	protected function getMathTableName() {
+		return 'mathlatexml';
+	}
 }
