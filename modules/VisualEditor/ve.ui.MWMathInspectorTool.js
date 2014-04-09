@@ -25,6 +25,10 @@ ve.ui.MWMathInspectorTool.static.group = 'object';
 ve.ui.MWMathInspectorTool.static.icon = 'math';
 ve.ui.MWMathInspectorTool.static.title = OO.ui.deferMsg(
 	'math-visualeditor-mwmathinspector-title' );
-ve.ui.MWMathInspectorTool.static.inspector = 'math';
 ve.ui.MWMathInspectorTool.static.modelClasses = [ ve.dm.MWMathNode ];
+ve.ui.MWMathInspectorTool.static.commandName = 'math';
 ve.ui.toolFactory.register( ve.ui.MWMathInspectorTool );
+
+ve.ui.commandRegistry.register(
+	new ve.ui.Command( 'math', 'inspector', 'open', 'math' )
+);
