@@ -5,14 +5,14 @@
 * @group Math
 * @group Database //Used by needsDB
 */
-class MathDatabaseTest extends MediaWikiTestCase {
+class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	var $renderer;
 	const SOME_TEX = "a+b";
-	const SOME_HTML = "a<sub>b</sub> and so on";
+	const SOME_HTML = "a<sub>b</sub>";
 	const SOME_MATHML = "iℏ∂_tΨ=H^Ψ<mrow><\ci>";
-	const SOME_CONSERVATIVENESS = 2;
-	const SOME_OUTPUTHASH = 'C65c884f742c8591808a121a828bc09f8<';
-
+	const SOME_LOG = "Sample Log Text.";
+	const SOME_TIMESTAMP = 1272509157;
+	const SOME_SVG = "<?xml </svg >>%%LIKE;'\" DROP TABLE math;";
 
 
 	/**
@@ -29,8 +29,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		// TODO:figure out why this is neccessary
 		$this->db = wfGetDB( DB_MASTER );
 		// Create a new instance of MathSource
-		$this->renderer = new MathTexvc( self::SOME_TEX );
-		$this->tablesUsed[] = 'math';
+		$this->renderer = new MathLaTeXML( self::SOME_TEX );
 		self::setupTestDB( $this->db, "mathtest" );
 }
 	/**
@@ -49,8 +48,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		// set some values
 		$this->renderer->setTex( self::SOME_TEX );
 		$this->renderer->setMathml( self::SOME_MATHML );
-		$this->renderer->setHtml( self::SOME_HTML );
-		$this->renderer->setOutputHash( self::SOME_OUTPUTHASH);
+		$this->renderer->setLog( self::SOME_LOG );
 	}
 	/**
 	 * Checks database access. Writes an etry and reads it back.
@@ -59,13 +57,16 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 */
 	public function testDBBasics() {
 		$this->setValues();
-		$this->renderer->writeToDatabase( $this->db );
-		$renderer2 = new MathTexvc( self::SOME_TEX );
-		$this->assertTrue( $renderer2->readFromDatabase(), 'Reading from database failed' );
+		$this->renderer->writeToDatabase();
+
+		$renderer2 = $this->renderer = new MathLaTeXML( self::SOME_TEX );
+		$renderer2->readFromDatabase();
 		// comparing the class object does now work due to null values etc.
 		$this->assertEquals( $this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same" );
 		$this->assertEquals( $this->renderer->getMathml(), $renderer2->getMathml(), "Check MathML encoding" );
-		$this->assertEquals( $this->renderer->getHtml(), $renderer2->getHtml(), 'test if HTML is the same' );
+		$this->assertEquals( $this->renderer->getLog(), $renderer2->getLog() , "test log" );
+		$this->assertEquals( $this->renderer->getStatusCode(), $renderer2->getStatusCode() , "test status code" );
+
 	}
 
 
@@ -75,15 +76,17 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 * @covers MathHooks::onLoadExtensionSchemaUpdates
 	 */
 	public function testCreateTable() {
-		$this->setMwGlobals( 'wgMathValidModes', array( MW_MATH_PNG ) );
-		$this->db->dropTable( "math", __METHOD__ );
+		$this->setMwGlobals( 'wgMathValidModes', array( MW_MATH_PNG, MW_MATH_LATEXML ) );
+		$this->db->dropTable( "mathlatexml", __METHOD__ );
+		$wgMathDebug = false;
 		$dbu = DatabaseUpdater::newForDB( $this->db );
 		$dbu->doUpdates( array( "extensions" ) );
-		$this->expectOutputRegex( '/(.*)Creating math table(.*)/' );
+        $this->expectOutputRegex( '/(.*)Creating mathlatexml table(.*)/' );
 		$this->setValues();
 		$this->renderer->writeToDatabase();
-		$res = $this->db->select( "math", "*" );
+		$res = $this->db->select( "mathlatexml", "*" );
 		$row = $res->fetchRow();
-		$this->assertEquals( 10,  sizeof( $row ) );
+		$this->assertEquals( 20,  sizeof( $row ) );
 	}
+
 }

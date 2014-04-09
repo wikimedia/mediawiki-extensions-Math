@@ -16,12 +16,59 @@
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
  * @author Moritz Schubotz
+ * @deprecated will be deleted in one of the next versions without further notice
  */
 class MathTexvc extends MathRenderer {
+	private $hash = '';
+	private $html = '';
+	private $conservativeness = 0;
 	const CONSERVATIVE = 2;
 	const MODERATE = 1;
 	const LIBERAL = 0;
 	const MW_TEXVC_SUCCESS = -1;
+
+     /**
+	 * Gets an array that matches the variables of the class to the database columns
+	 * @return array
+	 */
+	public function dbOutArray() {
+		$out = array();
+		$dbr = wfGetDB( DB_SLAVE );
+		$outmd5_sql = $dbr->encodeBlob( pack( 'H32', $this->hash ) );
+		$out['math_outputhash'] = $outmd5_sql;
+		$out['math_html_conservativeness'] = $this->conservativeness;
+		$out['math_html'] = $this->html;
+		$out['math_mathml'] = $this->getMathml();
+		$out['math_inputhash'] = $this->getInputHash();
+		wfDebugLog( 'Math', 'Store Hashpath of image' . bin2hex( $outmd5_sql ) );
+		return $out;
+	}
+
+	protected function dbInArray() {
+		return array( 'math_inputhash', 'math_outputhash',
+				'math_html_conservativeness', 'math_html', 'math_mathml' );
+	}
+
+	/**
+	 * @param database_row $rpage
+	 */
+	protected function initializeFromDatabaseRow( $rpage ) {
+		$result = parent::initializeFromDatabaseRow( $rpage );
+		// get deprecated fields
+		if ( $rpage->math_outputhash ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$xhash = unpack( 'H32md5',
+				$dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
+			$this->hash = $xhash['md5'];
+			wfDebugLog( 'Math', 'Hashpath of PNG-File:' . bin2hex( $this->hash ) );
+			$this->conservativeness = $rpage->math_html_conservativeness;
+			$this->html = $rpage->math_html;
+			$this->setMathml( $rpage->math_mathml );
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	/**
 	 * Renders TeX using texvc
@@ -203,7 +250,7 @@ class MathTexvc extends MathRenderer {
 		if ( !$errmsg ) {
 			$newHash = substr( $contents, 1, 32 );
 			if ( $this->hash !== $newHash ) {
-				$this->recall = false; // DB needs update in writeCache() (bug 60997)
+				$this->isInDatabase( false ); // DB needs update in writeCache() (bug 60997)
 			}
 			$this->setHash( $newHash );
 		}
@@ -314,14 +361,9 @@ class MathTexvc extends MathRenderer {
 		global $wgUseSquid;
 
 		wfProfileIn( __METHOD__ );
-		// If cache hit, don't write anything.
-		if ( $this->isRecall() ) {
-			wfProfileOut( __METHOD__ );
-			return;
-		}
-		$this->writeToDatabase();
+		$updated = parent::writeCache();
 		// If we're replacing an older version of the image, make sure it's current.
-		if ( $wgUseSquid ) {
+		if ( $updated && $wgUseSquid ) {
 			$urls = array( $this->getMathImageUrl() );
 			$u = new SquidUpdate( $urls );
 			$u->doUpdate();
@@ -358,6 +400,77 @@ class MathTexvc extends MathRenderer {
 		}
 		wfProfileOut( __METHOD__ );
 		return false;
+	}
+	public function getPng() {
+		$backend = $this->getBackend();
+		// echo $this->getHashPath(). "/". $this->getHash() . '.png';
+		return $backend->getFileContents( array( 'src' => $this->getHashPath() . "/" . $this->getHash() . '.png' ) );
+	}
+
+	public function readFromDatabase() {
+		$return = parent::readFromDatabase();
+		if ( $this->hash && $return ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	/**
+	 * Get the hash calculated by texvc
+	 *
+	 * @return string hash
+	 */
+	public function getHash() {
+		return $this->hash;
+	}
+
+	/**
+	 * @param string $hash
+	 */
+	public function setHash( $hash ) {
+		$this->changed = true;
+		$this->hash = $hash;
+	}
+
+	/**
+	 * Returns the html-representation of the mathematical formula.
+	 * @return string
+	 */
+	public function getHtml() {
+		return $this->html;
+	}
+
+	/**
+	 * @param string $html
+	 */
+	public function setHtml( $html ) {
+		$this->changed = true;
+		$this->html = $html;
+	}
+
+	/**
+	 * Gets the so called 'conservativeness' calculated by texvc
+	 *
+	 * @return int
+	 */
+	public function getConservativeness() {
+		return $this->conservativeness;
+	}
+
+	/**
+	 * @param int $conservativeness
+	 */
+	public function setConservativeness( $conservativeness ) {
+		$this->changed = true;
+		$this->conservativeness = $conservativeness;
+	}
+
+	protected function getMathTableName() {
+		return 'math';
+	}
+
+	public function setOutputHash( $hash ){
+		$this->hash = $hash;
 	}
 
 }
