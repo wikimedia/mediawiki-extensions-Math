@@ -20,5 +20,5 @@
     "math_bad_output": "Impossible de crear o d’escriure dins lo repertòri math de sortida",
     "math_notexvc": "L’executable « <code>texvc</code> » es introbable. Legissètz math/README per lo configurar.",
     "math-preference-mwmathinspector-description": "Apondre d'aisinas experimentalas a VisualEditor per crear o modificar de formulas matematicas, per dire d'o ensajar, abans la mesa en produccion. Doblidètz pas d'enregistrar las modificacions abans d'utilizar las foncions experimentalas.",
-    "math-preference-mwmathinspector-label": "Modificacion de formulas amb l'EditorVisual"
+    "math-preference-mwmathinspector-label": "Modificacion de formulas dins l'EditorVisual"
 }
