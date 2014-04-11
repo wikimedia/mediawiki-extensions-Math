@@ -15,7 +15,7 @@
     "math_unknown_function": "foncion desconeguda « $1 »",
     "math_lexing_error": "error lexicala",
     "math_syntax_error": "error de sintaxi",
-    "math_image_error": "La conversion en PNG a pas capitat ; verificatz l’installacion de Latex, dvips, gs e convert",
+    "math_image_error": "La conversion en PNG a pas capitat ; verificatz l’installacion de Latex e dvipng (o dvips + gs + convert)",
     "math_bad_tmpdir": "Impossible de crear o d’escriure dins lo repertòri math temporari",
     "math_bad_output": "Impossible de crear o d’escriure dins lo repertòri math de sortida",
     "math_notexvc": "L’executable « <code>texvc</code> » es introbable. Legissètz math/README per lo configurar.",
