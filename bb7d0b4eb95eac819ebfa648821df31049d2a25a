@@ -87,6 +87,74 @@
     },
     {
       "key": {
+        "uuid": "8e23439c_f67a271e",
+        "filename": "MathRenderer.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1024
+      },
+      "writtenOn": "2014-04-15T12:50:24Z",
+      "side": 1,
+      "message": "while -\u003e during",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_d675eb2d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1024
+      },
+      "writtenOn": "2014-04-15T12:50:24Z",
+      "side": 1,
+      "message": "mathematical",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_f6c0e730",
+        "filename": "MathRenderer.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1024
+      },
+      "writtenOn": "2014-04-15T12:50:24Z",
+      "side": 1,
+      "message": "I get the impression that $this-\u003emd5 should be set here.",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_1626c311",
+        "filename": "tests/MathLaTeXMLDatabaseTest.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1024
+      },
+      "writtenOn": "2014-04-15T12:50:24Z",
+      "side": 1,
+      "message": "functionality",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e23439c_96d89380",
         "filename": "tests/MathLaTeXMLDatabaseTest.php",
         "patchSetId": 9
@@ -166,6 +234,40 @@
       "writtenOn": "2014-04-15T12:07:08Z",
       "side": 1,
       "message": "entry",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_d61f2bb9",
+        "filename": "tests/MathRendererTest.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1024
+      },
+      "writtenOn": "2014-04-15T12:50:24Z",
+      "side": 1,
+      "message": "functionality",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_b67eefdf",
+        "filename": "tests/MathRendererTest.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1024
+      },
+      "writtenOn": "2014-04-15T12:50:24Z",
+      "side": 1,
+      "message": "correctly",
       "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
