@@ -114,4 +114,4 @@ ve.ui.MWMathInspector.prototype.teardown = function ( data ) {
 
 /* Registration */
 
-ve.ui.inspectorFactory.register( ve.ui.MWMathInspector );
+ve.ui.windowFactory.register( ve.ui.MWMathInspector );
