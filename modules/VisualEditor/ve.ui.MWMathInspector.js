@@ -14,12 +14,11 @@
  * @extends ve.ui.MWExtensionInspector
  *
  * @constructor
- * @param {ve.ui.WindowSet} windowSet Window set this inspector is part of
  * @param {Object} [config] Configuration options
  */
-ve.ui.MWMathInspector = function VeUiMWMathInspector( windowSet, config ) {
+ve.ui.MWMathInspector = function VeUiMWMathInspector( config ) {
 	// Parent constructor
-	ve.ui.MWExtensionInspector.call( this, windowSet, config );
+	ve.ui.MWExtensionInspector.call( this, config );
 
 	this.onChangeHandler = ve.debounce( ve.bind( this.updatePreview, this ), 250 );
 };
@@ -46,9 +45,13 @@ ve.ui.MWMathInspector.static.nodeModel = ve.dm.MWMathNode;
  * Update the math node rendering to reflect the content entered into the inspector.
  */
 ve.ui.MWMathInspector.prototype.updatePreview = function () {
-	var newsrc = this.input.getValue();
+	var mwData = ve.copy( this.node.getAttribute( 'mw' ) ),
+		newsrc = this.input.getValue();
+
+	mwData.body.extsrc = newsrc;
+
 	if ( this.visible ) {
-		this.node.update( { 'extsrc': newsrc } );
+		this.getFragment().changeAttributes( { 'mw': mwData } );
 	}
 };
 
@@ -59,28 +62,30 @@ ve.ui.MWMathInspector.prototype.setup = function ( data ) {
 	// Parent method
 	ve.ui.MWExtensionInspector.prototype.setup.call( this, data );
 
-	var mw, surfaceModel = this.surface.getModel();
+	this.getFragment().getSurface().pushStaging();
 
-	this.node = this.surface.getView().getFocusedNode();
-	if ( !this.node ) {
+	var mwData;
+
+	this.node = this.getFragment().getSelectedNode();
+	if ( !this.node || !( this.node instanceof ve.dm.MWMathNode ) ) {
 		// Create a dummy node, needed for live preview
-		mw = {
+		mwData = {
 			'name': 'math',
 			'attrs': {},
 			'body': {
 				'extsrc': ''
 			}
 		};
-		surfaceModel.getFragment().collapseRangeToEnd().insertContent( [
+		this.getFragment().collapseRangeToEnd().insertContent( [
 			{
 				'type': 'mwMath',
 				'attributes': {
-					'mw': mw
+					'mw': mwData
 				}
 			},
 			{ 'type': '/mwMath' }
 		] );
-		this.node = this.surface.getView().getFocusedNode();
+		this.node = this.getFragment().getSelectedNode();
 	}
 
 	this.input.on( 'change', this.onChangeHandler );
@@ -95,21 +100,20 @@ ve.ui.MWMathInspector.prototype.setup = function ( data ) {
  */
 ve.ui.MWMathInspector.prototype.teardown = function ( data ) {
 	var newsrc = this.input.getValue(),
-		surfaceModel = this.surface.getModel();
+		surfaceModel = this.getFragment().getSurface();
 
 	this.input.off( 'change', this.onChangeHandler );
 
-	if ( newsrc !== '' ) {
-		// Parent method
-		ve.ui.MWExtensionInspector.prototype.teardown.call( this, data );
-	} else {
+	this.getFragment().getSurface().applyStaging();
+
+	if ( newsrc === '' ) {
 		// The user tried to empty the node, remove it
 		surfaceModel.change( ve.dm.Transaction.newFromRemoval(
 			surfaceModel.getDocument(), this.node.getOuterRange()
 		) );
-		// Grandparent method; we're overriding the parent behavior in this case
-		ve.ui.Inspector.prototype.teardown.call( this, data );
 	}
+	// Grandparent method; we're overriding the parent behavior with applyStaging
+	ve.ui.Inspector.prototype.teardown.call( this, data );
 };
 
 /* Registration */
