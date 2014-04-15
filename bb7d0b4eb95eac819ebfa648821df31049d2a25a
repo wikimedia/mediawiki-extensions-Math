@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_76f857e2",
+        "filename": "MathRenderer.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-15T12:07:08Z",
+      "side": 1,
+      "message": "MATHEMATICAL",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_56fb1bde",
+        "filename": "MathRenderer.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-15T12:07:08Z",
+      "side": 1,
+      "message": "SVG layout\n\nmissing space before */",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_36e2df2e",
+        "filename": "MathRenderer.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-15T12:07:08Z",
+      "side": 1,
+      "message": "Available",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_f6eb4707",
+        "filename": "MathRenderer.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-15T12:07:08Z",
+      "side": 1,
+      "message": "database",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_d6e60b3f",
+        "filename": "MathRenderer.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-15T12:07:08Z",
+      "side": 1,
+      "message": "mathematical content",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_96d89380",
+        "filename": "tests/MathLaTeXMLDatabaseTest.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-15T12:07:08Z",
+      "side": 1,
+      "message": "database\nexplicitly",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_76cf37b6",
+        "filename": "tests/MathLaTeXMLDatabaseTest.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-15T12:07:08Z",
+      "side": 1,
+      "message": "sufficient",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_56d2fb5d",
+        "filename": "tests/MathLaTeXMLDatabaseTest.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-15T12:07:08Z",
+      "side": 1,
+      "message": "necessary",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_36c9bfae",
+        "filename": "tests/MathLaTeXMLDatabaseTest.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-15T12:07:08Z",
+      "side": 1,
+      "message": "instance",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_16c48393",
+        "filename": "tests/MathLaTeXMLDatabaseTest.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-04-15T12:07:08Z",
+      "side": 1,
+      "message": "entry",
+      "revId": "bb7d0b4eb95eac819ebfa648821df31049d2a25a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
