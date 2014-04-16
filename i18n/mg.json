@@ -1,21 +1,21 @@
 {
-    "@metadata": {
-        "authors": [
-            "Jagwar"
-        ]
-    },
-    "math_sample": "Atsofohy eto ny raikipohy",
-    "math_tip": "Raikipohy matematika (LaTeX)",
-    "prefs-math": "Math",
-    "mw_math_png": "Anamboary sary PNG foana",
-    "mw_math_source": "\nAvelao ho TeX (ho an'ny navigateurs textes)",
-    "math_failure": "Tsy nety ny fanodinana ny raikipohy",
-    "math_unknown_error": "tsy fahatomombanana tsy hay antony",
-    "math_unknown_function": "fonction tsy fantatra",
-    "math_lexing_error": "fahadisoana ara-teny",
-    "math_syntax_error": "Misy diso ny raikipohy",
-    "math_image_error": "Tsy voavadika ho PNG; hamarino fa mety voapetraka tsara ny rindrankajy latex, dvips, gs ary convert",
-    "math_bad_tmpdir": "Tsy afaka namorona na nanoratra répertoire vonjimaika ho an'ny matematika",
-    "math_bad_output": "Tsy afaka namorona na nanoratra tao amin'ny répertoire hampiasain'ny asa matematika",
-    "math_notexvc": "Tsy hita ny rindrankajy <code>texvc</code>; azafady jereo math/README hanamboarana azy."
+	"@metadata": {
+		"authors": [
+			"Jagwar"
+		]
+	},
+	"math_sample": "Atsofohy eto ny raikipohy",
+	"math_tip": "Raikipohy matematika (LaTeX)",
+	"prefs-math": "Math",
+	"mw_math_png": "Anamboary sary PNG foana",
+	"mw_math_source": "\nAvelao ho TeX (ho an'ny navigateurs textes)",
+	"math_failure": "Tsy nety ny fanodinana ny raikipohy",
+	"math_unknown_error": "tsy fahatomombanana tsy hay antony",
+	"math_unknown_function": "fonction tsy fantatra",
+	"math_lexing_error": "fahadisoana ara-teny",
+	"math_syntax_error": "Misy diso ny raikipohy",
+	"math_image_error": "Tsy voavadika ho PNG; hamarino fa mety voapetraka tsara ny rindrankajy latex, dvips, gs ary convert",
+	"math_bad_tmpdir": "Tsy afaka namorona na nanoratra répertoire vonjimaika ho an'ny matematika",
+	"math_bad_output": "Tsy afaka namorona na nanoratra tao amin'ny répertoire hampiasain'ny asa matematika",
+	"math_notexvc": "Tsy hita ny rindrankajy <code>texvc</code>; azafady jereo math/README hanamboarana azy."
 }

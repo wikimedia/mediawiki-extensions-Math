@@ -1,25 +1,25 @@
 {
-    "@metadata": {
-        "authors": [
-            "Alsandro",
-            "David1010",
-            "გიორგიმელა"
-        ]
-    },
-    "math_sample": "ჩასვით ფორმულა აქ",
-    "math_tip": "მათემატიკური ფორმულა (LaTeX)",
-    "prefs-math": "მათემატიკა",
-    "mw_math_png": "მუდამ გამოიყენე PNG",
-    "mw_math_source": "დატოვე როგორც TeX (ტექსტური ბრაუზერებისთვის)",
-    "mw_math_mathjax": "MathJax (ექსპერიმენტული; ყველაზე შესაფერისი ბრაუზერების უმეტესობისათვის)",
-    "math_failure": "შეუძლებელია გამონათქვამის გარჩევაშ",
-    "math_unknown_error": "უცნობი შეცდომა",
-    "math_unknown_function": "უცნობი ფუნქცია „$1“",
-    "math_lexing_error": "ლექსიკური შეცდომა",
-    "math_syntax_error": "სინტაქსი არასწორია",
-    "math_image_error": "PNG-ში გარდაქმნისას წარმოიშვა შეცდომა; შეამოწმეთ latex, dvips, gs და convert-ის დაყენების სისწორე",
-    "math_bad_tmpdir": "შეუძლებელია ჩანაწერის შექმნა მათემატიკურ დროებით კატალოგში",
-    "math_bad_output": "შეუძლებელია შექმნა ან ჩაწერა მათემატიკურ გამსვლელ კატალოგში",
-    "math_notexvc": "შემსრულებელი ფაილი <code>texvc</code> არ არის ნაპოვნი; იხ.math/README ინფორმაციისთვის.",
-    "math-preference-mwmathinspector-label": "ფორმულების რედაქტირება ვიზუალურ რედაქტორში"
+	"@metadata": {
+		"authors": [
+			"Alsandro",
+			"David1010",
+			"გიორგიმელა"
+		]
+	},
+	"math_sample": "ჩასვით ფორმულა აქ",
+	"math_tip": "მათემატიკური ფორმულა (LaTeX)",
+	"prefs-math": "მათემატიკა",
+	"mw_math_png": "მუდამ გამოიყენე PNG",
+	"mw_math_source": "დატოვე როგორც TeX (ტექსტური ბრაუზერებისთვის)",
+	"mw_math_mathjax": "MathJax (ექსპერიმენტული; ყველაზე შესაფერისი ბრაუზერების უმეტესობისათვის)",
+	"math_failure": "შეუძლებელია გამონათქვამის გარჩევაშ",
+	"math_unknown_error": "უცნობი შეცდომა",
+	"math_unknown_function": "უცნობი ფუნქცია „$1“",
+	"math_lexing_error": "ლექსიკური შეცდომა",
+	"math_syntax_error": "სინტაქსი არასწორია",
+	"math_image_error": "PNG-ში გარდაქმნისას წარმოიშვა შეცდომა; შეამოწმეთ latex, dvips, gs და convert-ის დაყენების სისწორე",
+	"math_bad_tmpdir": "შეუძლებელია ჩანაწერის შექმნა მათემატიკურ დროებით კატალოგში",
+	"math_bad_output": "შეუძლებელია შექმნა ან ჩაწერა მათემატიკურ გამსვლელ კატალოგში",
+	"math_notexvc": "შემსრულებელი ფაილი <code>texvc</code> არ არის ნაპოვნი; იხ.math/README ინფორმაციისთვის.",
+	"math-preference-mwmathinspector-label": "ფორმულების რედაქტირება ვიზუალურ რედაქტორში"
 }

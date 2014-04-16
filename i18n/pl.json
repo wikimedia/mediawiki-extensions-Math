@@ -1,30 +1,30 @@
 {
-    "@metadata": {
-        "authors": [
-            "BeginaFelicysym",
-            "Chrumps",
-            "Sp5uhe",
-            "Woytecr"
-        ]
-    },
-    "math-desc": "Renderowanie formuł matematycznych między znacznikami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-    "math_sample": "Tutaj wprowadź wzór",
-    "math_tip": "Wzór matematyczny (LaTeX)",
-    "prefs-math": "Wzory",
-    "mw_math_png": "Zawsze generuj grafikę PNG",
-    "mw_math_source": "Pozostaw w TeX-u (dla przeglądarek tekstowych)",
-    "mw_math_mathjax": "MathJax (doświadczalny; najlepszy dla większości przeglądarek)",
-    "mw_math_latexml": "LaTeXML (eksperymentalne; wykorzystuje MathML)",
-    "math_failure": "Parser nie mógł rozpoznać",
-    "math_unknown_error": "nieznany błąd",
-    "math_unknown_function": "nieznana funkcja '$1'",
-    "math_lexing_error": "błędna nazwa",
-    "math_syntax_error": "błąd składni",
-    "math_image_error": "Konwersja z lub do formatu PNG nie powiodła się. Sprawdź, czy poprawnie zainstalowane są latex i dvipng (lub dvips, gs i convert)",
-    "math_bad_tmpdir": "Nie można utworzyć lub zapisywać w tymczasowym katalogu dla wzorów matematycznych",
-    "math_bad_output": "Nie można utworzyć lub zapisywać w wyjściowym katalogu dla wzorów matematycznych",
-    "math_notexvc": "Brak programu <code>texvc</code>.\nZapoznaj się z math/README w celu konfiguracji.",
-    "math_output_error": "Nie można zapisać obrazu z wzorem w systemie plików.",
-    "math-preference-mwmathinspector-description": "Eksperymentalna funkcja umożliwiająca edytowanie i dodawanie wzorów matematycznych w VisualEditorze. Obecnie w fazie testowej; oczekuje na wdrożenie dla wszystkich użytkowników. Pamiętaj, aby zawsze sprawdzać podgląd strony przed zapisaniem.",
-    "math-preference-mwmathinspector-label": "Edycja wzorów matematycznych za pomocą VisualEditora"
+	"@metadata": {
+		"authors": [
+			"BeginaFelicysym",
+			"Chrumps",
+			"Sp5uhe",
+			"Woytecr"
+		]
+	},
+	"math-desc": "Renderowanie formuł matematycznych między znacznikami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math_sample": "Tutaj wprowadź wzór",
+	"math_tip": "Wzór matematyczny (LaTeX)",
+	"prefs-math": "Wzory",
+	"mw_math_png": "Zawsze generuj grafikę PNG",
+	"mw_math_source": "Pozostaw w TeX-u (dla przeglądarek tekstowych)",
+	"mw_math_mathjax": "MathJax (doświadczalny; najlepszy dla większości przeglądarek)",
+	"mw_math_latexml": "LaTeXML (eksperymentalne; wykorzystuje MathML)",
+	"math_failure": "Parser nie mógł rozpoznać",
+	"math_unknown_error": "nieznany błąd",
+	"math_unknown_function": "nieznana funkcja '$1'",
+	"math_lexing_error": "błędna nazwa",
+	"math_syntax_error": "błąd składni",
+	"math_image_error": "Konwersja z lub do formatu PNG nie powiodła się. Sprawdź, czy poprawnie zainstalowane są latex i dvipng (lub dvips, gs i convert)",
+	"math_bad_tmpdir": "Nie można utworzyć lub zapisywać w tymczasowym katalogu dla wzorów matematycznych",
+	"math_bad_output": "Nie można utworzyć lub zapisywać w wyjściowym katalogu dla wzorów matematycznych",
+	"math_notexvc": "Brak programu <code>texvc</code>.\nZapoznaj się z math/README w celu konfiguracji.",
+	"math_output_error": "Nie można zapisać obrazu z wzorem w systemie plików.",
+	"math-preference-mwmathinspector-description": "Eksperymentalna funkcja umożliwiająca edytowanie i dodawanie wzorów matematycznych w VisualEditorze. Obecnie w fazie testowej; oczekuje na wdrożenie dla wszystkich użytkowników. Pamiętaj, aby zawsze sprawdzać podgląd strony przed zapisaniem.",
+	"math-preference-mwmathinspector-label": "Edycja wzorów matematycznych za pomocą VisualEditora"
 }

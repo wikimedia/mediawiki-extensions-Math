@@ -1,24 +1,24 @@
 {
-    "@metadata": {
-        "authors": [
-            "Lloffiwr"
-        ]
-    },
-    "math-desc": "Arddangos fformwla mathemategol rhwng y tagiau <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-    "math_sample": "Gosodwch fformwla yma",
-    "math_tip": "Fformwla mathemategol (LaTeX)",
-    "prefs-math": "Mathemateg",
-    "mw_math_png": "Arddangos symbolau mathemateg fel delwedd PNG bob amser",
-    "mw_math_source": "Gadewch fel côd TeX (ar gyfer porwyr testun)",
-    "mw_math_mathjax": "MathJax (arbrofol; yn orau i'r mwyafrif o borwyr)",
-    "math_failure": "Wedi methu dosrannu",
-    "math_unknown_error": "gwall anhysbys",
-    "math_unknown_function": "ffwythiant anhysbys, '$1'",
-    "math_lexing_error": "gwall lecsio",
-    "math_syntax_error": "gwall cystrawen",
-    "math_image_error": "Trosiad PNG wedi methu; gwiriwch fod latex a dvips (neu dvips + gs + convert) wedi'u gosod yn gywir cyn trosi.",
-    "math_bad_tmpdir": "Yn methu creu cyfeiriadur mathemateg dros dro, nac ysgrifennu iddo",
-    "math_bad_output": "Yn methu creu cyfeiriadur allbwn mathemateg nac ysgrifennu iddo",
-    "math_notexvc": "Rhaglen <code>texvc</code> yn eisiau; gwelwch math/README er mwyn ei chyflunio.",
-    "math-preference-mwmathinspector-label": "Golygu fformwlâu gyda'r Golygydd Gweledol"
+	"@metadata": {
+		"authors": [
+			"Lloffiwr"
+		]
+	},
+	"math-desc": "Arddangos fformwla mathemategol rhwng y tagiau <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math_sample": "Gosodwch fformwla yma",
+	"math_tip": "Fformwla mathemategol (LaTeX)",
+	"prefs-math": "Mathemateg",
+	"mw_math_png": "Arddangos symbolau mathemateg fel delwedd PNG bob amser",
+	"mw_math_source": "Gadewch fel côd TeX (ar gyfer porwyr testun)",
+	"mw_math_mathjax": "MathJax (arbrofol; yn orau i'r mwyafrif o borwyr)",
+	"math_failure": "Wedi methu dosrannu",
+	"math_unknown_error": "gwall anhysbys",
+	"math_unknown_function": "ffwythiant anhysbys, '$1'",
+	"math_lexing_error": "gwall lecsio",
+	"math_syntax_error": "gwall cystrawen",
+	"math_image_error": "Trosiad PNG wedi methu; gwiriwch fod latex a dvips (neu dvips + gs + convert) wedi'u gosod yn gywir cyn trosi.",
+	"math_bad_tmpdir": "Yn methu creu cyfeiriadur mathemateg dros dro, nac ysgrifennu iddo",
+	"math_bad_output": "Yn methu creu cyfeiriadur allbwn mathemateg nac ysgrifennu iddo",
+	"math_notexvc": "Rhaglen <code>texvc</code> yn eisiau; gwelwch math/README er mwyn ei chyflunio.",
+	"math-preference-mwmathinspector-label": "Golygu fformwlâu gyda'r Golygydd Gweledol"
 }

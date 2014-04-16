@@ -1,27 +1,27 @@
 {
-    "@metadata": {
-        "authors": [
-            "Aftab1995",
-            "Bellayet",
-            "Zaheen"
-        ]
-    },
-    "math_sample": "সূত্র এখানে লিখুন",
-    "math_tip": "গাণিতিক সূত্র (LaTeX)",
-    "prefs-math": "গণিত",
-    "mw_math_png": "সবসময় পিএনজি (PNG) দেখাও",
-    "mw_math_source": "টেক (TeX) আকারে রেখে দাও (টেক্সট ব্রাউজারগুলোর জন্য)",
-    "mw_math_mathjax": "MathJax (পরীক্ষামূলক; অধিকাংশ ব্রাউজারের জন্য ভালো)",
-    "math_failure": "পার্স করতে ব্যর্থ",
-    "math_unknown_error": "অজানা ত্রুটি",
-    "math_unknown_function": "'$1' অজানা ফাংশন",
-    "math_lexing_error": "লেক্সিং ত্রুটি",
-    "math_syntax_error": "সিনট্যাক্স ত্রুটি",
-    "math_image_error": "PNG রূপান্তর ব্যর্থ; latex, dvips, gs, এবং convert ঠিকমত ইন্সটল হয়েছে কি না পরীক্ষা করুন",
-    "math_bad_tmpdir": "সাময়িক ম্যাথ ডিরেক্টরি সৃষ্টি করতে বা এতে লিখতে পারা যাচ্ছে না।",
-    "math_bad_output": "ম্যাথ আউটপুট ডিরেক্টরি সৃষ্টি করতে বা এতে লিখতে পারা যাচ্ছে না।",
-    "math_notexvc": "<code>texvc</code> executable হারানো গেছে; অনুগ্রহ করে কনফিগার করার জন্য math/README দেখুন।",
-    "math-visualeditor-mwmathinspector-title": "সূত্র",
-    "math-preference-mwmathinspector-description": "সাধারণ মুক্তির আগে, গাণিতিক সূত্র তৈরি করা এবং সম্পাদনা পরীক্ষার জন্য ভিজ্যুয়ালএডিটরে পরীক্ষামূলকভাবে সরঞ্জামটি যোগ করুন। সবসময় পরীক্ষামূলক বৈশিষ্ট্যগুলি ব্যবহার করার সময় সংরক্ষণের আগে আপনার পরিবর্তনগুলি পর্যালোচনা করতে অনুগ্রহ করে মনে রাখুন।",
-    "math-preference-mwmathinspector-label": "ভিজ্যুয়ালএডিটর সূত্র সম্পাদনা"
+	"@metadata": {
+		"authors": [
+			"Aftab1995",
+			"Bellayet",
+			"Zaheen"
+		]
+	},
+	"math_sample": "সূত্র এখানে লিখুন",
+	"math_tip": "গাণিতিক সূত্র (LaTeX)",
+	"prefs-math": "গণিত",
+	"mw_math_png": "সবসময় পিএনজি (PNG) দেখাও",
+	"mw_math_source": "টেক (TeX) আকারে রেখে দাও (টেক্সট ব্রাউজারগুলোর জন্য)",
+	"mw_math_mathjax": "MathJax (পরীক্ষামূলক; অধিকাংশ ব্রাউজারের জন্য ভালো)",
+	"math_failure": "পার্স করতে ব্যর্থ",
+	"math_unknown_error": "অজানা ত্রুটি",
+	"math_unknown_function": "'$1' অজানা ফাংশন",
+	"math_lexing_error": "লেক্সিং ত্রুটি",
+	"math_syntax_error": "সিনট্যাক্স ত্রুটি",
+	"math_image_error": "PNG রূপান্তর ব্যর্থ; latex, dvips, gs, এবং convert ঠিকমত ইন্সটল হয়েছে কি না পরীক্ষা করুন",
+	"math_bad_tmpdir": "সাময়িক ম্যাথ ডিরেক্টরি সৃষ্টি করতে বা এতে লিখতে পারা যাচ্ছে না।",
+	"math_bad_output": "ম্যাথ আউটপুট ডিরেক্টরি সৃষ্টি করতে বা এতে লিখতে পারা যাচ্ছে না।",
+	"math_notexvc": "<code>texvc</code> executable হারানো গেছে; অনুগ্রহ করে কনফিগার করার জন্য math/README দেখুন।",
+	"math-visualeditor-mwmathinspector-title": "সূত্র",
+	"math-preference-mwmathinspector-description": "সাধারণ মুক্তির আগে, গাণিতিক সূত্র তৈরি করা এবং সম্পাদনা পরীক্ষার জন্য ভিজ্যুয়ালএডিটরে পরীক্ষামূলকভাবে সরঞ্জামটি যোগ করুন। সবসময় পরীক্ষামূলক বৈশিষ্ট্যগুলি ব্যবহার করার সময় সংরক্ষণের আগে আপনার পরিবর্তনগুলি পর্যালোচনা করতে অনুগ্রহ করে মনে রাখুন।",
+	"math-preference-mwmathinspector-label": "ভিজ্যুয়ালএডিটর সূত্র সম্পাদনা"
 }

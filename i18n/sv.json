@@ -1,31 +1,31 @@
 {
-    "@metadata": {
-        "authors": [
-            "Boivie",
-            "Habj",
-            "Martinwiss",
-            "Nghtwlkr",
-            "Sannab",
-            "WikiPhoenix"
-        ]
-    },
-    "math-desc": "Ritar matematiska ekvationer mellan <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-taggar",
-    "math_sample": "Skriv formeln här",
-    "math_tip": "Matematisk formel (LaTeX)",
-    "prefs-math": "Matematik",
-    "mw_math_png": "Rendera alltid PNG",
-    "mw_math_source": "Låt vara TeX (för textbaserade webbläsare)",
-    "mw_math_mathjax": "MathJax (i försöksstadium; fungerar bäst för de flesta webbläsare)",
-    "math_failure": "Misslyckades med att tolka formel.",
-    "math_unknown_error": "okänt fel",
-    "math_unknown_function": "okänd funktion '$1'",
-    "math_lexing_error": "regelfel",
-    "math_syntax_error": "syntaxfel",
-    "math_image_error": "Konvertering till PNG-format misslyckades; kontrollera om latex och dvipng (eller dvips + gs + convert) är korrekt installerade",
-    "math_bad_tmpdir": "Kan inte skriva till eller skapa temporär mapp för matematikresultat",
-    "math_bad_output": "Kan inte skriva till eller skapa mapp för matematikresultat",
-    "math_notexvc": "Applicationen <code>texvc</code> saknas; läs math/README för konfigureringsanvisningar.",
-    "math-visualeditor-mwmathinspector-title": "Formel",
-    "math-preference-mwmathinspector-description": "Lägg till experimentellt stöd i VisualEditor för att skapa och redigera matematiska formler. Du kan testa innan den breda lanseringen. Kom ihåg att alltid granska ändringarna innan du sparar när du använder experimentella funktioner.",
-    "math-preference-mwmathinspector-label": "VisualEditor formelredigering"
+	"@metadata": {
+		"authors": [
+			"Boivie",
+			"Habj",
+			"Martinwiss",
+			"Nghtwlkr",
+			"Sannab",
+			"WikiPhoenix"
+		]
+	},
+	"math-desc": "Ritar matematiska ekvationer mellan <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-taggar",
+	"math_sample": "Skriv formeln här",
+	"math_tip": "Matematisk formel (LaTeX)",
+	"prefs-math": "Matematik",
+	"mw_math_png": "Rendera alltid PNG",
+	"mw_math_source": "Låt vara TeX (för textbaserade webbläsare)",
+	"mw_math_mathjax": "MathJax (i försöksstadium; fungerar bäst för de flesta webbläsare)",
+	"math_failure": "Misslyckades med att tolka formel.",
+	"math_unknown_error": "okänt fel",
+	"math_unknown_function": "okänd funktion '$1'",
+	"math_lexing_error": "regelfel",
+	"math_syntax_error": "syntaxfel",
+	"math_image_error": "Konvertering till PNG-format misslyckades; kontrollera om latex och dvipng (eller dvips + gs + convert) är korrekt installerade",
+	"math_bad_tmpdir": "Kan inte skriva till eller skapa temporär mapp för matematikresultat",
+	"math_bad_output": "Kan inte skriva till eller skapa mapp för matematikresultat",
+	"math_notexvc": "Applicationen <code>texvc</code> saknas; läs math/README för konfigureringsanvisningar.",
+	"math-visualeditor-mwmathinspector-title": "Formel",
+	"math-preference-mwmathinspector-description": "Lägg till experimentellt stöd i VisualEditor för att skapa och redigera matematiska formler. Du kan testa innan den breda lanseringen. Kom ihåg att alltid granska ändringarna innan du sparar när du använder experimentella funktioner.",
+	"math-preference-mwmathinspector-label": "VisualEditor formelredigering"
 }

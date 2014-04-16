@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Sentruper"
-        ]
-    },
-    "math_sample": "Mèt aquè dentar una formula",
-    "math_tip": "Formula metemètica (LaTeX)"
+	"@metadata": {
+		"authors": [
+			"Sentruper"
+		]
+	},
+	"math_sample": "Mèt aquè dentar una formula",
+	"math_tip": "Formula metemètica (LaTeX)"
 }

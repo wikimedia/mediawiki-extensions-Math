@@ -1,28 +1,28 @@
 {
-    "@metadata": {
-        "authors": [
-            "Beta16"
-        ]
-    },
-    "math-desc": "Esegue il rendering di formule matematiche tra i tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-    "math_sample": "Inserire qui la formula",
-    "math_tip": "Formula matematica (LaTeX)",
-    "prefs-math": "Formule matematiche",
-    "mw_math_png": "Mostra sempre in PNG",
-    "mw_math_source": "Lascia in formato TeX (per browser testuali)",
-    "mw_math_mathjax": "MathJax (sperimentale; il migliore per la maggior parte dei browser)",
-    "mw_math_latexml": "LaTeXML (sperimentale; usa MathML)",
-    "math_failure": "Errore del parser",
-    "math_unknown_error": "errore sconosciuto",
-    "math_unknown_function": "funzione sconosciuta '$1'",
-    "math_lexing_error": "errore lessicale",
-    "math_syntax_error": "errore di sintassi",
-    "math_image_error": "Conversione in PNG non riuscita; verificare che siano correttamente installati i seguenti programmi: latex e dvipng (o dvips, gs e convert).",
-    "math_bad_tmpdir": "Impossibile scrivere o creare la directory temporanea per math",
-    "math_bad_output": "Impossibile scrivere o creare la directory di output per math",
-    "math_notexvc": "Eseguibile <code>texvc</code> mancante; per favore consultare math/README per la configurazione.",
-    "math_output_error": "Non è possibile archiviare l'immagine della formula matematica sul filesystem.",
-    "math-visualeditor-mwmathinspector-title": "Formula",
-    "math-preference-mwmathinspector-description": "Aggiunge strumenti sperimentali a VisualEditor per testare la creazione e la modifica di formule matematiche, prima del rilascio generale. Ricorda di controllare sempre le modifiche prima di salvare quando usi le funzionalità sperimentali.",
-    "math-preference-mwmathinspector-label": "Modifica formule con VisualEditor"
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"math-desc": "Esegue il rendering di formule matematiche tra i tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math_sample": "Inserire qui la formula",
+	"math_tip": "Formula matematica (LaTeX)",
+	"prefs-math": "Formule matematiche",
+	"mw_math_png": "Mostra sempre in PNG",
+	"mw_math_source": "Lascia in formato TeX (per browser testuali)",
+	"mw_math_mathjax": "MathJax (sperimentale; il migliore per la maggior parte dei browser)",
+	"mw_math_latexml": "LaTeXML (sperimentale; usa MathML)",
+	"math_failure": "Errore del parser",
+	"math_unknown_error": "errore sconosciuto",
+	"math_unknown_function": "funzione sconosciuta '$1'",
+	"math_lexing_error": "errore lessicale",
+	"math_syntax_error": "errore di sintassi",
+	"math_image_error": "Conversione in PNG non riuscita; verificare che siano correttamente installati i seguenti programmi: latex e dvipng (o dvips, gs e convert).",
+	"math_bad_tmpdir": "Impossibile scrivere o creare la directory temporanea per math",
+	"math_bad_output": "Impossibile scrivere o creare la directory di output per math",
+	"math_notexvc": "Eseguibile <code>texvc</code> mancante; per favore consultare math/README per la configurazione.",
+	"math_output_error": "Non è possibile archiviare l'immagine della formula matematica sul filesystem.",
+	"math-visualeditor-mwmathinspector-title": "Formula",
+	"math-preference-mwmathinspector-description": "Aggiunge strumenti sperimentali a VisualEditor per testare la creazione e la modifica di formule matematiche, prima del rilascio generale. Ricorda di controllare sempre le modifiche prima di salvare quando usi le funzionalità sperimentali.",
+	"math-preference-mwmathinspector-label": "Modifica formule con VisualEditor"
 }

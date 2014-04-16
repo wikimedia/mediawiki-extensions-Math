@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Dalinanir",
-            "Zanatos"
-        ]
-    },
-    "math_sample": "Skcm talɣat ɣid",
-    "math_tip": "Talɣiwt tusnakt (LaTeX)",
-    "prefs-math": "mat"
+	"@metadata": {
+		"authors": [
+			"Dalinanir",
+			"Zanatos"
+		]
+	},
+	"math_sample": "Skcm talɣat ɣid",
+	"math_tip": "Talɣiwt tusnakt (LaTeX)",
+	"prefs-math": "mat"
 }

@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Kolonahe",
-            "Singularity"
-        ]
-    },
-    "math_tip": "Ha‘ilula makemakika (LaTeX)",
-    "prefs-math": "Makemakika"
+	"@metadata": {
+		"authors": [
+			"Kolonahe",
+			"Singularity"
+		]
+	},
+	"math_tip": "Ha‘ilula makemakika (LaTeX)",
+	"prefs-math": "Makemakika"
 }

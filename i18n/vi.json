@@ -1,33 +1,33 @@
 {
-    "@metadata": {
-        "authors": [
-            "Minh Nguyen",
-            "Vinhtantran"
-        ]
-    },
-    "math-desc": "Kết xuất các công thức nằm giữa thẻ <code>&lt;math&gt;</code> …<code>&lt;/math&gt;</code>",
-    "math_sample": "Nhập công thức toán vào đây",
-    "math_tip": "Công thức toán (LaTeX)",
-    "prefs-math": "Công thức toán",
-    "mw_math_png": "Luôn cho ra dạng hình PNG",
-    "mw_math_source": "Để nguyên mã TeX (dành cho trình duyệt văn bản)",
-    "mw_math_mathjax": "MathJax (chưa ổn định; được khuyên cho phần nhiều trình duyệt)",
-    "mw_math_latexml": "LaTeXML (thử nghiệm; sử dụng MathML)",
-    "math_failure": "Không thể phân tích cú pháp",
-    "math_unknown_error": "lỗi lạ",
-    "math_unknown_function": "hàm không rõ “$1”",
-    "math_lexing_error": "lỗi chính tả",
-    "math_syntax_error": "lỗi cú pháp",
-    "math_image_error": "Không chuyển sang định dạng PNG được; xin kiểm tra lại cài đặt latex, dvips, gs, và convert (hoặc dvips + gs + convert)",
-    "math_bad_tmpdir": "Không tạo mới hay viết vào thư mục toán tạm thời được",
-    "math_bad_output": "Không tạo mới hay viết vào thư mục kết quả được",
-    "math_notexvc": "Không thấy hàm thực thi <code>texvc</code>; xin xem math/README để biết cách cấu hình.",
-    "math_output_error": "Không thể lưu hình toán học trên hệ thống tập tin.",
-    "math_latexml_timeout": "Hết hạn LaTeXML từ “$1”",
-    "math_latexml_invalidresponse": "Phản hồi LaTeXML không hợp lệ (“$2”) từ máy chủ “$1”:",
-    "math_latexml_invalidxml": "MathML LaTeXML là XML không hợp lệ.",
-    "math_latexml_invalidjson": "Phản hồi từ máy chủ LaTeXML là JSON không hợp lệ.",
-    "math_latexml_xmlversion": "Cảnh báo: Đã bỏ qua việc kiểm tra kiểu XML! Hãy kiểm tra bản MediaWiki của bạn là phiên bản wmf/1.22wmf7 trở lên.",
-    "math-preference-mwmathinspector-description": "Thêm chức năng thử nghiệm cơ bản vào Trình soạn thảo trực quan để viết và sửa công thức toán học, để thử thách trước khi phát hành cho mọi người. Sau khi bật lên tính năng thử nghiệm này, xin vui lòng nhớ luôn xem lại các thay đổi trước khi lưu.",
-    "math-preference-mwmathinspector-label": "Sửa công thức trong Trình soạn thảo trực quan"
+	"@metadata": {
+		"authors": [
+			"Minh Nguyen",
+			"Vinhtantran"
+		]
+	},
+	"math-desc": "Kết xuất các công thức nằm giữa thẻ <code>&lt;math&gt;</code> …<code>&lt;/math&gt;</code>",
+	"math_sample": "Nhập công thức toán vào đây",
+	"math_tip": "Công thức toán (LaTeX)",
+	"prefs-math": "Công thức toán",
+	"mw_math_png": "Luôn cho ra dạng hình PNG",
+	"mw_math_source": "Để nguyên mã TeX (dành cho trình duyệt văn bản)",
+	"mw_math_mathjax": "MathJax (chưa ổn định; được khuyên cho phần nhiều trình duyệt)",
+	"mw_math_latexml": "LaTeXML (thử nghiệm; sử dụng MathML)",
+	"math_failure": "Không thể phân tích cú pháp",
+	"math_unknown_error": "lỗi lạ",
+	"math_unknown_function": "hàm không rõ “$1”",
+	"math_lexing_error": "lỗi chính tả",
+	"math_syntax_error": "lỗi cú pháp",
+	"math_image_error": "Không chuyển sang định dạng PNG được; xin kiểm tra lại cài đặt latex, dvips, gs, và convert (hoặc dvips + gs + convert)",
+	"math_bad_tmpdir": "Không tạo mới hay viết vào thư mục toán tạm thời được",
+	"math_bad_output": "Không tạo mới hay viết vào thư mục kết quả được",
+	"math_notexvc": "Không thấy hàm thực thi <code>texvc</code>; xin xem math/README để biết cách cấu hình.",
+	"math_output_error": "Không thể lưu hình toán học trên hệ thống tập tin.",
+	"math_latexml_timeout": "Hết hạn LaTeXML từ “$1”",
+	"math_latexml_invalidresponse": "Phản hồi LaTeXML không hợp lệ (“$2”) từ máy chủ “$1”:",
+	"math_latexml_invalidxml": "MathML LaTeXML là XML không hợp lệ.",
+	"math_latexml_invalidjson": "Phản hồi từ máy chủ LaTeXML là JSON không hợp lệ.",
+	"math_latexml_xmlversion": "Cảnh báo: Đã bỏ qua việc kiểm tra kiểu XML! Hãy kiểm tra bản MediaWiki của bạn là phiên bản wmf/1.22wmf7 trở lên.",
+	"math-preference-mwmathinspector-description": "Thêm chức năng thử nghiệm cơ bản vào Trình soạn thảo trực quan để viết và sửa công thức toán học, để thử thách trước khi phát hành cho mọi người. Sau khi bật lên tính năng thử nghiệm này, xin vui lòng nhớ luôn xem lại các thay đổi trước khi lưu.",
+	"math-preference-mwmathinspector-label": "Sửa công thức trong Trình soạn thảo trực quan"
 }
