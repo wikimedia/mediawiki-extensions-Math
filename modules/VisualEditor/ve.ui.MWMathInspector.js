@@ -62,6 +62,8 @@ ve.ui.MWMathInspector.prototype.setup = function ( data ) {
 	// Parent method
 	ve.ui.MWExtensionInspector.prototype.setup.call( this, data );
 
+	this.dontClose = true;
+
 	this.getFragment().getSurface().pushStaging();
 
 	var mwData;
@@ -93,6 +95,18 @@ ve.ui.MWMathInspector.prototype.setup = function ( data ) {
 	// Override directionality settings, inspector's input
 	// should always be LTR:
 	this.input.setRTL( false );
+
+	this.dontClose = false;
+};
+
+ve.ui.MWMathInspector.prototype.close = function () {
+	// HACK ignore close() calls while setting up
+	// This works around the fact that inserting a focusable node
+	// causes a focus event in 1.23wmf22 but not in 1.24wmf1
+	if ( !this.dontClose ) {
+		// Parent method
+		ve.ui.MWExtensionInspector.prototype.close.apply( this, arguments );
+	}
 };
 
 /**
