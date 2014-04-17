@@ -41,32 +41,37 @@ class SpecialMathShowImage extends SpecialPage {
 
 	function execute( $par ) {
 		$request = $this->getRequest();
-		$output = '';
 		$hash = $request->getText( 'hash', '' );
+		$tex = $request->getText( 'tex', '');
 		$this->mode = $request->getInt( 'mode', MW_MATH_MATHML );
-		if ( !$hash ) {
+		if ( $hash === '' && $tex === '') {
 			$this->setHeaders( false );
-			$output = $this->printSvgError( 'No Inputhash specified' );
+			echo $this->printSvgError( 'No Inputhash specified' );
 		} else {
-			switch ( $this->mode ){
-			case MW_MATH_PNG:
-				$this->renderer = MathTexvc::newFromMd5( $hash );
-				break;
-			case MW_MATH_LATEXML:
-				$this->renderer = MathLaTeXML::newFromMd5( $hash );
-				break;
-			default:
-				$this->renderer = MathMathML::newFromMd5( $hash );
-			}
-			$this->noRender = $request->getBool( 'noRender', false );
-			if ( $this->noRender ) {
-				$success = $this->renderer->readFromDatabase();
-			} else {
-				if ( $this->mode == MW_MATH_PNG ) {
-					$mmlRenderer = MathMathML::newFromMd5( $hash );
-					$mmlRenderer->readFromDatabase();
-					$this->renderer = new MathTexvc($mmlRenderer->getUserInputTex());
+			if ( $tex === ''){
+				switch ( $this->mode ){
+				case MW_MATH_PNG:
+					$this->renderer = MathTexvc::newFromMd5( $hash );
+					break;
+				case MW_MATH_LATEXML:
+					$this->renderer = MathLaTeXML::newFromMd5( $hash );
+					break;
+				default:
+					$this->renderer = MathMathML::newFromMd5( $hash );
 				}
+				$this->noRender = $request->getBool( 'noRender', false );
+				if ( $this->noRender ) {
+					$success = $this->renderer->readFromDatabase();
+				} else {
+					if ( $this->mode == MW_MATH_PNG ) {
+						$mmlRenderer = MathMathML::newFromMd5( $hash );
+						$mmlRenderer->readFromDatabase();
+						$this->renderer = new MathTexvc($mmlRenderer->getUserInputTex());
+					}
+					$success = $this->renderer->render();
+				}
+			} else {
+				$this->renderer = MathRenderer::getRenderer( $tex , array(), $this->mode);
 				$success = $this->renderer->render();
 			}
 			if ( $success ) {
