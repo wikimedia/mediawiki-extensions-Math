@@ -19,6 +19,6 @@
 	"math_image_error": "Претварање у формат PNG није успело. Проверите да ли су добро инсталирани latex, dvips, gs и convert",
 	"math_bad_tmpdir": "Стварање или писање у привремену фасциклу за математику није успело",
 	"math_bad_output": "Стварање или писање у одредишној фасцикли за математику није успело",
-	"math_notexvc": "Недостаје извршна датотека <code>texvc</code>-а. Погледајте math/README за подешавање.",
+	"math_notexvc": "Недостаје извршна датотека <code>texvc</code>. Погледајте math/README за подешавање.",
 	"math-preference-mwmathinspector-label": "Уређивање формула у VisualEditor-у"
 }
