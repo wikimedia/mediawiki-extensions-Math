@@ -68,6 +68,42 @@ class MathLaTeXML extends MathMathML {
 	public function setLaTeXMLSettings( $settings ) {
 		$this->LaTeXMLSettings = $settings;
 	}
+	
+	/**
+         * Internal version of @link self::embedMathML
+         * @return string
+         * @return html element with rendered math
+         */
+        public function getHtmlOutput() {
+                if ( $this->getDisplaystyle() ) {
+                        $element = 'div';
+                } else {
+                        $element = 'span';
+                }
+                $attribs = array();
+                if ( $this->getID() !== '' ) {
+                        $attribs['id'] = $this->getID();
+                }
+               // $output = HTML::openElement( $element , $attribs );
+		$output  = parent::getHtmlOutput();
+                // MathML has to be wrapped into a div or span in order to be able to hide it.
+                if ( $this->getDisplaystyle() == true ) {
+                        // Remove displayStyle attributes set by the MathML converter
+                        $mml = preg_replace( '/(display|mode)=["\'](inline|block)["\']/', '', $this->getMathml() );
+                        // and insert the correct value
+                        $mml = preg_replace( '/<math/', '<math display="block"', $mml );
+
+                } else {
+                        $mml = $this->getMathml();
+                }
+                $output .= Xml::tags( $element, array( 'class' => $this->getClassName(),
+                        'style' => 'display: none;' ),
+                        $mml );
+                $output .= $this->getFallbackImage( $this->getMode() ) . "\n";
+                $output .= $this->getFallbackImage( MW_MATH_PNG ) . "\n";
+                $output .= HTML::closeElement( $element );
+		return preg_replace ("/alttext=\"(.*?)\"/", "alttext=\"", $this->getUserInputTex()."\"");
+        }
 
 	/**
 	 * Calculates the HTTP POST Data for the request. Depends on the settings

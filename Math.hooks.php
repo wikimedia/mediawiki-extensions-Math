@@ -91,9 +91,7 @@ class MathHooks {
 		} else {
 			$parser->getOptions()->optionUsed( 'math' );
 		}
-
 		$renderer = MathRenderer::getRenderer( $content, $attributes, $mode );
-
 		if ( !$wgMathDisableTexFilter ) {
 			$checkResult = $renderer->checkTex();
 

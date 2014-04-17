@@ -49,8 +49,8 @@ $wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHML );
  */
 $wgDefaultUserOptions['math'] = MW_MATH_MATHML;
 
-/** Stores debug information in the database and proviedes more detailed debug output*/
-$wgMathDebug = false;
+/** Stores debug information in the database and proviedes more detailed debug output */
+$wgMathDebug = true;
 /**
  * Option to use MathJax library to do client-side math rendering
  * when JavaScript is available. In supporting browsers this makes nice output
