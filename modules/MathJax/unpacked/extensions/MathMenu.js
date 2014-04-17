@@ -1,3 +1,9 @@
+//Modified by Jacob Migdall #Jake #sh3nhu
+//Modified by Amber Liu #Amber #sh3nhu
+
+
+
+
 /* -*- Mode: Javascript; indent-tabs-mode:nil; js-indent-level: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
 
@@ -52,19 +58,23 @@
 
     showRenderer: true,                            //  show the "Math Renderer" menu?
     showMathPlayer: true,                          //  show the "MathPlayer" menu?
-    showFontMenu: false,                           //  show the "Font Preference" menu?
-    showContext:  false,                           //  show the "Context Menu" menu?
-    showDiscoverable: false,                       //  show the "Discoverable" menu?
+    showFontMenu: true,                           //  show the "Font Preference" menu?
+    showContext:  true,                           //  show the "Context Menu" menu?
+    showDiscoverable: true,                       //  show the "Discoverable" menu?
     showLocale: true,                              //  show the "Locale" menu?
-    showLocaleURL: false,                          //  show the "Load from URL" menu?
+    showLocaleURL: true,                          //  show the "Load from URL" menu?
 
     semanticsAnnotations: {
       "TeX": ["TeX", "LaTeX", "application/x-tex"],
       "StarMath": ["StarMath 5.0"],
       "Maple": ["Maple"],
       "ContentMathML": ["MathML-Content", "application/mathml-content+xml"],
-      "OpenMath": ["OpenMath"]
+      "OpenMath": ["OpenMath"],
+	"Amber": ["TeX", "LaTeX", "application/x-tex"]
     },
+	semanticsTeX: {
+	"Temp": ["TeX", "LaTeX", "application/x-tex"]
+	},
 
     windowSettings: {                              // for source window
       status: "no", toolbar: "no", locationbar: "no", menubar: "no",
@@ -679,7 +689,14 @@
     for (var i = 0, m = info.length; i < m; i++) {jax.push(info[i],["br"])}
     return jax;
   };
+  /*
+   *  Testing the MathJax menu creation with Test.js
+   */
 
+  MENU.Test = function() {
+    AJAX.Require("[MathJax]/extensions/TestDialog.js",
+		 function () {MathJax.Extension.Test.Dialog()});
+  };
   
   /*
    *  Handle the MathJax HELP menu
@@ -713,17 +730,35 @@
             delete AJAX.loadingToMathML;
             if (!MML.mbase.prototype.toMathML) {MML.mbase.prototype.toMathML = function () {}}
           },
-          [this,MENU.ShowSource,EVENT]  // call this function again
+         [this,MENU.ShowSource,EVENT]  // call this function again
         );
         return;
       }
     } else if (this.format === "Error") {
       MENU.ShowSource.Text(MENU.jax.errorText,event);
-    } else if (CONFIG.semanticsAnnotations[this.format]) {
-      var annotation = MENU.jax.root.getAnnotation(this.format);
-      if (annotation.data[0]) MENU.ShowSource.Text(annotation.data[0].toString());
+    } else if (CONFIG.semanticsAnnotations[this.format]) { //this.format is the format the user selects
+      var annotation = MENU.jax.root.getAnnotation(this.format);//gets specific annotation of what the user selects
+     if (annotation.data[0]){
+	var annotationString=annotation.data[0].toString();           
+	//gets rid of percent signs
+	for(var i=0; i<annotationString.length; i++){
+	if(annotationString.charAt(i)==="%"){
+	var before=annotationString.substring(0,i);
+	var after=annotationString.substring(i+1);
+	 annotationString=before+after;
+	}
+	}
+	for(var i=0; i<annotationString.length; i++){
+        if(annotationString.charAt(i)===" "){
+	var before=annotationString.substring(0,i);
+        var after=annotationString.substring(i+1);
+         annotationString=before+after;
+        }
+        }
+
+	MENU.ShowSource.Text(annotationString);}
     } else {
-      if (MENU.jax.originalText == null) {
+     if (MENU.jax.originalText == null) {
         alert(_("NoOriginalForm","No original form available"));
         return;
       }
@@ -1014,6 +1049,17 @@
     }
   };
 
+ MENU.CreateTeXMenu = function(){
+ if(!MENU.menu) return;
+ var menu = MENU.menu.Find("Annotation", "TeX").menu;
+ var TeX = CONFIG.semanticsTeX;
+ for(var x in TeX){
+ if(TeX.hasOwnProperty(x)) {
+ menu.items.push(ITEM.COMMAND([x,x], MENU.ShowSource, {hidden: true, nativeTouch: true, format: x}));
+ }
+}
+};
+ 
   /*************************************************************/
 
   HUB.Register.StartupHook("End Config",function () {
@@ -1034,21 +1080,25 @@
      */
     // Localization: items used as key, should be refactored.
     MENU.menu = MENU(
+	    
       ITEM.SUBMENU(["Show","Show Math As"],
         ITEM.COMMAND(["MathMLcode","MathML Code"],  MENU.ShowSource, {nativeTouch: true, format: "MathML"}),
         ITEM.COMMAND(["Original","Original Form"],  MENU.ShowSource, {nativeTouch: true}),
-        ITEM.SUBMENU(["Annotation","Annotation"], {disabled:true}),
-        ITEM.RULE(),
-        ITEM.CHECKBOX(["texHints","Show TeX hints in MathML"], "texHints")
+        ITEM.SUBMENU(["Annotation","Annotation"], {disabled:true})
+//	ITEM.SUBMENU(["TeX", "TeX"],MENU.ShowSource, {nativeTouch: true, format: "MathML"})
+//)
+	
+//        ITEM.RULE()
+//        ITEM.CHECKBOX(["texHints","Show TeX hints in MathML"], "texHints")
       ),
-      ITEM.RULE(),
+//      ITEM.RULE(),
       ITEM.SUBMENU(["Settings","Math Settings"],
         ITEM.SUBMENU(["ZoomTrigger","Zoom Trigger"],
           ITEM.RADIO(["Hover","Hover"],               "zoom", {action: MENU.Zoom}),
           ITEM.RADIO(["Click","Click"],               "zoom", {action: MENU.Zoom}),
           ITEM.RADIO(["DoubleClick","Double-Click"],  "zoom", {action: MENU.Zoom}),
           ITEM.RADIO(["NoZoom","No Zoom"],            "zoom", {value: "None"}),
-          ITEM.RULE(),
+//          ITEM.RULE(),
           ITEM.LABEL(["TriggerRequires","Trigger Requires:"]),
           ITEM.CHECKBOX((HUB.Browser.isMac ? ["Option","Option"] : ["Alt","Alt"]), "ALT"),
           ITEM.CHECKBOX(["Command","Command"],    "CMD",  {hidden: !HUB.Browser.isMac}),
@@ -1062,10 +1112,10 @@
           ITEM.RADIO("175%", "zscale"),
           ITEM.RADIO("200%", "zscale"),
           ITEM.RADIO("250%", "zscale"),
-          ITEM.RADIO("300%", "zscale"),
+         ITEM.RADIO("300%", "zscale"),
           ITEM.RADIO("400%", "zscale")
         ),
-        ITEM.RULE(),
+//        ITEM.RULE(),
         ITEM.SUBMENU(["Renderer","Math Renderer"],    {hidden:!CONFIG.showRenderer},
           ITEM.RADIO("HTML-CSS",  "renderer", {action: MENU.Renderer}),
           ITEM.RADIO("MathML",    "renderer", {action: MENU.Renderer, value:"NativeMML"}),
@@ -1073,7 +1123,7 @@
         ),
         ITEM.SUBMENU("MathPlayer",  {hidden:!HUB.Browser.isMSIE || !CONFIG.showMathPlayer,
                                                     disabled:!HUB.Browser.hasMathPlayer},
-          ITEM.LABEL(["MPHandles","Let MathPlayer Handle:"]),
+         ITEM.LABEL(["MPHandles","Let MathPlayer Handle:"]),
           ITEM.CHECKBOX(["MenuEvents","Menu Events"],             "mpContext", {action: MENU.MPEvents, hidden:!isIE9}),
           ITEM.CHECKBOX(["MouseEvents","Mouse Events"],           "mpMouse",   {action: MENU.MPEvents, hidden:!isIE9}),
           ITEM.CHECKBOX(["MenuAndMouse","Mouse and Menu Events"], "mpMouse", {action: MENU.MPEvents, hidden:isIE9})
@@ -1081,14 +1131,14 @@
         ITEM.SUBMENU(["FontPrefs","Font Preference"],       {hidden:!CONFIG.showFontMenu},
           ITEM.LABEL(["ForHTMLCSS","For HTML-CSS:"]),
           ITEM.RADIO(["Auto","Auto"],          "font", {action: MENU.Font}),
-          ITEM.RULE(),
+//         ITEM.RULE(),
           ITEM.RADIO(["TeXLocal","TeX (local)"],   "font", {action: MENU.Font}),
           ITEM.RADIO(["TeXWeb","TeX (web)"],       "font", {action: MENU.Font}),
           ITEM.RADIO(["TeXImage","TeX (image)"],   "font", {action: MENU.Font}),
-          ITEM.RULE(),
+//          ITEM.RULE(),
           ITEM.RADIO(["STIXLocal","STIX (local)"], "font", {action: MENU.Font}),
           ITEM.RADIO(["STIXWeb","STIX (web)"], "font", {action: MENU.Font}),
-          ITEM.RULE(),
+//          ITEM.RULE(),
           ITEM.RADIO(["AsanaMathWeb","Asana Math (web)"], "font", {action: MENU.Font}),
           ITEM.RADIO(["GyrePagellaWeb","Gyre Pagella (web)"], "font", {action: MENU.Font}),
           ITEM.RADIO(["GyreTermesWeb","Gyre Termes (web)"], "font", {action: MENU.Font}),
@@ -1099,7 +1149,7 @@
           ITEM.RADIO("MathJax", "context"),
           ITEM.RADIO(["Browser","Browser"], "context")
         ),
-        ITEM.COMMAND(["Scale","Scale All Math ..."],MENU.Scale),
+//        ITEM.COMMAND(["Scale","Scale All Math ..."],MENU.Scale),
         ITEM.RULE().With({hidden:!CONFIG.showDiscoverable, name:["","discover_rule"]}),
         ITEM.CHECKBOX(["Discoverable","Highlight on Hover"], "discoverable", {hidden:!CONFIG.showDiscoverable})
       ),
@@ -1109,6 +1159,9 @@
         ITEM.COMMAND(["LoadLocale","Load from URL ..."], MENU.LoadLocale, {hidden:!CONFIG.showLocaleURL})
       ),
       ITEM.RULE(),
+      ITEM.COMMAND(["Test","TeX"],MENU.Test),
+	ITEM.COMMAND(["Help", "Semantic TeX"], MENU.Help),
+      //Menu is here
       ITEM.COMMAND(["About","About MathJax"],MENU.About),
       ITEM.COMMAND(["Help","MathJax Help"],MENU.Help)
     );
@@ -1129,6 +1182,7 @@
 
     MENU.CreateLocaleMenu();
     MENU.CreateAnnotationMenu();
+ //   MENU.CreateTeXMenu();
   });
   
   MENU.showRenderer = function (show) {

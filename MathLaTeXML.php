@@ -68,7 +68,7 @@ class MathLaTeXML extends MathMathML {
 	public function setLaTeXMLSettings( $settings ) {
 		$this->LaTeXMLSettings = $settings;
 	}
-
+	
 	/**
 	 * Calculates the HTTP POST Data for the request. Depends on the settings
 	 * and the input string only.
