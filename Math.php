@@ -59,6 +59,8 @@ $wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE );
  * Valid options are defined in $wgMathValidModes.
  */
 $wgDefaultUserOptions['math'] = MW_MATH_PNG;
+/** @var boolean $wgDefaultUserOptions['mathJax'] determines if client-side MathJax is enabled by default */
+$wgDefaultUserOptions['mathJax'] = false;
 
 /** Location of the texvc binary */
 $wgTexvc = __DIR__ . '/math/texvc';
