@@ -17,6 +17,7 @@
 	"mw_math_png": "Renderizar siempre PNG",
 	"mw_math_source": "Dejar como TeX (para navegadores de texto)",
 	"mw_math_mathjax": "MathJax (experimental; el mejor para la mayoría de los navegadores)",
+	"mw_math_latexml": "LaTeXML (experimental, usa MathML)",
 	"math_failure": "No se pudo entender",
 	"math_unknown_error": "error desconocido",
 	"math_unknown_function": "función desconocida «$1».",
@@ -26,6 +27,7 @@
 	"math_bad_tmpdir": "No se puede escribir o crear el directorio temporal de <em>math</em>",
 	"math_bad_output": "No se puede escribir o crear el directorio de salida de <em>math</em>",
 	"math_notexvc": "Falta el ejecutable de <strong><code>texvc</code></strong>. Por favor, lea <em>math/README</em> para configurarlo.",
+	"math_output_error": "No se puede almacenar la imagen matemática en el sistema de archivos.",
 	"math-visualeditor-mwmathinspector-title": "Fórmula",
 	"math-preference-mwmathinspector-description": "Añade al editor visual la función experimental de crear y editar fórmulas matemáticas para probarla antes de su lanzamiento a los usuarios en general. Al usar herramientas experimentales, recuerda siempre revisar tus cambios antes de guardar.",
 	"math-preference-mwmathinspector-label": "Edición de fórmulas en el editor visual"
