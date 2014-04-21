@@ -39,4 +39,4 @@ ve.ui.MWMathInspector.static.dir = 'ltr';
 
 /* Registration */
 
-ve.ui.inspectorFactory.register( ve.ui.MWMathInspector );
+ve.ui.windowFactory.register( ve.ui.MWMathInspector );

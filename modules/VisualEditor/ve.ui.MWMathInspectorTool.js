@@ -30,5 +30,5 @@ ve.ui.MWMathInspectorTool.static.commandName = 'math';
 ve.ui.toolFactory.register( ve.ui.MWMathInspectorTool );
 
 ve.ui.commandRegistry.register(
-	new ve.ui.Command( 'math', 'inspector', 'open', 'math' )
+	new ve.ui.Command( 'math', 'window', 'open', 'math' )
 );
