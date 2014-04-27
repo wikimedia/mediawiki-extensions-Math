@@ -246,6 +246,12 @@ class MathHooks {
 			throw new MWException( "Math extension does not currently support $type database." );
 		}
 
+		// Apply patches
+		if ( $type === 'mysql' ) {
+			$updater->addExtensionField( 'math', 'math_image_width',
+				dirname( __FILE__ ) . '/db/patches/' . 'math-imgwidth-height.sql' );
+		}
+
 		return true;
 	}
 

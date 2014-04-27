@@ -40,6 +40,9 @@ abstract class MathRenderer {
 	protected $mathml = '';
 	protected $conservativeness = 0;
 	protected $params = '';
+	protected $imageWidth;
+	protected $imageHeight;
+
 	// STATE OF THE CLASS INSTANCE
 	/** @var boolean has variable tex been security-checked */
 	protected $texSecure = false;
@@ -209,6 +212,8 @@ abstract class MathRenderer {
 		$this->html = $rpage->math_html;
 		$this->mathml = utf8_decode( $rpage->math_mathml );
 		$this->storedInDatabase = true;
+		$this->imageWidth = $rpage->math_img_width;
+		$this->imageHeight = $rpage->math_img_height;
 	}
 
 	/**
@@ -216,7 +221,7 @@ abstract class MathRenderer {
 	 */
 	private function dbInArray() {
 		return array( 'math_inputhash', 'math_outputhash', 'math_html_conservativeness', 'math_html',
-				'math_mathml' );
+				'math_mathml', 'math_img_width', 'math_img_height' );
 	}
 	/**
 	 * Writes rendering entry to database.
@@ -254,7 +259,8 @@ abstract class MathRenderer {
 		}
 		$out = array( 'math_inputhash' => $this->getInputHash(), 'math_outputhash' => $outmd5_sql,
 				'math_html_conservativeness' => $this->conservativeness, 'math_html' => $this->html,
-				'math_mathml' => utf8_encode( $this->mathml ) );
+				'math_mathml' => utf8_encode( $this->mathml ),
+				'math_img_width' => $this->getImageWidth(), 'math_img_height' => $this->getImageHeight() );
 		wfDebugLog( "Math", "Store Data:" . var_export( $out, true ) . "\n\n" );
 		return $out;
 	}
@@ -496,5 +502,24 @@ abstract class MathRenderer {
 	public function getUserInputTex() {
 		return $this->userInputTex;
 	}
+
+	public function getImageWidth() {
+		return $this->imageWidth;
+	}
+
+	public function setImageWidth( $width ) {
+		$this->changed = true;
+		$this->imageWidth = $width;
+	}
+
+	public function getImageHeight() {
+		return $this->imageHeight;
+	}
+
+	public function setImageHeight( $height ) {
+		$this->changed = true;
+		$this->imageHeight = $height;
+	}
+
 }
 
