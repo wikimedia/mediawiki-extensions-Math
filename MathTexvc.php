@@ -85,6 +85,12 @@ class MathTexvc extends MathRenderer {
 			'class' => 'mwe-math-fallback-png-inline tex',
 			'alt' => $this->getTex()
 		);
+		if ( $this->getImageWidth() !== null && $this->getImageHeight() !== null ) {
+			$attributes[ 'height' ] = $this->getImageHeight();
+			$attributes[ 'width' ] = $this->getImageWidth();
+		} else {
+			wfDebugLog( "Math", "No image sizes for {$this->getHash()}" );
+		}
 		if ( $this->getMathStyle() === MW_MATHSTYLE_DISPLAY ){
 			// if DisplayStyle is true, the equation will be centered in a new line
 			$attributes[ 'class' ] = 'mwe-math-fallback-png-display tex';
@@ -222,6 +228,13 @@ class MathTexvc extends MathRenderer {
 		} elseif ( filesize( "$tmpDir/{$this->getHash()}.png" ) == 0 ) {
 			wfProfileOut( __METHOD__ );
 			return $this->getError( 'math_image_error' );
+		}
+
+		// Get dimensions of file
+		$imgsize = getimagesize( "$tmpDir/{$this->getHash()}.png" );
+		if ( $imgsize ) {
+			$this->setImageWidth( $imgsize[ 0 ] );
+			$this->setImageHeight( $imgsize[ 1 ] );
 		}
 
 		$hashpath = $this->getHashPath(); // final storage directory

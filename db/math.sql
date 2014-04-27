@@ -17,7 +17,13 @@ CREATE TABLE /*_*/math (
   math_html text,
 
   -- MathML output from texvc, or from LaTeXML
-  math_mathml text
+  math_mathml text,
+
+  -- Math image's width
+  math_img_width int default NULL,
+
+  -- Math image's height
+  math_img_height int default NULL
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/math_inputhash ON /*_*/math (math_inputhash);

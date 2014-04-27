@@ -8,4 +8,6 @@ CREATE TABLE /*$wgDBprefix*/math (
    math_html_conservativeness tinyint NOT NULL,
    math_html NVARCHAR(MAX),
    math_mathml NVARCHAR(MAX),
+   math_img_width int,
+   math_img_height int,
 );
