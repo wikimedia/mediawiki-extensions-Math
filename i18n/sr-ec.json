@@ -21,5 +21,6 @@
 	"math_bad_output": "Стварање или писање у одредишној фасцикли за математику није успело",
 	"math_notexvc": "Недостаје извршна датотека <code>texvc</code>. Погледајте math/README за подешавање.",
 	"math-visualeditor-mwmathinspector-title": "Формула",
-	"math-preference-mwmathinspector-label": "Уређивање формула у VisualEditor-у"
+	"math-preference-mwmathinspector-description": "Укључује експерименталну подршку у Визуелном уређивачу за прављење и уређивање математичких формула. Обавезно проверите своје измене пре чувања када користите ову могућност.",
+	"math-preference-mwmathinspector-label": "Уређивање формула у Визуелном уређивачу"
 }
