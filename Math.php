@@ -179,7 +179,6 @@ $wgMathDisableTexFilter = false;
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
 $wgHooks['ParserFirstCallInit'][] = 'MathHooks::onParserFirstCallInit';
-$wgHooks['GetBetaFeaturePreferences'][] = 'MathHooks::onGetBetaPreferences';
 $wgHooks['GetPreferences'][] = 'MathHooks::onGetPreferences';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'MathHooks::onLoadExtensionSchemaUpdates';
 $wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
@@ -469,4 +468,4 @@ $wgResourceModules['ext.math.visualEditor'] = array(
 	'targets' => array( 'desktop', 'mobile' ),
 ) + $moduleTemplate;
 
-$wgVisualEditorPreferenceModules['math-enable-visualeditor'] = 'ext.math.visualEditor';
+$wgVisualEditorPluginModules[] = 'ext.math.visualEditor';
