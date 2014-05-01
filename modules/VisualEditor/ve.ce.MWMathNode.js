@@ -39,6 +39,16 @@ ve.ce.MWMathNode.static.primaryCommandName = 'math';
 /* Methods */
 
 /** */
+ve.ce.MWMathNode.prototype.onSetup = function () {
+	// Parent method
+	ve.ce.MWExtensionNode.prototype.onSetup.apply( this, arguments );
+
+	if ( this.$element.find( 'span.tex' ).length ) {
+		this.renderMathJax();
+	}
+};
+
+/** */
 ve.ce.MWMathNode.prototype.onParseSuccess = function ( deferred, response ) {
 	var data = response.visualeditor, contentNodes = this.$( data.content ).get();
 	if ( contentNodes[0] && contentNodes[0].childNodes ) {
@@ -52,11 +62,7 @@ ve.ce.MWMathNode.prototype.afterRender = function ( domElements ) {
 	var $img;
 
 	if ( this.$( domElements ).is( 'span.tex' ) ) {
-		// MathJax
-		MathJax.Hub.Queue(
-			[ 'Typeset', MathJax.Hub, this.$element[0] ],
-			[ this, this.emit, 'rerender' ]
-		);
+		this.renderMathJax();
 	} else {
 		$img = this.$element.find( 'img.tex' );
 		// Rerender after image load
@@ -69,6 +75,16 @@ ve.ce.MWMathNode.prototype.afterRender = function ( domElements ) {
 			this.emit( 'rerender' );
 		}
 	}
+};
+
+/**
+ * Update MathJax rendering
+ */
+ve.ce.MWMathNode.prototype.renderMathJax = function () {
+	MathJax.Hub.Queue(
+		[ 'Typeset', MathJax.Hub, this.$element[0] ],
+		[ this, this.emit, 'rerender' ]
+	);
 };
 
 /* Registration */
