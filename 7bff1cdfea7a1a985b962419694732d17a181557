@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_99a28694",
+        "filename": "modules/VisualEditor/ve.ce.MWMathNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-05-01T13:53:51Z",
+      "side": 1,
+      "message": "did you test that in PNG mode?",
+      "revId": "7bff1cdfea7a1a985b962419694732d17a181557",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
