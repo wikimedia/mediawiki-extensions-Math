@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_b2c43469",
+        "filename": "Math.hooks.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-02T10:33:44Z",
+      "side": 1,
+      "message": "why do you need to add $wgMathDebug here?",
+      "revId": "b764df3f7449219ffc64deeed0c9e92b3eaf211f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_92aed893",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-02T10:33:44Z",
+      "side": 1,
+      "message": "perhaps call this $jsonResult to avoid the confusion with other result variables?",
+      "revId": "b764df3f7449219ffc64deeed0c9e92b3eaf211f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_327ee414",
+        "filename": "MathRenderer.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-02T10:33:44Z",
+      "side": 1,
+      "message": "why this long whitespace string?",
+      "revId": "b764df3f7449219ffc64deeed0c9e92b3eaf211f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
