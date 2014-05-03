@@ -3,7 +3,8 @@
 		"authors": [
 			"Romaine",
 			"SPQRobin",
-			"Siebrand"
+			"Siebrand",
+			"Sjoerddebruin"
 		]
 	},
 	"math-desc": "Wiskundige formules tussen <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-tags weergeven",
@@ -31,6 +32,6 @@
 	"math_latexml_invalidjson": "LaTeXML: het antwoord van de server is ongeldige JSON.",
 	"math_latexml_xmlversion": "Waarschuwing: XML-typecontrole overgeslagen. Controleer of uw MediaWikiinstallatie versie 1.22wmf7 or later is.",
 	"math-visualeditor-mwmathinspector-title": "Formule",
-	"math-preference-mwmathinspector-description": "Voegt experimentele ondersteuning toe aan de Visuele tekstbewerker voor het aanmaken en bewerken van wiskundige formules. Controleer altijd uw wijzigingen voordat u ze opslaat als u experimentele hulpmiddelen gebruikt.",
-	"math-preference-mwmathinspector-label": "Formulebewerking in visuele tekstbewerker"
+	"math-preference-mwmathinspector-description": "Voegt experimentele ondersteuning toe aan de visuele tekstverwerker voor het aanmaken en bewerken van wiskundige formules. Controleer altijd uw wijzigingen voordat u ze opslaat als u experimentele hulpmiddelen gebruikt.",
+	"math-preference-mwmathinspector-label": "Formulebewerking in visuele tekstverwerker"
 }
