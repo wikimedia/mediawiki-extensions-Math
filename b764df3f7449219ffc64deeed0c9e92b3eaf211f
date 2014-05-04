@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8e23439c_72fc5c6d",
+        "filename": "Math.hooks.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-05-04T16:41:56Z",
+      "side": 1,
+      "message": "Done\nYou are right.",
+      "parentUuid": "8e23439c_b2c43469",
+      "revId": "b764df3f7449219ffc64deeed0c9e92b3eaf211f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e23439c_92aed893",
         "filename": "MathLaTeXML.php",
         "patchSetId": 16
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "8e23439c_3cd0f2f9",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-05-04T16:41:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e23439c_92aed893",
+      "revId": "b764df3f7449219ffc64deeed0c9e92b3eaf211f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e23439c_327ee414",
         "filename": "MathRenderer.php",
         "patchSetId": 16
@@ -47,6 +83,24 @@
       "writtenOn": "2014-05-02T10:33:44Z",
       "side": 1,
       "message": "why this long whitespace string?",
+      "revId": "b764df3f7449219ffc64deeed0c9e92b3eaf211f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_1ccbf64e",
+        "filename": "MathRenderer.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-05-04T16:41:56Z",
+      "side": 1,
+      "message": "That code was movend from the texvc class.\nI think otherwise unpack might throw a not enough data error",
+      "parentUuid": "8e23439c_327ee414",
       "revId": "b764df3f7449219ffc64deeed0c9e92b3eaf211f",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
