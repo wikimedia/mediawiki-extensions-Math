@@ -234,6 +234,11 @@ class MathLaTeXML extends MathRenderer {
 		wfProfileIn( __METHOD__ );
 		$host = self::pickHost();
 		$post = $this->getPostData();
+		// There is an API-inconsistency between different versions of the LaTeXML deamon
+		// some versions require the literal prefix other don't allow it.
+		if ( ! strpos( $host, '/convert' ) ){
+			$post = preg_replace( '/&tex=/' , '&tex=literal:', $post , 1);
+		}
 		$this->lastError = '';
 		if ( $this->makeRequest( $host, $post, $res, $this->lastError ) ) {
 			$result = json_decode( $res );
