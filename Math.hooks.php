@@ -141,7 +141,7 @@ class MathHooks {
 	 * @return Boolean: true
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
-		global $wgUseMathJax;
+		global $wgUseMathJax, $wgMathValidModes, $wgDefaultUserOptions;
 		$defaultPreferences['math'] = array(
 			'type' => 'radio',
 			'options' => array_flip( self::getMathNames() ),
@@ -155,6 +155,13 @@ class MathHooks {
 				'section' => 'rendering/math',
 			);
 		}
+        // If the default option is not in the valid options the
+        // user interface throws an exception (BUG 64844)
+        if ( ! in_array( $wgDefaultUserOptions['math'] , $wgMathValidModes ) ){
+            wfDebug( 'Math', "Warning: Misconfiguration \$wgDefaultUserOptions['math'] is not in \$wgMathValidModes. Please check your LocalSetting.php file.");
+            // Display the checkbox in the first option.
+            $wgDefaultUserOptions['math'] = $wgMathValidModes[0];
+        }
 		return true;
 	}
 
