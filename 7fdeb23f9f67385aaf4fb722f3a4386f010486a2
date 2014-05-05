@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_7eb77af2",
+        "filename": "Math.hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-05-05T19:45:26Z",
+      "side": 1,
+      "message": "the indentation in this block is not using tabs.",
+      "revId": "7fdeb23f9f67385aaf4fb722f3a4386f010486a2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_deee8ee7",
+        "filename": "Math.hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-05-05T19:45:26Z",
+      "side": 1,
+      "message": "I think this should be wfDebugLog",
+      "revId": "7fdeb23f9f67385aaf4fb722f3a4386f010486a2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
