@@ -28,7 +28,7 @@
     "math_latexml_xmlversion": "Warning: XML type check skipped! Check if your MediaWiki installation is version wmf/1.22wmf7 or newer.",
     "math-visualeditor-mwmathinspector-title": "Formula",
     "math-preference-mwmathinspector-description": "Add experimental support to VisualEditor for creating and editing of mathematical formulae for testing, ahead of general release. Please remember to always review your changes before saving when using experimental features.",
-    "math-preference-mwmathinspector-discussion-link": "https://mediawiki.org/wiki/Special:MyLanguage/Talk:VisualEditor/Beta_Features/Formulae",
-    "math-preference-mwmathinspector-info-link": "https://mediawiki.org/wiki/Special:MyLanguage/VisualEditor/Beta_Features/Formulae",
+    "math-preference-mwmathinspector-discussion-link": "https://www.mediawiki.org/wiki/Special:MyLanguage/Talk:VisualEditor/Beta_Features/Formulae",
+    "math-preference-mwmathinspector-info-link": "https://www.mediawiki.org/wiki/Special:MyLanguage/VisualEditor/Beta_Features/Formulae",
     "math-preference-mwmathinspector-label": "VisualEditor formulae editing"
 }
