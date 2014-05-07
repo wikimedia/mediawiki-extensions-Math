@@ -16,6 +16,24 @@
       "revId": "14da299e4f0af1ad81241890ae132bb4e4ad4127",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_fbaeee29",
+        "filename": "db/mathlatexml.mysql.sql",
+        "patchSetId": 18
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-05-07T06:38:20Z",
+      "side": 1,
+      "message": "It\u0027s metadata. I used this field for debugging purposes. It turned out to be quite helpful to track down errors and to delete wrong entries from the database cache.\nThe alternative which I used before was to add this as seperate field that gets added to the table only if $wgMathDebug is set to true. However, there are two issues with this approach:\n1) If $wgMathDebug is set to true without running update.php runtime errors will happen. This might lead to several bugzilla tickets et al.\n2) If there is already data in the table it might take a long time to alter the schema. Especially given that MySQL uses row oriented storage.\n\nI read the mysql manual again [2]. As far as I understand timestamps are stored in UTC always. In the facebook post they say \"MySQL is configured to use system time zone\" is that the default? At leas I could reproduce this with a first experiment.\n\n\n[2] http://dev.mysql.com/doc/refman/5.7/en/timestamp-initialization.html",
+      "parentUuid": "8e23439c_fbcf0e59",
+      "revId": "14da299e4f0af1ad81241890ae132bb4e4ad4127",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
