@@ -23,21 +23,3 @@ modules/MathJax/jax/ # packed files
 modules/MathJax/localization/ # packed files
 modules/MathJax/test
 modules/MathJax/unpacked/config/ # We don't use predefined config files
-modules/MathJax/unpacked/jax/input/AsciiMath/ # We don't use the AsciiMath input Jax
-modules/MathJax/unpacked/jax/input/MathML/entities # We don't use MathML entity names
-modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/STIX
-modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/Asana-Math/ # We don't use the Asana-Math fonts
-modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/Gyre-Pagella/ # We don't use the Gyre-Pagella
-ts
-modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/Gyre-Termes/ # We don't use the Gyre
-modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/Latin-Modern/ # We don't use the Latin-Modern
-ts
-modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/Neo-Euler/ # We don't use the Neo-Euler fonts
-modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/STIX-Web/ # We don't use the STIX-Web fonts
-modules/MathJax/unpacked/jax/output/SVG/fonts/STIX
-modules/MathJax/unpacked/jax/output/SVG/fonts/Asana-Math
-modules/MathJax/unpacked/jax/output/SVG/fonts/Gyre-Pagella
-modules/MathJax/unpacked/jax/output/SVG/fonts/Gyre-Termes
-modules/MathJax/unpacked/jax/output/SVG/fonts/Latin-Modern
-modules/MathJax/unpacked/jax/output/SVG/fonts/Neo-Euler
-modules/MathJax/unpacked/jax/output/SVG/fonts/STIX-Web
