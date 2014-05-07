@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_fbcf0e59",
+        "filename": "db/mathlatexml.mysql.sql",
+        "patchSetId": 18
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 915
+      },
+      "writtenOn": "2014-05-07T03:28:56Z",
+      "side": 1,
+      "message": "Is math_timestamp metadata or data? If it\u0027s data, then it should be explicitly set and not rely on automatic mechanisms.\n\nConsider using DATETIME instead. TIMESTAMP does time zone conversion which could be a trap for downstream users of the extension. It also has potential performance issues at scale [1].\n\nWhat is the policy for time stamp field types in the Math extension, if any? Consider that MW core uses VARBINARY, which, though not very elegant, is at least consistent across most tables.\n\n[1] https://www.facebook.com/MySQLatFacebook/posts/10152018528871696:0",
+      "revId": "14da299e4f0af1ad81241890ae132bb4e4ad4127",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
