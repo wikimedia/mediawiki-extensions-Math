@@ -23,6 +23,7 @@ modules/MathJax/jax/ # packed files
 modules/MathJax/localization/ # packed files
 modules/MathJax/test
 modules/MathJax/unpacked/config/ # We don't use predefined config files
+modules/MathJax/unpacked/jax/input/MathML/entities # We don't use MathML entity names
 modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/STIX
 modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/Asana-Math/ # We don't use the Asana-Math fonts
 modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/Gyre-Pagella/ # We don't use the Gyre-Pagella
