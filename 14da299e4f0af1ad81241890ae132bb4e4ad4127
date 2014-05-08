@@ -52,6 +52,24 @@
       "revId": "14da299e4f0af1ad81241890ae132bb4e4ad4127",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_8a48bb67",
+        "filename": "db/mathlatexml.mysql.sql",
+        "patchSetId": 18
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-05-08T10:34:01Z",
+      "side": 1,
+      "message": "OK. That\u0027s a good rule. This means I should put the other debug fields i.e. math_status, valid_xml and math_log to a seperate schema as well.\nThe point is that those data is useless during development time. It\u0027s only interesting to track down problems in a production environment.\nI had a conversation with Aaron Schulz. If I got him right currently the math table is constantly growing and there is no way to prune old entries from the table. Effectively this database table is a cache to save the time for re-rendering the equations. I have the feeling that such caches should have some kind of timestamp information. I see that \ntimestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\nis a very MySQL specific solution. In addition it is not optimal and could be tuned by using a course grained time scale like For example timestamp(60). However, I do not want to reinvent the wheel and wonder if there is a mechanism used by other caching tables that I could use here.\nLast remark. This table won\u0027t be created at WMF since the mode MW_MATH_LATEXML is not enabled and will not be enabled, but\nthe mathoid table will have almost the same schema and translations to all SQL-dialects. So this discussion is important never the less.",
+      "parentUuid": "8e23439c_bfa4db48",
+      "revId": "14da299e4f0af1ad81241890ae132bb4e4ad4127",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
