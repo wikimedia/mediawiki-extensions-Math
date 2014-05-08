@@ -34,6 +34,24 @@
       "revId": "14da299e4f0af1ad81241890ae132bb4e4ad4127",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_bfa4db48",
+        "filename": "db/mathlatexml.mysql.sql",
+        "patchSetId": 18
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 915
+      },
+      "writtenOn": "2014-05-08T06:31:49Z",
+      "side": 1,
+      "message": "Yes, SYSTEM is default unless time zone tables are loaded.\n\nTimestamps are stored in UTC but converted to/from the connection time zone on read and write. If server and client connections are all UTC, like in WMF production or (I guess) your development environment, it\u0027s all fine. But for downstream users with shared servers or connection pools it may not be so predictable.\n\nAs for having a debugging field: They should not be present on a production schema. Simple rule :-) Put such metadata elsewhere. Eg, you could use a trigger on mathlatexml in your development DB for the same tracking effect.",
+      "parentUuid": "8e23439c_fbaeee29",
+      "revId": "14da299e4f0af1ad81241890ae132bb4e4ad4127",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
