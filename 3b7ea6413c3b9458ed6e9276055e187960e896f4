@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_d38d4bda",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-09T09:17:33Z",
+      "side": 1,
+      "message": "I think you removed the trailing whitespace at the end of the line, so that sounds good.",
+      "revId": "3b7ea6413c3b9458ed6e9276055e187960e896f4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
