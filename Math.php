@@ -91,7 +91,7 @@ $wgMathDisableTexFilter = false;
  * servers in an array e.g $wgLaTeXMLUrl = array ( 'http://latexml.example.com/convert',
  * 'http://latexml2.example.com/convert');
  */
-$wgMathLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
+$wgMathLaTeXMLUrl = 'http://gw125.iu.xsede.org:8888'; // Sponsored by https://www.xsede.org/
 
 /**
  * The timeout for the HTTP-Request sent to the LaTeXML to render an equation,

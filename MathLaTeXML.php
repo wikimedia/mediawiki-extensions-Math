@@ -102,7 +102,7 @@ class MathLaTeXML extends MathMathML {
 		$res = '';
 		$host = $this->pickHost();
 		$post = $this->getLaTeXMLPostData();
-		// There is an API-inconsistency between different versions of the LaTeXML damon
+		// There is an API-inconsistency between different versions of the LaTeXML daemon
 		// some versions require the literal prefix other don't allow it.
 		if ( ! strpos( $host, '/convert' ) ){
 			$post = preg_replace( '/&tex=/' , '&tex=literal:', $post , 1);
