@@ -21,7 +21,7 @@ class MathHooks {
 
 		// To be independent of the MediaWiki core version,
 		// we check if the core caching logic for math is still available.
-		if ( ! is_callable( 'ParserOptions::getMath' ) && in_array( 'math', $forOptions) ) {
+		if ( ! is_callable( 'ParserOptions::getMath' ) && in_array( 'math', $forOptions ) ) {
 			if ( $user === false ) {
 				$user = $wgUser;
 			}
@@ -36,7 +36,7 @@ class MathHooks {
 			) {
 				// The math part of cache key starts with "math=" followed by a star or a number for the math mode
 				// and the optional letter j that indicates if clientside MathJax rendering is used.
-				if ( preg_match( '/(^|!)' . self::mathCacheKey.'[*\d]m?(!|$)/', $confstr ) ) {
+				if ( preg_match( '/(^|!)' . self::mathCacheKey . '[*\d]m?(!|$)/', $confstr ) ) {
 					$confstr = preg_replace(
 						'/(^|!)' . self::mathCacheKey . '[*\d]m?(!|$)/',
 						'\1' . self::mathCacheKey . $mathOption . '\2',
@@ -63,13 +63,14 @@ class MathHooks {
 	 */
 	static function onParserFirstCallInit( $parser ) {
 		$parser->setHook( 'math', array( 'MathHooks', 'mathTagHook' ) );
+
 		return true;
 	}
 
 	/**
 	 * Callback function for the <math> parser hook.
 	 *
-	 * @param $content the LaTeX input
+	 * @param $content (the LaTeX input)
 	 * @param $attributes
 	 * @param Parser $parser
 	 * @return string
@@ -115,8 +116,6 @@ class MathHooks {
 				$parser->getTitle()->getArticleID(),
 				$parser->nextLinkID() ) );// Enables indexing of math formula
 		if ( $wgMathJax && $parser->getUser()->getOption( 'mathJax' ) ) {
-			// maybe this can be checked in the javascript, this would be better for caching
-			$parser->getOptions()->addExtraKey( 1 );
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
@@ -184,7 +183,7 @@ class MathHooks {
 	static function onMaintenanceRefreshLinksInit( $maint ) {
 		global $wgUser;
 
-		# Don't generate TeX PNGs (lack of a sensible current directory causes errors anyway)
+		# Don't generate TeX PNGs (the lack of a sensible current directory causes errors anyway)
 		// TODO: revalidate that
 		$wgUser->setOption( 'math', MW_MATH_SOURCE );
 
@@ -201,29 +200,37 @@ class MathHooks {
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
 		global $wgMathDebug, $wgMathValidModes;
 		if ( is_null( $updater ) ) {
-			throw new MWException( "Math extension is only necessary in 1.18 or above" );
+			throw new MWException( 'Math extension is only necessary in 1.18 or above' );
 		}
+
 		$map = array( 'mysql', 'sqlite', 'postgres', 'oracle', 'mssql' );
+
 		$type = $updater->getDB()->getType();
+
 		if ( $type == 'sqlite' ) {
 			$type = 'mysql'; // The commands used from the updater are the same
 		}
+
 		if ( in_array( $type, $map ) ) {
-			$sql = dirname( __FILE__ ) . '/db/math.' . $type . '.sql';
-			$updater->addExtensionTable( 'math', $sql );
-			$sql = dirname( __FILE__ ) . '/db/mathoid.' . $type . '.sql';
-			$updater->addExtensionTable( 'mathoid', $sql );
-		} else {
-			throw new MWException( "Math extension does not currently support $type database.\n" );
-		}
-		if ( in_array( MW_MATH_LATEXML, $wgMathValidModes ) ){
-			if ( $type == 'mysql' ) {
-				//keep $type rather than mysql here for forward compatibility
-				$sql = dirname( __FILE__ ) . '/db/math_latexml.' . $type . '.sql';
-				$updater->addExtensionTable( 'math_latexml', $sql );
-			} else {
-				throw new MWException( "Math extension does not currently support $type database for LaTeXML." );
+			if ( in_array( MW_MATH_PNG, $wgMathValidModes ) ){
+				$sql = dirname( __FILE__ ) . '/db/math.' . $type . '.sql';
+				$updater->addExtensionTable( 'math', $sql );
 			}
+			if ( in_array( MW_MATH_PNG, $wgMathValidModes ) ){
+				$sql = dirname( __FILE__ ) . '/db/mathoid.' . $type . '.sql';
+				$updater->addExtensionTable( 'mathoid', $sql );
+			}
+			if ( in_array( MW_MATH_LATEXML, $wgMathValidModes ) ){
+				if ( $type == 'mysql' ) {
+				//keep $type rather than mysql here for forward compatibility
+					$sql = dirname( __FILE__ ) . '/db/mathlatexml.' . $type . '.sql';
+					$updater->addExtensionTable( 'mathlatexml', $sql );
+				} else {
+					throw new MWException( "Math extension does not currently support $type database for LaTeXML." );
+				}
+			}
+		} else {
+			throw new MWException( "Math extension does not currently support $type database." );
 		}
 		if ( $wgMathDebug ) {
 			if ( $type == 'mysql' ) {
@@ -249,7 +256,7 @@ class MathHooks {
 	static function onParserTestTables( &$tables ) {
 		$tables[] = 'math';
 		$tables[] = 'mathoid';
-		$tables[] = 'math_latexml';
+		$tables[] = 'mathlatexml';
 		return true;
 	}
 
@@ -262,6 +269,7 @@ class MathHooks {
 	static function onRegisterUnitTests( &$files ) {
 		$testDir = __DIR__ . '/tests/';
 		$files = array_merge( $files, glob( "$testDir/*Test.php" ) );
+
 		return true;
 	}
 
@@ -295,5 +303,15 @@ class MathHooks {
 		if ( $wgMathDirectory === false ) {
 			$wgMathDirectory = "{$wgUploadDirectory}/math";
 		}
+	}
+
+	/**
+	 *
+	 * @global type $wgOut
+	 * @param type $toolbar
+	 */
+	static function onEditPageBeforeEditToolbar( &$toolbar ) {
+		global $wgOut;
+		$wgOut->addModules( array( 'ext.math.editbutton.enabler' ) );
 	}
 }

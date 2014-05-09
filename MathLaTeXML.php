@@ -180,6 +180,6 @@ class MathLaTeXML extends MathMathML {
 		return $this->svg;
 	}
 	protected function getMathTableName() {
-		return 'math_latexml';
+		return 'mathlatexml';
 	}
 }
