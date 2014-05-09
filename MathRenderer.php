@@ -138,7 +138,7 @@ abstract class MathRenderer {
 		// Support of MathML input (experimental)
 		// Currently support for mode MW_MATH_MATHML only
 		if ( isset( $params['type'] ) ) {
-			if( $params['type'] == 'pmml' ){
+			if( in_array( $params['type'], array( 'pmml', 'ascii' ) ) ) {
 				$mode = MW_MATH_MATHML;
 			}
 		}

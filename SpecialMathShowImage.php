@@ -43,12 +43,13 @@ class SpecialMathShowImage extends SpecialPage {
 		$request = $this->getRequest();
 		$hash = $request->getText( 'hash', '' );
 		$tex = $request->getText( 'tex', '');
+		$asciimath = $request->getText( 'asciimath', '');
 		$this->mode = $request->getInt( 'mode', MW_MATH_MATHML );
-		if ( $hash === '' && $tex === '') {
+		if ( $hash === '' && $tex === '' && $asciimath === '' ) {
 			$this->setHeaders( false );
 			echo $this->printSvgError( 'No Inputhash specified' );
 		} else {
-			if ( $tex === ''){
+			if ( $tex === '' && $asciimath === ''){
 				switch ( $this->mode ){
 				case MW_MATH_PNG:
 					$this->renderer = MathTexvc::newFromMd5( $hash );
@@ -70,8 +71,11 @@ class SpecialMathShowImage extends SpecialPage {
 					}
 					$success = $this->renderer->render();
 				}
-			} else {
+			} elseif ( $asciimath === '' ) {
 				$this->renderer = MathRenderer::getRenderer( $tex , array(), $this->mode);
+				$success = $this->renderer->render();
+			} else {
+				$this->renderer = MathRenderer::getRenderer( $asciimath , array( 'type' => 'ascii' ), $this->mode);
 				$success = $this->renderer->render();
 			}
 			if ( $success ) {

@@ -40,6 +40,8 @@ class MathMathML extends MathRenderer {
 			if( $params['type'] == 'pmml' ){
 				$this->inputType = 'pmml';
 				$this->setMathml( '<math>' . $tex . '</math>' );
+			}elseif( $params['type'] == 'ascii' ) {
+				$this->inputType = 'ascii';
 			}
 		}
 	}
@@ -193,6 +195,8 @@ class MathMathML extends MathRenderer {
 		}
 		if (  $this->inputType == 'pmml' || $this->getMode() == MW_MATH_LATEXML &&  $this->getMathml() ) {
 			$out = 'type=mml&q=' . rawurlencode( $this->getMathml() );
+		} elseif( $this->inputType == 'ascii' ){
+			$out = 'type=asciimath&q=' . rawurlencode( $tex );
 		} else {
 			$out = 'type=tex&q=' . rawurlencode( $tex );
 		}
