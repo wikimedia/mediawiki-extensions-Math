@@ -65,7 +65,7 @@ $wgMathJax = true;
  * see http://www.formulasearchengine.com/mathoid
  * TODO: Move documentation to WMF
  */
-$wgMathMathMLUrl = 'http://localhost:10042';
+$wgMathMathMLUrl = 'http://gw124.iu.xsede.org:10042'; // Sponsored by https://www.xsede.org/
 
 /**
  * The timeout for the HTTP-Request sent to the MathML to render an equation,
