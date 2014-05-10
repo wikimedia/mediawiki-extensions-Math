@@ -76,7 +76,7 @@ class MathHooks {
 	 * @return string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgMathJax, $wgMathDisableTexFilter;
+		global $wgMathJax, $wgMathDisableTexFilter, $wgMathSkipCheckForNonTeXInput;
 
 		if ( trim( $content ) === '' ) { // bug 8372
 			return '';
@@ -95,7 +95,7 @@ class MathHooks {
 
 		$renderer = MathRenderer::getRenderer( $content, $attributes, $mode );
 
-		if ( !$wgMathDisableTexFilter ) {
+		if ( !$wgMathDisableTexFilter && (($wgMathSkipCheckForNonTeXInput && !isset( $attributes['type'] )))) {
 			$checkResult = $renderer->checkTex();
 
 			if ( $checkResult !== true ) {

@@ -112,6 +112,10 @@ $wgMathLaTeXMLUrl = 'http://gw125.iu.xsede.org:8888'; // Sponsored by https://ww
 $wgLaTeXMLTimeout = 240;
 
 /**
+ * If true non tex input will not be checked by texvccheck
+ */
+$wgMathSkipCheckForNonTeXInput = true;
+/**
  * Setting for the LaTeXML renderer.
  * See http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml for details.
  */
