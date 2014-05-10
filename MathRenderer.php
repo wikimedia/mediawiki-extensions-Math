@@ -132,6 +132,9 @@ abstract class MathRenderer {
 		if ( isset( $params['id'] ) ) {
 			$id = $params['id'];
 		}
+		if ( isset( $params['forceMathMode'] ) ) {
+			$mode = $params['forceMathMode'];
+		}
 		if ( !in_array( $mode, $wgMathValidModes ) ) {
 			$mode = $wgDefaultUserOptions['math'];
 		}
