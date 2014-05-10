@@ -151,7 +151,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$attribs = array( 'type' => 'pmml' );
 		$renderer = new MathMathML( $inputSample , $attribs );
 		$this->assertEquals( 'pmml' , $renderer->getInputType(), 'Input type was not set correctly' );
-		$this->assertTrue($renderer->render(), 'Failed to render' );
+		$this->assertTrue($renderer->render(), 'Failed to render with error:'. $renderer->getLastError() );
 		$real = MathRenderer::renderMath( $inputSample, $attribs );
 		$expected = 'hash=5628b8248b79267ecac656102334d5e3&amp;mode=5';
 		$this->assertContains( $expected, $real, 'Link to SVG image missing');
