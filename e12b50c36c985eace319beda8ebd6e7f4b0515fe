@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e20cf91_35ceb0ba",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-15T14:06:01Z",
+      "side": 1,
+      "message": "daemon",
+      "revId": "e12b50c36c985eace319beda8ebd6e7f4b0515fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e20cf91_95bea4f9",
+        "filename": "MathRenderer.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-15T14:06:01Z",
+      "side": 1,
+      "message": "perhaps this variable should include \"LaTeXML\" in its name? Unless it is intended to be used with other modes...",
+      "revId": "e12b50c36c985eace319beda8ebd6e7f4b0515fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e20cf91_f546f825",
+        "filename": "MathRenderer.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-15T14:06:01Z",
+      "side": 1,
+      "message": "missing space before the */",
+      "revId": "e12b50c36c985eace319beda8ebd6e7f4b0515fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
