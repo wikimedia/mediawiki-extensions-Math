@@ -50,6 +50,125 @@
       "revId": "e12b50c36c985eace319beda8ebd6e7f4b0515fe",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e20cf91_1e6f51c2",
+        "filename": "MathRenderer.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-15T19:05:34Z",
+      "side": 1,
+      "message": "I think you write \"gets\" elsewhere.\ns/rending/rendering",
+      "revId": "e12b50c36c985eace319beda8ebd6e7f4b0515fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e20cf91_be461d53",
+        "filename": "MathRenderer.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-15T19:05:34Z",
+      "side": 1,
+      "message": "missing space before {\nI think you put space around the argument $newMode",
+      "revId": "e12b50c36c985eace319beda8ebd6e7f4b0515fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e20cf91_5e75c991",
+        "filename": "MathRenderer.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-15T19:05:34Z",
+      "side": 1,
+      "message": "mising space before {",
+      "revId": "e12b50c36c985eace319beda8ebd6e7f4b0515fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e20cf91_9e2c8191",
+        "filename": "MathRenderer.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-15T19:05:34Z",
+      "side": 1,
+      "message": "being",
+      "revId": "e12b50c36c985eace319beda8ebd6e7f4b0515fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e20cf91_5e4ee973",
+        "filename": "MathRenderer.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-15T19:05:34Z",
+      "side": 1,
+      "message": "missing space before {\nI think you don\u0027t put space between parenthesis when the arg list is empty",
+      "revId": "e12b50c36c985eace319beda8ebd6e7f4b0515fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e20cf91_7e22c5a3",
+        "filename": "MathTexvc.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-15T19:05:34Z",
+      "side": 1,
+      "message": "This looks like some debug logging that should be removed",
+      "revId": "e12b50c36c985eace319beda8ebd6e7f4b0515fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e20cf91_5e2709b2",
+        "filename": "MathTexvc.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-15T19:05:34Z",
+      "side": 1,
+      "message": "missing space before {",
+      "revId": "e12b50c36c985eace319beda8ebd6e7f4b0515fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
