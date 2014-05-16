@@ -7,7 +7,7 @@
 	"math_sample": "Ovde unesite formulu",
 	"math_tip": "Matematička formula (LaTeX)",
 	"prefs-math": "Prikaz matematičkih formula",
-	"mw_math_png": "Uvek prikaži PNG",
+	"mw_math_png": "Uvek prikaži kao PNG",
 	"mw_math_source": "Ostavi u formatu ТеХ (za tekstualne pregledače)",
 	"mw_math_mathjax": "MathJax (eksperimentalno; najbolje za većinu pregledača)",
 	"math_failure": "Neuspeh pri parsiranju",
