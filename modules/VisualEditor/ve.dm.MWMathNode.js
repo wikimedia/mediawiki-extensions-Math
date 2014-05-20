@@ -11,7 +11,7 @@
  * DataModel MediaWiki math node.
  *
  * @class
- * @extends ve.dm.MWExtensionNode
+ * @extends ve.dm.MWInlineExtensionNode
  *
  * @constructor
  * @param {number} [length] Length of content data (ignored, forced to 0)
@@ -19,12 +19,12 @@
  */
 ve.dm.MWMathNode = function VeDmMWMathNode( length, element ) {
 	// Parent constructor
-	ve.dm.MWExtensionNode.call( this, 0, element );
+	ve.dm.MWInlineExtensionNode.call( this, 0, element );
 };
 
 /* Inheritance */
 
-OO.inheritClass( ve.dm.MWMathNode, ve.dm.MWExtensionNode );
+OO.inheritClass( ve.dm.MWMathNode, ve.dm.MWInlineExtensionNode );
 
 /* Static members */
 
