@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e20cf91_6d7b19ec",
+        "filename": "Math.hooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-21T08:23:34Z",
+      "side": 1,
+      "message": "mmh, now that look more carefully, there is a problem with the postgres table. It should be renamed math.postgres.sql too.\n\nAlso the LaTeXML table should be mathlatexml.postgres.sql and sqlite.sql (with one L). Could you double check all of these?",
+      "revId": "720d30b270a5f694a62352a73ec65b271ba15a3d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
