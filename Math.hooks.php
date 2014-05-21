@@ -209,6 +209,7 @@ class MathHooks {
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
+		global $wgMathValidModes;
 		if ( is_null( $updater ) ) {
 			throw new MWException( 'Math extension is only necessary in 1.18 or above' );
 		}
@@ -218,17 +219,24 @@ class MathHooks {
 		$type = $updater->getDB()->getType();
 
 		if ( in_array( $type, $map ) ) {
-				$sql = dirname( __FILE__ ) . '/db/math.' . $type . '.sql';
-				$updater->addExtensionTable( 'math', $sql );
+			$sql = dirname( __FILE__ ) . '/db/math.' . $type . '.sql';
+			$updater->addExtensionTable( 'math', $sql );
+			if ( in_array( MW_MATH_LATEXML, $wgMathValidModes ) ){
+				if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
+					$sql = dirname( __FILE__ ) . '/db/mathlatexml.' . $type . '.sql';
+					$updater->addExtensionTable( 'mathlatexml', $sql );
+				} else {
+					throw new MWException( "Math extension does not currently support $type database for LaTeXML." );
+				}
+			}
 		} else {
 			throw new MWException( "Math extension does not currently support $type database." );
 		}
-
 		return true;
 	}
 
 	/**
-	 * Add 'math' table to the list of tables that need to be copied to
+	 * Add 'math' and 'mathlatexml' tables to the list of tables that need to be copied to
 	 * temporary tables for parser tests to run.
 	 *
 	 * @param array $tables
@@ -236,7 +244,7 @@ class MathHooks {
 	 */
 	static function onParserTestTables( &$tables ) {
 		$tables[] = 'math';
-
+		$tables[] = 'mathlatexml';
 		return true;
 	}
 
