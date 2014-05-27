@@ -192,7 +192,7 @@ class MathLaTeXML extends MathRenderer {
 
 	/**
 	 * Picks a LaTeXML daemon.
-	 * If more than one demon are availible one is chosen from the
+	 * If more than one daemon are available one is chosen from the
 	 * $wgMathLaTeXMLUrl array.
 	 * @return string
 	 */
@@ -252,14 +252,14 @@ class MathLaTeXML extends MathRenderer {
 					// mess up the browser output.
 					$this->lastError = $this->getError( 'math_latexml_invalidxml', $host );
 					wfDebugLog( "Math", "\nLaTeXML InvalidMathML:"
-						. var_export( array( 'post' => $post, 'host' => $host
+							. var_export( array( 'post' => $post, 'host' => $host
 							, 'result' => $result ), true ) . "\n\n" );
 					wfProfileOut( __METHOD__ );
 					return false;
 				}
 			} else {
 					$this->lastError = $this->getError( 'math_latexml_invalidjson', $host );
-					wfDebugLog( "Math", "\nLaTeXML InvalidJSON:"
+				wfDebugLog( "Math", "\nLaTeXML InvalidJSON:"
 						. var_export( array( 'post' => $post, 'host' => $host
 							, 'res' => $res ), true ) . "\n\n" );
 					wfProfileOut( __METHOD__ );
@@ -347,4 +347,8 @@ class MathLaTeXML extends MathRenderer {
 		return Xml::tags( 'span', $attribs, $mml );
 	}
 
+	protected function getMathTableName() {
+		return 'mathlatexml';
+	}
 }
+
