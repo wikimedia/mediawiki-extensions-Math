@@ -182,8 +182,8 @@ abstract class MathRenderer {
 				wfDebugLog( 'Math', $msg );
 				// If we can not check if mathml output is valid, we skip the test and assume that it is valid.
 				$this->recall = true;
-				wfProfileOut( __METHOD__ );
-				return true;
+			wfProfileOut( __METHOD__ );
+			return true;
 			} elseif ( StringUtils::isUtf8( $this->mathml ) ) {
 				$this->recall = true;
 				wfProfileOut( __METHOD__ );
@@ -191,7 +191,7 @@ abstract class MathRenderer {
 			}
 		}
 
-		# Missing from the database and/or the render cache
+			# Missing from the database and/or the render cache
 		$this->recall = false;
 		wfProfileOut( __METHOD__ );
 		return false;
@@ -234,9 +234,9 @@ abstract class MathRenderer {
 			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . bin2hex( $this->hash ) . ")\n" );
 			$outArray = $this->dbOutArray();
 			$dbw->onTransactionIdle(
-					function() use( $dbw, $outArray ) {
-						$dbw->replace( 'math', array( 'math_inputhash' ), $outArray, __METHOD__ );
-					} );
+				function() use( $dbw, $outArray ) {
+					$dbw->replace( 'math', array( 'math_inputhash' ), $outArray, __METHOD__ );
+				} );
 		}
 	}
 
@@ -496,5 +496,12 @@ abstract class MathRenderer {
 	public function getUserInputTex() {
 		return $this->userInputTex;
 	}
-}
 
+
+	protected abstract function getMathTableName();
+
+	public function getModeStr() {
+		$names = MathHooks::getMathNames();
+		return $names[ $this->getMode() ];
+	}
+}
