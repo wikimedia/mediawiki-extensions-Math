@@ -229,6 +229,14 @@ class MathHooks {
 					throw new MWException( "Math extension does not currently support $type database for LaTeXML." );
 				}
 			}
+			if ( in_array( MW_MATH_MATHML, $wgMathValidModes ) ) {
+				if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
+					$sql = dirname( __FILE__ ) . '/db/mathoid.' . $type . '.sql';
+					$updater->addExtensionTable( 'mathoid', $sql );
+				} else {
+					throw new MWException( "Math extension does not currently support $type database for Mathoid." );
+				}
+			}
 		} else {
 			throw new MWException( "Math extension does not currently support $type database." );
 		}
