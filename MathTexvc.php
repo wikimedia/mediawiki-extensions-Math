@@ -23,7 +23,7 @@ class MathTexvc extends MathRenderer {
 	const LIBERAL = 0;
 	const MW_TEXVC_SUCCESS = -1;
 
-	/**
+     /**
 	 * Renders TeX using texvc
 	 *
 	 * @return string rendered TeK
@@ -358,6 +358,10 @@ class MathTexvc extends MathRenderer {
 		}
 		wfProfileOut( __METHOD__ );
 		return false;
+	}
+
+	protected function getMathTableName() {
+		return 'math';
 	}
 
 }
