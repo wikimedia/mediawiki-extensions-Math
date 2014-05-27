@@ -26,7 +26,7 @@ class MathRendererTest extends MediaWikiTestCase {
 	 */
 	public function testWriteCacheSkip() {
 		$renderer = $this->getMockBuilder( 'MathRenderer' )
-			->setMethods( array( 'writeToDatabase' , 'render' ) )
+			->setMethods( array( 'writeToDatabase' , 'render', 'getMathTableName' ) )
 			->disableOriginalConstructor()
 			->getMock();
 		$renderer->expects( $this->never() )
@@ -40,7 +40,7 @@ class MathRendererTest extends MediaWikiTestCase {
 	 */
 	public function testWriteCache() {
 		$renderer = $this->getMockBuilder( 'MathRenderer' )
-			->setMethods( array( 'writeToDatabase' , 'render' ) )
+			->setMethods( array( 'writeToDatabase' , 'render', 'getMathTableName' ) )
 			->disableOriginalConstructor()
 			->getMock();
 		$renderer->expects( $this->never() )
@@ -54,7 +54,7 @@ class MathRendererTest extends MediaWikiTestCase {
 	 */
 	public function testChangeHash() {
 		$renderer = $this->getMockBuilder( 'MathRenderer' )
-		->setMethods( array( 'render' ) )
+		->setMethods( array( 'render', 'getMathTableName' ) )
 		->disableOriginalConstructor()
 		->getMock();
 		$this->assertEquals(
@@ -71,7 +71,7 @@ class MathRendererTest extends MediaWikiTestCase {
 
 	public function testSetPurge() {
 		$renderer = $this->getMockBuilder( 'MathRenderer' )
-		->setMethods( array( 'render' ) )
+		->setMethods( array( 'render', 'getMathTableName' ) )
 		->disableOriginalConstructor()
 		->getMock();
 		$renderer->setPurge();
