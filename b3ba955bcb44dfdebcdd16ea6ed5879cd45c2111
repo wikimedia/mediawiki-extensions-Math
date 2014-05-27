@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e1dcb5b_9c86b017",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-27T06:32:03Z",
+      "side": 1,
+      "message": "s/seperate/separate/",
+      "revId": "b3ba955bcb44dfdebcdd16ea6ed5879cd45c2111",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_7c8bd420",
+        "filename": "db/mathoid.mysql.sql",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-27T06:32:03Z",
+      "side": 1,
+      "message": "s/Ascii/ASCII/",
+      "revId": "b3ba955bcb44dfdebcdd16ea6ed5879cd45c2111",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_5c8018f9",
+        "filename": "db/mathoid.postgres.sql",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-27T06:32:03Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "b3ba955bcb44dfdebcdd16ea6ed5879cd45c2111",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_3c7d5c18",
+        "filename": "db/mathoid.sqlite.sql",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-27T06:32:03Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "b3ba955bcb44dfdebcdd16ea6ed5879cd45c2111",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
