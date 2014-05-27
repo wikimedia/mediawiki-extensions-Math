@@ -360,4 +360,8 @@ class MathTexvc extends MathRenderer {
 		return false;
 	}
 
+	protected function getMathTableName() {
+		return 'math';
+	}
+
 }
