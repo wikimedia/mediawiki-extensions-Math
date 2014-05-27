@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e1dcb5b_6ca9df77",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-27T21:17:56Z",
+      "side": 1,
+      "message": "missing space before */",
+      "revId": "020c141d47f775e4f5e0421e69ae45911301bfc8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_6cc0bf2f",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-27T21:17:56Z",
+      "side": 1,
+      "message": "I think that was rename LaTeXMLstatusCode",
+      "revId": "020c141d47f775e4f5e0421e69ae45911301bfc8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
