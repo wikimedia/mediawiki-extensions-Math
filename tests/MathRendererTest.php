@@ -1,10 +1,11 @@
 <?php
 /**
- * Test the database access and core functionallity of MathRenderer.
+ * Test the database access and core functionality of MathRenderer.
  *
  * @group Math
  */
 class MathRendererTest extends MediaWikiTestCase {
+	const SOME_TEX = "a+b";
 	/**
 	 * Checks the tex and hash functions
 	 * @covers MathRenderer::getTex()
@@ -12,9 +13,9 @@ class MathRendererTest extends MediaWikiTestCase {
 	 */
 	public function testBasics() {
 		$renderer = $this->getMockForAbstractClass( 'MathRenderer'
-			, array ( MathDatabaseTest::SOME_TEX ) );
+			, array ( self::SOME_TEX ) );
 		// check if the TeX input was corretly passed to the class
-		$this->assertEquals( MathDatabaseTest::SOME_TEX, $renderer->getTex()
+		$this->assertEquals( self::SOME_TEX, $renderer->getTex()
 			, "test getTex" );
 		$this->assertEquals( $renderer->isChanged(), false
 			, "test if changed is initially false" );
@@ -30,7 +31,7 @@ class MathRendererTest extends MediaWikiTestCase {
 			->disableOriginalConstructor()
 			->getMock();
 		$renderer->expects( $this->never() )
-		->method( 'writeToDatabase' );
+			->method( 'writeToDatabase' );
 		$renderer->writeCache();
 	}
 
@@ -48,32 +49,11 @@ class MathRendererTest extends MediaWikiTestCase {
 		$renderer->writeCache();
 	}
 
-	/**
-	 * Test behavior $change when the rendered hash was changed
-	 * @covers MathRenderer::setHash()
-	 */
-	public function testChangeHash() {
-		$renderer = $this->getMockBuilder( 'MathRenderer' )
-		->setMethods( array( 'render', 'getMathTableName' ) )
-		->disableOriginalConstructor()
-		->getMock();
-		$this->assertEquals(
-			$renderer->isChanged(),
-			false,
-			"test if changed is initially false"
-		);
-		$renderer->setHash( '0000' );
-		$this->assertEquals(
-			$renderer->isChanged(),
-			true,
-			"assumes that changing a hash sets changed to true" );
-	}
-
 	public function testSetPurge() {
 		$renderer = $this->getMockBuilder( 'MathRenderer' )
-		->setMethods( array( 'render', 'getMathTableName' ) )
-		->disableOriginalConstructor()
-		->getMock();
+			->setMethods( array( 'render', 'getMathTableName' ) )
+			->disableOriginalConstructor()
+			->getMock();
 		$renderer->setPurge();
 		$this->assertEquals( $renderer->isPurge(), true, "Test purge." );
 
