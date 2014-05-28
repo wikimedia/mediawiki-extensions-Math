@@ -14,6 +14,18 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	const SOME_TIMESTAMP = 1272509157;
 	const SOME_SVG = "<?xml </svg >>%%LIKE;'\" DROP TABLE math;";
 
+	/**
+	 * Helper function to test protected/private Methods
+	 * @param $name
+	 * @return ReflectionMethod
+	 */
+	protected static function getMethod($name) {
+		$class = new ReflectionClass('MathLaTeXML');
+		$method = $class->getMethod($name);
+		$method->setAccessible(true);
+		return $method;
+	}
+
 
 	/**
 	 * creates a new database connection and a new math renderer
@@ -28,6 +40,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 		parent::setUp();
 		// TODO: figure out why this is necessary
 		$this->db = wfGetDB( DB_MASTER );
+		$this->tablesUsed[] = 'mathlatexml';
 		// Create a new instance of MathSource
 		$this->renderer = new MathLaTeXML( self::SOME_TEX );
 		self::setupTestDB( $this->db, "mathtest" );
@@ -49,6 +62,17 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 		$this->renderer->setTex( self::SOME_TEX );
 		$this->renderer->setMathml( self::SOME_MATHML );
 	}
+
+	/**
+	 * @covers MathLaTeXML::getMathTableName
+	 */
+	public function testTableName() {
+		$fnGetMathTableName = self::getMethod( 'getMathTableName' );
+		$obj = new MathLaTeXML();
+		$tableName = $fnGetMathTableName->invokeArgs( $obj, array() );
+		$this->assertEquals( $tableName, "mathlatexml", "Wrong latexml table name" );
+	}
+
 	/**
 	 * Checks database access. Writes an entry and reads it back.
 	 * @covers MathRenderer::writeDatabaseEntry()
@@ -63,7 +87,6 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 		// comparing the class object does now work due to null values etc.
 		$this->assertEquals( $this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same" );
 		$this->assertEquals( $this->renderer->getMathml(), $renderer2->getMathml(), "Check MathML encoding" );
-
 	}
 
 
@@ -78,7 +101,11 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 		$dbu = DatabaseUpdater::newForDB( $this->db );
 		$dbu->doUpdates( array( "extensions" ) );
 		$this->expectOutputRegex( '/(.*)Creating mathlatexml table(.*)/' );
+		$this->setValues();
+		$this->renderer->writeToDatabase();
 		$res = $this->db->select( "mathlatexml", "*" );
+		$row = $res->fetchRow();
+		$this->assertEquals( 12,  sizeof( $row ) );
 	}
 
 }
