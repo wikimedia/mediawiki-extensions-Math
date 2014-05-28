@@ -21,35 +21,60 @@
  * @author Moritz Schubotz
  */
 abstract class MathRenderer {
-	/**
-	 *  The following variables should made private, as soon it can be verified
-	 *  that they are not being directly accessed by other extensions.
-	 */
-	protected $mode = MW_MATH_PNG;
+
+	// REPRESENTATIONS OF THE MATHEMATICAL CONTENT
+	/** @var string tex representation */
 	protected $tex = '';
-	/** @var string the original user input string (which was used to caculate the inputhash) */
+	/** @var string MathML content and presentation */
+	protected $mathml = '';
+	/** @var string SVG layout only (no semantics) */
+	protected $svg = '';
+	/** @var string the original user input string (which was used to calculate the inputhash) */
 	protected $userInputTex = '';
+	// FURTHER PROPERTIES OF THE MATHEMATICAL CONTENT
 	/** @var (MW_MATHSTYLE_INLINE_DISPLAYSTYLE|MW_MATHSTYLE_DISPLAY|MW_MATHSTYLE_INLINE) the rendering style */
 	protected $mathStyle = MW_MATHSTYLE_INLINE_DISPLAYSTYLE;
+	/** @var array with userdefined parameters passed to the extension (not used) */
+	protected $params = array();
+	/** @var string a userdefined identifier to link to the equation. */
+	protected $id = '';
+
+	// DEBUG VARIABLES
+	// Available, if Math extension runs in debug mode ($wgMathDebug = true) only.
+	/** @var int LaTeXML return code (will be available in future Mathoid versions as well) */
+	protected $statusCode = 0;
+	/** @var timestamp of the last modification of the database entry */
+	protected $timestamp;
+	/** @var log messages generated during conversion of mathematical content */
+	protected $log = '';
+
+	// STATE OF THE CLASS INSTANCE
+	/** @var boolean has variable tex been security-checked */
+	protected $texSecure = false;
+	/** @var boolean has the mathematical content changed */
+	protected $changed = false;
+	/** @var boolean is there a database entry for the mathematical content */
+	protected $storedInDatabase = null;
+	/** @var boolean is there a request to purge the existing mathematical content */
+	protected $purge = false;
+	/** @var string with last occurred error */
+	protected $lastError = '';
+	/** @var string md5 value from userInputTex */
+	protected $md5 = '';
+	/** @var binary packed inputhash */
+	protected $inputHash = '';
+	/** @var int rendering mode MW_MATH_(PNG|MATHML|SOURCE...) */
+	protected $mode = MW_MATH_PNG;
+
+	// VARIABLES TO BE REMOVED IN THE NEXT COMMIT
 	/**
 	 * is calculated by texvc.
 	 * @var string
 	 */
 	protected $hash = '';
 	protected $html = '';
-	protected $mathml = '';
 	protected $conservativeness = 0;
-	protected $params = '';
-	// STATE OF THE CLASS INSTANCE
-	/** @var boolean has variable tex been security-checked */
-	protected $texSecure = false;
-	protected $changed = false;
-	/**
-	 * @var boolean forces rerendering if set to true
-	 */
-	protected $purge = false;
 	protected $recall;
-	protected $lastError = '';
 
 	/**
 	 * Constructs a base MathRenderer
@@ -158,10 +183,45 @@ abstract class MathRenderer {
 	 *
 	 * @return string hash
 	 */
+	public function getMd5() {
+		if ( ! $this->md5 ) {
+			$this->md5 = md5( $this->userInputTex );
+		}
+		return $this->md5;
+	}
+
+	/**
+	 * Set the input hash (if user input tex is not available)
+	 * @param $md5
+	 * @return string hash
+	 */
+	public function setMd5( $md5 ) {
+		$this->md5 = $md5;
+	}
+
+	/**
+	 * Return hash of input
+	 *
+	 * @return string hash
+	 */
 	public function getInputHash() {
 		// TODO: What happens if $tex is empty?
+		if ( !$this->inputHash ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		return $dbr->encodeBlob( pack( "H32", md5( $this->getUserInputTex() ) ) ); # Binary packed, not hex
+			return $dbr->encodeBlob( pack( "H32", $this->getMd5() ) ); # Binary packed, not hex
+	}
+		return $this->inputHash;
+	}
+
+	/**
+	 * Decode binary packed hash from the database to md5 of input_tex
+	 * @param binary $hash
+	 * @return string md5
+	 */
+	private static function dbHash2md5( $hash ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		$xhash = unpack( 'H32md5', $dbr->decodeBlob( $hash ) . "                " );
+		return $xhash['md5'];
 	}
 
 	/**
@@ -171,6 +231,7 @@ abstract class MathRenderer {
 	 */
 	public function readFromDatabase() {
 		wfProfileIn( __METHOD__ );
+		/** @var DatabaseBase */
 		$dbr = wfGetDB( DB_SLAVE );
 		$rpage = $dbr->selectRow( 'math', $this->dbInArray(),
 			array( 'math_inputhash' => $this->getInputHash() ), __METHOD__ );
@@ -226,12 +287,13 @@ abstract class MathRenderer {
 	 * This function stores the values that are currently present in the class to the database even if they are empty.
 	 *
 	 * This function can be seen as protected function.
+	 * @param DatabaseBase $dbw
 	 */
 	public function writeToDatabase( $dbw = null ) {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
 			$dbw = $dbw ? : wfGetDB( DB_MASTER );
-			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . bin2hex( $this->hash ) . ")\n" );
+			wfDebugLog( "Math", 'store entry for $' . $this->tex . '$ in database (hash:' . $this->getMd5() . ")\n" );
 			$outArray = $this->dbOutArray();
 			$dbw->onTransactionIdle(
 				function() use( $dbw, $outArray ) {
@@ -303,6 +365,14 @@ abstract class MathRenderer {
 	}
 
 	/**
+	 * gets the timestamp, of the last rendering of that equation
+	 * @return int
+	 */
+	public function getTimestamp() {
+		return $this->timestamp;
+	}
+
+	/**
 	 * gets the rendering mode MW_MATH_*
 	 *
 	 * @return int
@@ -311,6 +381,20 @@ abstract class MathRenderer {
 		return $this->mode;
 	}
 
+	/**
+	 * Sets the rendering mode
+	 * @param int $newMode element of the array $wgMathValidModes
+	 * @return bool
+	 */
+	public function setMode( $newMode ){
+		global$wgMathValidModes;
+		if ( in_array($newMode, $wgMathValidModes ) ) {
+			$this->mode = $newMode;
+			return true;
+		} else {
+			return false;
+		}
+	}
 	/**
 	 * Sets the TeX code
 	 *
@@ -446,6 +530,12 @@ abstract class MathRenderer {
 		return $this->lastError;
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getLog() {
+		return $this->log;
+	}
 
 	/**
 	 *
@@ -465,7 +555,28 @@ abstract class MathRenderer {
 	public function getMathStyle() {
 		return $this->mathStyle;
 	}
+	/**
+	 * @param string $log
+	 */
+	public function setLog( $log ) {
+		$this->changed = true;
+		$this->log = $log;
+	}
 
+	/**
+	 * @return int
+	 */
+	public function getStatusCode() {
+		return $this->statusCode;
+	}
+
+	/**
+	 * @param unknown_type $statusCode
+	 */
+	public function setStatusCode( $statusCode ) {
+		$this->changed = true;
+		$this->statusCode = $statusCode;
+	}
 	/**
 	 * Get if the input tex was marked as secure
 	 * @return boolean
@@ -491,12 +602,45 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * @return string original tex string specified by the user
+	 *
+	 * @return string TeX the original tex string specified by the user
 	 */
 	public function getUserInputTex() {
 		return $this->userInputTex;
 	}
 
+	/**
+	 * @return string Userdefined ID
+	 */
+	public function getID() {
+		return $this->id;
+	}
+
+	/**
+	 * @param $id
+	 * @return string user defined ID
+	 */
+	public function setID( $id ) {
+		return $this->id = $id;
+	}
+
+	/**
+	 *
+	 * @param type $svg
+	 */
+	public function setSvg( $svg ) {
+		$this->changed = true;
+		$this->svg = trim( $svg );
+	}
+
+	/**
+	 *
+	 * @return type
+	 */
+	public function getSvg() {
+		// Spaces will prevent the image from being displayed correctly in the browser
+		return trim( $this->svg );
+	}
 
 	protected abstract function getMathTableName();
 
