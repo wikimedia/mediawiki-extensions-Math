@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e1dcb5b_4d161d4f",
+        "filename": "MathRenderer.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-28T07:51:28Z",
+      "side": 1,
+      "message": "missing space before {",
+      "revId": "d30664bf5a89ded6db4788a62154ac260ef498af",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_ad36d1e2",
+        "filename": "MathRenderer.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-28T07:51:28Z",
+      "side": 1,
+      "message": "do you mean $this-\u003echanged \u003d true; here too?",
+      "revId": "d30664bf5a89ded6db4788a62154ac260ef498af",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
