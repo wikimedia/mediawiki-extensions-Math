@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e1dcb5b_4d39739e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-29T12:41:57Z",
+      "side": 1,
+      "message": "trailing space",
+      "revId": "c4bd7c6a626ea91412bd93a0d3033c830fc30517",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_2d3e3788",
+        "filename": "MathRenderer.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-29T12:41:57Z",
+      "side": 1,
+      "message": "I think there should not be space beween the function name and (",
+      "revId": "c4bd7c6a626ea91412bd93a0d3033c830fc30517",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_0d113b08",
+        "filename": "MathRenderer.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-29T12:41:57Z",
+      "side": 1,
+      "message": "Someone who is familiar with MediaWiki database should probably comment on this. I\u0027m not really sure I understand what are the 2 cases handled here. I don\u0027t know about the exact semantics of replace/update/insert to say whether this is correct.",
+      "revId": "c4bd7c6a626ea91412bd93a0d3033c830fc30517",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_0d437b18",
+        "filename": "MathRenderer.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-29T12:41:57Z",
+      "side": 1,
+      "message": "I think for these two functions too there should be no space beween the name and (",
+      "revId": "c4bd7c6a626ea91412bd93a0d3033c830fc30517",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_ed6eff92",
+        "filename": "MathRenderer.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-29T12:41:57Z",
+      "side": 1,
+      "message": "I don\u0027t see where storedInDatabase is set now. Also the return value of readFromDatabase() is never used...\n\nDid you mean $this-\u003estoredInDatabase \u003d readFromDatabase()?",
+      "revId": "c4bd7c6a626ea91412bd93a0d3033c830fc30517",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
