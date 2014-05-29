@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4e1dcb5b_adf5a7b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-05-29T12:58:10Z",
+      "side": 1,
+      "message": "added to trigger jenkins again;-)",
+      "parentUuid": "4e1dcb5b_4d39739e",
+      "revId": "c4bd7c6a626ea91412bd93a0d3033c830fc30517",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e1dcb5b_2d3e3788",
         "filename": "MathRenderer.php",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2014-05-29T12:41:57Z",
       "side": 1,
       "message": "I think there should not be space beween the function name and (",
+      "revId": "c4bd7c6a626ea91412bd93a0d3033c830fc30517",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_4dc4d368",
+        "filename": "MathRenderer.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-05-29T12:58:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e1dcb5b_2d3e3788",
       "revId": "c4bd7c6a626ea91412bd93a0d3033c830fc30517",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "4e1dcb5b_2db997e6",
+        "filename": "MathRenderer.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-05-29T12:58:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e1dcb5b_0d437b18",
+      "revId": "c4bd7c6a626ea91412bd93a0d3033c830fc30517",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e1dcb5b_ed6eff92",
         "filename": "MathRenderer.php",
         "patchSetId": 7
@@ -81,6 +135,24 @@
       "writtenOn": "2014-05-29T12:41:57Z",
       "side": 1,
       "message": "I don\u0027t see where storedInDatabase is set now. Also the return value of readFromDatabase() is never used...\n\nDid you mean $this-\u003estoredInDatabase \u003d readFromDatabase()?",
+      "revId": "c4bd7c6a626ea91412bd93a0d3033c830fc30517",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_6da66fc0",
+        "filename": "MathRenderer.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-05-29T12:58:10Z",
+      "side": 1,
+      "message": "oh I see there was a rebasing problem in readFromDatabase it\u0027s supposed to set storedInDatabase",
+      "parentUuid": "4e1dcb5b_ed6eff92",
       "revId": "c4bd7c6a626ea91412bd93a0d3033c830fc30517",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
