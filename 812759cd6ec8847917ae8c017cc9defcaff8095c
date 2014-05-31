@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e1dcb5b_dfbbd7b8",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-31T12:59:08Z",
+      "side": 1,
+      "message": "That one used to be the result of json_decode. Do you mean $jsonResult here?",
+      "revId": "812759cd6ec8847917ae8c017cc9defcaff8095c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_9fdd5f1a",
+        "filename": "i18n/qqq.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-31T12:59:08Z",
+      "side": 1,
+      "message": "rendering",
+      "revId": "812759cd6ec8847917ae8c017cc9defcaff8095c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_7fe4c3db",
+        "filename": "i18n/qqq.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-31T12:59:08Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "812759cd6ec8847917ae8c017cc9defcaff8095c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_5fe7c7df",
+        "filename": "i18n/qqq.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-05-31T12:59:08Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "812759cd6ec8847917ae8c017cc9defcaff8095c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
