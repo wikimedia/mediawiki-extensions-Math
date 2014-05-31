@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4e1dcb5b_3f7c0bb4",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-05-31T14:51:41Z",
+      "side": 1,
+      "message": "no $res should be right here. Since in this part of the if statement $jsonResults evaluates to false or there was a json error",
+      "parentUuid": "4e1dcb5b_dfbbd7b8",
+      "revId": "812759cd6ec8847917ae8c017cc9defcaff8095c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e1dcb5b_9fdd5f1a",
         "filename": "i18n/qqq.json",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2014-05-31T12:59:08Z",
       "side": 1,
       "message": "rendering",
+      "revId": "812759cd6ec8847917ae8c017cc9defcaff8095c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_bf4ffb96",
+        "filename": "i18n/qqq.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-05-31T14:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e1dcb5b_9fdd5f1a",
       "revId": "812759cd6ec8847917ae8c017cc9defcaff8095c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "4e1dcb5b_9f52ff3d",
+        "filename": "i18n/qqq.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-05-31T14:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e1dcb5b_7fe4c3db",
+      "revId": "812759cd6ec8847917ae8c017cc9defcaff8095c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e1dcb5b_5fe7c7df",
         "filename": "i18n/qqq.json",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2014-05-31T12:59:08Z",
       "side": 1,
       "message": "ditto",
+      "revId": "812759cd6ec8847917ae8c017cc9defcaff8095c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e1dcb5b_7f49638f",
+        "filename": "i18n/qqq.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-05-31T14:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e1dcb5b_5fe7c7df",
       "revId": "812759cd6ec8847917ae8c017cc9defcaff8095c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
