@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e1a5767_8d4e959a",
+        "filename": "i18n/en.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 121
+      },
+      "writtenOn": "2014-06-03T20:45:56Z",
+      "side": 1,
+      "message": "Suggestion: Use \"$2\" instead of \u0027$2\u0027 for consistency",
+      "revId": "99c68a18cd41f3ab275672ec25692d65fcf3fa6d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e1a5767_4d487d8c",
+        "filename": "i18n/en.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 121
+      },
+      "writtenOn": "2014-06-03T20:45:56Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "99c68a18cd41f3ab275672ec25692d65fcf3fa6d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
