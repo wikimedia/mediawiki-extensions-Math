@@ -24,11 +24,10 @@
 	"math_bad_output": "Kan ikke skrive til eller oprette uddata-mappe til math",
 	"math_notexvc": "Manglende eksekvérbar <code>texvc</code>; se math/README for opsætningsoplysninger.",
 	"math_output_error": "Kan ikke gemme matematikbillede på filsystem.",
-	"math_latexml_timeout": "LaTeXML timeout fra '$1'",
-	"math_latexml_invalidresponse": "LaTeXML ugyldigt svar ('$2') fra serveren '$1':",
-	"math_latexml_invalidxml": "LaTeXML MathML er ugyldig XML.",
-	"math_latexml_invalidjson": "LaTeXML svar fra serveren er ugyldig JSON.",
-	"math_latexml_xmlversion": "Advarsel: XML typetjek springes over! Tjek om din MediaWiki-installation er version wmf/1.22wmf7 eller nyere.",
+	"math_invalidresponse": "$1: ugyldigt svar ('$3') fra serveren '$2':",
+	"math_invalidxml": " MathML er ugyldig XML.",
+	"math_invalidjson": "$1 svar fra serveren er ugyldig JSON.",
+	"math_xmlversion": "Advarsel: XML typetjek springes over! Tjek om din MediaWiki-installation er version wmf/1.22wmf7 eller nyere.",
 	"math-preference-mwmathinspector-description": "Tilføj eksperimentel støtte til VisualEditor for oprettelse og redigering af matematiske formler til test, forud for generel frigivelse. Husk at altid gennemse dine ændringer før du gemmer, når du redigere ved hjælp af eksperimentelle funktioner.",
 	"math-preference-mwmathinspector-label": "VisualEditor redigering af formler"
 }

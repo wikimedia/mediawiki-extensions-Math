@@ -22,6 +22,6 @@
 	"math_bad_tmpdir": "હંગામી ગણિત ડીરેક્ટરીમાં લખવું કે નવી બનાવવી શક્ય નથી",
 	"math_bad_output": "ગણિત પરિણામ ડીરેક્ટરીમાં લખવું કે નવી બનાવવી શક્ય નથી",
 	"math_notexvc": "ચલાવી શકાય તેવી <code>texvc</code> ગાયબ ; આને ચડાવવા math/README  જુઓ.",
-	"math_latexml_invalidxml": "LaTeXML MathML અમાન્ય XML છે.",
-	"math_latexml_invalidjson": "LaTeXML સર્વર પ્રતિભાવ અમાન્ય JSON છે."
+	"math_invalidxml": " MathML અમાન્ય XML છે.",
+	"math_invalidjson": "$1 સર્વર પ્રતિભાવ અમાન્ય JSON છે."
 }

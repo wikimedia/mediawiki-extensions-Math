@@ -23,11 +23,10 @@
 	"math_bad_output": "Không tạo mới hay viết vào thư mục kết quả được",
 	"math_notexvc": "Không thấy hàm thực thi <code>texvc</code>; xin xem math/README để biết cách cấu hình.",
 	"math_output_error": "Không thể lưu hình toán học trên hệ thống tập tin.",
-	"math_latexml_timeout": "Hết hạn LaTeXML từ “$1”",
-	"math_latexml_invalidresponse": "Phản hồi LaTeXML không hợp lệ (“$2”) từ máy chủ “$1”:",
-	"math_latexml_invalidxml": "MathML LaTeXML là XML không hợp lệ.",
-	"math_latexml_invalidjson": "Phản hồi từ máy chủ LaTeXML là JSON không hợp lệ.",
-	"math_latexml_xmlversion": "Cảnh báo: Đã bỏ qua việc kiểm tra kiểu XML! Hãy kiểm tra bản MediaWiki của bạn là phiên bản wmf/1.22wmf7 trở lên.",
+	"math_invalidresponse": "Phản hồi $1: không hợp lệ (“$3”) từ máy chủ “$2”:",
+	"math_invalidxml": "MathML  là XML không hợp lệ.",
+	"math_invalidjson": "Phản hồi từ máy chủ $1 là JSON không hợp lệ.",
+	"math_xmlversion": "Cảnh báo: Đã bỏ qua việc kiểm tra kiểu XML! Hãy kiểm tra bản MediaWiki của bạn là phiên bản wmf/1.22wmf7 trở lên.",
 	"math-preference-mwmathinspector-description": "Thêm chức năng thử nghiệm cơ bản vào Trình soạn thảo trực quan để viết và sửa công thức toán học, để thử thách trước khi phát hành cho mọi người. Sau khi bật lên tính năng thử nghiệm này, xin vui lòng nhớ luôn xem lại các thay đổi trước khi lưu.",
 	"math-preference-mwmathinspector-label": "Sửa công thức trong Trình soạn thảo trực quan"
 }

@@ -22,9 +22,8 @@
 	"math_bad_output": "De map veur wiskundebestaanden besteet niet of is niet an te maken.",
 	"math_notexvc": "Kan t programma <code>texvc</code> niet vienen; configureer volgens de beschrieving in math/README.",
 	"math_output_error": "De formule-aofbeelding kan niet op t bestaandssysteem op-esleugen wörden.",
-	"math_latexml_timeout": "LaTeXML: tiedsoverschriejing van \"$1\"",
-	"math_latexml_invalidresponse": "LaTeXML: ongeldig antwoord (\"$2\") van server \"$1\":",
-	"math_latexml_invalidxml": "LaTeXML: MathML is ongeldige XML.",
-	"math_latexml_invalidjson": "LaTeXML: t antwoord van de server is ongeldige JSON.",
-	"math_latexml_xmlversion": "Waorschuwing: XML-typekontraole overesleugen. Kiek nao of joew MediaWiki-installasie versie 1.22wmf7 of laoter is."
+	"math_invalidresponse": "$1:: ongeldig antwoord (\"$3\") van server \"$2\":",
+	"math_invalidxml": ": MathML is ongeldige XML.",
+	"math_invalidjson": "$1: t antwoord van de server is ongeldige JSON.",
+	"math_xmlversion": "Waorschuwing: XML-typekontraole overesleugen. Kiek nao of joew MediaWiki-installasie versie 1.22wmf7 of laoter is."
 }

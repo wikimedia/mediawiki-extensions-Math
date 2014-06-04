@@ -28,10 +28,9 @@
 	"math_bad_output": "No s'ha pogut crear el directori d'eixida de math o escriure-hi dins.",
 	"math_notexvc": "No s'ha trobat el fitxer executable ''<code>texvc</code>''; si us plau, vegeu math/README per a configurar-lo.",
 	"math_output_error": "No es pot emmagatzemar imatge de fórmula matemàtica al sistema d'arxius.",
-	"math_latexml_timeout": "LaTeXML - s'ha excedit el temps d'espera a '$1'",
-	"math_latexml_invalidresponse": "LaTeXML Resposta invàlida ('$2') del servidor '$1':",
-	"math_latexml_invalidxml": "LaTeXML MathML conté XML invàlid.",
-	"math_latexml_invalidjson": "LaTeXML La resposta del servidor és un JSON invàlid.",
-	"math_latexml_xmlversion": "Advertència: s'ha obviat la comprovació del tipus XML! Comproveu si la vostra instal·lació de MediaWiki és la versió wmf/1.22wmf7 o més recent.",
+	"math_invalidresponse": "$1: Resposta invàlida ('$3') del servidor '$2':",
+	"math_invalidxml": " MathML conté XML invàlid.",
+	"math_invalidjson": "$1 La resposta del servidor és un JSON invàlid.",
+	"math_xmlversion": "Advertència: s'ha obviat la comprovació del tipus XML! Comproveu si la vostra instal·lació de MediaWiki és la versió wmf/1.22wmf7 o més recent.",
 	"math-visualeditor-mwmathinspector-title": "Fórmula"
 }
