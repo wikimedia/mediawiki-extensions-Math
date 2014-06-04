@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "2e1a5767_f5602bce",
+        "filename": "i18n/en.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 121
+      },
+      "writtenOn": "2014-06-04T07:05:58Z",
+      "side": 1,
+      "message": "The point is to use double quotation marks \" instead of single quotation marks \u0027 for consistency within MediaWiki core and all extensions.",
+      "parentUuid": "2e1a5767_75753b92",
+      "revId": "99c68a18cd41f3ab275672ec25692d65fcf3fa6d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e1a5767_4d487d8c",
         "filename": "i18n/en.json",
         "patchSetId": 5
