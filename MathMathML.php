@@ -56,15 +56,11 @@ class MathMathML extends MathRenderer {
 			$this->setPurge( true );
 		}
 		if ( $this->renderingRequired() ) {
-			$res = $this->doRender( );
-			if ( ! $res ) {
-				wfProfileOut( __METHOD__ );
-				return $this->getLastError();
-			}
+			wfProfileOut( __METHOD__ );
+			return $this->doRender( );
 		}
-		$result = $this->getMathMLTag();
 		wfProfileOut( __METHOD__ );
-		return $result;
+		return true;
 	}
 
 	/**
@@ -207,5 +203,56 @@ class MathMathML extends MathRenderer {
 
 	protected function getMathTableName() {
 		return 'mathoid';
+	}
+	/**
+	 * Calculates the default class name for a math element
+	 * @param boolean $fallback
+	 * @param boolean $png
+	 * @return string the class name
+	 */
+	protected function getClassName( $fallback = false, $png = false ) {
+		$class = "mwe-math-";
+		if ( $fallback ) {
+			$class .= 'fallback-';
+			if ( $png ) {
+				$class .= 'png-';
+			} else {
+				$class .= 'svg-';
+			}
+		} else {
+			$class .= 'mathml-';
+		}
+		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY ) {
+			$class .= 'display';
+		} else {
+			$class .= 'inline';
+		}
+		return $class;
+	}
+	/**
+	 * @return string Html output that is embedded in the page
+	 */
+	public function getHtmlOutput() {
+		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY  ) {
+			$element = 'div';
+		} else {
+			$element = 'span';
+		}
+		$attribs = array();
+		$output = HTML::openElement( $element , $attribs );
+		// MathML has to be wrapped into a div or span in order to be able to hide it.
+		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY ) {
+			// Remove displayStyle attributes set by the MathML converter
+			$mml = preg_replace( '/(display|mode)=["\'](inline|block)["\']/', '', $this->getMathml() );
+			// and insert the correct value
+			$mml = preg_replace( '/<math/', '<math display="block"', $mml );
+		} else {
+			$mml = $this->getMathml();
+		}
+		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(),
+				'style' => 'display: none;' ),
+			$mml );
+		$output .= HTML::closeElement( $element );
+		return $output;
 	}
 }

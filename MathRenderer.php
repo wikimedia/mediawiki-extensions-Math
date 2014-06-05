@@ -88,7 +88,9 @@ abstract class MathRenderer {
 	 */
 	public static function renderMath( $tex, $params = array(), $mode = MW_MATH_PNG ) {
 		$renderer = self::getRenderer( $tex, $params, $mode );
-		return $renderer->render();
+		if ( $renderer->render() ){
+			return $renderer->getHtmlOutput();
+		}
 	}
 
 	/**
@@ -143,12 +145,16 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * Performs the rendering and returns the rendered element that needs to be embedded.
+	 * Performs the rendering
 	 *
-	 * @return string of rendered HTML
+	 * @return boolean if rendering was successful.
 	 */
 	abstract public function render();
 
+	/**
+	 * @return string Html output that is embedded in the page
+	 */
+	abstract public function getHtmlOutput();
 
 	/**
 	 * texvc error messages
