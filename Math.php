@@ -211,11 +211,16 @@ $wgAutoloadClasses['MathMathML'] = $dir . 'MathMathML.php';
 $wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
 $wgAutoloadClasses['MathInputCheck'] = $dir . 'MathInputCheck.php';
 $wgAutoloadClasses['MathInputCheckTexvc'] = $dir . 'MathInputCheckTexvc.php';
+$wgAutoloadClasses['SpecialMathShowImage'] = $dir . 'SpecialMathShowImage.php';
 $wgMessagesDirs['Math'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
+$wgExtensionMessagesFiles['MathAlias'] = $dir . 'Math.alias.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 
+// TODO: Is that needed since the page should not be listed
+# $wgSpecialPageGroups['MathShowImage'] = 'math';
+$wgSpecialPages['MathShowImage'] = 'SpecialMathShowImage';
 
 $wgResourceModules['ext.math.styles'] = array(
 	'localBasePath' => __DIR__ . '/modules',
