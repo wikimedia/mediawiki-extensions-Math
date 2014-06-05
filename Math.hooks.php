@@ -119,14 +119,20 @@ class MathHooks {
 				return $renderer->getLastError();
 			}
 		}
-
-		$renderedMath = $renderer->render();
+		if ( $renderer->render() ) {
+			wfDebugLog( "Math" , "Rendering successful. Writing output" );
+			$renderedMath = $renderer->getHtmlOutput();
+		} else {
+			wfDebugLog( "Math" , "Rendering failed. Printing error message." );
+			return $renderer->getLastError();
+		}
 
 		if ( $wgUseMathJax ) {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
 
+		// Writes cache if rendering was successful
 		$renderer->writeCache();
 		wfProfileOut( __METHOD__ );
 
