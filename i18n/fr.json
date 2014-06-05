@@ -33,7 +33,7 @@
 	"math_invalidresponse": "$1: Réponse invalide(« $3 ») du serveur « $2 » :",
 	"math_invalidxml": "MathML de  n'est pas du XML valide.",
 	"math_invalidjson": "La réponse du serveur $1 est un JSON invalide",
-	"math_xmlversion": "Attention : Vérification du type XML ignorée ! Vérifiez si votre installation de MediaWiki est en version wmf/1.22wmf7 ou plus récente.",
+	"math_xmlversion": "Attention : Vérification du type XML ignorée ! Vérifiez si votre installation de MediaWiki est en version wmf/1.22wmf7 ou plus récente.",
 	"math-visualeditor-mwmathinspector-title": "Formule",
 	"math-preference-mwmathinspector-description": "Ajouter le support expérimental à l’ÉditeurVisuel pour créer et modifier des formules mathématiques, à des fins de test avant la version généralisée. Rappelez-vous de toujours vérifier vos modifications avant d’enregistrer lors de l’utilisation de fonctionnalités expérimentales.",
 	"math-preference-mwmathinspector-label": "Modification de formules dans l’ÉditeurVisuel"

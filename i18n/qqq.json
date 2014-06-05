@@ -7,7 +7,8 @@
 			"Physikerwelt",
 			"Raymond",
 			"Shirayuki",
-			"Siebrand"
+			"Siebrand",
+			"Mormegil"
 		]
 	},
 	"math-desc": "{{desc|name=Math|url=http://www.mediawiki.org/wiki/Extension:Math}}",
@@ -32,7 +33,7 @@
 	"math_timeout": "Used as error message.\n\nParameters:\n* $1 - rendering type (either LaTeXML or Mathoid)\n* $2 - hostname or URL",
 	"math_invalidresponse": "Used as error message.\n\nFollows the message {{msg-mw|Math failure}}.\n\nParameters:\n* $1 - rendering type (either LaTeXML or Mathoid)\n* $2 - hostname\n* $3 - error message",
 	"math_invalidxml": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.",
-	"math_invalidjson": "Used as error message.\n\nParameters:\n* $1 - rendering type (either LaTeXML or Mathoid)\\n\nThis message follows the message {{msg-mw|Math failure}}.",
+	"math_invalidjson": "Used as error message.\n\nParameters:\n* $1 - rendering type (either LaTeXML or Mathoid)\n\nThis message follows the message {{msg-mw|Math failure}}.",
 	"math_xmlversion": "Warning that XML checking of MathML requires wmf/1.22wmf7 or newer.",
 	"math-visualeditor-mwmathinspector-title": "Title for the inspector to edit <nowiki><math></nowiki> formula blocks.\n{{Identical|Formula}}",
 	"math-preference-mwmathinspector-description": "Used in [[Special:Preferences]].\n\nUsed as description for the checkbox to enable editing of mathematical formulae in VisualEditor.\n\nThe label for this checkbox is {{msg-mw|Math-preference-mwmathinspector-label}}.",
