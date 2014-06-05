@@ -8,6 +8,7 @@
  * Contains the driver function for the texvc program
  * @file
  */
+
 /**
  * Takes LaTeX fragments, sends them to a helper program (texvc) for rendering
  * to rasterized PNG and HTML and MathML approximations. An appropriate
@@ -25,9 +26,9 @@ class MathTexvc extends MathRenderer {
 	const CONSERVATIVE = 2;
 	const MODERATE = 1;
 	const LIBERAL = 0;
-	const MW_TEXVC_SUCCESS = -1;
+	const MW_TEXVC_SUCCESS = - 1;
 
-     /**
+	/**
 	 * Gets an array that matches the variables of the class to the database columns
 	 * @return array
 	 */
@@ -44,13 +45,13 @@ class MathTexvc extends MathRenderer {
 		$out['math_html'] = $this->html;
 		$out['math_mathml'] = $this->getMathml();
 		$out['math_inputhash'] = $this->getInputHash();
-		if ( $wgMathDebug )	wfDebugLog( 'Math', 'Store Hashpath of image' . bin2hex( $outmd5_sql ) );
+		if ( $wgMathDebug )
+			wfDebugLog( 'Math', 'Store Hashpath of image' . bin2hex( $outmd5_sql ) );
 		return $out;
 	}
 
 	protected function dbInArray() {
-		return array( 'math_inputhash', 'math_outputhash',
-				'math_html_conservativeness', 'math_html', 'math_mathml' );
+		return array( 'math_inputhash', 'math_outputhash', 'math_html_conservativeness', 'math_html', 'math_mathml' );
 	}
 
 	/**
@@ -61,8 +62,7 @@ class MathTexvc extends MathRenderer {
 		// get deprecated fields
 		if ( $rpage->math_outputhash ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			$xhash = unpack( 'H32md5',
-				$dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
+			$xhash = unpack( 'H32md5', $dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
 			$this->hash = $xhash['md5'];
 			wfDebugLog( 'Math', 'Hashpath of PNG-File:' . bin2hex( $this->hash ) );
 			$this->conservativeness = $rpage->math_html_conservativeness;
@@ -80,13 +80,13 @@ class MathTexvc extends MathRenderer {
 	 * @return string rendered TeK
 	 */
 	public function render() {
-		if ( !$this->readCache() ) { // cache miss
+		if ( ! $this->readCache() ) { // cache miss
 			$result = $this->callTexvc();
 			if ( $result != self::MW_TEXVC_SUCCESS ) {
 				return $result;
 			}
 		}
-		return $this->doHTMLRender();
+		return $this->getHtmlOutput();
 	}
 
 	/**
@@ -95,8 +95,7 @@ class MathTexvc extends MathRenderer {
 	 * @return string Storage directory
 	 */
 	public function getHashPath() {
-		$path = $this->getBackend()->getRootStoragePath() .
-			'/math-render/' . $this->getHashSubPath();
+		$path = $this->getBackend()->getRootStoragePath() . '/math-render/' . $this->getHashSubPath();
 		wfDebugLog( "Math", "TeX: getHashPath, hash is: {$this->getHash()}, path is: $path\n" );
 		return $path;
 	}
@@ -107,9 +106,7 @@ class MathTexvc extends MathRenderer {
 	 * @return string Relative directory
 	 */
 	public function getHashSubPath() {
-		return substr( $this->getHash(), 0, 1 )
-			. '/' . substr( $this->getHash(), 1, 1 )
-			. '/' . substr( $this->getHash(), 2, 1 );
+		return substr( $this->getHash(), 0, 1 ) . '/' . substr( $this->getHash(), 1, 1 ) . '/' . substr( $this->getHash(), 2, 1 );
 	}
 
 	/**
@@ -130,25 +127,14 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function getMathImageHTML() {
 		$url = $this->getMathImageUrl();
-		$attributes = array(
-			// the former class name was 'tex'
+		$attributes = array( // the former class name was 'tex'
 			// for backwards compatibility we keep that classname
-			'class' => 'mwe-math-fallback-png-inline tex',
-			'alt' => $this->getTex()
-		);
-		if ( $this->getMathStyle() === MW_MATHSTYLE_DISPLAY ){
+			'class' => 'mwe-math-fallback-png-inline tex', 'alt' => $this->getTex() );
+		if ( $this->getMathStyle() === MW_MATHSTYLE_DISPLAY ) {
 			// if DisplayStyle is true, the equation will be centered in a new line
-			$attributes[ 'class' ] = 'mwe-math-fallback-png-display tex';
+			$attributes['class'] = 'mwe-math-fallback-png-display tex';
 		}
-		return Xml::element( 'img',
-			$this->getAttributes(
-				'img',
-				$attributes,
-				array(
-					'src' => $url
-				)
-			)
-		);
+		return Xml::element( 'img', $this->getAttributes( 'img', $attributes, array( 'src' => $url ) ) );
 
 	}
 
@@ -173,7 +159,7 @@ class MathTexvc extends MathRenderer {
 
 		wfProfileIn( __METHOD__ );
 		$tmpDir = wfTempDir();
-		if ( !is_executable( $wgTexvc ) ) {
+		if ( ! is_executable( $wgTexvc ) ) {
 			wfDebugLog( 'texvc', "$wgTexvc does not exist or is not executable." );
 			wfProfileOut( __METHOD__ );
 			return $this->getError( 'math_notexvc' );
@@ -181,12 +167,7 @@ class MathTexvc extends MathRenderer {
 
 		$escapedTmpDir = wfEscapeShellArg( $tmpDir );
 
-		$cmd = $wgTexvc . ' ' .
-			$escapedTmpDir . ' ' .
-			$escapedTmpDir . ' ' .
-			wfEscapeShellArg( $this->getUserInputTex() ) . ' ' .
-			wfEscapeShellArg( 'UTF-8' ) . ' ' .
-			wfEscapeShellArg( $wgTexvcBackgroundColor );
+		$cmd = $wgTexvc . ' ' . $escapedTmpDir . ' ' . $escapedTmpDir . ' ' . wfEscapeShellArg( $this->getUserInputTex() ) . ' ' . wfEscapeShellArg( 'UTF-8' ) . ' ' . wfEscapeShellArg( $wgTexvcBackgroundColor );
 
 		if ( wfIsWindows() ) {
 			# Invoke it within cygwin sh, because texvc expects sh features in its default shell
@@ -199,7 +180,7 @@ class MathTexvc extends MathRenderer {
 		wfDebugLog( 'Math', "TeX output:\n $contents\n---\n" );
 
 		if ( strlen( $contents ) == 0 ) {
-			if ( !file_exists( $tmpDir ) || !is_writable( $tmpDir ) ) {
+			if ( ! file_exists( $tmpDir ) || ! is_writable( $tmpDir ) ) {
 				wfDebugLog( 'texvc', "TeX output directory $tmpDir is missing or not writable" );
 				wfProfileOut( __METHOD__ );
 				return $this->getError( 'math_bad_tmpdir' );
@@ -219,9 +200,9 @@ class MathTexvc extends MathRenderer {
 			if ( $retval == 'C' ) {
 				$this->setConservativeness( self::CONSERVATIVE );
 			} elseif ( $retval == 'M' ) {
-				$this->setConservativeness(  self::MODERATE );
+				$this->setConservativeness( self::MODERATE );
 			} else {
-				$this->setConservativeness(  self::LIBERAL );
+				$this->setConservativeness( self::LIBERAL );
 			}
 			$outdata = substr( $contents, 33 );
 
@@ -232,7 +213,7 @@ class MathTexvc extends MathRenderer {
 		} elseif ( ( $retval == 'c' ) || ( $retval == 'm' ) || ( $retval == 'l' ) ) {
 			$this->setHtml( substr( $contents, 33 ) );
 			if ( $retval == 'c' ) {
-				$this->setConservativeness( self::CONSERVATIVE ) ;
+				$this->setConservativeness( self::CONSERVATIVE );
 			} elseif ( $retval == 'm' ) {
 				$this->setConservativeness( self::MODERATE );
 			} else {
@@ -251,7 +232,7 @@ class MathTexvc extends MathRenderer {
 			$errmsg = $this->convertTexvcError( $contents );
 		}
 
-		if ( !$errmsg ) {
+		if ( ! $errmsg ) {
 			$newHash = substr( $contents, 1, 32 );
 			if ( $this->hash !== $newHash ) {
 				$this->isInDatabase( false ); // DB needs update in writeCache() (bug 60997)
@@ -264,10 +245,10 @@ class MathTexvc extends MathRenderer {
 		if ( $errmsg ) {
 			wfProfileOut( __METHOD__ );
 			return $errmsg;
-		} elseif ( !preg_match( "/^[a-f0-9]{32}$/", $this->getHash() ) ) {
+		} elseif ( ! preg_match( "/^[a-f0-9]{32}$/", $this->getHash() ) ) {
 			wfProfileOut( __METHOD__ );
 			return $this->getError( 'math_unknown_error' );
-		} elseif ( !file_exists( "$tmpDir/{$this->getHash()}.png" ) ) {
+		} elseif ( ! file_exists( "$tmpDir/{$this->getHash()}.png" ) ) {
 			wfProfileOut( __METHOD__ );
 			return $this->getError( 'math_image_error' );
 		} elseif ( filesize( "$tmpDir/{$this->getHash()}.png" ) == 0 ) {
@@ -279,26 +260,22 @@ class MathTexvc extends MathRenderer {
 
 		$backend = $this->getBackend();
 		# Create any containers/directories as needed...
-		if ( !$backend->prepare( array( 'dir' => $hashpath ) )->isOK() ) {
+		if ( ! $backend->prepare( array( 'dir' => $hashpath ) )->isOK() ) {
 			wfProfileOut( __METHOD__ );
 			return $this->getError( 'math_output_error' );
 		}
 		// Store the file at the final storage path...
 		// Bug 56769: buffer the writes and do them at the end.
-		if ( !isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
+		if ( ! isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
 			$backend->mathBufferedWrites = array();
-			$wgHooks['ParserAfterParse']['FlushMathBackend'] = function() use ( $backend ) {
+			$wgHooks['ParserAfterParse']['FlushMathBackend'] = function () use ( $backend ) {
 				global $wgHooks;
 				unset( $wgHooks['ParserAfterParse']['FlushMathBackend'] );
 				$backend->doQuickOperations( $backend->mathBufferedWrites );
 				unset( $backend->mathBufferedWrites );
-			} ;
+			};
 		}
-		$backend->mathBufferedWrites[] = array(
-			'op'  => 'store',
-			'src' => "$tmpDir/{$this->getHash()}.png",
-			'dst' => "$hashpath/{$this->getHash()}.png",
-			'ref' => $tempFsFile // keep file alive
+		$backend->mathBufferedWrites[] = array( 'op' => 'store', 'src' => "$tmpDir/{$this->getHash()}.png", 'dst' => "$hashpath/{$this->getHash()}.png", 'ref' => $tempFsFile // keep file alive
 		);
 
 		wfProfileOut( __METHOD__ );
@@ -316,14 +293,8 @@ class MathTexvc extends MathRenderer {
 			return FileBackendGroup::singleton()->get( $wgMathFileBackend );
 		} else {
 			static $backend = null;
-			if ( !$backend ) {
-				$backend = new FSFileBackend( array(
-					'name'           => 'math-backend',
-					'wikiId' 	 => wfWikiId(),
-					'lockManager'    => new NullLockManager( array() ),
-					'containerPaths' => array( 'math-render' => $wgMathDirectory ),
-					'fileMode'       => 0777
-				) );
+			if ( ! $backend ) {
+				$backend = new FSFileBackend( array( 'name' => 'math-backend', 'wikiId' => wfWikiId(), 'lockManager' => new NullLockManager( array() ), 'containerPaths' => array( 'math-render' => $wgMathDirectory ), 'fileMode' => 0777 ) );
 			}
 			return $backend;
 		}
@@ -334,27 +305,15 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return string HTML string
 	 */
-	public function doHTMLRender() {
+	public function getHtmlOutput() {
 		if ( $this->getMode() == MW_MATH_MATHML && $this->getMathml() != '' ) {
-			return Xml::tags( 'math',
-				$this->getAttributes( 'math',
-					array( 'xmlns' => 'http://www.w3.org/1998/Math/MathML' ) ),
-				$this->mathml );
+			return Xml::tags( 'math', $this->getAttributes( 'math', array( 'xmlns' => 'http://www.w3.org/1998/Math/MathML' ) ), $this->mathml );
 		}
-		if ( ( $this->getMode() == MW_MATH_PNG ) || ( $this->getHtml() == '' ) ||
-			( ( $this->getMode() == MW_MATH_SIMPLE ) && ( $this->getConservativeness() != self::CONSERVATIVE ) ) ||
-			( ( $this->getMode() == MW_MATH_MODERN || $this->getMode() == MW_MATH_MATHML ) && ( $this->getConservativeness() == self::LIBERAL ) )
-		)
-		{
+		if ( ( $this->getMode() == MW_MATH_PNG ) || ( $this->getHtml() == '' ) || ( ( $this->getMode() == MW_MATH_SIMPLE ) && ( $this->getConservativeness() != self::CONSERVATIVE ) ) || ( ( $this->getMode() == MW_MATH_MODERN || $this->getMode() == MW_MATH_MATHML ) && ( $this->getConservativeness() == self::LIBERAL ) )
+		) {
 			return $this->getMathImageHTML();
 		} else {
-			return Xml::tags( 'span',
-				$this->getAttributes( 'span',
-					array( 'class' => 'texhtml',
-						'dir' => 'ltr'
-					) ),
-				$this->getHtml()
-			);
+			return Xml::tags( 'span', $this->getAttributes( 'span', array( 'class' => 'texhtml', 'dir' => 'ltr' ) ), $this->getHtml() );
 		}
 	}
 
@@ -385,7 +344,7 @@ class MathTexvc extends MathRenderer {
 
 		wfProfileIn( __METHOD__ );
 		if ( $this->readFromDatabase() ) {
-			if ( !$wgMathCheckFiles ) {
+			if ( ! $wgMathCheckFiles ) {
 				// Short-circuit the file existence & migration checks
 				wfProfileOut( __METHOD__ );
 				return true;
@@ -405,6 +364,7 @@ class MathTexvc extends MathRenderer {
 		wfProfileOut( __METHOD__ );
 		return false;
 	}
+
 	public function getPng() {
 		$backend = $this->getBackend();
 		return $backend->getFileContents( array( 'src' => $this->getHashPath() . "/" . $this->getHash() . '.png' ) );
@@ -418,6 +378,7 @@ class MathTexvc extends MathRenderer {
 			return false;
 		}
 	}
+
 	/**
 	 * Get the hash calculated by texvc
 	 *
