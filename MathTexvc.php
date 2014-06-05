@@ -42,7 +42,7 @@ class MathTexvc extends MathRenderer {
 		$out['math_outputhash'] = $outmd5_sql;
 		$out['math_html_conservativeness'] = $this->conservativeness;
 		$out['math_html'] = $this->html;
-		$out['math_mathml'] = $this->getMathml();
+		$out['math_mathml'] = utf8_encode( $this->getMathml() );
 		$out['math_inputhash'] = $this->getInputHash();
 		if ( $wgMathDebug )	wfDebugLog( 'Math', 'Store Hashpath of image' . bin2hex( $outmd5_sql ) );
 		return $out;
@@ -67,7 +67,6 @@ class MathTexvc extends MathRenderer {
 			wfDebugLog( 'Math', 'Hashpath of PNG-File:' . bin2hex( $this->hash ) );
 			$this->conservativeness = $rpage->math_html_conservativeness;
 			$this->html = $rpage->math_html;
-			$this->setMathml( $rpage->math_mathml );
 			return true;
 		} else {
 			return false;
@@ -82,11 +81,14 @@ class MathTexvc extends MathRenderer {
 	public function render() {
 		if ( !$this->readCache() ) { // cache miss
 			$result = $this->callTexvc();
-			if ( $result != self::MW_TEXVC_SUCCESS ) {
-				return $result;
+			if ( $result === self::MW_TEXVC_SUCCESS ) {
+				return true;
+			} else {
+				$this->lastError = $result;
+				return false;
 			}
 		}
-		return $this->getHtmlOutput();
+		return true;
 	}
 
 	/**
