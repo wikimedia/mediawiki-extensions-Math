@@ -82,11 +82,14 @@ class MathTexvc extends MathRenderer {
 	public function render() {
 		if ( !$this->readCache() ) { // cache miss
 			$result = $this->callTexvc();
-			if ( $result != self::MW_TEXVC_SUCCESS ) {
-				return $result;
+			if ( $result === self::MW_TEXVC_SUCCESS ) {
+				return true;
+			} else {
+				$this->lastError = $result;
+				return false;
 			}
 		}
-		return $this->doHTMLRender();
+		return true;
 	}
 
 	/**
@@ -334,7 +337,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return string HTML string
 	 */
-	public function doHTMLRender() {
+	public function getHtmlOutput() {
 		if ( $this->getMode() == MW_MATH_MATHML && $this->getMathml() != '' ) {
 			return Xml::tags( 'math',
 				$this->getAttributes( 'math',
@@ -365,7 +368,7 @@ class MathTexvc extends MathRenderer {
 		global $wgUseSquid;
 
 		wfProfileIn( __METHOD__ );
-		$updated = parent::writeCache();
+		$updated = $this->writeToDatabase();
 		// If we're replacing an older version of the image, make sure it's current.
 		if ( $updated && $wgUseSquid ) {
 			$urls = array( $this->getMathImageUrl() );
