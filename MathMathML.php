@@ -56,15 +56,11 @@ class MathMathML extends MathRenderer {
 			$this->setPurge( true );
 		}
 		if ( $this->renderingRequired() ) {
-			$res = $this->doRender();
-			if ( ! $res ) {
-				wfProfileOut( __METHOD__ );
-				return $this->getLastError();
-			}
+			wfProfileOut( __METHOD__ );
+			return $this->doRender( );
 		}
-		$result = $this->getMathMLTag();
 		wfProfileOut( __METHOD__ );
-		return $result;
+		return true;
 	}
 
 	/**
