@@ -67,7 +67,6 @@ class MathTexvc extends MathRenderer {
 			wfDebugLog( 'Math', 'Hashpath of PNG-File:' . bin2hex( $this->hash ) );
 			$this->conservativeness = $rpage->math_html_conservativeness;
 			$this->html = $rpage->math_html;
-			$this->setMathml( $rpage->math_mathml );
 			return true;
 		} else {
 			return false;
@@ -82,11 +81,14 @@ class MathTexvc extends MathRenderer {
 	public function render() {
 		if ( !$this->readCache() ) { // cache miss
 			$result = $this->callTexvc();
-			if ( $result != self::MW_TEXVC_SUCCESS ) {
-				return $result;
+			if ( $result === self::MW_TEXVC_SUCCESS ) {
+				return true;
+			} else {
+				$this->lastError = $result;
+				return false;
 			}
 		}
-		return $this->getHtmlOutput();
+		return true;
 	}
 
 	/**
