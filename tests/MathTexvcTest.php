@@ -27,21 +27,26 @@ class MathTexvcTest extends MediaWikiTestCase {
 
 		// Create a MathTexvc mock, replacing methods 'readFromDatabase',
 		// 'callTexvc', and 'doHTMLRender' with test doubles.
-		$texvc = $this->getMockBuilder( 'MathTexvc' )->setMethods( array( 'readFromDatabase', 'callTexvc', 'getHtmlOutput' ) )->disableOriginalConstructor()
+		$texvc = $this->getMockBuilder( 'MathTexvc' )
+			->setMethods( array( 'readCache', 'callTexvc', 'getHtmlOutput' ) )
+			->disableOriginalConstructor()
 			->getMock();
 
 		// When we call render() below, MathTexvc will ...
 
 		// ... first check if the item exists in the database cache:
-		$texvc->expects( $this->once() )->method( 'readFromDatabase' )->with()
+		$texvc->expects( $this->once() )
+			->method( 'readCache' )
+			->with()
 			->will( $this->returnValue( true ) );
 
 		// ... if cache lookup succeeded, it won't shell out to texvc:
 		$texvc->expects( $this->never() )
 			->method( 'callTexvc' );
 
-		// ... instead, MathTexvc will skip to HTML generation:
-		$texvc->expects( $this->once() )->method( 'getHtmlOutput' );
+		// ... the output will not be generated if not requested
+		$texvc->expects( $this->never() )
+			->method( 'getHtmlOutput' );
 
 		$texvc->render();
 	}
@@ -71,8 +76,9 @@ class MathTexvcTest extends MediaWikiTestCase {
 			->method( 'callTexvc' )
 			->will( $this->returnValue( MathTexvc::MW_TEXVC_SUCCESS ) );
 
-		// ... if texvc succeeds, MathTexvc will generate HTML:
-		$texvc->expects( $this->once() )->method( 'getHtmlOutput' );
+		// ... the output will not be generated if not requested
+		$texvc->expects( $this->never() )
+			->method( 'getHtmlOutput' );
 
 		$texvc->render();
 	}
@@ -98,14 +104,15 @@ class MathTexvcTest extends MediaWikiTestCase {
 
 		// ... on cache miss, shell out to texvc:
 		$texvc->expects( $this->once() )
-			->method( 'callTexvc' )->will( $this->returnValue( 'error' ) );
+			->method( 'callTexvc' )
+			->will( $this->returnValue( false ) );
 
 		// ... if texvc fails, render() will not generate HTML:
 		$texvc->expects( $this->never() )
 			->method( 'getHtmlOutput' );
 
 		// ... it will return the error result instead:
-		$this->assertEquals( $texvc->render(), 'error' );
+		$this->assertEquals( $texvc->render(), false );
 	}
 
 	/**
