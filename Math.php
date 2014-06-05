@@ -122,6 +122,19 @@ $wgMathDirectory = false;
 $wgUseMathJax = false;
 
 /**
+ * The url of the mathoid server.
+ * see http://www.formulasearchengine.com/mathoid
+ * TODO: Move documentation to WMF
+ */
+$wgMathMathMLUrl = 'http://gw124.iu.xsede.org:10042'; // Sponsored by https://www.xsede.org/
+
+/**
+ * The timeout for the HTTP-Request sent to the MathML to render an equation,
+ * in seconds.
+ */
+$wgMathMathMLTimeout = 20;
+
+/**
  * Use of LaTeXML for details see
  * <http://latexml.mathweb.org/help>
  *
@@ -175,6 +188,9 @@ $wgMathTexvcCheckExecutable = __DIR__ . '/texvccheck/texvccheck';
  * commands is allowed. See the wikipedia page Help:Math for details.
  */
 $wgMathDisableTexFilter = false;
+
+/** Stores debug information in the database and provides more detailed debug output */
+$wgMathDebug = false;
 ////////// end of config settings.
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
