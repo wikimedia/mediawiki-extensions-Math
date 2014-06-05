@@ -6,7 +6,10 @@
 * @group Database //Used by needsDB
 */
 class MathDatabaseTest extends MediaWikiTestCase {
-	var $renderer;
+	/**
+	 * @var MathRenderer
+	 */
+	private $renderer;
 	const SOME_TEX = "a+b";
 	const SOME_HTML = "a<sub>b</sub> and so on";
 	const SOME_MATHML = "iℏ∂_tΨ=H^Ψ<mrow><\ci>";
@@ -84,5 +87,28 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$res = $this->db->select( "math", "*" );
 		$row = $res->fetchRow();
 		$this->assertEquals( 10,  sizeof( $row ) );
+	}
+
+	/*
+	 * This test checks if no additional write operation
+	 * is performed, if the entry already existed in the database.
+	 */
+	public function testNoWrite(){
+		$this->setValues();
+		$inputHash = $this->renderer->getInputHash();
+		$this->assertTrue( $this->renderer->isChanged() );
+		$this->assertTrue( $this->renderer->writeCache(), "Write new entry" );
+		$res = $this->db->selectField( "math", "math_inputhash",
+			array( "math_inputhash" => $inputHash ) );
+		$this->assertEquals( $inputHash, $res , "Check database entry");
+		$this->assertTrue( $this->renderer->readFromDatabase() , "Read enty from database");
+		$this->assertFalse( $this->renderer->isChanged() );
+		// modify the database entry manually
+		$this->db->delete( "math", array( "math_inputhash" => $inputHash ) );
+		// the renderer should not be aware of the modification and should not recreate the entry
+		$this->assertFalse( $this->renderer->writeCache() );
+		// as a result no entry can be found in the database.
+		$this->assertFalse( $this->renderer->readFromDatabase() );
+
 	}
 }
