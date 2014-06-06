@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e1a5767_d8643248",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-06T05:56:44Z",
+      "side": 1,
+      "message": "s/spcial/special/",
+      "revId": "2c03b135f6ee2765be5530bb0ab613789171224f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e1a5767_b869761f",
+        "filename": "Math.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-06T05:56:44Z",
+      "side": 1,
+      "message": "Can you ask that to someone from the MediaWiki community? And remove or uncomment that accordingly.",
+      "revId": "2c03b135f6ee2765be5530bb0ab613789171224f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e1a5767_5858228c",
+        "filename": "SpecialMathShowImage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-06T05:56:44Z",
+      "side": 1,
+      "message": "space around argument?",
+      "revId": "2c03b135f6ee2765be5530bb0ab613789171224f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e1a5767_38556653",
+        "filename": "SpecialMathShowImage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-06T05:56:44Z",
+      "side": 1,
+      "message": "space before ) ?",
+      "revId": "2c03b135f6ee2765be5530bb0ab613789171224f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e1a5767_1852aa6a",
+        "filename": "SpecialMathShowImage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-06T05:56:44Z",
+      "side": 1,
+      "message": "ditto?",
+      "revId": "2c03b135f6ee2765be5530bb0ab613789171224f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e1a5767_985eba7a",
+        "filename": "SpecialMathShowImage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-06T05:56:44Z",
+      "side": 1,
+      "message": "please remove commented code. As I understand, this is displayed as a comment in printSvgError",
+      "revId": "2c03b135f6ee2765be5530bb0ab613789171224f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
