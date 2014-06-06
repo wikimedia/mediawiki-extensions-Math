@@ -86,7 +86,7 @@ class MathTexvc extends MathRenderer {
 				return $result;
 			}
 		}
-		return $this->doHTMLRender();
+		return $this->getHtmlOutput();
 	}
 
 	/**
@@ -334,7 +334,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return string HTML string
 	 */
-	public function doHTMLRender() {
+	public function getHtmlOutput() {
 		if ( $this->getMode() == MW_MATH_MATHML && $this->getMathml() != '' ) {
 			return Xml::tags( 'math',
 				$this->getAttributes( 'math',

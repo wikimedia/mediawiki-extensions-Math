@@ -27,17 +27,13 @@ class MathTexvcTest extends MediaWikiTestCase {
 
 		// Create a MathTexvc mock, replacing methods 'readFromDatabase',
 		// 'callTexvc', and 'doHTMLRender' with test doubles.
-		$texvc = $this->getMockBuilder( 'MathTexvc' )
-			->setMethods( array( 'readFromDatabase', 'callTexvc', 'doHTMLRender' ) )
-			->disableOriginalConstructor()
+		$texvc = $this->getMockBuilder( 'MathTexvc' )->setMethods( array( 'readFromDatabase', 'callTexvc', 'getHtmlOutput' ) )->disableOriginalConstructor()
 			->getMock();
 
 		// When we call render() below, MathTexvc will ...
 
 		// ... first check if the item exists in the database cache:
-		$texvc->expects( $this->once() )
-			->method( 'readFromDatabase' )
-			->with()
+		$texvc->expects( $this->once() )->method( 'readFromDatabase' )->with()
 			->will( $this->returnValue( true ) );
 
 		// ... if cache lookup succeeded, it won't shell out to texvc:
@@ -45,8 +41,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 			->method( 'callTexvc' );
 
 		// ... instead, MathTexvc will skip to HTML generation:
-		$texvc->expects( $this->once() )
-			->method( 'doHTMLRender' );
+		$texvc->expects( $this->once() )->method( 'getHtmlOutput' );
 
 		$texvc->render();
 	}
@@ -60,7 +55,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 	 */
 	function testRenderCacheMiss() {
 		$texvc = $this->getMockBuilder( 'MathTexvc' )
-			->setMethods( array( 'readCache', 'callTexvc', 'doHTMLRender' ) )
+			->setMethods( array( 'readCache', 'callTexvc', 'getHtmlOutput' ) )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -77,8 +72,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 			->will( $this->returnValue( MathTexvc::MW_TEXVC_SUCCESS ) );
 
 		// ... if texvc succeeds, MathTexvc will generate HTML:
-		$texvc->expects( $this->once() )
-			->method( 'doHTMLRender' );
+		$texvc->expects( $this->once() )->method( 'getHtmlOutput' );
 
 		$texvc->render();
 	}
@@ -91,7 +85,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 	 */
 	function testRenderTexvcFailure() {
 		$texvc = $this->getMockBuilder( 'MathTexvc' )
-			->setMethods( array( 'readCache', 'callTexvc', 'doHTMLRender' ) )
+			->setMethods( array( 'readCache', 'callTexvc', 'getHtmlOutput' ) )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -104,12 +98,11 @@ class MathTexvcTest extends MediaWikiTestCase {
 
 		// ... on cache miss, shell out to texvc:
 		$texvc->expects( $this->once() )
-			->method( 'callTexvc' )
-			->will( $this->returnValue( 'error' ) );
+			->method( 'callTexvc' )->will( $this->returnValue( 'error' ) );
 
 		// ... if texvc fails, render() will not generate HTML:
 		$texvc->expects( $this->never() )
-			->method( 'doHTMLRender' );
+			->method( 'getHtmlOutput' );
 
 		// ... it will return the error result instead:
 		$this->assertEquals( $texvc->render(), 'error' );

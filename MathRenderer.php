@@ -149,6 +149,10 @@ abstract class MathRenderer {
 	 */
 	abstract public function render();
 
+	/**
+	 * @return string Html output that is embedded in the page
+	 */
+	abstract public function getHtmlOutput();
 
 	/**
 	 * texvc error messages
