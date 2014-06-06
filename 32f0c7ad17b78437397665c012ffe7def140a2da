@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0e3593d1_5205d47b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-06-06T15:35:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e1a5767_b8ef3682",
+      "revId": "32f0c7ad17b78437397665c012ffe7def140a2da",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e1a5767_78e99e7a",
         "filename": "MathRenderer.php",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "0e3593d1_92d33c05",
+        "filename": "MathRenderer.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-06-06T15:35:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e1a5767_78e99e7a",
+      "revId": "32f0c7ad17b78437397665c012ffe7def140a2da",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e1a5767_18f86a45",
         "filename": "modules/ext.math.css",
         "patchSetId": 4
@@ -47,6 +83,24 @@
       "writtenOn": "2014-06-06T06:09:05Z",
       "side": 1,
       "message": "I wonder if CSS hacks are a good idea, given that they may break in future versions. However, they have the advantage to work when Javascript is disabled... Do you know how robust is this CSS hack and if Mozilla has plans to drop the -moz-document rule in the future?\n\n(perhaps we should additionally consider a Javascript-based feature-sniffing method in case https://developer.mozilla.org/en-US/docs/Web/MathML/Authoring#Fallback_for_Browsers_without_MathML_support to override the CSS; see also http://weblogs.mozillazine.org/bz/archives/2011/03/capability_sniffing_done_wrong.html)",
+      "revId": "32f0c7ad17b78437397665c012ffe7def140a2da",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e3593d1_b2d640f5",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-06-06T15:35:53Z",
+      "side": 1,
+      "message": "If there is a good alternative to the css methoid I\u0027m open to drop this approach. Currently Javascript is executed after the page was loaded. That\u0027s definitely to late.",
+      "parentUuid": "2e1a5767_18f86a45",
       "revId": "32f0c7ad17b78437397665c012ffe7def140a2da",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
