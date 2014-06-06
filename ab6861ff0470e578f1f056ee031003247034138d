@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e3593d1_b5bcea1b",
+        "filename": "MathMathML.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-06T16:53:45Z",
+      "side": 1,
+      "message": "too many spaces before )",
+      "revId": "ab6861ff0470e578f1f056ee031003247034138d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e3593d1_95b9e62b",
+        "filename": "MathMathML.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-06T16:53:45Z",
+      "side": 1,
+      "message": "extra space before ,",
+      "revId": "ab6861ff0470e578f1f056ee031003247034138d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e3593d1_d5964e97",
+        "filename": "MathMathML.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-06T16:53:45Z",
+      "side": 1,
+      "message": "What happens if someone does\n\n\u003cmtext\u003edisplay\u003d\"inline\"\u003c/mtext\u003e?\n\nUnfortunately, I\u0027m afraid you\u0027ll need to do something like\n\n(\u003cmath[^\u003e]*)(display|mode)\u003d[\"\\\u0027](inline|block)[\"\\\u0027]",
+      "revId": "ab6861ff0470e578f1f056ee031003247034138d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e3593d1_9590c699",
+        "filename": "MathMathML.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-06T16:53:45Z",
+      "side": 1,
+      "message": "For example, this one works because \"\u003c\" is always escaped in XML.",
+      "revId": "ab6861ff0470e578f1f056ee031003247034138d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e3593d1_75ed6222",
+        "filename": "MathTexvc.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-06T16:53:45Z",
+      "side": 1,
+      "message": "why this change?",
+      "revId": "ab6861ff0470e578f1f056ee031003247034138d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
