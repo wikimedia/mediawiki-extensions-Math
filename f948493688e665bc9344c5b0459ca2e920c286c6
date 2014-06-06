@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e3593d1_7b28b332",
+        "filename": "MathMathML.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-06-06T20:40:55Z",
+      "side": 1,
+      "message": "error in automatic merge.",
+      "revId": "f948493688e665bc9344c5b0459ca2e920c286c6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
