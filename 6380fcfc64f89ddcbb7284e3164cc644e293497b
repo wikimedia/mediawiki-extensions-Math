@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e3593d1_47162c5c",
+        "filename": "MathTexvc.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-06-07T11:51:33Z",
+      "side": 1,
+      "message": "This is already done in the parent method. setting the value again sets the changed flag. This caused additional database writes.",
+      "revId": "6380fcfc64f89ddcbb7284e3164cc644e293497b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
