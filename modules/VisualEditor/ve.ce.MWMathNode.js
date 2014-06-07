@@ -11,7 +11,7 @@
  * ContentEditable MediaWiki math node.
  *
  * @class
- * @extends ve.ce.MWExtensionNode
+ * @extends ve.ce.MWInlineExtensionNode
  *
  * @constructor
  * @param {ve.dm.MWMathNode} model Model to observe
@@ -19,7 +19,7 @@
  */
 ve.ce.MWMathNode = function VeCeMWMathNode( model, config ) {
 	// Parent constructor
-	ve.ce.MWExtensionNode.call( this, model, config );
+	ve.ce.MWInlineExtensionNode.call( this, model, config );
 
 	// DOM changes
 	this.$element.addClass( 've-ce-mwMathNode' );
@@ -27,7 +27,7 @@ ve.ce.MWMathNode = function VeCeMWMathNode( model, config ) {
 
 /* Inheritance */
 
-OO.inheritClass( ve.ce.MWMathNode, ve.ce.MWExtensionNode );
+OO.inheritClass( ve.ce.MWMathNode, ve.ce.MWInlineExtensionNode );
 
 
 /* Static Properties */
