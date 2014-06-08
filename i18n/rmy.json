@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Desiphral"
+		]
+	},
+	"prefs-math": "Matematika",
+	"math_unknown_error": "bijangli dosh",
+	"math_unknown_function": "bijangli funkciya",
+	"math_syntax_error": "sintaksaki dosh",
+	"math_bad_output": "Nashti te kerel pes vai te lekhavel po matematikano direktoro kai del pes avri.",
+	"math_notexvc": "Nai o kerditori (eksekutabilo) <code>texvc</code>; dikh math/README te labyares les."
+}

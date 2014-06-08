@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Smeira"
+		]
+	},
+	"math_sample": "Pladolös malatami isio",
+	"math_tip": "Malatam matematik (LaTeX)",
+	"prefs-math": "Logot formülas",
+	"mw_math_png": "Ai el PNG",
+	"mw_math_source": "Dakipolöd oni as TeX (pro bevüresodatävöms fomätü vödem)",
+	"math_failure": "Diletam fomüla no eplöpon",
+	"math_unknown_error": "pök nesevädik",
+	"math_unknown_function": "dun nesevädik",
+	"math_lexing_error": "vödidiletam no eplöpon",
+	"math_syntax_error": "süntagapöl",
+	"math_image_error": "Feajafam ela PNG no eplöpon;\nvestigolös stitami verätik ela latex, ela dvips, ela gs, e feajafön",
+	"math_bad_tmpdir": "No mögos ad penön ini / jafön ragiviär(i) matematik nelaidüpik.",
+	"math_bad_output": "No mögos ad penön ini / jafön ragiviär(i) matematik labü seks",
+	"math_notexvc": "Program-<code>texvc</code> ledunovik no petuvon;\nlogolös eli math/README ad givulön parametemi."
+}

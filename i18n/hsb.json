@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Michawiki"
+		]
+	},
+	"math-desc": "Přidawa matematiske formle mjez tafličkomaj <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math_sample": "Zasuń tu formulu",
+	"math_tip": "Matematiska formula (LaTeX)",
+	"prefs-math": "Math",
+	"mw_math_png": "Přeco jako PNG zwobraznić",
+	"mw_math_source": "Jako TeX wostajić (za tekstowe wobhladowaki)",
+	"mw_math_mathjax": "MathJax (eksperimentalny; přihódny za najwjace wobhladowakow)",
+	"math_failure": "Analyza njeje so poradźiła",
+	"math_unknown_error": "njeznaty zmylk",
+	"math_unknown_function": "njeznata funkcija \"$1\"",
+	"math_lexing_error": "leksikalny zmylk",
+	"math_syntax_error": "syntaktiski zmylk",
+	"math_image_error": "Konwertowanje do PNG zwrěšćiło; kontroluj prawu instalaciju latex a dvipng (abo dvips + gs + konwertuj)",
+	"math_bad_tmpdir": "Njemóžno do nachwilneho matematiskeho zapisa pisać abo jón wutworić",
+	"math_bad_output": "Njemóžno do matematiskeho zapisa za wudaće pisać abo jón wutworić",
+	"math_notexvc": "Wuwjedźomny <code>texvc</code> pobrachuje; prošu hlej math/README za konfiguraciju.",
+	"math-visualeditor-mwmathinspector-title": "Formla",
+	"math-preference-mwmathinspector-description": "Dodawa VisualEditorej eksperimentelnu podpěru za wutworjenje a wobdźěłowanje matematiskich formlow za testowanje do powšitkowneho dopušćenja. Prošu přepruwuj přeco swoje změny, prjedy hač składuješ, hdyž wužiwaš eksperimentelne funkcije.",
+	"math-preference-mwmathinspector-label": "Visual Editor - wobdźěłowanje formlow"
+}

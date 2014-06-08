@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Danny B.",
+			"Mormegil"
+		]
+	},
+	"math-desc": "Vykresluje matematické vzorce vyznačené pomocí <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
+	"math_sample": "Vložit sem vzorec",
+	"math_tip": "Matematický vzorec (LaTeX)",
+	"prefs-math": "Matematika",
+	"mw_math_png": "Vždy jako PNG",
+	"mw_math_source": "Ponechat jako TeX (pro textové prohlížeče)",
+	"mw_math_mathjax": "MathJax (experimentální; pro většinu prohlížečů nejlepší)",
+	"mw_math_latexml": "LaTeXML (experimentální; používá MathML)",
+	"math_failure": "Nelze pochopit",
+	"math_unknown_error": "neznámá chyba",
+	"math_unknown_function": "neznámá funkce „$1“",
+	"math_lexing_error": "chyba při lexingu",
+	"math_syntax_error": "syntaktická chyba",
+	"math_image_error": "Selhala konverze do PNG; zkontrolujte správnou instalaci latexu a dvipng (nebo dvips + gs + convert)",
+	"math_bad_tmpdir": "Nelze zapsat nebo vytvořit dočasný adresář pro matematiku",
+	"math_bad_output": "Nelze zapsat nebo vytvořit adresář pro výstup matematiky",
+	"math_notexvc": "Chybí spustitelný <code>texvc</code>. Podívejte se prosím do math/README na konfiguraci.",
+	"math_notexvccheck": "Chybí spustitelný <code>texvccheck</code>. Podívejte se prosím do math/README na konfiguraci.",
+	"math_output_error": "Matematický obrázek nelze uložit do souborového systému.",
+	"math_invalidresponse": "$1: Neplatná odpověď („$3“) od serveru „$2“:",
+	"math_invalidxml": "MathML není platné XML.",
+	"math_invalidjson": "Odpověď serveru $1 není platný JSON.",
+	"math_xmlversion": "Upozornění: Kontrola XML typu přeskočena! Zkontrolujte, zda je vaše instalace MediaWiki verze wmf/1.22wmf7 nebo novější.",
+	"math-visualeditor-mwmathinspector-title": "Vzorec",
+	"math-preference-mwmathinspector-description": "Přidá do VisualEditoru experimentální podporu tvorby a editace matematických vzorců kvůli testování před zveřejněním této funkce. Při užívání experimentálních funkcí prosím nezapomeňte vždy zkontrolovat provedené změny.",
+	"math-preference-mwmathinspector-label": "Editace vzorců VisualEditorem"
+}

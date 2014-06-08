@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chhorran",
+			"Lovekhmer",
+			"Thearith",
+			"គីមស៊្រុន",
+			"វ័ណថារិទ្ធ"
+		]
+	},
+	"math_sample": "បញ្ចូលរូបមន្ត​នៅទីនេះ",
+	"math_tip": "រូបមន្ត​គណិតវិទ្យា (LaTeX)",
+	"prefs-math": "គណិត",
+	"mw_math_png": "ជានិច្ចការជាPNG",
+	"mw_math_source": "ទុកឱ្យនៅជា TeX (ចំពោះឧបករណ៍រាវរកអត្ថបទ)",
+	"math_failure": "បរាជ័យ​ក្នុង​ការ​ញែក​ចេញ​",
+	"math_unknown_error": "កំហុសមិនស្គាល់",
+	"math_unknown_function": "អនុគមន៍​មិន​ស្គាល់ '$1'",
+	"math_lexing_error": "បញ្ហាក្នុងការអានតួអក្សរ",
+	"math_syntax_error": "កំហុសពាក្យសម្ព័ន្ធ",
+	"math_image_error": "ការបម្លែងជា PNG បានបរាជ័យ។\nសូមពិនិត្យមើលតើ latex និង dvips (ឬ dvips + gs + convert), បានដំឡើងត្រឹមត្រូវឬអត់",
+	"math_bad_tmpdir": "មិនអាចសរសេរទៅ ឬ បង្កើតថតឯកសារគណិតបណ្តោះអាសន្ន",
+	"math_bad_output": "មិនអាច សរសេរទៅ ឬ បង្កើត ថតឯកសារ គណិត ទិន្នផល",
+	"math_notexvc": "បាត់កម្មវិធី <code>texvc</code>។\n\nសូមមើលក្នុង math/README ដើម្បីធ្វើការកំណត់លំអិត។"
+}

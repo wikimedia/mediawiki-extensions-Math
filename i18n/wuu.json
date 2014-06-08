@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wu-chinese.com"
+		]
+	},
+	"math_sample": "箇搭嵌入数学公式",
+	"math_tip": "插入数学公式 （LaTeX）",
+	"prefs-math": "数学公式"
+}
