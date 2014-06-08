@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Atabek",
+			"Jiemurat"
+		]
+	},
+	"math_sample": "Usı jerge formulanı jazın'",
+	"math_tip": "Matematik formula (LaTeX)",
+	"prefs-math": "Formulalar",
+	"math_unknown_error": "belgisiz qa'telik",
+	"math_unknown_function": "belgisiz funktsiya",
+	"math_lexing_error": "leksikalıq qa'telik",
+	"math_syntax_error": "sintaksikalıq qa'telik"
+}

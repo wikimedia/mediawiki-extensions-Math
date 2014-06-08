@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chaduvari",
+			"Sunil Mohan",
+			"Veeven"
+		]
+	},
+	"math_sample": "సూత్రాన్ని ఇక్కడ ఇవ్వండి",
+	"math_tip": "గణిత సూత్రం (LaTeX)",
+	"prefs-math": "గణితం",
+	"mw_math_png": "ఎల్లప్పుడూ PNGగా చూపించు",
+	"mw_math_source": "టెక్ గానే ఉండనివ్వు (టెక్స్ట్‌ బ్రౌజర్ల కొరకు)",
+	"math_failure": "పార్స్ చెయ్యలేకపోయాం",
+	"math_unknown_error": "తెలియని లోపం",
+	"math_unknown_function": "తెలియని ఫంక్షన్ '$1'",
+	"math_lexing_error": "లెక్సింగ్ లోపం",
+	"math_syntax_error": "సింటాక్సు లోపం",
+	"math_image_error": "PNG మార్పిడి విఫలమైంది; latex మరియు divpng (లేదా dvips + gs + convert) లు స్థాపితమయ్యాయని సరిచూసుకోండి",
+	"math_bad_tmpdir": "math తాత్కాలిక డైరెక్టరీని సృష్టించలేకపోడం కానీ, అందులో రాయలేకపోవడంగానీ జరిగింది",
+	"math_bad_output": "math ఔట్‌పుట్ డైరెక్టరీని సృష్టించలేకపోడం కానీ, అందులో రాయలేకపోవడంగానీ జరిగింది",
+	"math_notexvc": "<code>texvc</code> ఎక్జిక్యూటబుల్ కనబడడం లేదు; కాన్ఫిగరు చెయ్యడానికి math/README చూడండి."
+}

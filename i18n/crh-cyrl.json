@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Don Alessandro"
+		]
+	},
+	"math_sample": "Бу ерге формуланы кирсетинъиз",
+	"math_tip": "Риязий (математик) формула (LaTeX форматында)",
+	"prefs-math": "Риязий (математик) ишаретлер",
+	"mw_math_png": "Даима PNG ресим форматына чевир",
+	"mw_math_source": "Денъиштирмеден TeX оларакъ ташла  (метин темелли браузерлер ичюн)",
+	"math_failure": "Айырыштырыламды",
+	"math_unknown_error": "билинмеген хата",
+	"math_unknown_function": "бельгисиз функция",
+	"math_lexing_error": "лексик хата",
+	"math_syntax_error": "синтаксис хатасы"
+}

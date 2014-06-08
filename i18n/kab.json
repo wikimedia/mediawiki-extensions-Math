@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Agurzil",
+			"Mmistmurt"
+		]
+	},
+	"math_sample": "Ssekcem tasemselt dagi",
+	"math_tip": "Tasemselt tusnakt (LaTeX)",
+	"prefs-math": "Tusnakt",
+	"mw_math_png": "Daymen err-it PNG",
+	"mw_math_source": "Eǧǧ-it s TeX (i browsers/explorateurs n weḍris)",
+	"math_failure": "Agul n tusnakt",
+	"math_unknown_error": "Agul mačči d aḍahri",
+	"math_unknown_function": "tawuri warisem « $1 »",
+	"math_lexing_error": "Agul n tmawalt",
+	"math_syntax_error": "Agul n tseddast",
+	"math_image_error": "Aselket ɣer PNG yexser ; ssenqed aserkeb n latex d dvipng (neɣ dvips + gs + convert)",
+	"math_bad_tmpdir": "Ur yezmir ara ad yaru ɣef/ɣer tusnakt n temp directory/dossier",
+	"math_bad_output": "Ur yezmir ara ad yaru ɣef/ɣer tusnakt n tuffɣa directory/dossier",
+	"math_notexvc": "''<code>texvc</code> executable'' / ''executable <code>texvc</code>'' ulac-it; ẓer math/README akken a textareḍ isemyifiyen."
+}

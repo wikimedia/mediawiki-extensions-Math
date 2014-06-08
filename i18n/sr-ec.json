@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Milicevic01",
+			"Rancher"
+		]
+	},
+	"math_sample": "Овде унесите формулу",
+	"math_tip": "Математичка формула (LaTeX)",
+	"prefs-math": "Приказ математичких формула",
+	"mw_math_png": "Увек прикажи као PNG",
+	"mw_math_source": "Остави у формату ТеХ (за текстуалне прегледаче)",
+	"mw_math_mathjax": "MathJax (експериментално; најбоље за већину прегледача)",
+	"math_failure": "Рашчлањивање није успело",
+	"math_unknown_error": "непозната грешка",
+	"math_unknown_function": "непозната функција '$1'",
+	"math_lexing_error": "речничка грешка",
+	"math_syntax_error": "синтактичка грешка",
+	"math_image_error": "Претварање у формат PNG није успело. Проверите да ли су добро инсталирани latex, dvips, gs и convert",
+	"math_bad_tmpdir": "Стварање или писање у привремену фасциклу за математику није успело",
+	"math_bad_output": "Стварање или писање у одредишној фасцикли за математику није успело",
+	"math_notexvc": "Недостаје извршна датотека <code>texvc</code>. Погледајте math/README за подешавање.",
+	"math-visualeditor-mwmathinspector-title": "Формула",
+	"math-preference-mwmathinspector-description": "Укључује експерименталну подршку у Визуелном уређивачу за прављење и уређивање математичких формула. Обавезно проверите своје измене пре чувања када користите ову могућност.",
+	"math-preference-mwmathinspector-label": "Уређивање формула у Визуелном уређивачу"
+}

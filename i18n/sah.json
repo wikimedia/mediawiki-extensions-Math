@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Andrijko Z.",
+			"HalanTul"
+		]
+	},
+	"math_sample": "Формуланы манна киллэр",
+	"math_tip": "Математика формулата (LaTeX)",
+	"prefs-math": "Фуормулалар",
+	"mw_math_png": "Куруук PNG таһаарарга (туһанарга)",
+	"mw_math_source": "TeX бэлиэтин (разметкатын) хааллар (тиэкиһинэн эрэ үлэлиир браузерга)",
+	"math_failure": "Сатаан ааҕыллыбата",
+	"math_unknown_error": "биллибэт алҕас",
+	"math_unknown_function": "биллибэт дьайыы (функция)",
+	"math_lexing_error": "лексиката алҕастаах",
+	"math_syntax_error": "синтаксис алҕаһа",
+	"math_image_error": "PNG-га уларытыы сатаммата; latex, dvips, gs, уонна convert туруоруулара сөбүн көр",
+	"math_bad_tmpdir": "Математика быстах кэмнээҕи директорията сатаан оҥоһуллубута",
+	"math_bad_output": "Математика таһынааҕы директорията сатаан оҥоһуллубата",
+	"math_notexvc": "<code>texvc</code> кыайан толоруллубата; маны math/README көр."
+}

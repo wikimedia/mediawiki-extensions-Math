@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Universal Life"
+		]
+	},
+	"math_sample": "Escribe aquí una formula",
+	"math_tip": "Fórmula matemática (LaTeX)",
+	"prefs-math": "Fórmulas"
+}
