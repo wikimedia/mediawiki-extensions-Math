@@ -1,0 +1,35 @@
+{
+	"@metadata": {
+		"authors": [
+			"Alma",
+			"Toliño",
+			"Xosé"
+		]
+	},
+	"math-desc": "Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math_sample": "Insira unha fórmula aquí",
+	"math_tip": "Fórmula matemática (LaTeX)",
+	"prefs-math": "Fórmulas matemáticas",
+	"mw_math_png": "Orixinar sempre unha imaxe PNG",
+	"mw_math_source": "Deixalo como TeX (para os navegadores de texto)",
+	"mw_math_mathjax": "MathJax (experimental; o mellor para a maioría dos navegadores)",
+	"mw_math_latexml": "LaTeXML (experimental; usa MathML)",
+	"math_failure": "Fallou a conversión do código",
+	"math_unknown_error": "erro descoñecido",
+	"math_unknown_function": "descoñécese a función \"$1\"",
+	"math_lexing_error": "erro de léxico",
+	"math_syntax_error": "erro de sintaxe",
+	"math_image_error": "Fallou a conversión a PNG; comprobe que latex e dvipng están ben instalados (ou dvips + gs + convert)",
+	"math_bad_tmpdir": "Non se pode crear ou escribir no directorio matemático temporal",
+	"math_bad_output": "Non se pode crear ou escribir no directorio matemático de saída",
+	"math_notexvc": "Falta o executable <code>texvc</code>. Consulte math/README para configuralo.",
+	"math_notexvccheck": "Falta o executable <code>texvccheck</code>. Consulte math/README para configuralo.",
+	"math_output_error": "Non se pode almacenar a imaxe matemática no sistema de ficheiros.",
+	"math_invalidresponse": "$1: Resposta non válida (\"$3\") desde o servidor \"$2\":",
+	"math_invalidxml": "MathML non é un XML válido.",
+	"math_invalidjson": "A resposta do servidor de $1 non é un JSON válido.",
+	"math_xmlversion": "Atención: Saltouse a comprobación do tipo XML! Verifique que a súa instalación de MediaWiki é a versión wmf/1.22wmf7 ou posterior.",
+	"math-visualeditor-mwmathinspector-title": "Fórmula",
+	"math-preference-mwmathinspector-description": "Engadir ao editor visual o soporte experimental de creación e edición de fórmulas matemáticas para facer probas, antes do lanzamento xeral. Lembre revisar sempre os seus cambios antes de gardalos ao usar as características experimentais.",
+	"math-preference-mwmathinspector-label": "Edición de fórmulas matemáticas do editor visual"
+}

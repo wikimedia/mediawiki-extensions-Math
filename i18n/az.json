@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"PrinceValiant"
+		]
+	},
+	"math_sample": "Riyazi formulu bura yazın",
+	"math_tip": "Riyazi formul (LaTeX formatı)",
+	"prefs-math": "Riyaziyyat",
+	"mw_math_png": "Həmişə PNG formatında göstər",
+	"mw_math_source": "TeX kimi saxla (mətn brouzerləri üçün)",
+	"math_unknown_error": "bilinməyən xəta",
+	"math_unknown_function": "bilinməyən funksiya",
+	"math_syntax_error": "sintaksis xətası"
+}
