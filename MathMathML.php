@@ -1,5 +1,4 @@
 <?php
-
 /**
  * MediaWiki math extension
  *
@@ -14,6 +13,8 @@ class MathMathML extends MathRenderer {
 	protected $defaultAllowedRootElements = array( 'math' );
 	protected $allowedRootElements = '';
 	protected $hosts;
+	/** @var boolean if false MathML output is not validated */
+	private $XMLValidation = true;
 	protected $inputType = 'tex';
 
 	/**
@@ -60,6 +61,15 @@ class MathMathML extends MathRenderer {
 	}
 
 	/**
+	 * Sets the XML validation.
+	 * If set to false the output of MathML is not validated.
+	 * @param boolean $validation
+	 */
+	public function setXMLValidation( $validation = true ) {
+		$this->XMLValidation = $validation;
+	}
+
+	/**
 	 * Sets the allowed root elements the rendered math tag might have.
 	 * An empty value indicates to use the default settings.
 	 * @param array $settings
@@ -72,6 +82,7 @@ class MathMathML extends MathRenderer {
 	 * @see MathRenderer::render()
 	 */
 	public function render( $forceReRendering = false ) {
+		wfProfileIn( __METHOD__ );
 		if ( $forceReRendering ) {
 			$this->setPurge( true );
 		}
@@ -89,7 +100,7 @@ class MathMathML extends MathRenderer {
 	 */
 	private function renderingRequired() {
 		if ( $this->isPurge() ) {
-			wfDebugLog( "Math", "Re-Rendering was requested." );
+			wfDebugLog( "Math", "Rerendering was requested." );
 			return true;
 		} else {
 			$dbres = $this->readFromDatabase();
@@ -104,7 +115,7 @@ class MathMathML extends MathRenderer {
 						return true;
 					}
 				} else {
-					wfDebugLog( "Math", "Mal formatted entry found in database" );
+					wfDebugLog( "Math", "Malformatted entry found in database" );
 					return true;
 				}
 			} else {
@@ -129,6 +140,7 @@ class MathMathML extends MathRenderer {
 	 */
 	public function makeRequest( $host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest' ) {
 		global $wgMathMathMLTimeout;
+		wfProfileIn( __METHOD__ );
 		$error = '';
 		$res = null;
 		$modeStr = $this->getModeStr();
@@ -145,6 +157,7 @@ class MathMathML extends MathRenderer {
 		$status = $req->execute();
 		if ( $status->isGood() ) {
 			$res = $req->getContent();
+			wfProfileOut( __METHOD__ );
 			return true;
 		} else {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
@@ -156,11 +169,12 @@ class MathMathML extends MathRenderer {
 			} else {
 				// for any other unkonwn http error
 				$errormsg = $status->getWikiText();
-				$error = $this->getError( 'math_invalidresponse', $modeStr, $host, $errormsg );
-				wfDebugLog( "Math", "$modeStr NoResponse:"
+				$error = $this->getError( 'math_invalidresponse', $this->getModeStr(), $host, $errormsg, $this->getModeStr( MW_MATH_MATHML ) );
+				wfDebugLog( "Math", "\nNoResponse:"
 						. var_export( array( 'post' => $post, 'host' => $host
 							, 'errormsg' => $errormsg ), true ) . "\n\n" );
 			}
+			wfProfileOut( __METHOD__ );
 			return false;
 		}
 	}
@@ -189,7 +203,7 @@ class MathMathML extends MathRenderer {
 	 */
 	public function getPostData() {
 		$tex = $this->getTex();
-		if ( $this->inputType == 'tex' && is_null( $this->getDisplaystyle() ) ) {
+		if ( $this->inputType == 'tex' && $this->getMathStyle() == MW_MATHSTYLE_INLINE_DISPLAYSTYLE ) {
 			// default preserve the (broken) layout as it was
 			$tex = '{\\displaystyle ' . $tex . '}';
 		}
@@ -277,8 +291,12 @@ class MathMathML extends MathRenderer {
 	 */
 	public function isValidMathML( $XML ) {
 		$out = false;
+		if ( !$this->XMLValidation ) {
+			return true;
+		}
+		// depends on https://gerrit.wikimedia.org/r/#/c/66365/
 		if ( !is_callable( 'XmlTypeCheck::newFromString' ) ) {
-			$msg = wfMessage( 'math_latexml_xmlversion' )->inContentLanguage()->escaped();
+			$msg = wfMessage( 'math_xmlversion' )->inContentLanguage()->escaped();
 			trigger_error( $msg, E_USER_NOTICE );
 			wfDebugLog( 'Math', $msg );
 			return true;
@@ -289,10 +307,15 @@ class MathMathML extends MathRenderer {
 		} else {
 			$name = $xmlObject->getRootElement();
 			$elementSplit = explode( ':', $name );
-			if ( in_array( end( $elementSplit ), $this->getAllowedRootElements() ) ) {
+			if ( is_array($elementSplit) ){
+				$localName = end( $elementSplit );
+			} else {
+				$localName = $name;
+			}
+			if ( in_array( $localName , $this->getAllowedRootElements() ) ) {
 				$out = true;
 			} else {
-				wfDebugLog( "Math", 'got wrong root element :' . end( $elementSplit ) . ' with namespace ' . $name );
+				wfDebugLog( "Math", "got wrong root element : $name" );
 			}
 		}
 		return $out;
@@ -338,7 +361,7 @@ class MathMathML extends MathRenderer {
 			$svg = $this->getSvg();
 			if ( preg_match( '/style="([^"]*)"/', $svg, $styles ) ) {
 				$style = $styles[1];
-				if ( $this->getDisplayStyle() === true ) {
+				if ( $this->getMathStyle() === MW_MATHSTYLE_DISPLAY ) {
 					$style = preg_replace( '/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style );
 					$style .= 'display:block;  margin-left: auto;  margin-right: auto;';
 				}
@@ -368,7 +391,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$class .= 'mathml-';
 		}
-		if ( $this->getDisplaystyle() ) {
+		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY ) {
 			$class .= 'display';
 		} else {
 			$class .= 'inline';
@@ -382,7 +405,7 @@ class MathMathML extends MathRenderer {
 	 * @return html element with rendered math
 	 */
 	public function getHtmlOutput() {
-		if ( $this->getDisplaystyle() ) {
+		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY ) {
 			$element = 'div';
 		} else {
 			$element = 'span';
@@ -391,11 +414,11 @@ class MathMathML extends MathRenderer {
 		if ( $this->getID() !== '' ) {
 			$attribs['id'] = $this->getID();
 		}
-		$output = HTML::openElement( $element , $attribs );
+		$output = HTML::openElement( $element, $attribs );
 		// MathML has to be wrapped into a div or span in order to be able to hide it.
-		if ( $this->getDisplaystyle() == true ) {
+		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY ) {
 			// Remove displayStyle attributes set by the MathML converter
-			$mml = preg_replace( '/(display|mode)=["\'](inline|block)["\']/', '', $this->getMathml() );
+			$mml = preg_replace( '/(<math[^>]*)(display|mode)=["\'](inline|block)["\']/', '$1', $this->getMathml() );
 			// and insert the correct value
 			$mml = preg_replace( '/<math/', '<math display="block"', $mml );
 		} else {
@@ -409,7 +432,14 @@ class MathMathML extends MathRenderer {
 		$output .= HTML::closeElement( $element );
 		return $output;
 	}
-
+	protected function dbOutArray() {
+		$out = parent::dbOutArray();
+		if ($this->getMathTableName() == 'mathoid' ) {
+			$out['math_input'] = $out['math_inputtex'];
+			unset($out['math_inputtex']);
+		}
+		return $out;
+	}
 	protected function getMathTableName() {
 		return 'mathoid';
 	}

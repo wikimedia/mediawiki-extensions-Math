@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"math-desc": "Inderprete le formule matemateche 'mbrà le tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math_sample": "Mitte 'a formule aqquà",
+	"math_tip": "Formula matemateche (LaTeX)",
+	"prefs-math": "Math",
+	"mw_math_png": "Fà sembre 'u render de le PNG",
+	"mw_math_source": "Lassele cumme a 'nu TeX (pe le browser de teste)",
+	"mw_math_mathjax": "MathJax (sperimendale; 'u megghie pe quase tutte le browser)",
+	"mw_math_latexml": "LaTeXML (sperimendale; ause MathML)",
+	"math_failure": "Analisi fallite",
+	"math_unknown_error": "errore scanusciute",
+	"math_unknown_function": "funziona scanusciute '$1'",
+	"math_lexing_error": "errore de lessiche",
+	"math_syntax_error": "errore de sintassi",
+	"math_image_error": "'A conversione d'u PNG ha fallite;\ncondrolle ce l'installazione de latex e dvips (o dvipg + gs + convertitore) jè corrette",
+	"math_bad_tmpdir": "Non ge puè scrivere o ccrejà 'na cartelle temboranea de math",
+	"math_bad_output": "Non ge puè scrivere o ccrejà 'na cartelle de destinazzione de math",
+	"math_notexvc": "<code>texvc</code> eseguibbele perdute;\npe piacere vide math/README pe configurà.",
+	"math_output_error": "Non ge pozze memorizzà immaggine sus a 'u file system.",
+	"math_invalidresponse": "$1: resposte invalide ('$3') da 'u server '$2':",
+	"math_invalidxml": " MathML tène 'n'XML invalide.",
+	"math_invalidjson": "'U server $1 ave resposte cu 'nu JSON invalide.",
+	"math_xmlversion": "Attenziò: 'A verifiche de le tipe XML ha state zumbate! Verifiche ce l'installazione d'a MediaUicchi toje jè 'a versione wmf/1.22wmf7 o cchiù nuève.",
+	"math-preference-mwmathinspector-label": "Cangiamende de le formule de VisualEditor"
+}

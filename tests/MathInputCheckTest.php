@@ -9,7 +9,7 @@ class MathInputCheckTest extends MediaWikiTestCase
 	 */
 	public function testIsValid() {
 		$InputCheck = $this->getMockBuilder( 'MathInputCheck' )->getMock();
-		$this->assertEquals( $InputCheck->IsValid() , false );
+		$this->assertEquals( $InputCheck->IsValid(), false );
 	}
 
 	/**

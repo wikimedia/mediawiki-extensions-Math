@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chinneeb"
+		]
+	},
+	"math_sample": "Энд томъёогоо оруулна уу",
+	"math_tip": "Математикийн томъёо （LaTeX）",
+	"prefs-math": "Томъёонууд",
+	"mw_math_png": "Байнга PNG болго",
+	"mw_math_source": "TeX хэвээр үлдээх （текстэн броузеруудад）",
+	"math_failure": "Задлан ялгал хийж чадсангүй",
+	"math_unknown_error": "үл мэдэгдэх алдаа",
+	"math_unknown_function": "үл мэдэгдэх функц",
+	"math_lexing_error": "лекслэхэд алдаа гарлаа",
+	"math_syntax_error": "синтаксийн алдаа",
+	"math_image_error": "PNG руух хувиргал амжилтгүй боллоо;\nlatex, dvips, gs, convert-г зөв суулгасан эсэхийг шалгана уу",
+	"math_bad_tmpdir": "Математикийн түр зуурын каталогыг үүсгэх, эсвэл түүн руу хуулж чадсангүй",
+	"math_bad_output": "Математикийн гадагшлуулах каталогыг үүсгэх, эсвэл түүн руу хуулж чадсангүй",
+	"math_notexvc": "<code>texvc</code> программ олдохгүй байна;\nmath/README-г уншиж тохируулна уу."
+}

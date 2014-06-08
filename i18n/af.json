@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Naudefj"
+		]
+	},
+	"math_sample": "Plaas formule hier",
+	"math_tip": "Wiskundige formule (LaTeX)",
+	"prefs-math": "Wiskunde",
+	"mw_math_png": "Gebruik altyd PNG.",
+	"mw_math_source": "Los as TeX (vir teksblaaiers).",
+	"math_failure": "Kon nie verbeeld nie",
+	"math_unknown_error": "onbekende fout",
+	"math_unknown_function": "onbekende funksie",
+	"math_lexing_error": "leksikale fout",
+	"math_syntax_error": "sintaksfout",
+	"math_image_error": "PNG-omskakeling het gefaal.\nKontroleer of LaTeX en dvipng (of dvips + gs + convert) korrek geïnstalleer is.",
+	"math_bad_tmpdir": "Die gids vir tydelike lêers vir wiskundige formules bestaan nie of kan nie geskep word nie",
+	"math_bad_output": "Die gids vir lêers met wiskundige formules bestaan nie of kan nie geskep word nie",
+	"math_notexvc": "Kan nie die <code>texvc</code> program vind nie;\nstel asseblief op volgens die beskrywing in math/README."
+}

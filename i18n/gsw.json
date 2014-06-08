@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Als-Holder"
+		]
+	},
+	"math_sample": "Formel do yyfiege",
+	"math_tip": "Mathematisch Formel (LaTeX)",
+	"prefs-math": "TeX",
+	"mw_math_png": "Immer als PNG aazeige",
+	"mw_math_source": "Als TeX la sy (für Tekschtbrowser)",
+	"math_failure": "Parser-Fähler",
+	"math_unknown_error": "Nit bekannte Fähler",
+	"math_unknown_function": "Nit bekannti Funktion",
+	"math_lexing_error": "'Lexing'-Fähler",
+	"math_syntax_error": "Syntaxfähler",
+	"math_image_error": "D PNG-Konvertierig het nit funktioniert; prief di korrekt Installation vu LaTeX un dvipng (oder dvips + gs + convert)",
+	"math_bad_tmpdir": "S temporär Verzeichnis fir mathematischi Formle cha nit aagleit oder bschribe wäre.",
+	"math_bad_output": "S Ziilverzeichnis fir mathematischi Formle cha nit aagleit oder bschribe wäre.",
+	"math_notexvc": "S <code>texvc</code>-Programm isch nit gfunde wore. Bitte acht gee uf math/README."
+}

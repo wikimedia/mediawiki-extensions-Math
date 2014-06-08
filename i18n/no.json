@@ -1,0 +1,19 @@
+{
+    "@metadata": {
+        "authors": []
+    },
+    "math_sample": "Sett inn formel her",
+    "math_tip": "Matematisk formel (LaTeX)",
+    "prefs-math": "Matteformler",
+    "mw_math_png": "Vis alltid som PNG",
+    "mw_math_source": "Behold som TeX (for tekst-nettlesere)",
+    "math_failure": "Feil i matematikken",
+    "math_unknown_error": "ukjent feil",
+    "math_unknown_function": "ukjent funksjon",
+    "math_lexing_error": "lexerfeil",
+    "math_syntax_error": "syntaksfeil",
+    "math_image_error": "PNG-konversjon mislyktes; sjekk at latex og dvipng (eller dvips + gs + convert) er korrekt installert",
+    "math_bad_tmpdir": "Kan ikke skrive til eller opprette midlertidig mappe",
+    "math_bad_output": "Kan ikke skrive til eller opprette resultatmappe",
+    "math_notexvc": "Mangler kjørbar texvc;\nse math/README for oppsett."
+}
