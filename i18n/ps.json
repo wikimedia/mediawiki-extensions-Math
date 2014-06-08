@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ahmed-Najib-Biabani-Ibrahimkhel"
+		]
+	},
+	"math_sample": "فورمول دلته ځای کړی",
+	"math_tip": "شمېرپوهنيز فورمول (LaTeX)",
+	"prefs-math": "شمېرپوهنه",
+	"math_unknown_error": "ناجوته ستونزه",
+	"math_unknown_function": "ناجوته کړنه",
+	"math-preference-mwmathinspector-label": "ليدنيز سمونگر فورمولونه سمول"
+}

@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Renan"
+		]
+	},
+	"math_tip": "Formul mathematical (LaTeX)",
+	"math-preference-mwmathinspector-description": "Addí experimental support a VisualEditor por li creation e redaction de matematic formules ante li general lanceament. Ples sempre previder tui changes, si tu usa experimental functiones.",
+	"math-preference-mwmathinspector-label": "Formulari redaction de VisualEditor"
+}

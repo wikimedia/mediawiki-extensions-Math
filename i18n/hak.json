@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hakka"
+		]
+	},
+	"math_sample": "Chhai-chhṳ́chhap-ngi̍p sṳ-ho̍k kûng-sṳt",
+	"math_tip": "Chhap-ngi̍p sṳ-ho̍k kûng-sṳt （LaTeX）",
+	"prefs-math": "Sṳ-ho̍k kûng-sṳt",
+	"mw_math_png": "Yún-yén sṳ́-yung PNG thù-chhiong",
+	"mw_math_source": "Hién-sṳ TeX thoi-ho （sṳ́-yung vùn-sṳ hi-khí sṳ̀）",
+	"math_failure": "Kié-sak sṳt-phai",
+	"math_unknown_error": "Mò-tî chho-ngu",
+	"math_unknown_function": "Mò-tî chhṳ-su",
+	"math_lexing_error": "ki-fap chho-ngu",
+	"math_syntax_error": "ngî-fap chho-ngu",
+	"math_image_error": "PNG chón-von sṳt-phai; chhiáng kiám-chhà he-feu chṳn-khok ôn-chông latex, dvips, gs lâu convert",
+	"math_bad_tmpdir": "Mò-fap siá-ngi̍p fe̍t-chá kien-li̍p su-ho̍k kûng-sṳt lìm-sṳ̀ muk-liu̍k",
+	"math_bad_output": "Mò-fap siá-ngi̍p fe̍t-chá kien-li̍p su-ho̍k kûng-sṳt sû-chhut muk-liu̍k",
+	"math_notexvc": "Mò-fap chṳp-hàng \"<code>texvc</code>\"; chhiáng chhâm-cheu math/README chin-hàng phi-chṳ."
+}

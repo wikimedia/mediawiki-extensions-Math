@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Enzoreg",
+			"Zanatos"
+		]
+	},
+	"math_sample": "Kṫeb ĝalaqa de l-mat hnaya",
+	"math_tip": "Ĝalaqa de l-mat (LaTeX)",
+	"prefs-math": "mat",
+	"mw_math_png": "dima biyn bhal  PNG",
+	"math_failure": "khata flmat",
+	"math_unknown_error": "khat mjhol",
+	"math_unknown_function": "wadifa mjhola",
+	"math_lexing_error": "khata fsigha",
+	"math_syntax_error": "khata fsiyagha"
+}

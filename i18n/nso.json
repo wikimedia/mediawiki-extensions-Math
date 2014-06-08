@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mohau"
+		]
+	},
+	"math_sample": "Lokela ''formula'' mo",
+	"math_tip": "Formula ya dipalo (LaTeX)",
+	"math_unknown_error": "Phošo ya gose tsebege",
+	"math_syntax_error": "phošo ya popafoko"
+}

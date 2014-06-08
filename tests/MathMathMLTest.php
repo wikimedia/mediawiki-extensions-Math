@@ -1,7 +1,6 @@
 ﻿<?php
-
 /**
- * Test the LaTeXML output format.
+ * Test the MathML output format.
  *
  * @group Math
  */
