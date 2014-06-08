@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ans",
+			"Octahedron80"
+		]
+	},
+	"math_sample": "ใส่สูตรที่นี่",
+	"math_tip": "ใส่สูตรทางคณิตศาสตร์ (LaTeX)",
+	"prefs-math": "คณิตศาสตร์",
+	"mw_math_png": "เรนเดอร์เป็น PNG เสมอ",
+	"mw_math_source": "ปล่อยข้อมูลเป็น TeX (สำหรับเว็บเบราว์เซอร์แบบข้อความ)",
+	"math_failure": "ส่งผ่านค่าไม่ได้",
+	"math_unknown_error": "ข้อผิดพลาดที่ไม่ทราบ",
+	"math_unknown_function": "คำสั่งที่ไม่ทราบ",
+	"math_lexing_error": "การจำแนกสูตรผิดพลาด",
+	"math_syntax_error": "ไวยากรณ์ผิดพลาด",
+	"math_image_error": "การแปลง PNG ล้มเหลว กรุณาตรวจสอบการติดตั้ง latex และ dvipng (หรือ dvips + gs + convert) ให้ถูกต้อง",
+	"math_bad_tmpdir": "ไม่สามารถเขียนค่าหรือสร้าง ลงไดเรกทอรีชั่วคราวสำหรับเก็บค่าทางคณิตศาสตร์ได้",
+	"math_bad_output": "ไม่สามารถเขียนค่าหรือสร้าง ลงไดเรกทอรีปลายทางสำหรับเก็บค่าทางคณิตศาสตร์ได้",
+	"math_notexvc": "เกิดข้อความผิดพลาด <code>texvc</code> ไม่พบ กรุณาตรวจสอบ math/README เพื่อตั้งค่า"
+}

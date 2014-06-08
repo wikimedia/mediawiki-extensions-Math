@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Maartenvdbent",
+			"Pyt"
+		]
+	},
+	"math_sample": "Formel hier ienföigje",
+	"math_tip": "Mathematiske Formel (LaTeX)",
+	"prefs-math": "TeX",
+	"mw_math_png": "Altied as PNG deerstaale",
+	"mw_math_source": "As TeX beläite (foar Textbrowsere)",
+	"math_failure": "Parser-Failer",
+	"math_unknown_error": "Uunbekoande Failer",
+	"math_unknown_function": "Uunbekoande Funktion",
+	"math_lexing_error": "'Lexing'-Failer",
+	"math_syntax_error": "Syntaxfailer",
+	"math_image_error": "ju PNG-Konvertierenge sluuch fail; korrekte Installation fon LaTeX un dvipng wröigje (of dvips + gs + convert)",
+	"math_bad_tmpdir": "Kon dät Temporärferteeknis foar mathematiske Formeln nit anlääse of beskrieuwe.",
+	"math_bad_output": "Kon dät Sielferteeknis foar mathematiske Formeln nit anlääse of beskrieuwe.",
+	"math_notexvc": "Dät <code>texvc</code>-Program kon nit fuunen wäide. Beoachte jädden math/README."
+}

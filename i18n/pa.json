@@ -1,0 +1,10 @@
+{
+	"@metadata": [],
+	"math_tip": "ਗਣਿਤ ਫਾਰਮੂਲਾ (LaTeX)",
+	"prefs-math": "ਗਣਿਤ",
+	"math_failure": "ਪਾਰਸ ਕਰਨ ਲਈ ਫੇਲ੍ਹ",
+	"math_unknown_error": "ਅਣਜਾਣ ਗਲਤੀ",
+	"math_unknown_function": "ਅਣਜਾਣ ਫੰਕਸ਼ਨ",
+	"math_lexing_error": "lexing ਗਲਤੀ",
+	"math_syntax_error": "ਸੰਟੈਕਸ ਗਲਤੀ"
+}

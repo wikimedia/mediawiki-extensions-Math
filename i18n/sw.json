@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lloffiwr",
+			"Malangali"
+		]
+	},
+	"math_sample": "Ingiza formula hapa",
+	"math_tip": "Formula ya kihesabu (LaTeX)",
+	"prefs-math": "Hisabati",
+	"math_unknown_error": "hitilafu isiyojulikana"
+}

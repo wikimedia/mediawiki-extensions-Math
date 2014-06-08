@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bishnu Saikia",
+			"Chaipau",
+			"Gitartha.bordoloi",
+			"Rajuonline"
+		]
+	},
+	"math_sample": "ইয়াত গণিতীয় সুত্ৰ সুমুৱাওক",
+	"math_tip": "গণিতীয় সুত্ৰ (LaTeX)",
+	"prefs-math": "গণিত",
+	"math_failure": "পাৰ্চ কৰিব অসমৰ্থ",
+	"math_unknown_error": "অজ্ঞাত ত্ৰুটি",
+	"math_unknown_function": "অজ্ঞাত কাৰ্য্য",
+	"math_syntax_error": "চীন্‌টেক্স ত্ৰুটি",
+	"math-visualeditor-mwmathinspector-title": "সূত্ৰ",
+	"math-preference-mwmathinspector-description": "সাধাৰণ মুক্তিৰ আগতে পৰীক্ষাৰ বাবে গাণিতিক সূত্ৰ সৃষ্টি আৰু সম্পাদনা কৰিবলৈ ভিজুৱেল‌এডিটৰত পৰীক্ষামূলক সমৰ্থন যোগ কৰক। পৰীক্ষামূলক বৈশিষ্টসমূহ ব্যৱহাৰ কৰোঁতে সাঁচি ৰখাৰ আগতে সদায় আপোনাৰ সালসলনি পুনৰীক্ষণ কৰিবলৈ নাপাহৰিব।",
+	"math-preference-mwmathinspector-label": "ভিজুৱেলএডিটৰ সূত্ৰ সম্পাদনা"
+}
