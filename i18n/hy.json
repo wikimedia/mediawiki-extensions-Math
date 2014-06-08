@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chaojoker",
+			"Teak",
+			"Xelgen"
+		]
+	},
+	"math_sample": "Գրեք բանաձևը այստեղ",
+	"math_tip": "Մաթեմատիկական բանաձև (LaTeX)",
+	"prefs-math": "Մաթեմատիկական բանաձևեր",
+	"mw_math_png": "Միշտ դարձնել PNG",
+	"mw_math_source": "Թողնել որպես ТеХ (տեքստային բրաուզերների համար)",
+	"math_failure": "Չհաջողվեց վերլուծել",
+	"math_unknown_error": "անհայտ սխալ",
+	"math_unknown_function": "անհայտ ֆունկցիա",
+	"math_lexing_error": "բառական սխալ",
+	"math_syntax_error": "շարահյուսության սխալ",
+	"math_image_error": "PNG վերածումը ձախողվեց. ստուգեք latex, dvips, gs և convert ծրագրերի տեղադրման ճշտությունը։",
+	"math_bad_tmpdir": "Չի հաջողվում ստեղծել կամ գրել մաթեմատիկայի ժամանակավոր թղթապանակին։",
+	"math_bad_output": "Չի հաջողվում ստեղծել կամ գրել մաթեմատիկայի արտածման թղթապանակին",
+	"math_notexvc": "Կատարման <code>texvc</code> նիշքը չի գտնվել։ Տեսեք math/README՝ կարգավորման համար։"
+}

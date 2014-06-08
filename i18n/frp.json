@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"ChrisPtDe"
+		]
+	},
+	"math_sample": "Buchiéd voutra formula ique",
+	"math_tip": "Formula matèmatica (LaTeX)",
+	"prefs-math": "Rendu de les formules matèmatiques",
+	"mw_math_png": "Tojorn fâre una émâge PNG",
+	"mw_math_source": "Lèssiér lo code TeX originâl",
+	"math_failure": "Èrror d’analise sintaxica",
+	"math_unknown_error": "èrror encognua",
+	"math_unknown_function": "fonccion encognua",
+	"math_lexing_error": "èrror lèxicâla",
+	"math_syntax_error": "èrror de sintaxa",
+	"math_image_error": "La convèrsion en PNG at pas reussia ; controlâd l’enstalacion de LaTeX et dvipng (ou ben dvips + gs + convert)",
+	"math_bad_tmpdir": "Empossiblo d’ècrire dens ou ben de fâre lo rèpèrtouèro math temporèro",
+	"math_bad_output": "Empossiblo d’ècrire dens ou ben de fâre lo rèpèrtouèro math de sortia",
+	"math_notexvc": "L’ègzécutâblo « <code>texvc</code> » est entrovâblo.\nVolyéd liére « math/README » por lo configurar."
+}

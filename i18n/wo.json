@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ibou"
+		]
+	},
+	"math_sample": "Duggalal sa mbind fii",
+	"math_tip": "Mbindu xayma (LaTeX)",
+	"prefs-math": "Xayma",
+	"math_failure": "Njuumte ci xayma",
+	"math_unknown_error": "Njuumte li xamuñ ko",
+	"math_unknown_function": "Solo si xamuñ ko",
+	"math_lexing_error": "Njuumteg mbindin",
+	"math_syntax_error": "njuumtey mbindin"
+}

@@ -1,0 +1,14 @@
+== Math 2.0 ==
+
+THIS IS NOT A RELEASE YET
+
+Math 2.0 is an alpha-quality branch and is not recommended for use in
+production.
+
+=== Configuration changes in 2.0 ===
+* $wgLaTeXMLUrl was renamed to $wgMathLaTeXMLUrl
+* $wgLaTeXMLTimeout was renamed to $wgMathLaTeXMLTimeout
+* $wgMathValidModes is introduced:
+  It determines the selectable math rendering modes MW_MATH_(PNG|MATHML|...) in user preferences.
+* $wgUseLaTeXML becomes unnecessary use $wgMathValidModes[] = MW_MATH_LATEXML;
+  to enable the LaTeXML rendering mode.

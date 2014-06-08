@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mostafadaneshvar"
+		]
+	},
+	"math_sample": "فرمول اداں وارد کن",
+	"math_tip": "فرمول ریاضی  (LaTeX)",
+	"prefs-math": "ریاضی",
+	"mw_math_png": "یکسره PNG تحویل دی",
+	"mw_math_source": "آیء په داب TeX بل (په بروززان متنی)",
+	"math_failure": "تجزیه پروش وارت",
+	"math_unknown_error": "ناشناسین حطا",
+	"math_unknown_function": "ناشناس عملگر",
+	"math_lexing_error": "حطا نوشتاری",
+	"math_syntax_error": "حطا ساختار",
+	"math_image_error": "بدل کتن PNGپروش وارت;\nکنترل کنیت په نصب latex, dvips, gs, و convert",
+	"math_bad_tmpdir": "نه نونیت بنویسیت یا مسیر غیر دایمی ریاضی شرکنت",
+	"math_bad_output": "نه تونیت بنویسیت یا مشیر خروجی ریاضی شرکنت.",
+	"math_notexvc": "ترکیب کتن <code>texvc</code>  قابل اجرا;\nلطفا بچار math/README په تنظیم کتن."
+}

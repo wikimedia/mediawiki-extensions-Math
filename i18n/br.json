@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fulup"
+		]
+	},
+	"math_sample": "Lakait ho formulenn amañ",
+	"math_tip": "Formulenn jedoniel (LaTeX)",
+	"prefs-math": "Tres jedoniel",
+	"mw_math_png": "Produiñ atav ur skeudenn PNG",
+	"mw_math_source": "Leuskel ar c'hod TeX orin",
+	"math_failure": "Fazi jedoniezh",
+	"math_unknown_error": "fazi dianav",
+	"math_unknown_function": "kevreizhenn jedoniel dianav",
+	"math_lexing_error": "fazi ger",
+	"math_syntax_error": "fazi ereadur",
+	"math_image_error": "C'hwitet eo bet an amdroadur PNG; gwiriit eo staliet mat Latex ha devipng (pe dvips, gs ha convert)",
+	"math_bad_tmpdir": "N'hall ket krouiñ pe skrivañ er c'havlec'h da c'hortoz",
+	"math_bad_output": "N'hall ket krouiñ pe skrivañ er c'havlec'h ermaeziañ",
+	"math_notexvc": "N'hall ket an erounezeg '<code>texvc</code>' bezañ kavet. Lennit math/README evit he c'hefluniañ."
+}

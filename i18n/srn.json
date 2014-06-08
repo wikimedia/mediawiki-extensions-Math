@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Adfokati",
+			"Stretsh"
+		]
+	},
+	"math_sample": "Poti formula dyaso",
+	"math_tip": "Formula fu teri (LaTeX)",
+	"prefs-math": "Fomula",
+	"math_lexing_error": "leksikografi fowtu",
+	"math_syntax_error": "sintaki fowtu"
+}

@@ -1,7 +1,6 @@
 ﻿<?php
-
 /**
- * Test the LaTeXML output format.
+ * Test the MathML output format.
  *
  * @group Math
  */
@@ -34,7 +33,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	public function testSpecialCaseText() {
 		$renderer = MathRenderer::getRenderer( 'x^2+\text{a sample Text}', array( ), MW_MATH_MATHML );
 		$expected = 'a sample Text</mtext>';
-		$this->assertTrue( $renderer->render() );
+		$this->assertTrue( $renderer->render() ,"rendering failed:" . $renderer->getLastError() );
 		$this->assertContains( $expected, $renderer->getHtmlOutput(), 'Rendering the String "\text{CR}"' );
 	}
 
@@ -152,7 +151,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$renderer = new MathMathML( $inputSample , $attribs );
 		$this->assertEquals( 'pmml' , $renderer->getInputType(), 'Input type was not set correctly' );
 		$this->assertTrue($renderer->render(), 'Failed to render with error:'. $renderer->getLastError() );
-		$real = MathRenderer::renderMath( $inputSample, $attribs );
+		$real = MathRenderer::renderMath( $inputSample, $attribs, MW_MATH_MATHML );
 		$expected = 'hash=5628b8248b79267ecac656102334d5e3&amp;mode=5';
 		$this->assertContains( $expected, $real, 'Link to SVG image missing');
 	}

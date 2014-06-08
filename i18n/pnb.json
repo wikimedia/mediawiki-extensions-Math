@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Khalid Mahmood"
+		]
+	},
+	"math_sample": "ایتھے فارمولا لاؤ",
+	"math_tip": "ریاضی دا فارمولا (LaTeX)",
+	"prefs-math": "حساب کتاب",
+	"math_unknown_error": "انجان مسئلہ",
+	"math_unknown_function": "انجان کم"
+}
