@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bangin"
+		]
+	},
+	"math_sample": "Kurteristê matêmatîk li vir binivisîne",
+	"math_tip": "Kurteristê matêmatîk (LaTeX)",
+	"prefs-math": "TeX",
+	"mw_math_png": "Her caran wek PNG nîşanbide",
+	"mw_math_source": "Wek TeX bêle (ji browser'ên gotaran ra)",
+	"math_unknown_error": "şaşbûnekî nezanîn",
+	"math_image_error": "Wêşandana PNG nemeşî"
+}

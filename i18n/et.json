@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"KaidoKikkas",
+			"Pikne",
+			"WikedKentaur"
+		]
+	},
+	"math-desc": "Viimistleb siltide <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> vahel olevad matemaatilised valemid.",
+	"math_sample": "Sisesta valem siia",
+	"math_tip": "Matemaatiline valem (LaTeX)",
+	"prefs-math": "Valemite näitamine",
+	"mw_math_png": "Alati PNG",
+	"mw_math_source": "Säilitada TeX (tekstibrauserite puhul)",
+	"mw_math_mathjax": "MathJax (katseline; parim enamiku võrgulehitsejatega)",
+	"math_failure": "Liigendamine ebaõnnestus",
+	"math_unknown_error": "Tundmatu viga",
+	"math_unknown_function": "tundmatu funktsioon '$1'",
+	"math_lexing_error": "Väljalugemisviga",
+	"math_syntax_error": "Süntaksiviga",
+	"math_image_error": "PNG konvertimine ebaõnnestus; kontrolli, kas latex ja dvipng (või dvips, gs ja convert) on õigesti installitud.",
+	"math_bad_tmpdir": "Ajutise matemaatikakataloogi loomine või sinna kirjutamine ebaõnnestus",
+	"math_bad_output": "Matemaatika-väljundkataloogi loomine või sinna kirjutamine ebaõnnestus",
+	"math_notexvc": "<code>Texvc</code>-rakendus puudub. Häälestamiseks vaata palun faili math/README.",
+	"math_notexvccheck": "<code>Texvccheck</code>-rakendus puudub. Häälestamiseks vaata palun faili math/README.",
+	"math_output_error": "Valemipilti ei saa failisüsteemis talletada.",
+	"math-visualeditor-mwmathinspector-title": "Valem"
+}

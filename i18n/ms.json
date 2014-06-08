@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Anakmalaysia",
+			"Aviator",
+			"CoolCityCat",
+			"Kurniasan"
+		]
+	},
+	"math-desc": "Mengolah rumus-rumus matematik antara teg-teg <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math_sample": "Masukkan rumus di sini",
+	"math_tip": "Rumus matematik (LaTeX)",
+	"prefs-math": "Matematik",
+	"mw_math_png": "Sentiasa lakar PNG",
+	"mw_math_source": "Biarkan sebagai TeX (untuk pelayar teks)",
+	"mw_math_mathjax": "MathJax (dalam percubaan; paling sesuai untuk kebanyakan pelayar)",
+	"mw_math_latexml": "LaTeXML (percubaan; menggunakan MathML)",
+	"math_failure": "Gagal menghurai",
+	"math_unknown_error": "ralat yang tidak dikenali",
+	"math_unknown_function": "fungsi '$1' yang tidak dikenali",
+	"math_lexing_error": "ralat ''lexing''",
+	"math_syntax_error": "ralat sintaks",
+	"math_image_error": "Penukaran PNG gagal; periksa sama ada latex dan dvipng (atau dvips + gs + convert) telah dipasang dengan betul",
+	"math_bad_tmpdir": "Direktori temp matematik tidak boleh ditulis atau dicipta",
+	"math_bad_output": "Direktori output matematik tidak boleh ditulis atau dicipta",
+	"math_notexvc": "Atur cara <code>texvc</code> hilang; sila lihat fail math/README untuk maklumat konfigurasi.",
+	"math_output_error": "Imej matematik tidak dapat disimpan di dalam sistem fail.",
+	"math_invalidresponse": "Respons tidak sah $1: ('$3') dari pelayan '$2':",
+	"math_invalidxml": " MathML adalah XML yang tidak sah.",
+	"math_invalidjson": "Respons Pelayan $1 adalah JSON yang tidak sah.",
+	"math_xmlversion": "Amaran: Semakan Jenis XML dilangkau! Semak sama ada pemasangan MediaWiki anda adalah versi wmf/1.22wmf7 ke atas.",
+	"math-preference-mwmathinspector-description": "Tambahkan sokongan percubaan pada VisualEditor untuk mewujudkan dan menyunting rumus matematik untuk diuji sebelum keluaran umum. Sila ingat untuk sentiasa menyemak suntingan anda sebelum menyimpan apabila menggunakan ciri-ciri percubaan.",
+	"math-preference-mwmathinspector-label": "Penyuntingan rumus (formula) VisualEditor"
+}

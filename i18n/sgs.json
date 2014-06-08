@@ -1,0 +1,11 @@
+{
+	"@metadata": [],
+	"math_sample": "Iveskėt fuormolė",
+	"math_tip": "Matematinė fuormolė (LaTeX fuormato)",
+	"prefs-math": "Matematėka",
+	"mw_math_png": "Vėsumet fuormuotė PNG",
+	"mw_math_source": "Paliktė TeX fuormata (tekstinems naršīklems)",
+	"math_failure": "Nepavīka apdoruotė",
+	"math_unknown_error": "nežinuoma klaida",
+	"math_unknown_function": "nežinuoma funkcėjė"
+}
