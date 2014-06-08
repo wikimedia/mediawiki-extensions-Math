@@ -4,7 +4,8 @@
 			"BeginaFelicysym",
 			"Chrumps",
 			"Sp5uhe",
-			"Woytecr"
+			"Woytecr",
+			"Matik7"
 		]
 	},
 	"math-desc": "Renderowanie formuł matematycznych między znacznikami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -25,6 +26,7 @@
 	"math_bad_output": "Nie można utworzyć lub zapisywać w wyjściowym katalogu dla wzorów matematycznych",
 	"math_notexvc": "Brak programu <code>texvc</code>.\nZapoznaj się z math/README w celu konfiguracji.",
 	"math_output_error": "Nie można zapisać obrazu z wzorem w systemie plików.",
+	"math_invalidxml": "MathML jest nieprawidłowym kodem XML.",
 	"math-visualeditor-mwmathinspector-title": "Wzór",
 	"math-preference-mwmathinspector-description": "Eksperymentalna funkcja umożliwiająca edytowanie i dodawanie wzorów matematycznych w VisualEditorze. Obecnie w fazie testowej; oczekuje na wdrożenie dla wszystkich użytkowników. Pamiętaj, aby zawsze sprawdzać podgląd strony przed zapisaniem.",
 	"math-preference-mwmathinspector-label": "Edycja wzorów matematycznych za pomocą VisualEditora"
