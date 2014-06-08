@@ -27,11 +27,18 @@ class MathSource extends MathRenderer {
 	function getHtmlOutput() {
 		# No need to render or parse anything more!
 		# New lines are replaced with spaces, which avoids confusing our parser (bugs 23190, 22818)
+		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY ) {
+			$class = 'mwe-math-fallback-source-display';
+		} else {
+			$class = 'mwe-math-fallback-source-inline';
+		}
 		return Xml::element( 'span',
 			$this->getAttributes(
 				'span',
 				array(
-					'class' => 'tex',
+					// the former class name was 'tex'
+					// for backwards compatibility we keep this classname
+					'class' => $class. ' tex',
 					'dir' => 'ltr'
 				)
 			),
@@ -46,5 +53,9 @@ class MathSource extends MathRenderer {
 		// assume unchanged to avoid unnecessary database access
 		$this->changed = false;
 		return true;
+	}
+
+	protected function getMathTableName() {
+		throw new MWException ( 'in math source mode no database caching should happen');
 	}
 }

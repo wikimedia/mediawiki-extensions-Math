@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"An13sa",
+			"Bengoa"
+		]
+	},
+	"math_sample": "Formula hemen idatzi",
+	"math_tip": "Formula matematikoa (LaTeX)",
+	"prefs-math": "Formulak",
+	"mw_math_png": "Beti PNG irudiak sortu",
+	"mw_math_source": "TeX bezala utzi (testu bidezko nabigatzaileentzako)",
+	"math_failure": "Interpretazio errorea",
+	"math_unknown_error": "errore ezezaguna",
+	"math_unknown_function": "funtzio ezezaguna",
+	"math_lexing_error": "errore lexikoa",
+	"math_syntax_error": "sintaxi errorea",
+	"math_image_error": "PNG bilakatze errorea; egiaztatu latex eta dvipng (edo dvips + gs + convert) ongi instalatuta dauden begiratu",
+	"math_bad_tmpdir": "Ezin da math direktorio tenporala sortu edo bertan idatzi",
+	"math_bad_output": "Ezin da math direktorioa sortu edo bertan idatzi",
+	"math_notexvc": "<code>texvc</code> exekutagarria falta da; mesedez, ikus math/README konfiguratzeko."
+}

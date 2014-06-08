@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"محبوب عالم"
+		]
+	},
+	"math_sample": "صیغہ یہاں درج کیجئے",
+	"math_tip": "(ریاضیاتی صیغہ LaTeX)",
+	"prefs-math": "ریاضی",
+	"math_failure": "تجزیہ میں ناکام",
+	"math_unknown_error": "نامعلوم غلطی",
+	"math_unknown_function": "نامعلوم فعل",
+	"math_syntax_error": "نحوی غلطی",
+	"math_image_error": "PNG; کی تحویل ناکام\nlatex، dvips، gs کی صحیح تنصیب کی جانچ کرنے کے بعد دوبارہ تحویل کی کوشش کیجئے."
+}

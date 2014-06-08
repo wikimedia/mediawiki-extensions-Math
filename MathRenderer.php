@@ -22,36 +22,36 @@
  */
 abstract class MathRenderer {
 
-	// REPRESENTATIONS OF THE MATHEMATCAL CONTENT
+	// REPRESENTATIONS OF THE MATHEMATICAL CONTENT
 	/** @var string tex representation */
 	protected $tex = '';
 	/** @var string MathML content and presentation */
 	protected $mathml = '';
-	/** @var string SVG layot only (no semantics)*/
+	/** @var string SVG layout only (no semantics) */
 	protected $svg = '';
-	/** @var string the original user input string (which was used to caculate the inputhash) */
+	/** @var string the original user input string (which was used to calculate the inputhash) */
 	protected $userInputTex = '';
 	// FURTHER PROPERTIES OF THE MATHEMATICAL CONTENT
-	/** @var (boolean|null) by default all equations are rendered in inline style (true = displaystyle) */
-	protected $displayStyle = null;
+	/** @var (MW_MATHSTYLE_INLINE_DISPLAYSTYLE|MW_MATHSTYLE_DISPLAY|MW_MATHSTYLE_INLINE) the rendering style */
+	protected $mathStyle = MW_MATHSTYLE_INLINE_DISPLAYSTYLE;
 	/** @var array with userdefined parameters passed to the extension (not used) */
 	protected $params = array();
 	/** @var string a userdefined identifier to link to the equation. */
 	protected $id = '';
 
 	// DEBUG VARIABLES
-	// Availible, if Math extension runs in debug mode ($wgMathDebug = true) only.
-	/** @var int LaTeXML retun code */
+	// Available, if Math extension runs in debug mode ($wgMathDebug = true) only.
+	/** @var int LaTeXML return code (will be available in future Mathoid versions as well) */
 	protected $statusCode = 0;
-	/** @var timestamp of the last modification of the databas entry */
+	/** @var timestamp of the last modification of the database entry */
 	protected $timestamp;
-	/** @var log messages generated while conversion of mathematical contnet */
+	/** @var log messages generated during conversion of mathematical content */
 	protected $log = '';
 
 	// STATE OF THE CLASS INSTANCE
 	/** @var boolean has variable tex been security-checked */
 	protected $texSecure = false;
-	/** @var boolean has the mathtematical content changed */
+	/** @var boolean has the mathematical content changed */
 	protected $changed = false;
 	/** @var boolean is there a database entry for the mathematical content */
 	protected $storedInDatabase = null;
@@ -63,7 +63,7 @@ abstract class MathRenderer {
 	protected $md5 = '';
 	/** @var binary packed inputhash */
 	protected $inputHash = '';
-	/** @var int rendering mode MW_MATH_(PNG|MATHML|SOURCE...)*/
+	/** @var int rendering mode MW_MATH_(PNG|MATHML|SOURCE...) */
 	protected $mode = MW_MATH_MATHML;
 
 	/**
@@ -88,10 +88,12 @@ abstract class MathRenderer {
 	 */
 	public static function renderMath( $tex, $params = array(), $mode = MW_MATH_MATHML ) {
 		$renderer = self::getRenderer( $tex, $params, $mode );
-		if ( $renderer->render() )
+		if ( $renderer->render() ) {
 			return $renderer->getHtmlOutput();
+		} else {
+			return $renderer->getLastError();
+		}
 	}
-
 
 	/**
 	 *
@@ -116,15 +118,24 @@ abstract class MathRenderer {
 	 */
 	public static function getRenderer( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
 		global $wgDefaultUserOptions, $wgMathValidModes;
-
-		$displayStyle = null;
+		$mathStyle = null;
 		if ( isset( $params['display'] ) ) {
 			$layoutMode = $params['display'];
 			if ( $layoutMode == 'block' ) {
-				$displayStyle = true ;
+				$mathStyle = MW_MATHSTYLE_DISPLAY ;
+				// TODO: Implement caching for attributes of the math tag
+				// Currently the key for the database entry relating to an equation
+				// is md5($tex) the new option to determine if the tex input
+				// is rendered in displaystyle or textstyle would require a database
+				// layout change to use a composite key e.g. (md5($tex),$mathStyle).
+				// As a workaround we use the prefix \displaystyle so that the key becomes
+				// md5((\{\\displaystyle|\{\\textstyle)?\s?$tex\}?)
+				// The new value of $tex string describes now how the rendering should look like.
+				// The variable MathRenderer::mathStyle determines if the rendered equation should
+				// be centered in a new line, or just in be displayed in the current line.
 				$tex = '{\displaystyle ' . $tex . '}';
 			} elseif ( $layoutMode == 'inline' ) {
-				$displayStyle = false;
+				$mathStyle = MW_MATHSTYLE_INLINE;
 				$tex = '{\textstyle ' . $tex . '}';
 			}
 		}
@@ -146,8 +157,8 @@ abstract class MathRenderer {
 			}
 		}
 		switch ( $mode ) {
-			case MW_MATH_SOURCE:
 			case MW_MATH_MATHJAX:
+			case MW_MATH_SOURCE:
 				$renderer = new MathSource( $tex, $params );
 				break;
 			case MW_MATH_PNG:
@@ -162,13 +173,12 @@ abstract class MathRenderer {
 				break;
 		}
 		wfDebugLog ( "Math", 'start rendering $' . $renderer->tex . '$ in mode ' . $mode );
-		$renderer->setDisplayStyle( $displayStyle );
-		$renderer->setID( $id );
+		$renderer->setMathStyle( $mathStyle );
 		return $renderer;
 	}
 
 	/**
-	 * Performs the rendering
+	 * Performs the rendering and returns the rendered element that needs to be embedded.
 	 *
 	 * @return boolean if rendering was successful.
 	 */
@@ -203,16 +213,15 @@ abstract class MathRenderer {
 	 * @return string hash
 	 */
 	public function getMd5() {
-		if ( $this->md5 ) {
-			return $this->md5;
-		} else {
-			return md5( $this->userInputTex );
+		if ( ! $this->md5 ) {
+			$this->md5 = md5( $this->userInputTex );
 		}
+			return $this->md5;
 	}
 
 	/**
-	 * set the input hash (if user input tex is not available)
-	 *
+	 * Set the input hash (if user input tex is not available)
+	 * @param $md5
 	 * @return string hash
 	 */
 	public function setMd5( $md5 ) {
@@ -300,10 +309,13 @@ abstract class MathRenderer {
 		$this->inputHash = $rpage->math_inputhash; // MUST NOT BE NULL
 		$this->md5 = self::dbHash2md5( $this->inputHash );
 		if ( ! empty( $rpage->math_mathml ) ) {
-			$this->mathml = utf8_decode ( $rpage->math_mathml );
+			$this->mathml = utf8_decode( $rpage->math_mathml );
 	}
 		if ( ! empty( $rpage->math_inputtex ) ) { // in the current database the field is probably not set.
 			$this->userInputTex = $rpage->math_inputtex;
+		}
+		if ( ! empty( $rpage->math_input ) ) { // Mathoid the field name input rather than inputtex since it allows for different input formats
+			$this->userInputTex = $rpage->math_input;
 		}
 		if ( ! empty( $rpage->math_tex ) ) {
 			$this->tex = $rpage->math_tex;
@@ -412,12 +424,15 @@ abstract class MathRenderer {
 	 * Writes cache. Writes the database entry if values were changed
 	 */
 	public function writeCache() {
-		wfDebugLog( "Math" , "writing of cache requested." );
+		global $wgMathDebug;
+		if ( $wgMathDebug) wfDebugLog( "Math" , "writing of cache requested." );
 		if ( $this->isChanged() ) {
-			wfDebugLog( "Math" , "Change detected. Perform writing." );
+			if ( $wgMathDebug) wfDebugLog( "Math" , "Change detected. Perform writing." );
 			$this->writeToDatabase();
+			return true;
 		} else {
-			wfDebugLog( "Math" , "Nothing was changed. Don't write to database." );
+			if ( $wgMathDebug) wfDebugLog( "Math" , "Nothing was changed. Don't write to database." );
+			return false;
 		}
 	}
 
@@ -431,7 +446,7 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * get the timestamp, of the last rending of that equation
+	 * gets the timestamp, of the last rendering of that equation
 	 * @return int
 	 */
 	public function getTimestamp() {
@@ -452,15 +467,16 @@ abstract class MathRenderer {
 	 * @param int $newMode element of the array $wgMathValidModes
 	 * @return bool
 	 */
-	public function setMode($newMode){
+	public function setMode( $newMode ) {
 		global$wgMathValidModes;
-		if (in_array($newMode, $wgMathValidModes )){
+		if ( in_array($newMode, $wgMathValidModes ) ) {
 			$this->mode = $newMode;
 			return true;
 		} else {
 			return false;
 		}
 	}
+
 	/**
 	 * Sets the TeX code
 	 *
@@ -538,12 +554,10 @@ abstract class MathRenderer {
 		}
 		$request = RequestContext::getMain()->getRequest();
 		// TODO: Figure out if ?action=purge
-		// until this issue is resolved we use ?mathpurge=true instead
 		// $action = $request->getText('action'); //always returns ''
-		// wfDebugLog("Math",'action = '. $action);
+		// until this issue is resolved we use ?mathpurge=true instead
 		$mathpurge = $request->getBool( 'mathpurge', false );
-		if ( // $action == "purge" &&
-				 $mathpurge ) {
+		if ( $mathpurge ) {
 			wfDebugLog( 'Math', 'Re-Rendering on user request' );
 			return true;
 		} else {
@@ -554,6 +568,7 @@ abstract class MathRenderer {
 	/**
 	 * Sets purge. If set to true the render is forced to rerender and must not
 	 * use a cached version.
+	 * @param bool $purge
 	 * @return boolean
 	 */
 	function setPurge( $purge = true ) {
@@ -574,17 +589,22 @@ abstract class MathRenderer {
 
 	/**
 	 *
-	 * @param boolean $displayStyle
+	 * @param (MW_MATHSTYLE_INLINE_DISPLAYSTYLE|MW_MATHSTYLE_DISPLAY|MW_MATHSTYLE_INLINE) $mathStyle
 	 */
-	public function setDisplayStyle( $displayStyle = true ) {
-		$this->changed = true; // Discuss if this is a change
-		$this->displayStyle = $displayStyle;
+	public function setMathStyle( $displayStyle = MW_MATHSTYLE_DISPLAY ) {
+		if ( $this->mathStyle !== $displayStyle ){
+			$this->changed = true;
+	}
+		$this->mathStyle = $displayStyle;
 	}
 
-	public function getDisplayStyle() {
-		return $this->displayStyle;
+	/**
+	 * Returns the value of the DisplayStyle attribute
+	 * @return (MW_MATHSTYLE_INLINE_DISPLAYSTYLE|MW_MATHSTYLE_DISPLAY|MW_MATHSTYLE_INLINE) the DisplayStyle
+	 */
+	public function getMathStyle() {
+		return $this->mathStyle;
 	}
-
 	/**
 	 * @param string $log
 	 */
@@ -612,7 +632,7 @@ abstract class MathRenderer {
 	 * Get if the input tex was marked as secure
 	 * @return boolean
 	 */
-	public function isTexSecure () {
+	public function isTexSecure() {
 		return $this->texSecure;
 	}
 
@@ -627,6 +647,8 @@ abstract class MathRenderer {
 				$this->lastError = $checker->getError();
 				return false;
 			}
+		} else {
+			return true;
 		}
 	}
 
@@ -672,7 +694,10 @@ abstract class MathRenderer {
 	 * @return string Userdefined ID
 	 */
 	public function setID( $id ) {
-		return $this->id = $id;
+		// Changes in the ID affect the container for the math element on the current page
+		// only. Therefore an id change does not affect the $this->changed variable, which
+		// indicates if database relevant fields have been changed.
+		$this->id = $id;
 	}
 
 		/**
@@ -689,15 +714,13 @@ abstract class MathRenderer {
 	 * @return type
 	 */
 	public function getSvg() {
-		// Spaces will prevent the image from beeing displayed correctly in the browser
+		// Spaces will prevent the image from being displayed correctly in the browser
 		return trim( $this->svg );
 	}
 
-	protected function getMathTableName() {
-		return 'mathoid';
-	}
+	protected abstract function getMathTableName();
 
-	public function getModeStr( ){
+	public function getModeStr() {
 		$names = MathHooks::getMathNames();
 		return $names[ $this->getMode() ];
 	}

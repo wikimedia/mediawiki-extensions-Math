@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cecílio",
+			"MCruz"
+		]
+	},
+	"math_sample": "Poner fórmula eiqui",
+	"math_tip": "Fórmula matemática (LaTeX)",
+	"prefs-math": "Matemática"
+}

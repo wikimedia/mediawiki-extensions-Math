@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Assele",
+			"Haqmar",
+			"Рустам Нурыев"
+		]
+	},
+	"math_sample": "Формуланы бында керетегеҙ",
+	"math_tip": "Математик формула (LaTeX форматы)",
+	"prefs-math": "Формулалар",
+	"mw_math_png": "Һәр ваҡыт PNG яһа",
+	"mw_math_source": "ТеХ форматында ҡалдырырға (текст браузерҙары өсөн)",
+	"math_failure": "Уҡып булмай",
+	"math_unknown_error": "билдәһеҙ хата",
+	"math_unknown_function": "билдәһеҙ функция",
+	"math_lexing_error": "лексик хата",
+	"math_syntax_error": "синтаксик хата",
+	"math_image_error": "PNG яһау хатаһы.\nlatex һәм dvipng (йәки dvips + gs + convert) дөрөҫ ҡуйылыуын тикшерегеҙ.",
+	"math_bad_tmpdir": "Ваҡытлы математика директорияһы булдырып йәки директорияға яҙҙырып булмай",
+	"math_bad_output": "Математика директорияһы булдырып йәки директорияға яҙҙырып булмай",
+	"math_notexvc": "Башҡарыла торған <code>texvc</code> файлы юҡ. Көйләүҙәр буйынса белешмәне — math/README уҡығыҙ."
+}

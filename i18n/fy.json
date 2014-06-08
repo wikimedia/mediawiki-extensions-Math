@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pyt",
+			"Snakesteuben"
+		]
+	},
+	"math_sample": "Foechje hjir in formule yn",
+	"math_tip": "Wiskundige formule (LaTeX)",
+	"prefs-math": "Formules",
+	"mw_math_png": "Altiten as PNG ôfbyldzje",
+	"mw_math_source": "Lit de TeX ferzje stean (foar tekstblêders)",
+	"math_failure": "Untsjutbere formule",
+	"math_unknown_error": "Unbekinde fout",
+	"math_unknown_function": "Unbekinde funksje",
+	"math_lexing_error": "Unbekind wurd",
+	"math_syntax_error": "Sinboufout",
+	"math_image_error": "PNG-omsetting is mislearre.\nGean nei oft latex, dvips, en gs goed ynstallearre binne en set om",
+	"math_bad_tmpdir": "De tydlike formulepad kin net skreaun of makke wêze.",
+	"math_bad_output": "De formulepad kin net skreaun of makke wêze.",
+	"math_notexvc": "It programma <code>texvc</code> net fûn; sjoch math/README te ynstallearjen."
+}
