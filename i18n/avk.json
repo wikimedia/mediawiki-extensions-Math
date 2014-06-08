@@ -1,0 +1,17 @@
+{
+	"@metadata": [],
+	"math_sample": "Va rinaf tazukoy batliz cenkal",
+	"math_tip": "Solokseropaf tazukoy (LaTeX)",
+	"prefs-math": "Rendu des maths",
+	"mw_math_png": "Toujours produire une image PNG",
+	"mw_math_source": "Laisser le code TeX original",
+	"math_failure": "Erreur math",
+	"math_unknown_error": "erreur indéterminée",
+	"math_unknown_function": "megrupen fliok",
+	"math_lexing_error": "ravlemafa rokla",
+	"math_syntax_error": "erurafa rokla",
+	"math_image_error": "La conversion en PNG a échouée, vérifiez l'installation de Latex, dvips, gs et convert",
+	"math_bad_tmpdir": "Redura ik sutera ko ugaloraxo tid merotisa",
+	"math_bad_output": "Redura ik sutera ko divaxo tid merotisa",
+	"math_notexvc": "L'éxécutable « <code>texvc</code> » est introuvable. Lisez math/README pour le configurer."
+}

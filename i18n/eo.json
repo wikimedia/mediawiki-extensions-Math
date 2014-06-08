@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mihxil",
+			"Yekrats",
+			"לערי ריינהארט"
+		]
+	},
+	"math_sample": "Enmeti formulon ĉi tien",
+	"math_tip": "Matematika formulo (LaTeX)",
+	"prefs-math": "Matematikaĵoj",
+	"mw_math_png": "Ĉiam krei PNG-bildon",
+	"mw_math_source": "Lasu TeX-fonton (por tekstfoliumiloj)",
+	"math_failure": "malsukcesis analizi formulon",
+	"math_unknown_error": "nekonata eraro",
+	"math_unknown_function": "nekonata funkcio",
+	"math_lexing_error": "leksika analizo malsukcesis",
+	"math_syntax_error": "sintakseraro",
+	"math_image_error": "Konverto al PNG malsukcesis; kontrolu ĉu estas ĝuste instalitaj latex kaj dvipng (aŭ dvips + gs + convert)",
+	"math_bad_tmpdir": "Ne povas skribi al aŭ krei matematikian labor-dosierujon.",
+	"math_bad_output": "Ne povas enskribi aŭ krei matematikan eligan dosierujon",
+	"math_notexvc": "Programo <code>texvc</code> ne ekzistas; bonvolu vidi math/README por konfiguri."
+}

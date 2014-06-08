@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bhawani Gautam",
+			"Bhawani Gautam Rhk",
+			"सरोज कुमार ढकाल"
+		]
+	},
+	"math_sample": "सूत्र यहाँ थप्नुहोस्",
+	"math_tip": "गणितीय सूत्र (LaTeX)",
+	"prefs-math": "गणित",
+	"mw_math_png": "जहिले  PNG खोल्ने",
+	"mw_math_source": "यसलाई TeX को रुपमा  छोड्ने(पाठ प्रदर्शको लागि)",
+	"math_failure": "पढ्न सकिएन",
+	"math_unknown_error": "अज्ञात समस्या",
+	"math_unknown_function": "अज्ञात निर्देशन",
+	"math_lexing_error": "वर्ण(lexing) त्रुटी",
+	"math_syntax_error": "सूत्र (syntax) त्रुटि"
+}

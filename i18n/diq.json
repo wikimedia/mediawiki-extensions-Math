@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aspar",
+			"Erdemaslancan",
+			"Gorizon",
+			"Mirzali",
+			"Xoser"
+		]
+	},
+	"math_sample": "Formula itiya ra bınus",
+	"math_tip": "Formulayo Matematik (LaTeX)",
+	"prefs-math": "Matematigane simgey",
+	"mw_math_png": "Herzeman PNG render bike",
+	"mw_math_source": "Bi TeX biman (qe nuşte browseroği)",
+	"math_failure": "Parse de ğeleti biyo",
+	"math_unknown_error": "ğeleti nizanyeno",
+	"math_unknown_function": "fonksiyon nizanyeno",
+	"math_lexing_error": "ğeleto lexing",
+	"math_syntax_error": "ğeleto sintaks",
+	"math_image_error": "Açarnayışê PNG nêbı;programan de latex, dvips u gs ra rast barbıyayışi ra emel bê u karfinayışê açarnayışi dest pêkerê.",
+	"math_bad_tmpdir": "Nieşkeno binusi ya zi direktorê mathi virazi",
+	"math_bad_output": "Nieşkeno binusi ya zi direktorê mathi ye outputi virazi",
+	"math_notexvc": "xebetnayekarê <code>texvc</code>'i vindbiyo\nqey 'eyar kerdışi bıewnê math/README'yi.",
+	"math-preference-mwmathinspector-label": "Vurnayışo vênaye de formulan vurnayış"
+}

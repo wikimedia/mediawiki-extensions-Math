@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Игорь Бродский"
+		]
+	},
+	"math-desc": "Ezitada matematižed formulad <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-virgoiden keskes",
+	"math_sample": "Pangat formul nakhu",
+	"math_tip": "Matematine formul (LaTeX-formatas)",
+	"prefs-math": "Matematik",
+	"mw_math_png": "Kaiken generiruida PNG",
+	"mw_math_source": "Jätkat nece TeX-formas (tekstkaclimiden täht)",
+	"math_failure": "Ei voi palastada",
+	"math_unknown_error": "tundmatoi petuz",
+	"math_unknown_function": "tundmatoi funkcii",
+	"math_lexing_error": "leksine petuz",
+	"math_syntax_error": "sintaksine petuz",
+	"math_image_error": "PNG-ks kändmižes ozaižihe petuz;\nkodvgat, oiged-ik oma järgetud latex da dvips (vai dvips + gs + convert).",
+	"math_bad_tmpdir": "Ei voi säta pordaigaline matematine katalog vai ei voi kirjutada sinnä",
+	"math_bad_output": "Ei voi säta matematine lähtmižkatalog vai ei voi kirjutada sinnä",
+	"math_notexvc": "En voi löuta <code>texvc</code>-töfailad;\nkc. math/README järgendamižen täht."
+}
