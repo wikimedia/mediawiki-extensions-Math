@@ -32,30 +32,32 @@ class MathTexvc extends MathRenderer {
 	 * @return array
 	 */
 	public function dbOutArray() {
+		global $wgMathDebug;
 		$out = array();
 		$dbr = wfGetDB( DB_SLAVE );
-		if ( $this->hash ) {
 			$outmd5_sql = $dbr->encodeBlob( pack( 'H32', $this->hash ) );
-		} else {
-			$outmd5_sql = 0; // field cannot be null
-			// TODO: Change Database layout to allow for null values
+		if ( $outmd5_sql instanceof Blob ) {
+			$outmd5_sql = $outmd5_sql->fetch();
 		}
 		$out['math_outputhash'] = $outmd5_sql;
 		$out['math_html_conservativeness'] = $this->conservativeness;
 		$out['math_html'] = $this->html;
-		wfDebugLog( 'Math', 'Store Hashpath of image' . bin2hex( $outmd5_sql ) );
+		$out['math_mathml'] = utf8_encode( $this->getMathml() );
+		$out['math_inputhash'] = $this->getInputHash();
+		if ( $wgMathDebug )	wfDebugLog( 'Math', 'Store Hashpath of image' . bin2hex( $outmd5_sql ) );
 		return $out;
 	}
 
 	protected function dbInArray() {
 		return array( 'math_inputhash', 'math_outputhash',
-				'math_html_conservativeness', 'math_html' );
+				'math_html_conservativeness', 'math_html', 'math_mathml' );
 	}
+
 	/**
 	 * @param database_row $rpage
 	 */
 	protected function initializeFromDatabaseRow( $rpage ) {
-		$result = parent::initializeFromDatabaseRow( $rpage );
+		parent::initializeFromDatabaseRow( $rpage );
 		// get deprecated fields
 		if ( $rpage->math_outputhash ) {
 			$dbr = wfGetDB( DB_SLAVE );
@@ -76,7 +78,7 @@ class MathTexvc extends MathRenderer {
 	 *
 	 * @return string rendered TeK
 	 */
-	 function render() {
+	public function render() {
 		if ( !$this->readCache() ) { // cache miss
 			$result = $this->callTexvc();
 			if ( $result === self::MW_TEXVC_SUCCESS ) {
@@ -130,25 +132,33 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function getMathImageHTML() {
 		$url = $this->getMathImageUrl();
-
+		$attributes = array(
+			// the former class name was 'tex'
+			// for backwards compatibility we keep that classname
+			'class' => 'mwe-math-fallback-png-inline tex',
+			'alt' => $this->getTex()
+		);
+		if ( $this->getMathStyle() === MW_MATHSTYLE_DISPLAY ){
+			// if DisplayStyle is true, the equation will be centered in a new line
+			$attributes[ 'class' ] = 'mwe-math-fallback-png-display tex';
+		}
 		return Xml::element( 'img',
 			$this->getAttributes(
 				'img',
-				array(
-					'class' => 'tex',
-					'alt' => $this->getTex(),
-				),
+				$attributes,
 				array(
 					'src' => $url
 				)
 			)
 		);
+
 	}
 
 	/**
 	 * Converts an error returned by texvc to a localized exception
 	 *
 	 * @param string $texvcResult error result returned by texvc
+	 * @return string
 	 */
 	public function convertTexvcError( $texvcResult ) {
 		$errorConverter = new MathInputCheckTexvc();
@@ -161,7 +171,7 @@ class MathTexvc extends MathRenderer {
 	 * @return int|string MW_TEXVC_SUCCESS or error string
 	 */
 	public function callTexvc() {
-		global $wgTexvc, $wgTexvcBackgroundColor, $wgUseSquid, $wgMathCheckFiles, $wgHooks;
+		global $wgTexvc, $wgTexvcBackgroundColor, $wgHooks;
 
 		wfProfileIn( __METHOD__ );
 		$tmpDir = wfTempDir();
@@ -220,6 +230,7 @@ class MathTexvc extends MathRenderer {
 			$i = strpos( $outdata, "\000" );
 
 			$this->setHtml( substr( $outdata, 0, $i ) );
+			$this->setMathml( substr( $outdata, $i + 1 ) );
 		} elseif ( ( $retval == 'c' ) || ( $retval == 'm' ) || ( $retval == 'l' ) ) {
 			$this->setHtml( substr( $contents, 33 ) );
 			if ( $retval == 'c' ) {
@@ -229,18 +240,25 @@ class MathTexvc extends MathRenderer {
 			} else {
 				$this->setConservativeness( self::LIBERAL );
 			}
+			$this->setMathml( null );
 		} elseif ( $retval == 'X' ) {
 			$this->setHtml( null );
+			$this->setMathml( substr( $contents, 33 ) );
 			$this->setConservativeness( self::LIBERAL );
 		} elseif ( $retval == '+' ) {
 			$this->setHtml( null );
+			$this->setMathml( null );
 			$this->setConservativeness( self::LIBERAL );
 		} else {
 			$errmsg = $this->convertTexvcError( $contents );
 		}
 
 		if ( !$errmsg ) {
-			$this->setHash( substr( $contents, 1, 32 ) );
+			$newHash = substr( $contents, 1, 32 );
+			if ( $this->hash !== $newHash ) {
+				$this->isInDatabase( false ); // DB needs update in writeCache() (bug 60997)
+		}
+			$this->setHash( $newHash );
 		}
 
 		wfRunHooks( 'MathAfterTexvc', array( &$this, &$errmsg ) );
@@ -343,9 +361,9 @@ class MathTexvc extends MathRenderer {
 		global $wgUseSquid;
 
 		wfProfileIn( __METHOD__ );
-		$this->writeToDatabase();
+		$updated = parent::writeCache();
 		// If we're replacing an older version of the image, make sure it's current.
-		if ( $wgUseSquid ) {
+		if ( $updated && $wgUseSquid ) {
 			$urls = array( $this->getMathImageUrl() );
 			$u = new SquidUpdate( $urls );
 			$u->doUpdate();
@@ -385,7 +403,6 @@ class MathTexvc extends MathRenderer {
 	}
 	public function getPng() {
 		$backend = $this->getBackend();
-		// echo $this->getHashPath(). "/". $this->getHash() . '.png';
 		return $backend->getFileContents( array( 'src' => $this->getHashPath() . "/" . $this->getHash() . '.png' ) );
 	}
 
@@ -451,5 +468,7 @@ class MathTexvc extends MathRenderer {
 		return 'math';
 	}
 
-
+	public function setOutputHash( $hash ) {
+		$this->hash = $hash;
+	}
 }

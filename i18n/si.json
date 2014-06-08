@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Singhalawap",
+			"නන්දිමිතුරු",
+			"පසිඳු කාවින්ද",
+			"ශ්වෙත"
+		]
+	},
+	"math_sample": "සූත්‍රය මෙහි රුවන්න",
+	"math_tip": "ගණිත සූත්‍රය (LaTeX)",
+	"prefs-math": "ගණිත",
+	"mw_math_png": "සැමවිට PNG ලෙසට විදැහන්න",
+	"mw_math_source": "TeX  ලෙසින් පැවැතීමට හරින්න(පෙළ බ්‍රවුසරයන් සඳහා)",
+	"mw_math_mathjax": "MathJax (පරික්ෂණාත්මක; ගොඩක් ගවේෂකයන් සඳහා හොදයි)",
+	"math_failure": "ව්‍යාකරණ විග්‍රහය අසමත් විය",
+	"math_unknown_error": "හඳුනා නොගත් දෝෂය",
+	"math_unknown_function": "නොදන්නා ශ්‍රිතය '$1'",
+	"math_lexing_error": "රීතිමය දෝෂයකි",
+	"math_syntax_error": "කාරක-රීති දෝෂය",
+	"math_image_error": "PNG අන්වර්තනය අසාර්ථකවිය;latex, සහ dvipng (හෝ dvips + gs + convert) හී නිදොස්  ස්ථාපනය සිදුවී ඇතිදැයි පිරික්සන්න",
+	"math_bad_tmpdir": "තාවකාලික ගණිත  ඩිරෙක්ටරිය තැනීමට හෝ එහි ලිවීමට නොහැක",
+	"math_bad_output": "ගණිත ප්‍රතිදාන ඩිරෙක්ටරිය තැනීමට හෝ එයට ලිවීමට නොහැක",
+	"math_notexvc": "<code>texvc</code> අභිවාහකය දක්නට නොමැත;\nවින්‍යාස කෙරුමට කරුණාකර math/README බලන්න."
+}

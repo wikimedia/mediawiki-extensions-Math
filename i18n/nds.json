@@ -1,0 +1,17 @@
+{
+	"@metadata": [],
+	"math_sample": "Formel hier infögen",
+	"math_tip": "Mathematsche Formel (LaTeX)",
+	"prefs-math": "TeX",
+	"mw_math_png": "Jümmer as PNG dorstellen",
+	"mw_math_source": "As TeX laten (för Textbrowser)",
+	"math_failure": "Parser-Fehler",
+	"math_unknown_error": "Unbekannten Fehler",
+	"math_unknown_function": "Unbekannte Funktschoon",
+	"math_lexing_error": "'Lexing'-Fehler",
+	"math_syntax_error": "Syntaxfehler",
+	"math_image_error": "dat Konverteren na PNG harr keen Spood.",
+	"math_bad_tmpdir": "Kann dat Temporärverteken för mathematsche Formeln nich anleggen oder beschrieven.",
+	"math_bad_output": "Kann dat Teelverteken för mathematsche Formeln nich anleggen oder beschrieven.",
+	"math_notexvc": "Dat <code>texvc</code>-Programm kann nich funnen warrn. Kiek ok math/README."
+}

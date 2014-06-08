@@ -22,7 +22,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'Math',
-	'version' => '2.0',
+	'version' => '2.0.0',
 	'author' => array( 'Tomasz Wegrzanowski', 'Brion Vibber', 'Moritz Schubotz', '...' ),
 	'descriptionmsg' => 'math-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Math',
@@ -61,46 +61,41 @@ $wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHML );
 $wgDefaultUserOptions['math'] = MW_MATH_MATHML;
 /** @var boolean $wgDefaultUserOptions['mathJax'] determines if client-side MathJax is enabled by default */
 $wgDefaultUserOptions['mathJax'] = false;
-/** Stores debug information in the database and proviedes more detailed debug output*/
-$wgMathDebug = false;
+
 /**
- * Option to use MathJax library to do client-side math rendering
+ * Enables the option to use MathJax library to do client-side math rendering
  * when JavaScript is available. In supporting browsers this makes nice output
- * that's scalable for zooming, printing, and high-resolution displays.
+ * that's scalable for zooming, printing, and high-resolution displays, even if
+ * the browsers do not support HTML5 (i.e. MathML).
  *
- * Not guaranteed to be stable at this time.
+ * @todo Rename to $wgMathJax
  */
-$wgMathJax = true;
+$wgUseMathJax = false;
 
 /**
  * The url of the mathoid server.
  * see http://www.formulasearchengine.com/mathoid
  * TODO: Move documentation to WMF
  */
-$wgMathMathMLUrl = 'http://gw124.iu.xsede.org:10042'; // Sponsored by https://www.xsede.org/
+$wgMathMathMLUrl = 'http://mathoid.testme.wmflabs.org/';
 
 /**
  * The timeout for the HTTP-Request sent to the MathML to render an equation,
  * in seconds.
  */
 $wgMathMathMLTimeout = 20;
-/**
- * Option to disable the tex filter. If set to true any LaTeX expression is parsed
- * this can be a potential security risk. If set to false only a subset of the tex
- * commands is allowed. See the wikipedia page Help:Math for details.
- */
-$wgMathDisableTexFilter = false;
+
 /**
  * Use of LaTeXML for details see
  * <http://latexml.mathweb.org/help>
  *
  * If you want or need to run your own server, follow these installation
- * instructions and override $wgLaTeXMLUrl:
- * <https://svn.mathweb.org/repos/LaTeXML/branches/arXMLiv/INSTALL>
+ * instructions and override $wgMathLaTeXMLUrl:
+ * <http://www.formulasearchengine.com/LaTeXML>
  *
  * If you expect heavy load you can specify multiple servers. In that case one
  * server is randomly chosen for each rendering process. Specify the list of
- * servers in an array e.g $wgLaTeXMLUrl = array ( 'http://latexml.example.com/convert',
+ * servers in an array e.g $wgMathLaTeXMLUrl = array ( 'http://latexml.example.com/convert',
  * 'http://latexml2.example.com/convert');
  */
 $wgMathLaTeXMLUrl = 'http://gw125.iu.xsede.org:8888'; // Sponsored by https://www.xsede.org/
@@ -109,8 +104,7 @@ $wgMathLaTeXMLUrl = 'http://gw125.iu.xsede.org:8888'; // Sponsored by https://ww
  * The timeout for the HTTP-Request sent to the LaTeXML to render an equation,
  * in seconds.
  */
-$wgLaTeXMLTimeout = 240;
-
+$wgMathLaTeXMLTimeout = 240;
 /**
  * If true non tex input will not be checked by texvccheck
  */
@@ -144,7 +138,15 @@ $wgMathDefaultLaTeXMLSetting = array(
  * The link to the texvccheck executable
  */
 $wgMathTexvcCheckExecutable = __DIR__ . '/texvccheck/texvccheck';
+/**
+ * Option to disable the tex filter. If set to true any LaTeX espression is parsed
+ * this can be a potential security risk. If set to false only a subset of the TeX
+ * commands is allowed. See the wikipedia page Help:Math for details.
+ */
+$wgMathDisableTexFilter = false;
 
+/** Stores debug information in the database and provides more detailed debug output */
+$wgMathDebug = false;
 ////////// end of config settings.
 
 
@@ -156,25 +158,24 @@ $wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
 $wgHooks['ParserTestParser'][] = 'MathHooks::onParserTestParser';
 $wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
 $wgHooks['PageRenderingHash'][] = 'MathHooks::onPageRenderingHash';
+$wgHooks['EditPageBeforeEditToolbar'][] = 'MathHooks::onEditPageBeforeEditToolbar';
 
 $dir = __DIR__ . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
 $wgAutoloadClasses['MathRenderer'] = $dir . 'MathRenderer.php';
 $wgAutoloadClasses['MathSource'] = $dir . 'MathSource.php';
 $wgAutoloadClasses['MathMathML'] = $dir . 'MathMathML.php';
-$wgAutoloadClasses['MathMathMLLocal'] = $dir . 'MathMathMLLocal.php';
+$wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
 $wgAutoloadClasses['MathInputCheck'] = $dir . 'MathInputCheck.php';
 $wgAutoloadClasses['MathInputCheckTexvc'] = $dir . 'MathInputCheckTexvc.php';
 $wgAutoloadClasses['SpecialMathShowImage'] = $dir . 'SpecialMathShowImage.php';
-$wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
-
+$wgMessagesDirs['Math'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 $wgExtensionMessagesFiles['MathAlias'] = $dir . 'Math.alias.php';
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 
-// TODO: Is that needed since the page should not be listed
-# $wgSpecialPageGroups['MathShowImage'] = 'math';
+$wgSpecialPageGroups[ 'MathShowImage' ] = 'other';
 $wgSpecialPages['MathShowImage'] = 'SpecialMathShowImage';
 
 $wgResourceModules['ext.math.styles'] = array(

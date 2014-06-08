@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Juanpabl"
+		]
+	},
+	"math_sample": "Escriba aquí a formula",
+	"math_tip": "Formula matematica (LaTeX)",
+	"prefs-math": "Esprisions matematicas",
+	"mw_math_png": "Producir siempre PNG",
+	"mw_math_source": "Deixar como TeX (ta navegadores en formato texto)",
+	"math_failure": "Error en o codigo",
+	"math_unknown_error": "error esconoxita",
+	"math_unknown_function": "función esconoxita",
+	"math_lexing_error": "error de lexico",
+	"math_syntax_error": "error de sintaxi",
+	"math_image_error": "A conversión enta PNG ha tenito errors;\ncomprebe si latex, dvips, gs y convert son bien instalatos.",
+	"math_bad_tmpdir": "No s'ha puesto escribir u creyar o directorio temporal d'esprisions matematicas",
+	"math_bad_output": "No s'ha puesto escribir u creyar o directorio de salida d'esprisions matematicas",
+	"math_notexvc": "No s'ha trobato o fichero executable ''<code>texvc</code>''. Por favor, leiga <em>math/README</em> ta confegurar-lo correctament."
+}

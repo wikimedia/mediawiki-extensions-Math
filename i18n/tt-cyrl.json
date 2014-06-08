@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Don Alessandro",
+			"KhayR",
+			"Ерней",
+			"Ильнар",
+			"Рашат Якупов"
+		]
+	},
+	"math_sample": "Формуланы монда өстәгез",
+	"math_tip": "Математик формула (LaTeX форматы)",
+	"prefs-math": "Формулалар",
+	"mw_math_png": "Һәрвакыт PNG белән бәйләү",
+	"mw_math_source": "ТеХ билгеләнешендә калдырылсын (текстлы браузерлар өчен)",
+	"math_failure": "Укый алмадым",
+	"math_unknown_error": "беленмәгән хата",
+	"math_unknown_function": "билгесез функция",
+	"math_lexing_error": "лексик хата",
+	"math_syntax_error": "синтаксик хата"
+}

@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tonyfroio"
+		]
+	},
+	"math_sample": "Nzirisci ccà na fòrmula",
+	"math_tip": "Fòrmula matimàtica (LaTeX)",
+	"prefs-math": "Fòrmuli",
+	"mw_math_png": "Ammustra sempri 'n PNG",
+	"mw_math_source": "Lassa comu TeX (pi browser tistuali)",
+	"math_failure": "S'hà virificatu un erruri ntô parsing",
+	"math_unknown_error": "erruri scanusciutu",
+	"math_unknown_function": "funzioni scanusciuta",
+	"math_lexing_error": "erruri lissicali",
+	"math_syntax_error": "erruri di sintassi",
+	"math_image_error": "Cunvirsioni 'n PNG fallita; virificati la curretta nstallazzioni dî siquenti prugrammi: latex, dvips, gs e convert.",
+	"math_bad_tmpdir": "Mpussìbbili scrìviri o criari la directory timpurània pi math",
+	"math_bad_output": "Mpussìbbili scrìviri o criari la directory di output pi math",
+	"math_notexvc": "Esiquìbbili <code>texvc</code> mancanti; pi favuri cunzurtari math/README pi la cunfigurazzioni.",
+	"math-preference-mwmathinspector-description": "Junci strummenta spirimintali supra a VisualEditor pi tistari la criazzioni e lu canciu di fòrmuli matimàtichi, prima dû rilassu ginirali. Arricorda di cuntrullari sempri li canci prima di sarbari quannu usi li funziunalitati spirimintali.",
+	"math-preference-mwmathinspector-label": "Canciu di fòrmuli cu VisualEditor"
+}

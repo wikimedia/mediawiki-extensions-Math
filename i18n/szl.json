@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lajsikonik",
+			"Timpul"
+		]
+	},
+	"math_sample": "Sam tukej wprowadź wzůr",
+	"math_tip": "Wzůr matymatyčny (LaTeX)",
+	"prefs-math": "Wzory",
+	"mw_math_png": "Zawše gyneruj grafika PNG",
+	"mw_math_source": "Uostow w TeXu (dla přyglůndarek tekstowych)",
+	"math_failure": "Parser ńy můg rozpoznać",
+	"math_unknown_error": "ńyznany feler",
+	"math_unknown_function": "ńyznano funkcyjo",
+	"math_lexing_error": "feler leksera",
+	"math_syntax_error": "felerno skuadńa",
+	"math_image_error": "kůnwersyjo do formatu PNG ńy powjodua śe; uobadej, eli poprawńy zainštalowane sům lotex, dvips, gs i convert",
+	"math_bad_tmpdir": "Ńy idźe utwořić abo naškryflać w tymčasowym katalůgu do wzorůw matymatyčnych",
+	"math_bad_output": "Ńy idźe utwořić abo naškryflać we wyjśćowym katalůgu do wzorůw matymatyčnych",
+	"math_notexvc": "Ńy ma sam <code>texvc</code>; zapoznej śe z math/README w celu kůnfiguracyje."
+}

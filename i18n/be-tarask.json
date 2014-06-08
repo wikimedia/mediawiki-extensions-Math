@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"EugeneZelenko",
+			"Jim-by",
+			"Wizardist"
+		]
+	},
+	"math-desc": "Выводзіць матэматычныя формулы, запісаныя паміж тэгамі <code>&lt;math&gt;</code> і <code>&lt;/math&gt;</code>",
+	"math_sample": "Зьмясьціце тут формулу",
+	"math_tip": "Матэматычная формула (LaTeX)",
+	"prefs-math": "Матэматычныя формулы",
+	"mw_math_png": "Заўсёды паказваць як PNG",
+	"mw_math_source": "Пакідаць у выглядзе TeX (для тэкставых браўзэраў)",
+	"mw_math_mathjax": "MathJax (экспэрымэнтальна; найлепей для большасьці браўзэраў)",
+	"mw_math_latexml": "LaTeXML (экспэрымэнтальна; ужывае MathML)",
+	"math_failure": "Немагчыма разабраць",
+	"math_unknown_error": "невядомая памылка",
+	"math_unknown_function": "невядомая функцыя '$1'",
+	"math_lexing_error": "лексычная памылка",
+	"math_syntax_error": "сынтаксычная памылка",
+	"math_image_error": "Памылка пераўтварэньня ў фармат PNG;\nправерце слушнасьць усталяваньня latex, dvips (ці dvips + gs + convert)",
+	"math_bad_tmpdir": "Немагчыма запісаць ці стварыць часовую дырэкторыю для матэматыкі",
+	"math_bad_output": "Немагчыма запісаць ці стварыць выходную матэматычную дырэкторыю",
+	"math_notexvc": "Выканаўчы модуль <code>texvc</code> ня знойдзены.\nКалі ласка, прачытайце math/README пра яго канфігурацыю.",
+	"math_output_error": "Не ўдалося захаваць выяву выразу ў файлавай сыстэме."
+}

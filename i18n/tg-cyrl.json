@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ibrahim"
+		]
+	},
+	"math_sample": "Илова кардани формула дар инҷо",
+	"math_tip": "Формулаи риёзӣ (LaTeX)",
+	"prefs-math": "Риёзиёт",
+	"mw_math_png": "Ҳамеша PNG кашида шавад",
+	"mw_math_source": "Ҳамчун TeX боқӣ бимон (барои мурургарҳои матнӣ)",
+	"math_failure": "Шикаст дар таҷзеҳ",
+	"math_unknown_error": "хатои ношинос",
+	"math_unknown_function": "амали номаълум '$1'",
+	"math_lexing_error": "хатои lexing",
+	"math_syntax_error": "хатои наҳвӣ",
+	"math_image_error": "Табдил ба PNG шикаст хӯрд; насби дурусти latex ва dvipng (ё dvips + gs + convert) баррасӣ кунед",
+	"math_bad_tmpdir": "Имкони эҷод ё навистани иттилоот дар пӯшаи муваққатии риёзӣ (temp) вуҷуд надорад",
+	"math_bad_output": "Имкони эҷод ё навистани иттилоот дар пӯшаи хуруҷии риёзӣ (output) вуҷуд надорад",
+	"math_notexvc": "Барномаи ичроии <code>texvc</code> мавҷуд нест; барои иттилооти бештар ба math/README нигаред."
+}

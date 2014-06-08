@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ciphers",
+			"Meno25",
+			"زكريا"
+		]
+	},
+	"math_sample": "أدخل الصيغة هنا",
+	"math_tip": "صيغة رياضية (لا تك)",
+	"prefs-math": "رياضيات",
+	"mw_math_png": "دائما اعرض على هيئة PNG",
+	"mw_math_source": "اعرض على هيئة TeX (للمتصفحات النصية)",
+	"math_failure": "خطأ رياضيات",
+	"math_unknown_error": "خطأ غير معروف",
+	"math_unknown_function": "وظيفة غير معروفة",
+	"math_lexing_error": "خطأ في الصيغة",
+	"math_syntax_error": "خطأ في الصياغة",
+	"math_image_error": "فشل التحويل إلى صيغة PNG؛ تحقق من تثبيت كل من Latex و dvipng (أو dvips + gs + محول)",
+	"math_bad_tmpdir": "لا يمكن الكتابة إلى أو إنشاء مجلد الرياضيات المؤقت",
+	"math_bad_output": "لا يمكن الكتابة إلى أو إنشاء مجلد الخرج للرياضيات",
+	"math_notexvc": "مفقود <code>texvc</code> executable؛\nمن فضلك انظر math/README للضبط.",
+	"math-visualeditor-mwmathinspector-title": "صيغة",
+	"math-preference-mwmathinspector-description": "إضافة دعم تجريبي للمحرر المرئي لإنشاء وتحرير الصيغ الرياضية لاختبارها قبل الإطلاق العام. الرجاء تذكر مراجعة تعديلاتك دائمًا قبل الحفظ عند استخدام المزايا التجريبية.",
+	"math-preference-mwmathinspector-label": "المحرر المرئي تحرير الصيغ"
+}

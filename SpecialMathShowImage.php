@@ -1,10 +1,4 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of SpecialMathShowSVG
  *
@@ -50,7 +44,7 @@ class SpecialMathShowImage extends SpecialPage {
 			echo $this->printSvgError( 'No Inputhash specified' );
 		} else {
 			if ( $tex === '' && $asciimath === ''){
-				switch ( $this->mode ){
+				switch ( $this->mode ) {
 				case MW_MATH_PNG:
 					$this->renderer = MathTexvc::newFromMd5( $hash );
 					break;
@@ -67,15 +61,15 @@ class SpecialMathShowImage extends SpecialPage {
 					if ( $this->mode == MW_MATH_PNG ) {
 						$mmlRenderer = MathMathML::newFromMd5( $hash );
 						$mmlRenderer->readFromDatabase();
-						$this->renderer = new MathTexvc($mmlRenderer->getUserInputTex());
+						$this->renderer = new MathTexvc( $mmlRenderer->getUserInputTex() );
 					}
 					$success = $this->renderer->render();
 				}
 			} elseif ( $asciimath === '' ) {
-				$this->renderer = MathRenderer::getRenderer( $tex , array(), $this->mode);
+				$this->renderer = MathRenderer::getRenderer( $tex , array(), $this->mode );
 				$success = $this->renderer->render();
 			} else {
-				$this->renderer = MathRenderer::getRenderer( $asciimath , array( 'type' => 'ascii' ), $this->mode);
+				$this->renderer = MathRenderer::getRenderer( $asciimath , array( 'type' => 'ascii' ), $this->mode );
 				$success = $this->renderer->render();
 			}
 			if ( $success ) {
@@ -85,12 +79,11 @@ class SpecialMathShowImage extends SpecialPage {
 					$output = $this->renderer->getSvg();
 				}
 			} else {
-				// Errormessage in PNG not supported
+				// Error message in PNG not supported
 				$output = $this->printSvgError( $this->renderer->getLastError() );
 			}
 			if ( $output == "" ) {
 				$output = $this->printSvgError( 'No Output produced' );
-				// $output.=var_export($this->renderer,true);
 				$success = false;
 			}
 			$this->setHeaders( $success );
@@ -110,7 +103,7 @@ class SpecialMathShowImage extends SpecialPage {
  preserveAspectRatio="xMidYMid meet" >' .
 				'<text text-anchor="start" fill="red" y="2">' . htmlspecialchars( $msg ) . '</text></svg>';
 		if ( $wgMathDebug ) {
-			// $result .= '<!--'. var_export($this->renderer, true) .'-->';
+			$result .= '<!--'. var_export($this->renderer, true) .'-->';
 		}
 		return $result;
 	}
