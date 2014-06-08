@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Krun",
+			"Quackor",
+			"Spacebirdy"
+		]
+	},
+	"math_sample": "Set formil her",
+	"math_tip": "Støddfrøðiligur formil (LaTeX)",
+	"prefs-math": "Støddfrøðiligir formlar",
+	"mw_math_png": "Vís altíð sum PNG",
+	"mw_math_source": "Lat verða sum TeX (til tekstkagara)",
+	"math-preference-mwmathinspector-description": "Aktivera eksperimentellan stuðul til VisualEditor fyri at upprætta og rætta matematiskar formlar fyri at royna hetta, áðrenn VisualEditor verður tikin í nýtslu alment. Minst til altíð at endurskoða tínar rættingar, áðrenn tú goymir, tá tú nýtir funksjónir sum eru á royndarstøði.",
+	"math-preference-mwmathinspector-label": "VisualEditor formul-rætting"
+}

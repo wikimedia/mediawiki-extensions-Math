@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Insübrich"
+		]
+	},
+	"math_sample": "Met dent una furmula chì",
+	"math_tip": "Furmula matematega (LaTeX)",
+	"prefs-math": "Matem",
+	"mw_math_png": "Trasfurmá sempər in PNG",
+	"mw_math_source": "Lassá in furmaa TeX (pər i prugráma də navigazziún dumá in furmaa da testu)",
+	"math-preference-mwmathinspector-description": "El fornés ön quach óter strümèncc sperimentài al VisualEditor per creà e mudificà le fòrmule matemàtiche per fà dele pröe, prìm de mèter en gir la versiù generàla. Té 'n mènt de controlà sèmper le mudìfiche prim de salvàle quan che te dòpret le funsiù sperimentài.",
+	"math-preference-mwmathinspector-label": "Mudìfica le fòrmule col VisualEditor"
+}

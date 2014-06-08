@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kaszeba",
+			"Warszk"
+		]
+	},
+	"math_sample": "Wstôwi tuwò fòrmùłã",
+	"math_tip": "Matematicznô fòrmùła (LaTeX)",
+	"prefs-math": "Matematika",
+	"mw_math_png": "Wiedno wëskrzëniwôj jakno PNG",
+	"mw_math_source": "Òstawi jakno TeX (dlô tekstowich przezérników)",
+	"math_failure": "Parser nie rozmiôł rozpòznac"
+}

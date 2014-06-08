@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Demmy"
+		]
+	},
+	"math_sample": "Ẹ fi àgbékalẹ̀ s'íhín",
+	"math_tip": "Àgbékalẹ̀ ìsirò (LaTeX)",
+	"prefs-math": "Ìṣirò",
+	"math_unknown_error": "àsiṣe àwámárìdí",
+	"math_unknown_function": "ìfiṣe àwámárìdí",
+	"math_lexing_error": "àsiṣe òye ọ̀rọ̀"
+}

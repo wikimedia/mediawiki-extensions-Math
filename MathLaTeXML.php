@@ -9,9 +9,10 @@
  * Contains the driver function for the LaTeXML daemon
  * @file
  */
+
 class MathLaTeXML extends MathMathML {
 	protected $defaultAllowedRootElements = array( 'math', 'div', 'table', 'query' );
-	/** @var String settings for LaTeXML daemon	 */
+	/** @var String settings for LaTeXML daemon */
 	private $LaTeXMLSettings = '';
 	/** @var boolean if false LaTeXML output is not validated*/
 	private $XMLValidation = true;
@@ -45,7 +46,7 @@ class MathLaTeXML extends MathMathML {
 
 	/**
 	 * Gets the settings for the LaTeXML daemon.
-	 *
+	 * @global (array|string) $wgMathDefaultLaTeXMLSetting
 	 * @return string
 	 */
 	public function getLaTeXMLSettings() {
@@ -76,8 +77,12 @@ class MathLaTeXML extends MathMathML {
 	 */
 	public function getLaTeXMLPostData() {
 		$tex = $this->getTex();
-		if ( is_null( $this->getDisplayStyle() ) ) {
-			// default preserve the (broken) layout as it was
+		if ( $this->getMathStyle() == MW_MATHSTYLE_INLINE_DISPLAYSTYLE ) {
+			// In MW_MATHSTYLE_INLINE_DISPLAYSTYLE the old
+			// texvc behavior is reproduced:
+			// The equation is rendered in displaystyle
+			// (texvc used $$ $tex $$ to render)
+			// but the equation is not centered.
 			$tex = '{\displaystyle ' . $tex . '}';
 		}
 		$texcmd = rawurlencode( $tex );
@@ -87,13 +92,13 @@ class MathLaTeXML extends MathMathML {
 		return $postData;
 	}
 
-
 	/**
 	 * Does the actual web request to convert TeX to MathML.
 	 * @return boolean
 	 */
 	protected function doRender() {
 		global $wgMathDebug;
+		wfProfileIn( __METHOD__ );
 		if ( trim( $this->getTex() ) === '' ) {
 			wfDebugLog( "Math", "Rendering was requested, but no TeX string is specified." );
 			$this->lastError = $this->getError( 'math_empty_tex' );
@@ -110,13 +115,13 @@ class MathLaTeXML extends MathMathML {
 		$this->lastError = '';
 		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
 		if ( $requestResult ) {
-			$result = json_decode( $res );
-			if ( $result && json_last_error() === JSON_ERROR_NONE ) {
-				if ( $this->isValidMathML( $result->result ) ) {
-					$this->setMathml( $result->result );
+			$jsonResult = json_decode( $res );
+			if ( $jsonResult && json_last_error() === JSON_ERROR_NONE ) {
+				if ( $this->isValidMathML( $jsonResult->result ) ) {
+					$this->setMathml( $jsonResult->result );
 					if ( $wgMathDebug ) {
-						$this->setLog( $result->log );
-						$this->setStatusCode( $result->status_code );
+						$this->setLog( $jsonResult->log );
+						$this->setStatusCode( $jsonResult->status_code );
 					}
 					return true;
 				} else {
@@ -126,6 +131,7 @@ class MathLaTeXML extends MathMathML {
 					wfDebugLog( "Math", "\nLaTeXML InvalidMathML:"
 							. var_export( array( 'post' => $post, 'host' => $host
 								, 'result' => $res ), true ) . "\n\n" );
+					wfProfileOut( __METHOD__ );
 					return false;
 				}
 			} else {
@@ -133,10 +139,12 @@ class MathLaTeXML extends MathMathML {
 				wfDebugLog( "Math", "\nLaTeXML InvalidJSON:"
 						. var_export( array( 'post' => $post, 'host' => $host
 							, 'res' => $res ), true ) . "\n\n" );
+					wfProfileOut( __METHOD__ );
 				return false;
 			}
 		} else {
 			// Error message has already been set.
+			wfProfileOut( __METHOD__ );
 			return false;
 		}
 	}
@@ -183,3 +191,4 @@ class MathLaTeXML extends MathMathML {
 		return 'mathlatexml';
 	}
 }
+

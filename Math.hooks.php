@@ -73,7 +73,7 @@ class MathHooks {
 	 * @param $content (the LaTeX input)
 	 * @param $attributes
 	 * @param Parser $parser
-	 * @return string
+	 * @return array
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		global $wgMathJax, $wgMathDisableTexFilter, $wgMathSkipCheckForNonTeXInput;
@@ -137,7 +137,7 @@ class MathHooks {
 	 * @return Boolean: true
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
-		global $wgMathJax;
+		global $wgMathJax, $wgMathValidModes, $wgDefaultUserOptions;
 		$defaultPreferences['math'] = array(
 			'type' => 'radio',
 			'options' => array_flip( self::getMathNames() ),
@@ -150,6 +150,13 @@ class MathHooks {
 				'label-message' => 'mw_math_mathjax',
 				'section' => 'rendering/math',
 			);
+		}
+		// If the default option is not in the valid options the
+		// user interface throws an exception (BUG 64844)
+		if ( ! in_array( $wgDefaultUserOptions['math'] , $wgMathValidModes ) ){
+			wfDebugLog( 'Math', "Warning: Misconfiguration \$wgDefaultUserOptions['math'] is not in \$wgMathValidModes. Please check your LocalSetting.php file.");
+			// Display the checkbox in the first option.
+			$wgDefaultUserOptions['math'] = $wgMathValidModes[0];
 		}
 		return true;
 	}
@@ -184,7 +191,6 @@ class MathHooks {
 		global $wgUser;
 
 		# Don't generate TeX PNGs (the lack of a sensible current directory causes errors anyway)
-		// TODO: revalidate that
 		$wgUser->setOption( 'math', MW_MATH_SOURCE );
 
 		return true;
@@ -207,26 +213,23 @@ class MathHooks {
 
 		$type = $updater->getDB()->getType();
 
-		if ( $type == 'sqlite' ) {
-			$type = 'mysql'; // The commands used from the updater are the same
-		}
-
 		if ( in_array( $type, $map ) ) {
-			if ( in_array( MW_MATH_PNG, $wgMathValidModes ) ){
 				$sql = dirname( __FILE__ ) . '/db/math.' . $type . '.sql';
 				$updater->addExtensionTable( 'math', $sql );
-			}
-			if ( in_array( MW_MATH_PNG, $wgMathValidModes ) ){
-				$sql = dirname( __FILE__ ) . '/db/mathoid.' . $type . '.sql';
-				$updater->addExtensionTable( 'mathoid', $sql );
-			}
-			if ( in_array( MW_MATH_LATEXML, $wgMathValidModes ) ){
-				if ( $type == 'mysql' ) {
-				//keep $type rather than mysql here for forward compatibility
+			if ( in_array( MW_MATH_LATEXML, $wgMathValidModes ) ) {
+				if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
 					$sql = dirname( __FILE__ ) . '/db/mathlatexml.' . $type . '.sql';
 					$updater->addExtensionTable( 'mathlatexml', $sql );
 				} else {
 					throw new MWException( "Math extension does not currently support $type database for LaTeXML." );
+				}
+			}
+			if ( in_array( MW_MATH_MATHML, $wgMathValidModes ) ) {
+				if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
+					$sql = dirname( __FILE__ ) . '/db/mathoid.' . $type . '.sql';
+					$updater->addExtensionTable( 'mathoid', $sql );
+				} else {
+					throw new MWException( "Math extension does not currently support $type database for Mathoid." );
 				}
 			}
 		} else {
