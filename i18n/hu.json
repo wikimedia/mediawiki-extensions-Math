@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Dani",
-			"Dj"
+			"Dj",
+			"Csega"
 		]
 	},
 	"math_sample": "Ide írd a képletet",
@@ -12,7 +13,7 @@
 	"mw_math_source": "Hagyja TeX formában (szöveges böngészőknek)",
 	"math_failure": "Értelmezés sikertelen",
 	"math_unknown_error": "ismeretlen hiba",
-	"math_unknown_function": "ismeretlen függvény",
+	"math_unknown_function": "ismeretlen függvény \"$1\"",
 	"math_lexing_error": "lexikai hiba",
 	"math_syntax_error": "formai hiba",
 	"math_image_error": "PNG-vé alakítás sikertelen; ellenőrizd, hogy a latex és dvipng (vagy dvips + gs + convert) helyesen van-e telepítve",
