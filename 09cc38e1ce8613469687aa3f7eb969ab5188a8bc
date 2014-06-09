@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e3593d1_0dd4c2bd",
+        "filename": "tests/MathDatabaseTest.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-09T09:20:29Z",
+      "side": 1,
+      "message": "missing space before {",
+      "revId": "09cc38e1ce8613469687aa3f7eb969ab5188a8bc",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e3593d1_ede05e95",
+        "filename": "tests/MathDatabaseTest.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-09T09:20:29Z",
+      "side": 1,
+      "message": "s/enty/entry/",
+      "revId": "09cc38e1ce8613469687aa3f7eb969ab5188a8bc",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
