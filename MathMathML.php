@@ -43,7 +43,7 @@ class MathMathML extends MathRenderer {
 	 * An empty value indicates to use the default settings.
 	 * @param array $settings
 	 */
-	public function setAllowedRootElments( $settings ) {
+	public function setAllowedRootElements( $settings ) {
 		$this->allowedRootElements = $settings;
 	}
 
