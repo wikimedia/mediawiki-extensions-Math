@@ -126,20 +126,37 @@ abstract class MathRenderer {
 				$tex = '{\textstyle ' . $tex . '}';
 			}
 		}
+		$id = null;
+		if ( isset( $params['id'] ) ) {
+			$id = $params['id'];
+		}
+		if ( isset( $params['forcemathmode'] ) ) {
+			$mode = $params['forcemathmode'];
+		}
 		if ( !in_array( $mode, $wgMathValidModes ) ) {
 			$mode = $wgDefaultUserOptions['math'];
+		}
+		// Support of MathML input (experimental)
+		// Currently support for mode MW_MATH_MATHML only
+		if ( isset( $params['type'] ) ) {
+			if( in_array( $params['type'], array( 'pmml', 'ascii' ) ) ) {
+				$mode = MW_MATH_MATHML;
+			}
 		}
 		switch ( $mode ) {
 			case MW_MATH_MATHJAX:
 			case MW_MATH_SOURCE:
 				$renderer = new MathSource( $tex, $params );
 				break;
+			case MW_MATH_PNG:
+				$renderer = new MathTexvc( $tex, $params );
+				break;
 			case MW_MATH_LATEXML:
 				$renderer = new MathLaTeXML( $tex, $params );
 				break;
-			case MW_MATH_PNG:
+			case MW_MATH_MATHML:
 			default:
-				$renderer = new MathTexvc( $tex, $params );
+				$renderer = new MathMathML( $tex, $params );
 		}
 		wfDebugLog ( "Math", 'start rendering $' . $renderer->tex . '$ in mode ' . $mode );
 		$renderer->setMathStyle( $mathStyle );
