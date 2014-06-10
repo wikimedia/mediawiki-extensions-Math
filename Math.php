@@ -36,7 +36,7 @@ define( 'MW_MATH_SIMPLE', 1 ); /// @deprecated
 define( 'MW_MATH_HTML',   2 ); /// @deprecated
 define( 'MW_MATH_SOURCE', 3 );
 define( 'MW_MATH_MODERN', 4 ); /// @deprecated
-define( 'MW_MATH_MATHML', 5 ); /// @deprecated
+define( 'MW_MATH_MATHML', 5 );
 define( 'MW_MATH_MATHJAX', 6 ); /// @deprecated
 define( 'MW_MATH_LATEXML', 7 ); /// new in 1.22
 /**@}*/
@@ -52,7 +52,7 @@ define( 'MW_MATHSTYLE_INLINE',  2 ); // small operators inline
 /**@}*/
 
 /**@var array defines the mode allowed on the server */
-$wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE );
+$wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHML );
 
 /*
  * The default rendering mode for anonymous users.

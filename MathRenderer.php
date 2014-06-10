@@ -134,12 +134,15 @@ abstract class MathRenderer {
 			case MW_MATH_SOURCE:
 				$renderer = new MathSource( $tex, $params );
 				break;
+			case MW_MATH_PNG:
+				$renderer = new MathTexvc( $tex, $params );
+				break;
 			case MW_MATH_LATEXML:
 				$renderer = new MathLaTeXML( $tex, $params );
 				break;
-			case MW_MATH_PNG:
+			case MW_MATH_MATHML:
 			default:
-				$renderer = new MathTexvc( $tex, $params );
+				$renderer = new MathMathML( $tex, $params );
 		}
 		wfDebugLog ( "Math", 'start rendering $' . $renderer->tex . '$ in mode ' . $mode );
 		$renderer->setMathStyle( $mathStyle );
@@ -404,8 +407,8 @@ abstract class MathRenderer {
 	 * @return bool
 	 */
 	public function setMode( $newMode ) {
-		global$wgMathValidModes;
-		if ( in_array($newMode, $wgMathValidModes ) ) {
+		global $wgMathValidModes;
+		if ( in_array( $newMode, $wgMathValidModes ) ) {
 			$this->mode = $newMode;
 			return true;
 		} else {
