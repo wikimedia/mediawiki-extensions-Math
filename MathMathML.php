@@ -15,6 +15,38 @@ class MathMathML extends MathRenderer {
 	protected $hosts;
 	/** @var boolean if false MathML output is not validated */
 	private $XMLValidation = true;
+	protected $inputType = 'tex';
+
+	/**
+	 * @param string $inputType
+	 */
+	public function setInputType($inputType)
+	{
+		$this->inputType = $inputType;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getInputType()
+	{
+		return $this->inputType;
+	}
+
+	public function __construct( $tex = '', $params = array() ) {
+		global $wgMathMathMLUrl;
+		parent::__construct( $tex, $params );
+		$this->setMode( MW_MATH_MATHML );
+		$this->hosts = $wgMathMathMLUrl;
+		if ( isset( $params['type'] ) ) {
+			if ( $params['type'] == 'pmml' ) {
+				$this->inputType = 'pmml';
+				$this->setMathml( '<math>' . $tex . '</math>' );
+			} elseif ( $params['type'] == 'ascii' ) {
+				$this->inputType = 'ascii';
+			}
+		}
+	}
 
 	/**
 	 * Gets the allowed root elements the rendered math tag might have.
@@ -75,8 +107,14 @@ class MathMathML extends MathRenderer {
 			$dbres = $this->readFromDatabase();
 			if ( $dbres ) {
 				if ( $this->isValidMathML( $this->getMathml() ) ) {
-					wfDebugLog( "Math", "Valid entry found in database." );
-					return false;
+					wfDebugLog( "Math", "Valid MathML entry found in database." );
+					if ( $this->getSvg() ) {
+						wfDebugLog( "Math", "SVG-fallback found in database." );
+						return false;
+					} else {
+						wfDebugLog( "Math", "SVG-fallback missing." );
+						return true;
+					}
 				} else {
 					wfDebugLog( "Math", "Malformatted entry found in database" );
 					return true;
@@ -109,9 +147,16 @@ class MathMathML extends MathRenderer {
 		wfProfileIn( __METHOD__ );
 		$error = '';
 		$res = null;
+		if ( !$host ) {
+			$host = self::pickHost();
+		}
+		if ( !$post ) {
+			$this->getPostData();
+		}
 		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
 		/** @var $req (CurlHttpRequest|PhpHttpRequest) the request object  */
 		$req = $httpRequestClass::factory( $host, $options );
+		/** @var Status the request status */
 		$status = $req->execute();
 		if ( $status->isGood() ) {
 			$res = $req->getContent();
@@ -133,6 +178,110 @@ class MathMathML extends MathRenderer {
 					, 'errormsg' => $errormsg ), true ) . "\n\n" );
 			}
 			wfProfileOut( __METHOD__ );
+			return false;
+		}
+	}
+
+	/**
+	 * Picks a MathML daemon.
+	 * If more than one demon are available one is chosen from the
+	 * $wgMathMathMLUrl array.
+	 * @return string
+	 */
+	protected function pickHost() {
+		if ( is_array( $this->hosts ) ) {
+			$host = array_rand( $this->hosts );
+		} else {
+			$host = $this->hosts;
+		}
+		wfDebugLog( "Math", "picking host " . $host );
+		return $host;
+	}
+
+	/**
+	 * Calculates the HTTP POST Data for the request. Depends on the settings
+	 * and the input string only.
+	 * @return string HTTP POST data
+	 */
+	public function getPostData() {
+		$input = $this->getTex();
+		if ( $this->inputType == 'pmml' || $this->getMode() == MW_MATH_LATEXML &&  $this->getMathml() ) {
+			$out = 'type=mml&q=' . rawurlencode( $this->getMathml() );
+		} elseif ( $this->inputType == 'ascii' ) {
+			$out = 'type=asciimath&q=' . rawurlencode( $input );
+		} else {
+			if ( $this->getMathStyle() == MW_MATHSTYLE_INLINE_DISPLAYSTYLE ) {
+				// default preserve the (broken) layout as it was
+				$input = '{\\displaystyle ' . $input . '}';
+			}
+			$out = 'type=tex&q=' . rawurlencode( $input );
+			if ( $this->inputType != 'tex' ){
+				wfDebugLog( "Math", 'Invalid input type: ' . $this->inputType );
+			}
+		}
+		wfDebugLog( "Math", 'Get post data: ' . $out );
+		return $out;
+	}
+
+	/**
+	 * Does the actual web request to convert TeX to MathML.
+	 * @return boolean
+	 */
+	protected function doRender() {
+		global  $wgMathDebug;
+		if ( $this->getTex() === '' ) {
+			wfDebugLog( 'Math', 'Rendering was requested, but no TeX string is specified.' );
+			$this->lastError = $this->getError( 'math_empty_tex' );
+			return false;
+		}
+		$res = '';
+		$host = self::pickHost();
+		$post = $this->getPostData();
+		$this->lastError = '';
+		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
+		if ( $requestResult ) {
+			$jsonResult = json_decode( $res );
+			if ( $jsonResult && json_last_error() === JSON_ERROR_NONE ) {
+				if ( $jsonResult->success ) {
+					if ( $this->getMode() == MW_MATH_LATEXML ||
+							$this->inputType == 'pmml' ||
+							$this->isValidMathML( $jsonResult->mml ) ) {
+						$xmlObject = new XmlTypeCheck( $jsonResult->svg, null, false );
+						if ( ! $xmlObject->wellFormed ) {
+							$this->lastError = $this->getError( 'math_invalidxml', $host );
+							return false;
+						} else {
+							$this->setSvg( $jsonResult->svg );
+						}
+						if ( $wgMathDebug ) {
+							$this->setLog( $jsonResult->log );
+						}
+						if ( $this->getMode() != MW_MATH_LATEXML && $this->inputType != 'pmml') {
+							$this->setMathml( $jsonResult->mml );
+						}
+						return true;
+					} else {
+						$this->lastError = $this->getError( 'math_unknown_error', $host );
+						return false;
+					}
+				} else {
+					// Do not print bad mathml. It's probably too verbose and might
+					// mess up the browser output.
+					$this->lastError = $this->getError( 'math_invalidxml', $host );
+					wfDebugLog( 'Math', "\nMathML InvalidMathML:"
+							. var_export( array( 'post' => $post, 'host' => $host
+								, 'result' => $res ), true ) . "\n\n" );
+					return false;
+				}
+			} else {
+				$this->lastError = $this->getError( 'math_invalidjson', $host );
+				wfDebugLog( 'Math', "\nMathML InvalidJSON:"
+						. var_export( array( 'post' => $post, 'host' => $host
+							, 'res' => $res ), true ) . "\n\n" );
+				return false;
+			}
+		} else {
+			// Error message has already been set.
 			return false;
 		}
 	}
@@ -175,29 +324,55 @@ class MathMathML extends MathRenderer {
 		return $out;
 	}
 
-	/* (non-PHPdoc)
-	 * @see MathRenderer::writeCache()
-	*/
-	public function writeCache() {
-		if ( $this->isChanged() ) {
-			$this->writeToDatabase();
-		}
+	/**
+	 * @param int $mode
+	 * @param boolean $noRender
+	 * @return type
+	 */
+	private function getFallbackImageUrl( $mode = MW_MATH_MATHML, $noRender = false ) {
+		return SpecialPage::getTitleFor( 'MathShowImage' )->getLocalURL( array(
+				'hash' => $this->getMd5(),
+				'mode' => $mode,
+				'noRender' => $noRender )
+		);
 	}
 
 	/**
-	 * Picks a daemon.
-	 * If more than one demon are available one is chosen from the
-	 * hosts array.
-	 * @return string
+	 * Gets img tag for math image
+	 * @param int $mode if MW_MATH_MATHML a png is used instead of an svg image
+	 * @param boolean $noRender if true no rendering will be performed if the image is not stored in the database
+	 * @param boolean|string $classOverride if classOverride is false the class name will be calculated by getClassName
+	 * @return string XML the image html tag
 	 */
-	protected function pickHost() {
-		if ( is_array( $this->hosts ) ) {
-			$host = array_rand( $this->hosts );
+	public function getFallbackImage( $mode = MW_MATH_MATHML, $noRender = false, $classOverride = false ) {
+		$url = $this->getFallbackImageUrl( $mode , $noRender );
+		if ( $mode == MW_MATH_PNG ) {
+			$png = true;
 		} else {
-			$host = $this->hosts;
+			$png = false;
 		}
-		wfDebugLog( "Math", "picking host " . $host );
-		return $host;
+		$attribs = array();
+		if ( $classOverride === false ) { // $class = '' suppresses class attribute
+			$class = $this->getClassName( true, $png );
+			$style = $png ? 'display: none;' : '';
+		} else {
+			$class  = $classOverride;
+			$style = '';
+		}
+		if ( !$png ) {
+			$svg = $this->getSvg();
+			if ( preg_match( '/style="([^"]*)"/', $svg, $styles ) ) {
+				$style = $styles[1];
+				if ( $this->getMathStyle() === MW_MATHSTYLE_DISPLAY ) {
+					$style = preg_replace( '/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style );
+					$style .= 'display:block;  margin-left: auto;  margin-right: auto;';
+				}
+			}
+		}
+		if ( $class ) { $attribs['class'] = $class; }
+		if ( $style ) { $attribs['style'] = $style; }
+		// an alternative for svg might be an object with type="image/svg+xml"
+		return Xml::element( 'img', $this->getAttributes( 'img', $attribs , array( 'src' => $url ) ) );
 	}
 
 
@@ -239,6 +414,9 @@ class MathMathML extends MathRenderer {
 			$element = 'span';
 		}
 		$attribs = array();
+		if ( $this->getID() !== '' ) {
+			$attribs['id'] = $this->getID();
+		}
 		$output = HTML::openElement( $element, $attribs );
 		// MathML has to be wrapped into a div or span in order to be able to hide it.
 		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY ) {
@@ -250,7 +428,27 @@ class MathMathML extends MathRenderer {
 			$mml = $this->getMathml();
 		}
 		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(), 'style' => 'display: none;' ), $mml );
+		$output .= $this->getFallbackImage( $this->getMode() ) . "\n";
+		$output .= $this->getFallbackImage( MW_MATH_PNG ) . "\n";
 		$output .= HTML::closeElement( $element );
 		return $output;
+	}
+
+	protected function dbOutArray() {
+		$out = parent::dbOutArray();
+		if ($this->getMathTableName() == 'mathoid' ) {
+			$out['math_input'] = $out['math_inputtex'];
+			unset($out['math_inputtex']);
+		}
+		return $out;
+	}
+
+	protected function dbInArray() {
+		$out = parent::dbInArray();
+		if ($this->getMathTableName() == 'mathoid' ) {
+			$out = array_diff( $out, array( 'math_inputtex' ) );
+			$out[] = 'math_input';
+		}
+		return $out;
 	}
 }
