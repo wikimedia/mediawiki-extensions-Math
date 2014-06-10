@@ -69,6 +69,24 @@
       "revId": "7734c159497029775a275615588a416fe0489013",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_fa46dd25",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T14:14:54Z",
+      "side": 1,
+      "message": "It\u0027 a bit confusing that the \"MATHML\" mode does so many things. It would probably be best named MW_MATH_MATHOID.",
+      "parentUuid": "ee391fd1_9ae7d13b",
+      "revId": "7734c159497029775a275615588a416fe0489013",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
