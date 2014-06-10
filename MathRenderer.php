@@ -96,6 +96,19 @@ abstract class MathRenderer {
 	}
 
 	/**
+	 *
+	 * @param type $md5
+	 * @return MathRenderer the MathRenderer generated from md5
+	 */
+	public static function newFromMd5( $md5 ) {
+		$class = get_called_class();
+		$instance = new $class;
+		$instance->setMd5( $md5 );
+		$instance->readFromDatabase();
+		return $instance;
+	}
+
+	/**
 	 * Static factory method for getting a renderer based on mode
 	 *
 	 * @param string $tex LaTeX markup
