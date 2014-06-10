@@ -87,6 +87,24 @@
       "revId": "7734c159497029775a275615588a416fe0489013",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_7a1c2d7d",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-06-10T17:02:11Z",
+      "side": 1,
+      "message": "Those are experimental features. We should keep them small and underline that the main intention is still to render texvc-\u003e mathml which was the original intention of the MW_MATH_MATHML mode",
+      "parentUuid": "ee391fd1_fa46dd25",
+      "revId": "7734c159497029775a275615588a416fe0489013",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
