@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ee391fd1_3acea5ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-06-10T14:01:06Z",
+      "side": 1,
+      "message": "I\u0027ll rephrase",
+      "parentUuid": "ee391fd1_7afb0d12",
+      "revId": "7734c159497029775a275615588a416fe0489013",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee391fd1_fa0edd36",
         "filename": "MathRenderer.php",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2014-06-10T13:38:08Z",
       "side": 1,
       "message": "missing space after \"if\"\n\nI don\u0027t understand why \"ascii\" is here. Can you explain?\n\nAlso, it seems that this will override the mode forced above.",
+      "revId": "7734c159497029775a275615588a416fe0489013",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_9ae7d13b",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-06-10T14:01:06Z",
+      "side": 1,
+      "message": "OK. I see here is potential for imrovement.\nascii stands for ASCIIMath. It\u0027s supported as mathoid input format.",
+      "parentUuid": "ee391fd1_fa0edd36",
       "revId": "7734c159497029775a275615588a416fe0489013",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
