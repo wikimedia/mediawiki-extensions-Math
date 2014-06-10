@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee391fd1_00d2502c",
+        "filename": "Math.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T18:08:47Z",
+      "side": 1,
+      "message": "So should it be false by default?",
+      "revId": "b4c244de7f7cd6634f86a021b0c02991a31091ff",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
