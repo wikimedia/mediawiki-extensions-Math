@@ -404,8 +404,8 @@ abstract class MathRenderer {
 	 * @return bool
 	 */
 	public function setMode( $newMode ) {
-		global$wgMathValidModes;
-		if ( in_array($newMode, $wgMathValidModes ) ) {
+		global $wgMathValidModes;
+		if ( in_array( $newMode, $wgMathValidModes ) ) {
 			$this->mode = $newMode;
 			return true;
 		} else {
