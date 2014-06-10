@@ -1,0 +1,276 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee391fd1_8b7d41e7",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "the indentation still seems incorrect",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_6b821dcf",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "missing space after /**",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_eb6ded2e",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "I would move this block below, so that you don\u0027t need to run it in pmml and ascii mode.",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_4b8759dd",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "it\u0027s not very good that the ascii mode also uses the name \"$tex\" :-(",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_2b63f53c",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "Here I would do a $this-\u003einputType \u003d\u003d \u0027tex\u0027 block and put the \"\\\\displaystyle\" hack for MW_MATHSTYLE_INLINE_DISPLAYSTYLE inside.\n\nThen a final else block to do wfDebugLog \"incorrect input type\".",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_ab4ec5c2",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "I think we call it json_result somewhere else.",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_4bcd1934",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "didn\u0027t we rename that \"math_invalidxml\"? (without latexml)",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_6b969df5",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "mmh, that seems a bit hacky...\n\nAre you sure that  the output never contains an \"id\"? Also, I don\u0027t really like the hardcoded \"5\". Probably a regexp replace would be clearer \u0026 more reliable.",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_4b9bd91b",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "same here for \"latexml\"",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_eb816da5",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_0bacb131",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "mode does not seem to be a boolean so the desc should be updated",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_4b7199dc",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "why is $classOverride mentioned twice?",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_eb772dce",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "inconsistent spacing around the equal sign.",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_8b4e619a",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "bad indent for the }",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_2b4d359c",
+        "filename": "MathMathML.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "I think we have the same issue here as for the \u003cmath\u003e with\n\n\"\u003csvg\u003e\u003ctext\u003estyle\u003d\"...\"\u003c/text\u003e\u003c/svg\u003e\"\n\nalthough I don\u0027t think MathJax uses \u003ctext\u003e frame, but perhaps this could be produced another way.\n\n(In general, I think it would be good to have tests for these kinds of edge cases)",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_ab2fe59b",
+        "filename": "MathRenderer.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T19:52:39Z",
+      "side": 1,
+      "message": "perhaps the commit message should say that MATHML becomes the default for unknown/obsolete modes.",
+      "revId": "eddd0720d1a438b475f0b2169a8f673a1af2ce62",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
