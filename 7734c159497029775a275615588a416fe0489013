@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee391fd1_7afb0d12",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T13:38:08Z",
+      "side": 1,
+      "message": "\"force an rendering mode\" ???\nnecessary",
+      "revId": "7734c159497029775a275615588a416fe0489013",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_fa0edd36",
+        "filename": "MathRenderer.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-10T13:38:08Z",
+      "side": 1,
+      "message": "missing space after \"if\"\n\nI don\u0027t understand why \"ascii\" is here. Can you explain?\n\nAlso, it seems that this will override the mode forced above.",
+      "revId": "7734c159497029775a275615588a416fe0489013",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
