@@ -117,7 +117,7 @@ abstract class MathRenderer {
 	 * @return MathRenderer appropriate renderer for mode
 	 */
 	public static function getRenderer( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
-		global $wgDefaultUserOptions, $wgMathValidModes;
+		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathEnableExperimentalInputFormats;
 		$mathStyle = null;
 		if ( isset( $params['display'] ) ) {
 			$layoutMode = $params['display'];
@@ -139,8 +139,22 @@ abstract class MathRenderer {
 				$tex = '{\textstyle ' . $tex . '}';
 			}
 		}
+		$id = null;
+		if ( isset( $params['id'] ) ) {
+			$id = $params['id'];
+		}
+		if ( isset( $params['forcemathmode'] ) ) {
+			$mode = $params['forcemathmode'];
+		}
 		if ( !in_array( $mode, $wgMathValidModes ) ) {
 			$mode = $wgDefaultUserOptions['math'];
+		}
+		if ( $wgMathEnableExperimentalInputFormats === true && $mode == MW_MATH_MATHML &&  isset( $params['type'] ) ) {
+			// Support of MathML input (experimental)
+			// Currently support for mode MW_MATH_MATHML only
+			if( !in_array( $params['type'], array( 'pmml', 'ascii' ) ) ) {
+				unset( $params['type'] );
+			}
 		}
 		switch ( $mode ) {
 			case MW_MATH_MATHJAX:
