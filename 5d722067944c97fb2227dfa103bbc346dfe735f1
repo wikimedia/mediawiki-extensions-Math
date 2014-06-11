@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ee391fd1_33636b3d",
+        "filename": "MathMathML.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-06-11T10:15:52Z",
+      "side": 1,
+      "message": "You are right. The user can not see the DebugLog Message and will not notice the mistake e.g. if she misspelled the type. And for the admin this message will not help much. So if we found a way to notice the user that would be great.",
+      "parentUuid": "ee391fd1_b312bbff",
+      "revId": "5d722067944c97fb2227dfa103bbc346dfe735f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee391fd1_93d7b728",
         "filename": "MathMathML.php",
         "patchSetId": 14
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "ee391fd1_f354c358",
+        "filename": "MathMathML.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-06-11T10:15:52Z",
+      "side": 1,
+      "message": "You are right this is really hard to understand. And needs to be improved. I\u0027ll create a seperate method to simplify things.\nI was experimenting with SimpleXML and DOMDocuments in the MathSearch extension. Both did not really like the special chars.",
+      "parentUuid": "ee391fd1_93d7b728",
+      "revId": "5d722067944c97fb2227dfa103bbc346dfe735f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee391fd1_73dc534c",
         "filename": "MathMathML.php",
         "patchSetId": 14
@@ -65,6 +101,24 @@
       "writtenOn": "2014-06-11T08:15:25Z",
       "side": 1,
       "message": "missing space after \"display:\"",
+      "revId": "5d722067944c97fb2227dfa103bbc346dfe735f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_f3d3a3d5",
+        "filename": "MathMathML.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-06-11T10:15:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee391fd1_73dc534c",
       "revId": "5d722067944c97fb2227dfa103bbc346dfe735f1",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
