@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee391fd1_b312bbff",
+        "filename": "MathMathML.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-11T08:15:25Z",
+      "side": 1,
+      "message": "OK, so you still fallback $this-\u003einputType !\u003d \u0027tex\u0027 to \u0027tex\u0027. So perhaps the wfDebugLog is not really necessary...",
+      "revId": "5d722067944c97fb2227dfa103bbc346dfe735f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_93d7b728",
+        "filename": "MathMathML.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-11T08:15:25Z",
+      "side": 1,
+      "message": "we will still need to keep an eye on potential issue with this (and more generally handling of XML as strings) in followup bugs. (Currently, we make assumptions on the XML submitted by third-party web servers. We only check XML validity but doing some string manipulation is not really reliable to ensure the tree integrity)",
+      "revId": "5d722067944c97fb2227dfa103bbc346dfe735f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee391fd1_73dc534c",
+        "filename": "MathMathML.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-11T08:15:25Z",
+      "side": 1,
+      "message": "missing space after \"display:\"",
+      "revId": "5d722067944c97fb2227dfa103bbc346dfe735f1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
