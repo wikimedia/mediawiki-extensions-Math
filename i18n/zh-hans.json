@@ -15,6 +15,7 @@
 	"mw_math_png": "始终生成PNG",
 	"mw_math_source": "显示为TeX代码（适用于文字浏览器）",
 	"mw_math_mathjax": "MathJax（试验中，大多数浏览器的最佳选择）",
+	"mw_math_mathml": "尽可能使用MathML（试验中）",
 	"mw_math_latexml": "LaTeXML（试验中，使用MathML）",
 	"math_failure": "解析失败",
 	"math_unknown_error": "未知错误",

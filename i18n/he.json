@@ -14,6 +14,7 @@
 	"mw_math_png": "תמיד להציג כ־PNG",
 	"mw_math_source": "להשאיר כקוד TeX (לדפדפני טקסט)",
 	"mw_math_mathjax": "MathJax (ניסיוני; מומלץ לרוב הדפדפנים)",
+	"mw_math_mathml": "להציג MathML אם אפשר (ניסיוני)",
 	"mw_math_latexml": "LaTeXML (נסיוני; משתמש ב־MathML)",
 	"math_failure": "עיבוד הנוסחה נכשל",
 	"math_unknown_error": "שגיאה לא ידועה",

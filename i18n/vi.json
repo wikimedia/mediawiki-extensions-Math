@@ -12,6 +12,7 @@
 	"mw_math_png": "Luôn cho ra dạng hình PNG",
 	"mw_math_source": "Để nguyên mã TeX (dành cho trình duyệt văn bản)",
 	"mw_math_mathjax": "MathJax (chưa ổn định; được khuyên cho phần nhiều trình duyệt)",
+	"mw_math_mathml": "MathML nếu có thể (thử nghiệm)",
 	"mw_math_latexml": "LaTeXML (thử nghiệm; sử dụng MathML)",
 	"math_failure": "Không thể phân tích cú pháp",
 	"math_unknown_error": "lỗi lạ",

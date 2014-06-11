@@ -13,6 +13,7 @@
 	"mw_math_png": "Vis altid som PNG",
 	"mw_math_source": "Lad være som TeX (for tekstbrowsere)",
 	"mw_math_mathjax": "MathJax (på forsøgsstadiet; virker bedst for mange browsere)",
+	"mw_math_mathml": "MathML hvis muligt",
 	"mw_math_latexml": "LaTeXML (eksperimentel; anvender MathML)",
 	"math_failure": "Fejl i matematikken",
 	"math_unknown_error": "ukendt fejl",

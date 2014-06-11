@@ -14,6 +14,7 @@
 	"mw_math_png": "Întodeauna afișează PNG",
 	"mw_math_source": "Lasă ca TeX (pentru navigatoarele text)",
 	"mw_math_mathjax": "MathJax (experimental; potrivit pentru majoritatea navigatoarelor)",
+	"mw_math_mathml": "MathML dacă este posibil (experimental)",
 	"mw_math_latexml": "LaTeXML (experimental; folosește MathML)",
 	"math_failure": "Nu s-a putut interpreta",
 	"math_unknown_error": "eroare necunoscută",

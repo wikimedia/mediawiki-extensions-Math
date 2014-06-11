@@ -11,6 +11,7 @@
 	"mw_math_png": "Fà sembre 'u render de le PNG",
 	"mw_math_source": "Lassele cumme a 'nu TeX (pe le browser de teste)",
 	"mw_math_mathjax": "MathJax (sperimendale; 'u megghie pe quase tutte le browser)",
+	"mw_math_mathml": "MathML ce possibbile (sperimendele)",
 	"mw_math_latexml": "LaTeXML (sperimendale; ause MathML)",
 	"math_failure": "Analisi fallite",
 	"math_unknown_error": "errore scanusciute",

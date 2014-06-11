@@ -11,6 +11,7 @@
 	"prefs-math": "Képletek",
 	"mw_math_png": "Mindig készítsen PNG-t",
 	"mw_math_source": "Hagyja TeX formában (szöveges böngészőknek)",
+	"mw_math_mathml": "MathML",
 	"math_failure": "Értelmezés sikertelen",
 	"math_unknown_error": "ismeretlen hiba",
 	"math_unknown_function": "ismeretlen függvény \"$1\"",

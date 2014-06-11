@@ -14,6 +14,7 @@
 	"mw_math_png": "Vis alltid som PNG",
 	"mw_math_source": "Behold som TeX (for tekst-nettlesere)",
 	"mw_math_mathjax": "MathJax (på forsøksstadiet; virker best i moderne nettlesere)",
+	"mw_math_mathml": "MathML hvis mulig",
 	"mw_math_latexml": "LaTeXML (på forsøksstadiet; bruker MathML)",
 	"math_failure": "Feil i matematikken",
 	"math_unknown_error": "ukjent feil",

@@ -17,6 +17,7 @@
 	"mw_math_png": "常に PNG で描画",
 	"mw_math_source": "TeX のまま (テキスト ブラウザー向け)",
 	"mw_math_mathjax": "MathJax (開発中; ほとんどのブラウザーに最適)",
+	"mw_math_mathml": "可能であればMathML（開発中）",
 	"mw_math_latexml": "LaTeXML (開発中; MathML を使用)",
 	"math_failure": "構文解析に失敗",
 	"math_unknown_error": "不明なエラー",

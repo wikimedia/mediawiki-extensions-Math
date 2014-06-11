@@ -15,6 +15,7 @@
 	"mw_math_png": "Zawsze generuj grafikę PNG",
 	"mw_math_source": "Pozostaw w TeX-u (dla przeglądarek tekstowych)",
 	"mw_math_mathjax": "MathJax (doświadczalny; najlepszy dla większości przeglądarek)",
+	"mw_math_mathml": "MathML jeśli dostępny (eksperymentalne)",
 	"mw_math_latexml": "LaTeXML (eksperymentalne; wykorzystuje MathML)",
 	"math_failure": "Parser nie mógł rozpoznać",
 	"math_unknown_error": "nieznany błąd",

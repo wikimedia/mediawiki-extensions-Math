@@ -11,6 +11,7 @@
 	"mw_math_png": "Altied as PNG laoten zien",
 	"mw_math_source": "Laot TeX-bronkode staon (veur tekstwebkiekers)",
 	"mw_math_mathjax": "MathJax (experimenteel; t beste veur de meeste webkiekers)",
+	"mw_math_mathml": "MathML",
 	"mw_math_latexml": "LaTeXML (experimenteel; gebruukt MathML)",
 	"math_failure": "Wiskundige formule niet begriepelik",
 	"math_unknown_error": "Onbekende fout in formule",

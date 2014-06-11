@@ -12,6 +12,7 @@
 	"prefs-math": "ગણિત",
 	"mw_math_png": "PNG હંમેશા હાજર કરો",
 	"mw_math_source": "આને TeX તરીકે રહેવા દો (ટેક્સ્ટ બ્રાઉઝરો માટે)",
+	"mw_math_mathml": " MathML શક્ય હોય તો  (પ્રયોગાત્મક)",
 	"mw_math_latexml": "LaTeXML (પ્રાયોગીક; MathML વાપરે છે)",
 	"math_failure": "પદચ્છેદ અસફળ",
 	"math_unknown_error": "અજ્ઞાત ત્રુટિ",

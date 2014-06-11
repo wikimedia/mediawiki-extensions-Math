@@ -15,6 +15,7 @@
 	"mw_math_png": "永遠使用PNG圖片",
 	"mw_math_source": "顯示TeX代碼（供文字瀏覽器使用）",
 	"mw_math_mathjax": "MathJax（實驗性；適合大多數瀏覽器）",
+	"mw_math_mathml": "儘可能使用MathML （試驗中）",
 	"mw_math_latexml": "LaTeXML（實驗性；使用MathML）",
 	"math_failure": "解析失敗",
 	"math_unknown_error": "未知錯誤",

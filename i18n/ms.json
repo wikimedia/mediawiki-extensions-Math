@@ -14,6 +14,7 @@
 	"mw_math_png": "Sentiasa lakar PNG",
 	"mw_math_source": "Biarkan sebagai TeX (untuk pelayar teks)",
 	"mw_math_mathjax": "MathJax (dalam percubaan; paling sesuai untuk kebanyakan pelayar)",
+	"mw_math_mathml": "MathML jika boleh (sedang dalam uji kaji)",
 	"mw_math_latexml": "LaTeXML (percubaan; menggunakan MathML)",
 	"math_failure": "Gagal menghurai",
 	"math_unknown_error": "ralat yang tidak dikenali",

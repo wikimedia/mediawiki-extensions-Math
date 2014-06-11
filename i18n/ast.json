@@ -12,6 +12,7 @@
 	"mw_math_png": "Renderizar siempre PNG",
 	"mw_math_source": "Dexalo como TeX (pa navegadores de testu)",
 	"mw_math_mathjax": "MathJax (esperimental; lo meyor pa la mayoría de navegadores)",
+	"mw_math_mathml": "MathML si ye posible (esperimental)",
 	"mw_math_latexml": "LaTeXML (esperimental; usa MathML)",
 	"math_failure": "Fallu al revisar la fórmula",
 	"math_unknown_error": "error desconocíu",
