@@ -6,6 +6,15 @@
  */
 class MathMathMLTest extends MediaWikiTestCase {
 
+	protected function setUp() {
+		global $wgMathValidModes;
+		if ( !in_array( MW_MATH_MATHML, $wgMathValidModes ) ) {
+			$this->markTestSkipped( 'MathML disabled' );
+		}
+		parent::setUp();
+	}
+
+
 	// State-variables for HTTP Mockup classes
 	public static $content = null;
 	public static $good = false;

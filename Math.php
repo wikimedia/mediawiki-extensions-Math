@@ -52,7 +52,7 @@ define( 'MW_MATHSTYLE_INLINE',  2 ); // small operators inline
 /**@}*/
 
 /**@var array defines the mode allowed on the server */
-$wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHML );
+$wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE );
 
 /*
  * The default rendering mode for anonymous users.
