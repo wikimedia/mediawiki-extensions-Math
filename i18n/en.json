@@ -9,6 +9,7 @@
     "mw_math_png": "Always render PNG",
     "mw_math_source": "Leave it as TeX (for text browsers)",
     "mw_math_mathjax": "MathJax (experimental; best for most browsers)",
+    "mw_math_mathml": "MathML with SVG fallback (experimental)",
     "mw_math_latexml": "LaTeXML (experimental; uses MathML)",
     "math_failure": "Failed to parse",
     "math_unknown_error": "unknown error",
