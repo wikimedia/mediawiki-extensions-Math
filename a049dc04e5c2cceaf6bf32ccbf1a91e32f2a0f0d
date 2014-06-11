@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee391fd1_243d5fb9",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 121
+      },
+      "writtenOn": "2014-06-11T16:47:11Z",
+      "side": 1,
+      "message": "missing space after fallbackm otherwise OK",
+      "revId": "a049dc04e5c2cceaf6bf32ccbf1a91e32f2a0f0d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
