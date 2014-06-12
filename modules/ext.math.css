@@ -6,23 +6,9 @@
        Shows browser-dependent math output.
 */
 
-.mwe-math-mathml-inline,
-.mwe-math-mathml-display { display: none; }
-.mwe-math-fallback-png-inline { display: inline; vertical-align: middle}
-.mwe-math-fallback-png-display { display: block;  margin-left: auto;  margin-right: auto;}
-.mwe-math-fallback-source-inline { display: inline; vertical-align: middle}
-.mwe-math-fallback-source-display { display: block;  margin-left: auto;  margin-right: auto;}
-
-@-moz-document url-prefix() {
-    span.mwe-math-mathml-inline { display: inline !important; }
-    span.mwe-math-mathml-display { display: block !important; margin: auto !important; }
-    span.mwe-math-mathml-inline + img.mwe-math-fallback-svg-inline,
-    span.mwe-math-mathml-display + img.mwe-math-fallback-svg-display,
-    img.mwe-math-fallback-svg-inline + img.mwe-math-fallback-png-inline,
-    img.mwe-math-fallback-svg-display + img.mwe-math-fallback-png-display { display: none !important; }
-}
-
-/* Set the fonts to use for the MathML rendering */
+/* Default style for MathML. */
+.mwe-math-mathml-inline { display: none; }
+.mwe-math-mathml-display { display: none; margin-left: auto; margin-right: auto; }
 @namespace m url('http://www.w3.org/1998/Math/MathML');
 m|math {
     /* Try OpenType MATH fonts, the WOFF fallback and the old math fonts */
@@ -34,3 +20,44 @@ m|math {
     font-family: LatinModernMathWOFF;
     src: url(./LatinModern/latinmodern-math.woff);
 }
+
+/* Default style for SVG. */
+.mwe-math-fallback-svg-inline { display: none; }
+.mwe-math-fallback-svg-display { display: none; margin-left: auto; margin-right: auto; }
+
+/* Default style for the PNG and source. */
+img.mwe-math-fallback-png-inline { display: inline; vertical-align: middle; }
+img.mwe-math-fallback-png-display { display: block; }
+.mwe-math-fallback-source-inline { display: inline; vertical-align: middle; }
+.mwe-math-fallback-source-display { display: block; margin-left: auto; margin-right: auto; }
+
+/* Browser-specific hacks are bad, but for now we did not find a better way to
+   do that. See http://browserhacks.com/ */
+
+@-moz-document url-prefix() {
+    /* For Gecko browsers, hide the PNG and show the MathML. */
+    span.mwe-math-mathml-inline { display: inline !important; }
+    span.mwe-math-mathml-display { display: block !important; }
+    img.mwe-math-fallback-svg-inline + img.mwe-math-fallback-png-inline,
+    img.mwe-math-fallback-svg-display + img.mwe-math-fallback-png-display { display: none !important; }
+}
+
+@media screen and (min-width:0\0) {
+    /* For Internet Explorer >= 9, hide the PNG and show the SVG. */
+    img.mwe-math-fallback-svg-inline { display: inline !important; }
+    img.mwe-math-fallback-svg-display { display: block !important; }
+    img.mwe-math-fallback-svg-inline + img.mwe-math-fallback-png-inline,
+    img.mwe-math-fallback-svg-display + img.mwe-math-fallback-png-display { display: none !important; }
+}
+
+/* For WebKit/Blink browsers, hide the PNG and show the SVG. */
+img.mwe-math-fallback-svg-inline:not(*:root) { display: inline !important; }
+img.mwe-math-fallback-svg-display:not(*:root) { display: block !important; }
+img.mwe-math-fallback-svg-inline + img.mwe-math-fallback-png-inline:not(*:root),
+img.mwe-math-fallback-svg-display + img.mwe-math-fallback-png-display:not(*:root) { display: none !important; }
+
+/* For Opera 9.5+, hide the PNG and show the SVG. */
+_:-o-prefocus, body:last-child img.mwe-math-fallback-svg-inline { display: inline !important; }
+_:-o-prefocus, body:last-child img.mwe-math-fallback-svg-display { display: block !important; }
+_:-o-prefocus, body:last-child img.mwe-math-fallback-svg-inline + img.mwe-math-fallback-png-inline,
+_:-o-prefocus, body:last-child img.mwe-math-fallback-svg-display + img.mwe-math-fallback-png-display { display: none !important; }
