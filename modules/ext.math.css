@@ -6,23 +6,9 @@
        Shows browser-dependent math output.
 */
 
-.mwe-math-mathml-inline,
-.mwe-math-mathml-display { display: none; }
-.mwe-math-fallback-png-inline { display: inline; vertical-align: middle}
-.mwe-math-fallback-png-display { display: block;  margin-left: auto;  margin-right: auto;}
-.mwe-math-fallback-source-inline { display: inline; vertical-align: middle}
-.mwe-math-fallback-source-display { display: block;  margin-left: auto;  margin-right: auto;}
-
-@-moz-document url-prefix() {
-    span.mwe-math-mathml-inline { display: inline !important; }
-    span.mwe-math-mathml-display { display: block !important; margin: auto !important; }
-    span.mwe-math-mathml-inline + img.mwe-math-fallback-svg-inline,
-    span.mwe-math-mathml-display + img.mwe-math-fallback-svg-display,
-    img.mwe-math-fallback-svg-inline + img.mwe-math-fallback-png-inline,
-    img.mwe-math-fallback-svg-display + img.mwe-math-fallback-png-display { display: none !important; }
-}
-
-/* Set the fonts to use for the MathML rendering */
+/* Default style for MathML. */
+.mwe-math-mathml-inline { display: none; }
+.mwe-math-mathml-display { display: none; margin-left: auto; margin-right: auto; }
 @namespace m url('http://www.w3.org/1998/Math/MathML');
 m|math {
     /* Try OpenType MATH fonts, the WOFF fallback and the old math fonts */
@@ -33,4 +19,37 @@ m|math {
        See https://github.com/fred-wang/MathFonts */
     font-family: LatinModernMathWOFF;
     src: url(./LatinModern/latinmodern-math.woff);
+}
+
+/* Default style for SVG. */
+img.mwe-math-fallback-svg-inline { display: none; }
+img.mwe-math-fallback-svg-display { display: none; margin-left: auto; margin-right: auto; }
+
+/* Default style for the PNG fallback.
+   We override the style="display: none" inserted in MathMathML.php. */
+img.mwe-math-fallback-png-inline { display: inline !important; vertical-align: middle; }
+img.mwe-math-fallback-png-display { display: block !important; }
+
+/* Default style for the source fallback. */
+.mwe-math-fallback-source-inline { display: inline; vertical-align: middle; }
+.mwe-math-fallback-source-display { display: block; margin-left: auto; margin-right: auto; }
+
+/******************************************************************************/
+/* Browser-specific hacks are bad but let's use that for now...
+   See http://browserhacks.com/ */
+
+/* For all browsers but IE < 9, hide the PNG fallback and show the SVG instead.
+   We override the default style for PNG and SVG above */
+:root * > img.mwe-math-fallback-svg-inline { display: inline !important; }
+:root * > img.mwe-math-fallback-svg-display { display: block !important; }
+:root * > img.mwe-math-fallback-svg-inline + img.mwe-math-fallback-png-inline,
+:root * > img.mwe-math-fallback-svg-display + img.mwe-math-fallback-png-display { display: none !important; }
+
+@-moz-document url-prefix() {
+    /* For Gecko browsers, hide the SVG fallback and show the MathML instead.
+       We override the style for SVG and MathML above */
+    span.mwe-math-mathml-inline { display: inline !important; }
+    span.mwe-math-mathml-display { display: block !important; }
+    :root * > span.mwe-math-mathml-inline + img.mwe-math-fallback-svg-inline,
+    :root * > span.mwe-math-mathml-display + img.mwe-math-fallback-svg-display { display: none !important; }
 }
