@@ -11,7 +11,7 @@
 	"mw_math_png": "Секогаш исцртувај во PNG",
 	"mw_math_source": "Остави го како TeX (за текстуални прелистувачи)",
 	"mw_math_mathjax": "MathJax (експериментално; најдобро за највеќето прелистувачи)",
-	"mw_math_mathml": "MathML ако е можно (експериментално)",
+	"mw_math_mathml": "MathML со SVG за резерва (експериментално)",
 	"mw_math_latexml": "LaTeXML (експериментално; користи MathML)",
 	"math_failure": "Не можев да расчленам",
 	"math_unknown_error": "непозната грешка",

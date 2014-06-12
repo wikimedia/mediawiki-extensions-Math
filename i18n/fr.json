@@ -17,7 +17,7 @@
 	"mw_math_png": "Toujours produire une image PNG",
 	"mw_math_source": "Laisser le code TeX original (pour les navigateurs en mode texte)",
 	"mw_math_mathjax": "MathJax (expérimental ; meilleur pour la plupart des navigateurs)",
-	"mw_math_mathml": "MathML",
+	"mw_math_mathml": "MathML avec SVG en secours (expérimental)",
 	"mw_math_latexml": "LaTeXML (expérimental, utilise MathML)",
 	"math_failure": "Pas réussi à analyser",
 	"math_unknown_error": "erreur indéterminée",

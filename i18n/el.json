@@ -3,7 +3,8 @@
 		"authors": [
 			"Badseed",
 			"Geraki",
-			"Indoril"
+			"Indoril",
+			"Evropi"
 		]
 	},
 	"math_sample": "Εισαγωγή τύπου εδώ",
@@ -11,6 +12,7 @@
 	"prefs-math": "Απόδοση μαθηματικών",
 	"mw_math_png": "Απόδοση πάντα σε PNG",
 	"mw_math_source": "Να παραμείνει ως TeX (για text browsers)",
+	"mw_math_mathml": "MathML με SVG ως εφεδρικό (πειραματικό)",
 	"math_failure": "Δεν μπόρεσε να γίνει ανάλυση του όρου.",
 	"math_unknown_error": "άγνωστο σφάλμα",
 	"math_unknown_function": "άγνωστη συνάρτηση",
