@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee391fd1_9239df40",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-06-13T04:55:58Z",
+      "side": 1,
+      "message": "This line determines the default mode.\nThe default in the switch statement just catches wrong configuratuib of $wgMathValidModes",
+      "revId": "8684744a6e7eddd0594f7e1d155016867526a7b4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
