@@ -161,15 +161,16 @@ abstract class MathRenderer {
 			case MW_MATH_SOURCE:
 				$renderer = new MathSource( $tex, $params );
 				break;
-			case MW_MATH_PNG:
-				$renderer = new MathTexvc( $tex, $params );
-				break;
 			case MW_MATH_LATEXML:
 				$renderer = new MathLaTeXML( $tex, $params );
 				break;
 			case MW_MATH_MATHML:
-			default:
 				$renderer = new MathMathML( $tex, $params );
+			case MW_MATH_PNG:
+			default:
+				$renderer = new MathTexvc( $tex, $params );
+				break;
+
 		}
 		wfDebugLog ( "Math", 'start rendering $' . $renderer->tex . '$ in mode ' . $mode );
 		$renderer->setMathStyle( $mathStyle );
