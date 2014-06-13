@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee391fd1_766b0a83",
+        "filename": "MathTexvc.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-06-13T18:32:02Z",
+      "side": 0,
+      "message": "this setMathML command sets the changed flag.",
+      "revId": "20a682be2327339135e05030e80e97902380c464",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
