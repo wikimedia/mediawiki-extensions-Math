@@ -11,6 +11,7 @@
 	"mw_math_png": "Hayk'appas PNG-ta ruray",
 	"mw_math_source": "TeX hinatam saqiy (qillqa wamp'unapaq)",
 	"mw_math_mathjax": "MathJax (llanchina; lliwmanta aswan wamp'unapaq allinmi)",
+	"mw_math_mathml": "MathML, SVG rantinawan (llanchinalla)",
 	"math_failure": "Manam hap'inichu",
 	"math_unknown_error": "mana riqsisqa pantasqa",
 	"math_unknown_function": "mana riqsisqa rurana '$1'",
@@ -20,5 +21,6 @@
 	"math_bad_tmpdir": "Manam atinichu <em>math</em> nisqapaq mit'alla willañiqi churanata kamayta icha qillqayta",
 	"math_bad_output": "Manam atinichu <em>math</em> nisqapaq lluqsichina willañiqi churanata kamayta icha qillqayta",
 	"math_notexvc": "Manam kanchu ruranalla <strong><code>texvc</code></strong>. Ama hina kaspa, <em>math/README</em> nisqata ñawiriy allinkachinaykipaq.",
-	"math_output_error": "Manam atinichu huchhawa rikch'ata willañiqi llikapi qullqachayta."
+	"math_output_error": "Manam atinichu huchhawa rikch'ata willañiqi llikapi qullqachayta.",
+	"math-visualeditor-mwmathinspector-title": "Minuywa"
 }
