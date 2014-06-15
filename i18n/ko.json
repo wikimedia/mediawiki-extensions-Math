@@ -30,7 +30,7 @@
 	"math_notexvccheck": "실행 가능한 <code>texvccheck</code> 없음; 설정에 대해서는 math/README를 읽어주세요.",
 	"math_output_error": "파일 시스템에 수식 그림을 저장할 수 없습니다.",
 	"math_invalidresponse": "'$2' 서버에서 잘못된 $1: 응답 ('$3'):",
-	"math_invalidxml": " MathML은 잘못된 XML입니다.",
+	"math_invalidxml": "MathML은 잘못된 XML입니다.",
 	"math_invalidjson": "$1 서버 응답은 잘못된 JSON입니다.",
 	"math_xmlversion": "경고: XML 형식 검사를 건너뛰었습니다! 미디어위키 설치가 wmf/1.22wmf7 이상인지 확인하세요.",
 	"math-preference-mwmathinspector-description": "실험용 시각편집기 수식 편집기를 활성화합니다. 실험 기능을 사용할 때 저장하기 전에 문서의 바뀐 내용을 확인하는 것을 잊지 마세요.",
