@@ -483,9 +483,6 @@ $wgResourceModules['ext.math.visualEditor'] = array(
 		'VisualEditor/ve.ui.MWMathInspector.js',
 		'VisualEditor/ve.ui.MWMathInspectorTool.js',
 	),
-	'styles' => array(
-		'VisualEditor/ve.ce.MWMathNode.css',
-	),
 	'dependencies' => array(
 		'ext.visualEditor.mwcore',
 	),
