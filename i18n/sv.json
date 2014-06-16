@@ -6,7 +6,8 @@
 			"Martinwiss",
 			"Nghtwlkr",
 			"Sannab",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Lokal Profil"
 		]
 	},
 	"math-desc": "Ritar matematiska ekvationer mellan <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-taggar",
@@ -16,6 +17,8 @@
 	"mw_math_png": "Rendera alltid PNG",
 	"mw_math_source": "Låt vara TeX (för textbaserade webbläsare)",
 	"mw_math_mathjax": "MathJax (i försöksstadium; fungerar bäst för de flesta webbläsare)",
+	"mw_math_mathml": "MathML med SVG-återgång (experimentell)",
+	"mw_math_latexml": "LaTeXML (experimentell; använder MathML)",
 	"math_failure": "Misslyckades med att tolka formel.",
 	"math_unknown_error": "okänt fel",
 	"math_unknown_function": "okänd funktion '$1'",
@@ -25,6 +28,13 @@
 	"math_bad_tmpdir": "Kan inte skriva till eller skapa temporär mapp för matematikresultat",
 	"math_bad_output": "Kan inte skriva till eller skapa mapp för matematikresultat",
 	"math_notexvc": "Applicationen <code>texvc</code> saknas; läs math/README för konfigureringsanvisningar.",
+	"math_notexvccheck": "Den körbara <code>texvccheck</code> saknas. Se math/README för konfigureringsanvisningar.",
+	"math_output_error": "Kan inte lagra matematikbild på filsystem.",
+	"math_timeout": "$1 timeout från \"$2\"",
+	"math_invalidresponse": "$1: Ogiltigt svar (\"$3\") från server \"$2\":",
+	"math_invalidxml": "MathML är ogiltig XML.",
+	"math_invalidjson": "$1 serversvaret är ogiltig JSON.",
+	"math_xmlversion": "Varning_ XML type-kontroll hoppades över! Kontrollera om din MediaWiki-installation är version wmf/1.22wmf7 eller nyare.",
 	"math-visualeditor-mwmathinspector-title": "Formel",
 	"math-preference-mwmathinspector-description": "Lägg till experimentellt stöd i VisualEditor för att skapa och redigera matematiska formler. Du kan testa innan den breda lanseringen. Kom ihåg att alltid granska ändringarna innan du sparar när du använder experimentella funktioner.",
 	"math-preference-mwmathinspector-label": "VisualEditor formelredigering"
