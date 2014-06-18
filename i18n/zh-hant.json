@@ -15,7 +15,7 @@
 	"mw_math_png": "永遠使用PNG圖片",
 	"mw_math_source": "顯示TeX代碼（供文字瀏覽器使用）",
 	"mw_math_mathjax": "MathJax（實驗性；適合大多數瀏覽器）",
-	"mw_math_mathml": "儘可能使用MathML （試驗中）",
+	"mw_math_mathml": "MathML 與備選 SVG （試驗中）",
 	"mw_math_latexml": "LaTeXML（實驗性；使用MathML）",
 	"math_failure": "解析失敗",
 	"math_unknown_error": "未知錯誤",
@@ -31,7 +31,7 @@
 	"math_invalidresponse": "$1: 從伺服器「$2」收到不正確回應（「$3」）",
 	"math_invalidxml": " MathML並非正確XML。",
 	"math_invalidjson": "$1 伺服器回應了不正確JSON。",
-	"math_xmlversion": "警告：XML類型檢查被跳過！檢查您安裝的MediaWiki版本是否wmf/1.22wmf7或更高。",
+	"math_xmlversion": "警告：XML類型檢查被跳過！檢查您安裝的MediaWiki版本是否 wmf/1.22wmf7 或更高。",
 	"math-visualeditor-mwmathinspector-title": "公式",
 	"math-preference-mwmathinspector-description": "用於創建和編輯數學公式進行測試，一般發行將實驗支援添加到視覺化編輯器。請記住始終檢查您在保存之前的更改時使用實驗性的功能。",
 	"math-preference-mwmathinspector-label": "視覺化編輯器公式編輯"
