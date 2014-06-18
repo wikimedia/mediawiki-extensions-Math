@@ -353,7 +353,7 @@ class MathMathML extends MathRenderer {
 
 	/**
 	 * Gets img tag for math image
-	 * @param int $mode if MW_MATH_MATHML a png is used instead of an svg image
+	 * @param int $mode if MW_MATH_PNG a png is used instead of an svg image
 	 * @param boolean $noRender if true no rendering will be performed if the image is not stored in the database
 	 * @param boolean|string $classOverride if classOverride is false the class name will be calculated by getClassName
 	 * @return string XML the image html tag
@@ -368,11 +368,10 @@ class MathMathML extends MathRenderer {
 		$attribs = array();
 		if ( $classOverride === false ) { // $class = '' suppresses class attribute
 			$class = $this->getClassName( true, $png );
-			$style = $png ? 'display: none;' : '';
 		} else {
 			$class  = $classOverride;
-			$style = '';
 		}
+		$style = '';
 		if ( !$png ) {
 			$this->correctSvgStyle( $this->getSvg(), $style );
 		}
@@ -434,7 +433,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$mml = $this->getMathml();
 		}
-		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(), 'style' => 'display: none;' ), $mml );
+		$output .= Xml::tags( $element, array( 'class' => $this->getClassName() ), $mml );
 		$output .= $this->getFallbackImage( $this->getMode() ) . "\n";
 		$output .= $this->getFallbackImage( MW_MATH_PNG ) . "\n";
 		$output .= HTML::closeElement( $element );
