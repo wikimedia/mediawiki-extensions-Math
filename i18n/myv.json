@@ -9,6 +9,7 @@
 	"math_tip": "Математикань хвормула (LaTeX)",
 	"prefs-math": "Математика",
 	"mw_math_source": "Кадык TeX хорматсо (текст вальмас)",
+	"mw_math_mathml": "SVG-с печтамо марто MathML (варчамонь)",
 	"math_failure": "А ловнови",
 	"math_unknown_error": "апак содань ильведькс",
 	"math_unknown_function": "апак содань функция «$1»",
