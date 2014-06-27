@@ -1,10 +1,11 @@
 <?php
+
 /**
-* Test the database access and core functionality of MathRenderer.
-*
-* @group Math
-* @group Database //Used by needsDB
-*/
+ * Test the database access and core functionality of MathRenderer.
+ *
+ * @group Math
+ * @group Database //Used by needsDB
+ */
 class MathDatabaseTest extends MediaWikiTestCase {
 	/**
 	 * @var MathRenderer
@@ -22,7 +23,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 * TODO: Check if there is a way to get database access without creating
 	 * the connection to the database explicitly
 	 * function addDBData() {
-	 * 	$this->tablesUsed[] = 'math';
+	 *    $this->tablesUsed[] = 'math';
 	 * }
 	 * was not sufficient.
 	 */
@@ -33,8 +34,8 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		// Create a new instance of MathSource
 		$this->renderer = new MathTexvc( self::SOME_TEX );
 		$this->tablesUsed[] = 'math';
-		self::setupTestDB( $this->db, "mathtest" );
-}
+	}
+
 	/**
 	 * Checks the tex and hash functions
 	 * @covers MathRenderer::getInputHash()
@@ -52,8 +53,9 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->renderer->setTex( self::SOME_TEX );
 		$this->renderer->setMathml( self::SOME_MATHML );
 		$this->renderer->setHtml( self::SOME_HTML );
-		$this->renderer->setOutputHash( self::SOME_OUTPUTHASH);
+		$this->renderer->setOutputHash( self::SOME_OUTPUTHASH );
 	}
+
 	/**
 	 * Checks database access. Writes an entry and reads it back.
 	 * @covers MathRenderer::writeDatabaseEntry()
@@ -71,7 +73,6 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	}
 
 
-
 	/**
 	 * Checks the creation of the math table without debugging enabled.
 	 * @covers MathHooks::onLoadExtensionSchemaUpdates
@@ -86,7 +87,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->renderer->writeToDatabase();
 		$res = $this->db->select( "math", "*" );
 		$row = $res->fetchRow();
-		$this->assertEquals( 10,  sizeof( $row ) );
+		$this->assertEquals( 10, sizeof( $row ) );
 	}
 
 	/*
@@ -98,10 +99,9 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$inputHash = $this->renderer->getInputHash();
 		$this->assertTrue( $this->renderer->isChanged() );
 		$this->assertTrue( $this->renderer->writeCache(), "Write new entry" );
-		$res = $this->db->selectField( "math", "math_inputhash",
-			array( "math_inputhash" => $inputHash ) );
-		$this->assertTrue( $res !== false , "Check database entry");
-		$this->assertTrue( $this->renderer->readFromDatabase() , "Read entry from database");
+		$res = $this->db->selectField( "math", "math_inputhash", array( "math_inputhash" => $inputHash ) );
+		$this->assertTrue( $res !== false, "Check database entry" );
+		$this->assertTrue( $this->renderer->readFromDatabase(), "Read entry from database" );
 		$this->assertFalse( $this->renderer->isChanged() );
 		// modify the database entry manually
 		$this->db->delete( "math", array( "math_inputhash" => $inputHash ) );
