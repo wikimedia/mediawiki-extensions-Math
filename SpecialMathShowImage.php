@@ -10,7 +10,11 @@ class SpecialMathShowImage extends SpecialPage {
 	private $mode = false;
 
 	function __construct() {
-		parent::__construct( 'MathShowImage' );
+		parent::__construct(
+			'MathShowImage',
+			'', // Don't restrict
+			false // Don't show on Special:SpecialPages - it's not useful interactively
+		);
 	}
 	/**
 	 * Sets headers - this should be called from the execute() method of all derived classes!
