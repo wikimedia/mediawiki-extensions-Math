@@ -16,6 +16,24 @@
       "revId": "946017b7f5fda97286acf44dc4b1b90e8709a233",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae43a74e_658fced2",
+        "filename": "MathMathML.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-06-28T06:54:05Z",
+      "side": 1,
+      "message": "Isn\u0027t it still supposed to be used for the SVG output, to force the dimension of image?",
+      "parentUuid": "ae43a74e_1ad85d57",
+      "revId": "946017b7f5fda97286acf44dc4b1b90e8709a233",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
