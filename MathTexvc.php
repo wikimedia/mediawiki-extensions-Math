@@ -78,6 +78,7 @@ class MathTexvc extends MathRenderer {
 	 */
 	 function render() {
 		if ( !$this->readCache() ) { // cache miss
+			echo self::MV_TEXVC_SUCCESS;
 			$result = $this->callTexvc();
 			if ( $result === self::MW_TEXVC_SUCCESS ) {
 				return true;
