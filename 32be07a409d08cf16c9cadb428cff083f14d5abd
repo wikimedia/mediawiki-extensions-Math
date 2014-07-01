@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae43a74e_5fbfe0f6",
+        "filename": "Math.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-07-01T15:59:54Z",
+      "side": 1,
+      "message": "you can change that in your localsettings",
+      "revId": "32be07a409d08cf16c9cadb428cff083f14d5abd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae43a74e_9f978893",
+        "filename": "MathTexvc.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-07-01T15:59:54Z",
+      "side": 1,
+      "message": "Why?",
+      "revId": "32be07a409d08cf16c9cadb428cff083f14d5abd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
