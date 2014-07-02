@@ -93,7 +93,6 @@ class MathHooks {
 		}
 
 		$renderer = MathRenderer::getRenderer( $content, $attributes, $mode );
-
 		if ( !$wgMathDisableTexFilter ) {
 			$checkResult = $renderer->checkTex();
 

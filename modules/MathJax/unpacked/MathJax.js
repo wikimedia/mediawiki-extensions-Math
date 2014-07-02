@@ -1178,7 +1178,7 @@ MathJax.Localization = {
                   parts[i] = "???";      // no string for this index
                 }
               }
-            } else {parts[i] = "%"+parts[i]}  // not "plural", put back the % and leave unchanged
+            } else {parts[i] = "%" + parts[i]}  // not "plural", put back the % and leave unchanged
           }
         }
       }
@@ -2329,6 +2329,7 @@ MathJax.Extension = {};
 //  Hub Startup code
 //
 MathJax.Hub.Configured = MathJax.Callback({}); // called when configuration is complete
+
 MathJax.Hub.Startup = {
   script: "", // the startup script from the SCRIPT call that loads MathJax.js
   queue:   MathJax.Callback.Queue(),           // Queue used for startup actions
