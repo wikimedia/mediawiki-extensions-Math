@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e28a382_c4433742",
+        "filename": "MathMathML.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-07-09T11:41:10Z",
+      "side": 1,
+      "message": "whitespace usage not according to our code conventions.",
+      "revId": "90f0c4142d131ba12631db5500d663db596d6845",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_a4702ba4",
+        "filename": "MathMathML.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2014-07-09T11:41:10Z",
+      "side": 1,
+      "message": "I remember we have similar logic in the includes/media/SVGMetadataExtractor.php file. You might want to check and factor out and/or reuse that code.",
+      "revId": "90f0c4142d131ba12631db5500d663db596d6845",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
