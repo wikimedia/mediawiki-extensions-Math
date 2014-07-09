@@ -348,6 +348,15 @@ class MathMathML extends MathRenderer {
 				$style = preg_replace( '/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style );
 			}
 		}
+		// TODO: Figure out if there is a way to construct
+		// a SVGReader from a string that represents the SVG
+		// content
+		if ( preg_match( "/height=\"(.*?)\"/" , $this->getSvg(), $matches ) ) {
+			$style .= "height: " . $matches[1] . "; ";
+		}
+		if ( preg_match( "/width=\"(.*?)\"/", $this->getSvg(), $matches ) ) {
+			$style .= "width: " . $matches[1] . ";";
+		}
 	}
 
 	/**
@@ -364,6 +373,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$png = false;
 		}
+
 		$attribs = array();
 		if ( $classOverride === false ) { // $class = '' suppresses class attribute
 			$class = $this->getClassName( true, $png );
@@ -372,6 +382,7 @@ class MathMathML extends MathRenderer {
 			$class  = $classOverride;
 			$style = '';
 		}
+
 		if ( !$png ) {
 			$this->correctSvgStyle( $this->getSvg(), $style );
 		}
