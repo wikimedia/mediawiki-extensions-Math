@@ -340,7 +340,7 @@ class MathMathML extends MathRenderer {
 	 * @param string $svg SVG-image data
 	 * @param string $style current style information to be updated
 	 */
-	public function correctSvgStyle( $svg, &$style ) {
+	public function correctSvgStyle( $svg, &$style, &$attribs ) {
 		if ( preg_match( '/style="([^"]*)"/', $svg, $styles ) ) {
 			$style = $styles[1];
 			if ( $this->getMathStyle() === MW_MATHSTYLE_DISPLAY ) {
@@ -348,6 +348,15 @@ class MathMathML extends MathRenderer {
 				$style = preg_replace( '/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style );
 				$style .= 'display: block;  margin-left: auto;  margin-right: auto;';
 			}
+		}
+		if( preg_match("/height=\"(.*?)\"/",$this->getSvg(),$matches) ){
+			$attribs['height'] = $matches[1];
+			//Temporary bugfix to the problem that the height attribute gets filtered out on the way to the page
+			$style .= "height: " . $matches[1] . "; ";
+		}
+		if( preg_match("/width=\"(.*?)\"/",$this->getSvg(),$matches) ){
+			$attribs['width'] = $matches[1];
+			$style .= "width: " . $matches[1] . ";";
 		}
 	}
 
@@ -365,6 +374,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$png = false;
 		}
+
 		$attribs = array();
 		if ( $classOverride === false ) { // $class = '' suppresses class attribute
 			$class = $this->getClassName( true, $png );
@@ -372,8 +382,9 @@ class MathMathML extends MathRenderer {
 			$class  = $classOverride;
 		}
 		$style = '';
+
 		if ( !$png ) {
-			$this->correctSvgStyle( $this->getSvg(), $style );
+			$this->correctSvgStyle( $this->getSvg(), $style , $attribs );
 		}
 		if ( $class ) { $attribs['class'] = $class; }
 		if ( $style ) { $attribs['style'] = $style; }
