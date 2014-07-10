@@ -425,13 +425,11 @@ class MathMathML extends MathRenderer {
 		}
 		$output = HTML::openElement( $element, $attribs );
 		// MathML has to be wrapped into a div or span in order to be able to hide it.
+		// Remove displayStyle attributes set by the MathML converter
+		// (Beginning from Mathoid 0.2.5 block is the default layout.)
+		$mml = preg_replace( '/(<math[^>]*)(display|mode)=["\'](inline|block)["\']/', '$1', $this->getMathml() );
 		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY ) {
-			// Remove displayStyle attributes set by the MathML converter
-			$mml = preg_replace( '/(<math[^>]*)(display|mode)=["\'](inline|block)["\']/', '$1', $this->getMathml() );
-			// and insert the correct value
 			$mml = preg_replace( '/<math/', '<math display="block"', $mml );
-		} else {
-			$mml = $this->getMathml();
 		}
 		$output .= Xml::tags( $element, array( 'class' => $this->getClassName() ), $mml );
 		$output .= $this->getFallbackImage( $this->getMode() ) . "\n";
