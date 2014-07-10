@@ -381,14 +381,16 @@ class MathMathML extends MathRenderer {
 		$attribs = array();
 		if ( $classOverride === false ) { // $class = '' suppresses class attribute
 			$class = $this->getClassName( true, $png );
+			$style = $png ? 'display: none;' : '';
 		} else {
 			$class  = $classOverride;
+			$style = '';
 		}
-		$style = '';
 
 		if ( !$png ) {
 			$this->correctSvgStyle( $this->getSvg(), $style , $attribs );
 		}
+
 		if ( $class ) { $attribs['class'] = $class; }
 		if ( $style ) { $attribs['style'] = $style; }
 		// an alternative for svg might be an object with type="image/svg+xml"
@@ -445,7 +447,7 @@ class MathMathML extends MathRenderer {
 		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY ) {
 			$mml = preg_replace( '/<math/', '<math display="block"', $mml );
 		}
-		$output .= Xml::tags( $element, array( 'class' => $this->getClassName() ), $mml );
+		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(), 'style' => 'display: none;'  ), $mml );
 		$output .= $this->getFallbackImage( $this->getMode() ) . "\n";
 		$output .= $this->getFallbackImage( MW_MATH_PNG ) . "\n";
 		$output .= HTML::closeElement( $element );

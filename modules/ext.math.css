@@ -47,8 +47,8 @@ img.mwe-math-fallback-png-display { display: block; }
 @-moz-document url-prefix() {
     /* For Gecko browsers, hide the SVG fallback and show the MathML instead.
        We override the style for SVG and MathML above */
-    .mwe-math-mathml-inline { display: inline; }
-    .mwe-math-mathml-display { display: block; }
+    .mwe-math-mathml-inline { display: inline !important; }
+    .mwe-math-mathml-display { display: block !important; }
     :root * > .mwe-math-mathml-inline + img.mwe-math-fallback-svg-inline,
     :root * > .mwe-math-mathml-display + img.mwe-math-fallback-svg-display { display: none; }
 }
