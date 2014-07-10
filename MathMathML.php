@@ -342,11 +342,10 @@ class MathMathML extends MathRenderer {
 	 */
 	public function correctSvgStyle( $svg, &$style ) {
 		if ( preg_match( '/style="([^"]*)"/', $svg, $styles ) ) {
-			$style = $styles[1];
+			$style .= " ".$styles[1]; // merge styles
 			if ( $this->getMathStyle() === MW_MATHSTYLE_DISPLAY ) {
 				// TODO: Improve style cleaning
 				$style = preg_replace( '/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style );
-				$style .= 'display: block;  margin-left: auto;  margin-right: auto;';
 			}
 		}
 	}
@@ -368,13 +367,16 @@ class MathMathML extends MathRenderer {
 		$attribs = array();
 		if ( $classOverride === false ) { // $class = '' suppresses class attribute
 			$class = $this->getClassName( true, $png );
+			$style = $png ? '' : 'display: none;';
 		} else {
 			$class  = $classOverride;
+			$style = '';
 		}
-		$style = '';
+
 		if ( !$png ) {
 			$this->correctSvgStyle( $this->getSvg(), $style );
 		}
+
 		if ( $class ) { $attribs['class'] = $class; }
 		if ( $style ) { $attribs['style'] = $style; }
 		// an alternative for svg might be an object with type="image/svg+xml"
@@ -433,7 +435,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$mml = $this->getMathml();
 		}
-		$output .= Xml::tags( $element, array( 'class' => $this->getClassName() ), $mml );
+		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(), 'style' => 'display: none;'  ), $mml );
 		$output .= $this->getFallbackImage( $this->getMode() ) . "\n";
 		$output .= $this->getFallbackImage( MW_MATH_PNG ) . "\n";
 		$output .= HTML::closeElement( $element );
