@@ -29,7 +29,6 @@ ve.ce.MWMathNode = function VeCeMWMathNode( model, config ) {
 
 OO.inheritClass( ve.ce.MWMathNode, ve.ce.MWInlineExtensionNode );
 
-
 /* Static Properties */
 
 ve.ce.MWMathNode.static.name = 'mwMath';
@@ -48,17 +47,17 @@ ve.ce.MWMathNode.prototype.onParseSuccess = function ( deferred, response ) {
 };
 
 /** */
-ve.ce.MWMathNode.prototype.afterRender = function ( domElements ) {
+ve.ce.MWMathNode.prototype.afterRender = function () {
 	var $img;
 
-	if ( this.$( domElements ).is( 'span.tex' ) ) {
+	if ( this.$element.is( 'span.tex' ) ) {
 		// MathJax
 		MathJax.Hub.Queue(
 			[ 'Typeset', MathJax.Hub, this.$element[0] ],
 			[ this, this.emit, 'rerender' ]
 		);
 	} else {
-		$img = this.$element.find( 'img.tex' );
+		$img = this.$element.filter( 'img.tex' );
 		// Rerender after image load
 		if ( $img.length ) {
 			$img.on( 'load', ve.bind( function () {
