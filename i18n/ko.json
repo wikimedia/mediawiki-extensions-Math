@@ -37,5 +37,5 @@
 	"math_xmlversion": "경고: XML 형식 검사를 건너뛰었습니다! 설치된 미디어위키 버전이 wmf/1.22wmf7 이상인지 확인하세요.",
 	"math-visualeditor-mwmathinspector-title": "수식",
 	"math-preference-mwmathinspector-description": "실험용 시각편집기 수식 편집기를 활성화합니다. 실험 기능을 사용할 때 저장하기 전에 문서의 바뀐 내용을 확인하는 것을 잊지 마세요.",
-	"math-preference-mwmathinspector-label": "시각편집기에서 수식 편집"
+	"math-preference-mwmathinspector-label": "시각편집기 수식 편집"
 }
