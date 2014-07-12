@@ -4,12 +4,16 @@
  *
  * @file
  * @ingroup Extensions
- * @version 1.0
+ * @version 2.0
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
  * @author Moritz Schubotz
+<<<<<<< HEAD
  * @author Derk-Jan Hartman
  * @copyright © 2002-2012 various MediaWiki contributors
+=======
+ * @copyright © 2002-2013 various MediaWiki contributors
+>>>>>>> Update version number to 2.0
  * @license GPLv2 license; info in main package.
  * @link http://www.mediawiki.org/wiki/Extension:Math Documentation
  * @see https://bugzilla.wikimedia.org/show_bug.cgi?id=14202
@@ -23,7 +27,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'Math',
-	'version' => '1.2.0',
+	'version' => '2.0.0',
 	'author' => array(
 		'Tomasz Wegrzanowski',
 		'Brion Vibber',
@@ -37,7 +41,7 @@ $wgExtensionCredits['parserhook'][] = array(
 /**@{
  * Maths constants
  */
-define( 'MW_MATH_PNG',    0 );
+define( 'MW_MATH_PNG',    0 ); /// @deprecated
 define( 'MW_MATH_SIMPLE', 1 ); /// @deprecated
 define( 'MW_MATH_HTML',   2 ); /// @deprecated
 define( 'MW_MATH_SOURCE', 3 );
