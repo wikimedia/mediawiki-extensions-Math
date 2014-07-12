@@ -126,7 +126,11 @@ class MathHooks {
 			wfDebugLog( "Math" , "Rendering failed. Printing error message." );
 			return $renderer->getLastError();
 		}
-
+		wfRunHooks( 'MathFormulaRendered',
+			array( &$renderer,
+				&$renderedMath,
+				$parser->getTitle()->getArticleID(),
+				$parser->nextLinkID() ) );// Enables indexing of math formula
 		if ( $wgUseMathJax ) {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
