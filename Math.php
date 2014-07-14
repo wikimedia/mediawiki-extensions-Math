@@ -8,6 +8,7 @@
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
  * @author Moritz Schubotz
+ * @author Derk-Jan Hartman
  * @copyright © 2002-2012 various MediaWiki contributors
  * @license GPLv2 license; info in main package.
  * @link http://www.mediawiki.org/wiki/Extension:Math Documentation
@@ -23,7 +24,12 @@ $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'Math',
 	'version' => '1.2.0',
-	'author' => array( 'Tomasz Wegrzanowski', 'Brion Vibber', '...' ),
+	'author' => array(
+		'Tomasz Wegrzanowski',
+		'Brion Vibber',
+		'Moritz Schubotz',
+		'Derk-Jan Hartman',
+	),
 	'descriptionmsg' => 'math-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Math',
 );
