@@ -52,6 +52,24 @@
       "revId": "7bff1cdfea7a1a985b962419694732d17a181557",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_5ed9015b",
+        "filename": "modules/VisualEditor/ve.ce.MWMathNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2014-07-18T10:04:48Z",
+      "side": 1,
+      "message": "Is that a blocker to merging this code?",
+      "parentUuid": "8e23439c_7928cadc",
+      "revId": "7bff1cdfea7a1a985b962419694732d17a181557",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
