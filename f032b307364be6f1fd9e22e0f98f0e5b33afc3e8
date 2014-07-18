@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e28a382_131ed263",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-07-18T06:48:09Z",
+      "side": 1,
+      "message": "it looks like a tab was introduced here (shown in red in the webview)",
+      "revId": "f032b307364be6f1fd9e22e0f98f0e5b33afc3e8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_f320e697",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-07-18T06:48:09Z",
+      "side": 1,
+      "message": "dead/debug code should not be kept",
+      "revId": "f032b307364be6f1fd9e22e0f98f0e5b33afc3e8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_b3325eed",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-07-18T06:48:09Z",
+      "side": 1,
+      "message": "missing spaces after the commas. Is a third argument missing here?",
+      "revId": "f032b307364be6f1fd9e22e0f98f0e5b33afc3e8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_9331a2eb",
+        "filename": "MathMathML.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-07-18T06:48:09Z",
+      "side": 1,
+      "message": "whitespace change",
+      "revId": "f032b307364be6f1fd9e22e0f98f0e5b33afc3e8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}

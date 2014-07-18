@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e28a382_53245aad",
+        "filename": "Math.hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-07-18T06:48:09Z",
+      "side": 0,
+      "message": "whitespace change should be avoided",
+      "revId": "c51cb0804a8d81d14fdfec72e145917e16ac48da",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_33278eb3",
+        "filename": "Math.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-07-18T06:48:09Z",
+      "side": 0,
+      "message": "s/proviedes/provides/\n\nmissing space before the */",
+      "revId": "c51cb0804a8d81d14fdfec72e145917e16ac48da",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_732cf68f",
+        "filename": "modules/MathJax/unpacked/MathJax.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2341,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-07-18T06:48:09Z",
+      "side": 0,
+      "message": "Why do you need to modify this MathJax.js file?",
+      "revId": "c51cb0804a8d81d14fdfec72e145917e16ac48da",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_534b3a63",
+        "filename": "modules/MathJax/unpacked/extensions/MathMenu.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-07-18T06:48:09Z",
+      "side": 0,
+      "message": "I think it would be better to have a MathJax extension for that rather than modifying the upstream source. You should probably contact the MathJax team for advice.",
+      "revId": "c51cb0804a8d81d14fdfec72e145917e16ac48da",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
