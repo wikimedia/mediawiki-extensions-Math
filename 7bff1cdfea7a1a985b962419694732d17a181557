@@ -88,6 +88,24 @@
       "revId": "7bff1cdfea7a1a985b962419694732d17a181557",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_7ec4af94",
+        "filename": "modules/VisualEditor/ve.ce.MWMathNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-07-19T21:20:26Z",
+      "side": 1,
+      "message": "I think it\u0027s not a very good idea to have different mechanism to detect Math tags. i.e. this allows users to enter math that is only visible to mathjax users. and to bypass all security checks.\nin the wiki2jax extension math tags are detected via\n    var that \u003d this;\n    $(\u0027.mwe-math-fallback-png-display, .mwe-math-fallback-png-inline, .mwe-math-fallback-source-display,\u0027+\n          \u0027.mwe-math-fallback-source-inline, strong.texerror\u0027, element || document).each(function(i, span) {\n\t\tthat.ConvertMath(span);\n\t});",
+      "parentUuid": "8e28a382_9e9bdbc0",
+      "revId": "7bff1cdfea7a1a985b962419694732d17a181557",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
