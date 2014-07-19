@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8e28a382_7eceef87",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-07-19T21:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e28a382_d0116060",
+      "revId": "b0115c309985efc4f27ac224070d858334958e75",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e28a382_b30b7e25",
         "filename": "MathMathML.php",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "8e28a382_3ec86776",
+        "filename": "MathMathML.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-07-19T21:50:41Z",
+      "side": 1,
+      "message": "I have no clue about the \"?\" looks like a typo for me.",
+      "parentUuid": "8e28a382_b30b7e25",
+      "revId": "b0115c309985efc4f27ac224070d858334958e75",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e28a382_931ac271",
         "filename": "tests/MathLaTeXMLTest.php",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2014-07-18T06:35:40Z",
       "side": 1,
       "message": "I looks like there are two spaces here, so perhaps the question mark was actually to match an optional whitespace sequence...",
+      "revId": "b0115c309985efc4f27ac224070d858334958e75",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_1ea7ebbb",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-07-19T21:50:41Z",
+      "side": 1,
+      "message": "Yes. that might have been the case. However, I removed that again to avoid trouble with other attributes.",
+      "parentUuid": "8e28a382_931ac271",
       "revId": "b0115c309985efc4f27ac224070d858334958e75",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
