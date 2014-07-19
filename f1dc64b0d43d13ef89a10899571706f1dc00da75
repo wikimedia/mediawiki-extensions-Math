@@ -52,6 +52,24 @@
       "revId": "f1dc64b0d43d13ef89a10899571706f1dc00da75",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_fe041f82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-07-19T22:22:56Z",
+      "side": 1,
+      "message": "Yes. I changed it but I did not commit it;-)\nI have to fix another issue, with the style for svg file",
+      "parentUuid": "8e28a382_3e76273a",
+      "revId": "f1dc64b0d43d13ef89a10899571706f1dc00da75",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
