@@ -31,6 +31,8 @@ ve.ui.MWMathInspector.static.name = 'math';
 
 ve.ui.MWMathInspector.static.icon = 'math';
 
+ve.ui.MWMathInspector.static.size = 'large';
+
 ve.ui.MWMathInspector.static.title = OO.ui.deferMsg( 'math-visualeditor-mwmathinspector-title' );
 
 ve.ui.MWMathInspector.static.nodeModel = ve.dm.MWMathNode;
