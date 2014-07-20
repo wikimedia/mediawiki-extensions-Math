@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e28a382_4177d2fd",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-07-20T07:04:30Z",
+      "side": 1,
+      "message": "Can you keep m|math { after the .mwe-math-mathml-* rules and before @font-face? So that the comment \"Default style for MathML.\" still covers the whole MathML section. \n\n(that is, just move the @namespace at the top of file)",
+      "revId": "44ff54bb36f7b2d320298ed94abb104a66cb968b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
