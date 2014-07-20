@@ -5,15 +5,16 @@
    Description:
        Shows browser-dependent math output.
 */
+@namespace m url('http://www.w3.org/1998/Math/MathML');
 
 /* Default style for MathML. */
 .mwe-math-mathml-inline { display: none; }
 .mwe-math-mathml-display { display: none; margin-left: auto; margin-right: auto; }
-@namespace m url('http://www.w3.org/1998/Math/MathML');
 m|math {
     /* Try OpenType MATH fonts, the WOFF fallback and the old math fonts */
     font-family: Cambria Math, Latin Modern Math, STIX Math, LatinModernMathWOFF, MathJax_Main, STIXGeneral, serif;
 }
+
 @font-face {
     /* WOFF version of Latin Modern Math.
        See https://github.com/fred-wang/MathFonts */
