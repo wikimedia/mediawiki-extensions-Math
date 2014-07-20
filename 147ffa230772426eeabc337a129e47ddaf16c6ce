@@ -51,6 +51,24 @@
       "revId": "147ffa230772426eeabc337a129e47ddaf16c6ce",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_0c2a212b",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-07-20T13:53:28Z",
+      "side": 0,
+      "message": "ok, but than I don\u0027t see anything in any broswer except firefox \nthe :root * \u003e\nis beeing processed as well by chrome\nmaybe you can try it on your system",
+      "parentUuid": "8e28a382_2c903d97",
+      "revId": "147ffa230772426eeabc337a129e47ddaf16c6ce",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
