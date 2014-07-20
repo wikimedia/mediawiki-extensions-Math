@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e28a382_e188feed",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-07-20T06:54:36Z",
+      "side": 1,
+      "message": "Then this !important rule on img.mwe-math-fallback-png-* is not needed if the default style on img.mwe-math-fallback-png-* does not use !important rules.",
+      "revId": "bc1272dd89699a8999665106e26bf46f683ec372",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
