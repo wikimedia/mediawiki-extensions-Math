@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e28a382_0cefc11c",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-07-20T13:09:18Z",
+      "side": 1,
+      "message": "Can you try again to remove the !important rule on png-display (it won\u0027t work if you didn\u0027t remove the !important rules on the default PNG style above)",
+      "revId": "95edd2ddba449bf0d1da2ea811c06294fc43b34b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}

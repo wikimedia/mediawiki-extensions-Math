@@ -34,6 +34,23 @@
       "revId": "147ffa230772426eeabc337a129e47ddaf16c6ce",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_2c903d97",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-07-20T13:09:18Z",
+      "side": 0,
+      "message": "I meant removing the !important rules on PNG and SVG too.",
+      "revId": "147ffa230772426eeabc337a129e47ddaf16c6ce",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
