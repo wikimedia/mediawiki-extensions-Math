@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e28a382_0ca101f5",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-07-20T12:56:48Z",
+      "side": 1,
+      "message": "For me this additional line makes it easier to read, but I can remove it if you want.",
+      "revId": "cca5940a0fa71515f6a863f4444cb877757ad6ce",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
