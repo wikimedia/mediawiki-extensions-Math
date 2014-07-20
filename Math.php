@@ -4,7 +4,7 @@
  *
  * @file
  * @ingroup Extensions
- * @version 1.0
+ * @version 2.0
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
  * @author Moritz Schubotz
@@ -23,7 +23,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'Math',
-	'version' => '1.2.0',
+	'version' => '2.0.0',
 	'author' => array(
 		'Tomasz Wegrzanowski',
 		'Brion Vibber',
