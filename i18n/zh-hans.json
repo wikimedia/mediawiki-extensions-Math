@@ -30,7 +30,7 @@
 	"math_output_error": "无法在文件系统上存储数学图像。",
 	"math_timeout": "$1自“$2”起超时",
 	"math_invalidresponse": "$1：从服务器“$2”返回无效的响应（“$3”）：",
-	"math_invalidxml": " MathML是无效的XML。",
+	"math_invalidxml": "MathML是无效的XML。",
 	"math_invalidjson": "$1服务器响应的JSON无效。",
 	"math_xmlversion": "警告：XML类型检查被跳过！请检查您所安装的MediaWiki版本是否是wmf/1.22wmf7或更高。",
 	"math-visualeditor-mwmathinspector-title": "公式",
