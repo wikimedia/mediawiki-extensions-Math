@@ -76,6 +76,9 @@ abstract class MathRenderer {
 		$this->userInputTex = $tex;
 		$this->tex = $tex;
 		$this->params = $params;
+		if ( isset( $params['id'] ) ) {
+			$this->id = $params['id'];
+		}
 	}
 
 	/**
@@ -139,10 +142,7 @@ abstract class MathRenderer {
 				$tex = '{\textstyle ' . $tex . '}';
 			}
 		}
-		$id = null;
-		if ( isset( $params['id'] ) ) {
-			$id = $params['id'];
-		}
+
 		if ( isset( $params['forcemathmode'] ) ) {
 			$mode = $params['forcemathmode'];
 		}
