@@ -64,10 +64,10 @@ rule token = parse
   | "\\" (latex_function_names as name) space * "["  { LITERAL (TEX_ONLY ("\\" ^ name ^ "[") )}
   | "\\" (latex_function_names as name) space * "\\{"  { LITERAL (TEX_ONLY ("\\" ^ name ^ "\\{")) }
   | "\\" (latex_function_names as name) space * { LITERAL (TEX_ONLY("\\" ^ name ^ " ")) }
-  | "\\" (mediawiki_function_names as name) space * "("    { ( LITERAL (TEX_ONLY ("\\operatorname{" ^ name ^ "}("))) }
-  | "\\" (mediawiki_function_names as name) space * "["    { ( LITERAL (TEX_ONLY ("\\operatorname{" ^ name ^ "}[")))}
-  | "\\" (mediawiki_function_names as name) space * "\\{"  { ( LITERAL (TEX_ONLY ("\\operatorname{" ^ name ^ "}\\{")))}
-  | "\\" (mediawiki_function_names as name) space *        { ( LITERAL (TEX_ONLY ("\\operatorname{" ^ name ^ "} "))) }
+  | "\\" (mediawiki_function_names as name) space * "("    { ( LITERAL (TEX_ONLY ("\\operatorname {" ^ name ^ "}("))) }
+  | "\\" (mediawiki_function_names as name) space * "["    { ( LITERAL (TEX_ONLY ("\\operatorname {" ^ name ^ "}[")))}
+  | "\\" (mediawiki_function_names as name) space * "\\{"  { ( LITERAL (TEX_ONLY ("\\operatorname {" ^ name ^ "}\\{")))}
+  | "\\" (mediawiki_function_names as name) space *        { ( LITERAL (TEX_ONLY ("\\operatorname {" ^ name ^ "} "))) }
   | "\\" alpha + 		{ Texutil.find (Lexing.lexeme lexbuf) }
   | "\\," 			{ LITERAL (TEX_ONLY "\\,") }
   | "\\ " 			{ LITERAL (TEX_ONLY "\\ ") }
