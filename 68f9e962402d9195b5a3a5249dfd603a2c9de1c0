@@ -34,6 +34,24 @@
       "revId": "68f9e962402d9195b5a3a5249dfd603a2c9de1c0",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_2cc021e3",
+        "filename": "Math.hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2014-07-23T16:32:07Z",
+      "side": 1,
+      "message": "Passing a Parser object probably exposes to much of the internal goings... passing a Title seems more reasonable and more useful in general than passing just the id.",
+      "parentUuid": "8e28a382_2c6ca12c",
+      "revId": "68f9e962402d9195b5a3a5249dfd603a2c9de1c0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
