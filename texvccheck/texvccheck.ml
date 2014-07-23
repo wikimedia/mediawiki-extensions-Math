@@ -20,8 +20,8 @@ let render tree =
  * Output one character:
  *  E : Lexer exception raised
  *  F : TeX function not recognized
- *  - : Generic/Default failure code. Might be an invalid argument,
  *  S : Parsing error
+ *  - : Generic/Default failure code. Might be an invalid argument,
  *      output file already exist, a problem with an external
  *      command ...
  *)
