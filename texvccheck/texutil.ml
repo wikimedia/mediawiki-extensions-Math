@@ -686,7 +686,7 @@ let find cmd = match cmd with
   | "\\supe" -> LITERAL ( TEX_ONLY( "\\supseteq" ^ " " ) )
   | "\\Tau" -> LITERAL ( TEX_ONLY( "\\mathrm{T}" ^ " " ) )
   | "\\thetasym" -> LITERAL ( TEX_ONLY( "\\vartheta" ^ " " ) )
-  | "\\varcoppa" -> LITERAL ( TEX_ONLY( "\\mbox{coppa}" ^ " " ) )
+  | "\\varcoppa" -> LITERAL ( TEX_ONLY( "\\mbox{\\coppa}" ^ " " ) )
   | "\\weierp" -> LITERAL ( TEX_ONLY( "\\wp" ^ " " ) )
   | "\\Zeta" -> LITERAL ( TEX_ONLY( "\\mathrm{Z}" ^ " " ) )
 
