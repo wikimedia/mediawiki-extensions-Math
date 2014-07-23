@@ -131,7 +131,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 	public function testGetValidTexCornerCases() {
 		$Object = new MathInputCheckTexvc( '\reals' );
 		$Object->isValid();
-		$this->assertEquals( "\\mathbb{R} ", $Object->getValidTex() );
+		$this->assertEquals( "\\mathbb {R} ", $Object->getValidTex() );
 		$Object = new MathInputCheckTexvc( '\lbrack' ); // Bug: 54624
 		$Object->isValid();
 		$this->assertEquals( '\\lbrack ', $Object->getValidTex() );
