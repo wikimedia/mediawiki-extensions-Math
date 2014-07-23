@@ -606,7 +606,7 @@ let find cmd = match cmd with
   | "\\N" -> LITERAL ( TEX_ONLY( "\\mathbb{N}" ^ " " ) )
   | "\\Q" -> LITERAL ( TEX_ONLY( "\\mathbb{Q}" ^ " " ) )
   | "\\R" -> LITERAL ( TEX_ONLY( "\\mathbb{R}" ^ " " ) )
-  | "\\Z" -> LITERAL ( TEX_ONLY( "\\mathbb{Z }" ^ " " ) )
+  | "\\Z" -> LITERAL ( TEX_ONLY( "\\mathbb{Z}" ^ " " ) )
 
   | "\\darr" -> DELIMITER( TEX_ONLY( "\\downarrow" ^ " " ) )
   | "\\dArr" -> DELIMITER( TEX_ONLY( "\\Downarrow" ^ " " ) )
