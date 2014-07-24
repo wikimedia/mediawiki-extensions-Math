@@ -95,52 +95,52 @@ exception Illegal_tex_function of string
 let find = function
       "\\alpha"            -> LITERAL (HTMLABLEC (FONT_UF,  "\\alpha ", "&alpha;"))
     | "\\Alpha"            -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
-    "\\mathrm{A}", "&Alpha;")))
+    "\\mathrm {A}", "&Alpha;")))
     | "\\beta"             -> LITERAL (HTMLABLEC (FONT_UF,  "\\beta ",  "&beta;"))
     | "\\Beta"             -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
-    "\\mathrm{B}",  "&Beta;")))
+    "\\mathrm {B}",  "&Beta;")))
     | "\\gamma"            -> LITERAL (HTMLABLEC (FONT_UF,  "\\gamma ", "&gamma;"))
     | "\\Gamma"            -> LITERAL (HTMLABLEC (FONT_UF, "\\Gamma ", "&Gamma;"))
     | "\\delta"            -> LITERAL (HTMLABLEC (FONT_UF,  "\\delta ", "&delta;"))
     | "\\Delta"            -> LITERAL (HTMLABLEC (FONT_UF, "\\Delta ", "&Delta;"))
     | "\\epsilon"          -> LITERAL (TEX_ONLY "\\epsilon ")
     | "\\Epsilon"          -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
-    "\\mathrm{E}", "&Epsilon;")))
+    "\\mathrm {E}", "&Epsilon;")))
     | "\\varepsilon"       -> LITERAL (HTMLABLEC (FONT_UF, "\\varepsilon ", "&epsilon;"))
     | "\\zeta"             -> LITERAL (HTMLABLEC (FONT_UF,  "\\zeta ", "&zeta;"))
     | "\\Zeta"             -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
-    "\\mathrm{Z}", "&Zeta;")))
+    "\\mathrm {Z}", "&Zeta;")))
     | "\\eta"              -> LITERAL (HTMLABLEC (FONT_UF,  "\\eta ", "&eta;"))
     | "\\Eta"              -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
-    "\\mathrm{H}", "&Eta;")))
+    "\\mathrm {H}", "&Eta;")))
     | "\\theta"            -> LITERAL (HTMLABLEC (FONT_UF,  "\\theta ", "&theta;"))
     | "\\Theta"            -> LITERAL (HTMLABLEC (FONT_UF, "\\Theta ", "&Theta;"))
     | "\\vartheta"         -> LITERAL (HTMLABLE  (FONT_UF,  "\\vartheta ", "&thetasym;"))
     | "\\thetasym"         -> LITERAL (HTMLABLE  (FONT_UF,  "\\vartheta ", "&thetasym;"))
     | "\\iota"             -> LITERAL (HTMLABLEC (FONT_UF,  "\\iota ", "&iota;"))
     | "\\Iota"             -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
-    "\\mathrm{I}", "&Iota;")))
+    "\\mathrm {I}", "&Iota;")))
     | "\\kappa"            -> LITERAL (HTMLABLEC (FONT_UF,  "\\kappa ", "&kappa;"))
     | "\\Kappa"            -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
-    "\\mathrm{K}", "&Kappa;")))
+    "\\mathrm {K}", "&Kappa;")))
     | "\\lambda"           -> LITERAL (HTMLABLEC (FONT_UF,  "\\lambda ", "&lambda;"))
     | "\\Lambda"           -> LITERAL (HTMLABLEC (FONT_UF, "\\Lambda ", "&Lambda;"))
     | "\\mu"               -> LITERAL (HTMLABLEC (FONT_UF,  "\\mu ", "&mu;"))
     | "\\Mu"               -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
-    "\\mathrm{M}", "&Mu;")))
+    "\\mathrm {M}", "&Mu;")))
     | "\\nu"               -> LITERAL (HTMLABLEC (FONT_UF,  "\\nu ", "&nu;"))
     | "\\Nu"               -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
-    "\\mathrm{N}", "&Nu;")))
+    "\\mathrm {N}", "&Nu;")))
     | "\\omicron"          -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
-    "\\mathrm{o}", "&omicron;")))
+    "\\mathrm {o}", "&omicron;")))
     | "\\Omicron"          -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
-    "\\mathrm{O}", "&Omicron;")))
+    "\\mathrm {O}", "&Omicron;")))
     | "\\pi"               -> LITERAL (HTMLABLEC (FONT_UF,  "\\pi ", "&pi;"))
     | "\\Pi"               -> LITERAL (HTMLABLEC (FONT_UF, "\\Pi ", "&Pi;"))
     | "\\varpi"            -> LITERAL (TEX_ONLY "\\varpi ")
     | "\\rho"              -> LITERAL (HTMLABLEC (FONT_UF,  "\\rho ", "&rho;"))
     | "\\Rho"              -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
-    "\\mathrm{P}", "&Rho;")))
+    "\\mathrm {P}", "&Rho;")))
     | "\\varrho"           -> LITERAL (TEX_ONLY "\\varrho ")
     | "\\sim"              -> LITERAL (HTMLABLEC (FONT_UF,  "\\sim ", "&sim;"))
     | "\\sigma"            -> LITERAL (HTMLABLEC (FONT_UF,  "\\sigma ", "&sigma;"))
@@ -148,7 +148,7 @@ let find = function
     | "\\varsigma"         -> LITERAL (TEX_ONLY "\\varsigma ")
     | "\\tau"              -> LITERAL (HTMLABLEC (FONT_UF,  "\\tau ", "&tau;"))
     | "\\Tau"              -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
-    "\\mathrm{T}", "&Tau;")))
+    "\\mathrm {T}", "&Tau;")))
     | "\\upsilon"          -> LITERAL (HTMLABLEC (FONT_UF,  "\\upsilon ", "&upsilon;"))
     | "\\Upsilon"          -> LITERAL (HTMLABLEC (FONT_UF, "\\Upsilon ", "&Upsilon;"))
     | "\\phi"              -> LITERAL (HTMLABLEC (FONT_UF, "\\phi ", "&#981;"))
@@ -156,7 +156,7 @@ let find = function
     | "\\varphi"           -> LITERAL (HTMLABLEC (FONT_UF, "\\varphi ", "&phi;"))
     | "\\chi"              -> LITERAL (HTMLABLEC (FONT_UF,  "\\chi ", "&chi;"))
     | "\\Chi"              -> (tex_use_ams (); LITERAL (HTMLABLEC (FONT_UF,
-    "\\mathrm{X}", "&Chi;")))
+    "\\mathrm {X}", "&Chi;")))
     | "\\psi"              -> LITERAL (HTMLABLEC (FONT_UF,  "\\psi ", "&psi;"))
     | "\\Psi"              -> LITERAL (HTMLABLEC (FONT_UF, "\\Psi ", "&Psi;"))
     | "\\omega"            -> LITERAL (HTMLABLEC (FONT_UF,  "\\omega ", "&omega;"))
@@ -416,17 +416,17 @@ let find = function
     | "\\dotsi"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\dotsi ", "&sdot;&sdot;&sdot;")))
     | "\\dotsm"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\dotsm ", "&sdot;&sdot;&sdot;")))
     | "\\dotso"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UF, "\\dotso ", "...")))
-    | "\\reals"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "&#8477;")))
-    | "\\Reals"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "&#8477;")))
-    | "\\R"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{R}", "&#8477;")))
-    | "\\C"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "&#8450;")))
-    | "\\cnums"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "&#8450;")))
-    | "\\Complex"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{C}", "&#8450;")))
-    | "\\Z"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{Z}", "&#8484;")))
-    | "\\natnums"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{N}", "&#8469;")))
-    | "\\N"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{N}", "&#8469;")))
-    | "\\Q"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{Q}", "&#8474;")))
-    | "\\H"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb{H}", "&#8461;")))
+    | "\\reals"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb {R}", "&#8477;")))
+    | "\\Reals"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb {R}", "&#8477;")))
+    | "\\R"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb {R}", "&#8477;")))
+    | "\\C"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb {C}", "&#8450;")))
+    | "\\cnums"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb {C}", "&#8450;")))
+    | "\\Complex"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb {C}", "&#8450;")))
+    | "\\Z"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb {Z}", "&#8484;")))
+    | "\\natnums"          -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb {N}", "&#8469;")))
+    | "\\N"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb {N}", "&#8469;")))
+    | "\\Q"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb {Q}", "&#8474;")))
+    | "\\H"                -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\mathbb {H}", "&#8461;")))
     | "\\lVert"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\lVert ", "||")))
     | "\\rVert"            -> (tex_use_ams (); LITERAL (HTMLABLE (FONT_UFH,"\\rVert ", "||")))
     | "\\nmid"             -> (tex_use_ams (); LITERAL (TEX_ONLY "\\nmid "))
@@ -482,15 +482,15 @@ let find = function
     | "\\hat"              -> FUN_AR1 "\\hat "
     | "\\hline"            -> LITERAL (TEX_ONLY "\\hline ")
     | "\\vline"            -> LITERAL (TEX_ONLY "\\vline ")
-    | "\\widetilde"        -> LITERAL (TEX_ONLY "\\widetilde ")
-    | "\\widehat"          -> LITERAL (TEX_ONLY "\\widehat ")
-    | "\\overline"         -> LITERAL (TEX_ONLY "\\overline ")
-    | "\\overbrace"        -> LITERAL (TEX_ONLY "\\overbrace ")
-    | "\\underline"        -> LITERAL (TEX_ONLY "\\underline ")
-    | "\\underbrace"       -> LITERAL (TEX_ONLY "\\underbrace ")
-    | "\\overleftarrow"    -> LITERAL (TEX_ONLY "\\overleftarrow ")
-    | "\\overrightarrow"   -> LITERAL (TEX_ONLY "\\overrightarrow ")
-    | "\\overleftrightarrow"-> (tex_use_ams(); LITERAL (TEX_ONLY "\\overleftrightarrow "))
+    | "\\widetilde"        -> FUN_AR1 "\\widetilde "
+    | "\\widehat"          -> FUN_AR1 "\\widehat "
+    | "\\overline"         -> FUN_AR1 "\\overline "
+    | "\\overbrace"        -> FUN_AR1nb "\\overbrace "
+    | "\\underline"        -> FUN_AR1 "\\underline "
+    | "\\underbrace"       -> FUN_AR1nb "\\underbrace "
+    | "\\overleftarrow"    -> FUN_AR1 "\\overleftarrow "
+    | "\\overrightarrow"   -> FUN_AR1 "\\overrightarrow "
+    | "\\overleftrightarrow"-> (tex_use_ams(); FUN_AR1 "\\overleftrightarrow ")
     | "\\check"            -> FUN_AR1 "\\check "
     | "\\acute"            -> FUN_AR1 "\\acute "
     | "\\grave"            -> FUN_AR1 "\\grave "

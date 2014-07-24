@@ -322,11 +322,6 @@ let find cmd = match cmd with
   | "\\oplus"
   | "\\oslash"
   | "\\otimes"
-  | "\\overbrace"
-  | "\\overleftarrow"
-  | "\\overleftrightarrow"
-  | "\\overline"
-  | "\\overrightarrow"
   | "\\P"
   | "\\pagecolor"
   | "\\parallel"
@@ -436,8 +431,6 @@ let find cmd = match cmd with
   | "\\triangleq"
   | "\\triangleright"
   | "\\trianglerighteq"
-  | "\\underbrace"
-  | "\\underline"
   | "\\upharpoonleft"
   | "\\upharpoonright"
   | "\\uplus"
@@ -473,8 +466,6 @@ let find cmd = match cmd with
   | "\\vline"
   | "\\Vvdash"
   | "\\wedge"
-  | "\\widehat"
-  | "\\widetilde"
   | "\\wp"
   | "\\wr"
   | "\\xi"
@@ -553,6 +544,10 @@ let find cmd = match cmd with
   | "\\mathsf"
   | "\\mathtt"
   | "\\operatorname"
+  | "\\overleftarrow"
+  | "\\overleftrightarrow"
+  | "\\overline"
+  | "\\overrightarrow"
   | "\\pmod"
   | "\\sqrt"
   | "\\textbf"
@@ -561,7 +556,10 @@ let find cmd = match cmd with
   | "\\textsf"
   | "\\texttt"
   | "\\tilde"
+  | "\\underline"
   | "\\vec"
+  | "\\widehat"
+  | "\\widetilde"
   | "\\xcancel"
   | "\\xleftarrow"
   | "\\xrightarrow"
@@ -603,12 +601,12 @@ let find cmd = match cmd with
   | "\\varstigma"
   -> LITERAL ( TEX_ONLY( "\\mbox{" ^ cmd ^ "} " ) )
 
-  | "\\C" -> LITERAL ( TEX_ONLY( "\\mathbb{C}" ^ " " ) )
-  | "\\H" -> LITERAL ( TEX_ONLY( "\\mathbb{H}" ^ " " ) )
-  | "\\N" -> LITERAL ( TEX_ONLY( "\\mathbb{N}" ^ " " ) )
-  | "\\Q" -> LITERAL ( TEX_ONLY( "\\mathbb{Q}" ^ " " ) )
-  | "\\R" -> LITERAL ( TEX_ONLY( "\\mathbb{R}" ^ " " ) )
-  | "\\Z" -> LITERAL ( TEX_ONLY( "\\mathbb{Z }" ^ " " ) )
+  | "\\C" -> LITERAL ( TEX_ONLY( "\\mathbb {C}" ^ " " ) )
+  | "\\H" -> LITERAL ( TEX_ONLY( "\\mathbb {H}" ^ " " ) )
+  | "\\N" -> LITERAL ( TEX_ONLY( "\\mathbb {N}" ^ " " ) )
+  | "\\Q" -> LITERAL ( TEX_ONLY( "\\mathbb {Q}" ^ " " ) )
+  | "\\R" -> LITERAL ( TEX_ONLY( "\\mathbb {R}" ^ " " ) )
+  | "\\Z" -> LITERAL ( TEX_ONLY( "\\mathbb {Z}" ^ " " ) )
 
   | "\\darr" -> DELIMITER( TEX_ONLY( "\\downarrow" ^ " " ) )
   | "\\dArr" -> DELIMITER( TEX_ONLY( "\\Downarrow" ^ " " ) )
@@ -624,23 +622,23 @@ let find cmd = match cmd with
 
   | "\\alef" -> LITERAL ( TEX_ONLY( "\\aleph" ^ " " ) )
   | "\\alefsym" -> LITERAL ( TEX_ONLY( "\\aleph" ^ " " ) )
-  | "\\Alpha" -> LITERAL ( TEX_ONLY( "\\mathrm{A}" ^ " " ) )
+  | "\\Alpha" -> LITERAL ( TEX_ONLY( "\\mathrm {A}" ^ " " ) )
   | "\\and" -> LITERAL ( TEX_ONLY( "\\land" ^ " " ) )
   | "\\ang" -> LITERAL ( TEX_ONLY( "\\angle" ^ " " ) )
-  | "\\Beta" -> LITERAL ( TEX_ONLY( "\\mathrm{B}" ^ " " ) )
+  | "\\Beta" -> LITERAL ( TEX_ONLY( "\\mathrm {B}" ^ " " ) )
   | "\\bull" -> LITERAL ( TEX_ONLY( "\\bullet" ^ " " ) )
-  | "\\Chi" -> LITERAL ( TEX_ONLY( "\\mathrm{X}" ^ " " ) )
+  | "\\Chi" -> LITERAL ( TEX_ONLY( "\\mathrm {X}" ^ " " ) )
   | "\\clubs" -> LITERAL ( TEX_ONLY( "\\clubsuit" ^ " " ) )
-  | "\\cnums" -> LITERAL ( TEX_ONLY( "\\mathbb{C}" ^ " " ) )
-  | "\\Complex" -> LITERAL ( TEX_ONLY( "\\mathbb{C}" ^ " " ) )
+  | "\\cnums" -> LITERAL ( TEX_ONLY( "\\mathbb {C}" ^ " " ) )
+  | "\\Complex" -> LITERAL ( TEX_ONLY( "\\mathbb {C}" ^ " " ) )
   | "\\Dagger" -> LITERAL ( TEX_ONLY( "\\ddagger" ^ " " ) )
   | "\\diamonds" -> LITERAL ( TEX_ONLY( "\\diamondsuit" ^ " " ) )
   | "\\Doteq" -> LITERAL ( TEX_ONLY( "\\doteqdot" ^ " " ) )
   | "\\doublecap" -> LITERAL ( TEX_ONLY( "\\Cap" ^ " " ) )
   | "\\doublecup" -> LITERAL ( TEX_ONLY( "\\Cup" ^ " " ) )
   | "\\empty" -> LITERAL ( TEX_ONLY( "\\emptyset" ^ " " ) )
-  | "\\Epsilon" -> LITERAL ( TEX_ONLY( "\\mathrm{E}" ^ " " ) )
-  | "\\Eta" -> LITERAL ( TEX_ONLY( "\\mathrm{H}" ^ " " ) )
+  | "\\Epsilon" -> LITERAL ( TEX_ONLY( "\\mathrm {E}" ^ " " ) )
+  | "\\Eta" -> LITERAL ( TEX_ONLY( "\\mathrm {H}" ^ " " ) )
   | "\\exist" -> LITERAL ( TEX_ONLY( "\\exists" ^ " " ) )
   | "\\ge" -> LITERAL ( TEX_ONLY( "\\geq" ^ " " ) )
   | "\\gggtr" -> LITERAL ( TEX_ONLY( "\\ggg" ^ " " ) )
@@ -650,9 +648,9 @@ let find cmd = match cmd with
   | "\\hearts" -> LITERAL ( TEX_ONLY( "\\heartsuit" ^ " " ) )
   | "\\image" -> LITERAL ( TEX_ONLY( "\\Im" ^ " " ) )
   | "\\infin" -> LITERAL ( TEX_ONLY( "\\infty" ^ " " ) )
-  | "\\Iota" -> LITERAL ( TEX_ONLY( "\\mathrm{I}" ^ " " ) )
+  | "\\Iota" -> LITERAL ( TEX_ONLY( "\\mathrm {I}" ^ " " ) )
   | "\\isin" -> LITERAL ( TEX_ONLY( "\\in" ^ " " ) )
-  | "\\Kappa" -> LITERAL ( TEX_ONLY( "\\mathrm{K}" ^ " " ) )
+  | "\\Kappa" -> LITERAL ( TEX_ONLY( "\\mathrm {K}" ^ " " ) )
   | "\\larr" -> LITERAL ( TEX_ONLY( "\\leftarrow" ^ " " ) )
   | "\\Larr" -> LITERAL ( TEX_ONLY( "\\Leftarrow" ^ " " ) )
   | "\\lArr" -> LITERAL ( TEX_ONLY( "\\Leftarrow" ^ " " ) )
@@ -660,13 +658,13 @@ let find cmd = match cmd with
   | "\\lrarr" -> LITERAL ( TEX_ONLY( "\\leftrightarrow" ^ " " ) )
   | "\\Lrarr" -> LITERAL ( TEX_ONLY( "\\Leftrightarrow" ^ " " ) )
   | "\\lrArr" -> LITERAL ( TEX_ONLY( "\\Leftrightarrow" ^ " " ) )
-  | "\\Mu" -> LITERAL ( TEX_ONLY( "\\mathrm{M}" ^ " " ) )
-  | "\\natnums" -> LITERAL ( TEX_ONLY( "\\mathbb{N}" ^ " " ) )
+  | "\\Mu" -> LITERAL ( TEX_ONLY( "\\mathrm {M}" ^ " " ) )
+  | "\\natnums" -> LITERAL ( TEX_ONLY( "\\mathbb {N}" ^ " " ) )
   | "\\ne" -> LITERAL ( TEX_ONLY( "\\neq" ^ " " ) )
-  | "\\Nu" -> LITERAL ( TEX_ONLY( "\\mathrm{N}" ^ " " ) )
+  | "\\Nu" -> LITERAL ( TEX_ONLY( "\\mathrm {N}" ^ " " ) )
   | "\\O" -> LITERAL ( TEX_ONLY( "\\emptyset" ^ " " ) )
-  | "\\omicron" -> LITERAL ( TEX_ONLY( "\\mathrm{o}" ^ " " ) )
-  | "\\Omicron" -> LITERAL ( TEX_ONLY( "\\mathrm{O}" ^ " " ) )
+  | "\\omicron" -> LITERAL ( TEX_ONLY( "\\mathrm {o}" ^ " " ) )
+  | "\\Omicron" -> LITERAL ( TEX_ONLY( "\\mathrm {O}" ^ " " ) )
   | "\\or" -> LITERAL ( TEX_ONLY( "\\lor" ^ " " ) )
   | "\\part" -> LITERAL ( TEX_ONLY( "\\partial" ^ " " ) )
   | "\\plusmn" -> LITERAL ( TEX_ONLY( "\\pm" ^ " " ) )
@@ -674,21 +672,21 @@ let find cmd = match cmd with
   | "\\Rarr" -> LITERAL ( TEX_ONLY( "\\Rightarrow" ^ " " ) )
   | "\\rArr" -> LITERAL ( TEX_ONLY( "\\Rightarrow" ^ " " ) )
   | "\\real" -> LITERAL ( TEX_ONLY( "\\Re" ^ " " ) )
-  | "\\reals" -> LITERAL ( TEX_ONLY( "\\mathbb{R}" ^ " " ) )
-  | "\\Reals" -> LITERAL ( TEX_ONLY( "\\mathbb{R}" ^ " " ) )
+  | "\\reals" -> LITERAL ( TEX_ONLY( "\\mathbb {R}" ^ " " ) )
+  | "\\Reals" -> LITERAL ( TEX_ONLY( "\\mathbb {R}" ^ " " ) )
   | "\\restriction" -> LITERAL ( TEX_ONLY( "\\upharpoonright" ^ " " ) )
-  | "\\Rho" -> LITERAL ( TEX_ONLY( "\\mathrm{P}" ^ " " ) )
+  | "\\Rho" -> LITERAL ( TEX_ONLY( "\\mathrm {P}" ^ " " ) )
   | "\\sdot" -> LITERAL ( TEX_ONLY( "\\cdot" ^ " " ) )
   | "\\sect" -> LITERAL ( TEX_ONLY( "\\S" ^ " " ) )
   | "\\spades" -> LITERAL ( TEX_ONLY( "\\spadesuit" ^ " " ) )
   | "\\sub" -> LITERAL ( TEX_ONLY( "\\subset" ^ " " ) )
   | "\\sube" -> LITERAL ( TEX_ONLY( "\\subseteq" ^ " " ) )
   | "\\supe" -> LITERAL ( TEX_ONLY( "\\supseteq" ^ " " ) )
-  | "\\Tau" -> LITERAL ( TEX_ONLY( "\\mathrm{T}" ^ " " ) )
+  | "\\Tau" -> LITERAL ( TEX_ONLY( "\\mathrm {T}" ^ " " ) )
   | "\\thetasym" -> LITERAL ( TEX_ONLY( "\\vartheta" ^ " " ) )
   | "\\varcoppa" -> LITERAL ( TEX_ONLY( "\\mbox{\\coppa}" ^ " " ) )
   | "\\weierp" -> LITERAL ( TEX_ONLY( "\\wp" ^ " " ) )
-  | "\\Zeta" -> LITERAL ( TEX_ONLY( "\\mathrm{Z}" ^ " " ) )
+  | "\\Zeta" -> LITERAL ( TEX_ONLY( "\\mathrm {Z}" ^ " " ) )
 
   | "\\rm"
   | "\\it"
@@ -696,6 +694,8 @@ let find cmd = match cmd with
   | "\\bf"
   -> DECLh ( cmd ^ " ", FONTFORCE_RM ) (* see bug 54818 *)
 
+  | "\\overbrace" -> FUN_AR1nb "\\overbrace "
+  | "\\underbrace" -> FUN_AR1nb "\\underbrace "
   | "\\sideset" -> FUN_AR2nb "\\sideset "
   | "\\left" -> LEFT
   | "\\right" -> RIGHT
