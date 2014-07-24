@@ -7,6 +7,7 @@
  */
 
 /**
+ * @group Math
  * @covers MathTexvc
  */
 class MathTexvcTest extends MediaWikiTestCase {
