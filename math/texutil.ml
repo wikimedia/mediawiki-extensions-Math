@@ -482,15 +482,15 @@ let find = function
     | "\\hat"              -> FUN_AR1 "\\hat "
     | "\\hline"            -> LITERAL (TEX_ONLY "\\hline ")
     | "\\vline"            -> LITERAL (TEX_ONLY "\\vline ")
-    | "\\widetilde"        -> LITERAL (TEX_ONLY "\\widetilde ")
-    | "\\widehat"          -> LITERAL (TEX_ONLY "\\widehat ")
-    | "\\overline"         -> LITERAL (TEX_ONLY "\\overline ")
-    | "\\overbrace"        -> LITERAL (TEX_ONLY "\\overbrace ")
-    | "\\underline"        -> LITERAL (TEX_ONLY "\\underline ")
-    | "\\underbrace"       -> LITERAL (TEX_ONLY "\\underbrace ")
-    | "\\overleftarrow"    -> LITERAL (TEX_ONLY "\\overleftarrow ")
-    | "\\overrightarrow"   -> LITERAL (TEX_ONLY "\\overrightarrow ")
-    | "\\overleftrightarrow"-> (tex_use_ams(); LITERAL (TEX_ONLY "\\overleftrightarrow "))
+    | "\\widetilde"        -> FUN_AR1 "\\widetilde "
+    | "\\widehat"          -> FUN_AR1 "\\widehat "
+    | "\\overline"         -> FUN_AR1 "\\overline "
+    | "\\overbrace"        -> FUN_AR1nb "\\overbrace "
+    | "\\underline"        -> FUN_AR1 "\\underline "
+    | "\\underbrace"       -> FUN_AR1nb "\\underbrace "
+    | "\\overleftarrow"    -> FUN_AR1 "\\overleftarrow "
+    | "\\overrightarrow"   -> FUN_AR1 "\\overrightarrow "
+    | "\\overleftrightarrow"-> (tex_use_ams(); FUN_AR1 "\\overleftrightarrow ")
     | "\\check"            -> FUN_AR1 "\\check "
     | "\\acute"            -> FUN_AR1 "\\acute "
     | "\\grave"            -> FUN_AR1 "\\grave "
