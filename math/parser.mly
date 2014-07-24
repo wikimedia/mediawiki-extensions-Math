@@ -45,7 +45,7 @@ litsq_uq:
 litsq_dq:
     litsq_zq SUB lit		{ $1,$3 }
 litsq_zq:
-  | SQ_CLOSE 			{ TEX_LITERAL sq_close_ri }
+    SQ_CLOSE 			{ TEX_LITERAL sq_close_ri }
 expr_nosqc:
     /* */			{ [] }
   | lit_aq expr_nosqc		{ $1 :: $2 }
