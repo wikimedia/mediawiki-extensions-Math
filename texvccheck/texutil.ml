@@ -43,8 +43,7 @@ let rec render_tex = function
 exception Illegal_tex_function of string
 
 let find cmd = match cmd with
-  "\\AA"
-  | "\\aleph"
+    "\\aleph"
   | "\\alpha"
   | "\\amalg"
   | "\\And"
@@ -422,7 +421,6 @@ let find cmd = match cmd with
   | "\\swarrow"
   | "\\tau"
   | "\\textstyle"
-  | "\\textvisiblespace"
   | "\\therefore"
   | "\\theta"
   | "\\Theta"
@@ -586,6 +584,7 @@ let find cmd = match cmd with
   | "\\over"
   -> FUN_INFIX( cmd ^ " " )
 
+  | "\\AA"
   | "\\Coppa"
   | "\\coppa"
   | "\\Digamma"
@@ -600,6 +599,7 @@ let find cmd = match cmd with
   | "\\sampi"
   | "\\Stigma"
   | "\\stigma"
+  | "\\textvisiblespace"
   | "\\varstigma"
   -> LITERAL ( TEX_ONLY( "\\mbox{" ^ cmd ^ "} " ) )
 
