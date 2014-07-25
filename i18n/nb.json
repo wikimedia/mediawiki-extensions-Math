@@ -10,7 +10,7 @@
 	"math-desc": "Fremstill matematiske formler inne i taggparet <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math_sample": "Sett inn formel her",
 	"math_tip": "Matematisk formel (LaTeX)",
-	"prefs-math": "Matteformler",
+	"prefs-math": "Matematiske formler",
 	"mw_math_png": "Vis alltid som PNG",
 	"mw_math_source": "Behold som TeX (for tekst-nettlesere)",
 	"mw_math_mathjax": "MathJax (på forsøksstadiet; virker best i moderne nettlesere)",
