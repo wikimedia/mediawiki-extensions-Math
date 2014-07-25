@@ -59,13 +59,17 @@ class SpecialMathShowImage extends SpecialPage {
 						$this->renderer = MathMathML::newFromMd5( $hash );
 				}
 				$this->noRender = $request->getBool( 'noRender', false );
-				if ( $this->noRender ) {
-					$success = $this->renderer->readFromDatabase();
+				$isInDatabase = $this->renderer->readFromDatabase();
+				if ( $isInDatabase || $this->noRender ) {
+					$success = $isInDatabase;
 				} else {
 					if ( $this->mode == MW_MATH_PNG ) {
+						// get the texvc input from the mathoid database table
+						// and render the conventional way
 						$mmlRenderer = MathMathML::newFromMd5( $hash );
 						$mmlRenderer->readFromDatabase();
-						$this->renderer = new MathTexvc( $mmlRenderer->getUserInputTex() );
+						$this->renderer = MathRenderer::getRenderer( $mmlRenderer->getUserInputTex(), array(), MW_MATH_PNG );
+						$this->renderer->setMathStyle( $mmlRenderer->getMathStyle() );
 					}
 					$success = $this->renderer->render();
 				}
@@ -78,6 +82,11 @@ class SpecialMathShowImage extends SpecialPage {
 			}
 			if ( $success ) {
 				if ( $this->mode == MW_MATH_PNG ) {
+					// Workaround for bugfix for Bug 56769
+					if ( !isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
+						// saves the PNG-file
+						wfRunHooks('ParserAfterParse');
+					}
 					$output = $this->renderer->getPng();
 				} else {
 					$output = $this->renderer->getSvg();
@@ -92,7 +101,9 @@ class SpecialMathShowImage extends SpecialPage {
 			}
 			$this->setHeaders( $success );
 			echo $output;
-			$this->renderer->writeCache();
+			if ( $success ){
+				$this->renderer->writeCache();
+			}
 		}
 	}
 
