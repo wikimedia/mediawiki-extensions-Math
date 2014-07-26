@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e28a382_5d142051",
+        "filename": "MathMathML.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-07-26T07:24:44Z",
+      "side": 1,
+      "message": "So I\u0027m actually not sure what you are doing here. \n\nwidth/height attributes of img must be non-negative integers, representing the size in pixel:\nhttp://www.w3.org/TR/html/embedded-content-0.html#attr-dim-width\n\nwhile width/height CSS style are defined here\nhttp://www.w3.org/TR/CSS2/visudet.html#the-width-property\n(in particular the only non-negative integer allowed is \"0\")\n\nSo if you want the size in pixels, I suspect you should do something like\nhttps://gerrit.wikimedia.org/r/#/c/129974/. Otherwise, ignore these width/height attributes and just copy the dimension into the style attribute.",
+      "revId": "a5359df615c9a7eb8e55c8ede7e9fce2de19fce0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
