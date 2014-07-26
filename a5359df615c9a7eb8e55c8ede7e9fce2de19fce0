@@ -16,6 +16,24 @@
       "revId": "a5359df615c9a7eb8e55c8ede7e9fce2de19fce0",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_f81aba1a",
+        "filename": "MathMathML.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-07-26T13:38:04Z",
+      "side": 1,
+      "message": "Hi Frédéric,\nI just copied the attribute values from MathJax that uses the width and height attributes in a wrong way.\nDoes it look good to you in the new version",
+      "parentUuid": "8e28a382_5d142051",
+      "revId": "a5359df615c9a7eb8e55c8ede7e9fce2de19fce0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
