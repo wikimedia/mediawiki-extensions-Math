@@ -34,6 +34,24 @@
       "revId": "4ca287b43ad73b84b0616a7a63d3e4e683aab6a4",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_53352cd5",
+        "filename": "i18n/en.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2014-07-27T17:52:26Z",
+      "side": 1,
+      "message": "Please add it, then.",
+      "parentUuid": "2e1a5767_ce1c797f",
+      "revId": "4ca287b43ad73b84b0616a7a63d3e4e683aab6a4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
