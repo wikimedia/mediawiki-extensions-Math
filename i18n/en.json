@@ -22,7 +22,7 @@
     "math_notexvc": "Missing <code>texvc</code> executable. Please see math/README to configure.",
     "math_notexvccheck": "Missing <code>texvccheck</code> executable. Please see math/README to configure.",
     "math_output_error": "Cannot store math image on filesystem.",
-    "math_timeout": "$1 timeout from \"$2\"",
+    "math_timeout": "$1 timeout from \"$2\".",
     "math_invalidresponse": "$1: Invalid response (\"$3\") from server \"$2\":",
     "math_invalidxml": "MathML is invalid XML.",
     "math_invalidjson": "$1 server response is invalid JSON.",
