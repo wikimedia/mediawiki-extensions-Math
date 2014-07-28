@@ -145,7 +145,6 @@ class MathLaTeXML extends MathMathML {
 		}
 	}
 
-
 	/**
 	 * Internal version of @link self::embedMathML
 	 * @return string
@@ -172,6 +171,38 @@ class MathLaTeXML extends MathMathML {
 			$attribs = Sanitizer::validateTagAttributes( $attribs, 'span' );
 		}
 		return Xml::tags( 'span', $attribs, $mml );
+	}
+
+	/**
+	 * Calculates the SVG image based on the MathML input
+	 * No cache is used.
+	 * @return boolean
+	 */
+	public function calulateSvg() {
+		$renderer = new MathMathML( $this->getTex() );
+		$renderer->setMathml( $this->getMathml() );
+		$renderer->setMode( MW_MATH_LATEXML );
+		$renderer->setPurge( true );
+		$res = $renderer->render();
+		if ( $res == true ) {
+			$this->svg = $renderer->getSvg();
+		} else {
+			$lastError = $renderer->getLastError();
+			wfDebugLog( 'Math', 'failed to convert LaTeXML-MathML to SVG:' . $lastError );
+		}
+		return $res;
+	}
+
+	/**
+	 * Gets the SVG image
+	 * Lazy evaluation: If no SVG image exists it's generated on the fly
+	 * @return string XML-Document of the rendered SVG
+	 */
+	public function getSvg() {
+		if ( $this->isPurge() || $this->svg == ''  ) {
+			$this->calulateSvg();
+		}
+		return $this->svg;
 	}
 
 	protected function getMathTableName() {
