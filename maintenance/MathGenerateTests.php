@@ -89,7 +89,7 @@ class MathGenerateTests extends Maintenance
 			echo '.';
 		}
 		echo "Generated $i tests\n";
-		file_put_contents( dirname( __FILE__ ) . '/../tests/ParserTest.data', serialize( $parserTests ) );
+		file_put_contents( dirname( __FILE__ ) . '/../tests/ParserTest.json', json_encode( $parserTests, JSON_PRETTY_PRINT ) );
 	}
 }
 
