@@ -76,12 +76,12 @@ class MathCoverageTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Gets the test-data from the file ParserTest.data
+	 * Gets the test-data from the file ParserTest.json
 	 * @return array($input, $output) where $input is the test input string and $output is the rendered html5-output string
 	 */
 	public function testProvider()
 	{
-		return unserialize( file_get_contents( dirname( __FILE__ ) . '/ParserTest.data' ) );
+		return json_decode( file_get_contents( dirname( __FILE__ ) . '/ParserTest.json' ) );
 	}
 
 	private function normalize( $input ) {
