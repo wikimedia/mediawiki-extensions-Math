@@ -466,4 +466,14 @@ class MathMathML extends MathRenderer {
 		}
 		return $out;
 	}
+
+	protected function initializeFromDatabaseRow( $rpage ) {
+		// mathoid allows different input formats
+		// therefore the column name math_inputtex was changed to math_input
+		if ( $this->getMathTableName() == 'mathoid' && ! empty( $rpage->math_input ) ) {
+			$this->userInputTex = $rpage->math_input;
+		}
+		parent::initializeFromDatabaseRow( $rpage );
+
+	}
 }
