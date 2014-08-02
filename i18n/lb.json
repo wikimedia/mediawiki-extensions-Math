@@ -21,6 +21,7 @@
 	"math_bad_tmpdir": "Den temporäre Repertire fir mathematesch Formele kann net ugeluecht ginn oder et kann näischt do gespäichert ginn.",
 	"math_bad_output": "Den Zilrepertoire fir mathematesch Formele kann net ugeluecht ginn oder et kann näischt do gespäichert ginn.",
 	"math_notexvc": "Den <code>texvc</code> Programm feelt: Liest w.e.g. math/README fir en anzestellen.",
+	"math_timeout": "$1 timeout vu(n) \"$2\"",
 	"math_invalidxml": "MathML ass net valabelen XML.",
 	"math_xmlversion": "Opgepasst: D'Kontroll vum Typ vun XML gouf iwwersprong! Kuckt no op Är MediaWiki Installatioun d'Versioun wmf/1.22wmf7 oder méi rezent ass.",
 	"math-visualeditor-mwmathinspector-title": "Formel"
