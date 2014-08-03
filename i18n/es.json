@@ -29,6 +29,7 @@
 	"math_bad_output": "No se puede escribir o crear el directorio de salida de <em>math</em>",
 	"math_notexvc": "Falta el ejecutable de <strong><code>texvc</code></strong>. Por favor, lea <em>math/README</em> para configurarlo.",
 	"math_output_error": "No se puede almacenar la imagen matemática en el sistema de archivos.",
+	"math_timeout": "El tiempo de espera de $1 en «$2» se agotó.",
 	"math_invalidxml": "MathML no es XML válido.",
 	"math-visualeditor-mwmathinspector-title": "Fórmula",
 	"math-preference-mwmathinspector-description": "Añade al editor visual la función experimental de crear y editar fórmulas matemáticas para probarla antes de su lanzamiento a los usuarios en general. Al usar herramientas experimentales, recuerda siempre revisar tus cambios antes de guardar.",
