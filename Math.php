@@ -308,7 +308,7 @@ $wgResourceModules += array(
 	'ext.math.mathjax.extensions.ui' => array(
 		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/extensions',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/extensions',
-		'scripts' => array( 'MathEvents.js', 'MathZoom.js', 'MathMenu.js', 'toMathML.js' ),
+		'scripts' => array( 'MathEvents.js', 'MathZoom.js', 'toMathML.js' ),
 		'dependencies' => 'ext.math.mathjax.mathjax'
 	),
 	'ext.math.mathjax.extensions.TeX' => array(
