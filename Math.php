@@ -465,6 +465,10 @@ $wgResourceModules += array(
 		'scripts' => array( 'Fraktur/Bold/BasicLatin.js', 'Fraktur/Bold/Other.js', 'Fraktur/Bold/PUA.js', 'Fraktur/Regular/BasicLatin.js', 'Fraktur/Regular/Other.js', 'Fraktur/Regular/PUA.js', 'SansSerif/Bold/BasicLatin.js', 'SansSerif/Bold/CombDiacritMarks.js', 'SansSerif/Bold/Other.js', 'SansSerif/Italic/BasicLatin.js', 'SansSerif/Italic/CombDiacritMarks.js', 'SansSerif/Italic/Other.js', 'SansSerif/Regular/BasicLatin.js', 'SansSerif/Regular/CombDiacritMarks.js', 'SansSerif/Regular/Other.js', 'Script/Regular/BasicLatin.js', 'Typewriter/Regular/BasicLatin.js', 'Typewriter/Regular/CombDiacritMarks.js', 'Typewriter/Regular/Other.js' )
 	) + $moduleTemplateSVG
 );
+$wgResourceModules += array(
+	'ext.math.mathjax.customize' => array(
+		'dependencies' => 'ext.math.mathjax.mathjax'
+);
 
 $moduleTemplate = array(
     'localBasePath' => __DIR__ . '/modules',

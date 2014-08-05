@@ -103,6 +103,7 @@
 	mathJax.Init = function () {
 		// Configure MathJax
 		MathJax.Hub.Config( mathJax.config );
+		mw.loader.load( 'ext.math.mathjax.customize' ); /* this hook can be used to override MathJax configuration */
 		MathJax.OutputJax.fontDir = mw.config.get( 'wgExtensionAssetsPath' ) + '/Math/modules/MathJax/fonts';
 
 		// Redefine MathJax.Hub.Startup.Jax
