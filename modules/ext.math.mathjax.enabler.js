@@ -218,7 +218,9 @@
 			window.MathJax = {
 				delayStartupUntil: 'configured',
 				skipStartupTypeset: true,
-				AuthorInit: mathJax.Init
+				AuthorInit: function() {
+				MathJax.Hub.Startup.signal.Post('Make Extensions Modifications');
+				}
 			};
 		}
 
