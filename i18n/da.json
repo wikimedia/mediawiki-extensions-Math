@@ -3,7 +3,8 @@
 		"authors": [
 			"Christian List",
 			"Nghtwlkr",
-			"Peter Alberti"
+			"Peter Alberti",
+			"Thomsen"
 		]
 	},
 	"math-desc": "Gengiver matematiske formler inden i <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>-tags",
@@ -25,7 +26,7 @@
 	"math_bad_output": "Kan ikke skrive til eller oprette uddata-mappe til math",
 	"math_notexvc": "Manglende eksekvérbar <code>texvc</code>; se math/README for opsætningsoplysninger.",
 	"math_output_error": "Kan ikke gemme matematikbillede på filsystem.",
-	"math_invalidresponse": "$1: ugyldigt svar ('$3') fra serveren '$2':",
+	"math_invalidresponse": "$1: ugyldigt svar (\"$3\") fra serveren \"$2\":",
 	"math_invalidxml": " MathML er ugyldig XML.",
 	"math_invalidjson": "$1 svar fra serveren er ugyldig JSON.",
 	"math_xmlversion": "Advarsel: XML typetjek springes over! Tjek om din MediaWiki-installation er version wmf/1.22wmf7 eller nyere.",
