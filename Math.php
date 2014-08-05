@@ -308,8 +308,14 @@ $wgResourceModules += array(
 	'ext.math.mathjax.extensions.ui' => array(
 		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/extensions',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/extensions',
-		'scripts' => array( 'MathEvents.js', 'MathZoom.js', 'MathMenu.js', 'toMathML.js' ),
+		'scripts' => array( 'MathEvents.js', 'MathZoom.js', 'toMathML.js' ),
 		'dependencies' => 'ext.math.mathjax.mathjax'
+	),
+	'ext.math.mathjax.extensions.Menu'=> array(
+        'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/extensions',
+         'remoteExtPath' => 'Math/modules/MathJax/unpacked/extensions',
+         'scripts' => array( 'MathMenu.js' ),
+         'dependencies' => 'ext.math.mathjax.mathjax'
 	),
 	'ext.math.mathjax.extensions.TeX' => array(
 		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/extensions',
@@ -324,7 +330,7 @@ $wgResourceModules += array(
 		'dependencies' => 'ext.math.mathjax.mathjax'
 	),
 	'ext.math.mathjax.extensions' => array(
-		'dependencies' => array( 'ext.math.mathjax.extensions.ui', 'ext.math.mathjax.extensions.TeX', 'ext.math.mathjax.extensions.mml2jax' )
+		'dependencies' => array( 'ext.math.mathjax.extensions.ui', 'ext.math.mathjax.extensions.Menu', 'ext.math.mathjax.extensions.TeX', 'ext.math.mathjax.extensions.mml2jax' )
 	),
 
 	// MathJax module for representing MathML elements
