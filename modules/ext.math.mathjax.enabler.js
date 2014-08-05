@@ -101,6 +101,7 @@
 	 * by our own resource loader.
 	 */
 	mathJax.Init = function () {
+		MathJax.Hub.Startup.signal.Post('Make Extensions Modifications');
 		// Configure MathJax
 		MathJax.Hub.Config( mathJax.config );
 		MathJax.OutputJax.fontDir = mw.config.get( 'wgExtensionAssetsPath' ) + '/Math/modules/MathJax/fonts';
