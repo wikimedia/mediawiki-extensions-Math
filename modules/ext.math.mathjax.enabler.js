@@ -218,7 +218,10 @@
 			window.MathJax = {
 				delayStartupUntil: 'configured',
 				skipStartupTypeset: true,
-				AuthorInit: mathJax.Init
+				AuthorInit: function() {
+				MathJax.Ajax.config.path.MediaWiki = mw.config.get( 'wgServer' ) + mw.config.get( 'wgExtensionAssetsPath' ) + 'Math/modules/mediawiki-extensions';
+				mathJax.Init
+				}
 			};
 		}
 
