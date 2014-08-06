@@ -133,6 +133,7 @@
 			var queue, callback;
 			queue = MathJax.Callback.Queue();
 			callback = MathJax.Callback( {} );
+			MathJax.Ajax.config.path.MediaWiki = mw.config.get( 'wgServer' ) + mw.config.get( 'wgExtensionAssetsPath' ) + 'Math/modules/mediawiki-extensions';
 			return queue.Push(
 				['Post', MathJax.Hub.Startup.signal, 'Begin Extensions'],
 				['using', mw.loader, 'ext.math.mathjax.extensions', callback],
