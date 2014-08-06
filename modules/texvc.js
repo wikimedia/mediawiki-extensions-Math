@@ -1,9 +1,9 @@
 /**
  * From https://en.wikipedia.org/wiki/User:Nageh/mathJax/config/TeX-AMS-texvc_HTML.js
  */
-
-MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
-  var VERSION = "1.0";
+ /*global mathJax:true, MathJax:true */
+MathJax.Hub.Register.StartupHook('TeX Jax Ready',function () {
+  var VERSION = '1.0';
 
   var MML = MathJax.ElementJax.mml;
 
@@ -131,6 +131,6 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
   });
 });
 
-MathJax.Hub.Startup.signal.Post("TeX texvc Ready");
+MathJax.Hub.Startup.signal.Post('TeX texvc Ready');
 
-MathJax.Ajax.loadComplete("[MathJax]/extensions/TeX/texvc.js");
+MathJax.Ajax.loadComplete('http://sh3nhu.deployment.wmflabs.org/w/extensions/Math/modules/texvc.js');
