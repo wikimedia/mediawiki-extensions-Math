@@ -236,6 +236,7 @@
 		}
 	};
 
+    MathJax.Ajax.config.path.MediaWiki = mw.config.get( 'wgServer' ) + mw.config.get( 'wgExtensionAssetsPath' ) + 'Math/modules/mediawiki-extensions';
 	mw.hook( 'wikipage.content' ).add( mathJax.LoadAndRender );
 
 }( mediaWiki, jQuery ) );
