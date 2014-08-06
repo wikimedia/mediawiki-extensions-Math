@@ -101,6 +101,7 @@
 	 * by our own resource loader.
 	 */
 	mathJax.Init = function () {
+	    MathJax.Ajax.config.path.MediaWiki = mw.config.get( 'wgServer' ) + mw.config.get( 'wgExtensionAssetsPath' ) + 'Math/modules/mediawiki-extensions';
 		// Configure MathJax
 		MathJax.Hub.Config( mathJax.config );
 		MathJax.OutputJax.fontDir = mw.config.get( 'wgExtensionAssetsPath' ) + '/Math/modules/MathJax/fonts';
