@@ -198,6 +198,8 @@
 		MathJax.Hub.config.menuSettings.locale = mathJax.locale;
 		mw.loader.using( 'ext.math.mathjax.localization', function () {
 			MathJax.Hub.Configured();
+			MathJax.Ajax.config.path.MediaWiki = mw.config.get( 'wgServer' ) + mw.config.get( 'wgExtensionAssetsPath' ) + 'Math/modules/mediawiki-extensions';
+
 		} );
 	};
 
