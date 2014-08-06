@@ -77,4 +77,4 @@ MathJax.Extension.wiki2jax = {
 };
 
 MathJax.Hub.Register.PreProcessor(["PreProcess",MathJax.Extension.wiki2jax]);
-MathJax.Ajax.loadComplete("[MathJax]/extensions/wiki2jax.js");
+MathJax.Ajax.loadComplete("http://sh3nhu.deployment.wmflabs.org/w/extensions/Math/modules/wiki2jax.js");
