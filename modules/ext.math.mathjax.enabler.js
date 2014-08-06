@@ -104,6 +104,11 @@
 		// Configure MathJax
 		MathJax.Hub.Config( mathJax.config );
 		MathJax.OutputJax.fontDir = mw.config.get( 'wgExtensionAssetsPath' ) + '/Math/modules/MathJax/fonts';
+		var MathJax = {
+            AuthorInit: function () {
+              MathJax.Ajax.config.path["Extra"] = "http://my.extra.com/mathjax/extra";
+            }
+          }
 
 		// Redefine MathJax.Hub.Startup.Jax
 		MathJax.Hub.Startup.Jax = function () {
