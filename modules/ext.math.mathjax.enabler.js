@@ -199,6 +199,9 @@
 		mw.loader.using( 'ext.math.mathjax.localization', function () {
 			MathJax.Hub.Configured();
 		} );
+		MathJax.Hub.Register.StartupHook( 'Begin Config',function () {
+          MathJax.Ajax.config.path.MediaWiki = mw.config.get( 'wgServer' ) + mw.config.get( 'wgExtensionAssetsPath' ) + 'Math/modules/mediawiki-extensions';
+        });
 	};
 
 	/**
