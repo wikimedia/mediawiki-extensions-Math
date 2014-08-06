@@ -235,6 +235,11 @@
 			} );
 		}
 	};
+		var MathJax = {
+             AuthorInit: function () {
+           MathJax.Ajax.config.path["Extra"] = "http://my.extra.com/mathjax/extra";
+                    }
+                  }
 
 	mw.hook( 'wikipage.content' ).add( mathJax.LoadAndRender );
 
