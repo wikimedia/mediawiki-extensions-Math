@@ -219,6 +219,7 @@
 				delayStartupUntil: 'configured',
 				skipStartupTypeset: true,
 				AuthorInit: mathJax.Init
+				MathJax.Ajax.config.path.MediaWiki = mw.config.get( 'wgServer' ) + mw.config.get( 'wgExtensionAssetsPath' ) + 'Math/modules/mediawiki-extensions';
 			};
 		}
 
