@@ -183,6 +183,11 @@
 					throw new Error( 'Can\'t load files of type ' + type );
 				}
 			}
+			window.MathJax = {
+                  AuthorInit: function () {
+                        MathJax.Ajax.config.path.MediaWiki = mw.config.get( 'wgServer' ) + mw.config.get( 'wgExtensionAssetsPath' ) + 'Math/modules/mediawiki-extensions';
+                  }
+            };
 			return callback;
 		};
 
