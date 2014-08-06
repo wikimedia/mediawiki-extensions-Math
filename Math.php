@@ -314,7 +314,13 @@ $wgResourceModules += array(
 	'ext.math.mathjax.extensions.TeX' => array(
 		'localBasePath' => __DIR__ . '/modules/MathJax/unpacked/extensions',
 		'remoteExtPath' => 'Math/modules/MathJax/unpacked/extensions',
-		'scripts' => array( 'wiki2jax.js', 'TeX/noUndefined.js', 'TeX/AMSmath.js', 'TeX/AMSsymbols.js', 'TeX/boldsymbol.js', 'TeX/color.js', 'TeX/cancel.js', 'TeX/mathchoice.js', 'TeX/texvc.js' ),
+		'scripts' => array( 'TeX/noUndefined.js', 'TeX/AMSmath.js', 'TeX/AMSsymbols.js', 'TeX/boldsymbol.js', 'TeX/color.js', 'TeX/cancel.js', 'TeX/mathchoice.js' ),
+		'dependencies' => array( 'ext.math.mathjax.mathjax' )
+	),
+	'ext.math.mathjax.extensions.mediawiki' => array(
+		'localBasePath' => __DIR__ . '/modules/mediawiki-extensions',
+		'remoteExtPath' => 'Math/modules',
+		'scripts' => array( 'texvc.js','wiki2jax.js' ),
 		'dependencies' => array( 'ext.math.mathjax.mathjax' )
 	),
 	'ext.math.mathjax.extensions.mml2jax' => array(
@@ -324,7 +330,7 @@ $wgResourceModules += array(
 		'dependencies' => 'ext.math.mathjax.mathjax'
 	),
 	'ext.math.mathjax.extensions' => array(
-		'dependencies' => array( 'ext.math.mathjax.extensions.ui', 'ext.math.mathjax.extensions.TeX', 'ext.math.mathjax.extensions.mml2jax' )
+		'dependencies' => array( 'ext.math.mathjax.extensions.ui', 'ext.math.mathjax.extensions.TeX', 'ext.math.mathjax.extensions.wikiTeX', 'ext.math.mathjax.extensions.mml2jax' )
 	),
 
 	// MathJax module for representing MathML elements
