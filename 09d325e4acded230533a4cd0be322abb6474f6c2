@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e28a382_263f7cd5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-08-12T16:17:03Z",
+      "side": 1,
+      "message": "The  commit message needs to be improved.\nWhat are you doing and why?",
+      "revId": "09d325e4acded230533a4cd0be322abb6474f6c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_463a88e5",
+        "filename": "Math.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-08-12T16:17:03Z",
+      "side": 1,
+      "message": "I\u0027d propose to start with lowercase here i.e. wikiTeX",
+      "revId": "09d325e4acded230533a4cd0be322abb6474f6c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_663584f3",
+        "filename": "Math.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-08-12T16:17:03Z",
+      "side": 1,
+      "message": "please remove additional white-spaces here.",
+      "revId": "09d325e4acded230533a4cd0be322abb6474f6c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_e6285498",
+        "filename": "modules/texvc.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-08-12T16:17:03Z",
+      "side": 1,
+      "message": "That does not work. You have to find a way to get extension url from javascript. I think it should be present in the global mw object.",
+      "revId": "09d325e4acded230533a4cd0be322abb6474f6c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_c62558be",
+        "filename": "modules/wiki2jax.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-08-12T16:17:03Z",
+      "side": 1,
+      "message": "the same for this url.\nYou should try to mark this file as move, \nhttp://stackoverflow.com/questions/433111/how-to-make-git-mark-a-deleted-and-a-new-file-as-a-file-move\n\nThat way we can see what you have changed.",
+      "revId": "09d325e4acded230533a4cd0be322abb6474f6c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}

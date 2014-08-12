@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e28a382_0644806d",
+        "filename": "modules/texvc.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-08-12T16:17:03Z",
+      "side": 0,
+      "message": "I\u0027m not sure if that global variable VERSION is used by MathJax. Can you check in the MathJax docu?",
+      "revId": "39af5a54082e4056bb20fa46ec8eaa3747972023",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
