@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e28a382_4a64c645",
+        "filename": "Math.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-08-13T14:41:20Z",
+      "side": 1,
+      "message": "Use tabs instead of white-spaces here.",
+      "revId": "78c00f9722fc6575826af31c1e41487d3f8d50d6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_0a5ebe7b",
+        "filename": "modules/texvc.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-08-13T14:41:20Z",
+      "side": 1,
+      "message": "maybe you can merge the comments or put a newline in between",
+      "revId": "78c00f9722fc6575826af31c1e41487d3f8d50d6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_ea625236",
+        "filename": "modules/texvc.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-08-13T14:41:20Z",
+      "side": 1,
+      "message": "I think we need more space here i.e.\nMathJax.Hub.Register.StartupHook( \u0027TeX Jax Ready\u0027, function ()",
+      "revId": "78c00f9722fc6575826af31c1e41487d3f8d50d6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_ca57965b",
+        "filename": "modules/texvc.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-08-13T14:41:20Z",
+      "side": 1,
+      "message": "more space see above",
+      "revId": "78c00f9722fc6575826af31c1e41487d3f8d50d6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_cad676c8",
+        "filename": "modules/wiki2jax.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-08-13T14:41:20Z",
+      "side": 1,
+      "message": "See comment on the other js file.",
+      "revId": "78c00f9722fc6575826af31c1e41487d3f8d50d6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
