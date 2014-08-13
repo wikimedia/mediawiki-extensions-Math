@@ -92,7 +92,7 @@ class MathHooks {
 	 * @return array
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgUseMathJax, $wgMathDisableTexFilter;
+		global $wgUseMathJax, $wgMathDisableTexFilter, $wgUseTidy;
 
 		if ( trim( $content ) === '' ) { // bug 8372
 			return '';
@@ -138,11 +138,30 @@ class MathHooks {
 
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
+		// Hide math output from Tidy
+		if ( $wgUseTidy ) {
+			$renderedMath = '<!--untidy' .$renderedMath  . 'untidy-->';
+		}
 		wfProfileOut( __METHOD__ );
-
-		return array( $renderedMath, "markerType" => 'nowiki' );
+		return array( $renderedMath , "markerType" => 'nowiki' );
 	}
 
+	/**
+	 * Hook that restores the Math output that was hidden from Tidy
+	 *
+	 * @param $parser Parser link to the Parser object
+	 * @param $text string the page text
+	 * @return bool
+	 */
+	static function onParserAfterTidy( &$parser, &$text ){
+		global $wgUseTidy;
+		if ( $wgUseTidy ){
+			wfProfileIn( __METHOD__ );
+			$text = preg_replace( '/(<!--untidy)(.*?)(untidy-->)/s','$2' ,$text );
+			wfProfileOut( __METHOD__ );
+		}
+		return true;
+	}
 	/**
 	 * Add the new math rendering options to Special:Preferences.
 	 *
