@@ -40,3 +40,5 @@ modules/MathJax/unpacked/jax/output/SVG/fonts/Gyre-Termes
 modules/MathJax/unpacked/jax/output/SVG/fonts/Latin-Modern
 modules/MathJax/unpacked/jax/output/SVG/fonts/Neo-Euler
 modules/MathJax/unpacked/jax/output/SVG/fonts/STIX-Web
+tests/browser/.bundle
+tests/browser/.gem
