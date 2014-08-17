@@ -6,7 +6,7 @@
 * @group Database (Used by needsDB)
 */
 class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
-	var $renderer;
+	public $renderer;
 	const SOME_TEX = "a+b";
 	const SOME_HTML = "a<sub>b</sub>";
 	const SOME_MATHML = "iℏ∂_tΨ=H^Ψ<mrow><\ci>";
