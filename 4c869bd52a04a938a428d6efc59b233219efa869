@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e28a382_514c4f43",
+        "filename": "modules/ext.math.mathjax.enabler.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-08-19T15:09:13Z",
+      "side": 1,
+      "message": "the comment is quite long. it might be good to put in a new line and to use // for only one line comment",
+      "revId": "4c869bd52a04a938a428d6efc59b233219efa869",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
