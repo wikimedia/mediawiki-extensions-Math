@@ -1,0 +1,9 @@
+Verified+2: jenkins-bot
+Code-Review+1: Cmcmahon <cmcmahon@wikimedia.org>
+Code-Review+2: Jforrester <jforrester@wikimedia.org>
+Code-Review+1: Frédéric Wang <fred.wang@free.fr>
+Submitted-by: jenkins-bot
+Submitted-at: Fri, 22 Aug 2014 16:31:15 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/154060
+Project: mediawiki/extensions/Math
+Branch: refs/heads/master
