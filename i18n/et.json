@@ -13,6 +13,7 @@
 	"mw_math_png": "Alati PNG",
 	"mw_math_source": "Säilitada TeX (tekstibrauserite puhul)",
 	"mw_math_mathjax": "MathJax (katseline; parim enamiku võrgulehitsejatega)",
+	"mw_math_mathml": "MathML SVG-taanderežiimiga (katseline)",
 	"math_failure": "Liigendamine ebaõnnestus",
 	"math_unknown_error": "Tundmatu viga",
 	"math_unknown_function": "tundmatu funktsioon '$1'",
@@ -24,5 +25,8 @@
 	"math_notexvc": "<code>Texvc</code>-rakendus puudub. Häälestamiseks vaata palun faili math/README.",
 	"math_notexvccheck": "<code>Texvccheck</code>-rakendus puudub. Häälestamiseks vaata palun faili math/README.",
 	"math_output_error": "Valemipilti ei saa failisüsteemis talletada.",
+	"math_timeout": "Viimistlustüübi $1 ajalõpp asukohas \"$2\".",
+	"math_invalidresponse": "$1: Vigane vastus (\"$3\") serverist \"$2\":",
+	"math_invalidxml": "MathML on vigane XML.",
 	"math-visualeditor-mwmathinspector-title": "Valem"
 }

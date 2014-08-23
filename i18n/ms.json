@@ -14,7 +14,7 @@
 	"mw_math_png": "Sentiasa lakar PNG",
 	"mw_math_source": "Biarkan sebagai TeX (untuk pelayar teks)",
 	"mw_math_mathjax": "MathJax (dalam percubaan; paling sesuai untuk kebanyakan pelayar)",
-	"mw_math_mathml": "MathML jika boleh (sedang dalam uji kaji)",
+	"mw_math_mathml": "MathML dengan sandaran SVG (sedang dalam uji kaji)",
 	"mw_math_latexml": "LaTeXML (percubaan; menggunakan MathML)",
 	"math_failure": "Gagal menghurai",
 	"math_unknown_error": "ralat yang tidak dikenali",
@@ -25,11 +25,13 @@
 	"math_bad_tmpdir": "Direktori temp matematik tidak boleh ditulis atau dicipta",
 	"math_bad_output": "Direktori output matematik tidak boleh ditulis atau dicipta",
 	"math_notexvc": "Atur cara <code>texvc</code> hilang; sila lihat fail math/README untuk maklumat konfigurasi.",
+	"math_notexvccheck": "Atur cara <code>texvccheck</code> hilang. Sila lihat math/README untuk pemasangan.",
 	"math_output_error": "Imej matematik tidak dapat disimpan di dalam sistem fail.",
 	"math_invalidresponse": "Respons tidak sah $1: ('$3') dari pelayan '$2':",
 	"math_invalidxml": " MathML adalah XML yang tidak sah.",
 	"math_invalidjson": "Respons Pelayan $1 adalah JSON yang tidak sah.",
 	"math_xmlversion": "Amaran: Semakan Jenis XML dilangkau! Semak sama ada pemasangan MediaWiki anda adalah versi wmf/1.22wmf7 ke atas.",
+	"math-visualeditor-mwmathinspector-title": "Rumus",
 	"math-preference-mwmathinspector-description": "Tambahkan sokongan percubaan pada VisualEditor untuk mewujudkan dan menyunting rumus matematik untuk diuji sebelum keluaran umum. Sila ingat untuk sentiasa menyemak suntingan anda sebelum menyimpan apabila menggunakan ciri-ciri percubaan.",
 	"math-preference-mwmathinspector-label": "Penyuntingan rumus (formula) VisualEditor"
 }
