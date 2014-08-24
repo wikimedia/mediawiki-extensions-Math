@@ -133,4 +133,4 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
 
 MathJax.Hub.Startup.signal.Post("TeX texvc Ready");
 
-MathJax.Ajax.loadComplete("[MathJax]/extensions/TeX/texvc.js");
+MathJax.Ajax.loadComplete("[MediaWiki]/texvc.js");
