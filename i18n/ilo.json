@@ -11,7 +11,7 @@
 	"prefs-math": "Math",
 	"mw_math_png": "Kanayon nga ipaay ti PNG",
 	"mw_math_source": "Ibati lattan a kas ti TeX (para kadagiti testo a pagbasabasa)",
-	"mw_math_mathjax": "MathJax (eksperimento; kasayaatan para kadagiti kaaduan a pagbasabasa)",
+	"mw_math_mathjax": "MathJax (eksperimento)",
 	"mw_math_latexml": "LaTeXML (eksperimental; agus-usar ti MathML)",
 	"math_failure": "Napaay a na-parse",
 	"math_unknown_error": "di amammo a biddut",

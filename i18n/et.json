@@ -12,7 +12,7 @@
 	"prefs-math": "Valemite näitamine",
 	"mw_math_png": "Alati PNG",
 	"mw_math_source": "Säilitada TeX (tekstibrauserite puhul)",
-	"mw_math_mathjax": "MathJax (katseline; parim enamiku võrgulehitsejatega)",
+	"mw_math_mathjax": "MathJax (katseline)",
 	"mw_math_mathml": "MathML SVG-taanderežiimiga (katseline)",
 	"math_failure": "Liigendamine ebaõnnestus",
 	"math_unknown_error": "Tundmatu viga",

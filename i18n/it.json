@@ -10,7 +10,7 @@
 	"prefs-math": "Formule matematiche",
 	"mw_math_png": "Mostra sempre in PNG",
 	"mw_math_source": "Lascia in formato TeX (per browser testuali)",
-	"mw_math_mathjax": "MathJax (sperimentale; il migliore per la maggior parte dei browser)",
+	"mw_math_mathjax": "MathJax (sperimentale)",
 	"mw_math_mathml": "MathML, altrimenti SVG (sperimentale)",
 	"mw_math_latexml": "LaTeXML (sperimentale; usa MathML)",
 	"math_failure": "Errore del parser",

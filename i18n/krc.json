@@ -10,7 +10,7 @@
 	"prefs-math": "Математика белгиле",
 	"mw_math_png": "PNG сурат форматха кёчюргенлей тур",
 	"mw_math_source": "Тюрлендирмей TeX болуб къой (текст браузерле ючюн)",
-	"mw_math_mathjax": "MathJax (браузерлени кёбюсюне оптимал болгъан экспериментал опция)",
+	"mw_math_mathjax": "MathJax (экспериментал опция)",
 	"math_failure": "Ангылашынамады",
 	"math_unknown_error": "билинмеген халат",
 	"math_unknown_function": "билинмеген функция",

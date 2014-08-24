@@ -13,7 +13,7 @@
 	"prefs-math": "Formules",
 	"mw_math_png": "Altijd als PNG weergeven",
 	"mw_math_source": "De TeX-broncode behouden (voor tekstbrowsers)",
-	"mw_math_mathjax": "MathJax (experimenteel; het beste voor de meeste browsers)",
+	"mw_math_mathjax": "MathJax (experimenteel)",
 	"mw_math_mathml": "MathML met SVG-terugval (experimenteel)",
 	"mw_math_latexml": "LaTeXML (experimenteel; gebruikt MathML)",
 	"math_failure": "Parsen mislukt",

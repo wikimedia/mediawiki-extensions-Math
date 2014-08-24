@@ -12,7 +12,7 @@
 	"prefs-math": "Fórmulas matemáticas",
 	"mw_math_png": "Orixinar sempre unha imaxe PNG",
 	"mw_math_source": "Deixalo como TeX (para os navegadores de texto)",
-	"mw_math_mathjax": "MathJax (experimental; o mellor para a maioría dos navegadores)",
+	"mw_math_mathjax": "MathJax (experimental)",
 	"mw_math_mathml": "MathML con respaldo en SVG (experimental)",
 	"mw_math_latexml": "LaTeXML (experimental; usa MathML)",
 	"math_failure": "Fallou a conversión do código",

@@ -16,7 +16,7 @@
 	"prefs-math": "Com es mostren les fórmules",
 	"mw_math_png": "Produeix sempre PNG",
 	"mw_math_source": "Deixa com a TeX (per a navegadors de text)",
-	"mw_math_mathjax": "MathJax (experimental; òptim per a la majoria de navegadors)",
+	"mw_math_mathjax": "MathJax (experimental)",
 	"mw_math_mathml": "MathML si és possible (experimental)",
 	"mw_math_latexml": "LaTeXML (experimental; utilitza MathML)",
 	"math_failure": "No s'ha pogut entendre",

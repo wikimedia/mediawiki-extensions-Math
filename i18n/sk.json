@@ -11,7 +11,7 @@
 	"prefs-math": "Vykreslenie matematiky",
 	"mw_math_png": "Vždy vykresľovať PNG",
 	"mw_math_source": "Ponechať TeX (pre textové prehliadače)",
-	"mw_math_mathjax": "MathJax (experimentálne; optimum pre väčšinu prehliadačov)",
+	"mw_math_mathjax": "MathJax (experimentálne)",
 	"math_failure": "Syntaktická analýza (parsing) neúspešná",
 	"math_unknown_error": "neznáma chyba",
 	"math_unknown_function": "neznáma funkcia",
