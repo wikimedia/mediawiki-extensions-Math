@@ -9,7 +9,7 @@
 	"prefs-math": "Математикалық өрнектер",
 	"mw_math_png": "Әрқашан PNG пішінімен көрсеткіз",
 	"mw_math_source": "Бұны TeX пішімінде қалдыр (мәтіндік шолғыштарға)",
-	"mw_math_mathjax": "MathJax (тәжірибелік; көп броузерлер үшін ең жақсысы)",
+	"mw_math_mathjax": "MathJax (тәжірибелік)",
 	"math_failure": "Құрылымын талдатуы сәтсіз бітті",
 	"math_unknown_error": "белгісіз қате",
 	"math_unknown_function": "белгісіз функция '$1'",

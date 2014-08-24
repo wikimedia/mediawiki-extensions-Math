@@ -11,7 +11,7 @@
 	"prefs-math": "TeX",
 	"mw_math_png": "Leewen üs PNG uunwise",
 	"mw_math_source": "Uun TeX-formoot läät (för tekst-browsers)",
-	"mw_math_mathjax": "MathJax (eksperimentel; best för a miast browsers)",
+	"mw_math_mathjax": "MathJax (eksperimentel)",
 	"mw_math_mathml": "MathML mä SVG-fallback (eksperimentel)",
 	"mw_math_latexml": "LaTeXML (experimentel; werket mä MathML)",
 	"math_failure": "Bi't auersaaten as wat skiaf gingen.",

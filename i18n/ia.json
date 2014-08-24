@@ -10,7 +10,7 @@
 	"prefs-math": "Mathematica",
 	"mw_math_png": "Sempre producer PNG",
 	"mw_math_source": "Lassa lo como TeX (pro navigatores in modo texto)",
-	"mw_math_mathjax": "MathJax (experimental; optime pro le majoritate del navigatores)",
+	"mw_math_mathjax": "MathJax (experimental)",
 	"math_failure": "Error durante le analyse del syntaxe",
 	"math_unknown_error": "error incognite",
 	"math_unknown_function": "function '$1' incognite",

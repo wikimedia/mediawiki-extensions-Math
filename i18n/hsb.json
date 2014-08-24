@@ -10,7 +10,7 @@
 	"prefs-math": "Math",
 	"mw_math_png": "Přeco jako PNG zwobraznić",
 	"mw_math_source": "Jako TeX wostajić (za tekstowe wobhladowaki)",
-	"mw_math_mathjax": "MathJax (eksperimentalny; přihódny za najwjace wobhladowakow)",
+	"mw_math_mathjax": "MathJax (eksperimentalny)",
 	"math_failure": "Analyza njeje so poradźiła",
 	"math_unknown_error": "njeznaty zmylk",
 	"math_unknown_function": "njeznata funkcija \"$1\"",

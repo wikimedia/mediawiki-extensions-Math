@@ -13,7 +13,7 @@
 	"prefs-math": "Matematik",
 	"mw_math_png": "Sentiasa lakar PNG",
 	"mw_math_source": "Biarkan sebagai TeX (untuk pelayar teks)",
-	"mw_math_mathjax": "MathJax (dalam percubaan; paling sesuai untuk kebanyakan pelayar)",
+	"mw_math_mathjax": "MathJax (dalam percubaan)",
 	"mw_math_mathml": "MathML dengan sandaran SVG (sedang dalam uji kaji)",
 	"mw_math_latexml": "LaTeXML (percubaan; menggunakan MathML)",
 	"math_failure": "Gagal menghurai",

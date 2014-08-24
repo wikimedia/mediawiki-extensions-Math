@@ -16,7 +16,7 @@
 	"prefs-math": "Matematik",
 	"mw_math_png": "Rendera alltid PNG",
 	"mw_math_source": "Låt vara TeX (för textbaserade webbläsare)",
-	"mw_math_mathjax": "MathJax (i försöksstadium; fungerar bäst för de flesta webbläsare)",
+	"mw_math_mathjax": "MathJax (i försöksstadium)",
 	"mw_math_mathml": "MathML med SVG-återgång (experimentell)",
 	"mw_math_latexml": "LaTeXML (experimentell; använder MathML)",
 	"math_failure": "Misslyckades med att tolka formel.",

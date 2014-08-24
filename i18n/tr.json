@@ -16,7 +16,7 @@
 	"prefs-math": "Matematiksel simgeler",
 	"mw_math_png": "Daima PNG resim formatına çevir",
 	"mw_math_source": "Değiştirmeden TeX olarak bırak  (metin tabanlı tarayıcılar için)",
-	"mw_math_mathjax": "MathJax (deneysel; çoğu tarayıcıya uygun)",
+	"mw_math_mathjax": "MathJax (deneysel)",
 	"math_failure": "Ayrıştırılamadı",
 	"math_unknown_error": "bilinmeyen hata",
 	"math_unknown_function": "bilinmeyen fonksiyon",

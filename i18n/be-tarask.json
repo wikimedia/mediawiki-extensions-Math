@@ -12,7 +12,7 @@
 	"prefs-math": "Матэматычныя формулы",
 	"mw_math_png": "Заўсёды паказваць як PNG",
 	"mw_math_source": "Пакідаць у выглядзе TeX (для тэкставых браўзэраў)",
-	"mw_math_mathjax": "MathJax (экспэрымэнтальна; найлепей для большасьці браўзэраў)",
+	"mw_math_mathjax": "MathJax (экспэрымэнтальна)",
 	"mw_math_latexml": "LaTeXML (экспэрымэнтальна; ужывае MathML)",
 	"math_failure": "Немагчыма разабраць",
 	"math_unknown_error": "невядомая памылка",

@@ -10,7 +10,7 @@
 	"prefs-math": "Матем. формули",
 	"mw_math_png": "Секогаш исцртувај во PNG",
 	"mw_math_source": "Остави го како TeX (за текстуални прелистувачи)",
-	"mw_math_mathjax": "MathJax (експериментално; најдобро за највеќето прелистувачи)",
+	"mw_math_mathjax": "MathJax (експериментално)",
 	"mw_math_mathml": "MathML со SVG за резерва (експериментално)",
 	"mw_math_latexml": "LaTeXML (експериментално; користи MathML)",
 	"math_failure": "Не можев да расчленам",

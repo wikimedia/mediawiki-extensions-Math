@@ -15,7 +15,7 @@
 	"prefs-math": "Matematiikka",
 	"mw_math_png": "Näytä aina PNG:nä",
 	"mw_math_source": "Näytä TeX-muodossa (tekstiselaimille)",
-	"mw_math_mathjax": "MathJax (kokeellinen; paras useimmille selaimille)",
+	"mw_math_mathjax": "MathJax (kokeellinen)",
 	"mw_math_latexml": "LaTeXML (kokeellinen; käyttää MathML:ää)",
 	"math_failure": "Jäsentäminen epäonnistui",
 	"math_unknown_error": "Tuntematon virhe",

@@ -15,7 +15,7 @@
 	"prefs-math": "數學公式",
 	"mw_math_png": "永遠使用PNG圖片",
 	"mw_math_source": "顯示TeX代碼 (供文字瀏覽器使用)",
-	"mw_math_mathjax": "MathJax (實驗性；適合大多數瀏覽器)",
+	"mw_math_mathjax": "MathJax (實驗性)",
 	"mw_math_mathml": "MathML 與備選 SVG  (試驗中)",
 	"mw_math_latexml": "LaTeXML (實驗性；使用MathML)",
 	"math_failure": "解析失敗",

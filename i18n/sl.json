@@ -10,7 +10,7 @@
 	"prefs-math": "Prikaz matematičnega besedila",
 	"mw_math_png": "Vedno prikaži PNG",
 	"mw_math_source": "Pusti v TeX-ovi obliki (za besedilne brskalnike)",
-	"mw_math_mathjax": "MathJax (poskusno; najboljše za večino brskalnikov)",
+	"mw_math_mathjax": "MathJax (poskusno)",
 	"mw_math_mathml": "MathML z rezervo SVG (preizkusno)",
 	"mw_math_latexml": "LaTeXML (poskusno; uporablja MathML)",
 	"math_failure": "Ni mi uspelo razčleniti",

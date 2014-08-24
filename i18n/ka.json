@@ -11,7 +11,7 @@
 	"prefs-math": "მათემატიკა",
 	"mw_math_png": "მუდამ გამოიყენე PNG",
 	"mw_math_source": "დატოვე როგორც TeX (ტექსტური ბრაუზერებისთვის)",
-	"mw_math_mathjax": "MathJax (ექსპერიმენტული; ყველაზე შესაფერისი ბრაუზერების უმეტესობისათვის)",
+	"mw_math_mathjax": "MathJax (ექსპერიმენტული)",
 	"math_failure": "შეუძლებელია გამონათქვამის გარჩევაშ",
 	"math_unknown_error": "უცნობი შეცდომა",
 	"math_unknown_function": "უცნობი ფუნქცია „$1“",
