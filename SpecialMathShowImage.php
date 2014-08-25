@@ -38,16 +38,25 @@ class SpecialMathShowImage extends SpecialPage {
 	}
 
 	function execute( $par ) {
+		global $wgMathValidModes, $wgMathEnableExperimentalInputFormats;
+
 		$request = $this->getRequest();
 		$hash = $request->getText( 'hash', '' );
-		$tex = $request->getText( 'tex', '');
-		$asciimath = $request->getText( 'asciimath', '');
+		$tex = $request->getText( 'tex', '' );
+		if ( $wgMathEnableExperimentalInputFormats ) {
+			$asciimath = $request->getText( 'asciimath', '' );
+		} else {
+			$asciimath = '';
+		}
 		$this->mode = $request->getInt( 'mode', MW_MATH_MATHML );
+		if ( ! in_array( $this->mode, $wgMathValidModes ) ) {
+			$this->mode( MW_MATH_MATHML );
+		}
 		if ( $hash === '' && $tex === '' && $asciimath === '' ) {
 			$this->setHeaders( false );
 			echo $this->printSvgError( 'No Inputhash specified' );
 		} else {
-			if ( $tex === '' && $asciimath === ''){
+			if ( $tex === '' && $asciimath === '' ) {
 				switch ( $this->mode ) {
 					case MW_MATH_PNG:
 						$this->renderer = MathTexvc::newFromMd5( $hash );
@@ -68,24 +77,27 @@ class SpecialMathShowImage extends SpecialPage {
 						// and render the conventional way
 						$mmlRenderer = MathMathML::newFromMd5( $hash );
 						$mmlRenderer->readFromDatabase();
-						$this->renderer = MathRenderer::getRenderer( $mmlRenderer->getUserInputTex(), array(), MW_MATH_PNG );
+						$this->renderer =
+							MathRenderer::getRenderer( $mmlRenderer->getUserInputTex(), array(),
+								MW_MATH_PNG );
 						$this->renderer->setMathStyle( $mmlRenderer->getMathStyle() );
 					}
 					$success = $this->renderer->render();
 				}
 			} elseif ( $asciimath === '' ) {
-				$this->renderer = MathRenderer::getRenderer( $tex , array(), $this->mode );
+				$this->renderer = MathRenderer::getRenderer( $tex, array(), $this->mode );
 				$success = $this->renderer->render();
 			} else {
-				$this->renderer = MathRenderer::getRenderer( $asciimath , array( 'type' => 'ascii' ), $this->mode );
+				$this->renderer =
+					MathRenderer::getRenderer( $asciimath, array( 'type' => 'ascii' ), $this->mode );
 				$success = $this->renderer->render();
 			}
 			if ( $success ) {
 				if ( $this->mode == MW_MATH_PNG ) {
 					// Workaround for bugfix for Bug 56769
-					if ( !isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
+					if ( ! isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
 						// saves the PNG-file
-						wfRunHooks('ParserAfterParse');
+						wfRunHooks( 'ParserAfterParse' );
 					}
 					$output = $this->renderer->getPng();
 				} else {
@@ -101,7 +113,7 @@ class SpecialMathShowImage extends SpecialPage {
 			}
 			$this->setHeaders( $success );
 			echo $output;
-			if ( $success ){
+			if ( $success ) {
 				$this->renderer->writeCache();
 			}
 		}
