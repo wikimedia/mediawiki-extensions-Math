@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Description of SpecialMathShowSVG
  *
@@ -10,12 +11,11 @@ class SpecialMathShowImage extends SpecialPage {
 	private $mode = false;
 
 	function __construct() {
-		parent::__construct(
-			'MathShowImage',
-			'', // Don't restrict
+		parent::__construct( 'MathShowImage', '', // Don't restrict
 			false // Don't show on Special:SpecialPages - it's not useful interactively
 		);
 	}
+
 	/**
 	 * Sets headers - this should be called from the execute() method of all derived classes!
 	 */
@@ -31,23 +31,32 @@ class SpecialMathShowImage extends SpecialPage {
 		} else {
 			$request->response()->header( "Content-type: image/svg+xml; charset=utf-8" );
 		}
-		if ( $success && !( $this->noRender ) ) {
+		if ( $success && ! ( $this->noRender ) ) {
 			$request->response()->header( 'Cache-Control: public max-age=2419200' ); // 4 weeks
 			$request->response()->header( 'Vary: User-Agent' );
 		}
 	}
 
 	function execute( $par ) {
+		global $wgMathValidModes, $wgMathEnableExperimentalInputFormats;
+
 		$request = $this->getRequest();
 		$hash = $request->getText( 'hash', '' );
-		$tex = $request->getText( 'tex', '');
-		$asciimath = $request->getText( 'asciimath', '');
+		$tex = $request->getText( 'tex', '' );
+		if ( $wgMathEnableExperimentalInputFormats ) {
+			$asciimath = $request->getText( 'asciimath', '' );
+		} else {
+			$asciimath = '';
+		}
 		$this->mode = $request->getInt( 'mode', MW_MATH_MATHML );
+		if ( ! in_array( $this->mode, $wgMathValidModes ) ) {
+			$this->mode( MW_MATH_MATHML );
+		}
 		if ( $hash === '' && $tex === '' && $asciimath === '' ) {
 			$this->setHeaders( false );
 			echo $this->printSvgError( 'No Inputhash specified' );
 		} else {
-			if ( $tex === '' && $asciimath === ''){
+			if ( $tex === '' && $asciimath === '' ) {
 				switch ( $this->mode ) {
 					case MW_MATH_PNG:
 						$this->renderer = MathTexvc::newFromMd5( $hash );
@@ -74,18 +83,18 @@ class SpecialMathShowImage extends SpecialPage {
 					$success = $this->renderer->render();
 				}
 			} elseif ( $asciimath === '' ) {
-				$this->renderer = MathRenderer::getRenderer( $tex , array(), $this->mode );
+				$this->renderer = MathRenderer::getRenderer( $tex, array(), $this->mode );
 				$success = $this->renderer->render();
 			} else {
-				$this->renderer = MathRenderer::getRenderer( $asciimath , array( 'type' => 'ascii' ), $this->mode );
+				$this->renderer = MathRenderer::getRenderer( $asciimath, array( 'type' => 'ascii' ), $this->mode );
 				$success = $this->renderer->render();
 			}
 			if ( $success ) {
 				if ( $this->mode == MW_MATH_PNG ) {
 					// Workaround for bugfix for Bug 56769
-					if ( !isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
+					if ( ! isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
 						// saves the PNG-file
-						wfRunHooks('ParserAfterParse');
+						wfRunHooks( 'ParserAfterParse' );
 					}
 					$output = $this->renderer->getPng();
 				} else {
@@ -101,7 +110,7 @@ class SpecialMathShowImage extends SpecialPage {
 			}
 			$this->setHeaders( $success );
 			echo $output;
-			if ( $success ){
+			if ( $success ) {
 				$this->renderer->writeCache();
 			}
 		}
@@ -114,11 +123,10 @@ class SpecialMathShowImage extends SpecialPage {
 	 */
 	private function printSvgError( $msg ) {
 		global $wgMathDebug;
-		$result =  '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 4"
- preserveAspectRatio="xMidYMid meet" >' .
-			'<text text-anchor="start" fill="red" y="2">' . htmlspecialchars( $msg ) . '</text></svg>';
+		$result = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 4"
+ preserveAspectRatio="xMidYMid meet" >' . '<text text-anchor="start" fill="red" y="2">' . htmlspecialchars( $msg ) . '</text></svg>';
 		if ( $wgMathDebug ) {
-			$result .= '<!--'. var_export($this->renderer, true) .'-->';
+			$result .= '<!--' . var_export( $this->renderer, true ) . '-->';
 		}
 		return $result;
 	}
