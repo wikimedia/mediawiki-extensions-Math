@@ -212,9 +212,10 @@ class MathMathML extends MathRenderer {
 		} else {
 			if ( $this->getMathStyle() == MW_MATHSTYLE_INLINE_DISPLAYSTYLE ) {
 				// default preserve the (broken) layout as it was
-				$input = '{\\displaystyle ' . $input . '}';
-			}
-			$out = 'type=tex&q=' . rawurlencode( $input );
+				$out = 'type=inline-TeX&q=' .rawurlencode( '{\\displaystyle ' . $input . '}' );
+			} else {
+                $out = 'type=tex&q=' . rawurlencode( $input );
+            }
 		}
 		wfDebugLog( "Math", 'Get post data: ' . $out );
 		return $out;
