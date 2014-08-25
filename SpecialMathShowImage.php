@@ -38,11 +38,19 @@ class SpecialMathShowImage extends SpecialPage {
 	}
 
 	function execute( $par ) {
+        global $wgMathValidModes, $wgMathEnableExperimentalInputFormats;
 		$request = $this->getRequest();
 		$hash = $request->getText( 'hash', '' );
 		$tex = $request->getText( 'tex', '');
-		$asciimath = $request->getText( 'asciimath', '');
+        if( $wgMathEnableExperimentalInputFormats ){
+            $asciimath = $request->getText( 'asciimath', '');
+        } else {
+            $asciimath = '';
+        }
 		$this->mode = $request->getInt( 'mode', MW_MATH_MATHML );
+        if( ! in_array( $this->mode, $wgMathValidModes ) ){
+            $this->mode ( MW_MATH_MATHML );
+        }
 		if ( $hash === '' && $tex === '' && $asciimath === '' ) {
 			$this->setHeaders( false );
 			echo $this->printSvgError( 'No Inputhash specified' );
