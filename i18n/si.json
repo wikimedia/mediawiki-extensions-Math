@@ -13,6 +13,7 @@
 	"mw_math_png": "සැමවිට PNG ලෙසට විදැහන්න",
 	"mw_math_source": "TeX  ලෙසින් පැවැතීමට හරින්න(පෙළ බ්‍රවුසරයන් සඳහා)",
 	"mw_math_mathjax": "MathJax (පරික්ෂණාත්මක)",
+	"mw_math_mathml": "හැකි නම් MathML (පරීක්ෂණාත්මක)",
 	"math_failure": "ව්‍යාකරණ විග්‍රහය අසමත් විය",
 	"math_unknown_error": "හඳුනා නොගත් දෝෂය",
 	"math_unknown_function": "නොදන්නා ශ්‍රිතය '$1'",

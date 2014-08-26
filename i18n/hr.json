@@ -13,6 +13,7 @@
 	"mw_math_png": "Uvijek kao PNG",
 	"mw_math_source": "Ostavi u formatu TeX (za tekstualne preglednike)",
 	"mw_math_mathjax": "MathJax (pokusno)",
+	"mw_math_mathml": "Ako je moguće MathML (u pokusnoj fazi)",
 	"math_failure": "Obrada nije uspjela.",
 	"math_unknown_error": "nepoznata pogrješka",
 	"math_unknown_function": "nepoznata funkcija",

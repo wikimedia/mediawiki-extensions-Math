@@ -12,6 +12,7 @@
 	"mw_math_png": "Gerar sempre como PNG",
 	"mw_math_source": "Deixar como TeX (para navegadores de texto)",
 	"mw_math_mathjax": "MathJax (experimental)",
+	"mw_math_mathml": "MathML se possível (experimental)",
 	"mw_math_latexml": "LaTeXML (experimental; usa MathML)",
 	"math_failure": "Falhou ao verificar gramática",
 	"math_unknown_error": "erro desconhecido",

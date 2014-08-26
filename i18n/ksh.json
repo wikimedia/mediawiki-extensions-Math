@@ -12,6 +12,7 @@
 	"mw_math_png": "Immer nor PNG aanzeije",
 	"mw_math_source": "Lohß et als TeX (jod för de Tex-Brausere)",
 	"mw_math_mathjax": "MathJax (för zom Ußprobeere un et)",
+	"mw_math_mathml": "Nemm „MathML“ wann müjjelich (em Probierstadium)",
 	"math_failure": "Fähler vum Parser",
 	"math_unknown_error": "Fähler, dä mer nit kenne",
 	"math_unknown_function": "en Funktion, die mer nit kenne",

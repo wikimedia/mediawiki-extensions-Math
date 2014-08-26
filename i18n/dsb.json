@@ -14,6 +14,7 @@
 	"mw_math_png": "Pśecej ako PNG zwobrazniś.",
 	"mw_math_source": "Ako TeX wóstajiś (za tekstowe browsery)",
 	"mw_math_mathjax": "MathJax (eksperimentelny)",
+	"mw_math_mathml": "Jo-lic móžno - MathML (eksperimentelny)",
 	"math_failure": "Zmólka",
 	"math_unknown_error": "njeznata zmólka",
 	"math_unknown_function": "njeznata funkcija \"$1\"",

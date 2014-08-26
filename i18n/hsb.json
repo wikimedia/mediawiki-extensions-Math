@@ -11,6 +11,7 @@
 	"mw_math_png": "Přeco jako PNG zwobraznić",
 	"mw_math_source": "Jako TeX wostajić (za tekstowe wobhladowaki)",
 	"mw_math_mathjax": "MathJax (eksperimentalny)",
+	"mw_math_mathml": "MathML jeli móžno (eksperimentalnje)",
 	"math_failure": "Analyza njeje so poradźiła",
 	"math_unknown_error": "njeznaty zmylk",
 	"math_unknown_function": "njeznata funkcija \"$1\"",

@@ -11,6 +11,7 @@
 	"mw_math_png": "Sempre producer PNG",
 	"mw_math_source": "Lassa lo como TeX (pro navigatores in modo texto)",
 	"mw_math_mathjax": "MathJax (experimental)",
+	"mw_math_mathml": "MathML",
 	"math_failure": "Error durante le analyse del syntaxe",
 	"math_unknown_error": "error incognite",
 	"math_unknown_function": "function '$1' incognite",

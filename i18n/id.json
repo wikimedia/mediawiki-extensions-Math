@@ -11,6 +11,7 @@
 	"mw_math_png": "Selalu jadikan PNG",
 	"mw_math_source": "Biarkan sebagai TeX (untuk penjelajah web teks)",
 	"mw_math_mathjax": "MathJax (eksperimen)",
+	"mw_math_mathml": "MathML jika mungkin (percobaan)",
 	"math_failure": "Gagal memparse",
 	"math_unknown_error": "Kesalahan yang tidak diketahui",
 	"math_unknown_function": "fungsi yang tidak diketahui",
