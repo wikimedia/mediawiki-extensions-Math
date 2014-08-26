@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e322bf2_e61bbbd2",
+        "filename": "SpecialMathShowImage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-08-26T23:10:50Z",
+      "side": 1,
+      "message": "Arg. I have no clue how this could happen....",
+      "revId": "e915eb0da2d1f5212598aa8b4013c789419ffecf",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
