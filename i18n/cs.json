@@ -12,7 +12,7 @@
 	"mw_math_png": "Vždy jako PNG",
 	"mw_math_source": "Ponechat jako TeX (pro textové prohlížeče)",
 	"mw_math_mathjax": "MathJax (experimentální)",
-	"mw_math_mathml": "MathML, alternativně SVG (experimentální)",
+	"mw_math_mathml": "MathML, alternativně SVG nebo PNG (experimentální)",
 	"mw_math_latexml": "LaTeXML (experimentální; používá MathML)",
 	"math_failure": "Nelze pochopit",
 	"math_unknown_error": "neznámá chyba",
