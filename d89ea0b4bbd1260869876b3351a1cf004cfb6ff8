@@ -16,6 +16,24 @@
       "revId": "d89ea0b4bbd1260869876b3351a1cf004cfb6ff8",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2fb78d_14ff3a64",
+        "filename": "i18n/en.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-08-28T17:08:37Z",
+      "side": 1,
+      "message": "Ok. So $2 must have end with a period.\nIf $2 is empty I use math_unknown_error in the only place where this message is used. Should I add a period manual there or just keep it as we have it now",
+      "parentUuid": "2e2fb78d_94768a38",
+      "revId": "d89ea0b4bbd1260869876b3351a1cf004cfb6ff8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
