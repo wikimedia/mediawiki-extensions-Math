@@ -6,7 +6,8 @@
 			"Huji",
 			"Omidh",
 			"ZxxZxxZ",
-			"Reza1615"
+			"Reza1615",
+			"Alirezaaa"
 		]
 	},
 	"math-desc": "فرمول‌های ریاضی میان برچسب‌های <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> را رندر می‌کند",
@@ -16,7 +17,7 @@
 	"mw_math_png": "همیشه PNG کشیده شود",
 	"mw_math_source": "در قالب TeX باقی بماند (برای مرورگرهای متنی)",
 	"mw_math_mathjax": "MathJax (آزمایشی)",
-	"mw_math_mathml": "استفاده از MathML با SVG برای پیشتیبانی (آزمایشی)",
+	"mw_math_mathml": "MathML همراه SVG یا PNG جایگزین (آزمایشی)",
 	"mw_math_latexml": "لته ایکس‌ام ال (تجربی؛ از مت‌ ام‌ال استفاده می‌کند)",
 	"math_failure": "شکست در تجزیه",
 	"math_unknown_error": "خطای ناشناخته",

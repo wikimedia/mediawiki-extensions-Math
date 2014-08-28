@@ -17,7 +17,7 @@
 	"mw_math_png": "Rendera alltid PNG",
 	"mw_math_source": "Låt vara TeX (för textbaserade webbläsare)",
 	"mw_math_mathjax": "MathJax (i försöksstadium)",
-	"mw_math_mathml": "MathML med SVG-återgång (experimentell)",
+	"mw_math_mathml": "MathML med SVG eller PNG-återgång (experimentell)",
 	"mw_math_latexml": "LaTeXML (experimentell; använder MathML)",
 	"math_failure": "Misslyckades med att tolka formel.",
 	"math_unknown_error": "okänt fel",

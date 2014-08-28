@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Filipinayzd",
-			"Steven*fung"
+			"Steven*fung",
+			"Geopoet"
 		]
 	},
 	"math_sample": "Isaliôt an pormula digdi",
@@ -10,6 +11,7 @@
 	"prefs-math": "Mat",
 	"mw_math_png": "Itaô pirmi an PNG",
 	"mw_math_source": "Pabayaan na bilang TeX (para sa mga ''browser'' na teksto)",
+	"mw_math_mathml": "MathML na igwang SVG o baya PNG na hulog pabalik (eksperimental)",
 	"math_failure": "Nagprakaso an pagatíd-atíd",
 	"math_unknown_error": "dai aram an salâ",
 	"math_unknown_function": "Dai aram an gamit",
