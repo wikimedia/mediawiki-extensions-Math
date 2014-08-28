@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e2fb78d_1f0ab324",
+        "filename": "i18n/en.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-08-28T17:40:47Z",
+      "side": 1,
+      "message": "so this one is for SVG output with LaTeXML?",
+      "revId": "db3026d5e123571e48a0839e54a262caeac4e878",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
