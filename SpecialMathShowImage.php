@@ -7,7 +7,7 @@
 class SpecialMathShowImage extends SpecialPage {
 	private $noRender = false;
 	private $renderer = null;
-	private $mode = false;
+	private $mode = MW_MATH_MATHML;
 
 	function __construct() {
 		parent::__construct(
@@ -38,11 +38,20 @@ class SpecialMathShowImage extends SpecialPage {
 	}
 
 	function execute( $par ) {
+		global $wgMathValidModes, $wgMathEnableExperimentalInputFormats;
 		$request = $this->getRequest();
 		$hash = $request->getText( 'hash', '' );
-		$tex = $request->getText( 'tex', '');
-		$asciimath = $request->getText( 'asciimath', '');
+		$tex = $request->getText( 'tex', '' );
+		if ( $wgMathEnableExperimentalInputFormats ) {
+			$asciimath = $request->getText( 'asciimath', '' );
+		} else {
+			$asciimath = '';
+		}
 		$this->mode = $request->getInt( 'mode', MW_MATH_MATHML );
+		if ( !in_array( $this->mode, $wgMathValidModes ) ) {
+			// Fallback to the default if an invalid mode was specified
+			$this->mode = MW_MATH_MATHML;
+		}
 		if ( $hash === '' && $tex === '' && $asciimath === '' ) {
 			$this->setHeaders( false );
 			echo $this->printSvgError( 'No Inputhash specified' );
