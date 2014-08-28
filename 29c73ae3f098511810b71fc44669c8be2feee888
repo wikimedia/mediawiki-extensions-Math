@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e2fb78d_5469421c",
+        "filename": "SpecialMathShowImage.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-08-28T17:26:22Z",
+      "side": 1,
+      "message": "missing space after if and before {",
+      "revId": "29c73ae3f098511810b71fc44669c8be2feee888",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2fb78d_d4fad23f",
+        "filename": "SpecialMathShowImage.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-08-28T17:26:22Z",
+      "side": 1,
+      "message": "I don\u0027t understand this line... $this-\u003emode is an int, right? (BTW, it is set to the boolean false at the top of the file...)",
+      "revId": "29c73ae3f098511810b71fc44669c8be2feee888",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
