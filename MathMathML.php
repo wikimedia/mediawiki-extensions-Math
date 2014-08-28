@@ -263,12 +263,15 @@ class MathMathML extends MathRenderer {
 						return false;
 					}
 				} else {
-					// Do not print bad mathml. It's probably too verbose and might
-					// mess up the browser output.
-					$this->lastError = $this->getError( 'math_invalidxml', $host );
-					wfDebugLog( 'Math', "\nMathML InvalidMathML:"
-							. var_export( array( 'post' => $post, 'host' => $host
-								, 'result' => $res ), true ) . "\n\n" );
+					if ( property_exists($jsonResult, 'log' ) ){
+						$log = $jsonResult->log;
+					} else {
+						$log = wfMessage( 'math_unknown_error' )->inContentLanguage()->escaped();;
+					}
+					$this->lastError = $this->getError( 'math_mathoid_error', $host, $log );
+					wfDebugLog( 'Math', "Mathoid conversion error:"
+						. var_export( array( 'post' => $post, 'host' => $host
+						, 'result' => $res ), true ) . "\n\n" );
 					return false;
 				}
 			} else {
