@@ -104,7 +104,8 @@
 		// Configure MathJax
 		MathJax.Hub.Config( mathJax.config );
 		MathJax.OutputJax.fontDir = mw.config.get( 'wgExtensionAssetsPath' ) + '/Math/modules/MathJax/fonts';
-
+		MathJax.Ajax.config.path = {};
+		MathJax.Ajax.config.path.MediaWiki = mw.config.get( 'wgServer' ) + mw.config.get( 'wgExtensionAssetsPath' ) + 'Math/modules/mediawiki-extensions';
 		// Redefine MathJax.Hub.Startup.Jax
 		MathJax.Hub.Startup.Jax = function () {
 			var config, jax, i, k, name, queue, callback;
