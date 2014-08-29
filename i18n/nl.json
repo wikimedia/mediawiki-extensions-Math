@@ -28,7 +28,7 @@
 	"math_notexvccheck": "Het uitvoerbare bestand <code>texvccheck</code> ontbreekt. Zie <code>math/README</code> voor instellingen.",
 	"math_output_error": "De Mathafbeelding kan niet op het bestandssysteem worden opgeslagen.",
 	"math_invalidresponse": "$1:: Ongeldig antwoord (\"$3\") van server \"$2\":",
-	"math_invalidxml": ": MathML is ongeldige XML.",
+	"math_invalidxml": "MathML of SVG is ongeldige XML.",
 	"math_invalidjson": "$1: het antwoord van de server is ongeldige JSON.",
 	"math_xmlversion": "Waarschuwing: XML-typecontrole overgeslagen. Controleer of uw MediaWikiinstallatie versie 1.22wmf7 or later is.",
 	"math-visualeditor-mwmathinspector-title": "Formule",

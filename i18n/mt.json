@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Chrisportelli",
-			"Giangian15"
+			"Giangian15",
+			"Leli Forte"
 		]
 	},
 	"math_sample": "Daħħal formula hawnhekk",
@@ -10,6 +11,7 @@
 	"prefs-math": "Formuli matematiċi",
 	"mw_math_png": "Uri dejjem f'PNG",
 	"mw_math_source": "Ħallija bħala TeX (għal browsers ta' test)",
+	"mw_math_mathml": "MathML jekk possibli (esperimentali)",
 	"math_failure": "Problema fil-''parser''",
 	"math_unknown_error": "Problema mhux magħrufa",
 	"math_unknown_function": "funżjoni mhux magħrufa",
@@ -18,5 +20,7 @@
 	"math_image_error": "Konverżjoni għal PNG falliet; iċċekkja għall-installazzjoni tajba ta' latex jew dvipng (jew dvips, gs u convert).",
 	"math_bad_tmpdir": "Impossibli tikteb jew toħloq direttorju temporanju għal ''math''",
 	"math_bad_output": "Impossibli tikteb jew toħloq direttorju tal-''output'' tal-''math''",
-	"math_notexvc": "Esekuzzjoni ''<code>texvc</code>'' nieqes; jekk jogħġbok konsultà ''math/README'' għal konfigurazzjoni."
+	"math_notexvc": "Esekuzzjoni ''<code>texvc</code>'' nieqes; jekk jogħġbok konsultà ''math/README'' għal konfigurazzjoni.",
+	"math_invalidxml": "MathML jew SVG hu XML invalidu.",
+	"math_mathoid_error": "Żball fil-konverżjoni. Is-server (\"$1\") irrapporta: \"$2\""
 }

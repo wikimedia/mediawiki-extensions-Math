@@ -31,7 +31,7 @@
 	"math_notexvccheck": "<code>texvccheck</code> の実行可能ファイルが見つかりません。設定については math/README を参照してください。",
 	"math_output_error": "数式画像をファイルシステムに格納できません。",
 	"math_invalidresponse": "$1: サーバー「$2」から無効な応答 (\"$3\"):",
-	"math_invalidxml": "MathML は無効な XML です。",
+	"math_invalidxml": "MathML または SVG が無効な XML です。",
 	"math_invalidjson": "$1 サーバーが無効な JSON を返しました。",
 	"math_xmlversion": "警告: XML の型チェックをスキップしました。インストールされている MediaWiki が wmf/1.22wmf7 以降か確認してください。",
 	"math-visualeditor-mwmathinspector-title": "数式",
