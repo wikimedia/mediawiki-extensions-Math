@@ -4,7 +4,8 @@
 			"Emily",
 			"Laurap",
 			"Minisarm",
-			"Strainu"
+			"Strainu",
+			"XXN"
 		]
 	},
 	"math-desc": "Randează formulele matematice cuprinse între etichetele <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -28,7 +29,7 @@
 	"math_notexvccheck": "Lipsește executabilul <code>texvccheck</code>; vedeți math/README pentru configurare.",
 	"math_output_error": "Nu se poate stoca imaginea matematică în sistemul de fișiere.",
 	"math_invalidresponse": "$1: Răspuns incorect („$3”) de la serverul „$2”:",
-	"math_invalidxml": "MathML este un XML incorect.",
+	"math_invalidxml": "MathML sau SVG este un XML incorect.",
 	"math_invalidjson": "Răspunsul $1 de la server este un JSON incorect.",
 	"math_xmlversion": "Avertisment: verificarea tipului de XML a fost omisă! Verificați dacă versiunea instalată de MediaWiki este wmf/1.22wmf7 sau mai nouă.",
 	"math-visualeditor-mwmathinspector-title": "Formulă",
