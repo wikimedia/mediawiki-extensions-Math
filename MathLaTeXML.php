@@ -182,8 +182,7 @@ class MathLaTeXML extends MathMathML {
 		$renderer = new MathMathML( $this->getTex() );
 		$renderer->setMathml( $this->getMathml() );
 		$renderer->setMode( MW_MATH_LATEXML );
-		$renderer->setPurge( true );
-		$res = $renderer->render();
+		$res = $renderer->render( true );
 		if ( $res == true ) {
 			$this->svg = $renderer->getSvg();
 		} else {

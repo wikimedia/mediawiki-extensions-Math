@@ -387,7 +387,7 @@ class MathTexvc extends MathRenderer {
 		global $wgMathCheckFiles;
 
 		wfProfileIn( __METHOD__ );
-		if ( $this->readFromDatabase() ) {
+		if ( $this->isInDatabase() ) {
 			if ( !$wgMathCheckFiles ) {
 				// Short-circuit the file existence & migration checks
 				wfProfileOut( __METHOD__ );
@@ -413,8 +413,8 @@ class MathTexvc extends MathRenderer {
 		return $backend->getFileContents( array( 'src' => $this->getHashPath() . "/" . $this->getHash() . '.png' ) );
 	}
 
-	public function readFromDatabase() {
-		$return = parent::readFromDatabase();
+	public function isInDatabase() {
+		$return = parent::isInDatabase();
 		if ( $this->hash && $return ) {
 			return true;
 		} else {
