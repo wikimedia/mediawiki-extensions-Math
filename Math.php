@@ -188,12 +188,29 @@ $wgMathDefaultLaTeXMLSetting = array(
  * The link to the texvccheck executable
  */
 $wgMathTexvcCheckExecutable = __DIR__ . '/texvccheck/texvccheck';
-/**
- * Option to disable the tex filter. If set to true any LaTeX espression is parsed
- * this can be a potential security risk. If set to false only a subset of the TeX
- * commands is allowed. See the wikipedia page Help:Math for details.
+
+/**@{
+ * Math check constants
  */
-$wgMathDisableTexFilter = false;
+define( 'MW_MATH_CHECK_ALWAYS', 0 ); /// backwards compatible to false
+define( 'MW_MATH_CHECK_NEVER' , 1 ); /// backwards compatible to true
+define( 'MW_MATH_CHECK_NEW'   , 2 );
+/**@}*/
+/**
+ * Option to disable the TeX security filter:
+ * In general every math object, which is rendered by the math extension has its rendering cached in
+ * a database.
+ * MW_MATH_CHECK_ALWAYS: If set to MW_MATH_CHECK_ALWAYS only a subset of the TeX commands is allowed.
+ * See the Wikipedia page Help:Math for details about the allowed commands.
+ * MW_MATH_CHECK_NONE: If set to MW_MATH_CHECK_NONE any TeX expression is parsed.
+ * This can be a potential security risk.
+ * MW_MATH_CHECK_NEW checks only new equations. If the database does not yet contain the given math object,
+ * then it is passed through texvccheck.
+ * Please make sure to truncate the database tables (math, mathoid, mathlatexml) when switching from
+ * MW_MATH_CHECK_NONE to MW_MATH_CHECK_NEW. Otherwise, unchecked content contained in the database
+ * will be displayed.
+ */
+$wgMathDisableTexFilter = MW_MATH_CHECK_NEW;
 
 /** Stores debug information in the database and provides more detailed debug output */
 $wgMathDebug = false;
