@@ -111,14 +111,13 @@ class MathHooks {
 
 		$renderer = MathRenderer::getRenderer( $content, $attributes, $mode );
 
-		if ( !$wgMathDisableTexFilter ) {
-			$checkResult = $renderer->checkTex();
+		$checkResult = $renderer->checkTex();
 
-			if ( $checkResult !== true ) {
-				// Returns the error message
-				return $renderer->getLastError();
-			}
+		if ( $checkResult !== true ) {
+			// Returns the error message
+			return $renderer->getLastError();
 		}
+
 		if ( $renderer->render() ) {
 			wfDebugLog( "Math" , "Rendering successful. Writing output" );
 			$renderedMath = $renderer->getHtmlOutput();
