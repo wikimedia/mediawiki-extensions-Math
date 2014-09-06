@@ -262,7 +262,7 @@ abstract class MathRenderer {
 		wfProfileIn( __METHOD__ );
 		/** @var DatabaseBase */
 		$dbr = wfGetDB( DB_SLAVE );
-		/** @var ResultWrapper asdf */
+		/** @var ResultWrapper */
 		$rpage = $dbr->selectRow( $this->getMathTableName(),
 			$this->dbInArray(),
 			array( 'math_inputhash' => $this->getInputHash() ),
@@ -600,8 +600,21 @@ abstract class MathRenderer {
 		return $this->texSecure;
 	}
 
+	/**
+	 * @global $wgMathDisableTexFilter
+	 * @return bool
+	 */
 	public function checkTex() {
-		if ( !$this->texSecure ) {
+		global $wgMathDisableTexFilter;
+		if ( $this->texSecure || (int) $wgMathDisableTexFilter == MW_MATH_CHECK_NEVER ) {
+			// equation was already checked or checking is disabled
+			return true;
+		} else {
+			if( (int) $wgMathDisableTexFilter == MW_MATH_CHECK_NEW ){
+				if( $this->readFromDatabase() ){
+					return true;
+				}
+			}
 			$checker = new MathInputCheckTexvc( $this->userInputTex );
 			if ( $checker->isValid() ) {
 				$this->setTex( $checker->getValidTex() );
@@ -611,8 +624,6 @@ abstract class MathRenderer {
 				$this->lastError = $checker->getError();
 				return false;
 			}
-		} else {
-			return true;
 		}
 	}
 
