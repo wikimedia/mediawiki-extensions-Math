@@ -104,7 +104,7 @@ class MathMathML extends MathRenderer {
 			wfDebugLog( "Math", "Rerendering was requested." );
 			return true;
 		} else {
-			$dbres = $this->readFromDatabase();
+			$dbres = $this->isInDatabase();
 			if ( $dbres ) {
 				if ( $this->isValidMathML( $this->getMathml() ) ) {
 					wfDebugLog( "Math", "Valid MathML entry found in database." );
