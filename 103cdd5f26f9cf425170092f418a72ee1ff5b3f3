@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e2fb78d_f2947e8f",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-09-06T02:13:31Z",
+      "side": 1,
+      "message": "This is just a simplification. The effect is the same",
+      "revId": "103cdd5f26f9cf425170092f418a72ee1ff5b3f3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
