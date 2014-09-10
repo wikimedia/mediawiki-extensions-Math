@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e2fb78d_e3537b6d",
+        "filename": "Math.hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2014-09-10T17:57:44Z",
+      "side": 1,
+      "message": "Unused global",
+      "revId": "c858170e972dfda5b88891d52790b259dc3ca2cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2fb78d_a3dc53e6",
+        "filename": "Math.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2014-09-10T17:57:44Z",
+      "side": 1,
+      "message": "I\u0027d recommend string constants to avoid load order issues.",
+      "revId": "c858170e972dfda5b88891d52790b259dc3ca2cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2fb78d_c3f87f48",
+        "filename": "MathRenderer.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2014-09-10T17:57:44Z",
+      "side": 1,
+      "message": "How is MW_MATH_CHECK_NEVER supposed to work?",
+      "revId": "c858170e972dfda5b88891d52790b259dc3ca2cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
