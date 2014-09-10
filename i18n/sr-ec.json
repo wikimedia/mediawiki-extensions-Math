@@ -11,7 +11,7 @@
 	"mw_math_png": "Увек прикажи као PNG",
 	"mw_math_source": "Остави у формату ТеХ (за текстуалне прегледаче)",
 	"mw_math_mathjax": "MathJax (експериментално)",
-	"mw_math_mathml": "Ако је могуће, MathML (пробна фаза)",
+	"mw_math_mathml": "MathML са ослањањем на SVG или PNG (експериментално)",
 	"math_failure": "Рашчлањивање није успело",
 	"math_unknown_error": "непозната грешка",
 	"math_unknown_function": "непозната функција „$1“",
