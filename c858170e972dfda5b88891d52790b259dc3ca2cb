@@ -50,6 +50,24 @@
       "revId": "c858170e972dfda5b88891d52790b259dc3ca2cb",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2fb78d_8a3167eb",
+        "filename": "MathRenderer.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-09-10T20:47:38Z",
+      "side": 1,
+      "message": "Sorry. I should have written a test case for that\nIt should be\n !($this-\u003etexSecure || (int) $wgMathDisableTexFilter \u003d\u003d MW_MATH_CHECK_NEVER)",
+      "parentUuid": "2e2fb78d_c3f87f48",
+      "revId": "c858170e972dfda5b88891d52790b259dc3ca2cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
