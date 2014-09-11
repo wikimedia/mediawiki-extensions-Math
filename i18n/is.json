@@ -11,7 +11,7 @@
 	"prefs-math": "Stærðfræðiformúlur",
 	"mw_math_png": "Alltaf birta PNG mynd",
 	"mw_math_source": "Sýna TeX jöfnu (fyrir textavafra)",
-	"mw_math_mathml": "MathML ef mögulegt (tilraun)",
+	"mw_math_mathml": "MathML með SVG eða PNG til vara (á tilraunastigi)",
 	"math_failure": "Þáttun mistókst",
 	"math_unknown_error": "óþekkt villa",
 	"math_unknown_function": "óþekkt aðgerð „$1”",
