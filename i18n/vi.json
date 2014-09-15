@@ -30,7 +30,7 @@
 	"math_invalidresponse": "$1: Phản hồi không hợp lệ (“$3”) từ máy chủ “$2”:",
 	"math_invalidxml": "MathML hoặc SVG là XML không hợp lệ.",
 	"math_invalidjson": "Phản hồi từ máy chủ $1 là JSON không hợp lệ.",
-	"math_mathoid_error": "Lỗi chuyển đổi. Máy chủ (\"$1\") phản hồi: \"$2\"",
+	"math_mathoid_error": "Lỗi chuyển đổi. Máy chủ (“$1”) phản hồi: “$2”",
 	"math_xmlversion": "Cảnh báo: Đã bỏ qua việc kiểm tra kiểu XML! Hãy kiểm tra bản MediaWiki của bạn là phiên bản wmf/1.22wmf7 trở lên.",
 	"math-visualeditor-mwmathinspector-title": "Công thức toán",
 	"math-preference-mwmathinspector-description": "Thêm chức năng thử nghiệm cơ bản vào Trình soạn thảo trực quan để viết và sửa công thức toán học, để thử thách trước khi phát hành cho mọi người. Sau khi bật lên tính năng thử nghiệm này, xin vui lòng nhớ luôn xem lại các thay đổi trước khi lưu.",
