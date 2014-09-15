@@ -87,6 +87,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 	 * This method is called after a test is executed.
 	 */
 	protected function tearDown() {
+		parent::tearDown();
 	}
 
 	/**
