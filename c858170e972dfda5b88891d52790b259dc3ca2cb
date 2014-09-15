@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2e2fb78d_c15e3248",
+        "filename": "Math.hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-09-15T21:16:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e2fb78d_e3537b6d",
+      "revId": "c858170e972dfda5b88891d52790b259dc3ca2cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e2fb78d_a3dc53e6",
         "filename": "Math.php",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2014-09-10T17:57:44Z",
       "side": 1,
       "message": "I\u0027d recommend string constants to avoid load order issues.",
+      "revId": "c858170e972dfda5b88891d52790b259dc3ca2cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2fb78d_21185685",
+        "filename": "Math.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-09-15T21:16:27Z",
+      "side": 1,
+      "message": "I don\u0027t understand that.\n\nDoes it affect $wgMathValidModes ane the mathstyle constants as well?",
+      "parentUuid": "2e2fb78d_a3dc53e6",
       "revId": "c858170e972dfda5b88891d52790b259dc3ca2cb",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
