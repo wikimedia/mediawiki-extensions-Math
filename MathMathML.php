@@ -429,6 +429,7 @@ class MathMathML extends MathRenderer {
 	 * @return string Html output that is embedded in the page
 	 */
 	public function getHtmlOutput() {
+		global $wgMathValidModes;
 		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY ) {
 			$element = 'div';
 		} else {
@@ -448,7 +449,9 @@ class MathMathML extends MathRenderer {
 		}
 		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(), 'style' => 'display: none;'  ), $mml );
 		$output .= $this->getFallbackImage( $this->getMode() ) . "\n";
-		$output .= $this->getFallbackImage( MW_MATH_PNG ) . "\n";
+		if( in_array( MW_MATH_PNG, $wgMathValidModes ) ) {
+			$output .= $this->getFallbackImage( MW_MATH_PNG ) . "\n";
+		}
 		$output .= HTML::closeElement( $element );
 		return $output;
 	}
