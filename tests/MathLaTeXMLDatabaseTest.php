@@ -79,6 +79,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	public function testCreateTable() {
 		$this->setMwGlobals( 'wgMathValidModes', array( MW_MATH_LATEXML ) );
 		$this->db->dropTable( "mathlatexml", __METHOD__ );
+		sleep(1);
 		$dbu = DatabaseUpdater::newForDB( $this->db );
 		$dbu->doUpdates( array( "extensions" ) );
 		$this->expectOutputRegex( '/(.*)Creating mathlatexml table(.*)/' );
