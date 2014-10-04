@@ -393,7 +393,7 @@ class MathMathML extends MathRenderer {
 		if ( $class ) { $attribs['class'] = $class; }
 		if ( $style ) { $attribs['style'] = $style; }
 		// an alternative for svg might be an object with type="image/svg+xml"
-		return Xml::element( 'img', $this->getAttributes( 'img', $attribs , array( 'src' => $url ) ) );
+		return Xml::element( 'img', $this->getAttributes( 'img', $attribs , array( 'src' => $url, 'aria-hidden' => 'true' ) ) );
 	}
 
 
