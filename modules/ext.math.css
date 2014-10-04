@@ -8,8 +8,17 @@
 @namespace m url('http://www.w3.org/1998/Math/MathML');
 
 /* Default style for MathML. */
-.mwe-math-mathml-inline { display: none; }
-.mwe-math-mathml-display { display: none; margin-left: auto; margin-right: auto; }
+.mwe-math-mathml-inline { display: inline !important; }
+.mwe-math-mathml-display { display: block !important; margin-left: auto; margin-right: auto; }
+.mwe-math-mathml-inline, .mwe-math-mathml-display {
+    /* We try to hide the MathML formula in a way that still makes it accessible to screen readers. */
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
 m|math {
     /* Try OpenType MATH fonts, the WOFF fallback and the old math fonts */
     font-family: Cambria Math, Latin Modern Math, STIX Math, LatinModernMathWOFF, MathJax_Main, STIXGeneral, serif;
@@ -48,8 +57,14 @@ img.mwe-math-fallback-png-display { display: block; }
 @-moz-document url-prefix() {
     /* For Gecko browsers, hide the SVG fallback and show the MathML instead.
        We override the style for SVG and MathML above */
-    .mwe-math-mathml-inline { display: inline !important; }
-    .mwe-math-mathml-display { display: block !important; }
+    .mwe-math-mathml-inline, .mwe-math-mathml-display {
+        clip: auto !important;
+        overflow: visible !important;
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        opacity: 1 !important;
+    }
     :root * > .mwe-math-mathml-inline + img.mwe-math-fallback-svg-inline,
     :root * > .mwe-math-mathml-display + img.mwe-math-fallback-svg-display { display: none !important; }
 }
