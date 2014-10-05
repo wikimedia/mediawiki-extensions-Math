@@ -4,7 +4,8 @@
 			"Amire80",
 			"ExampleTomer",
 			"Yona b",
-			"Ronel1"
+			"Ronel1",
+			"Guycn2"
 		]
 	},
 	"math-desc": "הדפסת נוסחאות מתמטיות בין התגים <bdi><code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code></bdi>",
@@ -21,11 +22,11 @@
 	"math_unknown_function": "פונקציה $1 לא מוכרת",
 	"math_lexing_error": "שגיאת לקסינג",
 	"math_syntax_error": "שגיאת תחביר",
-	"math_image_error": "ההמרה ל־PNG נכשלה; אנא בדקו אם התקנתם נכון את latex ואת dvipng (או צירוף של dvips‏, gs ו־convert)",
+	"math_image_error": "ההמרה ל־PNG נכשלה; נא לבדוק אם התקנת נכון את latex ואת dvipng (או צירוף של dvips‏, gs ו־convert)",
 	"math_bad_tmpdir": "התוכנה לא הצליחה לכתוב או ליצור את הספרייה הזמנית של המתמטיקה",
 	"math_bad_output": "התוכנה לא הצליחה לכתוב או ליצור את ספריית הפלט של המתמטיקה",
-	"math_notexvc": "קובץ בר־ביצוע של <code>texvc</code> אינו זמין; אנא צפו בקובץ math/README למידע על ההגדרות.",
-	"math_notexvccheck": "קובץ הפעלה <code>texvccheck</code> חסר; נא עיינו ב־math/README כדי להגדירו.",
+	"math_notexvc": "קובץ ההפעלה <code>texvc</code> אינו זמין. נא לעיין ב־math/README כדי להגדירו.",
+	"math_notexvccheck": "קובץ ההפעלה <code>texvccheck</code> אינו זמין. נא לעיין ב־math/README כדי להגדירו.",
 	"math_output_error": "לא ניתן לאחסן תמונה מתמטית במערכת קבצים.",
 	"math_timeout": "עיכוב $1 מהשרת \"$2\"",
 	"math_invalidresponse": "$1: תגובה בלתי־תקינה (\"$3\") מהשרת \"$2\":",
