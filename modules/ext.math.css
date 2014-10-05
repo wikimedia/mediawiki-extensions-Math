@@ -20,15 +20,14 @@
     opacity: 0;
 }
 m|math {
-    /* Try OpenType MATH fonts, the WOFF fallback and the old math fonts */
-    font-family: Cambria Math, Latin Modern Math, STIX Math, LatinModernMathWOFF, MathJax_Main, STIXGeneral, serif;
+    /* Use the tweaked Latin Modern Math WOFF font with possible fallback for local Open Type MATH fonts. */
+    font-family: TweakedLatinModernMath, Cambria Math, Latin Modern Math, STIX Math, serif;
 }
 
 @font-face {
-    /* WOFF version of Latin Modern Math.
-       See https://github.com/fred-wang/MathFonts */
-    font-family: LatinModernMathWOFF;
-    src: url(./LatinModern/latinmodern-math.woff);
+    /* WOFF version of Latin Modern Math, with tweaked ascent/descent metrics */
+    font-family: TweakedLatinModernMath;
+    src: url(./LatinModern/tweakedlatinmodern-math.woff);
 }
 
 /* Default style for SVG. */
