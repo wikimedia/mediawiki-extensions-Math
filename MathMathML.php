@@ -448,6 +448,8 @@ class MathMathML extends MathRenderer {
 		}
 		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(), 'style' => 'display: none;'  ), $mml );
 		$output .= $this->getFallbackImage( $this->getMode() ) . "\n";
+		// TODO: Implement PNG image fallbacks without loading images in
+		// browsers that support MathML or SVG!
 		$output .= $this->getFallbackImage( MW_MATH_PNG ) . "\n";
 		$output .= HTML::closeElement( $element );
 		return $output;
