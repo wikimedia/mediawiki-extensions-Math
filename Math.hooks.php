@@ -131,7 +131,7 @@ class MathHooks {
 				&$renderedMath,
 				$parser->getTitle()->getArticleID(),
 				$parser->nextLinkID() ) );// Enables indexing of math formula
-		if ( $wgUseMathJax ) {
+		if ( $wgUseMathJax && $mode == MW_MATH_MATHJAX ) {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
@@ -152,19 +152,13 @@ class MathHooks {
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
 		global $wgUseMathJax, $wgMathValidModes, $wgDefaultUserOptions;
+		$options = array_flip( self::getMathNames() );
 		$defaultPreferences['math'] = array(
 			'type' => 'radio',
-			'options' => array_flip( self::getMathNames() ),
+			'options' => $options,
 			'label' => '&#160;',
 			'section' => 'rendering/math',
 		);
-		if ( $wgUseMathJax ) {
-			$defaultPreferences['mathJax'] = array(
-				'type' => 'toggle',
-				'label-message' => 'mw_math_mathjax',
-				'section' => 'rendering/math',
-			);
-		}
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
 		if ( ! in_array( $wgDefaultUserOptions['math'] , $wgMathValidModes ) ){
@@ -186,7 +180,8 @@ class MathHooks {
 			MW_MATH_SOURCE => 'mw_math_source',
 			MW_MATH_PNG => 'mw_math_png',
 			MW_MATH_MATHML => 'mw_math_mathml',
-			MW_MATH_LATEXML => 'mw_math_latexml'
+			MW_MATH_LATEXML => 'mw_math_latexml',
+			MW_MATH_MATHJAX => 'mw_math_mathjax'
 		);
 		$names = array();
 		foreach ( $wgMathValidModes as $mode ) {
