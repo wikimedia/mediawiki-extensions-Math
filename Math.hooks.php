@@ -152,19 +152,16 @@ class MathHooks {
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
 		global $wgUseMathJax, $wgMathValidModes, $wgDefaultUserOptions;
+		$options = array_flip( self::getMathNames() );
+		if ( $wgUseMathJax ) {
+			$options[] = 'mw_math_mathjax';
+		}
 		$defaultPreferences['math'] = array(
 			'type' => 'radio',
-			'options' => array_flip( self::getMathNames() ),
+			'options' => $options,
 			'label' => '&#160;',
 			'section' => 'rendering/math',
 		);
-		if ( $wgUseMathJax ) {
-			$defaultPreferences['mathJax'] = array(
-				'type' => 'toggle',
-				'label-message' => 'mw_math_mathjax',
-				'section' => 'rendering/math',
-			);
-		}
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
 		if ( ! in_array( $wgDefaultUserOptions['math'] , $wgMathValidModes ) ){
