@@ -11,6 +11,7 @@
     "mw_math_mathjax": "MathJax (experimental)",
     "mw_math_mathml": "MathML with SVG or PNG fallback (experimental)",
     "mw_math_latexml": "LaTeXML (experimental; uses MathML)",
+	"mw_math_latexml_jax": "LaTeXML with client-side MathJax (experimental; uses MathML)",
     "math_failure": "Failed to parse",
     "math_unknown_error": "unknown error",
     "math_unknown_function": "unknown function \"$1\"",
