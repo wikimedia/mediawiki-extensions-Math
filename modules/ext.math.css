@@ -20,8 +20,10 @@
     opacity: 0;
 }
 m|math {
-    /* Try OpenType MATH fonts, the WOFF fallback and the old math fonts */
-    font-family: Cambria Math, Latin Modern Math, STIX Math, LatinModernMathWOFF, MathJax_Main, STIXGeneral, serif;
+    /* Try some popular OpenType MATH fonts before the WOFF fallback */
+    /* We put Cambria before Cambria Math to workaround a bug on Windows
+       (see https://bugzilla.mozilla.org/show_bug.cgi?id=598900) */
+    font-family: Cambria, Cambria Math, Latin Modern Math, STIX Math, LatinModernMathWOFF, serif;
 }
 
 @font-face {
