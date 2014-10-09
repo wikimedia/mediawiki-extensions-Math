@@ -99,6 +99,8 @@ class SpecialMathShowImage extends SpecialPage {
 					$output = $this->renderer->getPng();
 				} else {
 					$output = $this->renderer->getSvg();
+					// Strip the first style tag
+					$output = preg_replace( '/ style="[^"]+"/', '', $output, 1 );
 				}
 			} else {
 				// Error message in PNG not supported
