@@ -45,6 +45,7 @@ define( 'MW_MATH_MODERN', 4 ); /// @deprecated
 define( 'MW_MATH_MATHML', 5 );
 define( 'MW_MATH_MATHJAX', 6 ); /// @deprecated
 define( 'MW_MATH_LATEXML', 7 ); /// new in 1.22
+define( 'MW_MATH_LATEXML_JAX', 7 ); /// new in 1.22
 /**@}*/
 
 /**@{
@@ -58,15 +59,13 @@ define( 'MW_MATHSTYLE_INLINE',  2 ); // small operators inline
 /**@}*/
 
 /**@var array defines the mode allowed on the server */
-$wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHML );
+$wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHML, MW_MATH_MATHJAX );
 
 /*
  * The default rendering mode for anonymous users.
  * Valid options are defined in $wgMathValidModes.
  */
 $wgDefaultUserOptions['math'] = MW_MATH_PNG;
-/** @var boolean $wgDefaultUserOptions['mathJax'] determines if client-side MathJax is enabled by default */
-$wgDefaultUserOptions['mathJax'] = false;
 
 /** Location of the texvc binary */
 $wgTexvc = __DIR__ . '/math/texvc';
@@ -116,16 +115,6 @@ $wgMathFileBackend = false;
  * set up mathematical formula display.
  */
 $wgMathDirectory = false;
-
-/**
- * Enables the option to use MathJax library to do client-side math rendering
- * when JavaScript is available. In supporting browsers this makes nice output
- * that's scalable for zooming, printing, and high-resolution displays, even if
- * the browsers do not support HTML5 (i.e. MathML).
- *
- * @todo Rename to $wgMathJax
- */
-$wgUseMathJax = false;
 
 /**
  * The url of the mathoid server.
