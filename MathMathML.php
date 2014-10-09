@@ -349,8 +349,9 @@ class MathMathML extends MathRenderer {
 			$style .= " ".$styles[1]; // merge styles
 			if ( $this->getMathStyle() === MW_MATHSTYLE_DISPLAY ) {
 				// TODO: Improve style cleaning
-				$style = preg_replace( '/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;|position:\s*absolute;\s*left:\s*0px;/g', '', $style );
+				$style = preg_replace( '/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style );
 			}
+			$style = preg_replace( '/position:\s*absolute;\s*left:\s*0px;/', '', $style );
 		}
 		// TODO: Figure out if there is a way to construct
 		// a SVGReader from a string that represents the SVG
