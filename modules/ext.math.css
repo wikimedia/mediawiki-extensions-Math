@@ -33,9 +33,9 @@ m|math {
     src: url(./LatinModern/latinmodern-math.woff);
 }
 
-/* Default style for SVG. */
-img.mwe-math-fallback-svg-inline { display: none; }
-img.mwe-math-fallback-svg-display { display: none; margin-left: auto; margin-right: auto; }
+/* Default style for the SVG fallback. */
+img.mwe-math-fallback-svg-inline { display: inline; }
+img.mwe-math-fallback-svg-display { display: block; margin-left: auto; margin-right: auto; }
 
 /* Default style for the PNG fallback. */
 img.mwe-math-fallback-png-inline { display: inline; vertical-align: middle; }
@@ -49,13 +49,6 @@ img.mwe-math-fallback-png-display { display: block; }
 /* Browser-specific hacks are bad but let's use that for now...
    See http://browserhacks.com/ */
 
-/* For all browsers but IE < 9, hide the PNG fallback and show the SVG instead.
-   We override the default style for PNG and SVG above */
-:root * > img.mwe-math-fallback-svg-inline { display: inline !important; }
-:root * > img.mwe-math-fallback-svg-display { display: block !important; }
-:root * > img.mwe-math-fallback-svg-inline + img.mwe-math-fallback-png-inline,
-:root * > img.mwe-math-fallback-svg-display + img.mwe-math-fallback-png-display { display: none; }
-
 @-moz-document url-prefix() {
     /* For Gecko browsers, hide the SVG fallback and show the MathML instead.
        We override the style for SVG and MathML above */
@@ -67,6 +60,6 @@ img.mwe-math-fallback-png-display { display: block; }
         height: auto;
         opacity: 1;
     }
-    :root * > .mwe-math-mathml-inline + img.mwe-math-fallback-svg-inline,
-    :root * > .mwe-math-mathml-display + img.mwe-math-fallback-svg-display { display: none !important; }
+    .mwe-math-mathml-inline + img.mwe-math-fallback-svg-inline,
+    .mwe-math-mathml-display + img.mwe-math-fallback-svg-display { display: none !important; }
 }
