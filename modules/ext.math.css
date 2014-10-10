@@ -10,8 +10,8 @@
 /* Default style for MathML. */
 .mwe-math-mathml-inline { display: inline !important; }
 .mwe-math-mathml-display { display: block !important; margin-left: auto; margin-right: auto; }
-.mwe-math-mathml-inline, .mwe-math-mathml-display {
-    /* We try to hide the MathML formula in a way that still makes it accessible to screen readers. */
+.mwe-math-mathml-a11y {
+    /* We try to hide the MathML formula in a way that still makes it accessible to accessibility tools. */
     clip: rect(1px, 1px, 1px, 1px);
     overflow: hidden;
     position: absolute;
@@ -59,7 +59,7 @@ img.mwe-math-fallback-png-display { display: block; }
 @-moz-document url-prefix() {
     /* For Gecko browsers, hide the SVG fallback and show the MathML instead.
        We override the style for SVG and MathML above */
-    .mwe-math-mathml-inline, .mwe-math-mathml-display {
+    .mwe-math-mathml-a11y {
         clip: auto;
         overflow: visible;
         position: static;
