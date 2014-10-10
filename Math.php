@@ -235,6 +235,11 @@ $wgResourceModules['ext.math.styles'] = array(
 	'remoteExtPath' => 'Math/modules',
 	'styles' => 'ext.math.css',
 );
+$wgResourceModules['ext.math.scripts'] = array(
+	'localBasePath' => __DIR__ . '/modules',
+	'remoteExtPath' => 'Math/modules',
+	'scripts' => 'ext.math.js',
+);
 
 // MathJax module
 // If you modify these arrays, update ext.math.mathjax.enabler.js to ensure
