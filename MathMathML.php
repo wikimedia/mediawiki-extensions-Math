@@ -382,12 +382,11 @@ class MathMathML extends MathRenderer {
 		$attribs = array();
 		if ( $classOverride === false ) { // $class = '' suppresses class attribute
 			$class = $this->getClassName( true, $png );
-			$style = $png ? '' : 'display: none;';
 		} else {
 			$class  = $classOverride;
-			$style = '';
 		}
 
+		$style = '';
 		if ( !$png ) {
 			$this->correctSvgStyle( $this->getSvg(), $style );
 		}
@@ -410,12 +409,7 @@ class MathMathML extends MathRenderer {
 	protected function getClassName( $fallback = false, $png = false ) {
 		$class = "mwe-math-";
 		if ( $fallback ) {
-			$class .= 'fallback-';
-			if ( $png ) {
-				$class .= 'png-';
-			} else {
-				$class .= 'svg-';
-			}
+			$class .= 'fallback-img-';
 		} else {
 			$class .= 'mathml-';
 		}
@@ -452,9 +446,6 @@ class MathMathML extends MathRenderer {
 		}
 		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(), 'style' => 'display: none;'  ), $mml );
 		$output .= $this->getFallbackImage( $this->getMode() ) . "\n";
-		// TODO: Implement PNG image fallbacks without loading images in
-		// browsers that support MathML or SVG!
-		// $output .= $this->getFallbackImage( MW_MATH_PNG ) . "\n";
 		$output .= HTML::closeElement( $element );
 		return $output;
 	}
