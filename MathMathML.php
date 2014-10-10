@@ -424,6 +424,9 @@ class MathMathML extends MathRenderer {
 		} else {
 			$class .= 'inline';
 		}
+		if ( !$fallback) {
+			$class .= ' mwe-math-mathml-a11y';
+		}
 		return $class;
 	}
 	/**
