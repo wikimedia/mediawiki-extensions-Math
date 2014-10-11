@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e96e304_2882e4a9",
+        "filename": "tests/MathLaTeXMLTest.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-10-11T17:07:09Z",
+      "side": 1,
+      "message": "serialization",
+      "revId": "7385d449af8177456b6c14e4bcb04ddff3b2df71",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
