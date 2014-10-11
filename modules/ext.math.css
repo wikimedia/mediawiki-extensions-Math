@@ -35,7 +35,7 @@ m|math {
 
 /* Default style for the SVG fallback. */
 img.mwe-math-fallback-svg-inline { display: inline; }
-img.mwe-math-fallback-svg-display { display: block; margin-left: auto; margin-right: auto; }
+img.mwe-math-fallback-svg-display { display: block; margin-left: auto !important; margin-right: auto !important; }
 
 /* Default style for the PNG fallback. */
 img.mwe-math-fallback-png-inline { display: inline; vertical-align: middle; }
