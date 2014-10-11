@@ -34,12 +34,12 @@ m|math {
 }
 
 /* Default style for the SVG fallback. */
-img.mwe-math-fallback-svg-inline { display: inline; }
-img.mwe-math-fallback-svg-display { display: block; margin-left: auto; margin-right: auto; }
+.mwe-math-fallback-svg-inline { display: inline-block; }
+.mwe-math-fallback-svg-display { display: block; margin-left: auto; margin-right: auto; }
 
 /* Default style for the PNG fallback. */
-img.mwe-math-fallback-png-inline { display: inline; vertical-align: middle; }
-img.mwe-math-fallback-png-display { display: block; }
+.mwe-math-fallback-png-inline { display: inline; vertical-align: middle; }
+.mwe-math-fallback-png-display { display: block; }
 
 /* Default style for the source fallback. */
 .mwe-math-fallback-source-inline { display: inline; vertical-align: middle; }
@@ -60,6 +60,6 @@ img.mwe-math-fallback-png-display { display: block; }
         height: auto;
         opacity: 1;
     }
-    .mwe-math-mathml-inline + img.mwe-math-fallback-svg-inline,
-    .mwe-math-mathml-display + img.mwe-math-fallback-svg-display { display: none !important; }
+    .mwe-math-mathml-inline + .mwe-math-fallback-svg-inline,
+    .mwe-math-mathml-display + .mwe-math-fallback-svg-display { display: none !important; }
 }
