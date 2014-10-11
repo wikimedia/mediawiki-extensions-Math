@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e96e304_08b3684d",
+        "filename": "modules/LatinModern/README-Latin-Modern-Math.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-10-11T12:43:07Z",
+      "side": 0,
+      "message": "Why is this file deleted?",
+      "revId": "ccc4114812ae684e6f8bd555fcd74027864ecea7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
