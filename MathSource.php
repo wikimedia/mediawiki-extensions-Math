@@ -20,6 +20,15 @@
  */
 class MathSource extends MathRenderer {
 	/**
+	 * @param string $tex
+	 * @param array $params
+	 */
+	function __construct( $tex, $params ) {
+		parent::__construct( $tex, $params );
+		$this->setMode( MW_MATH_SOURCE );
+	}
+
+	/**
 	 * Renders TeX by outputting it to the browser in a span tag
 	 *
 	 * @return string span tag with TeX
