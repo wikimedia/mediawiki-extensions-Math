@@ -326,14 +326,13 @@ class MathMathML extends MathRenderer {
 	}
 
 	/**
-	 * @param int $mode
 	 * @param boolean $noRender
 	 * @return type
 	 */
-	private function getFallbackImageUrl( $mode = MW_MATH_MATHML, $noRender = false ) {
+	private function getFallbackImageUrl( $noRender = false ) {
 		return SpecialPage::getTitleFor( 'MathShowImage' )->getLocalURL( array(
 				'hash' => $this->getMd5(),
-				'mode' => $mode,
+				'mode' => $this->getMode(),
 				'noRender' => $noRender )
 		);
 	}
@@ -366,30 +365,22 @@ class MathMathML extends MathRenderer {
 
 	/**
 	 * Gets img tag for math image
-	 * @param int $mode if MW_MATH_PNG a png is used instead of an svg image
 	 * @param boolean $noRender if true no rendering will be performed if the image is not stored in the database
 	 * @param boolean|string $classOverride if classOverride is false the class name will be calculated by getClassName
 	 * @return string XML the image html tag
 	 */
-	public function getFallbackImage( $mode = MW_MATH_MATHML, $noRender = false, $classOverride = false ) {
-		$url = $this->getFallbackImageUrl( $mode , $noRender );
-		if ( $mode == MW_MATH_PNG ) {
-			$png = true;
-		} else {
-			$png = false;
-		}
+	private function getFallbackImage( $noRender = false, $classOverride = false ) {
+		$url = $this->getFallbackImageUrl( $noRender );
 
 		$attribs = array();
 		if ( $classOverride === false ) { // $class = '' suppresses class attribute
-			$class = $this->getClassName( true, $png );
+			$class = $this->getClassName( true );
 		} else {
 			$class  = $classOverride;
 		}
 
 		$style = '';
-		if ( !$png ) {
-			$this->correctSvgStyle( $this->getSvg(), $style );
-		}
+		$this->correctSvgStyle( $this->getSvg(), $style );
 		if ( $class ) { $attribs['class'] = $class; }
 		if ( $style ) { $attribs['style'] = $style; }
 		// an alternative for svg might be an object with type="image/svg+xml"
@@ -403,18 +394,12 @@ class MathMathML extends MathRenderer {
 	/**
 	 * Calculates the default class name for a math element
 	 * @param boolean $fallback
-	 * @param boolean $png
 	 * @return string the class name
 	 */
-	protected function getClassName( $fallback = false, $png = false ) {
+	private function getClassName( $fallback = false ) {
 		$class = "mwe-math-";
 		if ( $fallback ) {
-			$class .= 'fallback-';
-			if ( $png ) {
-				$class .= 'png-';
-			} else {
-				$class .= 'svg-';
-			}
+			$class .= 'fallback-svg-';
 		} else {
 			$class .= 'mathml-';
 		}
@@ -450,7 +435,7 @@ class MathMathML extends MathRenderer {
 			$mml = preg_replace( '/<math/', '<math display="block"', $mml );
 		}
 		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(), 'style' => 'display: none;'  ), $mml );
-		$output .= $this->getFallbackImage( $this->getMode() ) . "\n";
+		$output .= $this->getFallbackImage( ) . "\n";
 		$output .= HTML::closeElement( $element );
 		return $output;
 	}
