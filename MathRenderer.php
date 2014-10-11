@@ -610,7 +610,7 @@ abstract class MathRenderer {
 			// equation was already checked or checking is disabled
 			return true;
 		} else {
-			if( (int) $wgMathDisableTexFilter == MW_MATH_CHECK_NEW ){
+			if( (int) $wgMathDisableTexFilter == MW_MATH_CHECK_NEW && $this->mode != MW_MATH_SOURCE ){
 				if( $this->readFromDatabase() ){
 					return true;
 				}
