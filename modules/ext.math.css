@@ -39,7 +39,7 @@ img.mwe-math-fallback-svg-display { display: block; margin-left: auto; margin-ri
 
 /* Default style for the PNG fallback. */
 img.mwe-math-fallback-png-inline { display: inline; vertical-align: middle; }
-img.mwe-math-fallback-png-display { display: block; }
+img.mwe-math-fallback-png-display { display: block; margin-left: auto; margin-right: auto; }
 
 /* Default style for the source fallback. */
 .mwe-math-fallback-source-inline { display: inline; vertical-align: middle; }
