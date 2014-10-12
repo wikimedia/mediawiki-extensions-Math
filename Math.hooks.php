@@ -134,8 +134,9 @@ class MathHooks {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
-		$parser->getOutput()->addModules( array( 'ext.math.scripts' ) );
-
+		if ( $mode == MW_MATH_MATHML ) {
+			$parser->getOutput()->addModules( array( 'ext.math.scripts' ) );
+		}
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
 		wfProfileOut( __METHOD__ );

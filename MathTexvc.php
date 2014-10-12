@@ -135,12 +135,15 @@ class MathTexvc extends MathRenderer {
 		$attributes = array(
 			// the former class name was 'tex'
 			// for backwards compatibility we keep that classname
-			'class' => 'mwe-math-fallback-png-inline tex',
+			'class' => 'mwe-math-fallback-image-inline tex',
 			'alt' => $this->getTex()
 		);
 		if ( $this->getMathStyle() === MW_MATHSTYLE_DISPLAY ){
 			// if DisplayStyle is true, the equation will be centered in a new line
-			$attributes[ 'class' ] = 'mwe-math-fallback-png-display tex';
+			$attributes[ 'class' ] = 'mwe-math-fallback-image-display tex';
+		} else {
+			// Otherwise, do the vertical alignment.
+			$attributes[ 'style' ] = 'vertical-align: middle;';
 		}
 		return Xml::element( 'img',
 			$this->getAttributes(
