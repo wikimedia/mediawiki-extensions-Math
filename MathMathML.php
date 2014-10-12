@@ -399,7 +399,7 @@ class MathMathML extends MathRenderer {
 	private function getClassName( $fallback = false ) {
 		$class = "mwe-math-";
 		if ( $fallback ) {
-			$class .= 'fallback-svg-';
+			$class .= 'fallback-image-';
 		} else {
 			$class .= 'mathml-';
 		}

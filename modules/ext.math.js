@@ -6,18 +6,19 @@
 	// If MathPlayer is installed we show the MathML rendering.
 	if (navigator.userAgent.indexOf('MathPlayer') > -1) {
 		$( '.mwe-math-mathml-a11y' ).removeClass( 'mwe-math-mathml-a11y' );
-		$( 'img.mwe-math-fallback-svg-inline, img.mwe-math-fallback-svg-display' ).css( 'display', 'none' );
+		$( '.mwe-math-fallback-image-inline, .mwe-math-fallback-image-display' ).css( 'display', 'none' );
 		return;
 	}
 
 	// We verify whether SVG as <img> is supported and otherwise use the
 	// PNG fallback. See https://github.com/Modernizr/Modernizr/blob/master/feature-detects/svg/asimg.js
 	if (!document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
-		$( 'img.mwe-math-fallback-svg-inline, img.mwe-math-fallback-svg-display' ).each(function() {
+		$( '.mwe-math-fallback-image-inline, .mwe-math-fallback-image-display' ).each(function() {
 			// Create a new PNG image to use as the fallback.
 			img = document.createElement('img');
 			img.setAttribute( 'src', this.src.replace('mode=' + MW_MATH_MATHML, 'mode=' + MW_MATH_PNG) );
-			img.setAttribute( 'class', 'tex mwe-math-fallback-png-' + ($( this ).hasClass('mwe-math-fallback-svg-inline') ? 'inline' : 'display') );
+			img.setAttribute( 'class', 'tex mwe-math-fallback-image-' + ($( this ).hasClass('mwe-math-fallback-image-inline') ? 'inline' : 'display') );
+			img.setAttribute( 'style', 'vertical-align: center;' );
 			img.setAttribute( 'aria-hidden', 'true' );
 			this.parentNode.insertBefore( img, this );
 
