@@ -141,9 +141,6 @@ class MathTexvc extends MathRenderer {
 		if ( $this->getMathStyle() === MW_MATHSTYLE_DISPLAY ){
 			// if DisplayStyle is true, the equation will be centered in a new line
 			$attributes[ 'class' ] = 'mwe-math-fallback-image-display tex';
-		} else {
-			// Otherwise, do the vertical alignment.
-			$attributes[ 'style' ] = 'vertical-align: middle;';
 		}
 		return Xml::element( 'img',
 			$this->getAttributes(
