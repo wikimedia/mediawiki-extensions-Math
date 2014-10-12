@@ -1,7 +1,7 @@
 ( function ( $ ) {
 	'use strict';
 	// The MW_MATH_PNG and MW_MATH_MATHML constants are taken from Math.php
-	var MW_MATH_PNG = 0, MW_MATH_MATHML = 5, img;
+	var MW_MATH_PNG = 0, MW_MATH_MATHML = 5, img, url;
 
 	// If MathPlayer is installed we show the MathML rendering.
 	if (navigator.userAgent.indexOf('MathPlayer') > -1) {
@@ -16,7 +16,8 @@
 		$( '.mwe-math-fallback-image-inline, .mwe-math-fallback-image-display' ).each(function() {
 			// Create a new PNG image to use as the fallback.
 			img = document.createElement('img');
-			img.setAttribute( 'src', this.src.replace('mode=' + MW_MATH_MATHML, 'mode=' + MW_MATH_PNG) );
+			url = this.style.backgroundImage.match(/url\('?([^']*)'?\)/)[1];
+			img.setAttribute( 'src', url.replace('mode=' + MW_MATH_MATHML, 'mode=' + MW_MATH_PNG) );
 			img.setAttribute( 'class', 'tex mwe-math-fallback-image-' + ($( this ).hasClass('mwe-math-fallback-image-inline') ? 'inline' : 'display') );
 			img.setAttribute( 'aria-hidden', 'true' );
 			this.parentNode.insertBefore( img, this );
