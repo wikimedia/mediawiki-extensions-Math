@@ -18,7 +18,6 @@
 			img = document.createElement('img');
 			img.setAttribute( 'src', this.src.replace('mode=' + MW_MATH_MATHML, 'mode=' + MW_MATH_PNG) );
 			img.setAttribute( 'class', 'tex mwe-math-fallback-image-' + ($( this ).hasClass('mwe-math-fallback-image-inline') ? 'inline' : 'display') );
-			img.setAttribute( 'style', 'vertical-align: center;' );
 			img.setAttribute( 'aria-hidden', 'true' );
 			this.parentNode.insertBefore( img, this );
 
