@@ -92,7 +92,7 @@ class MathHooks {
 	 * @return array
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgUseMathJax;
+		global $wgMathDisableTexFilter;
 
 		if ( trim( $content ) === '' ) { // bug 8372
 			return '';
@@ -130,7 +130,7 @@ class MathHooks {
 				&$renderedMath,
 				$parser->getTitle()->getArticleID(),
 				$parser->nextLinkID() ) );// Enables indexing of math formula
-		if ( $wgUseMathJax ) {
+		if ( $mode == MW_MATH_MATHJAX || $mode == MW_MATH_LATEXML_JAX ) {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
 		}
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
@@ -152,20 +152,13 @@ class MathHooks {
 	 * @return Boolean: true
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
-		global $wgUseMathJax, $wgMathValidModes, $wgDefaultUserOptions;
+		global $wgMathValidModes, $wgDefaultUserOptions;
 		$defaultPreferences['math'] = array(
 			'type' => 'radio',
 			'options' => array_flip( self::getMathNames() ),
 			'label' => '&#160;',
 			'section' => 'rendering/math',
 		);
-		if ( $wgUseMathJax ) {
-			$defaultPreferences['mathJax'] = array(
-				'type' => 'toggle',
-				'label-message' => 'mw_math_mathjax',
-				'section' => 'rendering/math',
-			);
-		}
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
 		if ( ! in_array( $wgDefaultUserOptions['math'] , $wgMathValidModes ) ){
@@ -187,7 +180,9 @@ class MathHooks {
 			MW_MATH_SOURCE => 'mw_math_source',
 			MW_MATH_PNG => 'mw_math_png',
 			MW_MATH_MATHML => 'mw_math_mathml',
-			MW_MATH_LATEXML => 'mw_math_latexml'
+			MW_MATH_LATEXML => 'mw_math_latexml',
+			MW_MATH_LATEXML_JAX => 'mw_math_latexml_jax',
+			MW_MATH_MATHJAX => 'mw_math_mathjax'
 		);
 		$names = array();
 		foreach ( $wgMathValidModes as $mode ) {
