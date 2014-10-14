@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e96e304_dbea2105",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2014-10-14T14:14:50Z",
+      "side": 1,
+      "message": "Could we use a more specific selector to avoid the !important here?",
+      "revId": "74e4c3733d3a73da715c9c79cd18892f28685fad",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
