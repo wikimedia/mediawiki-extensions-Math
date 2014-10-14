@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e96e304_bb38759c",
+        "filename": "MathTexvc.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2014-10-14T14:23:42Z",
+      "side": 1,
+      "message": "Could this be done with a class instead?",
+      "revId": "296c79e070b2a9da81e7bbf53535e0b94dff66c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e96e304_5b3db189",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2014-10-14T14:23:42Z",
+      "side": 1,
+      "message": "Mathoid is actually stripping margin styling now, so I\u0027m not sure that this is actually still needed.",
+      "revId": "296c79e070b2a9da81e7bbf53535e0b94dff66c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e96e304_7b42ed14",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2014-10-14T14:23:42Z",
+      "side": 1,
+      "message": "Is the !important needed here?",
+      "revId": "296c79e070b2a9da81e7bbf53535e0b94dff66c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e96e304_5b54d1c9",
+        "filename": "modules/ext.math.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2014-10-14T14:23:42Z",
+      "side": 1,
+      "message": "This might override the alignment stuff provided by Mathoid\u0027s SVG style. My understanding is that the PNG is just a rasterized version of the SVG, so I\u0027m not sure that we actually want to change the alignment between them.",
+      "revId": "296c79e070b2a9da81e7bbf53535e0b94dff66c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
