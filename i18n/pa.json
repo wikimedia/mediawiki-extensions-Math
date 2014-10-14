@@ -1,7 +1,12 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Babanwalia"
+		]
+	},
 	"math_tip": "ਗਣਿਤ ਫਾਰਮੂਲਾ (LaTeX)",
 	"prefs-math": "ਗਣਿਤ",
+	"mw_math_png": "ਪੀ.ਐੱਨ.ਜੀ. ਤਸਵੀਰਾਂ",
 	"math_failure": "ਪਾਰਸ ਕਰਨ ਲਈ ਫੇਲ੍ਹ",
 	"math_unknown_error": "ਅਣਜਾਣ ਗਲਤੀ",
 	"math_unknown_function": "ਅਣਜਾਣ ਫੰਕਸ਼ਨ",
