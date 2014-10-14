@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8e96e304_466e342c",
+        "filename": "MathTexvc.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-10-14T17:59:55Z",
+      "side": 1,
+      "message": "Done in a follow-up commit https://gerrit.wikimedia.org/r/#/c/166290/",
+      "parentUuid": "8e96e304_bb38759c",
+      "revId": "296c79e070b2a9da81e7bbf53535e0b94dff66c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e96e304_5b3db189",
         "filename": "modules/ext.math.css",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2014-10-14T14:23:42Z",
       "side": 1,
       "message": "Mathoid is actually stripping margin styling now, so I\u0027m not sure that this is actually still needed.",
+      "revId": "296c79e070b2a9da81e7bbf53535e0b94dff66c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e96e304_e67ae0e6",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-10-14T17:59:55Z",
+      "side": 1,
+      "message": "Which change did that? That was still not the case when we tested this week-end.",
+      "parentUuid": "8e96e304_5b3db189",
       "revId": "296c79e070b2a9da81e7bbf53535e0b94dff66c4",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8e96e304_e6e0a095",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-10-14T17:59:55Z",
+      "side": 1,
+      "message": "I think the display\u003d\"none\" style used to be hardcoded in the SVG fallback, but that\u0027s probably no longer necessary now that it is done in the CSS rules above.",
+      "parentUuid": "8e96e304_7b42ed14",
+      "revId": "296c79e070b2a9da81e7bbf53535e0b94dff66c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e96e304_5b54d1c9",
         "filename": "modules/ext.math.js",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2014-10-14T14:23:42Z",
       "side": 1,
       "message": "This might override the alignment stuff provided by Mathoid\u0027s SVG style. My understanding is that the PNG is just a rasterized version of the SVG, so I\u0027m not sure that we actually want to change the alignment between them.",
+      "revId": "296c79e070b2a9da81e7bbf53535e0b94dff66c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e96e304_8663dc3a",
+        "filename": "modules/ext.math.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2014-10-14T17:59:55Z",
+      "side": 1,
+      "message": "Mmh, I thought the PNG was still generated from LaTeX not Mathoid, so this removal was on purpose. Adding the SVG style will be inconsistent with the PNG mode (not sure if we care).",
+      "parentUuid": "8e96e304_5b54d1c9",
       "revId": "296c79e070b2a9da81e7bbf53535e0b94dff66c4",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
