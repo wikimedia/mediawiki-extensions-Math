@@ -383,8 +383,9 @@ class MathMathML extends MathRenderer {
 		$this->correctSvgStyle( $this->getSvg(), $style );
 		if ( $class ) { $attribs['class'] = $class; }
 		if ( $style ) { $attribs['style'] = $style; }
-		// an alternative for svg might be an object with type="image/svg+xml"
-		return Xml::element( 'span', $this->getAttributes( 'span', $attribs , array( 'aria-hidden' => 'true' ) ) );
+		// Don't use an empty span, as that is going to be stripped by HTML tidy
+		// when enabled (which is true in production).
+		return Xml::element( 'meta', $this->getAttributes( 'span', $attribs , array( 'aria-hidden' => 'true' ) ) );
 	}
 
 
