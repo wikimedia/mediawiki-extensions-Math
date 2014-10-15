@@ -379,7 +379,8 @@ class MathMathML extends MathRenderer {
 			$class  = $classOverride;
 		}
 
-		$style = 'background-image: url(\''. $url. '\'); background-repeat: no-repeat; background-size: contain;';
+		// TODO: move the common styles to the global stylesheet!
+		$style = 'background-image: url(\''. $url. '\'); background-repeat: no-repeat; background-size: 100% 100%;';
 		$this->correctSvgStyle( $this->getSvg(), $style );
 		if ( $class ) { $attribs['class'] = $class; }
 		if ( $style ) { $attribs['style'] = $style; }
