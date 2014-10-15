@@ -32,7 +32,8 @@ class SpecialMathShowImage extends SpecialPage {
 			$request->response()->header( "Content-type: image/svg+xml; charset=utf-8" );
 		}
 		if ( $success && !( $this->noRender ) ) {
-			$request->response()->header( 'Cache-Control: public max-age=2419200' ); // 4 weeks
+			$request->response()->header( 'Cache-Control: public s-maxage=604800' ); // 1 week (server)
+			$request->response()->header( 'Cache-Control: public max-age=3600' ); // 1 hour (client)
 			$request->response()->header( 'Vary: User-Agent' );
 		}
 	}
