@@ -12,12 +12,9 @@
 .mwe-math-mathml-display { display: block !important; margin-left: auto; margin-right: auto; }
 .mwe-math-mathml-a11y {
     /* We try to hide the MathML formula in a way that still makes it accessible to accessibility tools. */
-    clip: rect(1px, 1px, 1px, 1px);
-    overflow: hidden;
     position: absolute;
-    width: 1px;
-    height: 1px;
     opacity: 0;
+    filter: alpha(opacity=0);
 }
 m|math {
     /* Try some popular OpenType MATH fonts before the WOFF fallback */
