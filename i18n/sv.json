@@ -7,7 +7,8 @@
 			"Nghtwlkr",
 			"Sannab",
 			"WikiPhoenix",
-			"Lokal Profil"
+			"Lokal Profil",
+			"Jopparn"
 		]
 	},
 	"math-desc": "Ritar matematiska ekvationer mellan <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-taggar",
@@ -16,8 +17,8 @@
 	"prefs-math": "Matematik",
 	"mw_math_png": "PNG-bilder",
 	"mw_math_source": "TeX-källa (för textbaserade webbläsare)",
-	"mw_math_mathjax": "MathJax på klientsidan (långsam, förbättrad rendering för vissa webbläsare och hjälpmedelsverktyg)",
-	"mw_math_mathml": "MathML med SVG eller PNG-återgång (rekommenderas för moderna webbläsare och hjälpmedelsverktyg)",
+	"mw_math_mathjax": "MathJax på klientsidan (långsam, förbättrad rendering för vissa webbläsare och tillgänglighetsverktyg)",
+	"mw_math_mathml": "MathML med SVG- eller PNG-återgång (rekommenderas för moderna webbläsare och tillgänglighetsverktyg)",
 	"mw_math_latexml": "LaTeXML (experimentell; använder MathML)",
 	"math_failure": "Misslyckades med att tolka formel.",
 	"math_unknown_error": "okänt fel",

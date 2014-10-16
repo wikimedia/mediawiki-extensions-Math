@@ -2,14 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Trengarasu",
-			"செல்வா"
+			"செல்வா",
+			"ElangoRamanujam"
 		]
 	},
 	"math_sample": "இங்கே வாய்பாட்டை இடுக",
 	"math_tip": "கணித வாய்பாடு (LaTeX)",
 	"prefs-math": "கணிதம்",
-	"mw_math_png": "எப்போதும் பி.என்.ஞ்சி (PNG) ஆக மாற்று",
-	"mw_math_source": "TeX  ஆக விட்டு வை (உரைசார் உலாவிகளுக்கு)",
+	"mw_math_png": "PNG படங்கள்",
+	"mw_math_source": "TeX மூலம் (உரைசார் உலாவிகளுக்கு)",
+	"mw_math_mathml": "கூடுமாயின் MathML (சோதனை)",
 	"math_failure": "பாகுபடுத்தல் தோல்வி",
 	"math_unknown_error": "அறியாத ஏதோவொரு பிழை",
 	"math_unknown_function": "அறியப்படாத செயற்பாடு",
