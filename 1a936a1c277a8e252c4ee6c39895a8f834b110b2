@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e96e304_5133420a",
+        "filename": "SpecialMathShowImage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2014-10-16T13:20:34Z",
+      "side": 1,
+      "message": "The second line here overrides the first. You need to set a single header with both s-maxage \u0026 max-age.",
+      "revId": "1a936a1c277a8e252c4ee6c39895a8f834b110b2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
