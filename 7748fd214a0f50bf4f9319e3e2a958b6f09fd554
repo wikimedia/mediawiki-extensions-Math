@@ -16,6 +16,23 @@
       "revId": "7748fd214a0f50bf4f9319e3e2a958b6f09fd554",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e96e304_1cb93878",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 366
+      },
+      "writtenOn": "2014-10-20T20:26:59Z",
+      "side": 1,
+      "message": "Should we say which browsers? e.g.:\n\nClient-side MathJax (slow, improves rendering in most old browsers and accessibility tools).",
+      "revId": "7748fd214a0f50bf4f9319e3e2a958b6f09fd554",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
