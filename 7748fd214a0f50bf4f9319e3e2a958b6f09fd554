@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e96e304_bcb0443f",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2014-10-20T19:39:46Z",
+      "side": 1,
+      "message": "* improve -\u003e improves\n* and access... -\u003e and adds access... (?) If yes, also below.",
+      "revId": "7748fd214a0f50bf4f9319e3e2a958b6f09fd554",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
