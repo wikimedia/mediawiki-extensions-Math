@@ -1,0 +1,14 @@
+/*
+   Document   : ext.math.
+   Created on : 20.10.2014, 22:00:00
+   Author     : fredw (Frédéric Wang)
+   Description:
+       Additional style, to load only on desktop.
+*/
+
+@font-face {
+    /* WOFF version of Latin Modern Math.
+       See https://github.com/fred-wang/MathFonts */
+    font-family: LatinModernMathWOFF;
+    src: url(./LatinModern/latinmodern-math.woff);
+}

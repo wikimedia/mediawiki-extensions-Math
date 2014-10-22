@@ -240,6 +240,12 @@ $wgResourceModules['ext.math.styles'] = array(
 	'localBasePath' => __DIR__ . '/modules',
 	'remoteExtPath' => 'Math/modules',
 	'styles' => 'ext.math.css',
+	'targets' => array( 'desktop', 'mobile' ),
+);
+$wgResourceModules['ext.math.desktop.styles'] = array(
+	'localBasePath' => __DIR__ . '/modules',
+	'remoteExtPath' => 'Math/modules',
+	'styles' => 'ext.math.desktop.css',
 );
 $wgResourceModules['ext.math.scripts'] = array(
 	'localBasePath' => __DIR__ . '/modules',

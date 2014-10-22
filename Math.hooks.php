@@ -135,6 +135,7 @@ class MathHooks {
 		}
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
 		if ( $mode == MW_MATH_MATHML ) {
+			$parser->getOutput()->addModuleStyles( array( 'ext.math.desktop.styles' ) );
 			$parser->getOutput()->addModules( array( 'ext.math.scripts' ) );
 		}
 		// Writes cache if rendering was successful
