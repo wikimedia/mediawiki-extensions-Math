@@ -20,6 +20,7 @@
 	"mw_math_mathjax": "MathJax på klientsidan (långsam, förbättrad rendering för vissa webbläsare och tillgänglighetsverktyg)",
 	"mw_math_mathml": "MathML med SVG- eller PNG-återgång (rekommenderas för moderna webbläsare och tillgänglighetsverktyg)",
 	"mw_math_latexml": "LaTeXML (experimentell; använder MathML)",
+	"mw_math_latexml_jax": "LaTeXML med MathJax på klientsidan (experimentellt; använder MathML)",
 	"math_failure": "Misslyckades med att tolka formel.",
 	"math_unknown_error": "okänt fel",
 	"math_unknown_function": "okänd funktion '$1'",
