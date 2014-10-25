@@ -33,6 +33,42 @@
       "revId": "7748fd214a0f50bf4f9319e3e2a958b6f09fd554",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e936f18_27f3da08",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 54
+      },
+      "writtenOn": "2014-10-25T14:43:48Z",
+      "side": 1,
+      "message": "About \"access\": I think that the intention is \"browsers and accessibility tools\". My understanding is that \"accessibility tools\" are special browsers with enhanced accessibility, but the developer is welcome to clarify.",
+      "parentUuid": "8e96e304_bcb0443f",
+      "revId": "7748fd214a0f50bf4f9319e3e2a958b6f09fd554",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e936f18_c7f796f1",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 54
+      },
+      "writtenOn": "2014-10-25T14:43:48Z",
+      "side": 1,
+      "message": "I\u0027ll send an email to wikitech-l about this. It requires a bit of discussion.",
+      "parentUuid": "8e96e304_1cb93878",
+      "revId": "7748fd214a0f50bf4f9319e3e2a958b6f09fd554",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
