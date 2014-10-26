@@ -14,7 +14,7 @@
 	"prefs-math": "נוסחאות מתמטיות",
 	"mw_math_png": "תמונות PNG",
 	"mw_math_source": "קוד מקור של TeX (לדפדפני טקסט)",
-	"mw_math_mathjax": "MathJax בצד הלקוח (אטי, שיפור התצוגה בחלק מהדפדפנים ובכלי נגישות)",
+	"mw_math_mathjax": "MathJax בצד הלקוח (אטי; משפר את התצוגה בחלק מהדפדפנים ובכלי נגישות)",
 	"mw_math_mathml": "MathML עם גיבוי SVG או PNG (מומלץ לדפדפנים מודרניים ולכלי נגישות)",
 	"mw_math_latexml": "LaTeXML (נסיוני; משתמש ב־MathML)",
 	"mw_math_latexml_jax": "LaTeXML עם MathJax בצד הלקוח (ניסיוני; משתמש ב־MathML)",
