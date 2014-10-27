@@ -8,6 +8,7 @@
 	"math_tip": "የሒሳብ ቀመር (LaTeX) ለመጨመር",
 	"prefs-math": "የሂሳብ መልክ",
 	"mw_math_png": "ሁልጊዜ እንደ PNG",
+	"mw_math_mathml": "MathML ከተቻለ (የሙከራ)",
 	"math_failure": "ዘርዛሪው ተሳነው",
 	"math_unknown_error": "የማይታወቅ ስኅተት",
 	"math_unknown_function": "የማይታወቅ ተግባር",

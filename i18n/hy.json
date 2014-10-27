@@ -11,6 +11,7 @@
 	"prefs-math": "Մաթեմատիկական բանաձևեր",
 	"mw_math_png": "Միշտ դարձնել PNG",
 	"mw_math_source": "Թողնել որպես ТеХ (տեքստային բրաուզերների համար)",
+	"mw_math_mathml": "MathML, եթե հնարավոր է (փորձնական)",
 	"math_failure": "Չհաջողվեց վերլուծել",
 	"math_unknown_error": "անհայտ սխալ",
 	"math_unknown_function": "անհայտ ֆունկցիա",

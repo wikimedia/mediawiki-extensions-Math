@@ -9,6 +9,7 @@
 	"prefs-math": "Matématika",
 	"mw_math_png": "Mesthi nggawé PNG",
 	"mw_math_source": "Dijarna waé minangka TeX (kanggo panjlajah wèb tèks)",
+	"mw_math_mathml": "MathML yèn bisa (pracoban)",
 	"math_failure": "Gagal nglakoni parse",
 	"math_unknown_error": "Kaluputan sing ora dimangertèni",
 	"math_unknown_function": "fungsi sing ora dimangertèni",

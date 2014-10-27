@@ -10,6 +10,7 @@
 	"prefs-math": "Math",
 	"mw_math_png": "PNG ke sab time render karo",
 	"mw_math_source": "TeX ke rakam chhorr do (text browsers ke khatir)",
+	"mw_math_mathml": "MathML hoe sake tab (experimental)",
 	"math_failure": "Parse nai kare sakaa",
 	"math_unknown_error": "galti ke nai samajhta",
 	"math_unknown_function": "nai samajhta ki ii kon chij khatir hai",

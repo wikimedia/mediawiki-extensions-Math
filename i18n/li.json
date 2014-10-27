@@ -10,6 +10,7 @@
 	"prefs-math": "Mattemetik rendere",
 	"mw_math_png": "Ummer PNG rendere",
 	"mw_math_source": "Laot de TeX code sjtaon (vuur tèksbrowsers)",
+	"mw_math_mathml": "MathML woe meugelik (experimenteil)",
 	"math_failure": "Parse misluk",
 	"math_unknown_error": "onbekènde fout",
 	"math_unknown_function": "onbekènde functie",

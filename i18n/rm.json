@@ -10,6 +10,7 @@
 	"prefs-math": "TeX",
 	"mw_math_png": "Adina mussar sco PNG",
 	"mw_math_source": "Laschar en furma da TeX (per navigaturs da text)",
+	"mw_math_mathml": "MathML sche pussibel (experimental)",
 	"math_failure": "Errur dal parser",
 	"math_unknown_error": "errur nunenconuschenta",
 	"math_unknown_function": "funcziun nunenconuschenta",

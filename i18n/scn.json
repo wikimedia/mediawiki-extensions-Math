@@ -9,6 +9,7 @@
 	"prefs-math": "Fòrmuli",
 	"mw_math_png": "Ammustra sempri 'n PNG",
 	"mw_math_source": "Lassa comu TeX (pi browser tistuali)",
+	"mw_math_mathml": "MathML siddu pussìbbili (spirimintali)",
 	"math_failure": "S'hà virificatu un erruri ntô parsing",
 	"math_unknown_error": "erruri scanusciutu",
 	"math_unknown_function": "funzioni scanusciuta",

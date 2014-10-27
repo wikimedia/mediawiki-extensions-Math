@@ -10,6 +10,7 @@
 	"prefs-math": "Матэматыка",
 	"mw_math_png": "Заўсёды вырабляць PNG",
 	"mw_math_source": "Пакідаць у выглядзе TeX (для тэкставых браўзераў)",
+	"mw_math_mathml": "MathML калі магчыма (эксперыментальнае)",
 	"math_failure": "Не ўдалося разабраць",
 	"math_unknown_error": "невядомая памылка",
 	"math_unknown_function": "невядомая функцыя",

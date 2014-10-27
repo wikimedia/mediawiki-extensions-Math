@@ -10,6 +10,7 @@
 	"prefs-math": "Τὰ μαθηματικά",
 	"mw_math_png": "Ἀπόδοσις PNG πάντοτε",
 	"mw_math_source": "Ἄφες το ὡς TeX (διὰ τὰ πλοηγητήρια κειμένων)",
+	"mw_math_mathml": "MathML εἰ δυνατόν (πειραστικόν)",
 	"math_failure": "Λεξιανάλυσις ἀποτετυχηκυῖα",
 	"math_unknown_error": "ἄγνωστον σφάλμα",
 	"math_unknown_function": "ἄγνωστος ἐνέργεια",

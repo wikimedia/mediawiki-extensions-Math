@@ -9,6 +9,7 @@
 	"prefs-math": "Математіка",
 	"mw_math_png": "Все ґенеровати PNG",
 	"mw_math_source": "Зохабити як TeX (про текстовы переглядачі)",
+	"mw_math_mathml": "MathML, кідь є підпороване (експеріменталне)",
 	"math_failure": "Не дасть ся розобрати выраз",
 	"math_unknown_error": "незнама хыба",
 	"math_unknown_function": "незнама функція",

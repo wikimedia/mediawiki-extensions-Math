@@ -10,6 +10,7 @@
 	"prefs-math": "Фуормулалар",
 	"mw_math_png": "Куруук PNG таһаарарга (туһанарга)",
 	"mw_math_source": "TeX бэлиэтин (разметкатын) хааллар (тиэкиһинэн эрэ үлэлиир браузерга)",
+	"mw_math_mathml": "Сатаннаҕына MathML туһан (experimental)",
 	"math_failure": "Сатаан ааҕыллыбата",
 	"math_unknown_error": "биллибэт алҕас",
 	"math_unknown_function": "биллибэт дьайыы (функция)",

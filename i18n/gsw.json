@@ -9,6 +9,7 @@
 	"prefs-math": "TeX",
 	"mw_math_png": "Immer als PNG aazeige",
 	"mw_math_source": "Als TeX la sy (für Tekschtbrowser)",
+	"mw_math_mathml": "MathML (experimentäll)",
 	"math_failure": "Parser-Fähler",
 	"math_unknown_error": "Nit bekannte Fähler",
 	"math_unknown_function": "Nit bekannti Funktion",

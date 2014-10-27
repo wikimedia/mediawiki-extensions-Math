@@ -10,6 +10,7 @@
 	"prefs-math": "Prikazivanje matematike",
 	"mw_math_png": "Uvijek prikaži kao PNG",
 	"mw_math_source": "Ostavi kao TeX (za tekstualne preglednike)",
+	"mw_math_mathml": "MathML ako je moguće (eksperimentalno)",
 	"math_failure": "Neuspjeh pri parsiranju",
 	"math_unknown_error": "nepoznata greška",
 	"math_unknown_function": "nepoznata funkcija",

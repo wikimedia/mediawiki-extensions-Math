@@ -10,6 +10,7 @@
 	"prefs-math": "TeX",
 	"mw_math_png": "Altied as PNG deerstaale",
 	"mw_math_source": "As TeX beläite (foar Textbrowsere)",
+	"mw_math_mathml": "MathML",
 	"math_failure": "Parser-Failer",
 	"math_unknown_error": "Uunbekoande Failer",
 	"math_unknown_function": "Uunbekoande Funktion",

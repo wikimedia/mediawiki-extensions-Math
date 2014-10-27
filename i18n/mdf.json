@@ -11,6 +11,7 @@
 	"prefs-math": "Няфтемс формулат",
 	"mw_math_png": "Фалу ладямс PNG",
 	"mw_math_source": "Катк тянь кода TeX (текстонь вальманди)",
+	"mw_math_mathml": "MathML коса ули кода (экспериментокс)",
 	"math_failure": "Аф морафтови",
 	"math_unknown_error": "аф содаф эльбятькс",
 	"math_unknown_function": "аф содаф функцие",

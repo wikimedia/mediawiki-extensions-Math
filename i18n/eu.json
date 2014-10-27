@@ -10,6 +10,7 @@
 	"prefs-math": "Formulak",
 	"mw_math_png": "Beti PNG irudiak sortu",
 	"mw_math_source": "TeX bezala utzi (testu bidezko nabigatzaileentzako)",
+	"mw_math_mathml": "MathML posible bada (proba fasean)",
 	"math_failure": "Interpretazio errorea",
 	"math_unknown_error": "errore ezezaguna",
 	"math_unknown_function": "funtzio ezezaguna",

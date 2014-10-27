@@ -9,6 +9,7 @@
 	"prefs-math": "Esprisions matematicas",
 	"mw_math_png": "Producir siempre PNG",
 	"mw_math_source": "Deixar como TeX (ta navegadores en formato texto)",
+	"mw_math_mathml": "MathML si ye posible (esperimental)",
 	"math_failure": "Error en o codigo",
 	"math_unknown_error": "error esconoxita",
 	"math_unknown_function": "función esconoxita",

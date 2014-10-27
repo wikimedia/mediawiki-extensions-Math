@@ -9,6 +9,7 @@
 	"prefs-math": "Математически формули",
 	"mw_math_png": "Използване винаги на PNG",
 	"mw_math_source": "Оставяне като TeX (за текстови браузъри)",
+	"mw_math_mathml": "MathML по възможност (експериментално)",
 	"math_failure": "Неуспех при разбора",
 	"math_unknown_error": "непозната грешка",
 	"math_unknown_function": "непозната функция",

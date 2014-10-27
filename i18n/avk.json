@@ -5,6 +5,7 @@
 	"prefs-math": "Rendu des maths",
 	"mw_math_png": "Toujours produire une image PNG",
 	"mw_math_source": "Laisser le code TeX original",
+	"mw_math_mathml": "MathML",
 	"math_failure": "Erreur math",
 	"math_unknown_error": "erreur indéterminée",
 	"math_unknown_function": "megrupen fliok",

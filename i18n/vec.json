@@ -11,6 +11,7 @@
 	"prefs-math": "Formułe matematiche",
 	"mw_math_png": "Mostra senpre in PNG",
 	"mw_math_source": "Lassa in formato TeX (par browser testuali)",
+	"mw_math_mathml": "Usa MathML se se pol (sperimental)",
 	"math_failure": "Eror del parser",
 	"math_unknown_error": "eror sconossiùo",
 	"math_unknown_function": "funzion sconossiùa",

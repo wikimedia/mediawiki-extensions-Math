@@ -9,6 +9,7 @@
 	"prefs-math": "Matemātiki",
 	"mw_math_png": "Wisaddan teīkeis PNG grāfikin",
 	"mw_math_source": "Palaīdeis en TeX-as fōrmatu (per tekstas lasātlins)",
+	"mw_math_mathml": "MathML ik mazīngi (eksperimentālai)",
 	"math_failure": "Parsers ni mazēi skaitātun",
 	"math_unknown_error": "niwaistā blānda",
 	"math_unknown_function": "niwaistā funkciōni",

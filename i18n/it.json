@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16"
+			"Beta16",
+			"Ricordisamoa"
 		]
 	},
 	"math-desc": "Esegue il rendering di formule matematiche tra i tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -10,8 +11,8 @@
 	"prefs-math": "Formule matematiche",
 	"mw_math_png": "Immagini PNG",
 	"mw_math_source": "Sorgente TeX (per browser testuali)",
-	"mw_math_mathjax": "MathJax lato client (lento, migliora il rendering per alcuni browser e strumenti di accesso facilitato)",
-	"mw_math_mathml": "MathML, altrimenti SVG o PNG (consigliato per i browser moderni & strumenti di accesso facilitato)",
+	"mw_math_mathjax": "MathJax lato client (lento; migliora il rendering su alcuni browser e strumenti di accesso facilitato)",
+	"mw_math_mathml": "MathML, altrimenti SVG o PNG (consigliato per browser moderni e strumenti di accesso facilitato)",
 	"mw_math_latexml": "LaTeXML (sperimentale; usa MathML)",
 	"mw_math_latexml_jax": "LaTeXML con MathJax lato client (sperimentale; usa MathML)",
 	"math_failure": "Errore del parser",

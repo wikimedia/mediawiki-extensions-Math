@@ -10,6 +10,7 @@
 	"prefs-math": "Matematik",
 	"mw_math_png": "Kaiken generiruida PNG",
 	"mw_math_source": "Jätkat nece TeX-formas (tekstkaclimiden täht)",
+	"mw_math_mathml": "MathML, ku sab (eksperimentaližikš)",
 	"math_failure": "Ei voi palastada",
 	"math_unknown_error": "tundmatoi petuz",
 	"math_unknown_function": "tundmatoi funkcii",

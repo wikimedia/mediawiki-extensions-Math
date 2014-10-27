@@ -11,6 +11,7 @@
 	"prefs-math": "رياضيات",
 	"mw_math_png": "دائما اعرض على هيئة PNG",
 	"mw_math_source": "اعرض على هيئة TeX (للمتصفحات النصية)",
+	"mw_math_mathml": "اعرض بصيغة MathML إن أمكن (تجريبي)",
 	"math_failure": "خطأ رياضيات",
 	"math_unknown_error": "خطأ غير معروف",
 	"math_unknown_function": "وظيفة غير معروفة",

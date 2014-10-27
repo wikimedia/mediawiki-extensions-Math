@@ -9,6 +9,7 @@
 	"prefs-math": "Wiskunde",
 	"mw_math_png": "Gebruik altyd PNG.",
 	"mw_math_source": "Los as TeX (vir teksblaaiers).",
+	"mw_math_mathml": "MathML",
 	"math_failure": "Kon nie verbeeld nie",
 	"math_unknown_error": "onbekende fout",
 	"math_unknown_function": "onbekende funksie",

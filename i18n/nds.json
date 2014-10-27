@@ -5,6 +5,7 @@
 	"prefs-math": "TeX",
 	"mw_math_png": "Jümmer as PNG dorstellen",
 	"mw_math_source": "As TeX laten (för Textbrowser)",
+	"mw_math_mathml": "MathML (experimentell)",
 	"math_failure": "Parser-Fehler",
 	"math_unknown_error": "Unbekannten Fehler",
 	"math_unknown_function": "Unbekannte Funktschoon",

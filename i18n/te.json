@@ -11,6 +11,7 @@
 	"prefs-math": "గణితం",
 	"mw_math_png": "ఎల్లప్పుడూ PNGగా చూపించు",
 	"mw_math_source": "టెక్ గానే ఉండనివ్వు (టెక్స్ట్‌ బ్రౌజర్ల కొరకు)",
+	"mw_math_mathml": "వీలయితే MathML (ప్రయోగాత్మకం)",
 	"math_failure": "పార్స్ చెయ్యలేకపోయాం",
 	"math_unknown_error": "తెలియని లోపం",
 	"math_unknown_function": "తెలియని ఫంక్షన్ '$1'",

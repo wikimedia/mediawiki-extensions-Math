@@ -13,6 +13,7 @@
 	"prefs-math": "គណិត",
 	"mw_math_png": "ជានិច្ចការជាPNG",
 	"mw_math_source": "ទុកឱ្យនៅជា TeX (ចំពោះឧបករណ៍រាវរកអត្ថបទ)",
+	"mw_math_mathml": "MathML បើអាចទៅរួច (ពិសោធ)",
 	"math_failure": "បរាជ័យ​ក្នុង​ការ​ញែក​ចេញ​",
 	"math_unknown_error": "កំហុសមិនស្គាល់",
 	"math_unknown_function": "អនុគមន៍​មិន​ស្គាល់ '$1'",

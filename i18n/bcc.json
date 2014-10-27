@@ -9,6 +9,7 @@
 	"prefs-math": "ریاضی",
 	"mw_math_png": "یکسره PNG تحویل دی",
 	"mw_math_source": "آیء په داب TeX بل (په بروززان متنی)",
+	"mw_math_mathml": "MathML اگر ممکن انت (آزمایشی)",
 	"math_failure": "تجزیه پروش وارت",
 	"math_unknown_error": "ناشناسین حطا",
 	"math_unknown_function": "ناشناس عملگر",

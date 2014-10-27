@@ -9,6 +9,7 @@
 	"prefs-math": "Hórmulas",
 	"mw_math_png": "Renderiçal sempri PNG",
 	"mw_math_source": "Quealu cumu TeX (pa escrucaoris de testu)",
+	"mw_math_mathml": "MathML si es posibri (esperimental)",
 	"math_failure": "Nu es posibri entendel",
 	"math_unknown_error": "marru andarriu",
 	"math_unknown_function": "hunción andarria",

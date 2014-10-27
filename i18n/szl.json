@@ -10,6 +10,7 @@
 	"prefs-math": "Wzory",
 	"mw_math_png": "Zawše gyneruj grafika PNG",
 	"mw_math_source": "Uostow w TeXu (dla přyglůndarek tekstowych)",
+	"mw_math_mathml": "MathML jak dostympny (eksperymyntalne)",
 	"math_failure": "Parser ńy můg rozpoznać",
 	"math_unknown_error": "ńyznany feler",
 	"math_unknown_function": "ńyznano funkcyjo",

@@ -9,6 +9,7 @@
 	"prefs-math": "Formulalar",
 	"mw_math_png": "Härwaqıt PNG belän bäyläw",
 	"mw_math_source": "TeX bilgeläneşendä qaldırılsın (tekstlı brauzerlar öçen)",
+	"mw_math_mathml": "Mömkin bulsa MathML qullanılsın (eksperimental)",
 	"math_failure": "Uqıy almadım",
 	"math_unknown_error": "belenmägän xata",
 	"math_unknown_function": "bilgesez funksiä",

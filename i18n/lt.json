@@ -9,6 +9,7 @@
 	"prefs-math": "Matematika",
 	"mw_math_png": "Visada formuoti PNG",
 	"mw_math_source": "Palikti TeX formatą (tekstinėms naršyklėms)",
+	"mw_math_mathml": "MathML jei įmanoma (eksperimentinis)",
 	"math_failure": "Nepavyko apdoroti",
 	"math_unknown_error": "nežinoma klaida",
 	"math_unknown_function": "nežinoma funkcija",
