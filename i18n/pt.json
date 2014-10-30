@@ -12,7 +12,7 @@
 	"prefs-math": "Matemática",
 	"mw_math_png": "Imagens PNG",
 	"mw_math_source": "Fonte TeX (para navegadores de texto)",
-	"mw_math_mathjax": "MathJax do lado do cliente (lento, melhora a renderização para alguns navegadores e ferramentas de acessibilidade)",
+	"mw_math_mathjax": "MathJax do lado do cliente (lento; melhora a renderização para alguns navegadores e ferramentas de acessibilidade)",
 	"mw_math_mathml": "MathML, alternativamente SVG ou PNG (recomendado para navegadores mais modernos e ferramentas de acessibilidade)",
 	"mw_math_latexml": "LaTeXML (experimental; usa MathML)",
 	"mw_math_latexml_jax": "LaTeXML com MathJax do lado do cliente (experimental; usa MathML)",
