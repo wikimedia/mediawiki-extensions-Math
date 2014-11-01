@@ -17,7 +17,7 @@
 	"prefs-math": "Matematik",
 	"mw_math_png": "PNG-bilder",
 	"mw_math_source": "TeX-källa (för textbaserade webbläsare)",
-	"mw_math_mathjax": "MathJax på klientsidan (långsam, förbättrad rendering för vissa webbläsare och tillgänglighetsverktyg)",
+	"mw_math_mathjax": "MathJax på klientsidan (långsam; förbättrar rendering på vissa webbläsare och tillgänglighetsverktyg)",
 	"mw_math_mathml": "MathML med SVG- eller PNG-återgång (rekommenderas för moderna webbläsare och tillgänglighetsverktyg)",
 	"mw_math_latexml": "LaTeXML (experimentell; använder MathML)",
 	"mw_math_latexml_jax": "LaTeXML med MathJax på klientsidan (experimentellt; använder MathML)",
