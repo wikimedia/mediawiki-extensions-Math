@@ -370,10 +370,9 @@ class MathMathML extends MathRenderer {
 				 '\'); background-repeat: no-repeat; background-size: 100% 100%;';
 		$this->correctSvgStyle( $this->getSvg(), $style );
 		if ( $class ) { $attribs['class'] = $class; }
-		if ( $style ) { $attribs['style'] = $style; }
 		// Don't use an empty span, as that is going to be stripped by HTML tidy
 		// when enabled (which is true in production).
-		return Xml::element( 'meta', $this->getAttributes( 'span', $attribs , array( 'aria-hidden' => 'true' ) ) );
+		return Xml::element( 'meta', $this->getAttributes( 'span', $attribs , array( 'aria-hidden' => 'true', 'style' => $style ) ) );
 	}
 
 
