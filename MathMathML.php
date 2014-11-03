@@ -437,7 +437,7 @@ class MathMathML extends MathRenderer {
 			$mml = preg_replace( '/<math/', '<math display="block"', $mml );
 		}
 		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(), 'style' => 'display: none;'  ), $mml );
-		$output .= $this->getFallbackImage( ) . "\n";
+		$output .= $this->getFallbackImage( );
 		$output .= HTML::closeElement( $element );
 		return $output;
 	}
