@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e936f18_91bc3169",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2014-11-03T17:22:26Z",
+      "side": 1,
+      "message": "Can you give a little bit more context here?",
+      "revId": "e38f6d1a996cff66dde6958c9af24e9e288689d2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
