@@ -3,7 +3,8 @@
 		"authors": [
 			"Minh Nguyen",
 			"Vinhtantran",
-			"Trần Nguyễn Minh Huy"
+			"Trần Nguyễn Minh Huy",
+			"Max20091"
 		]
 	},
 	"math-desc": "Kết xuất các công thức nằm giữa thẻ <code>&lt;math&gt;</code> …<code>&lt;/math&gt;</code>",
@@ -12,8 +13,8 @@
 	"prefs-math": "Công thức toán",
 	"mw_math_png": "Hình ảnh PNG",
 	"mw_math_source": "Mã nguồn TeX (dành cho trình duyệt văn bản)",
-	"mw_math_mathjax": "MathJax bên trình khách (chậm chạp nhưng được trình bày tốt hơn trong một số trình duyệt và công cụ trợ năng)",
-	"mw_math_mathml": "MathML với dự phòng SVG hoặc PNG (khuyến khích cho các trình duyệt và công cụ trợ năng hiện đại)",
+	"mw_math_mathjax": "Client-side MathJax (chậm; cải thiện rendering trong một số trình duyệt và công cụ trợ năng)",
+	"mw_math_mathml": "MathML với SVG hoặc PNG (khuyến khích các trình duyệt và công cụ trợ năng hiện đại)",
 	"mw_math_latexml": "LaTeXML (thử nghiệm; sử dụng MathML)",
 	"mw_math_latexml_jax": "LaTeXML có MathJax bên trình khách (thử nghiệm; dùng MathML)",
 	"math_failure": "Không thể phân tích cú pháp",
