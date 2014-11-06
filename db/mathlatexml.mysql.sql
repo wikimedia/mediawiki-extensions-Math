@@ -10,7 +10,7 @@ CREATE TABLE /*_*/mathlatexml (
   -- the validated tex
   math_tex text,
   -- MathML output LaTeXML
-  math_mathml text,
+  math_mathml mediumtext,
   -- SVG output mathoid
   math_svg text,
   -- MW_MATHSTYLE_(INLINE_DISPLAYSTYLE|DISPLAY|INLINE)
