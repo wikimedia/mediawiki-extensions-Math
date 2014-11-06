@@ -232,6 +232,10 @@ class MathHooks {
 				if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
 					$sql = dirname( __FILE__ ) . '/db/mathlatexml.' . $type . '.sql';
 					$updater->addExtensionTable( 'mathlatexml', $sql );
+					if ( $type == 'mysql' ){
+						$sql = dirname( __FILE__ ) . '/db/patches/mathlatexml.mathml-length-adjustment.mysql.sql';
+						$updater->modifyExtensionField( 'mathlatexml', 'math_mathml', $sql );
+					}
 				} else {
 					throw new MWException( "Math extension does not currently support $type database for LaTeXML." );
 				}
