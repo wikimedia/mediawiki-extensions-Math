@@ -519,6 +519,11 @@ $wgResourceModules['ext.math.visualEditor'] = array(
 		'ext.visualEditor.mwcore',
 	),
 	'messages' => array(
+		'math-visualeditor-mwmathinspector-display',
+		'math-visualeditor-mwmathinspector-display-block',
+		'math-visualeditor-mwmathinspector-display-default',
+		'math-visualeditor-mwmathinspector-display-inline',
+		'math-visualeditor-mwmathinspector-id',
 		'math-visualeditor-mwmathinspector-title',
 	),
 	'targets' => array( 'desktop', 'mobile' ),
