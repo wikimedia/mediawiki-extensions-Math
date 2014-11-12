@@ -17,12 +17,9 @@
  * @param {ve.dm.MWMathNode} model Model to observe
  * @param {Object} [config] Configuration options
  */
-ve.ce.MWMathNode = function VeCeMWMathNode( model, config ) {
+ve.ce.MWMathNode = function VeCeMWMathNode() {
 	// Parent constructor
-	ve.ce.MWInlineExtensionNode.call( this, model, config );
-
-	// DOM changes
-	this.$element.addClass( 've-ce-mwMathNode' );
+	ve.ce.MWMathNode.super.apply( this, arguments );
 };
 
 /* Inheritance */
@@ -36,6 +33,15 @@ ve.ce.MWMathNode.static.name = 'mwMath';
 ve.ce.MWMathNode.static.primaryCommandName = 'math';
 
 /* Methods */
+
+/** */
+ve.ce.MWMathNode.prototype.onSetup = function () {
+	// Parent method
+	ve.ce.MWMathNode.super.prototype.onSetup.call( this );
+
+	// DOM changes
+	this.$element.addClass( 've-ce-mwMathNode' );
+};
 
 /** */
 ve.ce.MWMathNode.prototype.onParseSuccess = function ( deferred, response ) {
