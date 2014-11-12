@@ -18,7 +18,7 @@
  */
 ve.dm.MWMathNode = function VeDmMWMathNode() {
 	// Parent constructor
-	ve.dm.MWInlineExtensionNode.apply( this, arguments );
+	ve.dm.MWMathNode.super.apply( this, arguments );
 };
 
 /* Inheritance */
