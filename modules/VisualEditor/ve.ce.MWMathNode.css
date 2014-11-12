@@ -1,0 +1,6 @@
+/**
+ * Hide math tag completely to avoid extra bounding boxes
+ */
+.ve-ce-mwMathNode .mwe-math-mathml-a11y {
+	display: none!important;
+}
