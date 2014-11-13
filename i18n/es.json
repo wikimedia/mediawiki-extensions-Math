@@ -16,7 +16,7 @@
 	"math_tip": "Fórmula matemática (LaTeX)",
 	"prefs-math": "Fórmulas",
 	"mw_math_png": "Imágenes PNG",
-	"mw_math_source": "Dejar como TeX (para navegadores de texto)",
+	"mw_math_source": "Código TeX (para navegadores de texto)",
 	"mw_math_mathjax": "MathJax (experimental)",
 	"mw_math_mathml": "MathML con SVG o PNG como alternativa (experimental)",
 	"mw_math_latexml": "LaTeXML (experimental, usa MathML)",
