@@ -18,7 +18,7 @@
 	"mw_math_latexml_jax": "LaTeXML com MathJax do lado do cliente (experimental; usa MathML)",
 	"math_failure": "Falhou ao verificar gramática",
 	"math_unknown_error": "erro desconhecido",
-	"math_unknown_function": "Função desconhecida: '$1'",
+	"math_unknown_function": "Função desconhecida: \"$1\"",
 	"math_lexing_error": "erro léxico",
 	"math_syntax_error": "erro de sintaxe",
 	"math_image_error": "Falha na conversão para PNG;\nverifique se o latex, dvips, gs e convert foram correctamente instalados",
@@ -27,6 +27,7 @@
 	"math_notexvc": "O executável <code>texvc</code> não foi encontrado. Consulte math/README para instruções da configuração.",
 	"math_output_error": "Não é possível armazenar imagem matemática no sistema de ficheiros.",
 	"math_mathoid_error": "Erro de conversão. O servidor (\"$1\") relatou: \"$2\"",
-	"math-preference-mwmathinspector-description": "Adiciona um suporte experimental no Editor Visual para a criação e edição de fórmulas matemáticas para testes, antes do lançamento global. Ao utilizar os recursos experimentais, lembre-se sempre de rever as suas alterações antes de as guardar.",
+	"math-visualeditor-mwmathinspector-title": "Fórmula",
+	"math-preference-mwmathinspector-description": "Adiciona um suporte experimental ao Editor Visual para a criação e edição de fórmulas matemáticas para testes, antes do lançamento global. Ao utilizar os recursos experimentais, lembre-se sempre de rever as suas alterações antes de as guardar.",
 	"math-preference-mwmathinspector-label": "Edição de fórmulas no Editor Visual"
 }
