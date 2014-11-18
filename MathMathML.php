@@ -236,7 +236,9 @@ class MathMathML extends MathRenderer {
 		$host = self::pickHost();
 		$post = $this->getPostData();
 		$this->lastError = '';
+		if( $wgMathDebug ) { $renderingStart = microtime( true ); }
 		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
+		if( $wgMathDebug ) { $this->setRenderingTime( microtime( true ) - $renderingStart ); }
 		if ( $requestResult ) {
 			$jsonResult = json_decode( $res );
 			if ( $jsonResult && json_last_error() === JSON_ERROR_NONE ) {
@@ -253,6 +255,8 @@ class MathMathML extends MathRenderer {
 						}
 						if ( $wgMathDebug ) {
 							$this->setLog( $jsonResult->log );
+							$this->setPostData( $post );
+							$this->writeDebugLog();
 						}
 						if ( $this->getMode() != MW_MATH_LATEXML && $this->inputType != 'pmml') {
 							$this->setMathml( $jsonResult->mml );
@@ -469,4 +473,5 @@ class MathMathML extends MathRenderer {
 		parent::initializeFromDatabaseRow( $rpage );
 
 	}
+
 }
