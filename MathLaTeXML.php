@@ -109,7 +109,9 @@ class MathLaTeXML extends MathMathML {
 			$post = preg_replace( '/&tex=/' , '&tex=literal:', $post , 1);
 		}
 		$this->lastError = '';
+		if( $wgMathDebug ) { $renderingStart = microtime( true ); }
 		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
+		if( $wgMathDebug ) { $this->setRenderingTime( microtime( true ) - $renderingStart ); }
 		if ( $requestResult ) {
 			$jsonResult = json_decode( $res );
 			if ( $jsonResult && json_last_error() === JSON_ERROR_NONE ) {
@@ -117,7 +119,9 @@ class MathLaTeXML extends MathMathML {
 					$this->setMathml( $jsonResult->result );
 					if ( $wgMathDebug ) {
 						$this->setLog( $jsonResult->log );
+						$this->setPostData( $post );
 						$this->setStatusCode( $jsonResult->status_code );
+						$this->writeDebugLog();
 					}
 					return true;
 				} else {
