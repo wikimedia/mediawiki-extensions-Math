@@ -201,8 +201,8 @@ class MathLaTeXML extends MathMathML {
 	 * Lazy evaluation: If no SVG image exists it's generated on the fly
 	 * @return string XML-Document of the rendered SVG
 	 */
-	public function getSvg() {
-		if ( $this->isPurge() || $this->svg == '' ) {
+	public function getSvg( $render = true ) {
+		if ( $render && ( $this->isPurge() || $this->svg == '' ) ) {
 			$this->calulateSvg();
 		}
 		return $this->svg;
