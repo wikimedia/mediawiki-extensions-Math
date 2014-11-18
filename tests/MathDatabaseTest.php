@@ -112,4 +112,22 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->assertFalse( $this->renderer->readFromDatabase() );
 
 	}
+
+	/**
+	 * Checks the creation of the math table with debugging enabled.
+	 * @covers MathHooks::onLoadExtensionSchemaUpdates
+	 */
+	public function testCreateDebugTable() {
+		$this->setMwGlobals( 'wgMathValidModes', array( MW_MATH_MATHML ) );
+		$this->setMwGlobals( 'wgMathDebug', true );
+		$this->db->dropTable( "mathlog", __METHOD__ );
+		$dbu = DatabaseUpdater::newForDB( $this->db );
+		$dbu->doUpdates( array( "extensions" ) );
+		$this->expectOutputRegex( '/(.*)Creating mathlog table(.*)/' );
+		$this->setValues();
+		//$this->renderer->writeToDatabase();
+		//$res = $this->db->select( "math", "*" );
+		//$row = $res->fetchRow();
+		//$this->assertEquals( 10, sizeof( $row ) );
+	}
 }
