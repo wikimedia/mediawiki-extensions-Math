@@ -108,7 +108,7 @@ class MathMathML extends MathRenderer {
 			if ( $dbres ) {
 				if ( $this->isValidMathML( $this->getMathml() ) ) {
 					wfDebugLog( "Math", "Valid MathML entry found in database." );
-					if ( $this->getSvg() ) {
+					if ( $this->getSvg( false ) ) {
 						wfDebugLog( "Math", "SVG-fallback found in database." );
 						return false;
 					} else {
