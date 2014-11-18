@@ -160,6 +160,27 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$expected = 'hash=5628b8248b79267ecac656102334d5e3&amp;mode=5';
 		$this->assertContains( $expected, $real, 'Link to SVG image missing' );
 	}
+
+	/**
+	 * Checks the creation of the math table with debugging enabled.
+	 * @covers MathHooks::onLoadExtensionSchemaUpdates
+	 */
+	public function testDebug() {
+		$dbr = wfGetDB( DB_SLAVE );
+		if ( $dbr->getType() !== 'mysql' ) {
+			$this->markTestSkipped( 'No math debug support for SQLite' );
+		}
+		$this->setMwGlobals( 'wgMathValidModes', array( MW_MATH_MATHML ) );
+		$this->setMwGlobals( 'wgMathDebug', true );
+		$renderer = MathRenderer::getRenderer( "a+b", array(), MW_MATH_MATHML );
+		$this->assertTrue( $renderer->render( true ) );
+		$hash = $renderer->getInputHash();
+		$row = $dbr->selectRow("mathlog", "*", array( "math_inputhash" => $hash ) , __METHOD__,
+			array("order by" => "math_timestamp desc"));
+		$this->assertContains( "success", $row->math_log );
+		$this->assertEquals( "type=inline-TeX&q=%7B%5Cdisplaystyle%20a%2Bb%7D", $row->math_post );
+		$this->assertEquals( 5, $row->math_mode);
+	}
 }
 
 /**

@@ -137,4 +137,20 @@ class MathRendererTest extends MediaWikiTestCase {
 		// so readFromDatabase will be called again
 		$this->assertEquals( $renderer->checkTex(), true );
 	}
+
+	public function testSetRenderingTime(){
+		/** @var MathRenderer $renderer */
+		$renderer =
+			$this->getMockBuilder( 'MathRenderer' )->setMethods( array(
+				'render',
+				'getMathTableName',
+				'getHtmlOutput',
+				'readFromDatabase',
+				'setTex'
+			) )->setConstructorArgs( array( self::TEXVCCHECK_INPUT ) )->getMock();
+		$renderer->setRenderingTime(1.234);
+		$this->assertEquals( 1234, $renderer->getRenderingTime(), "Check time float input");
+		$renderer->setRenderingTime(4321);
+		$this->assertEquals( 4321, $renderer->getRenderingTime(), "Check time integer input");
+	}
 }

@@ -47,6 +47,10 @@ abstract class MathRenderer {
 	protected $timestamp;
 	/** @var log messages generated during conversion of mathematical content */
 	protected $log = '';
+	/** @var time used for rendering in ms */
+	protected $renderingTime = 0;
+	/** @var post request sent to rendering server (if applicable) */
+	protected $postData = '';
 
 	// STATE OF THE CLASS INSTANCE
 	/** @var boolean has variable tex been security-checked */
@@ -684,5 +688,71 @@ abstract class MathRenderer {
 	public function getModeStr() {
 		$names = MathHooks::getMathNames();
 		return $names[ $this->getMode() ];
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPostData() {
+		return $this->postData;
+	}
+
+	/**
+	 * @param string $postData
+	 */
+	public function setPostData( $postData ) {
+		$this->postData = $postData;
+	}
+
+	/**
+	 * @return int time in ms
+	 */
+	public function getRenderingTime() {
+		return $this->renderingTime;
+	}
+
+	/**
+	 * @param int|long $renderingTime either in ms or as in seconds as long
+	 * @throws MWException
+	 */
+	public function setRenderingTime( $renderingTime ) {
+		$type = gettype($renderingTime);
+		switch ( $type ) {
+			case "double":
+			case "float":
+				$this->renderingTime = (int) ( $renderingTime * 1000 );
+				break;
+			case "integer":
+				$this->renderingTime = $renderingTime;
+				break;
+			default:
+				throw new MWException(	__METHOD__ . ": does not support type $type" );
+		}
+	}
+
+	/**
+	 * Gets an array that matches the variables of the class to the debug database columns
+	 * @return array
+	 */
+	protected function dbDebugOutArray() {
+		$out = array( 'math_inputhash' => $this->getInputHash(),
+		              'math_log' => $this->getLog(),
+		              'math_mode' => $this->getMode(),
+		              'math_post' => $this->getPostData(),
+		              'math_rederingtime' => $this->getRenderingTime()
+		);
+		return $out;
+	}
+
+	protected function writeDebugLog() {
+		global $wgMathDebug;
+		if ( $wgMathDebug ) {
+			$dbw = wfGetDB( DB_MASTER );
+			$outArray = $this->dbDebugOutArray();
+			$method = __METHOD__;
+			$dbw->onTransactionIdle( function () use ( $dbw, $outArray, $method	) {
+				$dbw->insert( 'mathlog', $outArray, $method );
+			} );
+		}
 	}
 }
