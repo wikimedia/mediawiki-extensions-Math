@@ -216,7 +216,7 @@ class MathHooks {
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
-		global $wgMathValidModes;
+		global $wgMathValidModes, $wgMathDebug;
 		if ( is_null( $updater ) ) {
 			throw new MWException( 'Math extension is only necessary in 1.18 or above' );
 		}
@@ -226,14 +226,14 @@ class MathHooks {
 		$type = $updater->getDB()->getType();
 
 		if ( in_array( $type, $map ) ) {
-			$sql = dirname( __FILE__ ) . '/db/math.' . $type . '.sql';
+			$sql = __DIR__ . '/db/math.' . $type . '.sql';
 			$updater->addExtensionTable( 'math', $sql );
 			if ( in_array( MW_MATH_LATEXML, $wgMathValidModes ) ) {
 				if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
-					$sql = dirname( __FILE__ ) . '/db/mathlatexml.' . $type . '.sql';
+					$sql = __DIR__ . '/db/mathlatexml.' . $type . '.sql';
 					$updater->addExtensionTable( 'mathlatexml', $sql );
 					if ( $type == 'mysql' ){
-						$sql = dirname( __FILE__ ) . '/db/patches/mathlatexml.mathml-length-adjustment.mysql.sql';
+						$sql = __DIR__ . '/db/patches/mathlatexml.mathml-length-adjustment.mysql.sql';
 						$updater->modifyExtensionField( 'mathlatexml', 'math_mathml', $sql );
 					}
 				} else {
@@ -242,10 +242,16 @@ class MathHooks {
 			}
 			if ( in_array( MW_MATH_MATHML, $wgMathValidModes ) ) {
 				if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
-					$sql = dirname( __FILE__ ) . '/db/mathoid.' . $type . '.sql';
+					$sql = __DIR__ . '/db/mathoid.' . $type . '.sql';
 					$updater->addExtensionTable( 'mathoid', $sql );
 				} else {
 					throw new MWException( "Math extension does not currently support $type database for Mathoid." );
+				}
+			}
+			if( $wgMathDebug ) {
+				if( $type == 'mysql' ) {
+					$sql = __DIR__ . '/db/mathlog.mysql.sql';
+					$updater->addExtensionTable( 'mathlog', $sql );
 				}
 			}
 		} else {
