@@ -13,6 +13,7 @@ class MathMathML extends MathRenderer {
 	protected $defaultAllowedRootElements = array( 'math' );
 	protected $allowedRootElements = '';
 	protected $hosts;
+
 	/** @var boolean if false MathML output is not validated */
 	private $XMLValidation = true;
 	protected $inputType = 'tex';
@@ -20,16 +21,14 @@ class MathMathML extends MathRenderer {
 	/**
 	 * @param string $inputType
 	 */
-	public function setInputType($inputType)
-	{
+	public function setInputType($inputType) {
 		$this->inputType = $inputType;
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getInputType()
-	{
+	public function getInputType() {
 		return $this->inputType;
 	}
 
@@ -101,26 +100,26 @@ class MathMathML extends MathRenderer {
 	 */
 	private function renderingRequired() {
 		if ( $this->isPurge() ) {
-			wfDebugLog( "Math", "Rerendering was requested." );
+			wfDebugLog( 'Math', 'Rerendering was requested.' );
 			return true;
 		} else {
 			$dbres = $this->isInDatabase();
 			if ( $dbres ) {
 				if ( $this->isValidMathML( $this->getMathml() ) ) {
-					wfDebugLog( "Math", "Valid MathML entry found in database." );
-					if ( $this->getSvg( false ) ) {
-						wfDebugLog( "Math", "SVG-fallback found in database." );
+					wfDebugLog( 'Math', 'Valid MathML entry found in database.' );
+					if ( $this->getSvg( 'cached' ) ) {
+						wfDebugLog( 'Math', 'SVG-fallback found in database.' );
 						return false;
 					} else {
-						wfDebugLog( "Math", "SVG-fallback missing." );
+						wfDebugLog( 'Math', 'SVG-fallback missing.' );
 						return true;
 					}
 				} else {
-					wfDebugLog( "Math", "Malformatted entry found in database" );
+					wfDebugLog( 'Math', 'Malformatted entry found in database' );
 					return true;
 				}
 			} else {
-				wfDebugLog( "Math", "No entry found in database." );
+				wfDebugLog( 'Math', 'No entry found in database.' );
 				return true;
 			}
 		}
@@ -156,7 +155,7 @@ class MathMathML extends MathRenderer {
 		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
 		/** @var $req (CurlHttpRequest|PhpHttpRequest) the request object  */
 		$req = $httpRequestClass::factory( $host, $options );
-		/** @var Status the request status */
+		/** @var Status $req Status the request status */
 		$status = $req->execute();
 		if ( $status->isGood() ) {
 			$res = $req->getContent();
@@ -166,14 +165,14 @@ class MathMathML extends MathRenderer {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
 				$error = $this->getError( 'math_timeout', $this->getModeStr(), $host );
 				$res = false;
-				wfDebugLog( "Math", "\nTimeout:"
+				wfDebugLog( 'Math', "\nTimeout:"
 					. var_export( array( 'post' => $post, 'host' => $host
 					, 'timeout' => $wgMathLaTeXMLTimeout ), true ) . "\n\n" );
 			} else {
 				// for any other unkonwn http error
 				$errormsg = $status->getHtml();
 				$error = $this->getError( 'math_invalidresponse', $this->getModeStr(), $host, $errormsg, $this->getModeStr( MW_MATH_MATHML ) );
-				wfDebugLog( "Math", "\nNoResponse:"
+				wfDebugLog( 'Math', "\nNoResponse:"
 					. var_export( array( 'post' => $post, 'host' => $host
 					, 'errormsg' => $errormsg ), true ) . "\n\n" );
 			}
@@ -183,9 +182,10 @@ class MathMathML extends MathRenderer {
 	}
 
 	/**
-	 * Picks a MathML daemon.
-	 * If more than one demon are available one is chosen from the
-	 * $wgMathMathMLUrl array.
+	 * Return a MathML daemon host.
+	 *
+	 * If more than one demon is available, one is chosen at random.
+	 *
 	 * @return string
 	 */
 	protected function pickHost() {
@@ -217,7 +217,7 @@ class MathMathML extends MathRenderer {
                 $out = 'type=tex&q=' . rawurlencode( $input );
             }
 		}
-		wfDebugLog( "Math", 'Get post data: ' . $out );
+		wfDebugLog( 'Math', 'Get post data: ' . $out );
 		return $out;
 	}
 
@@ -273,7 +273,7 @@ class MathMathML extends MathRenderer {
 						$log = wfMessage( 'math_unknown_error' )->inContentLanguage()->escaped();
 					}
 					$this->lastError = $this->getError( 'math_mathoid_error', $host, $log );
-					wfDebugLog( 'Math', "Mathoid conversion error:"
+					wfDebugLog( 'Math', 'Mathoid conversion error:'
 						. var_export( array( 'post' => $post, 'host' => $host
 						, 'result'                  => $res ), true ) . "\n\n" );
 					return false;
@@ -311,7 +311,7 @@ class MathMathML extends MathRenderer {
 		}
 		$xmlObject = new XmlTypeCheck( $XML, null, false );
 		if ( !$xmlObject->wellFormed ) {
-			wfDebugLog( "Math", "XML validation error:\n " . var_export( $XML, true ) . "\n" );
+			wfDebugLog( 'Math', "XML validation error:\n " . var_export( $XML, true ) . "\n" );
 		} else {
 			$name = $xmlObject->getRootElement();
 			$elementSplit = explode( ':', $name );
@@ -323,7 +323,7 @@ class MathMathML extends MathRenderer {
 			if ( in_array( $localName , $this->getAllowedRootElements() ) ) {
 				$out = true;
 			} else {
-				wfDebugLog( "Math", "got wrong root element : $name" );
+				wfDebugLog( 'Math', "got wrong root element : $name" );
 			}
 		}
 		return $out;
@@ -349,7 +349,7 @@ class MathMathML extends MathRenderer {
 	 */
 	public function correctSvgStyle( $svg, &$style ) {
 		if ( preg_match( '/style="([^"]*)"/', $svg, $styles ) ) {
-			$style .= " ".$styles[1]; // merge styles
+			$style .= ' ' . $styles[1]; // merge styles
 			if ( $this->getMathStyle() === MW_MATHSTYLE_DISPLAY ) {
 				// TODO: Improve style cleaning
 				$style = preg_replace( '/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style );
@@ -360,10 +360,10 @@ class MathMathML extends MathRenderer {
 		// a SVGReader from a string that represents the SVG
 		// content
 		if ( preg_match( "/height=\"(.*?)\"/" , $this->getSvg(), $matches ) ) {
-			$style .= "height: " . $matches[1] . "; ";
+			$style .= 'height: ' . $matches[1] . '; ';
 		}
 		if ( preg_match( "/width=\"(.*?)\"/", $this->getSvg(), $matches ) ) {
-			$style .= "width: " . $matches[1] . ";";
+			$style .= 'width: ' . $matches[1] . ';';
 		}
 	}
 
@@ -403,7 +403,7 @@ class MathMathML extends MathRenderer {
 	 * @return string the class name
 	 */
 	private function getClassName( $fallback = false ) {
-		$class = "mwe-math-";
+		$class = 'mwe-math-';
 		if ( $fallback ) {
 			$class .= 'fallback-image-';
 		} else {

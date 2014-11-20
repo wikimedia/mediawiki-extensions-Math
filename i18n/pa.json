@@ -1,15 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Babanwalia"
+			"Babanwalia",
+			"Satdeep gill"
 		]
 	},
-	"math_tip": "ਗਣਿਤ ਫਾਰਮੂਲਾ (LaTeX)",
-	"prefs-math": "ਗਣਿਤ",
-	"mw_math_png": "ਪੀ.ਐੱਨ.ਜੀ. ਤਸਵੀਰਾਂ",
+	"math-visualeditor-mwmathinspector-display-block": "ਪਾਬੰਦੀ ਲਾਓ",
 	"math_failure": "ਪਾਰਸ ਕਰਨ ਲਈ ਫੇਲ੍ਹ",
+	"math_lexing_error": "lexing ਗਲਤੀ",
+	"math_syntax_error": "ਸੰਟੈਕਸ ਗਲਤੀ",
+	"math_tip": "ਗਣਿਤ ਫਾਰਮੂਲਾ (LaTeX)",
 	"math_unknown_error": "ਅਣਜਾਣ ਗਲਤੀ",
 	"math_unknown_function": "ਅਣਜਾਣ ਫੰਕਸ਼ਨ",
-	"math_lexing_error": "lexing ਗਲਤੀ",
-	"math_syntax_error": "ਸੰਟੈਕਸ ਗਲਤੀ"
+	"mw_math_png": "ਪੀ.ਐੱਨ.ਜੀ. ਤਸਵੀਰਾਂ",
+	"prefs-math": "ਗਣਿਤ"
 }

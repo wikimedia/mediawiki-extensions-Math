@@ -19,7 +19,7 @@
  * @ingroup Maintenance
  */
 
-require_once( dirname( __FILE__ ) . '/../../../maintenance/Maintenance.php' );
+require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 
 class MathGenerateTests extends Maintenance
 {
@@ -36,8 +36,7 @@ class MathGenerateTests extends Maintenance
 
 	}
 
-	private static function getMathTagsFromPage( $titleString )
-	{
+	private static function getMathTagsFromPage( $titleString ) {
 		global $wgEnableScaryTranscluding;
 		$title = Title::newFromText( $titleString );
 		if ( $title->exists() ) {
@@ -52,15 +51,12 @@ class MathGenerateTests extends Maintenance
 				return 'Page does not exist';
 			}
 		}
-		// TODO: find a better way to extract math elements from a page
 
 		$wikiText = Sanitizer::removeHTMLcomments( $wikiText );
 		$wikiText = preg_replace( '#<nowiki>(.*)</nowiki>#', '', $wikiText );
-		preg_match_all( "#<math>(.*?)</math>#s", $wikiText, $math );
-		// TODO: Find a way to specify a key e.g '\nRenderTest:(.?)#<math>(.*?)</math>#s\n'
-		// leads to array('\1'->'\2') with \1 eg Bug 2345 and \2 the math content
-		return $math[1];
-
+		$math = array();
+		Parser::extractTagsAndParams( array( 'math' ), $wikiText, $math );
+		return $math;
 	}
 
 	public function execute()
@@ -82,16 +78,16 @@ class MathGenerateTests extends Maintenance
 		}
 		$i = 0;
 		foreach ( array_slice( $allEquations, $offset, $length, true ) as $input ) {
-			$output = MathRenderer::renderMath( $input, array(), MW_MATH_PNG );
+			$output = MathRenderer::renderMath( $input[1], $input[2], MW_MATH_PNG );
 			$output = preg_replace( '#src="(.*?)/(([a-f]|\d)*).png"#', 'src="\2.png"', $output );
-			$parserTests[] = array( (string)$input, $output );
+			$parserTests[] = array( (string)$input[1], $output );
 			$i++;
 			echo '.';
 		}
 		echo "Generated $i tests\n";
-		file_put_contents( dirname( __FILE__ ) . '/../tests/ParserTest.json', json_encode( $parserTests, JSON_PRETTY_PRINT ) );
+		file_put_contents( __DIR__ . '/../tests/ParserTest.json', json_encode( $parserTests, JSON_PRETTY_PRINT ) );
 	}
 }
 
-$maintClass = "MathGenerateTests";
-require_once( RUN_MAINTENANCE_IF_MAIN );
+$maintClass = 'MathGenerateTests';
+require_once RUN_MAINTENANCE_IF_MAIN;

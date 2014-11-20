@@ -1,7 +1,7 @@
 /*!
  * VisualEditor ContentEditable MWMathNode class.
  *
- * @copyright 2011-2013 VisualEditor Team and others; see AUTHORS.txt
+ * @copyright 2011-2015 VisualEditor Team and others; see AUTHORS.txt
  * @license The MIT License (MIT); see LICENSE.txt
  */
 
@@ -17,12 +17,9 @@
  * @param {ve.dm.MWMathNode} model Model to observe
  * @param {Object} [config] Configuration options
  */
-ve.ce.MWMathNode = function VeCeMWMathNode( model, config ) {
+ve.ce.MWMathNode = function VeCeMWMathNode() {
 	// Parent constructor
-	ve.ce.MWInlineExtensionNode.call( this, model, config );
-
-	// DOM changes
-	this.$element.addClass( 've-ce-mwMathNode' );
+	ve.ce.MWMathNode.super.apply( this, arguments );
 };
 
 /* Inheritance */
@@ -38,6 +35,15 @@ ve.ce.MWMathNode.static.primaryCommandName = 'math';
 /* Methods */
 
 /** */
+ve.ce.MWMathNode.prototype.onSetup = function () {
+	// Parent method
+	ve.ce.MWMathNode.super.prototype.onSetup.call( this );
+
+	// DOM changes
+	this.$element.addClass( 've-ce-mwMathNode' );
+};
+
+/** */
 ve.ce.MWMathNode.prototype.onParseSuccess = function ( deferred, response ) {
 	var data = response.visualeditor, contentNodes = this.$( data.content ).get();
 	if ( contentNodes[0] && contentNodes[0].childNodes ) {
@@ -48,7 +54,8 @@ ve.ce.MWMathNode.prototype.onParseSuccess = function ( deferred, response ) {
 
 /** */
 ve.ce.MWMathNode.prototype.afterRender = function () {
-	var $img;
+	var $img,
+		node = this;
 
 	if ( this.$element.is( 'span.tex' ) ) {
 		// MathJax
@@ -60,9 +67,9 @@ ve.ce.MWMathNode.prototype.afterRender = function () {
 		$img = this.$element.filter( 'img.tex' );
 		// Rerender after image load
 		if ( $img.length ) {
-			$img.on( 'load', ve.bind( function () {
-				this.emit( 'rerender' );
-			}, this ) );
+			$img.on( 'load', function () {
+				node.emit( 'rerender' );
+			} );
 		} else {
 			// Passing an empty string returns no image, so rerender immediately
 			this.emit( 'rerender' );

@@ -118,8 +118,11 @@ $wgMathDirectory = false;
 
 /**
  * The url of the mathoid server.
- * see http://www.formulasearchengine.com/mathoid
- * TODO: Move documentation to WMF
+ *
+ * Documentation: http://www.formulasearchengine.com/mathoid
+ * Example value: http://mathoid.example.org:10042
+ *
+ * @todo Move documentation to mediawiki.org
  */
 $wgMathMathMLUrl = 'http://mathoid.testme.wmflabs.org';
 
@@ -496,9 +499,6 @@ $moduleTemplate = array(
 
 $wgResourceModules['ext.math.editbutton.enabler'] = array(
 	'scripts' => 'ext.math.editbutton.js',
-	'dependencies' => array(
-		'mediawiki.action.edit',
-	),
 	'messages' => array(
 		'math_tip',
 		'math_sample',
@@ -513,12 +513,19 @@ $wgResourceModules['ext.math.visualEditor'] = array(
 		'VisualEditor/ve.ui.MWMathInspectorTool.js',
 	),
 	'styles' => array(
+		'VisualEditor/ve.ce.MWMathNode.css',
 		'VisualEditor/ve.ui.MWMathIcons.css',
+		'VisualEditor/ve.ui.MWMathInspector.css',
 	),
 	'dependencies' => array(
 		'ext.visualEditor.mwcore',
 	),
 	'messages' => array(
+		'math-visualeditor-mwmathinspector-display',
+		'math-visualeditor-mwmathinspector-display-block',
+		'math-visualeditor-mwmathinspector-display-default',
+		'math-visualeditor-mwmathinspector-display-inline',
+		'math-visualeditor-mwmathinspector-id',
 		'math-visualeditor-mwmathinspector-title',
 	),
 	'targets' => array( 'desktop', 'mobile' ),

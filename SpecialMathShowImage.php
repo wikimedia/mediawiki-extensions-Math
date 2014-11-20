@@ -16,8 +16,10 @@ class SpecialMathShowImage extends SpecialPage {
 			false // Don't show on Special:SpecialPages - it's not useful interactively
 		);
 	}
+
 	/**
 	 * Sets headers - this should be called from the execute() method of all derived classes!
+	 * @param bool $success
 	 */
 	function setHeaders( $success = true ) {
 		$out = $this->getOutput();
@@ -123,7 +125,7 @@ class SpecialMathShowImage extends SpecialPage {
 	 */
 	private function printSvgError( $msg ) {
 		global $wgMathDebug;
-		$result =  '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 4"
+		$result =  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 4"
  preserveAspectRatio="xMidYMid meet" >' .
 			'<text text-anchor="start" fill="red" y="2">' . htmlspecialchars( $msg ) . '</text></svg>';
 		if ( $wgMathDebug ) {

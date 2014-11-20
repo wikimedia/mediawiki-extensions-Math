@@ -8,7 +8,8 @@
 			"Raymond",
 			"Shirayuki",
 			"Siebrand",
-			"Mormegil"
+			"Mormegil",
+			"Liuxinyu970226"
 		]
 	},
 	"math-desc": "{{desc|name=Math|url=http://www.mediawiki.org/wiki/Extension:Math}}",
@@ -16,6 +17,11 @@
 	"math-preference-mwmathinspector-discussion-link": "{{optional|Used on [[Special:Preferences]] as a link to a page where users can discuss this Beta Feature. Defaults to a page on MediaWiki.org.}}",
 	"math-preference-mwmathinspector-info-link": "{{optional|Used on [[Special:Preferences]] as a link to a page where users can learn about this Beta Feature. Defaults to a page on MediaWiki.org.}}",
 	"math-preference-mwmathinspector-label": "Used in [[Special:Preferences]].\n\nUsed as label for checkbox to enable editing of mathematical formulae in VisualEditor.\n\nThe description for this checkbox is:\n* {{msg-mw|Math-preference-mwmathinspector-description}}",
+	"math-visualeditor-mwmathinspector-display": "Label for the display attribute of the math node\n{{Identical|Display}}",
+	"math-visualeditor-mwmathinspector-display-block": "Label for the 'block' value of the display attribute\n{{Identical|Block}}",
+	"math-visualeditor-mwmathinspector-display-default": "Label for the 'default' value of the display attribute\n{{Identical|Default}}",
+	"math-visualeditor-mwmathinspector-display-inline": "Label for the 'inline' value of the display attribute\n{{Identical|Inline}}",
+	"math-visualeditor-mwmathinspector-id": "Label for the link ID attribute of the math node",
 	"math-visualeditor-mwmathinspector-title": "Title for the inspector to edit <nowiki><math></nowiki> formula blocks.\n{{Identical|Formula}}",
 	"math_bad_output": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.",
 	"math_bad_tmpdir": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.",

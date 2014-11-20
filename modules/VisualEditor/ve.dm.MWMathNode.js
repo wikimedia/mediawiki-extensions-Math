@@ -1,7 +1,7 @@
 /*!
  * VisualEditor DataModel MWMathNode class.
  *
- * @copyright 2011-2013 VisualEditor Team and others; see AUTHORS.txt
+ * @copyright 2011-2015 VisualEditor Team and others; see AUTHORS.txt
  * @license The MIT License (MIT); see LICENSE.txt
  */
 
@@ -18,7 +18,7 @@
  */
 ve.dm.MWMathNode = function VeDmMWMathNode() {
 	// Parent constructor
-	ve.dm.MWInlineExtensionNode.apply( this, arguments );
+	ve.dm.MWMathNode.super.apply( this, arguments );
 };
 
 /* Inheritance */

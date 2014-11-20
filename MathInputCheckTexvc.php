@@ -55,7 +55,6 @@ class MathInputCheckTexvc extends MathInputCheck {
 	}
 
 	/**
-	 * @global type $wgTexvc
 	 * @return boolean
 	 */
 	public function doValidCheck() {
@@ -80,7 +79,7 @@ class MathInputCheckTexvc extends MathInputCheck {
 
 		if ( strlen( $contents ) === 0 ) {
 			wfDebugLog( 'Math', "TeX check output was empty. \n" );
-			$this->lastError = MathRenderer::getError( 'math_unknown_error' );
+			$this->lastError = $this->convertTexvcError( $contents );
 
 			return false;
 		}
@@ -94,7 +93,7 @@ class MathInputCheckTexvc extends MathInputCheck {
 			return false;
 		} else {
 			$this->validTeX = substr( $contents, 1 );
-			$this->isSecure = true;
+			$this->isValid = true;
 			wfDebugLog( 'Math', 'checkTex successful tex is now: ' . $this->validTeX );
 
 			return true;

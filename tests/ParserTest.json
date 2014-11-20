@@ -49,7 +49,7 @@
     ],
     [
         "\\hat{a}, \\widehat{a}, \\vec{a} \\!",
-        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\"\\hat{a}, \\widehat{a}, \\vec{a} \\!\" src=\"eaededf26bb201c699ef1597902383c3.png\" \/>"
+        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\"\\hat{a}, \\widehat{a}, \\vec{a} \\!\" src=\"731677a388ba08f520ebe91623dab74a.png\" \/>"
     ],
     [
         "\\exp_a b = a^b, \\exp b = e^b, 10^m \\!",
@@ -333,7 +333,7 @@
     ],
     [
         "\\bar{q}, \\bar{abc}, \\overline{q}, \\overline{abc}, \\!",
-        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\"\\bar{q}, \\bar{abc}, \\overline{q}, \\overline{abc}, \\!\" src=\"dcb1a2881216fe505b14faa2f5dd4f0e.png\" \/>"
+        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\"\\bar{q}, \\bar{abc}, \\overline{q}, \\overline{abc}, \\!\" src=\"223a4c78df8eb8b9a1086c5e490f48ce.png\" \/>"
     ],
     [
         "\\lnot \\neg, \\not\\operatorname{R}, \\bot, \\top \\!",
@@ -513,11 +513,11 @@
     ],
     [
         " \\overrightarrow{a b} \\ \\overleftarrow{c d} \\ \\widehat{d e f}",
-        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\" \\overrightarrow{a b} \\ \\overleftarrow{c d} \\ \\widehat{d e f}\" src=\"12e159cc1c8699d116a85ef715af3951.png\" \/>"
+        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\" \\overrightarrow{a b} \\ \\overleftarrow{c d} \\ \\widehat{d e f}\" src=\"068086b5de6bf21adea301df3efffbf7.png\" \/>"
     ],
     [
         " \\overline{g h i} \\ \\underline{j k l}",
-        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\" \\overline{g h i} \\ \\underline{j k l}\" src=\"2dc44edf7a2bdedf2e01e6622e15d695.png\" \/>"
+        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\" \\overline{g h i} \\ \\underline{j k l}\" src=\"849f4d97e037fc2cf06b1257d31b67a9.png\" \/>"
     ],
     [
         "\\overset{\\frown} {AB}",
@@ -529,11 +529,11 @@
     ],
     [
         "\\overbrace{ 1+2+\\cdots+100 }^{5050}",
-        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\"\\overbrace{ 1+2+\\cdots+100 }^{5050}\" src=\"813e812891b31b2b02178327fd69fdb9.png\" \/>"
+        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\"\\overbrace{ 1+2+\\cdots+100 }^{5050}\" src=\"eae794abb74d6c73dc96eaa994cc0a16.png\" \/>"
     ],
     [
         "\\underbrace{ a+b+\\cdots+z }_{26}",
-        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\"\\underbrace{ a+b+\\cdots+z }_{26}\" src=\"f1da0064e0dba6c5951d44e07e191c5a.png\" \/>"
+        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\"\\underbrace{ a+b+\\cdots+z }_{26}\" src=\"32035dea97452b31b44d084f90bd66a6.png\" \/>"
     ],
     [
         "\\sum_{k=1}^N k^2",
@@ -1665,11 +1665,11 @@
     ],
     [
         "\\widehat{x}",
-        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\"\\widehat{x}\" src=\"998309e831dfb051f233c92b4b8a825b.png\" \/>"
+        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\"\\widehat{x}\" src=\"260a7a181658b82549b23574d4bf476b.png\" \/>"
     ],
     [
         "\\widetilde{x}",
-        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\"\\widetilde{x}\" src=\"e9e91996778a6d6f5cdf4cc951955206.png\" \/>"
+        "<img class=\"mwe-math-fallback-image-inline tex\" alt=\"\\widetilde{x}\" src=\"4848f7a70999ab4e0ca9d205efa3cd04.png\" \/>"
     ],
     [
         "\\euro 200",

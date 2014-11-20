@@ -92,7 +92,6 @@ class MathHooks {
 	 * @return array
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgMathDisableTexFilter;
 
 		if ( trim( $content ) === '' ) { // bug 8372
 			return '';
@@ -212,13 +211,13 @@ class MathHooks {
 	 * LoadExtensionSchemaUpdates handler; set up math table on install/upgrade.
 	 *
 	 * @param $updater DatabaseUpdater
-	 * @throws MWException
+	 * @throws Exception
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
 		global $wgMathValidModes, $wgMathDebug;
 		if ( is_null( $updater ) ) {
-			throw new MWException( 'Math extension is only necessary in 1.18 or above' );
+			throw new Exception( 'Math extension is only necessary in 1.18 or above' );
 		}
 
 		$map = array( 'mysql', 'sqlite', 'postgres', 'oracle', 'mssql' );
@@ -237,7 +236,7 @@ class MathHooks {
 						$updater->modifyExtensionField( 'mathlatexml', 'math_mathml', $sql );
 					}
 				} else {
-					throw new MWException( "Math extension does not currently support $type database for LaTeXML." );
+					throw new Exception( "Math extension does not currently support $type database for LaTeXML." );
 				}
 			}
 			if ( in_array( MW_MATH_MATHML, $wgMathValidModes ) ) {
@@ -245,7 +244,7 @@ class MathHooks {
 					$sql = __DIR__ . '/db/mathoid.' . $type . '.sql';
 					$updater->addExtensionTable( 'mathoid', $sql );
 				} else {
-					throw new MWException( "Math extension does not currently support $type database for Mathoid." );
+					throw new Exception( "Math extension does not currently support $type database for Mathoid." );
 				}
 			}
 			if( $wgMathDebug ) {
@@ -255,7 +254,7 @@ class MathHooks {
 				}
 			}
 		} else {
-			throw new MWException( "Math extension does not currently support $type database." );
+			throw new Exception( "Math extension does not currently support $type database." );
 		}
 		return true;
 	}
