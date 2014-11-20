@@ -48,7 +48,8 @@ ve.ce.MWMathNode.prototype.onParseSuccess = function ( deferred, response ) {
 
 /** */
 ve.ce.MWMathNode.prototype.afterRender = function () {
-	var $img;
+	var $img,
+		node = this;
 
 	if ( this.$element.is( 'span.tex' ) ) {
 		// MathJax
@@ -60,9 +61,9 @@ ve.ce.MWMathNode.prototype.afterRender = function () {
 		$img = this.$element.filter( 'img.tex' );
 		// Rerender after image load
 		if ( $img.length ) {
-			$img.on( 'load', ve.bind( function () {
-				this.emit( 'rerender' );
-			}, this ) );
+			$img.on( 'load', function () {
+				node.emit( 'rerender' );
+			} );
 		} else {
 			// Passing an empty string returns no image, so rerender immediately
 			this.emit( 'rerender' );
