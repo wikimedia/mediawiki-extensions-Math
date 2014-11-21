@@ -122,6 +122,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	 */
 	public function testIntegration() {
 		global $wgMathMathMLTimeout;
+		// JENKINS TEST JOB
 		$svgRef = '<?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.333ex; margin-left: 0ex; margin-right: 0ex; margin: 1px 0px;" width="5.167ex" height="1.833ex" viewBox="0 -717.9 2195.4 823.9" xmlns="http://www.w3.org/2000/svg">
