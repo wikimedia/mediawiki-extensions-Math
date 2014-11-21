@@ -4,9 +4,10 @@
 			"Mogoeilor"
 		]
 	},
+	"math-visualeditor-mwmathinspector-title": "فرمول",
 	"math_sample": "ایچه فرمول وارد بکیت",
-	"prefs-math": "اشمار دونسمنی",
-	"mw_math_png": "عسگیا پی ان جی",
 	"math_unknown_error": "خطا ناشناس",
-	"math-visualeditor-mwmathinspector-title": "فرمول"
+	"math_unknown_function": "پیوندگر نادیار\"$1\"",
+	"mw_math_png": "عسگیا پی ان جی",
+	"prefs-math": "اشمار دونسمنی"
 }
