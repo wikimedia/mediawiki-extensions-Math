@@ -6,6 +6,7 @@
 	},
 	"math-visualeditor-mwmathinspector-title": "فرمول",
 	"math_sample": "ایچه فرمول وارد بکیت",
+	"math_syntax_error": "خطا دستوری",
 	"math_tip": "فرمول اشمار دونسمنی(لاتکس)",
 	"math_unknown_error": "خطا ناشناس",
 	"math_unknown_function": "پیوندگر نادیار\"$1\"",
