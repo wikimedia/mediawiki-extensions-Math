@@ -16,8 +16,10 @@ class SpecialMathShowImage extends SpecialPage {
 			false // Don't show on Special:SpecialPages - it's not useful interactively
 		);
 	}
+
 	/**
 	 * Sets headers - this should be called from the execute() method of all derived classes!
+	 * @param bool $success
 	 */
 	function setHeaders( $success = true ) {
 		$out = $this->getOutput();
