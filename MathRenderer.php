@@ -100,7 +100,7 @@ abstract class MathRenderer {
 
 	/**
 	 *
-	 * @param type $md5
+	 * @param string $md5
 	 * @return MathRenderer the MathRenderer generated from md5
 	 */
 	public static function newFromMd5( $md5 ) {
@@ -653,7 +653,7 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * @return string Userdefined ID
+	 * @param string user defined ID
 	 */
 	public function setID( $id ) {
 		// Changes in the ID affect the container for the math element on the current page
