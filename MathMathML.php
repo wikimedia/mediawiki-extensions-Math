@@ -156,7 +156,7 @@ class MathMathML extends MathRenderer {
 		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
 		/** @var $req (CurlHttpRequest|PhpHttpRequest) the request object  */
 		$req = $httpRequestClass::factory( $host, $options );
-		/** @var Status the request status */
+		/** @var Status $req Status the request status */
 		$status = $req->execute();
 		if ( $status->isGood() ) {
 			$res = $req->getContent();
