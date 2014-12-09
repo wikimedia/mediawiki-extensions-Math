@@ -55,6 +55,7 @@ class MathTexvc extends MathRenderer {
 
 	/**
 	 * @param database_row $rpage
+	 * @return bool
 	 */
 	protected function initializeFromDatabaseRow( $rpage ) {
 		parent::initializeFromDatabaseRow( $rpage );
