@@ -1,0 +1,9 @@
+Verified+2: jenkins-bot
+Code-Review+1: Raimond Spekking <raimond.spekking@gmail.com>
+Code-Review+2: Physikerwelt <wiki@physikerwelt.de>
+Code-Review+1: Jforrester <jforrester@wikimedia.org>
+Submitted-by: jenkins-bot
+Submitted-at: Tue, 09 Dec 2014 19:12:09 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/172751
+Project: mediawiki/extensions/Math
+Branch: refs/heads/master
