@@ -105,6 +105,7 @@ abstract class MathRenderer {
 	 */
 	public static function newFromMd5( $md5 ) {
 		$class = get_called_class();
+		/** @var MathRenderer $instance */
 		$instance = new $class;
 		$instance->setMd5( $md5 );
 		$instance->readFromDatabase();
