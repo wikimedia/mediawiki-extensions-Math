@@ -90,7 +90,7 @@ class SpecialMathShowImage extends SpecialPage {
 				$success = $this->renderer->render();
 			}
 			if ( $success ) {
-				if ( $this->mode == MW_MATH_PNG ) {
+				if ( $this->mode == MW_MATH_PNG && method_exists( $this, "getPng" ) ) {
 					// Workaround for bugfix for Bug 56769
 					if ( !isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
 						// saves the PNG-file
