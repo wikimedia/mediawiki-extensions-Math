@@ -92,7 +92,6 @@ class MathHooks {
 	 * @return array
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-		global $wgMathDisableTexFilter;
 
 		if ( trim( $content ) === '' ) { // bug 8372
 			return '';
