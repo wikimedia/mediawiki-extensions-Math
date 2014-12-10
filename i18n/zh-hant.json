@@ -10,8 +10,11 @@
 		]
 	},
 	"math-desc": "在 <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code> 標籤顯示數學公式",
-	"math-preference-mwmathinspector-description": "加入用來編輯數學工具的實驗中的功能至 VisualEditor 在一般發行前做測試。 在使用實驗中的功能時，請記得時儲存之前再次檢查您的變更。",
+	"math-preference-mwmathinspector-description": "加入用來編輯數學工具的實驗中的功能至 VisualEditor 在一般發行前做測試。在使用實驗中的功能時，請記得時儲存之前再次檢查您的變更。",
 	"math-preference-mwmathinspector-label": "VisualEditor 公式編輯",
+	"math-visualeditor-mwmathinspector-display": "顯示",
+	"math-visualeditor-mwmathinspector-display-block": "方塊",
+	"math-visualeditor-mwmathinspector-display-default": "預設",
 	"math-visualeditor-mwmathinspector-title": "公式",
 	"math_bad_output": "無法寫入或建立數學公式輸出目錄",
 	"math_bad_tmpdir": "無法寫入或建立數學公式暫存目錄",
