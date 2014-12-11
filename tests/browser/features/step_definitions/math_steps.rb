@@ -27,14 +27,14 @@ When(/^I type (.+)$/) do |write_text|
 end
 
 Then(/^alt for that img should be (.+)$/) do |alt|
-  on(EditPage).math_image_element.element.alt.should == alt
+  expect(on(EditPage).math_image_element.element.alt).to eq(alt)
 end
 
 Then(/^src for that img should come from (.+)$/) do |src|
-  on(EditPage).math_image_element.element.src.should match Regexp.escape(src)
+  expect(on(EditPage).math_image_element.element.src).to match Regexp.escape(src)
 end
 
 
 Then(/^the page should contain an img tag$/) do
-  on(EditPage).math_image_element.when_present.should be_visible
+  expect(on(EditPage).math_image_element.when_present).to be_visible
 end
