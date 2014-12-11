@@ -16,6 +16,24 @@
       "revId": "dc815a8353675ba4b34dd1d33ff95fe68105ca27",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e6cb3ef_d4c8b479",
+        "filename": "tests/browser/features/math.feature",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1576
+      },
+      "writtenOn": "2014-12-11T23:43:07Z",
+      "side": 1,
+      "message": "I did this because Given.. \" And I click link Create source \" was defined as \"When\" in the step_definition file.Although am pretty much aware of the fact that it doesn\u0027t really matter if I change it from \"Given\" to \"When\" but since it was so in step definition so I changed this, to be in sync.Or maybe in step definition file ,it should be \"Given\" instead of \"When\". This was as per Chris\u0027s email regarding the refactoring guidelines he suggested.Let me know if something have misunderstood.",
+      "parentUuid": "2e9df725_c03d2eba",
+      "revId": "dc815a8353675ba4b34dd1d33ff95fe68105ca27",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
