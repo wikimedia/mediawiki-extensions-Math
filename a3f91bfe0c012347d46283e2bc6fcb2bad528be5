@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e9df725_b7d4eaed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1576
+      },
+      "writtenOn": "2014-12-11T06:56:36Z",
+      "side": 1,
+      "message": "Hi,\nI am not able to link the patch I have submitted to the parent task am working on https://phabricator.wikimedia.org/T68369.I have added the Task Id in the commit message but it doesnot hyperlink to the respective task.",
+      "revId": "a3f91bfe0c012347d46283e2bc6fcb2bad528be5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e9df725_5701e66f",
+        "filename": "tests/browser/features/math.feature",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1576
+      },
+      "writtenOn": "2014-12-11T06:56:36Z",
+      "side": 1,
+      "message": "I have changed the \"And\" within Given on line 18 to \"When\" as I found that it\u0027s being used as \"When\" in the step definition file.",
+      "revId": "a3f91bfe0c012347d46283e2bc6fcb2bad528be5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
