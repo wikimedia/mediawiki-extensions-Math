@@ -4,6 +4,11 @@
 			"Mogoeilor"
 		]
 	},
+	"math-visualeditor-mwmathinspector-display": "نشون دئن",
+	"math-visualeditor-mwmathinspector-display-block": "نهاگری کردن",
+	"math-visualeditor-mwmathinspector-display-default": "پيش فرض",
+	"math-visualeditor-mwmathinspector-display-inline": "ری خط",
+	"math-visualeditor-mwmathinspector-id": "هوم پیوند نوم دیارکن",
 	"math-visualeditor-mwmathinspector-title": "فرمول",
 	"math_sample": "ایچه فرمول وارد بکیت",
 	"math_syntax_error": "خطا دستوری",

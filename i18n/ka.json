@@ -3,10 +3,15 @@
 		"authors": [
 			"Alsandro",
 			"David1010",
-			"გიორგიმელა"
+			"გიორგიმელა",
+			"MIKHEIL"
 		]
 	},
 	"math-preference-mwmathinspector-label": "ფორმულების რედაქტირება ვიზუალურ რედაქტორში",
+	"math-visualeditor-mwmathinspector-display": "ჩვენება",
+	"math-visualeditor-mwmathinspector-display-block": "ბლოკირება",
+	"math-visualeditor-mwmathinspector-display-default": "საწყისი",
+	"math-visualeditor-mwmathinspector-display-inline": "ქსელში",
 	"math_bad_output": "შეუძლებელია შექმნა ან ჩაწერა მათემატიკურ გამსვლელ კატალოგში",
 	"math_bad_tmpdir": "შეუძლებელია ჩანაწერის შექმნა მათემატიკურ დროებით კატალოგში",
 	"math_failure": "შეუძლებელია გამონათქვამის გარჩევაშ",
