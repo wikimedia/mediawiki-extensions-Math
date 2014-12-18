@@ -4,13 +4,18 @@
 			"Romaine",
 			"SPQRobin",
 			"Siebrand",
-			"Sjoerddebruin"
+			"Sjoerddebruin",
+			"Mirolith"
 		]
 	},
 	"math-desc": "Wiskundige formules tussen <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-tags weergeven",
 	"math-preference-mwmathinspector-description": "Voegt experimentele ondersteuning toe aan de visuele tekstverwerker voor het aanmaken en bewerken van wiskundige formules. Controleer altijd uw wijzigingen voordat u ze opslaat als u experimentele hulpmiddelen gebruikt.",
 	"math-preference-mwmathinspector-label": "Formulebewerking in visuele tekstverwerker",
+	"math-visualeditor-mwmathinspector-display": "Weergeven",
+	"math-visualeditor-mwmathinspector-display-block": "Blokkeren",
 	"math-visualeditor-mwmathinspector-display-default": "Standaard",
+	"math-visualeditor-mwmathinspector-display-inline": "Online",
+	"math-visualeditor-mwmathinspector-id": "Link indentiteit",
 	"math-visualeditor-mwmathinspector-title": "Formule",
 	"math_bad_output": "De map voor bestanden met wiskundige formules bestaat niet of kan niet gemaakt worden.",
 	"math_bad_tmpdir": "De map voor tijdelijke bestanden voor wiskundige formules bestaat niet of kan niet gemaakt worden",
