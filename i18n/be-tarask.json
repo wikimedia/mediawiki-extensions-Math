@@ -3,26 +3,27 @@
 		"authors": [
 			"EugeneZelenko",
 			"Jim-by",
-			"Wizardist"
+			"Wizardist",
+			"Red Winged Duck"
 		]
 	},
 	"math-desc": "Выводзіць матэматычныя формулы, запісаныя паміж тэгамі <code>&lt;math&gt;</code> і <code>&lt;/math&gt;</code>",
-	"math_sample": "Зьмясьціце тут формулу",
-	"math_tip": "Матэматычная формула (LaTeX)",
-	"prefs-math": "Матэматычныя формулы",
-	"mw_math_png": "Заўсёды паказваць як PNG",
-	"mw_math_source": "Пакідаць у выглядзе TeX (для тэкставых браўзэраў)",
-	"mw_math_mathjax": "MathJax (экспэрымэнтальна)",
-	"mw_math_mathml": "MathML, калі магчыма (экспэрымэнтальна)",
-	"mw_math_latexml": "LaTeXML (экспэрымэнтальна; ужывае MathML)",
+	"math_bad_output": "Немагчыма запісаць ці стварыць выходную матэматычную дырэкторыю",
+	"math_bad_tmpdir": "Немагчыма запісаць ці стварыць часовую дырэкторыю для матэматыкі",
 	"math_failure": "Немагчыма разабраць",
+	"math_image_error": "Памылка пераўтварэньня ў фармат PNG;\nправерце слушнасьць усталяваньня latex, dvips (ці dvips + gs + convert)",
+	"math_lexing_error": "лексычная памылка",
+	"math_notexvc": "Выканаўчы модуль <code>texvc</code> ня знойдзены.\nКалі ласка, прачытайце math/README пра яго канфігурацыю.",
+	"math_output_error": "Не ўдалося захаваць выяву выразу ў файлавай сыстэме.",
+	"math_sample": "Зьмясьціце тут формулу",
+	"math_syntax_error": "сынтаксычная памылка",
+	"math_tip": "Матэматычная формула (LaTeX)",
 	"math_unknown_error": "невядомая памылка",
 	"math_unknown_function": "невядомая функцыя '$1'",
-	"math_lexing_error": "лексычная памылка",
-	"math_syntax_error": "сынтаксычная памылка",
-	"math_image_error": "Памылка пераўтварэньня ў фармат PNG;\nправерце слушнасьць усталяваньня latex, dvips (ці dvips + gs + convert)",
-	"math_bad_tmpdir": "Немагчыма запісаць ці стварыць часовую дырэкторыю для матэматыкі",
-	"math_bad_output": "Немагчыма запісаць ці стварыць выходную матэматычную дырэкторыю",
-	"math_notexvc": "Выканаўчы модуль <code>texvc</code> ня знойдзены.\nКалі ласка, прачытайце math/README пра яго канфігурацыю.",
-	"math_output_error": "Не ўдалося захаваць выяву выразу ў файлавай сыстэме."
+	"mw_math_latexml": "LaTeXML (экспэрымэнтальна; ужывае MathML)",
+	"mw_math_mathjax": "MathJax на баку кліента (марудны; паляпшае апрацоўку ў некаторых браўзэрах і інструмэнтах падвышэньня даступнасьці)",
+	"mw_math_mathml": "MathML, калі магчыма (экспэрымэнтальна)",
+	"mw_math_png": "Заўсёды паказваць як PNG",
+	"mw_math_source": "Пакідаць у выглядзе TeX (для тэкставых браўзэраў)",
+	"prefs-math": "Матэматычныя формулы"
 }
