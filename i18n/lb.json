@@ -25,6 +25,6 @@
 	"mw_math_mathjax": "MathJax (experimentell)",
 	"mw_math_mathml": "MathML mat SVG oder PNG wann et net geet (recommandéiert fir modern Browser an Toole fir en Accès ouni Barrière)",
 	"mw_math_png": "PNG-Biller",
-	"mw_math_source": "Als TeX loossen (fir Textbrowser)",
+	"mw_math_source": "TeX-Quell (fir Textbrowser)",
 	"prefs-math": "Math/TeX"
 }
