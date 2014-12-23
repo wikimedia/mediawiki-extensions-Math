@@ -11,6 +11,8 @@
 	"math-visualeditor-mwmathinspector-display": "Дисплей",
 	"math-visualeditor-mwmathinspector-display-block": "Блоктохар",
 	"math-visualeditor-mwmathinspector-display-default": "Дефолт",
+	"math-visualeditor-mwmathinspector-display-inline": "Сизийн",
+	"math-visualeditor-mwmathinspector-id": "ID хьажоргаш (тӀехь дац)",
 	"math-visualeditor-mwmathinspector-title": "Формула",
 	"math_invalidjson": "Серверан жоп $1 — нийса йоцу JSON-тайпан.",
 	"math_invalidresponse": "$1: Мегаш доцу жоп («$3») серверера «$2»:",
