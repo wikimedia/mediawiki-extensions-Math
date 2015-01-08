@@ -16,6 +16,7 @@
 	"math_tip": "Matematička formula (LaTeX)",
 	"math_unknown_error": "nepoznata greška",
 	"math_unknown_function": "nepoznata funkcija „$1“",
+	"mw_math_latexml": "LaTeXML (eksprimentalno; koristi MathML)",
 	"mw_math_mathjax": "MathJax (eksperimentalno)",
 	"mw_math_mathml": "MathML sa oslanjanjem na SVG ili PNG (eksperimentalno)",
 	"mw_math_png": "PNG slike",
