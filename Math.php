@@ -496,9 +496,6 @@ $moduleTemplate = array(
 
 $wgResourceModules['ext.math.editbutton.enabler'] = array(
 	'scripts' => 'ext.math.editbutton.js',
-	'dependencies' => array(
-		'mediawiki.action.edit',
-	),
 	'messages' => array(
 		'math_tip',
 		'math_sample',
