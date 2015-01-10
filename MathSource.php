@@ -56,7 +56,7 @@ class MathSource extends MathRenderer {
 	}
 
 	protected function getMathTableName() {
-		throw new MWException ( 'in math source mode no database caching should happen');
+		throw new Exception ( 'in math source mode no database caching should happen');
 	}
 
 	/**
