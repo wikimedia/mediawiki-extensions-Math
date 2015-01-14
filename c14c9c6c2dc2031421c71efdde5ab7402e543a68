@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee703fc5_500c7245",
+        "filename": "modules/VisualEditor/ve.ce.MWMathNode.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-01-14T12:45:51Z",
+      "side": 1,
+      "message": "mwe-math-mathml-a11y\nThis hides the MathML element",
+      "revId": "c14c9c6c2dc2031421c71efdde5ab7402e543a68",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
