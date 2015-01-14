@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee703fc5_4a77dfcf",
+        "filename": "Math.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2015-01-14T02:34:38Z",
+      "side": 1,
+      "message": "This dependency should be removed.",
+      "revId": "ceca970123ff4f04d96198c4b3c7c6d1c3782c84",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
