@@ -13,8 +13,7 @@
  * different technologies. These static methods create a new instance of the
  * extending classes and render the math tags based on the mode setting of the user.
  * Furthermore this class handles the caching of the rendered output and provides
- *  debug information,
- * if run in mathdebug mode.
+ * debug information, if run in mathdebug mode.
  *
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
@@ -119,7 +118,7 @@ abstract class MathRenderer {
 	 * @param int $mode constant indicating rendering mode
 	 * @return MathRenderer appropriate renderer for mode
 	 */
-	public static function getRenderer( $tex, $params = array(),  $mode = MW_MATH_PNG ) {
+	public static function getRenderer( $tex, $params = array(), $mode = MW_MATH_PNG ) {
 		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathEnableExperimentalInputFormats;
 		$mathStyle = null;
 		if ( isset( $params['display'] ) ) {
@@ -149,7 +148,7 @@ abstract class MathRenderer {
 		if ( !in_array( $mode, $wgMathValidModes ) ) {
 			$mode = $wgDefaultUserOptions['math'];
 		}
-		if ( $wgMathEnableExperimentalInputFormats === true && $mode == MW_MATH_MATHML &&  isset( $params['type'] ) ) {
+		if ( $wgMathEnableExperimentalInputFormats === true && $mode == MW_MATH_MATHML && isset( $params['type'] ) ) {
 			// Support of MathML input (experimental)
 			// Currently support for mode MW_MATH_MATHML only
 			if( !in_array( $params['type'], array( 'pmml', 'ascii' ) ) ) {
