@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae6ac7d6_f5004106",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-01-18T12:40:33Z",
+      "side": 1,
+      "message": "missing @param. \"What does $render do?\"",
+      "revId": "43b379847a177d23ae75834bf363fa0ffdadd4c3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae6ac7d6_750c313e",
+        "filename": "MathLaTeXML.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-01-18T12:40:33Z",
+      "side": 1,
+      "message": "How about making this a string flag instead? That way function calls become more readable $foo-\u003egetSvg( \u0027render\u0027 ) / $foo-\u003egetSvg( \u0027cached\u0027 )",
+      "revId": "43b379847a177d23ae75834bf363fa0ffdadd4c3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
