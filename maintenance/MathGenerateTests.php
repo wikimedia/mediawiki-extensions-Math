@@ -19,7 +19,7 @@
  * @ingroup Maintenance
  */
 
-require_once( dirname( __FILE__ ) . '/../../../maintenance/Maintenance.php' );
+require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 
 class MathGenerateTests extends Maintenance
 {
@@ -89,9 +89,9 @@ class MathGenerateTests extends Maintenance
 			echo '.';
 		}
 		echo "Generated $i tests\n";
-		file_put_contents( dirname( __FILE__ ) . '/../tests/ParserTest.json', json_encode( $parserTests, JSON_PRETTY_PRINT ) );
+		file_put_contents( __DIR__ . '/../tests/ParserTest.json', json_encode( $parserTests, JSON_PRETTY_PRINT ) );
 	}
 }
 
-$maintClass = "MathGenerateTests";
-require_once( RUN_MAINTENANCE_IF_MAIN );
+$maintClass = 'MathGenerateTests';
+require_once RUN_MAINTENANCE_IF_MAIN;

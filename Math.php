@@ -118,8 +118,11 @@ $wgMathDirectory = false;
 
 /**
  * The url of the mathoid server.
- * see http://www.formulasearchengine.com/mathoid
- * TODO: Move documentation to WMF
+ *
+ * Documentation: http://www.formulasearchengine.com/mathoid
+ * Example value: http://mathoid.example.org:10042
+ *
+ * @todo Move documentation to mediawiki.org
  */
 $wgMathMathMLUrl = 'http://mathoid.testme.wmflabs.org';
 
