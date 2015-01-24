@@ -36,8 +36,13 @@
 	"math_notexvccheck": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.\n\nSee also:\n* {{msg-mw|Math notexvc}}",
 	"math_output_error": "Used as error message if the texvc output file could not be stored.\n\nThis message follows the message {{msg-mw|Math failure}}.",
 	"math_sample": "The sample formula text that you get when you press the fourth button from the right on the edit toolbar.",
+	"math-status-introduction": "Used as special-page text.",
 	"math_syntax_error": "Used as error message for a texvc syntax error.\n\nThis message follows the message {{msg-mw|Math failure}}.\n{{Identical|Syntax error}}",
 	"math_timeout": "Used as error message.\n\nParameters:\n* $1 - rendering type (either LaTeXML or Mathoid)\n* $2 - hostname or URL",
+	"math-test-end": "Used as special-page text.\n\nParameters:\n* $1 rendering mode",
+	"math-test-fail": "Used as special-page text.\n\nParameters:\n* $1 test name",
+	"math-test-start": "Used as special-page text.\n\nParameters:\n* $1 rendering mode",
+	"math-test-success": "Used as special-page text.\n\nParameters:\n* $1 test name",
 	"math_tip": "This is the text that appears when you hover the mouse over the fourth button from the right on the edit toolbar.",
 	"math_unknown_error": "Used as error message for unknown texvc error.\n\nThis message follows the message {{msg-mw|Math failure}}.\n{{Identical|Unknown error}}",
 	"math_unknown_function": "Used as error message when texvc encounters an unknown function.\n\nPreceded by the message {{msg-mw|Math failure}}.\n\nParameters:\n* $1 - name of unknown function",
@@ -48,5 +53,6 @@
 	"mw_math_mathml": "Used as label for MathML radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math source}}\n* {{msg-mw|Mw math latexml}}",
 	"mw_math_png": "In user preferences. All mw_math_* messages MUST be different, things will break otherwise!\n\nUsed as label for radio button.\n\nSee also:\n* {{msg-mw|Mw math source}}\n* {{msg-mw|Mw math mathjax}}\n* {{msg-mw|Mw math latexml}}",
 	"mw_math_source": "In user preferences (math). All mw_math_* messages MUST be different, things will break otherwise!\n\nUsed as label for source radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math mathjax}}\n* {{msg-mw|Mw math latexml}}",
-	"prefs-math": "Used in user preferences as a section heading.\n{{Identical|Math}}"
+	"prefs-math": "Used in user preferences as a section heading.\n{{Identical|Math}}",
+	"mathstatus": "Label for special-page"
 }
