@@ -1,9 +1,10 @@
 <?php
 /**
- * Aliases for Math
+ * Aliases for invisible Math special pages
  *
- * In addition to this file, there is Math.alias.noTranslate.php that contains invisible
- * special pages.
+ * There is no need to translate the messages, since the PageTitle does not appear.
+ *
+ * @see Math.alias.php for special pages with visible titles.
  *
  * @file
  * @ingroup Extensions
