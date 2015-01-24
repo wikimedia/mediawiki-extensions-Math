@@ -230,6 +230,7 @@ $wgAutoloadClasses['MathLaTeXML'] = $dir . 'MathLaTeXML.php';
 $wgAutoloadClasses['MathInputCheck'] = $dir . 'MathInputCheck.php';
 $wgAutoloadClasses['MathInputCheckTexvc'] = $dir . 'MathInputCheckTexvc.php';
 $wgAutoloadClasses['SpecialMathShowImage'] = $dir . 'SpecialMathShowImage.php';
+$wgAutoloadClasses['SpecialMathStatus'] = $dir . 'SpecialMathStatus.php';
 $wgMessagesDirs['Math'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 $wgExtensionMessagesFiles['MathAlias'] = $dir . 'Math.alias.php';
@@ -237,7 +238,9 @@ $wgExtensionMessagesFiles['MathAlias'] = $dir . 'Math.alias.php';
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 
 $wgSpecialPageGroups[ 'MathShowImage' ] = 'other';
+$wgSpecialPageGroups[ 'MathStatus' ] = 'other';
 $wgSpecialPages['MathShowImage'] = 'SpecialMathShowImage';
+$wgSpecialPages['MathStatus'] = 'SpecialMathStatus';
 
 $wgResourceModules['ext.math.styles'] = array(
 	'localBasePath' => __DIR__ . '/modules',
