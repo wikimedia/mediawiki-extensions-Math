@@ -10,5 +10,6 @@ $specialPageAliases = array();
 
 /** English (English) */
 $specialPageAliases['en'] = array(
-	'MathShowImage' => array( 'MathShowImage', 'MathShowImage' ) // No need to translate! The PageTitle does not appear.
+	'MathShowImage' => array( 'MathShowImage', 'MathShowImage' ), // No need to translate! The PageTitle does not appear.
+	'MathStatus' => array( 'MathStatus', 'MathStatus' )
 );
