@@ -220,7 +220,6 @@ class MathMathML extends MathRenderer {
 	 * @return boolean
 	 */
 	protected function doRender() {
-		global  $wgMathDebug;
 		if ( $this->getTex() === '' ) {
 			wfDebugLog( 'Math', 'Rendering was requested, but no TeX string is specified.' );
 			$this->lastError = $this->getError( 'math_empty_tex' );
@@ -235,27 +234,7 @@ class MathMathML extends MathRenderer {
 			$jsonResult = json_decode( $res );
 			if ( $jsonResult && json_last_error() === JSON_ERROR_NONE ) {
 				if ( $jsonResult->success ) {
-					if ( $this->getMode() == MW_MATH_LATEXML ||
-							$this->inputType == 'pmml' ||
-							$this->isValidMathML( $jsonResult->mml ) ) {
-						$xmlObject = new XmlTypeCheck( $jsonResult->svg, null, false );
-						if ( ! $xmlObject->wellFormed ) {
-							$this->lastError = $this->getError( 'math_invalidxml', $host );
-							return false;
-						} else {
-							$this->setSvg( $jsonResult->svg );
-						}
-						if ( $wgMathDebug ) {
-							$this->setLog( $jsonResult->log );
-						}
-						if ( $this->getMode() != MW_MATH_LATEXML && $this->inputType != 'pmml') {
-							$this->setMathml( $jsonResult->mml );
-						}
-						return true;
-					} else {
-						$this->lastError = $this->getError( 'math_unknown_error', $host );
-						return false;
-					}
+					return $this->processJsonResult( $jsonResult, $host );
 				} else {
 					if ( property_exists( $jsonResult, 'log' ) ) {
 						$log = $jsonResult->log;
@@ -456,5 +435,40 @@ class MathMathML extends MathRenderer {
 		}
 		parent::initializeFromDatabaseRow( $rpage );
 
+	}
+
+	/**
+	 * @param $jsonResult
+	 * @param $host
+	 *
+	 * @return bool
+	 */
+	private function processJsonResult( $jsonResult, $host ) {
+		global $wgMathDebug;
+		if ( $this->getMode() == MW_MATH_LATEXML || $this->inputType == 'pmml' ||
+			 $this->isValidMathML( $jsonResult->mml )
+		) {
+			if ( isset( $jsonResult->svg ) ) {
+				$xmlObject = new XmlTypeCheck( $jsonResult->svg, null, false );
+				if ( !$xmlObject->wellFormed ) {
+					$this->lastError = $this->getError( 'math_invalidxml', $host );
+					return false;
+				} else {
+					$this->setSvg( $jsonResult->svg );
+				}
+			} else {
+				wfDebugLog( 'Math', 'Missing SVG property in JSON result.' );
+			}
+			if ( $wgMathDebug ) {
+				$this->setLog( $jsonResult->log );
+			}
+			if ( $this->getMode() != MW_MATH_LATEXML && $this->inputType != 'pmml' ) {
+				$this->setMathml( $jsonResult->mml );
+			}
+			return true;
+		} else {
+			$this->lastError = $this->getError( 'math_unknown_error', $host );
+			return false;
+		}
 	}
 }
