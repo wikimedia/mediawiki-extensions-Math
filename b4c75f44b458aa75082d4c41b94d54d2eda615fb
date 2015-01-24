@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae6ac7d6_3a29a736",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 121
+      },
+      "writtenOn": "2015-01-24T09:53:49Z",
+      "side": 1,
+      "message": ".  missing at the end of the sentence? Or a :?\n\nDoes PLURAL for \"rendering mode is/rendering modes are\" makes sense?",
+      "revId": "b4c75f44b458aa75082d4c41b94d54d2eda615fb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
