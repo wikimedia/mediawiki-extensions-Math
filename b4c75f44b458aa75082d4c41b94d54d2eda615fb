@@ -16,6 +16,23 @@
       "revId": "b4c75f44b458aa75082d4c41b94d54d2eda615fb",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e7fc396_bc12c9ff",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2015-01-27T22:09:37Z",
+      "side": 1,
+      "message": "Needs punctuation.",
+      "revId": "b4c75f44b458aa75082d4c41b94d54d2eda615fb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
