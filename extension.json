@@ -1,0 +1,867 @@
+{
+	"name": "Math",
+	"version": "2.0.0",
+	"author": [
+		"Tomasz Wegrzanowski",
+		"Brion Vibber",
+		"Moritz Schubotz",
+		"Derk-Jan Hartman"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:Math",
+	"descriptionmsg": "math-desc",
+	"type": "parserhook",
+	"callback": "MathHooks::registerExtension",
+	"ExtensionFunctions": [
+		"MathHooks::setup"
+	],
+	"SpecialPages": {
+		"MathShowImage": "SpecialMathShowImage",
+		"MathStatus": "SpecialMathStatus"
+	},
+	"MessagesDirs": {
+		"Math": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"MathAlias": "Math.alias.php",
+		"MathAliasNoTranslate": "Math.alias.noTranslate.php"
+	},
+	"AutoloadClasses": {
+		"MathHooks": "Math.hooks.php",
+		"MathRenderer": "MathRenderer.php",
+		"MathTexvc": "MathTexvc.php",
+		"MathSource": "MathSource.php",
+		"MathMathML": "MathMathML.php",
+		"MathLaTeXML": "MathLaTeXML.php",
+		"MathInputCheck": "MathInputCheck.php",
+		"MathInputCheckTexvc": "MathInputCheckTexvc.php",
+		"SpecialMathShowImage": "SpecialMathShowImage.php",
+		"SpecialMathStatus": "SpecialMathStatus.php"
+	},
+	"ResourceModules": {
+		"ext.math.styles": {
+			"position": "top",
+			"styles": "modules/ext.math.css",
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
+		"ext.math.desktop.styles": {
+			"position": "top",
+			"styles": "modules/ext.math.desktop.css"
+		},
+		"ext.math.scripts": {
+			"scripts": "modules/ext.math.js"
+		},
+		"ext.math.mathjax.enabler": {
+			"scripts": "modules/ext.math.mathjax.enabler.js"
+		},
+		"ext.math.mathjax.mathjax": {
+			"scripts": "modules/MathJax/unpacked/MathJax.js"
+		},
+		"ext.math.mathjax.localization": {
+			"languageScripts": {
+				"br": [
+					"modules/MathJax/unpacked/localization/br/br.js",
+					"modules/MathJax/unpacked/localization/br/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/br/MathMenu.js",
+					"modules/MathJax/unpacked/localization/br/TeX.js",
+					"modules/MathJax/unpacked/localization/br/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/br/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/br/MathML.js"
+				],
+				"cdo": [
+					"modules/MathJax/unpacked/localization/cdo/cdo.js",
+					"modules/MathJax/unpacked/localization/cdo/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/cdo/MathMenu.js",
+					"modules/MathJax/unpacked/localization/cdo/TeX.js",
+					"modules/MathJax/unpacked/localization/cdo/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/cdo/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/cdo/MathML.js"
+				],
+				"cs": [
+					"modules/MathJax/unpacked/localization/cs/cs.js",
+					"modules/MathJax/unpacked/localization/cs/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/cs/MathMenu.js",
+					"modules/MathJax/unpacked/localization/cs/TeX.js",
+					"modules/MathJax/unpacked/localization/cs/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/cs/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/cs/MathML.js"
+				],
+				"da": [
+					"modules/MathJax/unpacked/localization/da/da.js",
+					"modules/MathJax/unpacked/localization/da/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/da/MathMenu.js",
+					"modules/MathJax/unpacked/localization/da/TeX.js",
+					"modules/MathJax/unpacked/localization/da/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/da/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/da/MathML.js"
+				],
+				"de": [
+					"modules/MathJax/unpacked/localization/de/de.js",
+					"modules/MathJax/unpacked/localization/de/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/de/MathMenu.js",
+					"modules/MathJax/unpacked/localization/de/TeX.js",
+					"modules/MathJax/unpacked/localization/de/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/de/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/de/MathML.js"
+				],
+				"eo": [
+					"modules/MathJax/unpacked/localization/eo/eo.js",
+					"modules/MathJax/unpacked/localization/eo/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/eo/MathMenu.js",
+					"modules/MathJax/unpacked/localization/eo/TeX.js",
+					"modules/MathJax/unpacked/localization/eo/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/eo/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/eo/MathML.js"
+				],
+				"es": [
+					"modules/MathJax/unpacked/localization/es/es.js",
+					"modules/MathJax/unpacked/localization/es/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/es/MathMenu.js",
+					"modules/MathJax/unpacked/localization/es/TeX.js",
+					"modules/MathJax/unpacked/localization/es/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/es/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/es/MathML.js"
+				],
+				"fa": [
+					"modules/MathJax/unpacked/localization/fa/fa.js",
+					"modules/MathJax/unpacked/localization/fa/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/fa/MathMenu.js",
+					"modules/MathJax/unpacked/localization/fa/TeX.js",
+					"modules/MathJax/unpacked/localization/fa/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/fa/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/fa/MathML.js"
+				],
+				"fi": [
+					"modules/MathJax/unpacked/localization/fi/fi.js",
+					"modules/MathJax/unpacked/localization/fi/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/fi/MathMenu.js",
+					"modules/MathJax/unpacked/localization/fi/TeX.js",
+					"modules/MathJax/unpacked/localization/fi/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/fi/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/fi/MathML.js"
+				],
+				"fr": [
+					"modules/MathJax/unpacked/localization/fr/fr.js",
+					"modules/MathJax/unpacked/localization/fr/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/fr/MathMenu.js",
+					"modules/MathJax/unpacked/localization/fr/TeX.js",
+					"modules/MathJax/unpacked/localization/fr/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/fr/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/fr/MathML.js"
+				],
+				"gl": [
+					"modules/MathJax/unpacked/localization/gl/gl.js",
+					"modules/MathJax/unpacked/localization/gl/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/gl/MathMenu.js",
+					"modules/MathJax/unpacked/localization/gl/TeX.js",
+					"modules/MathJax/unpacked/localization/gl/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/gl/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/gl/MathML.js"
+				],
+				"he": [
+					"modules/MathJax/unpacked/localization/he/he.js",
+					"modules/MathJax/unpacked/localization/he/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/he/MathMenu.js",
+					"modules/MathJax/unpacked/localization/he/TeX.js",
+					"modules/MathJax/unpacked/localization/he/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/he/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/he/MathML.js"
+				],
+				"ia": [
+					"modules/MathJax/unpacked/localization/ia/ia.js",
+					"modules/MathJax/unpacked/localization/ia/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/ia/MathMenu.js",
+					"modules/MathJax/unpacked/localization/ia/TeX.js",
+					"modules/MathJax/unpacked/localization/ia/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/ia/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/ia/MathML.js"
+				],
+				"it": [
+					"modules/MathJax/unpacked/localization/it/it.js",
+					"modules/MathJax/unpacked/localization/it/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/it/MathMenu.js",
+					"modules/MathJax/unpacked/localization/it/TeX.js",
+					"modules/MathJax/unpacked/localization/it/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/it/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/it/MathML.js"
+				],
+				"ja": [
+					"modules/MathJax/unpacked/localization/ja/ja.js",
+					"modules/MathJax/unpacked/localization/ja/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/ja/MathMenu.js",
+					"modules/MathJax/unpacked/localization/ja/TeX.js",
+					"modules/MathJax/unpacked/localization/ja/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/ja/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/ja/MathML.js"
+				],
+				"ko": [
+					"modules/MathJax/unpacked/localization/ko/ko.js",
+					"modules/MathJax/unpacked/localization/ko/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/ko/MathMenu.js",
+					"modules/MathJax/unpacked/localization/ko/TeX.js",
+					"modules/MathJax/unpacked/localization/ko/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/ko/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/ko/MathML.js"
+				],
+				"lb": [
+					"modules/MathJax/unpacked/localization/lb/lb.js",
+					"modules/MathJax/unpacked/localization/lb/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/lb/MathMenu.js",
+					"modules/MathJax/unpacked/localization/lb/TeX.js",
+					"modules/MathJax/unpacked/localization/lb/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/lb/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/lb/MathML.js"
+				],
+				"mk": [
+					"modules/MathJax/unpacked/localization/mk/mk.js",
+					"modules/MathJax/unpacked/localization/mk/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/mk/MathMenu.js",
+					"modules/MathJax/unpacked/localization/mk/TeX.js",
+					"modules/MathJax/unpacked/localization/mk/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/mk/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/mk/MathML.js"
+				],
+				"nl": [
+					"modules/MathJax/unpacked/localization/nl/nl.js",
+					"modules/MathJax/unpacked/localization/nl/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/nl/MathMenu.js",
+					"modules/MathJax/unpacked/localization/nl/TeX.js",
+					"modules/MathJax/unpacked/localization/nl/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/nl/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/nl/MathML.js"
+				],
+				"oc": [
+					"modules/MathJax/unpacked/localization/oc/oc.js",
+					"modules/MathJax/unpacked/localization/oc/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/oc/MathMenu.js",
+					"modules/MathJax/unpacked/localization/oc/TeX.js",
+					"modules/MathJax/unpacked/localization/oc/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/oc/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/oc/MathML.js"
+				],
+				"pl": [
+					"modules/MathJax/unpacked/localization/pl/pl.js",
+					"modules/MathJax/unpacked/localization/pl/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/pl/MathMenu.js",
+					"modules/MathJax/unpacked/localization/pl/TeX.js",
+					"modules/MathJax/unpacked/localization/pl/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/pl/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/pl/MathML.js"
+				],
+				"pt": [
+					"modules/MathJax/unpacked/localization/pt/pt.js",
+					"modules/MathJax/unpacked/localization/pt/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/pt/MathMenu.js",
+					"modules/MathJax/unpacked/localization/pt/TeX.js",
+					"modules/MathJax/unpacked/localization/pt/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/pt/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/pt/MathML.js"
+				],
+				"pt-br": [
+					"modules/MathJax/unpacked/localization/pt-br/pt-br.js",
+					"modules/MathJax/unpacked/localization/pt-br/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/pt-br/MathMenu.js",
+					"modules/MathJax/unpacked/localization/pt-br/TeX.js",
+					"modules/MathJax/unpacked/localization/pt-br/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/pt-br/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/pt-br/MathML.js"
+				],
+				"ru": [
+					"modules/MathJax/unpacked/localization/ru/ru.js",
+					"modules/MathJax/unpacked/localization/ru/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/ru/MathMenu.js",
+					"modules/MathJax/unpacked/localization/ru/TeX.js",
+					"modules/MathJax/unpacked/localization/ru/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/ru/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/ru/MathML.js"
+				],
+				"sl": [
+					"modules/MathJax/unpacked/localization/sl/sl.js",
+					"modules/MathJax/unpacked/localization/sl/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/sl/MathMenu.js",
+					"modules/MathJax/unpacked/localization/sl/TeX.js",
+					"modules/MathJax/unpacked/localization/sl/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/sl/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/sl/MathML.js"
+				],
+				"sv": [
+					"modules/MathJax/unpacked/localization/sv/sv.js",
+					"modules/MathJax/unpacked/localization/sv/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/sv/MathMenu.js",
+					"modules/MathJax/unpacked/localization/sv/TeX.js",
+					"modules/MathJax/unpacked/localization/sv/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/sv/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/sv/MathML.js"
+				],
+				"tr": [
+					"modules/MathJax/unpacked/localization/tr/tr.js",
+					"modules/MathJax/unpacked/localization/tr/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/tr/MathMenu.js",
+					"modules/MathJax/unpacked/localization/tr/TeX.js",
+					"modules/MathJax/unpacked/localization/tr/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/tr/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/tr/MathML.js"
+				],
+				"uk": [
+					"modules/MathJax/unpacked/localization/uk/uk.js",
+					"modules/MathJax/unpacked/localization/uk/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/uk/MathMenu.js",
+					"modules/MathJax/unpacked/localization/uk/TeX.js",
+					"modules/MathJax/unpacked/localization/uk/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/uk/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/uk/MathML.js"
+				],
+				"zh-hans": [
+					"modules/MathJax/unpacked/localization/zh-hans/zh-hans.js",
+					"modules/MathJax/unpacked/localization/zh-hans/HelpDialog.js",
+					"modules/MathJax/unpacked/localization/zh-hans/MathMenu.js",
+					"modules/MathJax/unpacked/localization/zh-hans/TeX.js",
+					"modules/MathJax/unpacked/localization/zh-hans/FontWarnings.js",
+					"modules/MathJax/unpacked/localization/zh-hans/HTML-CSS.js",
+					"modules/MathJax/unpacked/localization/zh-hans/MathML.js"
+				]
+			},
+			"dependencies": "ext.math.mathjax.mathjax"
+		},
+		"ext.math.mathjax.jax.config": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/input/TeX/config.js",
+				"modules/MathJax/unpacked/jax/input/MathML/config.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/config.js",
+				"modules/MathJax/unpacked/jax/output/NativeMML/config.js",
+				"modules/MathJax/unpacked/jax/output/SVG/config.js"
+			],
+			"dependencies": "ext.math.mathjax.mathjax"
+		},
+		"ext.math.mathjax.extensions.ui": {
+			"scripts": [
+				"modules/MathJax/unpacked/extensions/MathEvents.js",
+				"modules/MathJax/unpacked/extensions/MathZoom.js",
+				"modules/MathJax/unpacked/extensions/MathMenu.js",
+				"modules/MathJax/unpacked/extensions/toMathML.js"
+			],
+			"dependencies": "ext.math.mathjax.mathjax"
+		},
+		"ext.math.mathjax.extensions.TeX": {
+			"scripts": [
+				"modules/MathJax/unpacked/extensions/TeX/noUndefined.js",
+				"modules/MathJax/unpacked/extensions/TeX/AMSmath.js",
+				"modules/MathJax/unpacked/extensions/TeX/AMSsymbols.js",
+				"modules/MathJax/unpacked/extensions/TeX/boldsymbol.js",
+				"modules/MathJax/unpacked/extensions/TeX/color.js",
+				"modules/MathJax/unpacked/extensions/TeX/cancel.js",
+				"modules/MathJax/unpacked/extensions/TeX/mathchoice.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.mathjax"
+			]
+		},
+		"ext.math.mathjax.extensions.mediawiki": {
+			"scripts": [
+				"modules/mediawiki-extensions/wiki2jax.js",
+				"modules/mediawiki-extensions/texvc.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.mathjax"
+			]
+		},
+		"ext.math.mathjax.extensions.mml2jax": {
+			"scripts": [
+				"modules/MathJax/unpacked/extensions/mml2jax.js"
+			],
+			"dependencies": "ext.math.mathjax.mathjax"
+		},
+		"ext.math.mathjax.extensions": {
+			"dependencies": [
+				"ext.math.mathjax.extensions.ui",
+				"ext.math.mathjax.extensions.TeX",
+				"ext.math.mathjax.extensions.mediawiki",
+				"ext.math.mathjax.extensions.mml2jax"
+			]
+		},
+		"ext.math.mathjax.jax.element.mml.optable": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/element/mml/optable/Arrows.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/CombDiactForSymbols.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/Dingbats.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/GeneralPunctuation.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/GeometricShapes.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/GreekAndCoptic.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/Latin1Supplement.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/LetterlikeSymbols.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/MathOperators.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/MiscMathSymbolsA.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/MiscMathSymbolsB.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/MiscSymbolsAndArrows.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/MiscTechnical.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/SpacingModLetters.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/SupplementalArrowsA.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/SupplementalArrowsB.js",
+				"modules/MathJax/unpacked/jax/element/mml/optable/SuppMathOperators.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.element.mml"
+			]
+		},
+		"ext.math.mathjax.jax.element.mml": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/element/mml/jax.js"
+			],
+			"dependencies": "ext.math.mathjax.mathjax"
+		},
+		"ext.math.mathjax.jax.input.MathML": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/input/MathML/jax.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.config",
+				"ext.math.mathjax.jax.element.mml"
+			]
+		},
+		"ext.math.mathjax.jax.input.TeX": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/input/TeX/jax.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.config",
+				"ext.math.mathjax.jax.element.mml"
+			]
+		},
+		"ext.math.mathjax.jax.output.NativeMML": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/output/NativeMML/jax.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.config",
+				"ext.math.mathjax.jax.element.mml"
+			]
+		},
+		"ext.math.mathjax.jax.output.HTML-CSS.autoload": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/autoload/annotation-xml.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/autoload/maction.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/autoload/menclose.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/autoload/mglyph.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/autoload/mmultiscripts.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/autoload/ms.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/autoload/mtable.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/autoload/multiline.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.output.HTML-CSS"
+			]
+		},
+		"ext.math.mathjax.jax.output.HTML-CSS": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/jax.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.config",
+				"ext.math.mathjax.jax.element.mml"
+			]
+		},
+		"ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.fontdata": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/fontdata.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/fontdata-extra.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.output.HTML-CSS"
+			]
+		},
+		"ext.math.mathjax.jax.output.SVG.autoload": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/output/SVG/autoload/annotation-xml.js",
+				"modules/MathJax/unpacked/jax/output/SVG/autoload/maction.js",
+				"modules/MathJax/unpacked/jax/output/SVG/autoload/menclose.js",
+				"modules/MathJax/unpacked/jax/output/SVG/autoload/mglyph.js",
+				"mmultiscripts.js",
+				"modules/MathJax/unpacked/jax/output/SVG/autoload/ms.js",
+				"modules/MathJax/unpacked/jax/output/SVG/autoload/mtable.js",
+				"modules/MathJax/unpacked/jax/output/SVG/autoload/multiline.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.output.SVG"
+			]
+		},
+		"ext.math.mathjax.jax.output.SVG": {
+			"localBasePath": "modules/MathJax/unpacked/jax/output/SVG",
+			"remoteExtPath": "Math/modules/MathJax/unpacked/jax/output/SVG",
+			"scripts": [
+				"jax.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.config",
+				"ext.math.mathjax.jax.element.mml"
+			]
+		},
+		"ext.math.mathjax.jax.output.SVG.fonts.TeX.fontdata": {
+			"localBasePath": "modules/MathJax/unpacked/jax/output/SVG/fonts/TeX",
+			"remoteExtPath": "Math/modules/MathJax/unpacked/jax/output/SVG/fonts/TeX",
+			"scripts": [
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/fontdata.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/fontdata-extra.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.output.SVG"
+			]
+		},
+		"ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.MainJS": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Size1/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Size2/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Size3/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Size4/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Italic/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Caligraphic/Bold/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Caligraphic/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Fraktur/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Greek/BoldItalic/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Greek/Bold/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Greek/Italic/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Greek/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Math/BoldItalic/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Math/Italic/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/SansSerif/Bold/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/SansSerif/Italic/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/SansSerif/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Script/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Typewriter/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/WinChrome/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/WinIE6/Regular/Main.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.fontdata"
+			]
+		},
+		"ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.Main": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/Arrows.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/CombDiactForSymbols.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/GeneralPunctuation.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/GeometricShapes.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/Latin1Supplement.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/LatinExtendedA.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/LatinExtendedB.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/LetterlikeSymbols.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/MathOperators.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/MiscMathSymbolsA.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/MiscSymbols.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/MiscTechnical.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/SpacingModLetters.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/SupplementalArrowsA.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Bold/SuppMathOperators.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Italic/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Italic/GeneralPunctuation.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Italic/Latin1Supplement.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Italic/LetterlikeSymbols.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Regular/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Regular/GeometricShapes.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Regular/MiscSymbols.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Main/Regular/SpacingModLetters.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.fontdata"
+			]
+		},
+		"ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.AMS": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/Arrows.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/BBBold.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/BoxDrawing.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/Dingbats.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/EnclosedAlphanum.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/GeneralPunctuation.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/GeometricShapes.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/GreekAndCoptic.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/Latin1Supplement.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/LatinExtendedA.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/LetterlikeSymbols.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/MathOperators.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/MiscMathSymbolsB.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/MiscSymbols.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/MiscTechnical.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/PUA.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/SpacingModLetters.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/SuppMathOperators.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.fontdata"
+			]
+		},
+		"ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.Extra": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/Other.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/PUA.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Fraktur/Regular/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Fraktur/Regular/Other.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Fraktur/Regular/PUA.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/SansSerif/Bold/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/SansSerif/Bold/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/SansSerif/Bold/Other.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/SansSerif/Italic/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/SansSerif/Italic/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/SansSerif/Italic/Other.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/SansSerif/Regular/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/SansSerif/Regular/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/SansSerif/Regular/Other.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Script/Regular/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Script/Regular/Other.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Typewriter/Regular/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Typewriter/Regular/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/Typewriter/Regular/Other.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/WinIE6/Regular/AMS.js",
+				"modules/MathJax/unpacked/jax/output/HTML-CSS/fonts/TeX/WinIE6/Regular/Bold.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.output.HTML-CSS.fonts.TeX.fontdata"
+			]
+		},
+		"ext.math.mathjax.jax.output.SVG.fonts.TeX.MainJS": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Size1/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Size2/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Size3/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Size4/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Italic/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Caligraphic/Bold/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Caligraphic/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Fraktur/Bold/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Fraktur/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Math/BoldItalic/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Math/Italic/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/SansSerif/Bold/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/SansSerif/Italic/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/SansSerif/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Script/Regular/Main.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Typewriter/Regular/Main.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.output.SVG.fonts.TeX.fontdata"
+			]
+		},
+		"ext.math.mathjax.jax.output.SVG.fonts.TeX.Main": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/Arrows.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/CombDiactForSymbols.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/GeneralPunctuation.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/GeometricShapes.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/GreekAndCoptic.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/Latin1Supplement.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/LatinExtendedA.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/LatinExtendedB.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/LetterlikeSymbols.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/MathOperators.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/MiscMathSymbolsA.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/MiscSymbols.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/MiscTechnical.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/SpacingModLetters.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/SupplementalArrowsA.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Bold/SuppMathOperators.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Italic/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Italic/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Italic/GeneralPunctuation.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Italic/GreekAndCoptic.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Italic/LatinExtendedA.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Italic/LatinExtendedB.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Italic/LetterlikeSymbols.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Italic/MathOperators.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Regular/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Regular/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Regular/GeometricShapes.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Regular/GreekAndCoptic.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Regular/LatinExtendedA.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Regular/LatinExtendedB.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Regular/LetterlikeSymbols.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Regular/MathOperators.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Regular/MiscSymbols.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Regular/SpacingModLetters.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Main/Regular/SuppMathOperators.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.output.SVG.fonts.TeX.fontdata"
+			]
+		},
+		"ext.math.mathjax.jax.output.SVG.fonts.TeX.AMS": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/Arrows.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/BoxDrawing.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/Dingbats.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/EnclosedAlphanum.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/GeneralPunctuation.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/GeometricShapes.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/GreekAndCoptic.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/Latin1Supplement.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/LatinExtendedA.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/LetterlikeSymbols.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/MathOperators.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/MiscMathSymbolsB.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/MiscSymbols.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/MiscTechnical.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/PUA.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/SpacingModLetters.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/AMS/Regular/SuppMathOperators.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.output.SVG.fonts.TeX.fontdata"
+			]
+		},
+		"ext.math.mathjax.jax.output.SVG.fonts.TeX.Extra": {
+			"scripts": [
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Fraktur/Bold/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Fraktur/Bold/Other.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Fraktur/Bold/PUA.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Fraktur/Regular/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Fraktur/Regular/Other.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Fraktur/Regular/PUA.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/SansSerif/Bold/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/SansSerif/Bold/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/SansSerif/Bold/Other.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/SansSerif/Italic/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/SansSerif/Italic/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/SansSerif/Italic/Other.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/SansSerif/Regular/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/SansSerif/Regular/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/SansSerif/Regular/Other.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Script/Regular/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Typewriter/Regular/BasicLatin.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Typewriter/Regular/CombDiacritMarks.js",
+				"modules/MathJax/unpacked/jax/output/SVG/fonts/TeX/Typewriter/Regular/Other.js"
+			],
+			"dependencies": [
+				"ext.math.mathjax.jax.output.SVG.fonts.TeX.fontdata"
+			]
+		},
+		"ext.math.editbutton.enabler": {
+			"scripts": "modules/ext.math.editbutton.js",
+			"messages": [
+				"math_tip",
+				"math_sample"
+			]
+		},
+		"ext.math.visualEditor": {
+			"scripts": [
+				"modules/VisualEditor/ve.dm.MWMathNode.js",
+				"modules/VisualEditor/ve.ce.MWMathNode.js",
+				"modules/VisualEditor/ve.ui.MWMathInspector.js",
+				"modules/VisualEditor/ve.ui.MWMathInspectorTool.js"
+			],
+			"styles": [
+				"modules/VisualEditor/ve.ce.MWMathNode.css",
+				"modules/VisualEditor/ve.ui.MWMathIcons.css",
+				"modules/VisualEditor/ve.ui.MWMathInspector.css"
+			],
+			"dependencies": [
+				"ext.visualEditor.mwcore"
+			],
+			"messages": [
+				"math-visualeditor-mwmathinspector-display",
+				"math-visualeditor-mwmathinspector-display-block",
+				"math-visualeditor-mwmathinspector-display-default",
+				"math-visualeditor-mwmathinspector-display-inline",
+				"math-visualeditor-mwmathinspector-id",
+				"math-visualeditor-mwmathinspector-title"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "Math"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": [
+			"MathHooks::onParserFirstCallInit"
+		],
+		"GetPreferences": [
+			"MathHooks::onGetPreferences"
+		],
+		"LoadExtensionSchemaUpdates": [
+			"MathHooks::onLoadExtensionSchemaUpdates"
+		],
+		"ParserTestTables": [
+			"MathHooks::onParserTestTables"
+		],
+		"UnitTestsList": [
+			"MathHooks::onRegisterUnitTests"
+		],
+		"PageRenderingHash": [
+			"MathHooks::onPageRenderingHash"
+		],
+		"EditPageBeforeEditToolbar": [
+			"MathHooks::onEditPageBeforeEditToolbar"
+		]
+	},
+	"ParserTestFiles": [
+		"mathParserTests.txt"
+	],
+	"config": {
+		"MathValidModes": [
+			0,
+			3,
+			5,
+			6
+		],
+		"Texvc": "/math/texvc",
+		"TexvcBackgroundColor": "transparent",
+		"MathCheckFiles": true,
+		"MathPath": false,
+		"MathFileBackend": false,
+		"MathDirectory": false,
+		"MathMathMLUrl": "http://mathoid.testme.wmflabs.org",
+		"MathMathMLTimeout": 20,
+		"MathLaTeXMLUrl": "http://gw125.iu.xsede.org:8888",
+		"MathLaTeXMLTimeout": 240,
+		"MathDefaultLaTeXMLSetting": {
+			"format": "xhtml",
+			"whatsin": "math",
+			"whatsout": "math",
+			"0": "pmml",
+			"1": "cmml",
+			"2": "nodefaultresources",
+			"preload": [
+				"LaTeX.pool",
+				"article.cls",
+				"amsmath.sty",
+				"amsthm.sty",
+				"amstext.sty",
+				"amssymb.sty",
+				"eucal.sty",
+				"[dvipsnames]xcolor.sty",
+				"url.sty",
+				"hyperref.sty",
+				"[ids]latexml.sty",
+				"texvc"
+			]
+		},
+		"MathTexvcCheckExecutable": "/texvccheck/texvccheck",
+		"MathDisableTexFilter": 2,
+		"MathDebug": false,
+		"MathEnableExperimentalInputFormats": false,
+		"VisualEditorPluginModules": [
+			"ext.math.visualEditor"
+		]
+	}
+}
