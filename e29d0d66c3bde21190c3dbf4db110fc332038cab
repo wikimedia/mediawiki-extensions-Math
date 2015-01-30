@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e7fc396_ebd94084",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-01-30T08:05:46Z",
+      "side": 1,
+      "message": "Do we need to convert all the constants to string constants, to keep the code readable?\n\ni.e. /**@{\n * Maths constants\n */\ndefine( \u0027MW_MATH_PNG\u0027,    0 );\ndefine( \u0027MW_MATH_SIMPLE\u0027, 1 ); /// @deprecated\ndefine( \u0027MW_MATH_HTML\u0027,   2 ); /// @deprecated\ndefine( \u0027MW_MATH_SOURCE\u0027, 3 );\ndefine( \u0027MW_MATH_MODERN\u0027, 4 ); /// @deprecated\ndefine( \u0027MW_MATH_MATHML\u0027, 5 );\ndefine( \u0027MW_MATH_MATHJAX\u0027, 6 ); /// @deprecated\ndefine( \u0027MW_MATH_LATEXML\u0027, 7 ); /// new in 1.22\ndefine( \u0027MW_MATH_LATEXML_JAX\u0027, 8 ); /// new in 1.22\n\n/**@{\n * Mathstyle constants\n */\ndefine( \u0027MW_MATHSTYLE_INLINE_DISPLAYSTYLE\u0027,  0 ); //default large operator inline\ndefine( \u0027MW_MATHSTYLE_DISPLAY\u0027, 1 ); // large operators centered in a new line\ndefine( \u0027MW_MATHSTYLE_INLINE\u0027,  2 ); // small operators inline\n\n/**@{\n * Math check constants\n */\ndefine( \u0027MW_MATH_CHECK_ALWAYS\u0027, 0 ); /// backwards compatible to false\ndefine( \u0027MW_MATH_CHECK_NEVER\u0027 , 1 ); /// backwards compatible to true\ndefine( \u0027MW_MATH_CHECK_NEW\u0027   , 2 );\n\nAny other ideas? Enums, simple classes... Is there a common agreement on that... I have the feeling that string constants are ugly.",
+      "revId": "e29d0d66c3bde21190c3dbf4db110fc332038cab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e7fc396_8bce8cb8",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-01-30T08:05:46Z",
+      "side": 1,
+      "message": "__DIR__ was replaced by the actual path... this might be not to hard to correct",
+      "revId": "e29d0d66c3bde21190c3dbf4db110fc332038cab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e7fc396_abd34860",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-01-30T08:05:46Z",
+      "side": 1,
+      "message": "This will cause a merge conflict with \nIf66f13fe7fa16868cd4b1d8f0e0a6e3d49448b27",
+      "revId": "e29d0d66c3bde21190c3dbf4db110fc332038cab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e7fc396_4bc874aa",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-01-30T08:05:46Z",
+      "side": 1,
+      "message": "Is there a way to do this at a later stage... most users will never need all the mathjax modules and it makes the config file extremly large.",
+      "revId": "e29d0d66c3bde21190c3dbf4db110fc332038cab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e7fc396_0bc27c88",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-01-30T08:05:46Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "e29d0d66c3bde21190c3dbf4db110fc332038cab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e7fc396_2bbf38f8",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-01-30T08:05:46Z",
+      "side": 1,
+      "message": "see above... we should finally get rid of texvc...",
+      "revId": "e29d0d66c3bde21190c3dbf4db110fc332038cab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e7fc396_6bc53090",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-01-30T08:05:46Z",
+      "side": 1,
+      "message": "also a potential merge conflict.",
+      "revId": "e29d0d66c3bde21190c3dbf4db110fc332038cab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e7fc396_cb3324bf",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-01-30T08:05:46Z",
+      "side": 1,
+      "message": "I think this is fine. I just wonder how to differentialte between (int)0 and (string)0\ni.e. (string)0 would cause a problem",
+      "revId": "e29d0d66c3bde21190c3dbf4db110fc332038cab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
