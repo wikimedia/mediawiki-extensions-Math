@@ -363,7 +363,7 @@ class MathMathML extends MathRenderer {
 	 * @param boolean|string $classOverride if classOverride is false the class name will be calculated by getClassName
 	 * @return string XML the image html tag
 	 */
-	private function getFallbackImage( $noRender = false, $classOverride = false ) {
+	public function getFallbackImage( $noRender = false, $classOverride = false ) {
 		$url = $this->getFallbackImageUrl( $noRender );
 
 		$attribs = array();
