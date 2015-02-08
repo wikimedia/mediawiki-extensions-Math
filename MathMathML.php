@@ -107,7 +107,7 @@ class MathMathML extends MathRenderer {
 			if ( $dbres ) {
 				if ( $this->isValidMathML( $this->getMathml() ) ) {
 					wfDebugLog( 'Math', 'Valid MathML entry found in database.' );
-					if ( $this->getSvg() ) {
+					if ( $this->getSvg( 'cached' ) ) {
 						wfDebugLog( 'Math', 'SVG-fallback found in database.' );
 						return false;
 					} else {
@@ -214,8 +214,8 @@ class MathMathML extends MathRenderer {
 				// default preserve the (broken) layout as it was
 				$out = 'type=inline-TeX&q=' .rawurlencode( '{\\displaystyle ' . $input . '}' );
 			} else {
-                $out = 'type=tex&q=' . rawurlencode( $input );
-            }
+				$out = 'type=tex&q=' . rawurlencode( $input );
+			}
 		}
 		wfDebugLog( 'Math', 'Get post data: ' . $out );
 		return $out;
