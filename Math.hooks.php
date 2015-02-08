@@ -124,10 +124,10 @@ class MathHooks {
 			wfDebugLog( "Math" , "Rendering failed. Printing error message." );
 			return $renderer->getLastError();
 		}
-		wfRunHooks( 'MathFormulaRendered',
+		Hooks::run( 'MathFormulaRendered',
 			array( &$renderer,
 				&$renderedMath,
-				$parser->getTitle()->getArticleID(),
+				$parser->getRevisionId(),
 				$parser->nextLinkID() ) );// Enables indexing of math formula
 		if ( $mode == MW_MATH_MATHJAX || $mode == MW_MATH_LATEXML_JAX ) {
 			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
