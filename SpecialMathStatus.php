@@ -129,7 +129,7 @@ class SpecialMathStatus extends SpecialPage {
 	}
 
 	private function assertContains( $expected, $real, $message = '' ) {
-		$this->assertTrue( strpos( $real, $expected ) , $message );
+		$this->assertTrue( strpos( $real, $expected ) !== false, $message );
 	}
 
 	private function assertEquals( $expected, $real, $message = '' ) {
