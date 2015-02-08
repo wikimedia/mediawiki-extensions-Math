@@ -182,7 +182,7 @@ class MathLaTeXML extends MathMathML {
 	 * No cache is used.
 	 * @return boolean
 	 */
-	public function calulateSvg() {
+	public function calculateSvg() {
 		$renderer = new MathMathML( $this->getTex() );
 		$renderer->setMathml( $this->getMathml() );
 		$renderer->setMode( MW_MATH_LATEXML );
@@ -196,16 +196,22 @@ class MathLaTeXML extends MathMathML {
 		return $res;
 	}
 
+
 	/**
 	 * Gets the SVG image
-	 * Lazy evaluation: If no SVG image exists it's generated on the fly
+	 *
+	 * @param string $render if set to 'render' (default) and no SVG image exists, the function
+	 *                       tries to generate it on the fly.
+	 *                       Otherwise, if set to 'cached', and there is no SVG in the database
+	 *                       cache, an empty string is returned.
+	 *
 	 * @return string XML-Document of the rendered SVG
 	 */
-	public function getSvg( $render = true ) {
-		if ( $render && ( $this->isPurge() || $this->svg == '' ) ) {
-			$this->calulateSvg();
+	public function getSvg( $render = 'render' ) {
+		if ( $render == 'render' && ( $this->isPurge() || $this->svg == '' ) ) {
+			$this->calculateSvg();
 		}
-		return $this->svg;
+		return parent::getSvg( $render );
 	}
 
 	protected function getMathTableName() {

@@ -214,8 +214,8 @@ class MathMathML extends MathRenderer {
 				// default preserve the (broken) layout as it was
 				$out = 'type=inline-TeX&q=' .rawurlencode( '{\\displaystyle ' . $input . '}' );
 			} else {
-                $out = 'type=tex&q=' . rawurlencode( $input );
-            }
+				$out = 'type=tex&q=' . rawurlencode( $input );
+			}
 		}
 		wfDebugLog( 'Math', 'Get post data: ' . $out );
 		return $out;
