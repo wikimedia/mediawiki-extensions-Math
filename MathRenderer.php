@@ -675,10 +675,16 @@ abstract class MathRenderer {
 	}
 
 	/**
+	 * Gets the SVG image
 	 *
-	 * @return type
+	 * @param string $render if set to 'render' (default) and no SVG image exists, the function
+	 *                       tries to generate it on the fly.
+	 *                       Otherwise, if set to 'cached', and there is no SVG in the database
+	 *                       cache, an empty string is returned.
+	 *
+	 * @return string XML-Document of the rendered SVG
 	 */
-	public function getSvg() {
+	public function getSvg( $render = 'render' ) {
 		// Spaces will prevent the image from being displayed correctly in the browser
 		return trim( $this->svg );
 	}
