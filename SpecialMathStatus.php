@@ -51,8 +51,18 @@ class SpecialMathStatus extends SpecialPage {
 	}
 
 	private function runMathLaTeXMLTest( $modeName ) {
+		global $wgMathDebug;
 		$this->getOutput()->addWikiMsgArray( 'math-test-start', $modeName );
 		$this->testMathMLIntegration();
+		if ( $wgMathDebug ){
+			try {
+				$this->testDebug();
+			}catch ( Exception $e){
+				$this->getOutput()->addWikiText(
+					'Math debug test failed. Please run <code>mwscript update.php</code>');
+				$this->getOutput()->addWikiText( $e->getMessage() );
+			}
+		}
 		$this->getOutput()->addWikiMsgArray( 'math-test-end', $modeName );
 	}
 
@@ -120,6 +130,27 @@ class SpecialMathStatus extends SpecialPage {
 			  $renderer->getLastError() );
 	}
 
+	/**
+	 * Checks the creation of the math table with debugging enabled.
+	 * @covers MathHooks::onLoadExtensionSchemaUpdates
+	 */
+	public function testDebug() {
+		$dbr = wfGetDB( DB_SLAVE );
+		if ( $dbr->getType() !== 'mysql' ) {
+			$this->getOutput()->addWikiText( 'Debug columns not supported in ' . $dbr->getType() );
+			return;
+		}
+		$renderer = MathRenderer::getRenderer( "a+b", array(), MW_MATH_MATHML );
+		$this->assertTrue( $renderer->render( true ) , "MathDebug: Rendering a+b");
+		$hash = $renderer->getInputHash();
+		$row = $dbr->selectRow("mathlog", "*", array( "math_inputhash" => $hash ) , __METHOD__,
+			array("order by" => "math_timestamp desc"));
+		$this->assertContains( "success", $row->math_log ,"MathDebug: Search for 'success' in the log file" );
+		$this->assertEquals( "type=inline-TeX&q=%7B%5Cdisplaystyle%20a%2Bb%7D", $row->math_post,
+			"MathDebug: Check post variables in the log file" );
+		$this->assertEquals( 5, $row->math_mode, "MathDebug: Check rendering mode");
+	}
+
 	private function assertTrue( $expression, $message = '' ) {
 		if ( $expression ){
 			$this->getOutput()->addWikiMsgArray( 'math-test-success' , $message );
@@ -129,7 +160,7 @@ class SpecialMathStatus extends SpecialPage {
 	}
 
 	private function assertContains( $expected, $real, $message = '' ) {
-		$this->assertTrue( strpos( $real, $expected ) , $message );
+		$this->assertTrue( strpos( $real, $expected ), $message );
 	}
 
 	private function assertEquals( $expected, $real, $message = '' ) {
