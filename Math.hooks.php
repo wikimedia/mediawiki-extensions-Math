@@ -288,4 +288,35 @@ class MathHooks {
 		global $wgOut;
 		$wgOut->addModules( array( 'ext.math.editbutton.enabler' ) );
 	}
+
+
+	/**
+	 * @param Article $article
+	 */
+	public static function onArticlePurge( &$article ) {
+		$content = $article->getPage()->getContent()->getNativeData();
+		$mathTags =  self::extractMathTagsFromWikiText( $content );
+		if ( sizeof( $mathTags ) > 0  ){
+			$ctx = $article->getContext();
+			$parser = ParserOptions::newFromContext( $ctx );
+			$mode = (int)$parser->getUser()->getOption( 'math' );
+			foreach( $mathTags as $tag ){
+				$renderer = MathRenderer::getRenderer( $tag[0], $tag[1], $mode );
+				$renderer->deleteFromDatabase();
+			}
+		}
+	}
+
+	/**
+	 * @param $content
+	 *
+	 * @return array
+	 */
+	public static function extractMathTagsFromWikiText( $content ) {
+		$wikiText = Sanitizer::removeHTMLcomments( $content );
+		$wikiText = preg_replace( '#<nowiki>(.*)</nowiki>#', '', $wikiText );
+		$math = array();
+		Parser::extractTagsAndParams( array( 'math' ), $wikiText, $math );
+		return $math;
+	}
 }
