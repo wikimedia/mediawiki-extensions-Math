@@ -379,6 +379,31 @@ abstract class MathRenderer {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function deleteFromDatabase() {
+		if ( $this->storedInDatabase === null ){
+			$this->readFromDatabase();
+		}
+		if ( $this->storedInDatabase === true ){
+			if ( wfReadOnly() ) {
+				return false;
+			}
+			$dbw = wfGetDB( DB_MASTER );
+			wfDebugLog( 'Math', 'delete entry for $' . $this->tex . '$ from database (hash:' . $this->getMd5() . ")\n" );
+			try {
+				$res = $dbw->delete( $this->getMathTableName(),
+					array( 'math_inputhash' => $this->getInputHash() ), __METHOD__ );
+				return $res === true;
+			} catch (DBUnexpectedError $e) {
+				wfDebugLog( 'Math', 'Cannot delete cached entry. The following DB exception occurred'. $e->getMessage() );
+				return false;
+			}
+		}
+
+	}
+
+	/**
 	 * Returns sanitized attributes
 	 *
 	 * @param string $tag element name
@@ -517,15 +542,6 @@ abstract class MathRenderer {
 	 */
 	function isPurge( ) {
 		if ( $this->purge ) {
-			return true;
-		}
-		$request = RequestContext::getMain()->getRequest();
-		// TODO: Figure out if ?action=purge
-		// $action = $request->getText('action'); //always returns ''
-		// until this issue is resolved we use ?mathpurge=true instead
-		$mathpurge = $request->getBool( 'mathpurge', false );
-		if ( $mathpurge ) {
-			MWLoggerFactory::getInstance( 'Math' )->debug( 'Re-Rendering on user request' );
 			return true;
 		} else {
 			return false;
