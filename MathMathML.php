@@ -82,15 +82,12 @@ class MathMathML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	public function render( $forceReRendering = false ) {
-		wfProfileIn( __METHOD__ );
 		if ( $forceReRendering ) {
 			$this->setPurge( true );
 		}
 		if ( $this->renderingRequired() ) {
-			wfProfileOut( __METHOD__ );
-			return $this->doRender( );
+			return $this->doRender();
 		}
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
@@ -143,7 +140,6 @@ class MathMathML extends MathRenderer {
 		// TODO: Change the timeout mechanism.
 		global $wgMathLaTeXMLTimeout;
 
-		wfProfileIn( __METHOD__ );
 		$error = '';
 		$res = null;
 		if ( !$host ) {
@@ -159,7 +155,6 @@ class MathMathML extends MathRenderer {
 		$status = $req->execute();
 		if ( $status->isGood() ) {
 			$res = $req->getContent();
-			wfProfileOut( __METHOD__ );
 			return true;
 		} else {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
@@ -176,7 +171,6 @@ class MathMathML extends MathRenderer {
 					. var_export( array( 'post' => $post, 'host' => $host
 					, 'errormsg' => $errormsg ), true ) . "\n\n" );
 			}
-			wfProfileOut( __METHOD__ );
 			return false;
 		}
 	}

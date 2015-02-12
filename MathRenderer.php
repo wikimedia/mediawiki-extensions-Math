@@ -259,7 +259,6 @@ abstract class MathRenderer {
 	 * @return boolean true if read successfully, false otherwise
 	 */
 	public function readFromDatabase() {
-		wfProfileIn( __METHOD__ );
 		/** @var DatabaseBase */
 		$dbr = wfGetDB( DB_SLAVE );
 		/** @var ResultWrapper */
@@ -270,12 +269,10 @@ abstract class MathRenderer {
 		if ( $rpage !== false ) {
 			$this->initializeFromDatabaseRow( $rpage );
 			$this->storedInDatabase = true;
-				wfProfileOut( __METHOD__ );
 				return true;
 		} else {
 			# Missing from the database and/or the render cache
 			$this->storedInDatabase = false;
-			wfProfileOut( __METHOD__ );
 			return false;
 		}
 	}

@@ -97,7 +97,6 @@ class MathHooks {
 			return '';
 		}
 
-		wfProfileIn( __METHOD__ );
 		$mode = (int)$parser->getUser()->getOption( 'math' );
 
 		// Indicate that this page uses math.
@@ -139,7 +138,6 @@ class MathHooks {
 		}
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
-		wfProfileOut( __METHOD__ );
 
 		return array( $renderedMath, "markerType" => 'nowiki' );
 	}
