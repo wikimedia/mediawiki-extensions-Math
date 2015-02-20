@@ -457,12 +457,7 @@ abstract class MathRenderer {
 	 * @return string in UTF-8 encoding
 	 */
 	public function getMathml() {
-		if ( ! is_callable( 'StringUtils::isUtf8' ) ) {
-			$msg = wfMessage( 'math_latexml_xmlversion' )->inContentLanguage()->escaped();
-			trigger_error( $msg, E_USER_NOTICE );
-			wfDebugLog( 'Math', $msg );
-			// If we can not check if mathml output is valid, we skip the test and assume that it is valid.
-		} elseif ( ! StringUtils::isUtf8( $this->mathml ) ) {
+		if ( !StringUtils::isUtf8( $this->mathml ) ) {
 			$this->setMathml( '' );
 		}
 		return $this->mathml;

@@ -292,13 +292,7 @@ class MathMathML extends MathRenderer {
 		if ( !$this->XMLValidation ) {
 			return true;
 		}
-		// depends on https://gerrit.wikimedia.org/r/#/c/66365/
-		if ( !is_callable( 'XmlTypeCheck::newFromString' ) ) {
-			$msg = wfMessage( 'math_xmlversion' )->inContentLanguage()->escaped();
-			trigger_error( $msg, E_USER_NOTICE );
-			wfDebugLog( 'Math', $msg );
-			return true;
-		}
+
 		$xmlObject = new XmlTypeCheck( $XML, null, false );
 		if ( !$xmlObject->wellFormed ) {
 			wfDebugLog( 'Math', "XML validation error:\n " . var_export( $XML, true ) . "\n" );
