@@ -220,6 +220,8 @@ class MathHooks {
 
 		$map = array( 'mysql', 'sqlite', 'postgres', 'oracle', 'mssql' );
 
+		$wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHML, MW_MATH_MATHJAX );
+
 		$type = $updater->getDB()->getType();
 
 		if ( !in_array( $type, $map ) ) {
