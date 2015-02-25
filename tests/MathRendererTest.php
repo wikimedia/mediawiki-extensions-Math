@@ -153,4 +153,4 @@ class MathRendererTest extends MediaWikiTestCase {
 		$renderer->setRenderingTime(4321);
 		$this->assertEquals( 4321, $renderer->getRenderingTime(), "Check time integer input");
 	}
-}
+}}

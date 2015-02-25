@@ -82,15 +82,12 @@ class MathMathML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	public function render( $forceReRendering = false ) {
-		wfProfileIn( __METHOD__ );
 		if ( $forceReRendering ) {
 			$this->setPurge( true );
 		}
 		if ( $this->renderingRequired() ) {
-			wfProfileOut( __METHOD__ );
-			return $this->doRender( );
+			return $this->doRender();
 		}
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
@@ -143,7 +140,6 @@ class MathMathML extends MathRenderer {
 		// TODO: Change the timeout mechanism.
 		global $wgMathLaTeXMLTimeout;
 
-		wfProfileIn( __METHOD__ );
 		$error = '';
 		$res = null;
 		if ( !$host ) {
@@ -159,7 +155,6 @@ class MathMathML extends MathRenderer {
 		$status = $req->execute();
 		if ( $status->isGood() ) {
 			$res = $req->getContent();
-			wfProfileOut( __METHOD__ );
 			return true;
 		} else {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
@@ -176,7 +171,6 @@ class MathMathML extends MathRenderer {
 					. var_export( array( 'post' => $post, 'host' => $host
 					, 'errormsg' => $errormsg ), true ) . "\n\n" );
 			}
-			wfProfileOut( __METHOD__ );
 			return false;
 		}
 	}
@@ -194,7 +188,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$host = $this->hosts;
 		}
-		wfDebugLog( "Math", "picking host " . $host );
+		wfDebugLog( 'Math', 'picking host ' . $host );
 		return $host;
 	}
 
@@ -236,7 +230,6 @@ class MathMathML extends MathRenderer {
 		$host = self::pickHost();
 		$post = $this->getPostData();
 		$this->lastError = '';
-		if( $wgMathDebug ) { $renderingStart = microtime( true ); }
 		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
 		if( $wgMathDebug ) { $this->setRenderingTime( microtime( true ) - $renderingStart ); }
 		if ( $requestResult ) {
@@ -302,13 +295,7 @@ class MathMathML extends MathRenderer {
 		if ( !$this->XMLValidation ) {
 			return true;
 		}
-		// depends on https://gerrit.wikimedia.org/r/#/c/66365/
-		if ( !is_callable( 'XmlTypeCheck::newFromString' ) ) {
-			$msg = wfMessage( 'math_xmlversion' )->inContentLanguage()->escaped();
-			trigger_error( $msg, E_USER_NOTICE );
-			wfDebugLog( 'Math', $msg );
-			return true;
-		}
+
 		$xmlObject = new XmlTypeCheck( $XML, null, false );
 		if ( !$xmlObject->wellFormed ) {
 			wfDebugLog( 'Math', "XML validation error:\n " . var_export( $XML, true ) . "\n" );
@@ -472,6 +459,41 @@ class MathMathML extends MathRenderer {
 		}
 		parent::initializeFromDatabaseRow( $rpage );
 
+	}
+
+	/**
+	 * @param $jsonResult
+	 * @param $host
+	 *
+	 * @return bool
+	 */
+	private function processJsonResult( $jsonResult, $host ) {
+		global $wgMathDebug;
+		if ( $this->getMode() == MW_MATH_LATEXML || $this->inputType == 'pmml' ||
+			 $this->isValidMathML( $jsonResult->mml )
+		) {
+			if ( isset( $jsonResult->svg ) ) {
+				$xmlObject = new XmlTypeCheck( $jsonResult->svg, null, false );
+				if ( !$xmlObject->wellFormed ) {
+					$this->lastError = $this->getError( 'math_invalidxml', $host );
+					return false;
+				} else {
+					$this->setSvg( $jsonResult->svg );
+				}
+			} else {
+				wfDebugLog( 'Math', 'Missing SVG property in JSON result.' );
+			}
+			if ( $wgMathDebug ) {
+				$this->setLog( $jsonResult->log );
+			}
+			if ( $this->getMode() != MW_MATH_LATEXML && $this->inputType != 'pmml' ) {
+				$this->setMathml( $jsonResult->mml );
+			}
+			return true;
+		} else {
+			$this->lastError = $this->getError( 'math_unknown_error', $host );
+			return false;
+		}
 	}
 
 }
