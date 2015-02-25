@@ -15,8 +15,8 @@ Feature: Math
   Scenario: Display simple math
     Given I am logged in
       And I am at page that does not exist
-      And I click link Create source
-    When I type <math>3 + 2</math>
+    When I click link Create source
+      And I type <math>3 + 2</math>
       And I click Preview
     Then the page should contain an img tag
       And alt for that img should be 3 + 2

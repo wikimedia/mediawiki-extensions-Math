@@ -94,7 +94,7 @@ class MathLaTeXML extends MathMathML {
 	 */
 	protected function doRender() {
 		global $wgMathDebug;
-		wfProfileIn( __METHOD__ );
+
 		if ( trim( $this->getTex() ) === '' ) {
 			wfDebugLog( "Math", "Rendering was requested, but no TeX string is specified." );
 			$this->lastError = $this->getError( 'math_empty_tex' );
@@ -131,7 +131,6 @@ class MathLaTeXML extends MathMathML {
 					wfDebugLog( "Math", "\nLaTeXML InvalidMathML:"
 							. var_export( array( 'post' => $post, 'host' => $host
 							, 'result' => $res ), true ) . "\n\n" );
-					wfProfileOut( __METHOD__ );
 					return false;
 				}
 			} else {
@@ -139,12 +138,10 @@ class MathLaTeXML extends MathMathML {
 					wfDebugLog( "Math", "\nLaTeXML InvalidJSON:"
 						. var_export( array( 'post' => $post, 'host' => $host
 						, 'res' => $res ), true ) . "\n\n" );
-					wfProfileOut( __METHOD__ );
 					return false;
 				}
 		} else {
 			// Error message has already been set.
-			wfProfileOut( __METHOD__ );
 			return false;
 		}
 	}
