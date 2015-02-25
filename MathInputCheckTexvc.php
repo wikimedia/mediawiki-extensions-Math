@@ -60,7 +60,7 @@ class MathInputCheckTexvc extends MathInputCheck {
 	public function doValidCheck() {
 		global $wgMathTexvcCheckExecutable;
 		if ( !is_executable( $wgMathTexvcCheckExecutable ) ) {
-			$msg = wfMessage( 'math_notexvccheck' )->inContentLanguage()->escaped();
+			$msg = 'Missing "texvccheck" executable. Please see math/README to configure.';
 			trigger_error( $msg, E_USER_NOTICE );
 			wfDebugLog( 'Math', $msg );
 			return true;
