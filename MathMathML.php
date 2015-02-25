@@ -220,7 +220,7 @@ class MathMathML extends MathRenderer {
 	 * @return boolean
 	 */
 	protected function doRender() {
-		global  $wgMathDebug;
+		global $wgMathDebug;
 		if ( $this->getTex() === '' ) {
 			wfDebugLog( 'Math', 'Rendering was requested, but no TeX string is specified.' );
 			$this->lastError = $this->getError( 'math_empty_tex' );
@@ -230,35 +230,14 @@ class MathMathML extends MathRenderer {
 		$host = self::pickHost();
 		$post = $this->getPostData();
 		$this->lastError = '';
+		if( $wgMathDebug ) { $renderingStart = microtime( true );  }
 		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
 		if( $wgMathDebug ) { $this->setRenderingTime( microtime( true ) - $renderingStart ); }
 		if ( $requestResult ) {
 			$jsonResult = json_decode( $res );
 			if ( $jsonResult && json_last_error() === JSON_ERROR_NONE ) {
 				if ( $jsonResult->success ) {
-					if ( $this->getMode() == MW_MATH_LATEXML ||
-							$this->inputType == 'pmml' ||
-							$this->isValidMathML( $jsonResult->mml ) ) {
-						$xmlObject = new XmlTypeCheck( $jsonResult->svg, null, false );
-						if ( ! $xmlObject->wellFormed ) {
-							$this->lastError = $this->getError( 'math_invalidxml', $host );
-							return false;
-						} else {
-							$this->setSvg( $jsonResult->svg );
-						}
-						if ( $wgMathDebug ) {
-							$this->setLog( $jsonResult->log );
-							$this->setPostData( $post );
-							$this->writeDebugLog();
-						}
-						if ( $this->getMode() != MW_MATH_LATEXML && $this->inputType != 'pmml') {
-							$this->setMathml( $jsonResult->mml );
-						}
-						return true;
-					} else {
-						$this->lastError = $this->getError( 'math_unknown_error', $host );
-						return false;
-					}
+					return $this->processJsonResult( $jsonResult, $host, $post );
 				} else {
 					if ( property_exists( $jsonResult, 'log' ) ) {
 						$log = $jsonResult->log;
@@ -467,7 +446,7 @@ class MathMathML extends MathRenderer {
 	 *
 	 * @return bool
 	 */
-	private function processJsonResult( $jsonResult, $host ) {
+	private function processJsonResult( $jsonResult, $host, $post ) {
 		global $wgMathDebug;
 		if ( $this->getMode() == MW_MATH_LATEXML || $this->inputType == 'pmml' ||
 			 $this->isValidMathML( $jsonResult->mml )
@@ -489,11 +468,15 @@ class MathMathML extends MathRenderer {
 			if ( $this->getMode() != MW_MATH_LATEXML && $this->inputType != 'pmml' ) {
 				$this->setMathml( $jsonResult->mml );
 			}
+			if ( $wgMathDebug ) {
+				$this->setLog( $jsonResult->log );
+				$this->setPostData( $post );
+				$this->writeDebugLog();
+			}
 			return true;
 		} else {
 			$this->lastError = $this->getError( 'math_unknown_error', $host );
 			return false;
 		}
 	}
-
 }
