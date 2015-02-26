@@ -225,7 +225,9 @@
 		}
 
 		if ( MathJax.isReady ) {
-			render();
+			// Call render asynchronous because live preview fires the hook with
+			// detached $content. See T90808
+			setTimeout( render );
 		} else {
 			mw.loader.using( 'ext.math.mathjax.mathjax', function () {
 				MathJax.Hub.Startup.signal.MessageHook( 'End', render );
