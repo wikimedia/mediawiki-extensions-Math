@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e7c4fa4_2f41c739",
+        "filename": "modules/ext.math.mathjax.enabler.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-02-26T22:17:08Z",
+      "side": 1,
+      "message": "shoud we add a link to the bug report here?",
+      "revId": "3252f62ebec9dbb9035ebd9920978f1ba2470914",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
