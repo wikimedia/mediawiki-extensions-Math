@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6e7c4fa4_77e8ba77",
+        "filename": "maintenance/ExportMathCache.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-03-07T18:18:25Z",
+      "side": 1,
+      "message": "Yes, if there were millions of rows in the database that would be a problem. In that case one might also want to have multiple output files, and one might want to run it in parallel. If that\u0027s the case one should really use the length and offset parameter with an externel driver program.\nHowever, for small and medium sized wikis this works fine. In the current enwiki dump the table size is about 300k which results in a 45 MB json output file.\nI would prefer not to overgeneer this script.\nMoreover, in the context of https://github.com/wikimedia/mediawiki-extensions-MathSearch/blob/master/maintenance/IndexBase.php I made the experience that it\u0027s faster to get the result size only once.\nOr do you mean to create a MediaWiki job... I have never tried that... but that might be interesting.",
+      "parentUuid": "6e7c4fa4_c939f3f0",
+      "revId": "b73aa85af9c0198af1d56465db9c8d40a57ed193",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e7c4fa4_693e9fd9",
         "filename": "maintenance/ExportMathCache.php",
         "patchSetId": 10
@@ -30,6 +48,24 @@
       "writtenOn": "2015-03-07T02:37:58Z",
       "side": 1,
       "message": "Use $this-\u003eerror() so you can return error codes",
+      "revId": "b73aa85af9c0198af1d56465db9c8d40a57ed193",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_37fa4241",
+        "filename": "maintenance/ExportMathCache.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-03-07T18:18:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e7c4fa4_693e9fd9",
       "revId": "b73aa85af9c0198af1d56465db9c8d40a57ed193",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "6e7c4fa4_d7f66e5a",
+        "filename": "maintenance/ExportMathCache.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-03-07T18:18:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e7c4fa4_2928a795",
+      "revId": "b73aa85af9c0198af1d56465db9c8d40a57ed193",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e7c4fa4_4925e3bb",
         "filename": "maintenance/ExportMathCache.php",
         "patchSetId": 10
@@ -81,6 +135,24 @@
       "writtenOn": "2015-03-07T02:37:58Z",
       "side": 1,
       "message": "Use $this-\u003eoutput() here. Also should include a trailing \\n",
+      "revId": "b73aa85af9c0198af1d56465db9c8d40a57ed193",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_f7f36a67",
+        "filename": "maintenance/ExportMathCache.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-03-07T18:18:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e7c4fa4_4925e3bb",
       "revId": "b73aa85af9c0198af1d56465db9c8d40a57ed193",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
