@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e7c4fa4_c939f3f0",
+        "filename": "maintenance/ExportMathCache.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 2
+      },
+      "writtenOn": "2015-03-07T02:37:58Z",
+      "side": 1,
+      "message": "This ends up letting you select millions and millions of rows all at once which seems bad. Perhaps you should batch it? Set batchSize and then build your dump iteratively as you\u0027ve fetched results.",
+      "revId": "b73aa85af9c0198af1d56465db9c8d40a57ed193",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_693e9fd9",
+        "filename": "maintenance/ExportMathCache.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 2
+      },
+      "writtenOn": "2015-03-07T02:37:58Z",
+      "side": 1,
+      "message": "Use $this-\u003eerror() so you can return error codes",
+      "revId": "b73aa85af9c0198af1d56465db9c8d40a57ed193",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_8943fb66",
+        "filename": "maintenance/ExportMathCache.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 2
+      },
+      "writtenOn": "2015-03-07T02:37:58Z",
+      "side": 1,
+      "message": "Use FormatJson::encode().",
+      "revId": "b73aa85af9c0198af1d56465db9c8d40a57ed193",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_2928a795",
+        "filename": "maintenance/ExportMathCache.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 2
+      },
+      "writtenOn": "2015-03-07T02:37:58Z",
+      "side": 1,
+      "message": "error() here too",
+      "revId": "b73aa85af9c0198af1d56465db9c8d40a57ed193",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_4925e3bb",
+        "filename": "maintenance/ExportMathCache.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 2
+      },
+      "writtenOn": "2015-03-07T02:37:58Z",
+      "side": 1,
+      "message": "Use $this-\u003eoutput() here. Also should include a trailing \\n",
+      "revId": "b73aa85af9c0198af1d56465db9c8d40a57ed193",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
