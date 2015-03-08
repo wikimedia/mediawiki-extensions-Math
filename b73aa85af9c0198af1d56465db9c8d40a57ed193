@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "6e7c4fa4_52ccac38",
+        "filename": "maintenance/ExportMathCache.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 2
+      },
+      "writtenOn": "2015-03-08T01:47:57Z",
+      "side": 1,
+      "message": "Selecting 300k rows at once isn\u0027t very nice to a database either :)\n\nI don\u0027t think it\u0027s over-engineering anything but whatever.",
+      "parentUuid": "6e7c4fa4_77e8ba77",
+      "revId": "b73aa85af9c0198af1d56465db9c8d40a57ed193",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e7c4fa4_693e9fd9",
         "filename": "maintenance/ExportMathCache.php",
         "patchSetId": 10
