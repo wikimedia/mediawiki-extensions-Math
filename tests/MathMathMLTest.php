@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Test the MathML output format.
  *
