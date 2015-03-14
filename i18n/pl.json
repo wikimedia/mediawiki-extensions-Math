@@ -5,14 +5,18 @@
 			"Chrumps",
 			"Sp5uhe",
 			"Woytecr",
-			"Matik7"
+			"Matik7",
+			"Tar Lócesilion"
 		]
 	},
 	"math-desc": "Renderowanie formuł matematycznych między znacznikami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-preference-mwmathinspector-description": "Eksperymentalna funkcja umożliwiająca edytowanie i dodawanie wzorów matematycznych w VisualEditorze. Obecnie w fazie testowej; oczekuje na wdrożenie dla wszystkich użytkowników. Pamiętaj, aby zawsze sprawdzać podgląd strony przed zapisaniem.",
 	"math-preference-mwmathinspector-label": "Edycja wzorów matematycznych za pomocą VisualEditora",
 	"math-visualeditor-mwmathinspector-display": "Wyświetl",
+	"math-visualeditor-mwmathinspector-display-block": "Ramka",
 	"math-visualeditor-mwmathinspector-display-default": "Domyślnie",
+	"math-visualeditor-mwmathinspector-display-inline": "Równo z tekstem",
+	"math-visualeditor-mwmathinspector-id": "Link ID (opcjonalnie)",
 	"math-visualeditor-mwmathinspector-title": "Wzór",
 	"math_bad_output": "Nie można utworzyć lub zapisywać w wyjściowym katalogu dla wzorów matematycznych",
 	"math_bad_tmpdir": "Nie można utworzyć lub zapisywać w tymczasowym katalogu dla wzorów matematycznych",
