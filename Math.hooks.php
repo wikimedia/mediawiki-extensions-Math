@@ -46,9 +46,9 @@ class MathHooks {
 					$confstr .= '!' . self::mathCacheKey . $mathOption;
 				}
 
-				wfDebugLog( 'Math', "New cache key: $confstr" );
+				MathRenderer::LOG( "New cache key: $confstr" );
 			} else {
-				wfDebugLog( 'Math', "Cache key found $confstr" );
+				MathRenderer::LOG( "Cache key found $confstr" );
 			}
 		}
 
@@ -117,10 +117,10 @@ class MathHooks {
 		}
 
 		if ( $renderer->render() ) {
-			wfDebugLog( "Math" , "Rendering successful. Writing output" );
+			MathRenderer::LOG( "Rendering successful. Writing output" );
 			$renderedMath = $renderer->getHtmlOutput();
 		} else {
-			wfDebugLog( "Math" , "Rendering failed. Printing error message." );
+			MathRenderer::LOG( "Rendering failed. Printing error message." );
 			return $renderer->getLastError();
 		}
 		wfRunHooks( 'MathFormulaRendered',
@@ -159,8 +159,8 @@ class MathHooks {
 		);
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
-		if ( ! in_array( $wgDefaultUserOptions['math'] , $wgMathValidModes ) ){
-			wfDebugLog( 'Math', "Warning: Misconfiguration \$wgDefaultUserOptions['math'] is not in \$wgMathValidModes. Please check your LocalSetting.php file.");
+		if ( ! in_array( $wgDefaultUserOptions['math'] , $wgMathValidModes ) ) {
+			MathRenderer::LOG( "Warning: Misconfiguration \$wgDefaultUserOptions['math'] is not in \$wgMathValidModes. Please check your LocalSetting.php file." );
 			// Display the checkbox in the first option.
 			$wgDefaultUserOptions['math'] = $wgMathValidModes[0];
 		}
