@@ -62,7 +62,7 @@ class MathInputCheckTexvc extends MathInputCheck {
 		if ( !is_executable( $wgMathTexvcCheckExecutable ) ) {
 			$msg = 'Missing "texvccheck" executable. Please see math/README to configure.';
 			trigger_error( $msg, E_USER_NOTICE );
-			wfDebugLog( 'Math', $msg );
+			MathRenderer::LOG( $msg );
 			return true;
 		}
 
@@ -73,12 +73,12 @@ class MathInputCheckTexvc extends MathInputCheck {
 			$cmd = 'sh -c ' . wfEscapeShellArg( $cmd );
 		}
 
-		wfDebugLog( 'Math', "TeX check command: $cmd\n" );
+		MathRenderer::LOG( "TeX check command: $cmd\n" );
 		$contents = wfShellExec( $cmd );
-		wfDebugLog( 'Math', "TeX check result:\n $contents\n---\n" );
+		MathRenderer::LOG( "TeX check result:\n $contents\n---\n" );
 
 		if ( strlen( $contents ) === 0 ) {
-			wfDebugLog( 'Math', "TeX check output was empty. \n" );
+			MathRenderer::LOG( "TeX check output was empty. \n" );
 			$this->lastError = $this->convertTexvcError( $contents );
 
 			return false;
@@ -88,13 +88,13 @@ class MathInputCheckTexvc extends MathInputCheck {
 
 		if ( $retval !== '+' ) {
 			$this->lastError = $this->convertTexvcError( $contents );
-			wfDebugLog( 'Math', 'checkTex failed:' . $this->lastError );
+			MathRenderer::LOG( 'checkTex failed:' . $this->lastError );
 
 			return false;
 		} else {
 			$this->validTeX = substr( $contents, 1 );
 			$this->isValid = true;
-			wfDebugLog( 'Math', 'checkTex successful tex is now: ' . $this->validTeX );
+			MathRenderer::LOG( 'checkTex successful tex is now: ' . $this->validTeX );
 
 			return true;
 		}
