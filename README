@@ -55,3 +55,7 @@ For testing your installation run
 php tests/phpunit/phpunit.php extensions/Math/tests/
 from your MediWiki home path.
 
+== Logging ==
+The math extension supports PSR-3 logging:
+Configuration can be dona via
+$wgDebugLogGroups['Math'] = array( 'level' => 'info', 'destination' => '/path/to/file.log' );

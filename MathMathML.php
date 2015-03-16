@@ -97,26 +97,26 @@ class MathMathML extends MathRenderer {
 	 */
 	private function renderingRequired() {
 		if ( $this->isPurge() ) {
-			wfDebugLog( 'Math', 'Rerendering was requested.' );
+			MWLoggerFactory::getInstance( 'Math' )->debug( 'Rerendering was requested.' );
 			return true;
 		} else {
 			$dbres = $this->isInDatabase();
 			if ( $dbres ) {
 				if ( $this->isValidMathML( $this->getMathml() ) ) {
-					wfDebugLog( 'Math', 'Valid MathML entry found in database.' );
+					MWLoggerFactory::getInstance( 'Math' )->debug( 'Valid MathML entry found in database.' );
 					if ( $this->getSvg( 'cached' ) ) {
-						wfDebugLog( 'Math', 'SVG-fallback found in database.' );
+						MWLoggerFactory::getInstance( 'Math' )->debug( 'SVG-fallback found in database.' );
 						return false;
 					} else {
-						wfDebugLog( 'Math', 'SVG-fallback missing.' );
+						MWLoggerFactory::getInstance( 'Math' )->debug( 'SVG-fallback missing.' );
 						return true;
 					}
 				} else {
-					wfDebugLog( 'Math', 'Malformatted entry found in database' );
+					MWLoggerFactory::getInstance( 'Math' )->debug( 'Malformatted entry found in database' );
 					return true;
 				}
 			} else {
-				wfDebugLog( 'Math', 'No entry found in database.' );
+				MWLoggerFactory::getInstance( 'Math' )->debug( 'No entry found in database.' );
 				return true;
 			}
 		}
@@ -160,7 +160,7 @@ class MathMathML extends MathRenderer {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
 				$error = $this->getError( 'math_timeout', $this->getModeStr(), $host );
 				$res = false;
-				wfDebugLog( 'Math', "\nTimeout:" . var_export( array(
+				MWLoggerFactory::getInstance( 'Math' )->debug( "\nTimeout:" . var_export( array(
 						'post' => $post,
 						'host' => $host,
 						'timeout' => $wgMathLaTeXMLTimeout
@@ -171,7 +171,7 @@ class MathMathML extends MathRenderer {
 				$error =
 					$this->getError( 'math_invalidresponse', $this->getModeStr(), $host, $errormsg,
 						$this->getModeStr( MW_MATH_MATHML ) );
-				wfDebugLog( 'Math', "\nNoResponse:" . var_export( array(
+				MWLoggerFactory::getInstance( 'Math' )->debug( "\nNoResponse:" . var_export( array(
 						'post' => $post,
 						'host' => $host,
 						'errormsg' => $errormsg
@@ -194,7 +194,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$host = $this->hosts;
 		}
-		wfDebugLog( 'Math', 'picking host ' . $host );
+		MWLoggerFactory::getInstance( 'Math' )->debug( 'picking host ' . $host );
 		return $host;
 	}
 
@@ -218,7 +218,7 @@ class MathMathML extends MathRenderer {
 				$out = 'type=tex&q=' . rawurlencode( $input );
 			}
 		}
-		wfDebugLog( 'Math', 'Get post data: ' . $out );
+		MWLoggerFactory::getInstance( 'Math' )->debug( 'Get post data: ' . $out );
 		return $out;
 	}
 
@@ -228,7 +228,7 @@ class MathMathML extends MathRenderer {
 	 */
 	protected function doRender() {
 		if ( $this->getTex() === '' ) {
-			wfDebugLog( 'Math', 'Rendering was requested, but no TeX string is specified.' );
+			MWLoggerFactory::getInstance( 'Math' )->debug( 'Rendering was requested, but no TeX string is specified.' );
 			$this->lastError = $this->getError( 'math_empty_tex' );
 			return false;
 		}
@@ -249,7 +249,8 @@ class MathMathML extends MathRenderer {
 						$log = wfMessage( 'math_unknown_error' )->inContentLanguage()->escaped();
 					}
 					$this->lastError = $this->getError( 'math_mathoid_error', $host, $log );
-					wfDebugLog( 'Math', 'Mathoid conversion error:' . var_export( array(
+					MWLoggerFactory::getInstance( 'Math' )->notice(
+						'Mathoid conversion error:' . var_export( array(
 							'post' => $post,
 							'host' => $host,
 							'result' => $res
@@ -258,7 +259,8 @@ class MathMathML extends MathRenderer {
 				}
 			} else {
 				$this->lastError = $this->getError( 'math_invalidjson', $host );
-				wfDebugLog( 'Math', "\nMathML InvalidJSON:" . var_export( array(
+				MWLoggerFactory::getInstance( 'Math' )->error(
+					"\nMathML InvalidJSON:" . var_export( array(
 						'post' => $post,
 						'host' => $host,
 						'res' => $res
@@ -285,7 +287,8 @@ class MathMathML extends MathRenderer {
 
 		$xmlObject = new XmlTypeCheck( $XML, null, false );
 		if ( !$xmlObject->wellFormed ) {
-			wfDebugLog( 'Math', "XML validation error:\n " . var_export( $XML, true ) . "\n" );
+			MWLoggerFactory::getInstance( 'Math' )->error(
+				"XML validation error:\n " . var_export( $XML, true ) . "\n" );
 		} else {
 			$name = $xmlObject->getRootElement();
 			$elementSplit = explode( ':', $name );
@@ -297,7 +300,7 @@ class MathMathML extends MathRenderer {
 			if ( in_array( $localName , $this->getAllowedRootElements() ) ) {
 				$out = true;
 			} else {
-				wfDebugLog( 'Math', "got wrong root element : $name" );
+				MWLoggerFactory::getInstance( 'Math' )->error( "got wrong root element : $name" );
 			}
 		}
 		return $out;
@@ -358,7 +361,8 @@ class MathMathML extends MathRenderer {
 		}
 
 		// TODO: move the common styles to the global stylesheet!
-		$style = 'background-image: url(\''. $url. '\'); background-repeat: no-repeat; background-size: 100% 100%;';
+		$style = 'background-image: url(\''. $url .
+				 '\'); background-repeat: no-repeat; background-size: 100% 100%;';
 		$this->correctSvgStyle( $this->getSvg(), $style );
 		if ( $class ) { $attribs['class'] = $class; }
 		if ( $style ) { $attribs['style'] = $style; }
@@ -468,7 +472,8 @@ class MathMathML extends MathRenderer {
 					$this->setSvg( $jsonResult->svg );
 				}
 			} else {
-				wfDebugLog( 'Math', 'Missing SVG property in JSON result.' );
+				MWLoggerFactory::getInstance( 'Math' )->error(
+					'Missing SVG property in JSON result.' );
 			}
 			if ( $wgMathDebug ) {
 				$this->setLog( $jsonResult->log );
