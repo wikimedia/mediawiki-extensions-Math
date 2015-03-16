@@ -43,7 +43,8 @@ class MathTexvc extends MathRenderer {
 		$out['math_html'] = $this->html;
 		$out['math_mathml'] = utf8_encode( $this->getMathml() );
 		$out['math_inputhash'] = $this->getInputHash();
-		wfDebugLog( 'Math', 'Store Hashpath of image' . bin2hex( $outmd5_sql ) );
+		MWLoggerFactory::getInstance( 'Math' )->info( 'Store Hashpath of image' .
+			bin2hex( $outmd5_sql ) );
 		return $out;
 	}
 
@@ -64,7 +65,8 @@ class MathTexvc extends MathRenderer {
 			$xhash = unpack( 'H32md5',
 				$dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
 			$this->hash = $xhash['md5'];
-			wfDebugLog( 'Math', 'Hashpath of PNG-File:' . bin2hex( $this->hash ) );
+			MWLoggerFactory::getInstance( 'Math' )->info( 'Hashpath of PNG-File:' .
+				bin2hex( $this->hash ) );
 			$this->conservativeness = $rpage->math_html_conservativeness;
 			$this->html = $rpage->math_html;
 			return true;
@@ -99,7 +101,8 @@ class MathTexvc extends MathRenderer {
 	public function getHashPath() {
 		$path = $this->getBackend()->getRootStoragePath() .
 			'/math-render/' . $this->getHashSubPath();
-		wfDebugLog( 'Math', "TeX: getHashPath, hash is: {$this->getHash()}, path is: $path\n" );
+		MWLoggerFactory::getInstance( 'Math' )->debug(
+			"TeX: getHashPath, hash is: {$this->getHash()}, path is: $path\n" );
 		return $path;
 	}
 
@@ -175,7 +178,8 @@ class MathTexvc extends MathRenderer {
 
 		$tmpDir = wfTempDir();
 		if ( !is_executable( $wgTexvc ) ) {
-			wfDebugLog( 'Math', "$wgTexvc does not exist or is not executable." );
+			MWLoggerFactory::getInstance( 'Math' )->error(
+				"$wgTexvc does not exist or is not executable." );
 			return $this->getError( 'math_notexvc' );
 		}
 
@@ -192,18 +196,20 @@ class MathTexvc extends MathRenderer {
 			# Invoke it within cygwin sh, because texvc expects sh features in its default shell
 			$cmd = 'sh -c ' . wfEscapeShellArg( $cmd );
 		}
-		wfDebugLog( 'Math', "TeX: $cmd\n" );
-		wfDebugLog( 'Math', "Executing '$cmd'." );
+		MWLoggerFactory::getInstance( 'Math' )->debug( "TeX: $cmd\n" );
+		MWLoggerFactory::getInstance( 'Math' )->debug( "Executing '$cmd'." );
 		$retval = null;
 		$contents = wfShellExec( $cmd, $retval );
-		wfDebugLog( 'Math', "TeX output:\n $contents\n---\n" );
+		MWLoggerFactory::getInstance( 'Math' )->debug( "TeX output:\n $contents\n---\n" );
 
 		if ( strlen( $contents ) == 0 ) {
 			if ( !file_exists( $tmpDir ) || !is_writable( $tmpDir ) ) {
-				wfDebugLog( 'Math', "TeX output directory $tmpDir is missing or not writable" );
+				MWLoggerFactory::getInstance( 'Math' )->error(
+					"TeX output directory $tmpDir is missing or not writable" );
 				return $this->getError( 'math_bad_tmpdir' );
 			} else {
-				wfDebugLog( 'Math', "TeX command '$cmd' returned no output and status code $retval." );
+				MWLoggerFactory::getInstance( 'Math' )->error(
+					"TeX command '$cmd' returned no output and status code $retval." );
 				return $this->getError( 'math_unknown_error' );
 			}
 		}
