@@ -4,12 +4,16 @@
 			"Alma",
 			"Toliño",
 			"Xosé",
-			"Elisardojm"
+			"Elisardojm",
+			"Banjo"
 		]
 	},
 	"math-desc": "Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-preference-mwmathinspector-description": "Engadir ao editor visual o soporte experimental de creación e edición de fórmulas matemáticas para facer probas, antes do lanzamento xeral. Lembre revisar sempre os seus cambios antes de gardalos ao usar as características experimentais.",
 	"math-preference-mwmathinspector-label": "Edición de fórmulas matemáticas do editor visual",
+	"math-visualeditor-mwmathinspector-display": "Mostrar",
+	"math-visualeditor-mwmathinspector-display-block": "Bloquear",
+	"math-visualeditor-mwmathinspector-display-default": "Por defecto",
 	"math-visualeditor-mwmathinspector-title": "Fórmula",
 	"math_bad_output": "Non se pode crear ou escribir no directorio matemático de saída",
 	"math_bad_tmpdir": "Non se pode crear ou escribir no directorio matemático temporal",
@@ -20,7 +24,6 @@
 	"math_invalidxml": "MathML ou SVG non é un XML válido.",
 	"math_lexing_error": "erro de léxico",
 	"math_notexvc": "Falta o executable <code>texvc</code>. Consulte math/README para configuralo.",
-	"math_notexvccheck": "Falta o executable <code>texvccheck</code>. Consulte math/README para configuralo.",
 	"math_output_error": "Non se pode almacenar a imaxe matemática no sistema de ficheiros.",
 	"math_sample": "Insira unha fórmula aquí",
 	"math_syntax_error": "erro de sintaxe",
@@ -28,7 +31,6 @@
 	"math_tip": "Fórmula matemática (LaTeX)",
 	"math_unknown_error": "erro descoñecido",
 	"math_unknown_function": "descoñécese a función \"$1\"",
-	"math_xmlversion": "Atención: Saltouse a comprobación do tipo XML! Verifique que a súa instalación de MediaWiki é a versión wmf/1.22wmf7 ou posterior.",
 	"mw_math_latexml": "LaTeXML (experimental; usa MathML)",
 	"mw_math_mathjax": "MathJax do lado do cliente (lento; mellora a renderización nalgúns navegadores e ferramentas de acesibilidade)",
 	"mw_math_mathml": "MathML con respaldo en SVG ou PNG (recomendado para navegadores máis modernos e ferramentas de acesibilidade)",
