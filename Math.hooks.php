@@ -117,10 +117,10 @@ class MathHooks {
 		}
 
 		if ( $renderer->render() ) {
-			wfDebugLog( "Math" , "Rendering successful. Writing output" );
+			wfDebugLog( 'Math', "Rendering successful. Writing output" );
 			$renderedMath = $renderer->getHtmlOutput();
 		} else {
-			wfDebugLog( "Math" , "Rendering failed. Printing error message." );
+			wfDebugLog( 'Math', "Rendering failed. Printing error message." );
 			return $renderer->getLastError();
 		}
 		wfRunHooks( 'MathFormulaRendered',
@@ -159,8 +159,8 @@ class MathHooks {
 		);
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
-		if ( ! in_array( $wgDefaultUserOptions['math'] , $wgMathValidModes ) ){
-			wfDebugLog( 'Math', "Warning: Misconfiguration \$wgDefaultUserOptions['math'] is not in \$wgMathValidModes. Please check your LocalSetting.php file.");
+		if ( ! in_array( $wgDefaultUserOptions['math'] , $wgMathValidModes ) ) {
+			wfDebugLog( 'Math', "Warning: Misconfiguration \$wgDefaultUserOptions['math'] is not in \$wgMathValidModes. Please check your LocalSetting.php file." );
 			// Display the checkbox in the first option.
 			$wgDefaultUserOptions['math'] = $wgMathValidModes[0];
 		}
