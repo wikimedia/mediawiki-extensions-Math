@@ -84,7 +84,7 @@ class MathLaTeXML extends MathMathML {
 		$texcmd = rawurlencode( $tex );
 		$settings = $this->serializeSettings( $this->getLaTeXMLSettings() );
 		$postData = $settings . '&tex=' . $texcmd;
-		wfDebugLog( 'Math', 'Get post data: ' . $postData );
+		MWLoggerFactory::getInstance( 'Math' )->debug( 'Get post data: ' . $postData );
 		return $postData;
 	}
 
@@ -96,7 +96,8 @@ class MathLaTeXML extends MathMathML {
 		global $wgMathDebug;
 
 		if ( trim( $this->getTex() ) === '' ) {
-			wfDebugLog( 'Math', "Rendering was requested, but no TeX string is specified." );
+			MWLoggerFactory::getInstance( 'Math' )->notice(
+				"Rendering was requested, but no TeX string is specified." );
 			$this->lastError = $this->getError( 'math_empty_tex' );
 			return false;
 		}
@@ -124,7 +125,8 @@ class MathLaTeXML extends MathMathML {
 					// Do not print bad mathml. It's probably too verbose and might
 					// mess up the browser output.
 					$this->lastError = $this->getError( 'math_invalidxml', $this->getModeStr(), $host );
-					wfDebugLog( 'Math', "\nLaTeXML InvalidMathML:" . var_export( array(
+					MWLoggerFactory::getInstance( 'Math' )->notice(
+						"\nLaTeXML InvalidMathML:" . var_export( array(
 							'post' => $post,
 							'host' => $host,
 							'result' => $res
@@ -133,7 +135,8 @@ class MathLaTeXML extends MathMathML {
 				}
 			} else {
 				$this->lastError = $this->getError( 'math_invalidjson', $this->getModeStr(), $host );
-				wfDebugLog( 'Math', "\nLaTeXML InvalidJSON:" . var_export( array(
+				MWLoggerFactory::getInstance( 'Math' )->notice(
+					"\nLaTeXML InvalidJSON:" . var_export( array(
 						'post' => $post,
 						'host' => $host,
 						'res' => $res
@@ -188,7 +191,8 @@ class MathLaTeXML extends MathMathML {
 			$this->svg = $renderer->getSvg();
 		} else {
 			$lastError = $renderer->getLastError();
-			wfDebugLog( 'Math', 'failed to convert LaTeXML-MathML to SVG:' . $lastError );
+			MWLoggerFactory::getInstance( 'Math' )->error(
+				'failed to convert LaTeXML-MathML to SVG:' . $lastError );
 		}
 		return $res;
 	}
