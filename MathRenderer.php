@@ -249,7 +249,7 @@ abstract class MathRenderer {
 	 * @param binary $hash
 	 * @return string md5
 	 */
-	public static function dbHash2md5( $hash ) {
+	private static function dbHash2md5( $hash ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$xhash = unpack( 'H32md5', $dbr->decodeBlob( $hash ) . "                " );
 		return $xhash['md5'];
