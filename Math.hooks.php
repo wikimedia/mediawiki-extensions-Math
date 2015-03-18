@@ -338,8 +338,8 @@ class MathHooks {
 			if ( substr( $fullElement, - 7 ) == '</math>' ) { // only full elements
 				$logger = MWLoggerFactory::getInstance( 'Math' );
 				$content = self::escapeHtmlTags( $unescapedContent );
-				// remove span highlighting
-				$content = str_replace( '<span class="searchmatch">', '', $content );
+				// remove span highlighting (CirrusSearch uses different quotation compared to core)
+				$content = preg_replace( '/<span class=[\'"]searchmatch[\'"]>/', '', $content );
 				$content = str_replace( '</span>', '', $content );
 				// unescape backslash
 				$content = str_replace( "\\\\", "\\", $content );
