@@ -172,7 +172,7 @@ abstract class MathRenderer {
 			default:
 				$renderer = new MathMathML( $tex, $params );
 		}
-		MWLoggerFactory::getInstance( 'Math' )->info( 'start rendering $' . $renderer->tex .
+		MWLoggerFactory::getInstance( 'Math' )->info( 'Start rendering $' . $renderer->tex .
 			'$ in mode ' . $mode );
 		$renderer->setMathStyle( $mathStyle );
 		return $renderer;
@@ -328,21 +328,21 @@ abstract class MathRenderer {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
 			$dbw = $dbw ?: wfGetDB( DB_MASTER );
-			MWLoggerFactory::getInstance( 'Math' )->info( 'store entry for $' . $this->tex .
-		   		'$ in database (hash:' . $this->getMd5() . ")\n" );
+			MWLoggerFactory::getInstance( 'Math' )->info( 'Store entry for $' . $this->tex .
+				'$ in database (hash:' . $this->getMd5() . ')' );
 			$outArray = $this->dbOutArray();
 			$method = __METHOD__;
 			$mathTableName = $this->getMathTableName();
 			if ( $this->isInDatabase() ) {
 				$inputHash = $this->getInputHash();
 				$dbw->onTransactionIdle( function () use (
-					$dbw, $outArray,  $inputHash, $method, $mathTableName
+					$dbw, $outArray, $inputHash, $method, $mathTableName
 				) {
 					$dbw->update( $mathTableName, $outArray,
 						array( 'math_inputhash' => $inputHash ), $method );
-						MWLoggerFactory::getInstance( 'Math' )->debug(
-							'Row updated after db transaction was idle: ' .
-							var_export( $outArray, true ) . " to database \n" );
+					MWLoggerFactory::getInstance( 'Math' )->debug(
+						'Row updated after db transaction was idle: ' .
+						var_export( $outArray, true ) . " to database" );
 				} );
 			} else {
 				$dbw->onTransactionIdle( function () use (
@@ -352,11 +352,11 @@ abstract class MathRenderer {
 					if ( $wgMathDebug ) {
 						MWLoggerFactory::getInstance( 'Math' )->debug(
 							'Row inserted after db transaction was idle ' .
-							var_export( $outArray, true ) . " to database \n" );
+							var_export( $outArray, true ) . " to database" );
 						if ( $dbw->affectedRows() == 0 ) {
 							// That's the price for the delayed update.
-							MWLoggerFactory::getInstance( 'Math' )->notice(
-								'Entry could not be written. Might be changed in between. ' );
+							MWLoggerFactory::getInstance( 'Math' )->warning(
+								'Entry could not be written. Might be changed in between.' );
 						}
 					}
 				} );
@@ -398,13 +398,14 @@ abstract class MathRenderer {
 	 * Writes cache. Writes the database entry if values were changed
 	 */
 	public function writeCache() {
-		MWLoggerFactory::getInstance( 'Math' )->debug( "writing of cache requested." );
+		$logger = MWLoggerFactory::getInstance( 'Math' );
+		$logger->debug( 'Writing of cache requested.' );
 		if ( $this->isChanged() ) {
-			MWLoggerFactory::getInstance( 'Math' )->debug( "Change detected. Perform writing." );
+			$logger->debug( 'Change detected. Perform writing.' );
 			$this->writeToDatabase();
 			return true;
 		} else {
-			MWLoggerFactory::getInstance( 'Math' )->debug( "Nothing was changed. Don't write to database." );
+			$logger->debug( "Nothing was changed. Don't write to database." );
 			return false;
 		}
 	}

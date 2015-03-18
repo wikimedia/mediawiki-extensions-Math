@@ -62,7 +62,7 @@ class MathInputCheckTexvc extends MathInputCheck {
 		if ( !is_executable( $wgMathTexvcCheckExecutable ) ) {
 			$msg = 'Missing "texvccheck" executable. Please see math/README to configure.';
 			trigger_error( $msg, E_USER_NOTICE );
-			MWLoggerFactory::getInstance( 'Math' )->critical( $msg );
+			MWLoggerFactory::getInstance( 'Math' )->error( $msg );
 			return true;
 		}
 
@@ -73,12 +73,12 @@ class MathInputCheckTexvc extends MathInputCheck {
 			$cmd = 'sh -c ' . wfEscapeShellArg( $cmd );
 		}
 
-		MWLoggerFactory::getInstance( 'Math' )->debug( "TeX check command: $cmd\n" );
+		MWLoggerFactory::getInstance( 'Math' )->debug( "TeX check command: $cmd" );
 		$contents = wfShellExec( $cmd );
-		MWLoggerFactory::getInstance( 'Math' )->debug( "TeX check result:\n $contents\n---\n" );
+		MWLoggerFactory::getInstance( 'Math' )->debug( "TeX check result: $contents\n---" );
 
 		if ( strlen( $contents ) === 0 ) {
-			MWLoggerFactory::getInstance( 'Math' )->notice( "TeX check output was empty. \n" );
+			MWLoggerFactory::getInstance( 'Math' )->warning( 'TeX check output was empty.' );
 			$this->lastError = $this->convertTexvcError( $contents );
 
 			return false;
@@ -88,7 +88,7 @@ class MathInputCheckTexvc extends MathInputCheck {
 
 		if ( $retval !== '+' ) {
 			$this->lastError = $this->convertTexvcError( $contents );
-			MWLoggerFactory::getInstance( 'Math' )->notice( 'checkTex failed:' . $this->lastError );
+			MWLoggerFactory::getInstance( 'Math' )->warning( 'checkTex failed: ' . $this->lastError );
 
 			return false;
 		} else {

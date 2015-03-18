@@ -48,7 +48,7 @@ class MathHooks {
 
 				MWLoggerFactory::getInstance( 'Math' )->debug( "New cache key: $confstr" );
 			} else {
-				MWLoggerFactory::getInstance( 'Math' )->debug( "Cache key found $confstr" );
+				MWLoggerFactory::getInstance( 'Math' )->debug( "Cache key found: $confstr" );
 			}
 		}
 
@@ -158,8 +158,8 @@ class MathHooks {
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
 		if ( ! in_array( $wgDefaultUserOptions['math'] , $wgMathValidModes ) ) {
-			MWLoggerFactory::getInstance( 'Math' )->critical( "Misconfiguration: \n" .
-				"\$wgDefaultUserOptions['math'] is not in \$wgMathValidModes. \n".
+			MWLoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: '.
+				"\$wgDefaultUserOptions['math'] is not in \$wgMathValidModes.\n".
 				"Please check your LocalSetting.php file." );
 			// Display the checkbox in the first option.
 			$wgDefaultUserOptions['math'] = $wgMathValidModes[0];
