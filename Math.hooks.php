@@ -231,7 +231,7 @@ class MathHooks {
 			if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
 				$sql = __DIR__ . '/db/mathlatexml.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathlatexml', $sql );
-				if ( $type == 'mysql' ){
+				if ( $type == 'mysql' ) {
 					$sql = __DIR__ . '/db/patches/mathlatexml.mathml-length-adjustment.mysql.sql';
 					$updater->modifyExtensionField( 'mathlatexml', 'math_mathml', $sql );
 				}
@@ -285,5 +285,122 @@ class MathHooks {
 	static function onEditPageBeforeEditToolbar( &$toolbar ) {
 		global $wgOut;
 		$wgOut->addModules( array( 'ext.math.editbutton.enabler' ) );
+	}
+
+	/**
+	 * Implements the hook SpecialSearchSetupEngine
+	 * Loads stylesheets required for displaying Mathematics
+	 * @param SpecialPage $that
+	 * @param $profile
+	 * @param $search
+	 */
+	public static function onSpecialSearchSetupEngine( SpecialPage $that, $profile, $search ){
+		$out = $that->getOutput();
+		$out->addModuleStyles( array( 'ext.math.styles' ) );
+		$out->addModuleStyles( array( 'ext.math.desktop.styles' ) );
+		$out->addModules( array( 'ext.math.scripts' ) );
+	}
+
+	/**
+	 * Implements the hook ShowSearchHit
+	 * Searches for complete <code><math>$tex</math></code> tags and replaces them
+	 * with their rendering. Partial tags like <code>text <math>$te</code> are ignored.
+	 *
+	 * @param $searchPage
+	 * @param $result
+	 * @param $terms
+	 * @param $link
+	 * @param $redirect
+	 * @param $section
+	 * @param string $extract the text snipped going to be displayed
+	 * @param $score
+	 * @param $size
+	 * @param $date
+	 * @param $related
+	 * @param $html
+	 * @return bool
+	 */
+	static function onShowSearchHit( $searchPage, $result, $terms, &$link, &$redirect, &$section,
+		&$extract, &$score, &$size, &$date, &$related, &$html ) {
+		// use site default math rendering mode
+		global $wgDefaultUserOptions;
+		$mathMode = $wgDefaultUserOptions['math'];
+		if ( $mathMode == MW_MATH_MATHJAX ) { //Nobody wants to debug that.
+			return true;
+		}
+		// find math tags
+		$unescapedExtract = self::unEscapeHtmlTags( $extract );
+		$unescapedExtract = Parser::extractTagsAndParams( array( 'math' ), $unescapedExtract, $mathTags );
+		foreach ( $mathTags as $id => $tag ) {
+			$unescapedContent = $tag[1];
+			$attributes = $tag[2];
+			$fullElement = $tag[3];
+			if ( substr( $fullElement, - 7 ) == '</math>' ) { // only full elements
+				$logger = MWLoggerFactory::getInstance( 'Math' );
+				$content = self::escapeHtmlTags( $unescapedContent );
+				// remove span highlighting
+				$content = str_replace( '<span class="searchmatch">', '', $content );
+				$content = str_replace( '</span>', '', $content );
+				// unescape backslash
+				$content = str_replace( "\\\\", "\\", $content );
+				$renderer = MathRenderer::getRenderer( $content, $attributes, $mathMode );
+				$logger = MWLoggerFactory::getInstance( 'Math' );
+				if ( $renderer->checkTex() && $renderer->render() ) {
+					$renderedMath = $renderer->getHtmlOutput();
+					$renderer->writeCache(); // Math rendering takes a while
+					// replace parser placeholders with math rendering
+					$unescapedExtract = str_replace( $id, self::unEscapeHtmlTags( $renderedMath ),
+						$unescapedExtract );
+					$logger->info( "Display \\$$content\\$ in search results." );
+				} else {
+					$logger->warning( "Can not display \\$$content\\$ in search results. \n".
+						var_export( $renderer->getLastError(), true ) );
+				}
+			}
+			// undo parser modifications to unclosed math tags
+			$unescapedExtract = str_replace( $id, $fullElement, $unescapedExtract );
+		}
+		$extract = self::escapeHtmlTags( $unescapedExtract );
+		return true;
+	}
+
+	/**
+	 * Helper function for @see onShowSearchHit.
+	 * Replaces escaped HTML tags in output such as <code>&gt;math&lt;</code> with
+	 * <code><math></code> in order to apply normal parser functions to get the tags from the
+	 * snipped. HTML tags inserted for Highlighting by the search process such as
+	 * <code><span class="searchmatch"></code> are escaped. For instance
+	 * <code><</code> is translated to <code>-lt--QINU\x7f</code>.
+	 *
+	 * @param string $in
+	 * @return string mixed
+	 */
+	private static function unEscapeHtmlTags( $in ){
+		$out = $in;
+
+		// Do not switch the order of these instructions
+		$out = str_replace( '<',    "-lt--QINU\x7f", $out );
+		$out = str_replace( '>',    "-gt--QINU\x7f", $out );
+
+		$out = str_replace( '&lt;', '<'            , $out );
+		$out = str_replace( '&gt;', '>'            , $out );
+
+		return $out;
+	}
+
+	/**
+	 * Helper function for @see onShowSearchHit.
+	 *
+	 * Reverts edits done by @see unEscapeHtmlTags.
+	 * @param string $in
+	 * @return string mixed
+	 */
+	private static function escapeHtmlTags( $in ){
+		$out = $in;
+		$out = str_replace( '<',            '&lt;', $out );
+		$out = str_replace( '>',            '&gt;', $out );
+		$out = str_replace( "-lt--QINU\x7f",'<',    $out );
+		$out = str_replace( "-gt--QINU\x7f",'>',    $out );
+		return $out;
 	}
 }
