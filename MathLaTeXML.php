@@ -96,8 +96,8 @@ class MathLaTeXML extends MathMathML {
 		global $wgMathDebug;
 
 		if ( trim( $this->getTex() ) === '' ) {
-			MWLoggerFactory::getInstance( 'Math' )->notice(
-				"Rendering was requested, but no TeX string is specified." );
+			MWLoggerFactory::getInstance( 'Math' )->warning(
+				'Rendering was requested, but no TeX string is specified.' );
 			$this->lastError = $this->getError( 'math_empty_tex' );
 			return false;
 		}
@@ -125,22 +125,22 @@ class MathLaTeXML extends MathMathML {
 					// Do not print bad mathml. It's probably too verbose and might
 					// mess up the browser output.
 					$this->lastError = $this->getError( 'math_invalidxml', $this->getModeStr(), $host );
-					MWLoggerFactory::getInstance( 'Math' )->notice(
-						"\nLaTeXML InvalidMathML:" . var_export( array(
+					MWLoggerFactory::getInstance( 'Math' )->warning(
+						'LaTeXML InvalidMathML: ' . var_export( array(
 							'post' => $post,
 							'host' => $host,
 							'result' => $res
-						), true ) . "\n\n" );
+						), true ) );
 					return false;
 				}
 			} else {
 				$this->lastError = $this->getError( 'math_invalidjson', $this->getModeStr(), $host );
-				MWLoggerFactory::getInstance( 'Math' )->notice(
-					"\nLaTeXML InvalidJSON:" . var_export( array(
+				MWLoggerFactory::getInstance( 'Math' )->warning(
+					'LaTeXML InvalidJSON:' . var_export( array(
 						'post' => $post,
 						'host' => $host,
 						'res' => $res
-					), true ) . "\n\n" );
+					), true ) );
 				return false;
 			}
 		} else {
@@ -192,7 +192,7 @@ class MathLaTeXML extends MathMathML {
 		} else {
 			$lastError = $renderer->getLastError();
 			MWLoggerFactory::getInstance( 'Math' )->error(
-				'failed to convert LaTeXML-MathML to SVG:' . $lastError );
+				'Failed to convert LaTeXML-MathML to SVG:' . $lastError );
 		}
 		return $res;
 	}

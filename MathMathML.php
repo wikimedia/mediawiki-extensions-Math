@@ -96,27 +96,28 @@ class MathMathML extends MathRenderer {
 	 * @return boolean
 	 */
 	private function renderingRequired() {
+		$logger = MWLoggerFactory::getInstance( 'Math' );
 		if ( $this->isPurge() ) {
-			MWLoggerFactory::getInstance( 'Math' )->debug( 'Rerendering was requested.' );
+			$logger->debug( 'Rerendering was requested.' );
 			return true;
 		} else {
 			$dbres = $this->isInDatabase();
 			if ( $dbres ) {
 				if ( $this->isValidMathML( $this->getMathml() ) ) {
-					MWLoggerFactory::getInstance( 'Math' )->debug( 'Valid MathML entry found in database.' );
+					$logger->debug( 'Valid MathML entry found in database.' );
 					if ( $this->getSvg( 'cached' ) ) {
-						MWLoggerFactory::getInstance( 'Math' )->debug( 'SVG-fallback found in database.' );
+						$logger->debug( 'SVG-fallback found in database.' );
 						return false;
 					} else {
-						MWLoggerFactory::getInstance( 'Math' )->debug( 'SVG-fallback missing.' );
+						$logger->debug( 'SVG-fallback missing.' );
 						return true;
 					}
 				} else {
-					MWLoggerFactory::getInstance( 'Math' )->debug( 'Malformatted entry found in database' );
+					$logger->debug( 'Malformatted entry found in database' );
 					return true;
 				}
 			} else {
-				MWLoggerFactory::getInstance( 'Math' )->debug( 'No entry found in database.' );
+				$logger->debug( 'No entry found in database.' );
 				return true;
 			}
 		}
@@ -160,22 +161,22 @@ class MathMathML extends MathRenderer {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
 				$error = $this->getError( 'math_timeout', $this->getModeStr(), $host );
 				$res = false;
-				MWLoggerFactory::getInstance( 'Math' )->debug( "\nTimeout:" . var_export( array(
+				MWLoggerFactory::getInstance( 'Math' )->warning( 'Timeout:' . var_export( array(
 						'post' => $post,
 						'host' => $host,
 						'timeout' => $wgMathLaTeXMLTimeout
-					), true ) . "\n\n" );
+					), true ) );
 			} else {
 				// for any other unkonwn http error
 				$errormsg = $status->getHtml();
 				$error =
 					$this->getError( 'math_invalidresponse', $this->getModeStr(), $host, $errormsg,
 						$this->getModeStr( MW_MATH_MATHML ) );
-				MWLoggerFactory::getInstance( 'Math' )->debug( "\nNoResponse:" . var_export( array(
+				MWLoggerFactory::getInstance( 'Math' )->warning( 'NoResponse:' . var_export( array(
 						'post' => $post,
 						'host' => $host,
 						'errormsg' => $errormsg
-					), true ) . "\n\n" );
+					), true ) );
 			}
 			return false;
 		}
@@ -194,7 +195,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$host = $this->hosts;
 		}
-		MWLoggerFactory::getInstance( 'Math' )->debug( 'picking host ' . $host );
+		MWLoggerFactory::getInstance( 'Math' )->debug( 'Picking host ' . $host );
 		return $host;
 	}
 
@@ -249,22 +250,22 @@ class MathMathML extends MathRenderer {
 						$log = wfMessage( 'math_unknown_error' )->inContentLanguage()->escaped();
 					}
 					$this->lastError = $this->getError( 'math_mathoid_error', $host, $log );
-					MWLoggerFactory::getInstance( 'Math' )->notice(
+					MWLoggerFactory::getInstance( 'Math' )->warning(
 						'Mathoid conversion error:' . var_export( array(
 							'post' => $post,
 							'host' => $host,
 							'result' => $res
-						), true ) . "\n\n" );
+						), true ) );
 					return false;
 				}
 			} else {
 				$this->lastError = $this->getError( 'math_invalidjson', $host );
 				MWLoggerFactory::getInstance( 'Math' )->error(
-					"\nMathML InvalidJSON:" . var_export( array(
+					'MathML InvalidJSON:' . var_export( array(
 						'post' => $post,
 						'host' => $host,
 						'res' => $res
-					), true ) . "\n\n" );
+					), true ) );
 				return false;
 			}
 		} else {
@@ -288,7 +289,7 @@ class MathMathML extends MathRenderer {
 		$xmlObject = new XmlTypeCheck( $XML, null, false );
 		if ( !$xmlObject->wellFormed ) {
 			MWLoggerFactory::getInstance( 'Math' )->error(
-				"XML validation error:\n " . var_export( $XML, true ) . "\n" );
+				'XML validation error: ' . var_export( $XML, true ) );
 		} else {
 			$name = $xmlObject->getRootElement();
 			$elementSplit = explode( ':', $name );
@@ -300,7 +301,7 @@ class MathMathML extends MathRenderer {
 			if ( in_array( $localName , $this->getAllowedRootElements() ) ) {
 				$out = true;
 			} else {
-				MWLoggerFactory::getInstance( 'Math' )->error( "got wrong root element : $name" );
+				MWLoggerFactory::getInstance( 'Math' )->error( "Got wrong root element : $name" );
 			}
 		}
 		return $out;
