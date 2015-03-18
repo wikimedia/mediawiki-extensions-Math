@@ -61,7 +61,7 @@ class MathCoverageTest extends MediaWikiTestCase {
 	/**
 	 * Loops over all test cases provided by the provider function.
 	 * Compares each the rendering result of each input with the expected output.
-	 * @dataProvider testProvider
+	 * @dataProvider coverageProvider
 	 */
 	public function testCoverage( $input, $output )
 	{
@@ -79,7 +79,7 @@ class MathCoverageTest extends MediaWikiTestCase {
 	 * Gets the test-data from the file ParserTest.json
 	 * @return array($input, $output) where $input is the test input string and $output is the rendered html5-output string
 	 */
-	public function testProvider() {
+	public function coverageProvider() {
 		return json_decode( file_get_contents( __DIR__ . '/ParserTest.json' ) );
 	}
 
