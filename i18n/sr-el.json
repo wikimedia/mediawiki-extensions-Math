@@ -10,7 +10,6 @@
 	"math_image_error": "Pretvaranje u format PNG nije uspelo. Proverite da li su dobro instalirani latex, dvips, gs i convert",
 	"math_lexing_error": "rečnička greška",
 	"math_notexvc": "Nedostaje izvršna datoteka <code>texvc</code>. Pogledajte math/README za podešavanje.",
-	"math_notexvccheck": "Nedostaje izvršna datoteka <code>texvccheck</code>. Pogledajte math/README za podešavanje.",
 	"math_sample": "Ovde unesite formulu",
 	"math_syntax_error": "greška u sintaksi",
 	"math_tip": "Matematička formula (LaTeX)",
@@ -18,7 +17,7 @@
 	"math_unknown_function": "nepoznata funkcija „$1“",
 	"mw_math_latexml": "LaTeXML (eksprimentalno; koristi MathML)",
 	"mw_math_mathjax": "MathJax (eksperimentalno)",
-	"mw_math_mathml": "MathML sa oslanjanjem na SVG ili PNG (eksperimentalno)",
+	"mw_math_mathml": "MathML sa oslanjanjem na SVG ili PNG (preporučljivo za najnovije veb pregledače)",
 	"mw_math_png": "PNG slike",
 	"mw_math_source": "TeX (za tekstualne pregledače)",
 	"prefs-math": "Prikaz matematičkih formula"
