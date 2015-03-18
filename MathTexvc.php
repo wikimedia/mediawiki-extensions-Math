@@ -102,7 +102,7 @@ class MathTexvc extends MathRenderer {
 		$path = $this->getBackend()->getRootStoragePath() .
 			'/math-render/' . $this->getHashSubPath();
 		MWLoggerFactory::getInstance( 'Math' )->debug(
-			"TeX: getHashPath, hash is: {$this->getHash()}, path is: $path\n" );
+			"TeX: getHashPath, hash is: {$this->getHash()}, path is: $path" );
 		return $path;
 	}
 
@@ -196,11 +196,11 @@ class MathTexvc extends MathRenderer {
 			# Invoke it within cygwin sh, because texvc expects sh features in its default shell
 			$cmd = 'sh -c ' . wfEscapeShellArg( $cmd );
 		}
-		MWLoggerFactory::getInstance( 'Math' )->debug( "TeX: $cmd\n" );
+		MWLoggerFactory::getInstance( 'Math' )->debug( "TeX: $cmd" );
 		MWLoggerFactory::getInstance( 'Math' )->debug( "Executing '$cmd'." );
 		$retval = null;
 		$contents = wfShellExec( $cmd, $retval );
-		MWLoggerFactory::getInstance( 'Math' )->debug( "TeX output:\n $contents\n---\n" );
+		MWLoggerFactory::getInstance( 'Math' )->debug( "TeX output:\n $contents\n---" );
 
 		if ( strlen( $contents ) == 0 ) {
 			if ( !file_exists( $tmpDir ) || !is_writable( $tmpDir ) ) {
