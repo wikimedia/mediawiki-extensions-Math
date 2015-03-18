@@ -219,6 +219,7 @@ $wgHooks['ParserTestTables'][] = 'MathHooks::onParserTestTables';
 $wgHooks['UnitTestsList'][] = 'MathHooks::onRegisterUnitTests';
 $wgHooks['PageRenderingHash'][] = 'MathHooks::onPageRenderingHash';
 $wgHooks['EditPageBeforeEditToolbar'][] = 'MathHooks::onEditPageBeforeEditToolbar';
+$wgHooks['ShowSearchHit'][] = 'MathHooks::onShowSearchHit';
 
 $dir = __DIR__ . '/';
 $wgAutoloadClasses['MathHooks'] = $dir . 'Math.hooks.php';
