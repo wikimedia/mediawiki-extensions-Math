@@ -8,7 +8,8 @@
 			"MarcoAurelio",
 			"Platonides",
 			"Translationista",
-			"Macofe"
+			"Macofe",
+			"Amitie 10g"
 		]
 	},
 	"math-desc": "Sintetiza imágenes (render) a partir de las fórmulas matemáticas entre las etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -31,8 +32,8 @@
 	"math_unknown_error": "error desconocido",
 	"math_unknown_function": "función desconocida «$1».",
 	"mw_math_latexml": "LaTeXML (experimental, usa MathML)",
-	"mw_math_mathjax": "MathJax (experimental)",
-	"mw_math_mathml": "MathML con SVG o PNG como alternativa (experimental)",
+	"mw_math_mathjax": "MathJax del lado del cliente (lento; mejora el dibujado en algunos navegadores y herramientas de accesibilidad)",
+	"mw_math_mathml": "MathML con SVG o PNG como alternativa (recomendado para navegadores modernos y herramientas de accesibilidad)",
 	"mw_math_png": "Imágenes PNG",
 	"mw_math_source": "Código TeX (para navegadores de texto)",
 	"prefs-math": "Fórmulas"
