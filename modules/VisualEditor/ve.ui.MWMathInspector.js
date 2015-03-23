@@ -35,7 +35,7 @@ ve.ui.MWMathInspector.static.size = 'large';
 
 ve.ui.MWMathInspector.static.title = OO.ui.deferMsg( 'math-visualeditor-mwmathinspector-title' );
 
-ve.ui.MWMathInspector.static.nodeModel = ve.dm.MWMathNode;
+ve.ui.MWMathInspector.static.modelClasses = [ ve.dm.MWMathNode ];
 
 ve.ui.MWMathInspector.static.dir = 'ltr';
 
@@ -102,7 +102,7 @@ ve.ui.MWMathInspector.prototype.initialize = function () {
 ve.ui.MWMathInspector.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWMathInspector.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
-			var display = this.node.getAttribute( 'mw' ).attrs.display || 'default';
+			var display = this.selectedNode.getAttribute( 'mw' ).attrs.display || 'default';
 			this.displaySelect.selectItem( this.displaySelect.getItemFromData( display ) );
 			this.displaySelect.on( 'choose', this.onChangeHandler );
 			this.idInput.on( 'change', this.onChangeHandler );
@@ -124,7 +124,7 @@ ve.ui.MWMathInspector.prototype.getTeardownProcess = function ( data ) {
  * @inheritdoc
  */
 ve.ui.MWMathInspector.prototype.updatePreview = function () {
-	var mwData = ve.copy( this.node.getAttribute( 'mw' ) ),
+	var mwData = ve.copy( this.selectedNode.getAttribute( 'mw' ) ),
 		display = this.displaySelect.getSelectedItem().getData(),
 		id = this.idInput.getValue();
 
