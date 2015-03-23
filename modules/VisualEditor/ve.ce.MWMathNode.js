@@ -43,16 +43,9 @@ ve.ce.MWMathNode.prototype.onSetup = function () {
 	this.$element.addClass( 've-ce-mwMathNode' );
 };
 
-/** */
-ve.ce.MWMathNode.prototype.onParseSuccess = function ( deferred, response ) {
-	var data = response.visualeditor, contentNodes = this.$( data.content ).get();
-	if ( contentNodes[0] && contentNodes[0].childNodes ) {
-		contentNodes = Array.prototype.slice.apply( contentNodes[0].childNodes );
-	}
-	deferred.resolve( contentNodes );
-};
-
-/** */
+/**
+ * @inheritdoc
+ */
 ve.ce.MWMathNode.prototype.afterRender = function () {
 	var $img,
 		node = this;
