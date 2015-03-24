@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e7c4fa4_52b97976",
+        "filename": "Math.hooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2015-03-24T20:01:13Z",
+      "side": 1,
+      "message": "I\u0027d add these modules in the hook below, that will make sure that they are added only when required.\n\nIn the below hook set a flag with setExtensionData, add the modules, and check extension data later on to avoid readding.\n\nSimilar to the change that was made in: https://gerrit.wikimedia.org/r/#/c/186503/7/common/Hooks.php",
+      "revId": "5265c56998de2fba5295c194c0557ac22c97f695",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
