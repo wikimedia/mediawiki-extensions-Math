@@ -8,10 +8,11 @@
  * @file
  * @ingroup Extensions
  */
+// @codingStandardsIgnoreFile
 
 $specialPageAliases = array();
 
 /** English (English) */
 $specialPageAliases['en'] = array(
-	'MathStatus' => array( 'MathStatus' )
+	'MathStatus' => array( 'MathStatus' ),
 );
