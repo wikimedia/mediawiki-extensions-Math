@@ -52,6 +52,24 @@
       "revId": "69bb8e7aeccf6235990715027b43d98ef7023068",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_155c1e1d",
+        "filename": "Math.alias.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 121
+      },
+      "writtenOn": "2015-03-30T15:02:05Z",
+      "side": 1,
+      "message": "Currently Math.alias.php is completly disabled for translation in translatewiki.net\n\nWe do not have a technique to mix translatable and untranslatable special page names in 1 alias file. \n\nSuggestion: Split this file into 2 files:\n\nMath.alias.php\nand\nMath.alias.nontranslatable.php (or similar)\n\nand register both in Math.php.\n\nThen I can enables Math.alias.php for translatewiki.net",
+      "parentUuid": "6e7c4fa4_ca1e0175",
+      "revId": "69bb8e7aeccf6235990715027b43d98ef7023068",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
