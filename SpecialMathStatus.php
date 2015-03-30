@@ -1,4 +1,5 @@
 <?php
+use MediaWiki\Logger\LoggerFactory;
 /**
  * MediaWiki math extension
  *
@@ -116,8 +117,8 @@ class SpecialMathStatus extends SpecialPage {
 	public function testLaTeXMLIntegration() {
 		$renderer = MathRenderer::getRenderer( "a+b", array(), 'latexml' );
 		$this->assertTrue( $renderer->render( true ), "Rendering of a+b in LaTeXML mode" );
-		$expected = '<math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.1.m1.1" class="ltx_Math" alttext="{\displaystyle a+b}"  xref="p1.1.m1.1.cmml"><semantics id="p1.1.m1.1a" xref="p1.1.m1.1.cmml"><mrow id="p1.1.m1.1.4" xref="p1.1.m1.1.4.cmml"><mi id="p1.1.m1.1.1" xref="p1.1.m1.1.1.cmml">a</mi><mo id="p1.1.m1.1.2" xref="p1.1.m1.1.2.cmml">+</mo><mi id="p1.1.m1.1.3" xref="p1.1.m1.1.3.cmml">b</mi></mrow><annotation-xml encoding="MathML-Content" id="p1.1.m1.1.cmml" xref="p1.1.m1.1"><apply id="p1.1.m1.1.4.cmml" xref="p1.1.m1.1.4"><plus id="p1.1.m1.1.2.cmml" xref="p1.1.m1.1.2"/><ci id="p1.1.m1.1.1.cmml" xref="p1.1.m1.1.1">a</ci><ci id="p1.1.m1.1.3.cmml" xref="p1.1.m1.1.3">b</ci></apply></annotation-xml><annotation encoding="application/x-tex" id="p1.1.m1.1b" xref="p1.1.m1.1.cmml">{\displaystyle a+b}</annotation></semantics></math>';
-		$real = preg_replace( "/\n\s*/", '', $renderer->getHtmlOutput() );
+		$expected = '<math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.1.m1.1" class="ltx_Math" alttext="{\displaystyle a+b}" ><semantics id="p1.1.m1.1a"><mrow id="p1.1.m1.1.4" xref="p1.1.m1.1.4.cmml"><mi id="p1.1.m1.1.1" xref="p1.1.m1.1.1.cmml">a</mi><mo id="p1.1.m1.1.2" xref="p1.1.m1.1.2.cmml">+</mo><mi id="p1.1.m1.1.3" xref="p1.1.m1.1.3.cmml">b</mi></mrow><annotation-xml encoding="MathML-Content" id="p1.1.m1.1b"><apply id="p1.1.m1.1.4.cmml" xref="p1.1.m1.1.4"><plus id="p1.1.m1.1.2.cmml" xref="p1.1.m1.1.2"/><ci id="p1.1.m1.1.1.cmml" xref="p1.1.m1.1.1">a</ci><ci id="p1.1.m1.1.3.cmml" xref="p1.1.m1.1.3">b</ci></apply></annotation-xml><annotation encoding="application/x-tex" id="p1.1.m1.1c">{\displaystyle a+b}</annotation></semantics></math>';
+		$real = preg_replace( "/\n\\s*/", '', $renderer->getHtmlOutput() );
 		$this->assertContains( $expected, $real
 			, "Comparing the output to the MathML reference rendering" .
 			  $renderer->getLastError() );
@@ -126,19 +127,35 @@ class SpecialMathStatus extends SpecialPage {
 	private function assertTrue( $expression, $message = '' ) {
 		if ( $expression ){
 			$this->getOutput()->addWikiMsgArray( 'math-test-success' , $message );
+			return true;
 		} else {
 			$this->getOutput()->addWikiMsgArray( 'math-test-fail' , $message );
+			return false;
 		}
 	}
 
 	private function assertContains( $expected, $real, $message = '' ) {
-		$this->assertTrue( strpos( $real, $expected ) !== false, $message );
+		if ( ! $this->assertTrue( strpos( $real, $expected ) !== false, $message ) ) {
+			$this->printDiff( $expected, $real, 'math-test-contains-diff' );
+		}
 	}
 
 	private function assertEquals( $expected, $real, $message = '' ) {
-		$this->assertTrue( $expected == $real, $message );
+		if ( !$this->assertTrue( $expected == $real, $message ) ) {
+			$this->printDiff( $expected, $real, 'math-test-equals-diff' );
+		}
 	}
 
+	private function printDiff( $expected, $real, $message = '' ) {
+		if ( ExtensionRegistry::getInstance()->isLoaded( "SyntaxHighlight" ) ) {
+			$expected = "<syntaxhighlight lang=\"xml\">$expected</syntaxhighlight>";
+			$real = "<syntaxhighlight lang=\"xml\">$real</syntaxhighlight>";
+			$this->getOutput()->addWikiMsgArray( $message, array( $real, $expected ) );
+		} else {
+			LoggerFactory::getInstance( 'Math' )->warning( 'Can not display expected and real value.'.
+				'SyntaxHighlight is not installed.' );
+		}
+	}
 	protected function getGroupName() {
 		return 'other';
 	}
