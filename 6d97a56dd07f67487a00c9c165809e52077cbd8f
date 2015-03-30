@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e7c4fa4_7540f2a7",
+        "filename": "Math.alias.noTranslate.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 121
+      },
+      "writtenOn": "2015-03-30T15:38:13Z",
+      "side": 1,
+      "message": "btw; why identical names: array( \u0027MathShowImage\u0027, \u0027MathShowImage\u0027 )",
+      "revId": "6d97a56dd07f67487a00c9c165809e52077cbd8f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_15ec1eb7",
+        "filename": "Math.alias.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 121
+      },
+      "writtenOn": "2015-03-30T15:38:13Z",
+      "side": 1,
+      "message": "\u0027MathShowImage\u0027 is now dupe here and in Math.alias.noTranslate.php",
+      "revId": "6d97a56dd07f67487a00c9c165809e52077cbd8f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_3546fac3",
+        "filename": "Math.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 121
+      },
+      "writtenOn": "2015-03-30T15:38:13Z",
+      "side": 1,
+      "message": "$wgExtensionMessagesFiles[\u0027MathAlias\u0027] -\u003e $wgExtensionMessagesFiles[\u0027MathAliasnoTranslate\u0027] or similar. Otherwise the 2nd line overwrites the 1st line.",
+      "revId": "6d97a56dd07f67487a00c9c165809e52077cbd8f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
