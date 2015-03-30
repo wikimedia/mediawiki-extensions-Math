@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e7c4fa4_6a5fad44",
+        "filename": "Math.alias.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 366
+      },
+      "writtenOn": "2015-03-30T14:43:52Z",
+      "side": 1,
+      "message": "Is this also something that doesn\u0027t need translating, like the one above? If so, is it worth commenting to this effect?",
+      "revId": "69bb8e7aeccf6235990715027b43d98ef7023068",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
