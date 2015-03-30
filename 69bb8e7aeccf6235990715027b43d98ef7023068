@@ -16,6 +16,24 @@
       "revId": "69bb8e7aeccf6235990715027b43d98ef7023068",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_ca1e0175",
+        "filename": "Math.alias.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-03-30T14:47:23Z",
+      "side": 1,
+      "message": "I guess it should be translated. That\u0027s why I modified the qqq and en transation files",
+      "parentUuid": "6e7c4fa4_6a5fad44",
+      "revId": "69bb8e7aeccf6235990715027b43d98ef7023068",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
