@@ -34,6 +34,24 @@
       "revId": "43ddf4fe3ee140996efa64f606648067b4d75f44",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_674603c5",
+        "filename": "i18n/en.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 121
+      },
+      "writtenOn": "2015-03-30T19:37:00Z",
+      "side": 1,
+      "message": "yes",
+      "parentUuid": "6e7c4fa4_67b923c0",
+      "revId": "43ddf4fe3ee140996efa64f606648067b4d75f44",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
