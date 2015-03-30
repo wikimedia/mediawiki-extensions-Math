@@ -28,6 +28,8 @@
     "math-test-fail": "Test ''$1''  <span style=\"color:red\">failed</span>.",
     "math-test-start": "Running backend tests for rendering mode ''$1''.",
     "math-test-success": "Test ''$1'' <span style=\"color:green\">succeeded</span>.",
+    "math-test-contains-diff" : "Returned string $1 does not contain expected string $2.",
+    "math-test-equals-diff" : "Returned string $1 is different from expected string $2",
     "math_tip": "Mathematical formula (LaTeX)",
     "math_unknown_error": "unknown error",
     "math_unknown_function": "unknown function \"$1\"",
