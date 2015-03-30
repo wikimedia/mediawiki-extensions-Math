@@ -135,6 +135,10 @@ class SpecialMathStatus extends SpecialPage {
 	}
 
 	private function assertEquals( $expected, $real, $message = '' ) {
+		if ( $expected !== $real ){
+			$this->getOutput()->addWikiText( "expected <source lang=\"xml\">$expected</source>\n".
+				"but was <source lang=\"xml\">$real</source>");
+		}
 		$this->assertTrue( $expected == $real, $message );
 	}
 }
