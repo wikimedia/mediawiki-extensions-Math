@@ -16,6 +16,24 @@
       "revId": "43ddf4fe3ee140996efa64f606648067b4d75f44",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_67b923c0",
+        "filename": "i18n/en.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-03-30T19:32:43Z",
+      "side": 1,
+      "message": "Can I use \u003cspan /\u003e elements?",
+      "parentUuid": "6e7c4fa4_e7969340",
+      "revId": "43ddf4fe3ee140996efa64f606648067b4d75f44",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
