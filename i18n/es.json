@@ -28,6 +28,8 @@
 	"math_sample": "Escribir la fórmula aquí",
 	"math_syntax_error": "error de sintaxis",
 	"math_timeout": "El tiempo de espera de $1 en «$2» se agotó.",
+	"math-test-fail": "Falló la prueba \"$1\".",
+	"math-test-success": "Se superó la prueba \"$1\".",
 	"math_tip": "Fórmula matemática (LaTeX)",
 	"math_unknown_error": "error desconocido",
 	"math_unknown_function": "función desconocida «$1».",

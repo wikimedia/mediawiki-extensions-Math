@@ -4,6 +4,7 @@
 			"Milicevic01"
 		]
 	},
+	"math-visualeditor-mwmathinspector-display-default": "Podrazumevano",
 	"math_bad_output": "Stvaranje ili pisanje u odredišnoj fascikli za matematiku nije uspelo",
 	"math_bad_tmpdir": "Stvaranje ili pisanje u privremenu fasciklu za matematiku nije uspelo",
 	"math_failure": "Raščlanjivanje nije uspelo",
