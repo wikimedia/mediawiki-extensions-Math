@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e7c4fa4_94b34694",
+        "filename": "Math.hooks.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 873
+      },
+      "writtenOn": "2015-03-31T17:56:01Z",
+      "side": 1,
+      "message": "We certainly didn\u0027t mean to use the other quotation mark.  Its just never something we tested because it usually doesn\u0027t matter.  Thanks for working around our craziness.",
+      "revId": "8b49e4282ae67f7328396a3c138974afbd82739d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_d46c5e07",
+        "filename": "Math.hooks.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 873
+      },
+      "writtenOn": "2015-03-31T17:56:01Z",
+      "side": 1,
+      "message": "The irony here is that Cirrus gets them back unescaped and then then escapes them.",
+      "revId": "8b49e4282ae67f7328396a3c138974afbd82739d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_746f8af9",
+        "filename": "Math.hooks.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 873
+      },
+      "writtenOn": "2015-03-31T17:56:01Z",
+      "side": 1,
+      "message": "Isn\u0027t there some utility function for this?",
+      "revId": "8b49e4282ae67f7328396a3c138974afbd82739d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
