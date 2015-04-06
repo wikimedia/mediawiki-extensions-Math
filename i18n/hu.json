@@ -8,7 +8,7 @@
 		]
 	},
 	"math-preference-mwmathinspector-description": "A VisualEditor kísérleti matematikai képletszerkesztő szolgáltatásának engedélyezése tesztelési célokkal. Ne felejtsd el átnézni a változásokat, mielőtt kísérleti szolgáltatás által létrehozott változtatást elmentesz.",
-	"math-preference-mwmathinspector-label": "VisualEditor képlet szerkesztés",
+	"math-preference-mwmathinspector-label": "VisualEditor képletszerkesztés",
 	"math_bad_output": "Nem lehet létrehozni vagy írni a matematikai függvények kimeneti könyvtárába",
 	"math_bad_tmpdir": "Nem írható vagy nem hozható létre a matematikai ideiglenes könyvtár",
 	"math_failure": "Értelmezés sikertelen",
@@ -22,7 +22,7 @@
 	"math_unknown_function": "ismeretlen „$1” függvény",
 	"mw_math_mathjax": "Kliens-oldali MathJax (lassú; egyes böngészők és kisegítő eszközök esetén javítja a renderelést)",
 	"mw_math_mathml": "MathML SVG vagy PNG tartalékkal (modern böngészők és kisegítő eszközök számára ajánlott)",
-	"mw_math_png": "Mindig készítsen PNG-t",
-	"mw_math_source": "Hagyja TeX formában (szöveges böngészőknek)",
+	"mw_math_png": "PNG-képek",
+	"mw_math_source": "TeX-forrás (szöveges böngészőknek)",
 	"prefs-math": "Képletek"
 }
