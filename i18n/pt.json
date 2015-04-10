@@ -24,6 +24,7 @@
 	"math_output_error": "Não é possível armazenar imagem matemática no sistema de ficheiros.",
 	"math_sample": "Inserir fórmula aqui",
 	"math_syntax_error": "erro de sintaxe",
+	"math-test-success": "Teste ''$1'' <span style=\"color:green\">bem sucedido</span>.",
 	"math_tip": "Fórmula matemática (LaTeX)",
 	"math_unknown_error": "erro desconhecido",
 	"math_unknown_function": "Função desconhecida: \"$1\"",
