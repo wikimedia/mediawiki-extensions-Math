@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Danny B.",
-			"Mormegil"
+			"Mormegil",
+			"Cvanca"
 		]
 	},
 	"math-desc": "Vykresluje matematické vzorce vyznačené pomocí <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
@@ -29,10 +30,10 @@
 	"math-status-introduction": "Tato stránka zobrazuje informace o povolených režimech vykreslování matematiky.\n\nPovoleny jsou následující režimy vykreslování:",
 	"math_syntax_error": "syntaktická chyba",
 	"math_timeout": "Vypršel časový limit na $1 z „$2“",
-	"math-test-end": "Serverové testy režimu vykreslování „$1“ dokončeny.",
-	"math-test-fail": "Test „$1“ selhal.",
+	"math-test-end": "Serverové testy režimu vykreslování „$1“ byly dokončeny.",
+	"math-test-fail": "Test „$1“  <span style=\"color:red\">selhal</span>.",
 	"math-test-start": "Provádějí se serverové testy režimu vykreslování „$1“.",
-	"math-test-success": "Test „$1“ uspěl.",
+	"math-test-success": "Test „$1“ <span style=\"color:green\">uspěl</span>.",
 	"math_tip": "Matematický vzorec (LaTeX)",
 	"math_unknown_error": "neznámá chyba",
 	"math_unknown_function": "neznámá funkce „$1“",
