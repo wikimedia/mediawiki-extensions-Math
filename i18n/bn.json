@@ -19,6 +19,7 @@
 	"math_notexvc": "<code>texvc</code> executable হারানো গেছে; অনুগ্রহ করে কনফিগার করার জন্য math/README দেখুন।",
 	"math_sample": "সূত্র এখানে লিখুন",
 	"math_syntax_error": "সিনট্যাক্স ত্রুটি",
+	"math-test-fail": "পরীক্ষা ''$1''  <span style=\"color:red\">ব্যর্থ হয়েছে</span>।",
 	"math_tip": "গাণিতিক সূত্র (LaTeX)",
 	"math_unknown_error": "অজানা ত্রুটি",
 	"math_unknown_function": "'$1' অজানা ফাংশন",
