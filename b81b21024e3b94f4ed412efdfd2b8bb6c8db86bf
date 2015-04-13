@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e7c4fa4_7594fb8e",
+        "filename": "Math.hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-04-13T20:47:10Z",
+      "side": 1,
+      "message": "this is only called if action\u003dpurge is set manually.\nBy the way I guess Jenins should not vote +2 if there are die statements\nhttps://integration.wikimedia.org/ci/job/phplint/6609/console",
+      "revId": "b81b21024e3b94f4ed412efdfd2b8bb6c8db86bf",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
