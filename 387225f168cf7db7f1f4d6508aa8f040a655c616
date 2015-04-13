@@ -16,6 +16,24 @@
       "revId": "387225f168cf7db7f1f4d6508aa8f040a655c616",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_bc660025",
+        "filename": "Math.hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-04-13T17:22:52Z",
+      "side": 1,
+      "message": "https://doc.wikimedia.org/mediawiki-core/master/php/Parser_8php_source.html#l00322 points to ParserOutput not to OutputPage\nI wonder why this would work",
+      "parentUuid": "6e7c4fa4_9ce6a4aa",
+      "revId": "387225f168cf7db7f1f4d6508aa8f040a655c616",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
