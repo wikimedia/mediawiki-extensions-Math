@@ -107,6 +107,14 @@ class MathHooks {
 			$parser->getOptions()->optionUsed( 'math' );
 		}
 
+		if ( $mode == MW_MATH_MATHJAX || $mode == MW_MATH_LATEXML_JAX ) {
+			//TODO: how to call $parser->?->isMobile()
+			if ( $parser->getOutput()->getProperty('mobile') ){ // Bug T95498
+				$mode = MW_MATH_MATHML;
+			} else {
+				$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
+			}
+		}
 		$renderer = MathRenderer::getRenderer( $content, $attributes, $mode );
 
 		$checkResult = $renderer->checkTex();
@@ -126,9 +134,7 @@ class MathHooks {
 		}
 		Hooks::run( 'MathFormulaPostRender',
 			array( $parser, &$renderer, &$renderedMath ) );// Enables indexing of math formula
-		if ( $mode == MW_MATH_MATHJAX || $mode == MW_MATH_LATEXML_JAX ) {
-			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
-		}
+
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
 		if ( $mode == MW_MATH_MATHML ) {
 			$parser->getOutput()->addModuleStyles( array( 'ext.math.desktop.styles' ) );
