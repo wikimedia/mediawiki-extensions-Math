@@ -25,7 +25,7 @@
     "math_notexvc": "Missing <code>texvc</code> executable. Please see math/README to configure.",
     "math_output_error": "Cannot store math image on filesystem.",
     "math_sample": "Insert formula here",
-    "math-status-introduction" : "This page displays information about the enabled math rendering modes.\n\nThe following rendering mode is/rendering modes are enabled.",
+    "math-status-introduction" : "This page displays information about the enabled math rendering modes.\n\nThe following {{PLURAL:$1|rendereing mode is|rendering modes are}} enabled:",
     "math_syntax_error": "syntax error",
     "math_timeout": "$1 timeout from \"$2\".",
     "math-test-end": "Backend tests for rendering mode ''$1'' completed.",
