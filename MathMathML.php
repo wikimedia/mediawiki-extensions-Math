@@ -1,4 +1,6 @@
 <?php
+use MediaWiki\Logger\LoggerFactory;
+
 /**
  * MediaWiki math extension
  *
@@ -96,7 +98,7 @@ class MathMathML extends MathRenderer {
 	 * @return boolean
 	 */
 	private function renderingRequired() {
-		$logger = MWLoggerFactory::getInstance( 'Math' );
+		$logger = LoggerFactory::getInstance( 'Math' );
 		if ( $this->isPurge() ) {
 			$logger->debug( 'Rerendering was requested.' );
 			return true;
@@ -161,7 +163,7 @@ class MathMathML extends MathRenderer {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
 				$error = $this->getError( 'math_timeout', $this->getModeStr(), $host );
 				$res = false;
-				MWLoggerFactory::getInstance( 'Math' )->warning( 'Timeout:' . var_export( array(
+				LoggerFactory::getInstance( 'Math' )->warning( 'Timeout:' . var_export( array(
 						'post' => $post,
 						'host' => $host,
 						'timeout' => $wgMathLaTeXMLTimeout
@@ -172,7 +174,7 @@ class MathMathML extends MathRenderer {
 				$error =
 					$this->getError( 'math_invalidresponse', $this->getModeStr(), $host, $errormsg,
 						$this->getModeStr( MW_MATH_MATHML ) );
-				MWLoggerFactory::getInstance( 'Math' )->warning( 'NoResponse:' . var_export( array(
+				LoggerFactory::getInstance( 'Math' )->warning( 'NoResponse:' . var_export( array(
 						'post' => $post,
 						'host' => $host,
 						'errormsg' => $errormsg
@@ -195,7 +197,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$host = $this->hosts;
 		}
-		MWLoggerFactory::getInstance( 'Math' )->debug( 'Picking host ' . $host );
+		LoggerFactory::getInstance( 'Math' )->debug( 'Picking host ' . $host );
 		return $host;
 	}
 
@@ -219,7 +221,7 @@ class MathMathML extends MathRenderer {
 				$out = 'type=tex&q=' . rawurlencode( $input );
 			}
 		}
-		MWLoggerFactory::getInstance( 'Math' )->debug( 'Get post data: ' . $out );
+		LoggerFactory::getInstance( 'Math' )->debug( 'Get post data: ' . $out );
 		return $out;
 	}
 
@@ -229,7 +231,7 @@ class MathMathML extends MathRenderer {
 	 */
 	protected function doRender() {
 		if ( $this->getTex() === '' ) {
-			MWLoggerFactory::getInstance( 'Math' )->debug( 'Rendering was requested, but no TeX string is specified.' );
+			LoggerFactory::getInstance( 'Math' )->debug( 'Rendering was requested, but no TeX string is specified.' );
 			$this->lastError = $this->getError( 'math_empty_tex' );
 			return false;
 		}
@@ -250,7 +252,7 @@ class MathMathML extends MathRenderer {
 						$log = wfMessage( 'math_unknown_error' )->inContentLanguage()->escaped();
 					}
 					$this->lastError = $this->getError( 'math_mathoid_error', $host, $log );
-					MWLoggerFactory::getInstance( 'Math' )->warning(
+					LoggerFactory::getInstance( 'Math' )->warning(
 						'Mathoid conversion error:' . var_export( array(
 							'post' => $post,
 							'host' => $host,
@@ -260,7 +262,7 @@ class MathMathML extends MathRenderer {
 				}
 			} else {
 				$this->lastError = $this->getError( 'math_invalidjson', $host );
-				MWLoggerFactory::getInstance( 'Math' )->error(
+				LoggerFactory::getInstance( 'Math' )->error(
 					'MathML InvalidJSON:' . var_export( array(
 						'post' => $post,
 						'host' => $host,
@@ -288,7 +290,7 @@ class MathMathML extends MathRenderer {
 
 		$xmlObject = new XmlTypeCheck( $XML, null, false );
 		if ( !$xmlObject->wellFormed ) {
-			MWLoggerFactory::getInstance( 'Math' )->error(
+			LoggerFactory::getInstance( 'Math' )->error(
 				'XML validation error: ' . var_export( $XML, true ) );
 		} else {
 			$name = $xmlObject->getRootElement();
@@ -301,7 +303,7 @@ class MathMathML extends MathRenderer {
 			if ( in_array( $localName , $this->getAllowedRootElements() ) ) {
 				$out = true;
 			} else {
-				MWLoggerFactory::getInstance( 'Math' )->error( "Got wrong root element : $name" );
+				LoggerFactory::getInstance( 'Math' )->error( "Got wrong root element : $name" );
 			}
 		}
 		return $out;
@@ -473,7 +475,7 @@ class MathMathML extends MathRenderer {
 					$this->setSvg( $jsonResult->svg );
 				}
 			} else {
-				MWLoggerFactory::getInstance( 'Math' )->error(
+				LoggerFactory::getInstance( 'Math' )->error(
 					'Missing SVG property in JSON result.' );
 			}
 			if ( $wgMathDebug ) {
