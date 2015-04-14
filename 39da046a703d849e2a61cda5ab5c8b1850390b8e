@@ -34,6 +34,24 @@
       "revId": "39da046a703d849e2a61cda5ab5c8b1850390b8e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_6563e03e",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-04-14T21:24:30Z",
+      "side": 1,
+      "message": "OK. In that case MathMathML.php needs to be changed",
+      "parentUuid": "6e7c4fa4_25f9687e",
+      "revId": "39da046a703d849e2a61cda5ab5c8b1850390b8e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
