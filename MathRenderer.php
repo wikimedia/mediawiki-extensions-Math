@@ -7,6 +7,7 @@
  *
  * @file
  */
+use MediaWiki\Logger\LoggerFactory;
 
 /**
  * Abstract base class with static methods for rendering the <math> tags using
@@ -172,7 +173,7 @@ abstract class MathRenderer {
 			default:
 				$renderer = new MathMathML( $tex, $params );
 		}
-		MWLoggerFactory::getInstance( 'Math' )->info( 'Start rendering $' . $renderer->tex .
+		LoggerFactory::getInstance( 'Math' )->info( 'Start rendering $' . $renderer->tex .
 			'$ in mode ' . $mode );
 		$renderer->setMathStyle( $mathStyle );
 		return $renderer;
@@ -328,7 +329,7 @@ abstract class MathRenderer {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
 			$dbw = $dbw ?: wfGetDB( DB_MASTER );
-			MWLoggerFactory::getInstance( 'Math' )->info( 'Store entry for $' . $this->tex .
+			LoggerFactory::getInstance( 'Math' )->info( 'Store entry for $' . $this->tex .
 				'$ in database (hash:' . $this->getMd5() . ')' );
 			$outArray = $this->dbOutArray();
 			$method = __METHOD__;
@@ -340,7 +341,7 @@ abstract class MathRenderer {
 				) {
 					$dbw->update( $mathTableName, $outArray,
 						array( 'math_inputhash' => $inputHash ), $method );
-					MWLoggerFactory::getInstance( 'Math' )->debug(
+					LoggerFactory::getInstance( 'Math' )->debug(
 						'Row updated after db transaction was idle: ' .
 						var_export( $outArray, true ) . " to database" );
 				} );
@@ -350,12 +351,12 @@ abstract class MathRenderer {
 				) {
 					$dbw->insert( $mathTableName, $outArray, $method, array( 'IGNORE' ) );
 					if ( $wgMathDebug ) {
-						MWLoggerFactory::getInstance( 'Math' )->debug(
+						LoggerFactory::getInstance( 'Math' )->debug(
 							'Row inserted after db transaction was idle ' .
 							var_export( $outArray, true ) . " to database" );
 						if ( $dbw->affectedRows() == 0 ) {
 							// That's the price for the delayed update.
-							MWLoggerFactory::getInstance( 'Math' )->warning(
+							LoggerFactory::getInstance( 'Math' )->warning(
 								'Entry could not be written. Might be changed in between.' );
 						}
 					}
@@ -398,7 +399,7 @@ abstract class MathRenderer {
 	 * Writes cache. Writes the database entry if values were changed
 	 */
 	public function writeCache() {
-		$logger = MWLoggerFactory::getInstance( 'Math' );
+		$logger = LoggerFactory::getInstance( 'Math' );
 		$logger->debug( 'Writing of cache requested.' );
 		if ( $this->isChanged() ) {
 			$logger->debug( 'Change detected. Perform writing.' );
@@ -526,7 +527,7 @@ abstract class MathRenderer {
 		// until this issue is resolved we use ?mathpurge=true instead
 		$mathpurge = $request->getBool( 'mathpurge', false );
 		if ( $mathpurge ) {
-			MWLoggerFactory::getInstance( 'Math' )->debug( 'Re-Rendering on user request' );
+			LoggerFactory::getInstance( 'Math' )->debug( 'Re-Rendering on user request' );
 			return true;
 		} else {
 			return false;
