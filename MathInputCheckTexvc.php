@@ -2,11 +2,14 @@
 /**
  * MediaWiki math extension
  *
- * (c) 2002-2013 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz, and other MediaWiki contributors
+ * (c) 2002-2015 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz, and other MediaWiki contributors
  * GPLv2 license; info in main package.
  *
  * @author Moritz Schubotz
  */
+
+use MediaWiki\Logger\LoggerFactory;
+
 class MathInputCheckTexvc extends MathInputCheck {
 
 	/**
@@ -62,7 +65,7 @@ class MathInputCheckTexvc extends MathInputCheck {
 		if ( !is_executable( $wgMathTexvcCheckExecutable ) ) {
 			$msg = 'Missing "texvccheck" executable. Please see math/README to configure.';
 			trigger_error( $msg, E_USER_NOTICE );
-			MWLoggerFactory::getInstance( 'Math' )->error( $msg );
+			LoggerFactory::getInstance( 'Math' )->error( $msg );
 			return true;
 		}
 
@@ -73,12 +76,12 @@ class MathInputCheckTexvc extends MathInputCheck {
 			$cmd = 'sh -c ' . wfEscapeShellArg( $cmd );
 		}
 
-		MWLoggerFactory::getInstance( 'Math' )->debug( "TeX check command: $cmd" );
+		LoggerFactory::getInstance( 'Math' )->debug( "TeX check command: $cmd" );
 		$contents = wfShellExec( $cmd );
-		MWLoggerFactory::getInstance( 'Math' )->debug( "TeX check result: $contents\n---" );
+		LoggerFactory::getInstance( 'Math' )->debug( "TeX check result: $contents\n---" );
 
 		if ( strlen( $contents ) === 0 ) {
-			MWLoggerFactory::getInstance( 'Math' )->warning( 'TeX check output was empty.' );
+			LoggerFactory::getInstance( 'Math' )->warning( 'TeX check output was empty.' );
 			$this->lastError = $this->convertTexvcError( $contents );
 
 			return false;
@@ -88,13 +91,13 @@ class MathInputCheckTexvc extends MathInputCheck {
 
 		if ( $retval !== '+' ) {
 			$this->lastError = $this->convertTexvcError( $contents );
-			MWLoggerFactory::getInstance( 'Math' )->warning( 'checkTex failed: ' . $this->lastError );
+			LoggerFactory::getInstance( 'Math' )->warning( 'checkTex failed: ' . $this->lastError );
 
 			return false;
 		} else {
 			$this->validTeX = substr( $contents, 1 );
 			$this->isValid = true;
-			MWLoggerFactory::getInstance( 'Math' )->debug(
+			LoggerFactory::getInstance( 'Math' )->debug(
 				'checkTex successful tex is now: ' . $this->validTeX );
 
 			return true;
