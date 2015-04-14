@@ -28,8 +28,9 @@ class SpecialMathStatus extends SpecialPage {
 		}
 
 		$out = $this->getOutput();
-		$out->addWikiMsg( 'math-status-introduction' );
 		$enabledMathModes = MathHooks::getMathNames();
+		$out->addWikiMsg( 'math-status-introduction', count( $enabledMathModes ) );
+
 		foreach ( $enabledMathModes as $modeNr => $modeName ){
 			$out->addWikiText( "=== $modeName ===" );
 			switch( $modeNr ){
