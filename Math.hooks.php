@@ -2,9 +2,11 @@
 /**
  * MediaWiki math extension
  *
- * (c) 2002-2014 various MediaWiki contributors
+ * (c) 2002-2015 various MediaWiki contributors
  * GPLv2 license; info in main package.
  */
+
+use MediaWiki\Logger\LoggerFactory;
 
 class MathHooks {
 	const mathCacheKey = 'math=';
@@ -46,9 +48,9 @@ class MathHooks {
 					$confstr .= '!' . self::mathCacheKey . $mathOption;
 				}
 
-				MWLoggerFactory::getInstance( 'Math' )->debug( "New cache key: $confstr" );
+				LoggerFactory::getInstance( 'Math' )->debug( "New cache key: $confstr" );
 			} else {
-				MWLoggerFactory::getInstance( 'Math' )->debug( "Cache key found: $confstr" );
+				LoggerFactory::getInstance( 'Math' )->debug( "Cache key found: $confstr" );
 			}
 		}
 
@@ -117,10 +119,10 @@ class MathHooks {
 		}
 
 		if ( $renderer->render() ) {
-			MWLoggerFactory::getInstance( 'Math' )->info( "Rendering successful. Writing output" );
+			LoggerFactory::getInstance( 'Math' )->info( "Rendering successful. Writing output" );
 			$renderedMath = $renderer->getHtmlOutput();
 		} else {
-			MWLoggerFactory::getInstance( 'Math' )->warning(
+			LoggerFactory::getInstance( 'Math' )->warning(
 				"Rendering failed. Printing error message." );
 			return $renderer->getLastError();
 		}
@@ -158,7 +160,7 @@ class MathHooks {
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
 		if ( ! in_array( $wgDefaultUserOptions['math'] , $wgMathValidModes ) ) {
-			MWLoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: '.
+			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: '.
 				"\$wgDefaultUserOptions['math'] is not in \$wgMathValidModes.\n".
 				"Please check your LocalSetting.php file." );
 			// Display the checkbox in the first option.
