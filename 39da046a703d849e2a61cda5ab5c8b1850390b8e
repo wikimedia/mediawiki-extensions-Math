@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e7c4fa4_a5781827",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-04-14T21:09:28Z",
+      "side": 1,
+      "message": "Should we use it to the first line, like in the other files?",
+      "revId": "39da046a703d849e2a61cda5ab5c8b1850390b8e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
