@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e7c4fa4_3e53b2e3",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2015-04-15T20:02:47Z",
+      "side": 1,
+      "message": "we seem to miss a few params here, i do admit that the global docu of this hook is rather subpar however.",
+      "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_9edbe623",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2015-04-15T20:02:47Z",
+      "side": 1,
+      "message": "triple equals is always preferred. Also what about \u003c/ math\u003e ?",
+      "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_dee71ed2",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2015-04-15T20:02:47Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be an else then ?",
+      "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_7e004ab5",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2015-04-15T20:02:47Z",
+      "side": 1,
+      "message": "seems like the above two can be combined to:\n\nout-\u003eaddModuleStyles( array( \u0027ext.math.styles\u0027, \u0027ext.math.desktop.styles\u0027 ) );",
+      "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_5ee30e03",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2015-04-15T20:02:47Z",
+      "side": 1,
+      "message": "We can at least use Parser::MARKER_SUFFIX here I think (constants are always public in php right?)",
+      "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_5e978e3d",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2015-04-15T20:02:47Z",
+      "side": 1,
+      "message": "htmlspecialchars_decode ?",
+      "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_3e941239",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2015-04-15T20:02:47Z",
+      "side": 1,
+      "message": "How about using htmlspecialchars() here ?",
+      "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
