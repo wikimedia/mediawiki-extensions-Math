@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6e7c4fa4_5e60ee2d",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-04-15T20:42:10Z",
+      "side": 1,
+      "message": "\"Manybubbles\t\tApr 7 4:36 PM\n\nAll these @param tags just annoy me when they don\u0027t have anything interesting in them. Not a big deal but I tend to delete them unless I have something to say.\"\nI said. I don\u0027t really care about them... but now I don\u0027t know what to do.",
+      "parentUuid": "6e7c4fa4_3e53b2e3",
+      "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e7c4fa4_9edbe623",
         "filename": "Math.hooks.php",
         "patchSetId": 11
@@ -30,6 +48,24 @@
       "writtenOn": "2015-04-15T20:02:47Z",
       "side": 1,
       "message": "triple equals is always preferred. Also what about \u003c/ math\u003e ?",
+      "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_dedabee9",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-04-15T20:42:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e7c4fa4_9edbe623",
       "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6e7c4fa4_fefc5a3e",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-04-15T20:42:10Z",
+      "side": 1,
+      "message": "... or in the case of a rendering error",
+      "parentUuid": "6e7c4fa4_dee71ed2",
+      "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e7c4fa4_7e004ab5",
         "filename": "Math.hooks.php",
         "patchSetId": 11
@@ -64,6 +118,24 @@
       "writtenOn": "2015-04-15T20:02:47Z",
       "side": 1,
       "message": "seems like the above two can be combined to:\n\nout-\u003eaddModuleStyles( array( \u0027ext.math.styles\u0027, \u0027ext.math.desktop.styles\u0027 ) );",
+      "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_bef6e258",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-04-15T20:42:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e7c4fa4_7e004ab5",
       "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "6e7c4fa4_def15e61",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-04-15T20:42:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e7c4fa4_5ee30e03",
+      "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e7c4fa4_5e978e3d",
         "filename": "Math.hooks.php",
         "patchSetId": 11
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "6e7c4fa4_be8d82da",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-04-15T20:42:10Z",
+      "side": 1,
+      "message": "Good point.\ni think we only need those two... but it won\u0027t hurt to convert other stuff as well.\nI\u0027ll test that with math tags that involve involve inequalities and alignments.",
+      "parentUuid": "6e7c4fa4_5e978e3d",
+      "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e7c4fa4_3e941239",
         "filename": "Math.hooks.php",
         "patchSetId": 11
@@ -115,6 +223,24 @@
       "writtenOn": "2015-04-15T20:02:47Z",
       "side": 1,
       "message": "How about using htmlspecialchars() here ?",
+      "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7c4fa4_de887ec9",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-04-15T20:42:10Z",
+      "side": 1,
+      "message": "see above",
+      "parentUuid": "6e7c4fa4_3e941239",
       "revId": "6b55bae80b7c34fa03f2d34a2df2b2ebbeeac934",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
