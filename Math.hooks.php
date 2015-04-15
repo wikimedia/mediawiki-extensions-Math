@@ -243,6 +243,8 @@ class MathHooks {
 			if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
 				$sql = __DIR__ . '/db/mathoid.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathoid', $sql );
+				$sql = __DIR__ . '/db/patches/mathoid.add-png.'. $type .'.sql';
+				$updater->addExtensionField( 'mathoid', 'math_png', $sql );
 			} else {
 				throw new Exception( "Math extension does not currently support $type database for Mathoid." );
 			}
