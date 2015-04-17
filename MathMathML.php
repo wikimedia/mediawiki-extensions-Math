@@ -433,6 +433,7 @@ class MathMathML extends MathRenderer {
 		if ($this->getMathTableName() == 'mathoid' ) {
 			$out['math_input'] = $out['math_inputtex'];
 			unset($out['math_inputtex']);
+			$out['math_png'] = $this->png;
 		}
 		return $out;
 	}
@@ -442,6 +443,7 @@ class MathMathML extends MathRenderer {
 		if ($this->getMathTableName() == 'mathoid' ) {
 			$out = array_diff( $out, array( 'math_inputtex' ) );
 			$out[] = 'math_input';
+			$out[] = 'math_png';
 		}
 		return $out;
 	}

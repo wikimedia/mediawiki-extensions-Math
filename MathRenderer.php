@@ -29,6 +29,8 @@ abstract class MathRenderer {
 	protected $mathml = '';
 	/** @var string SVG layout only (no semantics) */
 	protected $svg = '';
+	/** @var string PNG layout only (no semantics) */
+	protected $png = '';
 	/** @var string the original user input string (which was used to calculate the inputhash) */
 	protected $userInputTex = '';
 	// FURTHER PROPERTIES OF THE MATHEMATICAL CONTENT
@@ -310,6 +312,9 @@ abstract class MathRenderer {
 		}
 		if ( ! empty( $rpage->math_svg ) ) {
 			$this->svg = $rpage->math_svg;
+		}
+		if ( ! empty( $rpage->math_png ) ) {
+			$this->png = $rpage->math_png;
 		}
 		$this->changed = false;
 	}
@@ -696,4 +701,7 @@ abstract class MathRenderer {
 		return $names[ $this->getMode() ];
 	}
 
+	public function getPng() {
+		return $this->png;
+	}
 }
