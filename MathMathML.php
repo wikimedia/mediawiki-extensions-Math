@@ -433,6 +433,7 @@ class MathMathML extends MathRenderer {
 		if ($this->getMathTableName() == 'mathoid' ) {
 			$out['math_input'] = $out['math_inputtex'];
 			unset($out['math_inputtex']);
+			$out['math_png'] = $this->png;
 		}
 		return $out;
 	}
@@ -442,6 +443,7 @@ class MathMathML extends MathRenderer {
 		if ($this->getMathTableName() == 'mathoid' ) {
 			$out = array_diff( $out, array( 'math_inputtex' ) );
 			$out[] = 'math_input';
+			$out[] = 'math_png';
 		}
 		return $out;
 	}
@@ -467,18 +469,10 @@ class MathMathML extends MathRenderer {
 		if ( $this->getMode() == MW_MATH_LATEXML || $this->inputType == 'pmml' ||
 			 $this->isValidMathML( $jsonResult->mml )
 		) {
-			if ( isset( $jsonResult->svg ) ) {
-				$xmlObject = new XmlTypeCheck( $jsonResult->svg, null, false );
-				if ( !$xmlObject->wellFormed ) {
-					$this->lastError = $this->getError( 'math_invalidxml', $host );
-					return false;
-				} else {
-					$this->setSvg( $jsonResult->svg );
-				}
-			} else {
-				LoggerFactory::getInstance( 'Math' )->error(
-					'Missing SVG property in JSON result.' );
+			if ( !$this->extractSvg( $jsonResult, $host ) ){
+				return false;
 			}
+			$this->extractPng( $jsonResult, $host );
 			if ( $wgMathDebug ) {
 				$this->setLog( $jsonResult->log );
 			}
@@ -488,6 +482,41 @@ class MathMathML extends MathRenderer {
 			return true;
 		} else {
 			$this->lastError = $this->getError( 'math_unknown_error', $host );
+			return false;
+		}
+	}
+
+	/**
+	 * @param $jsonResult
+	 * @param $host
+	 * @return bool
+	 */
+	private function extractSvg( $jsonResult, $host ) {
+		if ( isset( $jsonResult->svg ) ) {
+			$xmlObject = new XmlTypeCheck( $jsonResult->svg, null, false );
+			if ( !$xmlObject->wellFormed ) {
+				$this->lastError = $this->getError( 'math_invalidxml', $host );
+				 return false;
+			} else {
+				$this->setSvg( $jsonResult->svg );
+			}
+		} else {
+			LoggerFactory::getInstance( 'Math' )->error( 'Missing SVG property in JSON result.' );
+		}
+		return true;
+	}
+
+	/**
+	 * @param $jsonResult
+	 * @param $host
+	 * @return bool
+	 */
+	private function extractPng( $jsonResult, $host ) {
+		if ( isset( $jsonResult->png ) ) {
+			$this->setPng( $jsonResult->png );
+			return true;
+		} else {
+			LoggerFactory::getInstance( 'Math' )->error( 'Missing PNG property in JSON result from ' . $host );
 			return false;
 		}
 	}
