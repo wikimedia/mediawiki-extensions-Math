@@ -93,11 +93,6 @@ class SpecialMathShowImage extends SpecialPage {
 			}
 			if ( $success ) {
 				if ( $this->mode == MW_MATH_PNG ) {
-					// Workaround for bugfix for Bug 56769
-					if ( !isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
-						// saves the PNG-file
-						wfRunHooks('ParserAfterParse');
-					}
 					$output = $this->renderer->getPng();
 				} else {
 					$output = $this->renderer->getSvg();
