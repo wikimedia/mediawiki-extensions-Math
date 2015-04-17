@@ -401,7 +401,7 @@ class MathTexvc extends MathRenderer {
 		}
 		return false;
 	}
-	
+
 	public function getPng() {
 		// Workaround for bugfix for Bug 56769
 		if ( !isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
