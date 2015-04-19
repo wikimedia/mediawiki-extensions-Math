@@ -28,7 +28,7 @@
 	"math_sample": "Escribir la fórmula aquí",
 	"math_syntax_error": "error de sintaxis",
 	"math_timeout": "El tiempo de espera de $1 en «$2» se agotó.",
-	"math-test-fail": "<span style=\"color:red\">Falló</span> la prueba «$1».",
+	"math-test-fail": "<span style=\"color:red\">Falló</span> la prueba ''$1''.",
 	"math-test-success": "Se <span style=\"color:green\">superó</span> la prueba ''$1''.",
 	"math_tip": "Fórmula matemática (LaTeX)",
 	"math_unknown_error": "error desconocido",
