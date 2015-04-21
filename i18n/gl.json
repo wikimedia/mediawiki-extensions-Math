@@ -26,8 +26,10 @@
 	"math_notexvc": "Falta o executable <code>texvc</code>. Consulte math/README para configuralo.",
 	"math_output_error": "Non se pode almacenar a imaxe matemática no sistema de ficheiros.",
 	"math_sample": "Insira unha fórmula aquí",
+	"math-status-introduction": "Esta páxina amosa información sobre os modos de renderización habilitados para Math.\n\n{{PLURAL:$1|O seguinte modo está habilitado|Os seguintes modos están habilitados}}:",
 	"math_syntax_error": "erro de sintaxe",
 	"math_timeout": "$1 excedeu o tempo de espera desde \"$2\"",
+	"math-test-fail": "A proba ''$1'' <span style=\"color:red\">fallou</span>.",
 	"math_tip": "Fórmula matemática (LaTeX)",
 	"math_unknown_error": "erro descoñecido",
 	"math_unknown_function": "descoñécese a función \"$1\"",
@@ -36,5 +38,6 @@
 	"mw_math_mathml": "MathML con respaldo en SVG ou PNG (recomendado para navegadores máis modernos e ferramentas de acesibilidade)",
 	"mw_math_png": "Imaxes PNG",
 	"mw_math_source": "Código TeX (para os navegadores de texto)",
-	"prefs-math": "Fórmulas matemáticas"
+	"prefs-math": "Fórmulas matemáticas",
+	"mathstatus": "Estado de Math"
 }
