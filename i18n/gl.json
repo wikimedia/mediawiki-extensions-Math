@@ -14,6 +14,7 @@
 	"math-visualeditor-mwmathinspector-display": "Mostrar",
 	"math-visualeditor-mwmathinspector-display-block": "Bloquear",
 	"math-visualeditor-mwmathinspector-display-default": "Por defecto",
+	"math-visualeditor-mwmathinspector-display-inline": "Conectado",
 	"math-visualeditor-mwmathinspector-id": "Identificador de ligazón (opcional)",
 	"math-visualeditor-mwmathinspector-title": "Fórmula",
 	"math_bad_output": "Non se pode crear ou escribir no directorio matemático de saída",
