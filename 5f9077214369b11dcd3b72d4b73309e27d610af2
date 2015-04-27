@@ -34,6 +34,24 @@
       "revId": "5f9077214369b11dcd3b72d4b73309e27d610af2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ed113e2_edfa89b5",
+        "filename": "Math.hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2015-04-27T14:09:33Z",
+      "side": 1,
+      "message": "It expects $wgMathValidModes to be an array which it carnt.",
+      "parentUuid": "0ed113e2_4d0cf5f0",
+      "revId": "5f9077214369b11dcd3b72d4b73309e27d610af2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
