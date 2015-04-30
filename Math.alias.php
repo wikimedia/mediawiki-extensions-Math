@@ -17,6 +17,11 @@ $specialPageAliases['en'] = array(
 	'MathStatus' => array( 'MathStatus' ),
 );
 
+/** Arabic (العربية) */
+$specialPageAliases['ar'] = array(
+	'MathStatus' => array( 'حالة_الرياضيات' ),
+);
+
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'MathStatus' => array( 'МатСтатус' ),
