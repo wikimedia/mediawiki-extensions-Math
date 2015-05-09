@@ -1,0 +1,8 @@
+Verified+2: jenkins-bot
+Code-Review+1: Physikerwelt <wiki@physikerwelt.de>
+Code-Review+2: Bartosz Dziewoński <matma.rex@gmail.com>
+Submitted-by: jenkins-bot
+Submitted-at: Sat, 09 May 2015 12:50:04 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/209862
+Project: mediawiki/extensions/Math
+Branch: refs/heads/master
