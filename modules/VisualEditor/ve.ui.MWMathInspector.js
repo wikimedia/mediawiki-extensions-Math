@@ -50,22 +50,18 @@ ve.ui.MWMathInspector.prototype.initialize = function () {
 
 	// Position
 	this.displaySelect = new OO.ui.ButtonSelectWidget( {
-		$: this.$,
 		items: [
 			new OO.ui.ButtonOptionWidget( {
-				$: this.$,
 				data: 'default',
 				icon: 'math-display-default',
 				label: ve.msg( 'math-visualeditor-mwmathinspector-display-default' )
 			} ),
 			new OO.ui.ButtonOptionWidget( {
-				$: this.$,
 				data: 'inline',
 				icon: 'math-display-inline',
 				label: ve.msg( 'math-visualeditor-mwmathinspector-display-inline' )
 			} ),
 			new OO.ui.ButtonOptionWidget( {
-				$: this.$,
 				data: 'block',
 				icon: 'math-display-block',
 				label: ve.msg( 'math-visualeditor-mwmathinspector-display-block' )
@@ -73,20 +69,17 @@ ve.ui.MWMathInspector.prototype.initialize = function () {
 		]
 	} );
 
-	this.idInput = new OO.ui.TextInputWidget( { $: this.$ } );
+	this.idInput = new OO.ui.TextInputWidget();
 
 	var inputField = new OO.ui.FieldLayout( this.input, {
-			$: this.$,
 			align: 'top',
 			label: ve.msg( 'math-visualeditor-mwmathinspector-title' )
 		} ),
 		displayField = new OO.ui.FieldLayout( this.displaySelect, {
-			$: this.$,
 			align: 'top',
 			label: ve.msg( 'math-visualeditor-mwmathinspector-display' )
 		} ),
 		idField = new OO.ui.FieldLayout( this.idInput, {
-			$: this.$,
 			align: 'top',
 			label: ve.msg( 'math-visualeditor-mwmathinspector-id' )
 		} );
