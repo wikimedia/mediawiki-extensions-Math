@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ed113e2_a51abf19",
+        "filename": "extension.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-05-16T15:33:12Z",
+      "side": 1,
+      "message": "Can the string constants be used as values below?",
+      "revId": "9977a6a51605ef35c2c61c20b80c544e2354c087",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
