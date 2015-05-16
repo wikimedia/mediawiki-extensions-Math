@@ -115,6 +115,7 @@ class MathLaTeXML extends MathMathML {
 		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
 		if ( $requestResult ) {
 			$jsonResult = json_decode( $res );
+			var_export($jsonResult); die();
 			if ( $jsonResult && json_last_error() === JSON_ERROR_NONE ) {
 				if ( $this->isValidMathML( $jsonResult->result ) ) {
 					$this->setMathml( $jsonResult->result );
