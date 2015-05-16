@@ -129,4 +129,7 @@ class SpecialMathShowImage extends SpecialPage {
 		return $result;
 	}
 
+	protected function getGroupName() {
+		return 'other';
+	}
 }

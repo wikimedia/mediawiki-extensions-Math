@@ -238,8 +238,6 @@ $wgExtensionMessagesFiles['MathAliasNoTranslate'] = $dir . 'Math.alias.noTransla
 
 $wgParserTestFiles[] = $dir . 'mathParserTests.txt';
 
-$wgSpecialPageGroups[ 'MathShowImage' ] = 'other';
-$wgSpecialPageGroups[ 'MathStatus' ] = 'other';
 $wgSpecialPages['MathShowImage'] = 'SpecialMathShowImage';
 $wgSpecialPages['MathStatus'] = 'SpecialMathStatus';
 

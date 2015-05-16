@@ -138,4 +138,8 @@ class SpecialMathStatus extends SpecialPage {
 	private function assertEquals( $expected, $real, $message = '' ) {
 		$this->assertTrue( $expected == $real, $message );
 	}
+
+	protected function getGroupName() {
+		return 'other';
+	}
 }
