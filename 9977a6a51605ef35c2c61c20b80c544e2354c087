@@ -16,6 +16,24 @@
       "revId": "9977a6a51605ef35c2c61c20b80c544e2354c087",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ed113e2_c5b7c3f0",
+        "filename": "extension.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2015-05-16T15:55:26Z",
+      "side": 1,
+      "message": "Not sure. @Legokhtm may be able to answer this question.",
+      "parentUuid": "0ed113e2_a51abf19",
+      "revId": "9977a6a51605ef35c2c61c20b80c544e2354c087",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
