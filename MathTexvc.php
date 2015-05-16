@@ -406,7 +406,7 @@ class MathTexvc extends MathRenderer {
 		// Workaround for bugfix for Bug 56769
 		if ( !isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
 			// saves the PNG-file
-			Hooks::run( 'ParserAfterParse' );
+			Hooks::run( 'ParserAfterParse', array( new Parser(), '', new StripState( '' ) ) );
 		}
 		$backend = $this->getBackend();
 		return $backend->getFileContents( array( 'src' => $this->getHashPath() . "/" . $this->getHash() . '.png' ) );
