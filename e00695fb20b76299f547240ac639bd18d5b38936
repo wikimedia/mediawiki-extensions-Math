@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ed113e2_79047f17",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 61
+      },
+      "writtenOn": "2015-05-18T08:37:50Z",
+      "side": 1,
+      "message": "Perhaps we should locally cache these instances as private vars in this class.",
+      "revId": "e00695fb20b76299f547240ac639bd18d5b38936",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
