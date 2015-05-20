@@ -60,9 +60,6 @@ class SpecialMathShowImage extends SpecialPage {
 		} else {
 			if ( $tex === '' && $asciimath === ''){
 				switch ( $this->mode ) {
-					case MW_MATH_PNG:
-						$this->renderer = MathTexvc::newFromMd5( $hash );
-						break;
 					case MW_MATH_LATEXML:
 						$this->renderer = MathLaTeXML::newFromMd5( $hash );
 						break;
@@ -74,14 +71,6 @@ class SpecialMathShowImage extends SpecialPage {
 				if ( $isInDatabase || $this->noRender ) {
 					$success = $isInDatabase;
 				} else {
-					if ( $this->mode == MW_MATH_PNG ) {
-						// get the texvc input from the mathoid database table
-						// and render the conventional way
-						$mmlRenderer = MathMathML::newFromMd5( $hash );
-						$mmlRenderer->readFromDatabase();
-						$this->renderer = MathRenderer::getRenderer( $mmlRenderer->getUserInputTex(), array(), MW_MATH_PNG );
-						$this->renderer->setMathStyle( $mmlRenderer->getMathStyle() );
-					}
 					$success = $this->renderer->render();
 				}
 			} elseif ( $asciimath === '' ) {
@@ -93,7 +82,16 @@ class SpecialMathShowImage extends SpecialPage {
 			}
 			if ( $success ) {
 				if ( $this->mode == MW_MATH_PNG ) {
-					$output = $this->renderer->getPng();
+					$prefix = 'data:image/png;base64,';
+					$img = $this->renderer->getPng();
+					if( substr( $img, 0, strlen( $prefix ) ) === $prefix ){
+						$img = str_replace( $prefix, '', $img );
+						$img = str_replace( ' ', '+', $img );
+						$output = base64_decode( $img );
+					} else {
+						$output = $this->printSvgError( 'invalid png file' );
+						$success = false;
+					}
 				} else {
 					$output = $this->renderer->getSvg();
 				}
@@ -101,7 +99,7 @@ class SpecialMathShowImage extends SpecialPage {
 				// Error message in PNG not supported
 				$output = $this->printSvgError( $this->renderer->getLastError() );
 			}
-			if ( $output == "" ) {
+			if ( $output == "" || $output == false ) {
 				$output = $this->printSvgError( 'No Output produced' );
 				$success = false;
 			}

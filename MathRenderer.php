@@ -704,4 +704,8 @@ abstract class MathRenderer {
 	public function getPng() {
 		return $this->png;
 	}
+
+	public function setPng( $png ) {
+		$this->png = $png;
+	}
 }
