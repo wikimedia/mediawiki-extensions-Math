@@ -3,17 +3,21 @@
 		"authors": [
 			"Bhawani Gautam",
 			"Bhawani Gautam Rhk",
-			"सरोज कुमार ढकाल"
+			"सरोज कुमार ढकाल",
+			"NehalDaveND"
 		]
 	},
-	"math_sample": "सूत्र यहाँ थप्नुहोस्",
-	"math_tip": "गणितीय सूत्र (LaTeX)",
-	"prefs-math": "गणित",
-	"mw_math_png": "जहिले  PNG खोल्ने",
-	"mw_math_source": "यसलाई TeX को रुपमा  छोड्ने(पाठ प्रदर्शको लागि)",
+	"math-visualeditor-mwmathinspector-display": "दृश्य",
+	"math-visualeditor-mwmathinspector-display-block": "रोक्ने",
+	"math-visualeditor-mwmathinspector-display-default": "पूर्वनिर्धारित",
 	"math_failure": "पढ्न सकिएन",
+	"math_lexing_error": "वर्ण(lexing) त्रुटी",
+	"math_sample": "सूत्र यहाँ थप्नुहोस्",
+	"math_syntax_error": "सूत्र (syntax) त्रुटि",
+	"math_tip": "गणितीय सूत्र (LaTeX)",
 	"math_unknown_error": "अज्ञात समस्या",
 	"math_unknown_function": "अज्ञात निर्देशन",
-	"math_lexing_error": "वर्ण(lexing) त्रुटी",
-	"math_syntax_error": "सूत्र (syntax) त्रुटि"
+	"mw_math_png": "जहिले  PNG खोल्ने",
+	"mw_math_source": "यसलाई TeX को रुपमा  छोड्ने(पाठ प्रदर्शको लागि)",
+	"prefs-math": "गणित"
 }
