@@ -14,8 +14,8 @@ CREATE TABLE /*_*/math (
   math_html_conservativeness tinyint NOT NULL,
 
   -- HTML output from texvc, if any
-  math_html text,
+  math_html blob,
 
   -- MathML output from texvc, or from LaTeXML
-  math_mathml text
+  math_mathml blob
 ) /*$wgDBTableOptions*/;
