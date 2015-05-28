@@ -162,6 +162,7 @@ $wgMathDefaultLaTeXMLSetting = array(
 	'whatsout' => 'math',
 	'pmml',
 	'cmml',
+	'mathtex',
 	'nodefaultresources',
 	'preload' => array( 'LaTeX.pool',
 		'article.cls',
