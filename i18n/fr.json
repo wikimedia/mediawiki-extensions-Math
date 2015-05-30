@@ -8,12 +8,18 @@
 			"Wyz",
 			"Yona b",
 			"Constructeur",
-			"Djiboun"
+			"Djiboun",
+			"Mattho69"
 		]
 	},
 	"math-desc": "Restitue les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-preference-mwmathinspector-description": "Ajouter le support expérimental à l’ÉditeurVisuel pour créer et modifier des formules mathématiques, à des fins de test avant la version généralisée. Rappelez-vous de toujours vérifier vos modifications avant d’enregistrer lors de l’utilisation de fonctionnalités expérimentales.",
 	"math-preference-mwmathinspector-label": "Modification de formules dans l’ÉditeurVisuel",
+	"math-visualeditor-mwmathinspector-display": "Alignement",
+	"math-visualeditor-mwmathinspector-display-block": "En block",
+	"math-visualeditor-mwmathinspector-display-default": "Par défaut",
+	"math-visualeditor-mwmathinspector-display-inline": "En ligne",
+	"math-visualeditor-mwmathinspector-id": "ID du lien (facultatif)",
 	"math-visualeditor-mwmathinspector-title": "Formule",
 	"math_bad_output": "Impossible de créer ou d’écrire dans le répertoire math de sortie",
 	"math_bad_tmpdir": "Impossible de créer ou d’écrire dans le répertoire math temporaire",
@@ -29,6 +35,8 @@
 	"math_sample": "Entrez votre formule ici",
 	"math_syntax_error": "erreur de syntaxe",
 	"math_timeout": "$1 délais de \"$2\"",
+	"math-test-fail": "Le test \"$1\" <span style=\"color:red\">a échoué</span>.",
+	"math-test-success": "Le test \"$1\" <span style=\"color:green\">a réussi</span>.",
 	"math_tip": "Formule mathématique (LaTeX)",
 	"math_unknown_error": "erreur indéterminée",
 	"math_unknown_function": "fonction inconnue « $1 »",
