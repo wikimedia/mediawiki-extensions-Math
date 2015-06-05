@@ -33,6 +33,7 @@
 	"math_sample": "Введите сюда формулу",
 	"math_syntax_error": "синтаксическая ошибка",
 	"math_timeout": "$1 превысило время ожидания от «$2»",
+	"math-test-fail": "Тестирование ''$1'' <span style=\"color:red\">не прошло</span>.",
 	"math-test-success": "Тестирование «$1» <span style=\"color:green\">прошло успешно</span>.",
 	"math_tip": "Математическая формула (формат LaTeX)",
 	"math_unknown_error": "неизвестная ошибка",
