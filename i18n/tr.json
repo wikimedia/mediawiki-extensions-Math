@@ -10,7 +10,8 @@
 			"Uğur Başak",
 			"Rapsar",
 			"Arystanbek",
-			"Meelo"
+			"Meelo",
+			"Watermelon juice"
 		]
 	},
 	"math-desc": "Render matematiksel formüller arasında <code><math></code> ... <code></math></code> etiketler",
@@ -20,7 +21,7 @@
 	"math-visualeditor-mwmathinspector-display-block": "Engelle",
 	"math-visualeditor-mwmathinspector-display-default": "Varsayılan",
 	"math-visualeditor-mwmathinspector-display-inline": "Satır içi",
-	"math-visualeditor-mwmathinspector-id": "Bağlantı KİMLİĞİ (isteğe bağlı)",
+	"math-visualeditor-mwmathinspector-id": "Bağlantı Kimliği (isteğe bağlı)",
 	"math-visualeditor-mwmathinspector-title": "Formül",
 	"math_bad_output": "Math çıktı dizinine yazılamıyor ya da oluşturulamıyor",
 	"math_bad_tmpdir": "Math geçici dizinine yazılamıyor ya da oluşturulamıyor",
