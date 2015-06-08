@@ -232,7 +232,6 @@ $wgAutoloadClasses['MathInputCheckTexvc'] = $dir . 'MathInputCheckTexvc.php';
 $wgAutoloadClasses['SpecialMathShowImage'] = $dir . 'SpecialMathShowImage.php';
 $wgAutoloadClasses['SpecialMathStatus'] = $dir . 'SpecialMathStatus.php';
 $wgMessagesDirs['Math'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['Math'] = $dir . 'Math.i18n.php';
 $wgExtensionMessagesFiles['MathAlias'] = $dir . 'Math.alias.php';
 $wgExtensionMessagesFiles['MathAliasNoTranslate'] = $dir . 'Math.alias.noTranslate.php';
 
