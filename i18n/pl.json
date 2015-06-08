@@ -37,5 +37,6 @@
 	"mw_math_mathml": "MathML jeśli dostępny (eksperymentalne)",
 	"mw_math_png": "Obrazy PNG",
 	"mw_math_source": "Źródło w TeX (dla przeglądarek tekstowych)",
-	"prefs-math": "Wzory"
+	"prefs-math": "Wzory",
+	"mathstatus": "Status Math"
 }
