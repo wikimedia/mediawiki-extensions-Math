@@ -3,7 +3,8 @@
 		"authors": [
 			"IvanLanin",
 			"Iwan Novirion",
-			"William Surya Permana"
+			"William Surya Permana",
+			"Bennylin"
 		]
 	},
 	"math-preference-mwmathinspector-description": "Tambahkan dukungan eksperimental di VisualEditor untuk membuat dan menyunting rumus matematika untuk pengujian, sebelum rilis umum. Harap ingat untuk selalu meninjau perubahan Anda sebelum menyimpannya ketika menggunakan fitur eksperimental.",
@@ -24,5 +25,6 @@
 	"mw_math_mathml": "MathML jika mungkin (percobaan)",
 	"mw_math_png": "Selalu jadikan PNG",
 	"mw_math_source": "Biarkan sebagai TeX (untuk penjelajah web teks)",
-	"prefs-math": "Matematika"
+	"prefs-math": "Matematika",
+	"mathstatus": "Status Math"
 }

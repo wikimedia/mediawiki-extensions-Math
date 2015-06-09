@@ -10,7 +10,7 @@
 		]
 	},
 	"math-desc": "Renderowanie formuł matematycznych między znacznikami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math-preference-mwmathinspector-description": "Eksperymentalna funkcja umożliwiająca edytowanie i dodawanie wzorów matematycznych w VisualEditorze. Obecnie w fazie testowej; oczekuje na wdrożenie dla wszystkich użytkowników. Pamiętaj, aby zawsze sprawdzać podgląd strony przed zapisaniem.",
+	"math-preference-mwmathinspector-description": "Dodaje w edytorze VisualEditorze eksperymentalną obsługę dla tworzenia i edycji formuł matematycznych (do testowania, przed końcowym zapisaniem). Nie zapomnij, aby podczas korzystania z funkcji eksperymentalnych zawsze przeglądać swoje zmiany przed zapisaniem.",
 	"math-preference-mwmathinspector-label": "Edycja wzorów matematycznych za pomocą VisualEditora",
 	"math-visualeditor-mwmathinspector-display": "Wyświetl",
 	"math-visualeditor-mwmathinspector-display-block": "Ramka",
@@ -28,15 +28,20 @@
 	"math_notexvc": "Brak programu <code>texvc</code>.\nZapoznaj się z math/README w celu konfiguracji.",
 	"math_output_error": "Nie można zapisać obrazu z wzorem w systemie plików.",
 	"math_sample": "Tutaj wprowadź wzór",
+	"math-status-introduction": "Ta strona pokazuje informacje o dostępności rodzajów renderowania wzorów matematycznych.\n\n{{PLURAL:$1|Dostępny jest następujący rodzaj|Dostępne są następujące}} renderowania:",
 	"math_syntax_error": "błąd składni",
+	"math_timeout": "$1 przekroczył czas oczekiwania od „$2”.",
+	"math-test-fail": "Test ''$1'' <span style=\"color:red\">zakończony niepowodzeniem</span>.",
+	"math-test-success": "Test ''$1'' <span style=\"color:green\">zakończony powodzeniem</span>.",
 	"math_tip": "Wzór matematyczny (LaTeX)",
 	"math_unknown_error": "nieznany błąd",
 	"math_unknown_function": "nieznana funkcja '$1'",
 	"mw_math_latexml": "LaTeXML (eksperymentalne; wykorzystuje MathML)",
-	"mw_math_mathjax": "MathJax (doświadczalny)",
-	"mw_math_mathml": "MathML jeśli dostępny (eksperymentalne)",
+	"mw_math_latexml_jax": "LaTeXML z MathJax po stronie klienta (eksperymentalna opcja wykorzystująca MathML)",
+	"mw_math_mathjax": "MathJax po stronie klienta (powolne; poprawia renderowanie w niektórych przeglądarkach i narzędziach zwiększenia dostępności)",
+	"mw_math_mathml": "MathML z przejściem w SVG lub PNG (zalecane dla nowoczesnych przeglądarek i narzędzi zwiększenia dostępności)",
 	"mw_math_png": "Obrazy PNG",
 	"mw_math_source": "Źródło w TeX (dla przeglądarek tekstowych)",
 	"prefs-math": "Wzory",
-	"mathstatus": "Status Math"
+	"mathstatus": "Status renderowania formuł matematycznych"
 }
