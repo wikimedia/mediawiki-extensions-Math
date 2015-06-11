@@ -5,7 +5,7 @@
 			"Reedy"
 		]
 	},
-	"math-desc": "Zeisch Fomelle us de Mathematik aan, die ennerhallef vun <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> schtonn.",
+	"math-desc": "Zeisch Fomelle us de Mathematik aan, di ennerhallef vun <code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">&lt;math&gt;</code> un \n <code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">&lt;/math&gt;</code> schtonn.",
 	"math-preference-mwmathinspector-description": "Donn för der VisualEditor  e Projramm för Formelle ze beärbeide en et Wikki. Dadd es blohß zom Ußprobehre. Bedänk, Ding Änderonge aanzelohre, ih dat De faßhallde deihß, wann De Saache em Probihrschtadejom aam bruche bes.",
 	"math-preference-mwmathinspector-label": "Dem VisualEditor  sing Projramm för Formelle ze beärbeide",
 	"math-visualeditor-mwmathinspector-display": "Aanzeije",
@@ -33,7 +33,7 @@
 	"math-test-success": "De Prövong „$1“ es <span style=\"color:green\">johd</span> ußjejange.",
 	"math_tip": "En mathematisch Formel",
 	"math_unknown_error": "Fähler, dä mer nit kenne",
-	"math_unknown_function": "„$1“ es en Funktion, die mer nit känne.",
+	"math_unknown_function": "„$1“ es en Fonxjuhn, di mer nit känne.",
 	"mw_math_latexml": "<i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"TeX and LaTeX to XML translator\">LaTeXML</i> — zom ußprobehre, bruch <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Mathematical markup language\">MathML</i>",
 	"mw_math_latexml_jax": "<i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"TeX and LaTeX to XML translator\">LaTeXML</i> met <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Mathematical notations in web pages\">MathJax</i> em Brauser — zom ußprobehre, bruch <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Mathematical markup language\">MathML</i>",
 	"mw_math_mathjax": "<i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Mathematical notations in web pages\">MathJax</i> em Brauser (es lahm, deiht ävver de Aanzeije en manschem Brauser un Wärkzüsch för der Zohjang verbäßere)",
