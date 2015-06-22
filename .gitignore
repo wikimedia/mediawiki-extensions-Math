@@ -41,3 +41,4 @@ modules/MathJax/unpacked/jax/output/SVG/fonts/Neo-Euler
 modules/MathJax/unpacked/jax/output/SVG/fonts/STIX-Web
 tests/browser/.bundle
 tests/browser/.gem
+node_modules/
