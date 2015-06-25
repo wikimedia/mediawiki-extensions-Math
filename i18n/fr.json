@@ -33,9 +33,12 @@
 	"math_notexvc": "L’exécutable <code>texvc</code> est introuvable. Lisez math/README pour le configurer.",
 	"math_output_error": "Ne peut pas sauvegarder les images mathématiques dans le système de fichiers.",
 	"math_sample": "Entrez votre formule ici",
+	"math-status-introduction": "Cette page affiche des informations sur les modes de rendu mathématique activé.\n\n{{PLURAL:$1|Le mode de rendu suivant est activé|Les modes de rendu suivants sont activés}} :",
 	"math_syntax_error": "erreur de syntaxe",
 	"math_timeout": "$1 délais de \"$2\"",
+	"math-test-end": "Tests du serveur pour le mode rendu « $1 » terminés.",
 	"math-test-fail": "Le test \"$1\" <span style=\"color:red\">a échoué</span>.",
+	"math-test-start": "Exécution des tests de serveur pour le mode de rendu « $1 ».",
 	"math-test-success": "Le test \"$1\" <span style=\"color:green\">a réussi</span>.",
 	"math_tip": "Formule mathématique (LaTeX)",
 	"math_unknown_error": "erreur indéterminée",
@@ -46,5 +49,6 @@
 	"mw_math_mathml": "MathML avec SVG ou PNG en secours (recommandé pour les navigateurs modernes et les outils d’accessibilité)",
 	"mw_math_png": "Images PNG",
 	"mw_math_source": "Source TeX (pour les navigateurs en mode texte)",
-	"prefs-math": "Rendu des maths"
+	"prefs-math": "Rendu des maths",
+	"mathstatus": "État mathématique"
 }
