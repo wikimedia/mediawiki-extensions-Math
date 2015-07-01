@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#! /usr/bin/perl
 my $texvc = `texvc '\\sin(x)+{}{}\\cos(x)^2 newcommand'`;
 if (substr($result,0,1) eq "+") {
 	print "good";
