@@ -13,8 +13,6 @@
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング",
-	"math-preference-mwmathinspector-description": "ビジュアルエディターに、数式を作成および編集するための実験的な機能を、一般へのリリースの前の試験用として追加します。実験的な機能を使用する際は、常に保存前に変更内容を確認してください。",
-	"math-preference-mwmathinspector-label": "ビジュアルエディターでの数式の編集",
 	"math-visualeditor-mwmathinspector-display-block": "ブロック",
 	"math-visualeditor-mwmathinspector-display-default": "デフォルト",
 	"math-visualeditor-mwmathinspector-display-inline": "インライン",
