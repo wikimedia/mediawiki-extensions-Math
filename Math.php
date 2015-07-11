@@ -54,6 +54,7 @@ define( 'MW_MATH_LATEXML_JAX', 8 ); /// new in 1.22
 define( 'MW_MATHSTYLE_INLINE_DISPLAYSTYLE',  0 ); //default large operator inline
 define( 'MW_MATHSTYLE_DISPLAY', 1 ); // large operators centered in a new line
 define( 'MW_MATHSTYLE_INLINE',  2 ); // small operators inline
+define( 'MW_MATHSTYLE_LINEBREAK',  3 ); // break long lines (experimental)
 // There is no style which renders small operators
 // but display the equation centered in a new line.
 /**@}*/
@@ -176,6 +177,7 @@ $wgMathDefaultLaTeXMLSetting = array(
 		'hyperref.sty',
 		'[ids]latexml.sty',
 		'texvc' ),
+	'linelength' => 90
 );
 /**
  * The link to the texvccheck executable
