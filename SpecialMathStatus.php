@@ -54,6 +54,7 @@ class SpecialMathStatus extends SpecialPage {
 	private function runMathLaTeXMLTest( $modeName ) {
 		$this->getOutput()->addWikiMsgArray( 'math-test-start', $modeName );
 		$this->testLaTeXMLIntegration();
+		$this->testLaTeXMLLinebreak();
 		$this->getOutput()->addWikiMsgArray( 'math-test-end', $modeName );
 	}
 
@@ -120,6 +121,25 @@ class SpecialMathStatus extends SpecialPage {
 		$real = preg_replace( "/\n\s*/", '', $renderer->getHtmlOutput() );
 		$this->assertContains( $expected, $real
 			, "Comparing the output to the MathML reference rendering" .
+			  $renderer->getLastError() );
+	}
+
+	/**
+	 * Checks LaTeXML line break functionality
+	 * i.e. if a long line contains a mtr element.
+	 */
+	public function testLaTeXMLLinebreak() {
+		$tex = '';
+		for( $i = 0; $i < 30; $i++ ){
+			$tex .= "$i+";
+		}
+		$tex .= "30";
+		$renderer = new MathLaTeXML( $tex, array( 'display' => 'linebreak' ) );
+		$this->assertTrue( $renderer->render( true ), "Rendering of linebreak test in LaTeXML mode" );
+		$expected = 'mtr';
+		$real = preg_replace( "/\n\\s*/", '', $renderer->getHtmlOutput() );
+		$this->assertContains( $expected, $real
+			, "Checking for linebreak" .
 			  $renderer->getLastError() );
 	}
 
