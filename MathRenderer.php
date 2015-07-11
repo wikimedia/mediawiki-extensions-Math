@@ -31,7 +31,8 @@ abstract class MathRenderer {
 	/** @var string the original user input string (which was used to calculate the inputhash) */
 	protected $userInputTex = '';
 	// FURTHER PROPERTIES OF THE MATHEMATICAL CONTENT
-	/** @var (MW_MATHSTYLE_INLINE_DISPLAYSTYLE|MW_MATHSTYLE_DISPLAY|MW_MATHSTYLE_INLINE) the rendering style */
+	/** @var (MW_MATHSTYLE_INLINE_DISPLAYSTYLE|MW_MATHSTYLE_DISPLAY|MW_MATHSTYLE_INLINE|MW_MATHSTYLE_LINEBREAK)
+	 * the rendering style */
 	protected $mathStyle = MW_MATHSTYLE_INLINE_DISPLAYSTYLE;
 	/** @var array with userdefined parameters passed to the extension (not used) */
 	protected $params = array();
@@ -63,12 +64,37 @@ abstract class MathRenderer {
 	 * @param array $params (optional) HTML attributes
 	 */
 	public function __construct( $tex = '', $params = array() ) {
-		$this->userInputTex = $tex;
-		$this->tex = $tex;
 		$this->params = $params;
 		if ( isset( $params['id'] ) ) {
 			$this->id = $params['id'];
 		}
+		$mathStyle = null;
+		if ( isset( $params['display'] ) ) {
+			$layoutMode = $params['display'];
+			if ( $layoutMode == 'block' ) {
+				$mathStyle = MW_MATHSTYLE_DISPLAY;
+				$tex = '{\displaystyle ' . $tex . '}';
+			} elseif ( $layoutMode == 'inline' ) {
+				$mathStyle = MW_MATHSTYLE_INLINE;
+				$tex = '{\textstyle ' . $tex . '}';
+			} elseif ( $layoutMode == 'linebreak' ) {
+				$mathStyle = MW_MATHSTYLE_LINEBREAK;
+				$tex = '\[ ' . $tex . ' \]';
+			}
+		}
+		// TODO: Implement caching for attributes of the math tag
+		// Currently the key for the database entry relating to an equation
+		// is md5($tex) the new option to determine if the tex input
+		// is rendered in displaystyle or textstyle would require a database
+		// layout change to use a composite key e.g. (md5($tex),$mathStyle).
+		// As a workaround we use the prefix \displaystyle so that the key becomes
+		// md5((\{\\displaystyle|\{\\textstyle)?\s?$tex\}?)
+		// The new value of $tex string describes now how the rendering should look like.
+		// The variable MathRenderer::mathStyle determines if the rendered equation should
+		// be centered in a new line, or just in be displayed in the current line.
+		$this->userInputTex = $tex;
+		$this->tex = $tex;
+		$this->mathStyle = $mathStyle;
 	}
 
 	/**
@@ -112,27 +138,6 @@ abstract class MathRenderer {
 	 */
 	public static function getRenderer( $tex, $params = array(), $mode = MW_MATH_PNG ) {
 		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathEnableExperimentalInputFormats;
-		$mathStyle = null;
-		if ( isset( $params['display'] ) ) {
-			$layoutMode = $params['display'];
-			if ( $layoutMode == 'block' ) {
-				$mathStyle = MW_MATHSTYLE_DISPLAY;
-				// TODO: Implement caching for attributes of the math tag
-				// Currently the key for the database entry relating to an equation
-				// is md5($tex) the new option to determine if the tex input
-				// is rendered in displaystyle or textstyle would require a database
-				// layout change to use a composite key e.g. (md5($tex),$mathStyle).
-				// As a workaround we use the prefix \displaystyle so that the key becomes
-				// md5((\{\\displaystyle|\{\\textstyle)?\s?$tex\}?)
-				// The new value of $tex string describes now how the rendering should look like.
-				// The variable MathRenderer::mathStyle determines if the rendered equation should
-				// be centered in a new line, or just in be displayed in the current line.
-				$tex = '{\displaystyle ' . $tex . '}';
-			} elseif ( $layoutMode == 'inline' ) {
-				$mathStyle = MW_MATHSTYLE_INLINE;
-				$tex = '{\textstyle ' . $tex . '}';
-			}
-		}
 
 		if ( isset( $params['forcemathmode'] ) ) {
 			$mode = $params['forcemathmode'];
@@ -165,7 +170,6 @@ abstract class MathRenderer {
 		}
 		LoggerFactory::getInstance( 'Math' )->info( 'Start rendering $' . $renderer->tex .
 			'$ in mode ' . $mode );
-		$renderer->setMathStyle( $mathStyle );
 		return $renderer;
 	}
 
