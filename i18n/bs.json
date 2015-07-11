@@ -16,8 +16,8 @@
 	"math_tip": "Matematička formula (LaTeX)",
 	"math_unknown_error": "nepoznata greška",
 	"math_unknown_function": "nepoznata funkcija \"$1\"",
-	"mw_math_mathml": "MathML ako je moguće (eksperimentalno)",
+	"mw_math_mathml": "MathML sa SVG ili PNG rezervom (preporučuje se za moderne preglednike i alate pristupačnosti)",
 	"mw_math_png": "PNG slike",
-	"mw_math_source": "Ostavi kao TeX (za tekstualne preglednike)",
+	"mw_math_source": "TeX izvor (za tekstualne preglednike)",
 	"prefs-math": "Prikazivanje matematike"
 }
