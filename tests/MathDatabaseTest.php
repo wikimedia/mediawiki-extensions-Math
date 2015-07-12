@@ -74,7 +74,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 
 
 	/**
-	 * Checks the creation of the math table without debugging enabled.
+	 * Checks the creation of the math table.
 	 * @covers MathHooks::onLoadExtensionSchemaUpdates
 	 */
 	public function testCreateTable() {

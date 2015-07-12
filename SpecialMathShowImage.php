@@ -119,11 +119,11 @@ class SpecialMathShowImage extends SpecialPage {
 	 * @return xml svg image with the error message
 	 */
 	private function printSvgError( $msg ) {
-		global $wgMathDebug;
+		global $wgDebugComments;
 		$result =  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 4"
  preserveAspectRatio="xMidYMid meet" >' .
 			'<text text-anchor="start" fill="red" y="2">' . htmlspecialchars( $msg ) . '</text></svg>';
-		if ( $wgMathDebug ) {
+		if ( $wgDebugComments ) {
 			$result .= '<!--'. var_export($this->renderer, true) .'-->';
 		}
 		return $result;

@@ -195,6 +195,7 @@ class MathMathML extends MathRenderer {
 	protected function pickHost() {
 		if ( is_array( $this->hosts ) ) {
 			$host = array_rand( $this->hosts );
+			$this->hosts = $hosts; //Use the same host for this class instanance
 		} else {
 			$host = $this->hosts;
 		}
@@ -463,7 +464,6 @@ class MathMathML extends MathRenderer {
 	 * @return bool
 	 */
 	private function processJsonResult( $jsonResult, $host ) {
-		global $wgMathDebug;
 		if ( $this->getMode() == MW_MATH_LATEXML || $this->inputType == 'pmml' ||
 			 $this->isValidMathML( $jsonResult->mml )
 		) {
@@ -479,12 +479,12 @@ class MathMathML extends MathRenderer {
 				LoggerFactory::getInstance( 'Math' )->error(
 					'Missing SVG property in JSON result.' );
 			}
-			if ( $wgMathDebug ) {
-				$this->setLog( $jsonResult->log );
-			}
 			if ( $this->getMode() != MW_MATH_LATEXML && $this->inputType != 'pmml' ) {
 				$this->setMathml( $jsonResult->mml );
 			}
+			Hooks::run( 'MathRenderingResultRetrieved',
+				array( &$renderer,
+					   &$jsonResult ) );// Enables debugging of server results
 			return true;
 		} else {
 			$this->lastError = $this->getError( 'math_unknown_error', $host );

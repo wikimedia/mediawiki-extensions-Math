@@ -95,8 +95,6 @@ class MathLaTeXML extends MathMathML {
 	 * @return boolean
 	 */
 	protected function doRender() {
-		global $wgMathDebug;
-
 		if ( trim( $this->getTex() ) === '' ) {
 			LoggerFactory::getInstance( 'Math' )->warning(
 				'Rendering was requested, but no TeX string is specified.' );
@@ -118,10 +116,9 @@ class MathLaTeXML extends MathMathML {
 			if ( $jsonResult && json_last_error() === JSON_ERROR_NONE ) {
 				if ( $this->isValidMathML( $jsonResult->result ) ) {
 					$this->setMathml( $jsonResult->result );
-					if ( $wgMathDebug ) {
-						$this->setLog( $jsonResult->log );
-						$this->setStatusCode( $jsonResult->status_code );
-					}
+					Hooks::run( 'MathRenderingResultRetrieved',
+						array( &$renderer,
+							   &$jsonResult ) );// Enables debugging of server results
 					return true;
 				} else {
 					// Do not print bad mathml. It's probably too verbose and might
