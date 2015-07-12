@@ -205,9 +205,6 @@ define( 'MW_MATH_CHECK_NEW'   , 2 );
  */
 $wgMathDisableTexFilter = MW_MATH_CHECK_NEW;
 
-/** Stores debug information in the database and provides more detailed debug output */
-$wgMathDebug = false;
-
 /** @var boolean $wgMathEnableExperimentalInputFormats enables experimental MathML and AsciiMath input format support */
 $wgMathEnableExperimentalInputFormats = false;
 ////////// end of config settings.

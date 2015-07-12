@@ -13,8 +13,7 @@ use MediaWiki\Logger\LoggerFactory;
  * Abstract base class with static methods for rendering the <math> tags using
  * different technologies. These static methods create a new instance of the
  * extending classes and render the math tags based on the mode setting of the user.
- * Furthermore this class handles the caching of the rendered output and provides
- * debug information, if run in mathdebug mode.
+ * Furthermore this class handles the caching of the rendered output.
  *
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
@@ -38,15 +37,6 @@ abstract class MathRenderer {
 	protected $params = array();
 	/** @var string a userdefined identifier to link to the equation. */
 	protected $id = '';
-
-	// DEBUG VARIABLES
-	// Available, if Math extension runs in debug mode ($wgMathDebug = true) only.
-	/** @var int LaTeXML return code (will be available in future Mathoid versions as well) */
-	protected $statusCode = 0;
-	/** @var timestamp of the last modification of the database entry */
-	protected $timestamp;
-	/** @var log messages generated during conversion of mathematical content */
-	protected $log = '';
 
 	// STATE OF THE CLASS INSTANCE
 	/** @var boolean has variable tex been security-checked */
@@ -325,7 +315,6 @@ abstract class MathRenderer {
 	 * @param DatabaseBase $dbw
 	 */
 	public function writeToDatabase( $dbw = null ) {
-		global $wgMathDebug;
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
 			$dbw = $dbw ?: wfGetDB( DB_MASTER );
@@ -347,18 +336,16 @@ abstract class MathRenderer {
 				} );
 			} else {
 				$dbw->onTransactionIdle( function () use (
-					$dbw, $outArray, $wgMathDebug, $method, $mathTableName
+					$dbw, $outArray, $method, $mathTableName
 				) {
 					$dbw->insert( $mathTableName, $outArray, $method, array( 'IGNORE' ) );
-					if ( $wgMathDebug ) {
-						LoggerFactory::getInstance( 'Math' )->debug(
-							'Row inserted after db transaction was idle ' .
-							var_export( $outArray, true ) . " to database" );
-						if ( $dbw->affectedRows() == 0 ) {
-							// That's the price for the delayed update.
-							LoggerFactory::getInstance( 'Math' )->warning(
-								'Entry could not be written. Might be changed in between.' );
-						}
+					LoggerFactory::getInstance( 'Math' )->debug(
+						'Row inserted after db transaction was idle ' .
+						var_export( $outArray, true ) . " to database" );
+					if ( $dbw->affectedRows() == 0 ) {
+						// That's the price for the delayed update.
+						LoggerFactory::getInstance( 'Math' )->warning(
+							'Entry could not be written. Might be changed in between.' );
 					}
 				} );
 			}
@@ -418,14 +405,6 @@ abstract class MathRenderer {
 	 */
 	public function getTex() {
 		return $this->tex;
-	}
-
-	/**
-	 * gets the timestamp, of the last rendering of that equation
-	 * @return int
-	 */
-	public function getTimestamp() {
-		return $this->timestamp;
 	}
 
 	/**
@@ -550,13 +529,6 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getLog() {
-		return $this->log;
-	}
-
-	/**
 	 *
 	 * @param (MW_MATHSTYLE_INLINE_DISPLAYSTYLE|MW_MATHSTYLE_DISPLAY|MW_MATHSTYLE_INLINE) $mathStyle
 	 */
@@ -574,28 +546,7 @@ abstract class MathRenderer {
 	public function getMathStyle() {
 		return $this->mathStyle;
 	}
-	/**
-	 * @param string $log
-	 */
-	public function setLog( $log ) {
-		$this->changed = true;
-		$this->log = $log;
-	}
 
-	/**
-	 * @return int
-	 */
-	public function getStatusCode() {
-		return $this->statusCode;
-	}
-
-	/**
-	 * @param unknown_type $statusCode
-	 */
-	public function setStatusCode( $statusCode ) {
-		$this->changed = true;
-		$this->statusCode = $statusCode;
-	}
 	/**
 	 * Get if the input tex was marked as secure
 	 * @return boolean
