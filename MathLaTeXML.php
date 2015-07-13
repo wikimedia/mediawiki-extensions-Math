@@ -190,7 +190,7 @@ class MathLaTeXML extends MathMathML {
 		$renderer->setMode( MW_MATH_LATEXML );
 		$res = $renderer->render( true );
 		if ( $res == true ) {
-			$this->svg = $renderer->getSvg();
+			$this->setSvg( $renderer->getSvg() );
 		} else {
 			$lastError = $renderer->getLastError();
 			LoggerFactory::getInstance( 'Math' )->error(
