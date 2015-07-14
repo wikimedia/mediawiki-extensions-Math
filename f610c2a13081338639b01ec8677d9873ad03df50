@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ec42329_91c7619a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2015-07-14T14:20:27Z",
+      "side": 1,
+      "message": "useless",
+      "revId": "f610c2a13081338639b01ec8677d9873ad03df50",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec42329_b1c4dd95",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2015-07-14T14:20:27Z",
+      "side": 1,
+      "message": "thereafter",
+      "revId": "f610c2a13081338639b01ec8677d9873ad03df50",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec42329_113371c1",
+        "filename": "MathMathML.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2015-07-14T14:20:27Z",
+      "side": 1,
+      "message": "missing space after //\ninstance",
+      "revId": "f610c2a13081338639b01ec8677d9873ad03df50",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
