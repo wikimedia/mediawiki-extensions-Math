@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ec42329_7143d543",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2015-07-14T14:08:05Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "a0382feea3c8add6d50d2c9ebce5729ea8d5fe2b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec42329_31754d93",
+        "filename": "MathRenderer.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2015-07-14T14:08:05Z",
+      "side": 1,
+      "message": "why isn\u0027t this on the next line?",
+      "revId": "a0382feea3c8add6d50d2c9ebce5729ea8d5fe2b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec42329_515d7919",
+        "filename": "SpecialMathStatus.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2015-07-14T14:08:05Z",
+      "side": 1,
+      "message": "missing space",
+      "revId": "a0382feea3c8add6d50d2c9ebce5729ea8d5fe2b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec42329_51bc991a",
+        "filename": "SpecialMathStatus.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2015-07-14T14:08:05Z",
+      "side": 1,
+      "message": "perhaps the \"linelength\" parameter should be involved here instead of the arbitrary 30, so that we are sure that the test does not break if we change the default linelength",
+      "revId": "a0382feea3c8add6d50d2c9ebce5729ea8d5fe2b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
