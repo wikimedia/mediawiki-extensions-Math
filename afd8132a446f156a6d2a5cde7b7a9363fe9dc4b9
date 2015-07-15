@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ec42329_4f3f0dd4",
+        "filename": "MathRenderer.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 2678
+      },
+      "writtenOn": "2015-07-15T14:14:49Z",
+      "side": 1,
+      "message": "should we also include MW_MATHSTYLE_LINEBREAK\nfor example line 34 should look like \n/** @var (MW_MATHSTYLE_INLINE_DISPLAYSTYLE|MW_MATHSTYLE_DISPLAY|MW_MATHSTYLE_INLINE|MW_MATHSTYLE_LINEBREAK) the ren\ndering style */",
+      "revId": "afd8132a446f156a6d2a5cde7b7a9363fe9dc4b9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
