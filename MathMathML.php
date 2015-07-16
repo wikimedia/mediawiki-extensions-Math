@@ -142,7 +142,7 @@ class MathMathML extends MathRenderer {
 	 */
 	public function makeRequest( $host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest' ) {
 		// TODO: Change the timeout mechanism.
-		global $wgMathLaTeXMLTimeout;
+		global $wgMathLaTeXMLTimeout, $wgMathStorageEngine;
 
 		$error = '';
 		$res = null;
@@ -152,7 +152,12 @@ class MathMathML extends MathRenderer {
 		if ( !$post ) {
 			$this->getPostData();
 		}
+		// TODO: rename $wgMathLaTeXMLTimeout
 		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
+		if ( $wgMathStorageEngine !== 'database' ){
+			$postSha1 = sha1( $post );
+			$host = "$host/$postSha1/render";
+		}
 		/** @var $req (CurlHttpRequest|PhpHttpRequest) the request object  */
 		$req = $httpRequestClass::factory( $host, $options );
 		/** @var Status $req Status the request status */
