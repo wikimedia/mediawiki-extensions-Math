@@ -142,7 +142,7 @@ class MathMathML extends MathRenderer {
 	 */
 	public function makeRequest( $host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest' ) {
 		// TODO: Change the timeout mechanism.
-		global $wgMathLaTeXMLTimeout;
+		global $wgMathLaTeXMLTimeout, $wgMathStorageEngine;
 
 		$error = '';
 		$res = null;
@@ -152,6 +152,7 @@ class MathMathML extends MathRenderer {
 		if ( !$post ) {
 			$this->getPostData();
 		}
+		// TODO: rename $wgMathLaTeXMLTimeout
 		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
 		/** @var $req (CurlHttpRequest|PhpHttpRequest) the request object  */
 		$req = $httpRequestClass::factory( $host, $options );
@@ -316,11 +317,15 @@ class MathMathML extends MathRenderer {
 	 * @return type
 	 */
 	private function getFallbackImageUrl( $noRender = false ) {
-		return SpecialPage::getTitleFor( 'MathShowImage' )->getLocalURL( array(
-				'hash' => $this->getMd5(),
-				'mode' => $this->getMode(),
-				'noRender' => $noRender )
-		);
+		global $wgMathStorageEngine;
+		if ( $wgMathStorageEngine == 'database' ) {
+			return SpecialPage::getTitleFor( 'MathShowImage' )->getLocalURL( array(
+					'hash' => $this->getMd5(),
+					'mode' => $this->getMode(),
+					'noRender' => $noRender )
+			);
+		}
+		// TODO: Refer to Restbase URL here
 	}
 
 	/**

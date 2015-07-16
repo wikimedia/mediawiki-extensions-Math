@@ -252,6 +252,11 @@ abstract class MathRenderer {
 	 * @return boolean true if read successfully, false otherwise
 	 */
 	public function readFromDatabase() {
+		global $wgMathStorageEngine;
+		if ( $wgMathStorageEngine != "database" ){
+			// Always assume that the entry has not been rendered before
+			return false;
+		}
 		/** @var DatabaseBase */
 		$dbr = wfGetDB( DB_SLAVE );
 		/** @var ResultWrapper */
@@ -386,6 +391,10 @@ abstract class MathRenderer {
 	 * Writes cache. Writes the database entry if values were changed
 	 */
 	public function writeCache() {
+		global $wgMathStorageEngine;
+		if ( $wgMathStorageEngine !== 'database') {
+			return true;
+		}
 		$logger = LoggerFactory::getInstance( 'Math' );
 		$logger->debug( 'Writing of cache requested.' );
 		if ( $this->isChanged() ) {
