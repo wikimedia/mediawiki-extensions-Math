@@ -215,7 +215,11 @@ class MathHooks {
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
-		global $wgMathValidModes;
+		global $wgMathValidModes, $wgMathStorageEngine;
+		if ( $wgMathStorageEngine != 'database' ) {
+			// No need to create database tables, if restbase is used as storage engine
+			return true;
+		}
 		if ( is_null( $updater ) ) {
 			throw new Exception( 'Math extension is only necessary in 1.18 or above' );
 		}
