@@ -207,6 +207,8 @@ $wgMathDisableTexFilter = MW_MATH_CHECK_NEW;
 
 /** @var boolean $wgMathEnableExperimentalInputFormats enables experimental MathML and AsciiMath input format support */
 $wgMathEnableExperimentalInputFormats = false;
+
+$wgMathStorageEngine = "database";
 ////////// end of config settings.
 
 $wgExtensionFunctions[] = 'MathHooks::setup';
