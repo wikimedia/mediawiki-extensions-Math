@@ -6,12 +6,11 @@
 			"Liuxinyu970226",
 			"Mark85296341",
 			"Simon Shek",
-			"Cwlin0416"
+			"Cwlin0416",
+			"LNDDYL"
 		]
 	},
 	"math-desc": "在 <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code> 標籤顯示數學公式",
-	"math-preference-mwmathinspector-description": "加入用來編輯數學工具的實驗中的功能至 VisualEditor 在一般發行前做測試。在使用實驗中的功能時，請記得時儲存之前再次檢查您的變更。",
-	"math-preference-mwmathinspector-label": "VisualEditor 公式編輯",
 	"math-visualeditor-mwmathinspector-display": "顯示",
 	"math-visualeditor-mwmathinspector-display-block": "區塊",
 	"math-visualeditor-mwmathinspector-display-default": "預設",
@@ -36,7 +35,7 @@
 	"math_unknown_error": "不明錯誤",
 	"math_unknown_function": "不明函數 \"$1\"",
 	"mw_math_latexml": "LaTeXML (實驗性；使用 MathML)",
-	"mw_math_latexml_jax": "LaTeXML 使用客戶端 MathJax (實驗中；使用 MathML)",
+	"mw_math_latexml_jax": "LaTeXML 使用用戶端 MathJax (實驗中；使用 MathML)",
 	"mw_math_mathjax": "客戶端 MathJax (速度較慢，改進於部份瀏覽器與輔助工具的繪圖效果)",
 	"mw_math_mathml": "MathML 使用 SVG 或 PNG 備用 (建議用於現代瀏覽器與輔助工具)",
 	"mw_math_png": "PNG 圖片",
