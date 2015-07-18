@@ -4,8 +4,6 @@
 			"Cedric31"
 		]
 	},
-	"math-preference-mwmathinspector-description": "Apondre d'aisinas experimentalas a VisualEditor per crear o modificar de formulas matematicas, per dire d'o ensajar, abans la mesa en produccion. Doblidètz pas d'enregistrar las modificacions abans d'utilizar las foncions experimentalas.",
-	"math-preference-mwmathinspector-label": "Modificacion de formulas dins l'EditorVisual",
 	"math_bad_output": "Impossible de crear o d’escriure dins lo repertòri math de sortida",
 	"math_bad_tmpdir": "Impossible de crear o d’escriure dins lo repertòri math temporari",
 	"math_failure": "Error matas",
@@ -21,5 +19,6 @@
 	"mw_math_mathml": "MathML amb SVG o PNG en secors (experimental)",
 	"mw_math_png": "Imatges PNG",
 	"mw_math_source": "Font TeX (pels navigadors en mòde tèxte)",
-	"prefs-math": "Rendut de las matas"
+	"prefs-math": "Rendut de las matas",
+	"mathstatus": "Estat matematic"
 }
