@@ -37,7 +37,6 @@ class MathHooks {
 				)
 			) {
 				// The math part of cache key starts with "math=" followed by a star or a number for the math mode
-				// and the optional letter j that indicates if clientside MathJax rendering is used.
 				if ( preg_match( '/(^|!)' . self::mathCacheKey . '[*\d]m?(!|$)/', $confstr ) ) {
 					$confstr = preg_replace(
 						'/(^|!)' . self::mathCacheKey . '[*\d]m?(!|$)/',
@@ -128,9 +127,6 @@ class MathHooks {
 		}
 		Hooks::run( 'MathFormulaPostRender',
 			array( $parser, &$renderer, &$renderedMath ) );// Enables indexing of math formula
-		if ( $mode == MW_MATH_MATHJAX || $mode == MW_MATH_LATEXML_JAX ) {
-			$parser->getOutput()->addModules( array( 'ext.math.mathjax.enabler' ) );
-		}
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
 		if ( $mode == MW_MATH_MATHML ) {
 			$parser->getOutput()->addModuleStyles( array( 'ext.math.desktop.styles' ) );
