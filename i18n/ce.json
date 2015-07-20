@@ -6,8 +6,6 @@
 		]
 	},
 	"math-desc": "Гойту математикан формулш тегашкахь <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math-preference-mwmathinspector-description": "Визуальни тадарна тӀетуху математикан формулаш кхолла а таян а аьтту. Дехар до, хьой бина хийцамаш Ӏалаш бале царга даиман хьажа.",
-	"math-preference-mwmathinspector-label": "Визуальни тадарца ца формулаш таяр",
 	"math-visualeditor-mwmathinspector-display": "Дисплей",
 	"math-visualeditor-mwmathinspector-display-block": "Блоктохар",
 	"math-visualeditor-mwmathinspector-display-default": "Дефолт",
@@ -33,7 +31,7 @@
 	"math_unknown_function": "йоьвзуш йоцу функци «$1»",
 	"mw_math_latexml": "LaTeXML (экспериментан; лелош ю MathML)",
 	"mw_math_latexml_jax": "LaTeXML, MathJax тӀера клиентан агӀора (экспериментан опци, MathML лелош йолу)",
-	"mw_math_mathjax": "MathJax клиентан агӀорахь (меллаша; кечдар нисдо цхьайолу браузерш чохь а гӀирсаш чохь а тӀекхачар хьаладоккхуш)",
+	"mw_math_mathjax": "MathJax клиентан агӀорахь (меллаша; кечдар нисдо цхьайолу браузерш чохь а, гӀирсаш чохь а тӀекхачар хьаладоккхуш)",
 	"mw_math_mathml": "MathML SVG я PNG дехьайолуш (магош ю таханлера браузерашна а, тӀекхачар совйоккху гӀирсанша а)",
 	"mw_math_png": "PNG-сурт",
 	"mw_math_source": "ТеХ билгало (йизан браузершан)",
