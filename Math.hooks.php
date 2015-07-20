@@ -11,6 +11,103 @@ use MediaWiki\Logger\LoggerFactory;
 class MathHooks {
 	const mathCacheKey = 'math=';
 
+	public static function registerExtension() {
+		global $wgDefaultUserOptions, $wgMathDefaultLaTeXMLSetting, $wgTexvc, $wgMathTexvcCheckExecutable;
+		/**@{
+		 * Maths constants
+		 */
+		define( 'MW_MATH_PNG',    0 );
+		define( 'MW_MATH_SIMPLE', 1 ); /// @deprecated
+		define( 'MW_MATH_HTML',   2 ); /// @deprecated
+		define( 'MW_MATH_SOURCE', 3 );
+		define( 'MW_MATH_MODERN', 4 ); /// @deprecated
+		define( 'MW_MATH_MATHML', 5 );
+		define( 'MW_MATH_MATHJAX', 6 ); /// @deprecated
+		define( 'MW_MATH_LATEXML', 7 ); /// new in 1.22
+		define( 'MW_MATH_LATEXML_JAX', 8 ); /// new in 1.22
+		/**@}*/
+
+		/**@{
+		 * Mathstyle constants
+		 */
+		define( 'MW_MATHSTYLE_INLINE_DISPLAYSTYLE',  0 ); //default large operator inline
+		define( 'MW_MATHSTYLE_DISPLAY', 1 ); // large operators centered in a new line
+		define( 'MW_MATHSTYLE_INLINE',  2 ); // small operators inline
+		// There is no style which renders small operators
+		// but display the equation centered in a new line.
+		/**@}*/
+
+		/**@{
+		 * Math check constants
+		 */
+		define( 'MW_MATH_CHECK_ALWAYS', 0 ); /// backwards compatible to false
+		define( 'MW_MATH_CHECK_NEVER' , 1 ); /// backwards compatible to true
+		define( 'MW_MATH_CHECK_NEW'   , 2 );
+		/**@}*/
+
+		$wgDefaultUserOptions['math'] = MW_MATH_PNG;
+
+		/**
+		 * Setting for the LaTeXML renderer.
+		 * See http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml for details.
+		 */
+		$wgMathDefaultLaTeXMLSetting = array(
+			'format' => 'xhtml',
+			'whatsin' => 'math',
+			'whatsout' => 'math',
+			'pmml',
+			'cmml',
+			'mathtex',
+			'nodefaultresources',
+			'preload' => array( 'LaTeX.pool',
+				'article.cls',
+				'amsmath.sty',
+				'amsthm.sty',
+				'amstext.sty',
+				'amssymb.sty',
+				'eucal.sty',
+				'[dvipsnames]xcolor.sty',
+				'url.sty',
+				'hyperref.sty',
+				'[ids]latexml.sty',
+				'texvc' ),
+		);
+
+		/** Location of the texvc binary */
+		$wgTexvc = __DIR__ . '/math/texvc';
+
+		/**
+		 * The link to the texvccheck executable
+		 */
+		$wgMathTexvcCheckExecutable = __DIR__ . '/texvccheck/texvccheck';
+
+		/**
+		 * Setting for the LaTeXML renderer.
+		 * See http://dlmf.nist.gov/LaTeXML/manual/commands/latexmlpost.xhtml for details.
+		 */
+		$wgMathDefaultLaTeXMLSetting = array(
+			'format' => 'xhtml',
+			'whatsin' => 'math',
+			'whatsout' => 'math',
+			'pmml',
+			'cmml',
+			'mathtex',
+			'nodefaultresources',
+			'preload' => array( 'LaTeX.pool',
+				'article.cls',
+				'amsmath.sty',
+				'amsthm.sty',
+				'amstext.sty',
+				'amssymb.sty',
+				'eucal.sty',
+				'[dvipsnames]xcolor.sty',
+				'url.sty',
+				'hyperref.sty',
+				'[ids]latexml.sty',
+				'texvc' ),
+		);
+	}
+
 	/*
 	 * Generate a user dependent hash cache key.
 	 * The hash key depends on the rendering mode.
