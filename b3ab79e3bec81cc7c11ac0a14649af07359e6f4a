@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ec42329_bb3ecc22",
+        "filename": "Math.hooks.php",
+        "patchSetId": 18
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-07-21T11:37:39Z",
+      "side": 1,
+      "message": "Why don\u0027t we use global at the function definition.\nI know it has the same effect, but would be more consistent with the use of globals elsewhere.",
+      "revId": "b3ab79e3bec81cc7c11ac0a14649af07359e6f4a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
