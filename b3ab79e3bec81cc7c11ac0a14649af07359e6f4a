@@ -16,6 +16,24 @@
       "revId": "b3ab79e3bec81cc7c11ac0a14649af07359e6f4a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec42329_9b71900d",
+        "filename": "Math.hooks.php",
+        "patchSetId": 18
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2015-07-21T11:47:28Z",
+      "side": 1,
+      "message": "Not sure thought it would be better to do this. and thought that jenkings would not be able to run for example global $ where it can for $GLOBALS[\u0027$\u0027]",
+      "parentUuid": "8ec42329_bb3ecc22",
+      "revId": "b3ab79e3bec81cc7c11ac0a14649af07359e6f4a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
