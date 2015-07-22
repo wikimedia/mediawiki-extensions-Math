@@ -77,7 +77,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	 * @covers MathHooks::onLoadExtensionSchemaUpdates
 	 */
 	public function testCreateTable() {
-		$this->setMwGlobals( 'wgMathValidModes', array( MW_MATH_LATEXML ) );
+		$this->setMwGlobals( 'wgMathValidModes', array( 'latexml' ) );
 		$this->db->dropTable( "mathlatexml", __METHOD__ );
 		$dbu = DatabaseUpdater::newForDB( $this->db );
 		$dbu->doUpdates( array( "extensions" ) );
