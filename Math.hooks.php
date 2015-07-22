@@ -11,6 +11,66 @@ use MediaWiki\Logger\LoggerFactory;
 class MathHooks {
 	const mathCacheKey = 'math=';
 
+	public static function mathConstantToString( $value, array $defs, $prefix, $default ){
+		foreach ( $defs as $defKey => $defValue ) {
+			if( !defined( $defKey ) ) {
+				define( $defKey, $defValue );
+			} elseif ( $defValue !== constant( $defKey ) ) {
+				throw new Exception( 'Math constant "'. $defKey . '" has unexpected value "' .
+					constant( $defKey ) . '" instead of "' . $defValue );
+			}
+		}
+		$invDefs = array_flip( $defs );
+		if ( is_int( $value ) ){
+			if ( array_key_exists( $value , $invDefs ) ) {
+				$value = $invDefs[$value];
+			} else {
+				return $default;
+			}
+		}
+		if ( is_string( $value ) && array_key_exists( $value, $defs )  ){
+			return preg_replace_callback( '/_(.)/', function ( $matches ) {
+				return strtoupper( $matches[1] );
+			}, strtolower( substr( $value, strlen( $prefix ) ) ) );
+		}
+		return $default;
+	}
+
+	public static function mathStyleToString( $style, $default = 'inlineDisplaystyle' ) {
+		$defs = array (
+			'MW_MATHSTYLE_INLINE_DISPLAYSTYLE'  => 0, // default large operator inline
+			'MW_MATHSTYLE_DISPLAY'              => 1, // large operators centered in a new line
+			'MW_MATHSTYLE_INLINE'               => 2, // small operators inline
+		);
+		return self::mathConstantToString( $style, $defs, $prefix = 'MW_MATHSTYLE_', $default );
+	}
+
+	public static function mathCheckToString( $style, $default = 'always' ) {
+		$defs = array (
+			'MW_MATH_CHECK_ALWAYS' => 0,
+			'MW_MATH_CHECK_NEVER'  => 1,
+			'MW_MATH_CHECK_NEW'    => 2,
+		);
+		return self::mathConstantToString( $style, $defs, $prefix = 'MW_MATH_CHECK_', $default );
+	}
+
+	public static function mathModeToString( $mode, $default = 'png' ) {
+//		The following deprecated modes have been removed:
+//		  'MW_MATH_SIMPLE'      => 1
+//		  'MW_MATH_HTML'        => 2
+//		  'MW_MATH_MODERN'      => 4
+//		  'MW_MATH_MATHJAX'     => 6
+//		  'MW_MATH_LATEXML_JAX' => 8
+
+		$defs = array (
+			'MW_MATH_PNG'    => 0,
+			'MW_MATH_SOURCE' => 3,
+			'MW_MATH_MATHML' => 5,
+			'MW_MATH_LATEXML'=> 7 );
+
+		return self::mathConstantToString( $mode, $defs, $prefix = 'MW_MATH_', $default );
+	}
+
 	/*
 	 * Generate a user dependent hash cache key.
 	 * The hash key depends on the rendering mode.
