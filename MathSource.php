@@ -25,7 +25,7 @@ class MathSource extends MathRenderer {
 	 */
 	function __construct( $tex = '', $params = array() ) {
 		parent::__construct( $tex, $params );
-		$this->setMode( MW_MATH_SOURCE );
+		$this->setMode( 'source' );
 	}
 
 	/**
@@ -36,7 +36,7 @@ class MathSource extends MathRenderer {
 	function getHtmlOutput() {
 		# No need to render or parse anything more!
 		# New lines are replaced with spaces, which avoids confusing our parser (bugs 23190, 22818)
-		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY ) {
+		if ( $this->getMathStyle() == 'display' ) {
 			$class = 'mwe-math-fallback-source-display';
 		} else {
 			$class = 'mwe-math-fallback-source-inline';

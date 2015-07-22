@@ -34,10 +34,10 @@ class SpecialMathStatus extends SpecialPage {
 		foreach ( $enabledMathModes as $modeNr => $modeName ){
 			$out->addWikiText( "=== $modeName ===" );
 			switch( $modeNr ){
-				case MW_MATH_MATHML:
+				case 'mathml':
 					$this->runMathMLTest( $modeName );
 					break;
-				case MW_MATH_LATEXML:
+				case 'latexml':
 					$this->runMathLaTeXMLTest( $modeName );
 			}
 		}
@@ -54,11 +54,12 @@ class SpecialMathStatus extends SpecialPage {
 	private function runMathLaTeXMLTest( $modeName ) {
 		$this->getOutput()->addWikiMsgArray( 'math-test-start', $modeName );
 		$this->testLaTeXMLIntegration();
+		$this->testLaTeXMLLinebreak();
 		$this->getOutput()->addWikiMsgArray( 'math-test-end', $modeName );
 	}
 
 	public function testSpecialCaseText() {
-		$renderer = MathRenderer::getRenderer( 'x^2+\text{a sample Text}', array(), MW_MATH_MATHML );
+		$renderer = MathRenderer::getRenderer( 'x^2+\text{a sample Text}', array(), 'mathml' );
 		$expected = 'a sample Text</mtext>';
 		$this->assertTrue( $renderer->render(), 'Rendering the input "x^2+\text{a sample Text}"'  );
 		$this->assertContains( $expected, $renderer->getHtmlOutput(), 'Comparing to the reference rendering' );
@@ -85,7 +86,7 @@ class SpecialMathStatus extends SpecialPage {
  <use xlink:href="#E1-MJMATHI-62" x="1761" y="0"></use>
 </g>
 </svg>';
-		$renderer = MathRenderer::getRenderer( "a+b", array(), MW_MATH_MATHML );
+		$renderer = MathRenderer::getRenderer( "a+b", array(), 'mathml' );
 		$this->assertTrue( $renderer->render( true ), "Rendering of a+b in plain MathML mode" );
 		$real = str_replace( "\n", '', $renderer->getHtmlOutput() );
 		$expected = '<mo>+</mo>';
@@ -104,7 +105,7 @@ class SpecialMathStatus extends SpecialPage {
 		$renderer = new MathMathML( $inputSample, $attribs );
 		$this->assertEquals( 'pmml', $renderer->getInputType(), 'Checking if MathML input is supported' );
 		$this->assertTrue( $renderer->render(), 'Rendering Presentation MathML sample' );
-		$real = MathRenderer::renderMath( $inputSample, $attribs, MW_MATH_MATHML );
+		$real = MathRenderer::renderMath( $inputSample, $attribs, 'mathml' );
 		$expected = 'hash=5628b8248b79267ecac656102334d5e3&amp;mode=5';
 		$this->assertContains( $expected, $real, 'Checking if the link to SVG image is correct' );
 	}
@@ -114,12 +115,34 @@ class SpecialMathStatus extends SpecialPage {
 	 * i.e. if the span element is generated right.
 	 */
 	public function testLaTeXMLIntegration() {
-		$renderer = MathRenderer::getRenderer( "a+b", array(), MW_MATH_LATEXML );
+		$renderer = MathRenderer::getRenderer( "a+b", array(), 'latexml' );
 		$this->assertTrue( $renderer->render( true ), "Rendering of a+b in LaTeXML mode" );
 		$expected = '<math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.1.m1.1" class="ltx_Math" alttext="{\displaystyle a+b}"  xref="p1.1.m1.1.cmml"><semantics id="p1.1.m1.1a" xref="p1.1.m1.1.cmml"><mrow id="p1.1.m1.1.4" xref="p1.1.m1.1.4.cmml"><mi id="p1.1.m1.1.1" xref="p1.1.m1.1.1.cmml">a</mi><mo id="p1.1.m1.1.2" xref="p1.1.m1.1.2.cmml">+</mo><mi id="p1.1.m1.1.3" xref="p1.1.m1.1.3.cmml">b</mi></mrow><annotation-xml encoding="MathML-Content" id="p1.1.m1.1.cmml" xref="p1.1.m1.1"><apply id="p1.1.m1.1.4.cmml" xref="p1.1.m1.1.4"><plus id="p1.1.m1.1.2.cmml" xref="p1.1.m1.1.2"/><ci id="p1.1.m1.1.1.cmml" xref="p1.1.m1.1.1">a</ci><ci id="p1.1.m1.1.3.cmml" xref="p1.1.m1.1.3">b</ci></apply></annotation-xml><annotation encoding="application/x-tex" id="p1.1.m1.1b" xref="p1.1.m1.1.cmml">{\displaystyle a+b}</annotation></semantics></math>';
 		$real = preg_replace( "/\n\s*/", '', $renderer->getHtmlOutput() );
 		$this->assertContains( $expected, $real
 			, "Comparing the output to the MathML reference rendering" .
+			  $renderer->getLastError() );
+	}
+
+	/**
+	 * Checks LaTeXML line break functionality
+	 * i.e. if a long line contains a mtr element.
+	 * http://www.w3.org/TR/REC-MathML/chap3_5.html#sec3.5.2
+	 */
+	public function testLaTeXMLLinebreak() {
+		global $wgMathDefaultLaTeXMLSetting;
+		$tex = '';
+		$testMax = ceil( $wgMathDefaultLaTeXMLSetting[ 'linelength' ] / 2 );
+		for( $i = 0; $i < $testMax; $i++ ) {
+			$tex .= "$i+";
+		}
+		$tex .= $testMax;
+		$renderer = new MathLaTeXML( $tex, array( 'display' => 'linebreak' ) );
+		$this->assertTrue( $renderer->render( true ), "Rendering of linebreak test in LaTeXML mode" );
+		$expected = 'mtr';
+		$real = preg_replace( "/\n\\s*/", '', $renderer->getHtmlOutput() );
+		$this->assertContains( $expected, $real
+			, "Checking for linebreak" .
 			  $renderer->getLastError() );
 	}
 
