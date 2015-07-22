@@ -38,7 +38,7 @@ class MathMathML extends MathRenderer {
 	public function __construct( $tex = '', $params = array() ) {
 		global $wgMathMathMLUrl;
 		parent::__construct( $tex, $params );
-		$this->setMode( MW_MATH_MATHML );
+		$this->setMode( 'mathml' );
 		$this->hosts = $wgMathMathMLUrl;
 		if ( isset( $params['type'] ) ) {
 			if ( $params['type'] == 'pmml' ) {
@@ -174,7 +174,7 @@ class MathMathML extends MathRenderer {
 				$errormsg = $status->getHtml();
 				$error =
 					$this->getError( 'math_invalidresponse', $this->getModeStr(), $host, $errormsg,
-						$this->getModeStr( MW_MATH_MATHML ) );
+						$this->getModeStr( 'mathml' ) );
 				LoggerFactory::getInstance( 'Math' )->warning( 'NoResponse:' . var_export( array(
 						'post' => $post,
 						'host' => $host,
@@ -211,12 +211,12 @@ class MathMathML extends MathRenderer {
 	public function getPostData() {
 		$input = $this->getTex();
 		if ( $this->inputType == 'pmml' ||
-			 $this->getMode() == MW_MATH_LATEXML && $this->getMathml() ) {
+			 $this->getMode() == 'latexml' && $this->getMathml() ) {
 			$out = 'type=mml&q=' . rawurlencode( $this->getMathml() );
 		} elseif ( $this->inputType == 'ascii' ) {
 			$out = 'type=asciimath&q=' . rawurlencode( $input );
 		} else {
-			if ( $this->getMathStyle() == MW_MATHSTYLE_INLINE_DISPLAYSTYLE ) {
+			if ( $this->getMathStyle() == 'inlineDisplaystyle' ) {
 				// default preserve the (broken) layout as it was
 				$out = 'type=inline-TeX&q=' . rawurlencode( '{\\displaystyle ' . $input . '}' );
 			} else {
@@ -332,7 +332,7 @@ class MathMathML extends MathRenderer {
 	public function correctSvgStyle( $svg, &$style ) {
 		if ( preg_match( '/style="([^"]*)"/', $svg, $styles ) ) {
 			$style .= ' ' . $styles[1]; // merge styles
-			if ( $this->getMathStyle() === MW_MATHSTYLE_DISPLAY ) {
+			if ( $this->getMathStyle() === 'display' ) {
 				// TODO: Improve style cleaning
 				$style = preg_replace( '/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style );
 			}
@@ -392,7 +392,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$class .= 'mathml-';
 		}
-		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY ) {
+		if ( $this->getMathStyle() == 'display' ) {
 			$class .= 'display';
 		} else {
 			$class .= 'inline';
@@ -406,7 +406,7 @@ class MathMathML extends MathRenderer {
 	 * @return string Html output that is embedded in the page
 	 */
 	public function getHtmlOutput() {
-		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY ) {
+		if ( $this->getMathStyle() == 'display' ) {
 			$element = 'div';
 		} else {
 			$element = 'span';
@@ -420,7 +420,7 @@ class MathMathML extends MathRenderer {
 		// Remove displayStyle attributes set by the MathML converter
 		// (Beginning from Mathoid 0.2.5 block is the default layout.)
 		$mml = preg_replace( '/(<math[^>]*)(display|mode)=["\'](inline|block)["\']/', '$1', $this->getMathml() );
-		if ( $this->getMathStyle() == MW_MATHSTYLE_DISPLAY ) {
+		if ( $this->getMathStyle() == 'display' ) {
 			$mml = preg_replace( '/<math/', '<math display="block"', $mml );
 		}
 		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(), 'style' => 'display: none;'  ), $mml );
@@ -464,7 +464,7 @@ class MathMathML extends MathRenderer {
 	 * @return bool
 	 */
 	private function processJsonResult( $jsonResult, $host ) {
-		if ( $this->getMode() == MW_MATH_LATEXML || $this->inputType == 'pmml' ||
+		if ( $this->getMode() == 'latexml' || $this->inputType == 'pmml' ||
 			 $this->isValidMathML( $jsonResult->mml )
 		) {
 			if ( isset( $jsonResult->svg ) ) {
@@ -479,7 +479,7 @@ class MathMathML extends MathRenderer {
 				LoggerFactory::getInstance( 'Math' )->error(
 					'Missing SVG property in JSON result.' );
 			}
-			if ( $this->getMode() != MW_MATH_LATEXML && $this->inputType != 'pmml' ) {
+			if ( $this->getMode() != 'latexml' && $this->inputType != 'pmml' ) {
 				$this->setMathml( $jsonResult->mml );
 			}
 			Hooks::run( 'MathRenderingResultRetrieved',

@@ -62,14 +62,19 @@ class MathInputCheckTexvc extends MathInputCheck {
 	 */
 	public function doValidCheck() {
 		global $wgMathTexvcCheckExecutable;
-		if ( !is_executable( $wgMathTexvcCheckExecutable ) ) {
+		if ( $wgMathTexvcCheckExecutable === false ){
+			$texvcCheckExecutable = __DIR__ . '/texvccheck/texvccheck';
+		} else {
+			$texvcCheckExecutable = $wgMathTexvcCheckExecutable;
+		}
+		if ( !is_executable( $texvcCheckExecutable ) ) {
 			$msg = 'Missing "texvccheck" executable. Please see math/README to configure.';
 			trigger_error( $msg, E_USER_NOTICE );
 			LoggerFactory::getInstance( 'Math' )->error( $msg );
 			return true;
 		}
 
-		$cmd = $wgMathTexvcCheckExecutable . ' ' . wfEscapeShellArg( $this->inputTeX );
+		$cmd = $texvcCheckExecutable . ' ' . wfEscapeShellArg( $this->inputTeX );
 
 		if ( wfIsWindows() ) {
 			# Invoke it within cygwin sh, because texvc expects sh features in its default shell
