@@ -20,7 +20,7 @@ class MathLaTeXML extends MathMathML {
 		global $wgMathLaTeXMLUrl;
 		parent::__construct( $tex, $params );
 		$this->hosts = $wgMathLaTeXMLUrl;
-		$this->setMode( MW_MATH_LATEXML );
+		$this->setMode( 'latexml' );
 	}
 	/**
 	 * Converts an array with LaTeXML settings to a URL encoded String.
@@ -75,8 +75,8 @@ class MathLaTeXML extends MathMathML {
 	 */
 	public function getLaTeXMLPostData() {
 		$tex = $this->getTex();
-		if ( $this->getMathStyle() == MW_MATHSTYLE_INLINE_DISPLAYSTYLE ) {
-			// In MW_MATHSTYLE_INLINE_DISPLAYSTYLE the old
+		if ( $this->getMathStyle() == 'inlineDisplaystyle' ) {
+			// In 'inlineDisplaystyle' the old
 			// texvc behavior is reproduced:
 			// The equation is rendered in displaystyle
 			// (texvc used $$ $tex $$ to render)
@@ -117,7 +117,7 @@ class MathLaTeXML extends MathMathML {
 				if ( $this->isValidMathML( $jsonResult->result ) ) {
 					$this->setMathml( $jsonResult->result );
 					Hooks::run( 'MathRenderingResultRetrieved',
-						array( &$renderer,
+						array( &$this,
 							   &$jsonResult ) );// Enables debugging of server results
 					return true;
 				} else {
@@ -184,7 +184,7 @@ class MathLaTeXML extends MathMathML {
 	public function calculateSvg() {
 		$renderer = new MathMathML( $this->getTex() );
 		$renderer->setMathml( $this->getMathml() );
-		$renderer->setMode( MW_MATH_LATEXML );
+		$renderer->setMode( 'latexml' );
 		$res = $renderer->render( true );
 		if ( $res == true ) {
 			$this->setSvg( $renderer->getSvg() );
