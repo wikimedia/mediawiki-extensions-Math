@@ -65,7 +65,7 @@ class MathRendererTest extends MediaWikiTestCase {
 	}
 
 	public function testCheckingAlways() {
-		$this->setMwGlobals( "wgMathDisableTexFilter", MW_MATH_CHECK_ALWAYS );
+		$this->setMwGlobals( "wgMathDisableTexFilter", 'always' );
 		$renderer =
 			$this->getMockBuilder( 'MathRenderer' )->setMethods( array(
 					'render',
@@ -84,7 +84,7 @@ class MathRendererTest extends MediaWikiTestCase {
 	}
 
 	public function testCheckingNever() {
-		$this->setMwGlobals( "wgMathDisableTexFilter", MW_MATH_CHECK_NEVER );
+		$this->setMwGlobals( "wgMathDisableTexFilter", 'never' );
 		$renderer =
 			$this->getMockBuilder( 'MathRenderer' )->setMethods( array(
 					'render',
@@ -100,7 +100,7 @@ class MathRendererTest extends MediaWikiTestCase {
 	}
 
 	public function testCheckingNewUnknown() {
-		$this->setMwGlobals( "wgMathDisableTexFilter", MW_MATH_CHECK_NEW );
+		$this->setMwGlobals( "wgMathDisableTexFilter", 'new' );
 		$renderer =
 			$this->getMockBuilder( 'MathRenderer' )->setMethods( array(
 					'render',
@@ -119,7 +119,7 @@ class MathRendererTest extends MediaWikiTestCase {
 	}
 
 	public function testCheckingNewKnown() {
-		$this->setMwGlobals( "wgMathDisableTexFilter", MW_MATH_CHECK_NEW );
+		$this->setMwGlobals( "wgMathDisableTexFilter", 'new' );
 		$renderer =
 			$this->getMockBuilder( 'MathRenderer' )->setMethods( array(
 					'render',

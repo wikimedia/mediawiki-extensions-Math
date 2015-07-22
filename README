@@ -14,7 +14,7 @@ If you prefer MathML rather than images you can use LaTeXML to convert the
 math tags to MathML. To use that feature you have to enable LaTeXML by setting
 $wgMathUseLaTeXML = true;
 It is possible to choose LaTeXML as default option (for anonymous user) by setting
-$wgDefaultUserOptions['math'] = MW_MATH_LATEXML;
+$wgDefaultUserOptions['math'] = 'latexml';
 in the LocalSettings.php file.
 The LaTeXML option requires php5-curl to be installed. Without php5-curl no proper
 error handling can be guaranteed.
