@@ -7,7 +7,7 @@
 class SpecialMathShowImage extends SpecialPage {
 	private $noRender = false;
 	private $renderer = null;
-	private $mode = MW_MATH_MATHML;
+	private $mode = 'mathml';
 
 	function __construct() {
 		parent::__construct(
@@ -28,7 +28,7 @@ class SpecialMathShowImage extends SpecialPage {
 		$out->setArticleRelated( false );
 		$out->setRobotPolicy( "noindex,nofollow" );
 		$out->disable();
-		if ( $success && $this->mode == MW_MATH_PNG ) {
+		if ( $success && $this->mode == 'png' ) {
 			$request->response()->header( "Content-type: image/png;" );
 		} else {
 			$request->response()->header( "Content-type: image/svg+xml; charset=utf-8" );
@@ -40,7 +40,7 @@ class SpecialMathShowImage extends SpecialPage {
 	}
 
 	function execute( $par ) {
-		global $wgMathValidModes, $wgMathEnableExperimentalInputFormats;
+		global $wgMathEnableExperimentalInputFormats;
 		$request = $this->getRequest();
 		$hash = $request->getText( 'hash', '' );
 		$tex = $request->getText( 'tex', '' );
@@ -49,10 +49,10 @@ class SpecialMathShowImage extends SpecialPage {
 		} else {
 			$asciimath = '';
 		}
-		$this->mode = $request->getInt( 'mode', MW_MATH_MATHML );
-		if ( !in_array( $this->mode, $wgMathValidModes ) ) {
+		$this->mode = $request->getInt( 'mode', 'mathml' );
+		if ( !in_array( $this->mode, MathRenderer::getValidModes() ) ) {
 			// Fallback to the default if an invalid mode was specified
-			$this->mode = MW_MATH_MATHML;
+			$this->mode = 'mathml';
 		}
 		if ( $hash === '' && $tex === '' && $asciimath === '' ) {
 			$this->setHeaders( false );
@@ -60,10 +60,10 @@ class SpecialMathShowImage extends SpecialPage {
 		} else {
 			if ( $tex === '' && $asciimath === ''){
 				switch ( $this->mode ) {
-					case MW_MATH_PNG:
+					case 'png':
 						$this->renderer = MathTexvc::newFromMd5( $hash );
 						break;
-					case MW_MATH_LATEXML:
+					case 'latexml':
 						$this->renderer = MathLaTeXML::newFromMd5( $hash );
 						break;
 					default:
@@ -74,12 +74,12 @@ class SpecialMathShowImage extends SpecialPage {
 				if ( $isInDatabase || $this->noRender ) {
 					$success = $isInDatabase;
 				} else {
-					if ( $this->mode == MW_MATH_PNG ) {
+					if ( $this->mode == 'png' ) {
 						// get the texvc input from the mathoid database table
 						// and render the conventional way
 						$mmlRenderer = MathMathML::newFromMd5( $hash );
 						$mmlRenderer->readFromDatabase();
-						$this->renderer = MathRenderer::getRenderer( $mmlRenderer->getUserInputTex(), array(), MW_MATH_PNG );
+						$this->renderer = MathRenderer::getRenderer( $mmlRenderer->getUserInputTex(), array(), 'png' );
 						$this->renderer->setMathStyle( $mmlRenderer->getMathStyle() );
 					}
 					$success = $this->renderer->render();
@@ -92,7 +92,7 @@ class SpecialMathShowImage extends SpecialPage {
 				$success = $this->renderer->render();
 			}
 			if ( $success ) {
-				if ( $this->mode == MW_MATH_PNG ) {
+				if ( $this->mode == 'png' ) {
 					$output = $this->renderer->getPng();
 				} else {
 					$output = $this->renderer->getSvg();
