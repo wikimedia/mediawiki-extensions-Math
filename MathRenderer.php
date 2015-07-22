@@ -31,7 +31,7 @@ abstract class MathRenderer {
 	/** @var string the original user input string (which was used to calculate the inputhash) */
 	protected $userInputTex = '';
 	// FURTHER PROPERTIES OF THE MATHEMATICAL CONTENT
-	/** @var ('inlineDisplaystyle'|'display'|'inline') the rendering style */
+	/** @var ('inlineDisplaystyle'|'display'|'inline'|'linebreak') the rendering style */
 	protected $mathStyle = 'inlineDisplaystyle';
 	/** @var array with userdefined parameters passed to the extension (not used) */
 	protected $params = array();
@@ -51,7 +51,7 @@ abstract class MathRenderer {
 	protected $lastError = '';
 	/** @var string md5 value from userInputTex */
 	protected $md5 = '';
-	/** @var binary packed inputhash */
+	/** @var string binary packed inputhash */
 	protected $inputHash = '';
 	/** @var string rendering mode */
 	protected $mode = 'png';
@@ -63,12 +63,38 @@ abstract class MathRenderer {
 	 * @param array $params (optional) HTML attributes
 	 */
 	public function __construct( $tex = '', $params = array() ) {
-		$this->userInputTex = $tex;
-		$this->tex = $tex;
 		$this->params = $params;
 		if ( isset( $params['id'] ) ) {
 			$this->id = $params['id'];
 		}
+		$mathStyle = null;
+		if ( isset( $params['display'] ) ) {
+			$layoutMode = $params['display'];
+			if ( $layoutMode == 'block' ) {
+				$mathStyle = 'display';
+				$tex = '{\displaystyle ' . $tex . '}';
+			} elseif ( $layoutMode == 'inline' ) {
+				$mathStyle = 'inlineDisplaystyle';
+				$tex = '{\textstyle ' . $tex . '}';
+			} elseif ( $layoutMode == 'linebreak' ) {
+				$mathStyle = 'linebreak';
+				$tex = '\[ ' . $tex . ' \]';
+			}
+		}
+		// TODO: Implement caching for attributes of the math tag
+		// Currently the key for the database entry relating to an equation
+		// is md5($tex) the new option to determine if the tex input
+		// is rendered in displaystyle or textstyle would require a database
+		// layout change to use a composite key e.g. (md5($tex),$mathStyle).
+		// As a workaround we use the prefix \displaystyle so that the key becomes
+		// md5((\{\\displaystyle|\{\\textstyle)?\s?$tex\}?)
+		// The new value of $tex string describes now how the rendering should look like.
+		// The variable MathRenderer::mathStyle determines if the rendered equation should
+		// be centered in a new line, or just in be displayed in the current line.
+		$this->userInputTex = $tex;
+		$this->tex = $tex;
+		$this->mathStyle = $mathStyle;
+
 	}
 
 	/**
@@ -112,27 +138,6 @@ abstract class MathRenderer {
 	 */
 	public static function getRenderer( $tex, $params = array(), $mode = 'png' ) {
 		global $wgDefaultUserOptions, $wgMathEnableExperimentalInputFormats;
-		$mathStyle = 'inlineDisplaystyle'; // Set the default style
-		if ( isset( $params['display'] ) ) {
-			$layoutMode = $params['display'];
-			if ( $layoutMode == 'block' ) {
-				$mathStyle = 'display';
-				// TODO: Implement caching for attributes of the math tag
-				// Currently the key for the database entry relating to an equation
-				// is md5($tex) the new option to determine if the tex input
-				// is rendered in displaystyle or textstyle would require a database
-				// layout change to use a composite key e.g. (md5($tex),$mathStyle).
-				// As a workaround we use the prefix \displaystyle so that the key becomes
-				// md5((\{\\displaystyle|\{\\textstyle)?\s?$tex\}?)
-				// The new value of $tex string describes now how the rendering should look like.
-				// The variable MathRenderer::mathStyle determines if the rendered equation should
-				// be centered in a new line, or just in be displayed in the current line.
-				$tex = '{\displaystyle ' . $tex . '}';
-			} elseif ( $layoutMode == 'inline' ) {
-				$mathStyle = 'inline';
-				$tex = '{\textstyle ' . $tex . '}';
-			}
-		}
 
 		if ( isset( $params['forcemathmode'] ) ) {
 			$mode = $params['forcemathmode'];
@@ -164,7 +169,6 @@ abstract class MathRenderer {
 		}
 		LoggerFactory::getInstance( 'Math' )->info( 'Start rendering $' . $renderer->tex .
 			'$ in mode ' . $mode );
-		$renderer->setMathStyle( $mathStyle );
 		return $renderer;
 	}
 
@@ -236,7 +240,7 @@ abstract class MathRenderer {
 
 	/**
 	 * Decode binary packed hash from the database to md5 of input_tex
-	 * @param binary $hash
+	 * @param string $hash (binary)
 	 * @return string md5
 	 */
 	private static function dbHash2md5( $hash ) {
@@ -251,9 +255,7 @@ abstract class MathRenderer {
 	 * @return boolean true if read successfully, false otherwise
 	 */
 	public function readFromDatabase() {
-		/** @var DatabaseBase */
 		$dbr = wfGetDB( DB_SLAVE );
-		/** @var ResultWrapper */
 		$rpage = $dbr->selectRow( $this->getMathTableName(),
 			$this->dbInArray(),
 			array( 'math_inputhash' => $this->getInputHash() ),
@@ -268,6 +270,7 @@ abstract class MathRenderer {
 			return false;
 		}
 	}
+
 	/**
 	 * @return array with the database column names
 	 */
@@ -283,7 +286,7 @@ abstract class MathRenderer {
 
 	/**
 	 * Reads the values from the database but does not overwrite set values with empty values
-	 * @param database_row $rpage
+	 * @param stdClass $rpage (a database row)
 	 */
 	protected function initializeFromDatabaseRow( $rpage ) {
 		$this->inputHash = $rpage->math_inputhash; // MUST NOT BE NULL
@@ -528,18 +531,18 @@ abstract class MathRenderer {
 
 	/**
 	 *
-	 * @param ('inlineDisplaystyle'|'display'|'inline') $mathStyle
+	 * @param string $mathStyle ('inlineDisplaystyle'|'display'|'inline')
 	 */
-	public function setMathStyle( $displayStyle = 'display' ) {
-		if ( $this->mathStyle !== $displayStyle ){
+	public function setMathStyle( $mathStyle = 'display' ) {
+		if ( $this->mathStyle !== $mathStyle ){
 			$this->changed = true;
 		}
-		$this->mathStyle = $displayStyle;
+		$this->mathStyle = $mathStyle;
 	}
 
 	/**
 	 * Returns the value of the DisplayStyle attribute
-	 * @return ('inlineDisplaystyle'|'display'|'inline') the DisplayStyle
+	 * @return string ('inlineDisplaystyle'|'display'|'inline'|'linebreak') the DisplayStyle
 	 */
 	public function getMathStyle() {
 		return $this->mathStyle;
@@ -579,8 +582,6 @@ abstract class MathRenderer {
 		}
 	}
 
-
-
 	public function isInDatabase() {
 		if ( $this->storedInDatabase === null ) {
 			$this->readFromDatabase();
@@ -597,7 +598,7 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * @return string Userdefined ID
+	 * @return string user defined ID
 	 */
 	public function getID() {
 		return $this->id;
@@ -615,7 +616,7 @@ abstract class MathRenderer {
 
 	/**
 	 *
-	 * @param type $svg
+	 * @param string $svg
 	 */
 	public function setSvg( $svg ) {
 		$this->changed = true;
@@ -632,7 +633,7 @@ abstract class MathRenderer {
 	 *
 	 * @return string XML-Document of the rendered SVG
 	 */
-	public function getSvg( $render = 'render' ) {
+	public function getSvg( /** @noinspection PhpUnusedParameterInspection */ $render = 'render' ) {
 		// Spaces will prevent the image from being displayed correctly in the browser
 		return trim( $this->svg );
 	}
