@@ -31,8 +31,8 @@ abstract class MathRenderer {
 	/** @var string the original user input string (which was used to calculate the inputhash) */
 	protected $userInputTex = '';
 	// FURTHER PROPERTIES OF THE MATHEMATICAL CONTENT
-	/** @var (MW_MATHSTYLE_INLINE_DISPLAYSTYLE|MW_MATHSTYLE_DISPLAY|MW_MATHSTYLE_INLINE) the rendering style */
-	protected $mathStyle = MW_MATHSTYLE_INLINE_DISPLAYSTYLE;
+	/** @var ('inlineDisplaystyle'|'display'|'inline') the rendering style */
+	protected $mathStyle = 'inlineDisplaystyle';
 	/** @var array with userdefined parameters passed to the extension (not used) */
 	protected $params = array();
 	/** @var string a userdefined identifier to link to the equation. */
@@ -53,8 +53,8 @@ abstract class MathRenderer {
 	protected $md5 = '';
 	/** @var binary packed inputhash */
 	protected $inputHash = '';
-	/** @var int rendering mode MW_MATH_(PNG|MATHML|SOURCE...) */
-	protected $mode = MW_MATH_PNG;
+	/** @var string rendering mode */
+	protected $mode = 'png';
 
 	/**
 	 * Constructs a base MathRenderer
@@ -76,10 +76,10 @@ abstract class MathRenderer {
 	 *
 	 * @param string $tex LaTeX markup
 	 * @param array $params HTML attributes
-	 * @param int $mode constant indicating rendering mode
+	 * @param string $mode constant indicating rendering mode
 	 * @return string HTML for math tag
 	 */
-	public static function renderMath( $tex, $params = array(), $mode = MW_MATH_PNG ) {
+	public static function renderMath( $tex, $params = array(), $mode = 'png' ) {
 		$renderer = self::getRenderer( $tex, $params, $mode );
 		if ( $renderer->render() ) {
 			return $renderer->getHtmlOutput();
@@ -107,16 +107,16 @@ abstract class MathRenderer {
 	 *
 	 * @param string $tex LaTeX markup
 	 * @param array $params HTML attributes
-	 * @param int $mode constant indicating rendering mode
+	 * @param string $mode indicating rendering mode
 	 * @return MathRenderer appropriate renderer for mode
 	 */
-	public static function getRenderer( $tex, $params = array(), $mode = MW_MATH_PNG ) {
-		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathEnableExperimentalInputFormats;
+	public static function getRenderer( $tex, $params = array(), $mode = 'png' ) {
+		global $wgDefaultUserOptions, $wgMathEnableExperimentalInputFormats;
 		$mathStyle = null;
 		if ( isset( $params['display'] ) ) {
 			$layoutMode = $params['display'];
 			if ( $layoutMode == 'block' ) {
-				$mathStyle = MW_MATHSTYLE_DISPLAY;
+				$mathStyle = 'display';
 				// TODO: Implement caching for attributes of the math tag
 				// Currently the key for the database entry relating to an equation
 				// is md5($tex) the new option to determine if the tex input
@@ -129,7 +129,7 @@ abstract class MathRenderer {
 				// be centered in a new line, or just in be displayed in the current line.
 				$tex = '{\displaystyle ' . $tex . '}';
 			} elseif ( $layoutMode == 'inline' ) {
-				$mathStyle = MW_MATHSTYLE_INLINE;
+				$mathStyle = 'inline';
 				$tex = '{\textstyle ' . $tex . '}';
 			}
 		}
@@ -137,29 +137,28 @@ abstract class MathRenderer {
 		if ( isset( $params['forcemathmode'] ) ) {
 			$mode = $params['forcemathmode'];
 		}
-		if ( !in_array( $mode, $wgMathValidModes ) ) {
+		if ( !in_array( $mode, self::getValidModes() ) ) {
 			$mode = $wgDefaultUserOptions['math'];
 		}
-		if ( $wgMathEnableExperimentalInputFormats === true && $mode == MW_MATH_MATHML &&
+		if ( $wgMathEnableExperimentalInputFormats === true && $mode == 'mathml' &&
 			 isset( $params['type'] ) ) {
 			// Support of MathML input (experimental)
-			// Currently support for mode MW_MATH_MATHML only
+			// Currently support for mode 'mathml' only
 			if ( !in_array( $params['type'], array( 'pmml', 'ascii' ) ) ) {
 				unset( $params['type'] );
 			}
 		}
 		switch ( $mode ) {
-			case MW_MATH_MATHJAX:
-			case MW_MATH_SOURCE:
+			case 'source':
 				$renderer = new MathSource( $tex, $params );
 				break;
-			case MW_MATH_PNG:
+			case 'png':
 				$renderer = new MathTexvc( $tex, $params );
 				break;
-			case MW_MATH_LATEXML:
+			case 'latexml':
 				$renderer = new MathLaTeXML( $tex, $params );
 				break;
-			case MW_MATH_MATHML:
+			case 'mathml':
 			default:
 				$renderer = new MathMathML( $tex, $params );
 		}
@@ -408,9 +407,9 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * gets the rendering mode MW_MATH_*
+	 * Gets the rendering mode
 	 *
-	 * @return int
+	 * @return string
 	 */
 	public function getMode() {
 		return $this->mode;
@@ -418,12 +417,11 @@ abstract class MathRenderer {
 
 	/**
 	 * Sets the rendering mode
-	 * @param int $newMode element of the array $wgMathValidModes
+	 * @param string $newMode element of the array $wgMathValidModes
 	 * @return bool
 	 */
 	public function setMode( $newMode ) {
-		global $wgMathValidModes;
-		if ( in_array( $newMode, $wgMathValidModes ) ) {
+		if ( in_array( $newMode, self::getValidModes() ) ) {
 			$this->mode = $newMode;
 			return true;
 		} else {
@@ -530,9 +528,9 @@ abstract class MathRenderer {
 
 	/**
 	 *
-	 * @param (MW_MATHSTYLE_INLINE_DISPLAYSTYLE|MW_MATHSTYLE_DISPLAY|MW_MATHSTYLE_INLINE) $mathStyle
+	 * @param ('inlineDisplaystyle'|'display'|'inline') $mathStyle
 	 */
-	public function setMathStyle( $displayStyle = MW_MATHSTYLE_DISPLAY ) {
+	public function setMathStyle( $displayStyle = 'display' ) {
 		if ( $this->mathStyle !== $displayStyle ){
 			$this->changed = true;
 		}
@@ -541,7 +539,7 @@ abstract class MathRenderer {
 
 	/**
 	 * Returns the value of the DisplayStyle attribute
-	 * @return (MW_MATHSTYLE_INLINE_DISPLAYSTYLE|MW_MATHSTYLE_DISPLAY|MW_MATHSTYLE_INLINE) the DisplayStyle
+	 * @return ('inlineDisplaystyle'|'display'|'inline') the DisplayStyle
 	 */
 	public function getMathStyle() {
 		return $this->mathStyle;
@@ -560,12 +558,11 @@ abstract class MathRenderer {
 	 * @return bool
 	 */
 	public function checkTex() {
-		global $wgMathDisableTexFilter;
-		if ( $this->texSecure || (int) $wgMathDisableTexFilter == MW_MATH_CHECK_NEVER ) {
+		if ( $this->texSecure || self::getDisableTexFilter() == 'never' ) {
 			// equation was already checked or checking is disabled
 			return true;
 		} else {
-			if( (int) $wgMathDisableTexFilter == MW_MATH_CHECK_NEW && $this->mode != MW_MATH_SOURCE ){
+			if( self::getDisableTexFilter() == 'new' && $this->mode != 'source' ){
 				if( $this->readFromDatabase() ){
 					return true;
 				}
@@ -647,4 +644,14 @@ abstract class MathRenderer {
 		return $names[ $this->getMode() ];
 	}
 
+	public static function getValidModes(){
+		global $wgMathValidModes;
+		return array_map( "MathHooks::mathModeToString", $wgMathValidModes );
+	}
+
+
+	public static function getDisableTexFilter(){
+		global $wgMathDisableTexFilter;
+		return MathHooks::mathCheckToString( $wgMathDisableTexFilter );
+	}
 }
