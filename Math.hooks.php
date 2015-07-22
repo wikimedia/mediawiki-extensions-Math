@@ -49,6 +49,7 @@ class MathHooks {
 			'MW_MATHSTYLE_INLINE_DISPLAYSTYLE'  => 0, // default large operator inline
 			'MW_MATHSTYLE_DISPLAY'              => 1, // large operators centered in a new line
 			'MW_MATHSTYLE_INLINE'               => 2, // small operators inline
+			'MW_MATHSTYLE_LINEBREAK'            => 3, // break long lines (experimental)
 		);
 		return self::mathConstantToString( $style, $defs, $prefix = 'MW_MATHSTYLE_', $default );
 	}
