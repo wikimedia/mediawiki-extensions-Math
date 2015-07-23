@@ -78,7 +78,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 * @covers MathHooks::onLoadExtensionSchemaUpdates
 	 */
 	public function testCreateTable() {
-		$this->setMwGlobals( 'wgMathValidModes', array( MW_MATH_PNG ) );
+		$this->setMwGlobals( 'wgMathValidModes', array( 'png' ) );
 		$this->db->dropTable( "math", __METHOD__ );
 		$dbu = DatabaseUpdater::newForDB( $this->db );
 		$dbu->doUpdates( array( "extensions" ) );

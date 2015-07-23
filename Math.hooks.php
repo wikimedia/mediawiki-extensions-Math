@@ -96,7 +96,7 @@ class MathHooks {
 				$user = $wgUser;
 			}
 
-			$mathOption = $user->getOption( 'math' );
+			$mathOption = self::mathModeToString( $user->getOption( 'math' ) );
 			// Check if the key already contains the math option part
 			if (
 				!preg_match(
@@ -166,7 +166,7 @@ class MathHooks {
 			return '';
 		}
 
-		$mode = (int)$parser->getUser()->getOption( 'math' );
+		$mode = self::mathModeToString( $parser->getUser()->getOption( 'math' ) );
 
 		// Indicate that this page uses math.
 		// This affects the page caching behavior.
@@ -196,7 +196,7 @@ class MathHooks {
 		Hooks::run( 'MathFormulaPostRender',
 			array( $parser, &$renderer, &$renderedMath ) );// Enables indexing of math formula
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
-		if ( $mode == MW_MATH_MATHML ) {
+		if ( $mode == 'mathml' ) {
 			$parser->getOutput()->addModuleStyles( array( 'ext.math.desktop.styles' ) );
 			$parser->getOutput()->addModules( array( 'ext.math.scripts' ) );
 		}
@@ -214,8 +214,8 @@ class MathHooks {
 	 * @return Boolean: true
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
-		global $wgMathValidModes, $wgDefaultUserOptions;
-		$defaultPreferences['math'] = array(
+        global $wgDefaultUserOptions;
+        $defaultPreferences['math'] = array(
 			'type' => 'radio',
 			'options' => array_flip( self::getMathNames() ),
 			'label' => '&#160;',
@@ -223,12 +223,14 @@ class MathHooks {
 		);
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
-		if ( ! in_array( $wgDefaultUserOptions['math'] , $wgMathValidModes ) ) {
+		$mode = MathHooks::mathModeToString( $wgDefaultUserOptions['math'] );
+        if ( ! in_array( $mode , MathRenderer::getValidModes()  ) ) {
 			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: '.
-				"\$wgDefaultUserOptions['math'] is not in \$wgMathValidModes.\n".
+				"\$wgDefaultUserOptions['math'] is not in " . MathRenderer::getValidModes() . ".\n".
 				"Please check your LocalSetting.php file." );
 			// Display the checkbox in the first option.
-			$wgDefaultUserOptions['math'] = $wgMathValidModes[0];
+			$validModes = MathRenderer::getValidModes();
+            $wgDefaultUserOptions['math'] = $validModes[0];
 		}
 		return true;
 	}
@@ -239,18 +241,9 @@ class MathHooks {
 	 * @return array of strings
 	 */
 	public static function getMathNames() {
-		global $wgMathValidModes;
-		$MathConstantNames = array(
-			MW_MATH_SOURCE => 'mw_math_source',
-			MW_MATH_PNG => 'mw_math_png',
-			MW_MATH_MATHML => 'mw_math_mathml',
-			MW_MATH_LATEXML => 'mw_math_latexml',
-			MW_MATH_LATEXML_JAX => 'mw_math_latexml_jax',
-			MW_MATH_MATHJAX => 'mw_math_mathjax'
-		);
 		$names = array();
-		foreach ( $wgMathValidModes as $mode ) {
-			$names[$mode] = wfMessage( $MathConstantNames[$mode] )->escaped();
+        foreach ( MathRenderer::getValidModes()  as $mode ) {
+			$names[ $mode ] = wfMessage( 'mw_math_' . $mode )->escaped();
 		}
 
 		return $names;
@@ -266,7 +259,7 @@ class MathHooks {
 		global $wgUser;
 
 		# Don't generate TeX PNGs (the lack of a sensible current directory causes errors anyway)
-		$wgUser->setOption( 'math', MW_MATH_SOURCE );
+		$wgUser->setOption( 'math', 'source' );
 
 		return true;
 	}
@@ -279,7 +272,7 @@ class MathHooks {
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
-		global $wgMathValidModes;
+
 		if ( is_null( $updater ) ) {
 			throw new Exception( 'Math extension is only necessary in 1.18 or above' );
 		}
@@ -293,7 +286,7 @@ class MathHooks {
 		}
 		$sql = __DIR__ . '/db/math.' . $type . '.sql';
 		$updater->addExtensionTable( 'math', $sql );
-		if ( in_array( MW_MATH_LATEXML, $wgMathValidModes ) ) {
+		if ( in_array( 'latexml', MathRenderer::getValidModes() ) ) {
 			if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
 				$sql = __DIR__ . '/db/mathlatexml.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathlatexml', $sql );
@@ -305,7 +298,7 @@ class MathHooks {
 				throw new Exception( "Math extension does not currently support $type database for LaTeXML." );
 			}
 		}
-		if ( in_array( MW_MATH_MATHML, $wgMathValidModes ) ) {
+		if ( in_array( 'mathml', MathRenderer::getValidModes()  ) ) {
 			if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
 				$sql = __DIR__ . '/db/mathoid.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathoid', $sql );

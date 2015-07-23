@@ -59,13 +59,13 @@ define( 'MW_MATHSTYLE_INLINE',  2 ); // small operators inline
 /**@}*/
 
 /**@var array defines the mode allowed on the server */
-$wgMathValidModes = array( MW_MATH_PNG, MW_MATH_SOURCE, MW_MATH_MATHML );
+$wgMathValidModes = array( 'png', 'source', 'mathml' );
 
 /*
  * The default rendering mode for anonymous users.
  * Valid options are defined in $wgMathValidModes.
  */
-$wgDefaultUserOptions['math'] = MW_MATH_PNG;
+$wgDefaultUserOptions['math'] = 'png';
 
 /** Location of the texvc binary */
 $wgTexvc = __DIR__ . '/math/texvc';
@@ -193,17 +193,17 @@ define( 'MW_MATH_CHECK_NEW'   , 2 );
  * Option to disable the TeX security filter:
  * In general every math object, which is rendered by the math extension has its rendering cached in
  * a database.
- * MW_MATH_CHECK_ALWAYS: If set to MW_MATH_CHECK_ALWAYS only a subset of the TeX commands is allowed.
+ * 'always': If set to 'always' only a subset of the TeX commands is allowed.
  * See the Wikipedia page Help:Math for details about the allowed commands.
- * MW_MATH_CHECK_NONE: If set to MW_MATH_CHECK_NONE any TeX expression is parsed.
+ * 'never': If set to 'never' any TeX expression is parsed.
  * This can be a potential security risk.
- * MW_MATH_CHECK_NEW checks only new equations. If the database does not yet contain the given math object,
+ * 'new' checks only new equations. If the database does not yet contain the given math object,
  * then it is passed through texvccheck.
  * Please make sure to truncate the database tables (math, mathoid, mathlatexml) when switching from
- * MW_MATH_CHECK_NONE to MW_MATH_CHECK_NEW. Otherwise, unchecked content contained in the database
+ * 'check_none' to 'new'. Otherwise, unchecked content contained in the database
  * will be displayed.
  */
-$wgMathDisableTexFilter = MW_MATH_CHECK_NEW;
+$wgMathDisableTexFilter = 'new';
 
 /** @var boolean $wgMathEnableExperimentalInputFormats enables experimental MathML and AsciiMath input format support */
 $wgMathEnableExperimentalInputFormats = false;
