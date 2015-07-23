@@ -143,7 +143,7 @@ class MathTexvc extends MathRenderer {
 			'class' => 'mwe-math-fallback-image-inline tex',
 			'alt' => $this->getTex()
 		);
-		if ( $this->getMathStyle() === MW_MATHSTYLE_DISPLAY ){
+		if ( $this->getMathStyle() === 'display' ){
 			// if DisplayStyle is true, the equation will be centered in a new line
 			$attributes[ 'class' ] = 'mwe-math-fallback-image-display tex';
 		}
@@ -335,27 +335,7 @@ class MathTexvc extends MathRenderer {
 	 * @return string HTML string
 	 */
 	public function getHtmlOutput() {
-		if ( $this->getMode() == MW_MATH_MATHML && $this->getMathml() != '' ) {
-			return Xml::tags( 'math',
-				$this->getAttributes( 'math',
-					array( 'xmlns' => 'http://www.w3.org/1998/Math/MathML' ) ),
-				$this->mathml );
-		}
-		if ( ( $this->getMode() == MW_MATH_PNG ) || ( $this->getHtml() == '' ) ||
-			( ( $this->getMode() == MW_MATH_SIMPLE ) && ( $this->getConservativeness() != self::CONSERVATIVE ) ) ||
-			( ( $this->getMode() == MW_MATH_MODERN || $this->getMode() == MW_MATH_MATHML ) && ( $this->getConservativeness() == self::LIBERAL ) )
-		)
-		{
-			return $this->getMathImageHTML();
-		} else {
-			return Xml::tags( 'span',
-				$this->getAttributes( 'span',
-					array( 'class' => 'texhtml',
-						'dir' => 'ltr'
-					) ),
-				$this->getHtml()
-			);
-		}
+		return $this->getMathImageHTML();
 	}
 
 	/**
