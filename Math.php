@@ -259,42 +259,42 @@ $wgResourceModules['ext.math.scripts'] = array(
 
 
 $moduleTemplate = array(
-    'localBasePath' => __DIR__ . '/modules',
-    'remoteExtPath' => 'Math/modules',
+	'localBasePath' => __DIR__ . '/modules',
+	'remoteExtPath' => 'Math/modules',
 );
 
 $wgResourceModules['ext.math.editbutton.enabler'] = array(
-	'scripts' => 'ext.math.editbutton.js',
-	'messages' => array(
-		'math_tip',
-		'math_sample',
-	),
-) + $moduleTemplate;
+		'scripts' => 'ext.math.editbutton.js',
+		'messages' => array(
+			'math_tip',
+			'math_sample',
+		),
+	) + $moduleTemplate;
 
 $wgResourceModules['ext.math.visualEditor'] = array(
-	'scripts' => array(
-		'VisualEditor/ve.dm.MWMathNode.js',
-		'VisualEditor/ve.ce.MWMathNode.js',
-		'VisualEditor/ve.ui.MWMathInspector.js',
-		'VisualEditor/ve.ui.MWMathInspectorTool.js',
-	),
-	'styles' => array(
-		'VisualEditor/ve.ce.MWMathNode.css',
-		'VisualEditor/ve.ui.MWMathIcons.css',
-		'VisualEditor/ve.ui.MWMathInspector.css',
-	),
-	'dependencies' => array(
-		'ext.visualEditor.mwcore',
-	),
-	'messages' => array(
-		'math-visualeditor-mwmathinspector-display',
-		'math-visualeditor-mwmathinspector-display-block',
-		'math-visualeditor-mwmathinspector-display-default',
-		'math-visualeditor-mwmathinspector-display-inline',
-		'math-visualeditor-mwmathinspector-id',
-		'math-visualeditor-mwmathinspector-title',
-	),
-	'targets' => array( 'desktop', 'mobile' ),
-) + $moduleTemplate;
+		'scripts' => array(
+			'VisualEditor/ve.dm.MWMathNode.js',
+			'VisualEditor/ve.ce.MWMathNode.js',
+			'VisualEditor/ve.ui.MWMathInspector.js',
+			'VisualEditor/ve.ui.MWMathInspectorTool.js',
+		),
+		'styles' => array(
+			'VisualEditor/ve.ce.MWMathNode.css',
+			'VisualEditor/ve.ui.MWMathIcons.css',
+			'VisualEditor/ve.ui.MWMathInspector.css',
+		),
+		'dependencies' => array(
+			'ext.visualEditor.mwcore',
+		),
+		'messages' => array(
+			'math-visualeditor-mwmathinspector-display',
+			'math-visualeditor-mwmathinspector-display-block',
+			'math-visualeditor-mwmathinspector-display-default',
+			'math-visualeditor-mwmathinspector-display-inline',
+			'math-visualeditor-mwmathinspector-id',
+			'math-visualeditor-mwmathinspector-title',
+		),
+		'targets' => array( 'desktop', 'mobile' ),
+	) + $moduleTemplate;
 
 $wgVisualEditorPluginModules[] = 'ext.math.visualEditor';

@@ -10,7 +10,7 @@ class MathSourceTest extends MediaWikiTestCase {
 	 * i.e. if the span element is generated right.
 	 */
 	public function testBasics() {
-		$real = MathRenderer::renderMath( "a+b", array(), MW_MATH_SOURCE );
+		$real = MathRenderer::renderMath( "a+b", array(), 'source' );
 		$this->assertEquals(
 			'<span class="mwe-math-fallback-source-inline tex" dir="ltr">$ a+b $</span>',
 			$real,
@@ -22,7 +22,7 @@ class MathSourceTest extends MediaWikiTestCase {
 	 * Checks if newlines are converted to spaces correctly.
 	 */
 	public function testNewLines() {
-		$real = MathRenderer::renderMath( "a\n b", array(), MW_MATH_SOURCE );
+		$real = MathRenderer::renderMath( "a\n b", array(), 'source' );
 		$this->assertSame(
 			'<span class="mwe-math-fallback-source-inline tex" dir="ltr">$ a  b $</span>',
 			$real,

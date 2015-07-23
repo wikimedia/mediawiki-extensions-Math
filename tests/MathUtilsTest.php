@@ -77,4 +77,9 @@ class MathUtilsTest extends MediaWikiTestCase {
 		}
 	}
 
+    public function testGetMathNames() {
+        $real = MathHooks::getMathNames();
+        $this->assertEquals( 'PNG images', $real['png'] );
+    }
+
 }

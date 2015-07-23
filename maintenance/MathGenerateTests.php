@@ -78,7 +78,7 @@ class MathGenerateTests extends Maintenance
 		}
 		$i = 0;
 		foreach ( array_slice( $allEquations, $offset, $length, true ) as $input ) {
-			$output = MathRenderer::renderMath( $input[1], $input[2], MW_MATH_PNG );
+			$output = MathRenderer::renderMath( $input[1], $input[2], 'png' );
 			$output = preg_replace( '#src="(.*?)/(([a-f]|\d)*).png"#', 'src="\2.png"', $output );
 			$parserTests[] = array( (string)$input[1], $output );
 			$i++;
