@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"CERminator",
-			"Semso98"
+			"Semso98",
+			"Srdjan m"
 		]
 	},
 	"math_bad_output": "Ne može se napisati ili napraviti direktorijum za matematični izvještaj.",
@@ -16,8 +17,9 @@
 	"math_tip": "Matematička formula (LaTeX)",
 	"math_unknown_error": "nepoznata greška",
 	"math_unknown_function": "nepoznata funkcija \"$1\"",
+	"mw_math_mathjax": "Klijentni MathJax (spor; poboljšava prikaz na nekim preglednicima i pristupačnim alatima)",
 	"mw_math_mathml": "MathML sa SVG ili PNG rezervom (preporučuje se za moderne preglednike i alate pristupačnosti)",
 	"mw_math_png": "PNG slike",
 	"mw_math_source": "TeX izvor (za tekstualne preglednike)",
-	"prefs-math": "Prikazivanje matematike"
+	"prefs-math": "Matematika"
 }
