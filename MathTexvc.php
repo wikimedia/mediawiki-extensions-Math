@@ -177,17 +177,21 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function callTexvc() {
 		global $wgTexvc, $wgTexvcBackgroundColor, $wgHooks;
-
+		if ( $wgTexvc === false ){
+			$texvc = __DIR__ . '/math/texvc';
+		} else {
+			$texvc = $wgTexvc;
+		}
 		$tmpDir = wfTempDir();
-		if ( !is_executable( $wgTexvc ) ) {
+		if ( !is_executable( $texvc ) ) {
 			LoggerFactory::getInstance( 'Math' )->error(
-				"$wgTexvc does not exist or is not executable." );
+				"$texvc does not exist or is not executable." );
 			return $this->getError( 'math_notexvc' );
 		}
 
 		$escapedTmpDir = wfEscapeShellArg( $tmpDir );
 
-		$cmd = $wgTexvc . ' ' .
+		$cmd = $texvc . ' ' .
 			$escapedTmpDir . ' ' .
 			$escapedTmpDir . ' ' .
 			wfEscapeShellArg( $this->getUserInputTex() ) . ' ' .

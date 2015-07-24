@@ -345,4 +345,11 @@ class MathHooks {
 		global $wgOut;
 		$wgOut->addModules( array( 'ext.math.editbutton.enabler' ) );
 	}
+
+	public static function registerExtension() {
+		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathDisableTexFilter;
+		$wgMathValidModes = MathRenderer::getValidModes();
+		$wgMathDisableTexFilter = MathRenderer::getDisableTexFilter();
+		$wgDefaultUserOptions['math'] = self::mathModeToString( $wgDefaultUserOptions['math'] );
+	}
 }
