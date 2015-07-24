@@ -1,0 +1,174 @@
+{
+  "name": "Math",
+  "version": "2.0.0",
+  "author": [
+    "Tomasz Wegrzanowski",
+    "Brion Vibber",
+    "Moritz Schubotz",
+    "Derk-Jan Hartman"
+  ],
+  "url": "https://www.mediawiki.org/wiki/Extension:Math",
+  "descriptionmsg": "math-desc",
+  "callback": "MathHooks::registerExtension",
+  "type": "parserhook",
+  "AutoloadClasses": {
+    "MathHooks": "Math.hooks.php",
+    "MathRenderer": "MathRenderer.php",
+    "MathTexvc": "MathTexvc.php",
+    "MathSource": "MathSource.php",
+    "MathMathML": "MathMathML.php",
+    "MathLaTeXML": "MathLaTeXML.php",
+    "MathInputCheck": "MathInputCheck.php",
+    "MathInputCheckTexvc": "MathInputCheckTexvc.php",
+    "SpecialMathShowImage": "SpecialMathShowImage.php",
+    "SpecialMathStatus": "SpecialMathStatus.php"
+  },
+  "DefaultUserOptions": {
+    "math": "png"
+  },
+  "ExtensionFunctions": [
+    "MathHooks::setup"
+  ],
+  "ExtensionMessagesFiles": {
+    "MathAlias": "Math.alias.php",
+    "MathAliasNoTranslate": "Math.alias.noTranslate.php"
+  },
+  "Hooks": {
+    "ParserFirstCallInit": [
+      "MathHooks::onParserFirstCallInit"
+    ],
+    "GetPreferences": [
+      "MathHooks::onGetPreferences"
+    ],
+    "LoadExtensionSchemaUpdates": [
+      "MathHooks::onLoadExtensionSchemaUpdates"
+    ],
+    "ParserTestTables": [
+      "MathHooks::onParserTestTables"
+    ],
+    "UnitTestsList": [
+      "MathHooks::onRegisterUnitTests"
+    ],
+    "PageRenderingHash": [
+      "MathHooks::onPageRenderingHash"
+    ],
+    "EditPageBeforeEditToolbar": [
+      "MathHooks::onEditPageBeforeEditToolbar"
+    ]
+  },
+  "config": {
+    "MathCheckFiles": true,
+    "MathDefaultLaTeXMLSetting": {
+      "format": "xhtml",
+      "whatsin": "math",
+      "whatsout": "math",
+      "0": "pmml",
+      "1": "cmml",
+      "2": "mathtex",
+      "3": "nodefaultresources",
+      "preload": [
+        "LaTeX.pool",
+        "article.cls",
+        "amsmath.sty",
+        "amsthm.sty",
+        "amstext.sty",
+        "amssymb.sty",
+        "eucal.sty",
+        "[dvipsnames]xcolor.sty",
+        "url.sty",
+        "hyperref.sty",
+        "[ids]latexml.sty",
+        "texvc"
+      ]
+    },
+    "MathDirectory": false,
+    "MathDisableTexFilter": "new",
+    "MathEnableExperimentalInputFormats": false,
+    "MathFileBackend": false,
+    "MathLaTeXMLTimeout": 240,
+    "MathLaTeXMLUrl": "http://gw125.iu.xsede.org:8888",
+    "MathMathMLTimeout": 20,
+    "MathMathMLUrl": "http://mathoid.testme.wmflabs.org",
+    "MathPath": false,
+    "MathTexvcCheckExecutable": "/srv/vagrant/mediawiki/extensions/Math/texvccheck/texvccheck",
+    "MathValidModes": [
+      "png",
+      "source",
+      "mathml"
+    ],
+    "Texvc": "/srv/vagrant/mediawiki/extensions/Math/math/texvc",
+    "TexvcBackgroundColor": "transparent",
+    "VisualEditorPluginModules": [
+      "ext.math.visualEditor"
+    ]
+  },
+  "MessagesDirs": {
+    "Math": [
+      "i18n"
+    ]
+  },
+  "ParserTestFiles": [
+    "mathParserTests.txt"
+  ],
+  "ResourceModules": {
+    "ext.math.styles": {
+      "position": "top",
+      "styles": "ext.math.css",
+      "targets": [
+        "desktop",
+        "mobile"
+      ]
+    },
+    "ext.math.desktop.styles": {
+      "position": "top",
+      "styles": "ext.math.desktop.css"
+    },
+    "ext.math.scripts": {
+      "scripts": "ext.math.js"
+    },
+    "ext.math.editbutton.enabler": {
+      "scripts": "ext.math.editbutton.js",
+      "messages": [
+        "math_tip",
+        "math_sample"
+      ]
+    },
+    "ext.math.visualEditor": {
+      "scripts": [
+        "VisualEditor/ve.dm.MWMathNode.js",
+        "VisualEditor/ve.ce.MWMathNode.js",
+        "VisualEditor/ve.ui.MWMathInspector.js",
+        "VisualEditor/ve.ui.MWMathInspectorTool.js"
+      ],
+      "styles": [
+        "VisualEditor/ve.ce.MWMathNode.css",
+        "VisualEditor/ve.ui.MWMathIcons.css",
+        "VisualEditor/ve.ui.MWMathInspector.css"
+      ],
+      "dependencies": [
+        "ext.visualEditor.mwcore"
+      ],
+      "messages": [
+        "math-visualeditor-mwmathinspector-display",
+        "math-visualeditor-mwmathinspector-display-block",
+        "math-visualeditor-mwmathinspector-display-default",
+        "math-visualeditor-mwmathinspector-display-inline",
+        "math-visualeditor-mwmathinspector-id",
+        "math-visualeditor-mwmathinspector-title"
+      ],
+      "targets": [
+        "desktop",
+        "mobile"
+      ]
+    }
+  },
+  "ResourceFileModulePaths": {
+    "localBasePath": "modules",
+    "remoteExtPath": "Math/modules"
+  },
+  "SpecialPages": {
+    "MathShowImage": "SpecialMathShowImage",
+    "MathStatus": "SpecialMathStatus"
+  },
+  "manifest_version": 1
+}
