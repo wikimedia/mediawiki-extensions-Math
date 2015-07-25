@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ec42329_5293e65a",
+        "filename": "Math.php",
+        "patchSetId": 27
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2015-07-25T16:20:11Z",
+      "side": 1,
+      "message": "Needs /* because this is a Wikimedia deployed extension.",
+      "revId": "d94bdf8f48d2305bab3501a82a9be6c81b65ecc3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
