@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ec42329_72bdc2ad",
+        "filename": "extension.json",
+        "patchSetId": 28
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2015-07-25T16:34:21Z",
+      "side": 1,
+      "message": "All this needs to be tab. Convert from spaces to tab please.",
+      "revId": "46a76a788ed3ad734d0e2cd7bd69441222fbcdd4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
