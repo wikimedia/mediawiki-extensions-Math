@@ -16,6 +16,24 @@
       "revId": "46a76a788ed3ad734d0e2cd7bd69441222fbcdd4",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec42329_32dbba26",
+        "filename": "extension.json",
+        "patchSetId": 28
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-07-25T16:47:35Z",
+      "side": 1,
+      "message": "I don\u0027t think so. Look at package.json. json files use two spaces...",
+      "parentUuid": "8ec42329_72bdc2ad",
+      "revId": "46a76a788ed3ad734d0e2cd7bd69441222fbcdd4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
