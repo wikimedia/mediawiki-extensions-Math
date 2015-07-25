@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ec42329_351884d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-07-25T20:04:13Z",
+      "side": 1,
+      "message": "I think this should also be 3.0.0?",
+      "revId": "18b2743c4dc039a7ef136157a5bc2d250a6021f0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
