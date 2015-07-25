@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ec42329_95db78ed",
+        "filename": "HISTORY",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-07-25T20:49:21Z",
+      "side": 1,
+      "message": "a 0 is missing here",
+      "revId": "6a01ab3d7895164ec19e9164e4114d1d7ecd5d91",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
