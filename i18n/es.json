@@ -14,8 +14,6 @@
 		]
 	},
 	"math-desc": "Sintetiza imágenes (render) a partir de las fórmulas matemáticas entre las etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math-preference-mwmathinspector-description": "Añade al editor visual la función experimental de crear y editar fórmulas matemáticas para probarla antes de su lanzamiento a los usuarios en general. Al usar herramientas experimentales, recuerda siempre revisar tus cambios antes de guardar.",
-	"math-preference-mwmathinspector-label": "Edición de fórmulas en el editor visual",
 	"math-visualeditor-mwmathinspector-display": "Mostrar",
 	"math-visualeditor-mwmathinspector-display-block": "Bloquear",
 	"math-visualeditor-mwmathinspector-display-default": "Predeterminado",
@@ -47,5 +45,5 @@
 	"mw_math_mathml": "MathML con SVG o PNG como alternativa (recomendado para navegadores modernos y herramientas de accesibilidad)",
 	"mw_math_png": "Imágenes PNG",
 	"mw_math_source": "Código TeX (para navegadores de texto)",
-	"prefs-math": "Fórmulas"
+	"prefs-math": "Matemáticas"
 }
