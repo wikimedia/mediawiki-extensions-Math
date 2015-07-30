@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ec42329_d7c4816a",
+        "filename": "extension.json",
+        "patchSetId": 32
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2015-07-30T17:16:35Z",
+      "side": 1,
+      "message": "This should be a top level key, it\u0027s an attribute, see https://www.mediawiki.org/wiki/Manual:Extension_registration#Attributes",
+      "revId": "0f6b7c2832487dde246bda6563a8fd93f10978b6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
