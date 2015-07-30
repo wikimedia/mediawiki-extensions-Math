@@ -16,6 +16,24 @@
       "revId": "e6d5cdb10264855063beae5a68555f69f647c968",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec42329_2b2a3c8f",
+        "filename": "extension.json",
+        "patchSetId": 33
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-07-30T21:32:25Z",
+      "side": 1,
+      "message": "OK. This makes perfect sense now... I was a little bit confused. But why did the convert script put htis entry in the config section in the first place... isn\u0027t that the point where the problem should be fixed... manual corrections are always a weak point to my understanding",
+      "parentUuid": "8ec42329_3ad36c31",
+      "revId": "e6d5cdb10264855063beae5a68555f69f647c968",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
