@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ec42329_3ad36c31",
+        "filename": "extension.json",
+        "patchSetId": 33
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2015-07-30T18:26:01Z",
+      "side": 1,
+      "message": "Err, no, it should be a top level key in the entire JSON structure, like \"ResourceModules\" (for example). And it still needs to be an array.",
+      "revId": "e6d5cdb10264855063beae5a68555f69f647c968",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
