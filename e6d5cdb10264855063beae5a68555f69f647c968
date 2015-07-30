@@ -34,6 +34,24 @@
       "revId": "e6d5cdb10264855063beae5a68555f69f647c968",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec42329_46f3fde2",
+        "filename": "extension.json",
+        "patchSetId": 33
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2015-07-30T22:00:40Z",
+      "side": 1,
+      "message": "The conversion script isn\u0027t perfect and doesn\u0027t know about different extensions that may add arbitrary attributes.",
+      "parentUuid": "8ec42329_2b2a3c8f",
+      "revId": "e6d5cdb10264855063beae5a68555f69f647c968",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
