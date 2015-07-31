@@ -112,7 +112,7 @@ abstract class MathRenderer {
 	 */
 	public static function getRenderer( $tex, $params = array(), $mode = 'png' ) {
 		global $wgDefaultUserOptions, $wgMathEnableExperimentalInputFormats;
-		$mathStyle = null;
+		$mathStyle = 'inlineDisplaystyle'; // Set the default style
 		if ( isset( $params['display'] ) ) {
 			$layoutMode = $params['display'];
 			if ( $layoutMode == 'block' ) {
