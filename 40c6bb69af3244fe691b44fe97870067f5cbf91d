@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ec42329_2af0eff9",
+        "filename": "SpecialMathStatus.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 2678
+      },
+      "writtenOn": "2015-07-31T18:16:47Z",
+      "side": 1,
+      "message": "why cant we just say `assertFalse()` instead of `! assertTrue()` ?",
+      "revId": "40c6bb69af3244fe691b44fe97870067f5cbf91d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec42329_4af3fb06",
+        "filename": "SpecialMathStatus.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 2678
+      },
+      "writtenOn": "2015-07-31T18:16:47Z",
+      "side": 1,
+      "message": "add space after !",
+      "revId": "40c6bb69af3244fe691b44fe97870067f5cbf91d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
