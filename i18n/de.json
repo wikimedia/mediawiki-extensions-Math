@@ -8,8 +8,6 @@
 		]
 	},
 	"math-desc": "Ergänzt das Tag <code>&lt;math&gt;</code> zum Darstellen mathematischer Formeln",
-	"math-preference-mwmathinspector-description": "Ergänzt experimentellen Testsupport zum Erstellen und Bearbeiten von mathematischen Formeln vor der allgemeinen Freigabe. Bitte überprüfe vor dem Speichern immer deine Änderungen, wenn du experimentelle Funktionen benutzt.",
-	"math-preference-mwmathinspector-label": "VisualEditor-Formelbearbeitung",
 	"math-visualeditor-mwmathinspector-display": "Anzeige",
 	"math-visualeditor-mwmathinspector-display-block": "Block",
 	"math-visualeditor-mwmathinspector-display-default": "Standard",
@@ -35,6 +33,8 @@
 	"math-test-fail": "Test ''$1'' <span style=\"color:red\">fehlgeschlagen</span>.",
 	"math-test-start": "Führt Backend-Tests für den Renderingsmodus ''$1'' aus.",
 	"math-test-success": "Test ''$1'' <span style=\"color:green\">erfolgreich</span>.",
+	"math-test-contains-diff": "Die zurückgegebene Zeichenfolge $1 enthält nicht die erwartete Zeichenfolge $2.",
+	"math-test-equals-diff": "Die zurückgegebene Zeichenfolge $1 weicht von der erwarteten Zeichenfolge $2 ab.",
 	"math_tip": "Mathematische Formel (LaTeX)",
 	"math_unknown_error": "Unbekannter Fehler",
 	"math_unknown_function": "Unbekannte Funktion „$1“",
