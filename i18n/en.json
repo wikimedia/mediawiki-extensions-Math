@@ -1,6 +1,21 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Brion Vibber",
+			"Chad Horohoe",
+			"Ed Sanders",
+			"Frédéric Wang",
+			"Gabriel Wicke",
+			"Jack Phoenix",
+			"James D. Forrester",
+			"Matthew Flaschen",
+			"Moritz Schubotz",
+			"Raimond Spekking",
+			"Roan Kattouw",
+			"Sam Reed",
+			"Siebrand Mazeland",
+			"Yuki Shira"
+		]
 	},
 	"math-desc": "Render mathematical formulas between <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> tags",
 	"math-visualeditor-mwmathinspector-display": "Display",
