@@ -9,8 +9,6 @@
 		]
 	},
 	"math-desc": "在<code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code>标签间生成数学公式",
-	"math-preference-mwmathinspector-description": "在正式发布前，将创建和编辑数学公式的测试功能加入可视化编辑器。请务必在保存前检查使用测试功能作出的更改。",
-	"math-preference-mwmathinspector-label": "可视化编辑器公式编辑",
 	"math-visualeditor-mwmathinspector-display": "显示",
 	"math-visualeditor-mwmathinspector-display-block": "块",
 	"math-visualeditor-mwmathinspector-display-default": "默认",
@@ -36,6 +34,8 @@
 	"math-test-fail": "测试“$1”<span style=\"color:red\">失败</span>。",
 	"math-test-start": "用于渲染模式“$1”的后端测试正在运行。",
 	"math-test-success": "测试“$1”<span style=\"color:green\">完成</span>。",
+	"math-test-contains-diff": "返回的字符串$1不包含预期字符串$2。",
+	"math-test-equals-diff": "返回的字符串$1不同于预期字符串$2",
 	"math_tip": "插入数学公式 （LaTeX）",
 	"math_unknown_error": "未知错误",
 	"math_unknown_function": "未知函数“$1”",

@@ -10,8 +10,6 @@
 		]
 	},
 	"math-desc": "Renderowanie formuł matematycznych między znacznikami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math-preference-mwmathinspector-description": "Dodaje w edytorze VisualEditorze eksperymentalną obsługę dla tworzenia i edycji formuł matematycznych (do testowania, przed końcowym zapisaniem). Nie zapomnij, aby podczas korzystania z funkcji eksperymentalnych zawsze przeglądać swoje zmiany przed zapisaniem.",
-	"math-preference-mwmathinspector-label": "Edycja wzorów matematycznych za pomocą VisualEditora",
 	"math-visualeditor-mwmathinspector-display": "Wyświetl",
 	"math-visualeditor-mwmathinspector-display-block": "Ramka",
 	"math-visualeditor-mwmathinspector-display-default": "Domyślnie",
@@ -33,6 +31,8 @@
 	"math_timeout": "$1 przekroczył czas oczekiwania od „$2”.",
 	"math-test-fail": "Test ''$1'' <span style=\"color:red\">zakończony niepowodzeniem</span>.",
 	"math-test-success": "Test ''$1'' <span style=\"color:green\">zakończony powodzeniem</span>.",
+	"math-test-contains-diff": "Zwracany ciąg znaków $1 nie zawiera oczekiwanego $2.",
+	"math-test-equals-diff": "Zwracany ciąg znaków $1 różni się od oczekiwanego $2",
 	"math_tip": "Wzór matematyczny (LaTeX)",
 	"math_unknown_error": "nieznany błąd",
 	"math_unknown_function": "nieznana funkcja '$1'",

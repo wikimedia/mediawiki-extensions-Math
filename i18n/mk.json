@@ -5,8 +5,6 @@
 		]
 	},
 	"math-desc": "Испис на математички формули помеѓу ознаките <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math-preference-mwmathinspector-description": "Додава експериментална поддршка за ВизуеленУредник за создавање и уредување на математички формули за испробување пред да се пушти во јавноста. Не заборавајте секогаш да ги проверувате направените промени пред да зачувате кога користите експериментални функции.",
-	"math-preference-mwmathinspector-label": "Уредување на формули со ВизуеленУредник",
 	"math-visualeditor-mwmathinspector-display": "Прикажи",
 	"math-visualeditor-mwmathinspector-display-block": "Блокирај",
 	"math-visualeditor-mwmathinspector-display-default": "По основно",
@@ -32,6 +30,8 @@
 	"math-test-fail": "Пробата ''$1'' <span style=\"color:red\">не успеа</span>.",
 	"math-test-start": "Тековни испробувања на заднината за исписниот режим ''$1''.",
 	"math-test-success": "Пробата ''$1'' <span style=\"color:green\">успеа</span>.",
+	"math-test-contains-diff": "Дадената низа $1 не ја содржи очекуваната низа $2.",
+	"math-test-equals-diff": "Дадената низа $1 е различна од очекуваната низа $2.",
 	"math_tip": "Математичка формула (LaTeX)",
 	"math_unknown_error": "непозната грешка",
 	"math_unknown_function": "непозната функција „$1“",

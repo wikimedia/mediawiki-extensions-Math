@@ -9,8 +9,6 @@
 		]
 	},
 	"math-desc": "הדפסת נוסחאות מתמטיות בין התגים <bdi><code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code></bdi>",
-	"math-preference-mwmathinspector-description": "הוספה של תמיכה ניסיונית ביצירה ועריכה של נוסחאות מתמטיות לעורך החזותי, לבדיקה לפני הוצאת הגרסה הכללית. נא לזכור תמיד לסקור את השינויים שלך לפני שמירה תוך כדי שימוש באפשרויות ניסיוניות.",
-	"math-preference-mwmathinspector-label": "עריכת נוסחאות בעורך החזותי",
 	"math-visualeditor-mwmathinspector-display": "הצגה",
 	"math-visualeditor-mwmathinspector-display-block": "בפִסקה נפרדת",
 	"math-visualeditor-mwmathinspector-display-default": "בררת מחדל",
@@ -36,6 +34,8 @@
 	"math-test-fail": "הבדיקת ''$1'' <span style=\"color:red\">נכשלה</span>.",
 	"math-test-start": "הרצת בדיקות רגע למצב התיצוג ''$1''.",
 	"math-test-success": "הבדיקה ''$1'' <span style=\"color:green\">הצליחה</span>..",
+	"math-test-contains-diff": "המחרוזת המוחזרת $1 אינה מכילה את המחרוזת הצפויה $2.",
+	"math-test-equals-diff": "המחרוזת המוחזרת $1 שונה מהמחרוזת הצפויה $2.",
 	"math_tip": "נוסחה מתמטית (LaTeX)",
 	"math_unknown_error": "שגיאה לא ידועה",
 	"math_unknown_function": "פונקציה $1 לא מוכרת",

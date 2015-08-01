@@ -37,6 +37,8 @@
 	"math_timeout": "El tiempo de espera de $1 en «$2» se agotó.",
 	"math-test-fail": "<span style=\"color:red\">Falló</span> la prueba ''$1''.",
 	"math-test-success": "Se <span style=\"color:green\">superó</span> la prueba ''$1''.",
+	"math-test-contains-diff": "La cadena devuelta $1 no contiene a la cadena esperada $2",
+	"math-test-equals-diff": "La cadena devuelta $1 es diferente de la esperada $2",
 	"math_tip": "Fórmula matemática (LaTeX)",
 	"math_unknown_error": "error desconocido",
 	"math_unknown_function": "función desconocida «$1».",
