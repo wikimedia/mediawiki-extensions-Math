@@ -25,7 +25,7 @@
 	"math_syntax_error": "syntax error",
 	"math_timeout": "$1 timeout from \"$2\".",
 	"math-test-end": "Backend tests for rendering mode ''$1'' completed.",
-	"math-test-fail": "Test ''$1''  <span style=\"color:red\">failed</span>.",
+	"math-test-fail": "Test ''$1'' <span style=\"color:red\">failed</span>.",
 	"math-test-start": "Running backend tests for rendering mode ''$1''.",
 	"math-test-success": "Test ''$1'' <span style=\"color:green\">succeeded</span>.",
 	"math-test-contains-diff" : "Returned string $1 does not contain expected string $2.",
