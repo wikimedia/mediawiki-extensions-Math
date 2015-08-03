@@ -5,8 +5,6 @@
 		]
 	},
 	"math-desc": "Inderprete le formule matemateche 'mbrà le tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math-preference-mwmathinspector-description": "Aggiunge 'nu supporte sperimendale a VisualEditor pe ccrejà e cangià le formule matemateche pu test, 'ngape e le rilasce generale. Pe piacere arrecuèrdate sembre de revisionà le cangiaminde tune apprime de reggistrà quanne ste ause le funzionalità sperimendale.",
-	"math-preference-mwmathinspector-label": "Cangiamende de le formule de VisualEditor",
 	"math-visualeditor-mwmathinspector-display": "Fà vedè",
 	"math-visualeditor-mwmathinspector-display-block": "Blocche",
 	"math-visualeditor-mwmathinspector-display-default": "De base",
@@ -32,6 +30,8 @@
 	"math-test-fail": "Test ''$1''  <span style=\"color:red\">fallite</span>.",
 	"math-test-start": "Test de rete in esecuzione pu mode de renderizzazzione \"$1\".",
 	"math-test-success": "Test ''$1'' <span style=\"color:green\">apposte</span>.",
+	"math-test-contains-diff": "Turnate 'a stringhe $1 ca non ge téne 'a stringhe aspettate $2.",
+	"math-test-equals-diff": "Turnate 'a stringhe $1 ca jè diverse da 'a stringhe aspettate $2.",
 	"math_tip": "Formula matemateche (LaTeX)",
 	"math_unknown_error": "errore scanusciute",
 	"math_unknown_function": "funziona scanusciute '$1'",

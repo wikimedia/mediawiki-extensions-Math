@@ -11,8 +11,6 @@
 		]
 	},
 	"math-desc": "Відображає математичні формули у теґах <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
-	"math-preference-mwmathinspector-description": "Додати експериментальні інструменти до візуального редактора для створення і редагування математичних формул з метою тестування, напередодні загального випуску. Будь ласка, не забувайте завжди переглянути зміни перед збереженням при використанні експериментальних функцій.",
-	"math-preference-mwmathinspector-label": "Редагування формул у Візуальному редакторі",
 	"math-visualeditor-mwmathinspector-display": "Показати",
 	"math-visualeditor-mwmathinspector-display-block": "Блокування",
 	"math-visualeditor-mwmathinspector-display-default": "Стандартно",
@@ -38,6 +36,8 @@
 	"math-test-fail": "Тест ''$1'' <span style=\"color:red\">не вдався</span>.",
 	"math-test-start": "Бекенд-тести для режиму візуалізації ''$1'' у процесі.",
 	"math-test-success": "Тест ''$1'' <span style=\"color:green\">успішний</span>.",
+	"math-test-contains-diff": "Виведений рядок $1 не містить очікуваного рядка $2.",
+	"math-test-equals-diff": "Виведений рядок $1 відрізняється від очікуваного рядка $2.",
 	"math_tip": "Математична формула (LaTeX)",
 	"math_unknown_error": "невідома помилка",
 	"math_unknown_function": "невідома функція '$1'",

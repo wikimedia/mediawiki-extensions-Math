@@ -31,6 +31,8 @@
 	"math-test-fail": "Testas ''$1''  <span style=\"color:red\">nepavyko</span>.",
 	"math-test-start": "Vykdomi vidinės pusės testai atvaizdavimo metodui ''$1''.",
 	"math-test-success": "Testas ''$1'' <span style=\"color:green\">pavyko</span>.",
+	"math-test-contains-diff": "Grąžintoje eilutėje $1 nėra eilutės $2, kurios buvo tikimasi.",
+	"math-test-equals-diff": "Gražinta eilutė $1 yra kitokia, nei eilutė $2, kurios buvo tikimasi.",
 	"math_tip": "Matematinė formulė (LaTeX formatu)",
 	"math_unknown_error": "nežinoma klaida",
 	"math_unknown_function": "nežinoma funkcija \"$1\"",
