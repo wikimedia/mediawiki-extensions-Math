@@ -13,8 +13,6 @@
 		]
 	},
 	"math-desc": "Restitue les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math-preference-mwmathinspector-description": "Ajouter le support expérimental à l’ÉditeurVisuel pour créer et modifier des formules mathématiques, à des fins de test avant la version généralisée. Rappelez-vous de toujours vérifier vos modifications avant d’enregistrer lors de l’utilisation de fonctionnalités expérimentales.",
-	"math-preference-mwmathinspector-label": "Modification de formules dans l’ÉditeurVisuel",
 	"math-visualeditor-mwmathinspector-display": "Alignement",
 	"math-visualeditor-mwmathinspector-display-block": "En block",
 	"math-visualeditor-mwmathinspector-display-default": "Par défaut",
@@ -40,6 +38,8 @@
 	"math-test-fail": "Le test \"$1\" <span style=\"color:red\">a échoué</span>.",
 	"math-test-start": "Exécution des tests de serveur pour le mode de rendu « $1 ».",
 	"math-test-success": "Le test \"$1\" <span style=\"color:green\">a réussi</span>.",
+	"math-test-contains-diff": "La chaîne renvoyée $1 ne contient pas la chaîne attendue $2.",
+	"math-test-equals-diff": "La chaîne renvoyée $1 est différente de celle attendue $2.",
 	"math_tip": "Formule mathématique (LaTeX)",
 	"math_unknown_error": "erreur indéterminée",
 	"math_unknown_function": "fonction inconnue « $1 »",

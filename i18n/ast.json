@@ -6,8 +6,6 @@
 		]
 	},
 	"math-desc": "Dibuxa les fórmules matemátiques ente les etiquetes <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math-preference-mwmathinspector-description": "Amestar encontu esperimental a VisualEditor pa crear y editar fórmules matemátiques en pruebes, enantes de la so disponibilidá xeneral. Por favor, recuerde revisar siempre los cambios enantes de guardar cuando use carauterístiques esperimentales.",
-	"math-preference-mwmathinspector-label": "Edición de fórmules en VisualEditor",
 	"math-visualeditor-mwmathinspector-display": "Amosar",
 	"math-visualeditor-mwmathinspector-display-block": "Bloquiar",
 	"math-visualeditor-mwmathinspector-display-default": "Predetermináu",
@@ -33,6 +31,8 @@
 	"math-test-fail": "<span style=\"color:red\">Falló</span> la prueba ''$1''.",
 	"math-test-start": "Executando les pruebes del backend pal mou de representación «$1».",
 	"math-test-success": "<span style=\"color:green\">Pasada</span> la prueba ''$1''.",
+	"math-test-contains-diff": "La cadena «$1» devuelta nun contien la cadena esperada «$2».",
+	"math-test-equals-diff": "La cadena «$1» devuelta ye distinta de la cadena esperada «$2»",
 	"math_tip": "Fórmula matemática",
 	"math_unknown_error": "error desconocíu",
 	"math_unknown_function": "función '$1' desconocida",
