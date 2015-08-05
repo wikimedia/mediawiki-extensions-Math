@@ -67,7 +67,7 @@ abstract class MathRenderer {
 		if ( isset( $params['id'] ) ) {
 			$this->id = $params['id'];
 		}
-		$mathStyle = null;
+		$mathStyle = 'inlineDisplaystyle'; // Set the default style ;
 		if ( isset( $params['display'] ) ) {
 			$layoutMode = $params['display'];
 			if ( $layoutMode == 'block' ) {
