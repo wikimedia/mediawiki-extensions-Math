@@ -219,7 +219,10 @@ class MathMathML extends MathRenderer {
 			if ( $this->getMathStyle() == 'inlineDisplaystyle' ) {
 				// default preserve the (broken) layout as it was
 				$out = 'type=inline-TeX&q=' . rawurlencode( '{\\displaystyle ' . $input . '}' );
-			} else {
+			} elseif ($this->getMathStyle() == 'inline' ){
+				$out = 'type=inline-TeX&q=' . rawurlencode( $input );
+			}
+			else {
 				$out = 'type=tex&q=' . rawurlencode( $input );
 			}
 		}
