@@ -13,8 +13,6 @@
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> 태그 사이에 수학 수식을 표시합니다",
-	"math-preference-mwmathinspector-description": "실험용 시각편집기 수식 편집기를 활성화합니다. 실험 기능을 사용할 때 저장하기 전에 문서의 바뀐 내용을 확인하는 것을 잊지 마세요.",
-	"math-preference-mwmathinspector-label": "시각편집기 수식 편집",
 	"math-visualeditor-mwmathinspector-display": "보기",
 	"math-visualeditor-mwmathinspector-display-block": "블록",
 	"math-visualeditor-mwmathinspector-display-default": "기본값",
@@ -37,7 +35,7 @@
 	"math_timeout": "\"$2\"에서의 $1 타임아웃",
 	"math-test-fail": "''$1'' 시험  <span style=\"color:red\">실패</span>.",
 	"math-test-success": "''$1'' 시험  <span style=\"color:green\">성공</span>.",
-	"math_tip": "수식(LaTeX)",
+	"math_tip": "수학 수식 (LaTeX)",
 	"math_unknown_error": "알 수 없는 오류",
 	"math_unknown_function": "알 수 없는 함수 '$1'",
 	"mw_math_latexml": "LaTeXML (실험 기능; MathML 사용)",
