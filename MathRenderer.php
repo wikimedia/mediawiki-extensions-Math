@@ -67,17 +67,16 @@ abstract class MathRenderer {
 		if ( isset( $params['id'] ) ) {
 			$this->id = $params['id'];
 		}
-		$mathStyle = null;
 		if ( isset( $params['display'] ) ) {
 			$layoutMode = $params['display'];
 			if ( $layoutMode == 'block' ) {
-				$mathStyle = 'display';
+				$this->mathStyle = 'display';
 				$tex = '{\displaystyle ' . $tex . '}';
 			} elseif ( $layoutMode == 'inline' ) {
-				$mathStyle = 'inlineDisplaystyle';
+				$this->mathStyle = 'inlineDisplaystyle';
 				$tex = '{\textstyle ' . $tex . '}';
 			} elseif ( $layoutMode == 'linebreak' ) {
-				$mathStyle = 'linebreak';
+				$this->mathStyle = 'linebreak';
 				$tex = '\[ ' . $tex . ' \]';
 			}
 		}
@@ -93,8 +92,6 @@ abstract class MathRenderer {
 		// be centered in a new line, or just in be displayed in the current line.
 		$this->userInputTex = $tex;
 		$this->tex = $tex;
-		$this->mathStyle = $mathStyle;
-
 	}
 
 	/**
