@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ec42329_6f26e5ca",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2015-08-05T10:11:16Z",
+      "side": 1,
+      "message": "I find this approach slightly confusing. You are already defining the default value as inlineDisplaystyle on line 35, but then here redefine it. This brings about poorer readability and confusion (since we are talking about the constructor here).\n\nIMHO, the much cleaner approach would be to remove this line (as well as L96), and modify $this-\u003emathStyle directly in the if-block below.",
+      "revId": "d5558ef98d8e95fb3b1ba97cc57d633fd781d6b6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
