@@ -265,7 +265,7 @@ class MathTexvc extends MathRenderer {
 			$this->setHash( $newHash );
 		}
 
-		wfRunHooks( 'MathAfterTexvc', array( &$this, &$errmsg ) );
+		Hooks::run( 'MathAfterTexvc', array( &$this, &$errmsg ) );
 
 		if ( $errmsg ) {
 			return $errmsg;
