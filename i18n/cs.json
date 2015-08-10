@@ -7,8 +7,6 @@
 		]
 	},
 	"math-desc": "Vykresluje matematické vzorce vyznačené pomocí <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
-	"math-preference-mwmathinspector-description": "Přidá do VisualEditoru experimentální podporu tvorby a editace matematických vzorců kvůli testování před zveřejněním této funkce. Při užívání experimentálních funkcí prosím nezapomeňte vždy zkontrolovat provedené změny.",
-	"math-preference-mwmathinspector-label": "Editace vzorců VisualEditorem",
 	"math-visualeditor-mwmathinspector-display": "Zobrazení",
 	"math-visualeditor-mwmathinspector-display-block": "Blok",
 	"math-visualeditor-mwmathinspector-display-default": "Výchozí",
@@ -34,6 +32,8 @@
 	"math-test-fail": "Test „$1“  <span style=\"color:red\">selhal</span>.",
 	"math-test-start": "Provádějí se serverové testy režimu vykreslování „$1“.",
 	"math-test-success": "Test „$1“ <span style=\"color:green\">uspěl</span>.",
+	"math-test-contains-diff": "Vrácený řetězec $1 neobsahuje očekávaný řetězec $2.",
+	"math-test-equals-diff": "Vrácený řetězec $1 se liší od očekávaného řetězce $2.",
 	"math_tip": "Matematický vzorec (LaTeX)",
 	"math_unknown_error": "neznámá chyba",
 	"math_unknown_function": "neznámá funkce „$1“",
