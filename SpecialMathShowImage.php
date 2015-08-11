@@ -49,7 +49,7 @@ class SpecialMathShowImage extends SpecialPage {
 		} else {
 			$asciimath = '';
 		}
-		$this->mode = $request->getInt( 'mode', 'mathml' );
+		$this->mode = MathHooks::mathModeToString( $request->getText( 'mode' ), 'mathml' );
 		if ( !in_array( $this->mode, MathRenderer::getValidModes() ) ) {
 			// Fallback to the default if an invalid mode was specified
 			$this->mode = 'mathml';
@@ -58,7 +58,7 @@ class SpecialMathShowImage extends SpecialPage {
 			$this->setHeaders( false );
 			echo $this->printSvgError( 'No Inputhash specified' );
 		} else {
-			if ( $tex === '' && $asciimath === ''){
+			if ( $tex === '' && $asciimath === '' ){
 				switch ( $this->mode ) {
 					case 'png':
 						$this->renderer = MathTexvc::newFromMd5( $hash );
@@ -116,7 +116,7 @@ class SpecialMathShowImage extends SpecialPage {
 	/**
 	 * Prints the specified error message as svg.
 	 * @param string $msg error message
-	 * @return xml svg image with the error message
+	 * @return string xml svg image with the error message
 	 */
 	private function printSvgError( $msg ) {
 		global $wgDebugComments;
