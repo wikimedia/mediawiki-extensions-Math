@@ -96,7 +96,7 @@ ve.ui.MWMathInspector.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWMathInspector.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
 			var display = this.selectedNode.getAttribute( 'mw' ).attrs.display || 'default';
-			this.displaySelect.selectItem( this.displaySelect.getItemFromData( display ) );
+			this.displaySelect.selectItemByData( display );
 			this.displaySelect.on( 'choose', this.onChangeHandler );
 			this.idInput.on( 'change', this.onChangeHandler );
 		}, this );
@@ -116,18 +116,15 @@ ve.ui.MWMathInspector.prototype.getTeardownProcess = function ( data ) {
 /**
  * @inheritdoc
  */
-ve.ui.MWMathInspector.prototype.updatePreview = function () {
-	var mwData = ve.copy( this.selectedNode.getAttribute( 'mw' ) ),
-		display = this.displaySelect.getSelectedItem().getData(),
+ve.ui.MWMathInspector.prototype.updateMwData = function ( mwData ) {
+	// Parent method
+	ve.ui.MWMathInspector.super.prototype.updateMwData.call( this, mwData );
+
+	var display = this.displaySelect.getSelectedItem().getData(),
 		id = this.idInput.getValue();
 
-	mwData.body.extsrc = this.input.getValue();
 	mwData.attrs.display = display !== 'default' ? display : undefined;
 	mwData.attrs.id = id || undefined;
-
-	if ( this.visible ) {
-		this.getFragment().changeAttributes( { mw: mwData } );
-	}
 };
 
 /* Registration */
