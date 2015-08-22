@@ -5,8 +5,6 @@
 			"Rancher"
 		]
 	},
-	"math-preference-mwmathinspector-description": "Укључује експерименталну подршку у Визуелном уређивачу за прављење и уређивање математичких формула. Обавезно проверите своје измене пре чувања када користите ову могућност.",
-	"math-preference-mwmathinspector-label": "Уређивање формула у Визуелном уређивачу",
 	"math-visualeditor-mwmathinspector-display-default": "Подразумевано",
 	"math-visualeditor-mwmathinspector-title": "Формула",
 	"math_bad_output": "Стварање или писање у одредишној фасцикли за математику није успело",
@@ -22,7 +20,7 @@
 	"math_unknown_function": "непозната функција „$1“",
 	"mw_math_latexml": "LaTeXML (експриментално; користи MathML)",
 	"mw_math_mathjax": "MathJax (експериментално)",
-	"mw_math_mathml": "MathML са ослањањем на SVG или PNG (препоручљиво за најновије веб прегледаче)",
+	"mw_math_mathml": "MathML са ослањањем на SVG или PNG (препоручљиво за најновије веб-прегледаче)",
 	"mw_math_png": "PNG слике",
 	"mw_math_source": "TeX (за текстуалне прегледаче)",
 	"prefs-math": "Приказ математичких формула"
