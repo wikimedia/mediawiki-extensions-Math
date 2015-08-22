@@ -22,6 +22,11 @@ $specialPageAliases['ar'] = array(
 	'MathStatus' => array( 'حالة_الرياضيات' ),
 );
 
+/** Persian (فارسی) */
+$specialPageAliases['fa'] = array(
+	'MathStatus' => array( 'وضعیت_ریاضی' ),
+);
+
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'MathStatus' => array( 'МатСтатус' ),
