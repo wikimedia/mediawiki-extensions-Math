@@ -8,6 +8,7 @@
 			"វ័ណថារិទ្ធ"
 		]
 	},
+	"math-visualeditor-mwmathinspector-display": "បង្ហាញ",
 	"math-visualeditor-mwmathinspector-title": "រូបមន្ត",
 	"math_bad_output": "មិនអាច សរសេរទៅ ឬ បង្កើត ថតឯកសារ គណិត ទិន្នផល",
 	"math_bad_tmpdir": "មិនអាចសរសេរទៅ ឬ បង្កើតថតឯកសារគណិតបណ្តោះអាសន្ន",
@@ -20,8 +21,10 @@
 	"math_tip": "រូបមន្ត​គណិតវិទ្យា (LaTeX)",
 	"math_unknown_error": "កំហុសមិនស្គាល់",
 	"math_unknown_function": "អនុគមន៍​មិន​ស្គាល់ '$1'",
+	"mw_math_latexml": "LaTeXML (ស្ថិតក្រោមការពិសោធន៍នៅឡើយ។ ប្រើ MathML)",
 	"mw_math_mathml": "MathML បើអាចទៅរួច (ពិសោធ)",
-	"mw_math_png": "ជានិច្ចការជាPNG",
-	"mw_math_source": "ទុកឱ្យនៅជា TeX (ចំពោះឧបករណ៍រាវរកអត្ថបទ)",
-	"prefs-math": "គណិត"
+	"mw_math_png": "រូបភាពPNG",
+	"mw_math_source": "កូដ TeX (ចំពោះឧបករណ៍រាវរកអត្ថបទ)",
+	"prefs-math": "គណិត",
+	"mathstatus": "ស្ថានភាពគណិត"
 }
