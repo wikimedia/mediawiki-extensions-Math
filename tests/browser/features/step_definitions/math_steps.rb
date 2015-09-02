@@ -31,7 +31,7 @@ Then(/^alt for that img should be (.+)$/) do |alt|
 end
 
 Then(/^src for that img should come from (.+)$/) do |src|
-  expect(on(EditPage).math_image_element.element.src).to match Regexp.escape(src)
+  expect(on(EditPage).math_image_element.element.src).to match Regexp.escape src
 end
 
 
