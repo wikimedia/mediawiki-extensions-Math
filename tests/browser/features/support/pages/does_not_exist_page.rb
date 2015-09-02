@@ -12,7 +12,7 @@
 class DoesNotExistPage
   include PageObject
 
-  page_url "<%=params[:page_name]%>"
+  page_url '<%=params[:page_name]%>'
 
-  a(:create_source, text: "Create source")
+  a(:create_source, text: 'Create source')
 end

@@ -1,5 +1,3 @@
-inherit_from: .rubocop_todo.yml
-
 AllCops:
   StyleGuideCopsOnly: true
 
@@ -15,9 +13,8 @@ Style/Alias:
 Style/SignalException:
   Enabled: false
 
-# TODO: uncomment when the time comes
-# Style/StringLiterals:
-#  EnforcedStyle: single_quotes
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
 
 Style/TrivialAccessors:
   ExactNameMatch: true
