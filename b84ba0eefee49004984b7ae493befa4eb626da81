@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ec1af18_c96cd99b",
+        "filename": "tests/browser/features/step_definitions/math_steps.rb",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 487
+      },
+      "writtenOn": "2015-09-02T14:11:53Z",
+      "side": 1,
+      "message": "RuboCop was complaining about page being one character too long, this is an simple fix for that.\n\nhttps://integration.wikimedia.org/ci/job/bundle-rubocop/972/console",
+      "revId": "b84ba0eefee49004984b7ae493befa4eb626da81",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
