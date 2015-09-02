@@ -23,7 +23,7 @@ When(/^I click Preview$/) do
 end
 
 When(/^I type (.+)$/) do |write_text|
-  on(EditPage).article_text=write_text
+  on(EditPage).article_text = write_text
 end
 
 Then(/^alt for that img should be (.+)$/) do |alt|
