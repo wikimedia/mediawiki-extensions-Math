@@ -11,7 +11,7 @@
 #
 
 Given(/^I am at page that does not exist$/) do
-  visit(DoesNotExistPage, using_params: {page_name: @random_string})
+  visit(DoesNotExistPage, using_params: { page_name: @random_string })
 end
 
 When(/^I click link Create source$/) do
