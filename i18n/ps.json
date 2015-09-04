@@ -4,10 +4,13 @@
 			"Ahmed-Najib-Biabani-Ibrahimkhel"
 		]
 	},
+	"math-visualeditor-mwmathinspector-display-default": "تلواليز",
+	"math-visualeditor-mwmathinspector-title": "فورمول",
 	"math_sample": "فورمول دلته ځای کړی",
 	"math_tip": "شمېرپوهنيز فورمول (LaTeX)",
 	"math_unknown_error": "ناجوته ستونزه",
 	"math_unknown_function": "ناجوته کړنه",
+	"mw_math_png": "PNG انځورونه",
 	"prefs-math": "شمېرپوهنه",
 	"mathstatus": "د شمېرپوهنې دريځ"
 }
