@@ -9,8 +9,6 @@
 		]
 	},
 	"math-desc": "حوِّل الصيغ الرياضية بين وسمي <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math-preference-mwmathinspector-description": "إضافة دعم تجريبي للمحرر المرئي لإنشاء وتحرير الصيغ الرياضية لاختبارها قبل الإطلاق العام. الرجاء تذكر مراجعة تعديلاتك دائمًا قبل الحفظ عند استخدام المزايا التجريبية.",
-	"math-preference-mwmathinspector-label": "المحرر المرئي تحرير الصيغ",
 	"math-visualeditor-mwmathinspector-display": "اعرض",
 	"math-visualeditor-mwmathinspector-display-default": "افتراضي",
 	"math-visualeditor-mwmathinspector-display-inline": "على نفس السطر",
@@ -31,5 +29,6 @@
 	"mw_math_mathml": "اعرض بصيغة MathML إن أمكن (تجريبي)",
 	"mw_math_png": "دائما اعرض على هيئة PNG",
 	"mw_math_source": "اعرض على هيئة TeX (للمتصفحات النصية)",
-	"prefs-math": "رياضيات"
+	"prefs-math": "رياضيات",
+	"mathstatus": "حالة الرياضيات"
 }
