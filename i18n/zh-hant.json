@@ -36,6 +36,8 @@
 	"math-test-fail": "測試 ''$1''  <span style=\"color:red\">失敗</span>。",
 	"math-test-start": "執行繪圖模式 ''$1'' 的後端測試。",
 	"math-test-success": "測試 ''$1'' <span style=\"color:green\">已成功</span>。",
+	"math-test-contains-diff": "回傳字串 $1 並不包含預期的字串 $2。",
+	"math-test-equals-diff": "回傳字串 $1 不同於預期的字串 $2。",
 	"math_tip": "插入數學公式  (LaTeX)",
 	"math_unknown_error": "不明錯誤",
 	"math_unknown_function": "不明函數 \"$1\"",
