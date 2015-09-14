@@ -98,7 +98,6 @@ ve.ui.MWMathInspector.prototype.getSetupProcess = function ( data ) {
 			var display = this.selectedNode.getAttribute( 'mw' ).attrs.display || 'default';
 			this.displaySelect.selectItemByData( display );
 			this.displaySelect.on( 'choose', this.onChangeHandler );
-			this.idInput.on( 'change', this.onChangeHandler );
 		}, this );
 };
 
@@ -109,7 +108,6 @@ ve.ui.MWMathInspector.prototype.getTeardownProcess = function ( data ) {
 	return ve.ui.MWMathInspector.super.prototype.getTeardownProcess.call( this, data )
 		.first( function () {
 			this.displaySelect.off( 'choose', this.onChangeHandler );
-			this.idInput.off( 'change', this.onChangeHandler );
 		}, this );
 };
 
