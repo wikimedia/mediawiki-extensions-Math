@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ec1af18_6090f898",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 366
+      },
+      "writtenOn": "2015-09-14T16:31:40Z",
+      "side": 1,
+      "message": "listener",
+      "revId": "d2d30c50709f9c9bc1ec7feb9505ffeef97a8e5d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec1af18_00ed7422",
+        "filename": "modules/VisualEditor/ve.dm.MWMathNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 366
+      },
+      "writtenOn": "2015-09-14T16:31:40Z",
+      "side": 1,
+      "message": "\"Static methods\"",
+      "revId": "d2d30c50709f9c9bc1ec7feb9505ffeef97a8e5d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
