@@ -55,7 +55,7 @@ ve.ce.MWMathNode.prototype.afterRender = function () {
 	if ( this.$element.is( 'span.tex' ) ) {
 		// MathJax
 		MathJax.Hub.Queue(
-			[ 'Typeset', MathJax.Hub, this.$element[0] ],
+			[ 'Typeset', MathJax.Hub, this.$element[ 0 ] ],
 			[ this, this.emit, 'rerender' ]
 		);
 	} else {

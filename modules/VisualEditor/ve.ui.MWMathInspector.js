@@ -45,6 +45,8 @@ ve.ui.MWMathInspector.static.dir = 'ltr';
  * @inheritdoc
  */
 ve.ui.MWMathInspector.prototype.initialize = function () {
+	var inputField, displayField, idField;
+
 	// Parent method
 	ve.ui.MWMathInspector.super.prototype.initialize.call( this );
 
@@ -71,18 +73,18 @@ ve.ui.MWMathInspector.prototype.initialize = function () {
 
 	this.idInput = new OO.ui.TextInputWidget();
 
-	var inputField = new OO.ui.FieldLayout( this.input, {
-			align: 'top',
-			label: ve.msg( 'math-visualeditor-mwmathinspector-title' )
-		} ),
-		displayField = new OO.ui.FieldLayout( this.displaySelect, {
-			align: 'top',
-			label: ve.msg( 'math-visualeditor-mwmathinspector-display' )
-		} ),
-		idField = new OO.ui.FieldLayout( this.idInput, {
-			align: 'top',
-			label: ve.msg( 'math-visualeditor-mwmathinspector-id' )
-		} );
+	inputField = new OO.ui.FieldLayout( this.input, {
+		align: 'top',
+		label: ve.msg( 'math-visualeditor-mwmathinspector-title' )
+	} );
+	displayField = new OO.ui.FieldLayout( this.displaySelect, {
+		align: 'top',
+		label: ve.msg( 'math-visualeditor-mwmathinspector-display' )
+	} );
+	idField = new OO.ui.FieldLayout( this.idInput, {
+		align: 'top',
+		label: ve.msg( 'math-visualeditor-mwmathinspector-id' )
+	} );
 
 	// Initialization
 	this.$content.addClass( 've-ui-mwMathInspector-content' );
@@ -115,11 +117,13 @@ ve.ui.MWMathInspector.prototype.getTeardownProcess = function ( data ) {
  * @inheritdoc
  */
 ve.ui.MWMathInspector.prototype.updateMwData = function ( mwData ) {
+	var display, id;
+
 	// Parent method
 	ve.ui.MWMathInspector.super.prototype.updateMwData.call( this, mwData );
 
-	var display = this.displaySelect.getSelectedItem().getData(),
-		id = this.idInput.getValue();
+	display = this.displaySelect.getSelectedItem().getData();
+	id = this.idInput.getValue();
 
 	mwData.attrs.display = display !== 'default' ? display : undefined;
 	mwData.attrs.id = id || undefined;
