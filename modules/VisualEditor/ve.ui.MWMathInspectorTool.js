@@ -32,6 +32,6 @@ ve.ui.toolFactory.register( ve.ui.MWMathInspectorTool );
 ve.ui.commandRegistry.register(
 	new ve.ui.Command(
 		'math', 'window', 'open',
-		{ args: ['math'], supportedSelections: ['linear'] }
+		{ args: [ 'math' ], supportedSelections: [ 'linear' ] }
 	)
 );
