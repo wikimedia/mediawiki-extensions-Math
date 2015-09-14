@@ -34,7 +34,9 @@ ve.ce.MWMathNode.static.primaryCommandName = 'math';
 
 /* Methods */
 
-/** */
+/**
+ * @inheritdoc
+ */
 ve.ce.MWMathNode.prototype.onSetup = function () {
 	// Parent method
 	ve.ce.MWMathNode.super.prototype.onSetup.call( this );
