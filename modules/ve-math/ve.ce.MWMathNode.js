@@ -5,7 +5,7 @@
  * @license The MIT License (MIT); see LICENSE.txt
  */
 
-/*global MathJax, ve, OO */
+/*global ve, OO */
 
 /**
  * ContentEditable MediaWiki math node.
@@ -52,23 +52,15 @@ ve.ce.MWMathNode.prototype.afterRender = function () {
 	var $img,
 		node = this;
 
-	if ( this.$element.is( 'span.tex' ) ) {
-		// MathJax
-		MathJax.Hub.Queue(
-			[ 'Typeset', MathJax.Hub, this.$element[ 0 ] ],
-			[ this, this.emit, 'rerender' ]
-		);
+	$img = this.$element.filter( 'img.tex' );
+	// Rerender after image load
+	if ( $img.length ) {
+		$img.on( 'load', function () {
+			node.emit( 'rerender' );
+		} );
 	} else {
-		$img = this.$element.filter( 'img.tex' );
-		// Rerender after image load
-		if ( $img.length ) {
-			$img.on( 'load', function () {
-				node.emit( 'rerender' );
-			} );
-		} else {
-			// Passing an empty string returns no image, so rerender immediately
-			this.emit( 'rerender' );
-		}
+		// Passing an empty string, or using MathML, returns no image, so rerender immediately
+		this.emit( 'rerender' );
 	}
 };
 
