@@ -17,7 +17,7 @@
  * @param {Object} [config] Configuration options
  */
 ve.ui.MWMathInspectorTool = function VeUiMWMathInspectorTool( toolGroup, config ) {
-	ve.ui.InspectorTool.call( this, toolGroup, config );
+	ve.ui.MWMathInspectorTool.super.call( this, toolGroup, config );
 };
 OO.inheritClass( ve.ui.MWMathInspectorTool, ve.ui.InspectorTool );
 ve.ui.MWMathInspectorTool.static.name = 'math';
