@@ -136,15 +136,15 @@
 		},
 		"ext.math.visualEditor": {
 			"scripts": [
-				"VisualEditor/ve.dm.MWMathNode.js",
-				"VisualEditor/ve.ce.MWMathNode.js",
-				"VisualEditor/ve.ui.MWMathInspector.js",
-				"VisualEditor/ve.ui.MWMathInspectorTool.js"
+				"ve-math/ve.dm.MWMathNode.js",
+				"ve-math/ve.ce.MWMathNode.js",
+				"ve-math/ve.ui.MWMathInspector.js",
+				"ve-math/ve.ui.MWMathInspectorTool.js"
 			],
 			"styles": [
-				"VisualEditor/ve.ce.MWMathNode.css",
-				"VisualEditor/ve.ui.MWMathIcons.css",
-				"VisualEditor/ve.ui.MWMathInspector.css"
+				"ve-math/ve.ce.MWMathNode.css",
+				"ve-math/ve.ui.MWMathIcons.css",
+				"ve-math/ve.ui.MWMathInspector.css"
 			],
 			"dependencies": [
 				"ext.visualEditor.mwcore"
