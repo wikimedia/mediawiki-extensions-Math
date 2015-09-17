@@ -21,7 +21,7 @@ module.exports = function ( grunt ) {
 			options: {
 				csslintrc: '.csslintrc'
 			},
-			all: 'modules/VisualEditor/*.css'
+			all: 'modules/ve-math/*.css'
 		},
 		jshint: {
 			options: {
