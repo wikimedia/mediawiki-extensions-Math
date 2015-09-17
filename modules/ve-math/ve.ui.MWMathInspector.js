@@ -18,7 +18,7 @@
  */
 ve.ui.MWMathInspector = function VeUiMWMathInspector( config ) {
 	// Parent constructor
-	ve.ui.MWLiveExtensionInspector.call( this, config );
+	ve.ui.MWMathInspector.super.call( this, config );
 };
 
 /* Inheritance */
@@ -30,8 +30,6 @@ OO.inheritClass( ve.ui.MWMathInspector, ve.ui.MWLiveExtensionInspector );
 ve.ui.MWMathInspector.static.name = 'math';
 
 ve.ui.MWMathInspector.static.icon = 'math';
-
-ve.ui.MWMathInspector.static.size = 'large';
 
 ve.ui.MWMathInspector.static.title = OO.ui.deferMsg( 'math-visualeditor-mwmathinspector-title' );
 
@@ -50,7 +48,6 @@ ve.ui.MWMathInspector.prototype.initialize = function () {
 	// Parent method
 	ve.ui.MWMathInspector.super.prototype.initialize.call( this );
 
-	// Position
 	this.displaySelect = new OO.ui.ButtonSelectWidget( {
 		items: [
 			new OO.ui.ButtonOptionWidget( {
