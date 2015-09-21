@@ -2,7 +2,8 @@
 /**
  * MediaWiki math extension
  *
- * (c) 2002-2012 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz, and other MediaWiki contributors
+ * (c) 2002-2012 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz,
+ * and other MediaWiki contributors
  * GPLv2 license; info in main package.
  *
  * Contains the driver function for the texvc program
@@ -29,7 +30,7 @@ class MathTexvc extends MathRenderer {
 	const LIBERAL = 0;
 	const MW_TEXVC_SUCCESS = -1;
 
-     /**
+	/**
 	 * Gets an array that matches the variables of the class to the database columns
 	 * @return array
 	 */
@@ -397,7 +398,9 @@ class MathTexvc extends MathRenderer {
 			Hooks::run( 'ParserAfterParse', array( &$parser, &$text, &$stripState ) );
 		}
 		$backend = $this->getBackend();
-		return $backend->getFileContents( array( 'src' => $this->getHashPath() . "/" . $this->getHash() . '.png' ) );
+		return $backend->getFileContents(
+			array( 'src' => $this->getHashPath() . "/" . $this->getHash() . '.png' )
+		);
 	}
 
 	public function isInDatabase() {
