@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ælsån"
+			"Ælsån",
+			"Jyllanj"
 		]
 	},
-	"math_sample": "Endsæt åpstælsel her (LaTeX)",
-	"math_tip": "Matematisk åpstælsel (LaTeX)"
+	"math_sample": "Insätt formel her (LaTeX)",
+	"math_tip": "Matematisk formel (LaTeX)"
 }
