@@ -1,9 +1,12 @@
 <?php
+
 use MediaWiki\Logger\LoggerFactory;
+
 /**
  * MediaWiki math extension
  *
- * (c) 2002-2015 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz, and other MediaWiki contributors
+ * (c) 2002-2015 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz,
+ * and other MediaWiki contributors
  * GPLv2 license; info in main package.
  *
  * @author Moritz Schubotz
@@ -34,7 +37,7 @@ class SpecialMathStatus extends SpecialPage {
 
 		foreach ( $enabledMathModes as $modeNr => $modeName ){
 			$out->addWikiText( "=== $modeName ===" );
-			switch( $modeNr ){
+			switch ( $modeNr ) {
 				case 'mathml':
 					$this->runMathMLTest( $modeName );
 					break;
@@ -62,8 +65,10 @@ class SpecialMathStatus extends SpecialPage {
 	public function testSpecialCaseText() {
 		$renderer = MathRenderer::getRenderer( 'x^2+\text{a sample Text}', array(), 'mathml' );
 		$expected = 'a sample Text</mtext>';
-		$this->assertTrue( $renderer->render(), 'Rendering the input "x^2+\text{a sample Text}"'  );
-		$this->assertContains( $expected, $renderer->getHtmlOutput(), 'Comparing to the reference rendering' );
+		$this->assertTrue( $renderer->render(), 'Rendering the input "x^2+\text{a sample Text}"' );
+		$this->assertContains(
+			$expected, $renderer->getHtmlOutput(), 'Comparing to the reference rendering'
+		);
 	}
 
 	/**
@@ -71,6 +76,7 @@ class SpecialMathStatus extends SpecialPage {
 	 * i.e. if the span element is generated right.
 	 */
 	public function testMathMLIntegration() {
+		// @codingStandardsIgnoreStart
 		$svgRef = '<?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.333ex; " width="5.167ex" height="1.833ex" viewBox="0 -717.9 2195.4 823.9" xmlns="http://www.w3.org/2000/svg" role="math" aria-labelledby="MathJax-SVG-1-Title MathJax-SVG-1-Desc">
@@ -87,22 +93,28 @@ class SpecialMathStatus extends SpecialPage {
  <use xlink:href="#E1-MJMATHI-62" x="1761" y="0"></use>
 </g>
 </svg>';
+		// @codingStandardsIgnoreEnd
 		$renderer = MathRenderer::getRenderer( "a+b", array(), 'mathml' );
 		$this->assertTrue( $renderer->render( true ), "Rendering of a+b in plain MathML mode" );
 		$real = str_replace( "\n", '', $renderer->getHtmlOutput() );
 		$expected = '<mo>+</mo>';
 		$this->assertContains( $expected, $real, "Checking the presence of '+' in the MathML output" );
-		$this->assertEquals( $svgRef, $renderer->getSvg(), "Comparing the generated SVG with the reference" );
+		$this->assertEquals(
+			$svgRef, $renderer->getSvg(), "Comparing the generated SVG with the reference"
+		);
 	}
 
 	/**
 	 * Checks the experimental option to 'render' MathML input
 	 */
 	public function testPmmlInput() {
-		// sample from 'Navajo Coal Combustion and Respiratory Health Near Shiprock, New Mexico' in ''Journal of Environmental and Public Health'' , vol. 2010p.
-		// authors  Joseph E. Bunnell;  Linda V. Garcia;  Jill M. Furst;  Harry Lerch;  Ricardo A. Olea;  Stephen E. Suitt;  Allan Kolker
+		// sample from 'Navajo Coal Combustion and Respiratory Health Near Shiprock,
+		// New Mexico' in ''Journal of Environmental and Public Health'' , vol. 2010p.
+		// authors  Joseph E. Bunnell;  Linda V. Garcia;  Jill M. Furst;
+		// Harry Lerch;  Ricardo A. Olea;  Stephen E. Suitt;  Allan Kolker
+		// @codingStandardsIgnoreStart
 		$inputSample = '<msub>  <mrow>  <mi> P</mi> </mrow>  <mrow>  <mi> i</mi>  <mi> j</mi> </mrow> </msub>  <mo> =</mo>  <mfrac>  <mrow>  <mn> 100</mn>  <msub>  <mrow>  <mi> d</mi> </mrow>  <mrow>  <mi> i</mi>  <mi> j</mi> </mrow> </msub> </mrow>  <mrow>  <mn> 6.75</mn>  <msub>  <mrow>  <mi> r</mi> </mrow>  <mrow>  <mi> j</mi> </mrow> </msub> </mrow> </mfrac>  <mo> ,</mo> </math>';
-		$attribs = array( 'type' => 'pmml' );
+		// @codingStandardsIgnoreEnd
 		$renderer = new MathMathML( $inputSample, $attribs );
 		$this->assertEquals( 'pmml', $renderer->getInputType(), 'Checking if MathML input is supported' );
 		$this->assertTrue( $renderer->render(), 'Rendering Presentation MathML sample' );
@@ -118,10 +130,12 @@ class SpecialMathStatus extends SpecialPage {
 	public function testLaTeXMLIntegration() {
 		$renderer = MathRenderer::getRenderer( "a+b", array(), 'latexml' );
 		$this->assertTrue( $renderer->render( true ), "Rendering of a+b in LaTeXML mode" );
+		// @codingStandardsIgnoreStart
 		$expected = '<math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.1.m1.1" class="ltx_Math" alttext="{\displaystyle a+b}" ><semantics id="p1.1.m1.1a"><mrow id="p1.1.m1.1.4" xref="p1.1.m1.1.4.cmml"><mi id="p1.1.m1.1.1" xref="p1.1.m1.1.1.cmml">a</mi><mo id="p1.1.m1.1.2" xref="p1.1.m1.1.2.cmml">+</mo><mi id="p1.1.m1.1.3" xref="p1.1.m1.1.3.cmml">b</mi></mrow><annotation-xml encoding="MathML-Content" id="p1.1.m1.1b"><apply id="p1.1.m1.1.4.cmml" xref="p1.1.m1.1.4"><plus id="p1.1.m1.1.2.cmml" xref="p1.1.m1.1.2"/><ci id="p1.1.m1.1.1.cmml" xref="p1.1.m1.1.1">a</ci><ci id="p1.1.m1.1.3.cmml" xref="p1.1.m1.1.3">b</ci></apply></annotation-xml><annotation encoding="application/x-tex" id="p1.1.m1.1c">{\displaystyle a+b}</annotation></semantics></math>';
+		// @codingStandardsIgnoreEnd
 		$real = preg_replace( "/\n\\s*/", '', $renderer->getHtmlOutput() );
-		$this->assertContains( $expected, $real
-			, "Comparing the output to the MathML reference rendering" .
+		$this->assertContains( $expected, $real,
+			"Comparing the output to the MathML reference rendering" .
 			  $renderer->getLastError() );
 	}
 
@@ -134,7 +148,7 @@ class SpecialMathStatus extends SpecialPage {
 		global $wgMathDefaultLaTeXMLSetting;
 		$tex = '';
 		$testMax = ceil( $wgMathDefaultLaTeXMLSetting[ 'linelength' ] / 2 );
-		for( $i = 0; $i < $testMax; $i++ ) {
+		for ( $i = 0; $i < $testMax; $i++ ) {
 			$tex .= "$i+";
 		}
 		$tex .= $testMax;
@@ -142,17 +156,16 @@ class SpecialMathStatus extends SpecialPage {
 		$this->assertTrue( $renderer->render( true ), "Rendering of linebreak test in LaTeXML mode" );
 		$expected = 'mtr';
 		$real = preg_replace( "/\n\\s*/", '', $renderer->getHtmlOutput() );
-		$this->assertContains( $expected, $real
-			, "Checking for linebreak" .
+		$this->assertContains( $expected, $real, "Checking for linebreak" .
 			  $renderer->getLastError() );
 	}
 
 	private function assertTrue( $expression, $message = '' ) {
 		if ( $expression ){
-			$this->getOutput()->addWikiMsgArray( 'math-test-success' , $message );
+			$this->getOutput()->addWikiMsgArray( 'math-test-success', $message );
 			return true;
 		} else {
-			$this->getOutput()->addWikiMsgArray( 'math-test-fail' , $message );
+			$this->getOutput()->addWikiMsgArray( 'math-test-fail', $message );
 			return false;
 		}
 	}

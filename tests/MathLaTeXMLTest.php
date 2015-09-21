@@ -12,7 +12,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	 */
 	public function testSerializeSettings() {
 		$renderer = $this->getMockBuilder( 'MathLaTeXML' )
-			->setMethods( NULL )
+			->setMethods( null )
 			->disableOriginalConstructor()
 			->getMock();
 		$sampleSettings = array(
