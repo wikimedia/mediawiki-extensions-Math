@@ -9,11 +9,11 @@
 use MediaWiki\Logger\LoggerFactory;
 
 class MathHooks {
-	const mathCacheKey = 'math=';
+	const MATHCACHEKEY  = 'math=';
 
-	public static function mathConstantToString( $value, array $defs, $prefix, $default ){
+	public static function mathConstantToString( $value, array $defs, $prefix, $default ) {
 		foreach ( $defs as $defKey => $defValue ) {
-			if( !defined( $defKey ) ) {
+			if ( !defined( $defKey ) ) {
 				define( $defKey, $defValue );
 			} elseif ( $defValue !== constant( $defKey ) ) {
 				throw new Exception( 'Math constant "'. $defKey . '" has unexpected value "' .
@@ -22,7 +22,7 @@ class MathHooks {
 		}
 		$invDefs = array_flip( $defs );
 		if ( is_int( $value ) ){
-			if ( array_key_exists( $value , $invDefs ) ) {
+			if ( array_key_exists( $value, $invDefs ) ) {
 				$value = $invDefs[$value];
 			} else {
 				return $default;
@@ -37,7 +37,7 @@ class MathHooks {
 			}
 			if ( array_key_exists( $value, $defs ) ) {
 				return $newValues[$value];
-			} elseif (in_array( $value, $newValues) ){
+			} elseif ( in_array( $value, $newValues ) ){
 				return $value;
 			}
 		}
@@ -45,7 +45,7 @@ class MathHooks {
 	}
 
 	public static function mathStyleToString( $style, $default = 'inlineDisplaystyle' ) {
-		$defs = array (
+		$defs = array(
 			'MW_MATHSTYLE_INLINE_DISPLAYSTYLE'  => 0, // default large operator inline
 			'MW_MATHSTYLE_DISPLAY'              => 1, // large operators centered in a new line
 			'MW_MATHSTYLE_INLINE'               => 2, // small operators inline
@@ -55,7 +55,7 @@ class MathHooks {
 	}
 
 	public static function mathCheckToString( $style, $default = 'always' ) {
-		$defs = array (
+		$defs = array(
 			'MW_MATH_CHECK_ALWAYS' => 0,
 			'MW_MATH_CHECK_NEVER'  => 1,
 			'MW_MATH_CHECK_NEW'    => 2,
@@ -71,7 +71,7 @@ class MathHooks {
 //		  'MW_MATH_MATHJAX'     => 6
 //		  'MW_MATH_LATEXML_JAX' => 8
 
-		$defs = array (
+		$defs = array(
 			'MW_MATH_PNG'    => 0,
 			'MW_MATH_SOURCE' => 3,
 			'MW_MATH_MATHML' => 5,
@@ -81,7 +81,7 @@ class MathHooks {
 	}
 
 	public static function mathModeToHashKey( $mode, $default = 0 ) {
-		$defs = array (
+		$defs = array(
 			'png'    => 0,
 			'source' => 3,
 			'mathml' => 5,
@@ -116,19 +116,20 @@ class MathHooks {
 			// Check if the key already contains the math option part
 			if (
 				!preg_match(
-					'/(^|!)' . self::mathCacheKey . $mathOption . '(!|$)/',
+					'/(^|!)' . self::MATHCACHEKEY . $mathOption . '(!|$)/',
 					$confstr
 				)
 			) {
-				// The math part of cache key starts with "math=" followed by a star or a number for the math mode
-				if ( preg_match( '/(^|!)' . self::mathCacheKey . '[*\d]m?(!|$)/', $confstr ) ) {
+				// The math part of cache key starts with "math=" 
+				// followed by a star or a number for the math mode
+				if ( preg_match( '/(^|!)' . self::MATHCACHEKEY . '[*\d]m?(!|$)/', $confstr ) ) {
 					$confstr = preg_replace(
-						'/(^|!)' . self::mathCacheKey . '[*\d]m?(!|$)/',
-						'\1' . self::mathCacheKey . $mathOption . '\2',
+						'/(^|!)' . self::MATHCACHEKEY . '[*\d]m?(!|$)/',
+						'\1' . self::MATHCACHEKEY . $mathOption . '\2',
 						$confstr
 					);
 				} else {
-					$confstr .= '!' . self::mathCacheKey . $mathOption;
+					$confstr .= '!' . self::MATHCACHEKEY . $mathOption;
 				}
 
 				LoggerFactory::getInstance( 'Math' )->debug( "New cache key: $confstr" );
@@ -239,7 +240,7 @@ class MathHooks {
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
 		$mode = MathHooks::mathModeToString( $wgDefaultUserOptions['math'] );
-		if ( ! in_array( $mode , MathRenderer::getValidModes()  ) ) {
+		if ( ! in_array( $mode, MathRenderer::getValidModes() ) ) {
 			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: '.
 				"\$wgDefaultUserOptions['math'] is not in " . MathRenderer::getValidModes() . ".\n".
 				"Please check your LocalSetting.php file." );
@@ -313,7 +314,7 @@ class MathHooks {
 				throw new Exception( "Math extension does not currently support $type database for LaTeXML." );
 			}
 		}
-		if ( in_array( 'mathml', MathRenderer::getValidModes()  ) ) {
+		if ( in_array( 'mathml', MathRenderer::getValidModes() ) ) {
 			if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
 				$sql = __DIR__ . '/db/mathoid.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathoid', $sql );

@@ -2,7 +2,8 @@
 /**
  * MediaWiki math extension
  *
- * (c) 2002-2012 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz, and other MediaWiki contributors
+ * (c) 2002-2012 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz,
+ * and other MediaWiki contributors
  * GPLv2 license; info in main package.
  *
  * @file
@@ -187,7 +188,9 @@ abstract class MathRenderer {
 	 * Returns an internationalized HTML error string
 	 *
 	 * @param string $msg message key for specific error
-	 * @internal param \Varargs $parameters (optional) zero or more message parameters for specific error
+	 * @internal param \Varargs $parameters (optional) zero 
+	 * or more message parameters for specific error
+	 *
 	 * @return string HTML error string
 	 */
 	public function getError( $msg /*, ... */ ) {
@@ -291,7 +294,8 @@ abstract class MathRenderer {
 		if ( ! empty( $rpage->math_mathml ) ) {
 			$this->mathml = utf8_decode( $rpage->math_mathml );
 		}
-		if ( ! empty( $rpage->math_inputtex ) ) { // in the current database the field is probably not set.
+		if ( ! empty( $rpage->math_inputtex ) ) {
+			// in the current database the field is probably not set.
 			$this->userInputTex = $rpage->math_inputtex;
 		}
 		if ( ! empty( $rpage->math_tex ) ) {
@@ -308,7 +312,8 @@ abstract class MathRenderer {
 	 *
 	 * WARNING: Use writeCache() instead of this method to be sure that all
 	 * renderer specific (such as squid caching) are taken into account.
-	 * This function stores the values that are currently present in the class to the database even if they are empty.
+	 * This function stores the values that are currently present in the class
+	 * to the database even if they are empty.
 	 *
 	 * This function can be seen as protected function.
 	 * @param DatabaseBase $dbw
@@ -494,7 +499,7 @@ abstract class MathRenderer {
 	 * Checks if there is an explicit user request to rerender the math-tag.
 	 * @return boolean
 	 */
-	function isPurge( ) {
+	function isPurge() {
 		if ( $this->purge ) {
 			return true;
 		}
@@ -562,8 +567,8 @@ abstract class MathRenderer {
 			// equation was already checked or checking is disabled
 			return true;
 		} else {
-			if( self::getDisableTexFilter() == 'new' && $this->mode != 'source' ){
-				if( $this->readFromDatabase() ){
+			if ( self::getDisableTexFilter() == 'new' && $this->mode != 'source' ){
+				if ( $this->readFromDatabase() ) {
 					return true;
 				}
 			}
@@ -635,20 +640,20 @@ abstract class MathRenderer {
 		return trim( $this->svg );
 	}
 
-	protected abstract function getMathTableName();
+	abstract protected function getMathTableName();
 
 	public function getModeStr() {
 		$names = MathHooks::getMathNames();
 		return $names[ $this->getMode() ];
 	}
 
-	public static function getValidModes(){
+	public static function getValidModes() {
 		global $wgMathValidModes;
 		return array_map( "MathHooks::mathModeToString", $wgMathValidModes );
 	}
 
 
-	public static function getDisableTexFilter(){
+	public static function getDisableTexFilter() {
 		global $wgMathDisableTexFilter;
 		return MathHooks::mathCheckToString( $wgMathDisableTexFilter );
 	}
