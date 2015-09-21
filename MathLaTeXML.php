@@ -107,7 +107,7 @@ class MathLaTeXML extends MathMathML {
 		// There is an API-inconsistency between different versions of the LaTeXML daemon
 		// some versions require the literal prefix other don't allow it.
 		if ( ! strpos( $host, '/convert' ) ){
-			$post = preg_replace( '/&tex=/' , '&tex=literal:', $post , 1);
+			$post = preg_replace( '/&tex=/', '&tex=literal:', $post, 1 );
 		}
 		$this->lastError = '';
 		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );

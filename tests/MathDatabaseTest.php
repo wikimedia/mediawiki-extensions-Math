@@ -67,11 +67,14 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$renderer2 = new MathTexvc( self::SOME_TEX );
 		$this->assertTrue( $renderer2->readFromDatabase(), 'Reading from database failed' );
 		// comparing the class object does now work due to null values etc.
-		$this->assertEquals( $this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same" );
-		$this->assertEquals( $this->renderer->getMathml(), $renderer2->getMathml(), "Check MathML encoding" );
+		$this->assertEquals(
+			$this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same"
+		);
+		$this->assertEquals(
+			$this->renderer->getMathml(), $renderer2->getMathml(), "Check MathML encoding"
+		);
 		$this->assertEquals( $this->renderer->getHtml(), $renderer2->getHtml(), 'test if HTML is the same' );
 	}
-
 
 	/**
 	 * Checks the creation of the math table.
@@ -87,7 +90,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->renderer->writeToDatabase();
 		$res = $this->db->select( "math", "*" );
 		$row = $res->fetchRow();
-		$this->assertEquals( 10, sizeof( $row ) );
+		$this->assertEquals( 10, count( $row ) );
 	}
 
 	/*

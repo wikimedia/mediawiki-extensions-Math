@@ -35,18 +35,18 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$url = 'http://example.com/invalid';
 
 		$renderer = $this->getMockBuilder( 'MathMathML' )
-				->setMethods( NULL )
+				->setMethods( null )
 				->disableOriginalConstructor()
 				->getMock();
-		$requestReturn = $renderer->makeRequest( $url, 'a+b', $res, $error
-				, 'MathMLHttpRequestTester' );
-		$this->assertEquals( false, $requestReturn
-				, "requestReturn is false if HTTP::post returns false." );
-		$this->assertEquals( false, $res
-				, "res is false if HTTP:post returns false." );
+		$requestReturn = $renderer->makeRequest( $url, 'a+b', $res, $error,
+			'MathMLHttpRequestTester' );
+		$this->assertEquals( false, $requestReturn,
+			"requestReturn is false if HTTP::post returns false." );
+		$this->assertEquals( false, $res,
+			"res is false if HTTP:post returns false." );
 		$errmsg = wfMessage( 'math_invalidresponse', '', $url, '' )->inContentLanguage()->escaped();
-		$this->assertContains( $errmsg, $error
-				, "return an error if HTTP::post returns false" );
+		$this->assertContains( $errmsg, $error,
+			"return an error if HTTP::post returns false" );
 	}
 
 	/**
@@ -58,11 +58,11 @@ class MathMathMLTest extends MediaWikiTestCase {
 		self::setMockValues( true, true, false );
 		$url = 'http://example.com/valid';
 		$renderer = $this->getMockBuilder( 'MathMathML' )
-				->setMethods( NULL )
+				->setMethods( null )
 				->disableOriginalConstructor()
 				->getMock();
-		$requestReturn = $renderer->makeRequest( $url, 'a+b', $res, $error
-				, 'MathMLHttpRequestTester' );
+		$requestReturn = $renderer->makeRequest( $url, 'a+b', $res, $error,
+			'MathMLHttpRequestTester' );
 		$this->assertEquals( true, $requestReturn, "successful call return" );
 		$this->isTrue( $res, "successfull call" );
 		$this->assertEquals( $error, '', "successfull call errormessage" );
@@ -77,17 +77,17 @@ class MathMathMLTest extends MediaWikiTestCase {
 		self::setMockValues( false, true, true );
 		$url = 'http://example.com/timeout';
 		$renderer = $this->getMockBuilder( 'MathMathML' )
-				->setMethods( NULL )
+				->setMethods( null )
 				->disableOriginalConstructor()
 				->getMock();
-		$requestReturn = $renderer->makeRequest( $url, '$\longcommand$', $res
-				, $error, 'MathMLHttpRequestTester' );
+		$requestReturn = $renderer->makeRequest(
+			$url, '$\longcommand$', $res, $error, 'MathMLHttpRequestTester'
+		);
 		$this->assertEquals( false, $requestReturn, "timeout call return" );
 		$this->assertEquals( false, $res, "timeout call return" );
 		$errmsg = wfMessage( 'math_timeout', '', $url )->inContentLanguage()->escaped();
 		$this->assertContains( $errmsg, $error, "timeout call errormessage" );
 	}
-
 
 	/**
 	 * Checks if a String is a valid MathML element
@@ -95,13 +95,15 @@ class MathMathMLTest extends MediaWikiTestCase {
 	 */
 	public function testisValidXML() {
 		$renderer = $this->getMockBuilder( 'MathMathML' )
-				->setMethods( NULL )
+				->setMethods( null )
 				->disableOriginalConstructor()
 				->getMock();
 		$validSample = '<math>content</math>';
 		$invalidSample = '<notmath />';
-		$this->assertTrue( $renderer->isValidMathML( $validSample ), 'test if math expression is valid mathml sample' );
-		$this->assertFalse( $renderer->isValidMathML( $invalidSample ), 'test if math expression is invalid mathml sample' );
+		$this->assertTrue( $renderer->isValidMathML( $validSample ),
+			'test if math expression is valid mathml sample' );
+		$this->assertFalse( $renderer->isValidMathML( $invalidSample ),
+			'test if math expression is invalid mathml sample' );
 	}
 
 }

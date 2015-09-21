@@ -19,13 +19,12 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	 * @param $name
 	 * @return ReflectionMethod
 	 */
-	protected static function getMethod($name) {
-		$class = new ReflectionClass('MathLaTeXML');
-		$method = $class->getMethod($name);
-		$method->setAccessible(true);
+	protected static function getMethod( $name ) {
+		$class = new ReflectionClass( 'MathLaTeXML' );
+		$method = $class->getMethod( $name );
+		$method->setAccessible( true );
 		return $method;
 	}
-
 
 	/**
 	 * creates a new database connection and a new math renderer
@@ -43,7 +42,8 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 		// Create a new instance of MathSource
 		$this->renderer = new MathLaTeXML( self::SOME_TEX );
 		self::setupTestDB( $this->db, "mathtest" );
-}
+	}
+
 	/**
 	 * Checks the tex and hash functions
 	 * @covers MathRenderer::getInputHash()
@@ -86,7 +86,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 		$this->renderer->writeToDatabase();
 		$res = $this->db->select( "mathlatexml", "*" );
 		$row = $res->fetchRow();
-		$this->assertEquals( 12,  sizeof( $row ) );
+		$this->assertEquals( 12,  count( $row ) );
 	}
 
 	/**
@@ -102,9 +102,11 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 		$renderer2 = $this->renderer = new MathLaTeXML( self::SOME_TEX );
 		$renderer2->readFromDatabase();
 		// comparing the class object does now work due to null values etc.
-		$this->assertEquals( $this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same" );
-		$this->assertEquals( $this->renderer->getMathml(), $renderer2->getMathml(), "Check MathML encoding" );
+		$this->assertEquals(
+			$this->renderer->getTex(), $renderer2->getTex(), "test if tex is the same"
+		);
+		$this->assertEquals(
+			$this->renderer->getMathml(), $renderer2->getMathml(), "Check MathML encoding"
+		);
 	}
-
-
 }
