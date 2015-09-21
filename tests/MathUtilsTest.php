@@ -81,12 +81,13 @@ class MathUtilsTest extends MediaWikiTestCase {
 
 	public function testMathModeToHash() {
 		$default = 0;
-		$testCases = array (
+		$testCases = array(
 			'png'    => 0,
 			'source' => 3,
 			'mathml' => 5,
 			'latexml'=> 7,
-			'invalid'=> $default);
+			'invalid'=> $default
+		);
 
 		foreach ( $testCases as $input => $expected ){
 			$real = MathHooks::mathModeToHashKey( $input, $default );
