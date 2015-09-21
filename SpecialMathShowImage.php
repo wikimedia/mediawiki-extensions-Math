@@ -34,7 +34,9 @@ class SpecialMathShowImage extends SpecialPage {
 			$request->response()->header( "Content-type: image/svg+xml; charset=utf-8" );
 		}
 		if ( $success && !( $this->noRender ) ) {
-			$request->response()->header( 'Cache-Control: public, s-maxage=604800, max-age=3600' ); // 1 week (server) 1 hour (client)
+			$request->response()->header(
+				'Cache-Control: public, s-maxage=604800, max-age=3600'
+			); // 1 week (server) 1 hour (client)
 			$request->response()->header( 'Vary: User-Agent' );
 		}
 	}
@@ -79,16 +81,20 @@ class SpecialMathShowImage extends SpecialPage {
 						// and render the conventional way
 						$mmlRenderer = MathMathML::newFromMd5( $hash );
 						$mmlRenderer->readFromDatabase();
-						$this->renderer = MathRenderer::getRenderer( $mmlRenderer->getUserInputTex(), array(), 'png' );
+						$this->renderer = MathRenderer::getRenderer(
+							$mmlRenderer->getUserInputTex(), array(), 'png'
+						);
 						$this->renderer->setMathStyle( $mmlRenderer->getMathStyle() );
 					}
 					$success = $this->renderer->render();
 				}
 			} elseif ( $asciimath === '' ) {
-				$this->renderer = MathRenderer::getRenderer( $tex , array(), $this->mode );
+				$this->renderer = MathRenderer::getRenderer( $tex, array(), $this->mode );
 				$success = $this->renderer->render();
 			} else {
-				$this->renderer = MathRenderer::getRenderer( $asciimath , array( 'type' => 'ascii' ), $this->mode );
+				$this->renderer = MathRenderer::getRenderer(
+					$asciimath, array( 'type' => 'ascii' ), $this->mode
+				);
 				$success = $this->renderer->render();
 			}
 			if ( $success ) {
@@ -120,11 +126,12 @@ class SpecialMathShowImage extends SpecialPage {
 	 */
 	private function printSvgError( $msg ) {
 		global $wgDebugComments;
-		$result =  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 4"
- preserveAspectRatio="xMidYMid meet" >' .
+		// @codingStandardsIgnoreStart
+		$result =  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 4" preserveAspectRatio="xMidYMid meet" >' .
 			'<text text-anchor="start" fill="red" y="2">' . htmlspecialchars( $msg ) . '</text></svg>';
+		// @codingStandardsIgnoreEnd
 		if ( $wgDebugComments ) {
-			$result .= '<!--'. var_export($this->renderer, true) .'-->';
+			$result .= '<!--'. var_export( $this->renderer, true ) .'-->';
 		}
 		return $result;
 	}

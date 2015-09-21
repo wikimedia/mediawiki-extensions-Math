@@ -25,12 +25,13 @@ class MathGenerateTests extends Maintenance
 {
 	const REFERENCE_PAGE = 'mediawikiwiki:Extension:Math/CoverageTest';
 
-	public function __construct()
-	{
+	public function __construct() {
 		parent::__construct();
 		$this->mDescription = 'Rebuilds the MathCoverage tests';
 		$this->addArg( 'page', "The page used for the testset generation.", false );
-		$this->addOption( 'offset', "If set the first n equations on the page are skipped", false, true, "o" );
+		$this->addOption(
+			'offset', "If set the first n equations on the page are skipped", false, true, "o"
+		);
 		$this->addOption( 'length', "If set the only n equations were processed", false, true, "l" );
 		$this->addOption( 'user', "User with rights to view the page", false, true, "u" );
 
@@ -59,8 +60,7 @@ class MathGenerateTests extends Maintenance
 		return $math;
 	}
 
-	public function execute()
-	{
+	public function execute() {
 		global $wgUser;
 		$parserTests = array();
 		$page = $this->getArg( 0, self::REFERENCE_PAGE );
@@ -85,7 +85,9 @@ class MathGenerateTests extends Maintenance
 			echo '.';
 		}
 		echo "Generated $i tests\n";
-		file_put_contents( __DIR__ . '/../tests/ParserTest.json', json_encode( $parserTests, JSON_PRETTY_PRINT ) );
+		file_put_contents(
+			__DIR__ . '/../tests/ParserTest.json', json_encode( $parserTests, JSON_PRETTY_PRINT )
+		);
 	}
 }
 

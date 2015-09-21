@@ -24,7 +24,7 @@ class MathMathML extends MathRenderer {
 	/**
 	 * @param string $inputType
 	 */
-	public function setInputType($inputType) {
+	public function setInputType( $inputType ) {
 		$this->inputType = $inputType;
 	}
 
@@ -140,7 +140,9 @@ class MathMathML extends MathRenderer {
 	 * @param String $httpRequestClass class name of MWHttpRequest (needed for testing only)
 	 * @return boolean success
 	 */
-	public function makeRequest( $host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest' ) {
+	public function makeRequest(
+			$host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest'
+		) {
 		// TODO: Change the timeout mechanism.
 		global $wgMathLaTeXMLTimeout;
 
@@ -219,7 +221,7 @@ class MathMathML extends MathRenderer {
 			if ( $this->getMathStyle() == 'inlineDisplaystyle' ) {
 				// default preserve the (broken) layout as it was
 				$out = 'type=inline-TeX&q=' . rawurlencode( '{\\displaystyle ' . $input . '}' );
-			} elseif ($this->getMathStyle() == 'inline' ){
+			} elseif ( $this->getMathStyle() == 'inline' ) {
 				$out = 'type=inline-TeX&q=' . rawurlencode( $input );
 			} else {
 				$out = 'type=tex&q=' . rawurlencode( $input );
@@ -235,7 +237,9 @@ class MathMathML extends MathRenderer {
 	 */
 	protected function doRender() {
 		if ( $this->getTex() === '' ) {
-			LoggerFactory::getInstance( 'Math' )->debug( 'Rendering was requested, but no TeX string is specified.' );
+			LoggerFactory::getInstance( 'Math' )->debug(
+				'Rendering was requested, but no TeX string is specified.'
+			);
 			$this->lastError = $this->getError( 'math_empty_tex' );
 			return false;
 		}
@@ -299,12 +303,12 @@ class MathMathML extends MathRenderer {
 		} else {
 			$name = $xmlObject->getRootElement();
 			$elementSplit = explode( ':', $name );
-			if ( is_array($elementSplit) ) {
+			if ( is_array( $elementSplit ) ) {
 				$localName = end( $elementSplit );
 			} else {
 				$localName = $name;
 			}
-			if ( in_array( $localName , $this->getAllowedRootElements() ) ) {
+			if ( in_array( $localName, $this->getAllowedRootElements() ) ) {
 				$out = true;
 			} else {
 				LoggerFactory::getInstance( 'Math' )->error( "Got wrong root element : $name" );
@@ -336,14 +340,16 @@ class MathMathML extends MathRenderer {
 			$style .= ' ' . $styles[1]; // merge styles
 			if ( $this->getMathStyle() === 'display' ) {
 				// TODO: Improve style cleaning
-				$style = preg_replace( '/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style );
+				$style = preg_replace(
+					'/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style
+				);
 			}
 			$style = preg_replace( '/position:\s*absolute;\s*left:\s*0px;/', '', $style );
 		}
 		// TODO: Figure out if there is a way to construct
 		// a SVGReader from a string that represents the SVG
 		// content
-		if ( preg_match( "/height=\"(.*?)\"/" , $this->getSvg(), $matches ) ) {
+		if ( preg_match( "/height=\"(.*?)\"/", $this->getSvg(), $matches ) ) {
 			$style .= 'height: ' . $matches[1] . '; ';
 		}
 		if ( preg_match( "/width=\"(.*?)\"/", $this->getSvg(), $matches ) ) {
@@ -353,8 +359,10 @@ class MathMathML extends MathRenderer {
 
 	/**
 	 * Gets img tag for math image
-	 * @param boolean $noRender if true no rendering will be performed if the image is not stored in the database
-	 * @param boolean|string $classOverride if classOverride is false the class name will be calculated by getClassName
+	 * @param boolean $noRender if true no rendering will be performed
+	 * if the image is not stored in the database
+	 * @param boolean|string $classOverride if classOverride
+	 * is false the class name will be calculated by getClassName
 	 * @return string XML the image html tag
 	 */
 	private function getFallbackImage( $noRender = false, $classOverride = false ) {
@@ -364,23 +372,28 @@ class MathMathML extends MathRenderer {
 		if ( $classOverride === false ) { // $class = '' suppresses class attribute
 			$class = $this->getClassName( true );
 		} else {
-			$class  = $classOverride;
+			$class = $classOverride;
 		}
 
 		// TODO: move the common styles to the global stylesheet!
 		$style = 'background-image: url(\''. $url .
 				 '\'); background-repeat: no-repeat; background-size: 100% 100%;';
 		$this->correctSvgStyle( $this->getSvg(), $style );
-		if ( $class ) { $attribs['class'] = $class; }
+		if ( $class ) {
+			$attribs['class'] = $class;
+		}
+
 		// Don't use an empty span, as that is going to be stripped by HTML tidy
 		// when enabled (which is true in production).
-		return Xml::element( 'meta', $this->getAttributes( 'span', $attribs , array( 'aria-hidden' => 'true', 'style' => $style ) ) );
+		return Xml::element( 'meta', $this->getAttributes(
+			'span', $attribs, array( 'aria-hidden' => 'true', 'style' => $style
+		) ) );
 	}
-
 
 	protected function getMathTableName() {
 		return 'mathoid';
 	}
+
 	/**
 	 * Calculates the default class name for a math element
 	 * @param boolean $fallback
@@ -398,11 +411,14 @@ class MathMathML extends MathRenderer {
 		} else {
 			$class .= 'inline';
 		}
-		if ( !$fallback) {
+		if ( !$fallback ) {
+			// @codingStandardsIgnoreStart
 			$class .= ' mwe-math-mathml-a11y';
+			// @codingStandardsIgnoreEnd
 		}
 		return $class;
 	}
+
 	/**
 	 * @return string Html output that is embedded in the page
 	 */
@@ -420,28 +436,32 @@ class MathMathML extends MathRenderer {
 		// MathML has to be wrapped into a div or span in order to be able to hide it.
 		// Remove displayStyle attributes set by the MathML converter
 		// (Beginning from Mathoid 0.2.5 block is the default layout.)
-		$mml = preg_replace( '/(<math[^>]*)(display|mode)=["\'](inline|block)["\']/', '$1', $this->getMathml() );
+		$mml = preg_replace(
+			'/(<math[^>]*)(display|mode)=["\'](inline|block)["\']/', '$1', $this->getMathml()
+		);
 		if ( $this->getMathStyle() == 'display' ) {
 			$mml = preg_replace( '/<math/', '<math display="block"', $mml );
 		}
-		$output .= Xml::tags( $element, array( 'class' => $this->getClassName(), 'style' => 'display: none;'  ), $mml );
-		$output .= $this->getFallbackImage( );
+		$output .= Xml::tags( $element, array(
+			'class' => $this->getClassName(), 'style' => 'display: none;'
+		), $mml );
+		$output .= $this->getFallbackImage();
 		$output .= HTML::closeElement( $element );
 		return $output;
 	}
 
 	protected function dbOutArray() {
 		$out = parent::dbOutArray();
-		if ($this->getMathTableName() == 'mathoid' ) {
+		if ( $this->getMathTableName() == 'mathoid' ) {
 			$out['math_input'] = $out['math_inputtex'];
-			unset($out['math_inputtex']);
+			unset( $out['math_inputtex'] );
 		}
 		return $out;
 	}
 
 	protected function dbInArray() {
 		$out = parent::dbInArray();
-		if ($this->getMathTableName() == 'mathoid' ) {
+		if ( $this->getMathTableName() == 'mathoid' ) {
 			$out = array_diff( $out, array( 'math_inputtex' ) );
 			$out[] = 'math_input';
 		}
