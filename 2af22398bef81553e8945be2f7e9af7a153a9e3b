@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ecb373e_34e491a3",
+        "filename": "MathMathML.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-09-23T09:07:33Z",
+      "side": 1,
+      "message": "Maybe we can ignore this line two. Otherwise everyone will get a messed up style attribute... I\u0027m afraid that this might be corrected by tidy... but I can not accept that the intended payload that is deliverd to the users browser gets worse to make some code style checker happy.",
+      "revId": "2af22398bef81553e8945be2f7e9af7a153a9e3b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
