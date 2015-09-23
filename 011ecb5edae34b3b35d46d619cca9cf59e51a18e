@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ecb373e_14195527",
+        "filename": "MathMathML.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-09-23T08:33:33Z",
+      "side": 1,
+      "message": "I mean this change does not destroy anything, but I wonder why this was identified as a problem by the style checking program.",
+      "revId": "011ecb5edae34b3b35d46d619cca9cf59e51a18e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ecb373e_34e1f1fb",
+        "filename": "MathSource.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-09-23T08:33:33Z",
+      "side": 1,
+      "message": "(IDEA) It would be nice if there would be an option to create phabricator task directly from the code review window with a direct link to the context where the task was created.",
+      "revId": "011ecb5edae34b3b35d46d619cca9cf59e51a18e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ecb373e_f4ea89d6",
+        "filename": "SpecialMathShowImage.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-09-23T08:33:33Z",
+      "side": 1,
+      "message": "This does not work. I recommend to keep the line as it was before.",
+      "revId": "011ecb5edae34b3b35d46d619cca9cf59e51a18e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ecb373e_94c30561",
+        "filename": "SpecialMathStatus.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-09-23T08:33:33Z",
+      "side": 1,
+      "message": "this is neither php code nor text. Please undo this changes to all inlined xml document (snippets)",
+      "revId": "011ecb5edae34b3b35d46d619cca9cf59e51a18e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ecb373e_34b811e2",
+        "filename": "SpecialMathStatus.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-09-23T08:33:33Z",
+      "side": 1,
+      "message": "this is neither php code nor text. Please undo this changes to all inlined xml document (snippets)",
+      "revId": "011ecb5edae34b3b35d46d619cca9cf59e51a18e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ecb373e_54bd9dd0",
+        "filename": "SpecialMathStatus.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-09-23T08:33:33Z",
+      "side": 1,
+      "message": "this is neither php code nor text. Please undo this changes to all inlined xml document (snippets)",
+      "revId": "011ecb5edae34b3b35d46d619cca9cf59e51a18e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ecb373e_f4d12928",
+        "filename": "SpecialMathStatus.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-09-23T08:33:33Z",
+      "side": 1,
+      "message": "this is neither php code nor text. Please undo this changes to all inlined xml document (snippets)",
+      "revId": "011ecb5edae34b3b35d46d619cca9cf59e51a18e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
