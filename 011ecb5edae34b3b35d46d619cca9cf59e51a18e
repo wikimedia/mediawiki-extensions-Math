@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "2ecb373e_54e83daf",
+        "filename": "MathMathML.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-09-23T08:48:36Z",
+      "side": 1,
+      "message": "no, it will be apend to the end of another string",
+      "parentUuid": "2ecb373e_f47fe90f",
+      "revId": "011ecb5edae34b3b35d46d619cca9cf59e51a18e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ecb373e_34e1f1fb",
         "filename": "MathSource.php",
         "patchSetId": 4
@@ -101,6 +119,24 @@
       "side": 1,
       "message": "Hi it says it is too long but I could probably use one of those code that stops just this 1 line from being checked.",
       "parentUuid": "2ecb373e_f4ea89d6",
+      "revId": "011ecb5edae34b3b35d46d619cca9cf59e51a18e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ecb373e_7400d96d",
+        "filename": "SpecialMathShowImage.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-09-23T08:48:36Z",
+      "side": 1,
+      "message": "Maybe a better alternative would be to use heredoc. The same applies to other XML elements",
+      "parentUuid": "2ecb373e_34957136",
       "revId": "011ecb5edae34b3b35d46d619cca9cf59e51a18e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
