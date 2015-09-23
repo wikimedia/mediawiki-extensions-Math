@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ecb373e_77ed3b22",
+        "filename": "MathMathML.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-09-23T09:41:38Z",
+      "side": 1,
+      "message": "make the coding standards ignore flag just around the one line\n\n// @codingStandardsIgnoreStart\n$class .\u003d \u0027 mwe-math-mathml-a11y \u0027;\n// @codingStandardsIgnoreEnd",
+      "revId": "0a6245e6cd6657c06d6966e4a1d1588a8747cd9c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
