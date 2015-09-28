@@ -64,12 +64,12 @@ class MathHooks {
 	}
 
 	public static function mathModeToString( $mode, $default = 'png' ) {
-//		The following deprecated modes have been removed:
-//		  'MW_MATH_SIMPLE'      => 1
-//		  'MW_MATH_HTML'        => 2
-//		  'MW_MATH_MODERN'      => 4
-//		  'MW_MATH_MATHJAX'     => 6
-//		  'MW_MATH_LATEXML_JAX' => 8
+		// The following deprecated modes have been removed:
+		// 'MW_MATH_SIMPLE'      => 1
+		// 'MW_MATH_HTML'        => 2
+		// 'MW_MATH_MODERN'      => 4
+		// 'MW_MATH_MATHJAX'     => 6
+		// 'MW_MATH_LATEXML_JAX' => 8
 
 		$defs = array(
 			'MW_MATH_PNG'    => 0,
@@ -365,7 +365,7 @@ class MathHooks {
 	public static function registerExtension() {
 		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathDisableTexFilter;
 		$wgMathValidModes = MathRenderer::getValidModes();
-		if ( $wgMathDisableTexFilter == true ){ //ensure backwards compatibility
+		if ( $wgMathDisableTexFilter == true ) { // ensure backwards compatibility
 			$wgMathDisableTexFilter = 1;
 		}
 		$wgMathDisableTexFilter = MathRenderer::getDisableTexFilter();
