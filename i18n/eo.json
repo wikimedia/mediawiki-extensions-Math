@@ -3,23 +3,24 @@
 		"authors": [
 			"Mihxil",
 			"Yekrats",
-			"לערי ריינהארט"
+			"לערי ריינהארט",
+			"KuboF"
 		]
 	},
-	"math_sample": "Enmeti formulon ĉi tien",
-	"math_tip": "Matematika formulo (LaTeX)",
-	"prefs-math": "Matematikaĵoj",
-	"mw_math_png": "Ĉiam krei PNG-bildon",
-	"mw_math_source": "Lasu TeX-fonton (por tekstfoliumiloj)",
-	"mw_math_mathml": "MathML seeble (provizora)",
-	"math_failure": "malsukcesis analizi formulon",
-	"math_unknown_error": "nekonata eraro",
-	"math_unknown_function": "nekonata funkcio",
-	"math_lexing_error": "leksika analizo malsukcesis",
-	"math_syntax_error": "sintakseraro",
-	"math_image_error": "Konverto al PNG malsukcesis; kontrolu ĉu estas ĝuste instalitaj latex kaj dvipng (aŭ dvips + gs + convert)",
-	"math_bad_tmpdir": "Ne povas skribi al aŭ krei matematikian labor-dosierujon.",
+	"math-visualeditor-mwmathinspector-title": "Formulo",
 	"math_bad_output": "Ne povas enskribi aŭ krei matematikan eligan dosierujon",
+	"math_bad_tmpdir": "Ne povas skribi al aŭ krei matematikian labor-dosierujon.",
+	"math_failure": "malsukcesis analizi formulon",
+	"math_image_error": "Konverto al PNG malsukcesis; kontrolu ĉu estas ĝuste instalitaj latex kaj dvipng (aŭ dvips + gs + convert)",
+	"math_lexing_error": "leksika analizo malsukcesis",
 	"math_notexvc": "Programo <code>texvc</code> ne ekzistas; bonvolu vidi math/README por konfiguri.",
-	"math-visualeditor-mwmathinspector-title": "Formulo"
+	"math_sample": "Enmeti formulon ĉi tien",
+	"math_syntax_error": "sintakseraro",
+	"math_tip": "Matematika formulo (LaTeX)",
+	"math_unknown_error": "nekonata eraro",
+	"math_unknown_function": "nekonata funkcio \"$1\"",
+	"mw_math_mathml": "MathML, alternative SVG aŭ PNG (rekomendata por modernaj foliumiloj kaj alirebleco-iloj)",
+	"mw_math_png": "PNG-bildoj",
+	"mw_math_source": "TeX-fonto (por tekstfoliumiloj)",
+	"prefs-math": "Matematikaĵoj"
 }
