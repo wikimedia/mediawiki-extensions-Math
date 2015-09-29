@@ -46,22 +46,10 @@ ve.ce.MWMathNode.prototype.onSetup = function () {
 };
 
 /**
- * @inheritdoc
+ * @inheritdoc ve.ce.GeneratedContentNode
  */
-ve.ce.MWMathNode.prototype.afterRender = function () {
-	var $img,
-		node = this;
-
-	$img = this.$element.filter( 'img.tex' );
-	// Rerender after image load
-	if ( $img.length ) {
-		$img.on( 'load', function () {
-			node.emit( 'rerender' );
-		} );
-	} else {
-		// Passing an empty string, or using MathML, returns no image, so rerender immediately
-		this.emit( 'rerender' );
-	}
+ve.ce.MWMathNode.prototype.validateGeneratedContents = function ( $element ) {
+	return !( $element.find( '.error' ).length );
 };
 
 /* Registration */
