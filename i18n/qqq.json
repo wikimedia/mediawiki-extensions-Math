@@ -15,6 +15,7 @@
 		]
 	},
 	"math-desc": "{{desc|name=Math|url=https://www.mediawiki.org/wiki/Extension:Math}}",
+	"math-visualeditor-mwmathdialog-title": "Title for the dialog to edit <nowiki><math></nowiki> formula blocks.\n{{Identical|Formula}}",
 	"math-visualeditor-mwmathinspector-display": "Label for the display attribute of the math node\n{{Identical|Display}}",
 	"math-visualeditor-mwmathinspector-display-block": "Label for the 'block' value of the display attribute\n{{Identical|Block}}",
 	"math-visualeditor-mwmathinspector-display-default": "Label for the 'default' value of the display attribute\n{{Identical|Default}}",
@@ -31,6 +32,7 @@
 	"math-visualeditor-symbol-group-operators": "Label for the operators group of math symbols",
 	"math-visualeditor-symbol-group-relations": "Label for the relations group of math symbols",
 	"math-visualeditor-symbol-group-root": "Label for the root group of math symbols",
+	"math-visualeditor-symbol-group-sets": "Label for the sets group of math symbols",
 	"math-visualeditor-symbol-group-special": "Label for the special group of math symbols",
 	"math-visualeditor-symbol-group-unsorted": "Label for the unsorted group of math symbols",
 	"math_bad_output": "Used as error message.\n\nThis message follows the message {{msg-mw|Math failure}}.",
