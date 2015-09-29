@@ -1,0 +1,259 @@
+/*!
+ * VisualEditor user interface MWMathDialog class.
+ *
+ * @copyright 2015 VisualEditor Team and others; see AUTHORS.txt
+ * @license The MIT License (MIT); see LICENSE.txt
+ */
+
+/**
+ * Dialog for inserting and editing formulas.
+ *
+ * @class
+ * @extends ve.ui.MWExtensionDialog
+ *
+ * @constructor
+ * @param {Object} [config] Configuration options
+ */
+
+ve.ui.MWMathDialog = function VeUiMWMathDialog( config ) {
+	// Parent constructor
+	ve.ui.MWMathDialog.super.call( this, config );
+
+};
+
+/* Inheritance */
+
+OO.inheritClass( ve.ui.MWMathDialog, ve.ui.MWExtensionPreviewDialog );
+
+/* Static properties */
+
+ve.ui.MWMathDialog.static.name = 'math';
+
+ve.ui.MWMathDialog.static.icon = 'math';
+
+ve.ui.MWMathDialog.static.title = OO.ui.deferMsg( 'math-visualeditor-mwmathdialog-title' );
+
+ve.ui.MWMathDialog.static.size = 'larger';
+
+ve.ui.MWMathDialog.static.modelClasses = [ ve.dm.MWMathNode ];
+
+ve.ui.MWMathDialog.static.dir = 'ltr';
+
+ve.ui.MWMathDialog.static.symbols = null;
+
+/* static methods */
+
+/**
+ *	Set the symbols property
+ *
+ * @param {Object} symbols The math symbols and their group names
+ */
+ve.ui.MWMathDialog.static.setSymbols = function ( symbols ) {
+	this.symbols = symbols;
+};
+
+/* Methods */
+
+/**
+ * @inheritdoc
+ */
+ve.ui.MWMathDialog.prototype.initialize = function () {
+	var formulaPanel, inputField, displayField, idField, category,
+		formulaCard, optionsCard,
+		dialog = this;
+
+	// Parent method
+	ve.ui.MWMathDialog.super.prototype.initialize.call( this );
+
+	// Layout for the formula inserter (formula card) and options form (options card)
+	this.indexLayout = new OO.ui.IndexLayout( {
+		scrollable: false,
+		expanded: true
+	} );
+
+	formulaCard = new OO.ui.CardLayout( 'formula', {
+		label: ve.msg( 'math-visualeditor-mwmathdialog-card-formula' ),
+		expandable: false,
+		scrollable: false,
+		padded: true
+	} );
+	optionsCard = new OO.ui.CardLayout( 'options', {
+		label: ve.msg( 'math-visualeditor-mwmathdialog-card-options' ),
+		expandable: false,
+		scrollable: false,
+		padded: true
+	} );
+
+	this.indexLayout.addCards( [
+		formulaCard,
+		optionsCard
+	] );
+
+	// Layout for symbol picker (menu) and input and preview (content)
+	this.menuLayout = new OO.ui.MenuLayout( {
+		menuPosition: 'bottom',
+		classes: [ 've-ui-mwMathDialog-menuLayout' ]
+	} );
+
+	this.previewElement.$element.addClass(
+		've-ui-mwMathDialog-preview'
+	);
+
+	this.input = new ve.ui.MWAceEditorWidget( {
+		multiline: true,
+		rows: 7
+	} ).setLanguage( 'latex' );
+
+	this.input.togglePrintMargin( false );
+
+	this.displaySelect = new OO.ui.ButtonSelectWidget( {
+		items: [
+			new OO.ui.ButtonOptionWidget( {
+				data: 'default',
+				icon: 'math-display-default',
+				label: ve.msg( 'math-visualeditor-mwmathinspector-display-default' )
+			} ),
+			new OO.ui.ButtonOptionWidget( {
+				data: 'inline',
+				icon: 'math-display-inline',
+				label: ve.msg( 'math-visualeditor-mwmathinspector-display-inline' )
+			} ),
+			new OO.ui.ButtonOptionWidget( {
+				data: 'block',
+				icon: 'math-display-block',
+				label: ve.msg( 'math-visualeditor-mwmathinspector-display-block' )
+			} )
+		]
+	} );
+
+	this.idInput = new OO.ui.TextInputWidget();
+
+	inputField = new OO.ui.FieldLayout( this.input, {
+		align: 'top',
+		label: ve.msg( 'math-visualeditor-mwmathinspector-title' )
+	} );
+	displayField = new OO.ui.FieldLayout( this.displaySelect, {
+		align: 'top',
+		label: ve.msg( 'math-visualeditor-mwmathinspector-display' )
+	} );
+	idField = new OO.ui.FieldLayout( this.idInput, {
+		align: 'top',
+		label: ve.msg( 'math-visualeditor-mwmathinspector-id' )
+	} );
+
+	formulaPanel = new OO.ui.PanelLayout( {
+		padded: true
+	} );
+
+	// Layout for the symbol picker
+	this.bookletLayout = new OO.ui.BookletLayout( {
+		menuPosition: 'before',
+		outlined: true,
+		continuous: true
+	} );
+	this.pages = [];
+	this.symbolsPromise = mw.loader.using( 'ext.math.visualEditor.symbols' ).done( function () {
+		var symbols = dialog.constructor.static.symbols;
+		for ( category in symbols ) {
+			dialog.pages.push(
+				new ve.ui.MWMathPage( ve.msg( category ), {
+					label: ve.msg( category ),
+					symbols: symbols[ category ]
+				} )
+			);
+		}
+		dialog.bookletLayout.addPages( dialog.pages );
+		dialog.bookletLayout.$element.on(
+			'click',
+			'.ve-ui-mwMathPage-symbol',
+			dialog.onListClick.bind( dialog )
+		);
+
+		// Append everything
+		dialog.menuLayout.$menu.append(
+			dialog.bookletLayout.$element
+		);
+
+		dialog.menuLayout.$content.append(
+			formulaPanel.$element.append(
+				dialog.previewElement.$element,
+				inputField.$element
+			)
+		);
+
+		formulaCard.$element.append(
+			dialog.menuLayout.$element
+		);
+		optionsCard.$element.append(
+			displayField.$element,
+			idField.$element
+		);
+
+		dialog.$body
+			.addClass( 've-ui-mwMathDialog-content' )
+			.append( dialog.indexLayout.$element );
+	} );
+
+};
+
+/**
+ * @inheritdoc
+ */
+ve.ui.MWMathDialog.prototype.getSetupProcess = function ( data ) {
+	return ve.ui.MWMathDialog.super.prototype.getSetupProcess.call( this, data )
+		.next( function () {
+			var display = ( this.selectedNode && this.selectedNode.getAttribute( 'mw' ).attrs.display ) || 'default';
+			this.input.on( 'change', this.onChangeHandler );
+			this.displaySelect.selectItemByData( display );
+		}, this );
+};
+
+/**
+ * @inheritdoc
+ */
+ve.ui.MWMathDialog.prototype.getReadyProcess = function ( data ) {
+	return ve.ui.MWMathDialog.super.prototype.getReadyProcess.call( this, data )
+		.next( function () {
+			return this.symbolsPromise;
+		}, this );
+};
+
+/**
+ * @inheritdoc
+ */
+ve.ui.MWMathDialog.prototype.getTeardownProcess = function ( data ) {
+	return ve.ui.MWMathDialog.super.prototype.getTeardownProcess.call( this, data )
+		.first( function () {
+			this.input.off( 'change', this.onChangeHandler );
+		}, this );
+};
+
+// HACK: until we know what the first child is
+ve.ui.MWMathDialog.prototype.getBodyHeight = function () {
+	return 600;
+};
+
+/**
+ * Handle the click event on the list
+ */
+ve.ui.MWMathDialog.prototype.onListClick = function ( e ) {
+	var symbol = $( e.target ).data( 'symbol' ),
+		encapsulate = symbol.encapsulate,
+		insert = symbol.insert,
+		range = this.input.getRange();
+
+	if ( encapsulate ) {
+		if ( range.from === range.to ) {
+			this.input.encapsulateContent( encapsulate.pre + encapsulate.placeholder, encapsulate.post );
+			this.input.selectRange( range.from + encapsulate.pre.length, range.from + encapsulate.pre.length + encapsulate.placeholder.length );
+		} else {
+			this.input.encapsulateContent( encapsulate.pre, encapsulate.post );
+		}
+	} else {
+		this.input.insertContent( insert );
+	}
+};
+
+/* Registration */
+
+ve.ui.windowFactory.register( ve.ui.MWMathDialog );
