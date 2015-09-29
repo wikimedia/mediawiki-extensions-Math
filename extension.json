@@ -12,6 +12,7 @@
 	"callback": "MathHooks::registerExtension",
 	"type": "parserhook",
 	"AutoloadClasses": {
+		"MathDataModule": "MathDataModule.php",
 		"MathHooks": "Math.hooks.php",
 		"MathRenderer": "MathRenderer.php",
 		"MathTexvc": "MathTexvc.php",
@@ -138,28 +139,68 @@
 			"scripts": [
 				"ve-math/ve.dm.MWMathNode.js",
 				"ve-math/ve.ce.MWMathNode.js",
-				"ve-math/ve.ui.MWMathInspector.js",
+				"ve-math/ve.ui.MWMathDialog.js",
+				"ve-math/ve.ui.MWMathPage.js",
 				"ve-math/ve.ui.MWMathInspectorTool.js"
 			],
 			"styles": [
 				"ve-math/ve.ce.MWMathNode.css",
 				"ve-math/ve.ui.MWMathIcons.css",
-				"ve-math/ve.ui.MWMathInspector.css"
+				"ve-math/ve.ui.MWMathInspector.css",
+				"ve-math/ve.ui.MWMathDialog.css"
 			],
 			"dependencies": [
 				"ext.visualEditor.mwcore"
 			],
 			"messages": [
+				"math-visualeditor-mwmathdialog-title",
+				"math-visualeditor-mwmathdialog-card-formula",
+				"math-visualeditor-mwmathdialog-card-options",
 				"math-visualeditor-mwmathinspector-display",
 				"math-visualeditor-mwmathinspector-display-block",
 				"math-visualeditor-mwmathinspector-display-default",
 				"math-visualeditor-mwmathinspector-display-inline",
 				"math-visualeditor-mwmathinspector-id",
-				"math-visualeditor-mwmathinspector-title"
+				"math-visualeditor-mwmathinspector-title",
+				"math-visualeditor-symbol-group-accents",
+				"math-visualeditor-symbol-group-arrows",
+				"math-visualeditor-symbol-group-bounds",
+				"math-visualeditor-symbol-group-derivatives",
+				"math-visualeditor-symbol-group-functions",
+				"math-visualeditor-symbol-group-geometry",
+				"math-visualeditor-symbol-group-greek",
+				"math-visualeditor-symbol-group-hebrew",
+				"math-visualeditor-symbol-group-large",
+				"math-visualeditor-symbol-group-logic",
+				"math-visualeditor-symbol-group-matrices",
+				"math-visualeditor-symbol-group-modular",
+				"math-visualeditor-symbol-group-operators",
+				"math-visualeditor-symbol-group-parentheses",
+				"math-visualeditor-symbol-group-projections",
+				"math-visualeditor-symbol-group-relations",
+				"math-visualeditor-symbol-group-root",
+				"math-visualeditor-symbol-group-sets",
+				"math-visualeditor-symbol-group-spacing",
+				"math-visualeditor-symbol-group-special",
+				"math-visualeditor-symbol-group-subscripts",
+				"math-visualeditor-symbol-group-symbols",
+				"math-visualeditor-symbol-group-typefaces",
+				"math-visualeditor-symbol-group-unsorted"
 			],
 			"targets": [
 				"desktop",
 				"mobile"
+			]
+		},
+		"ext.math.visualEditor.data": {
+			"class": "MathDataModule"
+		},
+		"ext.math.visualEditor.symbols": {
+			"styles": [
+				"ve-math/ve.ui.MWMathSymbols.css"
+			],
+			"dependencies": [
+				"ext.math.visualEditor.data"
 			]
 		}
 	},
