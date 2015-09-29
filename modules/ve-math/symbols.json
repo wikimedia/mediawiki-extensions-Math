@@ -1,1195 +1,1594 @@
 {
 	"math-visualeditor-symbol-group-derivatives": [
 		{
-			"tex": "\\nabla"
+			"tex": "\\nabla",
+			"insert": "\\nabla"
 		},
 		{
-			"tex": "\\partial"
+			"tex": "\\partial",
+			"insert": "\\partial"
 		}
 	],
 	"math-visualeditor-symbol-group-accents": [
 		{
-			"tex": "\\acute{a}"
+			"tex": "\\acute{a}",
+			"insert": "\\acute{__}"
 		},
 		{
-			"tex": "\\grave{a}"
+			"tex": "\\grave{a}",
+			"insert": "\\grave{__}"
 		},
 		{
-			"tex": "\\hat{a}"
+			"tex": "\\hat{a}",
+			"insert": "\\hat{__}"
 		},
 		{
-			"tex": "\\tilde{a}"
+			"tex": "\\tilde{a}",
+			"insert": "\\tilde{__}"
 		},
 		{
-			"tex": "\\breve{a}"
+			"tex": "\\breve{a}",
+			"insert": "\\breve{__}"
 		},
 		{
-			"tex": "\\check{a}"
+			"tex": "\\check{a}",
+			"insert": "\\check{__}"
 		},
 		{
-			"tex": "\\bar{a}"
+			"tex": "\\bar{a}",
+			"insert": "\\bar{__}"
 		},
 		{
-			"tex": "\\ddot{a}"
+			"tex": "\\ddot{a}",
+			"insert": "\\ddot{__}"
 		},
 		{
-			"tex": "\\dot{a}"
+			"tex": "\\dot{a}",
+			"insert": "\\dot{__}"
 		}
 	],
 	"math-visualeditor-symbol-group-modular": [
 		{
-			"tex": "\\pmod{a}"
+			"tex": "\\pmod{a}",
+			"insert": "\\pmod{__}",
+			"wide": true
 		},
 		{
-			"tex": "\\bmod{a}"
+			"tex": "\\bmod{a}",
+			"insert": "\\bmod{__}",
+			"wide": true
 		}
 	],
 	"math-visualeditor-symbol-group-operators": [
 		{
-			"tex": "+"
+			"tex": "+",
+			"insert": "+"
 		},
 		{
-			"tex": "\\oplus"
+			"tex": "\\oplus",
+			"insert": "\\oplus"
 		},
 		{
-			"tex": "\\bigoplus"
+			"tex": "\\bigoplus",
+			"insert": "\\bigoplus"
 		},
 		{
-			"tex": "\\pm"
+			"tex": "\\pm",
+			"insert": "\\pm"
 		},
 		{
-			"tex": "\\mp"
+			"tex": "\\mp",
+			"insert": "\\mp"
 		},
 		{
-			"tex": "-"
+			"tex": "-",
+			"insert": "-"
 		},
 		{
-			"tex": "\\times"
+			"tex": "\\times",
+			"insert": "\\times"
 		},
 		{
-			"tex": "\\otimes"
+			"tex": "\\otimes",
+			"insert": "\\otimes"
 		},
 		{
-			"tex": "\\bigotimes"
+			"tex": "\\bigotimes",
+			"insert": "\\bigotimes"
 		},
 		{
-			"tex": "\\cdot"
+			"tex": "\\cdot",
+			"insert": "\\cdot"
 		},
 		{
-			"tex": "\\circ"
+			"tex": "\\circ",
+			"insert": "\\circ"
 		},
 		{
-			"tex": "\\bullet"
+			"tex": "\\bullet",
+			"insert": "\\bullet"
 		},
 		{
-			"tex": "\\bigodot"
+			"tex": "\\bigodot",
+			"insert": "\\bigodot"
 		},
 		{
-			"tex": "\\star"
+			"tex": "\\star",
+			"insert": "\\star"
 		},
 		{
-			"tex": "*"
+			"tex": "*",
+			"insert": "*"
 		},
 		{
-			"tex": "/"
+			"tex": "/",
+			"insert": "/"
 		},
 		{
-			"tex": "\\div"
+			"tex": "\\div",
+			"insert": "\\div"
 		}
 	],
 	"math-visualeditor-symbol-group-logic": [
 		{
-			"tex": "\\land"
+			"tex": "\\land",
+			"insert": "\\land"
 		},
 		{
-			"tex": "\\wedge"
+			"tex": "\\wedge",
+			"insert": "\\wedge"
 		},
 		{
-			"tex": "\\bigwedge"
+			"tex": "\\bigwedge",
+			"insert": "\\bigwedge"
 		},
 		{
-			"tex": "\\lor"
+			"tex": "\\lor",
+			"insert": "\\lor"
 		},
 		{
-			"tex": "\\vee"
+			"tex": "\\vee",
+			"insert": "\\vee"
 		},
 		{
-			"tex": "\\bigvee"
+			"tex": "\\bigvee",
+			"insert": "\\bigvee"
 		},
 		{
-			"tex": "\\lnot"
+			"tex": "\\lnot",
+			"insert": "\\lnot"
 		},
 		{
-			"tex": "\\neg"
+			"tex": "\\neg",
+			"insert": "\\neg"
 		},
 		{
-			"tex": "\\And"
+			"tex": "\\And",
+			"insert": "\\And"
 		}
 	],
 	"math-visualeditor-symbol-group-arrows": [
 		{
-			"tex": "\\Leftarrow"
+			"tex": "\\Leftarrow",
+			"insert": "\\Leftarrow"
 		},
 		{
-			"tex": "\\Rightarrow"
+			"tex": "\\Rightarrow",
+			"insert": "\\Rightarrow"
 		},
 		{
-			"tex": "\\nleftarrow"
+			"tex": "\\nleftarrow",
+			"insert": "\\nleftarrow"
 		},
 		{
-			"tex": "\\nrightarrow"
+			"tex": "\\nrightarrow",
+			"insert": "\\nrightarrow"
 		},
 		{
-			"tex": "\\leftrightarrow"
+			"tex": "\\leftrightarrow",
+			"insert": "\\leftrightarrow"
 		},
 		{
-			"tex": "\\nleftrightarrow"
+			"tex": "\\nleftrightarrow",
+			"insert": "\\nleftrightarrow"
 		},
 		{
-			"tex": "\\longleftarrow"
+			"tex": "\\longleftarrow",
+			"insert": "\\longleftarrow"
 		},
 		{
-			"tex": "\\nLeftarrow"
+			"tex": "\\nLeftarrow",
+			"insert": "\\nLeftarrow"
 		},
 		{
-			"tex": "\\nRightarrow"
+			"tex": "\\nRightarrow",
+			"insert": "\\nRightarrow"
 		},
 		{
-			"tex": "\\Leftrightarrow"
+			"tex": "\\Leftrightarrow",
+			"insert": "\\Leftrightarrow"
 		},
 		{
-			"tex": "\\nLeftrightarrow"
+			"tex": "\\nLeftrightarrow",
+			"insert": "\\nLeftrightarrow"
 		},
 		{
-			"tex": "\\Longleftarrow"
+			"tex": "\\Longleftarrow",
+			"insert": "\\Longleftarrow"
 		},
 		{
-			"tex": "\\longrightarrow"
+			"tex": "\\longrightarrow",
+			"insert": "\\longrightarrow"
 		},
 		{
-			"tex": "\\longleftrightarrow"
+			"tex": "\\longleftrightarrow",
+			"insert": "\\longleftrightarrow"
 		},
 		{
-			"tex": "\\uparrow"
+			"tex": "\\uparrow",
+			"insert": "\\uparrow"
 		},
 		{
-			"tex": "\\downarrow"
+			"tex": "\\downarrow",
+			"insert": "\\downarrow"
 		},
 		{
-			"tex": "\\updownarrow"
+			"tex": "\\updownarrow",
+			"insert": "\\updownarrow"
 		},
 		{
-			"tex": "\\Uparrow"
+			"tex": "\\Uparrow",
+			"insert": "\\Uparrow"
 		},
 		{
-			"tex": "\\Downarrow"
+			"tex": "\\Downarrow",
+			"insert": "\\Downarrow"
 		},
 		{
-			"tex": "\\Updownarrow"
+			"tex": "\\Updownarrow",
+			"insert": "\\Updownarrow"
 		},
 		{
-			"tex": "\\nearrow"
+			"tex": "\\nearrow",
+			"insert": "\\nearrow"
 		},
 		{
-			"tex": "\\searrow"
+			"tex": "\\searrow",
+			"insert": "\\searrow"
 		},
 		{
-			"tex": "\\swarrow"
+			"tex": "\\swarrow",
+			"insert": "\\swarrow"
 		},
 		{
-			"tex": "\\nwarrow"
+			"tex": "\\nwarrow",
+			"insert": "\\nwarrow"
 		},
 		{
-			"tex": "\\rightharpoonup"
+			"tex": "\\rightharpoonup",
+			"insert": "\\rightharpoonup"
 		},
 		{
-			"tex": "\\rightharpoondown"
+			"tex": "\\rightharpoondown",
+			"insert": "\\rightharpoondown"
 		},
 		{
-			"tex": "\\leftharpoonup"
+			"tex": "\\leftharpoonup",
+			"insert": "\\leftharpoonup"
 		},
 		{
-			"tex": "\\leftharpoondown"
+			"tex": "\\leftharpoondown",
+			"insert": "\\leftharpoondown"
 		},
 		{
-			"tex": "\\upharpoonleft"
+			"tex": "\\upharpoonleft",
+			"insert": "\\upharpoonleft"
 		},
 		{
-			"tex": "\\upharpoonright"
+			"tex": "\\upharpoonright",
+			"insert": "\\upharpoonright"
 		},
 		{
-			"tex": "\\downharpoonleft"
+			"tex": "\\downharpoonleft",
+			"insert": "\\downharpoonleft"
 		},
 		{
-			"tex": "\\downharpoonright"
+			"tex": "\\downharpoonright",
+			"insert": "\\downharpoonright"
 		},
 		{
-			"tex": "\\rightleftharpoons"
+			"tex": "\\rightleftharpoons",
+			"insert": "\\rightleftharpoons"
 		},
 		{
-			"tex": "\\leftrightharpoons"
+			"tex": "\\leftrightharpoons",
+			"insert": "\\leftrightharpoons"
 		},
 		{
-			"tex": "\\curvearrowright"
+			"tex": "\\curvearrowright",
+			"insert": "\\curvearrowright"
 		},
 		{
-			"tex": "\\circlearrowright"
+			"tex": "\\circlearrowright",
+			"insert": "\\circlearrowright"
 		},
 		{
-			"tex": "\\Rsh"
+			"tex": "\\Rsh",
+			"insert": "\\Rsh"
 		},
 		{
-			"tex": "\\downdownarrows"
+			"tex": "\\downdownarrows",
+			"insert": "\\downdownarrows"
 		},
 		{
-			"tex": "\\leftleftarrows"
+			"tex": "\\leftleftarrows",
+			"insert": "\\leftleftarrows"
 		},
 		{
-			"tex": "\\leftrightarrows"
+			"tex": "\\leftrightarrows",
+			"insert": "\\leftrightarrows"
 		},
 		{
-			"tex": "\\Lleftarrow"
+			"tex": "\\Lleftarrow",
+			"insert": "\\Lleftarrow"
 		},
 		{
-			"tex": "\\leftarrowtail"
+			"tex": "\\leftarrowtail",
+			"insert": "\\leftarrowtail"
 		},
 		{
-			"tex": "\\looparrowleft"
+			"tex": "\\looparrowleft",
+			"insert": "\\looparrowleft"
 		},
 		{
-			"tex": "\\mapsto"
+			"tex": "\\mapsto",
+			"insert": "\\mapsto"
 		},
 		{
-			"tex": "\\longmapsto"
+			"tex": "\\longmapsto",
+			"insert": "\\longmapsto"
 		},
 		{
-			"tex": "\\hookrightarrow"
+			"tex": "\\hookrightarrow",
+			"insert": "\\hookrightarrow"
 		},
 		{
-			"tex": "\\hookleftarrow"
+			"tex": "\\hookleftarrow",
+			"insert": "\\hookleftarrow"
 		},
 		{
-			"tex": "\\multimap"
+			"tex": "\\multimap",
+			"insert": "\\multimap"
 		},
 		{
-			"tex": "\\leftrightsquigarrow"
+			"tex": "\\leftrightsquigarrow",
+			"insert": "\\leftrightsquigarrow"
 		},
 		{
-			"tex": "\\rightsquigarrow"
+			"tex": "\\rightsquigarrow",
+			"insert": "\\rightsquigarrow"
 		}
 	],
 	"math-visualeditor-symbol-group-functions": [
 		{
-			"tex": "\\sin"
+			"tex": "\\sin",
+			"insert": "\\sin"
 		},
 		{
-			"tex": "\\cos"
+			"tex": "\\cos",
+			"insert": "\\cos"
 		},
 		{
-			"tex": "\\tan"
+			"tex": "\\tan",
+			"insert": "\\tan"
 		},
 		{
-			"tex": "\\sec"
+			"tex": "\\sec",
+			"insert": "\\sec"
 		},
 		{
-			"tex": "\\csc"
+			"tex": "\\csc",
+			"insert": "\\csc"
 		},
 		{
-			"tex": "\\cot"
+			"tex": "\\cot",
+			"insert": "\\cot"
 		},
 		{
-			"tex": "\\arcsin"
+			"tex": "\\arcsin",
+			"insert": "\\arcsin",
+			"wide": true
 		},
 		{
-			"tex": "\\arccos"
+			"tex": "\\arccos",
+			"insert": "\\arccos",
+			"wide": true
 		},
 		{
-			"tex": "\\arctan"
+			"tex": "\\arctan",
+			"insert": "\\arctan",
+			"wide": true
 		},
 		{
-			"tex": "\\sinh"
+			"tex": "\\sinh",
+			"insert": "\\sinh"
 		},
 		{
-			"tex": "\\cosh"
+			"tex": "\\cosh",
+			"insert": "\\cosh"
 		},
 		{
-			"tex": "\\tanh"
+			"tex": "\\tanh",
+			"insert": "\\tanh"
 		},
 		{
-			"tex": "\\coth"
+			"tex": "\\coth",
+			"insert": "\\coth"
 		},
 		{
-			"tex": "\\operatorname{sh}"
+			"tex": "\\operatorname{sh}",
+			"insert": "\\operatorname{sh}"
 		},
 		{
-			"tex": "\\operatorname{ch}"
+			"tex": "\\operatorname{ch}",
+			"insert": "\\operatorname{ch}"
 		},
 		{
-			"tex": "\\operatorname{th}"
+			"tex": "\\operatorname{th}",
+			"insert": "\\operatorname{th}"
 		},
 		{
-			"tex": "\\operatorname{arsinh}"
+			"tex": "\\operatorname{arsinh}",
+			"insert": "\\operatorname{arsinh}",
+			"wide": true
 		},
 		{
-			"tex": "\\operatorname{arcosh}"
+			"tex": "\\operatorname{arcosh}",
+			"insert": "\\operatorname{arcosh}",
+			"wide": true
 		},
 		{
-			"tex": "\\operatorname{artanh}"
+			"tex": "\\operatorname{artanh}",
+			"insert": "\\operatorname{artanh}",
+			"wide": true
 		},
 		{
-			"tex": "\\lim"
+			"tex": "\\lim",
+			"insert": "\\lim"
 		},
 		{
-			"tex": "\\limsup"
+			"tex": "\\limsup",
+			"insert": "\\limsup",
+			"wide": true
 		},
 		{
-			"tex": "\\liminf"
+			"tex": "\\liminf",
+			"insert": "\\liminf",
+			"wide": true
 		},
 		{
-			"tex": "\\min"
+			"tex": "\\min",
+			"insert": "\\min"
 		},
 		{
-			"tex": "\\max"
+			"tex": "\\max",
+			"insert": "\\max"
 		},
 		{
-			"tex": "\\inf"
+			"tex": "\\inf",
+			"insert": "\\inf"
 		},
 		{
-			"tex": "\\sup"
+			"tex": "\\sup",
+			"insert": "\\sup"
 		},
 		{
-			"tex": "\\exp"
+			"tex": "\\exp",
+			"insert": "\\exp"
 		},
 		{
-			"tex": "\\ln"
+			"tex": "\\ln",
+			"insert": "\\ln"
 		},
 		{
-			"tex": "\\lg"
+			"tex": "\\lg",
+			"insert": "\\lg"
 		},
 		{
-			"tex": "\\log"
+			"tex": "\\log",
+			"insert": "\\log"
 		},
 		{
-			"tex": "\\log_{a}"
+			"tex": "\\log_{a}",
+			"insert": "\\log_{__}"
 		},
 		{
-			"tex": "\\ker"
+			"tex": "\\ker",
+			"insert": "\\ker"
 		},
 		{
-			"tex": "\\deg"
+			"tex": "\\deg",
+			"insert": "\\deg"
 		},
 		{
-			"tex": "\\gcd"
+			"tex": "\\gcd",
+			"insert": "\\gcd"
 		},
 		{
-			"tex": "\\Pr"
+			"tex": "\\Pr",
+			"insert": "\\Pr"
 		},
 		{
-			"tex": "\\det"
+			"tex": "\\det",
+			"insert": "\\det"
 		},
 		{
-			"tex": "\\hom"
+			"tex": "\\hom",
+			"insert": "\\hom"
 		},
 		{
-			"tex": "\\arg"
+			"tex": "\\arg",
+			"insert": "\\arg"
 		},
 		{
-			"tex": "\\dim"
+			"tex": "\\dim",
+			"insert": "\\dim"
 		}
 	],
 	"math-visualeditor-symbol-group-unsorted": [
 		{
-			"tex": "\\vartriangle"
+			"tex": "\\vartriangle",
+			"insert": "\\vartriangle"
 		},
 		{
-			"tex": "\\triangledown"
+			"tex": "\\triangledown",
+			"insert": "\\triangledown"
 		},
 		{
-			"tex": "\\lozenge"
+			"tex": "\\lozenge",
+			"insert": "\\lozenge"
 		},
 		{
-			"tex": "\\circledS"
+			"tex": "\\circledS",
+			"insert": "\\circledS"
 		},
 		{
-			"tex": "\\measuredangle"
+			"tex": "\\measuredangle",
+			"insert": "\\measuredangle"
 		},
 		{
-			"tex": "\\nexists"
+			"tex": "\\nexists",
+			"insert": "\\nexists"
 		},
 		{
-			"tex": "\\Bbbk"
+			"tex": "\\Bbbk",
+			"insert": "\\Bbbk"
 		},
 		{
-			"tex": "\\backprime"
+			"tex": "\\backprime",
+			"insert": "\\backprime"
 		},
 		{
-			"tex": "\\blacktriangle"
+			"tex": "\\blacktriangle",
+			"insert": "\\blacktriangle"
 		},
 		{
-			"tex": "\\blacktriangledown"
+			"tex": "\\blacktriangledown",
+			"insert": "\\blacktriangledown"
 		},
 		{
-			"tex": "\\square"
+			"tex": "\\square",
+			"insert": "\\square"
 		},
 		{
-			"tex": "\\blacksquare"
+			"tex": "\\blacksquare",
+			"insert": "\\blacksquare"
 		},
 		{
-			"tex": "\\blacklozenge"
+			"tex": "\\blacklozenge",
+			"insert": "\\blacklozenge"
 		},
 		{
-			"tex": "\\bigstar"
+			"tex": "\\bigstar",
+			"insert": "\\bigstar"
 		},
 		{
-			"tex": "\\sphericalangle"
+			"tex": "\\sphericalangle",
+			"insert": "\\sphericalangle"
 		},
 		{
-			"tex": "\\diagup"
+			"tex": "\\diagup",
+			"insert": "\\diagup"
 		},
 		{
-			"tex": "\\diagdown"
+			"tex": "\\diagdown",
+			"insert": "\\diagdown"
 		},
 		{
-			"tex": "\\dotplus"
+			"tex": "\\dotplus",
+			"insert": "\\dotplus"
 		},
 		{
-			"tex": "\\Cap"
+			"tex": "\\Cap",
+			"insert": "\\Cap"
 		},
 		{
-			"tex": "\\Cup"
+			"tex": "\\Cup",
+			"insert": "\\Cup"
 		},
 		{
-			"tex": "\\barwedge"
+			"tex": "\\barwedge",
+			"insert": "\\barwedge"
 		},
 		{
-			"tex": "\\veebar"
+			"tex": "\\veebar",
+			"insert": "\\veebar"
 		},
 		{
-			"tex": "\\doublebarwedge"
+			"tex": "\\doublebarwedge",
+			"insert": "\\doublebarwedge"
 		},
 		{
-			"tex": "\\boxminus"
+			"tex": "\\boxminus",
+			"insert": "\\boxminus"
 		},
 		{
-			"tex": "\\boxtimes"
+			"tex": "\\boxtimes",
+			"insert": "\\boxtimes"
 		},
 		{
-			"tex": "\\boxdot"
+			"tex": "\\boxdot",
+			"insert": "\\boxdot"
 		},
 		{
-			"tex": "\\boxplus"
+			"tex": "\\boxplus",
+			"insert": "\\boxplus"
 		},
 		{
-			"tex": "\\divideontimes"
+			"tex": "\\divideontimes",
+			"insert": "\\divideontimes"
 		},
 		{
-			"tex": "\\ltimes"
+			"tex": "\\ltimes",
+			"insert": "\\ltimes"
 		},
 		{
-			"tex": "\\rtimes"
+			"tex": "\\rtimes",
+			"insert": "\\rtimes"
 		},
 		{
-			"tex": "\\leftthreetimes"
+			"tex": "\\leftthreetimes",
+			"insert": "\\leftthreetimes"
 		},
 		{
-			"tex": "\\rightthreetimes"
+			"tex": "\\rightthreetimes",
+			"insert": "\\rightthreetimes"
 		},
 		{
-			"tex": "\\curlywedge"
+			"tex": "\\curlywedge",
+			"insert": "\\curlywedge"
 		},
 		{
-			"tex": "\\curlyvee"
+			"tex": "\\curlyvee",
+			"insert": "\\curlyvee"
 		},
 		{
-			"tex": "\\circleddash"
+			"tex": "\\circleddash",
+			"insert": "\\circleddash"
 		},
 		{
-			"tex": "\\circledast"
+			"tex": "\\circledast",
+			"insert": "\\circledast"
 		},
 		{
-			"tex": "\\circledcirc"
+			"tex": "\\circledcirc",
+			"insert": "\\circledcirc"
 		},
 		{
-			"tex": "\\centerdot"
+			"tex": "\\centerdot",
+			"insert": "\\centerdot"
 		},
 		{
-			"tex": "\\intercal"
+			"tex": "\\intercal",
+			"insert": "\\intercal"
 		},
 		{
-			"tex": "\\approxeq"
+			"tex": "\\approxeq",
+			"insert": "\\approxeq"
 		},
 		{
-			"tex": "\\lessdot"
+			"tex": "\\lessdot",
+			"insert": "\\lessdot"
 		},
 		{
-			"tex": "\\lll"
+			"tex": "\\lll",
+			"insert": "\\lll"
 		},
 		{
-			"tex": "\\lessgtr"
+			"tex": "\\lessgtr",
+			"insert": "\\lessgtr"
 		},
 		{
-			"tex": "\\lesseqgtr"
+			"tex": "\\lesseqgtr",
+			"insert": "\\lesseqgtr"
 		},
 		{
-			"tex": "\\lesseqqgtr"
+			"tex": "\\lesseqqgtr",
+			"insert": "\\lesseqqgtr"
 		},
 		{
-			"tex": "\\doteqdot"
+			"tex": "\\doteqdot",
+			"insert": "\\doteqdot"
 		},
 		{
-			"tex": "\\risingdotseq"
+			"tex": "\\risingdotseq",
+			"insert": "\\risingdotseq"
 		},
 		{
-			"tex": "\\fallingdotseq"
+			"tex": "\\fallingdotseq",
+			"insert": "\\fallingdotseq"
 		},
 		{
-			"tex": "\\backsim"
+			"tex": "\\backsim",
+			"insert": "\\backsim"
 		},
 		{
-			"tex": "\\backsimeq"
+			"tex": "\\backsimeq",
+			"insert": "\\backsimeq"
 		},
 		{
-			"tex": "\\subseteqq"
+			"tex": "\\subseteqq",
+			"insert": "\\subseteqq"
 		},
 		{
-			"tex": "\\Subset"
+			"tex": "\\Subset",
+			"insert": "\\Subset"
 		},
 		{
-			"tex": "\\preccurlyeq"
+			"tex": "\\preccurlyeq",
+			"insert": "\\preccurlyeq"
 		},
 		{
-			"tex": "\\curlyeqprec"
+			"tex": "\\curlyeqprec",
+			"insert": "\\curlyeqprec"
 		},
 		{
-			"tex": "\\precsim"
+			"tex": "\\precsim",
+			"insert": "\\precsim"
 		},
 		{
-			"tex": "\\precapprox"
+			"tex": "\\precapprox",
+			"insert": "\\precapprox"
 		},
 		{
-			"tex": "\\vartriangleleft"
+			"tex": "\\vartriangleleft",
+			"insert": "\\vartriangleleft"
 		},
 		{
-			"tex": "\\Vvdash"
+			"tex": "\\Vvdash",
+			"insert": "\\Vvdash"
 		},
 		{
-			"tex": "\\bumpeq"
+			"tex": "\\bumpeq",
+			"insert": "\\bumpeq"
 		},
 		{
-			"tex": "\\Bumpeq"
+			"tex": "\\Bumpeq",
+			"insert": "\\Bumpeq"
 		},
 		{
-			"tex": "\\eqsim"
+			"tex": "\\eqsim",
+			"insert": "\\eqsim"
 		},
 		{
-			"tex": "\\gtrdot"
+			"tex": "\\gtrdot",
+			"insert": "\\gtrdot"
 		},
 		{
-			"tex": "\\ggg"
+			"tex": "\\ggg",
+			"insert": "\\ggg"
 		},
 		{
-			"tex": "\\gtrless"
+			"tex": "\\gtrless",
+			"insert": "\\gtrless"
 		},
 		{
-			"tex": "\\gtreqless"
+			"tex": "\\gtreqless",
+			"insert": "\\gtreqless"
 		},
 		{
-			"tex": "\\gtreqqless"
+			"tex": "\\gtreqqless",
+			"insert": "\\gtreqqless"
 		},
 		{
-			"tex": "\\eqcirc"
+			"tex": "\\eqcirc",
+			"insert": "\\eqcirc"
 		},
 		{
-			"tex": "\\circeq"
+			"tex": "\\circeq",
+			"insert": "\\circeq"
 		},
 		{
-			"tex": "\\triangleq"
+			"tex": "\\triangleq",
+			"insert": "\\triangleq"
 		},
 		{
-			"tex": "\\thicksim"
+			"tex": "\\thicksim",
+			"insert": "\\thicksim"
 		},
 		{
-			"tex": "\\thickapprox"
+			"tex": "\\thickapprox",
+			"insert": "\\thickapprox"
 		},
 		{
-			"tex": "\\supseteqq"
+			"tex": "\\supseteqq",
+			"insert": "\\supseteqq"
 		},
 		{
-			"tex": "\\Supset"
+			"tex": "\\Supset",
+			"insert": "\\Supset"
 		},
 		{
-			"tex": "\\succcurlyeq"
+			"tex": "\\succcurlyeq",
+			"insert": "\\succcurlyeq"
 		},
 		{
-			"tex": "\\curlyeqsucc"
+			"tex": "\\curlyeqsucc",
+			"insert": "\\curlyeqsucc"
 		},
 		{
-			"tex": "\\succsim"
+			"tex": "\\succsim",
+			"insert": "\\succsim"
 		},
 		{
-			"tex": "\\succapprox"
+			"tex": "\\succapprox",
+			"insert": "\\succapprox"
 		},
 		{
-			"tex": "\\vartriangleright"
+			"tex": "\\vartriangleright",
+			"insert": "\\vartriangleright"
 		},
 		{
-			"tex": "\\shortmid"
+			"tex": "\\shortmid",
+			"insert": "\\shortmid"
 		},
 		{
-			"tex": "\\between"
+			"tex": "\\between",
+			"insert": "\\between"
 		},
 		{
-			"tex": "\\shortparallel"
+			"tex": "\\shortparallel",
+			"insert": "\\shortparallel"
 		},
 		{
-			"tex": "\\pitchfork"
+			"tex": "\\pitchfork",
+			"insert": "\\pitchfork"
 		},
 		{
-			"tex": "\\varpropto"
+			"tex": "\\varpropto",
+			"insert": "\\varpropto"
 		},
 		{
-			"tex": "\\blacktriangleleft"
+			"tex": "\\blacktriangleleft",
+			"insert": "\\blacktriangleleft"
 		},
 		{
-			"tex": "\\therefore"
+			"tex": "\\therefore",
+			"insert": "\\therefore"
 		},
 		{
-			"tex": "\\backepsilon"
+			"tex": "\\backepsilon",
+			"insert": "\\backepsilon"
 		},
 		{
-			"tex": "\\blacktriangleright"
+			"tex": "\\blacktriangleright",
+			"insert": "\\blacktriangleright"
 		},
 		{
-			"tex": "\\because"
+			"tex": "\\because",
+			"insert": "\\because"
 		},
 		{
-			"tex": "\\nleqslant"
+			"tex": "\\nleqslant",
+			"insert": "\\nleqslant"
 		},
 		{
-			"tex": "\\nleqq"
+			"tex": "\\nleqq",
+			"insert": "\\nleqq"
 		},
 		{
-			"tex": "\\lneq"
+			"tex": "\\lneq",
+			"insert": "\\lneq"
 		},
 		{
-			"tex": "\\lneqq"
+			"tex": "\\lneqq",
+			"insert": "\\lneqq"
 		},
 		{
-			"tex": "\\lvertneqq"
+			"tex": "\\lvertneqq",
+			"insert": "\\lvertneqq"
 		},
 		{
-			"tex": "\\lnsim"
+			"tex": "\\lnsim",
+			"insert": "\\lnsim"
 		},
 		{
-			"tex": "\\lnapprox"
+			"tex": "\\lnapprox",
+			"insert": "\\lnapprox"
 		},
 		{
-			"tex": "\\nprec"
+			"tex": "\\nprec",
+			"insert": "\\nprec"
 		},
 		{
-			"tex": "\\npreceq"
+			"tex": "\\npreceq",
+			"insert": "\\npreceq"
 		},
 		{
-			"tex": "\\precneqq"
+			"tex": "\\precneqq",
+			"insert": "\\precneqq"
 		},
 		{
-			"tex": "\\precnsim"
+			"tex": "\\precnsim",
+			"insert": "\\precnsim"
 		},
 		{
-			"tex": "\\precnapprox"
+			"tex": "\\precnapprox",
+			"insert": "\\precnapprox"
 		},
 		{
-			"tex": "\\nsim"
+			"tex": "\\nsim",
+			"insert": "\\nsim"
 		},
 		{
-			"tex": "\\nshortmid"
+			"tex": "\\nshortmid",
+			"insert": "\\nshortmid"
 		},
 		{
-			"tex": "\\nvdash"
+			"tex": "\\nvdash",
+			"insert": "\\nvdash"
 		},
 		{
-			"tex": "\\nVdash"
+			"tex": "\\nVdash",
+			"insert": "\\nVdash"
 		},
 		{
-			"tex": "\\ntriangleleft"
+			"tex": "\\ntriangleleft",
+			"insert": "\\ntriangleleft"
 		},
 		{
-			"tex": "\\ntrianglelefteq"
+			"tex": "\\ntrianglelefteq",
+			"insert": "\\ntrianglelefteq"
 		},
 		{
-			"tex": "\\nsubseteq"
+			"tex": "\\nsubseteq",
+			"insert": "\\nsubseteq"
 		},
 		{
-			"tex": "\\nsubseteqq"
+			"tex": "\\nsubseteqq",
+			"insert": "\\nsubseteqq"
 		},
 		{
-			"tex": "\\varsubsetneq"
+			"tex": "\\varsubsetneq",
+			"insert": "\\varsubsetneq"
 		},
 		{
-			"tex": "\\subsetneqq"
+			"tex": "\\subsetneqq",
+			"insert": "\\subsetneqq"
 		},
 		{
-			"tex": "\\varsubsetneqq"
+			"tex": "\\varsubsetneqq",
+			"insert": "\\varsubsetneqq"
 		},
 		{
-			"tex": "\\ngtr"
+			"tex": "\\ngtr",
+			"insert": "\\ngtr"
 		},
 		{
-			"tex": "\\subsetneq"
+			"tex": "\\subsetneq",
+			"insert": "\\subsetneq"
 		},
 		{
-			"tex": "\\ngeqslant"
+			"tex": "\\ngeqslant",
+			"insert": "\\ngeqslant"
 		},
 		{
-			"tex": "\\ngeqq"
+			"tex": "\\ngeqq",
+			"insert": "\\ngeqq"
 		},
 		{
-			"tex": "\\gneq"
+			"tex": "\\gneq",
+			"insert": "\\gneq"
 		},
 		{
-			"tex": "\\gneqq"
+			"tex": "\\gneqq",
+			"insert": "\\gneqq"
 		},
 		{
-			"tex": "\\gvertneqq"
+			"tex": "\\gvertneqq",
+			"insert": "\\gvertneqq"
 		},
 		{
-			"tex": "\\gnsim"
+			"tex": "\\gnsim",
+			"insert": "\\gnsim"
 		},
 		{
-			"tex": "\\gnapprox"
+			"tex": "\\gnapprox",
+			"insert": "\\gnapprox"
 		},
 		{
-			"tex": "\\nsucc"
+			"tex": "\\nsucc",
+			"insert": "\\nsucc"
 		},
 		{
-			"tex": "\\nsucceq"
+			"tex": "\\nsucceq",
+			"insert": "\\nsucceq"
 		},
 		{
-			"tex": "\\succneqq"
+			"tex": "\\succneqq",
+			"insert": "\\succneqq"
 		},
 		{
-			"tex": "\\succnsim"
+			"tex": "\\succnsim",
+			"insert": "\\succnsim"
 		},
 		{
-			"tex": "\\succnapprox"
+			"tex": "\\succnapprox",
+			"insert": "\\succnapprox"
 		},
 		{
-			"tex": "\\ncong"
+			"tex": "\\ncong",
+			"insert": "\\ncong"
 		},
 		{
-			"tex": "\\nshortparallel"
+			"tex": "\\nshortparallel",
+			"insert": "\\nshortparallel"
 		},
 		{
-			"tex": "\\nparallel"
+			"tex": "\\nparallel",
+			"insert": "\\nparallel"
 		},
 		{
-			"tex": "\\nvDash"
+			"tex": "\\nvDash",
+			"insert": "\\nvDash"
 		},
 		{
-			"tex": "\\nVDash"
+			"tex": "\\nVDash",
+			"insert": "\\nVDash"
 		},
 		{
-			"tex": "\\ntriangleright"
+			"tex": "\\ntriangleright",
+			"insert": "\\ntriangleright"
 		},
 		{
-			"tex": "\\ntrianglerighteq"
+			"tex": "\\ntrianglerighteq",
+			"insert": "\\ntrianglerighteq"
 		},
 		{
-			"tex": "\\nsupseteq"
+			"tex": "\\nsupseteq",
+			"insert": "\\nsupseteq"
 		},
 		{
-			"tex": "\\nsupseteqq"
+			"tex": "\\nsupseteqq",
+			"insert": "\\nsupseteqq"
 		},
 		{
-			"tex": "\\varsupsetneq"
+			"tex": "\\varsupsetneq",
+			"insert": "\\varsupsetneq"
 		},
 		{
-			"tex": "\\supsetneqq"
+			"tex": "\\supsetneqq",
+			"insert": "\\supsetneqq"
 		},
 		{
-			"tex": "\\varsupsetneqq"
+			"tex": "\\varsupsetneqq",
+			"insert": "\\varsupsetneqq"
 		},
 		{
-			"tex": "\\jmath"
+			"tex": "\\jmath",
+			"insert": "\\jmath"
 		},
 		{
-			"tex": "\\surd"
+			"tex": "\\surd",
+			"insert": "\\surd"
 		},
 		{
-			"tex": "\\ast"
+			"tex": "\\ast",
+			"insert": "\\ast"
 		},
 		{
-			"tex": "\\uplus"
+			"tex": "\\uplus",
+			"insert": "\\uplus"
 		},
 		{
-			"tex": "\\diamond"
+			"tex": "\\diamond",
+			"insert": "\\diamond"
 		},
 		{
-			"tex": "\\bigtriangleup"
+			"tex": "\\bigtriangleup",
+			"insert": "\\bigtriangleup"
 		},
 		{
-			"tex": "\\bigtriangledown"
+			"tex": "\\bigtriangledown",
+			"insert": "\\bigtriangledown"
 		},
 		{
-			"tex": "\\ominus"
+			"tex": "\\ominus",
+			"insert": "\\ominus"
 		},
 		{
-			"tex": "\\oslash"
+			"tex": "\\oslash",
+			"insert": "\\oslash"
 		},
 		{
-			"tex": "\\odot"
+			"tex": "\\odot",
+			"insert": "\\odot"
 		},
 		{
-			"tex": "\\bigcirc"
+			"tex": "\\bigcirc",
+			"insert": "\\bigcirc"
 		},
 		{
-			"tex": "\\amalg"
+			"tex": "\\amalg",
+			"insert": "\\amalg"
 		},
 		{
-			"tex": "\\prec"
+			"tex": "\\prec",
+			"insert": "\\prec"
 		},
 		{
-			"tex": "\\succ"
+			"tex": "\\succ",
+			"insert": "\\succ"
 		},
 		{
-			"tex": "\\preceq"
+			"tex": "\\preceq",
+			"insert": "\\preceq"
 		},
 		{
-			"tex": "\\succeq"
+			"tex": "\\succeq",
+			"insert": "\\succeq"
 		},
 		{
-			"tex": "\\dashv"
+			"tex": "\\dashv",
+			"insert": "\\dashv"
 		},
 		{
-			"tex": "\\asymp"
+			"tex": "\\asymp",
+			"insert": "\\asymp"
 		},
 		{
-			"tex": "\\doteq"
+			"tex": "\\doteq",
+			"insert": "\\doteq"
 		},
 		{
-			"tex": "\\parallel"
+			"tex": "\\parallel",
+			"insert": "\\parallel"
 		},
 		{
-			"tex": "\\ulcorner"
+			"tex": "\\ulcorner",
+			"insert": "\\ulcorner"
 		},
 		{
-			"tex": "\\urcorner"
+			"tex": "\\urcorner",
+			"insert": "\\urcorner"
 		},
 		{
-			"tex": "\\llcorner"
+			"tex": "\\llcorner",
+			"insert": "\\llcorner"
 		},
 		{
-			"tex": "\\lrcorner"
+			"tex": "\\lrcorner",
+			"insert": "\\lrcorner"
 		}
 	],
 	"math-visualeditor-symbol-group-relations": [
 		{
-			"tex": "\\sim"
+			"tex": "\\sim",
+			"insert": "\\sim"
 		},
 		{
-			"tex": "\\approx"
+			"tex": "\\approx",
+			"insert": "\\approx"
 		},
 		{
-			"tex": "\\simeq"
+			"tex": "\\simeq",
+			"insert": "\\simeq"
 		},
 		{
-			"tex": "\\cong"
+			"tex": "\\cong",
+			"insert": "\\cong"
 		},
 		{
-			"tex": "\\dot="
+			"tex": "\\dot=",
+			"insert": "\\dot="
 		},
 		{
-			"tex": "\\overset{\\underset{\\mathrm{def}}{}}{=}"
+			"tex": "\\overset{\\underset{\\mathrm{def}}{}}{=}",
+			"insert": "\\overset{\\underset{\\mathrm{def}}{}}{=}"
 		},
 		{
-			"tex": "<"
+			"tex": "<",
+			"insert": "<"
 		},
 		{
-			"tex": "\\le"
+			"tex": "\\le",
+			"insert": "\\le"
 		},
 		{
-			"tex": "\\ll"
+			"tex": "\\ll",
+			"insert": "\\ll"
 		},
 		{
-			"tex": "\\gg"
+			"tex": "\\gg",
+			"insert": "\\gg"
 		},
 		{
-			"tex": "\\ge"
+			"tex": "\\ge",
+			"insert": "\\ge"
 		},
 		{
-			"tex": ">"
+			"tex": ">",
+			"insert": ">"
 		},
 		{
-			"tex": "\\equiv"
+			"tex": "\\equiv",
+			"insert": "\\equiv"
 		},
 		{
-			"tex": "\\not\\equiv"
+			"tex": "\\not\\equiv",
+			"insert": "\\not\\equiv"
 		},
 		{
-			"tex": "\\ne"
+			"tex": "\\ne",
+			"insert": "\\ne"
 		},
 		{
-			"tex": "\\propto"
+			"tex": "\\propto",
+			"insert": "\\propto"
 		},
 		{
-			"tex": "\\lessapprox"
+			"tex": "\\lessapprox",
+			"insert": "\\lessapprox"
 		},
 		{
-			"tex": "\\lesssim"
+			"tex": "\\lesssim",
+			"insert": "\\lesssim"
 		},
 		{
-			"tex": "\\eqslantless"
+			"tex": "\\eqslantless",
+			"insert": "\\eqslantless"
 		},
 		{
-			"tex": "\\leqslant"
+			"tex": "\\leqslant",
+			"insert": "\\leqslant"
 		},
 		{
-			"tex": "\\leqq"
+			"tex": "\\leqq",
+			"insert": "\\leqq"
 		},
 		{
-			"tex": "\\geqq"
+			"tex": "\\geqq",
+			"insert": "\\geqq"
 		},
 		{
-			"tex": "\\geqslant"
+			"tex": "\\geqslant",
+			"insert": "\\geqslant"
 		},
 		{
-			"tex": "\\eqslantgtr"
+			"tex": "\\eqslantgtr",
+			"insert": "\\eqslantgtr"
 		},
 		{
-			"tex": "\\gtrsim"
+			"tex": "\\gtrsim",
+			"insert": "\\gtrsim"
 		},
 		{
-			"tex": "\\gtrapprox"
+			"tex": "\\gtrapprox",
+			"insert": "\\gtrapprox"
 		}
 	],
 	"math-visualeditor-symbol-group-sets": [
 		{
-			"tex": "\\forall"
+			"tex": "\\forall",
+			"insert": "\\forall"
 		},
 		{
-			"tex": "\\exists"
+			"tex": "\\exists",
+			"insert": "\\exists"
 		},
 		{
-			"tex": "\\empty"
+			"tex": "\\empty",
+			"insert": "\\empty"
 		},
 		{
-			"tex": "\\varnothing"
+			"tex": "\\varnothing",
+			"insert": "\\varnothing"
 		},
 		{
-			"tex": "\\in"
+			"tex": "\\in",
+			"insert": "\\in"
 		},
 		{
-			"tex": "\\ni"
+			"tex": "\\ni",
+			"insert": "\\ni"
 		},
 		{
-			"tex": "\\notin"
+			"tex": "\\notin",
+			"insert": "\\notin"
 		},
 		{
-			"tex": "\\subset"
+			"tex": "\\subset",
+			"insert": "\\subset"
 		},
 		{
-			"tex": "\\subseteq"
+			"tex": "\\subseteq",
+			"insert": "\\subseteq"
 		},
 		{
-			"tex": "\\supset"
+			"tex": "\\supset",
+			"insert": "\\supset"
 		},
 		{
-			"tex": "\\supseteq"
+			"tex": "\\supseteq",
+			"insert": "\\supseteq"
 		},
 		{
-			"tex": "\\cap"
+			"tex": "\\cap",
+			"insert": "\\cap"
 		},
 		{
-			"tex": "\\bigcap"
+			"tex": "\\bigcap",
+			"insert": "\\bigcap"
 		},
 		{
-			"tex": "\\cup"
+			"tex": "\\cup",
+			"insert": "\\cup"
 		},
 		{
-			"tex": "\\bigcup"
+			"tex": "\\bigcup",
+			"insert": "\\bigcup"
 		},
 		{
-			"tex": "\\biguplus"
+			"tex": "\\biguplus",
+			"insert": "\\biguplus"
 		},
 		{
-			"tex": "\\setminus"
+			"tex": "\\setminus",
+			"insert": "\\setminus"
 		},
 		{
-			"tex": "\\smallsetminus"
+			"tex": "\\smallsetminus",
+			"insert": "\\smallsetminus"
 		},
 		{
-			"tex": "\\sqsubset"
+			"tex": "\\sqsubset",
+			"insert": "\\sqsubset"
 		},
 		{
-			"tex": "\\sqsubseteq"
+			"tex": "\\sqsubseteq",
+			"insert": "\\sqsubseteq"
 		},
 		{
-			"tex": "\\sqsupset"
+			"tex": "\\sqsupset",
+			"insert": "\\sqsupset"
 		},
 		{
-			"tex": "\\sqsupseteq"
+			"tex": "\\sqsupseteq",
+			"insert": "\\sqsupseteq"
 		},
 		{
-			"tex": "\\sqcap"
+			"tex": "\\sqcap",
+			"insert": "\\sqcap"
 		},
 		{
-			"tex": "\\sqcup"
+			"tex": "\\sqcup",
+			"insert": "\\sqcup"
 		},
 		{
-			"tex": "\\bigsqcup"
+			"tex": "\\bigsqcup",
+			"insert": "\\bigsqcup"
 		}
 	],
 	"math-visualeditor-symbol-group-geometry": [
 		{
-			"tex": "\\Diamond"
+			"tex": "\\Diamond",
+			"insert": "\\Diamond"
 		},
 		{
-			"tex": "\\Box"
+			"tex": "\\Box",
+			"insert": "\\Box"
 		},
 		{
-			"tex": "\\triangle"
+			"tex": "\\triangle",
+			"insert": "\\triangle"
 		},
 		{
-			"tex": "\\angle"
+			"tex": "\\angle",
+			"insert": "\\angle"
 		},
 		{
-			"tex": "\\perp"
+			"tex": "\\perp",
+			"insert": "\\perp"
 		},
 		{
-			"tex": "\\mid"
+			"tex": "\\mid",
+			"insert": "\\mid"
 		},
 		{
-			"tex": "\\nmid"
+			"tex": "\\nmid",
+			"insert": "\\nmid"
 		},
 		{
-			"tex": "\\|"
+			"tex": "\\|",
+			"insert": "\\|"
 		},
 		{
-			"tex": "a^\\circ"
+			"tex": "a^\\circ",
+			"insert": "a^\\circ"
 		}
 	],
-	"Root": [
+	"math-visualeditor-symbol-group-root": [
 		{
-			"tex": "\\sqrt{a}"
+			"tex": "\\sqrt{a}",
+			"insert": "\\sqrt{__}"
 		},
 		{
-			"tex": "\\sqrt[b]{a}"
+			"tex": "\\sqrt[b]{a}",
+			"insert": "\\sqrt[__]{__}"
 		}
 	],
-	"Special": [
+	"math-visualeditor-symbol-group-special": [
 		{
-			"tex": "\\eth"
+			"tex": "\\eth",
+			"insert": "\\eth"
 		},
 		{
-			"tex": "\\S"
+			"tex": "\\S",
+			"insert": "\\S"
 		},
 		{
-			"tex": "\\%"
+			"tex": "\\%",
+			"insert": "\\%"
 		},
 		{
-			"tex": "\\dagger"
+			"tex": "\\dagger",
+			"insert": "\\dagger"
 		},
 		{
-			"tex": "\\ddagger"
+			"tex": "\\ddagger",
+			"insert": "\\ddagger"
 		},
 		{
-			"tex": "\\ldots"
+			"tex": "\\ldots",
+			"insert": "\\ldots"
 		},
 		{
-			"tex": "\\cdots"
+			"tex": "\\cdots",
+			"insert": "\\cdots"
 		},
 		{
-			"tex": "\\smile"
+			"tex": "\\smile",
+			"insert": "\\smile"
 		},
 		{
-			"tex": "\\frown"
+			"tex": "\\frown",
+			"insert": "\\frown"
 		},
 		{
-			"tex": "\\wr"
+			"tex": "\\wr",
+			"insert": "\\wr"
 		},
 		{
-			"tex": "\\triangleleft"
+			"tex": "\\triangleleft",
+			"insert": "\\triangleleft"
 		},
 		{
-			"tex": "\\triangleright"
+			"tex": "\\triangleright",
+			"insert": "\\triangleright"
 		},
 		{
-			"tex": "\\infty"
+			"tex": "\\infty",
+			"insert": "\\infty"
 		},
 		{
-			"tex": "\\bot"
+			"tex": "\\bot",
+			"insert": "\\bot"
 		},
 		{
-			"tex": "\\top"
+			"tex": "\\top",
+			"insert": "\\top"
 		},
 		{
-			"tex": "\\vdash"
+			"tex": "\\vdash",
+			"insert": "\\vdash"
 		},
 		{
-			"tex": "\\vDash"
+			"tex": "\\vDash",
+			"insert": "\\vDash"
 		},
 		{
-			"tex": "\\Vdash"
+			"tex": "\\Vdash",
+			"insert": "\\Vdash"
 		},
 		{
-			"tex": "\\models"
+			"tex": "\\models",
+			"insert": "\\models"
 		},
 		{
-			"tex": "\\lVert"
+			"tex": "\\lVert",
+			"insert": "\\lVert"
 		},
 		{
-			"tex": "\\rVert"
+			"tex": "\\rVert",
+			"insert": "\\rVert"
 		},
 		{
-			"tex": "\\imath"
+			"tex": "\\imath",
+			"insert": "\\imath"
 		},
 		{
-			"tex": "\\hbar"
+			"tex": "\\hbar",
+			"insert": "\\hbar"
 		},
 		{
-			"tex": "\\ell"
+			"tex": "\\ell",
+			"insert": "\\ell"
 		},
 		{
-			"tex": "\\mho"
+			"tex": "\\mho",
+			"insert": "\\mho"
 		},
 		{
-			"tex": "\\Finv"
+			"tex": "\\Finv",
+			"insert": "\\Finv"
 		},
 		{
-			"tex": "\\Re"
+			"tex": "\\Re",
+			"insert": "\\Re"
 		},
 		{
-			"tex": "\\Im"
+			"tex": "\\Im",
+			"insert": "\\Im"
 		},
 		{
-			"tex": "\\wp"
+			"tex": "\\wp",
+			"insert": "\\wp"
 		},
 		{
-			"tex": "\\complement"
+			"tex": "\\complement",
+			"insert": "\\complement"
 		},
 		{
-			"tex": "\\diamondsuit"
+			"tex": "\\diamondsuit",
+			"insert": "\\diamondsuit"
 		},
 		{
-			"tex": "\\heartsuit"
+			"tex": "\\heartsuit",
+			"insert": "\\heartsuit"
 		},
 		{
-			"tex": "\\clubsuit"
+			"tex": "\\clubsuit",
+			"insert": "\\clubsuit"
 		},
 		{
-			"tex": "\\spadesuit"
+			"tex": "\\spadesuit",
+			"insert": "\\spadesuit"
 		},
 		{
-			"tex": "\\Game"
+			"tex": "\\Game",
+			"insert": "\\Game"
 		},
 		{
-			"tex": "\\flat"
+			"tex": "\\flat",
+			"insert": "\\flat"
 		},
 		{
-			"tex": "\\natural"
+			"tex": "\\natural",
+			"insert": "\\natural"
 		},
 		{
-			"tex": "\\sharp"
+			"tex": "\\sharp",
+			"insert": "\\sharp"
 		}
 	]
 }
