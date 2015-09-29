@@ -84,7 +84,7 @@ ve.ui.MWMathInspector.prototype.initialize = function () {
 	} );
 
 	// Initialization
-	this.$content.addClass( 've-ui-mwMathInspector-content' );
+	this.$content.addClass( 've-ui-mwMathDialog-content' );
 	this.form.$element.append(
 		inputField.$element,
 		this.generatedContentsError.$element,
