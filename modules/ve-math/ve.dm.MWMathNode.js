@@ -33,14 +33,15 @@ ve.dm.MWMathNode.static.tagName = 'img';
 
 ve.dm.MWMathNode.static.extensionName = 'math';
 
-/* Static methods */
+/* Static Methods */
 
 /**
- * @inheritdoc
+ * @inheritdoc ve.dm.GeneratedContentNode
  */
-ve.dm.MWMathNode.static.getHashObject = function ( dataElement ) {
+ve.dm.MWMathNode.static.getHashObjectForRendering = function ( dataElement ) {
 	// Parent method
-	var hashObject = ve.dm.MWMathNode.super.static.getHashObject.call( this, dataElement );
+	var hashObject = ve.dm.MWMathNode.super.static.getHashObjectForRendering.call( this, dataElement );
+
 	// The id does not affect the rendering.
 	if ( hashObject.mw.attrs ) {
 		delete hashObject.mw.attrs.id;
