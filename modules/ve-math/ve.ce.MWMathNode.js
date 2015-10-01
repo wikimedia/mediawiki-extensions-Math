@@ -49,7 +49,7 @@ ve.ce.MWMathNode.prototype.onSetup = function () {
  * @inheritdoc ve.ce.GeneratedContentNode
  */
 ve.ce.MWMathNode.prototype.validateGeneratedContents = function ( $element ) {
-	return !( $element.find( '.error' ).length );
+	return !( $element.find( '.error' ).addBack( '.error' ).length );
 };
 
 /* Registration */
