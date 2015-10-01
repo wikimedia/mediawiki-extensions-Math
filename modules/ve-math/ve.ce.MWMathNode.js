@@ -46,7 +46,7 @@ ve.ce.MWMathNode.prototype.onSetup = function () {
 };
 
 /**
- * @inheritdoc
+ * @inheritdoc ve.ce.GeneratedContentNode
  */
 ve.ce.MWMathNode.prototype.afterRender = function () {
 	var $img,
