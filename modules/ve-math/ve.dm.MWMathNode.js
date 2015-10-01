@@ -33,21 +33,6 @@ ve.dm.MWMathNode.static.tagName = 'img';
 
 ve.dm.MWMathNode.static.extensionName = 'math';
 
-/* Static methods */
-
-/**
- * @inheritdoc
- */
-ve.dm.MWMathNode.static.getHashObject = function ( dataElement ) {
-	// Parent method
-	var hashObject = ve.dm.MWMathNode.super.static.getHashObject.call( this, dataElement );
-	// The id does not affect the rendering.
-	if ( hashObject.mw.attrs ) {
-		delete hashObject.mw.attrs.id;
-	}
-	return hashObject;
-};
-
 /* Registration */
 
 ve.dm.modelRegistry.register( ve.dm.MWMathNode );

@@ -46,7 +46,7 @@ ve.ce.MWMathNode.prototype.onSetup = function () {
 };
 
 /**
- * @inheritdoc
+ * @inheritdoc ve.ce.GeneratedContentNode
  */
 ve.ce.MWMathNode.prototype.afterRender = function () {
 	var $img,
@@ -62,6 +62,20 @@ ve.ce.MWMathNode.prototype.afterRender = function () {
 		// Passing an empty string, or using MathML, returns no image, so rerender immediately
 		this.emit( 'rerender' );
 	}
+};
+
+/**
+ * @inheritdoc ve.ce.GeneratedContentNode
+ */
+ve.ce.MWMathNode.prototype.getHashObjectForRendering = function () {
+	// Mixin method
+	var hashObject = ve.ce.GeneratedContentNode.prototype.getHashObjectForRendering.call( this );
+
+	// The id does not affect the rendering.
+	if ( hashObject.mw.attrs ) {
+		delete hashObject.mw.attrs.id;
+	}
+	return hashObject;
 };
 
 /* Registration */
