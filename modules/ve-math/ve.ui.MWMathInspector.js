@@ -87,7 +87,7 @@ ve.ui.MWMathInspector.prototype.initialize = function () {
 	this.$content.addClass( 've-ui-mwMathInspector-content' );
 	this.form.$element.append(
 		inputField.$element,
-		this.$generatedContentsErrorContainer,
+		this.generatedContentsError.$element,
 		displayField.$element,
 		idField.$element
 	);
