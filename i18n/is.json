@@ -6,15 +6,24 @@
 			"Snævar"
 		]
 	},
-	"math_sample": "Sláið inn formúlu hér",
-	"math_tip": "Stærðfræðiformúla (LaTeX)",
-	"prefs-math": "Stærðfræðiformúlur",
-	"mw_math_png": "Alltaf birta PNG mynd",
-	"mw_math_source": "Sýna TeX jöfnu (fyrir textavafra)",
-	"mw_math_mathml": "MathML með SVG eða PNG til vara (á tilraunastigi)",
+	"math-visualeditor-mwmathinspector-display-block": "Reitur",
+	"math-visualeditor-mwmathinspector-display-default": "Sjálfgefið",
+	"math-visualeditor-mwmathinspector-display-inline": "Í textanum",
+	"math-visualeditor-mwmathinspector-id": "Auðkenni tengils (valfrjálst)",
+	"math-visualeditor-mwmathinspector-title": "Formúla",
+	"math_bad_output": "Get ekki skrifað frálagsgögn í möppu eða búið hana til.",
+	"math_bad_tmpdir": "Get ekki skrifað í eða búið til tímabundna möppu.",
 	"math_failure": "Þáttun mistókst",
+	"math_image_error": "PNG yfirfærsla mistókst; athugaðu hvort latex og dvipng (eða dvips + gs + convert) hafi verið sett upp á réttann hátt",
+	"math_invalidresponse": "$1: Ógilt svar (\"$3\") frá vefþjóninum \"$2\":",
+	"math_lexing_error": "lestrarvilla",
+	"math_sample": "Sláið inn formúlu hér",
+	"math_syntax_error": "málfræðivilla",
+	"math_tip": "Stærðfræðiformúla (LaTeX)",
 	"math_unknown_error": "óþekkt villa",
 	"math_unknown_function": "óþekkt aðgerð „$1”",
-	"math_lexing_error": "lestrarvilla",
-	"math_syntax_error": "málfræðivilla"
+	"mw_math_mathml": "MathML með SVG eða PNG til vara (mælt með fyrir nútíma vafra og hjálpartæki)",
+	"mw_math_png": "PNG myndir",
+	"mw_math_source": "Sýna TeX jöfnu (fyrir textavafra)",
+	"prefs-math": "Stærðfræðiformúlur"
 }
