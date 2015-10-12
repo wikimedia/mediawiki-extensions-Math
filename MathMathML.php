@@ -85,46 +85,9 @@ class MathMathML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	public function render( $forceReRendering = false ) {
-		if ( $forceReRendering ) {
-			$this->setPurge( true );
-		}
-		if ( $this->renderingRequired() ) {
-			return $this->doRender();
-		}
-		return true;
+		return $this->doRender();
 	}
 
-	/**
-	 * Helper function to checks if the math tag must be rendered.
-	 * @return boolean
-	 */
-	private function renderingRequired() {
-		$logger = LoggerFactory::getInstance( 'Math' );
-		if ( $this->isPurge() ) {
-			$logger->debug( 'Rerendering was requested.' );
-			return true;
-		} else {
-			$dbres = $this->isInDatabase();
-			if ( $dbres ) {
-				if ( $this->isValidMathML( $this->getMathml() ) ) {
-					$logger->debug( 'Valid MathML entry found in database.' );
-					if ( $this->getSvg( 'cached' ) ) {
-						$logger->debug( 'SVG-fallback found in database.' );
-						return false;
-					} else {
-						$logger->debug( 'SVG-fallback missing.' );
-						return true;
-					}
-				} else {
-					$logger->debug( 'Malformatted entry found in database' );
-					return true;
-				}
-			} else {
-				$logger->debug( 'No entry found in database.' );
-				return true;
-			}
-		}
-	}
 
 	/**
 	 * Performs a HTTP Post request to the given host.
@@ -132,16 +95,17 @@ class MathMathML extends MathRenderer {
 	 * Generates error messages on failure
 	 * @see Http::post()
 	 *
-	 * @global int $wgMathLaTeXMLTimeout
 	 * @param string $host
 	 * @param string $post the encoded post request
 	 * @param mixed $res the result
 	 * @param mixed $error the formatted error message or null
 	 * @param String $httpRequestClass class name of MWHttpRequest (needed for testing only)
-	 * @return boolean success
+	 * @param String $hash the hash code to retrieve the SVG-image
+	 * @global int $wgMathLaTeXMLTimeout
+	 * @return bool success
 	 */
 	public function makeRequest(
-			$host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest'
+			$host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest', &$hash = null
 		) {
 		// TODO: Change the timeout mechanism.
 		global $wgMathLaTeXMLTimeout;
@@ -155,12 +119,14 @@ class MathMathML extends MathRenderer {
 			$this->getPostData();
 		}
 		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
-		/** @var $req (CurlHttpRequest|PhpHttpRequest) the request object  */
+		/** @var MWHttpRequest $req the request object  */
 		$req = $httpRequestClass::factory( $host, $options );
-		/** @var Status $req Status the request status */
+		/** @var Status $status Status the request status */
 		$status = $req->execute();
 		if ( $status->isGood() ) {
 			$res = $req->getContent();
+			$headers = $req->getResponseHeaders();
+			$hash = $headers['x-resource-location'];
 			return true;
 		} else {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
@@ -247,40 +213,10 @@ class MathMathML extends MathRenderer {
 		$host = self::pickHost();
 		$post = $this->getPostData();
 		$this->lastError = '';
-		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
+		$hash = '';
+		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError, 'MWHttpRequest', $hash );
 		if ( $requestResult ) {
-			$jsonResult = json_decode( $res );
-			if ( $jsonResult && json_last_error() === JSON_ERROR_NONE ) {
-				if ( $jsonResult->success ) {
-					return $this->processJsonResult( $jsonResult, $host );
-				} else {
-					if ( property_exists( $jsonResult, 'log' ) ) {
-						$log = $jsonResult->log;
-					} else {
-						$log = wfMessage( 'math_unknown_error' )->inContentLanguage()->escaped();
-					}
-					$this->lastError = $this->getError( 'math_mathoid_error', $host, $log );
-					LoggerFactory::getInstance( 'Math' )->warning(
-						'Mathoid conversion error:' . var_export( array(
-							'post' => $post,
-							'host' => $host,
-							'result' => $res
-						), true ) );
-					return false;
-				}
-			} else {
-				$this->lastError = $this->getError( 'math_invalidjson', $host );
-				LoggerFactory::getInstance( 'Math' )->error(
-					'MathML InvalidJSON:' . var_export( array(
-						'post' => $post,
-						'host' => $host,
-						'res' => $res
-					), true ) );
-				return false;
-			}
-		} else {
-			// Error message has already been set.
-			return false;
+			//@ TODO implement handling here.
 		}
 	}
 
@@ -322,6 +258,7 @@ class MathMathML extends MathRenderer {
 	 * @return type
 	 */
 	private function getFallbackImageUrl( $noRender = false ) {
+		//@TODO: Change that to the restbase URL's
 		return SpecialPage::getTitleFor( 'MathShowImage' )->getLocalURL( array(
 				'hash' => $this->getMd5(),
 				'mode' => $this->getMode(),
@@ -450,66 +387,4 @@ class MathMathML extends MathRenderer {
 		return $output;
 	}
 
-	protected function dbOutArray() {
-		$out = parent::dbOutArray();
-		if ( $this->getMathTableName() == 'mathoid' ) {
-			$out['math_input'] = $out['math_inputtex'];
-			unset( $out['math_inputtex'] );
-		}
-		return $out;
-	}
-
-	protected function dbInArray() {
-		$out = parent::dbInArray();
-		if ( $this->getMathTableName() == 'mathoid' ) {
-			$out = array_diff( $out, array( 'math_inputtex' ) );
-			$out[] = 'math_input';
-		}
-		return $out;
-	}
-
-	protected function initializeFromDatabaseRow( $rpage ) {
-		// mathoid allows different input formats
-		// therefore the column name math_inputtex was changed to math_input
-		if ( $this->getMathTableName() == 'mathoid' && ! empty( $rpage->math_input ) ) {
-			$this->userInputTex = $rpage->math_input;
-		}
-		parent::initializeFromDatabaseRow( $rpage );
-
-	}
-
-	/**
-	 * @param $jsonResult
-	 * @param $host
-	 *
-	 * @return bool
-	 */
-	private function processJsonResult( $jsonResult, $host ) {
-		if ( $this->getMode() == 'latexml' || $this->inputType == 'pmml' ||
-			 $this->isValidMathML( $jsonResult->mml )
-		) {
-			if ( isset( $jsonResult->svg ) ) {
-				$xmlObject = new XmlTypeCheck( $jsonResult->svg, null, false );
-				if ( !$xmlObject->wellFormed ) {
-					$this->lastError = $this->getError( 'math_invalidxml', $host );
-					return false;
-				} else {
-					$this->setSvg( $jsonResult->svg );
-				}
-			} else {
-				LoggerFactory::getInstance( 'Math' )->error(
-					'Missing SVG property in JSON result.' );
-			}
-			if ( $this->getMode() != 'latexml' && $this->inputType != 'pmml' ) {
-				$this->setMathml( $jsonResult->mml );
-			}
-			Hooks::run( 'MathRenderingResultRetrieved',
-				array( &$this,
-					   &$jsonResult ) ); // Enables debugging of server results
-			return true;
-		} else {
-			$this->lastError = $this->getError( 'math_unknown_error', $host );
-			return false;
-		}
-	}
 }
