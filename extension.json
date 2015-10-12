@@ -17,6 +17,7 @@
 		"MathTexvc": "MathTexvc.php",
 		"MathSource": "MathSource.php",
 		"MathMathML": "MathMathML.php",
+		"MathRestBase": "MathRestBase.php",
 		"MathLaTeXML": "MathLaTeXML.php",
 		"MathInputCheck": "MathInputCheck.php",
 		"MathInputCheckTexvc": "MathInputCheckTexvc.php",
@@ -91,11 +92,13 @@
 		"MathMathMLTimeout": 20,
 		"MathMathMLUrl": "http://mathoid.testme.wmflabs.org",
 		"MathPath": false,
+		"MathRestUrl": false,
 		"MathTexvcCheckExecutable": false,
 		"MathValidModes": [
 			"png",
 			"source",
-			"mathml"
+			"mathml",
+			"restbase"
 		],
 		"Texvc": false,
 		"TexvcBackgroundColor": "transparent"
