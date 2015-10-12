@@ -17,6 +17,7 @@
 		"MathTexvc": "MathTexvc.php",
 		"MathSource": "MathSource.php",
 		"MathMathML": "MathMathML.php",
+		"MathRestBase": "MathRestBase.php",
 		"MathLaTeXML": "MathLaTeXML.php",
 		"MathInputCheck": "MathInputCheck.php",
 		"MathInputCheckTexvc": "MathInputCheckTexvc.php",
@@ -95,7 +96,8 @@
 		"MathValidModes": [
 			"png",
 			"source",
-			"mathml"
+			"mathml",
+			"restbase"
 		],
 		"Texvc": false,
 		"TexvcBackgroundColor": "transparent"
