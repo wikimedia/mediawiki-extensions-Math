@@ -162,8 +162,10 @@ abstract class MathRenderer {
 				$renderer = new MathLaTeXML( $tex, $params );
 				break;
 			case 'mathml':
-			default:
 				$renderer = new MathMathML( $tex, $params );
+				break;
+			default:
+				$renderer = new MathRestBase( $tex, $params );
 		}
 		LoggerFactory::getInstance( 'Math' )->info( 'Start rendering $' . $renderer->tex .
 			'$ in mode ' . $mode );

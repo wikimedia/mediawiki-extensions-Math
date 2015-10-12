@@ -16,19 +16,19 @@ class MathHooks {
 			if ( !defined( $defKey ) ) {
 				define( $defKey, $defValue );
 			} elseif ( $defValue !== constant( $defKey ) ) {
-				throw new Exception( 'Math constant "'. $defKey . '" has unexpected value "' .
-					constant( $defKey ) . '" instead of "' . $defValue );
+				throw new Exception( 'Math constant "' . $defKey . '" has unexpected value "' .
+									 constant( $defKey ) . '" instead of "' . $defValue );
 			}
 		}
 		$invDefs = array_flip( $defs );
-		if ( is_int( $value ) ){
+		if ( is_int( $value ) ) {
 			if ( array_key_exists( $value, $invDefs ) ) {
 				$value = $invDefs[$value];
 			} else {
 				return $default;
 			}
 		}
-		if ( is_string( $value ) ){
+		if ( is_string( $value ) ) {
 			$newValues = array();
 			foreach ( $defs as $k => $v ) {
 				$newValues[$k] = preg_replace_callback( '/_(.)/', function ( $matches ) {
@@ -37,7 +37,7 @@ class MathHooks {
 			}
 			if ( array_key_exists( $value, $defs ) ) {
 				return $newValues[$value];
-			} elseif ( in_array( $value, $newValues ) ){
+			} elseif ( in_array( $value, $newValues ) ) {
 				return $value;
 			}
 		}
@@ -46,10 +46,10 @@ class MathHooks {
 
 	public static function mathStyleToString( $style, $default = 'inlineDisplaystyle' ) {
 		$defs = array(
-			'MW_MATHSTYLE_INLINE_DISPLAYSTYLE'  => 0, // default large operator inline
-			'MW_MATHSTYLE_DISPLAY'              => 1, // large operators centered in a new line
-			'MW_MATHSTYLE_INLINE'               => 2, // small operators inline
-			'MW_MATHSTYLE_LINEBREAK'            => 3, // break long lines (experimental)
+			'MW_MATHSTYLE_INLINE_DISPLAYSTYLE' => 0, // default large operator inline
+			'MW_MATHSTYLE_DISPLAY' => 1, // large operators centered in a new line
+			'MW_MATHSTYLE_INLINE' => 2, // small operators inline
+			'MW_MATHSTYLE_LINEBREAK' => 3, // break long lines (experimental)
 		);
 		return self::mathConstantToString( $style, $defs, $prefix = 'MW_MATHSTYLE_', $default );
 	}
@@ -57,8 +57,8 @@ class MathHooks {
 	public static function mathCheckToString( $style, $default = 'always' ) {
 		$defs = array(
 			'MW_MATH_CHECK_ALWAYS' => 0,
-			'MW_MATH_CHECK_NEVER'  => 1,
-			'MW_MATH_CHECK_NEW'    => 2,
+			'MW_MATH_CHECK_NEVER' => 1,
+			'MW_MATH_CHECK_NEW' => 2,
 		);
 		return self::mathConstantToString( $style, $defs, $prefix = 'MW_MATH_CHECK_', $default );
 	}
@@ -72,22 +72,24 @@ class MathHooks {
 		// 'MW_MATH_LATEXML_JAX' => 8
 
 		$defs = array(
-			'MW_MATH_PNG'    => 0,
+			'MW_MATH_PNG' => 0,
 			'MW_MATH_SOURCE' => 3,
 			'MW_MATH_MATHML' => 5,
-			'MW_MATH_LATEXML'=> 7 );
+			'MW_MATH_LATEXML' => 7
+		);
 
 		return self::mathConstantToString( $mode, $defs, $prefix = 'MW_MATH_', $default );
 	}
 
 	public static function mathModeToHashKey( $mode, $default = 0 ) {
 		$defs = array(
-			'png'    => 0,
+			'png' => 0,
 			'source' => 3,
 			'mathml' => 5,
-			'latexml'=> 7 );
+			'latexml' => 7
+		);
 
-		if ( array_key_exists( $mode, $defs ) ){
+		if ( array_key_exists( $mode, $defs ) ) {
 			return $defs[$mode];
 		} else {
 			return $default;
@@ -106,7 +108,7 @@ class MathHooks {
 
 		// To be independent of the MediaWiki core version,
 		// we check if the core caching logic for math is still available.
-		if ( ! is_callable( 'ParserOptions::getMath' ) && in_array( 'math', $forOptions ) ) {
+		if ( !is_callable( 'ParserOptions::getMath' ) && in_array( 'math', $forOptions ) ) {
 			if ( $user === false ) {
 				$user = $wgUser;
 			}
@@ -114,20 +116,12 @@ class MathHooks {
 			$mathString = self::mathModeToString( $user->getOption( 'math' ) );
 			$mathOption = self::mathModeToHashKey( $mathString, 0 );
 			// Check if the key already contains the math option part
-			if (
-				!preg_match(
-					'/(^|!)' . self::MATHCACHEKEY . $mathOption . '(!|$)/',
-					$confstr
-				)
-			) {
+			if ( !preg_match( '/(^|!)' . self::MATHCACHEKEY . $mathOption . '(!|$)/', $confstr ) ) {
 				// The math part of cache key starts with "math="
 				// followed by a star or a number for the math mode
 				if ( preg_match( '/(^|!)' . self::MATHCACHEKEY . '[*\d]m?(!|$)/', $confstr ) ) {
-					$confstr = preg_replace(
-						'/(^|!)' . self::MATHCACHEKEY . '[*\d]m?(!|$)/',
-						'\1' . self::MATHCACHEKEY . $mathOption . '\2',
-						$confstr
-					);
+					$confstr = preg_replace( '/(^|!)' . self::MATHCACHEKEY . '[*\d]m?(!|$)/',
+						'\1' . self::MATHCACHEKEY . $mathOption . '\2', $confstr );
 				} else {
 					$confstr .= '!' . self::MATHCACHEKEY . $mathOption;
 				}
@@ -145,8 +139,7 @@ class MathHooks {
 	 * Set up $wgMathPath and $wgMathDirectory globals if they're not already set.
 	 */
 	static function setup() {
-		global $wgMathPath, $wgMathDirectory,
-			$wgUploadPath, $wgUploadDirectory;
+		global $wgMathPath, $wgMathDirectory, $wgUploadPath, $wgUploadDirectory;
 
 		if ( $wgMathPath === false ) {
 			$wgMathPath = "{$wgUploadPath}/math";
@@ -205,8 +198,8 @@ class MathHooks {
 			LoggerFactory::getInstance( 'Math' )->info( "Rendering successful. Writing output" );
 			$renderedMath = $renderer->getHtmlOutput();
 		} else {
-			LoggerFactory::getInstance( 'Math' )->warning(
-				"Rendering failed. Printing error message." );
+			LoggerFactory::getInstance( 'Math' )
+						 ->warning( "Rendering failed. Printing error message." );
 			return $renderer->getLastError();
 		}
 		Hooks::run( 'MathFormulaPostRender',
@@ -240,10 +233,11 @@ class MathHooks {
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
 		$mode = MathHooks::mathModeToString( $wgDefaultUserOptions['math'] );
-		if ( ! in_array( $mode, MathRenderer::getValidModes() ) ) {
-			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: '.
-				"\$wgDefaultUserOptions['math'] is not in " . MathRenderer::getValidModes() . ".\n".
-				"Please check your LocalSetting.php file." );
+		if ( !in_array( $mode, MathRenderer::getValidModes() ) ) {
+			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: ' .
+														 "\$wgDefaultUserOptions['math'] is not in " .
+														 MathRenderer::getValidModes() . ".\n" .
+														 "Please check your LocalSetting.php file." );
 			// Display the checkbox in the first option.
 			$validModes = MathRenderer::getValidModes();
 			$wgDefaultUserOptions['math'] = $validModes[0];
@@ -258,8 +252,8 @@ class MathHooks {
 	 */
 	public static function getMathNames() {
 		$names = array();
-		foreach ( MathRenderer::getValidModes()  as $mode ) {
-			$names[ $mode ] = wfMessage( 'mw_math_' . $mode )->escaped();
+		foreach ( MathRenderer::getValidModes() as $mode ) {
+			$names[$mode] = wfMessage( 'mw_math_' . $mode )->escaped();
 		}
 
 		return $names;
@@ -306,20 +300,12 @@ class MathHooks {
 			if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
 				$sql = __DIR__ . '/db/mathlatexml.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathlatexml', $sql );
-				if ( $type == 'mysql' ){
+				if ( $type == 'mysql' ) {
 					$sql = __DIR__ . '/db/patches/mathlatexml.mathml-length-adjustment.mysql.sql';
 					$updater->modifyExtensionField( 'mathlatexml', 'math_mathml', $sql );
 				}
 			} else {
 				throw new Exception( "Math extension does not currently support $type database for LaTeXML." );
-			}
-		}
-		if ( in_array( 'mathml', MathRenderer::getValidModes() ) ) {
-			if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
-				$sql = __DIR__ . '/db/mathoid.' . $type . '.sql';
-				$updater->addExtensionTable( 'mathoid', $sql );
-			} else {
-				throw new Exception( "Math extension does not currently support $type database for Mathoid." );
 			}
 		}
 
@@ -363,12 +349,23 @@ class MathHooks {
 	}
 
 	public static function registerExtension() {
-		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathDisableTexFilter;
+		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathDisableTexFilter, $wgMathRestUrl,
+			$wgServer, $wgVirtualRestConfig;
 		$wgMathValidModes = MathRenderer::getValidModes();
 		if ( $wgMathDisableTexFilter == true ) { // ensure backwards compatibility
 			$wgMathDisableTexFilter = 1;
 		}
 		$wgMathDisableTexFilter = MathRenderer::getDisableTexFilter();
 		$wgDefaultUserOptions['math'] = self::mathModeToString( $wgDefaultUserOptions['math'] );
+		if ( $wgMathRestUrl === false ) {
+			if ( is_array( $wgVirtualRestConfig ) &&
+				 isset( $wgVirtualRestConfig['modules']['restbase'] )
+			) {
+				$wgMathRestUrl = "https://$wgServer/api/rest_v1/";
+			} else {
+				$wgMathRestUrl =
+					"http://mathoid-rb.testme.wmflabs.org/mediawiki-vagrant.wmflabs.org/v1";
+			}
+		}
 	}
 }
