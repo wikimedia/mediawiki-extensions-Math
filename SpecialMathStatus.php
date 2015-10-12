@@ -120,7 +120,7 @@ class SpecialMathStatus extends SpecialPage {
 		$this->assertEquals( 'pmml', $renderer->getInputType(), 'Checking if MathML input is supported' );
 		$this->assertTrue( $renderer->render(), 'Rendering Presentation MathML sample' );
 		$real = MathRenderer::renderMath( $inputSample, $attribs, 'mathml' );
-		$expected = 'hash=5628b8248b79267ecac656102334d5e3&amp;mode=5';
+		$expected = 'media/math/svg/affaf3e089967ccdeac5a1dbae534a46c9d86899';
 		$this->assertContains( $expected, $real, 'Checking if the link to SVG image is correct' );
 	}
 
@@ -132,7 +132,7 @@ class SpecialMathStatus extends SpecialPage {
 		$renderer = MathRenderer::getRenderer( "a+b", array(), 'latexml' );
 		$this->assertTrue( $renderer->render( true ), "Rendering of a+b in LaTeXML mode" );
 		// @codingStandardsIgnoreStart
-		$expected = '<math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.1.m1.1" class="ltx_Math" alttext="{\displaystyle a+b}" ><semantics id="p1.1.m1.1a"><mrow id="p1.1.m1.1.4" xref="p1.1.m1.1.4.cmml"><mi id="p1.1.m1.1.1" xref="p1.1.m1.1.1.cmml">a</mi><mo id="p1.1.m1.1.2" xref="p1.1.m1.1.2.cmml">+</mo><mi id="p1.1.m1.1.3" xref="p1.1.m1.1.3.cmml">b</mi></mrow><annotation-xml encoding="MathML-Content" id="p1.1.m1.1b"><apply id="p1.1.m1.1.4.cmml" xref="p1.1.m1.1.4"><plus id="p1.1.m1.1.2.cmml" xref="p1.1.m1.1.2"/><ci id="p1.1.m1.1.1.cmml" xref="p1.1.m1.1.1">a</ci><ci id="p1.1.m1.1.3.cmml" xref="p1.1.m1.1.3">b</ci></apply></annotation-xml><annotation encoding="application/x-tex" id="p1.1.m1.1c">{\displaystyle a+b}</annotation></semantics></math>';
+		$expected = '<math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.m1" class="ltx_Math" alttext="{\displaystyle a+b}" ><semantics><mrow id="p1.m1.4" xref="p1.m1.4.cmml"><mi id="p1.m1.1" xref="p1.m1.1.cmml">a</mi><mo id="p1.m1.2" xref="p1.m1.2.cmml">+</mo><mi id="p1.m1.3" xref="p1.m1.3.cmml">b</mi></mrow><annotation-xml encoding="MathML-Content"><apply id="p1.m1.4.cmml" xref="p1.m1.4"><plus id="p1.m1.2.cmml" xref="p1.m1.2"/><ci id="p1.m1.1.cmml" xref="p1.m1.1">a</ci><ci id="p1.m1.3.cmml" xref="p1.m1.3">b</ci></apply></annotation-xml><annotation encoding="application/x-tex">{\displaystyle a+b}</annotation></semantics></math>';
 		// @codingStandardsIgnoreEnd
 		$real = preg_replace( "/\n\\s*/", '', $renderer->getHtmlOutput() );
 		$this->assertContains( $expected, $real,
