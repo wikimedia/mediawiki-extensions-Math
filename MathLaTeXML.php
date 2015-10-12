@@ -217,5 +217,139 @@ class MathLaTeXML extends MathMathML {
 	protected function getMathTableName() {
 		return 'mathlatexml';
 	}
+
+	/* (non-PHPdoc)
+ * @see MathRenderer::render()
+*/
+	public function render( $forceReRendering = false ) {
+		if ( $forceReRendering ) {
+			$this->setPurge( true );
+		}
+		if ( $this->renderingRequired() ) {
+			return $this->doRender();
+		}
+		return true;
+	}
+
+	/**
+	 * Helper function to checks if the math tag must be rendered.
+	 * @return boolean
+	 */
+	private function renderingRequired() {
+		$logger = LoggerFactory::getInstance( 'Math' );
+		if ( $this->isPurge() ) {
+			$logger->debug( 'Rerendering was requested.' );
+			return true;
+		} else {
+			$dbres = $this->isInDatabase();
+			if ( $dbres ) {
+				if ( $this->isValidMathML( $this->getMathml() ) ) {
+					$logger->debug( 'Valid MathML entry found in database.' );
+					if ( $this->getSvg( 'cached' ) ) {
+						$logger->debug( 'SVG-fallback found in database.' );
+						return false;
+					} else {
+						$logger->debug( 'SVG-fallback missing.' );
+						return true;
+					}
+				} else {
+					$logger->debug( 'Malformatted entry found in database' );
+					return true;
+				}
+			} else {
+				$logger->debug( 'No entry found in database.' );
+				return true;
+			}
+		}
+	}
+
+	/**
+	 * Performs a HTTP Post request to the given host.
+	 * Uses $wgMathLaTeXMLTimeout as timeout.
+	 * Generates error messages on failure
+	 * @see Http::post()
+	 *
+	 * @global int $wgMathLaTeXMLTimeout
+	 * @param string $host
+	 * @param string $post the encoded post request
+	 * @param mixed $res the result
+	 * @param mixed $error the formatted error message or null
+	 * @param String $httpRequestClass class name of MWHttpRequest (needed for testing only)
+	 * @return boolean success
+	 */
+	public function makeRequest(
+		$host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest'
+	) {
+		// TODO: Change the timeout mechanism.
+		global $wgMathLaTeXMLTimeout;
+
+		$error = '';
+		$res = null;
+		if ( !$host ) {
+			$host = self::pickHost();
+		}
+		if ( !$post ) {
+			$this->getPostData();
+		}
+		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
+		/** @var $req (CurlHttpRequest|PhpHttpRequest) the request object  */
+		$req = $httpRequestClass::factory( $host, $options );
+		/** @var Status $req Status the request status */
+		$status = $req->execute();
+		if ( $status->isGood() ) {
+			$res = $req->getContent();
+			return true;
+		} else {
+			if ( $status->hasMessage( 'http-timed-out' ) ) {
+				$error = $this->getError( 'math_timeout', $this->getModeStr(), $host );
+				$res = false;
+				LoggerFactory::getInstance( 'Math' )->warning( 'Timeout:' . var_export( array(
+						'post' => $post,
+						'host' => $host,
+						'timeout' => $wgMathLaTeXMLTimeout
+					), true ) );
+			} else {
+				// for any other unkonwn http error
+				$errormsg = $status->getHtml();
+				$error =
+					$this->getError( 'math_invalidresponse', $this->getModeStr(), $host, $errormsg,
+						$this->getModeStr( 'mathml' ) );
+				LoggerFactory::getInstance( 'Math' )->warning( 'NoResponse:' . var_export( array(
+						'post' => $post,
+						'host' => $host,
+						'errormsg' => $errormsg
+					), true ) );
+			}
+			return false;
+		}
+	}
+
+	protected function dbOutArray() {
+		$out = parent::dbOutArray();
+		if ( $this->getMathTableName() == 'mathoid' ) {
+			$out['math_input'] = $out['math_inputtex'];
+			unset( $out['math_inputtex'] );
+		}
+		return $out;
+	}
+
+	protected function dbInArray() {
+		$out = parent::dbInArray();
+		if ( $this->getMathTableName() == 'mathoid' ) {
+			$out = array_diff( $out, array( 'math_inputtex' ) );
+			$out[] = 'math_input';
+		}
+		return $out;
+	}
+
+	protected function initializeFromDatabaseRow( $rpage ) {
+		// mathoid allows different input formats
+		// therefore the column name math_inputtex was changed to math_input
+		if ( $this->getMathTableName() == 'mathoid' && ! empty( $rpage->math_input ) ) {
+			$this->userInputTex = $rpage->math_input;
+		}
+		parent::initializeFromDatabaseRow( $rpage );
+
+	}
 }
 
