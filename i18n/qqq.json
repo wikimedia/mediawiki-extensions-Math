@@ -49,6 +49,7 @@
 	"mw_math_latexml_jax": "Used as label for latexml (with mathjax enabled) radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math source}}\n* {{msg-mw|Mw math mathjax}}\n* {{msg-mw|Mw math latexml}}",
 	"mw_math_mathjax": "Used as label for mathjax radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math source}}\n* {{msg-mw|Mw math latexml}}",
 	"mw_math_mathml": "Used as label for MathML radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math source}}\n* {{msg-mw|Mw math latexml}}",
+	"mw_math_restbase": "Used as label for MathML (restbase) radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math source}}\n* {{msg-mw|Mw math latexml}}",
 	"mw_math_png": "In user preferences. All mw_math_* messages MUST be different, things will break otherwise!\n\nUsed as label for radio button.\n\nSee also:\n* {{msg-mw|Mw math source}}\n* {{msg-mw|Mw math mathjax}}\n* {{msg-mw|Mw math latexml}}",
 	"mw_math_source": "In user preferences (math). All mw_math_* messages MUST be different, things will break otherwise!\n\nUsed as label for source radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math mathjax}}\n* {{msg-mw|Mw math latexml}}",
 	"prefs-math": "Used in user preferences as a section heading.\n{{Identical|Math}}",
