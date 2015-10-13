@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_fda9e1dc",
+        "filename": "MathRestBase.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-10-13T16:08:13Z",
+      "side": 1,
+      "message": "How do I get this URL?\nhttp://localhost:7231/drmf-beta.wmflabs.org",
+      "revId": "254e4f67f2067b2678ed49099662b0df3b367d80",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_3d877968",
+        "filename": "MathRestBase.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-10-13T16:08:13Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "254e4f67f2067b2678ed49099662b0df3b367d80",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
