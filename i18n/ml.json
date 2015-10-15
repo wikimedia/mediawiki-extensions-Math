@@ -7,8 +7,6 @@
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> റ്റാഗുകൾക്കുള്ളിൽ നൽകുന്ന ഗണിതശാസ്ത്ര സൂത്രവാക്യങ്ങൾ പ്രദർശിപ്പിക്കൽ",
-	"math-preference-mwmathinspector-description": "സാർവ്വജനികമായി ലഭ്യമാവുന്നതിനു മുമ്പേ, കണ്ടുതിരുത്തൽ സൗകര്യത്തിൽ ഗണിതശാസ്ത്ര സൂത്രവാക്യങ്ങൾ നിർമ്മിക്കാനും തിരുത്തുവാനുമുള്ള പിന്തുണ പരീക്ഷണാടിസ്ഥാനത്തിൽ ചേർക്കുക. പരീക്ഷണാടിസ്ഥാനത്തിലുള്ള സവിശേഷതകൾ ഉപയോഗിക്കുമ്പോൾ താങ്കളുടെ തിരുത്തുകൾ സംശോധനം ചെയ്ത് മാത്രം സേവ് ചെയ്യാൻ ഓർമ്മിക്കുക.",
-	"math-preference-mwmathinspector-label": "കണ്ടുതിരുത്തൽ സൗകര്യത്തിൽ സൂത്രവാക്യങ്ങൾ തിരുത്തൽ",
 	"math-visualeditor-mwmathinspector-display": "പ്രദർശിപ്പിക്കുക",
 	"math-visualeditor-mwmathinspector-display-block": "തടയുക",
 	"math-visualeditor-mwmathinspector-display-default": "സ്വതേ",

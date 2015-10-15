@@ -4,12 +4,12 @@
 			"Gadao01"
 		]
 	},
-	"math_sample": "Po'lo i fotmula mågi",
-	"math_tip": "Fotmulan matematika (LaTeX)",
-	"prefs-math": "Math",
 	"math_failure": "Lachi ma parse",
+	"math_lexing_error": "linachi lexing",
+	"math_sample": "Po'lo i fotmula mågi",
+	"math_syntax_error": "linachi syntax",
+	"math_tip": "Fotmulan matematika (LaTeX)",
 	"math_unknown_error": "linachi ti matungo'",
 	"math_unknown_function": "fonksion ti matungo'",
-	"math_lexing_error": "linachi lexing",
-	"math_syntax_error": "linachi syntax"
+	"prefs-math": "Math"
 }

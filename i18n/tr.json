@@ -11,12 +11,11 @@
 			"Rapsar",
 			"Arystanbek",
 			"Meelo",
-			"Watermelon juice"
+			"Watermelon juice",
+			"McAang"
 		]
 	},
 	"math-desc": "Render matematiksel formüller arasında <code><math></code> ... <code></math></code> etiketler",
-	"math-preference-mwmathinspector-description": "Matematiksel formüller yazmak, bunları düzenlemek ve değişiklikleri kaydetmeden önce test etmek için, Görsel Düzenleyici'ye bir deneme paketi ekleyin. Lütfen deneme aşamasındaki özellikleri kullanarak yapacağınız değişiklikleri kaydetmeden önce kontrol etmeyi unutmayın.",
-	"math-preference-mwmathinspector-label": "Görsel Düzenleyici formül düzenleme",
 	"math-visualeditor-mwmathinspector-display": "Görüntüle",
 	"math-visualeditor-mwmathinspector-display-block": "Engelle",
 	"math-visualeditor-mwmathinspector-display-default": "Varsayılan",

@@ -8,8 +8,6 @@
 			"Ti4goc"
 		]
 	},
-	"math-preference-mwmathinspector-description": "Adiciona um suporte experimental ao Editor Visual para a criação e edição de fórmulas matemáticas para testes, antes do lançamento global. Ao utilizar os recursos experimentais, lembre-se sempre de rever as suas alterações antes de as guardar.",
-	"math-preference-mwmathinspector-label": "Edição de fórmulas no Editor Visual",
 	"math-visualeditor-mwmathinspector-display": "Mostrar",
 	"math-visualeditor-mwmathinspector-display-block": "Bloquear",
 	"math-visualeditor-mwmathinspector-display-default": "Padrão",

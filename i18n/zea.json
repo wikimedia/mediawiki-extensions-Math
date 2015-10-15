@@ -4,16 +4,16 @@
 			"NJ"
 		]
 	},
-	"math_sample": "Voer de formule in",
-	"math_tip": "Wiskundihe formule (LaTeX)",
-	"prefs-math": "Formules",
+	"math_bad_output": "De map voe bestan'n mie wiskundihe formules besti nie of kan nie emikt worn.",
+	"math_bad_tmpdir": "De map voe tiedelijke bestan'n voe wiskundihe formules besti nie of kan nie emikt worn",
 	"math_failure": "Parsen mislukt",
+	"math_image_error": "PNG-omzettieng is mislukt. Hi nae of an latex, dvips en gs correct heïnstalleerd zien en zet om",
+	"math_lexing_error": "lexicohraofische fout",
+	"math_notexvc": "Kan 't prohramma <code>texvc</code> nie vin'n; stel aolles in volhens de beschrievieng in math/README.",
+	"math_sample": "Voer de formule in",
+	"math_syntax_error": "syntactische fout",
+	"math_tip": "Wiskundihe formule (LaTeX)",
 	"math_unknown_error": "onbekende fout",
 	"math_unknown_function": "onbekende functie",
-	"math_lexing_error": "lexicohraofische fout",
-	"math_syntax_error": "syntactische fout",
-	"math_image_error": "PNG-omzettieng is mislukt. Hi nae of an latex, dvips en gs correct heïnstalleerd zien en zet om",
-	"math_bad_tmpdir": "De map voe tiedelijke bestan'n voe wiskundihe formules besti nie of kan nie emikt worn",
-	"math_bad_output": "De map voe bestan'n mie wiskundihe formules besti nie of kan nie emikt worn.",
-	"math_notexvc": "Kan 't prohramma <code>texvc</code> nie vin'n; stel aolles in volhens de beschrievieng in math/README."
+	"prefs-math": "Formules"
 }

@@ -5,12 +5,12 @@
 		]
 	},
 	"math_sample": "Riyazi formulu bura yazın",
+	"math_syntax_error": "sintaksis xətası",
 	"math_tip": "Riyazi formul (LaTeX formatı)",
-	"prefs-math": "Riyaziyyat",
-	"mw_math_png": "Həmişə PNG formatında göstər",
-	"mw_math_source": "TeX kimi saxla (mətn brouzerləri üçün)",
-	"mw_math_mathml": "Mümkünsə MathML (sınaq)",
 	"math_unknown_error": "bilinməyən xəta",
 	"math_unknown_function": "bilinməyən funksiya",
-	"math_syntax_error": "sintaksis xətası"
+	"mw_math_mathml": "Mümkünsə MathML (sınaq)",
+	"mw_math_png": "Həmişə PNG formatında göstər",
+	"mw_math_source": "TeX kimi saxla (mətn brouzerləri üçün)",
+	"prefs-math": "Riyaziyyat"
 }

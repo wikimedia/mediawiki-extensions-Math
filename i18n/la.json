@@ -4,15 +4,15 @@
 			"Omnipaedista"
 		]
 	},
-	"math_sample": "Hic inscribe formulam",
-	"math_tip": "Formula mathematica (LaTeX)",
-	"prefs-math": "Interpretatio artis mathematicae",
-	"mw_math_png": "Semper vertere PNG",
-	"mw_math_source": "Stet ut TeX (pro navigatri texti)",
-	"mw_math_mathml": "MathML",
 	"math_failure": "Excutare non potest",
+	"math_lexing_error": "erratum lexicale",
+	"math_sample": "Hic inscribe formulam",
+	"math_syntax_error": "erratum syntaxis",
+	"math_tip": "Formula mathematica (LaTeX)",
 	"math_unknown_error": "error ignotus",
 	"math_unknown_function": "functio ignota",
-	"math_lexing_error": "erratum lexicale",
-	"math_syntax_error": "erratum syntaxis"
+	"mw_math_mathml": "MathML",
+	"mw_math_png": "Semper vertere PNG",
+	"mw_math_source": "Stet ut TeX (pro navigatri texti)",
+	"prefs-math": "Interpretatio artis mathematicae"
 }

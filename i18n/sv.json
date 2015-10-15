@@ -12,8 +12,6 @@
 		]
 	},
 	"math-desc": "Ritar matematiska ekvationer mellan <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-taggar",
-	"math-preference-mwmathinspector-description": "Lägg till experimentellt stöd i VisualEditor för att skapa och redigera matematiska formler. Du kan testa innan den breda lanseringen. Kom ihåg att alltid granska ändringarna innan du sparar när du använder experimentella funktioner.",
-	"math-preference-mwmathinspector-label": "VisualEditor formelredigering",
 	"math-visualeditor-mwmathinspector-display": "Visa",
 	"math-visualeditor-mwmathinspector-display-block": "Block",
 	"math-visualeditor-mwmathinspector-display-default": "Standard",

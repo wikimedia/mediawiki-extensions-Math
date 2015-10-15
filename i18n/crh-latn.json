@@ -4,15 +4,15 @@
 			"Don Alessandro"
 		]
 	},
-	"math_sample": "Bu yerge formulanı kirsetiñiz",
-	"math_tip": "Riyaziy (matematik) formula (LaTeX formatında)",
-	"prefs-math": "Riyaziy (matematik) işaretler",
-	"mw_math_png": "Daima PNG resim formatına çevir",
-	"mw_math_source": "Deñiştirmeden TeX olaraq taşla  (metin temelli brauzerler içün)",
-	"mw_math_mathml": "Mümkün olsa MathML (daa deñeme alında)",
 	"math_failure": "Ayırıştırılamadı",
+	"math_lexing_error": "leksik hata",
+	"math_sample": "Bu yerge formulanı kirsetiñiz",
+	"math_syntax_error": "sintaksis hatası",
+	"math_tip": "Riyaziy (matematik) formula (LaTeX formatında)",
 	"math_unknown_error": "bilinmegen hata",
 	"math_unknown_function": "belgisiz funktsiya",
-	"math_lexing_error": "leksik hata",
-	"math_syntax_error": "sintaksis hatası"
+	"mw_math_mathml": "Mümkün olsa MathML (daa deñeme alında)",
+	"mw_math_png": "Daima PNG resim formatına çevir",
+	"mw_math_source": "Deñiştirmeden TeX olaraq taşla  (metin temelli brauzerler içün)",
+	"prefs-math": "Riyaziy (matematik) işaretler"
 }

@@ -5,8 +5,6 @@
 		]
 	},
 	"math-desc": "Izriši matematične formule med oznakama <code>&lt;math&gt;</code> in <code>&lt;/math&gt;</code>",
-	"math-preference-mwmathinspector-description": "Dodaj preizkusno podporo za ustvarjanje in urejanje matematičnih izrazov v VirtualEditor za preizkušanje pred splošnim izidom. Prosimo, da pri uporabi preizkusnih funkcij vedno pregledate svoje spremembe pred shranjevanjem.",
-	"math-preference-mwmathinspector-label": "Urejanje formul VisualEditor",
 	"math-visualeditor-mwmathinspector-display": "Prikaz",
 	"math-visualeditor-mwmathinspector-display-block": "Blokiraj",
 	"math-visualeditor-mwmathinspector-display-default": "Privzeto",

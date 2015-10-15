@@ -7,8 +7,6 @@
 			"Aftabuzzaman"
 		]
 	},
-	"math-preference-mwmathinspector-description": "সাধারণ মুক্তির আগে, গাণিতিক সূত্র তৈরি করা এবং সম্পাদনা পরীক্ষার জন্য ভিজ্যুয়ালএডিটরে পরীক্ষামূলকভাবে সরঞ্জামটি যোগ করুন। সবসময় পরীক্ষামূলক বৈশিষ্ট্যগুলি ব্যবহার করার সময় সংরক্ষণের আগে আপনার পরিবর্তনগুলি পর্যালোচনা করতে অনুগ্রহ করে মনে রাখুন।",
-	"math-preference-mwmathinspector-label": "ভিজ্যুয়ালএডিটর সূত্র সম্পাদনা",
 	"math-visualeditor-mwmathinspector-display": "প্রদর্শন",
 	"math-visualeditor-mwmathinspector-title": "সূত্র",
 	"math_bad_output": "ম্যাথ আউটপুট ডিরেক্টরি সৃষ্টি করতে বা এতে লিখতে পারা যাচ্ছে না।",

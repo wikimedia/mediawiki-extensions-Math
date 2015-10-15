@@ -9,8 +9,6 @@
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> टैगों के बीच गणितीय सूत्र रेंडर करें",
-	"math-preference-mwmathinspector-description": "यथादृश्य संपादिका में जाँच हेतु गणितीय सूत्र (फ़ॉर्मुले) जोड़ने और सम्पादित करने की प्रयोगात्मक सुविधा जोड़ें, उसके सामान्य रूप से जारी होने से पहले। प्रयोगात्मक सुविधाओं का उपयोग करते समय कृपया अपने बदलाव सहेजने से पहले सदैव जाँचें।",
-	"math-preference-mwmathinspector-label": "विज़ुअल सम्पादक फ़ॉर्मुला सम्पादन",
 	"math-visualeditor-mwmathinspector-display": "प्रदर्शन",
 	"math-visualeditor-mwmathinspector-display-block": "अवरोध",
 	"math-visualeditor-mwmathinspector-display-default": "डिफ़ॉल्ट",

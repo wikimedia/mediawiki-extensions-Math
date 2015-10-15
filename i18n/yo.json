@@ -4,10 +4,10 @@
 			"Demmy"
 		]
 	},
+	"math_lexing_error": "àsiṣe òye ọ̀rọ̀",
 	"math_sample": "Ẹ fi àgbékalẹ̀ s'íhín",
 	"math_tip": "Àgbékalẹ̀ ìsirò (LaTeX)",
-	"prefs-math": "Ìṣirò",
 	"math_unknown_error": "àsiṣe àwámárìdí",
 	"math_unknown_function": "ìfiṣe àwámárìdí",
-	"math_lexing_error": "àsiṣe òye ọ̀rọ̀"
+	"prefs-math": "Ìṣirò"
 }

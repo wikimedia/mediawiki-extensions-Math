@@ -7,8 +7,6 @@
 			"Tacsipacsi"
 		]
 	},
-	"math-preference-mwmathinspector-description": "A VisualEditor kísérleti matematikai képletszerkesztő szolgáltatásának engedélyezése tesztelési célokkal. Ne felejtsd el átnézni a változásokat, mielőtt kísérleti szolgáltatás által létrehozott változtatást elmentesz.",
-	"math-preference-mwmathinspector-label": "VisualEditor képletszerkesztés",
 	"math_bad_output": "Nem lehet létrehozni vagy írni a matematikai függvények kimeneti könyvtárába",
 	"math_bad_tmpdir": "Nem írható vagy nem hozható létre a matematikai ideiglenes könyvtár",
 	"math_failure": "Értelmezés sikertelen",

@@ -8,8 +8,8 @@
 	},
 	"math_sample": "Formula qoʻying",
 	"math_tip": "Matematik formula (LaTeX)",
-	"prefs-math": "Formulalar",
+	"mw_math_mathjax": "MathJax (tajribaviy moslama)",
 	"mw_math_png": "Har doim PNGga aylantirish",
 	"mw_math_source": "Ishoralarda TeX ni qoldirish (matnli brauzerlar uchun)",
-	"mw_math_mathjax": "MathJax (tajribaviy moslama)"
+	"prefs-math": "Formulalar"
 }
