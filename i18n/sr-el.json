@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Milicevic01"
+			"Milicevic01",
+			"Srdjan m"
 		]
 	},
 	"math-visualeditor-mwmathinspector-display-default": "Podrazumevano",
@@ -21,5 +22,6 @@
 	"mw_math_mathml": "MathML sa oslanjanjem na SVG ili PNG (preporučljivo za najnovije veb-pregledače)",
 	"mw_math_png": "PNG slike",
 	"mw_math_source": "TeX (za tekstualne pregledače)",
-	"prefs-math": "Prikaz matematičkih formula"
+	"prefs-math": "Prikaz matematičkih formula",
+	"mathstatus": "Stanje matematike"
 }

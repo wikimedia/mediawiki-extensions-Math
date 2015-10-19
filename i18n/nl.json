@@ -10,7 +10,7 @@
 			"McDutchie"
 		]
 	},
-	"math-desc": "Wiskundige formules tussen <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-tags weergeven",
+	"math-desc": "Wiskundige formules tussen <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-labels weergeven",
 	"math-visualeditor-mwmathinspector-display": "Weergeven",
 	"math-visualeditor-mwmathinspector-display-block": "Blokkeren",
 	"math-visualeditor-mwmathinspector-display-default": "Standaard",
