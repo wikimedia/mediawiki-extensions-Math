@@ -5,12 +5,14 @@
 			"Luckas",
 			"Vitorvicentevalente",
 			"Helder.wiki",
-			"Ti4goc"
+			"Ti4goc",
+			"He7d3r"
 		]
 	},
 	"math-visualeditor-mwmathinspector-display": "Mostrar",
-	"math-visualeditor-mwmathinspector-display-block": "Bloquear",
+	"math-visualeditor-mwmathinspector-display-block": "Em bloco",
 	"math-visualeditor-mwmathinspector-display-default": "Padrão",
+	"math-visualeditor-mwmathinspector-display-inline": "Em linha",
 	"math-visualeditor-mwmathinspector-title": "Fórmula",
 	"math_bad_output": "Não foi possível editar ou criar o directório de saída de matemática",
 	"math_bad_tmpdir": "Não foi possível editar ou criar o directório temporário de matemática",

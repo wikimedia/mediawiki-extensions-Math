@@ -7,6 +7,7 @@
 		]
 	},
 	"math-desc": "Esegue il rendering di formule matematiche tra i tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwmathinspector-id": "ID collegamento (opzionale)",
 	"math-visualeditor-mwmathinspector-title": "Formula",
 	"math_bad_output": "Impossibile scrivere o creare la directory di output per math",
 	"math_bad_tmpdir": "Impossibile scrivere o creare la directory temporanea per math",
