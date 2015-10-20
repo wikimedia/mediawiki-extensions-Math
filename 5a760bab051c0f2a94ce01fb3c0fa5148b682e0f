@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0ebaf39b_d5fb5f75",
+        "filename": "MathRestBase.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-10-20T05:48:15Z",
+      "side": 1,
+      "message": "I don\u0027t really understand that. I more or less took this from https://github.com/wikimedia/mediawiki-extensions-VisualEditor/blob/cbddb006384de56007b223292e5d86f647d7c605/ApiVisualEditor.php#L28-L33",
+      "parentUuid": "0ebaf39b_e27caa1d",
+      "revId": "5a760bab051c0f2a94ce01fb3c0fa5148b682e0f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ebaf39b_62919a51",
         "filename": "MathRestBase.php",
         "patchSetId": 8
@@ -30,6 +48,24 @@
       "writtenOn": "2015-10-19T20:04:21Z",
       "side": 1,
       "message": "You probably shouldn\u0027t go around changing a global object.",
+      "revId": "5a760bab051c0f2a94ce01fb3c0fa5148b682e0f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_35343b46",
+        "filename": "MathRestBase.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-10-20T05:48:15Z",
+      "side": 1,
+      "message": "that\u0027s why I copied it in the line above?",
+      "parentUuid": "0ebaf39b_62919a51",
       "revId": "5a760bab051c0f2a94ce01fb3c0fa5148b682e0f",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
