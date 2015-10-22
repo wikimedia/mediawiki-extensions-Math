@@ -7,20 +7,20 @@
 
 .oo-ui-icon-math {
 	/* @embed */
-	background-image: url(math.svg);
+	background-image: url( math.svg );
 }
 
 .oo-ui-icon-math-display-block {
 	/* @embed */
-	background-image: url(math-display-block.svg);
+	background-image: url( math-display-block.svg );
 }
 
 .oo-ui-icon-math-display-default {
 	/* @embed */
-	background-image: url(math-display-default.svg);
+	background-image: url( math-display-default.svg );
 }
 
 .oo-ui-icon-math-display-inline {
 	/* @embed */
-	background-image: url(math-display-inline.svg);
+	background-image: url( math-display-inline.svg );
 }
