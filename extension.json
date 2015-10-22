@@ -80,7 +80,8 @@
 				"[ids]latexml.sty",
 				"texvc"
 			],
-			"linelength": 90
+			"linelength": 90,
+			"_merge_strategy": "array_plus_2d"
 		},
 		"MathDirectory": false,
 		"MathDisableTexFilter": "new",
