@@ -35,3 +35,7 @@ ve.ui.commandRegistry.register(
 		{ args: [ 'math' ], supportedSelections: [ 'linear' ] }
 	)
 );
+
+ve.ui.sequenceRegistry.register(
+	new ve.ui.Sequence( 'wikitextMath', 'math', '<math', 5 )
+);
