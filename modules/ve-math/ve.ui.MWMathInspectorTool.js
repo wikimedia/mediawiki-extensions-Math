@@ -39,3 +39,7 @@ ve.ui.commandRegistry.register(
 ve.ui.sequenceRegistry.register(
 	new ve.ui.Sequence( 'wikitextMath', 'math', '<math', 5 )
 );
+
+ve.ui.sequenceRegistry.register(
+	new ve.ui.Sequence( 'texMath', 'math', '$$', 2 )
+);
