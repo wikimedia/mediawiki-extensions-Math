@@ -390,12 +390,9 @@ class MathTexvc extends MathRenderer {
 	public function getPng() {
 		global $wgHooks;
 		// Workaround for bugfix for Bug 56769
-		if ( !isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
-			// saves the PNG-file
-			$parser = new Parser();
-			$text = '';
-			$stripState = new StripState( '' );
-			Hooks::run( 'ParserAfterParse', array( &$parser, &$text, &$stripState ) );
+		if ( isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
+			// XXX: save any pending files so the read below works
+			call_user_func( $wgHooks['ParserAfterParse']['FlushMathBackend'] );
 		}
 		$backend = $this->getBackend();
 		return $backend->getFileContents(
