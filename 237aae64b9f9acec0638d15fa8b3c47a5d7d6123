@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_ad20cc96",
+        "filename": "SpecialMathStatus.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-10-22T12:08:41Z",
+      "side": 1,
+      "message": "This line was obviously accidently deleted. See history for details",
+      "revId": "237aae64b9f9acec0638d15fa8b3c47a5d7d6123",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
