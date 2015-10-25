@@ -6,6 +6,12 @@
 			"Srdjan m"
 		]
 	},
+	"math-visualeditor-mwmathinspector-display": "Prikaži",
+	"math-visualeditor-mwmathinspector-display-block": "Blok",
+	"math-visualeditor-mwmathinspector-display-default": "Predodređeno",
+	"math-visualeditor-mwmathinspector-display-inline": "U redu",
+	"math-visualeditor-mwmathinspector-id": "ID linka (neobavezno)",
+	"math-visualeditor-mwmathinspector-title": "Formula",
 	"math_bad_output": "Ne može se napisati ili napraviti direktorijum za matematični izvještaj.",
 	"math_bad_tmpdir": "Ne može se napisati ili napraviti privremeni matematični direktorijum",
 	"math_failure": "Neuspjeh pri parsiranju",
