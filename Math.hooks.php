@@ -302,7 +302,7 @@ class MathHooks {
 		}
 		$sql = __DIR__ . '/db/math.' . $type . '.sql';
 		$updater->addExtensionTable( 'math', $sql );
-		if ( in_array( 'latexml', MathRenderer::getValidModes() ) ) {
+		if ( in_array( 'latexml', array( MathRenderer::getValidModes() ) ) ) {
 			if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
 				$sql = __DIR__ . '/db/mathlatexml.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathlatexml', $sql );
@@ -314,7 +314,7 @@ class MathHooks {
 				throw new Exception( "Math extension does not currently support $type database for LaTeXML." );
 			}
 		}
-		if ( in_array( 'mathml', MathRenderer::getValidModes() ) ) {
+		if ( in_array( 'mathml', array( MathRenderer::getValidModes() ) ) ) {
 			if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
 				$sql = __DIR__ . '/db/mathoid.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathoid', $sql );
