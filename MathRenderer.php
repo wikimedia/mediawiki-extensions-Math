@@ -649,7 +649,7 @@ abstract class MathRenderer {
 
 	public static function getValidModes() {
 		global $wgMathValidModes;
-		return array_map( "MathHooks::mathModeToString", $wgMathValidModes );
+		return array( "MathHooks::mathModeToString", $wgMathValidModes );
 	}
 
 
