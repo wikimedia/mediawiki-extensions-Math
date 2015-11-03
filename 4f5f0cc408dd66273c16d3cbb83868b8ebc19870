@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_da5d5c7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2015-11-03T18:08:56Z",
+      "side": 1,
+      "message": "I\u0027m not sure it\u0027s specific to matrices...",
+      "revId": "4f5f0cc408dd66273c16d3cbb83868b8ebc19870",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_7a7550f3",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2015-11-03T18:08:56Z",
+      "side": 1,
+      "message": "Can you add a comment explaining why we reset the line-height, so that we remember about it.",
+      "revId": "4f5f0cc408dd66273c16d3cbb83868b8ebc19870",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}

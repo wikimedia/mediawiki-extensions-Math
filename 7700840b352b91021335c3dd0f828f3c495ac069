@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_9a74c4fc",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2015-11-03T18:08:56Z",
+      "side": 0,
+      "message": "We should open a separate bug to remove \"Cambria\" and the corresponding comment since https://bugzilla.mozilla.org/show_bug.cgi?id\u003d598900 is fixed in Gecko 41 (maybe we should wait the ESR 45 before changing that).",
+      "revId": "7700840b352b91021335c3dd0f828f3c495ac069",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
