@@ -16,6 +16,24 @@
       "revId": "7700840b352b91021335c3dd0f828f3c495ac069",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_3a6ef8fe",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-11-03T18:28:42Z",
+      "side": 0,
+      "message": "Yes opening a new bug seems to be the right thing to do.\nESR 45?",
+      "parentUuid": "0ebaf39b_9a74c4fc",
+      "revId": "7700840b352b91021335c3dd0f828f3c495ac069",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
