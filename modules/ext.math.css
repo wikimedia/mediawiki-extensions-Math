@@ -23,6 +23,7 @@ m|math {
 	/* We put Cambria before Cambria Math to workaround a bug on Windows
 	(see https://bugzilla.mozilla.org/show_bug.cgi?id=598900) */
 	font-family: Cambria, Cambria Math, Latin Modern Math, STIX Math, LatinModernMathWOFF, serif;
+	line-height: normal;
 }
 
 /* Default style for the image fallback. */
