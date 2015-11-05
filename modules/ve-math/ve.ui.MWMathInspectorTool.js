@@ -39,3 +39,8 @@ ve.ui.commandRegistry.register(
 ve.ui.sequenceRegistry.register(
 	new ve.ui.Sequence( 'wikitextMath', 'math', '<math', 5 )
 );
+
+ve.ui.commandHelpRegistry.register( 'insert', 'math', {
+	sequences: [ 'wikitextMath' ],
+	label: OO.ui.deferMsg( 'math-visualeditor-mwmathinspector-title' )
+} );
