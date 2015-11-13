@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align:.511ex" width="2.334ex" height="1.676ex" viewBox="0 -647.8 1005 721.6" xmlns="http://www.w3.org/2000/svg">
+    <title id="MathJax-SVG-1-Title">
+        Equation
+    </title>
+    <desc id="MathJax-SVG-1-Desc">
+        right harpoon with barb up
+    </desc>
+    <defs>
+        <path stroke-width="10" id="E1-MJMAIN-21C0" d="M691 500q0 11 20 11 9 0 12-1t7-6 5-14 11-26 22-39q28-47 67-86t62-54 36-22q8-5 9-7t2-11-7-15H70q-14 7-14 20t14 20h782q-50 38-90 94t-55 91-16 45z"/>
+    </defs>
+    <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+        <use xlink:href="#E1-MJMAIN-21C0"/>
+    </g>
+</svg>

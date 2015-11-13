@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align:-.338ex" width=".915ex" height="2.343ex" viewBox="0 -863.1 394 1008.6" xmlns="http://www.w3.org/2000/svg">
+    <title id="MathJax-SVG-1-Title">
+        Equation
+    </title>
+    <desc id="MathJax-SVG-1-Desc">
+        normal ♭
+    </desc>
+    <defs>
+        <path stroke-width="10" id="E1-MJMAIN-266D" d="M200 467q54 0 93-39t39-107q0-174-228-332L88-22H75q-13 0-19 6l-1 378v285q0 96 5 101 3 2 16 2h7q4 0 12-6V434l9 6q40 27 96 27zm37-145q0 38-12 66t-42 29q-25 0-49-10t-33-29q-5-8-5-29t-1-152V34q57 57 99 133t43 155z"/>
+    </defs>
+    <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+        <use xlink:href="#E1-MJMAIN-266D"/>
+    </g>
+</svg>

@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align:-.338ex" width="3.131ex" height="2.009ex" viewBox="0 -719.6 1348 865.1" xmlns="http://www.w3.org/2000/svg">
+    <title id="MathJax-SVG-1-Title">
+        Equation
+    </title>
+    <desc id="MathJax-SVG-1-Desc">
+        cotangent
+    </desc>
+    <defs>
+        <path stroke-width="10" id="E1-MJMAIN-63" d="M370 305h-21l-36 15-16 38q0 23 15 38 5 5 5 6t-10 2q-26 4-49 4-49 0-80-32-47-47-47-157 0-82 31-129 41-61 110-61 41 0 66 26t36 62q2 8 5 10t16 2h14q6-6 6-9 0-4-4-16t-16-33-29-38-48-31-69-13q-86 0-150 64T34 214q0 104 65 169t151 65 120-27 34-64q0-23-17-37z"/>
+        <path stroke-width="10" id="E1-MJMAIN-6F" d="M28 214q0 95 65 164t157 70q90 0 155-68t66-165q0-95-64-160T250-10q-97 0-159 67T28 214zM250 30q122 0 122 163v57q0 22-1 38t-7 38-16 36-31 28-49 20q-5 1-16 1-30 0-57-12-43-22-56-61t-13-92v-20q0-96 19-135 32-61 105-61z"/>
+        <path stroke-width="10" id="E1-MJMAIN-74" d="M27 422q53 4 82 56t32 122v15h40V431h135v-46H181V241q1-125 1-141t7-32q14-39 49-39 44 0 54 71 1 8 1 46v35h40v-47q0-77-42-117-27-27-70-27-34 0-59 12t-38 31-19 35-7 32q-1 7-1 148v137H18v37h9z"/>
+    </defs>
+    <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+        <use xlink:href="#E1-MJMAIN-63"/>
+        <use xlink:href="#E1-MJMAIN-6F" x="449"/>
+        <use xlink:href="#E1-MJMAIN-74" x="954"/>
+    </g>
+</svg>
