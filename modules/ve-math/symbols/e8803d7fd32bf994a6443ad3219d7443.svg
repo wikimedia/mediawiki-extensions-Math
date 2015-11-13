@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align:-.338ex" width="1.819ex" height="2.176ex" viewBox="0 -791.3 783 936.9" xmlns="http://www.w3.org/2000/svg">
+    <title id="MathJax-SVG-1-Title">
+        Equation
+    </title>
+    <desc id="MathJax-SVG-1-Desc">
+        squared-times
+    </desc>
+    <defs>
+        <path stroke-width="10" id="E1-MJAMS-22A0" d="M71 0Q59 4 55 16v330l1 330q8 10 14 13h637q7-3 15-13V13q-8-10-15-13H71zm52 649q24-24 91-94t121-125 54-56l265 275H123zM95 70q4 4 134 139t131 136L95 619V70zm587 0v549L418 346q-1-2 131-139L682 70zm-28-29L400 304l-12 11L123 41l133-1h266l132 1z"/>
+    </defs>
+    <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+        <use xlink:href="#E1-MJAMS-22A0"/>
+    </g>
+</svg>

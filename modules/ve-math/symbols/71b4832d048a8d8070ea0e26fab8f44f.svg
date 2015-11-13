@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align:-.338ex" width="1.173ex" height="2.343ex" viewBox="0 -863.1 505 1008.6" xmlns="http://www.w3.org/2000/svg">
+    <title id="MathJax-SVG-1-Title">
+        Equation
+    </title>
+    <desc id="MathJax-SVG-1-Desc">
+        up-arrow with tip right
+    </desc>
+    <defs>
+        <path stroke-width="10" id="E1-MJAMS-21B1" d="M301 722q38-104 142-167l-6-4-15-10q-9-6-21-15t-24-22-25-27-25-34-21-41l-5-13h-46q0 3 8 21t28 51 46 62l11 12H95V275q0-260-2-263Q87 0 75 0T57 12q-2 3-2 275 0 277 4 281l1 1q4 4 16 4t132 2l140 1-10 11q-24 26-44 59t-30 52-9 23q0 1 23 1h23z"/>
+    </defs>
+    <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+        <use xlink:href="#E1-MJAMS-21B1"/>
+    </g>
+</svg>

@@ -144,6 +144,7 @@
 			"styles": [
 				"ve-math/ve.ce.MWMathNode.css",
 				"ve-math/ve.ui.MWMathIcons.css",
+				"ve-math/ve.ui.MWMathSymbols.css",
 				"ve-math/ve.ui.MWMathInspector.css"
 			],
 			"dependencies": [

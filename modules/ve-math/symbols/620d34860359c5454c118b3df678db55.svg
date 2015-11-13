@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align:-.338ex" width="1.819ex" height="1.843ex" viewBox="0 -647.8 783 793.3" xmlns="http://www.w3.org/2000/svg">
+    <title id="MathJax-SVG-1-Title">
+        Equation
+    </title>
+    <desc id="MathJax-SVG-1-Desc">
+        division-times
+    </desc>
+    <defs>
+        <path stroke-width="10" id="E1-MJAMS-22C7" d="M366 543q8 2 16 2 23 0 37-7 10-4 24-17t19-25q4-18 4-29 0-29-22-55-22-22-56-22-36 0-57 22-20 22-20 55 0 32 20 51 14 15 35 25zm-220-71q0 7 7 13t13 7q5 0 21-16t92-91l107-107 109 107q105 107 113 107 7 0 13-6t7-14q0-5-14-20t-83-85l-96-97h271q14-14 14-20 0-9-14-20H435l96-98q69-69 83-84t14-21q0-7-6-13t-14-7q-8 0-113 107L386 221 279 114l-91-91Q172 7 166 7q-7 0-13 6t-7 14q0 5 14 20t84 85l95 98H68q-13 13-13 20 0 5 13 20h271l-95 97q-69 69-83 84t-15 21zM466 34q0-30-19-54t-59-24q-35 0-57 22-20 23-20 56 0 32 20 51 16 16 35 25 8 2 16 2 23 0 37-7 10-5 24-18t19-24q4-18 4-29z"/>
+    </defs>
+    <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+        <use xlink:href="#E1-MJAMS-22C7"/>
+    </g>
+</svg>

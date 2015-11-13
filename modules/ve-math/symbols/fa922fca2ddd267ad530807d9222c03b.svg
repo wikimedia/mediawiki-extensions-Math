@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align:-.338ex" width="1.329ex" height="2.343ex" viewBox="0 -863.1 572 1008.6" xmlns="http://www.w3.org/2000/svg">
+    <title id="MathJax-SVG-1-Title">
+        Equation
+    </title>
+    <desc id="MathJax-SVG-1-Desc">
+        normal partial-differential
+    </desc>
+    <defs>
+        <path stroke-width="10" id="E1-MJMAIN-2202" d="M202 508q-23 0-33 12t-11 27q0 10 6 30t21 47 45 51 71 35l32 5h12q33 0 39-1 63-11 105-53t60-93 17-111q0-95-47-217T402 53q-81-75-179-75-100 0-150 78-31 46-31 92v11q0 117 87 211t193 95q61 0 92-31t41-67l3 11q20 83 20 137 0 88-41 124t-93 37q-78 0-121-64 41-6 41-40 0-25-18-44t-44-20zm228-202q0 66-29 94t-68 28q-63 0-111-46-25-28-39-59t-33-102q-18-72-18-105 0-95 100-95 12 0 18 1 77 13 124 90 15 25 35 84t21 110z"/>
+    </defs>
+    <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+        <use xlink:href="#E1-MJMAIN-2202"/>
+    </g>
+</svg>

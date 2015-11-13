@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align:-.338ex" width="3.907ex" height="2.176ex" viewBox="0 -791.3 1682 936.9" xmlns="http://www.w3.org/2000/svg">
+    <title id="MathJax-SVG-1-Title">
+        Equation
+    </title>
+    <desc id="MathJax-SVG-1-Desc">
+        dimension
+    </desc>
+    <defs>
+        <path stroke-width="10" id="E1-MJMAIN-64" d="M376 495v40q0 24 1 33 0 45-10 56t-51 13h-18v23q0 23 2 23l10 1q10 1 29 2t37 2 37 2 30 3 11 1h3V390q0-306 1-309 3-20 14-26t45-9h18V0q-2 0-76-5t-79-6h-7v55l-8-7q-58-48-130-48-77 0-139 61T34 215q0 100 63 163t147 64q75 0 132-49v102zm-3-153q-45 63-113 63-49 0-87-36-27-28-34-64t-8-94q0-56 7-91t35-61q30-33 78-33 71 0 122 77v239z"/>
+        <path stroke-width="10" id="E1-MJMAIN-69" d="M69 609q0 28 18 44t44 16q23-2 40-17t17-43q0-30-17-45t-42-15q-25 0-42 15t-18 45zM247 0q-15 3-104 3h-37Q80 3 56 1L34 0h-8v46h16q28 0 49 3 9 4 11 11t2 42v191q0 52-2 66t-14 19q-14 7-47 7H30v23q0 23 2 23l10 1q10 1 28 2t36 2 36 2 29 3 11 1h3V62q5-10 12-12t35-4h23V0h-8z"/>
+        <path stroke-width="10" id="E1-MJMAIN-6D" d="M41 46h14q39 0 47 14v62q0 17 1 39t0 42v66q0 35-1 59v23q-3 19-14 25t-45 9H25v23q0 23 2 23l10 1q10 1 28 2t37 2q17 1 36 2t29 3 11 1h3v-40q0-38 1-38t5 5 12 15 19 18 29 19 38 16q20 5 51 5 15 0 28-2t23-6 19-8 15-9 11-11 9-11 7-11 4-10 3-8l2-5 3 4 6 8q3 4 9 11t13 13 15 13 20 12 23 10 26 7 31 3q126 0 137-113 1-7 1-139v-86q0-38 2-45t11-10q21-3 49-3h16V0h-8l-23 1q-24 1-51 1t-38 1Q596 3 587 0h-8v46h16q61 0 61 16 1 2 1 138-1 135-2 143-6 28-20 42t-24 17-26 2q-45 0-79-34-27-27-34-55t-8-83V108q0-30 1-40t3-13 9-6q21-3 49-3h16V0h-8l-24 1q-23 1-50 1t-38 1Q319 3 310 0h-8v46h16q61 0 61 16 1 2 1 138-1 135-2 143-6 28-20 42t-24 17-26 2q-45 0-79-34-27-27-34-55t-8-83V108q0-30 1-40t3-13 9-6q21-3 49-3h16V0h-8l-23 1q-24 1-51 1t-38 1Q42 3 33 0h-8v46h16z"/>
+    </defs>
+    <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+        <use xlink:href="#E1-MJMAIN-64"/>
+        <use xlink:href="#E1-MJMAIN-69" x="561"/>
+        <use xlink:href="#E1-MJMAIN-6D" x="844"/>
+    </g>
+</svg>
