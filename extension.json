@@ -144,7 +144,7 @@
 			"styles": [
 				"ve-math/ve.ce.MWMathNode.css",
 				"ve-math/ve.ui.MWMathIcons.css",
-				"ve-math/ve.ui.MWMathInspector.css"
+				"ve-math/ve.ui.MWMathSymbols.css"
 			],
 			"dependencies": [
 				"ext.visualEditor.mwcore"
