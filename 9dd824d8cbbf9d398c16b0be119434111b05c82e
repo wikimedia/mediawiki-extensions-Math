@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0ebaf39b_8098867d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-13T06:34:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ebaf39b_40c12e82",
+      "revId": "9dd824d8cbbf9d398c16b0be119434111b05c82e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ebaf39b_60beb2fc",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2015-11-13T03:11:19Z",
       "side": 1,
       "message": "CSS",
+      "revId": "9dd824d8cbbf9d398c16b0be119434111b05c82e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_a0958a44",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-13T06:34:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ebaf39b_60beb2fc",
       "revId": "9dd824d8cbbf9d398c16b0be119434111b05c82e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0ebaf39b_40a28ea5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-13T06:34:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ebaf39b_003336c1",
+      "revId": "9dd824d8cbbf9d398c16b0be119434111b05c82e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ebaf39b_2038ba9a",
         "filename": "modules/ve-math/symbols.json",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2015-11-13T03:11:19Z",
       "side": 1,
       "message": "these should be message names, with the English translations in i18n",
+      "revId": "9dd824d8cbbf9d398c16b0be119434111b05c82e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_609f9263",
+        "filename": "modules/ve-math/symbols.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-13T06:34:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ebaf39b_2038ba9a",
       "revId": "9dd824d8cbbf9d398c16b0be119434111b05c82e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "0ebaf39b_c0851e0d",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-13T06:34:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ebaf39b_c03c3e91",
+      "revId": "9dd824d8cbbf9d398c16b0be119434111b05c82e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ebaf39b_e041420f",
         "filename": "modules/ve-math/ve.ui.MWMathSymbols.css",
         "patchSetId": 2
@@ -98,6 +188,24 @@
       "writtenOn": "2015-11-13T03:11:19Z",
       "side": 1,
       "message": "this should be \"oo-ui-icons_92nabla\"",
+      "revId": "9dd824d8cbbf9d398c16b0be119434111b05c82e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_807f2611",
+        "filename": "modules/ve-math/ve.ui.MWMathSymbols.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-13T06:34:50Z",
+      "side": 1,
+      "message": "These aren\u0027t ooui icons but have added \"ve-ui-mwMathSymbol-\" as a prefix.",
+      "parentUuid": "0ebaf39b_e041420f",
       "revId": "9dd824d8cbbf9d398c16b0be119434111b05c82e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
