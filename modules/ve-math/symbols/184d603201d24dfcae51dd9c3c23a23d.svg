@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align:-.338ex" width="3.203ex" height="2.176ex" viewBox="0 -791.3 1379 936.9" xmlns="http://www.w3.org/2000/svg">
+    <title id="MathJax-SVG-1-Title">
+        Equation
+    </title>
+    <desc id="MathJax-SVG-1-Desc">
+        kernel
+    </desc>
+    <defs>
+        <path stroke-width="10" id="E1-MJMAIN-6B" d="M36 46h14q39 0 47 14v64q0 19 1 43t0 50 0 55 0 57v213q0 26-1 44t0 17q-3 19-14 25t-45 9H20v23q0 23 2 23l10 1q10 1 29 2t37 2 37 2 30 3 11 1h3V463l1-230 60 54q60 54 64 60 6 9 6 17 0 19-21 21h-5v46h9q15-3 119-3 63 0 72 3h5v-46h-13q-69-5-116-44-74-63-74-67 0-1 63-93t71-102q14-19 31-26t49-7h11V0h-6q-9 3-87 3-96 0-111-3h-8v46h7q24 2 24 19 0 7-4 14-3 5-50 74t-48 69l-52-46V84q0-19 2-25t11-10q21-3 49-3h16V0h-8q-15 3-109 3T28 0h-8v46h16z"/>
+        <path stroke-width="10" id="E1-MJMAIN-65" d="M28 218q0 55 20 100t50 73 65 42 66 15q53 0 91-18t58-50 28-64 9-71q0-7-7-14H126v-15q0-148 100-180 20-6 44-6 42 0 72 32 17 17 27 42l10 24q3 3 16 3h3q17 0 17-10 0-4-3-13-19-55-63-87t-99-32q-95 0-158 69T28 218zm305 57q-11 128-95 136h-2q-8 0-16-1t-25-8-29-21-23-41-16-66v-7h206v8z"/>
+        <path stroke-width="10" id="E1-MJMAIN-72" d="M36 46h14q39 0 47 14v31q0 14 1 31t0 39 0 42v125l-1 23q-3 19-14 25t-45 9H20v23q0 23 2 23l10 1q10 1 28 2t36 2q16 1 35 2t29 3 11 1h3v-69q39 68 97 68h6q45 0 66-22t21-46q0-21-13-36t-38-15q-25 0-37 16t-13 34q0 9 2 16t5 12 3 5q-2 2-23-4-16-8-24-15-47-45-47-179v-53-27-26q0-12 1-20t0-15v-5q1-2 3-4t5-3 5-3 7-2 7-1 9-1 9 0 10-1 10 0h31V0h-9q-18 3-127 3Q37 3 28 0h-8v46h16z"/>
+    </defs>
+    <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+        <use xlink:href="#E1-MJMAIN-6B"/>
+        <use xlink:href="#E1-MJMAIN-65" x="533"/>
+        <use xlink:href="#E1-MJMAIN-72" x="982"/>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align:-1.171ex" width="1.819ex" height="3.176ex" viewBox="0 -863.1 783 1367.4" xmlns="http://www.w3.org/2000/svg">
+    <title id="MathJax-SVG-1-Title">
+        Equation
+    </title>
+    <desc id="MathJax-SVG-1-Desc">
+        succeeds-but-not-equivalent-to
+    </desc>
+    <defs>
+        <path stroke-width="10" id="E1-MJAMS-22E9" d="M679 459q14-14 14-20 0-9-14-20h-28q-196 0-332-42-88-30-135-77t-60-119q-4-20-8-26t-14-7q-7 0-13 6t-7 14q0 24 15 69 14 38 40 69t51 49 61 36 58 23 54 15 38 10q-2 1-35 8t-66 20-74 32-75 58-52 84q-15 45-15 69 0 7 6 13t14 7l13-5q3-3 9-28 13-72 60-119t135-77q137-42 332-42h28zM55-205q0 30 9 63t28 66 53 54 77 21q66 0 140-65 7-6 10-9t6-4 4-2 2 2q5 5 55 100 44 79 51 90t14 11q6 0 14-4t8-15q0-2-16-34t-43-81-48-87l-6-13 20-16q65-52 120-52 52 0 93 41 26 27 35 62t12 56 13 20q13 0 13-32 0-6-2-24-9-84-62-133-30-34-69-42-18-5-35-5-64 0-138 65l-22 17q0-2-56-100-38-70-49-87t-18-17q-8 0-14 6t-6 14 56 109l55 104q0 2-22 19t-35 26q-40 24-81 24-51 0-91-36T84-201q-2-35-14-35-15 0-15 31z"/>
+    </defs>
+    <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+        <use xlink:href="#E1-MJAMS-22E9"/>
+    </g>
+</svg>

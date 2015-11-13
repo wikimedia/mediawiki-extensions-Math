@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align:-.338ex" width="1.24ex" height="2.343ex" viewBox="0 -863.1 534 1008.6" xmlns="http://www.w3.org/2000/svg">
+    <title id="MathJax-SVG-1-Title">
+        Equation
+    </title>
+    <desc id="MathJax-SVG-1-Desc">
+        ModifyingAbove a With caret
+    </desc>
+    <defs>
+        <path stroke-width="10" id="E1-MJMATHI-61" d="M33 157q0 101 76 192t171 92q51 0 90-49 16 30 46 30 13 0 23-8t10-20q0-13-37-160T374 68q0-25 7-33t21-9q9 1 20 9 21 20 41 96 6 20 10 21 2 1 10 1h4q19 0 19-9 0-6-5-27t-20-54-32-50Q436 0 417-8q-8-2-24-2-34 0-57 15t-30 31l-6 15q-1 1-4-1l-4-4q-59-56-120-56-55 0-97 40T33 157zm318 171q0 6-5 22t-23 35-46 20q-35 0-67-31t-50-81q-29-79-41-164v-11q0-8-1-12 0-45 18-62t43-18q38 0 75 33t44 51q2 4 27 107t26 111z"/>
+        <path stroke-width="10" id="E1-MJMAIN-5E" d="M112 560l137 134 8-8q130-124 130-126l-26-29q-2 1-58 50l-53 46-55-47q-13-11-26-23t-21-19l-8-6q-2-2-15 14l-13 14z"/>
+    </defs>
+    <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+        <use xlink:href="#E1-MJMATHI-61"/>
+        <use xlink:href="#E1-MJMAIN-5E" x="14" y="37"/>
+    </g>
+</svg>

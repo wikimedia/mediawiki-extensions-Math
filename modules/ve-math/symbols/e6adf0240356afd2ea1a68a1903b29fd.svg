@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align:-.338ex" width="1.819ex" height="1.843ex" viewBox="0 -647.8 783 793.3" xmlns="http://www.w3.org/2000/svg">
+    <title id="MathJax-SVG-1-Title">
+        Equation
+    </title>
+    <desc id="MathJax-SVG-1-Desc">
+        division-sign
+    </desc>
+    <defs>
+        <path stroke-width="10" id="E1-MJMAIN-F7" d="M318 466q0 34 21 52t47 19q32 0 52-20t20-51q0-28-18-49t-52-21q-33 0-51 21t-19 49zM56 237v13l14 20h636q15-8 15-20t-15-20H70q-14 7-14 20zM318 34q0 34 21 52t47 19q32 0 52-20t20-51q0-28-18-49t-52-21q-33 0-51 21t-19 49z"/>
+    </defs>
+    <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+        <use xlink:href="#E1-MJMAIN-F7"/>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align:-.338ex" width="1.689ex" height="2.176ex" viewBox="0 -791.3 727 936.9" xmlns="http://www.w3.org/2000/svg">
+    <title id="MathJax-SVG-1-Title">
+        Equation
+    </title>
+    <desc id="MathJax-SVG-1-Desc">
+        inverted ohm
+    </desc>
+    <defs>
+        <path stroke-width="10" id="E1-MJAMS-2127" d="M126 584q-7 0-16-45t-13-46q-2-3-24-3-29 0-29 11 0 14 18 89 13 82 20 89 2 5 95 5h37q21 0 27 1 24 0 30-3t6-18v-16q-6-76-48-214t-43-203q0-58 17-99t44-62 55-28 58-9q31 0 59 9t55 30 43 61 16 98q0 66-42 206t-49 211q0 27 4 31 2 5 96 5 93 0 95-3 3-3 20-87t18-93q0-11-29-11-22 0-24 3-2 0-13 45t-16 46q-2 1-8 1t-16 1-18 2h-38q1-2 5-15t20-42 44-78q65-113 78-176 3-18 3-45 0-38-6-55-5-26-28-65t-69-73Q495-5 424-19q-21-3-64-3-42 0-63 3-58 11-104 37t-73 56-40 57-18 46q-6 17-6 52 0 52 18 99t63 125q23 38 37 65t19 37 8 20 5 13h-38q-8-1-18-1t-16-1-8-2z"/>
+    </defs>
+    <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+        <use xlink:href="#E1-MJAMS-2127"/>
+    </g>
+</svg>

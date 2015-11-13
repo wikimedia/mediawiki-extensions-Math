@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align:-.671ex" width="1.819ex" height="2.509ex" viewBox="0 -791.3 783 1080.4" xmlns="http://www.w3.org/2000/svg">
+    <title id="MathJax-SVG-1-Title">
+        Equation
+    </title>
+    <desc id="MathJax-SVG-1-Desc">
+        slanted-equals-or-greater-than
+    </desc>
+    <defs>
+        <path stroke-width="10" id="E1-MJAMS-2A96" d="M83 616q0 8 6 14t10 6q8 0 154-68t290-137 144-70q7-7 7-15 0-18-18-20h-6L382 462q-65 31-156 73-107 50-125 60t-18 21zm11-176q8 2 10 2 6-1 150-69t281-133 143-68q1 0 2-1 14-7 14-18t-7-16q-2-2-292-139L107-138h-6q-18 2-18 20 0 12 10 17l35 17q35 16 102 48t131 62l265 126-266 126Q91 406 90 407q-7 5-7 17 1 10 11 16z"/>
+    </defs>
+    <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+        <use xlink:href="#E1-MJAMS-2A96"/>
+    </g>
+</svg>
