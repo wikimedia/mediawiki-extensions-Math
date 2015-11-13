@@ -1,0 +1,6 @@
+{
+  "name": "math-icons-generator",
+  "dependencies": {
+    "svgo": "^0.6.0"
+  }
+}
