@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_f75ee3eb",
+        "filename": "modules/ve-math/symbols.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-11-15T08:37:57Z",
+      "side": 1,
+      "message": "maybe :\u003d is more common",
+      "revId": "51e19dbded5f89524bbac15548f6ae1afe3d7bfe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
