@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0ebaf39b_0894988c",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-19T02:40:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ebaf39b_e8a264f8",
+      "revId": "2d96a45444820bb52792dee42e4d16eccedd8d69",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ebaf39b_685f5415",
         "filename": "modules/ve-math/tools/package.json",
         "patchSetId": 6
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "0ebaf39b_288f1c7a",
+        "filename": "modules/ve-math/tools/package.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-19T02:40:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ebaf39b_685f5415",
+      "revId": "2d96a45444820bb52792dee42e4d16eccedd8d69",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ebaf39b_a8ac6cec",
         "filename": "modules/ve-math/ve.ui.MWMathSymbols.css",
         "patchSetId": 6
@@ -47,6 +83,24 @@
       "writtenOn": "2015-11-19T02:30:30Z",
       "side": 1,
       "message": "um - this should be data:urls?",
+      "revId": "2d96a45444820bb52792dee42e4d16eccedd8d69",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_c8ed2024",
+        "filename": "modules/ve-math/ve.ui.MWMathSymbols.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-19T02:40:03Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "0ebaf39b_a8ac6cec",
       "revId": "2d96a45444820bb52792dee42e4d16eccedd8d69",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
