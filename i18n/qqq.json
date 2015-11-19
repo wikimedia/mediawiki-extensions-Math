@@ -11,7 +11,8 @@
 			"Mormegil",
 			"Liuxinyu970226",
 			"Umherirrender",
-			"McDutchie"
+			"McDutchie",
+			"Amire80"
 		]
 	},
 	"math-desc": "{{desc|name=Math|url=https://www.mediawiki.org/wiki/Extension:Math}}",
@@ -27,7 +28,7 @@
 	"math-visualeditor-symbol-group-functions": "Label for the functions group of math symbols",
 	"math-visualeditor-symbol-group-geometry": "Label for the geometry group of math symbols",
 	"math-visualeditor-symbol-group-logic": "Label for the logic group of math symbols",
-	"math-visualeditor-symbol-group-modular": "Label for the modular group of math symbols",
+	"math-visualeditor-symbol-group-modular": "Label for the modular group of math symbols (as in [[:w:en:Modular arithmetic|Modular arithmetic]]).",
 	"math-visualeditor-symbol-group-operators": "Label for the operators group of math symbols",
 	"math-visualeditor-symbol-group-relations": "Label for the relations group of math symbols",
 	"math-visualeditor-symbol-group-root": "Label for the root group of math symbols",

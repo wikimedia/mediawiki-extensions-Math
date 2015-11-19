@@ -9,7 +9,8 @@
 			"Yona b",
 			"Constructeur",
 			"Djiboun",
-			"Mattho69"
+			"Mattho69",
+			"PifyZ"
 		]
 	},
 	"math-desc": "Restitue les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -19,6 +20,18 @@
 	"math-visualeditor-mwmathinspector-display-inline": "En ligne",
 	"math-visualeditor-mwmathinspector-id": "ID du lien (facultatif)",
 	"math-visualeditor-mwmathinspector-title": "Formule",
+	"math-visualeditor-symbol-group-accents": "Accents",
+	"math-visualeditor-symbol-group-arrows": "Flèches",
+	"math-visualeditor-symbol-group-derivatives": "Dérivés",
+	"math-visualeditor-symbol-group-functions": "Fonctions",
+	"math-visualeditor-symbol-group-geometry": "Géométrie",
+	"math-visualeditor-symbol-group-logic": "Logique",
+	"math-visualeditor-symbol-group-modular": "Modulaire",
+	"math-visualeditor-symbol-group-operators": "Opérateurs",
+	"math-visualeditor-symbol-group-relations": "Relations",
+	"math-visualeditor-symbol-group-root": "Racine",
+	"math-visualeditor-symbol-group-special": "Spécial",
+	"math-visualeditor-symbol-group-unsorted": "Non trié",
 	"math_bad_output": "Impossible de créer ou d’écrire dans le répertoire math de sortie",
 	"math_bad_tmpdir": "Impossible de créer ou d’écrire dans le répertoire math temporaire",
 	"math_failure": "Échec d'analyse",

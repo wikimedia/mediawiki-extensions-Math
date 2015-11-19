@@ -12,7 +12,8 @@
 			"Arystanbek",
 			"Meelo",
 			"Watermelon juice",
-			"McAang"
+			"McAang",
+			"HakanIST"
 		]
 	},
 	"math-desc": "Render matematiksel formüller arasında <code><math></code> ... <code></math></code> etiketler",
@@ -22,6 +23,7 @@
 	"math-visualeditor-mwmathinspector-display-inline": "Satır içi",
 	"math-visualeditor-mwmathinspector-id": "Bağlantı Kimliği (isteğe bağlı)",
 	"math-visualeditor-mwmathinspector-title": "Formül",
+	"math-visualeditor-symbol-group-relations": "İlişkiler",
 	"math_bad_output": "Math çıktı dizinine yazılamıyor ya da oluşturulamıyor",
 	"math_bad_tmpdir": "Math geçici dizinine yazılamıyor ya da oluşturulamıyor",
 	"math_failure": "Ayrıştırılamadı",
