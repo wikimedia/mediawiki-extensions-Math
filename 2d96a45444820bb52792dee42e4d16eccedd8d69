@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_e8a264f8",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-11-19T02:30:30Z",
+      "side": 1,
+      "message": "I know this breaks on your system for n\u003e1, but we should probably default to something higher (5?). Also make it a variable at the top of the script, e.g. mathoidMaxConnections \u003d 5",
+      "revId": "2d96a45444820bb52792dee42e4d16eccedd8d69",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_685f5415",
+        "filename": "modules/ve-math/tools/package.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-11-19T02:30:30Z",
+      "side": 1,
+      "message": "remove this, no longer used.",
+      "revId": "2d96a45444820bb52792dee42e4d16eccedd8d69",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_a8ac6cec",
+        "filename": "modules/ve-math/ve.ui.MWMathSymbols.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-11-19T02:30:30Z",
+      "side": 1,
+      "message": "um - this should be data:urls?",
+      "revId": "2d96a45444820bb52792dee42e4d16eccedd8d69",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
