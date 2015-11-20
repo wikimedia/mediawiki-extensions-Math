@@ -1,10 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
-			"AnakngAraw"
+			"AnakngAraw",
+			"Leeheonjin"
 		]
 	},
 	"math-desc": "Iharap ang mga pormulang pangmatematika sa pagitan ng mga tatak na <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math-visualeditor-symbol-group-arrows": "Tala-palasuan (arrows)",
+	"math-visualeditor-symbol-group-derivatives": "Deribatibo",
+	"math-visualeditor-symbol-group-geometry": "Heometriya",
+	"math-visualeditor-symbol-group-logic": "Lohika",
+	"math-visualeditor-symbol-group-modular": "Modular",
+	"math-visualeditor-symbol-group-operators": "Mga tagapagpaandar:",
+	"math-visualeditor-symbol-group-relations": "Mga kaugnayan",
+	"math-visualeditor-symbol-group-root": "Pinag-uugatan",
+	"math-visualeditor-symbol-group-special": "Natatangi (special)",
+	"math-visualeditor-symbol-group-unsorted": "Hindi naisaayos (unsorted)",
 	"math_bad_output": "Hindi maisulat sa o makalikha ng direktoryo ng produktong pangmatematika",
 	"math_bad_tmpdir": "Hindi maisulat sa o makalikha ng pansamantalang direktoryong pangmatematika",
 	"math_failure": "Nabigo sa pagbanghay",
