@@ -3,7 +3,7 @@
 /* jshint node: true */
 
 ( function () {
-	var i, count, group, symbols, symbolObject,
+	var i, count, group, symbol, symbols, symbolObject,
 		symbolsData, cssData, cssLines, index,
 		cssRules = [],
 		cssClasses = [],
@@ -135,9 +135,13 @@
 	for ( group in symbolObject ) {
 		symbols = symbolObject[ group ];
 		for ( i = 0; i < symbols.length; i++ ) {
-			index = cssClasses.indexOf( texToClass( symbols[ i ].tex ) );
+			symbol = symbols[ i ];
+			if ( symbol.duplicate || symbol.notWorking ) {
+				continue;
+			}
+			index = cssClasses.indexOf( texToClass( symbol.tex ) );
 			if ( index === -1 ) {
-				symbolList.push( symbols[ i ].tex );
+				symbolList.push( symbol.tex );
 			} else {
 				// Remove CSS classes we found in the symbol list so that
 				// and the end of this loop, cssClasses contains classes
