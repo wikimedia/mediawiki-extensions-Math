@@ -16,6 +16,24 @@
       "revId": "cbc847222e21a7ba5fc01f7061fab569f1fa6006",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_6c0196b8",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-11-21T01:51:50Z",
+      "side": 1,
+      "message": "Will add in separate commit",
+      "parentUuid": "0ebaf39b_6cd4364c",
+      "revId": "cbc847222e21a7ba5fc01f7061fab569f1fa6006",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
