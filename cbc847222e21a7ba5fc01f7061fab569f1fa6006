@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_6cd4364c",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-21T01:40:43Z",
+      "side": 1,
+      "message": "First check the symbol does not have .duplicate or .notWorking properties",
+      "revId": "cbc847222e21a7ba5fc01f7061fab569f1fa6006",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
