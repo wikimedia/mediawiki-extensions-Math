@@ -8,6 +8,9 @@
 			"Xoser"
 		]
 	},
+	"math-visualeditor-symbol-group-logic": "Qeyd",
+	"math-visualeditor-symbol-group-special": "Xususi",
+	"math-visualeditor-symbol-group-unsorted": "Nikılmiya",
 	"math_bad_output": "Nieşkeno binusi ya zi direktorê mathi ye outputi virazi",
 	"math_bad_tmpdir": "Nieşkeno binusi ya zi direktorê mathi virazi",
 	"math_failure": "Parse de ğeleti biyo",

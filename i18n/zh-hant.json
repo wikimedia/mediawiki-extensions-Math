@@ -17,6 +17,7 @@
 	"math-visualeditor-mwmathinspector-display-inline": "行內",
 	"math-visualeditor-mwmathinspector-id": "連結 ID (選填)",
 	"math-visualeditor-mwmathinspector-title": "公式",
+	"math-visualeditor-symbol-group-functions": "函數",
 	"math_bad_output": "無法寫入或建立數學公式輸出目錄",
 	"math_bad_tmpdir": "無法寫入或建立數學公式暫存目錄",
 	"math_failure": "解析失敗",

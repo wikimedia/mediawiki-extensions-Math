@@ -9,7 +9,8 @@
 			"Whym",
 			"青子守歌",
 			"SkyDaisy9",
-			"Sujiniku"
+			"Sujiniku",
+			"Otokoume"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング",
@@ -21,6 +22,7 @@
 	"math-visualeditor-mwmathinspector-title": "数式",
 	"math-visualeditor-symbol-group-accents": "アクセント",
 	"math-visualeditor-symbol-group-arrows": "矢印",
+	"math-visualeditor-symbol-group-derivatives": "導関数",
 	"math-visualeditor-symbol-group-functions": "関数",
 	"math-visualeditor-symbol-group-geometry": "幾何学",
 	"math-visualeditor-symbol-group-logic": "論理",
