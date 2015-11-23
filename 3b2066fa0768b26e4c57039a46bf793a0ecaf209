@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0ebaf39b_557a0f20",
+        "filename": "modules/ve-math/ve.ui.MWMathDialog.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-23T22:19:29Z",
+      "side": 1,
+      "message": "Yes, in setupOutlineItem in MathPage",
+      "parentUuid": "0ebaf39b_f508e32c",
+      "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ebaf39b_b50a6b20",
         "filename": "modules/ve-math/ve.ui.MWMathDialog.js",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2015-11-23T19:36:39Z",
       "side": 1,
       "message": "remove comment?",
+      "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_358f5b28",
+        "filename": "modules/ve-math/ve.ui.MWMathDialog.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-23T22:19:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ebaf39b_b50a6b20",
       "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -104,6 +140,24 @@
     },
     {
       "key": {
+        "uuid": "0ebaf39b_55a9af76",
+        "filename": "modules/ve-math/ve.ui.MWMathInspector.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-23T22:19:29Z",
+      "side": 1,
+      "message": "Oops, yes.",
+      "parentUuid": "0ebaf39b_d5059f14",
+      "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ebaf39b_f5830355",
         "filename": "modules/ve-math/ve.ui.MWMathPage.js",
         "patchSetId": 6
@@ -115,6 +169,24 @@
       "writtenOn": "2015-11-23T19:36:39Z",
       "side": 1,
       "message": "You could use the classList API here. All the browsers we support, support it:\n\nhttps://developer.mozilla.org/en/docs/Web/API/Element/classList",
+      "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_0b4f9698",
+        "filename": "modules/ve-math/ve.ui.MWMathPage.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-23T22:19:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ebaf39b_f5830355",
       "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
