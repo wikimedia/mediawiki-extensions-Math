@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0ebaf39b_8e9ab4bb",
+        "filename": "modules/ve-math/ve.ui.MWMathDialog.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-23T22:58:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ebaf39b_55bd2f15",
+      "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ebaf39b_1587b767",
         "filename": "modules/ve-math/ve.ui.MWMathDialog.js",
         "patchSetId": 6
@@ -106,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "0ebaf39b_aedc5878",
+        "filename": "modules/ve-math/ve.ui.MWMathDialog.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-23T22:58:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ebaf39b_1587b767",
+      "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ebaf39b_d5a91fdd",
         "filename": "modules/ve-math/ve.ui.MWMathDialog.js",
         "patchSetId": 6
@@ -117,6 +153,24 @@
       "writtenOn": "2015-11-23T19:36:39Z",
       "side": 1,
       "message": "would write this as:\n\n* insert placeholder\n* select placeholder (maybe chain these two)\n* encapsulate",
+      "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_aec3f88b",
+        "filename": "modules/ve-math/ve.ui.MWMathDialog.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-11-23T22:58:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ebaf39b_d5a91fdd",
       "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
