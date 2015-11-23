@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_f508e32c",
+        "filename": "modules/ve-math/ve.ui.MWMathDialog.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-11-23T19:36:39Z",
+      "side": 1,
+      "message": "is this class used?",
+      "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_b50a6b20",
+        "filename": "modules/ve-math/ve.ui.MWMathDialog.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-11-23T19:36:39Z",
+      "side": 1,
+      "message": "remove comment?",
+      "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_55bd2f15",
+        "filename": "modules/ve-math/ve.ui.MWMathDialog.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-11-23T19:36:39Z",
+      "side": 1,
+      "message": "inheritdoc",
+      "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_1587b767",
+        "filename": "modules/ve-math/ve.ui.MWMathDialog.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-11-23T19:36:39Z",
+      "side": 1,
+      "message": "document param",
+      "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_d5a91fdd",
+        "filename": "modules/ve-math/ve.ui.MWMathDialog.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-11-23T19:36:39Z",
+      "side": 1,
+      "message": "would write this as:\n\n* insert placeholder\n* select placeholder (maybe chain these two)\n* encapsulate",
+      "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_d5059f14",
+        "filename": "modules/ve-math/ve.ui.MWMathInspector.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-11-23T19:36:39Z",
+      "side": 1,
+      "message": "Are we not just deleting this file?",
+      "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_f5830355",
+        "filename": "modules/ve-math/ve.ui.MWMathPage.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-11-23T19:36:39Z",
+      "side": 1,
+      "message": "You could use the classList API here. All the browsers we support, support it:\n\nhttps://developer.mozilla.org/en/docs/Web/API/Element/classList",
+      "revId": "3b2066fa0768b26e4c57039a46bf793a0ecaf209",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
