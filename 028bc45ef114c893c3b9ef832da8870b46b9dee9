@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_0eb9e477",
+        "filename": "MathDataModule.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2015-11-24T00:01:30Z",
+      "side": 1,
+      "message": "Use enableModuleContentVersion() instead of getDefinitionSummary(). See also VisualEditorDataModule as example.\n\nI did it manually (like here) once for VisualEditor to try out how well it worked. It\u0027s not meant to spread, and has stabilised in the form of enableModuleContentVersion().",
+      "revId": "028bc45ef114c893c3b9ef832da8870b46b9dee9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
