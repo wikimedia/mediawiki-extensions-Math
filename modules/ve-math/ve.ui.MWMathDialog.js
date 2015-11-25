@@ -203,9 +203,18 @@ ve.ui.MWMathDialog.prototype.initialize = function () {
 ve.ui.MWMathDialog.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWMathDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
-			var display = ( this.selectedNode && this.selectedNode.getAttribute( 'mw' ).attrs.display ) || 'default';
-			this.input.on( 'change', this.onChangeHandler );
+			var attributes = this.selectedNode && this.selectedNode.getAttribute( 'mw' ).attrs,
+				display = attributes && attributes.display || 'default',
+				id = attributes && attributes.id || '';
+
+			// Populate form
 			this.displaySelect.selectItemByData( display );
+			this.idInput.setValue( id );
+
+			// Add event handlers
+			this.input.on( 'change', this.onChangeHandler );
+			this.displaySelect.on( 'choose', this.onChangeHandler );
+			this.idInput.on( 'change', this.onChangeHandler );
 		}, this );
 };
 
@@ -226,8 +235,28 @@ ve.ui.MWMathDialog.prototype.getTeardownProcess = function ( data ) {
 	return ve.ui.MWMathDialog.super.prototype.getTeardownProcess.call( this, data )
 		.first( function () {
 			this.input.off( 'change', this.onChangeHandler );
+			this.displaySelect.off( 'choose', this.onChangeHandler );
+			this.idInput.off( 'change', this.onChangeHandler );
 		}, this );
 };
+
+/**
+ * @inheritdoc
+ */
+ ve.ui.MWMathDialog.prototype.updateMwData = function ( mwData ) {
+	var display, id;
+
+	// Parent method
+	ve.ui.MWMathDialog.super.prototype.updateMwData.call( this, mwData );
+
+	// Get data from dialog
+	display = this.displaySelect.getSelectedItem().getData();
+	id = this.idInput.getValue();
+
+	// Update attributes
+	mwData.attrs.display = display !== 'default' ? display : undefined;
+	mwData.attrs.id = id || undefined;
+ };
 
 /**
  * @inheritdoc
