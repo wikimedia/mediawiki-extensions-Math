@@ -101,7 +101,9 @@ ve.ui.MWMathDialog.prototype.initialize = function () {
 
 	this.input = new ve.ui.MWAceEditorWidget( {
 		multiline: true,
-		rows: 7
+		rows: 7,
+		autocomplete: true,
+		liveAutocomplete: true
 	} ).setLanguage( 'latex' );
 
 	this.input.togglePrintMargin( false );
