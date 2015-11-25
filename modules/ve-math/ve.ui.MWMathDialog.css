@@ -70,6 +70,11 @@
 	height: 10em;
 }
 
+/* Ensures the preview image is vertically centred */
+.ve-ui-mwMathDialog-preview .mwe-math-fallback-image-display {
+	display: inline-block;
+}
+
 .ve-ui-mwMathPage-outline {
 	padding: 0.5em;
 	color: #555;
