@@ -15,6 +15,7 @@
 		"MathDataModule": "MathDataModule.php",
 		"MathHooks": "Math.hooks.php",
 		"MathRenderer": "MathRenderer.php",
+		"MathRestBaseInterface": "MathRestBaseInterface.php",
 		"MathTexvc": "MathTexvc.php",
 		"MathSource": "MathSource.php",
 		"MathMathML": "MathMathML.php",
@@ -91,6 +92,8 @@
 		"MathLaTeXMLUrl": "http://gw125.iu.xsede.org:8888",
 		"MathMathMLTimeout": 20,
 		"MathMathMLUrl": "http://mathoid.testme.wmflabs.org",
+		"MathRestUrl": false,
+		"MathDefaultRestbaseUrl": "http://math.beta.wmflabs.org:7231/math.beta.wmflabs.org/v1",
 		"MathPath": false,
 		"MathTexvcCheckExecutable": false,
 		"MathValidModes": [
