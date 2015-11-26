@@ -21,14 +21,14 @@ class MathHooks {
 			}
 		}
 		$invDefs = array_flip( $defs );
-		if ( is_int( $value ) ){
+		if ( is_int( $value ) ) {
 			if ( array_key_exists( $value, $invDefs ) ) {
 				$value = $invDefs[$value];
 			} else {
 				return $default;
 			}
 		}
-		if ( is_string( $value ) ){
+		if ( is_string( $value ) ) {
 			$newValues = array();
 			foreach ( $defs as $k => $v ) {
 				$newValues[$k] = preg_replace_callback( '/_(.)/', function ( $matches ) {
@@ -37,7 +37,7 @@ class MathHooks {
 			}
 			if ( array_key_exists( $value, $defs ) ) {
 				return $newValues[$value];
-			} elseif ( in_array( $value, $newValues ) ){
+			} elseif ( in_array( $value, $newValues ) ) {
 				return $value;
 			}
 		}
@@ -87,7 +87,7 @@ class MathHooks {
 			'mathml' => 5,
 			'latexml'=> 7 );
 
-		if ( array_key_exists( $mode, $defs ) ){
+		if ( array_key_exists( $mode, $defs ) ) {
 			return $defs[$mode];
 		} else {
 			return $default;
@@ -106,7 +106,7 @@ class MathHooks {
 
 		// To be independent of the MediaWiki core version,
 		// we check if the core caching logic for math is still available.
-		if ( ! is_callable( 'ParserOptions::getMath' ) && in_array( 'math', $forOptions ) ) {
+		if ( !is_callable( 'ParserOptions::getMath' ) && in_array( 'math', $forOptions ) ) {
 			if ( $user === false ) {
 				$user = $wgUser;
 			}
@@ -258,8 +258,8 @@ class MathHooks {
 	 */
 	public static function getMathNames() {
 		$names = array();
-		foreach ( MathRenderer::getValidModes()  as $mode ) {
-			$names[ $mode ] = wfMessage( 'mw_math_' . $mode )->escaped();
+		foreach ( MathRenderer::getValidModes() as $mode ) {
+			$names[$mode] = wfMessage( 'mw_math_' . $mode )->escaped();
 		}
 
 		return $names;
@@ -306,7 +306,7 @@ class MathHooks {
 			if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
 				$sql = __DIR__ . '/db/mathlatexml.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathlatexml', $sql );
-				if ( $type == 'mysql' ){
+				if ( $type == 'mysql' ) {
 					$sql = __DIR__ . '/db/patches/mathlatexml.mathml-length-adjustment.mysql.sql';
 					$updater->modifyExtensionField( 'mathlatexml', 'math_mathml', $sql );
 				}
