@@ -7,3 +7,5 @@
 tests/browser/.bundle
 tests/browser/.gem
 node_modules/
+vendor
+composer.lock
