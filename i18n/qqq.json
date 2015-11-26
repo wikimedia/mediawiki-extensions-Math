@@ -19,7 +19,7 @@
 	"math-desc": "{{desc|name=Math|url=https://www.mediawiki.org/wiki/Extension:Math}}",
 	"math-visualeditor-mwmathdialog-title": "Title for the dialog to edit <nowiki><math></nowiki> formula blocks.\n{{Identical|Formula}}",
 	"math-visualeditor-mwmathdialog-card-formula": "Label for the formula card of the math dialog",
-	"math-visualeditor-mwmathdialog-card-options":  "Label for the options card of the math dialog",
+	"math-visualeditor-mwmathdialog-card-options": "Label for the options card of the math dialog",
 	"math-visualeditor-mwmathinspector-display": "Label for the display attribute of the math node\n{{Identical|Display}}",
 	"math-visualeditor-mwmathinspector-display-block": "Label for the 'block' value of the display attribute\n{{Identical|Block}}",
 	"math-visualeditor-mwmathinspector-display-default": "Label for the 'default' value of the display attribute\n{{Identical|Default}}",

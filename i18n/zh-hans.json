@@ -5,7 +5,8 @@
 			"Liuxinyu970226",
 			"Xiaomingyan",
 			"Yfdyh000",
-			"乌拉跨氪"
+			"乌拉跨氪",
+			"PhiLiP"
 		]
 	},
 	"math-desc": "在<code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code>标签间生成数学公式",
@@ -58,5 +59,5 @@
 	"mw_math_png": "PNG图片",
 	"mw_math_source": "TeX源（用于文字浏览器）",
 	"prefs-math": "数学公式",
-	"mathstatus": "数学状态"
+	"mathstatus": "公式生成器状态"
 }

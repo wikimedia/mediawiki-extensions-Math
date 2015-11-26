@@ -7,7 +7,8 @@
 			"Mark85296341",
 			"Simon Shek",
 			"Cwlin0416",
-			"LNDDYL"
+			"LNDDYL",
+			"PhiLiP"
 		]
 	},
 	"math-desc": "在 <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code> 標籤顯示數學公式",
@@ -49,5 +50,5 @@
 	"mw_math_png": "PNG 圖片",
 	"mw_math_source": "TeX 原始碼 (供文字瀏覽器使用)",
 	"prefs-math": "數學公式",
-	"mathstatus": "數學狀態"
+	"mathstatus": "公式生成器狀態"
 }

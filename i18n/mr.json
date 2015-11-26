@@ -8,6 +8,9 @@
 			"संतोष दहिवळ"
 		]
 	},
+	"math-visualeditor-symbol-group-functions": "कार्यकलाप",
+	"math-visualeditor-symbol-group-relations": "संबंध",
+	"math-visualeditor-symbol-group-special": "विशेष",
 	"math_bad_output": "गणितीय प्राप्त धारिकेची( math output directory) निर्मीती अथवा त्यात लेखन करू शकत नाही.",
 	"math_bad_tmpdir": "\"गणितीय तूर्त धारिके\"(math temp directory)ची  निर्मीती करू शकत नाही अथवा \"मॅथ तूर्त धारिकेत\" लिहू शकत नाही .",
 	"math_failure": "पृथक्करणात अयशस्वी",
