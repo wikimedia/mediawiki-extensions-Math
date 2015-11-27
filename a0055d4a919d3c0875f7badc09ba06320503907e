@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_0e6eabfe",
+        "filename": "MathRestbaseInterface.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2015-11-27T21:46:11Z",
+      "side": 1,
+      "message": "This should be tested wgMathFullRestbaseURL, so that if the user specifies wmMathFullRestbaseURL, the latter should be picked.\n\nAlso, this should be a big if ... else if ... else if block, since if $internal is set, wgVE and wgMath would still overwrite the URL.",
+      "revId": "a0055d4a919d3c0875f7badc09ba06320503907e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
