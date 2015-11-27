@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_e3eb3075",
+        "filename": "Math.hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2015-11-27T15:59:02Z",
+      "side": 1,
+      "message": "This really shouldn\u0027t be set like this. If $wgVirtualRestConfig[\u0027modules\u0027][\u0027restbase\u0027] is set, then it will always contain the good URL. Hard-coding something else here is bad.",
+      "revId": "da3293e9d33cefdfc6c221c0b332eb3b0719ee3a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_c3e62cab",
+        "filename": "Math.hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2015-11-27T15:59:02Z",
+      "side": 1,
+      "message": "I don\u0027t understand why do we need $wgMathRestUrl *and* $wgMathDefaultRestbaseUrl. It would be much better to have only wgMathRestUrl and then use it *iff* wgVirtualRestConfig[\u0027modules\u0027][\u0027restbase\u0027] is not set, and ignore it completely if it is.",
+      "revId": "da3293e9d33cefdfc6c221c0b332eb3b0719ee3a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_8356f45d",
+        "filename": "MathRestbaseInterface.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2015-11-27T15:59:02Z",
+      "side": 1,
+      "message": "RESTBase accepts \"inline-tex\" (small caps) only.",
+      "revId": "da3293e9d33cefdfc6c221c0b332eb3b0719ee3a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_234f08c3",
+        "filename": "MathRestbaseInterface.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2015-11-27T15:59:02Z",
+      "side": 1,
+      "message": "No need to check for $response[\u0027error\u0027], as it will never be set if $response[\u0027code\u0027] \u003d\u003d\u003d 200",
+      "revId": "da3293e9d33cefdfc6c221c0b332eb3b0719ee3a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_a3ca181b",
+        "filename": "MathRestbaseInterface.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2015-11-27T15:59:02Z",
+      "side": 1,
+      "message": "the error check seems superfluous.",
+      "revId": "da3293e9d33cefdfc6c221c0b332eb3b0719ee3a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_83d594bc",
+        "filename": "extension.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2015-11-27T15:59:02Z",
+      "side": 1,
+      "message": "Pointing the default URI to labs should be avoided at all costs. Better to leave it out and instruct users to set it up correctly.",
+      "revId": "da3293e9d33cefdfc6c221c0b332eb3b0719ee3a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
