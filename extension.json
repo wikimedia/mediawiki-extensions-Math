@@ -22,6 +22,7 @@
 		"MathLaTeXML": "MathLaTeXML.php",
 		"MathInputCheck": "MathInputCheck.php",
 		"MathInputCheckTexvc": "MathInputCheckTexvc.php",
+		"MathInputCheckRestbase": "MathInputCheckRestbase.php",
 		"SpecialMathShowImage": "SpecialMathShowImage.php",
 		"SpecialMathStatus": "SpecialMathStatus.php"
 	},
