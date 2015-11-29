@@ -572,7 +572,7 @@ abstract class MathRenderer {
 					return true;
 				}
 			}
-			$checker = new MathInputCheckTexvc( $this->userInputTex );
+			$checker = new MathInputCheckRestbase( $this->userInputTex );
 			if ( $checker->isValid() ) {
 				$this->setTex( $checker->getValidTex() );
 				$this->texSecure = true;

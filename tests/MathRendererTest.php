@@ -8,6 +8,25 @@ class MathRendererTest extends MediaWikiTestCase {
 	const SOME_TEX = "a+b";
 	const TEXVCCHECK_INPUT = '\forall \epsilon \exist \delta';
 	const TEXVCCHECK_OUTPUT = '\forall \epsilon \exists \delta '; // be aware of the s at exists
+
+	protected static $hasRestbase;
+
+	public static function setUpBeforeClass() {
+		$rbi = new MathRestbaseInterface();
+		self::$hasRestbase = $rbi->checkBackend( true );
+	}
+
+	/**
+	 * Sets up the fixture, for example, opens a network connection.
+	 * This method is called before a test is executed.
+	 */
+	protected function setUp() {
+		parent::setUp();
+		if ( !self::$hasRestbase ) {
+			$this->markTestSkipped( "Can not connect to Restbase Math interface." );
+		}
+	}
+
 	/**
 	 * Checks the tex and hash functions
 	 * @covers MathRenderer::getTex()
