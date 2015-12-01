@@ -8,10 +8,12 @@
 			"Sannab",
 			"WikiPhoenix",
 			"Lokal Profil",
-			"Jopparn"
+			"Jopparn",
+			"Fader"
 		]
 	},
 	"math-desc": "Ritar matematiska ekvationer mellan <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-taggar",
+	"math-visualeditor-mwmathdialog-card-options": "Alternativ",
 	"math-visualeditor-mwmathinspector-display": "Visa",
 	"math-visualeditor-mwmathinspector-display-block": "Block",
 	"math-visualeditor-mwmathinspector-display-default": "Standard",
