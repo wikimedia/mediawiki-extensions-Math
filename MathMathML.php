@@ -20,6 +20,7 @@ class MathMathML extends MathRenderer {
 	/** @var boolean if false MathML output is not validated */
 	private $XMLValidation = true;
 	protected $inputType = 'tex';
+	private $svgPath = false;
 
 	/**
 	 * @param string $inputType
@@ -85,6 +86,22 @@ class MathMathML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	public function render( $forceReRendering = false ) {
+		if ( $this->inputType == 'tex' ) {
+			$tex = $this->getTex();
+			$displaystyle = false;
+			if ( $this->getMathStyle() == 'inlineDisplaystyle' ) {
+				// default preserve the (broken) layout as it was
+				$tex = '{\\displaystyle ' . $tex . '}';
+			} elseif ( $this->getMathStyle() !== 'inline' ) {
+				$displaystyle = true;
+			}
+			$rbi = new MathRestbaseInterface( $tex, $displaystyle );
+			$rbi->checkTeX();
+			$this->mathml = $rbi->getMathML();
+			$this->svg = $rbi->getSvg();
+			$this->svgPath = $rbi->getFullSvgUrl();
+			return $rbi->getSuccess();
+		}
 		if ( $forceReRendering ) {
 			$this->setPurge( true );
 		}
@@ -218,14 +235,7 @@ class MathMathML extends MathRenderer {
 		} elseif ( $this->inputType == 'ascii' ) {
 			$out = 'type=asciimath&q=' . rawurlencode( $input );
 		} else {
-			if ( $this->getMathStyle() == 'inlineDisplaystyle' ) {
-				// default preserve the (broken) layout as it was
-				$out = 'type=inline-TeX&q=' . rawurlencode( '{\\displaystyle ' . $input . '}' );
-			} elseif ( $this->getMathStyle() == 'inline' ) {
-				$out = 'type=inline-TeX&q=' . rawurlencode( $input );
-			} else {
-				$out = 'type=tex&q=' . rawurlencode( $input );
-			}
+			throw new MWException( 'Internal error: Restbase should be used for tex rendering' );
 		}
 		LoggerFactory::getInstance( 'Math' )->debug( 'Get post data: ' . $out );
 		return $out;
@@ -322,6 +332,9 @@ class MathMathML extends MathRenderer {
 	 * @return type
 	 */
 	private function getFallbackImageUrl( $noRender = false ) {
+		if ( $this->svgPath ) {
+			return $this->svgPath;
+		}
 		return SpecialPage::getTitleFor( 'MathShowImage' )->getLocalURL( array(
 				'hash' => $this->getMd5(),
 				'mode' => $this->getMode(),
