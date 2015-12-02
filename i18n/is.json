@@ -24,6 +24,6 @@
 	"math_unknown_function": "óþekkt aðgerð „$1”",
 	"mw_math_mathml": "MathML með SVG eða PNG til vara (mælt með fyrir nútíma vafra og hjálpartæki)",
 	"mw_math_png": "PNG myndir",
-	"mw_math_source": "Sýna TeX jöfnu (fyrir textavafra)",
+	"mw_math_source": "TeX uppruni (fyrir textavafra)",
 	"prefs-math": "Stærðfræðiformúlur"
 }

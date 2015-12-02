@@ -12,6 +12,8 @@
 		]
 	},
 	"math-desc": "在 <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code> 標籤顯示數學公式",
+	"math-visualeditor-mwmathdialog-title": "公式",
+	"math-visualeditor-mwmathdialog-card-formula": "公式",
 	"math-visualeditor-mwmathinspector-display": "顯示",
 	"math-visualeditor-mwmathinspector-display-block": "區塊",
 	"math-visualeditor-mwmathinspector-display-default": "預設",
