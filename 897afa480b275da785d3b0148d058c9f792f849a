@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceb37bc7_2b3e8527",
+        "filename": "MathRenderer.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2015-12-03T09:05:53Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be getCheckedTex() ?",
+      "revId": "897afa480b275da785d3b0148d058c9f792f849a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
