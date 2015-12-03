@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceb37bc7_f195ba43",
+        "filename": "modules/ve-math/ve.ui.MWMathDialog.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-12-03T15:21:41Z",
+      "side": 1,
+      "message": "overflow: scroll will show greyed-out scrollbars all the time, i.e. even when the content doesn\u0027t overflow. You want overflow: auto.",
+      "revId": "ac095f70794e0996028bc83c87353f4ae5e1b506",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
