@@ -563,7 +563,7 @@ abstract class MathRenderer {
 	 * @return bool
 	 */
 	public function checkTex() {
-		if ( $this->texSecure || self::getDisableTexFilter() == 'never' ) {
+		if ( $this->texSecure || self::getDisableTexFilter() == 'always' ) {
 			// equation was already checked or checking is disabled
 			return true;
 		} else {
