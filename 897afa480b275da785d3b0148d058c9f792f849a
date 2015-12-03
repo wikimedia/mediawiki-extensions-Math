@@ -16,6 +16,24 @@
       "revId": "897afa480b275da785d3b0148d058c9f792f849a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb37bc7_0b8701de",
+        "filename": "MathRenderer.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-03T09:17:00Z",
+      "side": 1,
+      "message": "no:\nIn MathInputCheckRestbase.php\n\tpublic function getValidTex() {\n\t\treturn $this-\u003erestbaseInterface-\u003egetCheckedTex();\n\t}\noverwrites MathInputCheck.php\n\tpublic function getValidTex() {\n\t\treturn $this-\u003evalidTeX;\n\t}",
+      "parentUuid": "ceb37bc7_2b3e8527",
+      "revId": "897afa480b275da785d3b0148d058c9f792f849a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
