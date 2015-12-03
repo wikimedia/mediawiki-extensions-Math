@@ -64,8 +64,8 @@ class MathRendererTest extends MediaWikiTestCase {
 
 	}
 
-	public function testCheckingAlways() {
-		$this->setMwGlobals( "wgMathDisableTexFilter", 'always' );
+	public function testDisableCheckingAlways() {
+		$this->setMwGlobals( "wgMathDisableTexFilter", 'never' );
 		$renderer =
 			$this->getMockBuilder( 'MathRenderer' )->setMethods( array(
 					'render',
@@ -83,8 +83,8 @@ class MathRendererTest extends MediaWikiTestCase {
 
 	}
 
-	public function testCheckingNever() {
-		$this->setMwGlobals( "wgMathDisableTexFilter", 'never' );
+	public function testDisableCheckingNever() {
+		$this->setMwGlobals( "wgMathDisableTexFilter", 'always' );
 		$renderer =
 			$this->getMockBuilder( 'MathRenderer' )->setMethods( array(
 					'render',
