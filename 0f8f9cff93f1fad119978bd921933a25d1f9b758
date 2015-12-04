@@ -34,6 +34,24 @@
       "revId": "0f8f9cff93f1fad119978bd921933a25d1f9b758",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb37bc7_3e3f96d5",
+        "filename": "MathMathML.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2015-12-04T18:06:32Z",
+      "side": 1,
+      "message": "From what I can tell, setting displaystyle will send a request with type\u003dinline-tex, while if disabled the type will be set to tex. So it looks to me like this is a change in that behaviour, unless I\u0027m missing something.",
+      "parentUuid": "ceb37bc7_dea2fa3a",
+      "revId": "0f8f9cff93f1fad119978bd921933a25d1f9b758",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
