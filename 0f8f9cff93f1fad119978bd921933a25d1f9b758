@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceb37bc7_7e918efa",
+        "filename": "MathMathML.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2015-12-04T17:40:33Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this set $displaystyle \u003d true as well (the removed code below does so) ?",
+      "revId": "0f8f9cff93f1fad119978bd921933a25d1f9b758",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
