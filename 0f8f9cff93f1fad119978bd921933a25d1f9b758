@@ -16,6 +16,24 @@
       "revId": "0f8f9cff93f1fad119978bd921933a25d1f9b758",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb37bc7_dea2fa3a",
+        "filename": "MathMathML.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-04T17:50:15Z",
+      "side": 1,
+      "message": "no, the corresponding line in the removed code is\n$out \u003d \u0027type\u003dinline-TeX\u0026q\u003d\u0027 ...\nwhich indicates that the equation is rendered in inline rendering mode.\nI know it sonds odd, but that\u0027s the way it currently is.\nThe background is that Wikipedia editors adjusted to texvc that converted their tex input using a latex document which escaped their input with two dollar sings (e.g. the input \\sum_i 2^i  was rendered using\n$$ \\sum_i 2^i $$\nwhich leds to large sum symbol.)\n\n... or am I wrong?",
+      "parentUuid": "ceb37bc7_7e918efa",
+      "revId": "0f8f9cff93f1fad119978bd921933a25d1f9b758",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
