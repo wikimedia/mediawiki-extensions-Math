@@ -27,7 +27,7 @@ OO.inheritClass( ve.ui.MWMathDialog, ve.ui.MWExtensionPreviewDialog );
 
 /* Static properties */
 
-ve.ui.MWMathDialog.static.name = 'math';
+ve.ui.MWMathDialog.static.name = 'mathDialog';
 
 ve.ui.MWMathDialog.static.icon = 'math';
 
