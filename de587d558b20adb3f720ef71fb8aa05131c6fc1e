@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "aeb807a7_b0f419bb",
+        "filename": "modules/ve-math/ve.ui.MWMathContextItem.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-12-07T18:36:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeb807a7_d67aeab8",
+      "revId": "de587d558b20adb3f720ef71fb8aa05131c6fc1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aeb807a7_968472a5",
         "filename": "modules/ve-math/ve.ui.MWMathContextItem.js",
         "patchSetId": 1
@@ -47,6 +65,24 @@
       "writtenOn": "2015-12-07T18:32:15Z",
       "side": 1,
       "message": "remove commented code",
+      "revId": "de587d558b20adb3f720ef71fb8aa05131c6fc1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeb807a7_d0f18dc9",
+        "filename": "modules/ve-math/ve.ui.MWMathContextItem.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-12-07T18:36:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeb807a7_968472a5",
       "revId": "de587d558b20adb3f720ef71fb8aa05131c6fc1e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "aeb807a7_70bea1d3",
+        "filename": "modules/ve-math/ve.ui.MWMathContextItem.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-12-07T18:36:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeb807a7_b6817694",
+      "revId": "de587d558b20adb3f720ef71fb8aa05131c6fc1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aeb807a7_105e4a7c",
         "filename": "modules/ve-math/ve.ui.MWMathDialogTool.js",
         "patchSetId": 1
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "aeb807a7_d012ed00",
+        "filename": "modules/ve-math/ve.ui.MWMathDialogTool.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-12-07T18:36:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeb807a7_105e4a7c",
+      "revId": "de587d558b20adb3f720ef71fb8aa05131c6fc1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aeb807a7_30634e3d",
         "filename": "modules/ve-math/ve.ui.MWMathDialogTool.js",
         "patchSetId": 1
@@ -98,6 +170,24 @@
       "writtenOn": "2015-12-07T00:47:36Z",
       "side": 1,
       "message": "same here",
+      "revId": "de587d558b20adb3f720ef71fb8aa05131c6fc1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeb807a7_70d78129",
+        "filename": "modules/ve-math/ve.ui.MWMathDialogTool.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2015-12-07T18:36:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeb807a7_30634e3d",
       "revId": "de587d558b20adb3f720ef71fb8aa05131c6fc1e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
