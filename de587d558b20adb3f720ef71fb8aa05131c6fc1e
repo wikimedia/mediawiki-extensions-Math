@@ -2,6 +2,74 @@
   "comments": [
     {
       "key": {
+        "uuid": "aeb807a7_167162dd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-12-07T18:32:15Z",
+      "side": 1,
+      "message": "-WIP",
+      "revId": "de587d558b20adb3f720ef71fb8aa05131c6fc1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeb807a7_d67aeab8",
+        "filename": "modules/ve-math/ve.ui.MWMathContextItem.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-12-07T18:32:15Z",
+      "side": 1,
+      "message": "not a link",
+      "revId": "de587d558b20adb3f720ef71fb8aa05131c6fc1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeb807a7_968472a5",
+        "filename": "modules/ve-math/ve.ui.MWMathContextItem.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-12-07T18:32:15Z",
+      "side": 1,
+      "message": "remove commented code",
+      "revId": "de587d558b20adb3f720ef71fb8aa05131c6fc1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeb807a7_b6817694",
+        "filename": "modules/ve-math/ve.ui.MWMathContextItem.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-12-07T18:32:15Z",
+      "side": 1,
+      "message": "yes",
+      "revId": "de587d558b20adb3f720ef71fb8aa05131c6fc1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aeb807a7_105e4a7c",
         "filename": "modules/ve-math/ve.ui.MWMathDialogTool.js",
         "patchSetId": 1
