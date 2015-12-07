@@ -225,8 +225,10 @@ ve.ui.MWMathDialog.prototype.getSetupProcess = function ( data ) {
 ve.ui.MWMathDialog.prototype.getReadyProcess = function ( data ) {
 	return ve.ui.MWMathDialog.super.prototype.getReadyProcess.call( this, data )
 		.next( function () {
-			this.input.focus().moveCursorToEnd();
 			return this.symbolsPromise;
+		}, this )
+		.next( function () {
+			this.input.focus().moveCursorToEnd();
 		}, this );
 };
 
