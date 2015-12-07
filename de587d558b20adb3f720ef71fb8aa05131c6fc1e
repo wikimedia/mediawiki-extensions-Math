@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeb807a7_105e4a7c",
+        "filename": "modules/ve-math/ve.ui.MWMathDialogTool.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-12-07T00:47:36Z",
+      "side": 1,
+      "message": "2nd arg is command name I think, so mathDialog",
+      "revId": "de587d558b20adb3f720ef71fb8aa05131c6fc1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeb807a7_30634e3d",
+        "filename": "modules/ve-math/ve.ui.MWMathDialogTool.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2015-12-07T00:47:36Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "de587d558b20adb3f720ef71fb8aa05131c6fc1e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
