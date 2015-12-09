@@ -100,6 +100,7 @@ class MathMathML extends MathRenderer {
 			$this->mathml = $rbi->getMathML();
 			$this->svg = $rbi->getSvg();
 			$this->svgPath = $rbi->getFullSvgUrl();
+			$this->changed = false;
 			return $rbi->getSuccess();
 		}
 		if ( $forceReRendering ) {
