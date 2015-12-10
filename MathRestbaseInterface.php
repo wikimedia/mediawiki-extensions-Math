@@ -80,8 +80,10 @@ class MathRestbaseInterface {
 			$this->identifiers = $json->identifiers;
 			return true;
 		} else {
-			$this->success = $json->detail->success;
-			$this->error = $json->detail;
+			if ( isset( $json->detail ) && isset( $json->detail->success ) ) {
+				$this->success = $json->detail->success;
+				$this->error = $json->detail;
+			}
 			return false;
 		}
 	}
