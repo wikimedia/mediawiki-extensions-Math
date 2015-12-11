@@ -86,7 +86,7 @@ class MathMathML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	public function render( $forceReRendering = false ) {
-		if ( $this->inputType == 'tex' ) {
+		if ( $this->inputType == 'tex' && $this->mode == 'mathml' ) {
 			$tex = $this->getTex();
 			$displaystyle = false;
 			if ( $this->getMathStyle() == 'inlineDisplaystyle' ) {
@@ -96,10 +96,12 @@ class MathMathML extends MathRenderer {
 				$displaystyle = true;
 			}
 			$rbi = new MathRestbaseInterface( $tex, $displaystyle );
-			$rbi->checkTeX();
-			$this->mathml = $rbi->getMathML();
-			$this->svg = $rbi->getSvg();
-			$this->svgPath = $rbi->getFullSvgUrl();
+			if ( $rbi->checkTeX() ) {
+				$this->mathml = $rbi->getMathML();
+				$this->svg = $rbi->getSvg();
+				$this->svgPath = $rbi->getFullSvgUrl();
+			}
+			$this->changed = false;
 			return $rbi->getSuccess();
 		}
 		if ( $forceReRendering ) {

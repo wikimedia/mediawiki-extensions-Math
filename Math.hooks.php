@@ -194,7 +194,7 @@ class MathHooks {
 
 		$renderer = MathRenderer::getRenderer( $content, $attributes, $mode );
 
-		$checkResult = $renderer->checkTex();
+		$checkResult = $renderer->checkTeX();
 
 		if ( $checkResult !== true ) {
 			// Returns the error message
@@ -202,7 +202,7 @@ class MathHooks {
 		}
 
 		if ( $renderer->render() ) {
-			LoggerFactory::getInstance( 'Math' )->info( "Rendering successful. Writing output" );
+			LoggerFactory::getInstance( 'Math' )->debug( "Rendering successful. Writing output" );
 			$renderedMath = $renderer->getHtmlOutput();
 		} else {
 			LoggerFactory::getInstance( 'Math' )->warning(

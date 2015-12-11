@@ -165,7 +165,7 @@ abstract class MathRenderer {
 			default:
 				$renderer = new MathMathML( $tex, $params );
 		}
-		LoggerFactory::getInstance( 'Math' )->info( 'Start rendering $' . $renderer->tex .
+		LoggerFactory::getInstance( 'Math' )->debug( 'Start rendering $' . $renderer->tex .
 			'$ in mode ' . $mode );
 		return $renderer;
 	}
@@ -322,7 +322,7 @@ abstract class MathRenderer {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
 			$dbw = $dbw ?: wfGetDB( DB_MASTER );
-			LoggerFactory::getInstance( 'Math' )->info( 'Store entry for $' . $this->tex .
+			LoggerFactory::getInstance( 'Math' )->debug( 'Store entry for $' . $this->tex .
 				'$ in database (hash:' . $this->getMd5() . ')' );
 			$outArray = $this->dbOutArray();
 			$method = __METHOD__;
@@ -562,7 +562,7 @@ abstract class MathRenderer {
 	 * @global $wgMathDisableTexFilter
 	 * @return bool
 	 */
-	public function checkTex() {
+	public function checkTeX() {
 		if ( $this->texSecure || self::getDisableTexFilter() == 'always' ) {
 			// equation was already checked or checking is disabled
 			return true;
@@ -573,14 +573,16 @@ abstract class MathRenderer {
 				}
 			}
 			$checker = new MathInputCheckRestbase( $this->userInputTex );
-			if ( $checker->isValid() ) {
-				$this->setTex( $checker->getValidTex() );
-				$this->texSecure = true;
-				return true;
-			} else {
-				$this->lastError = $checker->getError();
-				return false;
+			try {
+				if ( $checker->isValid() ) {
+					$this->setTex( $checker->getValidTex() );
+					$this->texSecure = true;
+					return true;
+				}
+			} catch ( MWException $e ) {
 			}
+			$this->lastError = $checker->getError();
+			return false;
 		}
 	}
 

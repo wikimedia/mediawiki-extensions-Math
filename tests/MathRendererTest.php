@@ -96,9 +96,9 @@ class MathRendererTest extends MediaWikiTestCase {
 		$renderer->expects( $this->never() )->method( 'readFromDatabase' );
 		$renderer->expects( $this->once() )->method( 'setTex' )->with( self::TEXVCCHECK_OUTPUT );
 
-		$this->assertEquals( $renderer->checkTex(), true );
+		$this->assertEquals( $renderer->checkTeX(), true );
 		// now setTex sould not be called again
-		$this->assertEquals( $renderer->checkTex(), true );
+		$this->assertEquals( $renderer->checkTeX(), true );
 
 	}
 
@@ -115,7 +115,7 @@ class MathRendererTest extends MediaWikiTestCase {
 		$renderer->expects( $this->never() )->method( 'readFromDatabase' );
 		$renderer->expects( $this->never() )->method( 'setTex' );
 
-		$this->assertEquals( $renderer->checkTex(), true );
+		$this->assertEquals( $renderer->checkTeX(), true );
 	}
 
 	public function testCheckingNewUnknown() {
@@ -132,9 +132,9 @@ class MathRendererTest extends MediaWikiTestCase {
 			->will( $this->returnValue( false ) );
 		$renderer->expects( $this->once() )->method( 'setTex' )->with( self::TEXVCCHECK_OUTPUT );
 
-		$this->assertEquals( $renderer->checkTex(), true );
+		$this->assertEquals( $renderer->checkTeX(), true );
 		// now setTex sould not be called again
-		$this->assertEquals( $renderer->checkTex(), true );
+		$this->assertEquals( $renderer->checkTeX(), true );
 	}
 
 	public function testCheckingNewKnown() {
@@ -151,9 +151,9 @@ class MathRendererTest extends MediaWikiTestCase {
 			->will( $this->returnValue( true ) );
 		$renderer->expects( $this->never() )->method( 'setTex' );
 
-		$this->assertEquals( $renderer->checkTex(), true );
+		$this->assertEquals( $renderer->checkTeX(), true );
 		// we don't mark a object as checked even though we rely on the database cache
 		// so readFromDatabase will be called again
-		$this->assertEquals( $renderer->checkTex(), true );
+		$this->assertEquals( $renderer->checkTeX(), true );
 	}
 }

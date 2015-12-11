@@ -38,6 +38,17 @@ class MathInputCheckRestbase extends MathInputCheck {
 		if ( isset( $e->error->message ) ){
 			if ( $e->error->message === 'Illegal TeX function' ) {
 				return $errorRenderer->getError( 'math_unknown_function', $e->error->found );
+			} elseif ( preg_match( '/Math extension/', $e->error->message ) ) {
+				$names = MathHooks::getMathNames();
+				$mode = $names['mathml'];
+				try {
+					$host = $this->restbaseInterface->getUrl( '' );
+				}
+				catch ( Exception $ignore ) {
+					$host = 'invalid';
+				}
+				$msg = $e->error->message;
+				return $errorRenderer->getError( 'math_invalidresponse', $mode, $host, $msg );
 			}
 			return $errorRenderer->getError( 'math_syntax_error' );
 		}
