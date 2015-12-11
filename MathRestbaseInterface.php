@@ -43,7 +43,7 @@ class MathRestbaseInterface {
 		$this->calculateHash();
 		$request = array(
 			'method' => 'GET',
-			'url'    => self::getUrl( "media/math/render/$type/{$this->hash}" )
+			'url'    => $this->getUrl( "media/math/render/$type/{$this->hash}" )
 		);
 		$serviceClient = $this->getServiceClient();
 		$response = $serviceClient->run( $request );
@@ -83,6 +83,9 @@ class MathRestbaseInterface {
 			if ( isset( $json->detail ) && isset( $json->detail->success ) ) {
 				$this->success = $json->detail->success;
 				$this->error = $json->detail;
+			} else {
+				$this->success = false;
+				$this->setErrorMessage( 'Math extension cannot connect to Restbase.' );
 			}
 			return false;
 		}
@@ -104,7 +107,7 @@ class MathRestbaseInterface {
 			'body'   => $post
 		);
 		$serviceClient = $this->getServiceClient();
-		$request['url'] = self::getUrl( "media/math/check/{$this->type}" );
+		$request['url'] = $this->getUrl( "media/math/check/{$this->type}" );
 		$response = $serviceClient->run( $request );
 		if ( $response['code'] === 200 ) {
 			$res = $response['body'];
@@ -156,7 +159,7 @@ class MathRestbaseInterface {
 	 * @return string
 	 * @throws MWException
 	 */
-	private static function getUrl( $path, $internal = true ) {
+	public function getUrl( $path, $internal = true ) {
 		global $wgVirtualRestConfig, $wgMathFullRestbaseURL, $wgVisualEditorFullRestbaseURL;
 		if ( $internal && isset( $wgVirtualRestConfig['modules']['restbase'] ) ) {
 			return "/mathoid/local/v1/$path";
@@ -167,8 +170,9 @@ class MathRestbaseInterface {
 		if ( $wgVisualEditorFullRestbaseURL ) {
 			return "{$wgVisualEditorFullRestbaseURL}v1/$path";
 		}
-		throw new MWException( 'Math extension can not find Restbase URL.'.
-			' Please specify $wgMathFullRestbaseURL.' );
+		$msg = 'Math extension can not find Restbase URL. Please specify $wgMathFullRestbaseURL.';
+		$this->setErrorMessage( $msg );
+		throw new MWException( $msg );
 	}
 
 	/**
@@ -190,7 +194,7 @@ class MathRestbaseInterface {
 		try {
 			$request = array(
 				'method' => 'GET',
-				'url'    => self::getUrl( '?spec' )
+				'url'    => $this->getUrl( '?spec' )
 			);
 		} catch ( Exception $e ) {
 			return false;
@@ -244,7 +248,7 @@ class MathRestbaseInterface {
 	 */
 	public function getFullSvgUrl() {
 		$this->calculateHash();
-		return self::getUrl( "media/math/render/svg/{$this->hash}", false );
+		return $this->getUrl( "media/math/render/svg/{$this->hash}", false );
 	}
 
 	/**
@@ -287,6 +291,13 @@ class MathRestbaseInterface {
 	 */
 	public function getType() {
 		return $this->type;
+	}
+
+	private function setErrorMessage( $msg ) {
+		$this->error = (object)array(
+				'error' =>
+						(object)array( 'message' => $msg )
+		);
 	}
 
 }
