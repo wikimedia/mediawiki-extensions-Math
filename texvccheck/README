@@ -72,6 +72,6 @@ texvc output format is like this:
 Before you start hacking on the math package its good to know the workflow,
 which is basically:
 
-1. texvc gets called by Math/Math.body.php (check out the line begining with "$cmd")
+1. texvc gets called by Math/Math.body.php (check out the line beginning with "$cmd")
 2. texvc does its magic, which is basically to check for invalid latex code.
 3. texvc takes the user input validates it and replaces MediaWiki specific functions
