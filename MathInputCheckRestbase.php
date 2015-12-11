@@ -38,9 +38,18 @@ class MathInputCheckRestbase extends MathInputCheck {
 		if ( isset( $e->error->message ) ){
 			if ( $e->error->message === 'Illegal TeX function' ) {
 				return $errorRenderer->getError( 'math_unknown_function', $e->error->found );
+			} elseif ( $e->error->message === 'cannot connect to restbase' ){
+				$mode = $errorRenderer->getModeStr( 'mathml' );
+				try{
+					$host = $this->restbaseInterface->getUrl( '' );
+				} catch ( Error $ignore ) {
+					$host = 'invalid';
+				}
+				$msg = 'no connection';
+				return $errorRenderer->getError( 'math_invalidresponse',  $mode, $host, $msg );
 			}
 			return $errorRenderer->getError( 'math_syntax_error' );
-		}
+		} elseif( $e )
 		return $errorRenderer->getError( 'math_unknown_error' );
 	}
 	/**

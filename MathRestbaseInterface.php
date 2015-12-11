@@ -83,6 +83,10 @@ class MathRestbaseInterface {
 			if ( isset( $json->detail ) && isset( $json->detail->success ) ) {
 				$this->success = $json->detail->success;
 				$this->error = $json->detail;
+			} else {
+				$this->success = false;
+				$this->error = (object) array( 'error' =>
+					array( 'message' => 'cannot connect to restbase' ) );
 			}
 			return false;
 		}
@@ -156,7 +160,7 @@ class MathRestbaseInterface {
 	 * @return string
 	 * @throws MWException
 	 */
-	private static function getUrl( $path, $internal = true ) {
+	public static function getUrl( $path, $internal = true ) {
 		global $wgVirtualRestConfig, $wgMathFullRestbaseURL, $wgVisualEditorFullRestbaseURL;
 		if ( $internal && isset( $wgVirtualRestConfig['modules']['restbase'] ) ) {
 			return "/mathoid/local/v1/$path";
