@@ -114,7 +114,7 @@ If the first renders, but the second doesn't, you need to install AMS*.
 Before you start hacking on the math package its good to know the workflow,
 which is basically:
 
-1. texvc gets called by Math/Math.body.php (check out the line begining with "$cmd")
+1. texvc gets called by Math/Math.body.php (check out the line beginning with "$cmd")
 2. texvc does its magic, which is basically to check for invalid latex code.
 3. texvc takes the user input if valid and creates a latex file containing it, see
    get_preface in texutil.ml
