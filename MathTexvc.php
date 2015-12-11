@@ -465,4 +465,18 @@ class MathTexvc extends MathRenderer {
 	public function setOutputHash( $hash ) {
 		$this->hash = $hash;
 	}
+
+	/**
+	 * Skip tex check for texvc rendering mode.
+	 * Checking the tex code in texvc mode just adds a dependency to the
+	 * texvccheck binary which does not improve security since the same
+	 * checks are performed by texvc anyhow. Especially given the fact that
+	 * texvccheck was derived from texvc.
+	 * @return bool
+	 */
+	public function checkTex() {
+		return true;
+	}
+
+
 }

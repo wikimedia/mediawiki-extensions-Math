@@ -86,7 +86,7 @@ class MathMathML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	public function render( $forceReRendering = false ) {
-		if ( $this->inputType == 'tex' ) {
+		if ( $this->inputType == 'tex' && $this->mode == 'mathml' ) {
 			$tex = $this->getTex();
 			$displaystyle = false;
 			if ( $this->getMathStyle() == 'inlineDisplaystyle' ) {
