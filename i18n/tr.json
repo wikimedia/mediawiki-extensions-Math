@@ -41,6 +41,7 @@
 	"math-visualeditor-symbol-group-sets": "Kümeler",
 	"math-visualeditor-symbol-group-special": "Özel",
 	"math-visualeditor-symbol-group-subscripts": "Alt simge, üst simge ve integraller",
+	"math-visualeditor-symbol-group-symbols": "Semboller ve sabitler",
 	"math-visualeditor-symbol-group-unsorted": "Sınıflandırılmamış",
 	"math_bad_output": "Math çıktı dizinine yazılamıyor ya da oluşturulamıyor",
 	"math_bad_tmpdir": "Math geçici dizinine yazılamıyor ya da oluşturulamıyor",

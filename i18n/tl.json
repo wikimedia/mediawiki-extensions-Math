@@ -6,9 +6,12 @@
 		]
 	},
 	"math-desc": "Iharap ang mga pormulang pangmatematika sa pagitan ng mga tatak na <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwmathdialog-card-formula": "Pormula",
 	"math-visualeditor-symbol-group-arrows": "Tala-palasuan (arrows)",
 	"math-visualeditor-symbol-group-derivatives": "Deribatibo",
 	"math-visualeditor-symbol-group-geometry": "Heometriya",
+	"math-visualeditor-symbol-group-greek": "Alpabetong Griyego",
+	"math-visualeditor-symbol-group-hebrew": "Alpabetong Ebreo",
 	"math-visualeditor-symbol-group-logic": "Lohika",
 	"math-visualeditor-symbol-group-modular": "Modular",
 	"math-visualeditor-symbol-group-operators": "Mga tagapagpaandar:",
