@@ -1,0 +1,8 @@
+Verified+2: jenkins-bot
+Code-Review+1: GWicke <gwicke@wikimedia.org>
+Code-Review+2: Esanders <esanders@wikimedia.org>
+Submitted-by: jenkins-bot
+Submitted-at: Sat, 12 Dec 2015 19:38:16 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/258426
+Project: mediawiki/extensions/Math
+Branch: refs/heads/master
