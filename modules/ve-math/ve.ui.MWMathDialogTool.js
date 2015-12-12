@@ -11,7 +11,7 @@
  * MediaWiki UserInterface math tool.
  *
  * @class
- * @extends ve.ui.DialogTool
+ * @extends ve.ui.FragmentWindowTool
  * @constructor
  * @param {OO.ui.ToolGroup} toolGroup
  * @param {Object} [config] Configuration options
@@ -19,7 +19,7 @@
 ve.ui.MWMathDialogTool = function VeUiMWMathDialogTool( toolGroup, config ) {
 	ve.ui.MWMathDialogTool.super.call( this, toolGroup, config );
 };
-OO.inheritClass( ve.ui.MWMathDialogTool, ve.ui.DialogTool );
+OO.inheritClass( ve.ui.MWMathDialogTool, ve.ui.FragmentWindowTool );
 ve.ui.MWMathDialogTool.static.name = 'math';
 ve.ui.MWMathDialogTool.static.group = 'object';
 ve.ui.MWMathDialogTool.static.icon = 'math';
