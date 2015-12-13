@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Ebrahimi-amir",
-			"Koroğlu"
+			"Koroğlu",
+			"Alp Er Tunqa"
 		]
 	},
 	"mw_math_mathjax": "MathJax (آزمایشی)",
 	"mw_math_png": "بوتونلوکله PNG چکیلسین",
 	"mw_math_source": "TeX قالیبینده قالسین (یازی بروزرلر اوچون)",
-	"prefs-math": "ریاضیات علامت‌لری"
+	"prefs-math": "ریاضیات علامت‌لری",
+	"mathstatus": "ریاضی وضعیت"
 }

@@ -1,0 +1,35 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hosseinblue"
+		]
+	},
+	"math-visualeditor-mwmathinspector-display": "نمایش",
+	"math-visualeditor-mwmathinspector-display-block": "بۀستن",
+	"math-visualeditor-mwmathinspector-display-default": "پیش‌فرض",
+	"math-visualeditor-mwmathinspector-display-inline": "درخط",
+	"math-visualeditor-mwmathinspector-id": "شناسه پیوند (اختیاری)",
+	"math-visualeditor-mwmathinspector-title": "فرمول",
+	"math-visualeditor-symbol-group-special": "ویژۀ",
+	"math_bad_output": "امکان ایجاد یا نوشتن اطلاعات در پوشه خروجی (output) ریاضی وجود ندارد.",
+	"math_bad_tmpdir": "امکان ایجاد یا نوشتن اطلاعات در پوشه موقت (temp) ریاضی وجود ندارد.",
+	"math_failure": "شکست در تجزیه",
+	"math_image_error": "تبدیل به PNG شکست خورد؛ از نصب درست لاتکس و dvipng (یا dvips و gs و convert) اطمینان حاصل کنید",
+	"math_invalidjson": "پاسخ سرور $1 جی‌سن نامعتبر است.",
+	"math_invalidresponse": "پاسخ نامعتبر $1 (\"$3\") از سرور \"$2\":",
+	"math_invalidxml": "MathML یا SVG اکس‌ام‌ال نامعتبر است.",
+	"math_lexing_error": "خطای lexing",
+	"math_mathoid_error": "خطای تبدیل. سرور («$1») گزارش داد: «$2»",
+	"math_notexvc": "برنامهٔ اجرایی <code>texvc</code> موجود نیست. برای اطلاعات بیشتر به <span dir=ltr>math/README</span> مراجعه کنید.",
+	"math_output_error": "نمی‌تواند عکس ریاضی را در سامانه‌های پرونده ذخیره کند.",
+	"math_sample": "درج فرمول در اینجا",
+	"math_syntax_error": "خطای نحوی",
+	"math_timeout": "$1 زمان از دست رفتن از «$2»",
+	"math_tip": "فرمول ریاضی (LaTeX)",
+	"math_unknown_error": "خطای نادیاری/ناشنا",
+	"math_unknown_function": "تابع ناشناختهٔ '$1'",
+	"mw_math_latexml": "لته ایکس‌ام ال (تجربی؛ از مت‌ ام‌ال استفاده می‌کند)",
+	"mw_math_png": "تصاویر PNG",
+	"prefs-math": "نمایش ریاضیات",
+	"mathstatus": "وضعیت ریاضی"
+}
