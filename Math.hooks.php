@@ -194,7 +194,7 @@ class MathHooks {
 
 		$renderer = MathRenderer::getRenderer( $content, $attributes, $mode );
 
-		$checkResult = $renderer->checkTex();
+		$checkResult = $renderer->checkTeX();
 
 		if ( $checkResult !== true ) {
 			// Returns the error message

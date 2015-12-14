@@ -562,7 +562,7 @@ abstract class MathRenderer {
 	 * @global $wgMathDisableTexFilter
 	 * @return bool
 	 */
-	public function checkTex() {
+	public function checkTeX() {
 		if ( $this->texSecure || self::getDisableTexFilter() == 'always' ) {
 			// equation was already checked or checking is disabled
 			return true;

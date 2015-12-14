@@ -474,7 +474,7 @@ class MathTexvc extends MathRenderer {
 	 * texvccheck was derived from texvc.
 	 * @return bool
 	 */
-	public function checkTex() {
+	public function checkTeX() {
 		return true;
 	}
 
