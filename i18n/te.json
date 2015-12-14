@@ -6,7 +6,9 @@
 			"Veeven"
 		]
 	},
+	"math-visualeditor-mwmathdialog-card-options": "ఎంపికలు",
 	"math-visualeditor-mwmathinspector-display-default": "అప్రమేయం",
+	"math-visualeditor-symbol-group-relations": "సంబంధాలు",
 	"math_bad_output": "math ఔట్‌పుట్ డైరెక్టరీని సృష్టించలేకపోడం కానీ, అందులో రాయలేకపోవడంగానీ జరిగింది",
 	"math_bad_tmpdir": "math తాత్కాలిక డైరెక్టరీని సృష్టించలేకపోడం కానీ, అందులో రాయలేకపోవడంగానీ జరిగింది",
 	"math_failure": "పార్స్ చెయ్యలేకపోయాం",
