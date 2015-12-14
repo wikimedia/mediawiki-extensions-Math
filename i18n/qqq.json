@@ -74,6 +74,7 @@
 	"math_tip": "This is the text that appears when you hover the mouse over the fourth button from the right on the edit toolbar.",
 	"math_unknown_error": "Used as error message for unknown texvc error.\n\nThis message follows the message {{msg-mw|Math failure}}.\n{{Identical|Unknown error}}",
 	"math_unknown_function": "Used as error message when texvc encounters an unknown function.\n\nPreceded by the message {{msg-mw|Math failure}}.\n\nParameters:\n* $1 - name of unknown function",
+	"math-wikidata-unsupported-format": "Used as error message when the math formatter gets an unsupported format. \n\n * $1 the format which is not supported",
 	"mw_math_latexml": "Used as label for latexml radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math source}}\n* {{msg-mw|Mw math mathjax}}",
 	"mw_math_latexml_jax": "Used as label for latexml (with mathjax enabled) radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math source}}\n* {{msg-mw|Mw math mathjax}}\n* {{msg-mw|Mw math latexml}}",
 	"mw_math_mathjax": "Used as label for mathjax radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math source}}\n* {{msg-mw|Mw math latexml}}",
