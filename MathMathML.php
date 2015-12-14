@@ -96,10 +96,11 @@ class MathMathML extends MathRenderer {
 				$displaystyle = true;
 			}
 			$rbi = new MathRestbaseInterface( $tex, $displaystyle );
-			$rbi->checkTeX();
-			$this->mathml = $rbi->getMathML();
-			$this->svg = $rbi->getSvg();
-			$this->svgPath = $rbi->getFullSvgUrl();
+			if ( $rbi->checkTeX() ) {
+				$this->mathml = $rbi->getMathML();
+				$this->svg = $rbi->getSvg();
+				$this->svgPath = $rbi->getFullSvgUrl();
+			}
 			$this->changed = false;
 			return $rbi->getSuccess();
 		}
