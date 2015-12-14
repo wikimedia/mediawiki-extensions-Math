@@ -46,7 +46,7 @@ class MathTexvc extends MathRenderer {
 		$out['math_html'] = $this->html;
 		$out['math_mathml'] = utf8_encode( $this->getMathml() );
 		$out['math_inputhash'] = $this->getInputHash();
-		LoggerFactory::getInstance( 'Math' )->info( 'Store Hashpath of image' .
+		LoggerFactory::getInstance( 'Math' )->debug( 'Store Hashpath of image' .
 			bin2hex( $outmd5_sql ) );
 		return $out;
 	}
@@ -68,7 +68,7 @@ class MathTexvc extends MathRenderer {
 			$xhash = unpack( 'H32md5',
 				$dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
 			$this->hash = $xhash['md5'];
-			LoggerFactory::getInstance( 'Math' )->info( 'Hashpath of PNG-File:' .
+			LoggerFactory::getInstance( 'Math' )->debug( 'Hashpath of PNG-File:' .
 				bin2hex( $this->hash ) );
 			$this->conservativeness = $rpage->math_html_conservativeness;
 			$this->html = $rpage->math_html;

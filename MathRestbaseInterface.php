@@ -116,7 +116,7 @@ class MathRestbaseInterface {
 			return true;
 		} else {
 			$res = $response['body'];
-			$this->log()->debug( 'Tex check failed:', array(
+			$this->log()->info( 'Tex check failed:', array(
 				'post'     => $post,
 				'error'    => $response['error'],
 				'url'      => $request['url']

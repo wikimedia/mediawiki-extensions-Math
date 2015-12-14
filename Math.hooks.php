@@ -202,7 +202,7 @@ class MathHooks {
 		}
 
 		if ( $renderer->render() ) {
-			LoggerFactory::getInstance( 'Math' )->info( "Rendering successful. Writing output" );
+			LoggerFactory::getInstance( 'Math' )->debug( "Rendering successful. Writing output" );
 			$renderedMath = $renderer->getHtmlOutput();
 		} else {
 			LoggerFactory::getInstance( 'Math' )->warning(
