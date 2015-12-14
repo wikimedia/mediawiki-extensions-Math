@@ -24,7 +24,10 @@
 		"MathInputCheckTexvc": "MathInputCheckTexvc.php",
 		"MathInputCheckRestbase": "MathInputCheckRestbase.php",
 		"SpecialMathShowImage": "SpecialMathShowImage.php",
-		"SpecialMathStatus": "SpecialMathStatus.php"
+		"SpecialMathStatus": "SpecialMathStatus.php",
+		"MathValidator": "MathValidator.php",
+		"MathFormatter": "MathFormatter.php",
+		"MathWikidataHook": "MathWikidataHook.php"
 	},
 	"DefaultUserOptions": {
 		"math": "png"
@@ -57,6 +60,12 @@
 		],
 		"EditPageBeforeEditToolbar": [
 			"MathHooks::onEditPageBeforeEditToolbar"
+		],
+		"WikibaseClientDataTypes": [
+			"MathWikidataHook::onWikibaseClientDataTypes"
+		],
+		"WikibaseRepoDataTypes": [
+			"MathWikidataHook::onWikibaseRepoDataTypes"
 		]
 	},
 	"config": {
