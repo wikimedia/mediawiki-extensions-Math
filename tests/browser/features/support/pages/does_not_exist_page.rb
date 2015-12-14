@@ -14,5 +14,5 @@ class DoesNotExistPage
 
   page_url '<%=params[:page_name]%>'
 
-  a(:create_source, text: 'Create source')
+  a(:action_edit, css: 'li#ca-edit > span > a')
 end

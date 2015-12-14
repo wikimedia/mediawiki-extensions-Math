@@ -15,7 +15,7 @@ Feature: Math
   Scenario: Display simple math
     Given I am logged in
       And I am at page that does not exist
-    When I click link Create source
+    When I click link Create
       And I type <math>3 + 2</math>
       And I click Preview
     Then the page should contain an img tag

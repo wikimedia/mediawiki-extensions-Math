@@ -14,8 +14,8 @@ Given(/^I am at page that does not exist$/) do
   visit(DoesNotExistPage, using_params: { page_name: @random_string })
 end
 
-When(/^I click link Create source$/) do
-  on(DoesNotExistPage).create_source_element.when_present.click
+When(/^I click link Create$/) do
+  on(DoesNotExistPage).action_edit_element.when_present.click
 end
 
 When(/^I click Preview$/) do
