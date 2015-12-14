@@ -7,6 +7,13 @@
  */
 
 use MediaWiki\Logger\LoggerFactory;
+use ValueFormatters\FormatterOptions;
+use ValueFormatters\StringFormatter;
+use ValueParsers\StringParser;
+use Wikibase\Lib\EscapingValueFormatter;
+use Wikibase\Repo\Parsers\WikibaseStringValueNormalizer;
+use Wikibase\Repo\WikibaseRepo;
+
 
 class MathHooks {
 	const MATHCACHEKEY = 'math=';
@@ -370,5 +377,29 @@ class MathHooks {
 		}
 		$wgMathDisableTexFilter = MathRenderer::getDisableTexFilter();
 		$wgDefaultUserOptions['math'] = self::mathModeToString( $wgDefaultUserOptions['math'] );
+	}
+
+	public static function onWikibaseRepoDataTypes( array &$dataTypeDefinitions ) {
+		$newStringParser = function( ParserOptions $options ) {
+			$repo = WikibaseRepo::getDefaultInstance();
+			$normalizer = new WikibaseStringValueNormalizer( $repo->getStringNormalizer() );
+			return new StringParser( $normalizer );
+		};
+		$dataTypeDefinitions['PT:math'] = array(
+				'value-type'                 => 'string',
+				'validator-factory-callback' => function() {
+					$factory = WikibaseRepo::getDefaultValidatorBuilders();
+					return $factory->buildStringValidators();
+				},
+				'parser-factory-callback' => $newStringParser,
+				'formatter-factory-callback' => function( $format, FormatterOptions $options ) {
+					// $factory = WikibaseRepo::getDefaultFormatterBuilders();
+					// return $factory->newStringFormatter( $format, $options );
+					return new MathFormatter( new StringFormatter( $options ), 'wfEscapeWikiText' );
+				},
+		);
+	}
+	public static function onWikibaseClientDataTypes( array &$dataTypeDefinitions ) {
+		self::onWikibaseRepoDataTypes($dataTypeDefinitions);
 	}
 }
