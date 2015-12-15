@@ -9,7 +9,7 @@
  * Dialog for inserting and editing formulas.
  *
  * @class
- * @extends ve.ui.MWExtensionDialog
+ * @extends ve.ui.MWExtensionPreviewDialog
  *
  * @constructor
  * @param {Object} [config] Configuration options
