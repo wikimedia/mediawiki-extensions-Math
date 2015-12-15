@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_3f4304b8",
+        "filename": "Math.hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2015-12-15T11:58:52Z",
+      "side": 1,
+      "message": "I recommend to explicitey document which hook this function handles.",
+      "revId": "65d9e00245471af93b3b5a1b0f1d8cf5c8890dc4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_bf2ff4f2",
+        "filename": "Math.hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2015-12-15T11:58:52Z",
+      "side": 1,
+      "message": "Probably best to do this inline below, like for the other callbacks.\nI only pulled this out in WikibaseRepo.datatypes.php because it\u0027s the same for many data types.",
+      "revId": "65d9e00245471af93b3b5a1b0f1d8cf5c8890dc4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_bf7db4e6",
+        "filename": "Math.hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2015-12-15T11:58:52Z",
+      "side": 1,
+      "message": "Don\u0027t use the same formatter for all values of $format, that\u0027s EXTREMELY dangerous! The current implementation of MathFormatter will put the TeX text into the output directly, with no processing/escaping. For $format \u003d \u0027text/html\u0027 (which is used for showing values on item pages), this would allow injection of raw HTML - a classic XSS vector.\n\nYou will want one formatter for wikitext output, and a different one for HTML output (probably the same for all three html formats). You\u0027ll also need one for plain text output, which would probably just return the TeX as-is.\n\nI recommend to implement the plain text one for now, and use EscapingValueFormatter to wrap the formatter and apply escaping depending on the $format parameter.",
+      "revId": "65d9e00245471af93b3b5a1b0f1d8cf5c8890dc4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_df343049",
+        "filename": "Math.hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2015-12-15T11:58:52Z",
+      "side": 1,
+      "message": "missing a blank line between functions.",
+      "revId": "65d9e00245471af93b3b5a1b0f1d8cf5c8890dc4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_df82f0cc",
+        "filename": "MathFormatter.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2015-12-15T11:58:52Z",
+      "side": 1,
+      "message": "Please document the intent of this class. In particular, the documentation (and probably the name) should clearly state what output format this formatter generates (plain, wikitext, or html? you will need three formatters, probably).",
+      "revId": "65d9e00245471af93b3b5a1b0f1d8cf5c8890dc4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_5f4040a8",
+        "filename": "MathFormatter.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2015-12-15T11:58:52Z",
+      "side": 1,
+      "message": "space before the {",
+      "revId": "65d9e00245471af93b3b5a1b0f1d8cf5c8890dc4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_bf1614ab",
+        "filename": "MathFormatter.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2015-12-15T11:58:52Z",
+      "side": 1,
+      "message": "The type should be defiend to be StringValue",
+      "revId": "65d9e00245471af93b3b5a1b0f1d8cf5c8890dc4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_9f15589f",
+        "filename": "MathFormatter.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2015-12-15T11:58:52Z",
+      "side": 1,
+      "message": "@return string. The interface is somewhat under-specified, sorry.",
+      "revId": "65d9e00245471af93b3b5a1b0f1d8cf5c8890dc4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_5f27e00d",
+        "filename": "MathFormatter.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2015-12-15T11:58:52Z",
+      "side": 1,
+      "message": "Extra space here.",
+      "revId": "65d9e00245471af93b3b5a1b0f1d8cf5c8890dc4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_1f4ac8c8",
+        "filename": "MathFormatter.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2015-12-15T11:58:52Z",
+      "side": 1,
+      "message": "Why is this called $type? It\u0027s not a type, it\u0027s a TeX string, right? So call it $tex or $math or soemthing like that.",
+      "revId": "65d9e00245471af93b3b5a1b0f1d8cf5c8890dc4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_7f873cdd",
+        "filename": "MathFormatter.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2015-12-15T11:58:52Z",
+      "side": 1,
+      "message": "This is correct if the requested output format is wikitext. If the requested format is HTML, this is not only wrong, it\u0027s extremely dangerous!",
+      "revId": "65d9e00245471af93b3b5a1b0f1d8cf5c8890dc4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_9f8c7801",
+        "filename": "MathFormatter.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2015-12-15T11:58:52Z",
+      "side": 1,
+      "message": "You\u0027ll want that for HTML output, yes.\nIf you want to be lazy, you could just run \"\u003cmath\u003e$type\u003c/math\u003e\" through the MediaWiki-Parser to turn wikitext into HTML...",
+      "revId": "65d9e00245471af93b3b5a1b0f1d8cf5c8890dc4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_ff4c8ce6",
+        "filename": "MathFormatter.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2015-12-15T11:58:52Z",
+      "side": 1,
+      "message": "phpcs wants a blank line after every function. It\u0027s silly, but whatever.",
+      "revId": "65d9e00245471af93b3b5a1b0f1d8cf5c8890dc4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_3f71c40b",
+        "filename": "MathValidator.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2015-12-15T11:58:52Z",
+      "side": 1,
+      "message": "This method should just be empty. I think it should be removed from the interface, it\u0027s a Bad Idea (tm).",
+      "revId": "65d9e00245471af93b3b5a1b0f1d8cf5c8890dc4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
