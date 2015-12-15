@@ -5,10 +5,13 @@
 			"Siddhartha Ghai",
 			"आलोक",
 			"संजीव कुमार",
-			"NehalDaveND"
+			"NehalDaveND",
+			"Sfic"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> टैगों के बीच गणितीय सूत्र रेंडर करें",
+	"math-visualeditor-mwmathdialog-title": "सूत्र",
+	"math-visualeditor-mwmathdialog-card-options": "विकल्प",
 	"math-visualeditor-mwmathinspector-display": "प्रदर्शन",
 	"math-visualeditor-mwmathinspector-display-block": "अवरोध",
 	"math-visualeditor-mwmathinspector-display-default": "डिफ़ॉल्ट",
