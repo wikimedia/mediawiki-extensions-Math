@@ -14,7 +14,6 @@ use Wikibase\Lib\EscapingValueFormatter;
 use Wikibase\Repo\Parsers\WikibaseStringValueNormalizer;
 use Wikibase\Repo\WikibaseRepo;
 
-
 class MathHooks {
 	const MATHCACHEKEY = 'math=';
 
@@ -393,13 +392,11 @@ class MathHooks {
 				},
 				'parser-factory-callback' => $newStringParser,
 				'formatter-factory-callback' => function( $format, FormatterOptions $options ) {
-					// $factory = WikibaseRepo::getDefaultFormatterBuilders();
-					// return $factory->newStringFormatter( $format, $options );
 					return new MathFormatter( new StringFormatter( $options ), 'wfEscapeWikiText' );
 				},
 		);
 	}
 	public static function onWikibaseClientDataTypes( array &$dataTypeDefinitions ) {
-		self::onWikibaseRepoDataTypes($dataTypeDefinitions);
+		self::onWikibaseRepoDataTypes( $dataTypeDefinitions );
 	}
 }

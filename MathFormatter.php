@@ -5,9 +5,9 @@ use ValueFormatters\FormatterOptions;
 use ValueFormatters\ValueFormatter;
 use ValueFormatters\ValueFormatterBase;
 
-class MathFormatter implements ValueFormatter{
+class MathFormatter implements ValueFormatter {
 
-	/**
+	/*
 	 * Formats a value.
 	 *
 	 * @since 0.1
@@ -17,8 +17,8 @@ class MathFormatter implements ValueFormatter{
 	 * @return mixed
 	 * @throws \ValueFormatters\FormattingException
 	 */
-	public function format(  $value ) {
-		$type=$value->getValue();
+	public function format( $value ) {
+		$type =$value->getValue();
 		return "<math>$type</math>";
 		// TODO: Implement format() method.
 	}
