@@ -228,7 +228,8 @@ ve.ui.MWMathDialog.prototype.getReadyProcess = function ( data ) {
 			return this.symbolsPromise;
 		}, this )
 		.next( function () {
-			this.input.focus().moveCursorToEnd();
+			// Resize the input once the dialog has been appended
+			this.input.adjustSize( true ).focus().moveCursorToEnd();
 		}, this );
 };
 
