@@ -44,7 +44,7 @@ ve.ui.MWMathDialog.static.symbols = null;
 /* static methods */
 
 /**
- *	Set the symbols property
+ * Set the symbols property
  *
  * @param {Object} symbols The math symbols and their group names
  */
@@ -101,8 +101,7 @@ ve.ui.MWMathDialog.prototype.initialize = function () {
 
 	this.input = new ve.ui.MWAceEditorWidget( {
 		multiline: true,
-		autosize: true,
-		maxRows: 7,
+		rows: 1, // This will be recalculated later in onWindowManagerResize
 		autocomplete: 'live'
 	} ).setLanguage( 'latex' );
 
@@ -230,6 +229,8 @@ ve.ui.MWMathDialog.prototype.getReadyProcess = function ( data ) {
 		.next( function () {
 			// Resize the input once the dialog has been appended
 			this.input.adjustSize( true ).focus().moveCursorToEnd();
+			this.getManager().connect( this, { resize: 'onWindowManagerResize' } );
+			this.onWindowManagerResize();
 		}, this );
 };
 
@@ -242,13 +243,14 @@ ve.ui.MWMathDialog.prototype.getTeardownProcess = function ( data ) {
 			this.input.off( 'change', this.onChangeHandler );
 			this.displaySelect.off( 'choose', this.onChangeHandler );
 			this.idInput.off( 'change', this.onChangeHandler );
+			this.getManager().disconnect( this );
 		}, this );
 };
 
 /**
  * @inheritdoc
  */
- ve.ui.MWMathDialog.prototype.updateMwData = function ( mwData ) {
+ve.ui.MWMathDialog.prototype.updateMwData = function ( mwData ) {
 	var display, id;
 
 	// Parent method
@@ -261,13 +263,33 @@ ve.ui.MWMathDialog.prototype.getTeardownProcess = function ( data ) {
 	// Update attributes
 	mwData.attrs.display = display !== 'default' ? display : undefined;
 	mwData.attrs.id = id || undefined;
- };
+};
 
 /**
  * @inheritdoc
  */
 ve.ui.MWMathDialog.prototype.getBodyHeight = function () {
 	return 600;
+};
+
+/**
+ * Handle the window resize event
+ */
+ve.ui.MWMathDialog.prototype.onWindowManagerResize = function () {
+	var dialog = this;
+	this.input.loadingPromise.done( function () {
+		// Wait for the window resize transition to finish
+		setTimeout( function () {
+			var availableSpace, maxInputHeight, singleLineHeight, minRows,
+				border = 1,
+				padding = 3;
+			availableSpace = dialog.menuLayout.$content.height() - dialog.input.$element.position().top;
+			singleLineHeight = 19;
+			maxInputHeight = availableSpace - 2 * ( border + padding );
+			minRows = Math.floor( maxInputHeight / singleLineHeight );
+			dialog.input.setMinRows( minRows );
+		}, 250 );
+	} );
 };
 
 /**
