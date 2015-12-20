@@ -1,0 +1,8 @@
+Verified+2: jenkins-bot
+Code-Review+1: Physikerwelt <wiki@physikerwelt.de>
+Code-Review+2: Esanders <esanders@wikimedia.org>
+Submitted-by: jenkins-bot
+Submitted-at: Sun, 20 Dec 2015 12:57:58 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/260180
+Project: mediawiki/extensions/Math
+Branch: refs/heads/master
