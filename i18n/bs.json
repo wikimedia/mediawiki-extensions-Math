@@ -6,12 +6,17 @@
 			"Srdjan m"
 		]
 	},
+	"math-visualeditor-mwmathdialog-card-formula": "Formula",
+	"math-visualeditor-mwmathdialog-card-options": "Opcije",
 	"math-visualeditor-mwmathinspector-display": "Prikaži",
 	"math-visualeditor-mwmathinspector-display-block": "Blok",
 	"math-visualeditor-mwmathinspector-display-default": "Predodređeno",
 	"math-visualeditor-mwmathinspector-display-inline": "U redu",
 	"math-visualeditor-mwmathinspector-id": "ID linka (neobavezno)",
 	"math-visualeditor-mwmathinspector-title": "Formula",
+	"math-visualeditor-symbol-group-accents": "Akcenti i dijakritički znakovi",
+	"math-visualeditor-symbol-group-functions": "Standardne numeričke funkcije",
+	"math-visualeditor-symbol-group-projections": "Projekcije",
 	"math_bad_output": "Ne može se napisati ili napraviti direktorijum za matematični izvještaj.",
 	"math_bad_tmpdir": "Ne može se napisati ili napraviti privremeni matematični direktorijum",
 	"math_failure": "Neuspjeh pri parsiranju",
