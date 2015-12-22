@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_4a3e0ab7",
+        "filename": "MathFormatter.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-22T16:58:20Z",
+      "side": 1,
+      "message": "private $format;",
+      "revId": "c5420cbbd8a5a86314789a5705d4b57257aca03a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_6a3986ca",
+        "filename": "MathFormatter.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-22T16:58:20Z",
+      "side": 1,
+      "message": "$this-\u003eformat \u003d $format;",
+      "revId": "c5420cbbd8a5a86314789a5705d4b57257aca03a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_2a5aae22",
+        "filename": "MathFormatter.php",
+        "patchSetId": 12
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-22T16:58:20Z",
+      "side": 1,
+      "message": "have a look at the regular rendering code\n\t\t$checkResult \u003d $renderer-\u003echeckTex();\n\n\t\tif ( $checkResult !\u003d\u003d true ) {\n\t\t\t// Returns the error message\n\t\t\treturn $renderer-\u003egetLastError();\n\t\t}\n\n\t\tif ( $renderer-\u003erender() ) {\n\t\t\tLoggerFactory::getInstance( \u0027Math\u0027 )-\u003edebug( \"Rendering successful. Writing output\" );\n\t\t\t$renderedMath \u003d $renderer-\u003egetHtmlOutput();\n\t\t} else {\n\t\t\tLoggerFactory::getInstance( \u0027Math\u0027 )-\u003ewarning(\n\t\t\t\t\"Rendering failed. Printing error message.\" );\n\t\t\treturn $renderer-\u003egetLastError();\n\t\t}",
+      "revId": "c5420cbbd8a5a86314789a5705d4b57257aca03a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
