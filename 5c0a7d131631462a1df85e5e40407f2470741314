@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_ec24b609",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-22T12:54:59Z",
+      "side": 1,
+      "message": "The commit message is really hard to understand. Maybe explain in simple english word what you did.",
+      "revId": "5c0a7d131631462a1df85e5e40407f2470741314",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_0c2032f1",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-22T12:54:59Z",
+      "side": 1,
+      "message": "The arguments, i.e. the argument should be explained",
+      "revId": "5c0a7d131631462a1df85e5e40407f2470741314",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_8c8bc2e7",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-22T12:54:59Z",
+      "side": 1,
+      "message": "I think the validator should check if the input is a valid texvc string. I can not see how a string validator can do that.",
+      "revId": "5c0a7d131631462a1df85e5e40407f2470741314",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_2c72ce10",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-22T12:54:59Z",
+      "side": 1,
+      "message": "can you explain what the normalizer does. I could imagine that the validation and normalization is the same thing for math.",
+      "revId": "5c0a7d131631462a1df85e5e40407f2470741314",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_cc81bac9",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-22T12:54:59Z",
+      "side": 1,
+      "message": "remove that",
+      "revId": "5c0a7d131631462a1df85e5e40407f2470741314",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_ece11698",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-22T12:54:59Z",
+      "side": 1,
+      "message": "You can pass that as an argument in the constructor. I think one formatter with different options is enough.",
+      "revId": "5c0a7d131631462a1df85e5e40407f2470741314",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_2c596e90",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-22T12:54:59Z",
+      "side": 1,
+      "message": "do not use die statements. I think we want to log an error message in that case and show some default format. even throwing an exception would be bad. since it might break functionality even for useres that do not want to work with math at all. die statements should not used at all in production.",
+      "revId": "5c0a7d131631462a1df85e5e40407f2470741314",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_4c54ea56",
+        "filename": "Math.hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-22T12:54:59Z",
+      "side": 1,
+      "message": "Don\u0027t put TODOs in the code. Create a phabricator ticket instead.",
+      "revId": "5c0a7d131631462a1df85e5e40407f2470741314",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_acc47e12",
+        "filename": "MathFormatterHtml.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-22T12:54:59Z",
+      "side": 1,
+      "message": "You want to write something like\n\n$renderer \u003d new MathMathMLRenderer($tex);\n$renderer-\u003echeck();\nreturn $renderer-\u003egethtmloutput();",
+      "revId": "5c0a7d131631462a1df85e5e40407f2470741314",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_4cd38ad7",
+        "filename": "MathValidator.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-22T12:54:59Z",
+      "side": 1,
+      "message": "you need to replace that with the call to MathInputCheckRestbase",
+      "revId": "5c0a7d131631462a1df85e5e40407f2470741314",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
