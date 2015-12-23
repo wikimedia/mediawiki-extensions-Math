@@ -8,12 +8,14 @@
 			"Simon Shek",
 			"Cwlin0416",
 			"LNDDYL",
-			"PhiLiP"
+			"PhiLiP",
+			"Bowleerin"
 		]
 	},
 	"math-desc": "在 <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code> 標籤顯示數學公式",
 	"math-visualeditor-mwmathdialog-title": "公式",
 	"math-visualeditor-mwmathdialog-card-formula": "公式",
+	"math-visualeditor-mwmathdialog-card-options": "選項",
 	"math-visualeditor-mwmathinspector-display": "顯示",
 	"math-visualeditor-mwmathinspector-display-block": "區塊",
 	"math-visualeditor-mwmathinspector-display-default": "預設",
@@ -21,6 +23,7 @@
 	"math-visualeditor-mwmathinspector-id": "連結 ID (選填)",
 	"math-visualeditor-mwmathinspector-title": "公式",
 	"math-visualeditor-symbol-group-functions": "函數",
+	"math-visualeditor-symbol-group-special": "特殊",
 	"math_bad_output": "無法寫入或建立數學公式輸出目錄",
 	"math_bad_tmpdir": "無法寫入或建立數學公式暫存目錄",
 	"math_failure": "解析失敗",
