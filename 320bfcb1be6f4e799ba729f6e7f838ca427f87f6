@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_554f8697",
+        "filename": "MathFormatter.php",
+        "patchSetId": 13
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-24T11:58:09Z",
+      "side": 1,
+      "message": "this line does not makes sense at all. You might have wanted to write:\n$wgOut-\u003eaddModuleStyles( $styles );\n\nMove this code to the formatter registration in ...hooks.php",
+      "revId": "320bfcb1be6f4e799ba729f6e7f838ca427f87f6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_35752ac9",
+        "filename": "extension.json",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-24T11:58:09Z",
+      "side": 1,
+      "message": "Remove the classes and the associates files.",
+      "revId": "320bfcb1be6f4e799ba729f6e7f838ca427f87f6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
