@@ -16,6 +16,40 @@
       "revId": "c7c205b32785b7a4843399f3a0f500421d526dd8",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_0088dc22",
+        "filename": "MathValidator.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T11:08:33Z",
+      "side": 1,
+      "message": "maybe:\npublic function validate( DataValue $value ) {\nor even StringValue",
+      "revId": "c7c205b32785b7a4843399f3a0f500421d526dd8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_6090b046",
+        "filename": "tests/MathFormatterTest.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T11:08:33Z",
+      "side": 1,
+      "message": "You do not need tu use Mocks.\n$validator \u003d new MathValidator();\n$dv \u003d new \\DataValues\\StringValue(\"a+b\");\n...",
+      "revId": "c7c205b32785b7a4843399f3a0f500421d526dd8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
