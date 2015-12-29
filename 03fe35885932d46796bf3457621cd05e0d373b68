@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_a01228ff",
+        "filename": "Math.hooks.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T10:57:33Z",
+      "side": 1,
+      "message": "// that add basic vaidation such as preventing empty strings",
+      "revId": "03fe35885932d46796bf3457621cd05e0d373b68",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_40d9f45a",
+        "filename": "Math.hooks.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T10:57:33Z",
+      "side": 1,
+      "message": "this comment does not give extra information",
+      "revId": "03fe35885932d46796bf3457621cd05e0d373b68",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_20e63814",
+        "filename": "Math.hooks.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T10:57:33Z",
+      "side": 1,
+      "message": "@Daniel Kinzler: Do we need this?",
+      "revId": "03fe35885932d46796bf3457621cd05e0d373b68",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_c0e2c42d",
+        "filename": "MathFormatter.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T10:57:33Z",
+      "side": 1,
+      "message": "Add more text.\nOutputs different things based on the $value..",
+      "revId": "03fe35885932d46796bf3457621cd05e0d373b68",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_e0dd8074",
+        "filename": "MathFormatter.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T10:57:33Z",
+      "side": 1,
+      "message": "Maybe \"text/plain\"",
+      "revId": "03fe35885932d46796bf3457621cd05e0d373b68",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_20d39862",
+        "filename": "MathFormatter.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T10:57:33Z",
+      "side": 1,
+      "message": "check or remove",
+      "revId": "03fe35885932d46796bf3457621cd05e0d373b68",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_20fcf8d4",
+        "filename": "MathFormatter.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T10:57:33Z",
+      "side": 1,
+      "message": "can be removed",
+      "revId": "03fe35885932d46796bf3457621cd05e0d373b68",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_00f9bce5",
+        "filename": "MathFormatter.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T10:57:33Z",
+      "side": 1,
+      "message": "line too long:\ncreate\n$log \u003d LoggerFactory::getInstance( \u0027Math\u0027 );\nin the beginning of the function and call\n$log-\u003edebug (...)",
+      "revId": "03fe35885932d46796bf3457621cd05e0d373b68",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_c0c964af",
+        "filename": "MathFormatter.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T10:57:33Z",
+      "side": 1,
+      "message": "Risk for html injections... just print an error.",
+      "revId": "03fe35885932d46796bf3457621cd05e0d373b68",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_c0488434",
+        "filename": "MathValidator.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T10:57:33Z",
+      "side": 1,
+      "message": "Just use the checker directly:\n$checker \u003d new MathInputCheckRestbase( $this-\u003euserInputTex );",
+      "revId": "03fe35885932d46796bf3457621cd05e0d373b68",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_e0434013",
+        "filename": "MathValidator.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T10:57:33Z",
+      "side": 1,
+      "message": "this gets\n$checker-\u003eisValid()",
+      "revId": "03fe35885932d46796bf3457621cd05e0d373b68",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_20595801",
+        "filename": "MathValidator.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T10:57:33Z",
+      "side": 1,
+      "message": "maybe one can get additional information with\n$checker-\u003egetError();",
+      "revId": "03fe35885932d46796bf3457621cd05e0d373b68",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
