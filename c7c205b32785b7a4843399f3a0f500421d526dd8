@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_40a7b4ba",
+        "filename": "MathValidator.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-29T10:55:56Z",
+      "side": 1,
+      "message": "what is mixed.\nCan we assume that $value is an object that has a function getValue?",
+      "revId": "c7c205b32785b7a4843399f3a0f500421d526dd8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
