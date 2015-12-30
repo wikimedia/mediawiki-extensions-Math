@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_492118ab",
+        "filename": "tests/MathFormatterTest.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-30T07:54:59Z",
+      "side": 1,
+      "message": "put . at the end of the line before",
+      "revId": "5a47dc407ec1d7d9ddcfd72a955862498d9c3500",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_e917a454",
+        "filename": "tests/MathFormatterTest.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-30T07:54:59Z",
+      "side": 1,
+      "message": "that\u0027s a string of length 0 not null\nRename the test to testEmptyString",
+      "revId": "5a47dc407ec1d7d9ddcfd72a955862498d9c3500",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_091b2083",
+        "filename": "tests/MathFormatterTest.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-30T07:54:59Z",
+      "side": 1,
+      "message": "the assertion is missing",
+      "revId": "5a47dc407ec1d7d9ddcfd72a955862498d9c3500",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_a911ac60",
+        "filename": "tests/MathFormatterTest.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2015-12-30T07:54:59Z",
+      "side": 1,
+      "message": "assertion is missing",
+      "revId": "5a47dc407ec1d7d9ddcfd72a955862498d9c3500",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
