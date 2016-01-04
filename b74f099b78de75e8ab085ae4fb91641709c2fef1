@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_096c692c",
+        "filename": "Math.hooks.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-01-04T17:11:59Z",
+      "side": 1,
+      "message": "This creates dependencies on Wikibase, as well as several libraries. Are these dependencies mentioned in composer.json?",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_8957f95a",
+        "filename": "Math.hooks.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-01-04T17:11:59Z",
+      "side": 1,
+      "message": "This is a 400 lines file already. Please create a new file exclusively for the Wikibase stuff, if possible.",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_69d95df7",
+        "filename": "MathFormatter.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-01-04T17:11:59Z",
+      "side": 1,
+      "message": "This part of the documentation describes something that\u0027s not in this methods signature. Please move up to the constructor.",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_c9d091ce",
+        "filename": "MathFormatter.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-01-04T17:11:59Z",
+      "side": 1,
+      "message": "This big comment suggests that the code in question should be extracted to a private method with a self-explaining name.",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_a90e758f",
+        "filename": "MathFormatter.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-01-04T17:11:59Z",
+      "side": 1,
+      "message": "This regex does have a few issues. The most critical one is that it\u0027s not bound with an ^ at the start.\n\nI also suggest to move this to the constructor.\n\n$this-\u003ebaseFormat \u003d preg_replace( \u0027/ *;.*/\u0027, \u0027\u0027, $format );",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_692cfdf2",
+        "filename": "MathFormatter.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-01-04T17:11:59Z",
+      "side": 1,
+      "message": "Is this necessary? Shouldn\u0027t this be part of the render() call? Or is a try-catch around render() enough?",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_292285fc",
+        "filename": "MathFormatter.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-01-04T17:11:59Z",
+      "side": 1,
+      "message": "This should not be a message for the user, because this format is nothing the user can change (as far as I\u0027m aware of). This should be an exception.",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_a9cbd51f",
+        "filename": "MathFormatter.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-01-04T17:11:59Z",
+      "side": 1,
+      "message": "Please avoid such comments. They do not add anything.",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_e918edd9",
+        "filename": "MathValidator.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-01-04T17:11:59Z",
+      "side": 1,
+      "message": "Not correct.",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_297925f2",
+        "filename": "i18n/en.json",
+        "patchSetId": 22
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-01-04T17:11:59Z",
+      "side": 1,
+      "message": "This message is most probably not necessary.",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
