@@ -8,6 +8,7 @@
 		]
 	},
 	"math-desc": "Ergänzt das Tag <code>&lt;math&gt;</code> zum Darstellen mathematischer Formeln",
+	"math-visualeditor-mwmathcontextitem-quickedit": "Schnelle Bearbeitung",
 	"math-visualeditor-mwmathdialog-title": "Formel",
 	"math-visualeditor-mwmathdialog-card-formula": "Formel",
 	"math-visualeditor-mwmathdialog-card-options": "Optionen",

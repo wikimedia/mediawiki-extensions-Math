@@ -9,6 +9,7 @@
 		]
 	},
 	"math-desc": "הדפסת נוסחאות מתמטיות בין התגים <bdi><code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code></bdi>",
+	"math-visualeditor-mwmathcontextitem-quickedit": "עריכה מהירה",
 	"math-visualeditor-mwmathdialog-title": "נוסחה",
 	"math-visualeditor-mwmathdialog-card-formula": "נוסחה",
 	"math-visualeditor-mwmathdialog-card-options": "אפשרויות",
