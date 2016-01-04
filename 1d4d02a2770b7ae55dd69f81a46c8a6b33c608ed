@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_0f30e998",
+        "filename": "tests/MathFormatterTest.php",
+        "patchSetId": 21
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-04T22:22:46Z",
+      "side": 1,
+      "message": "please add \n\tpublic static function setUpBeforeClass() {\n\t\t$rbi \u003d new MathRestbaseInterface();\n\t\tself::$hasRestbase \u003d $rbi-\u003echeckBackend( true );\n\t}\n\n\t/**\n\t * Sets up the fixture, for example, opens a network connection.\n\t * This method is called before a test is executed.\n\t */\n\tprotected function setUp() {\n\t\tparent::setUp();\n\t\tif ( !self::$hasRestbase ) {\n\t\t\t$this-\u003emarkTestSkipped( \"Can not connect to Restbase Math interface.\" );\n\t\t}",
+      "revId": "1d4d02a2770b7ae55dd69f81a46c8a6b33c608ed",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
