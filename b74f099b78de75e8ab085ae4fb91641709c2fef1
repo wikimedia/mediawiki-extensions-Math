@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "6eaa8f54_e4b494d1",
+        "filename": "Math.hooks.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-01-04T20:15:42Z",
+      "side": 1,
+      "message": "Yes, please move the handler for the wikibase hooks into a separate class. Or move the factory callbacks to a separate class, then it would be ok to keep the hook handlers here, i think.",
+      "parentUuid": "6eaa8f54_0956a933",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6eaa8f54_8957f95a",
         "filename": "Math.hooks.php",
         "patchSetId": 22
@@ -48,6 +66,40 @@
       "writtenOn": "2016-01-04T17:11:59Z",
       "side": 1,
       "message": "This is a 400 lines file already. Please create a new file exclusively for the Wikibase stuff, if possible.",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_4475682b",
+        "filename": "MathFormatter.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-01-04T20:15:42Z",
+      "side": 1,
+      "message": "I would prefer one class per output type. For a simple class like this, it\u0027s not a huge issue, and you will need the switch anyway (either here or in the factory callback).",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_e48d742f",
+        "filename": "MathFormatter.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-01-04T20:15:42Z",
+      "side": 1,
+      "message": "Please validate the format here, not when it is used below. It\u0027s always nice to have a stack trace that points to the source of the bad input when reporting an error.",
       "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -105,6 +157,24 @@
     },
     {
       "key": {
+        "uuid": "6eaa8f54_a4ad3c9a",
+        "filename": "MathFormatter.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-01-04T20:15:42Z",
+      "side": 1,
+      "message": "Please don\u0027t use a regex to compare formats. Just compare the MIME types as they are. That also allows you to use the constants.\n\nBut none of this should be done here, really, see my comment above.",
+      "parentUuid": "6eaa8f54_a90e758f",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6eaa8f54_692cfdf2",
         "filename": "MathFormatter.php",
         "patchSetId": 22
@@ -122,6 +192,23 @@
     },
     {
       "key": {
+        "uuid": "6eaa8f54_04c69071",
+        "filename": "MathFormatter.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-01-04T20:15:42Z",
+      "side": 1,
+      "message": "Please output an appropriate message here.",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6eaa8f54_292285fc",
         "filename": "MathFormatter.php",
         "patchSetId": 22
@@ -133,6 +220,24 @@
       "writtenOn": "2016-01-04T17:11:59Z",
       "side": 1,
       "message": "This should not be a message for the user, because this format is nothing the user can change (as far as I\u0027m aware of). This should be an exception.",
+      "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_e4c01457",
+        "filename": "MathFormatter.php",
+        "patchSetId": 22
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-01-04T20:15:42Z",
+      "side": 1,
+      "message": "Yes, indeed. Please throw a FormatterException. Wikibase should handle those gracefully. Please try (for both HTML and Wikitext).",
+      "parentUuid": "6eaa8f54_292285fc",
       "revId": "b74f099b78de75e8ab085ae4fb91641709c2fef1",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
