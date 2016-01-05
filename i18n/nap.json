@@ -5,6 +5,7 @@
 		]
 	},
 	"math-desc": "Interpreta 'e formule matemateche nfra 'e tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwmathcontextitem-quickedit": "Cagnamient' 'e pressa",
 	"math-visualeditor-mwmathdialog-title": "Formula",
 	"math-visualeditor-mwmathdialog-card-formula": "Formula",
 	"math-visualeditor-mwmathdialog-card-options": "Opziune",

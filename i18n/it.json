@@ -8,6 +8,7 @@
 		]
 	},
 	"math-desc": "Esegue il rendering di formule matematiche tra i tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwmathcontextitem-quickedit": "Modifica rapida",
 	"math-visualeditor-mwmathdialog-title": "Formula",
 	"math-visualeditor-mwmathdialog-card-formula": "Formula",
 	"math-visualeditor-mwmathdialog-card-options": "Opzioni",
