@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_d7834755",
+        "filename": "MathFormatter.php",
+        "patchSetId": 24
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-05T19:04:33Z",
+      "side": 1,
+      "message": "this is not a string",
+      "revId": "bc068a75c9d1b5bc63fe7122bb43bc5e2d67acad",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_17f55fea",
+        "filename": "MathWikidataHook.php",
+        "patchSetId": 24
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-05T19:04:33Z",
+      "side": 1,
+      "message": "use tabs not spaces",
+      "revId": "bc068a75c9d1b5bc63fe7122bb43bc5e2d67acad",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_77ca93a4",
+        "filename": "i18n/qqq.json",
+        "patchSetId": 24
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-05T19:04:33Z",
+      "side": 1,
+      "message": "remove this line",
+      "revId": "bc068a75c9d1b5bc63fe7122bb43bc5e2d67acad",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
