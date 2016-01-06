@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_acd43518",
+        "filename": "MathFormatter.php",
+        "patchSetId": 25
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-06T22:19:58Z",
+      "side": 1,
+      "message": "please use the SnakFormatter::FORMAT_XXX constants",
+      "revId": "323010c95a7bc332f9ef36d615799f99cb8a892c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_6ccabd72",
+        "filename": "MathFormatter.php",
+        "patchSetId": 25
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-06T22:19:58Z",
+      "side": 1,
+      "message": "put all the HTML formats here",
+      "revId": "323010c95a7bc332f9ef36d615799f99cb8a892c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_eccc6dc2",
+        "filename": "MathWikidataHook.php",
+        "patchSetId": 25
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-06T22:19:58Z",
+      "side": 1,
+      "message": "isn\u0027t it sufficient to just return $validators here?",
+      "revId": "323010c95a7bc332f9ef36d615799f99cb8a892c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_6cf39dd2",
+        "filename": "MathWikidataHook.php",
+        "patchSetId": 25
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-06T22:19:58Z",
+      "side": 1,
+      "message": "This will not work if the formater doesn\u0027Ät get instantiated, e.g. because the content is coming from the parser cache. The styles need to be placed in the ParserOutput when generating the HTML. There is currently no good way to do that, though...",
+      "revId": "323010c95a7bc332f9ef36d615799f99cb8a892c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_8cf059c5",
+        "filename": "MathWikidataHook.php",
+        "patchSetId": 25
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-06T22:19:58Z",
+      "side": 1,
+      "message": "inconsistent whitespace",
+      "revId": "323010c95a7bc332f9ef36d615799f99cb8a892c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
