@@ -12,6 +12,7 @@
 		]
 	},
 	"math-desc": "Renderowanie formuł matematycznych między znacznikami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwmathcontextitem-quickedit": "Szybka edycja",
 	"math-visualeditor-mwmathdialog-title": "Wzory",
 	"math-visualeditor-mwmathdialog-card-formula": "Wzór",
 	"math-visualeditor-mwmathdialog-card-options": "Opcje",

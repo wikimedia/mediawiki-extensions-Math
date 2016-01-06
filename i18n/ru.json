@@ -10,10 +10,12 @@
 			"Kaganer",
 			"Frhdkazan",
 			"Translatobecomer",
-			"Iniquity"
+			"Iniquity",
+			"Ядерный Трамвай"
 		]
 	},
 	"math-desc": "Отображает математические формулы в тегах <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwmathcontextitem-quickedit": "Быстрая правка",
 	"math-visualeditor-mwmathdialog-title": "Формула",
 	"math-visualeditor-mwmathdialog-card-formula": "Формула",
 	"math-visualeditor-mwmathdialog-card-options": "Параметры",
