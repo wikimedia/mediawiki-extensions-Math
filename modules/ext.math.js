@@ -16,7 +16,7 @@
 			// Create a new PNG image to use as the fallback.
 			img = document.createElement( 'img' );
 			url = this.style.backgroundImage.match( /url\('?([^']*)'?\)/ )[ 1 ];
-			img.setAttribute( 'src', url.replace( 'mode=' + 'mathml', 'mode=' + 'png' ) );
+			img.setAttribute( 'src', url.replace( 'media/math/render/svg/', 'media/math/render/png/' ) );
 			img.setAttribute( 'class', 'tex mwe-math-fallback-image-' + ( $( this ).hasClass( 'mwe-math-fallback-image-inline' ) ? 'inline' : 'display' ) );
 			img.setAttribute( 'aria-hidden', 'true' );
 			this.parentNode.insertBefore( img, this );
