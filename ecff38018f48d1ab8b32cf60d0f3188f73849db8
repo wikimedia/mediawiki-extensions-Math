@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_0cf6a4f6",
+        "filename": "MathFormatter.php",
+        "patchSetId": 26
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-01-07T09:46:15Z",
+      "side": 1,
+      "message": "There should be a message in the exception saying that. You can remove the comment then.",
+      "revId": "ecff38018f48d1ab8b32cf60d0f3188f73849db8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_2cfb60df",
+        "filename": "MathFormatter.php",
+        "patchSetId": 26
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-01-07T09:46:15Z",
+      "side": 1,
+      "message": "Does not look like this @throws is correct.",
+      "revId": "ecff38018f48d1ab8b32cf60d0f3188f73849db8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
