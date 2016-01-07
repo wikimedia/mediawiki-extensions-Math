@@ -1794,5 +1794,9 @@
     [
         " ",
         "<strong class='error texerror'>Failed to parse (PNG conversion failed; check for correct installation of latex and dvipng (or dvips + gs + convert)):  <\/strong>\n"
+    ],
+    [
+        "\\begin{equation} \\label{squ} \\D := \\vcenter{\\xymatrix @=3pc {S \\ar @<1ex> [r] ^{s^1} \\ar @<-1ex> [r] _{t^1} \\ar @<1ex> [d]^{\\, t_2} \\ar @<-1ex> [d]_{s_2} & H \\ar[l] \\ar @<1ex> [d]^{\\,t} \\ar @<-1ex> [d]_s \\\\ V \\ar [u] \\ar @<1ex> [r] ^s \\ar @<-1ex> [r] _t & M \\ar [l] \\ar[u]}}, \\end{equation}",
+        "WIP"
     ]
 ]
