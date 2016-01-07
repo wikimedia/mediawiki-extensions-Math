@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Hintha",
-			"Lionslayer"
+			"Lionslayer",
+			"Ninjastrikers"
 		]
 	},
+	"math-visualeditor-mwmathcontextitem-quickedit": "အမြန်တည်းဖြတ်",
 	"math_sample": "ဤနေရာတွင် သင်္ချာပုံသေနည်း သုံးရန်",
 	"math_tip": "သင်္ချာပုံသေနည်း (LaTeX)",
 	"math_unknown_error": "အမည်မသိ အမှား",

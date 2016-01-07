@@ -54,9 +54,12 @@
 	"math_notexvc": "Eseguibile <code>texvc</code> mancante; per favore consultare math/README per la configurazione.",
 	"math_output_error": "Non è possibile archiviare l'immagine della formula matematica sul filesystem.",
 	"math_sample": "Inserire qui la formula",
+	"math-status-introduction": "Questa pagina mostra le informazioni sulle modalità di rappresentazioni abilitate per la matematica\n\n{{PLURAL:$1|La seguente modalità di rappresentazione è abilitata|Le seguenti modalità di rappresentazioni sono abilitate}}:",
 	"math_syntax_error": "errore di sintassi",
 	"math_timeout": "$1 timeout da \"$2\"",
+	"math-test-end": "Test backend per modalità di rappresentazione ''$1'' completato.",
 	"math-test-fail": "Test ''$1'' <span style=\"color:red\">fallito</span>.",
+	"math-test-start": "Esecuzione in corso del test backend per modalità di rappresentazione ''$1''.",
 	"math-test-success": "Test ''$1'' <span style=\"color:green\">riuscito</span>.",
 	"math-test-contains-diff": "La stringa restituita $1 non contiene la stringa attesa $2.",
 	"math-test-equals-diff": "La stringa restituita $1 è diversa dalla stringa prevista $2.",
@@ -69,5 +72,6 @@
 	"mw_math_mathml": "MathML, altrimenti SVG o PNG (consigliato per browser moderni e strumenti di accesso facilitato)",
 	"mw_math_png": "Immagini PNG",
 	"mw_math_source": "Sorgente TeX (per browser testuali)",
-	"prefs-math": "Formule matematiche"
+	"prefs-math": "Formule matematiche",
+	"mathstatus": "Stato Math"
 }
