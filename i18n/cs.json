@@ -7,6 +7,7 @@
 		]
 	},
 	"math-desc": "Vykresluje matematické vzorce vyznačené pomocí <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwmathcontextitem-quickedit": "Rychlá editace",
 	"math-visualeditor-mwmathdialog-title": "Vzorec",
 	"math-visualeditor-mwmathdialog-card-formula": "Vzorec",
 	"math-visualeditor-mwmathdialog-card-options": "Možnosti",

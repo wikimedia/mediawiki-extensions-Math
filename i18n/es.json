@@ -10,10 +10,12 @@
 			"Translationista",
 			"Macofe",
 			"Amitie 10g",
-			"Ryo567"
+			"Ryo567",
+			"Syum90"
 		]
 	},
 	"math-desc": "Representa fórmulas matemáticas entre las etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwmathcontextitem-quickedit": "Edición rápida",
 	"math-visualeditor-mwmathdialog-title": "Fórmula",
 	"math-visualeditor-mwmathdialog-card-formula": "Fórmula",
 	"math-visualeditor-mwmathdialog-card-options": "Opciones",
