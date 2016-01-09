@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_dc7595f5",
+        "filename": "MathFormatter.php",
+        "patchSetId": 30
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-09T12:38:17Z",
+      "side": 1,
+      "message": "You need to be consistent with the formats. If you use the constants below, use them here as well.",
+      "revId": "de76de4f2923fdfbe1899916970ef13e31d52c58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_9c6b9d15",
+        "filename": "MathFormatter.php",
+        "patchSetId": 30
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-09T12:38:17Z",
+      "side": 1,
+      "message": "as Thiemo said. Remove the comment and add the the comment that the format is unknown to the exception",
+      "revId": "de76de4f2923fdfbe1899916970ef13e31d52c58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_3c5ce981",
+        "filename": "MathFormatter.php",
+        "patchSetId": 30
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-09T12:38:17Z",
+      "side": 1,
+      "message": "Use a MismatchingDataValueTypeException ;-)",
+      "revId": "de76de4f2923fdfbe1899916970ef13e31d52c58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_7c66e14f",
+        "filename": "MathWikidataHook.php",
+        "patchSetId": 30
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-09T12:38:17Z",
+      "side": 1,
+      "message": "Did you actually test that in the Web UI?",
+      "revId": "de76de4f2923fdfbe1899916970ef13e31d52c58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
