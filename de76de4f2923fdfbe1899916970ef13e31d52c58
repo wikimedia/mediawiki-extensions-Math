@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6eaa8f54_fcd891f5",
+        "filename": "MathFormatter.php",
+        "patchSetId": 30
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-09T12:57:33Z",
+      "side": 1,
+      "message": "Did you have a look at how this is done within wikidata:\n\n\t/**\n\t * @param string $format One of the SnakFormatter::FORMAT_... constants.\n\t *\n\t * @throws InvalidArgumentException\n\t * @return string Either SnakFormatter::FORMAT_HTML, ...WIKI or ...PLAIN.\n\t */\n\tprivate function getBaseFormat( $format ) {\n\t\tswitch ( $format ) {\n\t\t\tcase SnakFormatter::FORMAT_HTML:\n\t\t\tcase SnakFormatter::FORMAT_HTML_DIFF:\n\t\t\tcase SnakFormatter::FORMAT_HTML_WIDGET:\n\t\t\t\treturn SnakFormatter::FORMAT_HTML;\n\t\t\tcase SnakFormatter::FORMAT_WIKI:\n\t\t\tcase SnakFormatter::FORMAT_PLAIN:\n\t\t\t\treturn $format;\n\t\t}\n\n\t\tthrow new InvalidArgumentException( \u0027Unsupported output format: \u0027 . $format );\n\t}\nIf it would not be private you could cal this method.\nIn this case I suggest you cp the inner code",
+      "revId": "de76de4f2923fdfbe1899916970ef13e31d52c58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6eaa8f54_dc7595f5",
         "filename": "MathFormatter.php",
         "patchSetId": 30
