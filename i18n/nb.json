@@ -8,6 +8,7 @@
 		]
 	},
 	"math-desc": "Fremstill matematiske formler inne i taggparet <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwmathcontextitem-quickedit": "Hurtigredigering",
 	"math-visualeditor-mwmathdialog-title": "Formel",
 	"math-visualeditor-mwmathdialog-card-formula": "Formel",
 	"math-visualeditor-mwmathdialog-card-options": "Valg",
