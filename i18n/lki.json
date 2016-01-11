@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hosseinblue"
+			"Hosseinblue",
+			"Lakzon"
 		]
 	},
 	"math-visualeditor-mwmathinspector-display": "نمایش",
@@ -10,7 +11,7 @@
 	"math-visualeditor-mwmathinspector-display-inline": "درخط",
 	"math-visualeditor-mwmathinspector-id": "شناسه پیوند (اختیاری)",
 	"math-visualeditor-mwmathinspector-title": "فرمول",
-	"math-visualeditor-symbol-group-special": "ویژۀ",
+	"math-visualeditor-symbol-group-special": "ویژە",
 	"math_bad_output": "امکان ایجاد یا نوشتن اطلاعات در پوشه خروجی (output) ریاضی وجود ندارد.",
 	"math_bad_tmpdir": "امکان ایجاد یا نوشتن اطلاعات در پوشه موقت (temp) ریاضی وجود ندارد.",
 	"math_failure": "شکست در تجزیه",
