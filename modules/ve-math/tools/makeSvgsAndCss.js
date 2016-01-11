@@ -48,8 +48,8 @@
 			} ),
 			// API call to mathoid
 			options = {
-				host: '192.168.37.177',
-				port: '10044',
+				host: 'mathoid.testme.wmflabs.org',
+				port: '80',
 				path: '/',
 				method: 'POST',
 				headers: {
