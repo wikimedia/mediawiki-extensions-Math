@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_b6bd4db0",
+        "filename": "MathFormatter.php",
+        "patchSetId": 34
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-11T22:00:59Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "1aefafa91366524648572e50781de6f3e422a7d7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_f62bc5d8",
+        "filename": "MathValidator.php",
+        "patchSetId": 34
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-11T22:00:59Z",
+      "side": 1,
+      "message": "nice!",
+      "revId": "1aefafa91366524648572e50781de6f3e422a7d7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
