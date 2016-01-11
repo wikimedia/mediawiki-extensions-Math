@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_f6b42535",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-11T21:50:14Z",
+      "side": 1,
+      "message": "why not using a mathoid instance that is accessible from the public\ne.g. mathoid.testme.wmflabs.org",
+      "revId": "da57ef788ff9d74b5d10e4db3f22bcf69f350947",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
