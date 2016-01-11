@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_93506838",
+        "filename": "MathFormatter.php",
+        "patchSetId": 32
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-11T09:29:07Z",
+      "side": 1,
+      "message": "once again: Commented code is not acceptable.",
+      "revId": "9e894454fb0c71c21137582791bb6763cde42b45",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_7374cccc",
+        "filename": "MathFormatter.php",
+        "patchSetId": 32
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-11T09:29:07Z",
+      "side": 1,
+      "message": "the variable $this-\u003eformat is not defined!",
+      "revId": "9e894454fb0c71c21137582791bb6763cde42b45",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_33617400",
+        "filename": "MathValidator.php",
+        "patchSetId": 32
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-11T09:29:07Z",
+      "side": 1,
+      "message": "you should add a @throws annotation here",
+      "revId": "9e894454fb0c71c21137582791bb6763cde42b45",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_13647810",
+        "filename": "MathValidator.php",
+        "patchSetId": 32
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-11T09:29:07Z",
+      "side": 1,
+      "message": "You did not change the exception.",
+      "revId": "9e894454fb0c71c21137582791bb6763cde42b45",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
