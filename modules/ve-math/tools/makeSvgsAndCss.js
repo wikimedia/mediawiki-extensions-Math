@@ -48,8 +48,8 @@
 			} ),
 			// API call to mathoid
 			options = {
-				host: '192.168.37.177',
-				port: '10044',
+				host: 'localhost',
+				port: '10042',
 				path: '/',
 				method: 'POST',
 				headers: {
