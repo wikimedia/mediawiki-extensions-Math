@@ -17,6 +17,7 @@
 			"Yuki Shira"
 		]
 	},
+	"datatypes-type-math": "Math (TeX)",
 	"math-desc": "Render mathematical formulas between <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> tags",
 	"math-visualeditor-mwmathcontextitem-quickedit": "Quick edit",
 	"math-visualeditor-mwmathdialog-title": "Formula",
