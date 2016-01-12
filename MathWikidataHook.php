@@ -3,14 +3,20 @@
 use ValueFormatters\FormatterOptions;
 use ValueParsers\StringParser;
 use Wikibase\Repo\Parsers\WikibaseStringValueNormalizer;
-use Wikibase\Repo\Validators\CompositeValidator;
 use Wikibase\Repo\WikibaseRepo;
 
 class MathWikidataHook {
-	/*
+
+	/**
 	 * Add Datatype "Math" to the Wikibase Repository
 	 */
 	public static function onWikibaseRepoDataTypes( array &$dataTypeDefinitions ) {
+		global $wgMathEnableWikibaseDataType;
+
+		if ( !$wgMathEnableWikibaseDataType ) {
+			return;
+		}
+
 		$dataTypeDefinitions['PT:math'] = array(
 			'value-type'                 => 'string',
 			'validator-factory-callback' => function() {
@@ -42,6 +48,12 @@ class MathWikidataHook {
 	 * Add Datatype "Math" to the Wikibase Client
 	 */
 	public static function onWikibaseClientDataTypes( array &$dataTypeDefinitions ) {
+		global $wgMathEnableWikibaseDataType;
+
+		if ( !$wgMathEnableWikibaseDataType ) {
+			return;
+		}
+
 		$dataTypeDefinitions['PT:math'] = array(
 			'value-type'                 => 'string',
 			'formatter-factory-callback' => function( $format, FormatterOptions $options ) {
