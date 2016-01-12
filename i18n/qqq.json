@@ -16,7 +16,7 @@
 			"Robby"
 		]
 	},
-	"datatypes-type-math":"The name of a data type.\n{{Identical|Math}}",
+	"datatypes-type-PT:math":"The name of a data type.\n{{Identical|Math}}",
 	"math-desc": "{{desc|name=Math|url=https://www.mediawiki.org/wiki/Extension:Math}}",
 	"math-visualeditor-mwmathcontextitem-quickedit": "Label for the quick edit button in the math context item",
 	"math-visualeditor-mwmathdialog-title": "Title for the dialog to edit <nowiki><math></nowiki> formula blocks.\n{{Identical|Formula}}",
