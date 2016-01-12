@@ -9,6 +9,7 @@
 		]
 	},
 	"math-desc": "Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwmathcontextitem-quickedit": "Edición rápida",
 	"math-visualeditor-mwmathdialog-title": "Fórmula",
 	"math-visualeditor-mwmathdialog-card-formula": "Fórmula",
 	"math-visualeditor-mwmathdialog-card-options": "Opcións",

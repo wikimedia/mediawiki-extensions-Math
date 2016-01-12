@@ -6,10 +6,12 @@
 			"आलोक",
 			"संजीव कुमार",
 			"NehalDaveND",
-			"Sfic"
+			"Sfic",
+			"जनक राज भट्ट"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> टैगों के बीच गणितीय सूत्र रेंडर करें",
+	"math-visualeditor-mwmathcontextitem-quickedit": "जल्द सम्पादन",
 	"math-visualeditor-mwmathdialog-title": "सूत्र",
 	"math-visualeditor-mwmathdialog-card-options": "विकल्प",
 	"math-visualeditor-mwmathinspector-display": "प्रदर्शन",

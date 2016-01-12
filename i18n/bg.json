@@ -1,9 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"DCLXVI"
+			"DCLXVI",
+			"Vodnokon4e"
 		]
 	},
+	"math-visualeditor-mwmathdialog-title": "Формула",
+	"math-visualeditor-mwmathdialog-card-formula": "Формула",
+	"math-visualeditor-mwmathdialog-card-options": "Настройки",
+	"math-visualeditor-mwmathinspector-display": "Показване",
+	"math-visualeditor-mwmathinspector-display-default": "По подразбиране",
+	"math-visualeditor-mwmathinspector-title": "Формула",
+	"math-visualeditor-symbol-group-greek": "Гръцка азбука",
+	"math-visualeditor-symbol-group-hebrew": "Еврейска азбука",
 	"math_bad_output": "Невъзможно е писането във или създаването на изходяща директория за математическите операции",
 	"math_bad_tmpdir": "Невъзможно е писането във или създаването на временна директория за математическите операции",
 	"math_failure": "Неуспех при разбора",
@@ -14,7 +23,7 @@
 	"math_syntax_error": "синтактична грешка",
 	"math_tip": "Математическа формула (LaTeX)",
 	"math_unknown_error": "непозната грешка",
-	"math_unknown_function": "непозната функция",
+	"math_unknown_function": "непозната функция \"$1\"",
 	"mw_math_mathml": "MathML по възможност (експериментално)",
 	"mw_math_png": "Използване винаги на PNG",
 	"mw_math_source": "Оставяне като TeX (за текстови браузъри)",

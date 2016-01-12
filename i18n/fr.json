@@ -14,6 +14,7 @@
 			"Grind24"
 		]
 	},
+	"datatypes-type-math": "Math (TeX)",
 	"math-desc": "Restitue les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwmathcontextitem-quickedit": "Modification rapide",
 	"math-visualeditor-mwmathdialog-title": "Formule",
