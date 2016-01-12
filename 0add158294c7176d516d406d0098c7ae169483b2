@@ -52,6 +52,24 @@
       "revId": "0add158294c7176d516d406d0098c7ae169483b2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_ca37f5fa",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-01-12T15:19:04Z",
+      "side": 1,
+      "message": "This is odd and either a bug or a misunderstanding. All other data types use message keys such as \"datatypes-type-wikibase-property\" with no colon.",
+      "parentUuid": "6eaa8f54_6a84c1b4",
+      "revId": "0add158294c7176d516d406d0098c7ae169483b2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
