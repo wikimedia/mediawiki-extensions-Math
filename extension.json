@@ -110,6 +110,7 @@
 			"source",
 			"mathml"
 		],
+		"MathEnableWikibaseDataType": true,
 		"Texvc": false,
 		"TexvcBackgroundColor": "transparent"
 	},
