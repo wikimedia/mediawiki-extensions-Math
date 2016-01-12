@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_ea6bd113",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 121
+      },
+      "writtenOn": "2016-01-12T14:56:07Z",
+      "side": 1,
+      "message": "with a : in the message key? or should it be a - ?",
+      "revId": "0add158294c7176d516d406d0098c7ae169483b2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
