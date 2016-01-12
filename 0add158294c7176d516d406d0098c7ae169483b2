@@ -16,6 +16,24 @@
       "revId": "0add158294c7176d516d406d0098c7ae169483b2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_eaf19166",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-12T15:01:26Z",
+      "side": 1,
+      "message": "I think the key is automatically generated from this string:\nhttps://phabricator.wikimedia.org/rEMAT946a18d14c21fff2251ec2cc5451b62e4df61276#e4d0f9fa\nl 14 $dataTypeDefinitions[\u0027PT:math\u0027]\nso there is no freedom in the choice of the key name",
+      "parentUuid": "6eaa8f54_ea6bd113",
+      "revId": "0add158294c7176d516d406d0098c7ae169483b2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
