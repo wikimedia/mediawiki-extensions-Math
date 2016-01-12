@@ -34,6 +34,24 @@
       "revId": "0add158294c7176d516d406d0098c7ae169483b2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_6a84c1b4",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-12T15:04:14Z",
+      "side": 1,
+      "message": "this naming convention is enforced here\nhttps://github.com/wikimedia/mediawiki-extensions-Wikidata/blob/master/extensions/Wikibase/lib/includes/DataTypeDefinitions.php#L77",
+      "parentUuid": "6eaa8f54_eaf19166",
+      "revId": "0add158294c7176d516d406d0098c7ae169483b2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
