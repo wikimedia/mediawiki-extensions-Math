@@ -16,7 +16,6 @@
 			"Robby"
 		]
 	},
-	"datatypes-type-math": "The name of a data type.\n{{Identical|Math}}",
 	"math-desc": "{{desc|name=Math|url=https://www.mediawiki.org/wiki/Extension:Math}}",
 	"math-visualeditor-mwmathcontextitem-quickedit": "Label for the quick edit button in the math context item",
 	"math-visualeditor-mwmathdialog-title": "Title for the dialog to edit <nowiki><math></nowiki> formula blocks.\n{{Identical|Formula}}",
@@ -84,6 +83,7 @@
 	"mw_math_source": "In user preferences (math). All mw_math_* messages MUST be different, things will break otherwise!\n\nUsed as label for source radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math mathjax}}\n* {{msg-mw|Mw math latexml}}",
 	"prefs-math": "Used in user preferences as a section heading.\n{{Identical|Math}}",
 	"mathstatus": "Title of a special page that displays information about the enabled math rendering modes.",
-	"wikibase-listdatatypes-math-head": "{{Wikibase-datatype-head|Item|wikibase-item}}\n{{Identical|Item}}",
-	"wikibase-listdatatypes-math-body": "{{Wikibase-datatype-body|Item}}\n\nFor information about \"Iri\" and related terms, see [[:w:Internationalized resource identifier|Internationalized resource identifier]] and [[:w:URI scheme|URI scheme]]."
+	"datatypes-type-math": "The name of a data type.\n{{Identical|Math}}",
+	"wikibase-listdatatypes-math-head": "{{Wikibase-datatype-head|Mathematical expression|math}}\n{{Identical|Math}}",
+	"wikibase-listdatatypes-math-body": "{{Wikibase-datatype-body|Mathematical expression}}"
 }
