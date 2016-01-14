@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_03740acb",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-14T12:40:08Z",
+      "side": 1,
+      "message": "Mathematical expression?",
+      "revId": "d24bc4cd58866332ac5e8a1a5b4a9bfb93e8a2e3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_a37e56ab",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-14T12:40:08Z",
+      "side": 1,
+      "message": "Mathematical expression?",
+      "revId": "d24bc4cd58866332ac5e8a1a5b4a9bfb93e8a2e3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_c37912c4",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-14T12:40:08Z",
+      "side": 1,
+      "message": "Mathematical expression?",
+      "revId": "d24bc4cd58866332ac5e8a1a5b4a9bfb93e8a2e3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_6384dea3",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-14T12:40:08Z",
+      "side": 1,
+      "message": "mathematical expression?",
+      "revId": "d24bc4cd58866332ac5e8a1a5b4a9bfb93e8a2e3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
