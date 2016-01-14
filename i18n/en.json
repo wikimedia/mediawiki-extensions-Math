@@ -81,7 +81,7 @@
 	"mw_math_mathjax": "Client-side MathJax (slow; improves rendering on some browsers and accessibility tools)",
 	"mw_math_mathml": "MathML with SVG or PNG fallback (recommended for modern browsers and accessibility tools)",
 	"mw_math_png": "PNG images",
-	"mw_math_source": "TeX source (for text browsers)",
+	"mw_math_source": "LaTeX source (for text browsers)",
 	"prefs-math": "Math",
 	"mathstatus": "Math status",
 	"datatypes-type-math": "Mathematical expression",
