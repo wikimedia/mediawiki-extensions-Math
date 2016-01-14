@@ -7,7 +7,6 @@
 			"Umherirrender"
 		]
 	},
-	"datatypes-type-math": "Math (TeX)",
 	"math-desc": "Ergänzt das Tag <code>&lt;math&gt;</code> zum Darstellen mathematischer Formeln",
 	"math-visualeditor-mwmathcontextitem-quickedit": "Schnelle Bearbeitung",
 	"math-visualeditor-mwmathdialog-title": "Formel",
@@ -74,5 +73,8 @@
 	"mw_math_png": "PNG-Bilder",
 	"mw_math_source": "TeX-Quelle (für Textbrowser)",
 	"prefs-math": "Mathematische Formeln",
-	"mathstatus": "Math-Status"
+	"mathstatus": "Math-Status",
+	"datatypes-type-math": "Mathematischer Ausdruck",
+	"wikibase-listdatatypes-math-head": "Mathematischer Ausdruck",
+	"wikibase-listdatatypes-math-body": "Literales Datenfeld für mathematische Ausdrücke, Formeln, Gleichungen oder ähnliches, ausgedrückt in einer LaTeX-Variante."
 }

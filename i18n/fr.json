@@ -14,7 +14,6 @@
 			"Grind24"
 		]
 	},
-	"datatypes-type-math": "Math (TeX)",
 	"math-desc": "Restitue les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwmathcontextitem-quickedit": "Modification rapide",
 	"math-visualeditor-mwmathdialog-title": "Formule",
@@ -81,5 +80,8 @@
 	"mw_math_png": "Images PNG",
 	"mw_math_source": "Source TeX (pour les navigateurs en mode texte)",
 	"prefs-math": "Rendu des maths",
-	"mathstatus": "État mathématique"
+	"mathstatus": "État mathématique",
+	"datatypes-type-math": "Expression mathématique",
+	"wikibase-listdatatypes-math-head": "Expression mathématique",
+	"wikibase-listdatatypes-math-body": "Champ de données littéral pour les expressions mathématiques, les formules, les équations et autres, exprimé dans une variante de LaTeX."
 }

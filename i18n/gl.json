@@ -74,5 +74,6 @@
 	"mw_math_png": "Imaxes PNG",
 	"mw_math_source": "Código TeX (para os navegadores de texto)",
 	"prefs-math": "Fórmulas matemáticas",
-	"mathstatus": "Estado de Math"
+	"mathstatus": "Estado de Math",
+	"datatypes-type-math": "Matemática (TeX)"
 }

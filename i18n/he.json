@@ -74,5 +74,8 @@
 	"mw_math_png": "תמונות PNG",
 	"mw_math_source": "קוד מקור של TeX (לדפדפני טקסט)",
 	"prefs-math": "נוסחאות מתמטיות",
-	"mathstatus": "מצב מתמטיקה"
+	"mathstatus": "מצב מתמטיקה",
+	"datatypes-type-math": "ביטוי מתמטי",
+	"wikibase-listdatatypes-math-head": "ביטוי מתמטי",
+	"wikibase-listdatatypes-math-body": "שדה נתונים מפורש לביטויים מתמטיים, נוסחאות, משוואות וכיו\"ב, בתור הגוון של LaTeX."
 }

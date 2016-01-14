@@ -73,5 +73,7 @@
 	"mw_math_png": "Obrazy PNG",
 	"mw_math_source": "Źródło w TeX (dla przeglądarek tekstowych)",
 	"prefs-math": "Wzory",
-	"mathstatus": "Status renderowania formuł matematycznych"
+	"mathstatus": "Status renderowania formuł matematycznych",
+	"datatypes-type-math": "Wyrażenie matematyczne",
+	"wikibase-listdatatypes-math-head": "Wyrażenie matematyczne"
 }

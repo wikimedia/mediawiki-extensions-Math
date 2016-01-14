@@ -4,7 +4,8 @@
 			"Dani",
 			"Dj",
 			"Csega",
-			"Tacsipacsi"
+			"Tacsipacsi",
+			"Bencoke"
 		]
 	},
 	"math_bad_output": "Nem lehet létrehozni vagy írni a matematikai függvények kimeneti könyvtárába",
@@ -22,5 +23,7 @@
 	"mw_math_mathml": "MathML SVG vagy PNG tartalékkal (modern böngészők és kisegítő eszközök számára ajánlott)",
 	"mw_math_png": "PNG-képek",
 	"mw_math_source": "TeX-forrás (szöveges böngészőknek)",
-	"prefs-math": "Képletek"
+	"prefs-math": "Képletek",
+	"datatypes-type-math": "Matematikai kifejezés",
+	"wikibase-listdatatypes-math-head": "Matematikai kifejezés"
 }

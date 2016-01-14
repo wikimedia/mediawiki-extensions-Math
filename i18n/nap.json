@@ -4,7 +4,6 @@
 			"C.R."
 		]
 	},
-	"datatypes-type-math": "Math (TeX)",
 	"math-desc": "Interpreta 'e formule matemateche nfra 'e tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwmathcontextitem-quickedit": "Cagnamient' 'e pressa",
 	"math-visualeditor-mwmathdialog-title": "Formula",
@@ -71,5 +70,6 @@
 	"mw_math_png": "Immaggene PNG",
 	"mw_math_source": "Sorgente TeX (p' 'e browser 'e testo)",
 	"prefs-math": "Math",
-	"mathstatus": "Stato d' 'o Math"
+	"mathstatus": "Stato d' 'o Math",
+	"datatypes-type-math": "Math (TeX)"
 }

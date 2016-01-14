@@ -4,7 +4,6 @@
 			"Ahmed-Najib-Biabani-Ibrahimkhel"
 		]
 	},
-	"datatypes-type-math": "شمېرپوهنه (TeX)",
 	"math-visualeditor-mwmathdialog-title": "فورمول",
 	"math-visualeditor-mwmathdialog-card-formula": "فورمول",
 	"math-visualeditor-mwmathdialog-card-options": "خوښنې",
@@ -29,5 +28,6 @@
 	"math_unknown_function": "ناجوته کړنه",
 	"mw_math_png": "PNG انځورونه",
 	"prefs-math": "شمېرپوهنه",
-	"mathstatus": "د شمېرپوهنې دريځ"
+	"mathstatus": "د شمېرپوهنې دريځ",
+	"datatypes-type-math": "شمېرپوهنه (TeX)"
 }
