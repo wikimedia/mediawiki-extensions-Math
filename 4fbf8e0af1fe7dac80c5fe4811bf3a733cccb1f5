@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_a34656c4",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-14T10:54:18Z",
+      "side": 1,
+      "message": "Why not Mathematical expression\n* Mathematica calls it expression too;-)\n* also single identifiers and symbols such as \\mathbb{R}, \\alpha are expressions but not formulae",
+      "revId": "4fbf8e0af1fe7dac80c5fe4811bf3a733cccb1f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
