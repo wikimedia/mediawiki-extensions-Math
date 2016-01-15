@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_09cd0434",
+        "filename": "modules/ve-math/symbols.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 1782,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-15T09:31:40Z",
+      "side": 1,
+      "message": "Maybe, we want to use \\text{right} instead of b?",
+      "revId": "bdd6575b977c9ce38605f9adaca80d2de8638065",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_29d000cb",
+        "filename": "modules/ve-math/symbols.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 1791,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-15T09:31:40Z",
+      "side": 1,
+      "message": "same here?",
+      "revId": "bdd6575b977c9ce38605f9adaca80d2de8638065",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_c95b6c87",
+        "filename": "modules/ve-math/symbols.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 3133,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-15T09:31:40Z",
+      "side": 1,
+      "message": "What\u0027s the significance of this example.",
+      "revId": "bdd6575b977c9ce38605f9adaca80d2de8638065",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
