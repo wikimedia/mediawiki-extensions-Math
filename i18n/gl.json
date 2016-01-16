@@ -75,5 +75,7 @@
 	"mw_math_source": "Código TeX (para os navegadores de texto)",
 	"prefs-math": "Fórmulas matemáticas",
 	"mathstatus": "Estado de Math",
-	"datatypes-type-math": "Matemática (TeX)"
+	"datatypes-type-math": "Expresión matemática",
+	"wikibase-listdatatypes-math-head": "Expresión matemática",
+	"wikibase-listdatatypes-math-body": "Campo de dato literal para expresións matemáticas, fórmulas, ecuacións e similares, expresada nunha variante de LaTeX."
 }

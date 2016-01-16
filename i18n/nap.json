@@ -68,8 +68,10 @@
 	"mw_math_mathjax": "MathJax lato cliente (lento; migliorea 'u disegno ncopp'a quacche browser e le strumiente d'accesso)",
 	"mw_math_mathml": "MathML cu SVG o PNG fallback (raccummandate pe' browser muderne e strumiente d'accesso)",
 	"mw_math_png": "Immaggene PNG",
-	"mw_math_source": "Sorgente TeX (p' 'e browser 'e testo)",
+	"mw_math_source": "Sorgente LaTeX (p' 'e browser 'e testo)",
 	"prefs-math": "Math",
 	"mathstatus": "Stato d' 'o Math",
-	"datatypes-type-math": "Math (TeX)"
+	"datatypes-type-math": "Espressione matematica",
+	"wikibase-listdatatypes-math-head": "Espressione matematica",
+	"wikibase-listdatatypes-math-body": "Campo 'e date literale p' 'e espressiune matematiche, formule, equaziune e comm'a chiste, scritte c' 'o lenguaggio 'a varianta 'e LaTeX"
 }

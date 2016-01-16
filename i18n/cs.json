@@ -71,7 +71,7 @@
 	"mw_math_mathjax": "MathJax na klientské straně (pomalý; vylepší vykreslování v některých prohlížečích a kompenzačních pomůckách)",
 	"mw_math_mathml": "MathML, alternativně SVG nebo PNG (doporučeno pro moderní prohlížeče a kompenzační pomůcky)",
 	"mw_math_png": "PNG obrázky",
-	"mw_math_source": "Zdrojový kód TeX (pro textové prohlížeče)",
+	"mw_math_source": "Zdrojový kód LaTeX (pro textové prohlížeče)",
 	"prefs-math": "Matematika",
 	"mathstatus": "Stav matematiky",
 	"datatypes-type-math": "Matematický výraz"

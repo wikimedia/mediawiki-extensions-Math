@@ -76,5 +76,7 @@
 	"mw_math_png": "Imágenes PNG",
 	"mw_math_source": "Código TeX (para navegadores de texto)",
 	"prefs-math": "Matemáticas",
-	"mathstatus": "Estado de matemáticas"
+	"mathstatus": "Estado de matemáticas",
+	"datatypes-type-math": "Expresión matemática",
+	"wikibase-listdatatypes-math-head": "Expresión matemática"
 }
