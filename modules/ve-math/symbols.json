@@ -326,7 +326,32 @@
             "tex": "\\arg"
         }
     ],
-    "math-visualeditor-symbol-group-derivatives": [
+    "math-visualeditor-symbol-group-calculus": [
+        {
+            "insert": "\\int",
+            "contain": true,
+            "tex": "\\int"
+        },
+        {
+            "insert": "\\iint",
+            "contain": true,
+            "tex": "\\iint"
+        },
+        {
+            "insert": "\\iiint",
+            "contain": true,
+            "tex": "\\iiint"
+        },
+        {
+            "insert": "\\iiiint",
+            "contain": true,
+            "tex": "\\iiiint"
+        },
+        {
+            "insert": "\\oint",
+            "contain": true,
+            "tex": "\\oint"
+        },
         {
             "insert": "dt",
             "tex": "dt"
@@ -354,20 +379,14 @@
             "tex": "\\operatorname{d}\\!y/\\operatorname{d}\\!x"
         },
         {
-            "insert": "{dy \\over dx}",
+            "insert": "\\frac{dy}{dx}",
             "contain": true,
-            "tex": "{dy \\over dx}"
+            "tex": "\\frac{dy}{dx}"
         },
         {
-            "insert": "{\\operatorname{d}\\!y\\over\\operatorname{d}\\!x}",
+            "insert": "\\frac{\\operatorname{d}\\!y}{\\operatorname{d}\\!x}",
             "contain": true,
-            "tex": "{\\operatorname{d}\\!y\\over\\operatorname{d}\\!x}"
-        },
-        {
-            "insert": "{\\partial^2\\over\\partial x_1\\partial x_2}y",
-            "contain": true,
-            "wide": true,
-            "tex": "{\\partial^2\\over\\partial x_1\\partial x_2}y"
+            "tex": "\\frac{\\operatorname{d}\\!y}{\\operatorname{d}\\!x}"
         },
         {
             "insert": "\\prime",
@@ -400,6 +419,97 @@
         {
             "insert": "\\ddot y",
             "tex": "\\ddot y"
+        },
+        {
+            "insert": "\\operatorname{div}",
+            "tex": "\\operatorname{div}"
+        },
+        {
+            "insert": "\\operatorname{grad}",
+            "wide": true,
+            "tex": "\\operatorname{grad}"
+        },
+        {
+            "insert": "\\operatorname{curl}",
+            "wide": true,
+            "tex": "\\operatorname{curl}"
+        }
+    ],
+    "math-visualeditor-symbol-group-calculus-layouts": [
+        {
+            "tex": "\\int_a^b f(x)\\,dx",
+            "largeLayout": true,
+            "wide": true,
+            "encapsulate": {
+                "pre": "\\int_",
+                "placeholder": "a",
+                "post": "^b f(x)\\,dx"
+            }
+        },
+        {
+            "tex": "\\int\\limits_a^b f(x)\\,dx",
+            "largeLayout": true,
+            "wide": true,
+            "encapsulate": {
+                "pre": "\\int\\limits_",
+                "placeholder": "a",
+                "post": "^b f(x)\\,dx"
+            }
+        },
+        {
+            "tex": "\\textstyle\\int_a^b f(x)\\,dx",
+            "largeLayout": true,
+            "wide": true,
+            "encapsulate": {
+                "pre": "\\textstyle\\int_",
+                "placeholder": "a",
+                "post": "^b f(x)\\,dx"
+            }
+        },
+        {
+            "tex": "\\iint_D f(x, y)\\,dx\\,dy",
+            "largeLayout": true,
+            "wide": true,
+            "encapsulate": {
+                "pre": "\\iint_",
+                "placeholder": "D",
+                "post": " f(x, y)\\,dx\\,dy"
+            }
+        },
+        {
+            "tex": "\\iint\\limits_D f(x, y)\\,dx\\,dy",
+            "largeLayout": true,
+            "wide": true,
+            "encapsulate": {
+                "pre": "\\iint\\limits_",
+                "placeholder": "D",
+                "post": " f(x, y)\\,dx\\,dy"
+            }
+        },
+        {
+            "tex": "\\textstyle\\iint_D f(x, y)\\,dx\\,dy",
+            "largeLayout": true,
+            "wide": true,
+            "encapsulate": {
+                "pre": "\\textstyle\\iint_",
+                "placeholder": "D",
+                "post": " f(x, y)\\,dx\\,dy"
+            }
+        },
+        {
+            "insert": "\\frac{\\partial^2}{\\partial x_1\\partial x_2}y",
+            "largeLayout": true,
+            "tex": "\\frac{\\partial^2}{\\partial x_1\\partial x_2}y"
+        },
+        {
+            "insert": "\\frac{\\partial^2 f}{\\partial x \\partial y}",
+            "largeLayout": true,
+            "tex": "\\frac{\\partial^2 f}{\\partial x \\partial y}"
+        },
+        {
+            "insert": "\\frac{\\partial^3 f}{\\partial x \\partial y \\partial z}",
+            "largeLayout": true,
+            "tex": "\\frac{\\partial^3 f}{\\partial x \\partial y \\partial z}"
         }
     ],
     "math-visualeditor-symbol-group-symbols": [
@@ -2920,100 +3030,6 @@
                 "pre": "\\textstyle \\lim_{",
                 "placeholder": "n",
                 "post": " \\to \\infty} \\displaystyle"
-            }
-        },
-        {
-            "contain": true,
-            "tex": "\\int x",
-            "encapsulate": {
-                "pre": "\\int ",
-                "placeholder": "x",
-                "post": ""
-            }
-        },
-        {
-            "contain": true,
-            "tex": "\\int\\limits_{1}^{3} x",
-            "encapsulate": {
-                "pre": "\\int\\limits_{",
-                "placeholder": "1",
-                "post": "}^{3} x"
-            }
-        },
-        {
-            "contain": true,
-            "tex": "\\int_{1}^{3} x",
-            "encapsulate": {
-                "pre": "\\int_{",
-                "placeholder": "1",
-                "post": "}^{3} x"
-            }
-        },
-        {
-            "contain": true,
-            "tex": "\\textstyle \\int\\limits_{-N}^{N} x",
-            "encapsulate": {
-                "pre": "\\textstyle \\int\\limits_{",
-                "placeholder": "-N",
-                "post": "}^{N} \\displaystyle x"
-            }
-        },
-        {
-            "wide": true,
-            "tex": "\\textstyle \\int_{-N}^{N} x",
-            "encapsulate": {
-                "pre": "\\textstyle \\int_{",
-                "placeholder": "-N",
-                "post": "}^{N} \\displaystyle x"
-            }
-        },
-        {
-            "contain": true,
-            "wide": true,
-            "tex": "\\iint xy",
-            "encapsulate": {
-                "pre": "\\iint ",
-                "placeholder": "xy",
-                "post": ""
-            }
-        },
-        {
-            "contain": true,
-            "wide": true,
-            "tex": "\\iint\\limits_D xy",
-            "encapsulate": {
-                "pre": "\\iint\\limits_",
-                "placeholder": "D",
-                "post": " xy"
-            }
-        },
-        {
-            "contain": true,
-            "wide": true,
-            "tex": "\\iiint xyz",
-            "encapsulate": {
-                "pre": "\\iiint ",
-                "placeholder": "xyz",
-                "post": ""
-            }
-        },
-        {
-            "contain": true,
-            "wide": true,
-            "tex": "\\iiiint xyzt",
-            "encapsulate": {
-                "pre": "\\iiiint ",
-                "placeholder": "xyzt",
-                "post": ""
-            }
-        },
-        {
-            "contain": true,
-            "tex": "\\oint x",
-            "encapsulate": {
-                "pre": "\\oint ",
-                "placeholder": "x",
-                "post": ""
             }
         },
         {
