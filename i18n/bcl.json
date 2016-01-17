@@ -3,7 +3,8 @@
 		"authors": [
 			"Filipinayzd",
 			"Steven*fung",
-			"Geopoet"
+			"Geopoet",
+			"Macofe"
 		]
 	},
 	"math_bad_output": "Dai masuratan o magibo an direktoryo kan salida nin math",
@@ -19,6 +20,6 @@
 	"math_unknown_function": "Dai aram an gamit",
 	"mw_math_mathml": "MathML na igwang SVG o baya PNG na hulog pabalik (eksperimental)",
 	"mw_math_png": "Itaô pirmi an PNG",
-	"mw_math_source": "Pabayaan na bilang TeX (para sa mga ''browser'' na teksto)",
+	"mw_math_source": "Pabayaan na bilang LaTeX (para sa mga ''browser'' na teksto)",
 	"prefs-math": "Mat"
 }

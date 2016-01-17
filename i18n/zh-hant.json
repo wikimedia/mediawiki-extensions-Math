@@ -9,7 +9,8 @@
 			"Cwlin0416",
 			"LNDDYL",
 			"PhiLiP",
-			"Bowleerin"
+			"Bowleerin",
+			"Macofe"
 		]
 	},
 	"math-desc": "在 <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code> 標籤顯示數學公式",
@@ -53,7 +54,7 @@
 	"mw_math_mathjax": "客戶端 MathJax (速度較慢，改進於部份瀏覽器與輔助工具的繪圖效果)",
 	"mw_math_mathml": "MathML 使用 SVG 或 PNG 備用 (建議用於現代瀏覽器與輔助工具)",
 	"mw_math_png": "PNG 圖片",
-	"mw_math_source": "TeX 原始碼 (供文字瀏覽器使用)",
+	"mw_math_source": "LaTeX 原始碼 (供文字瀏覽器使用)",
 	"prefs-math": "數學公式",
 	"mathstatus": "公式生成器狀態"
 }

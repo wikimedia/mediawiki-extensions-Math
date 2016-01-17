@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Perkunas",
-			"Albertas"
+			"Albertas",
+			"Macofe"
 		]
 	},
 	"math-desc": "Atvaizduoti matematines formules tarp <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> žymių",
+	"math-visualeditor-mwmathcontextitem-quickedit": "Greitas redagavimas",
 	"math-visualeditor-mwmathdialog-title": "Formulė",
 	"math-visualeditor-mwmathdialog-card-formula": "Formulė",
 	"math-visualeditor-mwmathdialog-card-options": "Parinktys",
@@ -68,7 +70,9 @@
 	"mw_math_mathjax": "Klientinės pusės MathJax (lėtas; pagerina atvaizdavimą kai kuriose naršyklėse ir prieinamumo įrankiuose)",
 	"mw_math_mathml": "MathML su SVG ar PNG surogatu (rekomenduojama modernioms naršyklėms ir pasiekiamumo įrankiams)",
 	"mw_math_png": "PNG paveikslėliai",
-	"mw_math_source": "TeX išeities kodas (teksto naršyklėms)",
+	"mw_math_source": "LaTeX išeities kodas (teksto naršyklėms)",
 	"prefs-math": "Matematika",
-	"mathstatus": "Matematinių formulių statusas"
+	"mathstatus": "Matematinių formulių statusas",
+	"datatypes-type-math": "Matematinė išraiška",
+	"wikibase-listdatatypes-math-head": "Matematinė išraiška"
 }

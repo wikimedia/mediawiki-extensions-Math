@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bjankuloski06"
+			"Bjankuloski06",
+			"Macofe"
 		]
 	},
 	"math-desc": "Испис на математички формули помеѓу ознаките <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -67,7 +68,7 @@
 	"mw_math_mathjax": "MathJax од клиентска страна (бавно го подобрува исписот во некои прелистувачи и олеснителни алатки)",
 	"mw_math_mathml": "MathML со SVG или PNG за резерва (препорачано за современи прелистувачи и олеснителни алатки)",
 	"mw_math_png": "PNG-слики",
-	"mw_math_source": "TeX-извор (за текстуални прелистувачи)",
+	"mw_math_source": "LaTeX-извор (за текстуални прелистувачи)",
 	"prefs-math": "Матем. формули",
 	"mathstatus": "Статус на математичкиот испис"
 }

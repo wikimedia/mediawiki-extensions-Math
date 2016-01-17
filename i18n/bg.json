@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"DCLXVI",
-			"Vodnokon4e"
+			"Vodnokon4e",
+			"Macofe"
 		]
 	},
 	"math-visualeditor-mwmathdialog-title": "Формула",
@@ -26,6 +27,6 @@
 	"math_unknown_function": "непозната функция \"$1\"",
 	"mw_math_mathml": "MathML по възможност (експериментално)",
 	"mw_math_png": "Използване винаги на PNG",
-	"mw_math_source": "Оставяне като TeX (за текстови браузъри)",
+	"mw_math_source": "Оставяне като LaTeX (за текстови браузъри)",
 	"prefs-math": "Математически формули"
 }

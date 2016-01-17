@@ -4,7 +4,8 @@
 			"Chaojoker",
 			"Teak",
 			"Xelgen",
-			"Դավիթ Սարոյան"
+			"Դավիթ Սարոյան",
+			"Macofe"
 		]
 	},
 	"math-visualeditor-mwmathdialog-title": "Բանաձև",
@@ -55,6 +56,6 @@
 	"mw_math_latexml": "LaTeXML (փորձնական, օգտագործում է MathML)",
 	"mw_math_mathml": "MathML, SVG կամ PNG անցումով(խորհուրդ է տրվում ժամանակակից բրոուզերների և հասանելիությունը բարձրացնող գործիքների համար):",
 	"mw_math_png": "PNG պատկերներ",
-	"mw_math_source": "ТеХ (տեքստային բրաուզերների համար)",
+	"mw_math_source": "LaTeX (տեքստային բրաուզերների համար)",
 	"prefs-math": "Մաթեմատիկական բանաձևեր"
 }

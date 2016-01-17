@@ -4,7 +4,8 @@
 			"Arastein",
 			"Asoxor",
 			"Calak",
-			"Marmzok"
+			"Marmzok",
+			"Macofe"
 		]
 	},
 	"math_sample": "فۆرموول لێرە بنووسە",
@@ -14,6 +15,6 @@
 	"math_unknown_function": "فەرمانێکی نەناسراو",
 	"mw_math_mathjax": "MathJax (بۆ ئەزموون)",
 	"mw_math_png": "ھەموو جارێک وەک PNG نیشان بدە",
-	"mw_math_source": "وەک TeX بمێنێتەوە (بۆ وێبگەڕە دەقی‌یەکان)",
+	"mw_math_source": "وەک LaTeX بمێنێتەوە (بۆ وێبگەڕە دەقی‌یەکان)",
 	"prefs-math": "ماتماتیک"
 }

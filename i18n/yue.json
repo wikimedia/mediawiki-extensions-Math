@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Waihorace",
-			"Ktchankt"
+			"Ktchankt",
+			"Macofe"
 		]
 	},
 	"math-visualeditor-mwmathinspector-display": "顯示",
@@ -23,6 +24,6 @@
 	"math_unknown_function": "唔知乜函數「$1」",
 	"mw_math_mathml": "可以嘅話用MathML（實驗中）",
 	"mw_math_png": "全部用PNG表示",
-	"mw_math_source": "保留返用TeX（文字瀏覽器用）",
+	"mw_math_source": "保留返用LaTeX（文字瀏覽器用）",
 	"prefs-math": "數"
 }

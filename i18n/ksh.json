@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Purodha",
-			"Reedy"
+			"Reedy",
+			"Macofe"
 		]
 	},
 	"math-desc": "Zeisch Fomelle us de Mathematik aan, di ennerhallef vun <code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">&lt;math&gt;</code> un <code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">&lt;/math&gt;</code> schtonn.",
@@ -51,6 +52,6 @@
 	"mw_math_mathjax": "<i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Mathematical notations in web pages\">MathJax</i> em Brauser (es lahm, deiht ävver de Aanzeije en manschem Brauser un Wärkzüsch för der Zohjang verbäßere)",
 	"mw_math_mathml": "<i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Mathematical notations in web pages\">MathJax</i>, wann dat nit jeihd <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Scalable Vector Graphics\">SVG</i> udder söns <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Portable Network Graphics\">PNG</i> (för modärne Brauser un Wärkzüsch för der Zohjang)",
 	"mw_math_png": "<i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Portable Network Graphics\">PNG</i> Bellder",
-	"mw_math_source": "Lohß et als <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"„Schpresch: Täch, wi jrihschesch; τέχ - e Projramm för der Fottosaz, vum Donald E. Knuth“\">TeX</i>-Quälle (jod för de Täx-Brausere)",
+	"mw_math_source": "Lohß et als <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"„Schpresch: Täch, wi jrihschesch; τέχ - e Projramm för der Fottosaz, vum Donald E. Knuth“\">LaTeX</i>-Quälle (jod för de Täx-Brausere)",
 	"prefs-math": "Mathematisch Formele"
 }

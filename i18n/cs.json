@@ -74,5 +74,6 @@
 	"mw_math_source": "Zdrojový kód LaTeX (pro textové prohlížeče)",
 	"prefs-math": "Matematika",
 	"mathstatus": "Stav matematiky",
-	"datatypes-type-math": "Matematický výraz"
+	"datatypes-type-math": "Matematický výraz",
+	"wikibase-listdatatypes-math-head": "Matematický výraz"
 }

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Zetud"
+			"Zetud",
+			"Macofe"
 		]
 	},
 	"math_bad_output": "Redura ik sutera ko divaxo tid merotisa",
@@ -17,6 +18,6 @@
 	"math_unknown_function": "megrupen fliok",
 	"mw_math_mathml": "MathML",
 	"mw_math_png": "Toujours produire une image PNG",
-	"mw_math_source": "Laisser le code TeX original",
+	"mw_math_source": "Laisser le code LaTeX original",
 	"prefs-math": "Rendu des maths"
 }

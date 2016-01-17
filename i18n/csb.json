@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kaszeba",
-			"Warszk"
+			"Warszk",
+			"Macofe"
 		]
 	},
 	"math_failure": "Parser nie rozmiôł rozpòznac",
@@ -10,6 +11,6 @@
 	"math_tip": "Matematicznô fòrmùła (LaTeX)",
 	"mw_math_mathml": "Wëskrzëniwôj jakno MathML jeżlë mòżlëwé (eksperimentalné)",
 	"mw_math_png": "Wiedno wëskrzëniwôj jakno PNG",
-	"mw_math_source": "Òstawi jakno TeX (dlô tekstowich przezérników)",
+	"mw_math_source": "Òstawi jakno LaTeX (dlô tekstowich przezérników)",
 	"prefs-math": "Matematika"
 }

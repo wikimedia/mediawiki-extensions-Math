@@ -5,7 +5,8 @@
 			"Yekrats",
 			"לערי ריינהארט",
 			"KuboF",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Macofe"
 		]
 	},
 	"math-visualeditor-mwmathdialog-title": "Formulo",
@@ -23,6 +24,6 @@
 	"math_unknown_function": "nekonata funkcio \"$1\"",
 	"mw_math_mathml": "MathML, alternative SVG aŭ PNG (rekomendata por modernaj foliumiloj kaj alirebleco-iloj)",
 	"mw_math_png": "PNG-bildoj",
-	"mw_math_source": "TeX-fonto (por tekstfoliumiloj)",
+	"mw_math_source": "LaTeX-fonto (por tekstfoliumiloj)",
 	"prefs-math": "Matematikaĵoj"
 }

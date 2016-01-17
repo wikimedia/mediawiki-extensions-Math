@@ -4,7 +4,8 @@
 			"Christian List",
 			"Nghtwlkr",
 			"Peter Alberti",
-			"Thomsen"
+			"Thomsen",
+			"Macofe"
 		]
 	},
 	"math-desc": "Gengiver matematiske formler inden i <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>-tags",
@@ -31,6 +32,6 @@
 	"mw_math_mathjax": "Client-side MathJax (langsom; forbedrer præstationen på nogle browsere og værktøjer)",
 	"mw_math_mathml": "MathML med SVG- eller PNG-fallback (anbefalet til moderne browsere og værktøjer)",
 	"mw_math_png": "PNG-billeder",
-	"mw_math_source": "TeX-source (for tekstbrowsere)",
+	"mw_math_source": "LaTeX-source (for tekstbrowsere)",
 	"prefs-math": "Matematiske formler"
 }

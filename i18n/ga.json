@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Alison"
+			"Alison",
+			"Macofe"
 		]
 	},
 	"math_bad_output": "Ní féidir scríobh chuig an fillteán mata aschomhaid, nó é a chruthú",
@@ -17,6 +18,6 @@
 	"math_unknown_function": "foirmle anaithnid",
 	"mw_math_mathml": "MathML más féidir (turgnamhach)",
 	"mw_math_png": "Déan PNG-íomhá gach uair",
-	"mw_math_source": "Fág mar cló TeX (do teacsleitheoirí)",
+	"mw_math_source": "Fág mar cló LaTeX (do teacsleitheoirí)",
 	"prefs-math": "Matamaitice"
 }

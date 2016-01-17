@@ -1,5 +1,9 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Macofe"
+		]
+	},
 	"math_bad_output": "寫伓正或建伓正數學公式輸出目錄",
 	"math_bad_tmpdir": "寫伓正或建伓正數學公式臨時目錄",
 	"math_failure": "分析失敗",
@@ -13,6 +17,6 @@
 	"math_unknown_function": "未知函數",
 	"mw_math_mathml": "儘可能用MathML （試驗中）",
 	"mw_math_png": "全部使用PNG圖像",
-	"mw_math_source": "顯示係TeX代碼 （文字瀏覽器用）",
+	"mw_math_source": "顯示係LaTeX代碼 （文字瀏覽器用）",
 	"prefs-math": "數學公式"
 }

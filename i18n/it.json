@@ -4,7 +4,8 @@
 			"Beta16",
 			"Ricordisamoa",
 			"Statix64",
-			"Fringio"
+			"Fringio",
+			"Macofe"
 		]
 	},
 	"math-desc": "Esegue il rendering di formule matematiche tra i tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -71,7 +72,7 @@
 	"mw_math_mathjax": "MathJax lato client (lento; migliora il rendering su alcuni browser e strumenti di accesso facilitato)",
 	"mw_math_mathml": "MathML, altrimenti SVG o PNG (consigliato per browser moderni e strumenti di accesso facilitato)",
 	"mw_math_png": "Immagini PNG",
-	"mw_math_source": "Sorgente TeX (per browser testuali)",
+	"mw_math_source": "Sorgente LaTeX (per browser testuali)",
 	"prefs-math": "Formule matematiche",
 	"mathstatus": "Stato Math",
 	"datatypes-type-math": "Espressione matematica",

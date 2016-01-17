@@ -5,7 +5,8 @@
 			"Geraki",
 			"Indoril",
 			"Evropi",
-			"Glavkos"
+			"Glavkos",
+			"Macofe"
 		]
 	},
 	"math_bad_output": "Δεν είναι δυνατή η δημιουργία  μαθηματικών δεδομένων (ή η εγγραφή σε κατάλογο εξόδου)",
@@ -21,6 +22,6 @@
 	"math_unknown_function": "άγνωστη συνάρτηση \"$1\"",
 	"mw_math_mathml": "MathML με SVG ή μετάπτωση σε PNG (συνιστάται για σύγχρονους browsers και εργαλεία πρόσβασης)",
 	"mw_math_png": "Εικόνες PNG",
-	"mw_math_source": "Πηγή TeX (για text browsers)",
+	"mw_math_source": "Πηγή LaTeX (για text browsers)",
 	"prefs-math": "Απόδοση μαθηματικών"
 }

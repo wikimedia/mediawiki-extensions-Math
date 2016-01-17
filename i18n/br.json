@@ -3,7 +3,8 @@
 		"authors": [
 			"Fulup",
 			"Fohanno",
-			"Y-M D"
+			"Y-M D",
+			"Macofe"
 		]
 	},
 	"math-visualeditor-mwmathinspector-display-block": "Stankañ",
@@ -23,6 +24,6 @@
 	"mw_math_mathjax": "MathJax (arnodiñ)",
 	"mw_math_mathml": "MathML",
 	"mw_math_png": "Produiñ atav ur skeudenn PNG",
-	"mw_math_source": "Leuskel ar c'hod TeX orin",
+	"mw_math_source": "Leuskel ar c'hod LaTeX orin",
 	"prefs-math": "Tres jedoniel"
 }

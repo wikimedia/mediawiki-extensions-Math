@@ -5,7 +5,8 @@
 			"Lovekhmer",
 			"Thearith",
 			"គីមស៊្រុន",
-			"វ័ណថារិទ្ធ"
+			"វ័ណថារិទ្ធ",
+			"Macofe"
 		]
 	},
 	"math-visualeditor-mwmathinspector-display": "បង្ហាញ",
@@ -24,7 +25,7 @@
 	"mw_math_latexml": "LaTeXML (ស្ថិតក្រោមការពិសោធន៍នៅឡើយ។ ប្រើ MathML)",
 	"mw_math_mathml": "MathML បើអាចទៅរួច (ពិសោធ)",
 	"mw_math_png": "រូបភាពPNG",
-	"mw_math_source": "កូដ TeX (ចំពោះឧបករណ៍រាវរកអត្ថបទ)",
+	"mw_math_source": "កូដ LaTeX (ចំពោះឧបករណ៍រាវរកអត្ថបទ)",
 	"prefs-math": "គណិត",
 	"mathstatus": "ស្ថានភាពគណិត"
 }

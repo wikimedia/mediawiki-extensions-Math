@@ -4,7 +4,8 @@
 			"Anakmalaysia",
 			"Aviator",
 			"CoolCityCat",
-			"Kurniasan"
+			"Kurniasan",
+			"Macofe"
 		]
 	},
 	"math-desc": "Mengolah rumus-rumus matematik antara teg-teg <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -33,7 +34,7 @@
 	"mw_math_mathjax": "MathJax sebelah klien (perlahan, mempertingkat rendering pada sesetengah pelayar dan alat-alat aksesibiliti)",
 	"mw_math_mathml": "MathML dengan sandaran SVG atau PNG (disyorkan untuk pelayar dan alat-alat aksesibiliti moden)",
 	"mw_math_png": "Imej PNG",
-	"mw_math_source": "Sumber TeX (untuk pelayar teks)",
+	"mw_math_source": "Sumber LaTeX (untuk pelayar teks)",
 	"prefs-math": "Matematik",
 	"mathstatus": "Status Math"
 }

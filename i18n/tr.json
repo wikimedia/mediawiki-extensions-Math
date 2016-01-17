@@ -14,7 +14,9 @@
 			"Watermelon juice",
 			"McAang",
 			"HakanIST",
-			"Sayginer"
+			"Sayginer",
+			"Imabadplayer",
+			"Macofe"
 		]
 	},
 	"math-desc": "Render matematiksel formüller arasında <code><math></code> ... <code></math></code> etiketler",
@@ -70,7 +72,9 @@
 	"mw_math_mathjax": "İstemci tarafı MathJax (yavaş; bazı tarayıcılar ve erişilebilirlik araçları render geliştirir)",
 	"mw_math_mathml": "MathML, SVG ya da PNG geri dönüş (modern tarayıcılar ve erişilebilirlik araçları için önerilir)",
 	"mw_math_png": "PNG resimleri",
-	"mw_math_source": "TeX kaynağı (metin tarayıcıları için)",
+	"mw_math_source": "LaTeX kaynağı (metin tarayıcıları için)",
 	"prefs-math": "Matematiksel simgeler",
-	"mathstatus": "Matematik durumu"
+	"mathstatus": "Matematik durumu",
+	"datatypes-type-math": "Matematiksel ifade",
+	"wikibase-listdatatypes-math-head": "Matematiksel ifade"
 }

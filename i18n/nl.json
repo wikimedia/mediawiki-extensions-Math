@@ -7,7 +7,8 @@
 			"Sjoerddebruin",
 			"Mirolith",
 			"Esketti",
-			"McDutchie"
+			"McDutchie",
+			"Macofe"
 		]
 	},
 	"math-desc": "Wiskundige formules tussen <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-labels weergeven",
@@ -54,7 +55,7 @@
 	"mw_math_mathjax": "Client-side MathJax (traag; verbetert de weergave op sommige browsers en toegankelijkheidshulpmiddelen)",
 	"mw_math_mathml": "MathML met SVG- of PNG-terugval (aanbevolen voor moderne browsers en toegankelijkheidshulpmiddelen)",
 	"mw_math_png": "PNG-afbeeldingen",
-	"mw_math_source": "TeX-bron (voor tekstbrowsers)",
+	"mw_math_source": "LaTeX-bron (voor tekstbrowsers)",
 	"prefs-math": "Formules",
 	"mathstatus": "Status formuleweergave"
 }

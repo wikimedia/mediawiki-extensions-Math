@@ -5,7 +5,9 @@
 			"නන්දිමිතුරු",
 			"පසිඳු කාවින්ද",
 			"ශ්වෙත",
-			"Susith Chandira Gts"
+			"Susith Chandira Gts",
+			"Macofe",
+			"SusithCM"
 		]
 	},
 	"math_bad_output": "ගණිත ප්‍රතිදාන ඩිරෙක්ටරිය තැනීමට හෝ එයට ලිවීමට නොහැක",
@@ -22,6 +24,6 @@
 	"mw_math_mathjax": "Client-side MathJax (පරික්ෂණාත්මක)",
 	"mw_math_mathml": "MathML, සමග SVG හෝ PNG (නව බ්‍රවුසරයන් සදහා)",
 	"mw_math_png": "PNG පින්තුර",
-	"mw_math_source": "TeX මූලාශ්‍රය (පෙළ බ්‍රවුසරයන් සඳහා)",
+	"mw_math_source": "LaTeX මූලාශ්‍රය (පෙළ බ්‍රවුසරයන් සඳහා)",
 	"prefs-math": "ගණිත"
 }

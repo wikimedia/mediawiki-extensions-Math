@@ -5,7 +5,8 @@
 			"Kaustubh",
 			"Mahitgar",
 			"V.narsikar",
-			"संतोष दहिवळ"
+			"संतोष दहिवळ",
+			"Macofe"
 		]
 	},
 	"math-visualeditor-mwmathcontextitem-quickedit": "त्वरीत संपादन",
@@ -31,7 +32,7 @@
 	"math_unknown_function": "अज्ञात फंक्शन \"$1\"",
 	"mw_math_mathml": "शक्य असल्यास मॅथ एमएल (MathML) (प्रयोगावस्था)",
 	"mw_math_png": "PNG चित्रे",
-	"mw_math_source": "TeX स्रोत(टेक्स्ट न्याहाळकांकरिता)",
+	"mw_math_source": "LaTeX स्रोत(टेक्स्ट न्याहाळकांकरिता)",
 	"prefs-math": "गणित",
 	"mathstatus": "गणितीय स्थिती"
 }

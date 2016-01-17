@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Naudefj"
+			"Naudefj",
+			"Macofe"
 		]
 	},
 	"math_bad_output": "Die gids vir lêers met wiskundige formules bestaan nie of kan nie geskep word nie",
@@ -17,6 +18,6 @@
 	"math_unknown_function": "onbekende funksie",
 	"mw_math_mathml": "MathML",
 	"mw_math_png": "Gebruik altyd PNG.",
-	"mw_math_source": "Los as TeX (vir teksblaaiers).",
+	"mw_math_source": "Los as LaTeX (vir teksblaaiers).",
 	"prefs-math": "Wiskunde"
 }

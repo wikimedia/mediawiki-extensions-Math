@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cedric31"
+			"Cedric31",
+			"Macofe"
 		]
 	},
 	"math_bad_output": "Impossible de crear o d’escriure dins lo repertòri math de sortida",
@@ -18,7 +19,7 @@
 	"mw_math_mathjax": "MathJax (experimental)",
 	"mw_math_mathml": "MathML amb SVG o PNG en secors (experimental)",
 	"mw_math_png": "Imatges PNG",
-	"mw_math_source": "Font TeX (pels navigadors en mòde tèxte)",
+	"mw_math_source": "Font LaTeX (pels navigadors en mòde tèxte)",
 	"prefs-math": "Rendut de las matas",
 	"mathstatus": "Estat matematic"
 }

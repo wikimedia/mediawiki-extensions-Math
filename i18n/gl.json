@@ -5,7 +5,8 @@
 			"Toliño",
 			"Xosé",
 			"Elisardojm",
-			"Banjo"
+			"Banjo",
+			"Macofe"
 		]
 	},
 	"math-desc": "Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -72,7 +73,7 @@
 	"mw_math_mathjax": "MathJax do lado do cliente (lento; mellora a renderización nalgúns navegadores e ferramentas de acesibilidade)",
 	"mw_math_mathml": "MathML con respaldo en SVG ou PNG (recomendado para navegadores máis modernos e ferramentas de acesibilidade)",
 	"mw_math_png": "Imaxes PNG",
-	"mw_math_source": "Código TeX (para os navegadores de texto)",
+	"mw_math_source": "Código LaTeX (para os navegadores de texto)",
 	"prefs-math": "Fórmulas matemáticas",
 	"mathstatus": "Estado de Math",
 	"datatypes-type-math": "Expresión matemática",

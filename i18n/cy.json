@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Lloffiwr",
-			"Robin Owain"
+			"Robin Owain",
+			"Macofe"
 		]
 	},
 	"math-desc": "Arddangos fformwla mathemategol rhwng y tagiau <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -20,6 +21,6 @@
 	"mw_math_mathjax": "MathJax (arbrofol)",
 	"mw_math_mathml": "MathML os yn bosib (arbrofol)",
 	"mw_math_png": "Delweddau PNG",
-	"mw_math_source": "Gadewch fel côd TeX (ar gyfer porwyr testun)",
+	"mw_math_source": "Gadewch fel côd LaTeX (ar gyfer porwyr testun)",
 	"prefs-math": "Mathemateg"
 }

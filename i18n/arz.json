@@ -3,7 +3,8 @@
 		"authors": [
 			"Ghaly",
 			"Meno25",
-			"Ramsis II"
+			"Ramsis II",
+			"Macofe"
 		]
 	},
 	"math_bad_output": "مش ممكن الكتابة لـ أو إنشاء مجلد الخرج للرياضيات",
@@ -19,6 +20,6 @@
 	"math_unknown_function": "وظيفة مش معروفة",
 	"mw_math_mathml": "اعرض بصيغة MathML لو ممكن (تحت التجريب)",
 	"mw_math_png": "دايما اعرض PNG",
-	"mw_math_source": "اعرض على هيئة TeX (للبراوزرات النصية)",
+	"mw_math_source": "اعرض على هيئة LaTeX (للبراوزرات النصية)",
 	"prefs-math": "رياضة"
 }

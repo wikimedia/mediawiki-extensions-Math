@@ -42,6 +42,8 @@
 	"mw_math_mathjax": "Client-side MathJax (lues; verbessert d'Duerstellung op verschiddene Browseren an Accessibilitéits-Toolen)",
 	"mw_math_mathml": "MathML mat SVG oder PNG wann et net geet (recommandéiert fir modern Browser an Toole fir en Accès ouni Barrière)",
 	"mw_math_png": "PNG-Biller",
-	"mw_math_source": "TeX-Quell (fir Textbrowser)",
-	"prefs-math": "Math/TeX"
+	"mw_math_source": "LaTeX-Quell (fir Textbrowser)",
+	"prefs-math": "Math/TeX",
+	"datatypes-type-math": "Mathemateschen Ausdrock",
+	"wikibase-listdatatypes-math-head": "Mathemateschen Ausdrock"
 }

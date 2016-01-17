@@ -4,7 +4,8 @@
 			"Michawiki",
 			"Nepl1",
 			"Pe7er",
-			"Qualia"
+			"Qualia",
+			"Macofe"
 		]
 	},
 	"math-desc": "Dodawa matematiske formule mjazy toflickoma <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -22,6 +23,6 @@
 	"mw_math_mathjax": "MathJax (eksperimentelny)",
 	"mw_math_mathml": "Jo-lic móžno - MathML (eksperimentelny)",
 	"mw_math_png": "Pśecej ako PNG zwobrazniś.",
-	"mw_math_source": "Ako TeX wóstajiś (za tekstowe browsery)",
+	"mw_math_source": "Ako LaTeX wóstajiś (za tekstowe browsery)",
 	"prefs-math": "Math"
 }

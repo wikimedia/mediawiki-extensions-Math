@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Murma174",
-			"Pyt"
+			"Pyt",
+			"Macofe"
 		]
 	},
 	"math-desc": "Wiset matemaatisk formeln tesken <code>&lt;math&gt;</code> an <code>&lt;/math&gt;</code> uun.",
@@ -34,6 +35,6 @@
 	"mw_math_mathjax": "Clientsidjag MathJax (eewen, ferbeedert oober det uunwisin üüb enkelt browsern an halperwerktjüügen)",
 	"mw_math_mathml": "MathML mä SVG- of PNG-fallback (beeder för neier browsern an halperwerktjüügen)",
 	"mw_math_png": "PNG-bilen",
-	"mw_math_source": "TeX-kwel (för tekst-browsern)",
+	"mw_math_source": "LaTeX-kwel (för tekst-browsern)",
 	"prefs-math": "TeX"
 }

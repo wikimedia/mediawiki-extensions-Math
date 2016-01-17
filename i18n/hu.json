@@ -5,7 +5,8 @@
 			"Dj",
 			"Csega",
 			"Tacsipacsi",
-			"Bencoke"
+			"Bencoke",
+			"Macofe"
 		]
 	},
 	"math_bad_output": "Nem lehet létrehozni vagy írni a matematikai függvények kimeneti könyvtárába",
@@ -22,7 +23,7 @@
 	"mw_math_mathjax": "Kliens-oldali MathJax (lassú; egyes böngészők és kisegítő eszközök esetén javítja a renderelést)",
 	"mw_math_mathml": "MathML SVG vagy PNG tartalékkal (modern böngészők és kisegítő eszközök számára ajánlott)",
 	"mw_math_png": "PNG-képek",
-	"mw_math_source": "TeX-forrás (szöveges böngészőknek)",
+	"mw_math_source": "LaTeX-forrás (szöveges böngészőknek)",
 	"prefs-math": "Képletek",
 	"datatypes-type-math": "Matematikai kifejezés",
 	"wikibase-listdatatypes-math-head": "Matematikai kifejezés"

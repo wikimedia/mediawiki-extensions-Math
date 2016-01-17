@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mostafadaneshvar"
+			"Mostafadaneshvar",
+			"Macofe"
 		]
 	},
 	"math_bad_output": "نه تونیت بنویسیت یا مشیر خروجی ریاضی شرکنت.",
@@ -17,6 +18,6 @@
 	"math_unknown_function": "ناشناس عملگر",
 	"mw_math_mathml": "MathML اگر ممکن انت (آزمایشی)",
 	"mw_math_png": "یکسره PNG تحویل دی",
-	"mw_math_source": "آیء په داب TeX بل (په بروززان متنی)",
+	"mw_math_source": "آیء په داب LaTeX بل (په بروززان متنی)",
 	"prefs-math": "ریاضی"
 }

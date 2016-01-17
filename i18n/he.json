@@ -5,7 +5,8 @@
 			"ExampleTomer",
 			"Yona b",
 			"Ronel1",
-			"Guycn2"
+			"Guycn2",
+			"Macofe"
 		]
 	},
 	"math-desc": "הדפסת נוסחאות מתמטיות בין התגים <bdi><code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code></bdi>",
@@ -72,7 +73,7 @@
 	"mw_math_mathjax": "MathJax בצד הלקוח (אטי; משפר את התצוגה בחלק מהדפדפנים ובכלי נגישות)",
 	"mw_math_mathml": "MathML עם גיבוי SVG או PNG (מומלץ לדפדפנים מודרניים ולכלי נגישות)",
 	"mw_math_png": "תמונות PNG",
-	"mw_math_source": "קוד מקור של TeX (לדפדפני טקסט)",
+	"mw_math_source": "קוד מקור של LaTeX (לדפדפני טקסט)",
 	"prefs-math": "נוסחאות מתמטיות",
 	"mathstatus": "מצב מתמטיקה",
 	"datatypes-type-math": "ביטוי מתמטי",

@@ -11,7 +11,8 @@
 			"Djiboun",
 			"Mattho69",
 			"PifyZ",
-			"Grind24"
+			"Grind24",
+			"Macofe"
 		]
 	},
 	"math-desc": "Restitue les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -78,7 +79,7 @@
 	"mw_math_mathjax": "MathJax côté client (lent, améliore le rendu pour certains navigateurs et outils d’accessibilité)",
 	"mw_math_mathml": "MathML avec SVG ou PNG en secours (recommandé pour les navigateurs modernes et les outils d’accessibilité)",
 	"mw_math_png": "Images PNG",
-	"mw_math_source": "Source TeX (pour les navigateurs en mode texte)",
+	"mw_math_source": "Source LaTeX (pour les navigateurs en mode texte)",
 	"prefs-math": "Rendu des maths",
 	"mathstatus": "État mathématique",
 	"datatypes-type-math": "Expression mathématique",

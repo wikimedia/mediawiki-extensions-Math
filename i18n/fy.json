@@ -3,7 +3,9 @@
 		"authors": [
 			"Pyt",
 			"Snakesteuben",
-			"Robin0van0der0vliet"
+			"Robin0van0der0vliet",
+			"Macofe",
+			"Robin van der Vliet"
 		]
 	},
 	"math-visualeditor-mwmathinspector-display-default": "Standert",
@@ -20,6 +22,6 @@
 	"math_unknown_function": "unbekinde funksje \"$1\"",
 	"mw_math_mathml": "MathML",
 	"mw_math_png": "PNG-ôfbyldings",
-	"mw_math_source": "TeX-boarne (foar tekstblêders)",
+	"mw_math_source": "LaTeX-boarne (foar tekstblêders)",
 	"prefs-math": "Formules"
 }

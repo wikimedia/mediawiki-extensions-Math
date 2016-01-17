@@ -4,7 +4,8 @@
 			"CERminator",
 			"Semso98",
 			"Srdjan m",
-			"Munja"
+			"Munja",
+			"Macofe"
 		]
 	},
 	"math-visualeditor-mwmathdialog-title": "Formula",
@@ -69,7 +70,7 @@
 	"mw_math_mathjax": "Klijentni MathJax (spor; poboljšava prikaz na nekim preglednicima i pristupačnim alatima)",
 	"mw_math_mathml": "MathML sa SVG ili PNG rezervom (preporučuje se za moderne preglednike i alate pristupačnosti)",
 	"mw_math_png": "PNG slike",
-	"mw_math_source": "TeX izvor (za tekstualne preglednike)",
+	"mw_math_source": "LaTeX izvor (za tekstualne preglednike)",
 	"prefs-math": "Matematika",
 	"mathstatus": "Stanje matematike"
 }

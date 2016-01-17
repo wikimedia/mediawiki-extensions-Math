@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Esbardu",
-			"Xuacu"
+			"Xuacu",
+			"Macofe"
 		]
 	},
 	"math-desc": "Dibuxa les fórmules matemátiques ente les etiquetes <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -69,7 +70,7 @@
 	"mw_math_mathjax": "MathJax nel llau del veceru (lentu; ameyora la representación en dellos restoladores y ferramientes d'accesibilidá)",
 	"mw_math_mathml": "MathML con alternativa SVG o PNG (recomendau en restoladores y ferramientes d'accesibilidá modernos)",
 	"mw_math_png": "Imaxes PNG",
-	"mw_math_source": "Fonte TeX (pa restoladores de testu)",
+	"mw_math_source": "Fonte LaTeX (pa restoladores de testu)",
 	"prefs-math": "Fórmules matemátiques",
 	"mathstatus": "Estau de Math",
 	"datatypes-type-math": "Espresión matemática",

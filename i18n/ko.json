@@ -10,7 +10,8 @@
 			"Hym411",
 			"Revi",
 			"Bluemersen",
-			"Hwangjy9"
+			"Hwangjy9",
+			"Macofe"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> 태그 사이에 수학 수식을 렌더합니다",
@@ -60,7 +61,7 @@
 	"mw_math_mathjax": "클라이언트측 MathJax (느림; 일부 브라우저와 접근성 도구에서 렌더링 개선)",
 	"mw_math_mathml": "SVG나 PNG fallback이 있는 MathML (최신 브라우저나 접근성 도구에 권장)",
 	"mw_math_png": "PNG 그림",
-	"mw_math_source": "TeX 소스 (텍스트 브라우저용)",
+	"mw_math_source": "LaTeX 소스 (텍스트 브라우저용)",
 	"prefs-math": "수식",
 	"mathstatus": "수식 상태"
 }

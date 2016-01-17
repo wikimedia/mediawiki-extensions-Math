@@ -5,7 +5,8 @@
 			"Erdemaslancan",
 			"Gorizon",
 			"Mirzali",
-			"Xoser"
+			"Xoser",
+			"Macofe"
 		]
 	},
 	"math-visualeditor-symbol-group-logic": "Qeyd",
@@ -24,6 +25,6 @@
 	"math_unknown_function": "fonksiyon nizanyeno",
 	"mw_math_mathml": "Eka mumkin, MathML (deneme)",
 	"mw_math_png": "Herzeman PNG render bike",
-	"mw_math_source": "Bi TeX biman (qe nuşte browseroği)",
+	"mw_math_source": "Bi LaTeX biman (qe nuşte browseroği)",
 	"prefs-math": "Matematigane simgey"
 }

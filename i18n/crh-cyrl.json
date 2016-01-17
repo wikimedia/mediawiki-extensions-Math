@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Don Alessandro"
+			"Don Alessandro",
+			"Macofe"
 		]
 	},
 	"math_failure": "Айырыштырыламды",
@@ -13,6 +14,6 @@
 	"math_unknown_function": "бельгисиз функция",
 	"mw_math_mathml": "Мумкюн олса MathML (даа денъеме алында)",
 	"mw_math_png": "Даима PNG ресим форматына чевир",
-	"mw_math_source": "Денъиштирмеден TeX оларакъ ташла  (метин темелли браузерлер ичюн)",
+	"mw_math_source": "Денъиштирмеден LaTeX оларакъ ташла  (метин темелли браузерлер ичюн)",
 	"prefs-math": "Риязий (математик) ишаретлер"
 }

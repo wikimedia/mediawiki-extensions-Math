@@ -9,7 +9,8 @@
 			"Reza1615",
 			"Alirezaaa",
 			"Mehran",
-			"Mjbmr"
+			"Mjbmr",
+			"Macofe"
 		]
 	},
 	"math-desc": "فرمول‌های ریاضی میان برچسب‌های <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> را رندر می‌کند",
@@ -40,7 +41,7 @@
 	"mw_math_mathjax": "MathJax (آزمایشی)",
 	"mw_math_mathml": "MathML همراه SVG یا PNG جایگزین (آزمایشی)",
 	"mw_math_png": "تصاویر PNG",
-	"mw_math_source": "در قالب TeX باقی بماند (برای مرورگرهای متنی)",
+	"mw_math_source": "در قالب LaTeX باقی بماند (برای مرورگرهای متنی)",
 	"prefs-math": "نمایش ریاضیات",
 	"mathstatus": "وضعیت ریاضی"
 }

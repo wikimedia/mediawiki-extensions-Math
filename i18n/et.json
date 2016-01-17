@@ -3,7 +3,8 @@
 		"authors": [
 			"KaidoKikkas",
 			"Pikne",
-			"WikedKentaur"
+			"WikedKentaur",
+			"Macofe"
 		]
 	},
 	"math-desc": "Viimistleb siltide <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> vahel olevad matemaatilised valemid.",
@@ -67,7 +68,7 @@
 	"mw_math_mathjax": "Kliendipoolne MathJax (aeglane, parem viimistlus mõne veebilehitseja ja hõlbustusriista puhul)",
 	"mw_math_mathml": "MathML SVG- või PNG-taanderežiimiga (soovitatav uuemate veebilehitsejate ja hõlbustusriistade puhul)",
 	"mw_math_png": "PNG-pildid",
-	"mw_math_source": "TeX-lähtetekst (tekstibrauserite puhul)",
+	"mw_math_source": "LaTeX-lähtetekst (tekstibrauserite puhul)",
 	"prefs-math": "Valemite näitamine",
 	"mathstatus": "Matemaatiliste valemite olek"
 }

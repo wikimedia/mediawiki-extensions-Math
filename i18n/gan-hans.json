@@ -1,5 +1,9 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Macofe"
+		]
+	},
 	"math_bad_output": "写伓正或建伓正数学公式输出目录",
 	"math_bad_tmpdir": "写伓正或建伓正数学公式临时目录",
 	"math_failure": "分析失败",
@@ -13,6 +17,6 @@
 	"math_unknown_function": "未知函数",
 	"mw_math_mathml": "尽可能用MathML （试验中）",
 	"mw_math_png": "全部使用PNG图像",
-	"mw_math_source": "显示系TeX代码 （文字浏览器用）",
+	"mw_math_source": "显示系LaTeX代码 （文字浏览器用）",
 	"prefs-math": "数学公式"
 }
