@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6eaa8f54_7a28efdc",
+        "filename": "modules/ve-math/symbols.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 1782,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2016-01-17T16:39:17Z",
+      "side": 1,
+      "message": "I\u0027m not averse to this, but why would this be better?",
+      "parentUuid": "6eaa8f54_09cd0434",
+      "revId": "bdd6575b977c9ce38605f9adaca80d2de8638065",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6eaa8f54_29d000cb",
         "filename": "modules/ve-math/symbols.json",
         "patchSetId": 3
@@ -47,6 +65,24 @@
       "writtenOn": "2016-01-15T09:31:40Z",
       "side": 1,
       "message": "What\u0027s the significance of this example.",
+      "revId": "bdd6575b977c9ce38605f9adaca80d2de8638065",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_fa837fce",
+        "filename": "modules/ve-math/symbols.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 3133,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2016-01-17T16:39:17Z",
+      "side": 1,
+      "message": "This is suggested here: https://en.wikipedia.org/wiki/Wikipedia:VisualEditor/Feedback/Archive_2015_3#Expanded_formula_tool_in_VisualEditor (point 16). This is also where the arrows \\xrightarrow[b]{a} and \\xleftarrow[b]{a} were suggested.\n\nI\u0027ve made tasks about most other suggestions on this list, but I\u0027ve just been committing the fix directly when it is small, e.g. adding a function.\n\nDo you think this is worth including?",
+      "parentUuid": "6eaa8f54_c95b6c87",
       "revId": "bdd6575b977c9ce38605f9adaca80d2de8638065",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
