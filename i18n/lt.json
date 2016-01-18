@@ -74,5 +74,6 @@
 	"prefs-math": "Matematika",
 	"mathstatus": "Matematinių formulių statusas",
 	"datatypes-type-math": "Matematinė išraiška",
-	"wikibase-listdatatypes-math-head": "Matematinė išraiška"
+	"wikibase-listdatatypes-math-head": "Matematinė išraiška",
+	"wikibase-listdatatypes-math-body": "Žodinis duomenų laukas matematinei išraiškai, formulei, lygybėms ir panašiai, išreikšta LaTeX variantu."
 }
