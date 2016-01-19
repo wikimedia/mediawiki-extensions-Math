@@ -78,5 +78,6 @@
 	"prefs-math": "数学公式",
 	"mathstatus": "公式生成器状态",
 	"datatypes-type-math": "数学表达式",
-	"wikibase-listdatatypes-math-head": "数学表达式"
+	"wikibase-listdatatypes-math-head": "数学表达式",
+	"wikibase-listdatatypes-math-body": "用于数学表达式、公式、方程等的文字数据字段，以LaTeX的一种变体表达。"
 }

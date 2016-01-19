@@ -75,5 +75,6 @@
 	"prefs-math": "Matematika",
 	"mathstatus": "Stav matematiky",
 	"datatypes-type-math": "Matematický výraz",
-	"wikibase-listdatatypes-math-head": "Matematický výraz"
+	"wikibase-listdatatypes-math-head": "Matematický výraz",
+	"wikibase-listdatatypes-math-body": "Literálová datová položka pro matematické výrazy, vzorce, rovnice apod., vyjádřené ve variantě LaTeXu."
 }
