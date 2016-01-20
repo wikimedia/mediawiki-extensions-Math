@@ -36,6 +36,7 @@
 	"math-visualeditor-symbol-group-relations": "Отношения",
 	"math-visualeditor-symbol-group-sets": "Наборы",
 	"math-visualeditor-symbol-group-subscripts": "Подстрочные, надстрочные и интегралы",
+	"math-visualeditor-symbol-group-symbols": "Символы и константы",
 	"math-visualeditor-symbol-group-unsorted": "Несортированный",
 	"math_bad_output": "Не удаётся создать или записать в выходной каталог математики",
 	"math_bad_tmpdir": "Не удаётся создать или записать во временный каталог математики",
