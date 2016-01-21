@@ -54,7 +54,7 @@
 	"math_notexvc": "Chybí spustitelný <code>texvc</code>. Podívejte se prosím do math/README na konfiguraci.",
 	"math_output_error": "Matematický obrázek nelze uložit do souborového systému.",
 	"math_sample": "Vložit sem vzorec",
-	"math-status-introduction": "Tato stránka zobrazuje informace o povolených režimech vykreslování matematiky.\n\n{{PLURAL:$1|Povolen je následující režim|Povoleny jsou následující režimy}} vykreslování:",
+	"math-status-introduction": "Tato stránka zobrazuje informace o {{PLURAL:$1|povoleném režimu|povolených režimech}} vykreslování matematiky.\n\n{{PLURAL:$1|Povolen je následující režim|Povoleny jsou následující režimy}} vykreslování:",
 	"math_syntax_error": "syntaktická chyba",
 	"math_timeout": "Vypršel časový limit na $1 z „$2“",
 	"math-test-end": "Serverové testy režimu vykreslování „$1“ byly dokončeny.",

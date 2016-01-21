@@ -40,7 +40,7 @@
 	"math_notexvc": "Kan het programma <code>texvc</code> niet vinden; stel alles in volgens de beschrijving in math/README.",
 	"math_output_error": "De Mathafbeelding kan niet op het bestandssysteem worden opgeslagen.",
 	"math_sample": "Voer de formule in",
-	"math-status-introduction": "Deze pagina toont informatie over de ingeschakelde weergavemodi voor wiskundige formules.\n\nDe volgende weergave{{PLURAL:$1|modus is|modi zijn}} ingeschakeld:",
+	"math-status-introduction": "Deze pagina toont informatie over de ingeschakelde weergave{{PLURAL:$1|modus|modi}} voor wiskundige formules.\n\nDe volgende weergave{{PLURAL:$1|modus is|modi zijn}} ingeschakeld:",
 	"math_syntax_error": "syntactische fout",
 	"math_timeout": "Time-out $1-verwerking op \"$2\".",
 	"math-test-end": "Backend-tests voor de weergavemodus ''$1'' uitgevoerd.",

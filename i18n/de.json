@@ -54,7 +54,7 @@
 	"math_notexvc": "Das <code>texvc</code>-Programm wurde nicht gefunden. Bitte zur Konfiguration die Hinweise in der Datei math/README beachten.",
 	"math_output_error": "Das Formelbild kann auf dem Dateisystem nicht gespeichert werden.",
 	"math_sample": "Formel hier einfügen",
-	"math-status-introduction": "Diese Seite zeigt Informationen über die aktivierten Math-Renderingsmodi an.\n\n{{PLURAL:$1|Der folgende Renderingsmodus ist|Die folgenden Renderingsmodi sind}} aktiviert.",
+	"math-status-introduction": "Diese Seite zeigt Informationen über {{PLURAL:$1|den aktivierten Math-Renderingsmodus|die aktivierten Math-Renderingsmodi}} an.\n\n{{PLURAL:$1|Der folgende Renderingsmodus ist|Die folgenden Renderingsmodi sind}} aktiviert.",
 	"math_syntax_error": "Syntaxfehler",
 	"math_timeout": "$1 Zeitüberschreitung von „$2“",
 	"math-test-end": "Backend-Tests für den Renderingsmodus ''$1'' abgeschlossen.",
