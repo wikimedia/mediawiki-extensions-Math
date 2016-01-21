@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_836a08e9",
+        "filename": "modules/ve-math/ve.ui.MWMathDialog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 2915
+      },
+      "writtenOn": "2016-01-21T17:11:29Z",
+      "side": 1,
+      "message": "I get `TypeError: dialog.input.setMinRows is not a function. (In \u0027dialog.input.setMinRows(minRows)\u0027, \u0027dialog.input.setMinRows\u0027 is undefined)`.\n\nDo you have a separate dependent patch to ve.ui.MWAceEditorWidget.js somewhere?",
+      "revId": "40103c23b61114d71bb6801fd6ad4edaadefb91e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
