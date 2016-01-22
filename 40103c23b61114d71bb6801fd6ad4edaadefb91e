@@ -16,6 +16,24 @@
       "revId": "40103c23b61114d71bb6801fd6ad4edaadefb91e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_6c19f4da",
+        "filename": "modules/ve-math/ve.ui.MWMathDialog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2016-01-22T17:14:47Z",
+      "side": 1,
+      "message": "Ah yes sorry. Have marked it as a dependency.",
+      "parentUuid": "6eaa8f54_836a08e9",
+      "revId": "40103c23b61114d71bb6801fd6ad4edaadefb91e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
