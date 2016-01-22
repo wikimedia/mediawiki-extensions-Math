@@ -43,7 +43,7 @@
 	"math-visualeditor-symbol-group-projections": "Label for the projections group of math symbols",
 	"math-visualeditor-symbol-group-parentheses": "Label for the parentheses group of math symbols",
 	"math-visualeditor-symbol-group-relations": "Label for the relations group of math symbols\n{{Identical|Relation}}",
-	"math-visualeditor-symbol-group-root": "Label for the root group of math symbols",
+	"math-visualeditor-symbol-group-root": "Label for the root group of math symbols\nIdentifies math radicals and not chemistry ones.",
 	"math-visualeditor-symbol-group-sets": "Label for the sets group of math symbols",
 	"math-visualeditor-symbol-group-spacing": "Label for the spacing group of math symbols",
 	"math-visualeditor-symbol-group-special": "Label for the special group of math symbols\n{{Identical|Special}}",
