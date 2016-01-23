@@ -12,7 +12,8 @@
 			"Mattho69",
 			"PifyZ",
 			"Grind24",
-			"Macofe"
+			"Macofe",
+			"Wladek92"
 		]
 	},
 	"math-desc": "Restitue les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -62,7 +63,7 @@
 	"math_notexvc": "L’exécutable <code>texvc</code> est introuvable. Lisez math/README pour le configurer.",
 	"math_output_error": "Ne peut pas sauvegarder les images mathématiques dans le système de fichiers.",
 	"math_sample": "Entrez votre formule ici",
-	"math-status-introduction": "Cette page affiche des informations sur les modes de rendu mathématique activé.\n\n{{PLURAL:$1|Le mode de rendu suivant est activé|Les modes de rendu suivants sont activés}} :",
+	"math-status-introduction": "Cette page affiche des informations sur {{PLURAL:$1|le mode activé|les modes activés}} de rendu mathématique.\n\n{{PLURAL:$1|Le mode de rendu suivant est activé|Les modes de rendu suivants sont activés}} :",
 	"math_syntax_error": "erreur de syntaxe",
 	"math_timeout": "$1 délais de \"$2\"",
 	"math-test-end": "Tests du serveur pour le mode rendu « $1 » terminés.",
