@@ -28,7 +28,7 @@ class SpecialMathStatus extends SpecialPage {
 		if ( ! ( $this->getUser()->isAllowed( 'purge' ) ) ) {
 			// The effect of loading this page is comparable to purge a page.
 			// If desired a dedicated right e.g. "viewmathstatus" could be used instead.
-			throw new PermissionsError( 'purge' );
+			throw new PermissionsError( 'viewmathstatus' );
 		}
 
 		$out = $this->getOutput();
