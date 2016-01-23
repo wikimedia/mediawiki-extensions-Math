@@ -86,5 +86,6 @@
 	"mathstatus": "Math status",
 	"datatypes-type-math": "Mathematical expression",
 	"wikibase-listdatatypes-math-head": "Mathematical expression",
-	"wikibase-listdatatypes-math-body": "Literal data field for mathematical expressions, formula, equations and such, expressed in a variant of LaTeX."
+	"wikibase-listdatatypes-math-body": "Literal data field for mathematical expressions, formula, equations and such, expressed in a variant of LaTeX.",
+	"action-purge": "purge"
 }
