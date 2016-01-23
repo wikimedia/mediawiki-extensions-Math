@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_0e538fe3",
+        "filename": "SpecialMathStatus.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 892
+      },
+      "writtenOn": "2016-01-23T16:24:26Z",
+      "side": 1,
+      "message": "\u0027purge\u0027 here should also be changed. Also I\u0027m not sure if \u0027viewmathstatus\u0027 is a relevant name but I think Math extension devs can help to decide that. :)",
+      "revId": "cf7b66f18f1950cf8e32db72609537d5c70a4ca3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_2e58cbfc",
+        "filename": "i18n/qqq.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 892
+      },
+      "writtenOn": "2016-01-23T16:24:26Z",
+      "side": 1,
+      "message": "message key here needs to be updated.",
+      "revId": "cf7b66f18f1950cf8e32db72609537d5c70a4ca3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
