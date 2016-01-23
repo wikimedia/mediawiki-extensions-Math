@@ -25,10 +25,10 @@ class SpecialMathStatus extends SpecialPage {
 	 */
 	function execute( $query ) {
 		$this->setHeaders();
-		if ( ! ( $this->getUser()->isAllowed( 'purge' ) ) ) {
+		if ( ! ( $this->getUser()->isAllowed( 'mathpurge' ) ) ) {
 			// The effect of loading this page is comparable to purge a page.
 			// If desired a dedicated right e.g. "viewmathstatus" could be used instead.
-			throw new PermissionsError( 'purge' );
+			throw new PermissionsError( 'mathpurge' );
 		}
 
 		$out = $this->getOutput();
