@@ -2222,7 +2222,7 @@
         {
             "tex": "\\mathit{1}",
             "encapsulate": {
-                "pre": "mathit{",
+                "pre": "\\mathit{",
                 "placeholder": "1",
                 "post": "}"
             }
