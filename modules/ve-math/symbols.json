@@ -1776,6 +1776,24 @@
         {
             "insert": "\\twoheadleftarrow",
             "tex": "\\twoheadleftarrow"
+        },
+        {
+            "contain": true,
+            "tex": "\\xrightarrow[b]{a}",
+            "encapsulate": {
+                "pre": "\\xrightarrow[",
+                "placeholder": "b",
+                "post": "]{a}"
+            }
+        },
+        {
+            "contain": true,
+            "tex": "\\xleftarrow[b]{a}",
+            "encapsulate": {
+                "pre": "\\xleftarrow[",
+                "placeholder": "b",
+                "post": "]{a}"
+            }
         }
     ],
     "math-visualeditor-symbol-group-special": [
@@ -2538,6 +2556,18 @@
         {
             "insert": "\\rceil",
             "tex": "\\rceil"
+        },
+        {
+            "insert": "\\rceil",
+            "tex": "\\rceil"
+        },
+        {
+            "tex": "\\lfloor x \\rceil",
+            "encapsulate": {
+                "pre": "\\lfloor ",
+                "placeholder": "x",
+                "post": " \\rceil"
+            }
         }
     ],
     "math-visualeditor-symbol-group-matrices": [
@@ -3098,6 +3128,12 @@
             "largeLayout": true,
             "wide": true,
             "tex": "\\underbrace{ a+b+\\cdots+z }_{26}"
+        },
+        {
+            "insert": "{}_pF_q\\left({a_1, \\ldots, a_p \\atop b_1, \\ldots, b_q}; z\\right)",
+            "largeLayout": true,
+            "wide": true,
+            "tex": "{}_pF_q\\left({a_1, \\ldots, a_p \\atop b_1, \\ldots, b_q}; z\\right)"
         }
     ]
 }
