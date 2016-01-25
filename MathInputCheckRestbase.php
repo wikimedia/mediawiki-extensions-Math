@@ -9,8 +9,6 @@
  * @author Moritz Schubotz
  */
 
-use MediaWiki\Logger\LoggerFactory;
-
 class MathInputCheckRestbase extends MathInputCheck {
 	private $restbaseInterface;
 

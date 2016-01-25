@@ -2,7 +2,6 @@
 
 use DataValues\StringValue;
 use ValueFormatters\Exceptions\MismatchingDataValueTypeException;
-use ValueFormatters\FormattingException;
 use ValueFormatters\ValueFormatter;
 use Wikibase\Lib\SnakFormatter;
 
@@ -17,22 +16,25 @@ use Wikibase\Lib\SnakFormatter;
 
 class MathFormatter implements ValueFormatter {
 
+	/**
+	 * @var string One of the SnakFormatter::FORMAT_... constants.
+	 */
 	private $format;
 
-	/*
+	/**
 	 * Loads format to distinguish the type of formatting
 	 *
-	 * @param string $format
+	 * @param string $format One of the SnakFormatter::FORMAT_... constants.
 	 *
 	 * @throws InvalidArgumentException
 	 */
 	public function __construct( $format ) {
 		switch ( $format ) {
-			case ( SnakFormatter::FORMAT_HTML ):
-			case ( SnakFormatter::FORMAT_HTML_DIFF ):
-			case ( SnakFormatter::FORMAT_HTML_WIDGET ):
-			case ( SnakFormatter::FORMAT_WIKI ):
-			case ( SnakFormatter::FORMAT_PLAIN ):
+			case SnakFormatter::FORMAT_PLAIN:
+			case SnakFormatter::FORMAT_WIKI:
+			case SnakFormatter::FORMAT_HTML:
+			case SnakFormatter::FORMAT_HTML_DIFF:
+			case SnakFormatter::FORMAT_HTML_WIDGET:
 				$this->format = $format;
 				break;
 			default:
@@ -40,44 +42,40 @@ class MathFormatter implements ValueFormatter {
 		}
 	}
 
-	/*
-	 *
+	/**
 	 * @param StringValue $value
 	 *
+	 * @throws MismatchingDataValueTypeException
 	 * @return string
-	 * @throws \ValueFormatters\Exceptions\MismatchingDataValueTypeException
 	 */
 	public function format( $value ) {
 		if ( !( $value instanceof StringValue ) ) {
 			throw new MismatchingDataValueTypeException( 'StringValue', get_class( $value ) );
 		}
+
 		$tex = $value->getValue();
 
 		switch ( $this->format ) {
-			case ( SnakFormatter::FORMAT_PLAIN ):
-				return "$tex";
-			case ( SnakFormatter::FORMAT_WIKI ):
+			case SnakFormatter::FORMAT_PLAIN:
+				return $tex;
+			case SnakFormatter::FORMAT_WIKI:
 				return "<math>$tex</math>";
-			case ( SnakFormatter::FORMAT_HTML ):
-			case ( SnakFormatter::FORMAT_HTML_WIDGET ):
-			case ( SnakFormatter::FORMAT_HTML_DIFF ):
+			default:
 				$renderer = new MathMathML( $tex );
-				if ( $renderer->checkTex() ) {
-					if ( $renderer->render() ) {
-						return $renderer->getHtmlOutput();
-					}
+				if ( $renderer->checkTex() && $renderer->render() ) {
+					return $renderer->getHtmlOutput();
 				}
+
 				// TeX string is not valid or rendering failed
 				return $renderer->getLastError();
 		}
 	}
 
 	/**
-	 *
-	 * @return format
+	 * @return string One of the SnakFormatter::FORMAT_... constants.
 	 */
-
 	public function getFormat() {
 		return $this->format;
 	}
+
 }
