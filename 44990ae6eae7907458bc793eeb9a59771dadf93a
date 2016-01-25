@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_62148fa1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-25T15:50:49Z",
+      "side": 1,
+      "message": "Can you adjust the commit message?\nhttps://www.mediawiki.org/wiki/Gerrit/Commit_message_guidelines",
+      "revId": "44990ae6eae7907458bc793eeb9a59771dadf93a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_82d8ab29",
+        "filename": "MathFormatter.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-25T15:50:49Z",
+      "side": 1,
+      "message": "one?",
+      "revId": "44990ae6eae7907458bc793eeb9a59771dadf93a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_42f9537d",
+        "filename": "MathFormatter.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-01-25T15:50:49Z",
+      "side": 1,
+      "message": "one",
+      "revId": "44990ae6eae7907458bc793eeb9a59771dadf93a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
