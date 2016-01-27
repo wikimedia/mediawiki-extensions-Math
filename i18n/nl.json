@@ -57,5 +57,7 @@
 	"mw_math_png": "PNG-afbeeldingen",
 	"mw_math_source": "LaTeX-bron (voor tekstbrowsers)",
 	"prefs-math": "Formules",
-	"mathstatus": "Status formuleweergave"
+	"mathstatus": "Status formuleweergave",
+	"datatypes-type-math": "Wiskundige uitdrukking",
+	"wikibase-listdatatypes-math-head": "Wiskundige uitdrukking"
 }
