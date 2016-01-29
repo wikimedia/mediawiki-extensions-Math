@@ -14,13 +14,27 @@ use MediaWiki\Logger\LoggerFactory;
 class MathMathML extends MathRenderer {
 
 	protected $defaultAllowedRootElements = array( 'math' );
-	protected $restbaseInputTypes = array( 'tex', 'inline-tex' );
+	protected $restbaseInputTypes = array( 'tex', 'inline-tex', 'chem' );
 	protected $allowedRootElements = '';
 	protected $hosts;
 
 	/** @var boolean if false MathML output is not validated */
 	private $XMLValidation = true;
 	private $svgPath = false;
+
+	/**
+	 * @param string $inputType
+	 */
+	public function setInputType( $inputType ) {
+		$this->inputType = $inputType;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getInputType() {
+		return $this->inputType;
+	}
 
 	public function __construct( $tex = '', $params = array() ) {
 		global $wgMathMathMLUrl;
@@ -33,6 +47,8 @@ class MathMathML extends MathRenderer {
 				$this->setMathml( '<math>' . $tex . '</math>' );
 			} elseif ( $params['type'] == 'ascii' ) {
 				$this->inputType = 'ascii';
+			} elseif ( $params['type'] == 'chem' ){
+				$this->inputType = 'chem';
 			}
 		}
 		if ( !isset( $params['display'] ) && $this->getMathStyle() == 'inlineDisplaystyle' ) {
