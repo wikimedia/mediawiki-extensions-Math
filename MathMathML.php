@@ -14,7 +14,7 @@ use MediaWiki\Logger\LoggerFactory;
 class MathMathML extends MathRenderer {
 
 	protected $defaultAllowedRootElements = array( 'math' );
-	protected $restbaseInputTypes = array( 'tex', 'inline-tex' );
+	protected $restbaseInputTypes = array( 'tex', 'inline-tex', 'chem' );
 	protected $allowedRootElements = '';
 	protected $hosts;
 
@@ -33,6 +33,8 @@ class MathMathML extends MathRenderer {
 				$this->setMathml( '<math>' . $tex . '</math>' );
 			} elseif ( $params['type'] == 'ascii' ) {
 				$this->inputType = 'ascii';
+			} elseif ( $params['type'] == 'chem' ){
+				$this->inputType = 'chem';
 			}
 		}
 		if ( !isset( $params['display'] ) && $this->getMathStyle() == 'inlineDisplaystyle' ) {
