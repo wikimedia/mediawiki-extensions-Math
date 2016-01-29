@@ -56,6 +56,10 @@ abstract class MathRenderer {
 	protected $inputHash = '';
 	/** @var string rendering mode */
 	protected $mode = 'png';
+	/** @var string input type */
+	protected $inputType = 'tex';
+	/** @var MathRestbaseInterface used for checking */
+	protected $rbi;
 
 	/**
 	 * Constructs a base MathRenderer
@@ -73,8 +77,10 @@ abstract class MathRenderer {
 			if ( $layoutMode == 'block' ) {
 				$this->mathStyle = 'display';
 				$tex = '{\displaystyle ' . $tex . '}';
+				$this->inputType = 'tex';
 			} elseif ( $layoutMode == 'inline' ) {
 				$this->mathStyle = 'inline';
+				$this->inputType = 'inline-tex';
 				$tex = '{\textstyle ' . $tex . '}';
 			} elseif ( $layoutMode == 'linebreak' ) {
 				$this->mathStyle = 'linebreak';
@@ -540,6 +546,11 @@ abstract class MathRenderer {
 			$this->changed = true;
 		}
 		$this->mathStyle = $mathStyle;
+		if ( $mathStyle == 'inline' ){
+			$this->inputType = 'inline-tex';
+		} else {
+			$this->inputType = 'tex';
+		}
 	}
 
 	/**
@@ -572,11 +583,12 @@ abstract class MathRenderer {
 					return true;
 				}
 			}
-			$checker = new MathInputCheckRestbase( $this->userInputTex );
+			$checker = new MathInputCheckRestbase( $this->tex, $this->getInputType() );
 			try {
 				if ( $checker->isValid() ) {
 					$this->setTex( $checker->getValidTex() );
 					$this->texSecure = true;
+					$this->rbi = $checker->getRbi();
 					return true;
 				}
 			} catch ( MWException $e ) {
@@ -658,5 +670,20 @@ abstract class MathRenderer {
 	public static function getDisableTexFilter() {
 		global $wgMathDisableTexFilter;
 		return MathHooks::mathCheckToString( $wgMathDisableTexFilter );
+	}
+
+
+	/**
+	 * @param string $inputType
+	 */
+	public function setInputType( $inputType ) {
+		$this->inputType = $inputType;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getInputType() {
+		return $this->inputType;
 	}
 }

@@ -14,27 +14,13 @@ use MediaWiki\Logger\LoggerFactory;
 class MathMathML extends MathRenderer {
 
 	protected $defaultAllowedRootElements = array( 'math' );
+	protected $restbaseInputTypes = array( 'tex', 'inline-tex' );
 	protected $allowedRootElements = '';
 	protected $hosts;
 
 	/** @var boolean if false MathML output is not validated */
 	private $XMLValidation = true;
-	protected $inputType = 'tex';
 	private $svgPath = false;
-
-	/**
-	 * @param string $inputType
-	 */
-	public function setInputType( $inputType ) {
-		$this->inputType = $inputType;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getInputType() {
-		return $this->inputType;
-	}
 
 	public function __construct( $tex = '', $params = array() ) {
 		global $wgMathMathMLUrl;
@@ -48,6 +34,10 @@ class MathMathML extends MathRenderer {
 			} elseif ( $params['type'] == 'ascii' ) {
 				$this->inputType = 'ascii';
 			}
+		}
+		if ( !isset( $params['display'] ) && $this->getMathStyle() == 'inlineDisplaystyle' ) {
+			// default preserve the (broken) layout as it was
+			$this->tex = '{\\displaystyle ' . $tex . '}';
 		}
 	}
 
@@ -86,17 +76,13 @@ class MathMathML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	public function render( $forceReRendering = false ) {
-		if ( $this->inputType == 'tex' && $this->mode == 'mathml' ) {
-			$tex = $this->getTex();
-			$displaystyle = false;
-			if ( $this->getMathStyle() == 'inlineDisplaystyle' ) {
-				// default preserve the (broken) layout as it was
-				$tex = '{\\displaystyle ' . $tex . '}';
-			} elseif ( $this->getMathStyle() !== 'inline' ) {
-				$displaystyle = true;
+		if ( in_array( $this->inputType, $this->restbaseInputTypes ) && $this->mode == 'mathml' ) {
+			$rbi = $this->rbi;
+			if ( !$rbi ){
+				$rbi = new MathRestbaseInterface( $this->getTex(), $this->getInputType() );
+				$rbi->checkTeX();
 			}
-			$rbi = new MathRestbaseInterface( $tex, $displaystyle );
-			if ( $rbi->checkTeX() ) {
+			if ( $rbi->getSuccess() ) {
 				$this->mathml = $rbi->getMathML();
 				$this->svg = $rbi->getSvg();
 				$this->svgPath = $rbi->getFullSvgUrl();
@@ -228,6 +214,7 @@ class MathMathML extends MathRenderer {
 	 * Calculates the HTTP POST Data for the request. Depends on the settings
 	 * and the input string only.
 	 * @return string HTTP POST data
+	 * @throws MWException
 	 */
 	public function getPostData() {
 		$input = $this->getTex();
