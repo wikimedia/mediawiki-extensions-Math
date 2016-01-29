@@ -14,12 +14,12 @@ use MediaWiki\Logger\LoggerFactory;
 class MathMathML extends MathRenderer {
 
 	protected $defaultAllowedRootElements = array( 'math' );
+	protected $restbaseInputTypes = array( 'tex', 'chem' );
 	protected $allowedRootElements = '';
 	protected $hosts;
 
 	/** @var boolean if false MathML output is not validated */
 	private $XMLValidation = true;
-	protected $inputType = 'tex';
 	private $svgPath = false;
 
 	/**
@@ -86,7 +86,7 @@ class MathMathML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	public function render( $forceReRendering = false ) {
-		if ( $this->inputType == 'tex' && $this->mode == 'mathml' ) {
+		if ( in_array( $this->inputType, $this->restbaseInputTypes ) && $this->mode == 'mathml' ) {
 			$tex = $this->getTex();
 			$displaystyle = false;
 			if ( $this->getMathStyle() == 'inlineDisplaystyle' ) {
@@ -95,7 +95,10 @@ class MathMathML extends MathRenderer {
 			} elseif ( $this->getMathStyle() !== 'inline' ) {
 				$displaystyle = true;
 			}
-			$rbi = new MathRestbaseInterface( $tex, $displaystyle );
+			$rbi = $this->rbi;
+			if (!$rbi ){
+				$rbi = new MathRestbaseInterface( $tex );
+			}
 			if ( $rbi->checkTeX() ) {
 				$this->mathml = $rbi->getMathML();
 				$this->svg = $rbi->getSvg();
@@ -228,6 +231,7 @@ class MathMathML extends MathRenderer {
 	 * Calculates the HTTP POST Data for the request. Depends on the settings
 	 * and the input string only.
 	 * @return string HTTP POST data
+	 * @throws MWException
 	 */
 	public function getPostData() {
 		$input = $this->getTex();
