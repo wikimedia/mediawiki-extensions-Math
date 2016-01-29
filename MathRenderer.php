@@ -157,6 +157,10 @@ abstract class MathRenderer {
 				unset( $params['type'] );
 			}
 		}
+		if ( isset( $params['chem'] ) ) {
+			$mode = 'mathml';
+			$params['type'] = 'chem';
+		}
 		switch ( $mode ) {
 			case 'source':
 				$renderer = new MathSource( $tex, $params );
