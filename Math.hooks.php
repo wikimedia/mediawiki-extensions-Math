@@ -165,6 +165,7 @@ class MathHooks {
 	 */
 	static function onParserFirstCallInit( $parser ) {
 		$parser->setHook( 'math', array( 'MathHooks', 'mathTagHook' ) );
+		$parser->setHook( 'ce', array( 'MathHooks', 'ceTagHook' ) );
 
 		return true;
 	}
@@ -371,4 +372,18 @@ class MathHooks {
 		$wgMathDisableTexFilter = MathRenderer::getDisableTexFilter();
 		$wgDefaultUserOptions['math'] = self::mathModeToString( $wgDefaultUserOptions['math'] );
 	}
+
+	/**
+	 * Callback function for the <ce> parser hook.
+	 *
+	 * @param $content (the LaTeX input)
+	 * @param $attributes
+	 * @param Parser $parser
+	 * @return array
+	 */
+	static function ceTagHook( $content, $attributes, $parser ) {
+		$attributes['chem'] = true;
+		return MathHooks::mathTagHook( '\ce{' . $content . '}', $attributes, $parser );
+	}
+
 }
