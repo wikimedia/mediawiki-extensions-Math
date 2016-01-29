@@ -56,6 +56,9 @@ abstract class MathRenderer {
 	protected $inputHash = '';
 	/** @var string rendering mode */
 	protected $mode = 'png';
+	protected $inputType = 'tex';
+	/** @var MathRestbaseInterface used for checking */
+	protected $rbi;
 
 	/**
 	 * Constructs a base MathRenderer
@@ -150,6 +153,10 @@ abstract class MathRenderer {
 			if ( !in_array( $params['type'], array( 'pmml', 'ascii' ) ) ) {
 				unset( $params['type'] );
 			}
+		}
+		if ( isset( $params['chem'] ) ) {
+			$mode = 'mathml';
+			$params['type'] = 'chem';
 		}
 		switch ( $mode ) {
 			case 'source':
@@ -572,11 +579,19 @@ abstract class MathRenderer {
 					return true;
 				}
 			}
-			$checker = new MathInputCheckRestbase( $this->userInputTex );
+			if ( $this->inputType == 'chem' ) {
+				$type = 'chem';
+			} elseif ( $this->getMathStyle() == 'MW_MATHSTYLE_DISPLAY' ) {
+				$type = 'tex';
+			} else {
+				$type = 'inline-tex';
+			}
+			$checker = new MathInputCheckRestbase( $this->userInputTex, $type );
 			try {
 				if ( $checker->isValid() ) {
 					$this->setTex( $checker->getValidTex() );
 					$this->texSecure = true;
+					$this->rbi = $checker->getRbi();
 					return true;
 				}
 			} catch ( MWException $e ) {

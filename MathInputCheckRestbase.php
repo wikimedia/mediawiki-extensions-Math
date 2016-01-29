@@ -16,11 +16,11 @@ class MathInputCheckRestbase extends MathInputCheck {
 	 * Default constructor
 	 * (performs no checking)
 	 * @param string $tex the TeX input string to be checked
-	 * @param bool $displayStyle
+	 * @param string $type
 	 */
-	public function __construct( $tex = '', $displayStyle = true ) {
+	public function __construct( $tex = '', $type = 'tex' ) {
 		parent::__construct( $tex );
-		$this->restbaseInterface = new MathRestbaseInterface( $tex, $displayStyle );
+		$this->restbaseInterface = new MathRestbaseInterface( $tex, $type );
 	}
 
 	/**
@@ -80,6 +80,10 @@ class MathInputCheckRestbase extends MathInputCheck {
 			return null;
 		}
 		return $this->errorObjectToHtml( $err );
+	}
+
+	public function getRbi() {
+		return $this->restbaseInterface;
 	}
 
 }
