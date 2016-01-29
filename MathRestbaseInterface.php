@@ -20,15 +20,11 @@ class MathRestbaseInterface {
 	/**
 	 * MathRestbaseInterface constructor.
 	 * @param string $tex
-	 * @param bool $displayStyle
+	 * @param string $type
 	 */
-	public function __construct( $tex = '', $displayStyle = true ) {
+	public function __construct( $tex = '', $type = 'tex' ) {
 		$this->tex = $tex;
-		if ( $displayStyle ) {
-			$this->type = 'tex';
-		} else {
-			$this->type = 'inline-tex';
-		}
+		$this->type = $type;
 	}
 
 	/**

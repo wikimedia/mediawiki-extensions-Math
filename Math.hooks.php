@@ -165,6 +165,9 @@ class MathHooks {
 	 */
 	static function onParserFirstCallInit( $parser ) {
 		$parser->setHook( 'math', array( 'MathHooks', 'mathTagHook' ) );
+		// chemistry hooks users should decide which one is really needed
+		$parser->setHook( 'ce', array( 'MathHooks', 'ceTagHook' ) );
+		$parser->setHook( 'chem', array( 'MathHooks', 'chemTagHook' ) );
 
 		return true;
 	}
@@ -371,4 +374,57 @@ class MathHooks {
 		$wgMathDisableTexFilter = MathRenderer::getDisableTexFilter();
 		$wgDefaultUserOptions['math'] = self::mathModeToString( $wgDefaultUserOptions['math'] );
 	}
+
+	/**
+	 * Callback function for the <chem> parser hook.
+	 *
+	 * @param $content (the LaTeX input)
+	 * @param $attributes
+	 * @param Parser $parser
+	 * @return array
+	 */
+	static function chemTagHook( $content, $attributes, $parser ) {
+		$renderer = new MathMathML( $content, $attributes );
+		$renderer->setInputType( 'chem' );
+
+		$checkResult = $renderer->checkTeX();
+
+		if ( $checkResult !== true ) {
+			// Returns the error message
+			return $renderer->getLastError();
+		}
+
+		if ( $renderer->render() ) {
+			LoggerFactory::getInstance( 'Math' )->debug( "Rendering successful. Writing output" );
+			$renderedMath = $renderer->getHtmlOutput();
+		} else {
+			LoggerFactory::getInstance( 'Math' )->warning(
+					"Rendering failed. Printing error message." );
+			return $renderer->getLastError();
+		}
+		Hooks::run( 'MathFormulaPostRender',
+				array( $parser, &$renderer, &$renderedMath ) );// Enables indexing of math formula
+		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
+		$parser->getOutput()->addModuleStyles( array( 'ext.math.desktop.styles' ) );
+		$parser->getOutput()->addModules( array( 'ext.math.scripts' ) );
+
+		// Writes cache if rendering was successful
+		$renderer->writeCache();
+
+		return array( $renderedMath, "markerType" => 'nowiki' );
+
+	}
+
+	/**
+	 * Callback function for the <ce> parser hook.
+	 *
+	 * @param $content (the LaTeX input)
+	 * @param $attributes
+	 * @param Parser $parser
+	 * @return array
+	 */
+	static function ceTagHook( $content, $attributes, $parser ) {
+		return MathHooks::chemTagHook( '\ce{' . $content . '}', $attributes, $parser );
+	}
+
 }
