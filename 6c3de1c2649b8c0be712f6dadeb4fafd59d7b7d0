@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_5667abb4",
+        "filename": "modules/ve-math/symbols.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2016-01-30T18:37:07Z",
+      "side": 1,
+      "message": "backgroundPosition is the specific technique we are currently using the fix the issue, but the issue is the baseline/alignment. Suggestions:\n\n\u0027alignToBaseline\u0027\n\u0027alignBaseline\u0027\n\u0027fixBaseline\u0027",
+      "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_160133b9",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2016-01-30T18:37:07Z",
+      "side": 1,
+      "message": "You moved body and className to higher scopes - we should generally keep variables in the narrowest scope possible. Also offset can be moved much further down.",
+      "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_766427af",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2016-01-30T18:37:07Z",
+      "side": 1,
+      "message": "mention this an approximation",
+      "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_d6215b4c",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2016-01-30T18:37:07Z",
+      "side": 1,
+      "message": "couldn\u0027t you just do symbolList.push( symbol )?",
+      "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_76fbc7ba",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2016-01-30T18:37:07Z",
+      "side": 1,
+      "message": "\u0027reason\u0027 is unused",
+      "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_16d7f329",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2016-01-30T18:37:07Z",
+      "side": 1,
+      "message": "to cssClasses[name] can be true/false/undefined or \u0027done\u0027 - that feels a little hacky. Maybe just use another variable?",
+      "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
