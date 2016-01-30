@@ -377,6 +377,13 @@ abstract class MathRenderer {
 	}
 
 	/**
+	 * @param MathRestbaseInterface $param
+	 */
+	public function setRestbaseInterface( $param ) {
+		$this->rbi = $param;
+	}
+
+	/**
 	 * Returns sanitized attributes
 	 *
 	 * @param string $tag element name
@@ -583,12 +590,11 @@ abstract class MathRenderer {
 					return true;
 				}
 			}
-			$checker = new MathInputCheckRestbase( $this->tex, $this->getInputType() );
+			$checker = new MathInputCheckRestbase( $this->tex, $this->getInputType(), $this->rbi );
 			try {
 				if ( $checker->isValid() ) {
 					$this->setTex( $checker->getValidTex() );
 					$this->texSecure = true;
-					$this->rbi = $checker->getRbi();
 					return true;
 				}
 			} catch ( MWException $e ) {
