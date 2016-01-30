@@ -80,7 +80,6 @@ class MathMathML extends MathRenderer {
 			$rbi = $this->rbi;
 			if ( !$rbi ){
 				$rbi = new MathRestbaseInterface( $this->getTex(), $this->getInputType() );
-				$rbi->checkTeX();
 			}
 			if ( $rbi->getSuccess() ) {
 				$this->mathml = $rbi->getMathML();
