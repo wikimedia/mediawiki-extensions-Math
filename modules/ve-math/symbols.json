@@ -6,7 +6,8 @@
                 "pre": "\\dot{",
                 "placeholder": "a",
                 "post": "}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "\\ddot{a}",
@@ -14,7 +15,8 @@
                 "pre": "\\ddot{",
                 "placeholder": "a",
                 "post": "}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "\\acute{a}",
@@ -22,7 +24,8 @@
                 "pre": "\\acute{",
                 "placeholder": "a",
                 "post": "}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "\\grave{a}",
@@ -30,7 +33,8 @@
                 "pre": "\\grave{",
                 "placeholder": "a",
                 "post": "}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "\\check{a}",
@@ -38,7 +42,8 @@
                 "pre": "\\check{",
                 "placeholder": "a",
                 "post": "}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "\\breve{a}",
@@ -46,7 +51,8 @@
                 "pre": "\\breve{",
                 "placeholder": "a",
                 "post": "}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "\\tilde{a}",
@@ -54,7 +60,8 @@
                 "pre": "\\tilde{",
                 "placeholder": "a",
                 "post": "}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "\\bar{a}",
@@ -62,7 +69,8 @@
                 "pre": "\\bar{",
                 "placeholder": "a",
                 "post": "}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "\\hat{a}",
@@ -70,7 +78,8 @@
                 "pre": "\\hat{",
                 "placeholder": "a",
                 "post": "}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "\\widehat{a}",
@@ -78,7 +87,8 @@
                 "pre": "\\widehat{",
                 "placeholder": "a",
                 "post": "}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "\\vec{a}",
@@ -86,13 +96,15 @@
                 "pre": "\\vec{",
                 "placeholder": "a",
                 "post": "}"
-            }
+            },
+            "alignBaseline": true
         }
     ],
     "math-visualeditor-symbol-group-functions": [
         {
             "insert": "\\exp",
-            "tex": "\\exp"
+            "tex": "\\exp",
+            "alignBaseline": true
         },
         {
             "wide": true,
@@ -101,19 +113,23 @@
                 "pre": "\\exp_",
                 "placeholder": "a",
                 "post": ""
-            }
+            },
+            "alignBaseline": true
         },
         {
             "insert": "\\ln",
-            "tex": "\\ln"
+            "tex": "\\ln",
+            "alignBaseline": true
         },
         {
             "insert": "\\lg",
-            "tex": "\\lg"
+            "tex": "\\lg",
+            "alignBaseline": true
         },
         {
             "insert": "\\log",
-            "tex": "\\log"
+            "tex": "\\log",
+            "alignBaseline": true
         },
         {
             "wide": true,
@@ -122,112 +138,137 @@
                 "pre": "\\log_{",
                 "placeholder": "10",
                 "post": "}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "insert": "\\sin",
-            "tex": "\\sin"
+            "tex": "\\sin",
+            "alignBaseline": true
         },
         {
             "insert": "\\cos",
-            "tex": "\\cos"
+            "tex": "\\cos",
+            "alignBaseline": true
         },
         {
             "insert": "\\tan",
-            "tex": "\\tan"
+            "tex": "\\tan",
+            "alignBaseline": true
         },
         {
             "insert": "\\cot",
-            "tex": "\\cot"
+            "tex": "\\cot",
+            "alignBaseline": true
         },
         {
             "insert": "\\sec",
-            "tex": "\\sec"
+            "tex": "\\sec",
+            "alignBaseline": true
         },
         {
             "insert": "\\csc",
-            "tex": "\\csc"
+            "tex": "\\csc",
+            "alignBaseline": true
         },
         {
             "insert": "\\arcsin",
             "wide": true,
-            "tex": "\\arcsin"
+            "tex": "\\arcsin",
+            "alignBaseline": true
         },
         {
             "insert": "\\arccos",
             "wide": true,
-            "tex": "\\arccos"
+            "tex": "\\arccos",
+            "alignBaseline": true
         },
         {
             "insert": "\\arctan",
             "wide": true,
-            "tex": "\\arctan"
+            "tex": "\\arctan",
+            "alignBaseline": true
         },
         {
             "insert": "\\arccot",
             "wide": true,
-            "tex": "\\arccot"
+            "tex": "\\arccot",
+            "alignBaseline": true
         },
         {
             "insert": "\\arcsec",
             "wide": true,
-            "tex": "\\arcsec"
+            "tex": "\\arcsec",
+            "alignBaseline": true
         },
         {
             "insert": "\\arccsc",
             "wide": true,
-            "tex": "\\arccsc"
+            "tex": "\\arccsc",
+            "alignBaseline": true
         },
         {
             "insert": "\\sinh",
-            "tex": "\\sinh"
+            "tex": "\\sinh",
+            "alignBaseline": true
         },
         {
             "insert": "\\cosh",
-            "tex": "\\cosh"
+            "tex": "\\cosh",
+            "alignBaseline": true
         },
         {
             "insert": "\\tanh",
-            "tex": "\\tanh"
+            "tex": "\\tanh",
+            "alignBaseline": true
         },
         {
             "insert": "\\coth",
-            "tex": "\\coth"
+            "tex": "\\coth",
+            "alignBaseline": true
         },
         {
             "insert": "\\operatorname{sh}",
-            "tex": "\\operatorname{sh}"
+            "tex": "\\operatorname{sh}",
+            "alignBaseline": true
         },
         {
             "insert": "\\operatorname{ch}",
-            "tex": "\\operatorname{ch}"
+            "tex": "\\operatorname{ch}",
+            "alignBaseline": true
         },
         {
             "insert": "\\operatorname{th}",
-            "tex": "\\operatorname{th}"
+            "tex": "\\operatorname{th}",
+            "alignBaseline": true
         },
         {
             "insert": "\\operatorname{coth}",
-            "tex": "\\operatorname{coth}"
+            "tex": "\\operatorname{coth}",
+            "alignBaseline": true
         },
         {
             "insert": "\\operatorname{argsh}",
             "wide": true,
-            "tex": "\\operatorname{argsh}"
+            "tex": "\\operatorname{argsh}",
+            "alignBaseline": true
         },
         {
             "insert": "\\operatorname{argch}",
             "wide": true,
-            "tex": "\\operatorname{argch}"
+            "tex": "\\operatorname{argch}",
+            "alignBaseline": true
         },
         {
             "insert": "\\operatorname{argth}",
             "wide": true,
-            "tex": "\\operatorname{argth}"
+            "tex": "\\operatorname{argth}",
+            "alignBaseline": true
         },
         {
             "insert": "\\sgn",
-            "tex": "\\sgn"
+            "tex": "\\sgn",
+            "alignBaseline": true
         },
         {
             "tex": "\\left\\vert s \\right\\vert",
@@ -235,7 +276,8 @@
                 "pre": "\\left\\vert ",
                 "placeholder": "s",
                 "post": " \\right\\vert"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "wide": true,
@@ -244,7 +286,8 @@
                 "pre": "\\min(",
                 "placeholder": "x",
                 "post": ",y)"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "wide": true,
@@ -253,65 +296,79 @@
                 "pre": "\\max(",
                 "placeholder": "x",
                 "post": ",y)"
-            }
+            },
+            "alignBaseline": true
         }
     ],
     "math-visualeditor-symbol-group-bounds": [
         {
             "insert": "\\min",
-            "tex": "\\min"
+            "tex": "\\min",
+            "alignBaseline": true
         },
         {
             "insert": "\\max",
-            "tex": "\\max"
+            "tex": "\\max",
+            "alignBaseline": true
         },
         {
             "insert": "\\inf",
-            "tex": "\\inf"
+            "tex": "\\inf",
+            "alignBaseline": true
         },
         {
             "insert": "\\sup",
-            "tex": "\\sup"
+            "tex": "\\sup",
+            "alignBaseline": true
         },
         {
             "insert": "\\lim",
-            "tex": "\\lim"
+            "tex": "\\lim",
+            "alignBaseline": true
         },
         {
             "insert": "\\liminf",
             "wide": true,
-            "tex": "\\liminf"
+            "tex": "\\liminf",
+            "alignBaseline": true
         },
         {
             "insert": "\\limsup",
             "wide": true,
-            "tex": "\\limsup"
+            "tex": "\\limsup",
+            "alignBaseline": true
         },
         {
             "insert": "\\dim",
-            "tex": "\\dim"
+            "tex": "\\dim",
+            "alignBaseline": true
         },
         {
             "insert": "\\deg",
-            "tex": "\\deg"
+            "tex": "\\deg",
+            "alignBaseline": true
         },
         {
             "insert": "\\det",
-            "tex": "\\det"
+            "tex": "\\det",
+            "alignBaseline": true
         },
         {
             "insert": "\\ker",
-            "tex": "\\ker"
+            "tex": "\\ker",
+            "alignBaseline": true
         }
     ],
     "math-visualeditor-symbol-group-projections": [
         {
             "insert": "\\Pr",
-            "tex": "\\Pr"
+            "tex": "\\Pr",
+            "alignBaseline": true
         },
         {
             "insert": "\\hom",
-            "tex": "\\hom"
+            "tex": "\\hom",
+            "alignBaseline": true
         },
         {
             "tex": "\\lVert z \\rVert",
@@ -319,11 +376,13 @@
                 "pre": "\\lVert ",
                 "placeholder": "z",
                 "post": " \\rVert"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "insert": "\\arg",
-            "tex": "\\arg"
+            "tex": "\\arg",
+            "alignBaseline": true
         }
     ],
     "math-visualeditor-symbol-group-derivatives": [
@@ -379,11 +438,13 @@
         },
         {
             "insert": "f'",
-            "tex": "f'"
+            "tex": "f'",
+            "alignBaseline": true
         },
         {
             "insert": "f''",
-            "tex": "f''"
+            "tex": "f''",
+            "alignBaseline": true
         },
         {
             "tex": "f^{(3)}",
@@ -391,7 +452,8 @@
                 "pre": "f^{(",
                 "placeholder": "3",
                 "post": ")}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "insert": "\\dot y",
@@ -476,7 +538,8 @@
                 "pre": "\\pmod{",
                 "placeholder": "m",
                 "post": "}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "wide": true,
@@ -485,7 +548,8 @@
                 "pre": "",
                 "placeholder": "a",
                 "post": "\\bmod b"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "wide": true,
@@ -494,7 +558,8 @@
                 "pre": "\\gcd(",
                 "placeholder": "m",
                 "post": ", n)"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "insert": "\\operatorname{lcm}(m, n)",
@@ -504,7 +569,8 @@
                 "pre": "\\operatorname{lcm}(",
                 "placeholder": "m",
                 "post": ", n)"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "insert": "\\mid",
@@ -1805,7 +1871,8 @@
         },
         {
             "insert": "\\ldots",
-            "tex": "\\ldots"
+            "tex": "\\ldots",
+            "alignBaseline": true
         },
         {
             "insert": "\\cdots",
@@ -1985,95 +2052,118 @@
     "math-visualeditor-symbol-group-greek": [
         {
             "insert": "\\alpha",
-            "tex": "\\alpha"
+            "tex": "\\alpha",
+            "alignBaseline": true
         },
         {
             "insert": "\\beta",
-            "tex": "\\beta"
+            "tex": "\\beta",
+            "alignBaseline": true
         },
         {
             "insert": "\\gamma",
-            "tex": "\\gamma"
+            "tex": "\\gamma",
+            "alignBaseline": true
         },
         {
             "insert": "\\delta",
-            "tex": "\\delta"
+            "tex": "\\delta",
+            "alignBaseline": true
         },
         {
             "insert": "\\epsilon",
-            "tex": "\\epsilon"
+            "tex": "\\epsilon",
+            "alignBaseline": true
         },
         {
             "insert": "\\zeta",
-            "tex": "\\zeta"
+            "tex": "\\zeta",
+            "alignBaseline": true
         },
         {
             "insert": "\\eta",
-            "tex": "\\eta"
+            "tex": "\\eta",
+            "alignBaseline": true
         },
         {
             "insert": "\\theta",
-            "tex": "\\theta"
+            "tex": "\\theta",
+            "alignBaseline": true
         },
         {
             "insert": "\\iota",
-            "tex": "\\iota"
+            "tex": "\\iota",
+            "alignBaseline": true
         },
         {
             "insert": "\\kappa",
-            "tex": "\\kappa"
+            "tex": "\\kappa",
+            "alignBaseline": true
         },
         {
             "insert": "\\lambda",
-            "tex": "\\lambda"
+            "tex": "\\lambda",
+            "alignBaseline": true
         },
         {
             "insert": "\\mu",
-            "tex": "\\mu"
+            "tex": "\\mu",
+            "alignBaseline": true
         },
         {
             "insert": "\\nu",
-            "tex": "\\nu"
+            "tex": "\\nu",
+            "alignBaseline": true
         },
         {
             "insert": "\\xi",
-            "tex": "\\xi"
+            "tex": "\\xi",
+            "alignBaseline": true
         },
         {
             "insert": "\\pi",
-            "tex": "\\pi"
+            "tex": "\\pi",
+            "alignBaseline": true
         },
         {
             "insert": "\\rho",
-            "tex": "\\rho"
+            "tex": "\\rho",
+            "alignBaseline": true
         },
         {
             "insert": "\\sigma",
-            "tex": "\\sigma"
+            "tex": "\\sigma",
+            "alignBaseline": true
         },
         {
             "insert": "\\tau",
-            "tex": "\\tau"
+            "tex": "\\tau",
+            "alignBaseline": true
         },
         {
             "insert": "\\upsilon",
-            "tex": "\\upsilon"
+            "tex": "\\upsilon",
+            "alignBaseline": true
         },
         {
             "insert": "\\phi",
-            "tex": "\\phi"
+            "tex": "\\phi",
+            "alignBaseline": true
         },
         {
             "insert": "\\chi",
-            "tex": "\\chi"
+            "tex": "\\chi",
+            "alignBaseline": true
         },
         {
             "insert": "\\psi",
-            "tex": "\\psi"
+            "tex": "\\psi",
+            "alignBaseline": true
         },
         {
             "insert": "\\omega",
-            "tex": "\\omega"
+            "tex": "\\omega",
+            "alignBaseline": true
         },
         {
             "insert": "\\Alpha",
@@ -2169,35 +2259,43 @@
         },
         {
             "insert": "\\varepsilon",
-            "tex": "\\varepsilon"
+            "tex": "\\varepsilon",
+            "alignBaseline": true
         },
         {
             "insert": "\\digamma",
-            "tex": "\\digamma"
+            "tex": "\\digamma",
+            "alignBaseline": true
         },
         {
             "insert": "\\varkappa",
-            "tex": "\\varkappa"
+            "tex": "\\varkappa",
+            "alignBaseline": true
         },
         {
             "insert": "\\varpi",
-            "tex": "\\varpi"
+            "tex": "\\varpi",
+            "alignBaseline": true
         },
         {
             "insert": "\\varrho",
-            "tex": "\\varrho"
+            "tex": "\\varrho",
+            "alignBaseline": true
         },
         {
             "insert": "\\varsigma",
-            "tex": "\\varsigma"
+            "tex": "\\varsigma",
+            "alignBaseline": true
         },
         {
             "insert": "\\vartheta",
-            "tex": "\\vartheta"
+            "tex": "\\vartheta",
+            "alignBaseline": true
         },
         {
             "insert": "\\varphi",
-            "tex": "\\varphi"
+            "tex": "\\varphi",
+            "alignBaseline": true
         }
     ],
     "math-visualeditor-symbol-group-hebrew": [
@@ -2652,7 +2750,8 @@
                 "pre": "",
                 "placeholder": "a",
                 "post": "^2"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "a_2",
@@ -2660,7 +2759,8 @@
                 "pre": "",
                 "placeholder": "a",
                 "post": "_2"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "10^{30}",
@@ -2668,7 +2768,8 @@
                 "pre": "",
                 "placeholder": "10",
                 "post": "^{30}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "a^{2+2}",
@@ -2676,7 +2777,8 @@
                 "pre": "",
                 "placeholder": "a",
                 "post": "^{2+2}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "a_{i,j}",
@@ -2684,7 +2786,8 @@
                 "pre": "",
                 "placeholder": "a",
                 "post": "_{i,j}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "b_{f'}",
@@ -2692,7 +2795,8 @@
                 "pre": "",
                 "placeholder": "b",
                 "post": "_{f'}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "x_2^3",
@@ -2700,7 +2804,8 @@
                 "pre": "",
                 "placeholder": "x",
                 "post": "_2^3"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "{x_2}^3",
@@ -2708,7 +2813,8 @@
                 "pre": "{",
                 "placeholder": "x",
                 "post": "_2}^3"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "wide": true,
@@ -2717,7 +2823,8 @@
                 "pre": "",
                 "placeholder": "10",
                 "post": "^{10^{8}}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "contain": true,
@@ -2739,7 +2846,8 @@
                 "pre": "\\overset{",
                 "placeholder": "\\alpha",
                 "post": "}{\\omega}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "\\underset{\\alpha}{\\omega}",
@@ -2747,7 +2855,8 @@
                 "pre": "\\underset{",
                 "placeholder": "\\alpha",
                 "post": "}{\\omega}"
-            }
+            },
+            "alignBaseline": true
         },
         {
             "tex": "\\overset{\\alpha}{\\underset{\\gamma}{\\omega}}",
@@ -2763,23 +2872,28 @@
                 "pre": "\\stackrel{",
                 "placeholder": "\\alpha",
                 "post": "}{\\omega}"
-            }
+            },
+            "duplicate": true
         },
         {
             "insert": "x'",
-            "tex": "x'"
+            "tex": "x'",
+            "alignBaseline": true
         },
         {
             "insert": "y''",
-            "tex": "y''"
+            "tex": "y''",
+            "alignBaseline": true
         },
         {
             "insert": "f'",
-            "tex": "f'"
+            "tex": "f'",
+            "alignBaseline": true
         },
         {
             "insert": "f''",
-            "tex": "f''"
+            "tex": "f''",
+            "alignBaseline": true
         },
         {
             "tex": "\\overrightarrow{a b}",

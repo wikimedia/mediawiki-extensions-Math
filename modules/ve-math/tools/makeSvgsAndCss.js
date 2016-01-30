@@ -3,11 +3,13 @@
 /* jshint node: true */
 
 ( function () {
-	var i, count, group, symbol, symbols, symbolObject,
-		symbolsData, cssData, cssLines, index,
-		cssRules = [],
-		cssClasses = [],
-		symbolList = [],
+	var i, count, currentClassName, group, symbol, symbols, symbolObject,
+		symbolsData, cssData, cssLines, alignBaseline,
+		unmodifiedClasses = {},
+		cssRules = [], // Whole CSS rules
+		cssClasses = {}, // Unique part of class name and whether baseline is shifted
+		currentRule = [],
+		symbolList = [], // Symbols whose CSS rules need to be added or adjusted
 		symbolsFile = '../symbols.json',
 		cssFile = '../ve.ui.MWMathSymbols.css',
 		cssPrefix = '.ve-ui-mwMathSymbol-',
@@ -20,7 +22,13 @@
 				{ convertTransform: false }
 			]
 		} ),
-		mathoidMaxConnections = 5;
+		xml2js = require( 'xml2js' ),
+		mathoidMaxConnections = 5,
+		// If symbol.alignBaseline is true, a background-position property will be added to the
+		// CSS rule to shift the baseline of the SVG to be a certain proportion of the way up the
+		// button.
+		singleButtonHeight = 1.8, // Height of the single-height math dialog buttons in em
+		baseline = 0.4; // Proportion of the way up the button the baseline should be
 
 	symbolsData = fs.readFileSync( symbolsFile ).toString();
 	try {
@@ -44,7 +52,7 @@
 	function makeRequest( symbol ) {
 		var request,
 			data = querystring.stringify( {
-				q: symbol
+				q: symbol.tex
 			} ),
 			// API call to mathoid
 			options = {
@@ -57,7 +65,6 @@
 					'Content-Length': Buffer.byteLength( data )
 				}
 			};
-
 		// Populate and make the API call
 		request = http.request( options, function ( res ) {
 			var body = '';
@@ -68,23 +75,38 @@
 			} );
 
 			res.on( 'end', function () {
-				var className = texToClass( symbol ),
+				var className = texToClass( symbol.tex ),
 					svg = JSON.parse( body ).svg;
 
 				if ( !svg ) {
-					console.log( symbol + ' FAILED: ' + body );
+					console.log( symbol.tex + ' FAILED: ' + body );
 					onEnd();
 					return;
 				}
 
 				svgo.optimize( svg, function ( result ) {
-					// write to the css file
-					cssRules.push(
-						cssPrefix + className + ' {\n' +
-						'\tbackground-image: url(data:image/svg+xml,' + encodeURIComponentForCSS( result.data ) + ');\n' +
-						'}'
-					);
-					console.log( symbol + ' -> ' + className );
+					var cssRule = cssPrefix + className + ' {\n' +
+						'\tbackground-image: url(data:image/svg+xml,' + encodeURIComponentForCSS( result.data ) + ');\n';
+					if ( symbol.alignBaseline ) {
+						xml2js.parseString( svg, function( err, xml ) {
+							var xmlObject = xml.svg.$,
+								// Convert buttonHeight from em to ex, because SVG height is given in ex. (This is an
+								// approximation, since the em:ex ratio differs from font to font.)
+								buttonHeight = symbol.largeLayout ? singleButtonHeight * 4 : singleButtonHeight * 2,
+								// height and verticalAlign rely on the format of the SVG parameters
+								height = parseFloat( xmlObject.height.slice( 0, -2 ) ),
+								verticalAlign = parseFloat( xmlObject.style.match( /vertical-align\:\s*(.*)ex/ )[1] ),
+								offset = 50 - 100 * ( baseline - 0.5 * ( 1 - height / buttonHeight - verticalAlign ) );
+							cssRule += '\tbackground-position: 50% ' + offset + '%\n' +
+								'}';
+							cssRules.push( cssRule );
+							console.log( symbol.tex + ' -> ' + className );
+						} );
+					} else {
+						cssRule += '}';
+						cssRules.push( cssRule );
+						console.log( symbol.tex + ' -> ' + className );
+					}
 				} );
 				onEnd();
 
@@ -125,8 +147,18 @@
 		cssLines = cssData.split( '\n' );
 		for ( i = 0; i < cssLines.length; i++ ) {
 			if ( cssLines[ i ].indexOf( cssPrefix ) === 0 ) {
-				cssRules.push( cssLines.slice( i, i + 3 ).join( '\n' ) );
-				cssClasses.push( cssLines[ i ].slice( cssPrefix.length, -2 ) );
+				currentClassName = cssLines[ i ].slice( cssPrefix.length, -2 );
+				currentRule.push( cssLines[ i ] );
+				cssClasses[ currentClassName ] = false; // Default to false
+			} else if ( currentRule.length ) {
+				currentRule.push( cssLines[ i ] );
+				if ( cssLines[ i ].indexOf( '\tbackground-position' ) === 0 ) {
+					cssClasses[ currentClassName ] = true;
+				}
+				if ( cssLines[ i ].indexOf( '}' ) === 0 ) {
+					cssRules.push( currentRule.join( '\n' ) );
+					currentRule.splice( 0, currentRule.length );
+				}
 			}
 		}
 	}
@@ -139,21 +171,32 @@
 			if ( symbol.duplicate || symbol.notWorking ) {
 				continue;
 			}
-			index = cssClasses.indexOf( texToClass( symbol.tex ) );
-			if ( index === -1 ) {
-				symbolList.push( symbol.tex );
+			currentClassName = texToClass( symbol.tex );
+			alignBaseline = !symbol.alignBaseline;
+			// If symbol is not in the old CSS file, or its alignBaseline status has changed,
+			// add it to symbolList. Check to make sure it hasn't already been added.
+			if ( cssClasses[ currentClassName ] === undefined ||
+				( unmodifiedClasses[ currentClassName ] !== true &&
+					cssClasses[ currentClassName ] === alignBaseline ) ) {
+				symbolList.push( symbol );
 			} else {
-				// Remove CSS classes we found in the symbol list so that
-				// and the end of this loop, cssClasses contains classes
-				// that have been deleted from the symbol list
-				cssClasses.splice( index, 1 );
+				// At the end of this loop, any CSS class names that aren't in unmodifiedClasses
+				// will be deleted from cssRules. cssRules will then only contain rules that will
+				// stay unmodified.
+				unmodifiedClasses[ currentClassName ] = true;
 			}
 		}
 	}
 
-	// Remove classes that are no longer in the JSON
+	// Keep only classes that will stay the same. Remove classes that are being adjusted and
+	// classes of symbols that have been deleted from the JSON.
 	cssRules = cssRules.filter( function ( rule ) {
-		return cssClasses.indexOf( rule.split( '\n' )[ 0 ].slice( cssPrefix.length, -2 ) ) === -1;
+		currentClassName = rule.split( '\n' )[ 0 ].slice( cssPrefix.length, -2 );
+		if ( unmodifiedClasses[ currentClassName ] ) {
+			return true;
+		}
+		console.log( 'Removing or adjusting: ' + currentClassName );
+		return false;
 	} );
 
 	count = 0;
