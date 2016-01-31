@@ -38,7 +38,6 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 	public function testSuccess() {
 		$input = '\\sin x^2';
 		$rbi = new MathRestbaseInterface( $input );
-		$this->assertTrue( $rbi->checkTeX(), "Assuming that $input is valid input." );
 		$this->assertTrue( $rbi->getSuccess(), "Assuming that $input is valid input." );
 		$this->assertEquals( '\\sin x^{2}', $rbi->getCheckedTex() );
 		$this->assertContains( '<mi>sin</mi>', $rbi->getMathML() );
@@ -52,7 +51,6 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 	public function testFail() {
 		$input = '\\sin\\newcommand';
 		$rbi = new MathRestbaseInterface( $input );
-		$this->assertFalse( $rbi->checkTeX(), "Assuming that $input is invalid input." );
 		$this->assertFalse( $rbi->getSuccess(), "Assuming that $input is invalid input." );
 		$this->assertEquals( '', $rbi->getCheckedTex() );
 		$this->assertEquals( 'Illegal TeX function', $rbi->getError()->error->message );

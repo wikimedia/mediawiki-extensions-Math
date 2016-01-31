@@ -9,6 +9,7 @@
 use MediaWiki\Logger\LoggerFactory;
 
 class MathHooks {
+	private static $tags = array();
 	const MATHCACHEKEY = 'math=';
 
 	public static function mathConstantToString( $value, array $defs, $prefix, $default ) {
@@ -179,10 +180,13 @@ class MathHooks {
 	 * @return array
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
-
+		static $n = 1;
 		if ( trim( $content ) === '' ) { // bug 8372
 			return '';
 		}
+		$marker = Parser::MARKER_PREFIX .
+				'-postMath-' . sprintf( '%08X', $n ++ ) .
+				Parser::MARKER_SUFFIX;
 
 		$mode = self::mathModeToString( $parser->getUser()->getOption( 'math' ) );
 		// Indicate that this page uses math.
@@ -192,9 +196,28 @@ class MathHooks {
 		} else {
 			$parser->getOptions()->optionUsed( 'math' );
 		}
-
 		$renderer = MathRenderer::getRenderer( $content, $attributes, $mode );
 
+		self::$tags[$marker] = array( $renderer, $parser );
+		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
+		// if ( $mode == 'mathml' ) {
+			$parser->getOutput()->addModuleStyles( array( 'ext.math.desktop.styles' ) );
+			$parser->getOutput()->addModules( array( 'ext.math.scripts' ) );
+		// }
+		return $marker;
+
+	}
+
+	/**
+	 * Callback function for the <math> parser hook.
+	 *
+	 * @param Parser $parser
+	 * @param MathRenderer $renderer
+	 * @return array
+	 * @throws FatalError
+	 * @throws MWException
+	 */
+	private static function mathPostTagHook( $renderer, $parser ) {
 		$checkResult = $renderer->checkTeX();
 
 		if ( $checkResult !== true ) {
@@ -212,15 +235,11 @@ class MathHooks {
 		}
 		Hooks::run( 'MathFormulaPostRender',
 			array( $parser, &$renderer, &$renderedMath ) );// Enables indexing of math formula
-		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
-		if ( $mode == 'mathml' ) {
-			$parser->getOutput()->addModuleStyles( array( 'ext.math.desktop.styles' ) );
-			$parser->getOutput()->addModules( array( 'ext.math.scripts' ) );
-		}
+
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
 
-		return array( $renderedMath, "markerType" => 'nowiki' );
+		return $renderedMath;
 	}
 
 	/**
@@ -353,6 +372,29 @@ class MathHooks {
 		return true;
 	}
 
+	/**
+	 * @param Parser $parser
+	 * @param $text
+	 * @return bool
+	 */
+	public static function onParserBeforeTidy( &$parser, &$text ) {
+		$rbis = array();
+		foreach ( self::$tags as $key => $tag ){
+			/** @var MathRenderer $renderer */
+			$renderer = $tag[0];
+			$rbi = new MathRestbaseInterface( $renderer->getTex(), $renderer->getInputType() );
+			$renderer->setRestbaseInterface( $rbi );
+			$rbis[] = $rbi;
+		}
+		MathRestbaseInterface::batchEvaluate( $rbis );
+		foreach ( self::$tags as $key => $tag ){
+			$value = call_user_func_array( array( "MathHooks","mathPostTagHook" ), $tag );
+			$text = str_replace( $key, $value, $text );
+		}
+		// This hook might be called multiple times. However one the tags are rendered the job is done.
+		self::$tags = array();
+		return true;
+	}
 	/**
 	 *
 	 * @global type $wgOut
