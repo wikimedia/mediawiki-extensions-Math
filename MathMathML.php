@@ -21,6 +21,7 @@ class MathMathML extends MathRenderer {
 	/** @var boolean if false MathML output is not validated */
 	private $XMLValidation = true;
 	private $svgPath = false;
+	private $mathoidStyle;
 
 	public function __construct( $tex = '', $params = array() ) {
 		global $wgMathMathMLUrl;
@@ -82,11 +83,10 @@ class MathMathML extends MathRenderer {
 			$rbi = $this->rbi;
 			if ( !$rbi ){
 				$rbi = new MathRestbaseInterface( $this->getTex(), $this->getInputType() );
-				$rbi->checkTeX();
 			}
 			if ( $rbi->getSuccess() ) {
 				$this->mathml = $rbi->getMathML();
-				$this->svg = $rbi->getSvg();
+				$this->mathoidStyle = $rbi->getMathoidStyle();
 				$this->svgPath = $rbi->getFullSvgUrl();
 			}
 			$this->changed = false;
@@ -378,11 +378,13 @@ class MathMathML extends MathRenderer {
 		} else {
 			$class = $classOverride;
 		}
-
+		if ( ! $this->mathoidStyle ) {
+			$this->correctSvgStyle( $this->getSvg(), $this->mathoidStyle );
+		}
 		// TODO: move the common styles to the global stylesheet!
 		$style = 'background-image: url(\''. $url .
-				 '\'); background-repeat: no-repeat; background-size: 100% 100%;';
-		$this->correctSvgStyle( $this->getSvg(), $style );
+			 '\'); background-repeat: no-repeat; background-size: 100% 100%; '.
+			$this->mathoidStyle;
 		if ( $class ) {
 			$attribs['class'] = $class;
 		}
