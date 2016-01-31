@@ -68,6 +68,9 @@
 		],
 		"WikibaseRepoDataTypes": [
 			"MathWikidataHook::onWikibaseRepoDataTypes"
+		],
+		"ParserBeforeTidy":[
+			"MathHooks::onParserBeforeTidy"
 		]
 	},
 	"config": {

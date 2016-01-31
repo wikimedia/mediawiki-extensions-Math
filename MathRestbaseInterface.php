@@ -16,6 +16,8 @@ class MathRestbaseInterface {
 	private $success;
 	private $identifiers;
 	private $error;
+	private $mathoidStyle;
+	private $mml;
 
 	/**
 	 * MathRestbaseInterface constructor.
@@ -32,7 +34,10 @@ class MathRestbaseInterface {
 	 * @throws MWException
 	 */
 	public function getMathML() {
-		return $this->getContent( 'mml' );
+		if ( !$this->mml ){
+			$this->mml = $this->getContent( 'mml' );
+		}
+		return $this->mml;
 	}
 
 	private function getContent( $type ) {
@@ -44,6 +49,9 @@ class MathRestbaseInterface {
 		$serviceClient = $this->getServiceClient();
 		$response = $serviceClient->run( $request );
 		if ( $response['code'] === 200 ) {
+			if ( array_key_exists( 'x-mathoid-style', $response['headers'] ) ) {
+				$this->mathoidStyle =  $response['headers']['x-mathoid-style'];
+			}
 			return $response['body'];
 		}
 		$this->log()->error( 'Restbase math server problem:', array(
@@ -64,27 +72,9 @@ class MathRestbaseInterface {
 	}
 
 	public function checkTeX() {
-		$postData = array(
-			'type' => $this->type,
-			'q'    => $this->tex
-		);
-		$requestResult = $this->makeRestbaseCheckRequest( $postData, $res );
-		$json = json_decode( $res );
-		if ( $requestResult ) {
-			$this->success = $json->success;
-			$this->checkedTex = $json->checked;
-			$this->identifiers = $json->identifiers;
-			return true;
-		} else {
-			if ( isset( $json->detail ) && isset( $json->detail->success ) ) {
-				$this->success = $json->detail->success;
-				$this->error = $json->detail;
-			} else {
-				$this->success = false;
-				$this->setErrorMessage( 'Math extension cannot connect to Restbase.' );
-			}
-			return false;
-		}
+		$request = $this->getCheckRequest();
+		$requestResult = $this->executeRestbaseCheckRequest( $request );
+		return $this->evaluateRestbaseCheckResponse( $requestResult );
 	}
 
 	/**
@@ -92,33 +82,47 @@ class MathRestbaseInterface {
 	 * Generates error messages on failure
 	 * @see Http::post()
 	 *
-	 * @param string $post the encoded post request
-	 * @param mixed $res the result
+	 * @param array $request the request object
 	 * @return bool success
 	 */
-	private function makeRestbaseCheckRequest( $post, &$res ) {
+	private function executeRestbaseCheckRequest( $request ) {
 		$res = null;
-		$request = array(
-			'method' => 'POST',
-			'body'   => $post
-		);
 		$serviceClient = $this->getServiceClient();
-		$request['url'] = $this->getUrl( "media/math/check/{$this->type}" );
-		$response = $serviceClient->run( $request );
-		if ( $response['code'] === 200 ) {
-			$res = $response['body'];
-			$headers = $response['headers'];
-			$this->hash = $headers['x-resource-location'];
-			return true;
-		} else {
-			$res = $response['body'];
+		$response =  $serviceClient->run( $request );
+		if ( $response['code'] !== 200 ) {
 			$this->log()->info( 'Tex check failed:', array(
-				'post'     => $post,
-				'error'    => $response['error'],
-				'url'      => $request['url']
+					'post'  => $request['body'],
+					'error' => $response['error'],
+					'url'   => $request['url']
 			) );
-			return false;
 		}
+		return $response;
+
+	}
+
+	/**
+	 * @param array $rbis array of MathRestbaseInterface instances
+	 */
+	public static function batchEvaluate( $rbis ) {
+		if ( count( $rbis ) == 0 ){
+			return;
+		}
+		$requests = array();
+		/** @var MathRestbaseInterface $first */
+		$first = $rbis[0];
+		$serviceClient = $first->getServiceClient();
+		foreach ( $rbis as $rbi ) {
+			/** @var MathRestbaseInterface $rbi */
+			$requests[] = $rbi->getCheckRequest();
+		}
+		$results = $serviceClient->runMulti( $requests );
+		$i = 0;
+		foreach ( $results as $response ) {
+			/** @var MathRestbaseInterface $rbi */
+			$rbi = $rbis[$i ++];
+			$rbi->evaluateRestbaseCheckResponse( $response );
+		}
+
 	}
 
 	private function getServiceClient() {
@@ -258,6 +262,9 @@ class MathRestbaseInterface {
 	 * @return boolean
 	 */
 	public function getSuccess() {
+		if ( $this->success === null ) {
+			$this->checkTeX();
+		}
 		return $this->success;
 	}
 
@@ -293,4 +300,51 @@ class MathRestbaseInterface {
 		$this->error = (object)array( 'error' => (object)array( 'message' => $msg ) );
 	}
 
+	/**
+	 * @return array
+	 * @throws MWException
+	 */
+	public function getCheckRequest() {
+		$request = array(
+				'method' => 'POST',
+				'body'   => array(
+						'type' => $this->type,
+						'q'    => $this->tex
+				),
+				'url'    => $this->getUrl( "media/math/check/{$this->type}" )
+		);
+		return $request;
+	}
+
+	/**
+	 * @param $response
+	 * @return bool
+	 */
+	public function evaluateRestbaseCheckResponse( $response ) {
+		$json = json_decode( $response['body'] );
+		if ( $response['code'] === 200 ) {
+			$headers = $response['headers'];
+			$this->hash = $headers['x-resource-location'];
+			$this->success = $json->success;
+			$this->checkedTex = $json->checked;
+			$this->identifiers = $json->identifiers;
+			return true;
+		} else {
+			if ( isset( $json->detail ) && isset( $json->detail->success ) ) {
+				$this->success = $json->detail->success;
+				$this->error = $json->detail;
+			} else {
+				$this->success = false;
+				$this->setErrorMessage( 'Math extension cannot connect to Restbase.' );
+			}
+			return false;
+		}
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getMathoidStyle() {
+		return $this->mathoidStyle;
+	}
 }

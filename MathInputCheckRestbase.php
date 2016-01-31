@@ -17,10 +17,16 @@ class MathInputCheckRestbase extends MathInputCheck {
 	 * (performs no checking)
 	 * @param string $tex the TeX input string to be checked
 	 * @param string $type
+	 * @param MathRestbaseInterface $ref
 	 */
-	public function __construct( $tex = '', $type = 'tex' ) {
+	public function __construct( $tex = '', $type = 'tex', &$ref = null ) {
 		parent::__construct( $tex );
-		$this->restbaseInterface = new MathRestbaseInterface( $tex, $type );
+		if ( $ref ) {
+			$this->restbaseInterface = $ref;
+		} else {
+			$this->restbaseInterface = new MathRestbaseInterface( $tex, $type );
+			$ref = $this->restbaseInterface;
+		}
 	}
 
 	/**
@@ -56,7 +62,7 @@ class MathInputCheckRestbase extends MathInputCheck {
 	 * @return boolean
 	 */
 	public function isValid() {
-		return $this->restbaseInterface->checkTeX();
+		return $this->restbaseInterface->getSuccess();
 	}
 
 	/**
