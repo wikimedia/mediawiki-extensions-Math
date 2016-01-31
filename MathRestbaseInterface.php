@@ -16,6 +16,8 @@ class MathRestbaseInterface {
 	private $success;
 	private $identifiers;
 	private $error;
+	private $mathoidStyle;
+	private $mml;
 
 	/**
 	 * MathRestbaseInterface constructor.
@@ -32,6 +34,9 @@ class MathRestbaseInterface {
 	 * @throws MWException
 	 */
 	public function getMathML() {
+		if ( $this->mml ){
+			return $this->mml;
+		}
 		return $this->getContent( 'mml' );
 	}
 
@@ -74,6 +79,8 @@ class MathRestbaseInterface {
 			$this->success = $json->success;
 			$this->checkedTex = $json->checked;
 			$this->identifiers = $json->identifiers;
+			$this->mml = $json->mml;
+			$this->mathoidStyle = $json->mathoidStyle;
 			return true;
 		} else {
 			if ( isset( $json->detail ) && isset( $json->detail->success ) ) {
@@ -103,7 +110,7 @@ class MathRestbaseInterface {
 			'body'   => $post
 		);
 		$serviceClient = $this->getServiceClient();
-		$request['url'] = $this->getUrl( "media/math/check/{$this->type}" );
+		$request['url'] = $this->getUrl( "media/math/fast/{$this->type}" );
 		$response = $serviceClient->run( $request );
 		if ( $response['code'] === 200 ) {
 			$res = $response['body'];
@@ -293,4 +300,10 @@ class MathRestbaseInterface {
 		$this->error = (object)array( 'error' => (object)array( 'message' => $msg ) );
 	}
 
+	/**
+	 * @return mixed
+	 */
+	public function getMathoidStyle() {
+		return $this->mathoidStyle;
+	}
 }
