@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6eaa8f54_5984bca3",
+        "filename": "modules/ve-math/symbols.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2016-01-31T01:05:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6eaa8f54_5667abb4",
+      "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6eaa8f54_160133b9",
         "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-01-30T18:37:07Z",
       "side": 1,
       "message": "You moved body and className to higher scopes - we should generally keep variables in the narrowest scope possible. Also offset can be moved much further down.",
+      "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_3969c01d",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2016-01-31T01:05:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6eaa8f54_160133b9",
       "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6eaa8f54_d95d0c80",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2016-01-31T01:05:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6eaa8f54_766427af",
+      "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6eaa8f54_d6215b4c",
         "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2016-01-30T18:37:07Z",
       "side": 1,
       "message": "couldn\u0027t you just do symbolList.push( symbol )?",
+      "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_794e58c6",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2016-01-31T01:05:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6eaa8f54_d6215b4c",
       "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "6eaa8f54_19c3a40b",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2016-01-31T01:05:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6eaa8f54_76fbc7ba",
+      "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6eaa8f54_16d7f329",
         "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2016-01-30T18:37:07Z",
       "side": 1,
       "message": "to cssClasses[name] can be true/false/undefined or \u0027done\u0027 - that feels a little hacky. Maybe just use another variable?",
+      "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_997a34b8",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 2849
+      },
+      "writtenOn": "2016-01-31T01:05:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6eaa8f54_16d7f329",
       "revId": "6c3de1c2649b8c0be712f6dadeb4fafd59d7b7d0",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
