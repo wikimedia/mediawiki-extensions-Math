@@ -28,7 +28,7 @@
 		// CSS rule to shift the baseline of the SVG to be a certain proportion of the way up the
 		// button.
 		singleButtonHeight = 1.8, // Height of the single-height math dialog buttons in em
-		baseline = 0.4; // Proportion of the way up the button the baseline should be
+		baseline = 0.37; // Proportion of the way up the button the baseline should be
 
 	symbolsData = fs.readFileSync( symbolsFile ).toString();
 	try {
@@ -94,10 +94,13 @@
 								// approximation, since the em:ex ratio differs from font to font.)
 								buttonHeight = symbol.largeLayout ? singleButtonHeight * 4 : singleButtonHeight * 2,
 								// height and verticalAlign rely on the format of the SVG parameters
-								height = parseFloat( xmlObject.height.slice( 0, -2 ) ),
-								verticalAlign = parseFloat( xmlObject.style.match( /vertical-align\:\s*(.*)ex/ )[ 1 ] ),
-								offset = 50 - 100 * ( baseline - 0.5 * ( 1 - height / buttonHeight - verticalAlign ) );
-							cssRule += '\tbackground-position: 50% ' + offset + '%\n' +
+								// HACK: Adjust these by a factor of 0.8 to match VE's default font size of 0.8em, and
+								// a browser-svg ex height adjustment of 8.4/8 (from experimentation)
+								height = parseFloat( xmlObject.height.slice( 0, -2 ) ) * 0.84,
+								verticalAlign = parseFloat( xmlObject.style.match( /vertical-align\:\s*(.*)ex/ )[ 1 ] ) * 0.84,
+								offset = 100 + 100 * ( -verticalAlign / ( buttonHeight - height ) - baseline * height );
+
+							cssRule += '\tbackground-position: 50% ' + offset + '%;\n' +
 								'}';
 							cssRules.push( cssRule );
 							console.log( symbol.tex + ' -> ' + className );
