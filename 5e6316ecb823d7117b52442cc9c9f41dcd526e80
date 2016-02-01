@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_addc851c",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2016-02-01T13:32:14Z",
+      "side": 1,
+      "message": "jscs wants a space after function",
+      "revId": "5e6316ecb823d7117b52442cc9c9f41dcd526e80",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_4de391d4",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2016-02-01T13:32:14Z",
+      "side": 1,
+      "message": "and spaces either side of 1",
+      "revId": "5e6316ecb823d7117b52442cc9c9f41dcd526e80",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
