@@ -23,7 +23,7 @@
 			]
 		} ),
 		xml2js = require( 'xml2js' ),
-		mathoidMaxConnections = 5,
+		mathoidMaxConnections = 20,
 		// If symbol.alignBaseline is true, a background-position property will be added to the
 		// CSS rule to shift the baseline of the SVG to be a certain proportion of the way up the
 		// button.
