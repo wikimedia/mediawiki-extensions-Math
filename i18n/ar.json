@@ -6,10 +6,12 @@
 			"زكريا",
 			"Omda4wady",
 			"Abanima",
-			"Macofe"
+			"Macofe",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"math-desc": "حوِّل الصيغ الرياضية بين وسمي <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwmathcontextitem-quickedit": "تعديل سريع",
 	"math-visualeditor-mwmathinspector-display": "اعرض",
 	"math-visualeditor-mwmathinspector-display-default": "افتراضي",
 	"math-visualeditor-mwmathinspector-display-inline": "على نفس السطر",

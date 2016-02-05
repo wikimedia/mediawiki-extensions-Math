@@ -5,7 +5,8 @@
 			"David1010",
 			"გიორგიმელა",
 			"MIKHEIL",
-			"Dawid Deutschland"
+			"Dawid Deutschland",
+			"Tokoko"
 		]
 	},
 	"math-visualeditor-mwmathcontextitem-quickedit": "სწრაფი რედაქტირება",
@@ -44,6 +45,6 @@
 	"mw_math_mathjax": "MathJax (ექსპერიმენტული)",
 	"mw_math_mathml": "MathML თუ შესაძლებელია (ექსპერიმენტული)",
 	"mw_math_png": "PNG სურათები",
-	"mw_math_source": "დატოვე როგორც TeX (ტექსტური ბრაუზერებისთვის)",
+	"mw_math_source": "LaTeX-ის წყარო (ტექსტური ბრაუზერებისთვის)",
 	"prefs-math": "მათემატიკა"
 }
