@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bangin"
+			"Bangin",
+			"George Animal"
 		]
 	},
 	"math_image_error": "Wêşandana PNG nemeşî",
@@ -9,7 +10,7 @@
 	"math_tip": "Kurteristê matêmatîk (LaTeX)",
 	"math_unknown_error": "şaşbûnekî nezanîn",
 	"mw_math_mathml": "MathML eger bibe (ceribandin)",
-	"mw_math_png": "Her caran wek PNG nîşanbide",
+	"mw_math_png": "Wêneyên PNG",
 	"mw_math_source": "Wek TeX bêle (ji browser'ên gotaran ra)",
 	"prefs-math": "TeX"
 }
