@@ -436,7 +436,7 @@ class MathMathML extends MathRenderer {
 		if ( $this->getID() !== '' ) {
 			$attribs['id'] = $this->getID();
 		}
-		$output = HTML::openElement( $element, $attribs );
+		$output = Html::openElement( $element, $attribs );
 		// MathML has to be wrapped into a div or span in order to be able to hide it.
 		// Remove displayStyle attributes set by the MathML converter
 		// (Beginning from Mathoid 0.2.5 block is the default layout.)
@@ -450,7 +450,7 @@ class MathMathML extends MathRenderer {
 			'class' => $this->getClassName(), 'style' => 'display: none;'
 		), $mml );
 		$output .= $this->getFallbackImage();
-		$output .= HTML::closeElement( $element );
+		$output .= Html::closeElement( $element );
 		return $output;
 	}
 
