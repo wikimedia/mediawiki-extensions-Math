@@ -506,6 +506,7 @@ abstract class MathRenderer {
 	 * @return boolean
 	 */
 	function isPurge() {
+		wfDebug( __METHOD__ );
 		if ( $this->purge ) {
 			return true;
 		}
