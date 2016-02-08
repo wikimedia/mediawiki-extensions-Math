@@ -54,6 +54,15 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 		$this->assertEquals( 'Illegal TeX function', $rbi->getError()->error->message );
 	}
 
+	public function testChem() {
+		$input = '\ce{H2O}';
+		$rbi = new MathRestbaseInterface( $input, 'chem' );
+		$this->assertTrue( $rbi->checkTeX(), "Assuming that $input is valid input." );
+		$this->assertTrue( $rbi->getSuccess(), "Assuming that $input is valid input." );
+		$this->assertEquals( '{\ce {H2O}}', $rbi->getCheckedTex() );
+		$this->assertContains( '<msubsup>', $rbi->getMathML() );
+		$this->assertContains( '<mtext>H</mtext>', $rbi->getMathML() );
+	}
 	/**
 	 * @expectedException MWException
 	 * @expectedExceptionMessage TeX input is invalid.
