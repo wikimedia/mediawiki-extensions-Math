@@ -2,8 +2,12 @@
 
 use ValueFormatters\FormatterOptions;
 use ValueParsers\StringParser;
+use Wikibase\Rdf\DedupeBag;
+use Wikibase\Rdf\EntityMentionListener;
+use Wikibase\Rdf\RdfVocabulary;
 use Wikibase\Repo\Parsers\WikibaseStringValueNormalizer;
 use Wikibase\Repo\WikibaseRepo;
+use Wikimedia\Purtle\RdfWriter;
 
 class MathWikidataHook {
 
@@ -40,6 +44,15 @@ class MathWikidataHook {
 				$styles = array( 'ext.math.desktop.styles', 'ext.math.scripts', 'ext.math.styles' );
 				$wgOut->addModuleStyles( $styles );
 				return new MathFormatter( $format );
+			},
+			'rdf-builder-factory-callback' => function (
+				$mode,
+				RdfVocabulary $vocab,
+				RdfWriter $writer,
+				EntityMentionListener $tracker,
+				DedupeBag $dedupe
+			) {
+				return new MathMLRdfBuilder();
 			},
 		);
 	}
