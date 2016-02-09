@@ -28,7 +28,8 @@
 		"SpecialMathStatus": "SpecialMathStatus.php",
 		"MathValidator": "MathValidator.php",
 		"MathFormatter": "MathFormatter.php",
-		"MathWikidataHook": "MathWikidataHook.php"
+		"MathWikidataHook": "MathWikidataHook.php",
+		"MathMLRdfBuilder": "MathMLRdfBuilder.php"
 	},
 	"DefaultUserOptions": {
 		"math": "png"
