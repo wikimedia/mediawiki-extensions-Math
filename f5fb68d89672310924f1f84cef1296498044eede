@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "4ea78b8a_a0a00af2",
+        "filename": "MathMLRdfBuilder.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-02-10T13:37:46Z",
+      "side": 1,
+      "message": "No type ID for the literal? That\u0027s bad.",
+      "revId": "f5fb68d89672310924f1f84cef1296498044eede",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ea78b8a_00155e40",
         "filename": "MathWikidataHook.php",
         "patchSetId": 2
