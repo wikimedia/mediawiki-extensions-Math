@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "4ea78b8a_5326cb12",
+        "filename": "MathMLRdfBuilder.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-02-10T19:55:44Z",
+      "side": 1,
+      "message": "It would say what\u0027s wrong with the input. in the tests for example that \\invalid is not a valid latex command.\nBut I\u0027m also OK with doing noting. At least the the field is type save, so that users can trust that the result is valid mathml.\nI think having the option to differentiate between no value and invialid value might be useful for certain applications.",
+      "parentUuid": "4ea78b8a_b38cdf33",
+      "revId": "53e010977cc12c329d967b4606b7473ad2f088f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ea78b8a_06b9f628",
         "filename": "tests/MathMLRdfBuilderTest.php",
         "patchSetId": 3
@@ -90,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "4ea78b8a_a1c48c12",
+        "filename": "tests/MathMLRdfBuilderTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-02-10T19:55:44Z",
+      "side": 1,
+      "message": "I checked if the new lines were escaped in the tests.",
+      "parentUuid": "4ea78b8a_41183823",
+      "revId": "53e010977cc12c329d967b4606b7473ad2f088f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ea78b8a_46afeede",
         "filename": "tests/MathMLRdfBuilderTest.php",
         "patchSetId": 3
@@ -101,6 +137,24 @@
       "writtenOn": "2016-02-10T16:29:54Z",
       "side": 1,
       "message": "What exactly is this testing? An \"a\" marked as something? What about the \"b\" and the \"c\" and all the \"^2\" in the example? Why is this not a complete test?\n\nI suggest to use a smaller example, e.g. \"a^2\", and add a full comparison for that.",
+      "revId": "53e010977cc12c329d967b4606b7473ad2f088f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_c1ee6886",
+        "filename": "tests/MathMLRdfBuilderTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-02-10T19:55:44Z",
+      "side": 1,
+      "message": "I made a smaller example. But the point is the the way the xml output actually looks like should be compared using xml comparision and not string comparison. Otherwise, you end up fixing failing tests all over the place when the order of the xml attributes is changed due to an update of whatever library... Sounds quite theoretical, but I happend several times in practice to me. That why I\u0027m not doing a full comparision.",
+      "parentUuid": "4ea78b8a_46afeede",
       "revId": "53e010977cc12c329d967b4606b7473ad2f088f5",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
