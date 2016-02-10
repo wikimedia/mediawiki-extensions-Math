@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4ea78b8a_40afd6de",
+        "filename": "MathMLRdfBuilder.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-02-10T13:47:29Z",
+      "side": 1,
+      "message": "The phpdoc comments originates from the interface\nValueSnakRdfBuilder. Should we change it there?",
+      "parentUuid": "4ea78b8a_20109a52",
+      "revId": "f5fb68d89672310924f1f84cef1296498044eede",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ea78b8a_a0a00af2",
         "filename": "MathMLRdfBuilder.php",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2016-02-10T13:37:46Z",
       "side": 1,
       "message": "No type ID for the literal? That\u0027s bad.",
+      "revId": "f5fb68d89672310924f1f84cef1296498044eede",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_e0c28287",
+        "filename": "MathMLRdfBuilder.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-02-10T13:47:29Z",
+      "side": 1,
+      "message": "What would a type ID be, and where would I specify it?",
+      "parentUuid": "4ea78b8a_a0a00af2",
       "revId": "f5fb68d89672310924f1f84cef1296498044eede",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "4ea78b8a_e0bda217",
+        "filename": "MathWikidataHook.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-02-10T13:47:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ea78b8a_00155e40",
+      "revId": "f5fb68d89672310924f1f84cef1296498044eede",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ea78b8a_c02666b5",
         "filename": "tests/MathMLRdfBuilderTest.php",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2016-02-10T13:31:34Z",
       "side": 1,
       "message": "The code style in this file is a bit chaotic. Empty lines, missing newlines. Missing @covers tag. Missing @licence and @author. Please fix.",
+      "revId": "f5fb68d89672310924f1f84cef1296498044eede",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_e0eb6207",
+        "filename": "tests/MathMLRdfBuilderTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-02-10T13:47:29Z",
+      "side": 1,
+      "message": "Can you please point me to a good example?\nThe other tests in the math extension are probably not the best examples as well.",
+      "parentUuid": "4ea78b8a_c02666b5",
       "revId": "f5fb68d89672310924f1f84cef1296498044eede",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
