@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "4ea78b8a_216f3c91",
+        "filename": "MathMLRdfBuilder.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-02-10T18:01:18Z",
+      "side": 1,
+      "message": "Do we really want to export errors to RDF?",
+      "revId": "53e010977cc12c329d967b4606b7473ad2f088f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ea78b8a_06b9f628",
         "filename": "tests/MathMLRdfBuilderTest.php",
         "patchSetId": 3
@@ -13,6 +30,24 @@
       "writtenOn": "2016-02-10T16:29:54Z",
       "side": 1,
       "message": "There should be at least a test to make sure the output does not contain unwanted newlines. This would break the ntripples output.",
+      "revId": "53e010977cc12c329d967b4606b7473ad2f088f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_41183823",
+        "filename": "tests/MathMLRdfBuilderTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-02-10T18:01:18Z",
+      "side": 1,
+      "message": "The ntriples writer should take care of escaping these afaik.",
+      "parentUuid": "4ea78b8a_06b9f628",
       "revId": "53e010977cc12c329d967b4606b7473ad2f088f5",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
