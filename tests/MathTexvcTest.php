@@ -1,13 +1,14 @@
 <?php
+
 /**
  * PHPUnit tests for MathTexvc.
  *
+ * @covers MathTexvc
+ *
  * @group Extensions
  * @group Math
- */
-
-/**
- * @covers MathTexvc
+ *
+ * @licence GNU GPL v2+
  */
 class MathTexvcTest extends MediaWikiTestCase {
 

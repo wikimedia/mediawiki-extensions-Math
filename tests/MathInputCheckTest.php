@@ -1,6 +1,11 @@
 <?php
+
 /**
+ * @covers MathInputCheck
+ *
  * @group Math
+ *
+ * @licence GNU GPL v2+
  */
 class MathInputCheckTest extends MediaWikiTestCase
 {

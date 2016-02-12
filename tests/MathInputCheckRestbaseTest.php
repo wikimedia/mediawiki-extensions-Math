@@ -2,6 +2,8 @@
 
 /**
  * @group Math
+ *
+ * @licence GNU GPL v2+
  */
 class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 	protected static $hasRestbase;

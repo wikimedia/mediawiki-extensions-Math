@@ -1,13 +1,15 @@
 <?php
-/**
- * Test the results of MathFormatter
- *
- * @group Math
- */
 
 use DataValues\StringValue;
 use DataValues\NumberValue;
 
+/**
+ * @covers MathValidator
+ *
+ * @group Math
+ *
+ * @licence GNU GPL v2+
+ */
 class MathValidatorTest extends MediaWikiTestCase {
 	const VADLID_TEX = "a^2+b^2=c^2";
 	const INVADLID_TEX = "\\notExists";

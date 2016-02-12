@@ -1,7 +1,13 @@
 <?php
+
 /**
  * Test the Id feature
+ *
+ * @covers MathRenderer
+ *
  * @group Math
+ *
+ * @licence GNU GPL v2+
  */
 class MathIdTest extends MediaWikiTestCase {
 

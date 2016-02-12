@@ -1,10 +1,13 @@
 <?php
+
 /**
-* Test the database access and core functionality of MathRenderer.
-*
-* @group Math
-* @group Database (Used by needsDB)
-*/
+ * @covers MathLaTeXML
+ *
+ * @group Math
+ * @group Database (Used by needsDB)
+ *
+ * @licence GNU GPL v2+
+ */
 class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	public $renderer;
 	const SOME_TEX = "a+b";

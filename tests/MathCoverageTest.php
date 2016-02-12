@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PHPUnit tests to test the wide range of all typical use cases for formulae at Wikipedia.
  * To generate the page https://www.mediawiki.org/wiki/Extension:Math/CoverageTest is used to
@@ -16,8 +17,12 @@
  *		/vagrant/mediawiki/extensions/Math/tests/MathCoverageTest.php</code>
  *    (If you don't use sudo you might have problems with the permissions set at vagrant.)
  *
+ * @covers MathRenderer
+ *
  * @group Extensions
  * @group Math
+ *
+ * @licence GNU GPL v2+
  */
 class MathCoverageTest extends MediaWikiTestCase {
 	protected static $hasTexvc;

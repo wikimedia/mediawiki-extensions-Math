@@ -1,9 +1,14 @@
 <?php
+
 /**
-* Test the LaTeXML output format.
-*
-* @group Math
-*/
+ * Test the LaTeXML output format.
+ *
+ * @covers MathLaTeXML
+ *
+ * @group Math
+ *
+ * @licence GNU GPL v2+
+ */
 class MathLaTeXMLTest extends MediaWikiTestCase {
 
 	/**

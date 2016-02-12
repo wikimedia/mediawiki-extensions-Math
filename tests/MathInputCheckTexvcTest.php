@@ -1,7 +1,11 @@
 <?php
 
 /**
+ * @covers MathInputCheckTexvc
+ *
  * @group Math
+ *
+ * @licence GNU GPL v2+
  */
 class MathInputCheckTexvcTest extends MediaWikiTestCase {
 

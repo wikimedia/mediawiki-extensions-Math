@@ -1,13 +1,17 @@
 <?php
-/**
- * Test the results of MathFormatter
- *
- * @group Math
- */
 
 use DataValues\StringValue;
 use DataValues\NumberValue;
 
+/**
+ * Test the results of MathFormatter
+ *
+ * @covers MathFormatter
+ *
+ * @group Math
+ *
+ * @licence GNU GPL v2+
+ */
 class MathFormatterTest extends MediaWikiTestCase {
 
 	const SOME_TEX = 'a^2+b^2=c^2';

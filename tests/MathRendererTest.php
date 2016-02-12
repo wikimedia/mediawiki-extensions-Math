@@ -1,8 +1,13 @@
 <?php
+
 /**
  * Test the database access and core functionality of MathRenderer.
  *
+ * @covers MathRenderer
+ *
  * @group Math
+ *
+ * @licence GNU GPL v2+
  */
 class MathRendererTest extends MediaWikiTestCase {
 	const SOME_TEX = "a+b";

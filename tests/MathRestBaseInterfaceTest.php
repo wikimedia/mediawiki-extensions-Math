@@ -5,7 +5,11 @@
  * /media/math/check/{type}
  * /media/math/render/{format}/{hash}
  *
+ * @covers MathRestbaseInterface
+ *
  * @group Math
+ *
+ * @licence GNU GPL v2+
  */
 class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 	protected static $hasRestbase;

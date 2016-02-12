@@ -3,8 +3,12 @@
 /**
  * Test the database access and core functionality of MathRenderer.
  *
+ * @covers MathRenderer
+ *
  * @group Math
  * @group Database //Used by needsDB
+ *
+ * @licence GNU GPL v2+
  */
 class MathDatabaseTest extends MediaWikiTestCase {
 	/**

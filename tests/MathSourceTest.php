@@ -1,7 +1,13 @@
 <?php
+
 /**
  * Test the TeX source output format.
+ *
+ * @covers MathRenderer
+ *
  * @group Math
+ *
+ * @licence GNU GPL v2+
  */
 class MathSourceTest extends MediaWikiTestCase {
 

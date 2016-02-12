@@ -1,8 +1,13 @@
 <?php
+
 /**
  * Test the MathML output format.
  *
+ * @covers MathMathML
+ *
  * @group Math
+ *
+ * @licence GNU GPL v2+
  */
 class MathMathMLTest extends MediaWikiTestCase {
 

@@ -1,10 +1,13 @@
 <?php
+
 /**
- * Test Math utility functions.
+ * @covers MathHooks
  *
  * @group Math
+ *
+ * @licence GNU GPL v2+
  */
-class MathUtilsTest extends MediaWikiTestCase {
+class MathHooksTest extends MediaWikiTestCase {
 
 	public function testMathModeToString() {
 		$default = 'png-testing'; // use a different string for testing only
