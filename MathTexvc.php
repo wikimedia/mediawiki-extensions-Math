@@ -277,8 +277,10 @@ class MathTexvc extends MathRenderer {
 		} elseif ( !preg_match( "/^[a-f0-9]{32}$/", $this->getHash() ) ) {
 			return $this->getError( 'math_unknown_error' );
 		} elseif ( !file_exists( "$tmpDir/{$this->getHash()}.png" ) ) {
+			wfDebugLog( __CLASS__, " HASHAR file does not exist $tmpDir/{$this->getHash()}.png wfTempDir(): " . wfTempDir() );
 			return $this->getError( 'math_image_error' );
 		} elseif ( filesize( "$tmpDir/{$this->getHash()}.png" ) == 0 ) {
+			wfDebugLog( __CLASS__, " HASHAR empty file $tmpDir/{$this->getHash()}.png" );
 			return $this->getError( 'math_image_error' );
 		}
 
