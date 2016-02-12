@@ -366,13 +366,8 @@ class MathTexvc extends MathRenderer {
 	 * @return boolean true if retrieved, false otherwise
 	 */
 	public function readCache() {
-		global $wgMathCheckFiles;
 
 		if ( $this->isInDatabase() ) {
-			if ( !$wgMathCheckFiles ) {
-				// Short-circuit the file existence & migration checks
-				return true;
-			}
 			$filename = $this->getHashPath() . "/{$this->getHash()}.png"; // final storage path
 			$backend = $this->getBackend();
 			if ( $backend->fileExists( array( 'src' => $filename ) ) ) {
