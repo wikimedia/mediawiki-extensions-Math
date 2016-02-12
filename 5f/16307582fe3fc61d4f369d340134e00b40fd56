@@ -1,0 +1,8 @@
+Verified+2: jenkins-bot
+Code-Review+2: Daniel Kinzler <daniel.kinzler@wikimedia.de>
+Code-Review+1: Mobrovac <mobrovac@wikimedia.org>
+Submitted-by: Mobrovac <mobrovac@wikimedia.org>
+Submitted-at: Fri, 12 Feb 2016 23:31:25 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/269473
+Project: mediawiki/extensions/Math
+Branch: refs/heads/master
