@@ -17,10 +17,6 @@ class MathWikidataHook {
 	public static function onWikibaseRepoDataTypes( array &$dataTypeDefinitions ) {
 		global $wgMathEnableWikibaseDataType;
 
-		if ( !$wgMathEnableWikibaseDataType ) {
-			return;
-		}
-
 		$dataTypeDefinitions['PT:math'] = array(
 			'value-type'                 => 'string',
 			'validator-factory-callback' => function() {
@@ -55,6 +51,45 @@ class MathWikidataHook {
 				return new MathMLRdfBuilder();
 			},
 		);
+
+		if ( !$wgMathEnableWikibaseDataType ) {
+			return;
+		}
+
+		$dataTypeDefinitions['PT:ce'] = array(
+			'value-type'                 => 'string',
+			'validator-factory-callback' => function() {
+				// load validator builders
+				$factory = WikibaseRepo::getDefaultValidatorBuilders();
+
+				// initialize an array with string validators
+				// returns an array of validators
+				// that add basic string validation such as preventing empty strings
+				$validators = $factory->buildStringValidators();
+				$validators[] = new MathValidator( 'chem' );
+				return $validators;
+			},
+			'parser-factory-callback' => function( ParserOptions $options ) {
+				$repo = WikibaseRepo::getDefaultInstance();
+				$normalizer = new WikibaseStringValueNormalizer( $repo->getStringNormalizer() );
+				return new StringParser( $normalizer );
+			},
+			'formatter-factory-callback' => function( $format, FormatterOptions $options ) {
+				global $wgOut;
+				$styles = array( 'ext.math.desktop.styles', 'ext.math.scripts', 'ext.math.styles' );
+				$wgOut->addModuleStyles( $styles );
+				return new ChemFormatter( $format );
+			},
+			'rdf-builder-factory-callback' => function (
+				$mode,
+				RdfVocabulary $vocab,
+				RdfWriter $writer,
+				EntityMentionListener $tracker,
+				DedupeBag $dedupe
+			) {
+				return new MathMLRdfBuilder();
+			},
+		);
 	}
 
 	/*
@@ -63,10 +98,6 @@ class MathWikidataHook {
 	public static function onWikibaseClientDataTypes( array &$dataTypeDefinitions ) {
 		global $wgMathEnableWikibaseDataType;
 
-		if ( !$wgMathEnableWikibaseDataType ) {
-			return;
-		}
-
 		$dataTypeDefinitions['PT:math'] = array(
 			'value-type'                 => 'string',
 			'formatter-factory-callback' => function( $format, FormatterOptions $options ) {
@@ -74,6 +105,20 @@ class MathWikidataHook {
 				$styles = array( 'ext.math.desktop.styles', 'ext.math.scripts', 'ext.math.styles' );
 				$wgOut->addModuleStyles( $styles );
 				return new MathFormatter( $format );
+			},
+		);
+
+		if ( !$wgMathEnableWikibaseDataType ) {
+			return;
+		}
+
+		$dataTypeDefinitions['PT:chem'] = array(
+			'value-type'                 => 'string',
+			'formatter-factory-callback' => function( $format, FormatterOptions $options ) {
+				global $wgOut;
+				$styles = array( 'ext.math.desktop.styles', 'ext.math.scripts', 'ext.math.styles' );
+				$wgOut->addModuleStyles( $styles );
+				return new ChemFormatter( $format );
 			},
 		);
 	}

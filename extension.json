@@ -28,6 +28,7 @@
 		"SpecialMathStatus": "SpecialMathStatus.php",
 		"MathValidator": "MathValidator.php",
 		"MathFormatter": "MathFormatter.php",
+		"ChemFormatter": "ChemFormatter.php",
 		"MathWikidataHook": "MathWikidataHook.php",
 		"MathMLRdfBuilder": "MathMLRdfBuilder.php"
 	},

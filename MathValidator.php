@@ -9,6 +9,13 @@ use DataValues\StringValue;
 // @author Duc Linh Tran, Julian Hilbig, Moritz Schubotz
 
 class MathValidator implements ValueValidator {
+	private $inputType;
+	/**
+	 * MathValidator constructor.
+	 */
+	public function __construct( $type = 'tex' ) {
+		$this->inputType = $type;
+	}
 
 	/**
 	 * Validates a value with MathInputCheckRestbase
@@ -26,7 +33,7 @@ class MathValidator implements ValueValidator {
 		// get input String from value
 		$tex = $value->getValue();
 
-		$checker = new MathInputCheckRestbase( $tex );
+		$checker = new MathInputCheckRestbase( $tex, $this->inputType );
 		if ( $checker->isValid() )  {
 			return Result::newSuccess();
 		}
