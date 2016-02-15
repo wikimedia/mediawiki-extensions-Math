@@ -34,6 +34,24 @@
       "revId": "77804a0ed55478799497ddd25fcfc5afc7b3110d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_5ac1de31",
+        "filename": "tests/browser/features/step_definitions/math_steps.rb",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-02-15T11:43:15Z",
+      "side": 1,
+      "message": "there will not be image elements anymore...cf. for example https://en.formulasearchengine.com/wiki/Luigi_Pasinetti#A_mathematical_formulation_of_the_Ricardian_system",
+      "parentUuid": "4ea78b8a_96065822",
+      "revId": "77804a0ed55478799497ddd25fcfc5afc7b3110d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
