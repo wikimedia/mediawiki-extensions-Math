@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "4ea78b8a_37cd0c89",
+        "filename": "Math.hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-02-16T18:32:44Z",
+      "side": 1,
+      "message": "That functino was removed from core.",
+      "revId": "b7795ef816fbb3a966f04356f750b01281fac957",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ea78b8a_9cfae73e",
         "filename": "Math.hooks.php",
         "patchSetId": 7
@@ -19,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "4ea78b8a_97ce4085",
+        "filename": "Math.hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-02-16T18:32:44Z",
+      "side": 1,
+      "message": "oh I missed to undo that after debugging",
+      "parentUuid": "4ea78b8a_9cfae73e",
+      "revId": "b7795ef816fbb3a966f04356f750b01281fac957",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ea78b8a_bc49e391",
         "filename": "MathRestbaseInterface.php",
         "patchSetId": 7
@@ -30,6 +65,24 @@
       "writtenOn": "2016-02-16T18:01:05Z",
       "side": 1,
       "message": "This seems to assume that the \"fast\" end point is used in the check, but that\u0027s not the case. Better to get rid of this code for now.",
+      "revId": "b7795ef816fbb3a966f04356f750b01281fac957",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_17aa5082",
+        "filename": "MathRestbaseInterface.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-02-16T18:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ea78b8a_bc49e391",
       "revId": "b7795ef816fbb3a966f04356f750b01281fac957",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
