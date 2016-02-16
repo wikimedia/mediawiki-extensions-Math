@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ea78b8a_9cfae73e",
+        "filename": "Math.hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2016-02-16T18:01:05Z",
+      "side": 1,
+      "message": "Is this commented out only temporarily? If so, why? If not, the block below should be indented properly and this comment removed.",
+      "revId": "b7795ef816fbb3a966f04356f750b01281fac957",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_bc49e391",
+        "filename": "MathRestbaseInterface.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2016-02-16T18:01:05Z",
+      "side": 1,
+      "message": "This seems to assume that the \"fast\" end point is used in the check, but that\u0027s not the case. Better to get rid of this code for now.",
+      "revId": "b7795ef816fbb3a966f04356f750b01281fac957",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
