@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ea78b8a_d13da82a",
+        "filename": "MathValidator.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-02-16T16:14:26Z",
+      "side": 1,
+      "message": "$checker-\u003egetError() is the actual error message.\nWould it be better to write\nError::newError(  $checker-\u003egetError(), null, \u0027malformed-value\u0027 );",
+      "revId": "60be82476bc1c2eaecf7ed5ecc8358f881ed50d7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
