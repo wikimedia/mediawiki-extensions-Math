@@ -34,7 +34,7 @@ class MathValidator implements ValueValidator {
 		// TeX string is not valid
 		return Result::newError(
 			array(
-				Error::newError( null, null, 'malformed-value', $checker->getError() )
+				Error::newError( null, null, 'malformed-value', array( $checker->getError() ) )
 			)
 		);
 	}
