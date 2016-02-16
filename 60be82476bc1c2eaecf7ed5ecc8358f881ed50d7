@@ -16,6 +16,24 @@
       "revId": "60be82476bc1c2eaecf7ed5ecc8358f881ed50d7",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_314e7cde",
+        "filename": "MathValidator.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 33
+      },
+      "writtenOn": "2016-02-16T16:18:15Z",
+      "side": 1,
+      "message": "think the parameter would be missing in this case:\n\ne.g. \"Entrada incorrecta: $1\"",
+      "parentUuid": "4ea78b8a_d13da82a",
+      "revId": "60be82476bc1c2eaecf7ed5ecc8358f881ed50d7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
