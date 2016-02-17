@@ -46,5 +46,7 @@
 	"mw_math_mathml": "MathML თუ შესაძლებელია (ექსპერიმენტული)",
 	"mw_math_png": "PNG სურათები",
 	"mw_math_source": "LaTeX-ის წყარო (ტექსტური ბრაუზერებისთვის)",
-	"prefs-math": "მათემატიკა"
+	"prefs-math": "მათემატიკა",
+	"datatypes-type-math": "მათემატიკური გამოსახულება",
+	"wikibase-listdatatypes-math-head": "მათემატიკური გამოსახულება"
 }
