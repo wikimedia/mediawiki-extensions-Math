@@ -1,0 +1,7 @@
+Verified+2: jenkins-bot
+Code-Review+2: Alex Monk <krenair@gmail.com>
+Submitted-by: jenkins-bot
+Submitted-at: Wed, 17 Feb 2016 00:44:29 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/270981
+Project: mediawiki/extensions/Math
+Branch: refs/heads/wmf/1.27.0-wmf.13
