@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "4ea78b8a_1d7caee1",
+        "filename": "MathRenderer.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2016-02-17T00:52:35Z",
+      "side": 1,
+      "message": "I\u0027m getting the following exception when I try this change locally and navigate to Special:MathStatus:\n\nException encountered, of type \"BadMethodCallException\"\n[d109af6b] /wiki/Special:MathStatus?action\u003dpurge BadMethodCallException from line 665 of /vagrant/mediawiki/extensions/Math/MathRenderer.php: Call to a member function getSvg() on a non-object (NULL)",
+      "revId": "285f6c9beef802ac1acc53bfc7b979f7844030fc",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ea78b8a_9d55fec7",
         "filename": "MathRestbaseInterface.php",
         "patchSetId": 9
