@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4ea78b8a_1369fd87",
+        "filename": "MathRenderer.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-02-17T09:10:15Z",
+      "side": 1,
+      "message": "ok, I\u0027ll look into that. Obviously it should be !$this-\u003esvg \u0026\u0026 $this-\u003erbi but that might not fix all of the problem",
+      "parentUuid": "4ea78b8a_1d7caee1",
+      "revId": "285f6c9beef802ac1acc53bfc7b979f7844030fc",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ea78b8a_9d55fec7",
         "filename": "MathRestbaseInterface.php",
         "patchSetId": 9
@@ -30,6 +48,24 @@
       "writtenOn": "2016-02-17T00:16:13Z",
       "side": 1,
       "message": "Should this call getSvg() in case mathoidStyle is null?",
+      "revId": "285f6c9beef802ac1acc53bfc7b979f7844030fc",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_b35829fe",
+        "filename": "MathRestbaseInterface.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-02-17T09:10:15Z",
+      "side": 1,
+      "message": "I think this function should always return a css style and not a css style or an svg image. We could however fetch mml in case the style is null.",
+      "parentUuid": "4ea78b8a_9d55fec7",
       "revId": "285f6c9beef802ac1acc53bfc7b979f7844030fc",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
