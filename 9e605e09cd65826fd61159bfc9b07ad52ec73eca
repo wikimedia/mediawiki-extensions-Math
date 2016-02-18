@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ea78b8a_4f79fef0",
+        "filename": "MathRestbaseInterface.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2016-02-18T16:01:58Z",
+      "side": 1,
+      "message": "@param MathRestbaseInterface[]. that also avoids the need for @var lower down.",
+      "revId": "9e605e09cd65826fd61159bfc9b07ad52ec73eca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_8f737613",
+        "filename": "MathRestbaseInterface.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2016-02-18T16:01:58Z",
+      "side": 1,
+      "message": "Use !$rbis instead to avoid a needless sizeof().",
+      "revId": "9e605e09cd65826fd61159bfc9b07ad52ec73eca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
