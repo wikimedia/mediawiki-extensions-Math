@@ -1,9 +1,5 @@
-Given(/^I am creating a page with source editor$/) do
-  visit(DoesNotExistPage, using_params: { page_name: @random_string })
-end
-
-When(/^I click link Create$/) do
-  on(DoesNotExistPage).action_edit_element.when_present.click
+Given(/^I am editing a random page with source editor$/) do
+  visit EditPage
 end
 
 When(/^I click Preview$/) do
