@@ -13,6 +13,7 @@
 		]
 	},
 	"math-desc": "Відображає математичні формули у тегах <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwmathcontextitem-quickedit": "Швидке редагування",
 	"math-visualeditor-mwmathdialog-title": "Формула",
 	"math-visualeditor-mwmathdialog-card-formula": "Формула",
 	"math-visualeditor-mwmathdialog-card-options": "Параметри",
@@ -58,7 +59,7 @@
 	"math_notexvc": "Не знайдено програму <code>texvc</code>; Див. math/README — довідку про налаштування.",
 	"math_output_error": "Не можна зберегти математичне зображення у файловій системі.",
 	"math_sample": "Вставте сюди формулу",
-	"math-status-introduction": "Ця сторінка відображає інформацію про увімкнені режими візуалізації формул.\n\nУвімкнено {{PLURAL:$1|такий режим|такі режими}} візуалізації:",
+	"math-status-introduction": "Ця сторінка показує інформацію про {{PLURAL:$1|увімкнений режим|увімкнені режими}} візуалізації формул.\n\nУвімкнено {{PLURAL:$1|такий режим|такі режими}} візуалізації:",
 	"math_syntax_error": "синтаксична помилка",
 	"math_timeout": "$1 перевищив час очікування від «$2»",
 	"math-test-end": "Бекенд-тести для режиму візуалізації ''$1'' завершено.",
@@ -77,5 +78,8 @@
 	"mw_math_png": "PNG-зображення",
 	"mw_math_source": "LaTeX-розмітка (для текстових браузерів)",
 	"prefs-math": "Відображення формул",
-	"mathstatus": "Статус Math"
+	"mathstatus": "Статус Math",
+	"datatypes-type-math": "Математичний вираз",
+	"wikibase-listdatatypes-math-head": "Математичний вираз",
+	"wikibase-listdatatypes-math-body": "Символьне поле даних для математичних виразів, формул, рівнянь та подібного, виражених у варіанті LaTeX."
 }

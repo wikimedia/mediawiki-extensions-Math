@@ -6,7 +6,8 @@
 			"Csega",
 			"Tacsipacsi",
 			"Bencoke",
-			"Macofe"
+			"Macofe",
+			"Máté"
 		]
 	},
 	"math-visualeditor-mwmathcontextitem-quickedit": "Gyors szerkesztés",
@@ -22,7 +23,7 @@
 	"math-visualeditor-symbol-group-accents": "Ékezetek és egyéb megkülönböztető jelek",
 	"math-visualeditor-symbol-group-arrows": "Nyilak",
 	"math-visualeditor-symbol-group-bounds": "Határértékek",
-	"math-visualeditor-symbol-group-derivatives": "Különbségek és deriváltak",
+	"math-visualeditor-symbol-group-derivatives": "Differenciálok és deriváltak",
 	"math-visualeditor-symbol-group-functions": "Standard numerikus függvények",
 	"math-visualeditor-symbol-group-geometry": "Geometria",
 	"math-visualeditor-symbol-group-greek": "Görög ábécé",
@@ -49,7 +50,7 @@
 	"math_invalidresponse": "$1: Érvénytelen válasz („$3”) a(z) $2 szervertől:",
 	"math_invalidxml": "A MathML vagy SVG érvénytelen XML.",
 	"math_lexing_error": "lexikai hiba",
-	"math_mathoid_error": "Átalakítási hiba A szerver („$1”) a következőt jelentette: „$2”",
+	"math_mathoid_error": "Átalakítási hiba. A szerver („$1”) a következőt jelentette: „$2”",
 	"math_notexvc": "Hiányzó <code>texvc</code> végrehajtható fájl; a beállítást lásd a math/README fájlban.",
 	"math_output_error": "A képletképet nem lehet tárolni a fájlrendszerben.",
 	"math_sample": "Ide írd a képletet",
