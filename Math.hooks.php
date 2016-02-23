@@ -184,9 +184,6 @@ class MathHooks {
 		if ( trim( $content ) === '' ) { // bug 8372
 			return '';
 		}
-		$marker = Parser::MARKER_PREFIX .
-				'-postMath-' . sprintf( '%08X', $n ++ ) .
-				Parser::MARKER_SUFFIX;
 
 		$mode = self::mathModeToString( $parser->getUser()->getOption( 'math' ) );
 		// Indicate that this page uses math.
@@ -194,14 +191,17 @@ class MathHooks {
 		$parser->getOptions()->optionUsed( 'math' );
 		$renderer = MathRenderer::getRenderer( $content, $attributes, $mode );
 
-		self::$tags[$marker] = array( $renderer, $parser );
 		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
 		if ( $mode == 'mathml' ) {
 			$parser->getOutput()->addModuleStyles( array( 'ext.math.desktop.styles' ) );
 			$parser->getOutput()->addModules( array( 'ext.math.scripts' ) );
+			$marker = Parser::MARKER_PREFIX .
+				'-postMath-' . sprintf( '%08X', $n ++ ) .
+				Parser::MARKER_SUFFIX;
+			self::$tags[$marker] = array( $renderer, $parser );
+			return $marker;
 		}
-		return $marker;
-
+		return self::mathPostTagHook( $renderer, $parser );
 	}
 
 	/**
