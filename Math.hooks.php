@@ -385,7 +385,11 @@ class MathHooks {
 		MathRestbaseInterface::batchEvaluate( $rbis );
 		foreach ( self::$tags as $key => $tag ){
 			$value = call_user_func_array( array( "MathHooks","mathPostTagHook" ), $tag );
-			$text = str_replace( $key, $value, $text );
+			// Hack for https://phabricator.wikimedia.org/T103269
+			$text = preg_replace( '/(<mw:editsection page="(.*)" section="(.*)">)(.*?)'
+				. preg_quote( $key ) . '(.*?)<\/mw:editsection>/',
+				'\1 $' . htmlspecialchars( $tag[0]->getTex() ) . '\5</mw:editsection>', $text );
+			$text = str_replace( $key, $value, $text, $cnt );
 		}
 		// This hook might be called multiple times. However one the tags are rendered the job is done.
 		self::$tags = array();
