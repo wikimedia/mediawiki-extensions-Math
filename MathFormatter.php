@@ -62,13 +62,43 @@ class MathFormatter implements ValueFormatter {
 				return "<math>$tex</math>";
 			default:
 				$renderer = new MathMathML( $tex );
+
 				if ( $renderer->checkTex() && $renderer->render() ) {
-					return $renderer->getHtmlOutput();
+					$html = $renderer->getHtmlOutput();
+				} else {
+					$html = $renderer->getLastError();
+				}
+
+				if ( $this->format === SnakFormatter::FORMAT_HTML_DIFF ) {
+					$html = $this->formatDetails( $html, $tex );
 				}
 
 				// TeX string is not valid or rendering failed
-				return $renderer->getLastError();
+				return $html;
 		}
+	}
+
+	/**
+	 * Constructs a detailed HTML rendering for use in diff views.
+	 *
+	 * @param string $valueHtml HTML
+	 * @param string $tex TeX
+	 *
+	 * @return string HTML
+	 */
+	private function formatDetails( $valueHtml, $tex ) {
+		$html = '';
+		$html .= Html::rawElement( 'h4',
+			array( 'class' => 'wb-details wb-math-details wb-math-rendered' ),
+			$valueHtml
+		);
+
+		$html .= Html::rawElement( 'div',
+			array( 'class' => 'wb-details wb-math-details' ),
+			Html::element( 'code', array(), $tex )
+		);
+
+		return $html;
 	}
 
 	/**

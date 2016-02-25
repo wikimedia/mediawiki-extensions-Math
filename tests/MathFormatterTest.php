@@ -2,6 +2,7 @@
 
 use DataValues\StringValue;
 use DataValues\NumberValue;
+use Wikibase\Lib\SnakFormatter;
 
 /**
  * Test the results of MathFormatter
@@ -14,7 +15,7 @@ use DataValues\NumberValue;
  */
 class MathFormatterTest extends MediaWikiTestCase {
 
-	const SOME_TEX = 'a^2+b^2=c^2';
+	const SOME_TEX = 'a^2+b^2 < c^2';
 
 	protected static $hasRestbase;
 
@@ -36,16 +37,16 @@ class MathFormatterTest extends MediaWikiTestCase {
 	 * @covers MathFormatter::__construct()
 	 */
 	public function testBasics() {
-		$formatter = new MathFormatter( 'text/plain' );
+		$formatter = new MathFormatter( SnakFormatter::FORMAT_PLAIN );
 		// check if the format input was corretly passed to the class
-		$this->assertSame( 'text/plain', $formatter->getFormat(), 'test getFormat' );
+		$this->assertSame( SnakFormatter::FORMAT_PLAIN, $formatter->getFormat(), 'test getFormat' );
 	}
 
 	/**
 	 * @expectedException ValueFormatters\Exceptions\MismatchingDataValueTypeException
 	 */
 	public function testNotStringValue() {
-		$formatter = new MathFormatter( 'text/plain' );
+		$formatter = new MathFormatter( SnakFormatter::FORMAT_PLAIN );
 		$formatter->format( new NumberValue( 0 ) );
 	}
 
@@ -53,7 +54,7 @@ class MathFormatterTest extends MediaWikiTestCase {
 	 * @expectedException ValueFormatters\Exceptions\MismatchingDataValueTypeException
 	 */
 	public function testNullValue() {
-		$formatter = new MathFormatter( 'text/plain' );
+		$formatter = new MathFormatter( SnakFormatter::FORMAT_PLAIN );
 		$formatter->format( null );
 	}
 
@@ -65,22 +66,37 @@ class MathFormatterTest extends MediaWikiTestCase {
 	}
 
 	public function testFormatPlain() {
-		$formatter = new MathFormatter( 'text/plain' );
+		$formatter = new MathFormatter( SnakFormatter::FORMAT_PLAIN );
 		$value = new StringValue( self::SOME_TEX );
 		$resultFormat = $formatter->format( $value );
 		$this->assertSame( self::SOME_TEX, $resultFormat );
 	}
 
 	public function testFormatHtml() {
-		$formatter = new MathFormatter( 'text/html' );
+		$formatter = new MathFormatter( SnakFormatter::FORMAT_HTML );
 		$value = new StringValue( self::SOME_TEX );
 		$resultFormat = $formatter->format( $value );
 		$this->assertContains( '</math>', $resultFormat, 'Result must contain math-tag' );
 	}
 
+	public function testFormatDiffHtml() {
+		$formatter = new MathFormatter( SnakFormatter::FORMAT_HTML_DIFF );
+		$value = new StringValue( self::SOME_TEX );
+		$resultFormat = $formatter->format( $value );
+		$this->assertContains( '</math>', $resultFormat, 'Result must contain math-tag' );
+		$this->assertContains( '</h4>', $resultFormat, 'Result must contain a <h4> tag' );
+		$this->assertContains( '</code>', $resultFormat, 'Result must contain a <code> tag' );
+		$this->assertContains( 'wb-details', $resultFormat, 'Result must contain wb-details class' );
+		$this->assertContains(
+			htmlspecialchars( self::SOME_TEX ),
+			$resultFormat,
+			'Result must contain the TeX source'
+		);
+	}
+
 	public function testFormatXWiki() {
 		$tex = self::SOME_TEX;
-		$formatter = new MathFormatter( 'text/x-wiki' );
+		$formatter = new MathFormatter( SnakFormatter::FORMAT_WIKI );
 		$value = new StringValue( self::SOME_TEX );
 		$resultFormat = $formatter->format( $value );
 		$this->assertSame( "<math>$tex</math>", $resultFormat, 'Tex wasn\'t properly wrapped' );
