@@ -8,6 +8,16 @@ RuboCop::RakeTask.new(:rubocop) do |task|
   task.options = ['-c', '.rubocop.yml']
 end
 
+desc 'beta_chrome'
+task :beta_chrome do
+  Dir.chdir('tests/browser') do
+    sh 'bundle exec cucumber --backtrace --color --verbose --format pretty --format '\
+       'Cucumber::Formatter::Sauce --out /mnt/jenkins-workspace/workspace/'\
+       'browsertests-Math-en.wikipedia.beta.wmflabs.org-linux-chrome-sauce/log/junit --tags '\
+       '@en.wikipedia.beta.wmflabs.org --tags @chrome'
+  end
+end
+
 task default: [:test]
 
 desc 'Run all build/tests commands (CI entry point)'
