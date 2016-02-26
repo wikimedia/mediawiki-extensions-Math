@@ -27,6 +27,11 @@ beta:
   mediawiki_user: Selenium_user
   # mediawiki_password: SET THIS IN THE ENVIRONMENT!
 
+beta_chrome:
+  mediawiki_url: http://en.wikipedia.beta.wmflabs.org/wiki/
+  mediawiki_user: Selenium_user
+  # mediawiki_password: SET THIS IN THE ENVIRONMENT!
+
 test2:
   mediawiki_url: http://test2.wikipedia.org/wiki/
   mediawiki_user: Selenium_user
