@@ -1,0 +1,18 @@
+MEDIAWIKI_ENVIRONMENT:
+  - beta
+BROWSER:
+  - chrome
+  - firefox
+  - safari
+PLATFORM:
+  - os x
+  - windows
+  - linux
+
+exclude:
+  - PLATFORM: os x
+    BROWSER: firefox
+  - PLATFORM: windows
+    BROWSER: safari
+  - PLATFORM: linux
+    BROWSER: safari
