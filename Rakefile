@@ -8,6 +8,10 @@ RuboCop::RakeTask.new(:rubocop) do |task|
   task.options = ['-c', '.rubocop.yml']
 end
 
+require 'mediawiki_selenium'
+MediawikiSelenium::Environment.default_configuration = 'tests/browser/environment.yml'
+MediawikiSelenium::RakeTask.new
+
 task default: [:test]
 
 desc 'Run all build/tests commands (CI entry point)'
