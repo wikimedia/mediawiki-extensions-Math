@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ea41786_e54db2e1",
+        "filename": "Rakefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 24
+      },
+      "writtenOn": "2016-02-29T10:23:44Z",
+      "side": 1,
+      "message": "Make it generic:\n\n  task :selenium do",
+      "revId": "3bbe8c63f84d0ed45719d0ab6659b1adb5070b04",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ea41786_a517baa7",
+        "filename": "Rakefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 24
+      },
+      "writtenOn": "2016-02-29T10:23:44Z",
+      "side": 1,
+      "message": "MEDIAWIKI_ENVIRONMENT is set by the generic jenkins job to be written. So from here:\n\n\n require mediawiki_selenium\n\nAsk it to parse the environments.yml file and yields us:\n    - target hostname\n    - browser\n\n\nThen we can forge the --tags options that have to be passed to cucumber.\n\n   foreach whatever: args.add( --tags, foo )\n\n\nTo avoid having that logic copy pasted in each repositories. What about devs doing:\n\n  require mediawiki_selenium/rake_task\n\nDONE ;-)",
+      "revId": "3bbe8c63f84d0ed45719d0ab6659b1adb5070b04",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
