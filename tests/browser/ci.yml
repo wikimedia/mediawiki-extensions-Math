@@ -1,0 +1,3 @@
+MEDIAWIKI_ENVIRONMENT:
+  - beta-chrome
+  - beta-firefox
