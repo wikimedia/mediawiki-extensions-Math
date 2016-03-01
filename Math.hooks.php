@@ -201,7 +201,7 @@ class MathHooks {
 			self::$tags[$marker] = array( $renderer, $parser );
 			return $marker;
 		}
-		return self::mathPostTagHook( $renderer, $parser );
+		return array( self::mathPostTagHook( $renderer, $parser ), 'markerType' => 'nowiki' );
 	}
 
 	/**
