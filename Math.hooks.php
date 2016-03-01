@@ -408,8 +408,8 @@ class MathHooks {
 	public static function registerExtension() {
 		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathDisableTexFilter;
 		$wgMathValidModes = MathRenderer::getValidModes();
-		if ( $wgMathDisableTexFilter == true ) { // ensure backwards compatibility
-			$wgMathDisableTexFilter = 1;
+		if ( $wgMathDisableTexFilter === true ) { // ensure backwards compatibility
+			$wgMathDisableTexFilter = 'never';
 		}
 		$wgMathDisableTexFilter = MathRenderer::getDisableTexFilter();
 		$wgDefaultUserOptions['math'] = self::mathModeToString( $wgDefaultUserOptions['math'] );
