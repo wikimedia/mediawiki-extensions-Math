@@ -7,7 +7,11 @@
 			"Yyy"
 		]
 	},
+	"math-visualeditor-mwmathdialog-title": "Formula",
+	"math-visualeditor-mwmathdialog-card-formula": "Formula",
 	"math-visualeditor-mwmathinspector-title": "Formula",
+	"math-visualeditor-symbol-group-greek": "Grieķu alfabēts",
+	"math-visualeditor-symbol-group-hebrew": "Ebreju alfabēts",
 	"math_failure": "Parsēšanas kļūda",
 	"math_image_error": "Kļūda konvertējot uz PNG formātu;\npārbaudi vai ir korekti uzinstalēti latex, dvips, gs, un convert",
 	"math_lexing_error": "leksikas kļūda",
@@ -18,7 +22,7 @@
 	"math_unknown_function": "nezināma funkcija '$1'",
 	"mw_math_mathjax": "MathJax (eksperimentāls)",
 	"mw_math_mathml": "MathML ar SVG alternatīvu (eksperimentāla iespēja)",
-	"mw_math_png": "Vienmēr attēlot PNG",
-	"mw_math_source": "Saglabāt kā TeX (teksta pārlūkiem)",
+	"mw_math_png": "PNG attēli",
+	"mw_math_source": "LaTeX kods (teksta pārlūkiem)",
 	"prefs-math": "Formulas"
 }
