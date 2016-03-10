@@ -26,11 +26,10 @@ let render tmppath finalpath tree backcolor =
 	Render.render tmppath finalpath outtex md5 backcolor
     end
 
-(* TODO: document
- * Arguments:
- * 1st :  
- * 2nd :
- * 3rd :
+(* Arguments:
+ * 1st : temporary directory to use as scratch space
+ * 2nd : target path
+ * 3rd : LaTeX input
  * 4th : encoding (Default: UTF-8)
  * 5th : color (Default: rgb 1.0 1.0 1.0)
  *
