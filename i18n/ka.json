@@ -6,7 +6,8 @@
 			"გიორგიმელა",
 			"MIKHEIL",
 			"Dawid Deutschland",
-			"Tokoko"
+			"Tokoko",
+			"BRUTE"
 		]
 	},
 	"math-visualeditor-mwmathcontextitem-quickedit": "სწრაფი რედაქტირება",
@@ -20,10 +21,12 @@
 	"math-visualeditor-mwmathinspector-id": "ბმულის ID (არასავალდებულო)",
 	"math-visualeditor-mwmathinspector-title": "ფორმულა",
 	"math-visualeditor-symbol-group-accents": "მახვილი და დიაკრიტიკული ნიშნები",
+	"math-visualeditor-symbol-group-arrows": "ისრები",
 	"math-visualeditor-symbol-group-functions": "სტანდარტული რიცხვითი ფუნქციები",
 	"math-visualeditor-symbol-group-geometry": "გეომეტრიული",
 	"math-visualeditor-symbol-group-greek": "ბერძნული ანბანი",
 	"math-visualeditor-symbol-group-hebrew": "ებრაული ანბანი",
+	"math-visualeditor-symbol-group-large": "დიდი განლაგებები",
 	"math-visualeditor-symbol-group-logic": "ლოგიკა",
 	"math-visualeditor-symbol-group-operators": "ოპერატორები",
 	"math-visualeditor-symbol-group-parentheses": "მრგვალი ფრჩხილები",
