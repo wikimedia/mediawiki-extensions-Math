@@ -16,12 +16,6 @@
 		fs = require( 'fs' ),
 		http = require( 'http' ),
 		querystring = require( 'querystring' ),
-		SVGO = require( 'svgo' ),
-		svgo = new SVGO( {
-			plugins: [
-				{ convertTransform: false }
-			]
-		} ),
 		mathoidMaxConnections = 20,
 		// If symbol.alignBaseline is true, a background-position property will be added to the
 		// CSS rule to shift the baseline of the SVG to be a certain proportion of the way up the
@@ -74,7 +68,8 @@
 			} );
 
 			res.on( 'end', function () {
-				var className = texToClass( symbol.tex ),
+				var cssRule, buttonHeight, height, verticalAlign, heightDifference, offset,
+					className = texToClass( symbol.tex ),
 					data = JSON.parse( body ),
 					svg = data.svg;
 
@@ -84,34 +79,30 @@
 					return;
 				}
 
-				svgo.optimize( svg, function ( result ) {
-					var cssRule, buttonHeight, height, verticalAlign, heightDifference, offset;
+				cssRule = cssPrefix + className + ' {\n' +
+					'\tbackground-image: url(data:image/svg+xml,' + encodeURIComponentForCSS( svg ) + ');\n';
 
-					cssRule = cssPrefix + className + ' {\n' +
-						'\tbackground-image: url(data:image/svg+xml,' + encodeURIComponentForCSS( result.data ) + ');\n';
+				if ( symbol.alignBaseline ) {
+					// Convert buttonHeight from em to ex, because SVG height is given in ex. (This is an
+					// approximation, since the em:ex ratio differs from font to font.)
+					buttonHeight = symbol.largeLayout ? singleButtonHeight * 4 : singleButtonHeight * 1.9931;
+					// height and verticalAlign rely on the format of the SVG parameters
+					// HACK: Adjust these by a factor of 0.8 to match VE's default font size of 0.8em
+					height = parseFloat( data.mathoidStyle.match( /height\:\s*(.*)ex/ )[ 1 ] ) * 0.8;
+					verticalAlign = -parseFloat( data.mathoidStyle.match( /vertical-align\:\s*(.*)ex/ )[ 1 ] ) * 0.8;
+					// CSS percentage positioning is based on the difference between the image and container sizes
+					heightDifference = buttonHeight - height;
+					offset = 100 * ( verticalAlign - height + ( baseline * buttonHeight ) ) / heightDifference;
 
-					if ( symbol.alignBaseline ) {
-						// Convert buttonHeight from em to ex, because SVG height is given in ex. (This is an
-						// approximation, since the em:ex ratio differs from font to font.)
-						buttonHeight = symbol.largeLayout ? singleButtonHeight * 4 : singleButtonHeight * 1.9931;
-						// height and verticalAlign rely on the format of the SVG parameters
-						// HACK: Adjust these by a factor of 0.8 to match VE's default font size of 0.8em
-						height = parseFloat( data.mathoidStyle.match( /height\:\s*(.*)ex/ )[ 1 ] ) * 0.8;
-						verticalAlign = -parseFloat( data.mathoidStyle.match( /vertical-align\:\s*(.*)ex/ )[ 1 ] ) * 0.8;
-						// CSS percentage positioning is based on the difference between the image and container sizes
-						heightDifference = buttonHeight - height;
-						offset = 100 * ( verticalAlign - height + ( baseline * buttonHeight ) ) / heightDifference;
-
-						cssRule += '\tbackground-position: 50% ' + offset + '%;\n' +
-							'}';
-						cssRules.push( cssRule );
-						console.log( symbol.tex + ' -> ' + className );
-					} else {
-						cssRule += '}';
-						cssRules.push( cssRule );
-						console.log( symbol.tex + ' -> ' + className );
-					}
-				} );
+					cssRule += '\tbackground-position: 50% ' + offset + '%;\n' +
+						'}';
+					cssRules.push( cssRule );
+					console.log( symbol.tex + ' -> ' + className );
+				} else {
+					cssRule += '}';
+					cssRules.push( cssRule );
+					console.log( symbol.tex + ' -> ' + className );
+				}
 				onEnd();
 
 			} );
