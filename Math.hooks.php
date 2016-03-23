@@ -373,7 +373,7 @@ class MathHooks {
 	 * @param $text
 	 * @return bool
 	 */
-	public static function onParserBeforeTidy( &$parser, &$text ) {
+	public static function onParserAfterTidy( &$parser, &$text ) {
 		$rbis = array();
 		foreach ( self::$tags as $key => $tag ){
 			/** @var MathRenderer $renderer */
