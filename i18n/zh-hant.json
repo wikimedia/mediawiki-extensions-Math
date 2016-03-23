@@ -14,6 +14,7 @@
 		]
 	},
 	"math-desc": "在 <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code> 標籤顯示數學公式",
+	"math-visualeditor-mwmathcontextitem-quickedit": "快速編輯",
 	"math-visualeditor-mwmathdialog-title": "公式",
 	"math-visualeditor-mwmathdialog-card-formula": "公式",
 	"math-visualeditor-mwmathdialog-card-options": "選項",
