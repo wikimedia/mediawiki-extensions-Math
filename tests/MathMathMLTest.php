@@ -111,6 +111,15 @@ class MathMathMLTest extends MediaWikiTestCase {
 			'test if math expression is invalid mathml sample' );
 	}
 
+	public function testintegrationTestWithLinks() {
+		$p = new Parser();
+		$po = new ParserOptions();
+		$t = new Title( "test" );
+		$res = $p->parse( '[[test|<math forcemathmode="mathml">a+b</math>]]', $t, $po )->getText();
+		$this->assertContains( '</a>', $res );
+		$this->assertContains( '</mi>', $res );
+	}
+
 }
 
 /**
