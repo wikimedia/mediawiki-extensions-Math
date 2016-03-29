@@ -29,8 +29,6 @@ OO.inheritClass( ve.ui.MWMathInspector, ve.ui.MWLiveExtensionInspector );
 
 ve.ui.MWMathInspector.static.name = 'mathInspector';
 
-ve.ui.MWMathInspector.static.icon = 'math';
-
 ve.ui.MWMathInspector.static.title = OO.ui.deferMsg( 'math-visualeditor-mwmathinspector-title' );
 
 ve.ui.MWMathInspector.static.modelClasses = [ ve.dm.MWMathNode ];

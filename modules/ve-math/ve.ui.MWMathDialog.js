@@ -29,8 +29,6 @@ OO.inheritClass( ve.ui.MWMathDialog, ve.ui.MWExtensionPreviewDialog );
 
 ve.ui.MWMathDialog.static.name = 'mathDialog';
 
-ve.ui.MWMathDialog.static.icon = 'math';
-
 ve.ui.MWMathDialog.static.title = OO.ui.deferMsg( 'math-visualeditor-mwmathdialog-title' );
 
 ve.ui.MWMathDialog.static.size = 'larger';
