@@ -77,13 +77,14 @@ class SpecialMathStatus extends SpecialPage {
 	 */
 	public function testMathMLIntegration() {
 		$svgRef = file_get_contents( __DIR__ .'/images/reference.svg' );
+		$svgRefNoSpeech = file_get_contents( __DIR__ .'/images/reference-nospeech.svg' );
 		$renderer = MathRenderer::getRenderer( "a+b", array(), 'mathml' );
 		$this->assertTrue( $renderer->render( true ), "Rendering of a+b in plain MathML mode" );
 		$real = str_replace( "\n", '', $renderer->getHtmlOutput() );
 		$expected = '<mo>+</mo>';
 		$this->assertContains( $expected, $real, "Checking the presence of '+' in the MathML output" );
-		$this->assertEquals(
-			$svgRef, $renderer->getSvg(), "Comparing the generated SVG with the reference"
+		$this->assertEquals( [ $svgRef, $svgRefNoSpeech ], $renderer->getSvg(),
+			"Comparing the generated SVG with the reference"
 		);
 	}
 
@@ -161,9 +162,22 @@ class SpecialMathStatus extends SpecialPage {
 	}
 
 	private function assertEquals( $expected, $real, $message = '' ) {
+		if ( is_array( $expected ) ) {
+			foreach ( $expected as $alternative ){
+				if ( $alternative === $real ) {
+					$this->getOutput()->addWikiMsgArray( 'math-test-success', $message );
+					return true;
+				}
+			}
+			// non of the alternatives matched
+			$this->getOutput()->addWikiMsgArray( 'math-test-fail', $message );
+			return false;
+		}
 		if ( !$this->assertTrue( $expected === $real, $message ) ) {
 			$this->printDiff( $expected, $real, 'math-test-equals-diff' );
+			return false;
 		}
+		return true;
 	}
 
 	private function printDiff( $expected, $real, $message = '' ) {
