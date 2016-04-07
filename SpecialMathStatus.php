@@ -37,12 +37,18 @@ class SpecialMathStatus extends SpecialPage {
 
 		foreach ( $enabledMathModes as $modeNr => $modeName ){
 			$out->addWikiText( "=== $modeName ===" );
-			switch ( $modeNr ) {
-				case 'mathml':
-					$this->runMathMLTest( $modeName );
-					break;
-				case 'latexml':
-					$this->runMathLaTeXMLTest( $modeName );
+			try {
+				switch ( $modeNr ) {
+					case 'mathml':
+						$this->runMathMLTest( $modeName );
+						break;
+					case 'latexml':
+						$this->runMathLaTeXMLTest( $modeName );
+				}
+			} catch ( Exception $e ){
+				$this->getOutput()->addWikiMsgArray( 'math-test-fail',
+					"The following exception was thrown: {$e->getMessage()}" );
+				LoggerFactory::getInstance( 'Math' )->warning( 'Exception on Special:MathStatus', [ $e ] );
 			}
 		}
 	}

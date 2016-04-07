@@ -451,7 +451,11 @@ class MathMathML extends MathRenderer {
 		$output .= Xml::tags( $element, array(
 			'class' => $this->getClassName(), 'style' => 'display: none;'
 		), $mml );
-		$output .= $this->getFallbackImage();
+		try {
+			$output .= $this->getFallbackImage();
+		} catch ( Exception $e ){
+			$output .= $this->getLastError();
+		}
 		$output .= Html::closeElement( $element );
 		return $output;
 	}
