@@ -88,6 +88,8 @@ class MathMathML extends MathRenderer {
 				$this->mathml = $rbi->getMathML();
 				$this->mathoidStyle = $rbi->getMathoidStyle();
 				$this->svgPath = $rbi->getFullSvgUrl();
+			} elseif ( $this->lastError === '' ) {
+				$this->doCheck();
 			}
 			$this->changed = false;
 			return $rbi->getSuccess();
