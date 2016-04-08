@@ -41,26 +41,10 @@ class MathRestbaseInterface {
 	}
 
 	private function getContent( $type ) {
-		$this->calculateHash();
-		$request = array(
-			'method' => 'GET',
-			'url'    => $this->getUrl( "media/math/render/$type/{$this->hash}" )
-		);
+		$request = $this->getContentRequest( $type );
 		$serviceClient = $this->getServiceClient();
 		$response = $serviceClient->run( $request );
-		if ( $response['code'] === 200 ) {
-			if ( array_key_exists( 'x-mathoid-style', $response['headers'] ) ) {
-				$this->mathoidStyle =  $response['headers']['x-mathoid-style'];
-			}
-			return $response['body'];
-		}
-		$this->log()->error( 'Restbase math server problem:', array(
-			'request'  => $request,
-			'response' => $response,
-			'type'     => $type,
-			'tex'      => $this->tex
-		) );
-		throw new MWException( "Cannot get $type. Server problem." );
+		return $this->evaluateContentResponse( $type, $response, $request );
 	}
 
 	private function calculateHash() {
@@ -104,7 +88,7 @@ class MathRestbaseInterface {
 	 * @param array $rbis array of MathRestbaseInterface instances
 	 */
 	public static function batchEvaluate( $rbis ) {
-		if ( count( $rbis ) == 0 ){
+		if ( count( $rbis ) == 0 ) {
 			return;
 		}
 		$requests = array();
@@ -121,6 +105,23 @@ class MathRestbaseInterface {
 			/** @var MathRestbaseInterface $rbi */
 			$rbi = $rbis[$i ++];
 			$rbi->evaluateRestbaseCheckResponse( $response );
+		}
+		$requests = array();
+		foreach ( $rbis as $rbi ) {
+			/** @var MathRestbaseInterface $rbi */
+			$requests[] = $rbi->getContentRequest( 'mml' );
+		}
+		$results = $serviceClient->runMulti( $requests );
+		$i = 0;
+		foreach ( $results as $response ) {
+			/** @var MathRestbaseInterface $rbi */
+			$rbi = $rbis[$i];
+			try {
+				$mml = $rbi->evaluateContentResponse( 'mml', $response, $requests[$i] );
+				$rbi->mml = $mml;
+			} catch ( Exception $e ) {
+			}
+			$i ++;
 		}
 
 	}
@@ -346,5 +347,42 @@ class MathRestbaseInterface {
 	 */
 	public function getMathoidStyle() {
 		return $this->mathoidStyle;
+	}
+
+	/**
+	 * @param $type
+	 * @return array
+	 * @throws MWException
+	 */
+	private function getContentRequest( $type ) {
+		$this->calculateHash();
+		$request = array(
+			'method' => 'GET',
+			'url' => $this->getUrl( "media/math/render/$type/{$this->hash}" )
+		);
+		return $request;
+	}
+
+	/**
+	 * @param $type
+	 * @param $response
+	 * @param $request
+	 * @return mixed
+	 * @throws MWException
+	 */
+	private function evaluateContentResponse( $type, $response, $request ) {
+		if ( $response['code'] === 200 ) {
+			if ( array_key_exists( 'x-mathoid-style', $response['headers'] ) ) {
+				$this->mathoidStyle = $response['headers']['x-mathoid-style'];
+			}
+			return $response['body'];
+		}
+		$this->log()->error( 'Restbase math server problem:', array(
+			'request' => $request,
+			'response' => $response,
+			'type' => $type,
+			'tex' => $this->tex
+		) );
+		throw new MWException( "Cannot get $type. Server problem." );
 	}
 }
