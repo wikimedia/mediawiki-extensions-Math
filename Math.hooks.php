@@ -380,7 +380,7 @@ class MathHooks {
 			$renderer = $tag[0];
 			$rbi = new MathRestbaseInterface( $renderer->getTex(), $renderer->getInputType() );
 			$renderer->setRestbaseInterface( $rbi );
-			$rbis[] = $rbi;
+			$rbis[$key] = $rbi;
 		}
 		MathRestbaseInterface::batchEvaluate( $rbis );
 		foreach ( self::$tags as $key => $tag ){

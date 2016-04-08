@@ -594,17 +594,7 @@ abstract class MathRenderer {
 					return true;
 				}
 			}
-			$checker = new MathInputCheckRestbase( $this->tex, $this->getInputType(), $this->rbi );
-			try {
-				if ( $checker->isValid() ) {
-					$this->setTex( $checker->getValidTex() );
-					$this->texSecure = true;
-					return true;
-				}
-			} catch ( MWException $e ) {
-			}
-			$this->lastError = $checker->getError();
-			return false;
+			return $this->doCheck();
 		}
 	}
 
@@ -698,5 +688,23 @@ abstract class MathRenderer {
 	 */
 	public function getInputType() {
 		return $this->inputType;
+	}
+
+	/**
+	 * @return bool
+	 */
+	protected function doCheck() {
+		$checker = new MathInputCheckRestbase( $this->tex, $this->getInputType(), $this->rbi );
+		try {
+			if ( $checker->isValid() ) {
+				$this->setTex( $checker->getValidTex() );
+				$this->texSecure = true;
+				return true;
+			}
+		}
+		catch ( MWException $e ) {
+		}
+		$this->lastError = $checker->getError();
+		return false;
 	}
 }
