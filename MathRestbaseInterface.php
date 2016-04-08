@@ -33,37 +33,31 @@ class MathRestbaseInterface {
 	 * Bundles several requests for fetching MathML.
 	 * Does not send requests, if the the input TeX is invalid.
 	 * @param $rbis
-	 * @param $serviceClient
+	 * @param VirtualRESTServiceClient $serviceClient
 	 */
 	private static function batchGetMathML( $rbis, $serviceClient ) {
 		$requests = array();
 		$skips = array();
-		$i = 0;
-		foreach ( $rbis as $rbi ) {
+		foreach ( $rbis as $key => $rbi ) {
 			/** @var MathRestbaseInterface $rbi */
 			if ( $rbi->checkTeX() ) {
-				$requests[] = $rbi->getContentRequest( 'mml' );
+				$requests[$key] = $rbi->getContentRequest( 'mml' );
 			} else {
-				$skips[] = $i;
+				$skips[] = $key;
 			}
-			$i ++;
 		}
 		$results = $serviceClient->runMulti( $requests );
-		$i = 0;
-		$j = 0;
-		foreach ( $results as $response ) {
-			if ( !in_array( $i, $skips ) ) {
+		foreach ( $results as $key => $response ) {
+			if ( !in_array( $key, $skips ) ) {
 				/** @var MathRestbaseInterface $rbi */
-				$rbi = $rbis[$i];
+				$rbi = $rbis[$key];
 				try {
-					$mml = $rbi->evaluateContentResponse( 'mml', $response, $requests[$j] );
+					$mml = $rbi->evaluateContentResponse( 'mml', $response, $requests[$key] );
 					$rbi->mml = $mml;
 				}
 				catch ( Exception $e ) {
 				}
-				$j ++;
 			}
-			$i ++;
 		}
 	}
 
@@ -131,17 +125,16 @@ class MathRestbaseInterface {
 		}
 		$requests = array();
 		/** @var MathRestbaseInterface $first */
-		$first = $rbis[0];
+		$first = array_values( $rbis )[0];
 		$serviceClient = $first->getServiceClient();
 		foreach ( $rbis as $rbi ) {
 			/** @var MathRestbaseInterface $rbi */
 			$requests[] = $rbi->getCheckRequest();
 		}
 		$results = $serviceClient->runMulti( $requests );
-		$i = 0;
-		foreach ( $results as $response ) {
+		foreach ( $results as $key => $response ) {
 			/** @var MathRestbaseInterface $rbi */
-			$rbi = $rbis[$i ++];
+			$rbi = $rbis[$key];
 			try {
 				$rbi->evaluateRestbaseCheckResponse( $response );
 			} catch ( Exception $e ) {
