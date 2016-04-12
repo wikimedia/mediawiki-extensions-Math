@@ -9,7 +9,7 @@
 use MediaWiki\Logger\LoggerFactory;
 
 class MathHooks {
-	private static $tags = array();
+	private static $tags = [];
 	const MATHCACHEKEY = 'math=';
 
 	public static function mathConstantToString( $value, array $defs, $prefix, $default ) {
@@ -30,7 +30,7 @@ class MathHooks {
 			}
 		}
 		if ( is_string( $value ) ) {
-			$newValues = array();
+			$newValues = [];
 			foreach ( $defs as $k => $v ) {
 				$newValues[$k] = preg_replace_callback( '/_(.)/', function ( $matches ) {
 					return strtoupper( $matches[1] );
@@ -46,21 +46,21 @@ class MathHooks {
 	}
 
 	public static function mathStyleToString( $style, $default = 'inlineDisplaystyle' ) {
-		$defs = array(
+		$defs = [
 			'MW_MATHSTYLE_INLINE_DISPLAYSTYLE'  => 0, // default large operator inline
 			'MW_MATHSTYLE_DISPLAY'              => 1, // large operators centered in a new line
 			'MW_MATHSTYLE_INLINE'               => 2, // small operators inline
 			'MW_MATHSTYLE_LINEBREAK'            => 3, // break long lines (experimental)
-		);
+		];
 		return self::mathConstantToString( $style, $defs, $prefix = 'MW_MATHSTYLE_', $default );
 	}
 
 	public static function mathCheckToString( $style, $default = 'always' ) {
-		$defs = array(
+		$defs = [
 			'MW_MATH_CHECK_ALWAYS' => 0,
 			'MW_MATH_CHECK_NEVER'  => 1,
 			'MW_MATH_CHECK_NEW'    => 2,
-		);
+		];
 		return self::mathConstantToString( $style, $defs, $prefix = 'MW_MATH_CHECK_', $default );
 	}
 
@@ -72,21 +72,21 @@ class MathHooks {
 		// 'MW_MATH_MATHJAX'     => 6
 		// 'MW_MATH_LATEXML_JAX' => 8
 
-		$defs = array(
+		$defs = [
 			'MW_MATH_PNG'    => 0,
 			'MW_MATH_SOURCE' => 3,
 			'MW_MATH_MATHML' => 5,
-			'MW_MATH_LATEXML'=> 7 );
+			'MW_MATH_LATEXML'=> 7 ];
 
 		return self::mathConstantToString( $mode, $defs, $prefix = 'MW_MATH_', $default );
 	}
 
 	public static function mathModeToHashKey( $mode, $default = 0 ) {
-		$defs = array(
+		$defs = [
 			'png'    => 0,
 			'source' => 3,
 			'mathml' => 5,
-			'latexml'=> 7 );
+			'latexml'=> 7 ];
 
 		if ( array_key_exists( $mode, $defs ) ) {
 			return $defs[$mode];
@@ -102,7 +102,7 @@ class MathHooks {
 	 * @param User $user reference to the current user
 	 * @param array &$forOptions userOptions used on that page
 	 */
-	public static function onPageRenderingHash( &$confstr, $user = false, &$forOptions = array() ) {
+	public static function onPageRenderingHash( &$confstr, $user = false, &$forOptions = [] ) {
 		global $wgUser;
 
 		// To be independent of the MediaWiki core version,
@@ -165,8 +165,8 @@ class MathHooks {
 	 * @return Boolean: true
 	 */
 	static function onParserFirstCallInit( $parser ) {
-		$parser->setHook( 'math', array( 'MathHooks', 'mathTagHook' ) );
-		$parser->setHook( 'ce', array( 'MathHooks', 'ceTagHook' ) );
+		$parser->setHook( 'math', [ 'MathHooks', 'mathTagHook' ] );
+		$parser->setHook( 'ce', [ 'MathHooks', 'ceTagHook' ] );
 
 		return true;
 	}
@@ -191,17 +191,17 @@ class MathHooks {
 		$parser->getOptions()->optionUsed( 'math' );
 		$renderer = MathRenderer::getRenderer( $content, $attributes, $mode );
 
-		$parser->getOutput()->addModuleStyles( array( 'ext.math.styles' ) );
+		$parser->getOutput()->addModuleStyles( [ 'ext.math.styles' ] );
 		if ( $mode == 'mathml' ) {
-			$parser->getOutput()->addModuleStyles( array( 'ext.math.desktop.styles' ) );
-			$parser->getOutput()->addModules( array( 'ext.math.scripts' ) );
+			$parser->getOutput()->addModuleStyles( [ 'ext.math.desktop.styles' ] );
+			$parser->getOutput()->addModules( [ 'ext.math.scripts' ] );
 			$marker = Parser::MARKER_PREFIX .
 				'-postMath-' . sprintf( '%08X', $n ++ ) .
 				Parser::MARKER_SUFFIX;
-			self::$tags[$marker] = array( $renderer, $parser );
+			self::$tags[$marker] = [ $renderer, $parser ];
 			return $marker;
 		}
-		return array( self::mathPostTagHook( $renderer, $parser ), 'markerType' => 'nowiki' );
+		return [ self::mathPostTagHook( $renderer, $parser ), 'markerType' => 'nowiki' ];
 	}
 
 	/**
@@ -230,7 +230,7 @@ class MathHooks {
 			return $renderer->getLastError();
 		}
 		Hooks::run( 'MathFormulaPostRender',
-			array( $parser, &$renderer, &$renderedMath ) );// Enables indexing of math formula
+			[ $parser, $renderer, $renderedMath ] );// Enables indexing of math formula
 
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
@@ -247,12 +247,12 @@ class MathHooks {
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
 		global $wgDefaultUserOptions;
-		$defaultPreferences['math'] = array(
+		$defaultPreferences['math'] = [
 			'type' => 'radio',
 			'options' => array_flip( self::getMathNames() ),
 			'label' => '&#160;',
 			'section' => 'rendering/math',
-		);
+		];
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
 		$mode = MathHooks::mathModeToString( $wgDefaultUserOptions['math'] );
@@ -273,7 +273,7 @@ class MathHooks {
 	 * @return array of strings
 	 */
 	public static function getMathNames() {
-		$names = array();
+		$names = [];
 		foreach ( MathRenderer::getValidModes() as $mode ) {
 			$names[$mode] = wfMessage( 'mw_math_' . $mode )->escaped();
 		}
@@ -309,7 +309,7 @@ class MathHooks {
 			throw new Exception( 'Math extension is only necessary in 1.18 or above' );
 		}
 
-		$map = array( 'mysql', 'sqlite', 'postgres', 'oracle', 'mssql' );
+		$map = [ 'mysql', 'sqlite', 'postgres', 'oracle', 'mssql' ];
 
 		$type = $updater->getDB()->getType();
 
@@ -319,7 +319,7 @@ class MathHooks {
 		$sql = __DIR__ . '/db/math.' . $type . '.sql';
 		$updater->addExtensionTable( 'math', $sql );
 		if ( in_array( 'latexml', MathRenderer::getValidModes() ) ) {
-			if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
+			if ( in_array( $type, [ 'mysql', 'sqlite', 'postgres' ] ) ) {
 				$sql = __DIR__ . '/db/mathlatexml.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathlatexml', $sql );
 				if ( $type == 'mysql' ) {
@@ -331,7 +331,7 @@ class MathHooks {
 			}
 		}
 		if ( in_array( 'mathml', MathRenderer::getValidModes() ) ) {
-			if ( in_array( $type, array( 'mysql', 'sqlite', 'postgres' ) ) ) {
+			if ( in_array( $type, [ 'mysql', 'sqlite', 'postgres' ] ) ) {
 				$sql = __DIR__ . '/db/mathoid.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathoid', $sql );
 			} else {
@@ -374,7 +374,7 @@ class MathHooks {
 	 * @return bool
 	 */
 	public static function onParserAfterTidy( &$parser, &$text ) {
-		$rbis = array();
+		$rbis = [];
 		foreach ( self::$tags as $key => $tag ){
 			/** @var MathRenderer $renderer */
 			$renderer = $tag[0];
@@ -384,7 +384,7 @@ class MathHooks {
 		}
 		MathRestbaseInterface::batchEvaluate( $rbis );
 		foreach ( self::$tags as $key => $tag ){
-			$value = call_user_func_array( array( "MathHooks","mathPostTagHook" ), $tag );
+			$value = call_user_func_array( [ "MathHooks","mathPostTagHook" ], $tag );
 			// Workaround for https://phabricator.wikimedia.org/T103269
 			$text = preg_replace( '/(<mw:editsection[^>]*>.*?)' . preg_quote( $key ) .
 				'(.*?)<\/mw:editsection>/',
@@ -392,7 +392,7 @@ class MathHooks {
 			$text = str_replace( $key, $value, $text );
 		}
 		// This hook might be called multiple times. However one the tags are rendered the job is done.
-		self::$tags = array();
+		self::$tags = [];
 		return true;
 	}
 	/**
@@ -402,7 +402,7 @@ class MathHooks {
 	 */
 	static function onEditPageBeforeEditToolbar( &$toolbar ) {
 		global $wgOut;
-		$wgOut->addModules( array( 'ext.math.editbutton.enabler' ) );
+		$wgOut->addModules( [ 'ext.math.editbutton.enabler' ] );
 	}
 
 	public static function registerExtension() {

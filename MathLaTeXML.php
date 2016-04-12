@@ -12,11 +12,11 @@ use MediaWiki\Logger\LoggerFactory;
  */
 
 class MathLaTeXML extends MathMathML {
-	protected $defaultAllowedRootElements = array( 'math', 'div', 'table', 'query' );
+	protected $defaultAllowedRootElements = [ 'math', 'div', 'table', 'query' ];
 	/** @var String settings for LaTeXML daemon */
 	private $LaTeXMLSettings = '';
 
-	public function __construct( $tex = '', $params = array() ) {
+	public function __construct( $tex = '', $params = [] ) {
 		global $wgMathLaTeXMLUrl;
 		parent::__construct( $tex, $params );
 		$this->hosts = $wgMathLaTeXMLUrl;
@@ -117,29 +117,28 @@ class MathLaTeXML extends MathMathML {
 				if ( $this->isValidMathML( $jsonResult->result ) ) {
 					$this->setMathml( $jsonResult->result );
 					Hooks::run( 'MathRenderingResultRetrieved',
-						array( &$this,
-							   &$jsonResult ) );// Enables debugging of server results
+						[ $this, $jsonResult ] );// Enables debugging of server results
 					return true;
 				} else {
 					// Do not print bad mathml. It's probably too verbose and might
 					// mess up the browser output.
 					$this->lastError = $this->getError( 'math_invalidxml', $this->getModeStr(), $host );
 					LoggerFactory::getInstance( 'Math' )->warning(
-						'LaTeXML InvalidMathML: ' . var_export( array(
+						'LaTeXML InvalidMathML: ' . var_export( [
 							'post' => $post,
 							'host' => $host,
 							'result' => $res
-						), true ) );
+						], true ) );
 					return false;
 				}
 			} else {
 				$this->lastError = $this->getError( 'math_invalidjson', $this->getModeStr(), $host );
 				LoggerFactory::getInstance( 'Math' )->warning(
-					'LaTeXML InvalidJSON:' . var_export( array(
+					'LaTeXML InvalidJSON:' . var_export( [
 						'post' => $post,
 						'host' => $host,
 						'res' => $res
-					), true ) );
+					], true ) );
 				return false;
 			}
 		} else {
@@ -167,7 +166,7 @@ class MathLaTeXML extends MathMathML {
 	public static function embedMathML( $mml, $tagId = '', $attribs = false ) {
 		$mml = str_replace( "\n", " ", $mml );
 		if ( ! $attribs ) {
-			$attribs = array( 'class' => 'tex', 'dir' => 'ltr' );
+			$attribs = [ 'class' => 'tex', 'dir' => 'ltr' ];
 			if ( $tagId ) {
 				$attribs['id'] = $tagId;
 			}

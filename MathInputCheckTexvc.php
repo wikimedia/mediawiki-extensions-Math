@@ -50,11 +50,11 @@ class MathInputCheckTexvc extends MathInputCheck {
 	 */
 	public function isValid() {
 		$us = $this;
-		$checkWork = new PoolCounterWorkViaCallback( 'MathTexvc-check', "", array(
+		$checkWork = new PoolCounterWorkViaCallback( 'MathTexvc-check', "", [
 			'doWork' => function() use ( $us ) {
 				return $us->doValidCheck();
 			}
-		) );
+		] );
 		return $checkWork->execute();
 	}
 

@@ -58,4 +58,4 @@ from your MediWiki home path.
 == Logging ==
 The math extension supports PSR-3 logging:
 Configuration can be dona via
-$wgDebugLogGroups['Math'] = array( 'level' => 'info', 'destination' => '/path/to/file.log' );
+$wgDebugLogGroups['Math'] = [ 'level' => 'info', 'destination' => '/path/to/file.log' ];

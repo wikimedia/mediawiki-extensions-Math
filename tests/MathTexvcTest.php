@@ -29,7 +29,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 		// Create a MathTexvc mock, replacing methods 'readFromDatabase',
 		// 'callTexvc', and 'doHTMLRender' with test doubles.
 		$texvc = $this->getMockBuilder( 'MathTexvc' )
-			->setMethods( array( 'readCache', 'callTexvc', 'getHtmlOutput' ) )
+			->setMethods( [ 'readCache', 'callTexvc', 'getHtmlOutput' ] )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -61,7 +61,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 	 */
 	function testRenderCacheMiss() {
 		$texvc = $this->getMockBuilder( 'MathTexvc' )
-			->setMethods( array( 'readCache', 'callTexvc', 'getHtmlOutput' ) )
+			->setMethods( [ 'readCache', 'callTexvc', 'getHtmlOutput' ] )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -92,7 +92,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 	 */
 	function testRenderTexvcFailure() {
 		$texvc = $this->getMockBuilder( 'MathTexvc' )
-			->setMethods( array( 'readCache', 'callTexvc', 'getHtmlOutput' ) )
+			->setMethods( [ 'readCache', 'callTexvc', 'getHtmlOutput' ] )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -175,7 +175,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 	 */
 	public function testChangeHash() {
 		$renderer = $this->getMockBuilder( 'MathTexvc' )
-			->setMethods( array( 'render', 'getMathTableName' ) )
+			->setMethods( [ 'render', 'getMathTableName' ] )
 			->disableOriginalConstructor()
 			->getMock();
 		$this->assertEquals(

@@ -55,14 +55,14 @@ class MathGenerateTests extends Maintenance
 
 		$wikiText = Sanitizer::removeHTMLcomments( $wikiText );
 		$wikiText = preg_replace( '#<nowiki>(.*)</nowiki>#', '', $wikiText );
-		$math = array();
-		Parser::extractTagsAndParams( array( 'math' ), $wikiText, $math );
+		$math = [];
+		Parser::extractTagsAndParams( [ 'math' ], $wikiText, $math );
 		return $math;
 	}
 
 	public function execute() {
 		global $wgUser;
-		$parserTests = array();
+		$parserTests = [];
 		$page = $this->getArg( 0, self::REFERENCE_PAGE );
 		$offset = $this->getOption( 'offset', 0 );
 		$length = $this->getOption( 'length', PHP_INT_MAX );
@@ -80,7 +80,7 @@ class MathGenerateTests extends Maintenance
 		foreach ( array_slice( $allEquations, $offset, $length, true ) as $input ) {
 			$output = MathRenderer::renderMath( $input[1], $input[2], 'png' );
 			$output = preg_replace( '#src="(.*?)/(([a-f]|\d)*).png"#', 'src="\2.png"', $output );
-			$parserTests[] = array( (string)$input[1], $output );
+			$parserTests[] = [ (string)$input[1], $output ];
 			$i++;
 			echo '.';
 		}
