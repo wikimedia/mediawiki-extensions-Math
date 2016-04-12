@@ -82,14 +82,14 @@ class SpecialMathShowImage extends SpecialPage {
 						$mmlRenderer = MathMathML::newFromMd5( $hash );
 						$mmlRenderer->readFromDatabase();
 						$this->renderer = MathRenderer::getRenderer(
-							$mmlRenderer->getUserInputTex(), array(), 'png'
+							$mmlRenderer->getUserInputTex(), [], 'png'
 						);
 						$this->renderer->setMathStyle( $mmlRenderer->getMathStyle() );
 					}
 					$success = $this->renderer->render();
 				}
 			} elseif ( $asciimath === '' ) {
-				$this->renderer = MathRenderer::getRenderer( $tex, array(), $this->mode );
+				$this->renderer = MathRenderer::getRenderer( $tex, [], $this->mode );
 				$success = $this->renderer->render();
 			} else {
 				$this->renderer = MathRenderer::getRenderer(

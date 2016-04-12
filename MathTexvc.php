@@ -35,7 +35,7 @@ class MathTexvc extends MathRenderer {
 	 * @return array
 	 */
 	public function dbOutArray() {
-		$out = array();
+		$out = [];
 		$dbr = wfGetDB( DB_SLAVE );
 		$outmd5_sql = $dbr->encodeBlob( pack( 'H32', $this->hash ) );
 		if ( $outmd5_sql instanceof Blob ) {
@@ -292,7 +292,7 @@ class MathTexvc extends MathRenderer {
 		// Store the file at the final storage path...
 		// Bug 56769: buffer the writes and do them at the end.
 		if ( !isset( $wgHooks['ParserAfterParse']['FlushMathBackend'] ) ) {
-			$backend->mathBufferedWrites = array();
+			$backend->mathBufferedWrites = [];
 			$wgHooks['ParserAfterParse']['FlushMathBackend'] = function () use ( $backend ) {
 				global $wgHooks;
 				unset( $wgHooks['ParserAfterParse']['FlushMathBackend'] );
@@ -325,7 +325,7 @@ class MathTexvc extends MathRenderer {
 				$backend = new FSFileBackend( array(
 					'name'           => 'math-backend',
 					'wikiId' 	 => wfWikiId(),
-					'lockManager'    => new NullLockManager( array() ),
+					'lockManager'    => new NullLockManager( [] ),
 					'containerPaths' => array( 'math-render' => $wgMathDirectory ),
 					'fileMode'       => 0777
 				) );

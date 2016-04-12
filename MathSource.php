@@ -23,7 +23,7 @@ class MathSource extends MathRenderer {
 	 * @param string $tex
 	 * @param array $params
 	 */
-	function __construct( $tex = '', $params = array() ) {
+	function __construct( $tex = '', $params = [] ) {
 		parent::__construct( $tex, $params );
 		$this->setMode( 'source' );
 	}

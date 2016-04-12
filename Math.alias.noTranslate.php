@@ -10,7 +10,7 @@
  * @ingroup Extensions
  */
 
-$specialPageAliases = array();
+$specialPageAliases = [];
 
 /** English (English) */
 $specialPageAliases['en'] = array(

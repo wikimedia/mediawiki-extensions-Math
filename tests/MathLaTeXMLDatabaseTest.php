@@ -71,7 +71,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	public function testTableName() {
 		$fnGetMathTableName = self::getMethod( 'getMathTableName' );
 		$obj = new MathLaTeXML();
-		$tableName = $fnGetMathTableName->invokeArgs( $obj, array() );
+		$tableName = $fnGetMathTableName->invokeArgs( $obj, [] );
 		$this->assertEquals( $tableName, "mathlatexml", "Wrong latexml table name" );
 	}
 
