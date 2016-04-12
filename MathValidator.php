@@ -1,10 +1,10 @@
 <?php
 
+use DataValues\StringValue;
 use ValueFormatters\Exceptions\MismatchingDataValueTypeException;
+use ValueValidators\Error;
 use ValueValidators\Result;
 use ValueValidators\ValueValidator;
-use ValueValidators\Error;
-use DataValues\StringValue;
 
 // @author Duc Linh Tran, Julian Hilbig, Moritz Schubotz
 
@@ -33,9 +33,9 @@ class MathValidator implements ValueValidator {
 
 		// TeX string is not valid
 		return Result::newError(
-			array(
-				Error::newError( null, null, 'malformed-value', array( $checker->getError() ) )
-			)
+			[
+				Error::newError( null, null, 'malformed-value', [ $checker->getError() ] )
+			]
 		);
 	}
 

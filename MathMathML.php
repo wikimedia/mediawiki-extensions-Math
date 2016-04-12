@@ -13,8 +13,8 @@ use MediaWiki\Logger\LoggerFactory;
  */
 class MathMathML extends MathRenderer {
 
-	protected $defaultAllowedRootElements = array( 'math' );
-	protected $restbaseInputTypes = array( 'tex', 'inline-tex', 'chem' );
+	protected $defaultAllowedRootElements = [ 'math' ];
+	protected $restbaseInputTypes = [ 'tex', 'inline-tex', 'chem' ];
 	protected $allowedRootElements = '';
 	protected $hosts;
 
@@ -23,7 +23,7 @@ class MathMathML extends MathRenderer {
 	private $svgPath = false;
 	private $mathoidStyle;
 
-	public function __construct( $tex = '', $params = array() ) {
+	public function __construct( $tex = '', $params = [] ) {
 		global $wgMathMathMLUrl;
 		parent::__construct( $tex, $params );
 		$this->setMode( 'mathml' );
@@ -163,7 +163,7 @@ class MathMathML extends MathRenderer {
 		if ( !$post ) {
 			$this->getPostData();
 		}
-		$options = array( 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout );
+		$options = [ 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout ];
 		/** @var $req (CurlHttpRequest|PhpHttpRequest) the request object  */
 		$req = $httpRequestClass::factory( $host, $options );
 		/** @var Status $req Status the request status */
@@ -175,22 +175,22 @@ class MathMathML extends MathRenderer {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
 				$error = $this->getError( 'math_timeout', $this->getModeStr(), $host );
 				$res = false;
-				LoggerFactory::getInstance( 'Math' )->warning( 'Timeout:' . var_export( array(
+				LoggerFactory::getInstance( 'Math' )->warning( 'Timeout:' . var_export( [
 						'post' => $post,
 						'host' => $host,
 						'timeout' => $wgMathLaTeXMLTimeout
-					), true ) );
+					], true ) );
 			} else {
 				// for any other unkonwn http error
 				$errormsg = $status->getHtml();
 				$error =
 					$this->getError( 'math_invalidresponse', $this->getModeStr(), $host, $errormsg,
 						$this->getModeStr( 'mathml' ) );
-				LoggerFactory::getInstance( 'Math' )->warning( 'NoResponse:' . var_export( array(
+				LoggerFactory::getInstance( 'Math' )->warning( 'NoResponse:' . var_export( [
 						'post' => $post,
 						'host' => $host,
 						'errormsg' => $errormsg
-					), true ) );
+					], true ) );
 			}
 			return false;
 		}
@@ -264,21 +264,21 @@ class MathMathML extends MathRenderer {
 					}
 					$this->lastError = $this->getError( 'math_mathoid_error', $host, $log );
 					LoggerFactory::getInstance( 'Math' )->warning(
-						'Mathoid conversion error:' . var_export( array(
+						'Mathoid conversion error:' . var_export( [
 							'post' => $post,
 							'host' => $host,
 							'result' => $res
-						), true ) );
+						], true ) );
 					return false;
 				}
 			} else {
 				$this->lastError = $this->getError( 'math_invalidjson', $host );
 				LoggerFactory::getInstance( 'Math' )->error(
-					'MathML InvalidJSON:' . var_export( array(
+					'MathML InvalidJSON:' . var_export( [
 						'post' => $post,
 						'host' => $host,
 						'res' => $res
-					), true ) );
+					], true ) );
 				return false;
 			}
 		} else {
@@ -328,10 +328,11 @@ class MathMathML extends MathRenderer {
 		if ( $this->svgPath ) {
 			return $this->svgPath;
 		}
-		return SpecialPage::getTitleFor( 'MathShowImage' )->getLocalURL( array(
+		return SpecialPage::getTitleFor( 'MathShowImage' )->getLocalURL( [
 				'hash' => $this->getMd5(),
 				'mode' => $this->getMode(),
-				'noRender' => $noRender )
+				'noRender' => $noRender
+			]
 		);
 	}
 
@@ -374,7 +375,7 @@ class MathMathML extends MathRenderer {
 	private function getFallbackImage( $noRender = false, $classOverride = false ) {
 		$url = $this->getFallbackImageUrl( $noRender );
 
-		$attribs = array();
+		$attribs = [];
 		if ( $classOverride === false ) { // $class = '' suppresses class attribute
 			$class = $this->getClassName( true );
 		} else {
@@ -394,8 +395,8 @@ class MathMathML extends MathRenderer {
 		// Don't use an empty span, as that is going to be stripped by HTML tidy
 		// when enabled (which is true in production).
 		return Xml::element( 'meta', $this->getAttributes(
-			'span', $attribs, array( 'aria-hidden' => 'true', 'style' => $style
-		) ) );
+			'span', $attribs, [ 'aria-hidden' => 'true', 'style' => $style
+		] ) );
 	}
 
 	protected function getMathTableName() {
@@ -436,7 +437,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$element = 'span';
 		}
-		$attribs = array();
+		$attribs = [];
 		if ( $this->getID() !== '' ) {
 			$attribs['id'] = $this->getID();
 		}
@@ -450,9 +451,9 @@ class MathMathML extends MathRenderer {
 		if ( $this->getMathStyle() == 'display' ) {
 			$mml = preg_replace( '/<math/', '<math display="block"', $mml );
 		}
-		$output .= Xml::tags( $element, array(
+		$output .= Xml::tags( $element, [
 			'class' => $this->getClassName(), 'style' => 'display: none;'
-		), $mml );
+		], $mml );
 		$output .= $this->getFallbackImage();
 		$output .= Html::closeElement( $element );
 		return $output;
@@ -470,7 +471,7 @@ class MathMathML extends MathRenderer {
 	protected function dbInArray() {
 		$out = parent::dbInArray();
 		if ( $this->getMathTableName() == 'mathoid' ) {
-			$out = array_diff( $out, array( 'math_inputtex' ) );
+			$out = array_diff( $out, [ 'math_inputtex' ] );
 			$out[] = 'math_input';
 		}
 		return $out;
@@ -512,8 +513,7 @@ class MathMathML extends MathRenderer {
 				$this->setMathml( $jsonResult->mml );
 			}
 			Hooks::run( 'MathRenderingResultRetrieved',
-				array( &$this,
-					   &$jsonResult ) ); // Enables debugging of server results
+				[ &$this, &$jsonResult ] ); // Enables debugging of server results
 			return true;
 		} else {
 			$this->lastError = $this->getError( 'math_unknown_error', $host );

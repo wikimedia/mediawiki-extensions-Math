@@ -78,14 +78,14 @@ class MathCoverageTest extends MediaWikiTestCase {
 		// TODO: Link to the wikipage that contains the reference rendering
 		$this->assertEquals(
 			$this->normalize( $output ),
-			$this->normalize( MathRenderer::renderMath( $input, array(), 'png' ) ),
+			$this->normalize( MathRenderer::renderMath( $input, [], 'png' ) ),
 			"Failed to render $input"
 		);
 	}
 
 	/**
 	 * Gets the test-data from the file ParserTest.json
-	 * @return array($input, $output) where $input is the test input string
+	 * @return [$input, $output] where $input is the test input string
 	 * and $output is the rendered html5-output string
 	 */
 	public function provideCoverage() {
