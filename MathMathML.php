@@ -23,7 +23,7 @@ class MathMathML extends MathRenderer {
 	private $svgPath = false;
 	private $mathoidStyle;
 
-	public function __construct( $tex = '', $params = array() ) {
+	public function __construct( $tex = '', $params = [] ) {
 		global $wgMathMathMLUrl;
 		parent::__construct( $tex, $params );
 		$this->setMode( 'mathml' );
@@ -374,7 +374,7 @@ class MathMathML extends MathRenderer {
 	private function getFallbackImage( $noRender = false, $classOverride = false ) {
 		$url = $this->getFallbackImageUrl( $noRender );
 
-		$attribs = array();
+		$attribs = [];
 		if ( $classOverride === false ) { // $class = '' suppresses class attribute
 			$class = $this->getClassName( true );
 		} else {
@@ -436,7 +436,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$element = 'span';
 		}
-		$attribs = array();
+		$attribs = [];
 		if ( $this->getID() !== '' ) {
 			$attribs['id'] = $this->getID();
 		}

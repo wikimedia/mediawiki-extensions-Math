@@ -9,7 +9,7 @@
 use MediaWiki\Logger\LoggerFactory;
 
 class MathHooks {
-	private static $tags = array();
+	private static $tags = [];
 	const MATHCACHEKEY = 'math=';
 
 	public static function mathConstantToString( $value, array $defs, $prefix, $default ) {
@@ -30,7 +30,7 @@ class MathHooks {
 			}
 		}
 		if ( is_string( $value ) ) {
-			$newValues = array();
+			$newValues = [];
 			foreach ( $defs as $k => $v ) {
 				$newValues[$k] = preg_replace_callback( '/_(.)/', function ( $matches ) {
 					return strtoupper( $matches[1] );
@@ -102,7 +102,7 @@ class MathHooks {
 	 * @param User $user reference to the current user
 	 * @param array &$forOptions userOptions used on that page
 	 */
-	public static function onPageRenderingHash( &$confstr, $user = false, &$forOptions = array() ) {
+	public static function onPageRenderingHash( &$confstr, $user = false, &$forOptions = [] ) {
 		global $wgUser;
 
 		// To be independent of the MediaWiki core version,
@@ -273,7 +273,7 @@ class MathHooks {
 	 * @return array of strings
 	 */
 	public static function getMathNames() {
-		$names = array();
+		$names = [];
 		foreach ( MathRenderer::getValidModes() as $mode ) {
 			$names[$mode] = wfMessage( 'mw_math_' . $mode )->escaped();
 		}
@@ -374,7 +374,7 @@ class MathHooks {
 	 * @return bool
 	 */
 	public static function onParserAfterTidy( &$parser, &$text ) {
-		$rbis = array();
+		$rbis = [];
 		foreach ( self::$tags as $key => $tag ){
 			/** @var MathRenderer $renderer */
 			$renderer = $tag[0];
@@ -392,7 +392,7 @@ class MathHooks {
 			$text = str_replace( $key, $value, $text );
 		}
 		// This hook might be called multiple times. However one the tags are rendered the job is done.
-		self::$tags = array();
+		self::$tags = [];
 		return true;
 	}
 	/**

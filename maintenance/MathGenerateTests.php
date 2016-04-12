@@ -55,14 +55,14 @@ class MathGenerateTests extends Maintenance
 
 		$wikiText = Sanitizer::removeHTMLcomments( $wikiText );
 		$wikiText = preg_replace( '#<nowiki>(.*)</nowiki>#', '', $wikiText );
-		$math = array();
+		$math = [];
 		Parser::extractTagsAndParams( array( 'math' ), $wikiText, $math );
 		return $math;
 	}
 
 	public function execute() {
 		global $wgUser;
-		$parserTests = array();
+		$parserTests = [];
 		$page = $this->getArg( 0, self::REFERENCE_PAGE );
 		$offset = $this->getOption( 'offset', 0 );
 		$length = $this->getOption( 'length', PHP_INT_MAX );

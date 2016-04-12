@@ -35,7 +35,7 @@ abstract class MathRenderer {
 	/** @var ('inlineDisplaystyle'|'display'|'inline'|'linebreak') the rendering style */
 	protected $mathStyle = 'inlineDisplaystyle';
 	/** @var array with userdefined parameters passed to the extension (not used) */
-	protected $params = array();
+	protected $params = [];
 	/** @var string a userdefined identifier to link to the equation. */
 	protected $id = '';
 
@@ -67,7 +67,7 @@ abstract class MathRenderer {
 	 * @param string $tex (optional) LaTeX markup
 	 * @param array $params (optional) HTML attributes
 	 */
-	public function __construct( $tex = '', $params = array() ) {
+	public function __construct( $tex = '', $params = [] ) {
 		$this->params = $params;
 		if ( isset( $params['id'] ) ) {
 			$this->id = $params['id'];
@@ -109,7 +109,7 @@ abstract class MathRenderer {
 	 * @param string $mode constant indicating rendering mode
 	 * @return string HTML for math tag
 	 */
-	public static function renderMath( $tex, $params = array(), $mode = 'png' ) {
+	public static function renderMath( $tex, $params = [], $mode = 'png' ) {
 		$renderer = self::getRenderer( $tex, $params, $mode );
 		if ( $renderer->render() ) {
 			return $renderer->getHtmlOutput();
@@ -140,7 +140,7 @@ abstract class MathRenderer {
 	 * @param string $mode indicating rendering mode
 	 * @return MathRenderer appropriate renderer for mode
 	 */
-	public static function getRenderer( $tex, $params = array(), $mode = 'png' ) {
+	public static function getRenderer( $tex, $params = [], $mode = 'png' ) {
 		global $wgDefaultUserOptions, $wgMathEnableExperimentalInputFormats;
 
 		if ( isset( $params['forcemathmode'] ) ) {
@@ -395,7 +395,7 @@ abstract class MathRenderer {
 	 * @param array $overrides attributes to override defaults
 	 * @return array HTML attributes
 	 */
-	protected function getAttributes( $tag, $defaults = array(), $overrides = array() ) {
+	protected function getAttributes( $tag, $defaults = [], $overrides = [] ) {
 		$attribs = Sanitizer::validateTagAttributes( $this->params, $tag );
 		$attribs = Sanitizer::mergeAttributes( $defaults, $attribs );
 		$attribs = Sanitizer::mergeAttributes( $attribs, $overrides );
@@ -485,14 +485,14 @@ abstract class MathRenderer {
 	/**
 	 * Get the attributes of the math tag
 	 *
-	 * @return array()
+	 * @return []
 	 */
 	public function getParams() {
 		return $this->params;
 	}
 
 	/**
-	 * @param array() $params
+	 * @param [] $params
 	 */
 	public function setParams( $params ) {
 		// $changed is not set to true here, because the attributes do not affect

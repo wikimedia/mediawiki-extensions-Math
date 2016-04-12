@@ -16,7 +16,7 @@ class MathLaTeXML extends MathMathML {
 	/** @var String settings for LaTeXML daemon */
 	private $LaTeXMLSettings = '';
 
-	public function __construct( $tex = '', $params = array() ) {
+	public function __construct( $tex = '', $params = [] ) {
 		global $wgMathLaTeXMLUrl;
 		parent::__construct( $tex, $params );
 		$this->hosts = $wgMathLaTeXMLUrl;

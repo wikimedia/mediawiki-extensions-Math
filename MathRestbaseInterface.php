@@ -36,8 +36,8 @@ class MathRestbaseInterface {
 	 * @param $serviceClient
 	 */
 	private static function batchGetMathML( $rbis, $serviceClient ) {
-		$requests = array();
-		$skips = array();
+		$requests = [];
+		$skips = [];
 		$i = 0;
 		foreach ( $rbis as $rbi ) {
 			/** @var MathRestbaseInterface $rbi */
@@ -129,7 +129,7 @@ class MathRestbaseInterface {
 		if ( count( $rbis ) == 0 ) {
 			return;
 		}
-		$requests = array();
+		$requests = [];
 		/** @var MathRestbaseInterface $first */
 		$first = $rbis[0];
 		$serviceClient = $first->getServiceClient();
@@ -152,7 +152,7 @@ class MathRestbaseInterface {
 
 	private function getServiceClient() {
 		global $wgVirtualRestConfig;
-		$serviceClient = new VirtualRESTServiceClient( new MultiHttpClient( array() ) );
+		$serviceClient = new VirtualRESTServiceClient( new MultiHttpClient( [] ) );
 		if ( isset( $wgVirtualRestConfig['modules']['restbase'] ) ) {
 			$cfg = $wgVirtualRestConfig['modules']['restbase'];
 			$cfg['parsoidCompat'] = false;

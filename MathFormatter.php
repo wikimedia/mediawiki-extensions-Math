@@ -95,7 +95,7 @@ class MathFormatter implements ValueFormatter {
 
 		$html .= Html::rawElement( 'div',
 			array( 'class' => 'wb-details wb-math-details' ),
-			Html::element( 'code', array(), $tex )
+			Html::element( 'code', [], $tex )
 		);
 
 		return $html;
