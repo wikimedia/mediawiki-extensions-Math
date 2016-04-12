@@ -35,8 +35,16 @@
 			} );
 	}
 
+	/**
+	 * Make the className, replacing any non-alphanumerics with their character code
+	 *
+	 * The reverse of function would look like this, although we have no use for it yet:
+	 *
+	 *  return className.replace( /_([0-9]+)_/g, function () {
+	 *  	return String.fromCharCode( +arguments[ 1 ] );
+	 *  } );
+	 */
 	function texToClass( tex ) {
-		// Make the className, replacing any non-alphanumerics with their character code
 		return tex.replace( /[^\w]/g, function ( c ) {
 			return '_' + c.charCodeAt( 0 ) + '_';
 		} );
