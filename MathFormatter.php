@@ -89,13 +89,13 @@ class MathFormatter implements ValueFormatter {
 	private function formatDetails( $valueHtml, $tex ) {
 		$html = '';
 		$html .= Html::rawElement( 'h4',
-			array( 'class' => 'wb-details wb-math-details wb-math-rendered' ),
+			[ 'class' => 'wb-details wb-math-details wb-math-rendered' ],
 			$valueHtml
 		);
 
 		$html .= Html::rawElement( 'div',
-			array( 'class' => 'wb-details wb-math-details' ),
-			Html::element( 'code', array(), $tex )
+			[ 'class' => 'wb-details wb-math-details' ],
+			Html::element( 'code', [], $tex )
 		);
 
 		return $html;

@@ -10,9 +10,9 @@
  * @ingroup Extensions
  */
 
-$specialPageAliases = array();
+$specialPageAliases = [];
 
 /** English (English) */
-$specialPageAliases['en'] = array(
-	'MathShowImage' => array( 'MathShowImage' )
-);
+$specialPageAliases['en'] = [
+	'MathShowImage' => [ 'MathShowImage' ]
+];

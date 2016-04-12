@@ -11,7 +11,7 @@ class MathHooksTest extends MediaWikiTestCase {
 
 	public function testMathModeToString() {
 		$default = 'png-testing'; // use a different string for testing only
-		$testCases = array(
+		$testCases = [
 			'MW_MATH_SIMPLE'      => $default,
 			'MW_MATH_HTML'        => $default,
 			'MW_MATH_MODERN'      => $default,
@@ -34,7 +34,7 @@ class MathHooksTest extends MediaWikiTestCase {
 			'source'              => 'source',
 			'mathml'              => 'mathml',
 			'latexml'             => 'latexml',
-		);
+		];
 		foreach ( $testCases as $input => $expected ){
 			$real = MathHooks::mathModeToString( $input, $default );
 			$this->assertEquals( $expected, $real, "Conversion math mode $input -> $expected" );
@@ -43,7 +43,7 @@ class MathHooksTest extends MediaWikiTestCase {
 
 	public function testMathStyleToString() {
 		$default = 'inlineDisplaystyle-test';
-		$testCases = array(
+		$testCases = [
 			'MW_MATHSTYLE_INLINE_DISPLAYSTYLE'  => 'inlineDisplaystyle',
 			'MW_MATHSTYLE_DISPLAY'              => 'display',
 			'MW_MATHSTYLE_INLINE'               => 'inline',
@@ -53,7 +53,7 @@ class MathHooksTest extends MediaWikiTestCase {
 			'inlineDisplaystyle'                => 'inlineDisplaystyle',
 			'display'                           => 'display',
 			'inline'                            => 'inline',
-		);
+		];
 		foreach ( $testCases as $input => $expected ){
 			$real = MathHooks::mathStyleToString( $input, $default );
 			$this->assertEquals( $expected, $real, "Conversion in math style" );
@@ -62,7 +62,7 @@ class MathHooksTest extends MediaWikiTestCase {
 
 	public function testMathCheckToString() {
 		$default = 'always-default';
-		$testCases = array(
+		$testCases = [
 			'MW_MATH_CHECK_ALWAYS'  => 'always',
 			'MW_MATH_CHECK_NEVER'   => 'never',
 			'MW_MATH_CHECK_NEW'     => 'new',
@@ -74,7 +74,7 @@ class MathHooksTest extends MediaWikiTestCase {
 			'new'                   => 'new',
 			true                    => 'never',
 			false                   => 'always'
-		);
+		];
 
 		foreach ( $testCases as $input => $expected ){
 			$real = MathHooks::mathCheckToString( $input, $default );
@@ -84,13 +84,13 @@ class MathHooksTest extends MediaWikiTestCase {
 
 	public function testMathModeToHash() {
 		$default = 0;
-		$testCases = array(
+		$testCases = [
 			'png'    => 0,
 			'source' => 3,
 			'mathml' => 5,
 			'latexml'=> 7,
 			'invalid'=> $default
-		);
+		];
 
 		foreach ( $testCases as $input => $expected ){
 			$real = MathHooks::mathModeToHashKey( $input, $default );

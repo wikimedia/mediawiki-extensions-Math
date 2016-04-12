@@ -23,9 +23,9 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 		$sampleSettings = array(
 			'k1' => 'v1',
 			'k2&=' => 'v2 + & *üö',
-			'k3' => array(
+			'k3' => [
 				'v3A', 'v3b'
-			) );
+			] );
 		$expected = 'k1=v1&k2%26%3D=v2+%2B+%26+%2A%C3%BC%C3%B6&k3=v3A&k3=v3b';
 		$this->assertEquals(
 			$expected,

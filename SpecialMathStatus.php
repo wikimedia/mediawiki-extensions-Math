@@ -63,7 +63,7 @@ class SpecialMathStatus extends SpecialPage {
 	}
 
 	public function testSpecialCaseText() {
-		$renderer = MathRenderer::getRenderer( 'x^2+\text{a sample Text}', array(), 'mathml' );
+		$renderer = MathRenderer::getRenderer( 'x^2+\text{a sample Text}', [], 'mathml' );
 		$expected = 'a sample Text</mtext>';
 		$this->assertTrue( $renderer->render(), 'Rendering the input "x^2+\text{a sample Text}"' );
 		$this->assertContains(
@@ -78,7 +78,7 @@ class SpecialMathStatus extends SpecialPage {
 	public function testMathMLIntegration() {
 		$svgRef = file_get_contents( __DIR__ .'/images/reference.svg' );
 		$svgRefNoSpeech = file_get_contents( __DIR__ .'/images/reference-nospeech.svg' );
-		$renderer = MathRenderer::getRenderer( "a+b", array(), 'mathml' );
+		$renderer = MathRenderer::getRenderer( "a+b", [], 'mathml' );
 		$this->assertTrue( $renderer->render( true ), "Rendering of a+b in plain MathML mode" );
 		$real = str_replace( "\n", '', $renderer->getHtmlOutput() );
 		$expected = '<mo>+</mo>';
@@ -99,7 +99,7 @@ class SpecialMathStatus extends SpecialPage {
 		// @codingStandardsIgnoreStart
 		$inputSample = '<msub>  <mrow>  <mi> P</mi> </mrow>  <mrow>  <mi> i</mi>  <mi> j</mi> </mrow> </msub>  <mo> =</mo>  <mfrac>  <mrow>  <mn> 100</mn>  <msub>  <mrow>  <mi> d</mi> </mrow>  <mrow>  <mi> i</mi>  <mi> j</mi> </mrow> </msub> </mrow>  <mrow>  <mn> 6.75</mn>  <msub>  <mrow>  <mi> r</mi> </mrow>  <mrow>  <mi> j</mi> </mrow> </msub> </mrow> </mfrac>  <mo> ,</mo> </math>';
 		// @codingStandardsIgnoreEnd
-		$attribs = array( 'type' => 'pmml' );
+		$attribs = [ 'type' => 'pmml' ];
 		$renderer = new MathMathML( $inputSample, $attribs );
 		$this->assertEquals( 'pmml', $renderer->getInputType(), 'Checking if MathML input is supported' );
 		$this->assertTrue( $renderer->render(), 'Rendering Presentation MathML sample' );
@@ -113,7 +113,7 @@ class SpecialMathStatus extends SpecialPage {
 	 * i.e. if the span element is generated right.
 	 */
 	public function testLaTeXMLIntegration() {
-		$renderer = MathRenderer::getRenderer( "a+b", array(), 'latexml' );
+		$renderer = MathRenderer::getRenderer( "a+b", [], 'latexml' );
 		$this->assertTrue( $renderer->render( true ), "Rendering of a+b in LaTeXML mode" );
 		// @codingStandardsIgnoreStart
 		$expected = '<math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.m1" class="ltx_Math" alttext="{\displaystyle a+b}" ><semantics><mrow id="p1.m1.4" xref="p1.m1.4.cmml"><mi id="p1.m1.1" xref="p1.m1.1.cmml">a</mi><mo id="p1.m1.2" xref="p1.m1.2.cmml">+</mo><mi id="p1.m1.3" xref="p1.m1.3.cmml">b</mi></mrow><annotation-xml encoding="MathML-Content"><apply id="p1.m1.4.cmml" xref="p1.m1.4"><plus id="p1.m1.2.cmml" xref="p1.m1.2"/><ci id="p1.m1.1.cmml" xref="p1.m1.1">a</ci><ci id="p1.m1.3.cmml" xref="p1.m1.3">b</ci></apply></annotation-xml><annotation encoding="application/x-tex">{\displaystyle a+b}</annotation></semantics></math>';
@@ -137,7 +137,7 @@ class SpecialMathStatus extends SpecialPage {
 			$tex .= "$i+";
 		}
 		$tex .= $testMax;
-		$renderer = new MathLaTeXML( $tex, array( 'display' => 'linebreak' ) );
+		$renderer = new MathLaTeXML( $tex, [ 'display' => 'linebreak' ] );
 		$this->assertTrue( $renderer->render( true ), "Rendering of linebreak test in LaTeXML mode" );
 		$expected = 'mtr';
 		$real = preg_replace( "/\n\\s*/", '', $renderer->getHtmlOutput() );
@@ -184,7 +184,7 @@ class SpecialMathStatus extends SpecialPage {
 		if ( ExtensionRegistry::getInstance()->isLoaded( "SyntaxHighlight" ) ) {
 			$expected = "<syntaxhighlight lang=\"xml\">$expected</syntaxhighlight>";
 			$real = "<syntaxhighlight lang=\"xml\">$real</syntaxhighlight>";
-			$this->getOutput()->addWikiMsgArray( $message, array( $real, $expected ) );
+			$this->getOutput()->addWikiMsgArray( $message, [ $real, $expected ] );
 		} else {
 			LoggerFactory::getInstance( 'Math' )->warning( 'Can not display expected and real value.'.
 				'SyntaxHighlight is not installed.' );

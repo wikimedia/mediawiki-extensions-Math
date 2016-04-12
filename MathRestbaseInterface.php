@@ -36,8 +36,8 @@ class MathRestbaseInterface {
 	 * @param $serviceClient
 	 */
 	private static function batchGetMathML( $rbis, $serviceClient ) {
-		$requests = array();
-		$skips = array();
+		$requests = [];
+		$skips = [];
 		$i = 0;
 		foreach ( $rbis as $rbi ) {
 			/** @var MathRestbaseInterface $rbi */
@@ -112,11 +112,11 @@ class MathRestbaseInterface {
 		$serviceClient = $this->getServiceClient();
 		$response =  $serviceClient->run( $request );
 		if ( $response['code'] !== 200 ) {
-			$this->log()->info( 'Tex check failed:', array(
+			$this->log()->info( 'Tex check failed:', [
 					'post'  => $request['body'],
 					'error' => $response['error'],
 					'url'   => $request['url']
-			) );
+			] );
 		}
 		return $response;
 
@@ -129,7 +129,7 @@ class MathRestbaseInterface {
 		if ( count( $rbis ) == 0 ) {
 			return;
 		}
-		$requests = array();
+		$requests = [];
 		/** @var MathRestbaseInterface $first */
 		$first = $rbis[0];
 		$serviceClient = $first->getServiceClient();
@@ -152,7 +152,7 @@ class MathRestbaseInterface {
 
 	private function getServiceClient() {
 		global $wgVirtualRestConfig;
-		$serviceClient = new VirtualRESTServiceClient( new MultiHttpClient( array() ) );
+		$serviceClient = new VirtualRESTServiceClient( new MultiHttpClient( [] ) );
 		if ( isset( $wgVirtualRestConfig['modules']['restbase'] ) ) {
 			$cfg = $wgVirtualRestConfig['modules']['restbase'];
 			$cfg['parsoidCompat'] = false;
@@ -229,10 +229,10 @@ class MathRestbaseInterface {
 		if ( $response['code'] === 200 ) {
 			return $skipConfigCheck || $this->checkConfig();
 		}
-		$this->log()->error( "Restbase backend is not correctly set up.", array(
+		$this->log()->error( "Restbase backend is not correctly set up.", [
 			'request'  => $request,
 			'response' => $response
-		) );
+		] );
 		return false;
 	}
 
@@ -248,7 +248,7 @@ class MathRestbaseInterface {
 		$testInterface = new MathRestbaseInterface( $uniqueTeX );
 		if ( ! $testInterface->checkTeX() ){
 			$this->log()->warning( 'Config check failed, since test expression was considered as invalid.',
-				array( 'uniqueTeX' => $uniqueTeX ) );
+				[ 'uniqueTeX' => $uniqueTeX ] );
 			return false;
 		}
 		try {
@@ -259,9 +259,9 @@ class MathRestbaseInterface {
 				return true;
 			}
 			$this->log()->warning( 'Config check failed, due to an invalid response code.',
-				array( 'responseCode' => $status ) );
+				[ 'responseCode' => $status ] );
 		} catch ( Exception $e ) {
-			$this->log()->warning( 'Config check failed, due to an exception.', array( $e ) );
+			$this->log()->warning( 'Config check failed, due to an exception.', [ $e ] );
 			return false;
 		}
 	}
@@ -332,10 +332,10 @@ class MathRestbaseInterface {
 	public function getCheckRequest() {
 		$request = array(
 				'method' => 'POST',
-				'body'   => array(
+				'body'   => [
 						'type' => $this->type,
 						'q'    => $this->tex
-				),
+				],
 				'url'    => $this->getUrl( "media/math/check/{$this->type}" )
 		);
 		return $request;
@@ -401,12 +401,12 @@ class MathRestbaseInterface {
 			}
 			return $response['body'];
 		}
-		$this->log()->error( 'Restbase math server problem:', array(
+		$this->log()->error( 'Restbase math server problem:', [
 			'request' => $request,
 			'response' => $response,
 			'type' => $type,
 			'tex' => $this->tex
-		) );
+		] );
 		throw new MWException( "Cannot get $type. Server problem." );
 	}
 }

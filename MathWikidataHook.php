@@ -41,7 +41,7 @@ class MathWikidataHook {
 			},
 			'formatter-factory-callback' => function( $format, FormatterOptions $options ) {
 				global $wgOut;
-				$styles = array( 'ext.math.desktop.styles', 'ext.math.scripts', 'ext.math.styles' );
+				$styles = [ 'ext.math.desktop.styles', 'ext.math.scripts', 'ext.math.styles' ];
 				$wgOut->addModuleStyles( $styles );
 				return new MathFormatter( $format );
 			},
@@ -71,7 +71,7 @@ class MathWikidataHook {
 			'value-type'                 => 'string',
 			'formatter-factory-callback' => function( $format, FormatterOptions $options ) {
 				global $wgOut;
-				$styles = array( 'ext.math.desktop.styles', 'ext.math.scripts', 'ext.math.styles' );
+				$styles = [ 'ext.math.desktop.styles', 'ext.math.scripts', 'ext.math.styles' ];
 				$wgOut->addModuleStyles( $styles );
 				return new MathFormatter( $format );
 			},
