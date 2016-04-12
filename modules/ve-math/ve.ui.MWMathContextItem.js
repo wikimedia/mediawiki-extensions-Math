@@ -55,8 +55,7 @@ ve.ui.MWMathContextItem.static.commandName = 'mathDialog';
  * Handle inline edit button click events.
  */
 ve.ui.MWMathContextItem.prototype.onInlineEditButtonClick = function () {
-	var command = ve.init.target.commandRegistry.lookup( 'mathInspector' );
-	command.execute( this.context.getSurface() );
+	this.context.getSurface().executeComamnd( 'mathInspector' );
 };
 
 /* Registration */
