@@ -5,9 +5,11 @@
 			"Asoxor",
 			"Calak",
 			"Marmzok",
-			"Macofe"
+			"Macofe",
+			"Sarchia"
 		]
 	},
+	"math-visualeditor-mwmathinspector-display-default": "بنچینەیی",
 	"math_sample": "فۆرموول لێرە بنووسە",
 	"math_syntax_error": "ڕستەکار هەڵەیە",
 	"math_tip": "فۆرموولی بیرکاری (LaTeX)",
