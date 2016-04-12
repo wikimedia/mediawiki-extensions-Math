@@ -34,6 +34,24 @@
       "revId": "269357c318c6d336eb8b772f3242c4427d1daac8",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce38dbff_d45d274d",
+        "filename": "MathRestbaseInterface.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-04-12T13:08:17Z",
+      "side": 1,
+      "message": "I tried to use keys, but it did not work for me. The serviceClient just returned an array with integer keys as result.\ncf https://gerrit.wikimedia.org/r/#/c/282916/\n\nw.r.t comments is a seperate method like batchGetMathML for the code block below comment enough?",
+      "parentUuid": "ce38dbff_11bcc1b0",
+      "revId": "269357c318c6d336eb8b772f3242c4427d1daac8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
