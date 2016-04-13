@@ -338,11 +338,10 @@ class MathMathML extends MathRenderer {
 	/**
 	 * Helper function to correct the style information for a
 	 * linked SVG image.
-	 * @param string $svg SVG-image data
 	 * @param string $style current style information to be updated
 	 */
-	public function correctSvgStyle( $svg, &$style ) {
-		if ( preg_match( '/style="([^"]*)"/', $svg, $styles ) ) {
+	public function correctSvgStyle( &$style ) {
+		if ( preg_match( '/style="([^"]*)"/', $this->getSvg(), $styles ) ) {
 			$style .= ' ' . $styles[1]; // merge styles
 			if ( $this->getMathStyle() === 'display' ) {
 				// TODO: Improve style cleaning
@@ -350,7 +349,9 @@ class MathMathML extends MathRenderer {
 					'/margin\-(left|right)\:\s*\d+(\%|in|cm|mm|em|ex|pt|pc|px)\;/', '', $style
 				);
 			}
-			$style = preg_replace( '/position:\s*absolute;\s*left:\s*0px;/', '', $style );
+			$style = trim( preg_replace( '/position:\s*absolute;\s*left:\s*0px;/', '', $style ) ,
+				"; \t\n\r\0\x0B" ) .'; ';
+
 		}
 		// TODO: Figure out if there is a way to construct
 		// a SVGReader from a string that represents the SVG
@@ -381,7 +382,7 @@ class MathMathML extends MathRenderer {
 			$class = $classOverride;
 		}
 		if ( ! $this->mathoidStyle ) {
-			$this->correctSvgStyle( $this->getSvg(), $this->mathoidStyle );
+			$this->correctSvgStyle( $this->mathoidStyle );
 		}
 		// TODO: move the common styles to the global stylesheet!
 		$style = 'background-image: url(\''. $url .
