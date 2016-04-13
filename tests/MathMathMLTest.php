@@ -120,6 +120,19 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$this->assertContains( '.png', $res );
 	}
 
+	/**
+	 * @covers MathMathML::correctSvgStyle
+	 * @see https://phabricator.wikimedia.org/T132563
+	 */
+	public function testMathMLStyle() {
+		$m = new MathMathML();
+		$m->setSvg( 'style="vertical-align:-.505ex" height="2.843ex" width="28.527ex"' );
+		$style = '';
+		$m->correctSvgStyle( $style );
+		$this->assertEquals( 'vertical-align:-.505ex; height: 2.843ex; width: 28.527ex;', $style );
+		$m->setSvg( 'style=" vertical-align:-.505ex; \n" height="2.843ex" width="28.527ex"' );
+		$this->assertEquals( 'vertical-align:-.505ex; height: 2.843ex; width: 28.527ex;', $style );
+	}
 }
 
 /**
