@@ -151,8 +151,9 @@ class MathRestbaseInterface {
 	}
 
 	private function getServiceClient() {
-		global $wgVirtualRestConfig;
-		$serviceClient = new VirtualRESTServiceClient( new MultiHttpClient( [] ) );
+		global $wgVirtualRestConfig, $wgMathConcurrentReqs;
+		$http = new MultiHttpClient( [ 'maxConnsPerHost' => $wgMathConcurrentReqs ] );
+		$serviceClient = new VirtualRESTServiceClient( $http );
 		if ( isset( $wgVirtualRestConfig['modules']['restbase'] ) ) {
 			$cfg = $wgVirtualRestConfig['modules']['restbase'];
 			$cfg['parsoidCompat'] = false;

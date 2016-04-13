@@ -108,6 +108,7 @@
 		"MathMathMLTimeout": 20,
 		"MathMathMLUrl": "http://mathoid.testme.wmflabs.org",
 		"MathFullRestbaseURL": false,
+		"MathConcurrentReqs": 50,
 		"MathPath": false,
 		"MathTexvcCheckExecutable": false,
 		"MathValidModes": [
