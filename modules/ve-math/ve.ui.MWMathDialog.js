@@ -276,16 +276,29 @@ ve.ui.MWMathDialog.prototype.getBodyHeight = function () {
 ve.ui.MWMathDialog.prototype.onWindowManagerResize = function () {
 	var dialog = this;
 	this.input.loadingPromise.done( function () {
+
 		// Wait for the window resize transition to finish
 		setTimeout( function () {
 			var availableSpace, maxInputHeight, singleLineHeight, minRows,
 				border = 1,
-				padding = 3;
-			availableSpace = dialog.menuLayout.$content.height() - dialog.input.$element.position().top;
-			singleLineHeight = 19;
-			maxInputHeight = availableSpace - 2 * ( border + padding );
-			minRows = Math.floor( maxInputHeight / singleLineHeight );
-			dialog.input.setMinRows( minRows );
+				padding = 3,
+				borderAndPadding = 2 * ( border + padding );
+
+			// Toggle short mode as necessary
+			// NB a change of mode triggers a transition...
+			dialog.menuLayout.$element.toggleClass(
+				've-ui-mwMathDialog-menuLayout-short', dialog.menuLayout.$element.height() < 450
+			);
+
+			// ...So wait for the possible menuLayout transition to finish
+			setTimeout( function () {
+				// Give the input the right number of rows to fit the space
+				availableSpace = dialog.menuLayout.$content.height() - dialog.input.$element.position().top;
+				singleLineHeight = 19;
+				maxInputHeight = availableSpace - borderAndPadding;
+				minRows = Math.floor( maxInputHeight / singleLineHeight );
+				dialog.input.setMinRows( minRows );
+			}, 250 );
 		}, 250 );
 	} );
 };
