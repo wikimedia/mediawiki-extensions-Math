@@ -26,6 +26,8 @@ m|math {
 	/* .mw-body-content sets the line-height to 1.6 which is not desired for math. For example */
 	/* matrices with brackets are rendered too large. See also https://phabricator.wikimedia.org/T106890 */
 	line-height: normal;
+	/* as requested by the community */
+	font-size: 118%;
 }
 
 /* Default style for the image fallback. */
