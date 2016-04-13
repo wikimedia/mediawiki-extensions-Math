@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce38dbff_1da7abbb",
+        "filename": "modules/ext.math.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2016-04-13T13:45:33Z",
+      "side": 1,
+      "message": "Why not function insertImg() instead? Would be cleaner, imho.",
+      "revId": "5da4e3ca19979c9c33cc45bf99e1cd9027fd2a48",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
