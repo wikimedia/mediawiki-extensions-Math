@@ -26,6 +26,14 @@
 	overflow: auto;
 }
 
+.ve-ui-mwMathDialog-menuLayout-short .oo-ui-menuLayout-menu {
+	height: 10em;
+}
+
+.ve-ui-mwMathDialog-menuLayout-short .oo-ui-menuLayout-content {
+	bottom: 10em;
+}
+
 .ve-ui-mwMathPage-symbol {
 	background-position: center;
 	background-repeat: no-repeat;
@@ -69,6 +77,11 @@
 	text-align: center;
 	line-height: 10em;
 	height: 10em;
+}
+
+.ve-ui-mwMathDialog-menuLayout-short .ve-ui-mwMathDialog-preview {
+	line-height: 6em;
+	height: 6em;
 }
 
 /* Ensures the preview image is vertically centred */
