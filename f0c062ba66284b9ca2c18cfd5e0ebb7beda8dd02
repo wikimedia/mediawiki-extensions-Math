@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce38dbff_a5be5df8",
+        "filename": "modules/ve-math/ve.ui.MWMathDialog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 2915
+      },
+      "writtenOn": "2016-04-14T16:32:52Z",
+      "side": 1,
+      "message": "I think that dialog.menuLayout.$element.height() has settled by this point (I threw in a few checks, and didn\u0027t find a case of it being different here from later, at least) -- if that\u0027s right, we could move the menuLayout-short toggle to here, and only need a single setTimeout.",
+      "revId": "f0c062ba66284b9ca2c18cfd5e0ebb7beda8dd02",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
