@@ -7,7 +7,8 @@
 			"Yfdyh000",
 			"乌拉跨氪",
 			"PhiLiP",
-			"Liangent"
+			"Liangent",
+			"TransTS"
 		]
 	},
 	"math-desc": "在<code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code>标签间生成数学公式",
@@ -24,7 +25,7 @@
 	"math-visualeditor-symbol-group-accents": "重音和变音符号",
 	"math-visualeditor-symbol-group-arrows": "箭头",
 	"math-visualeditor-symbol-group-bounds": "界限",
-	"math-visualeditor-symbol-group-derivatives": "微分和衍生物",
+	"math-visualeditor-symbol-group-derivatives": "微分和导数",
 	"math-visualeditor-symbol-group-functions": "标准数值函数",
 	"math-visualeditor-symbol-group-geometry": "几何学",
 	"math-visualeditor-symbol-group-greek": "希腊字母",
@@ -35,9 +36,9 @@
 	"math-visualeditor-symbol-group-modular": "模运算",
 	"math-visualeditor-symbol-group-operators": "运算符",
 	"math-visualeditor-symbol-group-projections": "投影",
-	"math-visualeditor-symbol-group-parentheses": "圆括号",
+	"math-visualeditor-symbol-group-parentheses": "括号",
 	"math-visualeditor-symbol-group-relations": "关系式",
-	"math-visualeditor-symbol-group-root": "根基",
+	"math-visualeditor-symbol-group-root": "根式",
 	"math-visualeditor-symbol-group-sets": "集合",
 	"math-visualeditor-symbol-group-spacing": "间距",
 	"math-visualeditor-symbol-group-special": "特殊",
