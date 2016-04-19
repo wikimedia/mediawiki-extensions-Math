@@ -83,6 +83,11 @@ class MathInputCheckTexvc extends MathInputCheck {
 		}
 
 		LoggerFactory::getInstance( 'Math' )->debug( "TeX check command: $cmd" );
+		if ( strlen( $cmd ) > SHELL_MAX_ARG_STRLEN ) {
+			LoggerFactory::getInstance( 'Math' )->error(
+				"User input exceeded SHELL_MAX_ARG_STRLEN." );
+			return $this->convertTexvcError( '' );
+		}
 		$contents = wfShellExec( $cmd );
 		LoggerFactory::getInstance( 'Math' )->debug( "TeX check result: $contents\n---" );
 
