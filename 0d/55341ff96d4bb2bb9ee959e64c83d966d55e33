@@ -1,0 +1,8 @@
+Verified+2: jenkins-bot
+Code-Review+1: Jforrester <jforrester@wikimedia.org>
+Code-Review+2: Mobrovac <mobrovac@wikimedia.org>
+Submitted-by: Mobrovac <mobrovac@wikimedia.org>
+Submitted-at: Tue, 19 Apr 2016 23:18:37 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/284289
+Project: mediawiki/extensions/Math
+Branch: refs/heads/master
