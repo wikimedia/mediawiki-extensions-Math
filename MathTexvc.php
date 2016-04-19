@@ -206,6 +206,11 @@ class MathTexvc extends MathRenderer {
 		LoggerFactory::getInstance( 'Math' )->debug( "TeX: $cmd" );
 		LoggerFactory::getInstance( 'Math' )->debug( "Executing '$cmd'." );
 		$retval = null;
+		if ( strlen( $cmd ) > SHELL_MAX_ARG_STRLEN ) {
+			LoggerFactory::getInstance( 'Math' )->error(
+				"User input exceeded SHELL_MAX_ARG_STRLEN." );
+			return $this->getError( 'math_unknown_error' );
+		}
 		$contents = wfShellExec( $cmd, $retval );
 		LoggerFactory::getInstance( 'Math' )->debug( "TeX output:\n $contents\n---" );
 
