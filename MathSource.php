@@ -9,7 +9,6 @@
  * @file
  */
 
-
 /**
  * Takes LaTeX fragments and outputs the source directly to the browser
  *

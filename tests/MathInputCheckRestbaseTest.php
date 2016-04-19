@@ -68,7 +68,6 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 		$this->assertContains( $expectedMessage, $o->getError() );
 	}
 
-
 	/**
 	 * @covers MathInputCheckRestbase::isValid
 	 */

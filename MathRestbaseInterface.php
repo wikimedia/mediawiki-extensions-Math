@@ -163,7 +163,6 @@ class MathRestbaseInterface {
 		return $serviceClient;
 	}
 
-
 	/**
 	 * The URL is generated accoding to the following logic:
 	 *

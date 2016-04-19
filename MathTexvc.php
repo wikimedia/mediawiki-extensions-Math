@@ -478,5 +478,4 @@ class MathTexvc extends MathRenderer {
 		return true;
 	}
 
-
 }

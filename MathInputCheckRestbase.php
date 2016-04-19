@@ -75,7 +75,6 @@ class MathInputCheckRestbase extends MathInputCheck {
 		return $this->restbaseInterface->getCheckedTex();
 	}
 
-
 	/**
 	 * Returns the string of the last error.
 	 * @return string

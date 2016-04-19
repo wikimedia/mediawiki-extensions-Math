@@ -195,7 +195,6 @@ class MathLaTeXML extends MathMathML {
 		return $res;
 	}
 
-
 	/**
 	 * Gets the SVG image
 	 *

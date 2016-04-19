@@ -247,7 +247,6 @@ abstract class MathRenderer {
 		return $this->inputHash;
 	}
 
-
 	/**
 	 * Decode binary packed hash from the database to md5 of input_tex
 	 * @param string $hash (binary)
@@ -402,7 +401,6 @@ abstract class MathRenderer {
 		$attribs = Sanitizer::mergeAttributes( $attribs, $overrides );
 		return $attribs;
 	}
-
 
 	/**
 	 * Writes cache. Writes the database entry if values were changed
@@ -670,12 +668,10 @@ abstract class MathRenderer {
 		return array_map( "MathHooks::mathModeToString", $wgMathValidModes );
 	}
 
-
 	public static function getDisableTexFilter() {
 		global $wgMathDisableTexFilter;
 		return MathHooks::mathCheckToString( $wgMathDisableTexFilter );
 	}
-
 
 	/**
 	 * @param string $inputType

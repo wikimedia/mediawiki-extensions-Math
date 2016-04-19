@@ -85,5 +85,4 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 		$rbi->getFullSvgUrl();
 	}
 
-
 }
