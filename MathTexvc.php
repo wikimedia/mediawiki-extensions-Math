@@ -270,7 +270,7 @@ class MathTexvc extends MathRenderer {
 			$this->setHash( $newHash );
 		}
 
-		Hooks::run( 'MathAfterTexvc', [ $this, $errmsg ] );
+		Hooks::run( 'MathAfterTexvc', [ &$this, &$errmsg ] );
 
 		if ( $errmsg ) {
 			return $errmsg;
