@@ -230,7 +230,7 @@ class MathHooks {
 			return $renderer->getLastError();
 		}
 		Hooks::run( 'MathFormulaPostRender',
-			[ $parser, $renderer, $renderedMath ] );// Enables indexing of math formula
+			array( $parser, $renderer, &$renderedMath ) );// Enables indexing of math formula
 
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
