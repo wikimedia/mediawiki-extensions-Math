@@ -117,7 +117,7 @@ class MathLaTeXML extends MathMathML {
 				if ( $this->isValidMathML( $jsonResult->result ) ) {
 					$this->setMathml( $jsonResult->result );
 					Hooks::run( 'MathRenderingResultRetrieved',
-						[ $this, $jsonResult ] );// Enables debugging of server results
+						[ &$this, &$jsonResult ] );// Enables debugging of server results
 					return true;
 				} else {
 					// Do not print bad mathml. It's probably too verbose and might

@@ -513,7 +513,7 @@ class MathMathML extends MathRenderer {
 				$this->setMathml( $jsonResult->mml );
 			}
 			Hooks::run( 'MathRenderingResultRetrieved',
-				[ $this, $jsonResult ] ); // Enables debugging of server results
+				[ &$this, &$jsonResult ] ); // Enables debugging of server results
 			return true;
 		} else {
 			$this->lastError = $this->getError( 'math_unknown_error', $host );
