@@ -9,7 +9,24 @@
 		]
 	},
 	"math-desc": "Gengiver matematiske formler inden i <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>-tags",
+	"math-visualeditor-mwmathdialog-title": "Formel",
+	"math-visualeditor-mwmathdialog-card-formula": "Formel",
+	"math-visualeditor-mwmathdialog-card-options": "Valgmuligheder",
 	"math-visualeditor-mwmathinspector-title": "Formel",
+	"math-visualeditor-symbol-group-arrows": "Pile",
+	"math-visualeditor-symbol-group-greek": "Det græske alfabet",
+	"math-visualeditor-symbol-group-hebrew": "Det hebraiske alfabet",
+	"math-visualeditor-symbol-group-logic": "Logik",
+	"math-visualeditor-symbol-group-matrices": "Matricer",
+	"math-visualeditor-symbol-group-modular": "Modulær aritmetik",
+	"math-visualeditor-symbol-group-operators": "Operatorer",
+	"math-visualeditor-symbol-group-projections": "Projektioner",
+	"math-visualeditor-symbol-group-parentheses": "Parenteser",
+	"math-visualeditor-symbol-group-relations": "Relationer",
+	"math-visualeditor-symbol-group-sets": "Mængder",
+	"math-visualeditor-symbol-group-symbols": "Symboler og konstanter",
+	"math-visualeditor-symbol-group-typefaces": "Skrifttyper",
+	"math-visualeditor-symbol-group-unsorted": "Usorteret",
 	"math_bad_output": "Kan ikke skrive til eller oprette uddata-mappe til math",
 	"math_bad_tmpdir": "Kan ikke skrive til eller oprette temp-mappe til math",
 	"math_failure": "Fejl i matematikken",
@@ -33,5 +50,7 @@
 	"mw_math_mathml": "MathML med SVG- eller PNG-fallback (anbefalet til moderne browsere og værktøjer)",
 	"mw_math_png": "PNG-billeder",
 	"mw_math_source": "LaTeX-source (for tekstbrowsere)",
-	"prefs-math": "Matematiske formler"
+	"prefs-math": "Matematiske formler",
+	"datatypes-type-math": "Matematisk udtryk",
+	"wikibase-listdatatypes-math-head": "Matematisk udtryk"
 }
