@@ -20,12 +20,7 @@
 }
 m|math {
 	/* Try some popular OpenType MATH fonts before the WOFF fallback */
-	/* We put Cambria before Cambria Math to workaround a bug on Windows
-	(see https://bugzilla.mozilla.org/show_bug.cgi?id=598900) */
-	font-family: Cambria, Cambria Math, Latin Modern Math, STIX Math, LatinModernMathWOFF, serif;
-	/* .mw-body-content sets the line-height to 1.6 which is not desired for math. For example */
-	/* matrices with brackets are rendered too large. See also https://phabricator.wikimedia.org/T106890 */
-	line-height: normal;
+	font-family: Cambria Math, Latin Modern Math, STIX Math, LatinModernMathWOFF, serif;
 }
 
 /* Default style for the image fallback. */
