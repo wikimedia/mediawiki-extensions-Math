@@ -1,0 +1,8 @@
+Verified+2: jenkins-bot
+Code-Review+1: Frédéric Wang <fred.wang@free.fr>
+Code-Review+2: Mobrovac <mobrovac@wikimedia.org>
+Submitted-by: jenkins-bot
+Submitted-at: Mon, 25 Apr 2016 15:38:55 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/285079
+Project: mediawiki/extensions/Math
+Branch: refs/heads/master
