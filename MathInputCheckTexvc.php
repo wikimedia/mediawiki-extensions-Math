@@ -75,6 +75,10 @@ class MathInputCheckTexvc extends MathInputCheck {
 		}
 
 		wfDebugLog( 'Math', "TeX check command: $cmd\n" );
+		if ( strlen( $cmd ) > SHELL_MAX_ARG_STRLEN ) {
+			wfDebugLog( 'Math', "User input exceeded SHELL_MAX_ARG_STRLEN.\n" );
+			return $this->convertTexvcError('');
+		}
 		$contents = wfShellExec( $cmd );
 		wfDebugLog( 'Math', "TeX check result:\n $contents\n---\n" );
 
