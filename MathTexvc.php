@@ -144,6 +144,10 @@ class MathTexvc extends MathRenderer {
 		wfDebugLog( 'Math', "TeX: $cmd\n" );
 		wfDebugLog( 'texvc', "Executing '$cmd'." );
 		$retval = null;
+		if ( strlen( $cmd ) > SHELL_MAX_ARG_STRLEN ) {
+			wfDebugLog( 'Math', "User input exceeded SHELL_MAX_ARG_STRLEN.\n" );
+			return $this->getError( 'math_unknown_error' );
+		}
 		$contents = wfShellExec( $cmd, $retval );
 		wfDebugLog( 'Math', "TeX output:\n $contents\n---\n" );
 
