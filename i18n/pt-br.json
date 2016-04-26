@@ -5,7 +5,8 @@
 			"Giro720",
 			"Luckas",
 			"555",
-			"Macofe"
+			"Macofe",
+			"Dianakc"
 		]
 	},
 	"math-desc": "Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -24,7 +25,7 @@
 	"mw_math_latexml": "LaTeXML (experimental; usa MathML)",
 	"mw_math_mathjax": "MathJax (experimental)",
 	"mw_math_mathml": "MathML se possível (experimental)",
-	"mw_math_png": "Gerar sempre como PNG",
+	"mw_math_png": "Imagens PNG",
 	"mw_math_source": "Fonte LaTeX (para navegadores de texto)",
 	"prefs-math": "Matemática"
 }
