@@ -16,6 +16,24 @@
       "revId": "d2ff0ef6993653621ba1203eb56589f5d8604cac",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae564743_3428002f",
+        "filename": "tests/browser/features/support/pages/edit_page.rb",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 487
+      },
+      "writtenOn": "2016-04-27T14:39:04Z",
+      "side": 1,
+      "message": "Not sure what are you trying to say here. :) Is this just a comment, or are you saying that vagrant/beta is not configured correctly?",
+      "parentUuid": "ae564743_ebaeb0e3",
+      "revId": "d2ff0ef6993653621ba1203eb56589f5d8604cac",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
