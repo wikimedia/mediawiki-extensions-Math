@@ -34,6 +34,24 @@
       "revId": "d2ff0ef6993653621ba1203eb56589f5d8604cac",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae564743_d4f544b7",
+        "filename": "tests/browser/features/support/pages/edit_page.rb",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-04-27T14:44:49Z",
+      "side": 1,
+      "message": "No. Which type of rendering you get does not depend on \u0027beta\u0027 or not \u0027beta\u0027 but on the configuration of your wiki with regards to $wgDefaultUserOptions[\u0027math\u0027]\nWhile this if statement works now, it will fail in the future, if the configuration is changed.",
+      "parentUuid": "ae564743_3428002f",
+      "revId": "d2ff0ef6993653621ba1203eb56589f5d8604cac",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
