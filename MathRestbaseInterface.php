@@ -41,7 +41,7 @@ class MathRestbaseInterface {
 		$i = 0;
 		foreach ( $rbis as $rbi ) {
 			/** @var MathRestbaseInterface $rbi */
-			if ( $rbi->checkTeX() ) {
+			if ( $rbi->getSuccess() ) {
 				$requests[] = $rbi->getContentRequest( 'mml' );
 			} else {
 				$skips[] = $i;
