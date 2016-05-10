@@ -79,28 +79,39 @@ class MathMathML extends MathRenderer {
 	 * @see MathRenderer::render()
 	*/
 	public function render( $forceReRendering = false ) {
-		if ( in_array( $this->inputType, $this->restbaseInputTypes ) && $this->mode == 'mathml' ) {
-			if ( !$this->rbi ){
-				$this->rbi = new MathRestbaseInterface( $this->getTex(), $this->getInputType() );
+		global $wgMathFullRestbaseURL;
+		try {
+			if ( in_array( $this->inputType, $this->restbaseInputTypes ) &&
+				$this->mode == 'mathml'
+			) {
+				if ( !$this->rbi ) {
+					$this->rbi =
+						new MathRestbaseInterface( $this->getTex(), $this->getInputType() );
+				}
+				$rbi = $this->rbi;
+				if ( $rbi->getSuccess() ) {
+					$this->mathml = $rbi->getMathML();
+					$this->mathoidStyle = $rbi->getMathoidStyle();
+					$this->svgPath = $rbi->getFullSvgUrl();
+				} elseif ( $this->lastError === '' ) {
+					$this->doCheck();
+				}
+				$this->changed = false;
+				return $rbi->getSuccess();
 			}
-			$rbi = $this->rbi;
-			if ( $rbi->getSuccess() ) {
-				$this->mathml = $rbi->getMathML();
-				$this->mathoidStyle = $rbi->getMathoidStyle();
-				$this->svgPath = $rbi->getFullSvgUrl();
-			} elseif ( $this->lastError === '' ) {
-				$this->doCheck();
+			if ( $forceReRendering ) {
+				$this->setPurge( true );
 			}
-			$this->changed = false;
-			return $rbi->getSuccess();
+			if ( $this->renderingRequired() ) {
+				return $this->doRender();
+			}
+			return true;
+		} catch ( Exception $e ) {
+			$this->lastError = $this->getError( 'math_mathoid_error',
+				$wgMathFullRestbaseURL, $e->getMessage() );
+			LoggerFactory::getInstance( 'Math' )->error( $e->getMessage(), [ $e, $this ] );
+			return false;
 		}
-		if ( $forceReRendering ) {
-			$this->setPurge( true );
-		}
-		if ( $this->renderingRequired() ) {
-			return $this->doRender();
-		}
-		return true;
 	}
 
 	/**
