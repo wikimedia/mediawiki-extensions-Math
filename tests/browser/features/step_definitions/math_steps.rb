@@ -3,7 +3,11 @@ Given(/^I am editing a random page with source editor$/) do
 end
 
 When(/^I click Preview$/) do
-  on(EditPage).preview
+  on(EditPage).preview_element.when_present.click
+end
+
+When(/^I dismiss Welcome to Wikipedia popup$/) do
+  on(EditPage).start_editing_element.click
 end
 
 When(/^I type (.+)$/) do |write_text|

@@ -5,6 +5,7 @@ class EditPage
 
   text_area(:article_text, id: 'wpTextbox1')
   button(:preview, id: 'wpPreview')
+  span(:start_editing, text: 'Start editing')
 
   def math_image_element
     if env.lookup(:mediawiki_environment, default: nil) == 'beta'
