@@ -10,6 +10,6 @@
 	/* WOFF version of Latin Modern Math.
 	 * See https://github.com/fred-wang/MathFonts
 	 */
-	font-family: LatinModernMathWOFF;
+	font-family: 'LatinModernMathWOFF';
 	src: url( ./LatinModern/latinmodern-math.woff );
 }

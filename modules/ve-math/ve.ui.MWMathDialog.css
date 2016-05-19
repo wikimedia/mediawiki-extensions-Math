@@ -46,10 +46,11 @@
 	margin: 0 0.1em 0.1em 0;
 	box-sizing: border-box;
 	border: 1px solid #e6e6e6;
+	/* stylelint-disable no-unsupported-browser-features */
 	-webkit-transition: border-color 200ms;
 	-moz-transition: border-color 200ms;
-	-o-transition: border-color 200ms;
 	transition: border-color 200ms;
+	/* stylelint-enable no-unsupported-browser-features */
 }
 
 .ve-ui-mwMathPage-symbol-wide {
@@ -57,7 +58,7 @@
 }
 
 .ve-ui-mwMathPage-symbol-contain {
-	background-size: contain;
+	background-size: contain; /* stylelint-disable-line no-unsupported-browser-features */
 }
 
 .ve-ui-mwMathPage-symbol-largeLayout {

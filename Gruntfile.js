@@ -2,10 +2,10 @@
 module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-jsonlint' );
-	grunt.loadNpmTasks( 'grunt-contrib-csslint' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-jscs' );
+	grunt.loadNpmTasks( 'grunt-stylelint' );
 
 	grunt.initConfig( {
 		banana: {
@@ -17,11 +17,22 @@ module.exports = function ( grunt ) {
 				'!node_modules/**'
 			]
 		},
-		csslint: {
-			options: {
-				csslintrc: '.csslintrc'
+		stylelint: {
+			core: {
+				src: [
+					'**/*.css',
+					'!modules/ve-math/**',
+					'!node_modules/**'
+				]
 			},
-			all: 'modules/ve-math/*.css'
+			've-math': {
+				options: {
+					configFile: 'modules/ve-math/.stylelintrc'
+				},
+				src: [
+					'modules/ve-math/**/*.css'
+				]
+			}
 		},
 		jshint: {
 			options: {
@@ -53,6 +64,6 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
-	grunt.registerTask( 'test', [ 'jshint', 'jscs:main', 'csslint', 'jsonlint', 'banana' ] );
+	grunt.registerTask( 'test', [ 'jshint', 'jscs:main', 'stylelint', 'jsonlint', 'banana' ] );
 	grunt.registerTask( 'default', 'test' );
 };
