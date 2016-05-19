@@ -34,6 +34,24 @@
       "revId": "c4636667d4ca786958c9e9211074e46de91f1359",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae564743_a740cd39",
+        "filename": "modules/ext.math.desktop.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-05-19T18:08:42Z",
+      "side": 0,
+      "message": "Cool, maybe we can work together on a follow up change once this patch got passes the tests and can get merged. Otherwise that would mix the scopes.",
+      "parentUuid": "ae564743_4c8ab6e4",
+      "revId": "c4636667d4ca786958c9e9211074e46de91f1359",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
