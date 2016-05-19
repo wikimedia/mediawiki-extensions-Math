@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae564743_2c682219",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2016-05-19T17:30:49Z",
+      "side": 1,
+      "message": "This rule can just be dropped if we remove the WOFF fallback.",
+      "revId": "cc417e1a84702af30e0118aafc0ca98424ac08b3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
