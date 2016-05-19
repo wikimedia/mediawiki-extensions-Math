@@ -16,6 +16,24 @@
       "revId": "c4636667d4ca786958c9e9211074e46de91f1359",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae564743_4c8ab6e4",
+        "filename": "modules/ext.math.desktop.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1025
+      },
+      "writtenOn": "2016-05-19T17:29:46Z",
+      "side": 0,
+      "message": "Since we are now using SVG by default, we do not really need WOFF fallback. Someone enabling native MathML is expected to ensure that the required fonts are installed. And anyway in the future, we expect math fonts to be pre-installed on OS...\n\nIf we remove WOFF fallback, we should remove this whole file, the code that loads it and the WOFF font itself. Also, as discussed elsewhere, we can just remove the font-family rule in the other stylesheet so that people use the standard config of their browser / system.",
+      "parentUuid": "ae564743_4cfd9668",
+      "revId": "c4636667d4ca786958c9e9211074e46de91f1359",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
