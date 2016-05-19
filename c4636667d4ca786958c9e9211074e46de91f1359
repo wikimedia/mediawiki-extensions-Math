@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae564743_4cfd9668",
+        "filename": "modules/ext.math.desktop.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-05-19T17:20:23Z",
+      "side": 0,
+      "message": "@Frédéric Wang: Do we want to keep that rule?",
+      "revId": "c4636667d4ca786958c9e9211074e46de91f1359",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
