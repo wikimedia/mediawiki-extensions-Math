@@ -88,7 +88,7 @@
 				}
 
 				cssRule = cssPrefix + className + ' {\n' +
-					'\tbackground-image: url(data:image/svg+xml,' + encodeURIComponentForCSS( svg ) + ');\n';
+					'\tbackground-image: url( data:image/svg+xml,' + encodeURIComponentForCSS( svg ) + ' );\n';
 
 				if ( symbol.alignBaseline ) {
 					// Convert buttonHeight from em to ex, because SVG height is given in ex. (This is an
