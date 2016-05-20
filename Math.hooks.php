@@ -193,7 +193,6 @@ class MathHooks {
 
 		$parser->getOutput()->addModuleStyles( [ 'ext.math.styles' ] );
 		if ( $mode == 'mathml' ) {
-			$parser->getOutput()->addModuleStyles( [ 'ext.math.desktop.styles' ] );
 			$parser->getOutput()->addModules( [ 'ext.math.scripts' ] );
 			$marker = Parser::MARKER_PREFIX .
 				'-postMath-' . sprintf( '%08X', $n ++ ) .
