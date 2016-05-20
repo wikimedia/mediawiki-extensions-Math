@@ -140,10 +140,6 @@
 				"mobile"
 			]
 		},
-		"ext.math.desktop.styles": {
-			"position": "top",
-			"styles": "ext.math.desktop.css"
-		},
 		"ext.math.scripts": {
 			"scripts": "ext.math.js"
 		},
