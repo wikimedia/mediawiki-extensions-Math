@@ -45,9 +45,10 @@ module.exports = function ( grunt ) {
 		},
 		watch: {
 			files: [
-				'.{csslintrc,jscsrc,jshintignore,jshintrc}',
+				'.{stylelintrc,jscsrc,jshintignore,jshintrc}',
 				'<%= jshint.all %>',
-				'<%= csslint.all %>'
+				'<%= stylelint.core.src %>',
+				'<%= stylelint[ "ve-math" ].src %>'
 			],
 			tasks: 'test'
 		},
