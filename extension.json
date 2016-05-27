@@ -167,7 +167,8 @@
 				"ve-math/ve.ui.MWMathDialog.css"
 			],
 			"dependencies": [
-				"ext.visualEditor.mwcore"
+				"ext.visualEditor.mwcore",
+				"ext.math.styles"
 			],
 			"messages": [
 				"math-visualeditor-mwmathcontextitem-quickedit",
