@@ -49,21 +49,19 @@ class MathRestbaseInterface {
 			$i ++;
 		}
 		$results = $serviceClient->runMulti( $requests );
-		$i = 0;
 		$j = 0;
-		foreach ( $results as $response ) {
+		for ( $i = 0; $i < count( $rbis ); $i ++ ) {
 			if ( !in_array( $i, $skips ) ) {
 				/** @var MathRestbaseInterface $rbi */
 				$rbi = $rbis[$i];
 				try {
-					$mml = $rbi->evaluateContentResponse( 'mml', $response, $requests[$j] );
+					$mml = $rbi->evaluateContentResponse( 'mml', $results[$j], $requests[$j] );
 					$rbi->mml = $mml;
 				}
 				catch ( Exception $e ) {
 				}
 				$j ++;
 			}
-			$i ++;
 		}
 	}
 
