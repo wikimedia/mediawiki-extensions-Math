@@ -385,9 +385,9 @@ class MathMathML extends MathRenderer {
 	 * @return string XML the image html tag
 	 */
 	private function getFallbackImage( $noRender = false, $classOverride = false ) {
-		$url = $this->getFallbackImageUrl( $noRender );
-
-		$attribs = [];
+		$attribs = [
+			'src' => $this->getFallbackImageUrl( $noRender )
+		];
 		if ( $classOverride === false ) { // $class = '' suppresses class attribute
 			$class = $this->getClassName( true );
 		} else {
@@ -396,18 +396,13 @@ class MathMathML extends MathRenderer {
 		if ( ! $this->mathoidStyle ) {
 			$this->correctSvgStyle( $this->mathoidStyle );
 		}
-		// TODO: move the common styles to the global stylesheet!
-		$style = 'background-image: url(\''. $url .
-			 '\'); background-repeat: no-repeat; background-size: 100% 100%; '.
-			$this->mathoidStyle;
 		if ( $class ) {
 			$attribs['class'] = $class;
 		}
 
-		// Don't use an empty span, as that is going to be stripped by HTML tidy
-		// when enabled (which is true in production).
-		return Xml::element( 'meta', $this->getAttributes(
-			'span', $attribs, [ 'aria-hidden' => 'true', 'style' => $style
+		return Xml::element( 'img', $this->getAttributes( 'span', $attribs, [
+			'aria-hidden' => 'true',
+			'style' => $this->mathoidStyle
 		] ) );
 	}
 

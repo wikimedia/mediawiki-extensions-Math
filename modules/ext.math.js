@@ -31,8 +31,5 @@
 	// PNG fallback. See https://github.com/Modernizr/Modernizr/blob/master/feature-detects/svg/asimg.js
 	if ( !document.implementation.hasFeature( 'http://www.w3.org/TR/SVG11/feature#Image', '1.1' ) ) {
 		insertImg( true );
-	} else if ( $.client.profile().name.match( /msie|edge/ ) ) {
-		// For all IE versions the meta tags are rendered blurry, while img tags are rendered fine.
-		insertImg( false );
 	}
 }( jQuery ) );
