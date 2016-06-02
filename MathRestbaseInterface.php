@@ -18,6 +18,8 @@ class MathRestbaseInterface {
 	private $error;
 	private $mathoidStyle;
 	private $mml;
+	/** @var boolean is there a request to purge the existing mathematical content */
+	private $purge = false;
 
 	/**
 	 * MathRestbaseInterface constructor.
@@ -64,6 +66,18 @@ class MathRestbaseInterface {
 				$j ++;
 			}
 		}
+	}
+
+	/**
+	 * Lets this instance know if this is a purge request. When set to true,
+	 * it will cause the object to issue the first content request with a
+	 * 'Cache-Control: no-cache' header to prompt the regeneration of the
+	 * renders.
+	 *
+	 * @param bool $purge whether this is a purge request
+	 */
+	public function setPurge( $purge = true ) {
+		$this->purge = $purge;
 	}
 
 	/**
@@ -383,6 +397,12 @@ class MathRestbaseInterface {
 			'method' => 'GET',
 			'url' => $this->getUrl( "media/math/render/$type/{$this->hash}" )
 		];
+		if ( $this->purge ) {
+			$request['headers'] = [
+				'Cache-Control' => 'no-cache'
+			];
+			$this->purge = false;
+		}
 		return $request;
 	}
 

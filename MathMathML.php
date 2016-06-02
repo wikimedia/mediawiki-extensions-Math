@@ -81,12 +81,16 @@ class MathMathML extends MathRenderer {
 	public function render( $forceReRendering = false ) {
 		global $wgMathFullRestbaseURL;
 		try {
+			if ( $forceReRendering ) {
+				$this->setPurge( true );
+			}
 			if ( in_array( $this->inputType, $this->restbaseInputTypes ) &&
 				$this->mode == 'mathml'
 			) {
 				if ( !$this->rbi ) {
 					$this->rbi =
 						new MathRestbaseInterface( $this->getTex(), $this->getInputType() );
+					$this->rbi->setPurge( $this->isPurge() );
 				}
 				$rbi = $this->rbi;
 				if ( $rbi->getSuccess() ) {
@@ -98,9 +102,6 @@ class MathMathML extends MathRenderer {
 				}
 				$this->changed = false;
 				return $rbi->getSuccess();
-			}
-			if ( $forceReRendering ) {
-				$this->setPurge( true );
 			}
 			if ( $this->renderingRequired() ) {
 				return $this->doRender();
