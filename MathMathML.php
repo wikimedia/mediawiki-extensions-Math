@@ -87,6 +87,7 @@ class MathMathML extends MathRenderer {
 				if ( !$this->rbi ) {
 					$this->rbi =
 						new MathRestbaseInterface( $this->getTex(), $this->getInputType() );
+					$this->rbi.setPurge( $this->isPurge() );
 				}
 				$rbi = $this->rbi;
 				if ( $rbi->getSuccess() ) {
