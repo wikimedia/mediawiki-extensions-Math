@@ -385,6 +385,7 @@ abstract class MathRenderer {
 	 */
 	public function setRestbaseInterface( $param ) {
 		$this->rbi = $param;
+		$this->rbi->setPurge( $this->isPurge() );
 	}
 
 	/**
