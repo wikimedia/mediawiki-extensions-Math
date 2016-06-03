@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0efd9372_e8d1ac28",
+        "filename": "MathMathML.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-06-03T12:09:00Z",
+      "side": 1,
+      "message": "This block needs to be moved up. Otherwise isPurge() will not be set.",
+      "revId": "84f8c0d15c7b89ae5c53513af066f746edbd37e4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
