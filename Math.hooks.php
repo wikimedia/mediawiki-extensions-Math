@@ -216,7 +216,8 @@ class MathHooks {
 		$checkResult = $renderer->checkTeX();
 
 		if ( $checkResult !== true ) {
-			// Returns the error message
+			// Returns the error message and add tracking category
+			$parser->addTrackingCategory( 'math-tracking-category-error' );
 			return $renderer->getLastError();
 		}
 
@@ -226,6 +227,7 @@ class MathHooks {
 		} else {
 			LoggerFactory::getInstance( 'Math' )->warning(
 				"Rendering failed. Printing error message." );
+			$parser->addTrackingCategory( 'math-tracking-category-error' );
 			return $renderer->getLastError();
 		}
 		Hooks::run( 'MathFormulaPostRender',
