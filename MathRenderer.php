@@ -330,28 +330,30 @@ abstract class MathRenderer {
 	public function writeToDatabase( $dbw = null ) {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
-			$dbw = $dbw ?: wfGetDB( DB_MASTER );
 			LoggerFactory::getInstance( 'Math' )->debug( 'Store entry for $' . $this->tex .
 				'$ in database (hash:' . $this->getMd5() . ')' );
 			$outArray = $this->dbOutArray();
-			$method = __METHOD__;
 			$mathTableName = $this->getMathTableName();
 			if ( $this->isInDatabase() ) {
 				$inputHash = $this->getInputHash();
-				$dbw->onTransactionIdle( function () use (
-					$dbw, $outArray, $inputHash, $method, $mathTableName
+				DeferredUpdates::addCallableUpdate( function () use (
+					$dbw, $outArray, $inputHash, $mathTableName
 				) {
+					$dbw = $dbw ?: wfGetDB( DB_MASTER );
+
 					$dbw->update( $mathTableName, $outArray,
-						[ 'math_inputhash' => $inputHash ], $method );
+						[ 'math_inputhash' => $inputHash ], __METHOD__ );
 					LoggerFactory::getInstance( 'Math' )->debug(
 						'Row updated after db transaction was idle: ' .
 						var_export( $outArray, true ) . " to database" );
 				} );
 			} else {
-				$dbw->onTransactionIdle( function () use (
-					$dbw, $outArray, $method, $mathTableName
+				DeferredUpdates::addCallableUpdate( function () use (
+					$dbw, $outArray, $mathTableName
 				) {
-					$dbw->insert( $mathTableName, $outArray, $method, [ 'IGNORE' ] );
+					$dbw = $dbw ?: wfGetDB( DB_MASTER );
+
+					$dbw->insert( $mathTableName, $outArray, __METHOD__, [ 'IGNORE' ] );
 					LoggerFactory::getInstance( 'Math' )->debug(
 						'Row inserted after db transaction was idle ' .
 						var_export( $outArray, true ) . " to database" );
