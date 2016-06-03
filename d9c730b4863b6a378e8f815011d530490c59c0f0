@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0efd9372_0d21a2f6",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-06-03T08:54:37Z",
+      "side": 1,
+      "message": "You don\u0027t need the dbw anymore",
+      "revId": "d9c730b4863b6a378e8f815011d530490c59c0f0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0efd9372_2d7bc6ec",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-06-03T08:54:37Z",
+      "side": 1,
+      "message": "I used the $method variable to get the refernece to writeToDatabase, and not to the unnamed inner function will that still work?",
+      "revId": "d9c730b4863b6a378e8f815011d530490c59c0f0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0efd9372_6d7dcee4",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-06-03T08:54:37Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "d9c730b4863b6a378e8f815011d530490c59c0f0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
