@@ -165,7 +165,10 @@ class MathRestbaseInterface {
 
 	private function getServiceClient() {
 		global $wgVirtualRestConfig, $wgMathConcurrentReqs;
-		$http = new MultiHttpClient( [ 'maxConnsPerHost' => $wgMathConcurrentReqs ] );
+		$http = new MultiHttpClient( [
+			'maxConnsPerHost' => $wgMathConcurrentReqs,
+			'retry_count' => 3
+		] );
 		$serviceClient = new VirtualRESTServiceClient( $http );
 		if ( isset( $wgVirtualRestConfig['modules']['restbase'] ) ) {
 			$cfg = $wgVirtualRestConfig['modules']['restbase'];
