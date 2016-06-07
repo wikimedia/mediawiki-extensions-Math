@@ -66,6 +66,8 @@
 	"math-test-contains-diff": "המחרוזת המוחזרת $1 אינה מכילה את המחרוזת הצפויה $2.",
 	"math-test-equals-diff": "המחרוזת המוחזרת $1 שונה מהמחרוזת הצפויה $2.",
 	"math_tip": "נוסחה מתמטית (LaTeX)",
+	"math-tracking-category-error": "דפים עם שגיאות בתגי math",
+	"math-tracking-category-error-desc": "קטגוריה זו מכילה דפים מסוימים עם שגיאות בתגי math.",
 	"math_unknown_error": "שגיאה לא ידועה",
 	"math_unknown_function": "פונקציה $1 לא מוכרת",
 	"mw_math_latexml": "LaTeXML (נסיוני; משתמש ב־MathML)",

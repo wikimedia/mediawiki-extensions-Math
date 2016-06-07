@@ -11,7 +11,8 @@
 			"Revi",
 			"Bluemersen",
 			"Hwangjy9",
-			"Macofe"
+			"Macofe",
+			"Jonghaya"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> 태그 사이에 수학 수식을 렌더합니다",
@@ -54,6 +55,8 @@
 	"math-test-contains-diff": "반환한 문자열 $1은(는) 예상되는 문자열 $2을(를) 포함하지 않습니다.",
 	"math-test-equals-diff": "반환한 문자열 $1은(는) 예상되는 문자열 $2과(와) 다릅니다.",
 	"math_tip": "수학 수식 (LaTeX)",
+	"math-tracking-category-error": "수학오류가 있는 문서�",
+	"math-tracking-category-error-desc": "이 분류의 페이지에는 수학기호의 사용에 오류가 있습니다.",
 	"math_unknown_error": "알 수 없는 오류",
 	"math_unknown_function": "알 수 없는 함수 \"$1\"",
 	"mw_math_latexml": "LaTeXML (실험 기능; MathML 사용)",

@@ -64,6 +64,8 @@
 	"math-test-contains-diff": "Die zurückgegebene Zeichenfolge $1 enthält nicht die erwartete Zeichenfolge $2.",
 	"math-test-equals-diff": "Die zurückgegebene Zeichenfolge $1 weicht von der erwarteten Zeichenfolge $2 ab.",
 	"math_tip": "Mathematische Formel (LaTeX)",
+	"math-tracking-category-error": "Seiten mit Math-Fehlern",
+	"math-tracking-category-error-desc": "Seiten in dieser Kategorie haben Fehler in der Verwendung von Math-Tags.",
 	"math_unknown_error": "Unbekannter Fehler",
 	"math_unknown_function": "Unbekannte Funktion „$1“",
 	"mw_math_latexml": "LaTeXML (experimentell; verwendet MathML)",

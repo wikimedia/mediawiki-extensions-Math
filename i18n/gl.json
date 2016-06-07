@@ -66,6 +66,8 @@
 	"math-test-contains-diff": "Agardábase a presenza da cadea \"$2\" na cadea devolta \"$1\".",
 	"math-test-equals-diff": "A cadea devolta \"$1\" é diferente da cadea esperada \"$2\".",
 	"math_tip": "Fórmula matemática (LaTeX)",
+	"math-tracking-category-error": "Páxinas con erros matemáticos",
+	"math-tracking-category-error-desc": "As páxinas nesta categoría teñen erros no uso de etiquetas matemáticas.",
 	"math_unknown_error": "erro descoñecido",
 	"math_unknown_function": "descoñécese a función \"$1\"",
 	"mw_math_latexml": "LaTeXML (experimental; usa MathML)",

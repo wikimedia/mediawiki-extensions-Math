@@ -65,6 +65,8 @@
 	"math-test-contains-diff": "La stringa restituita $1 non contiene la stringa attesa $2.",
 	"math-test-equals-diff": "La stringa restituita $1 è diversa dalla stringa prevista $2.",
 	"math_tip": "Formula matematica (LaTeX)",
+	"math-tracking-category-error": "Pagine con errori matematici",
+	"math-tracking-category-error-desc": "Le pagine in questa categoria hanno errori nell'uso dei tag math.",
 	"math_unknown_error": "errore sconosciuto",
 	"math_unknown_function": "funzione sconosciuta '$1'",
 	"mw_math_latexml": "LaTeXML (sperimentale; usa MathML)",

@@ -4,7 +4,8 @@
 			"IvanLanin",
 			"Iwan Novirion",
 			"William Surya Permana",
-			"Bennylin"
+			"Bennylin",
+			"Rachmat.Wahidi"
 		]
 	},
 	"math-visualeditor-mwmathinspector-title": "Rumus",
@@ -17,6 +18,8 @@
 	"math_sample": "Masukkan rumus di sini",
 	"math_syntax_error": "kesalahan sintaks",
 	"math_tip": "Rumus matematika (LaTeX)",
+	"math-tracking-category-error": "Halaman dengan galat math",
+	"math-tracking-category-error-desc": "Halaman dalam kategori ini mempunyai galat dalam menggunakan tag math.",
 	"math_unknown_error": "Kesalahan yang tidak diketahui",
 	"math_unknown_function": "fungsi yang tidak diketahui",
 	"mw_math_mathjax": "MathJax (eksperimen)",

@@ -64,6 +64,8 @@
 	"math-test-contains-diff": "Vrácený řetězec $1 neobsahuje očekávaný řetězec $2.",
 	"math-test-equals-diff": "Vrácený řetězec $1 se liší od očekávaného řetězce $2.",
 	"math_tip": "Matematický vzorec (LaTeX)",
+	"math-tracking-category-error": "Stránky s chybami v matematických vzorcích",
+	"math-tracking-category-error-desc": "Stránky v této kategorie obsahují chybná použití matematických značek.",
 	"math_unknown_error": "neznámá chyba",
 	"math_unknown_function": "neznámá funkce „$1“",
 	"mw_math_latexml": "LaTeXML (experimentální; používá MathML)",

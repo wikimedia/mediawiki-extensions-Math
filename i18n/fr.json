@@ -73,6 +73,8 @@
 	"math-test-contains-diff": "La chaîne renvoyée $1 ne contient pas la chaîne attendue $2.",
 	"math-test-equals-diff": "La chaîne renvoyée $1 est différente de celle attendue $2.",
 	"math_tip": "Formule mathématique (LaTeX)",
+	"math-tracking-category-error": "Pages avec des erreurs mathématiques",
+	"math-tracking-category-error-desc": "Les pages dans cette catégorie ont des erreurs liées à  l’utilisation des balises mathématiques.",
 	"math_unknown_error": "erreur indéterminée",
 	"math_unknown_function": "fonction inconnue « $1 »",
 	"mw_math_latexml": "LaTeXML (expérimental, utilise MathML)",
