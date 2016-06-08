@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0efd9372_1d3edb87",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2016-06-08T17:53:58Z",
+      "side": 1,
+      "message": "It\u0027s still a nullable argument though.",
+      "parentUuid": "0efd9372_0d21a2f6",
+      "revId": "d9c730b4863b6a378e8f815011d530490c59c0f0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0efd9372_2d7bc6ec",
         "filename": "MathRenderer.php",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-06-03T08:54:37Z",
       "side": 1,
       "message": "I used the $method variable to get the refernece to writeToDatabase, and not to the unnamed inner function will that still work?",
+      "revId": "d9c730b4863b6a378e8f815011d530490c59c0f0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0efd9372_bd386f9c",
+        "filename": "MathRenderer.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2016-06-08T17:53:58Z",
+      "side": 1,
+      "message": "It has the out name inside (only older php versions just had {closure}).",
+      "parentUuid": "0efd9372_2d7bc6ec",
       "revId": "d9c730b4863b6a378e8f815011d530490c59c0f0",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
