@@ -11,7 +11,8 @@
 			"Macofe",
 			"Amitie 10g",
 			"Ryo567",
-			"Syum90"
+			"Syum90",
+			"Indiralena"
 		]
 	},
 	"math-desc": "Representa fórmulas matemáticas entre las etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -68,6 +69,8 @@
 	"math-test-contains-diff": "La cadena devuelta $1 no contiene a la cadena esperada $2",
 	"math-test-equals-diff": "La cadena devuelta $1 es diferente de la esperada $2",
 	"math_tip": "Fórmula matemática (LaTeX)",
+	"math-tracking-category-error": "Páginas con errores de matemáticas",
+	"math-tracking-category-error-desc": "Las páginas en esta categoría tienen errores en el uso de etiquetas de matemáticas.",
 	"math_unknown_error": "error desconocido",
 	"math_unknown_function": "función desconocida «$1»",
 	"mw_math_latexml": "LaTeXML (experimental, usa MathML)",
