@@ -45,6 +45,7 @@
 	"math-test-contains-diff": "Mer han dä Täx „$1“ krähje, un doh es dä Täx „$2“ nit dren änhthallde wi mer et äwahd han.",
 	"math-test-equals-diff": "Mer han dä Täx „$1“ krähje, han ävver dä Täx „$2“ äwahd.",
 	"math_tip": "En mathematisch Formel",
+	"math-tracking-category-error": "Sigge met Fähler en <code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">&lt;math&gt;</code>-Befähle",
 	"math_unknown_error": "Fähler, dä mer nit kenne",
 	"math_unknown_function": "„$1“ es en Fonxjuhn, di mer nit känne.",
 	"mw_math_latexml": "<i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"TeX and LaTeX to XML translator\">LaTeXML</i> — zom ußprobehre, bruch <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Mathematical markup language\">MathML</i>",
