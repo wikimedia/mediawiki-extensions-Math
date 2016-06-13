@@ -7,7 +7,9 @@ When(/^I click Preview$/) do
 end
 
 When(/^I dismiss Welcome to Wikipedia popup$/) do
-  on(EditPage).start_editing_element.click
+  if env.lookup(:mediawiki_environment, default: nil) == 'beta'
+    on(EditPage).start_editing_element.click
+  end
 end
 
 When(/^I type (.+)$/) do |write_text|

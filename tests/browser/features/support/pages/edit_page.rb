@@ -8,10 +8,6 @@ class EditPage
   span(:start_editing, text: 'Start editing')
 
   def math_image_element
-    if env.lookup(:mediawiki_environment, default: nil) == 'beta'
-      browser.meta(class: 'mwe-math-fallback-image-inline')
-    else
-      browser.img(class: 'tex')
-    end
+    browser.img(class: 'mwe-math-fallback-image-inline')
   end
 end
