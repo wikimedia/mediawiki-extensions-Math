@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Meursault2004"
+			"Meursault2004",
+			"NoiX180"
 		]
 	},
 	"math_bad_output": "Ora bisa nulis utawa nggawé dirèktori paweton math",
@@ -10,7 +11,7 @@
 	"math_image_error": "Konversi PNG gagal; priksa apa latex, dvips, gs, lan convert wis diinstalasi sing bener",
 	"math_lexing_error": "kaluputan ''lexing''",
 	"math_notexvc": "Executable <code>texvc</code> ilang;\nmangga delengen math/README kanggo cara konfigurasi.",
-	"math_sample": "Lebokna rumus ing kéné",
+	"math_sample": "Isi rumus ing kéné",
 	"math_syntax_error": "''syntax error'' (kaluputan sintaksis)",
 	"math_tip": "Rumus matematika (LaTeX)",
 	"math_unknown_error": "Kaluputan sing ora dimangertèni",
