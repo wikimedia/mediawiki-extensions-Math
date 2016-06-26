@@ -69,6 +69,8 @@
 	"math-test-contains-diff": "Виведений рядок $1 не містить очікуваного рядка $2.",
 	"math-test-equals-diff": "Виведений рядок $1 відрізняється від очікуваного рядка $2.",
 	"math_tip": "Математична формула (LaTeX)",
+	"math-tracking-category-error": "Сторінки з математичними помилками",
+	"math-tracking-category-error-desc": "Сторінок у цій категорії мають помилки у використанні математичних теґів.",
 	"math_unknown_error": "невідома помилка",
 	"math_unknown_function": "невідома функція '$1'",
 	"mw_math_latexml": "LaTeXML (експериментально; використовує MathML)",
