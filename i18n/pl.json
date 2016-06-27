@@ -8,7 +8,8 @@
 			"Matik7",
 			"Tar Lócesilion",
 			"Devwebtel",
-			"Matma Rex"
+			"Matma Rex",
+			"Sethakill"
 		]
 	},
 	"math-desc": "Renderowanie formuł matematycznych między znacznikami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -64,6 +65,7 @@
 	"math-test-contains-diff": "Zwracany ciąg znaków $1 nie zawiera oczekiwanego $2.",
 	"math-test-equals-diff": "Zwracany ciąg znaków $1 różni się od oczekiwanego $2",
 	"math_tip": "Wzór matematyczny (LaTeX)",
+	"math-tracking-category-error": "Strony z błędami rozszerzenia math",
 	"math-tracking-category-error-desc": "Strony w tej kategorii zawierają błędy w użyciu znaczników matematycznych.",
 	"math_unknown_error": "nieznany błąd",
 	"math_unknown_function": "nieznana funkcja '$1'",

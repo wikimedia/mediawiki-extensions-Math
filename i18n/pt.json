@@ -42,7 +42,7 @@
 	"math_syntax_error": "erro de sintaxe",
 	"math-test-success": "Teste ''$1'' <span style=\"color:green\">bem sucedido</span>.",
 	"math_tip": "Fórmula matemática (LaTeX)",
-	"math-tracking-category-error": "Páginas com erros de matemática",
+	"math-tracking-category-error": "!Páginas com erros de matemática",
 	"math-tracking-category-error-desc": "As páginas nesta categoria contém erros no uso de marcações matemáticas.",
 	"math_unknown_error": "erro desconhecido",
 	"math_unknown_function": "Função desconhecida: \"$1\"",

@@ -5,7 +5,8 @@
 			"Nghtwlkr",
 			"Stigmj",
 			"Danmichaelo",
-			"Macofe"
+			"Macofe",
+			"Jeblad"
 		]
 	},
 	"math-desc": "Fremstill matematiske formler inne i taggparet <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -65,6 +66,8 @@
 	"math-test-contains-diff": "Den returnerte stregen $1 inneholder ikke den forventede strengen $2.",
 	"math-test-equals-diff": "Den returnerte strengen $1 er forskjellig fra den forventede strengen $2.",
 	"math_tip": "Matematisk formel (LaTeX)",
+	"math-tracking-category-error": "Sider med mattefeil",
+	"math-tracking-category-error-desc": "Sider i denne kategorien har feil i bruk av mattetagger",
 	"math_unknown_error": "ukjent feil",
 	"math_unknown_function": "ukjent funksjon '$1'",
 	"mw_math_latexml": "LaTeXML (på forsøksstadiet; bruker MathML)",

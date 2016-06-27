@@ -68,6 +68,7 @@
 	"math-test-fail": "Тестирование ''$1'' <span style=\"color:red\">не прошло</span>.",
 	"math-test-success": "Тестирование «$1» <span style=\"color:green\">прошло успешно</span>.",
 	"math_tip": "Математическая формула (формат LaTeX)",
+	"math-tracking-category-error": "Страницы с ошибками в формулах",
 	"math_unknown_error": "неизвестная ошибка",
 	"math_unknown_function": "неизвестная функция «$1»",
 	"mw_math_latexml": "LaTeXML (экспериментальный; использует MathML)",
