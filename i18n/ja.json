@@ -11,7 +11,8 @@
 			"SkyDaisy9",
 			"Sujiniku",
 			"Otokoume",
-			"Macofe"
+			"Macofe",
+			"Vigorous action"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング",
@@ -58,6 +59,7 @@
 	"math_sample": "ここに数式を挿入",
 	"math_syntax_error": "構文エラー",
 	"math_tip": "数式 (LaTeX)",
+	"math-tracking-category-error": "mathエラーのあるページ",
 	"math_unknown_error": "不明なエラー",
 	"math_unknown_function": "不明な関数「$1」",
 	"mw_math_latexml": "LaTeXML (開発中。MathML を使用)",

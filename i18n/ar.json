@@ -8,7 +8,8 @@
 			"Abanima",
 			"Macofe",
 			"محمد أحمد عبد الفتاح",
-			"Maroen1990"
+			"Maroen1990",
+			"Shbib Al-Subaie"
 		]
 	},
 	"math-desc": "حوِّل الصيغ الرياضية بين وسمي <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -48,6 +49,7 @@
 	"math_sample": "أدخل الصيغة هنا",
 	"math_syntax_error": "خطأ في الصياغة",
 	"math_tip": "صيغة رياضية (لا تك)",
+	"math-tracking-category-error": "صفحات بها أخطاء رياضيات",
 	"math_unknown_error": "خطأ غير معروف",
 	"math_unknown_function": "وظيفة غير معروفة «$1»",
 	"mw_math_mathml": "اعرض بصيغة MathML إن أمكن (تجريبي)",

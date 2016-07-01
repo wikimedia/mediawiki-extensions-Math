@@ -70,6 +70,7 @@
 	"math-test-contains-diff": "Den returnerade strängen $1 innehåller inte den förväntade strängen $2.",
 	"math-test-equals-diff": "Den returnerade strängen $1 är inte den samma som den förväntade strängen $2.",
 	"math_tip": "Matematisk formel (LaTeX)",
+	"math-tracking-category-error": "Sidor med matematikfel",
 	"math_unknown_error": "okänt fel",
 	"math_unknown_function": "okänd funktion \"$1\"",
 	"mw_math_latexml": "LaTeXML (experimentell; använder MathML)",
