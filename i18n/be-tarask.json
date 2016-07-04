@@ -5,7 +5,8 @@
 			"Jim-by",
 			"Wizardist",
 			"Red Winged Duck",
-			"Macofe"
+			"Macofe",
+			"Renessaince"
 		]
 	},
 	"math-desc": "Выводзіць матэматычныя формулы, запісаныя паміж тэгамі <code>&lt;math&gt;</code> і <code>&lt;/math&gt;</code>",
@@ -28,5 +29,6 @@
 	"mw_math_png": "PNG-выявы",
 	"mw_math_source": "LaTeX-разьметка (для тэкставых браўзэраў)",
 	"prefs-math": "Матэматычныя формулы",
-	"mathstatus": "Генэрацыя матэматычных формулаў"
+	"mathstatus": "Генэрацыя матэматычных формулаў",
+	"wikibase-listdatatypes-math-head": "Матэматычны выраз"
 }

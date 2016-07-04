@@ -29,6 +29,7 @@
 	"math_syntax_error": "синтаксин гӀалат",
 	"math_timeout": "$1 хьоьжу хан сов аьлла «$2»",
 	"math_tip": "Матlематlекхиа каьчйар (барам LaTeX)",
+	"math-tracking-category-error": "Формулашкахь гӀалаташ долу агӀонаш",
 	"math_unknown_error": "дойзаш доцу гӀалат",
 	"math_unknown_function": "йоьвзуш йоцу функци «$1»",
 	"mw_math_latexml": "LaTeXML (экспериментан; лелош ю MathML)",
