@@ -66,6 +66,8 @@
 	"math-test-contains-diff": "Chuỗi trả về $1 không chứa chuỗi mong đợi $2.",
 	"math-test-equals-diff": "Chuỗi trả về $1 khác với chuỗi mong đợi $2.",
 	"math_tip": "Công thức toán (LaTeX)",
+	"math-tracking-category-error": "Trang có lỗi toán học",
+	"math-tracking-category-error-desc": "Các trang trong thể loại này có lỗi sử dụng thẻ toán học.",
 	"math_unknown_error": "lỗi không xác định",
 	"math_unknown_function": "hàm không rõ “$1”",
 	"mw_math_latexml": "LaTeXML (thử nghiệm; sử dụng MathML)",
