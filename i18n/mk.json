@@ -6,6 +6,7 @@
 		]
 	},
 	"math-desc": "Испис на математички формули помеѓу ознаките <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwmathcontextitem-quickedit": "Брзо уредување",
 	"math-visualeditor-mwmathdialog-title": "Формула",
 	"math-visualeditor-mwmathdialog-card-formula": "Формула",
 	"math-visualeditor-mwmathdialog-card-options": "Нагодувања",
@@ -51,7 +52,7 @@
 	"math_notexvc": "Недостасува извршната податотека <code>texvc</code>.\nПогледнете ја math/README за нејзино нагодување.",
 	"math_output_error": "Не можам да ја зачувам математичката слика на податочниот систем",
 	"math_sample": "Овде вметнете формула",
-	"math-status-introduction": "На страницава се прикажани информации за вклучените режими на математички испис.\n\n{{PLURAL:$1|Активен е следниов исписен режим|Активни се следниве исписни режими}}:",
+	"math-status-introduction": "На страницава се прикажани информации за {{PLURAL:$1|овозможениот режим|овозможените режими}} на математички испис.\n\n{{PLURAL:$1|Активен е следниов исписен режим|Активни се следниве исписни режими}}:",
 	"math_syntax_error": "синтаксна грешка",
 	"math_timeout": "$1 истече од „$2“",
 	"math-test-end": "Испробувањата на заднината за исписниот режим ''$1'' се завршени.",
@@ -61,6 +62,8 @@
 	"math-test-contains-diff": "Дадената низа $1 не ја содржи очекуваната низа $2.",
 	"math-test-equals-diff": "Дадената низа $1 е различна од очекуваната низа $2.",
 	"math_tip": "Математичка формула (LaTeX)",
+	"math-tracking-category-error": "Страници со грешки во математичките ознаки",
+	"math-tracking-category-error-desc": "Страниците во оваа категорија имаат грешки во употребата на математичките ознаки.",
 	"math_unknown_error": "непозната грешка",
 	"math_unknown_function": "непозната функција „$1“",
 	"mw_math_latexml": "LaTeXML (експериментално; користи MathML)",
@@ -70,5 +73,8 @@
 	"mw_math_png": "PNG-слики",
 	"mw_math_source": "LaTeX-извор (за текстуални прелистувачи)",
 	"prefs-math": "Матем. формули",
-	"mathstatus": "Статус на математичкиот испис"
+	"mathstatus": "Статус на математичкиот испис",
+	"datatypes-type-math": "Математички израз",
+	"wikibase-listdatatypes-math-head": "Математички израз",
+	"wikibase-listdatatypes-math-body": "Буквалните податочни полиња за математички изрази, формула, равенки и слично, изразени во варијанта на LaTeX."
 }
