@@ -85,7 +85,7 @@
 	"mw_math_source": "In user preferences (math). All mw_math_* messages MUST be different, things will break otherwise!\n\nUsed as label for source radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math mathjax}}\n* {{msg-mw|Mw math latexml}}",
 	"prefs-math": "Used in user preferences as a section heading.\n{{Identical|Math}}",
 	"mathstatus": "Title of a special page that displays information about the enabled math rendering modes.",
-	"datatypes-type-math": "The name of a data type.\n{{Identical|Math}}",
-	"wikibase-listdatatypes-math-head": "{{Wikibase-datatype-head|Mathematical expression|math}}\n{{Identical|Math}}",
+	"datatypes-type-math": "The name of a data type.\n{{Identical|Mathematical expression}}",
+	"wikibase-listdatatypes-math-head": "{{Wikibase-datatype-head|Mathematical expression|math}}\n{{Identical|Mathematical expression}}",
 	"wikibase-listdatatypes-math-body": "{{Wikibase-datatype-body|Mathematical expression}}"
 }
