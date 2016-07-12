@@ -53,7 +53,7 @@
 	"math_notexvc": "<code>Texvc</code>-rakendus puudub. Häälestamiseks vaata palun faili math/README.",
 	"math_output_error": "Valemipilti ei saa failisüsteemis talletada.",
 	"math_sample": "Sisesta valem siia",
-	"math-status-introduction": "Siin leheküljel näidatakse teavet matemaatiliste valemite lubatud viimistlusrežiimide kohta.\n\nLubatud on {{PLURAL:$1|järgmine viimistlusrežiim|järgmised viimistlusrežiimid}}:",
+	"math-status-introduction": "Siin leheküljel näidatakse teavet matemaatiliste valemite lubatud {{PLURAL:$1|viimistlusrežiimi|viimistlusrežiimide}} kohta.\n\nLubatud on {{PLURAL:$1|järgmine viimistlusrežiim|järgmised viimistlusrežiimid}}:",
 	"math_syntax_error": "Süntaksiviga",
 	"math_timeout": "Viimistlustüübi $1 ajalõpp asukohas \"$2\".",
 	"math-test-end": "Tagakomponendi katsetused täidetud järgmise viimistlusrežiimi jaoks: ''$1''.",
