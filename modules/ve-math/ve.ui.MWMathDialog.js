@@ -295,7 +295,7 @@ ve.ui.MWMathDialog.prototype.onWindowManagerResize = function () {
 			maxInputHeight = availableSpace - borderAndPadding;
 			minRows = Math.floor( maxInputHeight / singleLineHeight );
 			dialog.input.setMinRows( minRows );
-		}, 250 );
+		}, OO.ui.theme.getDialogTransitionDuration() );
 	} );
 };
 
