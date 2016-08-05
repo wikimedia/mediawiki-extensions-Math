@@ -54,9 +54,6 @@
 		"ParserTestTables": [
 			"MathHooks::onParserTestTables"
 		],
-		"UnitTestsList": [
-			"MathHooks::onRegisterUnitTests"
-		],
 		"PageRenderingHash": [
 			"MathHooks::onPageRenderingHash"
 		],
