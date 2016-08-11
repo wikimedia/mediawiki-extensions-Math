@@ -18,6 +18,7 @@
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング",
 	"math-visualeditor-mwmathcontextitem-quickedit": "簡易編集",
 	"math-visualeditor-mwmathdialog-title": "数式",
+	"math-visualeditor-mwmathdialog-card-formula": "数式",
 	"math-visualeditor-mwmathdialog-card-options": "オプション",
 	"math-visualeditor-mwmathinspector-display": "ディスプレイ",
 	"math-visualeditor-mwmathinspector-display-block": "ブロック",
