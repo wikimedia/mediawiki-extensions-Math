@@ -17,7 +17,7 @@
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> 태그 사이에 수학 수식을 렌더합니다",
-	"math-visualeditor-mwmathinspector-display": "보기",
+	"math-visualeditor-mwmathinspector-display": "표시",
 	"math-visualeditor-mwmathinspector-display-block": "블록",
 	"math-visualeditor-mwmathinspector-display-default": "기본값",
 	"math-visualeditor-mwmathinspector-display-inline": "인라인",

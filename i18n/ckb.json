@@ -9,8 +9,10 @@
 			"Sarchia"
 		]
 	},
+	"math-visualeditor-mwmathdialog-title": "ھاوکێشە",
 	"math-visualeditor-mwmathinspector-display-default": "بنچینەیی",
-	"math_sample": "فۆرموول لێرە بنووسە",
+	"math-visualeditor-mwmathinspector-title": "ھاوکێشە",
+	"math_sample": "لێرە ھاوکێشە دابنێ",
 	"math_syntax_error": "ڕستەکار هەڵەیە",
 	"math_tip": "فۆرموولی بیرکاری (LaTeX)",
 	"math_unknown_error": "هەڵەیەکی نەزانراو",

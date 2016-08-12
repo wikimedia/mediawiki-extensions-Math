@@ -20,5 +20,8 @@
 	"mw_math_mathml": "MathML dersom mogleg (eksperimentell)",
 	"mw_math_png": "Vis alltid som PNG",
 	"mw_math_source": "Behald som TeX (for tekst-nettlesarar)",
-	"prefs-math": "Matematiske formlar"
+	"prefs-math": "Matematiske formlar",
+	"datatypes-type-math": "Matematisk uttrykk",
+	"wikibase-listdatatypes-math-head": "Matematisk uttrykk",
+	"wikibase-listdatatypes-math-body": "Literalt datafelt for matematiske uttrykk, formlar, likningar og tilsvarande, uttrykt i ein variant av LaTeX."
 }
