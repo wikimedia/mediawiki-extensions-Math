@@ -63,7 +63,7 @@
 	"mw_math_latexml": "LaTeXML (실험 기능; MathML 사용)",
 	"mw_math_latexml_jax": "클라이언트측 MathJax로 된 LaTeXML (실험 기능; MathML 사용)",
 	"mw_math_mathjax": "클라이언트측 MathJax (느림; 일부 브라우저와 접근성 도구에서 렌더링 개선)",
-	"mw_math_mathml": "SVG나 PNG fallback이 있는 MathML (최신 브라우저나 접근성 도구에 권장)",
+	"mw_math_mathml": "MathML을 사용하되 미지원 시 SVG나 PNG 사용 (최신 브라우저나 접근성 도구에 권장)",
 	"mw_math_png": "PNG 그림",
 	"mw_math_source": "LaTeX 소스 (텍스트 브라우저용)",
 	"prefs-math": "수식",
