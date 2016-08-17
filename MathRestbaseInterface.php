@@ -428,6 +428,24 @@ class MathRestbaseInterface {
 			'math_type' => $type,
 			'tex' => $this->tex
 		] );
-		throw new MWException( "Cannot get $type. Server problem." );
+		self::throwContentError( $type, $response['body'] );
+	}
+
+	/**
+	 * @param $type
+	 * @param $body
+	 * @throws MWException
+	 */
+	public static function throwContentError( $type, $body ) {
+		$detail = 'Server problem.';
+		$json = json_decode( $body );
+		if ( isset( $json->detail ) ) {
+			if ( is_array( $json->detail ) ){
+				$detail = $json->detail[0];
+			} elseif ( is_string( $json->detail ) ) {
+				$detail = $json->detail;
+			}
+		}
+		throw new MWException( "Cannot get $type. $detail" );
 	}
 }
