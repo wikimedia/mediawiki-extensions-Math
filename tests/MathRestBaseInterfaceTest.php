@@ -85,4 +85,24 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 		$rbi->getFullSvgUrl();
 	}
 
+	/**
+	 * Incorporate the "details" in the error message, if the check requests passes, but the
+	 * mml/svg/complete endpoints returns an error
+	 * @expectedException MWException
+	 * @expectedExceptionMessage Cannot get mml. TeX parse error: Missing close brace
+	 */
+	public function testLateError() {
+		// @codingStandardsIgnoreStart
+		$input = '{"type":"https://mediawiki.org/wiki/HyperSwitch/errors/bad_request","title":"Bad Request","method":"POST","detail":["TeX parse error: Missing close brace"],"uri":"/complete"}';
+		// @codingStandardsIgnoreEnd
+		MathRestbaseInterface::throwContentError( 'mml', $input );
+	}
+	/**
+	 * @expectedException MWException
+	 * @expectedExceptionMessage Cannot get mml. Server problem.
+	 */
+	public function testLateErrorNoDetail() {
+		$input = '';
+		MathRestbaseInterface::throwContentError( 'mml', $input );
+	}
 }
