@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e89af39_409fd3b9",
+        "filename": "MathRestbaseInterface.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2016-08-17T19:04:29Z",
+      "side": 1,
+      "message": "The detail being an array shouldn\u0027t be a hard requirement. IF it\u0027s an array, unwrap it, but if it\u0027s a string, use it directly.",
+      "revId": "963c0a57220140169b51228dbfd343091836174b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
