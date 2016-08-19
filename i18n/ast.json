@@ -63,6 +63,8 @@
 	"math-test-contains-diff": "La cadena «$1» devuelta nun contien la cadena esperada «$2».",
 	"math-test-equals-diff": "La cadena «$1» devuelta ye distinta de la cadena esperada «$2»",
 	"math_tip": "Fórmula matemática",
+	"math-tracking-category-error": "Páxines con errores matemáticos",
+	"math-tracking-category-error-desc": "Les páxines d'esta categoría tienen errores nel usu de les etiquetes de matemátiques.",
 	"math_unknown_error": "error desconocíu",
 	"math_unknown_function": "función '$1' desconocida",
 	"mw_math_latexml": "LaTeXML (esperimental; usa MathML)",
