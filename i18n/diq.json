@@ -10,6 +10,15 @@
 			"Kumkumuk"
 		]
 	},
+	"math-visualeditor-mwmathdialog-title": "Formul",
+	"math-visualeditor-mwmathdialog-card-formula": "Formul",
+	"math-visualeditor-mwmathdialog-card-options": "Weçinegi",
+	"math-visualeditor-mwmathinspector-display": "Bıasne",
+	"math-visualeditor-mwmathinspector-display-block": "Bloqe kı",
+	"math-visualeditor-mwmathinspector-display-default": "Hesabiyaye",
+	"math-visualeditor-mwmathinspector-display-inline": "Zerey satır",
+	"math-visualeditor-mwmathinspector-id": "Grey Kamiye (keyfi)",
+	"math-visualeditor-mwmathinspector-title": "Formul",
 	"math-visualeditor-symbol-group-logic": "Qeyd",
 	"math-visualeditor-symbol-group-special": "Xususi",
 	"math-visualeditor-symbol-group-unsorted": "Nikılmiya",
