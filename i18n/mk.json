@@ -41,7 +41,7 @@
 	"math-visualeditor-symbol-group-typefaces": "Исписи",
 	"math-visualeditor-symbol-group-unsorted": "Неподредени",
 	"math_bad_output": "Не можев да запишам во или создадам излезен директориум математички операции",
-	"math_bad_tmpdir": "Не можам да запишам во или да создадам привремен директориум за математички операции",
+	"math_bad_tmpdir": "Не можам да запишам во или да создадам привремен папка за математички операции",
 	"math_failure": "Не можев да расчленам",
 	"math_image_error": "Претворањето во PNG не успеа. Проверете дали правилно ги имате воспоставено LaTeX и dvipng (или dvips + gs + convert)",
 	"math_invalidjson": "$1-опслужувачот за $1 е неважечки JSON.",

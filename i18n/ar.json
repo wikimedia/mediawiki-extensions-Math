@@ -9,7 +9,8 @@
 			"Macofe",
 			"محمد أحمد عبد الفتاح",
 			"Maroen1990",
-			"Shbib Al-Subaie"
+			"Shbib Al-Subaie",
+			"Moud hosny"
 		]
 	},
 	"math-desc": "حوِّل الصيغ الرياضية بين وسمي <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -35,9 +36,12 @@
 	"math-visualeditor-symbol-group-projections": "إسقاط",
 	"math-visualeditor-symbol-group-parentheses": "بين قوسين",
 	"math-visualeditor-symbol-group-relations": "علاقات",
+	"math-visualeditor-symbol-group-root": "الجذر التربيعي",
 	"math-visualeditor-symbol-group-sets": "مجموعات",
 	"math-visualeditor-symbol-group-spacing": "فراغ",
 	"math-visualeditor-symbol-group-special": "الخاصة",
+	"math-visualeditor-symbol-group-typefaces": "أشكال الكتابة",
+	"math-visualeditor-symbol-group-unsorted": "غير مرتب",
 	"math_bad_output": "لا يمكن الكتابة إلى أو إنشاء مجلد الخرج للرياضيات",
 	"math_bad_tmpdir": "لا يمكن الكتابة إلى أو إنشاء مجلد الرياضيات المؤقت",
 	"math_failure": "خطأ رياضيات",
@@ -56,5 +60,7 @@
 	"mw_math_png": "دائما اعرض على هيئة PNG",
 	"mw_math_source": "اعرض على هيئة LaTeX (للمتصفحات النصية)",
 	"prefs-math": "رياضيات",
-	"mathstatus": "حالة الرياضيات"
+	"mathstatus": "حالة الرياضيات",
+	"datatypes-type-math": "تعبير رياضي",
+	"wikibase-listdatatypes-math-head": "تعبير رياضي"
 }
