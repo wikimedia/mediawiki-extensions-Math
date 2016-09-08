@@ -52,6 +52,8 @@
 	"math_output_error": "لا يمكن تخزين صورة مطابقة على نظام الملفات.",
 	"math_sample": "أدخل الصيغة هنا",
 	"math_syntax_error": "خطأ في الصياغة",
+	"math-test-fail": "الاختبار ''$1'' <span style=\"color:red\">فشل</span>.",
+	"math-test-success": "الاختبار ''$1'' <span style=\"color:green\">نجح</span>.",
 	"math_tip": "صيغة رياضية (لا تك)",
 	"math-tracking-category-error": "صفحات بها أخطاء رياضيات",
 	"math_unknown_error": "خطأ غير معروف",
