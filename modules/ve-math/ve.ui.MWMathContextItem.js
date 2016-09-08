@@ -23,7 +23,10 @@ ve.ui.MWMathContextItem = function VeUiMWMathContextItem() {
 		flags: [ 'progressive' ]
 	} );
 
-	this.actionButtons.addItems( [ this.quickEditButton ], 0 );
+	// Don't show quick edit button in mobile as the primary action will be quick edit
+	if ( !this.context.isMobile() ) {
+		this.actionButtons.addItems( [ this.quickEditButton ], 0 );
+	}
 
 	this.quickEditButton.connect( this, { click: 'onInlineEditButtonClick' } );
 
@@ -56,6 +59,15 @@ ve.ui.MWMathContextItem.static.commandName = 'mathDialog';
  */
 ve.ui.MWMathContextItem.prototype.onInlineEditButtonClick = function () {
 	this.context.getSurface().executeCommand( 'mathInspector' );
+};
+
+/**
+ * @inheritdoc
+ */
+ve.ui.MWMathContextItem.prototype.getCommand = function () {
+	return this.context.getSurface().commandRegistry.lookup(
+		this.context.isMobile() ? 'mathInspector' : this.constructor.static.commandName
+	);
 };
 
 /* Registration */
