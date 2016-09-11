@@ -1,9 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"محبوب عالم"
+			"محبوب عالم",
+			"Muhammad Shuaib"
 		]
 	},
+	"math-visualeditor-mwmathcontextitem-quickedit": "فوری ترمیم",
+	"math-visualeditor-mwmathdialog-title": "فارمولا",
+	"math-visualeditor-mwmathdialog-card-formula": "فارمولا",
+	"math-visualeditor-mwmathdialog-card-options": "اختیارات",
+	"math-visualeditor-symbol-group-arrows": "تیر کے نشانات",
+	"math-visualeditor-symbol-group-bounds": "حدود",
+	"math-visualeditor-symbol-group-derivatives": "اختلافات اور مشتقات",
+	"math-visualeditor-symbol-group-greek": "یونانی حروف تہجی",
+	"math-visualeditor-symbol-group-hebrew": "عبرانی حروف تہجی",
 	"math_failure": "تجزیہ میں ناکام",
 	"math_image_error": "PNG; کی تحویل ناکام\nlatex، dvips، gs کی صحیح تنصیب کی جانچ کرنے کے بعد دوبارہ تحویل کی کوشش کیجئے.",
 	"math_sample": "صیغہ یہاں درج کیجئے",
@@ -11,5 +21,8 @@
 	"math_tip": "(ریاضیاتی صیغہ LaTeX)",
 	"math_unknown_error": "نامعلوم غلطی",
 	"math_unknown_function": "نامعلوم فعل",
+	"mw_math_mathml": "PNG یا SVG کے ساتھ MathML (جدید براؤزر وغیرہ کے لیے اسے استعمال کرنے کی سفارش کی جاتی ہے)",
+	"mw_math_png": "PNG تصویریں",
+	"mw_math_source": "LaTeX شکل میں دکھائیں (متنی براؤزر کے لیے)",
 	"prefs-math": "ریاضی"
 }
