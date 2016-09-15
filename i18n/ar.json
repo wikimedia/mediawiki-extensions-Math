@@ -60,6 +60,7 @@
 	"math_notexvc": "مفقود <code>texvc</code> executable؛\nمن فضلك انظر math/README للضبط.",
 	"math_output_error": "لا يمكن تخزين صورة مطابقة على نظام الملفات.",
 	"math_sample": "أدخل الصيغة هنا",
+	"math-status-introduction": "هذه الصفحة تعرض المعلومات حول {{PLURAL:$1|نمط|أنماط}} عرض الرياضيات.\n\n{{PLURAL:$1|نمط|أنماط}} العرض التالية مفعلة:",
 	"math_syntax_error": "خطأ في الصياغة",
 	"math_timeout": "$1 انتهاء الوقت من \"$2\".",
 	"math-test-end": "النتائج في الخلفية لوضع التقديم ''$1'' اكتملت.",
