@@ -69,7 +69,7 @@
 	"math-test-success": "الاختبار ''$1'' <span style=\"color:green\">نجح</span>.",
 	"math-test-contains-diff": "سلسلة الحروف التي تم إرجاعها $1 لا تحتوي على سلسلة الحروف المتوقعة $2.",
 	"math-test-equals-diff": "سلسلة الحروف التي تم إرجاعها $1 مختلفة عن سلسلة الحروف المتوقعة $2.",
-	"math_tip": "صيغة رياضية (لا تك)",
+	"math_tip": "صيغة رياضية (LaTeX)",
 	"math-tracking-category-error": "صفحات بها أخطاء رياضيات",
 	"math-tracking-category-error-desc": "الصفحات في هذا التصنيف تحتوي على أخطاء في استخدام وسوم الرياضيات.",
 	"math_unknown_error": "خطأ غير معروف",
