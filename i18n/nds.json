@@ -1,5 +1,9 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Joachim Mos"
+		]
+	},
 	"math_bad_output": "Kann dat Teelverteken för mathematsche Formeln nich anleggen oder beschrieven.",
 	"math_bad_tmpdir": "Kann dat Temporärverteken för mathematsche Formeln nich anleggen oder beschrieven.",
 	"math_failure": "Parser-Fehler",
@@ -10,7 +14,7 @@
 	"math_syntax_error": "Syntaxfehler",
 	"math_tip": "Mathematsche Formel (LaTeX)",
 	"math_unknown_error": "Unbekannten Fehler",
-	"math_unknown_function": "Unbekannte Funktschoon",
+	"math_unknown_function": "Unbekannte Funktschoon \"$1\"",
 	"mw_math_mathml": "MathML (experimentell)",
 	"mw_math_png": "Jümmer as PNG dorstellen",
 	"mw_math_source": "As TeX laten (för Textbrowser)",
