@@ -327,7 +327,9 @@ class MathTexvc extends MathRenderer {
 					'wikiId' 	 => wfWikiId(),
 					'lockManager'    => new NullLockManager( [] ),
 					'containerPaths' => [ 'math-render' => $wgMathDirectory ],
-					'fileMode'       => 0777
+					'fileMode'       => 0777,
+					'obResetFunc'    => 'wfResetOutputBuffers',
+					'streamMimeFunc' => [ 'StreamFile', 'contentTypeFromPath' ]
 				] );
 			}
 			return $backend;
