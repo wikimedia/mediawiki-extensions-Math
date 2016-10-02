@@ -12,7 +12,8 @@
 			"Amitie 10g",
 			"Ryo567",
 			"Syum90",
-			"Indiralena"
+			"Indiralena",
+			"Dgstranz"
 		]
 	},
 	"math-desc": "Representa fórmulas matemáticas entre las etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -61,10 +62,12 @@
 	"math_notexvc": "Falta el ejecutable <code>texvc</code>. Véase math/README para configurarlo.",
 	"math_output_error": "No se puede almacenar la imagen matemática en el sistema de archivos.",
 	"math_sample": "Escribir la fórmula aquí",
-	"math-status-introduction": "Esta página muestra información sobre los modos de representación matemáticas activados.\n\n{{PLURAL:$1|El siguiente modo de representación está activado|Los siguientes modos de representación están activados}}:",
+	"math-status-introduction": "Esta página muestra información sobre {{PLURAL:$1|el modo|los modos}} de representación matemática {{PLURAL:$1|activado|activados}}.\n\n{{PLURAL:$1|El siguiente modo de representación está activado|Los siguientes modos de representación están activados}}:",
 	"math_syntax_error": "error de sintaxis",
 	"math_timeout": "El tiempo de espera de $1 en «$2» se agotó.",
+	"math-test-end": "Se han completado los tests de servidor para el modo de representación ''$1''.",
 	"math-test-fail": "<span style=\"color:red\">Falló</span> la prueba ''$1''.",
+	"math-test-start": "Ejecutando tests de servidor para el modo de representación ''$1''.",
 	"math-test-success": "Se <span style=\"color:green\">superó</span> la prueba ''$1''.",
 	"math-test-contains-diff": "La cadena devuelta $1 no contiene a la cadena esperada $2",
 	"math-test-equals-diff": "La cadena devuelta $1 es diferente de la esperada $2",
