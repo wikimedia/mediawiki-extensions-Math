@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e97535f_f7b682d6",
+        "filename": "modules/ve-math/symbols.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 2877,
+      "author": {
+        "id": 98
+      },
+      "writtenOn": "2016-10-14T23:30:26Z",
+      "side": 1,
+      "message": "unrelated to this commit?",
+      "range": {
+        "startLine": 2876,
+        "startChar": 9,
+        "endLine": 2877,
+        "endChar": 28
+      },
+      "revId": "51003d8a759b8c362643ae9f0a41328a0bfeb92f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
