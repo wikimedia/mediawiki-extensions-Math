@@ -40,8 +40,8 @@ ve.ui.MWMathPage = function VeUiMWMathPage( name, config ) {
 					return '_' + c.charCodeAt( 0 ) + '_';
 				} )
 			);
-			if ( symbol.wide ) {
-				classes.push( 've-ui-mwMathPage-symbol-wide' );
+			if ( symbol.width ) {
+				classes.push( 've-ui-mwMathPage-symbol-' + symbol.width );
 			}
 			if ( symbol.contain ) {
 				classes.push( 've-ui-mwMathPage-symbol-contain' );

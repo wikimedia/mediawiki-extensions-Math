@@ -107,7 +107,7 @@
             "alignBaseline": true
         },
         {
-            "wide": true,
+            "width": "wide",
             "tex": "\\exp_a",
             "encapsulate": {
                 "pre": "\\exp_",
@@ -132,7 +132,7 @@
             "alignBaseline": true
         },
         {
-            "wide": true,
+            "width": "wide",
             "tex": "\\log_{10}",
             "encapsulate": {
                 "pre": "\\log_{",
@@ -173,57 +173,61 @@
         },
         {
             "insert": "\\arcsin",
-            "wide": true,
+            "width": "wide",
             "tex": "\\arcsin",
             "alignBaseline": true
         },
         {
             "insert": "\\arccos",
-            "wide": true,
+            "width": "wide",
             "tex": "\\arccos",
             "alignBaseline": true
         },
         {
             "insert": "\\arctan",
-            "wide": true,
+            "width": "wide",
             "tex": "\\arctan",
             "alignBaseline": true
         },
         {
             "insert": "\\arccot",
-            "wide": true,
+            "width": "wide",
             "tex": "\\arccot",
             "alignBaseline": true
         },
         {
             "insert": "\\arcsec",
-            "wide": true,
+            "width": "wide",
             "tex": "\\arcsec",
             "alignBaseline": true
         },
         {
             "insert": "\\arccsc",
-            "wide": true,
+            "width": "wide",
             "tex": "\\arccsc",
             "alignBaseline": true
         },
         {
             "insert": "\\sinh",
+            "width": "wide",
             "tex": "\\sinh",
             "alignBaseline": true
         },
         {
             "insert": "\\cosh",
+            "width": "wide",
             "tex": "\\cosh",
             "alignBaseline": true
         },
         {
             "insert": "\\tanh",
+            "width": "wide",
             "tex": "\\tanh",
             "alignBaseline": true
         },
         {
             "insert": "\\coth",
+            "width": "wide",
             "tex": "\\coth",
             "alignBaseline": true
         },
@@ -244,24 +248,25 @@
         },
         {
             "insert": "\\operatorname{coth}",
+            "width": "wide",
             "tex": "\\operatorname{coth}",
             "alignBaseline": true
         },
         {
             "insert": "\\operatorname{argsh}",
-            "wide": true,
+            "width": "wide",
             "tex": "\\operatorname{argsh}",
             "alignBaseline": true
         },
         {
             "insert": "\\operatorname{argch}",
-            "wide": true,
+            "width": "wide",
             "tex": "\\operatorname{argch}",
             "alignBaseline": true
         },
         {
             "insert": "\\operatorname{argth}",
-            "wide": true,
+            "width": "wide",
             "tex": "\\operatorname{argth}",
             "alignBaseline": true
         },
@@ -280,7 +285,7 @@
             "alignBaseline": true
         },
         {
-            "wide": true,
+            "width": "wider",
             "tex": "\\min(x,y)",
             "encapsulate": {
                 "pre": "\\min(",
@@ -290,7 +295,7 @@
             "alignBaseline": true
         },
         {
-            "wide": true,
+            "width": "wider",
             "tex": "\\max(x,y)",
             "encapsulate": {
                 "pre": "\\max(",
@@ -328,13 +333,13 @@
         },
         {
             "insert": "\\liminf",
-            "wide": true,
+            "width": "wide",
             "tex": "\\liminf",
             "alignBaseline": true
         },
         {
             "insert": "\\limsup",
-            "wide": true,
+            "width": "wide",
             "tex": "\\limsup",
             "alignBaseline": true
         },
@@ -367,6 +372,7 @@
         },
         {
             "insert": "\\hom",
+            "width": "wide",
             "tex": "\\hom",
             "alignBaseline": true
         },
@@ -404,12 +410,12 @@
         },
         {
             "insert": "dy/dx",
-            "wide": true,
+            "width": "wider",
             "tex": "dy/dx"
         },
         {
             "insert": "\\operatorname{d}\\!y/\\operatorname{d}\\!x",
-            "wide": true,
+            "width": "wider",
             "tex": "\\operatorname{d}\\!y/\\operatorname{d}\\!x"
         },
         {
@@ -425,7 +431,7 @@
         {
             "insert": "{\\partial^2\\over\\partial x_1\\partial x_2}y",
             "contain": true,
-            "wide": true,
+            "width": "wider",
             "tex": "{\\partial^2\\over\\partial x_1\\partial x_2}y"
         },
         {
@@ -532,7 +538,7 @@
     ],
     "math-visualeditor-symbol-group-modular": [
         {
-            "wide": true,
+            "width": "wider",
             "tex": "\\pmod{m}",
             "encapsulate": {
                 "pre": "\\pmod{",
@@ -542,7 +548,7 @@
             "alignBaseline": true
         },
         {
-            "wide": true,
+            "width": "wider",
             "tex": "a\\bmod b",
             "encapsulate": {
                 "pre": "",
@@ -552,7 +558,7 @@
             "alignBaseline": true
         },
         {
-            "wide": true,
+            "width": "wider",
             "tex": "\\gcd(m, n)",
             "encapsulate": {
                 "pre": "\\gcd(",
@@ -563,7 +569,7 @@
         },
         {
             "insert": "\\operatorname{lcm}(m, n)",
-            "wide": true,
+            "width": "wider",
             "tex": "\\operatorname{lcm}(m, n)",
             "encapsulate": {
                 "pre": "\\operatorname{lcm}(",
@@ -2392,7 +2398,7 @@
     ],
     "math-visualeditor-symbol-group-spacing": [
         {
-            "wide": true,
+            "width": "wider",
             "tex": "a \\qquad b",
             "encapsulate": {
                 "pre": "",
@@ -2401,7 +2407,7 @@
             }
         },
         {
-            "wide": true,
+            "width": "wide",
             "tex": "a \\quad b",
             "encapsulate": {
                 "pre": "",
@@ -2675,7 +2681,7 @@
         },
         {
             "contain": true,
-            "wide": true,
+            "width": "wide",
             "tex": "\\begin{matrix} x & y \\\\ z & v \\end{matrix}",
             "encapsulate": {
                 "pre": "\\begin{matrix} ",
@@ -2685,7 +2691,7 @@
         },
         {
             "contain": true,
-            "wide": true,
+            "width": "wide",
             "tex": "\\begin{vmatrix} x & y \\\\ z & v \\end{vmatrix}",
             "encapsulate": {
                 "pre": "\\begin{vmatrix} ",
@@ -2695,7 +2701,7 @@
         },
         {
             "contain": true,
-            "wide": true,
+            "width": "wide",
             "tex": "\\begin{Vmatrix} x & y \\\\ z & v \\end{Vmatrix}",
             "encapsulate": {
                 "pre": "\\begin{Vmatrix} ",
@@ -2705,7 +2711,7 @@
         },
         {
             "contain": true,
-            "wide": true,
+            "width": "wide",
             "tex": "\\begin{bmatrix} x & y \\\\ z & v \\end{bmatrix}",
             "encapsulate": {
                 "pre": "\\begin{bmatrix} ",
@@ -2715,7 +2721,7 @@
         },
         {
             "contain": true,
-            "wide": true,
+            "width": "wide",
             "tex": "\\begin{Bmatrix} x & y \\\\ z & v \\end{Bmatrix}",
             "encapsulate": {
                 "pre": "\\begin{Bmatrix} ",
@@ -2725,7 +2731,7 @@
         },
         {
             "contain": true,
-            "wide": true,
+            "width": "wide",
             "tex": "\\begin{pmatrix} x & y \\\\ z & v \\end{pmatrix}",
             "encapsulate": {
                 "pre": "\\begin{pmatrix} ",
@@ -2734,7 +2740,7 @@
             }
         },
         {
-            "wide": true,
+            "width": "wide",
             "tex": "\\bigl( \\begin{smallmatrix} x & y \\\\ z & v \\end{smallmatrix} \\bigr)",
             "encapsulate": {
                 "pre": "\\bigl( \\begin{smallmatrix} ",
@@ -2773,6 +2779,7 @@
         },
         {
             "tex": "a^{2+2}",
+            "width": "wide",
             "encapsulate": {
                 "pre": "",
                 "placeholder": "a",
@@ -2817,7 +2824,7 @@
             "alignBaseline": true
         },
         {
-            "wide": true,
+            "width": "wide",
             "tex": "10^{10^{8}}",
             "encapsulate": {
                 "pre": "",
@@ -2828,7 +2835,7 @@
         },
         {
             "contain": true,
-            "wide": true,
+            "width": "wide",
             "tex": "\\sideset{_1^2}{_3^4}\\prod_a^b",
             "encapsulate": {
                 "pre": "\\sideset{_",
@@ -2867,6 +2874,7 @@
             }
         },
         {
+            "contain": true,
             "tex": "\\stackrel{\\alpha}{\\omega}",
             "encapsulate": {
                 "pre": "\\stackrel{",
@@ -2957,7 +2965,7 @@
             }
         },
         {
-            "wide": true,
+            "width": "wide",
             "tex": "\\textstyle \\sum_{k=1}^N",
             "encapsulate": {
                 "pre": "\\textstyle \\sum_{",
@@ -2989,7 +2997,7 @@
             }
         },
         {
-            "wide": true,
+            "width": "wide",
             "tex": "\\textstyle \\prod_{i=1}^N",
             "encapsulate": {
                 "pre": "\\textstyle \\prod_{",
@@ -3011,7 +3019,7 @@
             }
         },
         {
-            "wide": true,
+            "width": "wide",
             "tex": "\\textstyle \\coprod_{i=1}^N",
             "encapsulate": {
                 "pre": "\\textstyle \\coprod_{",
@@ -3020,6 +3028,7 @@
             }
         },
         {
+            "width": "wide",
             "tex": "\\lim_{n \\to \\infty}",
             "encapsulate": {
                 "pre": "\\lim_{",
@@ -3028,7 +3037,7 @@
             }
         },
         {
-            "wide": true,
+            "width": "wider",
             "tex": "\\textstyle \\lim_{n \\to \\infty}",
             "encapsulate": {
                 "pre": "\\textstyle \\lim_{",
@@ -3073,7 +3082,7 @@
             }
         },
         {
-            "wide": true,
+            "width": "wide",
             "tex": "\\textstyle \\int_{-N}^{N} x",
             "encapsulate": {
                 "pre": "\\textstyle \\int_{",
@@ -3083,7 +3092,7 @@
         },
         {
             "contain": true,
-            "wide": true,
+            "width": "wide",
             "tex": "\\iint xy",
             "encapsulate": {
                 "pre": "\\iint ",
@@ -3093,7 +3102,7 @@
         },
         {
             "contain": true,
-            "wide": true,
+            "width": "wide",
             "tex": "\\iint\\limits_D xy",
             "encapsulate": {
                 "pre": "\\iint\\limits_",
@@ -3103,7 +3112,7 @@
         },
         {
             "contain": true,
-            "wide": true,
+            "width": "wide",
             "tex": "\\iiint xyz",
             "encapsulate": {
                 "pre": "\\iiint ",
@@ -3113,7 +3122,7 @@
         },
         {
             "contain": true,
-            "wide": true,
+            "width": "wider",
             "tex": "\\iiiint xyzt",
             "encapsulate": {
                 "pre": "\\iiiint ",
@@ -3154,39 +3163,39 @@
             "insert": "f(n) = \\begin{cases} n/2, & \\text{if }n\\text{ is even} \\\\ 3n+1, & \\text{if }n\\text{ is odd} \\end{cases}",
             "largeLayout": true,
             "contain": true,
-            "wide": true,
+            "width": "wider",
             "tex": "f(n) = \\begin{cases} n/2, & \\text{if }n\\text{ is even} \\\\ 3n+1, & \\text{if }n\\text{ is odd} \\end{cases}"
         },
         {
             "insert": "\\begin{align} f(x) & = (a+b)^2 \\\\ & = a^2+2ab+b^2 \\\\ \\end{align}",
             "largeLayout": true,
-            "wide": true,
+            "width": "wider",
             "tex": "\\begin{align} f(x) & = (a+b)^2 \\\\ & = a^2+2ab+b^2 \\\\ \\end{align}"
         },
         {
             "insert": "\\begin{alignat}{2} f(x) & = (a+b)^2 \\\\ & = a^2+2ab+b^2 \\\\ \\end{alignat}",
             "largeLayout": true,
-            "wide": true,
+            "width": "wider",
             "tex": "\\begin{alignat}{2} f(x) & = (a+b)^2 \\\\ & = a^2+2ab+b^2 \\\\ \\end{alignat}"
         },
         {
             "insert": "\\begin{array}{lcl} z & = & a \\\\ f(x,y,z) & = & x + y + z \\end{array}",
             "largeLayout": true,
             "contain": true,
-            "wide": true,
+            "width": "wider",
             "tex": "\\begin{array}{lcl} z & = & a \\\\ f(x,y,z) & = & x + y + z \\end{array}"
         },
         {
             "insert": "\\begin{array}{lcr} z & = & a \\\\ f(x,y,z) & = & x + y + z \\end{array}",
             "largeLayout": true,
             "contain": true,
-            "wide": true,
+            "width": "wider",
             "tex": "\\begin{array}{lcr} z & = & a \\\\ f(x,y,z) & = & x + y + z \\end{array}"
         },
         {
             "insert": "\\begin{cases} 3x + 5y + z \\\\ 7x - 2y + 4z \\\\ -6x + 3y + 2z \\end{cases}",
             "largeLayout": true,
-            "wide": true,
+            "width": "wider",
             "tex": "\\begin{cases} 3x + 5y + z \\\\ 7x - 2y + 4z \\\\ -6x + 3y + 2z \\end{cases}"
         },
         {
@@ -3198,19 +3207,19 @@
         {
             "insert": "A \\xleftarrow{n+\\mu-1} B \\xrightarrow[T]{n\\pm i-1} C",
             "largeLayout": true,
-            "wide": true,
+            "width": "wider",
             "tex": "A \\xleftarrow{n+\\mu-1} B \\xrightarrow[T]{n\\pm i-1} C"
         },
         {
             "insert": "\\overbrace{ 1+2+\\cdots+100 }^{5050}",
             "largeLayout": true,
-            "wide": true,
+            "width": "wider",
             "tex": "\\overbrace{ 1+2+\\cdots+100 }^{5050}"
         },
         {
             "insert": "\\underbrace{ a+b+\\cdots+z }_{26}",
             "largeLayout": true,
-            "wide": true,
+            "width": "wider",
             "tex": "\\underbrace{ a+b+\\cdots+z }_{26}"
         }
     ]
