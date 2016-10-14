@@ -54,7 +54,18 @@
 }
 
 .ve-ui-mwMathPage-symbol-wide {
+	/* 2(symbol width) + margin */
+	width: 3.7em;
+}
+
+.ve-ui-mwMathPage-symbol-wider {
+	/* 2.5(symbol width) + 1.5(margin) */
 	width: 4.65em;
+}
+
+.ve-ui-mwMathPage-symbol-widest {
+	/* 3(symbol width) + 2(margin) */
+	width: 5.6em;
 }
 
 .ve-ui-mwMathPage-symbol-contain {
@@ -67,6 +78,7 @@
 }
 
 .ve-ui-mwMathPage-symbol-largeLayout.ve-ui-mwMathPage-symbol-wide {
+	/* 5(symbol width) + 4(margin) */
 	width: 9.4em;
 }
 
