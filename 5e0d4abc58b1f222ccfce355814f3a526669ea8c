@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e97535f_820c8f3e",
+        "filename": "modules/ext.math.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2016-10-15T21:42:25Z",
+      "side": 1,
+      "message": "you don\u0027t need to cast these to booleans (!!) as the result is never stored",
+      "revId": "5e0d4abc58b1f222ccfce355814f3a526669ea8c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
