@@ -77,6 +77,7 @@
 	"math_unknown_error": "error desconocido",
 	"math_unknown_function": "función desconocida «$1»",
 	"mw_math_latexml": "LaTeXML (experimental, usa MathML)",
+	"mw_math_latexml_jax": "LaTeXML con MathJax procesado en el navegador (experimental; usa MathML)",
 	"mw_math_mathjax": "MathJax del lado del cliente (lento; mejora el dibujado en algunos navegadores y herramientas de accesibilidad)",
 	"mw_math_mathml": "MathML con SVG o PNG como alternativa (recomendado para navegadores modernos y herramientas de accesibilidad)",
 	"mw_math_png": "Imágenes PNG",
