@@ -52,7 +52,7 @@
 	"math_failure": "Parser nie mógł rozpoznać",
 	"math_image_error": "Konwersja z lub do formatu PNG nie powiodła się. Sprawdź, czy poprawnie zainstalowane są latex i dvipng (lub dvips, gs i convert)",
 	"math_invalidjson": "Odpowiedź serwera $1 jest nieprawidłowym JSON.",
-	"math_invalidresponse": "$1: Nieprawidłowa odpowiedź (\"$3\") z serwera \"$2\":",
+	"math_invalidresponse": "$1: Nieprawidłowa odpowiedź („$3”) z serwera „$2”:",
 	"math_invalidxml": "MathML lub SVG zawiera nieprawidłowy kod XML.",
 	"math_lexing_error": "błędna nazwa",
 	"math_mathoid_error": "Błąd konwersji. Serwer („$1”) zgłosił: „$2”",
