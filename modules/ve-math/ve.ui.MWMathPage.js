@@ -16,7 +16,7 @@
  * @param {Object} [config] Configuration options
  */
 ve.ui.MWMathPage = function VeUiMWMathPage( name, config ) {
-	var i, ilen, j, jlen, insert, symbol, symbols, $symbols,
+	var i, ilen, j, jlen, symbol, symbols, $symbols,
 		symbolNode, symbolsNode, tex, classes;
 
 	// Parent constructor
@@ -33,7 +33,6 @@ ve.ui.MWMathPage = function VeUiMWMathPage( name, config ) {
 		symbol = symbols[ i ];
 		if ( !symbol.notWorking && !symbol.duplicate ) {
 			tex = symbol.tex;
-			insert = symbol.insert;
 			classes = [ 've-ui-mwMathPage-symbol' ];
 			classes.push(
 				've-ui-mwMathSymbol-' + tex.replace( /[^\w]/g, function ( c ) {
