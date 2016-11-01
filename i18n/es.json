@@ -49,6 +49,7 @@
 	"math-visualeditor-symbol-group-special": "Especial",
 	"math-visualeditor-symbol-group-subscripts": "Subíndices, superíndices e integrales",
 	"math-visualeditor-symbol-group-symbols": "Símbolos y constantes",
+	"math-visualeditor-symbol-group-typefaces": "Tipos de letra",
 	"math-visualeditor-symbol-group-unsorted": "Miscelánea",
 	"math_bad_output": "No se puede escribir o crear el directorio de salida de <em>math</em>",
 	"math_bad_tmpdir": "No se puede escribir o crear el directorio temporal de <em>math</em>",

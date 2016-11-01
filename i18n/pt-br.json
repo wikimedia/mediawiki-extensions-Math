@@ -6,7 +6,8 @@
 			"Luckas",
 			"555",
 			"Macofe",
-			"Dianakc"
+			"Dianakc",
+			"Hamilton Abreu"
 		]
 	},
 	"math-desc": "Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
