@@ -63,6 +63,6 @@ img.tex {
  *https://phabricator.wikimedia.org/T134281
 */
 dl > dd {
-    overflow-x: scroll !important;
+    overflow-x: scroll;
     width: 100%;
 }
