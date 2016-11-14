@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2eb1770d_5da30ea9",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2016-11-14T16:30:24Z",
+      "side": 1,
+      "message": "1) !important should be used sparingly - it can cause lots of problems and only used where it has to be- https://developer.mozilla.org/en/docs/Web/CSS/Specificity\n\n2) This rule is VERY generic. It will impact all definition lists on a page.\nIs there a way to scope this to only the math classes which experience this problem? Are there classes that can be used to achieve the same result?",
+      "revId": "8d0b736e12e71c93b8b49c8a2ebaeba4d6424803",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eb1770d_7d96ca50",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2016-11-14T16:30:24Z",
+      "side": 1,
+      "message": "Please add new line.\nIf it\u0027s not obvious why here\u0027s a good explanation (apologies if you already know this :)) :\nhttp://stackoverflow.com/questions/729692/why-should-text-files-end-with-a-newline/729795#729795",
+      "revId": "8d0b736e12e71c93b8b49c8a2ebaeba4d6424803",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
