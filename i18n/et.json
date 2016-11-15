@@ -63,6 +63,7 @@
 	"math-test-contains-diff": "Tagastatud sõne $1 ei sisalda oodatud sõnet $2.",
 	"math-test-equals-diff": "Tagastatud sõne $1 erineb oodatud sõnest $2.",
 	"math_tip": "Matemaatiline valem (LaTeX)",
+	"math-tracking-category-error": "Leheküljed, kus matemaatilises valemis on tõrge",
 	"math_unknown_error": "Tundmatu viga",
 	"math_unknown_function": "tundmatu funktsioon '$1'",
 	"mw_math_mathjax": "Kliendipoolne MathJax (aeglane, parem viimistlus mõne veebilehitseja ja hõlbustusriista puhul)",
