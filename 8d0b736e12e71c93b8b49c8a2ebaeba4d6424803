@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "2eb1770d_1387b2dd",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2016-11-15T14:08:11Z",
+      "side": 1,
+      "message": "Giving the dl or the dd a class would be sufficient. I\u0027m not sure where those get outputted- you\u0027ll have to do some debugging of the code!",
+      "parentUuid": "2eb1770d_13c33763",
+      "revId": "8d0b736e12e71c93b8b49c8a2ebaeba4d6424803",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2eb1770d_7d96ca50",
         "filename": "modules/ext.math.css",
         "patchSetId": 1
