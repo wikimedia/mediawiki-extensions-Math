@@ -7,7 +7,8 @@
 			"Mirzali",
 			"Xoser",
 			"Macofe",
-			"Kumkumuk"
+			"Kumkumuk",
+			"1917 Ekim Devrimi"
 		]
 	},
 	"math-visualeditor-mwmathdialog-title": "Formul",
@@ -41,5 +42,6 @@
 	"mw_math_mathml": "Eka mumkin, MathML (deneme)",
 	"mw_math_png": "PNG resimi",
 	"mw_math_source": "Çımeyê LaTeXi (seba geyroğê metınan rê)",
-	"prefs-math": "Matematigane simgey"
+	"prefs-math": "Matematigane simgey",
+	"mathstatus": "Weziyeta matematiki"
 }
