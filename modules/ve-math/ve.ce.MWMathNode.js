@@ -28,7 +28,7 @@ OO.inheritClass( ve.ce.MWMathNode, ve.ce.MWInlineExtensionNode );
 
 ve.ce.MWMathNode.static.name = 'mwMath';
 
-ve.ce.MWMathNode.static.primaryCommandName = 'math';
+ve.ce.MWMathNode.static.primaryCommandName = 'mathDialog';
 
 /* Methods */
 
