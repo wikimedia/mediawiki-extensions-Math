@@ -16,7 +16,7 @@
 	"math_tip": "Formula matematica (LaTeX)",
 	"math_unknown_error": "error indeterminada",
 	"math_unknown_function": "foncion desconeguda « $1 »",
-	"mw_math_mathjax": "MathJax (experimental)",
+	"mw_math_mathjax": "MathJax costat client (lent, melhora lo rendut per certans navigadors e aisinas d’accessibilitat)",
 	"mw_math_mathml": "MathML amb SVG o PNG en secors (experimental)",
 	"mw_math_png": "Imatges PNG",
 	"mw_math_source": "Font LaTeX (pels navigadors en mòde tèxte)",
