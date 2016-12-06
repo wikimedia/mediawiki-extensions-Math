@@ -10,7 +10,8 @@
 			"LNDDYL",
 			"PhiLiP",
 			"Bowleerin",
-			"Macofe"
+			"Macofe",
+			"Alexsh"
 		]
 	},
 	"math-desc": "在 <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code> 標籤顯示數學公式",
@@ -38,7 +39,7 @@
 	"math_notexvc": "缺少 \"<code>texvc</code>\" 執行程式；請參考 math/README 進行設定。",
 	"math_output_error": "無法儲存數學公式圖片於檔案系統。",
 	"math_sample": "在此插入數學公式",
-	"math-status-introduction": "此頁面顯示有關已開啟的數學繪圖模式資訊。\n\n下列繪圖{{PLURAL:$1|模式|模式}}已開啟：",
+	"math-status-introduction": "此頁面顯示有關已開啟的數學繪圖模式資訊。\n下列繪圖模式已開啟：",
 	"math_syntax_error": "語法錯誤",
 	"math_timeout": "\"$2\" 的 $1 逾時。",
 	"math-test-end": "繪圖模式 ''$1'' 的後端測試已完成。",
