@@ -3,7 +3,8 @@
 		"authors": [
 			"Mienski",
 			"Yury Tarasievich",
-			"Macofe"
+			"Macofe",
+			"Mechanizatar"
 		]
 	},
 	"math_bad_output": "Немагчыма запісаць у або стварыць выводны каталог для матэматыкі",
@@ -16,9 +17,9 @@
 	"math_syntax_error": "памылка сінтаксісу",
 	"math_tip": "Матэматычная формула (LaTeX)",
 	"math_unknown_error": "невядомая памылка",
-	"math_unknown_function": "невядомая функцыя",
+	"math_unknown_function": "невядомая функцыя \"$1\"",
 	"mw_math_mathml": "MathML калі магчыма (эксперыментальнае)",
-	"mw_math_png": "Заўсёды вырабляць PNG",
+	"mw_math_png": "PNG-выявы",
 	"mw_math_source": "Пакідаць у выглядзе LaTeX (для тэкставых браўзераў)",
 	"prefs-math": "Матэматыка"
 }
