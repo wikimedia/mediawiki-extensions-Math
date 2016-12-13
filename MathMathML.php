@@ -447,6 +447,7 @@ class MathMathML extends MathRenderer {
 			$element = 'span';
 		}
 		$attribs = [];
+		$attribs['class']="mwe-math-element";
 		if ( $this->getID() !== '' ) {
 			$attribs['id'] = $this->getID();
 		}
