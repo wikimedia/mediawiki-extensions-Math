@@ -35,11 +35,13 @@ class MathSource extends MathRenderer {
 	function getHtmlOutput() {
 		# No need to render or parse anything more!
 		# New lines are replaced with spaces, which avoids confusing our parser (bugs 23190, 22818)
+		global $wgMathElementClassName;
 		if ( $this->getMathStyle() == 'display' ) {
 			$class = 'mwe-math-fallback-source-display';
 		} else {
 			$class = 'mwe-math-fallback-source-inline';
 		}
+		$class .= " $wgMathElementClassName";
 		return Xml::element( 'span',
 			$this->getAttributes(
 				'span',

@@ -418,6 +418,7 @@ class MathMathML extends MathRenderer {
 	 * @return string the class name
 	 */
 	private function getClassName( $fallback = false ) {
+		global $wgMathElementClassName;
 		$class = 'mwe-math-';
 		if ( $fallback ) {
 			$class .= 'fallback-image-';
@@ -434,7 +435,7 @@ class MathMathML extends MathRenderer {
 			$class .= ' mwe-math-mathml-a11y';
 			// @codingStandardsIgnoreEnd
 		}
-		return $class;
+		return $class . " $wgMathElementClassName";
 	}
 
 	/**

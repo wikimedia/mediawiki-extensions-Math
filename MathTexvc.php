@@ -148,6 +148,7 @@ class MathTexvc extends MathRenderer {
 			// if DisplayStyle is true, the equation will be centered in a new line
 			$attributes[ 'class' ] = 'mwe-math-fallback-image-display tex';
 		}
+		$attributes[ 'class' ] .= " mw-math-element";
 		return Xml::element( 'img',
 			$this->getAttributes(
 				'img',
