@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2edfb757_a6c2e986",
+        "filename": "MathMathML.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 4002
+      },
+      "writtenOn": "2016-12-13T18:20:26Z",
+      "side": 1,
+      "message": "So what do you recommend should be done here? Change it to a span?",
+      "parentUuid": "2edfb757_121b38d6",
+      "revId": "6c77e3b9d58ddf6c9e997545f219cad221deead1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2edfb757_12bd7863",
         "filename": "modules/ext.math.css",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-12-13T17:22:44Z",
       "side": 1,
       "message": "I think a good idea would be to add this to the mwe-math-mathml-display",
+      "revId": "6c77e3b9d58ddf6c9e997545f219cad221deead1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2edfb757_66be41d3",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 4002
+      },
+      "writtenOn": "2016-12-13T18:20:26Z",
+      "side": 1,
+      "message": "Will that be all for fixing the bug?",
+      "parentUuid": "2edfb757_12bd7863",
       "revId": "6c77e3b9d58ddf6c9e997545f219cad221deead1",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
