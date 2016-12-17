@@ -27,6 +27,7 @@ class MathGenerateTests extends Maintenance
 
 	public function __construct() {
 		parent::__construct();
+		$this->requireExtension( 'Math' );
 		$this->mDescription = 'Rebuilds the MathCoverage tests';
 		$this->addArg( 'page', "The page used for the testset generation.", false );
 		$this->addOption(
