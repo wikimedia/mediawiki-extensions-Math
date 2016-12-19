@@ -20,7 +20,7 @@
 	"mw_math_latexml_jax": "LaTeXML con MathJax latere cliente (experimental; utilisa MathML)",
 	"mw_math_mathjax": "MathJax latere cliente (lente; meliora le rendition pro certe navigatores e instrumentos de accessibilitate)",
 	"mw_math_mathml": "MathML con recurso a SVG o PNG (recommendate pro navigatores moderne e instrumentos de accessibilitate)",
-	"mw_math_png": "Sempre producer PNG",
+	"mw_math_png": "Imagines PNG",
 	"mw_math_source": "Codice-fonte LaTeX (pro navigatores in modo texto)",
 	"prefs-math": "Mathematica"
 }
