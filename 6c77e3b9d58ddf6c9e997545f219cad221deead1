@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "0e0e73b5_948702dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1963
+      },
+      "writtenOn": "2016-12-20T22:28:46Z",
+      "side": 1,
+      "message": "How about something like \"Add class `mwe-math-element` to math elements\"\n\nAnd in the body of the commit message say something about why? Maybe:\n\n\"This class helps style math formulas easily. Also the default styling makes math formulas take up the max width of 100% of the container.\"",
+      "revId": "6c77e3b9d58ddf6c9e997545f219cad221deead1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e0e73b5_748c8eff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1963
+      },
+      "writtenOn": "2016-12-20T22:28:46Z",
+      "side": 1,
+      "message": "Here I\u0027d add:\n\n\"Bug: T134281\"",
+      "revId": "6c77e3b9d58ddf6c9e997545f219cad221deead1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2edfb757_121b38d6",
         "filename": "MathMathML.php",
         "patchSetId": 1
@@ -37,6 +71,42 @@
     },
     {
       "key": {
+        "uuid": "0e0e73b5_344176ad",
+        "filename": "MathMathML.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1963
+      },
+      "writtenOn": "2016-12-20T22:28:46Z",
+      "side": 1,
+      "message": "It would be helpful for newcomers to this codebase to have this comment in the code.",
+      "parentUuid": "2edfb757_121b38d6",
+      "revId": "6c77e3b9d58ddf6c9e997545f219cad221deead1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e0e73b5_7415ae9b",
+        "filename": "MathMathML.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1963
+      },
+      "writtenOn": "2016-12-20T22:28:46Z",
+      "side": 1,
+      "message": "TameeshB, you should add the class to $element.",
+      "parentUuid": "2edfb757_a6c2e986",
+      "revId": "6c77e3b9d58ddf6c9e997545f219cad221deead1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2edfb757_12bd7863",
         "filename": "modules/ext.math.css",
         "patchSetId": 1
@@ -66,6 +136,23 @@
       "side": 1,
       "message": "Will that be all for fixing the bug?",
       "parentUuid": "2edfb757_12bd7863",
+      "revId": "6c77e3b9d58ddf6c9e997545f219cad221deead1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e0e73b5_b48206cc",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1963
+      },
+      "writtenOn": "2016-12-20T22:28:46Z",
+      "side": 1,
+      "message": "I think this should be `max-width` as otherwise you\u0027d be scaling images up, which will result in blurry images.",
       "revId": "6c77e3b9d58ddf6c9e997545f219cad221deead1",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
