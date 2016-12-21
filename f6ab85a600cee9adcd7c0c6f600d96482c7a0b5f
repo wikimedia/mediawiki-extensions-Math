@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e0e73b5_8916c358",
+        "filename": "MathMathML.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1963
+      },
+      "writtenOn": "2016-12-21T20:38:54Z",
+      "side": 1,
+      "message": "Since class is being set here, I\u0027d undo the changes in line 449-451 and move them up to the line 437, like so:\n\nreturn $class . \" mw-math-element\";",
+      "revId": "f6ab85a600cee9adcd7c0c6f600d96482c7a0b5f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
