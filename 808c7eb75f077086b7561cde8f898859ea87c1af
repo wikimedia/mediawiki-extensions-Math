@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e0e73b5_1bd57aba",
+        "filename": "MathTexvc.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1963
+      },
+      "writtenOn": "2016-12-21T22:41:19Z",
+      "side": 1,
+      "message": "Here also we should use the config variable.",
+      "revId": "808c7eb75f077086b7561cde8f898859ea87c1af",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
