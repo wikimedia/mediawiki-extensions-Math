@@ -115,8 +115,7 @@
 		],
 		"MathEnableWikibaseDataType": true,
 		"Texvc": false,
-		"TexvcBackgroundColor": "transparent",
-		"MathElementClassName": "mw-math-element"
+		"TexvcBackgroundColor": "transparent"
 	},
 	"VisualEditorPluginModules": [
 		"ext.math.visualEditor"

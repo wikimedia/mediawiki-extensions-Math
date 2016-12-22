@@ -21,6 +21,8 @@ use MediaWiki\Logger\LoggerFactory;
  * @author Moritz Schubotz
  */
 abstract class MathRenderer {
+	/** @const string class name to be added to all math elements */
+	const ELEMENT_CLASSNAME = "mwe-math-element";
 
 	// REPRESENTATIONS OF THE MATHEMATICAL CONTENT
 	/** @var string tex representation */
