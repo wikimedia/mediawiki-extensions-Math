@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e0e73b5_b83e69b3",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2016-12-23T09:32:02Z",
+      "side": 1,
+      "message": "I suggest removing the variable and use string instead. Otherwise there is an incosistency with the other math class names.",
+      "revId": "a4f368a7485a539951a91b07eceabfbe91fa55d5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
