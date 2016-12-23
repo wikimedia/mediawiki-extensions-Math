@@ -16,6 +16,24 @@
       "revId": "a4f368a7485a539951a91b07eceabfbe91fa55d5",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e0e73b5_867b4223",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1963
+      },
+      "writtenOn": "2016-12-23T17:20:01Z",
+      "side": 1,
+      "message": "Removing may solve the inconsistency issue, but we\u0027d be repeating ourselves multiple times. I suppose we won\u0027t change the class name for a long time and making it a config variable also doesn\u0027t make too much sense.\n\nI haven\u0027t delved too deep into the math codebase, but I think given the problem at hand, we can remove this and think about how to make the code more maintainable in the future.",
+      "parentUuid": "0e0e73b5_b83e69b3",
+      "revId": "a4f368a7485a539951a91b07eceabfbe91fa55d5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
