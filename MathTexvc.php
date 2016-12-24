@@ -137,7 +137,6 @@ class MathTexvc extends MathRenderer {
 	 * @return string img HTML
 	 */
 	public function getMathImageHTML() {
-		global $wgMathElementClassName;
 		$url = $this->getMathImageUrl();
 		$attributes = [
 			// the former class name was 'tex'
@@ -149,7 +148,6 @@ class MathTexvc extends MathRenderer {
 			// if DisplayStyle is true, the equation will be centered in a new line
 			$attributes[ 'class' ] = 'mwe-math-fallback-image-display tex';
 		}
-		$attributes[ 'class' ] .= " $wgMathElementClassName";
 		return Xml::element( 'img',
 			$this->getAttributes(
 				'img',
