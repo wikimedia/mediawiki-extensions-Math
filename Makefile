@@ -1,6 +1,6 @@
 DIRS = texvc texvccheck
 
-.PHONY: all
+.PHONY: all texvccheck
 
 all: texvc texvccheck
 
