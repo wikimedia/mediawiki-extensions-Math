@@ -1,5 +1,3 @@
-DIRS = texvc texvccheck
-
 .PHONY: all
 
 all: texvc texvccheck
