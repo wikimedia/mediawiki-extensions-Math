@@ -2,6 +2,7 @@
 *.cmi
 *.cmx
 *.o
+parser.mli
 
 # The binaries
 texvc

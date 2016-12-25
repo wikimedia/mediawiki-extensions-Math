@@ -1,9 +1,8 @@
 # Compiled source
-*.mli
-!tex.mli
 *.cmi
 *.cmx
 *.o
+parser.mli
 
 # The binaries
 texvccheck
