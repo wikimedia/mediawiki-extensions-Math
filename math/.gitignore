@@ -1,5 +1,4 @@
 # Compiled source
-*.mli
 *.cmi
 *.cmx
 *.o
