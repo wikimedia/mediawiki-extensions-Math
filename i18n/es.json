@@ -86,5 +86,6 @@
 	"prefs-math": "Matemáticas",
 	"mathstatus": "Estado de matemáticas",
 	"datatypes-type-math": "Expresión matemática",
-	"wikibase-listdatatypes-math-head": "Expresión matemática"
+	"wikibase-listdatatypes-math-head": "Expresión matemática",
+	"wikibase-listdatatypes-math-body": "Campo de datos literales para expresiones matemáticas, fórmulas, ecuaciones y similares, expresado en una variante de LaTeX."
 }
