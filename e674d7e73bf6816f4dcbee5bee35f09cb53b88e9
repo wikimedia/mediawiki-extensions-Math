@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e0e73b5_e3688cf4",
+        "filename": "MathTexvc.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2017-01-03T02:55:23Z",
+      "side": 1,
+      "message": "This adds the class to the image itself not its container.",
+      "revId": "e674d7e73bf6816f4dcbee5bee35f09cb53b88e9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e0e73b5_03a3a040",
+        "filename": "modules/ext.math.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2017-01-03T02:55:23Z",
+      "side": 1,
+      "message": "This is inconsistent with the config",
+      "revId": "e674d7e73bf6816f4dcbee5bee35f09cb53b88e9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
