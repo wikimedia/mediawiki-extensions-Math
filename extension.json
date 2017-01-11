@@ -149,6 +149,15 @@
 		},
 		"ext.math.visualEditor": {
 			"scripts": [
+				"ve-math/ve.dm.MWLatexNode.js",
+				"ve-math/ve.ce.MWLatexNode.js",
+				"ve-math/ve.ui.MWLatexInspector.js",
+				"ve-math/ve.ui.MWLatexContextItem.js",
+				"ve-math/ve.ui.MWLatexDialog.js",
+				"ve-math/ve.dm.MWChemNode.js",
+				"ve-math/ve.ce.MWChemNode.js",
+				"ve-math/ve.ui.MWChemInspector.js",
+				"ve-math/ve.ui.MWChemContextItem.js",
 				"ve-math/ve.dm.MWMathNode.js",
 				"ve-math/ve.ce.MWMathNode.js",
 				"ve-math/ve.ui.MWMathInspector.js",
@@ -158,27 +167,27 @@
 				"ve-math/ve.ui.MWMathDialogTool.js"
 			],
 			"styles": [
-				"ve-math/ve.ce.MWMathNode.css",
+				"ve-math/ve.ui.MWLatexDialog.css",
+				"ve-math/ve.ce.MWLatexNode.css",
+				"ve-math/ve.ui.MWLatexInspector.css",
 				"ve-math/ve.ui.MWMathIcons.css",
-				"ve-math/ve.ui.MWMathInspector.css",
-				"ve-math/ve.ui.MWMathPage.css",
-				"ve-math/ve.ui.MWMathDialog.css"
+				"ve-math/ve.ui.MWMathPage.css"
 			],
 			"dependencies": [
 				"ext.visualEditor.mwcore",
 				"ext.math.styles"
 			],
 			"messages": [
-				"math-visualeditor-mwmathcontextitem-quickedit",
+				"math-visualeditor-mwlatexcontextitem-quickedit",
+				"math-visualeditor-mwlatexdialog-card-formula",
+				"math-visualeditor-mwlatexdialog-card-options",
+				"math-visualeditor-mwlatexinspector-display",
+				"math-visualeditor-mwlatexinspector-display-block",
+				"math-visualeditor-mwlatexinspector-display-default",
+				"math-visualeditor-mwlatexinspector-display-inline",
+				"math-visualeditor-mwlatexinspector-id",
+				"math-visualeditor-mwcheminspector-title",
 				"math-visualeditor-mwmathdialog-title",
-				"math-visualeditor-mwmathdialog-card-formula",
-				"math-visualeditor-mwmathdialog-card-options",
-				"math-visualeditor-mwmathinspector-display",
-				"math-visualeditor-mwmathinspector-display-block",
-				"math-visualeditor-mwmathinspector-display-default",
-				"math-visualeditor-mwmathinspector-display-inline",
-				"math-visualeditor-mwmathinspector-id",
-				"math-visualeditor-mwmathinspector-title",
 				"math-visualeditor-symbol-group-accents",
 				"math-visualeditor-symbol-group-arrows",
 				"math-visualeditor-symbol-group-bounds",

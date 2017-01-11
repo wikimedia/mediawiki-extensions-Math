@@ -1,0 +1,35 @@
+/*!
+ * VisualEditor ContentEditable MWChemNode class.
+ *
+ * @copyright 2011-2015 VisualEditor Team and others; see AUTHORS.txt
+ * @license The MIT License (MIT); see LICENSE.txt
+ */
+
+/**
+ * ContentEditable MediaWiki chem node.
+ *
+ * @class
+ * @extends ve.ce.MWInlineExtensionNode
+ *
+ * @constructor
+ * @param {ve.dm.MWChemNode} model Model to observe
+ * @param {Object} [config] Configuration options
+ */
+ve.ce.MWChemNode = function VeCeMWChemNode() {
+	// Parent constructor
+	ve.ce.MWChemNode.super.apply( this, arguments );
+};
+
+/* Inheritance */
+
+OO.inheritClass( ve.ce.MWChemNode, ve.ce.MWLatexNode );
+
+/* Static Properties */
+
+ve.ce.MWChemNode.static.name = 'mwChem';
+
+ve.ce.MWChemNode.static.primaryCommandName = 'chemDialog';
+
+/* Registration */
+
+ve.ce.nodeFactory.register( ve.ce.MWChemNode );
