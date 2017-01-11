@@ -149,6 +149,20 @@
 		},
 		"ext.math.visualEditor": {
 			"scripts": [
+				"ve-math/ve.dm.MWChemNode.js",
+				"ve-math/ve.ce.MWChemNode.js",
+				"ve-math/ve.ui.MWChemInspector.js",
+				"ve-math/ve.ui.MWChemContextItem.js",
+				"ve-math/ve.ui.MWChemDialog.js",
+				"ve-math/ve.ui.MWChemPage.js",
+				"ve-math/ve.ui.MWChemDialogTool.js"
+				"ve-math/ve.dm.MWLatexNode.js",
+				"ve-math/ve.ce.MWLatexNode.js",
+				"ve-math/ve.ui.MWLatexInspector.js",
+				"ve-math/ve.ui.MWLatexContextItem.js",
+				"ve-math/ve.ui.MWLatexDialog.js",
+				"ve-math/ve.ui.MWLatexPage.js",
+				"ve-math/ve.ui.MWLatexDialogTool.js",
 				"ve-math/ve.dm.MWMathNode.js",
 				"ve-math/ve.ce.MWMathNode.js",
 				"ve-math/ve.ui.MWMathInspector.js",
@@ -158,9 +172,9 @@
 				"ve-math/ve.ui.MWMathDialogTool.js"
 			],
 			"styles": [
-				"ve-math/ve.ce.MWMathNode.css",
+				"ve-math/ve.ce.MWLatexNode.css",
+				"ve-math/ve.ui.MWLatexInspector.css",
 				"ve-math/ve.ui.MWMathIcons.css",
-				"ve-math/ve.ui.MWMathInspector.css",
 				"ve-math/ve.ui.MWMathDialog.css"
 			],
 			"dependencies": [
