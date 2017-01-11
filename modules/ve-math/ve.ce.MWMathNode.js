@@ -22,33 +22,13 @@ ve.ce.MWMathNode = function VeCeMWMathNode() {
 
 /* Inheritance */
 
-OO.inheritClass( ve.ce.MWMathNode, ve.ce.MWInlineExtensionNode );
+OO.inheritClass( ve.ce.MWMathNode, ve.ce.MWLatexNode );
 
 /* Static Properties */
 
 ve.ce.MWMathNode.static.name = 'mwMath';
 
 ve.ce.MWMathNode.static.primaryCommandName = 'mathDialog';
-
-/* Methods */
-
-/**
- * @inheritdoc
- */
-ve.ce.MWMathNode.prototype.onSetup = function () {
-	// Parent method
-	ve.ce.MWMathNode.super.prototype.onSetup.call( this );
-
-	// DOM changes
-	this.$element.addClass( 've-ce-mwMathNode' );
-};
-
-/**
- * @inheritdoc ve.ce.GeneratedContentNode
- */
-ve.ce.MWMathNode.prototype.validateGeneratedContents = function ( $element ) {
-	return !( $element.find( '.error' ).addBack( '.error' ).length );
-};
 
 /* Registration */
 

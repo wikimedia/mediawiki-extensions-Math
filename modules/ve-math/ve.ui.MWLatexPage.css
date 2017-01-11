@@ -1,11 +1,11 @@
 /*!
- * VisualEditor UserInterface MWMathPage styles.
+ * VisualEditor UserInterface MWLatexPage styles.
  *
  * @copyright 2011-2015 VisualEditor Team and others; see AUTHORS.txt
  * @license The MIT License (MIT); see LICENSE.txt
  */
 
-.ve-ui-mwMathPage-symbol {
+.ve-ui-mwLatexPage-symbol {
 	background-position: center;
 	background-repeat: no-repeat;
 	cursor: pointer;
@@ -24,35 +24,35 @@
 	/* stylelint-enable no-unsupported-browser-features */
 }
 
-.ve-ui-mwMathPage-symbol-wide {
+.ve-ui-mwLatexPage-symbol:hover {
+	border-color: #ccc;
+}
+
+.ve-ui-mwLatexPage-symbol-wide {
 	/* 2(symbol width) + margin */
 	width: 3.7em;
 }
 
-.ve-ui-mwMathPage-symbol-wider {
+.ve-ui-mwLatexPage-symbol-wider {
 	/* 2.5(symbol width) + 1.5(margin) */
 	width: 4.65em;
 }
 
-.ve-ui-mwMathPage-symbol-widest {
+.ve-ui-mwLatexPage-symbol-widest {
 	/* 3(symbol width) + 2(margin) */
 	width: 5.6em;
 }
 
-.ve-ui-mwMathPage-symbol-contain {
+.ve-ui-mwLatexPage-symbol-contain {
 	background-size: contain; /* stylelint-disable-line no-unsupported-browser-features */
 }
 
-.ve-ui-mwMathPage-symbol-largeLayout {
+.ve-ui-mwLatexPage-symbol-largeLayout {
 	height: 3.7em;
 	width: 4.65em;
 }
 
-.ve-ui-mwMathPage-symbol-largeLayout.ve-ui-mwMathPage-symbol-wide {
+.ve-ui-mwLatexPage-symbol-largeLayout.ve-ui-mwLatexPage-symbol-wide {
 	/* 5(symbol width) + 4(margin) */
 	width: 9.4em;
-}
-
-.ve.ui.mwMathPage-symbol:hover {
-	border-color: #ccc;
 }

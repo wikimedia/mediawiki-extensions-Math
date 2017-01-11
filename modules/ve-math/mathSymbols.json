@@ -1,5 +1,5 @@
 {
-    "math-visualeditor-symbol-group-accents": [
+    "math-visualeditor-symbol-group-math-accents": [
         {
             "tex": "\\dot{a}",
             "encapsulate": {
@@ -100,7 +100,7 @@
             "alignBaseline": true
         }
     ],
-    "math-visualeditor-symbol-group-functions": [
+    "math-visualeditor-symbol-group-math-functions": [
         {
             "insert": "\\exp",
             "alignBaseline": true
@@ -277,7 +277,7 @@
             "alignBaseline": true
         }
     ],
-    "math-visualeditor-symbol-group-bounds": [
+    "math-visualeditor-symbol-group-math-bounds": [
         {
             "insert": "\\min",
             "alignBaseline": true
@@ -325,7 +325,7 @@
             "alignBaseline": true
         }
     ],
-    "math-visualeditor-symbol-group-projections": [
+    "math-visualeditor-symbol-group-math-projections": [
         {
             "insert": "\\Pr",
             "alignBaseline": true
@@ -349,7 +349,7 @@
             "alignBaseline": true
         }
     ],
-    "math-visualeditor-symbol-group-derivatives": [
+    "math-visualeditor-symbol-group-math-derivatives": [
         {
             "insert": "dt"
         },
@@ -413,7 +413,7 @@
             "insert": "\\ddot y"
         }
     ],
-    "math-visualeditor-symbol-group-symbols": [
+    "math-visualeditor-symbol-group-math-symbols": [
         {
             "insert": "\\infty"
         },
@@ -463,7 +463,7 @@
             "insert": "\\circledS"
         }
     ],
-    "math-visualeditor-symbol-group-modular": [
+    "math-visualeditor-symbol-group-math-modular": [
         {
             "width": "widest",
             "tex": "\\pmod{m}",
@@ -517,7 +517,7 @@
             "insert": "\\nshortmid"
         }
     ],
-    "math-visualeditor-symbol-group-root": [
+    "math-visualeditor-symbol-group-math-root": [
         {
             "insert": "\\surd"
         },
@@ -538,7 +538,7 @@
             }
         }
     ],
-    "math-visualeditor-symbol-group-operators": [
+    "math-visualeditor-symbol-group-math-operators": [
         {
             "insert": "+"
         },
@@ -634,7 +634,7 @@
             "insert": "\\bigodot"
         }
     ],
-    "math-visualeditor-symbol-group-sets": [
+    "math-visualeditor-symbol-group-math-sets": [
         {
             "insert": "\\{"
         },
@@ -786,7 +786,7 @@
             "insert": "\\varsupsetneqq"
         }
     ],
-    "math-visualeditor-symbol-group-relations": [
+    "math-visualeditor-symbol-group-math-relations": [
         {
             "insert": "="
         },
@@ -1079,7 +1079,7 @@
             "insert": "\\succnapprox"
         }
     ],
-    "math-visualeditor-symbol-group-geometry": [
+    "math-visualeditor-symbol-group-math-geometry": [
         {
             "insert": "\\parallel"
         },
@@ -1161,7 +1161,7 @@
             "insert": "\\blacktriangleright"
         }
     ],
-    "math-visualeditor-symbol-group-logic": [
+    "math-visualeditor-symbol-group-math-logic": [
         {
             "insert": "\\forall"
         },
@@ -1257,7 +1257,7 @@
             "insert": "\\lrcorner"
         }
     ],
-    "math-visualeditor-symbol-group-arrows": [
+    "math-visualeditor-symbol-group-math-arrows": [
         {
             "insert": "\\Rrightarrow"
         },
@@ -1470,7 +1470,7 @@
             "insert": "\\twoheadleftarrow"
         }
     ],
-    "math-visualeditor-symbol-group-special": [
+    "math-visualeditor-symbol-group-math-special": [
         {
             "insert": "\\amalg"
         },
@@ -1536,7 +1536,7 @@
             "insert": "\\sharp"
         }
     ],
-    "math-visualeditor-symbol-group-unsorted": [
+    "math-visualeditor-symbol-group-math-unsorted": [
         {
             "insert": "\\diagup"
         },
@@ -1625,7 +1625,7 @@
             "insert": "\\ntrianglerighteq"
         }
     ],
-    "math-visualeditor-symbol-group-greek": [
+    "math-visualeditor-symbol-group-math-greek": [
         {
             "insert": "\\alpha",
             "alignBaseline": true
@@ -1820,7 +1820,7 @@
             "alignBaseline": true
         }
     ],
-    "math-visualeditor-symbol-group-hebrew": [
+    "math-visualeditor-symbol-group-math-hebrew": [
         {
             "insert": "\\aleph"
         },
@@ -1834,7 +1834,7 @@
             "insert": "\\daleth"
         }
     ],
-    "math-visualeditor-symbol-group-typefaces": [
+    "math-visualeditor-symbol-group-math-typefaces": [
         {
             "tex": "\\mathit{1}",
             "encapsulate": {
@@ -1908,7 +1908,7 @@
             }
         }
     ],
-    "math-visualeditor-symbol-group-spacing": [
+    "math-visualeditor-symbol-group-math-spacing": [
         {
             "width": "wider",
             "tex": "a \\qquad b",
@@ -1952,7 +1952,7 @@
             }
         }
     ],
-    "math-visualeditor-symbol-group-parentheses": [
+    "math-visualeditor-symbol-group-math-parentheses": [
         {
             "contain": true,
             "tex": "\\left ( \\frac{1}{2} \\right )",
@@ -2134,7 +2134,7 @@
             "insert": "\\rceil"
         }
     ],
-    "math-visualeditor-symbol-group-matrices": [
+    "math-visualeditor-symbol-group-math-matrices": [
         {
             "contain": true,
             "tex": "\\frac{2}{4}",
@@ -2239,7 +2239,7 @@
             }
         }
     ],
-    "math-visualeditor-symbol-group-subscripts": [
+    "math-visualeditor-symbol-group-math-subscripts": [
         {
             "tex": "a^2",
             "encapsulate": {
@@ -2640,7 +2640,7 @@
             }
         }
     ],
-    "math-visualeditor-symbol-group-large": [
+    "math-visualeditor-symbol-group-math-large": [
         {
             "insert": "f(n) = \\begin{cases} n/2, & \\text{if }n\\text{ is even} \\\\ 3n+1, & \\text{if }n\\text{ is odd} \\end{cases}",
             "largeLayout": true,

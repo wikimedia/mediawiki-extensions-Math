@@ -1,5 +1,5 @@
 /*!
- * VisualEditor UserInterface Math icon styles.
+ * VisualEditor UserInterface LaTeX icon styles.
  *
  * @copyright 2011-2015 VisualEditor Team and others; see AUTHORS.txt
  * @license The MIT License (MIT); see LICENSE.txt
@@ -23,4 +23,9 @@
 .oo-ui-icon-math-display-inline {
 	/* @embed */
 	background-image: url( math-display-inline.svg );
+}
+
+.oo-ui-icon-chem {
+	/* @embed */
+	background-image: url( chem.svg );
 }

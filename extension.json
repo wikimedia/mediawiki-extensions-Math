@@ -13,7 +13,8 @@
 	"callback": "MathHooks::registerExtension",
 	"type": "parserhook",
 	"AutoloadClasses": {
-		"MathDataModule": "MathDataModule.php",
+		"MathMathSymbolsDataModule": "MathMathSymbolsDataModule.php",
+		"MathChemSymbolsDataModule": "MathChemSymbolsDataModule.php",
 		"MathHooks": "Math.hooks.php",
 		"MathRenderer": "MathRenderer.php",
 		"MathRestbaseInterface": "MathRestbaseInterface.php",
@@ -149,75 +150,111 @@
 		},
 		"ext.math.visualEditor": {
 			"scripts": [
+				"ve-math/ve.dm.MWLatexNode.js",
+				"ve-math/ve.ce.MWLatexNode.js",
+				"ve-math/ve.ui.MWLatexInspector.js",
+				"ve-math/ve.ui.MWLatexContextItem.js",
+				"ve-math/ve.ui.MWLatexPage.js",
+				"ve-math/ve.ui.MWLatexDialog.js",
+				"ve-math/ve.dm.MWChemNode.js",
+				"ve-math/ve.ce.MWChemNode.js",
+				"ve-math/ve.ui.MWChemInspector.js",
+				"ve-math/ve.ui.MWChemContextItem.js",
+				"ve-math/ve.ui.MWChemDialog.js",
+				"ve-math/ve.ui.MWChemDialogTool.js",
 				"ve-math/ve.dm.MWMathNode.js",
 				"ve-math/ve.ce.MWMathNode.js",
 				"ve-math/ve.ui.MWMathInspector.js",
 				"ve-math/ve.ui.MWMathContextItem.js",
 				"ve-math/ve.ui.MWMathDialog.js",
-				"ve-math/ve.ui.MWMathPage.js",
 				"ve-math/ve.ui.MWMathDialogTool.js"
 			],
 			"styles": [
-				"ve-math/ve.ce.MWMathNode.css",
-				"ve-math/ve.ui.MWMathIcons.css",
-				"ve-math/ve.ui.MWMathInspector.css",
-				"ve-math/ve.ui.MWMathPage.css",
-				"ve-math/ve.ui.MWMathDialog.css"
+				"ve-math/ve.ui.MWLatexDialog.css",
+				"ve-math/ve.ce.MWLatexNode.css",
+				"ve-math/ve.ui.MWLatexInspector.css",
+				"ve-math/ve.ui.MWLatexPage.css",
+				"ve-math/ve.ui.MWLatexIcons.css"
 			],
 			"dependencies": [
 				"ext.visualEditor.mwcore",
 				"ext.math.styles"
 			],
 			"messages": [
-				"math-visualeditor-mwmathcontextitem-quickedit",
+				"math-visualeditor-mwchemdialog-title",
+				"math-visualeditor-mwlatexcontextitem-quickedit",
+				"math-visualeditor-mwlatexdialog-card-formula",
+				"math-visualeditor-mwlatexdialog-card-options",
+				"math-visualeditor-mwlatexinspector-display",
+				"math-visualeditor-mwlatexinspector-display-block",
+				"math-visualeditor-mwlatexinspector-display-default",
+				"math-visualeditor-mwlatexinspector-display-inline",
+				"math-visualeditor-mwlatexinspector-id",
 				"math-visualeditor-mwmathdialog-title",
-				"math-visualeditor-mwmathdialog-card-formula",
-				"math-visualeditor-mwmathdialog-card-options",
-				"math-visualeditor-mwmathinspector-display",
-				"math-visualeditor-mwmathinspector-display-block",
-				"math-visualeditor-mwmathinspector-display-default",
-				"math-visualeditor-mwmathinspector-display-inline",
-				"math-visualeditor-mwmathinspector-id",
-				"math-visualeditor-mwmathinspector-title",
-				"math-visualeditor-symbol-group-accents",
-				"math-visualeditor-symbol-group-arrows",
-				"math-visualeditor-symbol-group-bounds",
-				"math-visualeditor-symbol-group-derivatives",
-				"math-visualeditor-symbol-group-functions",
-				"math-visualeditor-symbol-group-geometry",
-				"math-visualeditor-symbol-group-greek",
-				"math-visualeditor-symbol-group-hebrew",
-				"math-visualeditor-symbol-group-large",
-				"math-visualeditor-symbol-group-logic",
-				"math-visualeditor-symbol-group-matrices",
-				"math-visualeditor-symbol-group-modular",
-				"math-visualeditor-symbol-group-operators",
-				"math-visualeditor-symbol-group-parentheses",
-				"math-visualeditor-symbol-group-projections",
-				"math-visualeditor-symbol-group-relations",
-				"math-visualeditor-symbol-group-root",
-				"math-visualeditor-symbol-group-sets",
-				"math-visualeditor-symbol-group-spacing",
-				"math-visualeditor-symbol-group-special",
-				"math-visualeditor-symbol-group-subscripts",
-				"math-visualeditor-symbol-group-symbols",
-				"math-visualeditor-symbol-group-typefaces",
-				"math-visualeditor-symbol-group-unsorted"
+				"math-visualeditor-symbol-group-chem-addition",
+				"math-visualeditor-symbol-group-chem-aggregation",
+				"math-visualeditor-symbol-group-chem-arrows",
+				"math-visualeditor-symbol-group-chem-brackets",
+				"math-visualeditor-symbol-group-chem-charges",
+				"math-visualeditor-symbol-group-chem-dots",
+				"math-visualeditor-symbol-group-chem-equations",
+				"math-visualeditor-symbol-group-chem-formulae",
+				"math-visualeditor-symbol-group-chem-greek",
+				"math-visualeditor-symbol-group-chem-isotopes",
+				"math-visualeditor-symbol-group-chem-operations",
+				"math-visualeditor-symbol-group-chem-oxidation",
+				"math-visualeditor-symbol-group-chem-precipitate",
+				"math-visualeditor-symbol-group-chem-stoichiometric",
+				"math-visualeditor-symbol-group-math-accents",
+				"math-visualeditor-symbol-group-math-arrows",
+				"math-visualeditor-symbol-group-math-bounds",
+				"math-visualeditor-symbol-group-math-derivatives",
+				"math-visualeditor-symbol-group-math-functions",
+				"math-visualeditor-symbol-group-math-geometry",
+				"math-visualeditor-symbol-group-math-greek",
+				"math-visualeditor-symbol-group-math-hebrew",
+				"math-visualeditor-symbol-group-math-large",
+				"math-visualeditor-symbol-group-math-logic",
+				"math-visualeditor-symbol-group-math-matrices",
+				"math-visualeditor-symbol-group-math-modular",
+				"math-visualeditor-symbol-group-math-operators",
+				"math-visualeditor-symbol-group-math-parentheses",
+				"math-visualeditor-symbol-group-math-projections",
+				"math-visualeditor-symbol-group-math-relations",
+				"math-visualeditor-symbol-group-math-root",
+				"math-visualeditor-symbol-group-math-sets",
+				"math-visualeditor-symbol-group-math-spacing",
+				"math-visualeditor-symbol-group-math-special",
+				"math-visualeditor-symbol-group-math-subscripts",
+				"math-visualeditor-symbol-group-math-symbols",
+				"math-visualeditor-symbol-group-math-typefaces",
+				"math-visualeditor-symbol-group-math-unsorted"
 			],
 			"targets": [
 				"desktop",
 				"mobile"
 			]
 		},
-		"ext.math.visualEditor.data": {
-			"class": "MathDataModule"
+		"ext.math.visualEditor.mathSymbolsData": {
+			"class": "MathMathSymbolsDataModule"
 		},
-		"ext.math.visualEditor.symbols": {
+		"ext.math.visualEditor.mathSymbols": {
 			"styles": [
 				"ve-math/ve.ui.MWMathSymbols.css"
 			],
 			"dependencies": [
-				"ext.math.visualEditor.data"
+				"ext.math.visualEditor.mathSymbolsData"
+			]
+		},
+		"ext.math.visualEditor.chemSymbolsData": {
+			"class": "MathChemSymbolsDataModule"
+		},
+		"ext.math.visualEditor.chemSymbols": {
+			"styles": [
+				"ve-math/ve.ui.MWChemSymbols.css"
+			],
+			"dependencies": [
+				"ext.math.visualEditor.chemSymbolsData"
 			]
 		}
 	},

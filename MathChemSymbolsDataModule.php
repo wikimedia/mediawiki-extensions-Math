@@ -1,6 +1,6 @@
 <?php
 /**
- * Resource loader module providing extra data from the server to Math.
+ * Resource loader module providing extra data from the server to Chem.
  *
  * @file
  * @ingroup Extensions
@@ -8,7 +8,7 @@
  * @license The MIT License (MIT); see LICENSE.txt
  */
 
-class MathDataModule extends ResourceLoaderModule {
+class MathChemSymbolsDataModule extends ResourceLoaderModule {
 
 	/* Protected Members */
 
@@ -19,8 +19,8 @@ class MathDataModule extends ResourceLoaderModule {
 
 	public function getScript( ResourceLoaderContext $context ) {
 		return
-			've.ui.MWMathDialog.static.setSymbols(' .
-				file_get_contents( __DIR__ . '/modules/ve-math/symbols.json' ) .
+			've.ui.MWChemDialog.static.setSymbols(' .
+				file_get_contents( __DIR__ . '/modules/ve-math/chemSymbols.json' ) .
 			');';
 	}
 
