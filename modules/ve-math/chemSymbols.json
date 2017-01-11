@@ -1,0 +1,232 @@
+{
+	"math-visualeditor-symbol-group-chem-equations": [
+		{
+			"insert": "CO2 + C -> 2 CO",
+			"width": "wide",
+			"largeLayout": true
+		},
+		{
+			"insert": "Hg^2+ ->[I-] HgI2 ->[I-] {[Hg^{II}I4]^2-}",
+			"width": "wide",
+			"largeLayout": true,
+			"contain": true
+		}
+	],
+	"math-visualeditor-symbol-group-chem-formulae": [
+		{
+			"insert": "H2O",
+			"width": "wide"
+		},
+		{
+			"insert": "Sb2O3",
+			"width": "wide"
+		}
+	],
+	"math-visualeditor-symbol-group-chem-charges": [
+		{
+			"insert": "H+",
+			"width": "wide"
+		},
+		{
+			"insert": "CrO4^2-",
+			"width": "wide"
+		},
+		{
+			"insert": "[AgCl2]-",
+			"width": "wide",
+			"contain": true
+		},
+		{
+			"insert": "Y^99+",
+			"width": "wide"
+		},
+		{
+			"insert": "Y^{99+}",
+			"width": "wide"
+		}
+	],
+	"math-visualeditor-symbol-group-chem-oxidation": [
+		{
+			"insert": "Fe^{II}Fe^{III}204",
+			"width": "wide",
+			"contain": true
+		}
+	],
+	"math-visualeditor-symbol-group-chem-stoichiometric": [
+		{
+			"insert": "2H2O",
+			"width": "wide"
+		},
+		{
+			"insert": "1/2H2O",
+			"width": "wide"
+		},
+		{
+			"insert": "(1/2)H2O",
+			"width": "wide"
+		},
+		{
+			"insert": "nH2O",
+			"width": "wide"
+		}
+	],
+	"math-visualeditor-symbol-group-chem-isotopes": [
+		{
+			"insert": "^{227}_{90}Th+",
+			"width": "wide"
+		},
+		{
+			"insert": "^227_90Th+",
+			"width": "wide",
+			"contain": true
+		},
+		{
+			"insert": "^{0}_{-1}n^{-}",
+			"width": "wide"
+		}
+	],
+	"math-visualeditor-symbol-group-chem-brackets": [
+		{
+			"insert": "(NH4)2S",
+			"width": "wide",
+			"contain": true
+		},
+		{
+			"insert": "[\\{(X2)3\\}2]^3+",
+			"width": "wide",
+			"contain": true
+		}
+	],
+	"math-visualeditor-symbol-group-chem-aggregation": [
+		{
+			"insert": "H2(aq)",
+			"width": "wide"
+		},
+		{
+			"insert": "CO3^2-{}_{(aq)}",
+			"width": "wide",
+			"contain": true
+		},
+		{
+			"insert": "NaOH(aq,\\infty)",
+			"width": "wide",
+			"contain": true
+		}
+	],
+	"math-visualeditor-symbol-group-chem-dots": [
+		{
+			"insert": "OCO^{.-}",
+			"width": "wide"
+		},
+		{
+			"insert": "NO^{(2.)-}",
+			"width": "wide"
+		}
+	],
+	"math-visualeditor-symbol-group-chem-greek": [
+		{
+			"insert": "\\mu-Cl",
+			"width": "wide"
+		},
+		{
+			"insert": "[Pt(\\eta^2-C2H4)Cl3]-",
+			"width": "wide",
+			"largeLayout": true
+		}
+	],
+	"math-visualeditor-symbol-group-chem-addition": [
+		{
+			"insert": "KCr(SO4)2*12H2O",
+			"width": "wide",
+			"largeLayout": true
+		},
+		{
+			"insert": "KCr(SO4)2.12H2O",
+			"width": "wide",
+			"largeLayout": true
+		},
+		{
+			"insert": "KCr(SO4)2 * 12 H2O",
+			"width": "wide",
+			"largeLayout": true
+		}
+	],
+	"math-visualeditor-symbol-group-chem-arrows": [
+		{
+			"insert": "A -> B",
+			"width": "wide"
+		},
+		{
+			"insert": "A <- B",
+			"width": "wide"
+		},
+		{
+			"insert": "A <-> B",
+			"width": "wide",
+			"contain": true
+		},
+		{
+			"insert": "A <--> B",
+			"width": "wide",
+			"contain": true
+		},
+		{
+			"insert": "A <=> B",
+			"width": "wide"
+		},
+		{
+			"insert": "A <=>> B",
+			"width": "wide"
+		},
+		{
+			"insert": "A <<=> B",
+			"width": "wide"
+		},
+		{
+			"insert": "A ->[H2O] B",
+			"width": "wide",
+			"largeLayout": true
+		},
+		{
+			"insert": "A ->[{text above}][{text below}] B",
+			"width": "wide",
+			"largeLayout": true
+		},
+		{
+			"insert": "A ->[x][x_i] B",
+			"width": "wide",
+			"largeLayout": true
+		},
+		{
+			"insert": "A ->[{x}] B",
+			"width": "wide",
+			"largeLayout": true
+		}
+	],
+	"math-visualeditor-symbol-group-chem-operators": [
+		{
+			"insert": "A + B",
+			"width": "wide"
+		},
+		{
+			"insert": "A - B",
+			"width": "wide"
+		},
+		{
+			"insert": "A = B",
+			"width": "wide"
+		},
+		{
+			"insert": "A \\pm B",
+			"width": "wide"
+		}
+	],
+	"math-visualeditor-symbol-group-chem-precipitate": [
+		{
+			"insert": "SO4^2- + Ba^2+ -> BaSO4 v",
+			"width": "wide",
+			"largeLayout": true,
+			"contain": true
+		}
+	]
+}

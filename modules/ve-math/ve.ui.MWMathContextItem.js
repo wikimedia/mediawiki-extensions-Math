@@ -8,7 +8,7 @@
  * Context item for a math node.
  *
  * @class
- * @extends ve.ui.LinearContextItem
+ * @extends ve.ui.MWLatexContextItem
  *
  * @param {ve.ui.Context} context Context item is in
  * @param {ve.dm.Model} model Model item is related to
@@ -17,26 +17,11 @@
 ve.ui.MWMathContextItem = function VeUiMWMathContextItem() {
 	// Parent constructor
 	ve.ui.MWMathContextItem.super.apply( this, arguments );
-
-	this.quickEditButton = new OO.ui.ButtonWidget( {
-		label: ve.msg( 'math-visualeditor-mwmathcontextitem-quickedit' ),
-		flags: [ 'progressive' ]
-	} );
-
-	// Don't show quick edit button in mobile as the primary action will be quick edit
-	if ( !this.context.isMobile() ) {
-		this.actionButtons.addItems( [ this.quickEditButton ], 0 );
-	}
-
-	this.quickEditButton.connect( this, { click: 'onInlineEditButtonClick' } );
-
-	// Initialization
-	this.$element.addClass( 've-ui-mwMathContextItem' );
 };
 
 /* Inheritance */
 
-OO.inheritClass( ve.ui.MWMathContextItem, ve.ui.LinearContextItem );
+OO.inheritClass( ve.ui.MWMathContextItem, ve.ui.MWLatexContextItem );
 
 /* Static Properties */
 
@@ -44,7 +29,7 @@ ve.ui.MWMathContextItem.static.name = 'math';
 
 ve.ui.MWMathContextItem.static.icon = 'math';
 
-ve.ui.MWMathContextItem.static.label = OO.ui.deferMsg( 'math-visualeditor-mwmathinspector-title' );
+ve.ui.MWMathContextItem.static.label = OO.ui.deferMsg( 'math-visualeditor-mwmathdialog-title' );
 
 ve.ui.MWMathContextItem.static.modelClasses = [ ve.dm.MWMathNode ];
 
@@ -52,23 +37,7 @@ ve.ui.MWMathContextItem.static.embeddable = false;
 
 ve.ui.MWMathContextItem.static.commandName = 'mathDialog';
 
-/* Methods */
-
-/**
- * Handle inline edit button click events.
- */
-ve.ui.MWMathContextItem.prototype.onInlineEditButtonClick = function () {
-	this.context.getSurface().executeCommand( 'mathInspector' );
-};
-
-/**
- * @inheritdoc
- */
-ve.ui.MWMathContextItem.prototype.getCommand = function () {
-	return this.context.getSurface().commandRegistry.lookup(
-		this.context.isMobile() ? 'mathInspector' : this.constructor.static.commandName
-	);
-};
+ve.ui.MWMathContextItem.static.inlineEditCommand = 'mathInspector';
 
 /* Registration */
 
