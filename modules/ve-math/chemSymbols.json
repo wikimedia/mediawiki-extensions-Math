@@ -1,0 +1,10 @@
+{
+    "math-visualeditor-symbol-group-chem-simple": [
+        {
+            "insert": "H2O",
+            "tex": "H2O",
+            "width": "wide",
+            "alignBaseline": true
+        }
+    ]
+}
