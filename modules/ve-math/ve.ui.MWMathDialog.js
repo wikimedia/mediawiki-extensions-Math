@@ -39,6 +39,78 @@ ve.ui.MWMathDialog.static.dir = 'ltr';
 
 ve.ui.MWMathDialog.static.symbols = null;
 
+ve.ui.MWMathDialog.static.autocompleteWordList = [
+	'\\AA', '\\aleph', '\\alpha', '\\amalg', '\\And', '\\angle', '\\approx', '\\approxeq',
+	'\\ast', '\\asymp', '\\backepsilon', '\\backprime', '\\backsim', '\\backsimeq', '\\barwedge', '\\Bbbk', '\\because', '\\beta',
+	'\\beth', '\\between', '\\bigcap', '\\bigcirc', '\\bigcup', '\\bigodot', '\\bigoplus', '\\bigotimes', '\\bigsqcup', '\\bigstar',
+	'\\bigtriangledown', '\\bigtriangleup', '\\biguplus', '\\bigvee', '\\bigwedge', '\\blacklozenge', '\\blacksquare', '\\blacktriangle', '\\blacktriangledown', '\\blacktriangleleft',
+	'\\blacktriangleright', '\\bot', '\\bowtie', '\\Box', '\\boxdot', '\\boxminus', '\\boxplus', '\\boxtimes', '\\bullet', '\\bumpeq',
+	'\\Bumpeq', '\\cap', '\\Cap', '\\cdot', '\\cdots', '\\centerdot', '\\checkmark', '\\chi', '\\circ', '\\circeq',
+	'\\circlearrowleft', '\\circlearrowright', '\\circledast', '\\circledcirc', '\\circleddash', '\\circledS', '\\clubsuit', '\\colon', '\\color', '\\complement',
+	'\\cong', '\\coprod', '\\cup', '\\Cup', '\\curlyeqprec', '\\curlyeqsucc', '\\curlyvee', '\\curlywedge', '\\curvearrowleft', '\\curvearrowright',
+	'\\dagger', '\\daleth', '\\dashv', '\\ddagger', '\\ddots', '\\definecolor', '\\delta', '\\Delta', '\\diagdown', '\\diagup',
+	'\\diamond', '\\Diamond', '\\diamondsuit', '\\digamma', '\\displaystyle', '\\div', '\\divideontimes', '\\doteq', '\\doteqdot', '\\dotplus',
+	'\\dots', '\\dotsb', '\\dotsc', '\\dotsi', '\\dotsm', '\\dotso', '\\doublebarwedge', '\\downdownarrows', '\\downharpoonleft', '\\downharpoonright',
+	'\\ell', '\\emptyset', '\\epsilon', '\\eqcirc', '\\eqsim', '\\eqslantgtr', '\\eqslantless', '\\equiv', '\\eta', '\\eth',
+	'\\exists', '\\fallingdotseq', '\\Finv', '\\flat', '\\forall', '\\frown', '\\Game', '\\gamma', '\\Gamma', '\\geq',
+	'\\geqq', '\\geqslant', '\\gets', '\\gg', '\\ggg', '\\gimel', '\\gnapprox', '\\gneq', '\\gneqq', '\\gnsim',
+	'\\gtrapprox', '\\gtrdot', '\\gtreqless', '\\gtreqqless', '\\gtrless', '\\gtrsim', '\\gvertneqq', '\\hbar', '\\heartsuit', '\\hline',
+	'\\hookleftarrow', '\\hookrightarrow', '\\hslash', '\\iff', '\\iiiint', '\\iiint', '\\iint', '\\Im', '\\imath', '\\implies',
+	'\\in', '\\infty', '\\injlim', '\\int', '\\intercal', '\\iota', '\\jmath', '\\kappa', '\\lambda', '\\Lambda',
+	'\\land', '\\ldots', '\\leftarrow', '\\Leftarrow', '\\leftarrowtail', '\\leftharpoondown', '\\leftharpoonup', '\\leftleftarrows', '\\leftrightarrow', '\\Leftrightarrow',
+	'\\leftrightarrows', '\\leftrightharpoons', '\\leftrightsquigarrow', '\\leftthreetimes', '\\leq', '\\leqq', '\\leqslant', '\\lessapprox', '\\lessdot', '\\lesseqgtr',
+	'\\lesseqqgtr', '\\lessgtr', '\\lesssim', '\\limits', '\\ll', '\\Lleftarrow', '\\lll', '\\lnapprox', '\\lneq', '\\lneqq',
+	'\\lnot', '\\lnsim', '\\longleftarrow', '\\Longleftarrow', '\\longleftrightarrow', '\\Longleftrightarrow', '\\longmapsto', '\\longrightarrow', '\\Longrightarrow', '\\looparrowleft',
+	'\\looparrowright', '\\lor', '\\lozenge', '\\Lsh', '\\ltimes', '\\lVert', '\\lvertneqq', '\\mapsto', '\\measuredangle', '\\mho',
+	'\\mid', '\\mod', '\\models', '\\mp', '\\mu', '\\multimap', '\\nabla', '\\natural', '\\ncong', '\\nearrow',
+	'\\neg', '\\neq', '\\nexists', '\\ngeq', '\\ngeqq', '\\ngeqslant', '\\ngtr', '\\ni', '\\nleftarrow', '\\nLeftarrow',
+	'\\nleftrightarrow', '\\nLeftrightarrow', '\\nleq', '\\nleqq', '\\nleqslant', '\\nless', '\\nmid', '\\nolimits', '\\not', '\\notin',
+	'\\nparallel', '\\nprec', '\\npreceq', '\\nrightarrow', '\\nRightarrow', '\\nshortmid', '\\nshortparallel', '\\nsim', '\\nsubseteq', '\\nsubseteqq',
+	'\\nsucc', '\\nsucceq', '\\nsupseteq', '\\nsupseteqq', '\\ntriangleleft', '\\ntrianglelefteq', '\\ntriangleright', '\\ntrianglerighteq', '\\nu', '\\nvdash',
+	'\\nVdash', '\\nvDash', '\\nVDash', '\\nwarrow', '\\odot', '\\oint', '\\omega', '\\Omega', '\\ominus', '\\oplus',
+	'\\oslash', '\\otimes', '\\overbrace', '\\overleftarrow', '\\overleftrightarrow', '\\overline', '\\overrightarrow', '\\P', '\\pagecolor', '\\parallel',
+	'\\partial', '\\perp', '\\phi', '\\Phi', '\\pi', '\\Pi', '\\pitchfork', '\\pm', '\\prec', '\\precapprox',
+	'\\preccurlyeq', '\\preceq', '\\precnapprox', '\\precneqq', '\\precnsim', '\\precsim', '\\prime', '\\prod', '\\projlim', '\\propto',
+	'\\psi', '\\Psi', '\\qquad', '\\quad', '\\Re', '\\rho', '\\rightarrow', '\\Rightarrow', '\\rightarrowtail', '\\rightharpoondown',
+	'\\rightharpoonup', '\\rightleftarrows', '\\rightrightarrows', '\\rightsquigarrow', '\\rightthreetimes', '\\risingdotseq', '\\Rrightarrow', '\\Rsh', '\\rtimes', '\\rVert',
+	'\\S', '\\scriptscriptstyle', '\\scriptstyle', '\\searrow', '\\setminus', '\\sharp', '\\shortmid', '\\shortparallel', '\\sigma', '\\Sigma',
+	'\\sim', '\\simeq', '\\smallfrown', '\\smallsetminus', '\\smallsmile', '\\smile', '\\spadesuit', '\\sphericalangle', '\\sqcap', '\\sqcup',
+	'\\sqsubset', '\\sqsubseteq', '\\sqsupset', '\\sqsupseteq', '\\square', '\\star', '\\subset', '\\Subset', '\\subseteq', '\\subseteqq',
+	'\\subsetneq', '\\subsetneqq', '\\succ', '\\succapprox', '\\succcurlyeq', '\\succeq', '\\succnapprox', '\\succneqq', '\\succnsim', '\\succsim',
+	'\\sum', '\\supset', '\\Supset', '\\supseteq', '\\supseteqq', '\\supsetneq', '\\supsetneqq', '\\surd', '\\swarrow', '\\tau',
+	'\\textstyle', '\\textvisiblespace', '\\therefore', '\\theta', '\\Theta', '\\thickapprox', '\\thicksim', '\\times', '\\to', '\\top',
+	'\\triangle', '\\triangledown', '\\triangleleft', '\\trianglelefteq', '\\triangleq', '\\triangleright', '\\trianglerighteq', '\\underbrace', '\\underline', '\\upharpoonleft',
+	'\\upharpoonright', '\\uplus', '\\upsilon', '\\Upsilon', '\\upuparrows', '\\varepsilon', '\\varinjlim', '\\varkappa', '\\varliminf', '\\varlimsup',
+	'\\varnothing', '\\varphi', '\\varpi', '\\varprojlim', '\\varpropto', '\\varrho', '\\varsigma', '\\varsubsetneq', '\\varsubsetneqq', '\\varsupsetneq',
+	'\\varsupsetneqq', '\\vartheta', '\\vartriangle', '\\vartriangleleft', '\\vartriangleright', '\\vdash', '\\Vdash', '\\vDash', '\\vdots', '\\vee',
+	'\\veebar', '\\vline', '\\Vvdash', '\\wedge', '\\widehat', '\\widetilde', '\\wp', '\\wr', '\\xi', '\\Xi',
+	'\\zeta', '\\big', '\\Big', '\\bigg', '\\Bigg', '\\biggl', '\\Biggl', '\\biggr',
+	'\\Biggr', '\\bigl', '\\Bigl', '\\bigr', '\\Bigr', '\\backslash', '\\downarrow', '\\Downarrow',
+	'\\langle', '\\lbrace', '\\lceil', '\\lfloor', '\\llcorner', '\\lrcorner', '\\rangle', '\\rbrace', '\\rceil', '\\rfloor',
+	'\\rightleftharpoons', '\\twoheadleftarrow', '\\twoheadrightarrow', '\\ulcorner', '\\uparrow', '\\Uparrow', '\\updownarrow', '\\Updownarrow', '\\urcorner', '\\Vert',
+	'\\vert', '\\lbrack', '\\rbrack', '\\acute', '\\bar', '\\bcancel', '\\bmod', '\\boldsymbol',
+	'\\breve', '\\cancel', '\\check', '\\ddot', '\\dot', '\\emph', '\\grave', '\\hat', '\\mathbb', '\\mathbf',
+	'\\mathbin', '\\mathcal', '\\mathclose', '\\mathfrak', '\\mathit', '\\mathop', '\\mathopen', '\\mathord', '\\mathpunct', '\\mathrel',
+	'\\mathrm', '\\mathsf', '\\mathtt', '\\operatorname', '\\pmod', '\\sqrt', '\\textbf', '\\textit', '\\textrm', '\\textsf',
+	'\\texttt', '\\tilde', '\\vec', '\\xcancel', '\\xleftarrow', '\\xrightarrow', '\\binom', '\\cancelto',
+	'\\cfrac', '\\dbinom', '\\dfrac', '\\frac', '\\overset', '\\stackrel', '\\tbinom', '\\tfrac', '\\underset',
+	'\\atop', '\\choose', '\\over', '\\Coppa', '\\coppa', '\\Digamma', '\\euro', '\\geneuro',
+	'\\geneuronarrow', '\\geneurowide', '\\Koppa', '\\koppa', '\\officialeuro', '\\Sampi', '\\sampi', '\\Stigma', '\\stigma', '\\varstigma',
+	'\\darr', '\\dArr', '\\Darr', '\\lang', '\\rang', '\\uarr', '\\uArr',
+	'\\Uarr', '\\Bbb', '\\bold', '\\alef', '\\alefsym', '\\Alpha', '\\and', '\\ang',
+	'\\Beta', '\\bull', '\\Chi', '\\clubs', '\\cnums', '\\Complex', '\\Dagger', '\\diamonds', '\\Doteq', '\\doublecap',
+	'\\doublecup', '\\empty', '\\Epsilon', '\\Eta', '\\exist', '\\ge', '\\gggtr', '\\hAar', '\\harr', '\\Harr',
+	'\\hearts', '\\image', '\\infin', '\\Iota', '\\isin', '\\Kappa', '\\larr', '\\Larr', '\\lArr', '\\le',
+	'\\lrarr', '\\Lrarr', '\\lrArr', '\\Mu', '\\natnums', '\\ne', '\\Nu', '\\O', '\\omicron', '\\Omicron',
+	'\\or', '\\part', '\\plusmn', '\\rarr', '\\Rarr', '\\rArr', '\\real', '\\reals', '\\Reals', '\\restriction',
+	'\\Rho', '\\sdot', '\\sect', '\\spades', '\\sub', '\\sube', '\\supe', '\\Tau', '\\thetasym', '\\varcoppa',
+	'\\weierp', '\\Zeta', '\\C', '\\H', '\\N', '\\Q', '\\R', '\\Z', '\\arccos',
+	'\\arcsin', '\\arctan', '\\arg', '\\cos', '\\cosh', '\\cot', '\\coth', '\\csc', '\\deg', '\\det',
+	'\\dim', '\\exp', '\\gcd', '\\hom', '\\inf', '\\ker', '\\lg', '\\lim', '\\liminf', '\\limsup',
+	'\\ln', '\\log', '\\max', '\\min', '\\Pr', '\\sec', '\\sin', '\\sinh', '\\sup', '\\tan',
+	'\\tanh', '\\arccot', '\\arcsec', '\\arccsc', '\\sgn', '\\sen'
+];
+
 /* static methods */
 
 /**
@@ -100,7 +172,8 @@ ve.ui.MWMathDialog.prototype.initialize = function () {
 	this.input = new ve.ui.MWAceEditorWidget( {
 		multiline: true,
 		rows: 1, // This will be recalculated later in onWindowManagerResize
-		autocomplete: 'live'
+		autocomplete: 'live',
+		autocompleteWordList: ve.ui.MWMathDialog.static.autocompleteWordList
 	} ).setLanguage( 'latex' );
 
 	this.input.togglePrintMargin( false );
