@@ -4,7 +4,7 @@
  * See http://browserhacks.com
  */
 @media screen and ( -webkit-min-device-pixel-ratio: 0 ) { /* stylelint-disable-line media-feature-name-no-vendor-prefix */
-	.ve-ce-mwMathNode .mwe-math-mathml-a11y {
+	.ve-ce-mwLatexNode .mwe-math-mathml-a11y {
 		display: none !important; /* stylelint-disable-line declaration-no-important */
 	}
 }

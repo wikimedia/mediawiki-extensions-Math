@@ -52,6 +52,7 @@
 	"math-visualeditor-symbol-group-symbols": "Symbols and constants",
 	"math-visualeditor-symbol-group-typefaces": "Typefaces",
 	"math-visualeditor-symbol-group-unsorted": "Unsorted",
+	"math-visualeditor-mwcheminspector-title": "Chemical formula",
 	"math_bad_output": "Cannot write to or create math output directory",
 	"math_bad_tmpdir": "Cannot write to or create math temp directory",
 	"math_failure": "Failed to parse",
