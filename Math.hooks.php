@@ -166,7 +166,9 @@ class MathHooks {
 	 */
 	static function onParserFirstCallInit( $parser ) {
 		$parser->setHook( 'math', [ 'MathHooks', 'mathTagHook' ] );
-		$parser->setHook( 'ce', [ 'MathHooks', 'ceTagHook' ] );
+		// @deprecated the ce tag is deprecated in favour of chem cf. T153606
+		$parser->setHook( 'ce', [ 'MathHooks', 'chemTagHook' ] );
+		$parser->setHook( 'chem', [ 'MathHooks', 'chemTagHook' ] );
 
 		return true;
 	}
@@ -411,7 +413,7 @@ class MathHooks {
 	 * @param Parser $parser
 	 * @return array
 	 */
-	static function ceTagHook( $content, $attributes, $parser ) {
+	static function chemTagHook( $content, $attributes, $parser ) {
 		$attributes['chem'] = true;
 		return MathHooks::mathTagHook( '\ce{' . $content . '}', $attributes, $parser );
 	}
