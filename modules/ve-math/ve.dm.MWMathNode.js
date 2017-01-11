@@ -9,7 +9,7 @@
  * DataModel MediaWiki math node.
  *
  * @class
- * @extends ve.dm.MWInlineExtensionNode
+ * @extends ve.dm.MWLatexNode
  *
  * @constructor
  * @param {Object} [element]
@@ -21,31 +21,13 @@ ve.dm.MWMathNode = function VeDmMWMathNode() {
 
 /* Inheritance */
 
-OO.inheritClass( ve.dm.MWMathNode, ve.dm.MWInlineExtensionNode );
+OO.inheritClass( ve.dm.MWMathNode, ve.dm.MWLatexNode );
 
 /* Static members */
 
 ve.dm.MWMathNode.static.name = 'mwMath';
 
-ve.dm.MWMathNode.static.tagName = 'img';
-
 ve.dm.MWMathNode.static.extensionName = 'math';
-
-/* Static Methods */
-
-/**
- * @inheritdoc ve.dm.GeneratedContentNode
- */
-ve.dm.MWMathNode.static.getHashObjectForRendering = function ( dataElement ) {
-	// Parent method
-	var hashObject = ve.dm.MWMathNode.super.static.getHashObjectForRendering.call( this, dataElement );
-
-	// The id does not affect the rendering.
-	if ( hashObject.mw.attrs ) {
-		delete hashObject.mw.attrs.id;
-	}
-	return hashObject;
-};
 
 /* Registration */
 
