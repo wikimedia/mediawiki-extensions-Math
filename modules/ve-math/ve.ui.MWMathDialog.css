@@ -34,58 +34,6 @@
 	bottom: 10em;
 }
 
-.ve-ui-mwMathPage-symbol {
-	background-position: center;
-	background-repeat: no-repeat;
-	cursor: pointer;
-	font-size: 1.5em;
-	width: 1.8em;
-	height: 1.8em;
-	display: inline-block;
-	vertical-align: middle;
-	margin: 0 0.1em 0.1em 0;
-	box-sizing: border-box;
-	border: 1px solid #e6e6e6;
-	/* stylelint-disable no-unsupported-browser-features */
-	-webkit-transition: border-color 200ms;
-	-moz-transition: border-color 200ms;
-	transition: border-color 200ms;
-	/* stylelint-enable no-unsupported-browser-features */
-}
-
-.ve-ui-mwMathPage-symbol-wide {
-	/* 2(symbol width) + margin */
-	width: 3.7em;
-}
-
-.ve-ui-mwMathPage-symbol-wider {
-	/* 2.5(symbol width) + 1.5(margin) */
-	width: 4.65em;
-}
-
-.ve-ui-mwMathPage-symbol-widest {
-	/* 3(symbol width) + 2(margin) */
-	width: 5.6em;
-}
-
-.ve-ui-mwMathPage-symbol-contain {
-	background-size: contain; /* stylelint-disable-line no-unsupported-browser-features */
-}
-
-.ve-ui-mwMathPage-symbol-largeLayout {
-	height: 3.7em;
-	width: 4.65em;
-}
-
-.ve-ui-mwMathPage-symbol-largeLayout.ve-ui-mwMathPage-symbol-wide {
-	/* 5(symbol width) + 4(margin) */
-	width: 9.4em;
-}
-
-.ve.ui.mwMathPage-symbol:hover {
-	border-color: #ccc;
-}
-
 .ve-ui-mwMathDialog-preview {
 	text-align: center;
 	line-height: 10em;
@@ -100,9 +48,4 @@
 /* Ensures the preview image is vertically centred */
 .ve-ui-mwMathDialog-preview .mwe-math-fallback-image-display {
 	display: inline-block;
-}
-
-.ve-ui-mwMathPage-outline {
-	padding: 0.5em;
-	color: #555;
 }
