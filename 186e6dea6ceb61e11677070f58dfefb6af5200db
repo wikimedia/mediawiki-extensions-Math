@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4efb0bce_75b0273f",
+        "filename": "i18n/en.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2017-01-12T18:31:01Z",
+      "side": 1,
+      "message": "I don\u0027t think this needs to exist. Any subclass should provide it\u0027s own message.",
+      "revId": "186e6dea6ceb61e11677070f58dfefb6af5200db",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efb0bce_55bd2b15",
+        "filename": "i18n/en.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2017-01-12T18:31:01Z",
+      "side": 1,
+      "message": "I don\u0027t think these need to be two messages, they describe the same thing. If naming is a problem you could call them \u0027math-visualeditor-mwmathwindow-title\u0027.",
+      "revId": "186e6dea6ceb61e11677070f58dfefb6af5200db",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efb0bce_f58ad76d",
+        "filename": "modules/ve-math/ve.ui.MWLatexDialog.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2017-01-12T18:31:01Z",
+      "side": 1,
+      "message": "You lost the recently added autocompleteWordList property in the rebase:\n\n  autocompleteWordList: ve.ui.MWMathDialog.static.autocompleteWordList",
+      "revId": "186e6dea6ceb61e11677070f58dfefb6af5200db",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
