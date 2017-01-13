@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4efb0bce_7cf5afb4",
+        "filename": "i18n/en.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2017-01-13T17:55:38Z",
+      "side": 1,
+      "message": "PS8: I don\u0027t think this needs to exist. Any subclass should provide it\u0027s own message.",
+      "revId": "02a655cdf540b12f1375694ab530842fe86f38fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efb0bce_5cf2f3ce",
+        "filename": "i18n/en.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2017-01-13T17:55:38Z",
+      "side": 1,
+      "message": "PS8: I don\u0027t think these need to be two messages, they describe the same thing. If naming is a problem you could call them \u0027math-visualeditor-mwmathwindow-title\u0027.",
+      "revId": "02a655cdf540b12f1375694ab530842fe86f38fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efb0bce_9ce86bdf",
+        "filename": "modules/ve-math/ve.ui.MWLatexDialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2017-01-13T17:55:38Z",
+      "side": 1,
+      "message": "Not quite right:\n\n autocomplete: \u0027live\u0027,\n autocompleteWordList: this.constructor.static.autocompleteWordList",
+      "revId": "02a655cdf540b12f1375694ab530842fe86f38fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
