@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4efb0bce_ea15514e",
+        "filename": "extension.json",
+        "patchSetId": 12
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2017-01-14T18:49:11Z",
+      "side": 1,
+      "message": "you haven\u0027t staged this file",
+      "revId": "837e4b6cbc4874c42af3925adc2feb973b6cfa18",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
