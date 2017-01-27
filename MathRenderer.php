@@ -665,7 +665,12 @@ abstract class MathRenderer {
 
 	public static function getValidModes() {
 		global $wgMathValidModes;
-		return array_map( "MathHooks::mathModeToString", $wgMathValidModes );
+		$ret = [];
+		foreach( array_map( "MathHooks::mathModeToString",
+							array_keys( array_filter( $wgMathValidModes ) ) ) as $trash => $mode ) {
+			$ret[MathHooks::mathModeToHashKey( $mode )] = $mode;
+		}
+		return $ret;
 	}
 
 	public static function getDisableTexFilter() {
