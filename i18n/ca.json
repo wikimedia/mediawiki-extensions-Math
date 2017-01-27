@@ -26,6 +26,7 @@
 	"math_sample": "Inseriu una fórmula ací",
 	"math_syntax_error": "error de sintaxi",
 	"math_tip": "Fórmula matemàtica (LaTeX)",
+	"math-tracking-category-error": "Pàgines amb errors en l'etiqueta math",
 	"math_unknown_error": "error desconegut",
 	"math_unknown_function": "funció '$1' desconeguda",
 	"mw_math_latexml": "LaTeXML (experimental; utilitza MathML)",
