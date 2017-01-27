@@ -397,6 +397,10 @@ class MathHooks {
 
 	public static function registerExtension() {
 		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathDisableTexFilter;
+		// defaults can not be set in extension.json cf T150011
+		if ( !is_array( $wgMathValidModes ) ) {
+			$wgMathValidModes = [ 'png', 'source', 'mathml' ];
+		}
 		$wgMathValidModes = MathRenderer::getValidModes();
 		if ( $wgMathDisableTexFilter === true ) { // ensure backwards compatibility
 			$wgMathDisableTexFilter = 'never';
