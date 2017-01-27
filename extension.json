@@ -108,11 +108,12 @@
 		"MathConcurrentReqs": 50,
 		"MathPath": false,
 		"MathTexvcCheckExecutable": false,
-		"MathValidModes": [
-			"png",
-			"source",
-			"mathml"
-		],
+		"MathValidModes": {
+			"png": true,
+			"source": true,
+			"mathml": false,
+			"latexml": false
+		},
 		"MathEnableWikibaseDataType": true,
 		"Texvc": false,
 		"TexvcBackgroundColor": "transparent"
