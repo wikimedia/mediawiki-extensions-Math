@@ -8,7 +8,8 @@
 			"Mirolith",
 			"Esketti",
 			"McDutchie",
-			"Macofe"
+			"Macofe",
+			"Mainframe98"
 		]
 	},
 	"math-desc": "Wiskundige formules tussen <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-labels weergeven",
@@ -66,6 +67,8 @@
 	"math-test-start": "Uitvoeren backendtests voor de weergavemodus ''$1''.",
 	"math-test-success": "Test \"$1\" <span style=\"color:green\">is geslaagd</span>.",
 	"math_tip": "Wiskundige formule (in LaTeX)",
+	"math-tracking-category-error": "Pagina's met rekenkundige fouten",
+	"math-tracking-category-error-desc": "Pagina's in deze categorie hebben fouten in het gebruik van math tags.",
 	"math_unknown_error": "onbekende fout",
 	"math_unknown_function": "onbekende functie \"$1\"",
 	"mw_math_latexml": "LaTeXML (experimenteel; gebruikt MathML)",
