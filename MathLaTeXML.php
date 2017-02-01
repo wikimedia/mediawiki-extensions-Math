@@ -116,8 +116,10 @@ class MathLaTeXML extends MathMathML {
 			if ( $jsonResult && json_last_error() === JSON_ERROR_NONE ) {
 				if ( $this->isValidMathML( $jsonResult->result ) ) {
 					$this->setMathml( $jsonResult->result );
+					// Avoid PHP 7.1 warning from passing $this by reference
+					$renderer = $this;
 					Hooks::run( 'MathRenderingResultRetrieved',
-						[ &$this, &$jsonResult ] );// Enables debugging of server results
+						[ &$renderer, &$jsonResult ] );// Enables debugging of server results
 					return true;
 				} else {
 					// Do not print bad mathml. It's probably too verbose and might
