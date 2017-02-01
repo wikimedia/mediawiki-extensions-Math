@@ -521,8 +521,10 @@ class MathMathML extends MathRenderer {
 			if ( $this->getMode() != 'latexml' && $this->inputType != 'pmml' ) {
 				$this->setMathml( $jsonResult->mml );
 			}
+			// Avoid PHP 7.1 warning from passing $this by reference
+			$renderer = $this;
 			Hooks::run( 'MathRenderingResultRetrieved',
-				[ &$this, &$jsonResult ] ); // Enables debugging of server results
+				[ &$renderer, &$jsonResult ] ); // Enables debugging of server results
 			return true;
 		} else {
 			$this->lastError = $this->getError( 'math_unknown_error', $host );

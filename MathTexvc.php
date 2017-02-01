@@ -275,7 +275,9 @@ class MathTexvc extends MathRenderer {
 			$this->setHash( $newHash );
 		}
 
-		Hooks::run( 'MathAfterTexvc', [ &$this, &$errmsg ] );
+		// Avoid PHP 7.1 warning from passing $this by reference
+		$renderer = $this;
+		Hooks::run( 'MathAfterTexvc', [ &$renderer, &$errmsg ] );
 
 		if ( $errmsg ) {
 			return $errmsg;
