@@ -14,6 +14,7 @@
 	"math_sample": "Picatz vòstra formula aicí",
 	"math_syntax_error": "error de sintaxi",
 	"math_tip": "Formula matematica (LaTeX)",
+	"math-tracking-category-error": "Paginas amb errors dins balisas math",
 	"math_unknown_error": "error indeterminada",
 	"math_unknown_function": "foncion desconeguda « $1 »",
 	"mw_math_mathjax": "MathJax costat client (lent, melhora lo rendut per certans navigadors e aisinas d’accessibilitat)",
