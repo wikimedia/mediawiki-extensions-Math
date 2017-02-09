@@ -103,7 +103,6 @@
     "math-visualeditor-symbol-group-functions": [
         {
             "insert": "\\exp",
-            "tex": "\\exp",
             "alignBaseline": true
         },
         {
@@ -118,17 +117,14 @@
         },
         {
             "insert": "\\ln",
-            "tex": "\\ln",
             "alignBaseline": true
         },
         {
             "insert": "\\lg",
-            "tex": "\\lg",
             "alignBaseline": true
         },
         {
             "insert": "\\log",
-            "tex": "\\log",
             "alignBaseline": true
         },
         {
@@ -143,136 +139,112 @@
         },
         {
             "insert": "\\sin",
-            "tex": "\\sin",
             "alignBaseline": true
         },
         {
             "insert": "\\cos",
-            "tex": "\\cos",
             "alignBaseline": true
         },
         {
             "insert": "\\tan",
-            "tex": "\\tan",
             "alignBaseline": true
         },
         {
             "insert": "\\cot",
-            "tex": "\\cot",
             "alignBaseline": true
         },
         {
             "insert": "\\sec",
-            "tex": "\\sec",
             "alignBaseline": true
         },
         {
             "insert": "\\csc",
-            "tex": "\\csc",
             "alignBaseline": true
         },
         {
             "insert": "\\arcsin",
             "width": "wide",
-            "tex": "\\arcsin",
             "alignBaseline": true
         },
         {
             "insert": "\\arccos",
             "width": "wide",
-            "tex": "\\arccos",
             "alignBaseline": true
         },
         {
             "insert": "\\arctan",
             "width": "wide",
-            "tex": "\\arctan",
             "alignBaseline": true
         },
         {
             "insert": "\\arccot",
             "width": "wide",
-            "tex": "\\arccot",
             "alignBaseline": true
         },
         {
             "insert": "\\arcsec",
             "width": "wide",
-            "tex": "\\arcsec",
             "alignBaseline": true
         },
         {
             "insert": "\\arccsc",
             "width": "wide",
-            "tex": "\\arccsc",
             "alignBaseline": true
         },
         {
             "insert": "\\sinh",
             "width": "wide",
-            "tex": "\\sinh",
             "alignBaseline": true
         },
         {
             "insert": "\\cosh",
             "width": "wide",
-            "tex": "\\cosh",
             "alignBaseline": true
         },
         {
             "insert": "\\tanh",
             "width": "wide",
-            "tex": "\\tanh",
             "alignBaseline": true
         },
         {
             "insert": "\\coth",
             "width": "wide",
-            "tex": "\\coth",
             "alignBaseline": true
         },
         {
             "insert": "\\operatorname{sh}",
-            "tex": "\\operatorname{sh}",
             "alignBaseline": true
         },
         {
             "insert": "\\operatorname{ch}",
-            "tex": "\\operatorname{ch}",
             "alignBaseline": true
         },
         {
             "insert": "\\operatorname{th}",
-            "tex": "\\operatorname{th}",
             "alignBaseline": true
         },
         {
             "insert": "\\operatorname{coth}",
             "width": "wide",
-            "tex": "\\operatorname{coth}",
             "alignBaseline": true
         },
         {
             "insert": "\\operatorname{argsh}",
             "width": "wide",
-            "tex": "\\operatorname{argsh}",
             "alignBaseline": true
         },
         {
             "insert": "\\operatorname{argch}",
             "width": "wide",
-            "tex": "\\operatorname{argch}",
             "alignBaseline": true
         },
         {
             "insert": "\\operatorname{argth}",
             "width": "wide",
-            "tex": "\\operatorname{argth}",
             "alignBaseline": true
         },
         {
             "insert": "\\sgn",
-            "tex": "\\sgn",
             "alignBaseline": true
         },
         {
@@ -308,72 +280,59 @@
     "math-visualeditor-symbol-group-bounds": [
         {
             "insert": "\\min",
-            "tex": "\\min",
             "alignBaseline": true
         },
         {
             "insert": "\\max",
-            "tex": "\\max",
             "alignBaseline": true
         },
         {
             "insert": "\\inf",
-            "tex": "\\inf",
             "alignBaseline": true
         },
         {
             "insert": "\\sup",
-            "tex": "\\sup",
             "alignBaseline": true
         },
         {
             "insert": "\\lim",
-            "tex": "\\lim",
             "alignBaseline": true
         },
         {
             "insert": "\\liminf",
             "width": "wide",
-            "tex": "\\liminf",
             "alignBaseline": true
         },
         {
             "insert": "\\limsup",
             "width": "wide",
-            "tex": "\\limsup",
             "alignBaseline": true
         },
         {
             "insert": "\\dim",
-            "tex": "\\dim",
             "alignBaseline": true
         },
         {
             "insert": "\\deg",
-            "tex": "\\deg",
             "alignBaseline": true
         },
         {
             "insert": "\\det",
-            "tex": "\\det",
             "alignBaseline": true
         },
         {
             "insert": "\\ker",
-            "tex": "\\ker",
             "alignBaseline": true
         }
     ],
     "math-visualeditor-symbol-group-projections": [
         {
             "insert": "\\Pr",
-            "tex": "\\Pr",
             "alignBaseline": true
         },
         {
             "insert": "\\hom",
             "width": "wide",
-            "tex": "\\hom",
             "alignBaseline": true
         },
         {
@@ -387,69 +346,55 @@
         },
         {
             "insert": "\\arg",
-            "tex": "\\arg",
             "alignBaseline": true
         }
     ],
     "math-visualeditor-symbol-group-derivatives": [
         {
-            "insert": "dt",
-            "tex": "dt"
+            "insert": "dt"
         },
         {
-            "insert": "\\operatorname{d}\\!t",
-            "tex": "\\operatorname{d}\\!t"
+            "insert": "\\operatorname{d}\\!t"
         },
         {
-            "insert": "\\partial t",
-            "tex": "\\partial t"
+            "insert": "\\partial t"
         },
         {
-            "insert": "\\nabla\\psi",
-            "tex": "\\nabla\\psi"
+            "insert": "\\nabla\\psi"
         },
         {
             "insert": "dy/dx",
-            "width": "wider",
-            "tex": "dy/dx"
+            "width": "wider"
         },
         {
             "insert": "\\operatorname{d}\\!y/\\operatorname{d}\\!x",
-            "width": "wider",
-            "tex": "\\operatorname{d}\\!y/\\operatorname{d}\\!x"
+            "width": "wider"
         },
         {
             "insert": "{dy \\over dx}",
-            "contain": true,
-            "tex": "{dy \\over dx}"
+            "contain": true
         },
         {
             "insert": "{\\operatorname{d}\\!y\\over\\operatorname{d}\\!x}",
-            "contain": true,
-            "tex": "{\\operatorname{d}\\!y\\over\\operatorname{d}\\!x}"
+            "contain": true
         },
         {
             "insert": "{\\partial^2\\over\\partial x_1\\partial x_2}y",
             "contain": true,
-            "width": "wider",
-            "tex": "{\\partial^2\\over\\partial x_1\\partial x_2}y"
+            "width": "wider"
         },
         {
-            "insert": "\\prime",
-            "tex": "\\prime"
+            "insert": "\\prime"
         },
         {
-            "insert": "\\backprime",
-            "tex": "\\backprime"
+            "insert": "\\backprime"
         },
         {
             "insert": "f'",
-            "tex": "f'",
             "alignBaseline": true
         },
         {
             "insert": "f''",
-            "tex": "f''",
             "alignBaseline": true
         },
         {
@@ -462,78 +407,60 @@
             "alignBaseline": true
         },
         {
-            "insert": "\\dot y",
-            "tex": "\\dot y"
+            "insert": "\\dot y"
         },
         {
-            "insert": "\\ddot y",
-            "tex": "\\ddot y"
+            "insert": "\\ddot y"
         }
     ],
     "math-visualeditor-symbol-group-symbols": [
         {
-            "insert": "\\infty",
-            "tex": "\\infty"
+            "insert": "\\infty"
         },
         {
-            "insert": "\\aleph",
-            "tex": "\\aleph"
+            "insert": "\\aleph"
         },
         {
-            "insert": "\\complement",
-            "tex": "\\complement"
+            "insert": "\\complement"
         },
         {
-            "insert": "\\backepsilon",
-            "tex": "\\backepsilon"
+            "insert": "\\backepsilon"
         },
         {
-            "insert": "\\eth",
-            "tex": "\\eth"
+            "insert": "\\eth"
         },
         {
-            "insert": "\\Finv",
-            "tex": "\\Finv"
+            "insert": "\\Finv"
         },
         {
-            "insert": "\\hbar",
-            "tex": "\\hbar"
+            "insert": "\\hbar"
         },
         {
-            "insert": "\\Im",
-            "tex": "\\Im"
+            "insert": "\\Im"
         },
         {
-            "insert": "\\imath",
-            "tex": "\\imath"
+            "insert": "\\imath"
         },
         {
-            "insert": "\\jmath",
-            "tex": "\\jmath"
+            "insert": "\\jmath"
         },
         {
-            "insert": "\\Bbbk",
-            "tex": "\\Bbbk"
+            "insert": "\\Bbbk"
         },
         {
-            "insert": "\\ell",
-            "tex": "\\ell"
+            "insert": "\\ell"
         },
         {
-            "insert": "\\mho",
-            "tex": "\\mho"
+            "insert": "\\mho"
         },
         {
-            "insert": "\\wp",
-            "tex": "\\wp"
+            "insert": "\\wp"
         },
         {
-            "insert": "\\Re",
-            "tex": "\\Re"
+            "insert": "\\Re"
         },
         {
-            "insert": "\\circledS",
-            "tex": "\\circledS"
+            "insert": "\\circledS"
         }
     ],
     "math-visualeditor-symbol-group-modular": [
@@ -570,7 +497,6 @@
         {
             "insert": "\\operatorname{lcm}(m, n)",
             "width": "wider",
-            "tex": "\\operatorname{lcm}(m, n)",
             "encapsulate": {
                 "pre": "\\operatorname{lcm}(",
                 "placeholder": "m",
@@ -579,26 +505,21 @@
             "alignBaseline": true
         },
         {
-            "insert": "\\mid",
-            "tex": "\\mid"
+            "insert": "\\mid"
         },
         {
-            "insert": "\\nmid",
-            "tex": "\\nmid"
+            "insert": "\\nmid"
         },
         {
-            "insert": "\\shortmid",
-            "tex": "\\shortmid"
+            "insert": "\\shortmid"
         },
         {
-            "insert": "\\nshortmid",
-            "tex": "\\nshortmid"
+            "insert": "\\nshortmid"
         }
     ],
     "math-visualeditor-symbol-group-root": [
         {
-            "insert": "\\surd",
-            "tex": "\\surd"
+            "insert": "\\surd"
         },
         {
             "tex": "\\sqrt{2}",
@@ -619,1707 +540,1298 @@
     ],
     "math-visualeditor-symbol-group-operators": [
         {
-            "insert": "+",
-            "tex": "+"
+            "insert": "+"
         },
         {
-            "insert": "-",
-            "tex": "-"
+            "insert": "-"
         },
         {
-            "insert": "\\pm",
-            "tex": "\\pm"
+            "insert": "\\pm"
         },
         {
-            "insert": "\\mp",
-            "tex": "\\mp"
+            "insert": "\\mp"
         },
         {
-            "insert": "\\dotplus",
-            "tex": "\\dotplus"
+            "insert": "\\dotplus"
         },
         {
-            "insert": "\\times",
-            "tex": "\\times"
+            "insert": "\\times"
         },
         {
-            "insert": "\\div",
-            "tex": "\\div"
+            "insert": "\\div"
         },
         {
-            "insert": "\\divideontimes",
-            "tex": "\\divideontimes"
+            "insert": "\\divideontimes"
         },
         {
-            "insert": "/",
-            "tex": "/"
+            "insert": "/"
         },
         {
-            "insert": "\\backslash",
-            "tex": "\\backslash"
+            "insert": "\\backslash"
         },
         {
-            "insert": "\\cdot",
-            "tex": "\\cdot"
+            "insert": "\\cdot"
         },
         {
-            "insert": "*",
-            "tex": "*"
+            "insert": "*"
         },
         {
             "insert": "\\ast",
-            "tex": "\\ast",
             "duplicate": "*"
         },
         {
-            "insert": "\\star",
-            "tex": "\\star"
+            "insert": "\\star"
         },
         {
-            "insert": "\\circ",
-            "tex": "\\circ"
+            "insert": "\\circ"
         },
         {
-            "insert": "\\bullet",
-            "tex": "\\bullet"
+            "insert": "\\bullet"
         },
         {
-            "insert": "\\boxplus",
-            "tex": "\\boxplus"
+            "insert": "\\boxplus"
         },
         {
-            "insert": "\\boxminus",
-            "tex": "\\boxminus"
+            "insert": "\\boxminus"
         },
         {
-            "insert": "\\boxtimes",
-            "tex": "\\boxtimes"
+            "insert": "\\boxtimes"
         },
         {
-            "insert": "\\boxdot",
-            "tex": "\\boxdot"
+            "insert": "\\boxdot"
         },
         {
-            "insert": "\\oplus",
-            "tex": "\\oplus"
+            "insert": "\\oplus"
         },
         {
-            "insert": "\\ominus",
-            "tex": "\\ominus"
+            "insert": "\\ominus"
         },
         {
-            "insert": "\\otimes",
-            "tex": "\\otimes"
+            "insert": "\\otimes"
         },
         {
-            "insert": "\\oslash",
-            "tex": "\\oslash"
+            "insert": "\\oslash"
         },
         {
-            "insert": "\\odot",
-            "tex": "\\odot"
+            "insert": "\\odot"
         },
         {
-            "insert": "\\circleddash",
-            "tex": "\\circleddash"
+            "insert": "\\circleddash"
         },
         {
-            "insert": "\\circledcirc",
-            "tex": "\\circledcirc"
+            "insert": "\\circledcirc"
         },
         {
-            "insert": "\\circledast",
-            "tex": "\\circledast"
+            "insert": "\\circledast"
         },
         {
-            "insert": "\\bigoplus",
-            "tex": "\\bigoplus"
+            "insert": "\\bigoplus"
         },
         {
-            "insert": "\\bigotimes",
-            "tex": "\\bigotimes"
+            "insert": "\\bigotimes"
         },
         {
-            "insert": "\\bigodot",
-            "tex": "\\bigodot"
+            "insert": "\\bigodot"
         }
     ],
     "math-visualeditor-symbol-group-sets": [
         {
-            "insert": "\\{",
-            "tex": "\\{"
+            "insert": "\\{"
         },
         {
-            "insert": "\\}",
-            "tex": "\\}"
+            "insert": "\\}"
         },
         {
             "insert": "\\O",
-            "duplicate": "\\emptyset",
-            "tex": "\\O"
+            "duplicate": "\\emptyset"
         },
         {
             "insert": "\\empty",
-            "duplicate": "\\emptyset",
-            "tex": "\\empty"
+            "duplicate": "\\emptyset"
         },
         {
-            "insert": "\\emptyset",
-            "tex": "\\emptyset"
+            "insert": "\\emptyset"
         },
         {
-            "insert": "\\varnothing",
-            "tex": "\\varnothing"
+            "insert": "\\varnothing"
         },
         {
-            "insert": "\\in",
-            "tex": "\\in"
+            "insert": "\\in"
         },
         {
             "insert": "\\notin",
-            "duplicate": "\\not\\in",
-            "tex": "\\notin"
+            "duplicate": "\\not\\in"
         },
         {
-            "insert": "\\not\\in",
-            "tex": "\\not\\in"
+            "insert": "\\not\\in"
         },
         {
-            "insert": "\\ni",
-            "tex": "\\ni"
+            "insert": "\\ni"
         },
         {
-            "insert": "\\not\\ni",
-            "tex": "\\not\\ni"
+            "insert": "\\not\\ni"
         },
         {
-            "insert": "\\cap",
-            "tex": "\\cap"
+            "insert": "\\cap"
         },
         {
-            "insert": "\\Cap",
-            "tex": "\\Cap"
+            "insert": "\\Cap"
         },
         {
-            "insert": "\\sqcap",
-            "tex": "\\sqcap"
+            "insert": "\\sqcap"
         },
         {
-            "insert": "\\bigcap",
-            "tex": "\\bigcap"
+            "insert": "\\bigcap"
         },
         {
-            "insert": "\\cup",
-            "tex": "\\cup"
+            "insert": "\\cup"
         },
         {
-            "insert": "\\Cup",
-            "tex": "\\Cup"
+            "insert": "\\Cup"
         },
         {
-            "insert": "\\sqcup",
-            "tex": "\\sqcup"
+            "insert": "\\sqcup"
         },
         {
-            "insert": "\\bigcup",
-            "tex": "\\bigcup"
+            "insert": "\\bigcup"
         },
         {
-            "insert": "\\bigsqcup",
-            "tex": "\\bigsqcup"
+            "insert": "\\bigsqcup"
         },
         {
-            "insert": "\\uplus",
-            "tex": "\\uplus"
+            "insert": "\\uplus"
         },
         {
-            "insert": "\\biguplus",
-            "tex": "\\biguplus"
+            "insert": "\\biguplus"
         },
         {
-            "insert": "\\setminus",
-            "tex": "\\setminus"
+            "insert": "\\setminus"
         },
         {
-            "insert": "\\smallsetminus",
-            "tex": "\\smallsetminus"
+            "insert": "\\smallsetminus"
         },
         {
-            "insert": "\\times",
-            "tex": "\\times"
+            "insert": "\\times"
         },
         {
-            "insert": "\\subset",
-            "tex": "\\subset"
+            "insert": "\\subset"
         },
         {
-            "insert": "\\Subset",
-            "tex": "\\Subset"
+            "insert": "\\Subset"
         },
         {
-            "insert": "\\sqsubset",
-            "tex": "\\sqsubset"
+            "insert": "\\sqsubset"
         },
         {
-            "insert": "\\supset",
-            "tex": "\\supset"
+            "insert": "\\supset"
         },
         {
-            "insert": "\\Supset",
-            "tex": "\\Supset"
+            "insert": "\\Supset"
         },
         {
-            "insert": "\\sqsupset",
-            "tex": "\\sqsupset"
+            "insert": "\\sqsupset"
         },
         {
-            "insert": "\\subseteq",
-            "tex": "\\subseteq"
+            "insert": "\\subseteq"
         },
         {
-            "insert": "\\nsubseteq",
-            "tex": "\\nsubseteq"
+            "insert": "\\nsubseteq"
         },
         {
-            "insert": "\\subsetneq",
-            "tex": "\\subsetneq"
+            "insert": "\\subsetneq"
         },
         {
-            "insert": "\\varsubsetneq",
-            "tex": "\\varsubsetneq"
+            "insert": "\\varsubsetneq"
         },
         {
-            "insert": "\\sqsubseteq",
-            "tex": "\\sqsubseteq"
+            "insert": "\\sqsubseteq"
         },
         {
-            "insert": "\\supseteq",
-            "tex": "\\supseteq"
+            "insert": "\\supseteq"
         },
         {
-            "insert": "\\nsupseteq",
-            "tex": "\\nsupseteq"
+            "insert": "\\nsupseteq"
         },
         {
-            "insert": "\\supsetneq",
-            "tex": "\\supsetneq"
+            "insert": "\\supsetneq"
         },
         {
-            "insert": "\\varsupsetneq",
-            "tex": "\\varsupsetneq"
+            "insert": "\\varsupsetneq"
         },
         {
-            "insert": "\\sqsupseteq",
-            "tex": "\\sqsupseteq"
+            "insert": "\\sqsupseteq"
         },
         {
-            "insert": "\\subseteqq",
-            "tex": "\\subseteqq"
+            "insert": "\\subseteqq"
         },
         {
-            "insert": "\\nsubseteqq",
-            "tex": "\\nsubseteqq"
+            "insert": "\\nsubseteqq"
         },
         {
-            "insert": "\\subsetneqq",
-            "tex": "\\subsetneqq"
+            "insert": "\\subsetneqq"
         },
         {
-            "insert": "\\varsubsetneqq",
-            "tex": "\\varsubsetneqq"
+            "insert": "\\varsubsetneqq"
         },
         {
-            "insert": "\\supseteqq",
-            "tex": "\\supseteqq"
+            "insert": "\\supseteqq"
         },
         {
-            "insert": "\\nsupseteqq",
-            "tex": "\\nsupseteqq"
+            "insert": "\\nsupseteqq"
         },
         {
-            "insert": "\\supsetneqq",
-            "tex": "\\supsetneqq"
+            "insert": "\\supsetneqq"
         },
         {
-            "insert": "\\varsupsetneqq",
-            "tex": "\\varsupsetneqq"
+            "insert": "\\varsupsetneqq"
         }
     ],
     "math-visualeditor-symbol-group-relations": [
         {
-            "insert": "=",
-            "tex": "="
+            "insert": "="
         },
         {
             "insert": "\\ne",
-            "duplicate": "\\neq",
-            "tex": "\\ne"
+            "duplicate": "\\neq"
         },
         {
-            "insert": "\\neq",
-            "tex": "\\neq"
+            "insert": "\\neq"
         },
         {
-            "insert": "\\equiv",
-            "tex": "\\equiv"
+            "insert": "\\equiv"
         },
         {
-            "insert": "\\not\\equiv",
-            "tex": "\\not\\equiv"
+            "insert": "\\not\\equiv"
         },
         {
-            "insert": "\\doteq",
-            "tex": "\\doteq"
+            "insert": "\\doteq"
         },
         {
-            "insert": "\\doteqdot",
-            "tex": "\\doteqdot"
+            "insert": "\\doteqdot"
         },
         {
-            "insert": "\\overset{\\underset{\\mathrm{def}}{}}{=}",
-            "tex": "\\overset{\\underset{\\mathrm{def}}{}}{=}"
+            "insert": "\\overset{\\underset{\\mathrm{def}}{}}{=}"
         },
         {
-            "insert": ":=",
-            "tex": ":="
+            "insert": ":="
         },
         {
-            "insert": "\\sim",
-            "tex": "\\sim"
+            "insert": "\\sim"
         },
         {
-            "insert": "\\nsim",
-            "tex": "\\nsim"
+            "insert": "\\nsim"
         },
         {
-            "insert": "\\backsim",
-            "tex": "\\backsim"
+            "insert": "\\backsim"
         },
         {
-            "insert": "\\thicksim",
-            "tex": "\\thicksim"
+            "insert": "\\thicksim"
         },
         {
-            "insert": "\\simeq",
-            "tex": "\\simeq"
+            "insert": "\\simeq"
         },
         {
-            "insert": "\\backsimeq",
-            "tex": "\\backsimeq"
+            "insert": "\\backsimeq"
         },
         {
-            "insert": "\\eqsim",
-            "tex": "\\eqsim"
+            "insert": "\\eqsim"
         },
         {
-            "insert": "\\cong",
-            "tex": "\\cong"
+            "insert": "\\cong"
         },
         {
-            "insert": "\\ncong",
-            "tex": "\\ncong"
+            "insert": "\\ncong"
         },
         {
-            "insert": "\\approx",
-            "tex": "\\approx"
+            "insert": "\\approx"
         },
         {
-            "insert": "\\thickapprox",
-            "tex": "\\thickapprox"
+            "insert": "\\thickapprox"
         },
         {
-            "insert": "\\approxeq",
-            "tex": "\\approxeq"
+            "insert": "\\approxeq"
         },
         {
-            "insert": "\\asymp",
-            "tex": "\\asymp"
+            "insert": "\\asymp"
         },
         {
-            "insert": "\\propto",
-            "tex": "\\propto"
+            "insert": "\\propto"
         },
         {
-            "insert": "\\varpropto",
-            "tex": "\\varpropto"
+            "insert": "\\varpropto"
         },
         {
-            "insert": "<",
-            "tex": "<"
+            "insert": "<"
         },
         {
-            "insert": "\\nless",
-            "tex": "\\nless"
+            "insert": "\\nless"
         },
         {
-            "insert": "\\ll",
-            "tex": "\\ll"
+            "insert": "\\ll"
         },
         {
-            "insert": "\\not\\ll",
-            "tex": "\\not\\ll"
+            "insert": "\\not\\ll"
         },
         {
-            "insert": "\\lll",
-            "tex": "\\lll"
+            "insert": "\\lll"
         },
         {
-            "insert": "\\not\\lll",
-            "tex": "\\not\\lll"
+            "insert": "\\not\\lll"
         },
         {
-            "insert": "\\lessdot",
-            "tex": "\\lessdot"
+            "insert": "\\lessdot"
         },
         {
-            "insert": ">",
-            "tex": ">"
+            "insert": ">"
         },
         {
-            "insert": "\\ngtr",
-            "tex": "\\ngtr"
+            "insert": "\\ngtr"
         },
         {
-            "insert": "\\gg",
-            "tex": "\\gg"
+            "insert": "\\gg"
         },
         {
-            "insert": "\\not\\gg",
-            "tex": "\\not\\gg"
+            "insert": "\\not\\gg"
         },
         {
-            "insert": "\\ggg",
-            "tex": "\\ggg"
+            "insert": "\\ggg"
         },
         {
-            "insert": "\\not\\ggg",
-            "tex": "\\not\\ggg"
+            "insert": "\\not\\ggg"
         },
         {
-            "insert": "\\gtrdot",
-            "tex": "\\gtrdot"
+            "insert": "\\gtrdot"
         },
         {
             "insert": "\\le",
-            "duplicate": "\\leq",
-            "tex": "\\le"
+            "duplicate": "\\leq"
         },
         {
-            "insert": "\\leq",
-            "tex": "\\leq"
+            "insert": "\\leq"
         },
         {
-            "insert": "\\lneq",
-            "tex": "\\lneq"
+            "insert": "\\lneq"
         },
         {
-            "insert": "\\leqq",
-            "tex": "\\leqq"
+            "insert": "\\leqq"
         },
         {
-            "insert": "\\nleq",
-            "tex": "\\nleq"
+            "insert": "\\nleq"
         },
         {
-            "insert": "\\nleqq",
-            "tex": "\\nleqq"
+            "insert": "\\nleqq"
         },
         {
-            "insert": "\\lneqq",
-            "tex": "\\lneqq"
+            "insert": "\\lneqq"
         },
         {
-            "insert": "\\lvertneqq",
-            "tex": "\\lvertneqq"
+            "insert": "\\lvertneqq"
         },
         {
             "insert": "\\ge",
-            "duplicate": "\\geq",
-            "tex": "\\ge"
+            "duplicate": "\\geq"
         },
         {
-            "insert": "\\geq",
-            "tex": "\\geq"
+            "insert": "\\geq"
         },
         {
-            "insert": "\\gneq",
-            "tex": "\\gneq"
+            "insert": "\\gneq"
         },
         {
-            "insert": "\\geqq",
-            "tex": "\\geqq"
+            "insert": "\\geqq"
         },
         {
-            "insert": "\\ngeq",
-            "tex": "\\ngeq"
+            "insert": "\\ngeq"
         },
         {
-            "insert": "\\ngeqq",
-            "tex": "\\ngeqq"
+            "insert": "\\ngeqq"
         },
         {
-            "insert": "\\gneqq",
-            "tex": "\\gneqq"
+            "insert": "\\gneqq"
         },
         {
-            "insert": "\\gvertneqq",
-            "tex": "\\gvertneqq"
+            "insert": "\\gvertneqq"
         },
         {
-            "insert": "\\lessgtr",
-            "tex": "\\lessgtr"
+            "insert": "\\lessgtr"
         },
         {
-            "insert": "\\lesseqgtr",
-            "tex": "\\lesseqgtr"
+            "insert": "\\lesseqgtr"
         },
         {
-            "insert": "\\lesseqqgtr",
-            "tex": "\\lesseqqgtr"
+            "insert": "\\lesseqqgtr"
         },
         {
-            "insert": "\\gtrless",
-            "tex": "\\gtrless"
+            "insert": "\\gtrless"
         },
         {
-            "insert": "\\gtreqless",
-            "tex": "\\gtreqless"
+            "insert": "\\gtreqless"
         },
         {
-            "insert": "\\gtreqqless",
-            "tex": "\\gtreqqless"
+            "insert": "\\gtreqqless"
         },
         {
-            "insert": "\\leqslant",
-            "tex": "\\leqslant"
+            "insert": "\\leqslant"
         },
         {
-            "insert": "\\nleqslant",
-            "tex": "\\nleqslant"
+            "insert": "\\nleqslant"
         },
         {
-            "insert": "\\eqslantless",
-            "tex": "\\eqslantless"
+            "insert": "\\eqslantless"
         },
         {
-            "insert": "\\geqslant",
-            "tex": "\\geqslant"
+            "insert": "\\geqslant"
         },
         {
-            "insert": "\\ngeqslant",
-            "tex": "\\ngeqslant"
+            "insert": "\\ngeqslant"
         },
         {
-            "insert": "\\eqslantgtr",
-            "tex": "\\eqslantgtr"
+            "insert": "\\eqslantgtr"
         },
         {
-            "insert": "\\lesssim",
-            "tex": "\\lesssim"
+            "insert": "\\lesssim"
         },
         {
-            "insert": "\\lnsim",
-            "tex": "\\lnsim"
+            "insert": "\\lnsim"
         },
         {
-            "insert": "\\lessapprox",
-            "tex": "\\lessapprox"
+            "insert": "\\lessapprox"
         },
         {
-            "insert": "\\lnapprox",
-            "tex": "\\lnapprox"
+            "insert": "\\lnapprox"
         },
         {
-            "insert": "\\gtrsim",
-            "tex": "\\gtrsim"
+            "insert": "\\gtrsim"
         },
         {
-            "insert": "\\gnsim",
-            "tex": "\\gnsim"
+            "insert": "\\gnsim"
         },
         {
-            "insert": "\\gtrapprox",
-            "tex": "\\gtrapprox"
+            "insert": "\\gtrapprox"
         },
         {
-            "insert": "\\gnapprox",
-            "tex": "\\gnapprox"
+            "insert": "\\gnapprox"
         },
         {
-            "insert": "\\prec",
-            "tex": "\\prec"
+            "insert": "\\prec"
         },
         {
-            "insert": "\\nprec",
-            "tex": "\\nprec"
+            "insert": "\\nprec"
         },
         {
-            "insert": "\\preceq",
-            "tex": "\\preceq"
+            "insert": "\\preceq"
         },
         {
-            "insert": "\\npreceq",
-            "tex": "\\npreceq"
+            "insert": "\\npreceq"
         },
         {
-            "insert": "\\precneqq",
-            "tex": "\\precneqq"
+            "insert": "\\precneqq"
         },
         {
-            "insert": "\\succ",
-            "tex": "\\succ"
+            "insert": "\\succ"
         },
         {
-            "insert": "\\nsucc",
-            "tex": "\\nsucc"
+            "insert": "\\nsucc"
         },
         {
-            "insert": "\\succeq",
-            "tex": "\\succeq"
+            "insert": "\\succeq"
         },
         {
-            "insert": "\\nsucceq",
-            "tex": "\\nsucceq"
+            "insert": "\\nsucceq"
         },
         {
-            "insert": "\\succneqq",
-            "tex": "\\succneqq"
+            "insert": "\\succneqq"
         },
         {
-            "insert": "\\preccurlyeq",
-            "tex": "\\preccurlyeq"
+            "insert": "\\preccurlyeq"
         },
         {
-            "insert": "\\curlyeqprec",
-            "tex": "\\curlyeqprec"
+            "insert": "\\curlyeqprec"
         },
         {
-            "insert": "\\succcurlyeq",
-            "tex": "\\succcurlyeq"
+            "insert": "\\succcurlyeq"
         },
         {
-            "insert": "\\curlyeqsucc",
-            "tex": "\\curlyeqsucc"
+            "insert": "\\curlyeqsucc"
         },
         {
-            "insert": "\\precsim",
-            "tex": "\\precsim"
+            "insert": "\\precsim"
         },
         {
-            "insert": "\\precnsim",
-            "tex": "\\precnsim"
+            "insert": "\\precnsim"
         },
         {
-            "insert": "\\precapprox",
-            "tex": "\\precapprox"
+            "insert": "\\precapprox"
         },
         {
-            "insert": "\\precnapprox",
-            "tex": "\\precnapprox"
+            "insert": "\\precnapprox"
         },
         {
-            "insert": "\\succsim",
-            "tex": "\\succsim"
+            "insert": "\\succsim"
         },
         {
-            "insert": "\\succnsim",
-            "tex": "\\succnsim"
+            "insert": "\\succnsim"
         },
         {
-            "insert": "\\succapprox",
-            "tex": "\\succapprox"
+            "insert": "\\succapprox"
         },
         {
-            "insert": "\\succnapprox",
-            "tex": "\\succnapprox"
+            "insert": "\\succnapprox"
         }
     ],
     "math-visualeditor-symbol-group-geometry": [
         {
-            "insert": "\\parallel",
-            "tex": "\\parallel"
+            "insert": "\\parallel"
         },
         {
-            "insert": "\\nparallel",
-            "tex": "\\nparallel"
+            "insert": "\\nparallel"
         },
         {
-            "insert": "\\shortparallel",
-            "tex": "\\shortparallel"
+            "insert": "\\shortparallel"
         },
         {
-            "insert": "\\nshortparallel",
-            "tex": "\\nshortparallel"
+            "insert": "\\nshortparallel"
         },
         {
-            "insert": "\\perp",
-            "tex": "\\perp"
+            "insert": "\\perp"
         },
         {
-            "insert": "\\angle",
-            "tex": "\\angle"
+            "insert": "\\angle"
         },
         {
-            "insert": "\\sphericalangle",
-            "tex": "\\sphericalangle"
+            "insert": "\\sphericalangle"
         },
         {
-            "insert": "\\measuredangle",
-            "tex": "\\measuredangle"
+            "insert": "\\measuredangle"
         },
         {
-            "insert": "45^\\circ",
-            "tex": "45^\\circ"
+            "insert": "45^\\circ"
         },
         {
-            "insert": "\\Box",
-            "tex": "\\Box"
+            "insert": "\\Box"
         },
         {
-            "insert": "\\blacksquare",
-            "tex": "\\blacksquare"
+            "insert": "\\blacksquare"
         },
         {
-            "insert": "\\diamond",
-            "tex": "\\diamond"
+            "insert": "\\diamond"
         },
         {
             "insert": "\\Diamond",
-            "duplicate": "\\lozenge",
-            "tex": "\\Diamond"
+            "duplicate": "\\lozenge"
         },
         {
-            "insert": "\\lozenge",
-            "tex": "\\lozenge"
+            "insert": "\\lozenge"
         },
         {
-            "insert": "\\blacklozenge",
-            "tex": "\\blacklozenge"
+            "insert": "\\blacklozenge"
         },
         {
-            "insert": "\\bigstar",
-            "tex": "\\bigstar"
+            "insert": "\\bigstar"
         },
         {
-            "insert": "\\bigcirc",
-            "tex": "\\bigcirc"
+            "insert": "\\bigcirc"
         },
         {
             "insert": "\\triangle",
-            "duplicate": "\\bigtriangleup",
-            "tex": "\\triangle"
+            "duplicate": "\\bigtriangleup"
         },
         {
-            "insert": "\\bigtriangleup",
-            "tex": "\\bigtriangleup"
+            "insert": "\\bigtriangleup"
         },
         {
-            "insert": "\\bigtriangledown",
-            "tex": "\\bigtriangledown"
+            "insert": "\\bigtriangledown"
         },
         {
-            "insert": "\\vartriangle",
-            "tex": "\\vartriangle"
+            "insert": "\\vartriangle"
         },
         {
-            "insert": "\\triangledown",
-            "tex": "\\triangledown"
+            "insert": "\\triangledown"
         },
         {
-            "insert": "\\blacktriangle",
-            "tex": "\\blacktriangle"
+            "insert": "\\blacktriangle"
         },
         {
-            "insert": "\\blacktriangledown",
-            "tex": "\\blacktriangledown"
+            "insert": "\\blacktriangledown"
         },
         {
-            "insert": "\\blacktriangleleft",
-            "tex": "\\blacktriangleleft"
+            "insert": "\\blacktriangleleft"
         },
         {
-            "insert": "\\blacktriangleright",
-            "tex": "\\blacktriangleright"
+            "insert": "\\blacktriangleright"
         }
     ],
     "math-visualeditor-symbol-group-logic": [
         {
-            "insert": "\\forall",
-            "tex": "\\forall"
+            "insert": "\\forall"
         },
         {
-            "insert": "\\exists",
-            "tex": "\\exists"
+            "insert": "\\exists"
         },
         {
-            "insert": "\\nexists",
-            "tex": "\\nexists"
+            "insert": "\\nexists"
         },
         {
-            "insert": "\\therefore",
-            "tex": "\\therefore"
+            "insert": "\\therefore"
         },
         {
-            "insert": "\\because",
-            "tex": "\\because"
+            "insert": "\\because"
         },
         {
-            "insert": "\\And",
-            "tex": "\\And"
+            "insert": "\\And"
         },
         {
-            "insert": "\\or",
-            "tex": "\\or"
+            "insert": "\\or"
         },
         {
             "insert": "\\lor",
-            "duplicate": "\\or",
-            "tex": "\\lor"
+            "duplicate": "\\or"
         },
         {
             "insert": "\\vee",
-            "duplicate": "\\or",
-            "tex": "\\vee"
+            "duplicate": "\\or"
         },
         {
-            "insert": "\\curlyvee",
-            "tex": "\\curlyvee"
+            "insert": "\\curlyvee"
         },
         {
-            "insert": "\\bigvee",
-            "tex": "\\bigvee"
+            "insert": "\\bigvee"
         },
         {
-            "insert": "\\and",
-            "tex": "\\and"
+            "insert": "\\and"
         },
         {
             "insert": "\\land",
-            "duplicate": "\\and",
-            "tex": "\\land"
+            "duplicate": "\\and"
         },
         {
             "insert": "\\wedge",
-            "duplicate": "\\and",
-            "tex": "\\wedge"
+            "duplicate": "\\and"
         },
         {
-            "insert": "\\curlywedge",
-            "tex": "\\curlywedge"
+            "insert": "\\curlywedge"
         },
         {
-            "insert": "\\bigwedge",
-            "tex": "\\bigwedge"
+            "insert": "\\bigwedge"
         },
         {
-            "insert": "\\vdash",
-            "tex": "\\vdash"
+            "insert": "\\vdash"
         },
         {
-            "insert": "\\dashv",
-            "tex": "\\dashv"
+            "insert": "\\dashv"
         },
         {
-            "insert": "\\vDash",
-            "tex": "\\vDash"
+            "insert": "\\vDash"
         },
         {
-            "insert": "\\Vdash",
-            "tex": "\\Vdash"
+            "insert": "\\Vdash"
         },
         {
-            "insert": "\\models",
-            "tex": "\\models"
+            "insert": "\\models"
         },
         {
-            "insert": "\\Vvdash",
-            "tex": "\\Vvdash"
+            "insert": "\\Vvdash"
         },
         {
-            "insert": "\\nvdash",
-            "tex": "\\nvdash"
+            "insert": "\\nvdash"
         },
         {
-            "insert": "\\nVdash",
-            "tex": "\\nVdash"
+            "insert": "\\nVdash"
         },
         {
-            "insert": "\\nvDash",
-            "tex": "\\nvDash"
+            "insert": "\\nvDash"
         },
         {
-            "insert": "\\nVDash",
-            "tex": "\\nVDash"
+            "insert": "\\nVDash"
         },
         {
-            "insert": "\\ulcorner",
-            "tex": "\\ulcorner"
+            "insert": "\\ulcorner"
         },
         {
-            "insert": "\\urcorner",
-            "tex": "\\urcorner"
+            "insert": "\\urcorner"
         },
         {
-            "insert": "\\llcorner",
-            "tex": "\\llcorner"
+            "insert": "\\llcorner"
         },
         {
-            "insert": "\\lrcorner",
-            "tex": "\\lrcorner"
+            "insert": "\\lrcorner"
         }
     ],
     "math-visualeditor-symbol-group-arrows": [
         {
-            "insert": "\\Rrightarrow",
-            "tex": "\\Rrightarrow"
+            "insert": "\\Rrightarrow"
         },
         {
-            "insert": "\\Lleftarrow",
-            "tex": "\\Lleftarrow"
+            "insert": "\\Lleftarrow"
         },
         {
-            "insert": "\\Rightarrow",
-            "tex": "\\Rightarrow"
+            "insert": "\\Rightarrow"
         },
         {
-            "insert": "\\nRightarrow",
-            "tex": "\\nRightarrow"
+            "insert": "\\nRightarrow"
         },
         {
-            "insert": "\\Longrightarrow",
-            "tex": "\\Longrightarrow"
+            "insert": "\\Longrightarrow"
         },
         {
             "insert": "\\implies",
-            "duplicate": "\\Longrightarrow",
-            "tex": "\\implies"
+            "duplicate": "\\Longrightarrow"
         },
         {
-            "insert": "\\Leftarrow",
-            "tex": "\\Leftarrow"
+            "insert": "\\Leftarrow"
         },
         {
-            "insert": "\\nLeftarrow",
-            "tex": "\\nLeftarrow"
+            "insert": "\\nLeftarrow"
         },
         {
-            "insert": "\\Longleftarrow",
-            "tex": "\\Longleftarrow"
+            "insert": "\\Longleftarrow"
         },
         {
-            "insert": "\\Leftrightarrow",
-            "tex": "\\Leftrightarrow"
+            "insert": "\\Leftrightarrow"
         },
         {
-            "insert": "\\nLeftrightarrow",
-            "tex": "\\nLeftrightarrow"
+            "insert": "\\nLeftrightarrow"
         },
         {
-            "insert": "\\Longleftrightarrow",
-            "tex": "\\Longleftrightarrow"
+            "insert": "\\Longleftrightarrow"
         },
         {
             "insert": "\\iff",
-            "duplicate": "\\Longleftrightarrow",
-            "tex": "\\iff"
+            "duplicate": "\\Longleftrightarrow"
         },
         {
-            "insert": "\\Uparrow",
-            "tex": "\\Uparrow"
+            "insert": "\\Uparrow"
         },
         {
-            "insert": "\\Downarrow",
-            "tex": "\\Downarrow"
+            "insert": "\\Downarrow"
         },
         {
-            "insert": "\\Updownarrow",
-            "tex": "\\Updownarrow"
+            "insert": "\\Updownarrow"
         },
         {
-            "insert": "\\rightarrow",
-            "tex": "\\rightarrow"
+            "insert": "\\rightarrow"
         },
         {
             "insert": "\\to",
-            "duplicate": "\\rightarrow",
-            "tex": "\\to"
+            "duplicate": "\\rightarrow"
         },
         {
-            "insert": "\\nrightarrow",
-            "tex": "\\nrightarrow"
+            "insert": "\\nrightarrow"
         },
         {
-            "insert": "\\longrightarrow",
-            "tex": "\\longrightarrow"
+            "insert": "\\longrightarrow"
         },
         {
-            "insert": "\\leftarrow",
-            "tex": "\\leftarrow"
+            "insert": "\\leftarrow"
         },
         {
             "insert": "\\gets",
-            "duplicate": "\\leftarrow",
-            "tex": "\\gets"
+            "duplicate": "\\leftarrow"
         },
         {
-            "insert": "\\nleftarrow",
-            "tex": "\\nleftarrow"
+            "insert": "\\nleftarrow"
         },
         {
-            "insert": "\\longleftarrow",
-            "tex": "\\longleftarrow"
+            "insert": "\\longleftarrow"
         },
         {
-            "insert": "\\leftrightarrow",
-            "tex": "\\leftrightarrow"
+            "insert": "\\leftrightarrow"
         },
         {
-            "insert": "\\nleftrightarrow",
-            "tex": "\\nleftrightarrow"
+            "insert": "\\nleftrightarrow"
         },
         {
-            "insert": "\\longleftrightarrow",
-            "tex": "\\longleftrightarrow"
+            "insert": "\\longleftrightarrow"
         },
         {
-            "insert": "\\uparrow",
-            "tex": "\\uparrow"
+            "insert": "\\uparrow"
         },
         {
-            "insert": "\\downarrow",
-            "tex": "\\downarrow"
+            "insert": "\\downarrow"
         },
         {
-            "insert": "\\updownarrow",
-            "tex": "\\updownarrow"
+            "insert": "\\updownarrow"
         },
         {
-            "insert": "\\nearrow",
-            "tex": "\\nearrow"
+            "insert": "\\nearrow"
         },
         {
-            "insert": "\\swarrow",
-            "tex": "\\swarrow"
+            "insert": "\\swarrow"
         },
         {
-            "insert": "\\nwarrow",
-            "tex": "\\nwarrow"
+            "insert": "\\nwarrow"
         },
         {
-            "insert": "\\searrow",
-            "tex": "\\searrow"
+            "insert": "\\searrow"
         },
         {
-            "insert": "\\mapsto",
-            "tex": "\\mapsto"
+            "insert": "\\mapsto"
         },
         {
-            "insert": "\\longmapsto",
-            "tex": "\\longmapsto"
+            "insert": "\\longmapsto"
         },
         {
-            "insert": "\\rightharpoonup",
-            "tex": "\\rightharpoonup"
+            "insert": "\\rightharpoonup"
         },
         {
-            "insert": "\\rightharpoondown",
-            "tex": "\\rightharpoondown"
+            "insert": "\\rightharpoondown"
         },
         {
-            "insert": "\\leftharpoonup",
-            "tex": "\\leftharpoonup"
+            "insert": "\\leftharpoonup"
         },
         {
-            "insert": "\\leftharpoondown",
-            "tex": "\\leftharpoondown"
+            "insert": "\\leftharpoondown"
         },
         {
-            "insert": "\\upharpoonleft",
-            "tex": "\\upharpoonleft"
+            "insert": "\\upharpoonleft"
         },
         {
-            "insert": "\\upharpoonright",
-            "tex": "\\upharpoonright"
+            "insert": "\\upharpoonright"
         },
         {
-            "insert": "\\downharpoonleft",
-            "tex": "\\downharpoonleft"
+            "insert": "\\downharpoonleft"
         },
         {
-            "insert": "\\downharpoonright",
-            "tex": "\\downharpoonright"
+            "insert": "\\downharpoonright"
         },
         {
-            "insert": "\\rightleftharpoons",
-            "tex": "\\rightleftharpoons"
+            "insert": "\\rightleftharpoons"
         },
         {
-            "insert": "\\leftrightharpoons",
-            "tex": "\\leftrightharpoons"
+            "insert": "\\leftrightharpoons"
         },
         {
-            "insert": "\\curvearrowleft",
-            "tex": "\\curvearrowleft"
+            "insert": "\\curvearrowleft"
         },
         {
-            "insert": "\\circlearrowleft",
-            "tex": "\\circlearrowleft"
+            "insert": "\\circlearrowleft"
         },
         {
-            "insert": "\\Lsh",
-            "tex": "\\Lsh"
+            "insert": "\\Lsh"
         },
         {
-            "insert": "\\upuparrows",
-            "tex": "\\upuparrows"
+            "insert": "\\upuparrows"
         },
         {
-            "insert": "\\rightrightarrows",
-            "tex": "\\rightrightarrows"
+            "insert": "\\rightrightarrows"
         },
         {
-            "insert": "\\rightleftarrows",
-            "tex": "\\rightleftarrows"
+            "insert": "\\rightleftarrows"
         },
         {
-            "insert": "\\rightarrowtail",
-            "tex": "\\rightarrowtail"
+            "insert": "\\rightarrowtail"
         },
         {
-            "insert": "\\looparrowright",
-            "tex": "\\looparrowright"
+            "insert": "\\looparrowright"
         },
         {
-            "insert": "\\curvearrowright",
-            "tex": "\\curvearrowright"
+            "insert": "\\curvearrowright"
         },
         {
-            "insert": "\\circlearrowright",
-            "tex": "\\circlearrowright"
+            "insert": "\\circlearrowright"
         },
         {
-            "insert": "\\Rsh",
-            "tex": "\\Rsh"
+            "insert": "\\Rsh"
         },
         {
-            "insert": "\\downdownarrows",
-            "tex": "\\downdownarrows"
+            "insert": "\\downdownarrows"
         },
         {
-            "insert": "\\leftleftarrows",
-            "tex": "\\leftleftarrows"
+            "insert": "\\leftleftarrows"
         },
         {
-            "insert": "\\leftrightarrows",
-            "tex": "\\leftrightarrows"
+            "insert": "\\leftrightarrows"
         },
         {
-            "insert": "\\leftarrowtail",
-            "tex": "\\leftarrowtail"
+            "insert": "\\leftarrowtail"
         },
         {
-            "insert": "\\looparrowleft",
-            "tex": "\\looparrowleft"
+            "insert": "\\looparrowleft"
         },
         {
-            "insert": "\\hookrightarrow",
-            "tex": "\\hookrightarrow"
+            "insert": "\\hookrightarrow"
         },
         {
-            "insert": "\\hookleftarrow",
-            "tex": "\\hookleftarrow"
+            "insert": "\\hookleftarrow"
         },
         {
-            "insert": "\\multimap",
-            "tex": "\\multimap"
+            "insert": "\\multimap"
         },
         {
-            "insert": "\\leftrightsquigarrow",
-            "tex": "\\leftrightsquigarrow"
+            "insert": "\\leftrightsquigarrow"
         },
         {
-            "insert": "\\rightsquigarrow",
-            "tex": "\\rightsquigarrow"
+            "insert": "\\rightsquigarrow"
         },
         {
-            "insert": "\\twoheadrightarrow",
-            "tex": "\\twoheadrightarrow"
+            "insert": "\\twoheadrightarrow"
         },
         {
-            "insert": "\\twoheadleftarrow",
-            "tex": "\\twoheadleftarrow"
+            "insert": "\\twoheadleftarrow"
         }
     ],
     "math-visualeditor-symbol-group-special": [
         {
-            "insert": "\\amalg",
-            "tex": "\\amalg"
+            "insert": "\\amalg"
         },
         {
-            "insert": "\\P",
-            "tex": "\\P"
+            "insert": "\\P"
         },
         {
-            "insert": "\\S",
-            "tex": "\\S"
+            "insert": "\\S"
         },
         {
-            "insert": "\\%",
-            "tex": "\\%"
+            "insert": "\\%"
         },
         {
-            "insert": "\\dagger",
-            "tex": "\\dagger"
+            "insert": "\\dagger"
         },
         {
-            "insert": "\\ddagger",
-            "tex": "\\ddagger"
+            "insert": "\\ddagger"
         },
         {
             "insert": "\\ldots",
-            "tex": "\\ldots",
             "alignBaseline": true
         },
         {
-            "insert": "\\cdots",
-            "tex": "\\cdots"
+            "insert": "\\cdots"
         },
         {
-            "insert": "\\smile",
-            "tex": "\\smile"
+            "insert": "\\smile"
         },
         {
-            "insert": "\\frown",
-            "tex": "\\frown"
+            "insert": "\\frown"
         },
         {
-            "insert": "\\wr",
-            "tex": "\\wr"
+            "insert": "\\wr"
         },
         {
-            "insert": "\\triangleleft",
-            "tex": "\\triangleleft"
+            "insert": "\\triangleleft"
         },
         {
-            "insert": "\\triangleright",
-            "tex": "\\triangleright"
+            "insert": "\\triangleright"
         },
         {
-            "insert": "\\diamondsuit",
-            "tex": "\\diamondsuit"
+            "insert": "\\diamondsuit"
         },
         {
-            "insert": "\\heartsuit",
-            "tex": "\\heartsuit"
+            "insert": "\\heartsuit"
         },
         {
-            "insert": "\\clubsuit",
-            "tex": "\\clubsuit"
+            "insert": "\\clubsuit"
         },
         {
-            "insert": "\\spadesuit",
-            "tex": "\\spadesuit"
+            "insert": "\\spadesuit"
         },
         {
-            "insert": "\\Game",
-            "tex": "\\Game"
+            "insert": "\\Game"
         },
         {
-            "insert": "\\flat",
-            "tex": "\\flat"
+            "insert": "\\flat"
         },
         {
-            "insert": "\\natural",
-            "tex": "\\natural"
+            "insert": "\\natural"
         },
         {
-            "insert": "\\sharp",
-            "tex": "\\sharp"
+            "insert": "\\sharp"
         }
     ],
     "math-visualeditor-symbol-group-unsorted": [
         {
-            "insert": "\\diagup",
-            "tex": "\\diagup"
+            "insert": "\\diagup"
         },
         {
-            "insert": "\\diagdown",
-            "tex": "\\diagdown"
+            "insert": "\\diagdown"
         },
         {
-            "insert": "\\centerdot",
-            "tex": "\\centerdot"
+            "insert": "\\centerdot"
         },
         {
-            "insert": "\\ltimes",
-            "tex": "\\ltimes"
+            "insert": "\\ltimes"
         },
         {
-            "insert": "\\rtimes",
-            "tex": "\\rtimes"
+            "insert": "\\rtimes"
         },
         {
-            "insert": "\\leftthreetimes",
-            "tex": "\\leftthreetimes"
+            "insert": "\\leftthreetimes"
         },
         {
-            "insert": "\\rightthreetimes",
-            "tex": "\\rightthreetimes"
+            "insert": "\\rightthreetimes"
         },
         {
-            "insert": "\\eqcirc",
-            "tex": "\\eqcirc"
+            "insert": "\\eqcirc"
         },
         {
-            "insert": "\\circeq",
-            "tex": "\\circeq"
+            "insert": "\\circeq"
         },
         {
-            "insert": "\\triangleq",
-            "tex": "\\triangleq"
+            "insert": "\\triangleq"
         },
         {
-            "insert": "\\bumpeq",
-            "tex": "\\bumpeq"
+            "insert": "\\bumpeq"
         },
         {
-            "insert": "\\Bumpeq",
-            "tex": "\\Bumpeq"
+            "insert": "\\Bumpeq"
         },
         {
-            "insert": "\\doteqdot",
-            "tex": "\\doteqdot"
+            "insert": "\\doteqdot"
         },
         {
-            "insert": "\\risingdotseq",
-            "tex": "\\risingdotseq"
+            "insert": "\\risingdotseq"
         },
         {
-            "insert": "\\fallingdotseq",
-            "tex": "\\fallingdotseq"
+            "insert": "\\fallingdotseq"
         },
         {
-            "insert": "\\intercal",
-            "tex": "\\intercal"
+            "insert": "\\intercal"
         },
         {
-            "insert": "\\barwedge",
-            "tex": "\\barwedge"
+            "insert": "\\barwedge"
         },
         {
-            "insert": "\\veebar",
-            "tex": "\\veebar"
+            "insert": "\\veebar"
         },
         {
-            "insert": "\\doublebarwedge",
-            "tex": "\\doublebarwedge"
+            "insert": "\\doublebarwedge"
         },
         {
-            "insert": "\\between",
-            "tex": "\\between"
+            "insert": "\\between"
         },
         {
-            "insert": "\\pitchfork",
-            "tex": "\\pitchfork"
+            "insert": "\\pitchfork"
         },
         {
-            "insert": "\\vartriangleleft",
-            "tex": "\\vartriangleleft"
+            "insert": "\\vartriangleleft"
         },
         {
-            "insert": "\\ntriangleleft",
-            "tex": "\\ntriangleleft"
+            "insert": "\\ntriangleleft"
         },
         {
-            "insert": "\\vartriangleright",
-            "tex": "\\vartriangleright"
+            "insert": "\\vartriangleright"
         },
         {
-            "insert": "\\ntriangleright",
-            "tex": "\\ntriangleright"
+            "insert": "\\ntriangleright"
         },
         {
-            "insert": "\\trianglelefteq",
-            "tex": "\\trianglelefteq"
+            "insert": "\\trianglelefteq"
         },
         {
-            "insert": "\\ntrianglelefteq",
-            "tex": "\\ntrianglelefteq"
+            "insert": "\\ntrianglelefteq"
         },
         {
-            "insert": "\\trianglerighteq",
-            "tex": "\\trianglerighteq"
+            "insert": "\\trianglerighteq"
         },
         {
-            "insert": "\\ntrianglerighteq",
-            "tex": "\\ntrianglerighteq"
+            "insert": "\\ntrianglerighteq"
         }
     ],
     "math-visualeditor-symbol-group-greek": [
         {
             "insert": "\\alpha",
-            "tex": "\\alpha",
             "alignBaseline": true
         },
         {
             "insert": "\\beta",
-            "tex": "\\beta",
             "alignBaseline": true
         },
         {
             "insert": "\\gamma",
-            "tex": "\\gamma",
             "alignBaseline": true
         },
         {
             "insert": "\\delta",
-            "tex": "\\delta",
             "alignBaseline": true
         },
         {
             "insert": "\\epsilon",
-            "tex": "\\epsilon",
             "alignBaseline": true
         },
         {
             "insert": "\\zeta",
-            "tex": "\\zeta",
             "alignBaseline": true
         },
         {
             "insert": "\\eta",
-            "tex": "\\eta",
             "alignBaseline": true
         },
         {
             "insert": "\\theta",
-            "tex": "\\theta",
             "alignBaseline": true
         },
         {
             "insert": "\\iota",
-            "tex": "\\iota",
             "alignBaseline": true
         },
         {
             "insert": "\\kappa",
-            "tex": "\\kappa",
             "alignBaseline": true
         },
         {
             "insert": "\\lambda",
-            "tex": "\\lambda",
             "alignBaseline": true
         },
         {
             "insert": "\\mu",
-            "tex": "\\mu",
             "alignBaseline": true
         },
         {
             "insert": "\\nu",
-            "tex": "\\nu",
             "alignBaseline": true
         },
         {
             "insert": "\\xi",
-            "tex": "\\xi",
             "alignBaseline": true
         },
         {
             "insert": "\\pi",
-            "tex": "\\pi",
             "alignBaseline": true
         },
         {
             "insert": "\\rho",
-            "tex": "\\rho",
             "alignBaseline": true
         },
         {
             "insert": "\\sigma",
-            "tex": "\\sigma",
             "alignBaseline": true
         },
         {
             "insert": "\\tau",
-            "tex": "\\tau",
             "alignBaseline": true
         },
         {
             "insert": "\\upsilon",
-            "tex": "\\upsilon",
             "alignBaseline": true
         },
         {
             "insert": "\\phi",
-            "tex": "\\phi",
             "alignBaseline": true
         },
         {
             "insert": "\\chi",
-            "tex": "\\chi",
             "alignBaseline": true
         },
         {
             "insert": "\\psi",
-            "tex": "\\psi",
             "alignBaseline": true
         },
         {
             "insert": "\\omega",
-            "tex": "\\omega",
             "alignBaseline": true
         },
         {
-            "insert": "\\Alpha",
-            "tex": "\\Alpha"
+            "insert": "\\Alpha"
         },
         {
-            "insert": "\\Beta",
-            "tex": "\\Beta"
+            "insert": "\\Beta"
         },
         {
-            "insert": "\\Gamma",
-            "tex": "\\Gamma"
+            "insert": "\\Gamma"
         },
         {
-            "insert": "\\Delta",
-            "tex": "\\Delta"
+            "insert": "\\Delta"
         },
         {
-            "insert": "\\Epsilon",
-            "tex": "\\Epsilon"
+            "insert": "\\Epsilon"
         },
         {
-            "insert": "\\Zeta",
-            "tex": "\\Zeta"
+            "insert": "\\Zeta"
         },
         {
-            "insert": "\\Eta",
-            "tex": "\\Eta"
+            "insert": "\\Eta"
         },
         {
-            "insert": "\\Theta",
-            "tex": "\\Theta"
+            "insert": "\\Theta"
         },
         {
-            "insert": "\\Iota",
-            "tex": "\\Iota"
+            "insert": "\\Iota"
         },
         {
-            "insert": "\\Kappa",
-            "tex": "\\Kappa"
+            "insert": "\\Kappa"
         },
         {
-            "insert": "\\Lambda",
-            "tex": "\\Lambda"
+            "insert": "\\Lambda"
         },
         {
-            "insert": "\\Mu",
-            "tex": "\\Mu"
+            "insert": "\\Mu"
         },
         {
-            "insert": "\\Nu",
-            "tex": "\\Nu"
+            "insert": "\\Nu"
         },
         {
-            "insert": "\\Xi",
-            "tex": "\\Xi"
+            "insert": "\\Xi"
         },
         {
-            "insert": "\\Pi",
-            "tex": "\\Pi"
+            "insert": "\\Pi"
         },
         {
-            "insert": "\\Rho",
-            "tex": "\\Rho"
+            "insert": "\\Rho"
         },
         {
-            "insert": "\\Sigma",
-            "tex": "\\Sigma"
+            "insert": "\\Sigma"
         },
         {
-            "insert": "\\Tau",
-            "tex": "\\Tau"
+            "insert": "\\Tau"
         },
         {
-            "insert": "\\Upsilon",
-            "tex": "\\Upsilon"
+            "insert": "\\Upsilon"
         },
         {
-            "insert": "\\Phi",
-            "tex": "\\Phi"
+            "insert": "\\Phi"
         },
         {
-            "insert": "\\Chi",
-            "tex": "\\Chi"
+            "insert": "\\Chi"
         },
         {
-            "insert": "\\Psi",
-            "tex": "\\Psi"
+            "insert": "\\Psi"
         },
         {
-            "insert": "\\Omega",
-            "tex": "\\Omega"
+            "insert": "\\Omega"
         },
         {
             "insert": "\\varepsilon",
-            "tex": "\\varepsilon",
             "alignBaseline": true
         },
         {
             "insert": "\\digamma",
-            "tex": "\\digamma",
             "alignBaseline": true
         },
         {
             "insert": "\\varkappa",
-            "tex": "\\varkappa",
             "alignBaseline": true
         },
         {
             "insert": "\\varpi",
-            "tex": "\\varpi",
             "alignBaseline": true
         },
         {
             "insert": "\\varrho",
-            "tex": "\\varrho",
             "alignBaseline": true
         },
         {
             "insert": "\\varsigma",
-            "tex": "\\varsigma",
             "alignBaseline": true
         },
         {
             "insert": "\\vartheta",
-            "tex": "\\vartheta",
             "alignBaseline": true
         },
         {
             "insert": "\\varphi",
-            "tex": "\\varphi",
             "alignBaseline": true
         }
     ],
     "math-visualeditor-symbol-group-hebrew": [
         {
-            "insert": "\\aleph",
-            "tex": "\\aleph"
+            "insert": "\\aleph"
         },
         {
-            "insert": "\\beth",
-            "tex": "\\beth"
+            "insert": "\\beth"
         },
         {
-            "insert": "\\gimel",
-            "tex": "\\gimel"
+            "insert": "\\gimel"
         },
         {
-            "insert": "\\daleth",
-            "tex": "\\daleth"
+            "insert": "\\daleth"
         }
     ],
     "math-visualeditor-symbol-group-typefaces": [
@@ -2550,98 +2062,76 @@
             }
         },
         {
-            "insert": "\\bigl(",
-            "tex": "\\bigl("
+            "insert": "\\bigl("
         },
         {
-            "insert": "\\bigr)",
-            "tex": "\\bigr)"
+            "insert": "\\bigr)"
         },
         {
             "insert": "\\Bigl(",
-            "contain": true,
-            "tex": "\\Bigl("
+            "contain": true
         },
         {
             "insert": "\\Bigr)",
-            "contain": true,
-            "tex": "\\Bigr)"
+            "contain": true
         },
         {
             "insert": "\\biggl(",
-            "contain": true,
-            "tex": "\\biggl("
+            "contain": true
         },
         {
             "insert": "\\biggr)",
-            "contain": true,
-            "tex": "\\biggr)"
+            "contain": true
         },
         {
             "insert": "\\Biggl(",
-            "contain": true,
-            "tex": "\\Biggl("
+            "contain": true
         },
         {
             "insert": "\\Biggr)",
-            "contain": true,
-            "tex": "\\Biggr)"
+            "contain": true
         },
         {
-            "insert": "(",
-            "tex": "("
+            "insert": "("
         },
         {
-            "insert": ")",
-            "tex": ")"
+            "insert": ")"
         },
         {
-            "insert": "[",
-            "tex": "["
+            "insert": "["
         },
         {
-            "insert": "]",
-            "tex": "]"
+            "insert": "]"
         },
         {
-            "insert": "\\{",
-            "tex": "\\{"
+            "insert": "\\{"
         },
         {
-            "insert": "\\}",
-            "tex": "\\}"
+            "insert": "\\}"
         },
         {
-            "insert": "\\langle",
-            "tex": "\\langle"
+            "insert": "\\langle"
         },
         {
-            "insert": "\\rangle",
-            "tex": "\\rangle"
+            "insert": "\\rangle"
         },
         {
-            "insert": "\\|",
-            "tex": "\\|"
+            "insert": "\\|"
         },
         {
-            "insert": "|",
-            "tex": "|"
+            "insert": "|"
         },
         {
-            "insert": "\\lfloor",
-            "tex": "\\lfloor"
+            "insert": "\\lfloor"
         },
         {
-            "insert": "\\rfloor",
-            "tex": "\\rfloor"
+            "insert": "\\rfloor"
         },
         {
-            "insert": "\\lceil",
-            "tex": "\\lceil"
+            "insert": "\\lceil"
         },
         {
-            "insert": "\\rceil",
-            "tex": "\\rceil"
+            "insert": "\\rceil"
         }
     ],
     "math-visualeditor-symbol-group-matrices": [
@@ -2844,8 +2334,7 @@
             }
         },
         {
-            "insert": "{}_1^2\\!\\Omega_3^4",
-            "tex": "{}_1^2\\!\\Omega_3^4"
+            "insert": "{}_1^2\\!\\Omega_3^4"
         },
         {
             "tex": "\\overset{\\alpha}{\\omega}",
@@ -2885,22 +2374,18 @@
         },
         {
             "insert": "x'",
-            "tex": "x'",
             "alignBaseline": true
         },
         {
             "insert": "y''",
-            "tex": "y''",
             "alignBaseline": true
         },
         {
             "insert": "f'",
-            "tex": "f'",
             "alignBaseline": true
         },
         {
             "insert": "f''",
-            "tex": "f''",
             "alignBaseline": true
         },
         {
@@ -2952,8 +2437,7 @@
             }
         },
         {
-            "insert": "\\sum",
-            "tex": "\\sum"
+            "insert": "\\sum"
         },
         {
             "contain": true,
@@ -2984,8 +2468,7 @@
             }
         },
         {
-            "insert": "\\prod",
-            "tex": "\\prod"
+            "insert": "\\prod"
         },
         {
             "contain": true,
@@ -3006,8 +2489,7 @@
             }
         },
         {
-            "insert": "\\coprod",
-            "tex": "\\coprod"
+            "insert": "\\coprod"
         },
         {
             "contain": true,
@@ -3163,64 +2645,54 @@
             "insert": "f(n) = \\begin{cases} n/2, & \\text{if }n\\text{ is even} \\\\ 3n+1, & \\text{if }n\\text{ is odd} \\end{cases}",
             "largeLayout": true,
             "contain": true,
-            "width": "wide",
-            "tex": "f(n) = \\begin{cases} n/2, & \\text{if }n\\text{ is even} \\\\ 3n+1, & \\text{if }n\\text{ is odd} \\end{cases}"
+            "width": "wide"
         },
         {
             "insert": "\\begin{align} f(x) & = (a+b)^2 \\\\ & = a^2+2ab+b^2 \\\\ \\end{align}",
             "largeLayout": true,
-            "width": "wide",
-            "tex": "\\begin{align} f(x) & = (a+b)^2 \\\\ & = a^2+2ab+b^2 \\\\ \\end{align}"
+            "width": "wide"
         },
         {
             "insert": "\\begin{alignat}{2} f(x) & = (a+b)^2 \\\\ & = a^2+2ab+b^2 \\\\ \\end{alignat}",
             "largeLayout": true,
-            "width": "wide",
-            "tex": "\\begin{alignat}{2} f(x) & = (a+b)^2 \\\\ & = a^2+2ab+b^2 \\\\ \\end{alignat}"
+            "width": "wide"
         },
         {
             "insert": "\\begin{array}{lcl} z & = & a \\\\ f(x,y,z) & = & x + y + z \\end{array}",
             "largeLayout": true,
             "contain": true,
-            "width": "wide",
-            "tex": "\\begin{array}{lcl} z & = & a \\\\ f(x,y,z) & = & x + y + z \\end{array}"
+            "width": "wide"
         },
         {
             "insert": "\\begin{array}{lcr} z & = & a \\\\ f(x,y,z) & = & x + y + z \\end{array}",
             "largeLayout": true,
             "contain": true,
-            "width": "wide",
-            "tex": "\\begin{array}{lcr} z & = & a \\\\ f(x,y,z) & = & x + y + z \\end{array}"
+            "width": "wide"
         },
         {
             "insert": "\\begin{cases} 3x + 5y + z \\\\ 7x - 2y + 4z \\\\ -6x + 3y + 2z \\end{cases}",
             "largeLayout": true,
-            "width": "wide",
-            "tex": "\\begin{cases} 3x + 5y + z \\\\ 7x - 2y + 4z \\\\ -6x + 3y + 2z \\end{cases}"
+            "width": "wide"
         },
         {
             "insert": "\\begin{array}{|c|c|c|} a & b & S \\\\ \\hline 0&0&1\\\\ 0&1&1\\\\ 1&0&1\\\\ 1&1&0\\\\ \\end{array}",
             "largeLayout": true,
-            "contain": true,
-            "tex": "\\begin{array}{|c|c|c|} a & b & S \\\\ \\hline 0&0&1\\\\ 0&1&1\\\\ 1&0&1\\\\ 1&1&0\\\\ \\end{array}"
+            "contain": true
         },
         {
             "insert": "A \\xleftarrow{n+\\mu-1} B \\xrightarrow[T]{n\\pm i-1} C",
             "largeLayout": true,
-            "width": "wide",
-            "tex": "A \\xleftarrow{n+\\mu-1} B \\xrightarrow[T]{n\\pm i-1} C"
+            "width": "wide"
         },
         {
             "insert": "\\overbrace{ 1+2+\\cdots+100 }^{5050}",
             "largeLayout": true,
-            "width": "wide",
-            "tex": "\\overbrace{ 1+2+\\cdots+100 }^{5050}"
+            "width": "wide"
         },
         {
             "insert": "\\underbrace{ a+b+\\cdots+z }_{26}",
             "largeLayout": true,
-            "width": "wide",
-            "tex": "\\underbrace{ a+b+\\cdots+z }_{26}"
+            "width": "wide"
         }
     ]
 }

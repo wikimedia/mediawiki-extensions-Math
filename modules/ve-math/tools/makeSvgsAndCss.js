@@ -56,8 +56,9 @@
 
 	function makeRequest( symbol ) {
 		var request,
+			tex = symbol.tex || symbol.insert,
 			data = querystring.stringify( {
-				q: symbol.tex
+				q: tex
 			} ),
 			// API call to mathoid
 			options = {
@@ -81,12 +82,12 @@
 
 			res.on( 'end', function () {
 				var cssRule, buttonHeight, height, verticalAlign, heightDifference, offset,
-					className = texToClass( symbol.tex ),
+					className = texToClass( tex ),
 					data = JSON.parse( body ),
 					svg = data.svg;
 
 				if ( !svg ) {
-					console.log( symbol.tex + ' FAILED: ' + body );
+					console.log( tex + ' FAILED: ' + body );
 					onEnd();
 					return;
 				}
@@ -109,11 +110,11 @@
 					cssRule += '\tbackground-position: 50% ' + offset + '%;\n' +
 						'}';
 					cssRules.push( cssRule );
-					console.log( symbol.tex + ' -> ' + className );
+					console.log( tex + ' -> ' + className );
 				} else {
 					cssRule += '}';
 					cssRules.push( cssRule );
-					console.log( symbol.tex + ' -> ' + className );
+					console.log( tex + ' -> ' + className );
 				}
 				onEnd();
 
@@ -178,7 +179,7 @@
 			if ( symbol.duplicate || symbol.notWorking ) {
 				continue;
 			}
-			currentClassName = texToClass( symbol.tex );
+			currentClassName = texToClass( symbol.tex || symbol.insert );
 			alignBaseline = !symbol.alignBaseline;
 			// If symbol is not in the old CSS file, or its alignBaseline status has changed,
 			// add it to symbolList. Check to make sure it hasn't already been added.
