@@ -32,7 +32,7 @@ ve.ui.MWMathPage = function VeUiMWMathPage( name, config ) {
 	for ( i = 0, ilen = symbols.length; i < ilen; i++ ) {
 		symbol = symbols[ i ];
 		if ( !symbol.notWorking && !symbol.duplicate ) {
-			tex = symbol.tex;
+			tex = symbol.tex || symbol.insert;
 			classes = [ 've-ui-mwMathPage-symbol' ];
 			classes.push(
 				've-ui-mwMathSymbol-' + tex.replace( /[^\w]/g, function ( c ) {
