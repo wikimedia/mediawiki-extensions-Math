@@ -1,4 +1,5 @@
 Given(/^I am editing a random page with source editor$/) do
+  raise if File.zero?("#{ENV['WORKSPACE']}/log/.cucumber.rerun")
   visit EditPage
 end
 
