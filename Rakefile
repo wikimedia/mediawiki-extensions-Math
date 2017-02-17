@@ -8,8 +8,10 @@ RuboCop::RakeTask.new(:rubocop) do |task|
   task.options = ['-c', '.rubocop.yml']
 end
 
-require 'mediawiki_selenium/rake_task'
-MediawikiSelenium::RakeTask.new
+require 'cucumber/rake/task'
+Cucumber::Rake::Task.new(:selenium) do |t|
+  t.cucumber_opts = "tests/browser -r tests/browser/features --retry 1"
+end
 
 task default: [:test]
 
