@@ -1,4 +1,7 @@
 Given(/^I am editing a random page with source editor$/) do
+  workspace = env.lookup(:workspace, default: nil)
+  separator = '/' if workspace
+  raise if File.zero?("#{workspace}#{separator}log/.cucumber.rerun")
   visit EditPage
 end
 
