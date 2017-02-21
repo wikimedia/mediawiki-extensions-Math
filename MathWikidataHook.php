@@ -41,8 +41,7 @@ class MathWikidataHook {
 			},
 			'formatter-factory-callback' => function( $format, FormatterOptions $options ) {
 				global $wgOut;
-				$styles = [ 'ext.math.scripts', 'ext.math.styles' ];
-				$wgOut->addModuleStyles( $styles );
+				$wgOut->addModuleStyles( [ 'ext.math.styles' ] );
 				return new MathFormatter( $format );
 			},
 			'rdf-builder-factory-callback' => function (
