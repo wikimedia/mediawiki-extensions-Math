@@ -199,7 +199,7 @@
 			"width": "wide"
 		}
 	],
-	"math-visualeditor-symbol-group-chem-operators": [
+	"math-visualeditor-symbol-group-chem-operations": [
 		{
 			"insert": "A + B",
 			"width": "wide"
