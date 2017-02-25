@@ -11,10 +11,12 @@
 			"PhiLiP",
 			"Bowleerin",
 			"Macofe",
-			"Alexsh"
+			"Alexsh",
+			"烈羽"
 		]
 	},
 	"math-desc": "在 <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code> 標籤顯示數學公式",
+	"math-visualeditor-mwcheminspector-title": "化學式",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "快速編輯",
 	"math-visualeditor-mwlatexdialog-card-formula": "公式",
 	"math-visualeditor-mwlatexdialog-card-options": "選項",
@@ -24,6 +26,9 @@
 	"math-visualeditor-mwlatexinspector-display-inline": "行內",
 	"math-visualeditor-mwlatexinspector-id": "連結 ID (選填)",
 	"math-visualeditor-mwmathdialog-title": "數學公式",
+	"math-visualeditor-symbol-group-chem-formulae": "化學式",
+	"math-visualeditor-symbol-group-chem-greek": "希臘字母",
+	"math-visualeditor-symbol-group-chem-precipitate": "沉澱與氣體",
 	"math-visualeditor-symbol-group-math-functions": "標準數值函數",
 	"math-visualeditor-symbol-group-math-logic": "邏輯",
 	"math-visualeditor-symbol-group-math-special": "特殊",
