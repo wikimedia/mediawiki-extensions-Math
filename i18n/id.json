@@ -5,10 +5,16 @@
 			"Iwan Novirion",
 			"William Surya Permana",
 			"Bennylin",
-			"Rachmat.Wahidi"
+			"Rachmat.Wahidi",
+			"Hidayatsrf"
 		]
 	},
-	"math-visualeditor-mwmathinspector-title": "Rumus",
+	"math-visualeditor-mwchemdialog-title": "Rumus kimia",
+	"math-visualeditor-mwcheminspector-title": "Rumus kimia",
+	"math-visualeditor-mwmathdialog-title": "Rumus matematika",
+	"math-visualeditor-symbol-group-chem-isotopes": "Isotop",
+	"math-visualeditor-symbol-group-chem-oxidation": "Tahap oksidasi",
+	"math-visualeditor-symbol-group-chem-stoichiometric": "Bilangan stoikiometrik",
 	"math_bad_output": "Tidak dapat menulisi atau membuat direktori keluaran math",
 	"math_bad_tmpdir": "Tidak dapat menulisi atau membuat direktori sementara math",
 	"math_failure": "Gagal memparse",
