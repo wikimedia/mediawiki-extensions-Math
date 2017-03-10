@@ -6,7 +6,6 @@
 		]
 	},
 	"math-desc": "Vykresľovať matematické vzorce medzi značkami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math-visualeditor-mwmathinspector-title": "Vzorec",
 	"math_bad_output": "Nemožno zapisovať alebo vytvoriť výstupný matematický adresár",
 	"math_bad_tmpdir": "Nemožno zapisovať alebo vytvoriť dočasný matematický adresár",
 	"math_failure": "Syntaktická analýza (parsing) neúspešná",

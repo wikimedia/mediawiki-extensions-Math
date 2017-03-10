@@ -10,7 +10,7 @@
 		]
 	},
 	"math-desc": "Выводзіць матэматычныя формулы, запісаныя паміж тэгамі <code>&lt;math&gt;</code> і <code>&lt;/math&gt;</code>",
-	"math-visualeditor-mwmathcontextitem-quickedit": "Хуткая праўка",
+	"math-visualeditor-mwlatexcontextitem-quickedit": "Хуткая праўка",
 	"math_bad_output": "Немагчыма запісаць ці стварыць выходную матэматычную дырэкторыю",
 	"math_bad_tmpdir": "Немагчыма запісаць ці стварыць часовую дырэкторыю для матэматыкі",
 	"math_failure": "Немагчыма разабраць",

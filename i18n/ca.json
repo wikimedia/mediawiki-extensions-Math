@@ -12,7 +12,6 @@
 		]
 	},
 	"math-desc": "Composa fórmules matemàtiques escrites entre les etiquetes <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math-visualeditor-mwmathinspector-title": "Fórmula",
 	"math_bad_output": "No s'ha pogut crear el directori d'eixida de math o escriure-hi dins.",
 	"math_bad_tmpdir": "No s'ha pogut crear el directori temporal de math o escriure-hi dins.",
 	"math_failure": "No s'ha pogut entendre",

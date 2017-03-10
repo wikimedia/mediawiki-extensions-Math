@@ -9,8 +9,7 @@
 			"Macofe"
 		]
 	},
-	"math-visualeditor-mwmathinspector-display": "បង្ហាញ",
-	"math-visualeditor-mwmathinspector-title": "រូបមន្ត",
+	"math-visualeditor-mwlatexinspector-display": "បង្ហាញ",
 	"math_bad_output": "មិនអាច សរសេរទៅ ឬ បង្កើត ថតឯកសារ គណិត ទិន្នផល",
 	"math_bad_tmpdir": "មិនអាចសរសេរទៅ ឬ បង្កើតថតឯកសារគណិតបណ្តោះអាសន្ន",
 	"math_failure": "បរាជ័យ​ក្នុង​ការ​ញែក​ចេញ​",

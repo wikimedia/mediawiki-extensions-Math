@@ -6,11 +6,10 @@
 			"Macofe"
 		]
 	},
-	"math-visualeditor-mwmathinspector-display": "顯示",
-	"math-visualeditor-mwmathinspector-display-block": "封鎖",
-	"math-visualeditor-mwmathinspector-display-default": "預設",
-	"math-visualeditor-mwmathinspector-display-inline": "行內",
-	"math-visualeditor-mwmathinspector-title": "方程式",
+	"math-visualeditor-mwlatexinspector-display": "顯示",
+	"math-visualeditor-mwlatexinspector-display-block": "封鎖",
+	"math-visualeditor-mwlatexinspector-display-default": "預設",
+	"math-visualeditor-mwlatexinspector-display-inline": "行內",
 	"math_bad_output": "唔能夠寫入或建立輸出數目錄",
 	"math_bad_tmpdir": "唔能夠寫入或建立臨時數目錄",
 	"math_failure": "語法拼砌失敗",

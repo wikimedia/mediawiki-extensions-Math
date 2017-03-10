@@ -8,7 +8,7 @@
 			"Robin van der Vliet"
 		]
 	},
-	"math-visualeditor-mwmathinspector-display-default": "Standert",
+	"math-visualeditor-mwlatexinspector-display-default": "Standert",
 	"math_bad_output": "De formulepad kin net skreaun of makke wêze.",
 	"math_bad_tmpdir": "De tydlike formulepad kin net skreaun of makke wêze.",
 	"math_failure": "Untsjutbere formule",

@@ -6,11 +6,11 @@
 			"Macofe"
 		]
 	},
-	"math-visualeditor-mwmathinspector-display-default": "Podrazumevano",
-	"math-visualeditor-symbol-group-functions": "Standardne numeričke funkcije",
-	"math-visualeditor-symbol-group-geometry": "Geometrija",
-	"math-visualeditor-symbol-group-logic": "Logika",
-	"math-visualeditor-symbol-group-special": "Posebno",
+	"math-visualeditor-mwlatexinspector-display-default": "Podrazumevano",
+	"math-visualeditor-symbol-group-math-functions": "Standardne numeričke funkcije",
+	"math-visualeditor-symbol-group-math-geometry": "Geometrija",
+	"math-visualeditor-symbol-group-math-logic": "Logika",
+	"math-visualeditor-symbol-group-math-special": "Posebno",
 	"math_bad_output": "Stvaranje ili pisanje u odredišnoj fascikli za matematiku nije uspelo",
 	"math_bad_tmpdir": "Stvaranje ili pisanje u privremenu fasciklu za matematiku nije uspelo",
 	"math_failure": "Raščlanjivanje nije uspelo",

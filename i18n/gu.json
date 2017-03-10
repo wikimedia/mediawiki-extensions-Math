@@ -9,8 +9,8 @@
 			"Macofe"
 		]
 	},
-	"math-visualeditor-mwmathinspector-display-block": "પ્રતિબંધ",
-	"math-visualeditor-mwmathinspector-display-default": "મૂળભૂત",
+	"math-visualeditor-mwlatexinspector-display-block": "પ્રતિબંધ",
+	"math-visualeditor-mwlatexinspector-display-default": "મૂળભૂત",
 	"math_bad_output": "ગણિત પરિણામ ડીરેક્ટરીમાં લખવું કે નવી બનાવવી શક્ય નથી",
 	"math_bad_tmpdir": "હંગામી ગણિત ડીરેક્ટરીમાં લખવું કે નવી બનાવવી શક્ય નથી",
 	"math_failure": "પદચ્છેદ અસફળ",

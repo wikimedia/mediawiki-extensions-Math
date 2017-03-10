@@ -5,7 +5,7 @@
 		]
 	},
 	"math-desc": "Wiskundige formules tussen <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-etiketten zetten",
-	"math-visualeditor-mwmathinspector-display-default": "Standard",
+	"math-visualeditor-mwlatexinspector-display-default": "Standard",
 	"math_bad_output": "De map veur wiskundebestaanden besteet niet of is niet an te maken.",
 	"math_bad_tmpdir": "De map veur tiedelike bestaanden veur wiskundige formules besteet niet of is kan niet an-emaakt wörden.",
 	"math_failure": "Wiskundige formule niet begriepelik",

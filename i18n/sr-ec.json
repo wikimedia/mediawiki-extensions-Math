@@ -7,12 +7,11 @@
 			"Macofe"
 		]
 	},
-	"math-visualeditor-mwmathinspector-display-default": "Подразумевано",
-	"math-visualeditor-mwmathinspector-title": "Формула",
-	"math-visualeditor-symbol-group-functions": "Стандардне нумеричке функције",
-	"math-visualeditor-symbol-group-geometry": "Геометрија",
-	"math-visualeditor-symbol-group-logic": "Логика",
-	"math-visualeditor-symbol-group-special": "Посебно",
+	"math-visualeditor-mwlatexinspector-display-default": "Подразумевано",
+	"math-visualeditor-symbol-group-math-functions": "Стандардне нумеричке функције",
+	"math-visualeditor-symbol-group-math-geometry": "Геометрија",
+	"math-visualeditor-symbol-group-math-logic": "Логика",
+	"math-visualeditor-symbol-group-math-special": "Посебно",
 	"math_bad_output": "Стварање или писање у одредишној фасцикли за математику није успело",
 	"math_bad_tmpdir": "Стварање или писање у привремену фасциклу за математику није успело",
 	"math_failure": "Рашчлањивање није успело",

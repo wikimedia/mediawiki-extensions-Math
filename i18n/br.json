@@ -7,9 +7,8 @@
 			"Macofe"
 		]
 	},
-	"math-visualeditor-mwmathinspector-display-block": "Stankañ",
-	"math-visualeditor-mwmathinspector-display-default": "Dre ziouer",
-	"math-visualeditor-mwmathinspector-title": "Formulenn",
+	"math-visualeditor-mwlatexinspector-display-block": "Stankañ",
+	"math-visualeditor-mwlatexinspector-display-default": "Dre ziouer",
 	"math_bad_output": "N'hall ket krouiñ pe skrivañ er c'havlec'h ermaeziañ",
 	"math_bad_tmpdir": "N'hall ket krouiñ pe skrivañ er c'havlec'h da c'hortoz",
 	"math_failure": "Fazi jedoniezh",
