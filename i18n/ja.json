@@ -12,10 +12,12 @@
 			"Sujiniku",
 			"Otokoume",
 			"Macofe",
-			"Vigorous action"
+			"Vigorous action",
+			"Suchichi02"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング",
+	"math-visualeditor-mwchemdialog-title": "化学式",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "簡易編集",
 	"math-visualeditor-mwlatexdialog-card-formula": "数式",
 	"math-visualeditor-mwlatexdialog-card-options": "オプション",
@@ -25,6 +27,7 @@
 	"math-visualeditor-mwlatexinspector-display-inline": "インライン",
 	"math-visualeditor-mwlatexinspector-id": "リンクID(オプション)",
 	"math-visualeditor-mwmathdialog-title": "数式",
+	"math-visualeditor-symbol-group-chem-formulae": "化学式",
 	"math-visualeditor-symbol-group-math-accents": "アクセントと発音区別符号",
 	"math-visualeditor-symbol-group-math-arrows": "矢印",
 	"math-visualeditor-symbol-group-math-bounds": "有界集合",
