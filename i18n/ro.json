@@ -27,7 +27,7 @@
 	"mw_math_latexml": "LaTeXML (experimental; folosește MathML)",
 	"mw_math_mathjax": "MathJax (experimental)",
 	"mw_math_mathml": "MathML dacă este posibil (experimental)",
-	"mw_math_png": "Întodeauna afișează PNG",
+	"mw_math_png": "Imagini PNG",
 	"mw_math_source": "Lasă ca TeX (pentru navigatoarele text)",
 	"prefs-math": "Aspect formule"
 }
