@@ -522,17 +522,15 @@ abstract class MathRenderer {
 		if ( $this->purge ) {
 			return true;
 		}
-		$request = RequestContext::getMain()->getRequest();
-		// TODO: Figure out if ?action=purge
-		// $action = $request->getText('action'); //always returns ''
-		// until this issue is resolved we use ?mathpurge=true instead
-		$mathpurge = $request->getBool( 'mathpurge', false );
-		if ( $mathpurge ) {
-			LoggerFactory::getInstance( 'Math' )->debug( 'Re-Rendering on user request' );
-			return true;
-		} else {
-			return false;
+		$refererHeader = RequestContext::getMain()->getRequest()->getHeader( 'REFERER' );
+		if ( $refererHeader ) {
+			parse_str( parse_url( $refererHeader, PHP_URL_QUERY ), $refererParam );
+			if ( isset( $refererParam['action'] ) && $refererParam['action'] === 'purge' ) {
+				LoggerFactory::getInstance( 'Math' )->debug( 'Re-Rendering on user request' );
+				return true;
+			}
 		}
+		return false;
 	}
 
 	/**
