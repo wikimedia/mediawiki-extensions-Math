@@ -81,7 +81,7 @@ class MathMathML extends MathRenderer {
 	public function render( $forceReRendering = false ) {
 		global $wgMathFullRestbaseURL;
 		try {
-			if ( $forceReRendering ) {
+			if ( $forceReRendering || $this->isPurge() ) {
 				$this->setPurge( true );
 			}
 			if ( in_array( $this->inputType, $this->restbaseInputTypes ) &&
