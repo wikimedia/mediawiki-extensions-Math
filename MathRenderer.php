@@ -523,11 +523,7 @@ abstract class MathRenderer {
 			return true;
 		}
 		$request = RequestContext::getMain()->getRequest();
-		// TODO: Figure out if ?action=purge
-		// $action = $request->getText('action'); //always returns ''
-		// until this issue is resolved we use ?mathpurge=true instead
-		$mathpurge = $request->getBool( 'mathpurge', false );
-		if ( $mathpurge ) {
+		if ( preg_match( '/action=purge/', $request->getAllHeaders()['REFERER'] ) ) {
 			LoggerFactory::getInstance( 'Math' )->debug( 'Re-Rendering on user request' );
 			return true;
 		} else {
