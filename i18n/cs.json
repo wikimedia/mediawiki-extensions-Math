@@ -5,10 +5,13 @@
 			"Mormegil",
 			"Cvanca",
 			"Matěj Suchánek",
-			"Dvorapa"
+			"Dvorapa",
+			"Vojtěch Dostál"
 		]
 	},
 	"math-desc": "Vykresluje matematické vzorce vyznačené pomocí <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwchemdialog-title": "Chemický vzorec",
+	"math-visualeditor-mwcheminspector-title": "Chemický vzorec",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Rychlá editace",
 	"math-visualeditor-mwlatexdialog-card-formula": "Vzorec",
 	"math-visualeditor-mwlatexdialog-card-options": "Možnosti",
@@ -18,6 +21,7 @@
 	"math-visualeditor-mwlatexinspector-display-inline": "V řádce",
 	"math-visualeditor-mwlatexinspector-id": "ID odkazu (nepovinné)",
 	"math-visualeditor-mwmathdialog-title": "Matematický vzorec",
+	"math-visualeditor-symbol-group-chem-equations": "Chemické rovnice",
 	"math-visualeditor-symbol-group-math-accents": "Diakritika",
 	"math-visualeditor-symbol-group-math-arrows": "Šipky",
 	"math-visualeditor-symbol-group-math-bounds": "Meze",
