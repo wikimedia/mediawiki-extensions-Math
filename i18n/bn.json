@@ -73,6 +73,7 @@
 	"math-test-start": "$1 মোড রেন্ডারিংয়ের জন্য ব্যাকএন্ড পরীক্ষা চলানো হচ্ছে।",
 	"math-test-success": "''$1'' পরীক্ষা <span style=\"color:green\">সফল হয়েছে</span>।",
 	"math_tip": "গাণিতিক সূত্র (LaTeX)",
+	"math-tracking-category-error": "গাণিতিক ত্রুটিসহ পাতা",
 	"math_unknown_error": "অজানা ত্রুটি",
 	"math_unknown_function": "'$1' অজানা ফাংশন",
 	"mw_math_latexml": "LaTeXML (পরীক্ষামূলক; MathML ব্যবহার)",
