@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Jocke Pirat"
-        ]
-    },
-    "math_sample": "Lagjan formula her",
-    "math_tip": "Maþemateikaleiks formula (LaTeX)"
+	"@metadata": {
+		"authors": [
+			"Jocke Pirat"
+		]
+	},
+	"math_sample": "Lagjan formula her",
+	"math_tip": "Maþemateikaleiks formula (LaTeX)"
 }
