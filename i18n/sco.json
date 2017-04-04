@@ -2,15 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"John Reid",
-			"OchAyeTheNoo"
+			"OchAyeTheNoo",
+			"AmaryllisGardener"
 		]
 	},
-	"math-visualeditor-mwmathinspector-title": "Formula",
 	"math_notexvc": "Missin <code>texvc</code> executable. Please see maths/README tae confeegur.",
 	"math_sample": "Pit yer formula here",
 	"math_tip": "Mathematical formula (LaTeX)",
+	"math-tracking-category-error": "Pages wi math errors",
 	"mw_math_mathml": "MathML wi SVG or PNG fawback (experimental)",
-	"mw_math_png": "Aye render PNG",
-	"mw_math_source": "Lea it aes TeX (fer tex brousers)",
+	"mw_math_png": "PNG eemages",
+	"mw_math_source": "LaTeX soorce (for text brousers)",
 	"prefs-math": "Renderin math"
 }
