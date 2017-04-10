@@ -22,7 +22,7 @@
 
 .ve-ui-mwLatexDialog-menuLayout > .oo-ui-menuLayout-content {
 	border-bottom: 1px solid #e6e6e6;
-	box-shadow: 0 1px 0 0 rgba( 0, 0, 0, 0.05 ); /* stylelint-disable-line no-unsupported-browser-features */
+	box-shadow: 0 1px 0 0 rgba( 0, 0, 0, 0.05 );
 	overflow: auto;
 }
 
