@@ -4,7 +4,8 @@
 			"Mienski",
 			"Yury Tarasievich",
 			"Macofe",
-			"Mechanizatar"
+			"Mechanizatar",
+			"Artsiom91"
 		]
 	},
 	"math_bad_output": "Немагчыма запісаць у або стварыць выводны каталог для матэматыкі",
@@ -16,6 +17,7 @@
 	"math_sample": "Уставіць формулу тут",
 	"math_syntax_error": "памылка сінтаксісу",
 	"math_tip": "Матэматычная формула (LaTeX)",
+	"math-tracking-category-error": "Старонкі з матэматычнымі памылкамі",
 	"math_unknown_error": "невядомая памылка",
 	"math_unknown_function": "невядомая функцыя \"$1\"",
 	"mw_math_mathml": "MathML калі магчыма (эксперыментальнае)",
