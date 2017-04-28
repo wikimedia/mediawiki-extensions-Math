@@ -36,20 +36,14 @@ module.exports = function ( grunt ) {
 		watch: {
 			files: [
 				'.{stylelintrc,.eslintrc.json}',
-				'<%= eslint.main %>',
+				'<%= eslint.all %>',
 				'<%= stylelint.core.src %>',
 				'<%= stylelint[ "ve-math" ].src %>'
 			],
 			tasks: 'test'
 		},
 		eslint: {
-			fix: {
-				options: {
-					fix: true
-				},
-				src: '<%= eslint.main %>'
-			},
-			main: [
+			all: [
 				'*.js',
 				'modules/**/*.js',
 				'!**/node_modules/**'
@@ -57,7 +51,6 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
-	grunt.registerTask( 'test', [ 'eslint:main', 'stylelint', 'jsonlint', 'banana' ] );
-	grunt.registerTask( 'fix', 'eslint:fix' );
+	grunt.registerTask( 'test', [ 'eslint', 'stylelint', 'jsonlint', 'banana' ] );
 	grunt.registerTask( 'default', 'test' );
 };
