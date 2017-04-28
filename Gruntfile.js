@@ -17,28 +17,16 @@ module.exports = function ( grunt ) {
 			]
 		},
 		stylelint: {
-			core: {
-				src: [
-					'**/*.css',
-					'!modules/ve-math/**',
-					'!node_modules/**'
-				]
-			},
-			've-math': {
-				options: {
-					configFile: 'modules/ve-math/.stylelintrc'
-				},
-				src: [
-					'modules/ve-math/**/*.css'
-				]
-			}
+			all: [
+				'**/*.css',
+				'!node_modules/**'
+			]
 		},
 		watch: {
 			files: [
 				'.{stylelintrc,.eslintrc.json}',
 				'<%= eslint.all %>',
-				'<%= stylelint.core.src %>',
-				'<%= stylelint[ "ve-math" ].src %>'
+				'<%= stylelint.all %>'
 			],
 			tasks: 'test'
 		},
