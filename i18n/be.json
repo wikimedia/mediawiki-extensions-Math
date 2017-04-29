@@ -18,6 +18,7 @@
 	"math_syntax_error": "памылка сінтаксісу",
 	"math_tip": "Матэматычная формула (LaTeX)",
 	"math-tracking-category-error": "Старонкі з матэматычнымі памылкамі",
+	"math-tracking-category-error-desc": "Старонка з памылкамі пры выкарыстанні матэматычных тэгаў.",
 	"math_unknown_error": "невядомая памылка",
 	"math_unknown_function": "невядомая функцыя \"$1\"",
 	"mw_math_mathml": "MathML калі магчыма (эксперыментальнае)",

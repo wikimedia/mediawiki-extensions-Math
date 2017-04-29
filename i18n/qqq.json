@@ -89,7 +89,7 @@
 	"math-test-contains-diff": "Used as special-page wikitext.\n\nParameters:\n* $1 syntax highlight element of the returned string \n* $2 syntax highlight element of the expected string",
 	"math-test-equals-diff": "Used as special-page wikitext.\n\nParameters:\n* $1 syntax highlight element of the returned string \n* $2 syntax highlight element of the expected string",
 	"math_tip": "This is the text that appears when you hover the mouse over the fourth button from the right on the edit toolbar.",
-	"math-tracking-category-error": "Старонкі ў гэтай катэгорыі маюць памылкі ў выкарыстанні матэматычных тэгаў",
+	"math-tracking-category-error": "Tracking category name.",
 	"math-tracking-category-error-desc": "Tracking category description.",
 	"math_unknown_error": "Used as error message for unknown texvc error.\n\nThis message follows the message {{msg-mw|Math failure}}.\n{{Identical|Unknown error}}",
 	"math_unknown_function": "Used as error message when texvc encounters an unknown function.\n\nPreceded by the message {{msg-mw|Math failure}}.\n\nParameters:\n* $1 - name of unknown function",
