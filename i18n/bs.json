@@ -67,7 +67,7 @@
 	"math_notexvc": "Nedostaje izvršno <code>texvc</code>; molimo Vas da pogledate math/README da podesite.",
 	"math_output_error": "Nije moguće spremiti matematičku sliku na sistem.",
 	"math_sample": "Unesite formulu ovdje",
-	"math-status-introduction": "Ova stranica prikazuje informacije o dozvoljenim načinima renderiranja matematike.\n\nNaredni renderirajući {{PLURAL:$1|način je|načini su}} dozvoljeni:",
+	"math-status-introduction": "Ova stranica prikazuje informacije o {{PLURAL:$1|dozvoljenom načinu|dozvoljenim načinima}} iscrtavanja matematike.\n\nNaredni {{PLURAL:$1|način iscrtavanja je|načini iscrtavanja su}} dozvoljeni:",
 	"math_syntax_error": "sintaksna greška",
 	"math_timeout": "$1 istek vremena sa \"$2\".",
 	"math-test-end": "Testovi za backend za način renderiranja ''$1'' su završeni.",
