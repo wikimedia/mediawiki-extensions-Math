@@ -7,7 +7,8 @@
 			"MIKHEIL",
 			"Dawid Deutschland",
 			"Tokoko",
-			"BRUTE"
+			"BRUTE",
+			"Otogi"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "ქიმიური ფორმულა",
@@ -66,6 +67,7 @@
 	"math_lexing_error": "ლექსიკური შეცდომა",
 	"math_notexvc": "შემსრულებელი ფაილი <code>texvc</code> არ არის ნაპოვნი; იხ.math/README ინფორმაციისთვის.",
 	"math_sample": "ჩასვით ფორმულა აქ",
+	"math-status-introduction": "ეს გვერდი აჩვენებს მათემატიკის ჩვენების ინფორმაციას {{PLURAL:$1|ჩართულ რეჟიმზე|ჩართულ რეჟიმებზე}}.\n\n{{PLURAL:$1|ჩართულია მათემატიკის ჩვენების შემდეგი რეჟიმი|ჩართულია მათემატიკის ჩვენების შემდეგი რეჟიმები}}:",
 	"math_syntax_error": "სინტაქსი არასწორია",
 	"math_tip": "მათემატიკური ფორმულა (LaTeX)",
 	"math_unknown_error": "უცნობი შეცდომა",
@@ -75,6 +77,7 @@
 	"mw_math_png": "PNG სურათები",
 	"mw_math_source": "LaTeX-ის წყარო (ტექსტური ბრაუზერებისთვის)",
 	"prefs-math": "მათემატიკა",
+	"mathstatus": "Math-ის მდგომარეობა",
 	"datatypes-type-math": "მათემატიკური გამოსახულება",
 	"wikibase-listdatatypes-math-head": "მათემატიკური გამოსახულება"
 }
