@@ -229,7 +229,11 @@ class MathHooks {
 		} else {
 			LoggerFactory::getInstance( 'Math' )->warning(
 				"Rendering failed. Printing error message." );
-			$parser->addTrackingCategory( 'math-tracking-category-error' );
+			// Set a short parser cache time (10 minutes) after encountering
+			// render issues, but not syntax issues.
+			$parser->getOutput()->updateCacheExpiry( 600 );
+			// Add a tracking category specialized on render errors.
+			$parser->addTrackingCategory( 'math-tracking-category-render-error' );
 			return $renderer->getLastError();
 		}
 		Hooks::run( 'MathFormulaPostRender',
