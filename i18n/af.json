@@ -2,9 +2,23 @@
 	"@metadata": {
 		"authors": [
 			"Naudefj",
-			"Macofe"
+			"Macofe",
+			"Fwolff"
 		]
 	},
+	"math-visualeditor-mwchemdialog-title": "Chemiese formule",
+	"math-visualeditor-mwcheminspector-title": "Chemiese formule",
+	"math-visualeditor-mwlatexdialog-card-formula": "Formule",
+	"math-visualeditor-mwlatexdialog-card-options": "Keuses",
+	"math-visualeditor-mwlatexinspector-display": "Aansig",
+	"math-visualeditor-mwlatexinspector-display-block": "Blok",
+	"math-visualeditor-mwlatexinspector-display-default": "Verstek",
+	"math-visualeditor-mwlatexinspector-display-inline": "Inlyn",
+	"math-visualeditor-mwmathdialog-title": "Wiskundeformule",
+	"math-visualeditor-symbol-group-chem-equations": "Chemiese vergelyking",
+	"math-visualeditor-symbol-group-chem-formulae": "Chemiese formules",
+	"math-visualeditor-symbol-group-chem-greek": "Griekse karakters",
+	"math-visualeditor-symbol-group-chem-isotopes": "Isotope",
 	"math_bad_output": "Die gids vir lêers met wiskundige formules bestaan nie of kan nie geskep word nie",
 	"math_bad_tmpdir": "Die gids vir tydelike lêers vir wiskundige formules bestaan nie of kan nie geskep word nie",
 	"math_failure": "Kon nie verbeeld nie",
@@ -17,7 +31,7 @@
 	"math_unknown_error": "onbekende fout",
 	"math_unknown_function": "onbekende funksie",
 	"mw_math_mathml": "MathML",
-	"mw_math_png": "Gebruik altyd PNG.",
+	"mw_math_png": "PNG-beelde",
 	"mw_math_source": "Los as LaTeX (vir teksblaaiers).",
 	"prefs-math": "Wiskunde"
 }
