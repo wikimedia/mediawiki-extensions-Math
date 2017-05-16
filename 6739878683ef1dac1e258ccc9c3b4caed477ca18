@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e1cb3f9_5f05dcc2",
+        "filename": "i18n/en.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2017-05-16T11:00:20Z",
+      "side": 0,
+      "message": "this is idenpendent of mathjax and currently being used.",
+      "range": {
+        "startLine": 96,
+        "startChar": 17,
+        "endLine": 96,
+        "endChar": 18
+      },
+      "revId": "6739878683ef1dac1e258ccc9c3b4caed477ca18",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
