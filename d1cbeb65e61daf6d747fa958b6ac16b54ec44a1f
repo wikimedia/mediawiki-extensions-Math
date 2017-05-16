@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e1cb3f9_3db6f085",
+        "filename": "MathRenderer.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2017-05-16T17:22:13Z",
+      "side": 1,
+      "message": "Extra parenthesis in the second part of the check:\n\n  $refererParam[\u0027action\u0027] \u003d\u003d\u003d \u0027purge\u0027",
+      "revId": "d1cbeb65e61daf6d747fa958b6ac16b54ec44a1f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
