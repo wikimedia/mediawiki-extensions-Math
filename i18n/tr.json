@@ -16,7 +16,8 @@
 			"HakanIST",
 			"Sayginer",
 			"Imabadplayer",
-			"Macofe"
+			"Macofe",
+			"Bulgu"
 		]
 	},
 	"math-desc": "Render matematiksel formüller arasında <code><math></code> ... <code></math></code> etiketler",
@@ -36,7 +37,7 @@
 	"math-visualeditor-symbol-group-math-logic": "Mantık",
 	"math-visualeditor-symbol-group-math-matrices": "Matrisler",
 	"math-visualeditor-symbol-group-math-modular": "Modüler aritmetik",
-	"math-visualeditor-symbol-group-math-operators": "İşlemler",
+	"math-visualeditor-symbol-group-math-operators": "İşleçler",
 	"math-visualeditor-symbol-group-math-parentheses": "Parantezler",
 	"math-visualeditor-symbol-group-math-relations": "İlişkiler",
 	"math-visualeditor-symbol-group-math-sets": "Kümeler",
@@ -67,8 +68,6 @@
 	"math_unknown_error": "bilinmeyen hata",
 	"math_unknown_function": "bilinmeyen işlev \"$1\"",
 	"mw_math_latexml": "LaTeXML (deneysel; kullanır MathML)",
-	"mw_math_latexml_jax": "İstemci tarafı ile LaTeXML MathJax (deneysel; kullanır MathML)",
-	"mw_math_mathjax": "İstemci tarafı MathJax (yavaş; bazı tarayıcılar ve erişilebilirlik araçları render geliştirir)",
 	"mw_math_mathml": "MathML, SVG ya da PNG geri dönüş (modern tarayıcılar ve erişilebilirlik araçları için önerilir)",
 	"mw_math_png": "PNG resimleri",
 	"mw_math_source": "LaTeX kaynağı (metin tarayıcıları için)",
