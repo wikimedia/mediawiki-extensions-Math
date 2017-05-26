@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0e1cb3f9_6a4bfc63",
+        "filename": "MathRenderer.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2017-05-26T15:14:51Z",
+      "side": 1,
+      "message": "May wanna use getHeader() instead of getting all of them here. Also means you can compare directly using ! instead of using isset() as it yields false if the key is not found. Also takes care of normalising the key.",
+      "range": {
+        "startLine": 525,
+        "startChar": 55,
+        "endLine": 525,
+        "endChar": 68
+      },
+      "revId": "d1cbeb65e61daf6d747fa958b6ac16b54ec44a1f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e1cb3f9_3db6f085",
         "filename": "MathRenderer.php",
         "patchSetId": 5
