@@ -42,6 +42,7 @@ class MathWikidataHook {
 			'formatter-factory-callback' => function( $format, FormatterOptions $options ) {
 				global $wgOut;
 				$wgOut->addModuleStyles( [ 'ext.math.styles' ] );
+				$wgOut->addModules( [ 'ext.math.scripts' ] );
 				return new MathFormatter( $format );
 			},
 			'rdf-builder-factory-callback' => function (
@@ -71,6 +72,7 @@ class MathWikidataHook {
 			'formatter-factory-callback' => function( $format, FormatterOptions $options ) {
 				global $wgOut;
 				$wgOut->addModuleStyles( [ 'ext.math.styles' ] );
+				$wgOut->addModules( [ 'ext.math.scripts' ] );
 				return new MathFormatter( $format );
 			},
 		];
