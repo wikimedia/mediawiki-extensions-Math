@@ -10,7 +10,8 @@
 			"محمد أحمد عبد الفتاح",
 			"Maroen1990",
 			"Shbib Al-Subaie",
-			"Moud hosny"
+			"Moud hosny",
+			"Mido"
 		]
 	},
 	"math-desc": "حوِّل الصيغ الرياضية بين وسمي <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -80,7 +81,7 @@
 	"math_timeout": "$1 انتهاء الوقت من \"$2\".",
 	"math-test-end": "النتائج في الخلفية لوضع التقديم ''$1'' اكتملت.",
 	"math-test-fail": "الاختبار ''$1'' <span style=\"color:red\">فشل</span>.",
-	"math-test-start": "جاري تشغيل الاختبارات في الخلفية لوضع التقديم ''$1''.",
+	"math-test-start": "جارٍ تشغيل الاختبارات في الخلفية لوضع الاظهار ''$1''.",
 	"math-test-success": "الاختبار ''$1'' <span style=\"color:green\">نجح</span>.",
 	"math-test-contains-diff": "سلسلة الحروف التي تم إرجاعها $1 لا تحتوي على سلسلة الحروف المتوقعة $2.",
 	"math-test-equals-diff": "سلسلة الحروف التي تم إرجاعها $1 مختلفة عن سلسلة الحروف المتوقعة $2.",
@@ -90,8 +91,6 @@
 	"math_unknown_error": "خطأ غير معروف",
 	"math_unknown_function": "وظيفة غير معروفة «$1»",
 	"mw_math_latexml": "LaTeXML (تجريبي؛ يستخدم MathML)",
-	"mw_math_latexml_jax": "LaTeXML مع MathJax من جهة العميل (تجريبي؛ يستخدم MathML)",
-	"mw_math_mathjax": "MathJax من جهة العميل (بطيء؛ يحسن العرض على بعض المتصفحات وأدوات الوصول)",
 	"mw_math_mathml": "اعرض بصيغة MathML إن أمكن (تجريبي)",
 	"mw_math_png": "دائما اعرض على هيئة PNG",
 	"mw_math_source": "اعرض على هيئة LaTeX (للمتصفحات النصية)",
