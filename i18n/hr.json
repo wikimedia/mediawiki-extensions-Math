@@ -4,7 +4,8 @@
 			"Herr Mlinka",
 			"MaGa",
 			"Roberta F.",
-			"SpeedyGonsales"
+			"SpeedyGonsales",
+			"Bugoslav"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Kemijska formula",
@@ -53,9 +54,9 @@
 	"math-tracking-category-error-desc": "Stranice u ovoj kategoriji imaju pogrješke u uporabi matematičkih oznaka.",
 	"math_unknown_error": "nepoznata pogrješka",
 	"math_unknown_function": "nepoznata funkcija",
-	"mw_math_mathjax": "MathJax (pokusno)",
 	"mw_math_mathml": "Ako je moguće MathML (u pokusnoj fazi)",
 	"mw_math_png": "PNG slike",
 	"mw_math_source": "Ostavi u formatu TeX (za tekstualne preglednike)",
-	"prefs-math": "Prikaz matematičkih formula"
+	"prefs-math": "Prikaz matematičkih formula",
+	"mathstatus": "Stanje izvedbe ispisa matematičkih formula"
 }
