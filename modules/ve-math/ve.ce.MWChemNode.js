@@ -30,6 +30,8 @@ ve.ce.MWChemNode.static.name = 'mwChem';
 
 ve.ce.MWChemNode.static.primaryCommandName = 'chemDialog';
 
+ve.ce.MWChemNode.static.iconWhenInvisible = 'chem';
+
 /* Registration */
 
 ve.ce.nodeFactory.register( ve.ce.MWChemNode );

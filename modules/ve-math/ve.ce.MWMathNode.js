@@ -30,6 +30,8 @@ ve.ce.MWMathNode.static.name = 'mwMath';
 
 ve.ce.MWMathNode.static.primaryCommandName = 'mathDialog';
 
+ve.ce.MWMathNode.static.iconWhenInvisible = 'math';
+
 /* Registration */
 
 ve.ce.nodeFactory.register( ve.ce.MWMathNode );
