@@ -58,7 +58,7 @@ img.tex {
 	vertical-align: middle;
 }
 
-.mwe-math-element {
+div.mwe-math-element {
 	overflow-x: auto;
 	max-width: 100%;
 }
