@@ -8,7 +8,8 @@
 			"NehalDaveND",
 			"Sfic",
 			"जनक राज भट्ट",
-			"Rajat11"
+			"Rajat11",
+			"Jayprakash12345"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> टैगों के बीच गणितीय सूत्र रेंडर करें",
@@ -35,7 +36,20 @@
 	"math-visualeditor-symbol-group-math-accents": "उच्चारण और विशेषक",
 	"math-visualeditor-symbol-group-math-arrows": "तीर",
 	"math-visualeditor-symbol-group-math-bounds": "सीमा",
+	"math-visualeditor-symbol-group-math-geometry": "ज्यामितिक",
+	"math-visualeditor-symbol-group-math-greek": "ग्रीक वर्णमाला",
+	"math-visualeditor-symbol-group-math-hebrew": "हिब्रू वर्णमाला",
+	"math-visualeditor-symbol-group-math-large": "बड़े लेआउट",
+	"math-visualeditor-symbol-group-math-logic": "तर्क",
+	"math-visualeditor-symbol-group-math-matrices": "मैट्रिक्स",
+	"math-visualeditor-symbol-group-math-modular": "मॉड्यूलर अंकगणित",
+	"math-visualeditor-symbol-group-math-operators": "ऑपरेटर",
+	"math-visualeditor-symbol-group-math-parentheses": "कोष्टक",
+	"math-visualeditor-symbol-group-math-projections": "अनुमान",
+	"math-visualeditor-symbol-group-math-relations": "संबंध",
 	"math-visualeditor-symbol-group-math-special": "विशेष",
+	"math-visualeditor-symbol-group-math-symbols": "प्रतीक और स्थिरांक",
+	"math-visualeditor-symbol-group-math-unsorted": "अवर्गीकृत",
 	"math_bad_output": "मैथ आउटपुट डाइरेक्टरी या तो बना नहीं सकते या फिर उसमें लिख नहीं सकते",
 	"math_bad_tmpdir": "मैथ अस्थायी डाइरेक्टरी या तो बना नहीं सकते या फिर उसमें लिख नहीं सकते",
 	"math_failure": "पार्स नहीं कर पाये",
@@ -49,6 +63,8 @@
 	"math_sample": "गणितीय सूत्र यहाँ डालें",
 	"math_syntax_error": "सिन्टैक्स त्रुटि",
 	"math_tip": "गणितीय सूत्र (लेटेक्स)",
+	"math-tracking-category-error": "गणित त्रुटियों वाले पृष्ठ",
+	"math-tracking-category-error-desc": "इस श्रेणी के पृष्ठों में गणित टैग के उपयोग में त्रुटियां हैं I",
 	"math_unknown_error": "अज्ञात त्रुटि",
 	"math_unknown_function": "अज्ञात फंक्शन '$1'",
 	"mw_math_latexml": "लेटेक्सएमएल (प्रयोगात्मक; मैथ॰एम॰एल का प्रयोग करता है)",
@@ -56,5 +72,7 @@
 	"mw_math_png": "पीएनजी छवियाँ",
 	"mw_math_source": "उसे TeX ही रखें (पाठ ब्राउज़र के लिये)",
 	"prefs-math": "गणित",
-	"mathstatus": "गणित स्थिति"
+	"mathstatus": "गणित स्थिति",
+	"datatypes-type-math": "गणितीय व्यंजक",
+	"wikibase-listdatatypes-math-head": "गणितीय व्यंजक"
 }
