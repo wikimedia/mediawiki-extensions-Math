@@ -39,7 +39,7 @@ class MathInputCheckRestbase extends MathInputCheck {
 		if ( $errorRenderer === null ) {
 			$errorRenderer =  new MathSource( $this->inputTeX );
 		}
-		if ( isset( $e->error->message ) ){
+		if ( isset( $e->error->message ) ) {
 			if ( $e->error->message === 'Illegal TeX function' ) {
 				return $errorRenderer->getError( 'math_unknown_function', $e->error->found );
 			} elseif ( preg_match( '/Math extension/', $e->error->message ) ) {
@@ -81,7 +81,7 @@ class MathInputCheckRestbase extends MathInputCheck {
 	 */
 	public function getError() {
 		$err = $this->restbaseInterface->getError();
-		if ( $err === null ){
+		if ( $err === null ) {
 			return null;
 		}
 		return $this->errorObjectToHtml( $err );

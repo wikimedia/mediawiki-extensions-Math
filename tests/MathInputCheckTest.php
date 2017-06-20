@@ -7,8 +7,7 @@
  *
  * @licence GNU GPL v2+
  */
-class MathInputCheckTest extends MediaWikiTestCase
-{
+class MathInputCheckTest extends MediaWikiTestCase {
 	/**
 	 * @covers MathInputCheck::isValid
 	 */

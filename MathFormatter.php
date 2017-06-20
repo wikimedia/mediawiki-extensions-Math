@@ -5,8 +5,7 @@ use ValueFormatters\Exceptions\MismatchingDataValueTypeException;
 use ValueFormatters\ValueFormatter;
 use Wikibase\Lib\SnakFormatter;
 
-/*
-* Formats the tex string based on the known formats
+/** Formats the tex string based on the known formats
 * * text/plain: used in the value input field of Wikidata
 * * text/x-wiki: wikitext
 * * text/html: used in Wikidata to display the value of properties

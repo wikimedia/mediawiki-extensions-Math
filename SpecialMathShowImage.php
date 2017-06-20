@@ -60,7 +60,7 @@ class SpecialMathShowImage extends SpecialPage {
 			$this->setHeaders( false );
 			echo $this->printSvgError( 'No Inputhash specified' );
 		} else {
-			if ( $tex === '' && $asciimath === '' ){
+			if ( $tex === '' && $asciimath === '' ) {
 				switch ( $this->mode ) {
 					case 'png':
 						$this->renderer = MathTexvc::newFromMd5( $hash );
@@ -113,9 +113,9 @@ class SpecialMathShowImage extends SpecialPage {
 			}
 			$this->setHeaders( $success );
 			echo $output;
-			if ( $success ){
+			if ( $success ) {
 				$this->renderer->writeCache();
-			}
+   }
 		}
 	}
 

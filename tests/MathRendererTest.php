@@ -85,7 +85,6 @@ class MathRendererTest extends MediaWikiTestCase {
 				] )->disableOriginalConstructor()->getMock();
 		$renderer->setPurge();
 		$this->assertEquals( $renderer->isPurge(), true, "Test purge." );
-
 	}
 
 	public function testDisableCheckingAlways() {
@@ -104,7 +103,6 @@ class MathRendererTest extends MediaWikiTestCase {
 		$this->assertEquals( $renderer->checkTeX(), true );
 		// now setTex sould not be called again
 		$this->assertEquals( $renderer->checkTeX(), true );
-
 	}
 
 	public function testDisableCheckingNever() {

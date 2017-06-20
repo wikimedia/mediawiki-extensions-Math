@@ -23,7 +23,7 @@ class MathWikidataHook {
 
 		$dataTypeDefinitions['PT:math'] = [
 			'value-type'                 => 'string',
-			'validator-factory-callback' => function() {
+			'validator-factory-callback' => function () {
 				// load validator builders
 				$factory = WikibaseRepo::getDefaultValidatorBuilders();
 
@@ -34,12 +34,12 @@ class MathWikidataHook {
 				$validators[] = new MathValidator();
 				return $validators;
 			},
-			'parser-factory-callback' => function( ParserOptions $options ) {
+			'parser-factory-callback' => function ( ParserOptions $options ) {
 				$repo = WikibaseRepo::getDefaultInstance();
 				$normalizer = new WikibaseStringValueNormalizer( $repo->getStringNormalizer() );
 				return new StringParser( $normalizer );
 			},
-			'formatter-factory-callback' => function( $format, FormatterOptions $options ) {
+			'formatter-factory-callback' => function ( $format, FormatterOptions $options ) {
 				global $wgOut;
 				$wgOut->addModuleStyles( [ 'ext.math.styles' ] );
 				return new MathFormatter( $format );
@@ -68,7 +68,7 @@ class MathWikidataHook {
 
 		$dataTypeDefinitions['PT:math'] = [
 			'value-type'                 => 'string',
-			'formatter-factory-callback' => function( $format, FormatterOptions $options ) {
+			'formatter-factory-callback' => function ( $format, FormatterOptions $options ) {
 				global $wgOut;
 				$wgOut->addModuleStyles( [ 'ext.math.styles' ] );
 				return new MathFormatter( $format );
