@@ -553,11 +553,11 @@ abstract class MathRenderer {
 	 * @param string $mathStyle ('inlineDisplaystyle'|'display'|'inline')
 	 */
 	public function setMathStyle( $mathStyle = 'display' ) {
-		if ( $this->mathStyle !== $mathStyle ){
+		if ( $this->mathStyle !== $mathStyle ) {
 			$this->changed = true;
 		}
 		$this->mathStyle = $mathStyle;
-		if ( $mathStyle == 'inline' ){
+		if ( $mathStyle == 'inline' ) {
 			$this->inputType = 'inline-tex';
 		} else {
 			$this->inputType = 'tex';
@@ -589,7 +589,7 @@ abstract class MathRenderer {
 			// equation was already checked or checking is disabled
 			return true;
 		} else {
-			if ( self::getDisableTexFilter() == 'new' && $this->mode != 'source' ){
+			if ( self::getDisableTexFilter() == 'new' && $this->mode != 'source' ) {
 				if ( $this->readFromDatabase() ) {
 					return true;
 				}
@@ -651,7 +651,7 @@ abstract class MathRenderer {
 	 */
 	public function getSvg( /** @noinspection PhpUnusedParameterInspection */ $render = 'render' ) {
 		// Spaces will prevent the image from being displayed correctly in the browser
-		if ( !$this->svg && $this->rbi ){
+		if ( !$this->svg && $this->rbi ) {
 			$this->svg = $this->rbi->getSvg();
 		}
 		return trim( $this->svg );

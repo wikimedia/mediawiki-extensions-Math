@@ -51,7 +51,7 @@ class MathInputCheckTexvc extends MathInputCheck {
 	public function isValid() {
 		$us = $this;
 		$checkWork = new PoolCounterWorkViaCallback( 'MathTexvc-check', "", [
-			'doWork' => function() use ( $us ) {
+			'doWork' => function () use ( $us ) {
 				return $us->doValidCheck();
 			}
 		] );
@@ -63,7 +63,7 @@ class MathInputCheckTexvc extends MathInputCheck {
 	 */
 	public function doValidCheck() {
 		global $wgMathTexvcCheckExecutable;
-		if ( $wgMathTexvcCheckExecutable === false ){
+		if ( $wgMathTexvcCheckExecutable === false ) {
 			$texvcCheckExecutable = __DIR__ . '/texvccheck/texvccheck';
 		} else {
 			$texvcCheckExecutable = $wgMathTexvcCheckExecutable;

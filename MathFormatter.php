@@ -5,14 +5,14 @@ use ValueFormatters\Exceptions\MismatchingDataValueTypeException;
 use ValueFormatters\ValueFormatter;
 use Wikibase\Lib\SnakFormatter;
 
-/*
-* Formats the tex string based on the known formats
-* * text/plain: used in the value input field of Wikidata
-* * text/x-wiki: wikitext
-* * text/html: used in Wikidata to display the value of properties
-* Formats can look like this: "text/html; disposition=widget"
-* or just "text/plain"
-*/
+/**
+ * Formats the tex string based on the known formats
+ * - text/plain: used in the value input field of Wikidata
+ * - text/x-wiki: wikitext
+ * - text/html: used in Wikidata to display the value of properties
+ * Formats can look like this: "text/html; disposition=widget"
+ * or just "text/plain"
+ */
 
 class MathFormatter implements ValueFormatter {
 
