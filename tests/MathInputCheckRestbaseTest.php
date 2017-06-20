@@ -27,7 +27,6 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 		}
 		$this->BadObject = new MathInputCheckRestbase( '\newcommand{\text{do evil things}}' );
 		$this->GoodObject = new MathInputCheckRestbase( '\sin\left(\frac12x\right)' );
-
 	}
 
 	/**

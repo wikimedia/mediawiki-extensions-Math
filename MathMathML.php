@@ -34,7 +34,7 @@ class MathMathML extends MathRenderer {
 				$this->setMathml( '<math>' . $tex . '</math>' );
 			} elseif ( $params['type'] == 'ascii' ) {
 				$this->inputType = 'ascii';
-			} elseif ( $params['type'] == 'chem' ){
+			} elseif ( $params['type'] == 'chem' ) {
 				$this->inputType = 'chem';
 			}
 		}
@@ -493,7 +493,6 @@ class MathMathML extends MathRenderer {
 			$this->userInputTex = $rpage->math_input;
 		}
 		parent::initializeFromDatabaseRow( $rpage );
-
 	}
 
 	/**

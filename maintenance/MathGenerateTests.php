@@ -21,8 +21,7 @@
 
 require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 
-class MathGenerateTests extends Maintenance
-{
+class MathGenerateTests extends Maintenance {
 	const REFERENCE_PAGE = 'mediawikiwiki:Extension:Math/CoverageTest';
 
 	public function __construct() {
@@ -35,7 +34,6 @@ class MathGenerateTests extends Maintenance
 		);
 		$this->addOption( 'length', "If set the only n equations were processed", false, true, "l" );
 		$this->addOption( 'user', "User with rights to view the page", false, true, "u" );
-
 	}
 
 	private static function getMathTagsFromPage( $titleString ) {

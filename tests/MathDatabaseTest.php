@@ -118,6 +118,5 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->assertFalse( $this->renderer->writeCache() );
 		// as a result no entry can be found in the database.
 		$this->assertFalse( $this->renderer->readFromDatabase() );
-
 	}
 }

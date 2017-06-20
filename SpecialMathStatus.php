@@ -35,7 +35,7 @@ class SpecialMathStatus extends SpecialPage {
 		$enabledMathModes = MathHooks::getMathNames();
 		$out->addWikiMsg( 'math-status-introduction', count( $enabledMathModes ) );
 
-		foreach ( $enabledMathModes as $modeNr => $modeName ){
+		foreach ( $enabledMathModes as $modeNr => $modeName ) {
 			$out->addWikiText( "=== $modeName ===" );
 			switch ( $modeNr ) {
 				case 'mathml':
@@ -146,7 +146,7 @@ class SpecialMathStatus extends SpecialPage {
 	}
 
 	private function assertTrue( $expression, $message = '' ) {
-		if ( $expression ){
+		if ( $expression ) {
 			$this->getOutput()->addWikiMsgArray( 'math-test-success', $message );
 			return true;
 		} else {
@@ -163,7 +163,7 @@ class SpecialMathStatus extends SpecialPage {
 
 	private function assertEquals( $expected, $real, $message = '' ) {
 		if ( is_array( $expected ) ) {
-			foreach ( $expected as $alternative ){
+			foreach ( $expected as $alternative ) {
 				if ( $alternative === $real ) {
 					$this->getOutput()->addWikiMsgArray( 'math-test-success', $message );
 					return true;

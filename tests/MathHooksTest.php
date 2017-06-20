@@ -35,7 +35,7 @@ class MathHooksTest extends MediaWikiTestCase {
 			'mathml'              => 'mathml',
 			'latexml'             => 'latexml',
 		];
-		foreach ( $testCases as $input => $expected ){
+		foreach ( $testCases as $input => $expected ) {
 			$real = MathHooks::mathModeToString( $input, $default );
 			$this->assertEquals( $expected, $real, "Conversion math mode $input -> $expected" );
 		}
@@ -54,7 +54,7 @@ class MathHooksTest extends MediaWikiTestCase {
 			'display'                           => 'display',
 			'inline'                            => 'inline',
 		];
-		foreach ( $testCases as $input => $expected ){
+		foreach ( $testCases as $input => $expected ) {
 			$real = MathHooks::mathStyleToString( $input, $default );
 			$this->assertEquals( $expected, $real, "Conversion in math style" );
 		}
@@ -76,7 +76,7 @@ class MathHooksTest extends MediaWikiTestCase {
 			false                   => 'always'
 		];
 
-		foreach ( $testCases as $input => $expected ){
+		foreach ( $testCases as $input => $expected ) {
 			$real = MathHooks::mathCheckToString( $input, $default );
 			$this->assertEquals( $expected, $real, "Conversion in math check method" );
 		}
@@ -92,7 +92,7 @@ class MathHooksTest extends MediaWikiTestCase {
 			'invalid'=> $default
 		];
 
-		foreach ( $testCases as $input => $expected ){
+		foreach ( $testCases as $input => $expected ) {
 			$real = MathHooks::mathModeToHashKey( $input, $default );
 			$this->assertEquals( $expected, $real, "Conversion to hash key" );
 		}
