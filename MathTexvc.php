@@ -144,7 +144,7 @@ class MathTexvc extends MathRenderer {
 			'class' => 'mwe-math-fallback-image-inline tex',
 			'alt' => $this->getTex()
 		];
-		if ( $this->getMathStyle() === 'display' ){
+		if ( $this->getMathStyle() === 'display' ) {
 			// if DisplayStyle is true, the equation will be centered in a new line
 			$attributes[ 'class' ] = 'mwe-math-fallback-image-display tex';
 		}
@@ -157,7 +157,6 @@ class MathTexvc extends MathRenderer {
 				]
 			)
 		);
-
 	}
 
 	/**
@@ -178,7 +177,7 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function callTexvc() {
 		global $wgTexvc, $wgTexvcBackgroundColor, $wgHooks;
-		if ( $wgTexvc === false ){
+		if ( $wgTexvc === false ) {
 			$texvc = __DIR__ . '/math/texvc';
 		} else {
 			$texvc = $wgTexvc;

@@ -311,7 +311,6 @@ class MathHooks {
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
-
 		if ( is_null( $updater ) ) {
 			throw new Exception( 'Math extension is only necessary in 1.18 or above' );
 		}
@@ -369,15 +368,14 @@ class MathHooks {
 	 */
 	public static function onParserAfterTidy( &$parser, &$text ) {
 		$rbis = [];
-		foreach ( self::$tags as $key => $tag ){
-			/** @var MathRenderer $renderer */
-			$renderer = $tag[0];
+		foreach ( self::$tags as $key => $tag ) {
+			/** @var MathRenderer $renderer */			$renderer = $tag[0];
 			$rbi = new MathRestbaseInterface( $renderer->getTex(), $renderer->getInputType() );
 			$renderer->setRestbaseInterface( $rbi );
 			$rbis[] = $rbi;
 		}
 		MathRestbaseInterface::batchEvaluate( $rbis );
-		foreach ( self::$tags as $key => $tag ){
+		foreach ( self::$tags as $key => $tag ) {
 			$value = call_user_func_array( [ "MathHooks","mathPostTagHook" ], $tag );
 			// Workaround for https://phabricator.wikimedia.org/T103269
 			$text = preg_replace( '/(<mw:editsection[^>]*>.*?)' . preg_quote( $key ) .

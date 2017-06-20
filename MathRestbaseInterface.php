@@ -85,7 +85,7 @@ class MathRestbaseInterface {
 	 * @throws MWException
 	 */
 	public function getMathML() {
-		if ( !$this->mml ){
+		if ( !$this->mml ) {
 			$this->mml = $this->getContent( 'mml' );
 		}
 		return $this->mml;
@@ -132,7 +132,6 @@ class MathRestbaseInterface {
 			] );
 		}
 		return $response;
-
 	}
 
 	/**
@@ -259,7 +258,7 @@ class MathRestbaseInterface {
 		// Generates a TeX string that probably has not been generated before
 		$uniqueTeX = uniqid( 't=', true );
 		$testInterface = new MathRestbaseInterface( $uniqueTeX );
-		if ( ! $testInterface->checkTeX() ){
+		if ( ! $testInterface->checkTeX() ) {
 			$this->log()->warning( 'Config check failed, since test expression was considered as invalid.',
 				[ 'uniqueTeX' => $uniqueTeX ] );
 			return false;
@@ -268,7 +267,7 @@ class MathRestbaseInterface {
 			$url = $testInterface->getFullSvgUrl();
 			$req = MWHttpRequest::factory( $url );
 			$status = $req->execute();
-			if ( $status->isOK() ){
+			if ( $status->isOK() ) {
 				return true;
 			}
 			$this->log()->warning( 'Config check failed, due to an invalid response code.',
@@ -440,7 +439,7 @@ class MathRestbaseInterface {
 		$detail = 'Server problem.';
 		$json = json_decode( $body );
 		if ( isset( $json->detail ) ) {
-			if ( is_array( $json->detail ) ){
+			if ( is_array( $json->detail ) ) {
 				$detail = $json->detail[0];
 			} elseif ( is_string( $json->detail ) ) {
 				$detail = $json->detail;
