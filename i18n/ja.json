@@ -13,7 +13,8 @@
 			"Otokoume",
 			"Macofe",
 			"Vigorous action",
-			"Suchichi02"
+			"Suchichi02",
+			"Wicklo"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング",
@@ -66,10 +67,10 @@
 	"math_unknown_error": "不明なエラー",
 	"math_unknown_function": "不明な関数「$1」",
 	"mw_math_latexml": "LaTeXML (開発中。MathML を使用)",
-	"mw_math_latexml_jax": "LaTeXML + クライアント側 MathJax (開発中。MathML を使用)",
-	"mw_math_mathjax": "クライアント側 MathJax (低速；一部のブラウザーや補助ツール使用時にレンダリングを改善 )",
 	"mw_math_mathml": "MathML、ただし動作しない場合はSVGかPNGで代替（最新ブラウザーや補助ツールに推奨）",
 	"mw_math_png": "PNG 画像",
 	"mw_math_source": "LaTeX ソース (テキスト ブラウザー向け)",
-	"prefs-math": "数式"
+	"prefs-math": "数式",
+	"datatypes-type-math": "数式",
+	"wikibase-listdatatypes-math-head": "数式"
 }
