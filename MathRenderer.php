@@ -487,14 +487,14 @@ abstract class MathRenderer {
 	/**
 	 * Get the attributes of the math tag
 	 *
-	 * @return []
+	 * @return array
 	 */
 	public function getParams() {
 		return $this->params;
 	}
 
 	/**
-	 * @param [] $params
+	 * @param array $params
 	 */
 	public function setParams( $params ) {
 		// $changed is not set to true here, because the attributes do not affect

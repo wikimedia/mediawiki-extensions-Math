@@ -69,7 +69,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$requestReturn = $renderer->makeRequest( $url, 'a+b', $res, $error,
 			'MathMLHttpRequestTester' );
 		$this->assertEquals( true, $requestReturn, "successful call return" );
-		$this->isTrue( $res, "successfull call" );
+		$this->assertTrue( $res, 'successfull call' );
 		$this->assertEquals( $error, '', "successfull call errormessage" );
 	}
 
@@ -139,7 +139,6 @@ class MathMathMLTest extends MediaWikiTestCase {
  * Helper class for testing
  * @author physikerwelt
  * @see MWHttpRequestTester
- *
  */
 class MathMLHttpRequestTester {
 

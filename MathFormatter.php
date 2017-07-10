@@ -63,7 +63,7 @@ class MathFormatter implements ValueFormatter {
 			default:
 				$renderer = new MathMathML( $tex );
 
-				if ( $renderer->checkTex() && $renderer->render() ) {
+				if ( $renderer->checkTeX() && $renderer->render() ) {
 					$html = $renderer->getHtmlOutput();
 				} else {
 					$html = $renderer->getLastError();

@@ -85,7 +85,7 @@ class MathCoverageTest extends MediaWikiTestCase {
 
 	/**
 	 * Gets the test-data from the file ParserTest.json
-	 * @return [$input, $output] where $input is the test input string
+	 * @return string[] [ $input, $output ] where $input is the test input string
 	 * and $output is the rendered html5-output string
 	 */
 	public function provideCoverage() {

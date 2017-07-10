@@ -57,7 +57,7 @@ class MathTexvc extends MathRenderer {
 	}
 
 	/**
-	 * @param database_row $rpage
+	 * @param stdClass $rpage
 	 * @return bool
 	 */
 	protected function initializeFromDatabaseRow( $rpage ) {
@@ -330,7 +330,7 @@ class MathTexvc extends MathRenderer {
 			if ( !$backend ) {
 				$backend = new FSFileBackend( [
 					'name'           => 'math-backend',
-					'wikiId' 	 => wfWikiId(),
+					'wikiId' => wfWikiID(),
 					'lockManager'    => new NullLockManager( [] ),
 					'containerPaths' => [ 'math-render' => $wgMathDirectory ],
 					'fileMode'       => 0777,

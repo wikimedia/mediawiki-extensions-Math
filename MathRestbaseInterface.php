@@ -22,7 +22,6 @@ class MathRestbaseInterface {
 	private $purge = false;
 
 	/**
-	 * MathRestbaseInterface constructor.
 	 * @param string $tex
 	 * @param string $type
 	 */
@@ -34,8 +33,8 @@ class MathRestbaseInterface {
 	/**
 	 * Bundles several requests for fetching MathML.
 	 * Does not send requests, if the the input TeX is invalid.
-	 * @param $rbis
-	 * @param $serviceClient
+	 * @param MathRestbaseInterface[] $rbis
+	 * @param VirtualRESTServiceClient $serviceClient
 	 */
 	private static function batchGetMathML( $rbis, $serviceClient ) {
 		$requests = [];
@@ -135,7 +134,7 @@ class MathRestbaseInterface {
 	}
 
 	/**
-	 * @param array $rbis array of MathRestbaseInterface instances
+	 * @param MathRestbaseInterface[] $rbis
 	 */
 	public static function batchEvaluate( $rbis ) {
 		if ( count( $rbis ) == 0 ) {
@@ -162,6 +161,9 @@ class MathRestbaseInterface {
 		self::batchGetMathML( $rbis, $serviceClient );
 	}
 
+	/**
+	 * @return VirtualRESTServiceClient
+	 */
 	private function getServiceClient() {
 		global $wgVirtualRestConfig, $wgMathConcurrentReqs;
 		$http = new MultiHttpClient( [ 'maxConnsPerHost' => $wgMathConcurrentReqs ] );
@@ -263,6 +265,7 @@ class MathRestbaseInterface {
 				[ 'uniqueTeX' => $uniqueTeX ] );
 			return false;
 		}
+
 		try {
 			$url = $testInterface->getFullSvgUrl();
 			$req = MWHttpRequest::factory( $url );
