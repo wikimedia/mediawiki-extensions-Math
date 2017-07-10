@@ -269,7 +269,8 @@ class MathTexvc extends MathRenderer {
 		if ( !$errmsg ) {
 			$newHash = substr( $contents, 1, 32 );
 			if ( $this->hash !== $newHash ) {
-				$this->isInDatabase( false ); // DB needs update in writeCache() (bug 60997)
+				// DB needs update in writeCache() (bug 60997)
+				$this->isInDatabase();
 			}
 			$this->setHash( $newHash );
 		}

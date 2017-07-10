@@ -197,7 +197,7 @@ class MathMathML extends MathRenderer {
 				$errormsg = $status->getHtml();
 				$error =
 					$this->getError( 'math_invalidresponse', $this->getModeStr(), $host, $errormsg,
-						$this->getModeStr( 'mathml' ) );
+						$this->getModeStr() );
 				LoggerFactory::getInstance( 'Math' )->warning( 'NoResponse:' . var_export( [
 						'post' => $post,
 						'host' => $host,

@@ -37,7 +37,7 @@ class MathRestbaseInterface {
 	 * @param $rbis
 	 * @param $serviceClient
 	 */
-	private static function batchGetMathML( $rbis, $serviceClient ) {
+	private static function batchGetMathML( array $rbis, VirtualRESTServiceClient $serviceClient ) {
 		$requests = [];
 		$skips = [];
 		$i = 0;
@@ -137,7 +137,7 @@ class MathRestbaseInterface {
 	/**
 	 * @param array $rbis array of MathRestbaseInterface instances
 	 */
-	public static function batchEvaluate( $rbis ) {
+	public static function batchEvaluate( array $rbis ) {
 		if ( count( $rbis ) == 0 ) {
 			return;
 		}
@@ -270,12 +270,14 @@ class MathRestbaseInterface {
 			if ( $status->isOK() ) {
 				return true;
 			}
+
 			$this->log()->warning( 'Config check failed, due to an invalid response code.',
 				[ 'responseCode' => $status ] );
 		} catch ( Exception $e ) {
 			$this->log()->warning( 'Config check failed, due to an exception.', [ $e ] );
-			return false;
 		}
+
+		return false;
 	}
 
 	/**
