@@ -20,7 +20,12 @@ class MathMathML extends MathRenderer {
 
 	/** @var boolean if false MathML output is not validated */
 	private $XMLValidation = true;
+
+	/**
+	 * @var string|bool
+	 */
 	private $svgPath = false;
+
 	private $mathoidStyle;
 
 	public function __construct( $tex = '', $params = [] ) {
@@ -176,9 +181,8 @@ class MathMathML extends MathRenderer {
 			$this->getPostData();
 		}
 		$options = [ 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout ];
-		/** @var $req (CurlHttpRequest|PhpHttpRequest) the request object  */
+		/** @var CurlHttpRequest|PhpHttpRequest $req the request object */
 		$req = $httpRequestClass::factory( $host, $options );
-		/** @var Status $req Status the request status */
 		$status = $req->execute();
 		if ( $status->isGood() ) {
 			$res = $req->getContent();
@@ -334,7 +338,7 @@ class MathMathML extends MathRenderer {
 
 	/**
 	 * @param boolean $noRender
-	 * @return type
+	 * @return Title|string
 	 */
 	private function getFallbackImageUrl( $noRender = false ) {
 		if ( $this->svgPath ) {

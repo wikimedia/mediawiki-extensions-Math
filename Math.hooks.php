@@ -9,7 +9,12 @@
 use MediaWiki\Logger\LoggerFactory;
 
 class MathHooks {
+
+	/**
+	 * @var array[]
+	 */
 	private static $tags = [];
+
 	const MATHCACHEKEY = 'math=';
 
 	public static function mathConstantToString( $value, array $defs, $prefix, $default ) {
@@ -388,10 +393,9 @@ class MathHooks {
 		self::$tags = [];
 		return true;
 	}
+
 	/**
-	 *
-	 * @global type $wgOut
-	 * @param type $toolbar
+	 * @param string $toolbar HTML
 	 */
 	static function onEditPageBeforeEditToolbar( &$toolbar ) {
 		global $wgOut;
