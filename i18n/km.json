@@ -9,7 +9,11 @@
 			"Macofe"
 		]
 	},
+	"math-desc": "រចនាទ្រង់ទ្រាយរូបមន្តគណិតវិទ្យាសរសេរចន្លោះសញ្ញា<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwchemdialog-title": "រូបមន្តគីមី",
 	"math-visualeditor-mwlatexinspector-display": "បង្ហាញ",
+	"math-visualeditor-mwmathdialog-title": "រូបមន្តគណិត",
+	"math-visualeditor-symbol-group-chem-equations": "សមីការគីមី",
 	"math_bad_output": "មិនអាច សរសេរទៅ ឬ បង្កើត ថតឯកសារ គណិត ទិន្នផល",
 	"math_bad_tmpdir": "មិនអាចសរសេរទៅ ឬ បង្កើតថតឯកសារគណិតបណ្តោះអាសន្ន",
 	"math_failure": "បរាជ័យ​ក្នុង​ការ​ញែក​ចេញ​",
@@ -17,6 +21,7 @@
 	"math_lexing_error": "បញ្ហាក្នុងការអានតួអក្សរ",
 	"math_notexvc": "បាត់កម្មវិធី <code>texvc</code>។\n\nសូមមើលក្នុង math/README ដើម្បីធ្វើការកំណត់លំអិត។",
 	"math_sample": "បញ្ចូលរូបមន្ត​នៅទីនេះ",
+	"math-status-introduction": "ទំព័រនេះបង្ហាញពីព័ត៌មានអំពី{{PLURAL:$1|ម៉ូដ|ម៉ូដ}}រចនាទ្រង់ទ្រាយរូបមន្តគណិតដែលកំពុងប្រើ។\n\nកំពុងប្រើ{{PLURAL:$1|ម៉ូដ|ម៉ូដ}}រចនាទ្រង់ទ្រាយរូបមន្តគណិតខាងក្រោម៖",
 	"math_syntax_error": "កំហុសពាក្យសម្ព័ន្ធ",
 	"math_tip": "រូបមន្ត​គណិតវិទ្យា (LaTeX)",
 	"math_unknown_error": "កំហុសមិនស្គាល់",
@@ -26,5 +31,7 @@
 	"mw_math_png": "រូបភាពPNG",
 	"mw_math_source": "កូដ LaTeX (ចំពោះឧបករណ៍រាវរកអត្ថបទ)",
 	"prefs-math": "គណិត",
-	"mathstatus": "ស្ថានភាពគណិត"
+	"mathstatus": "ស្ថានភាពគណិត",
+	"datatypes-type-math": "កន្សោមគណិតវិទ្យា",
+	"wikibase-listdatatypes-math-head": "កន្សោមគណិតវិទ្យា"
 }
