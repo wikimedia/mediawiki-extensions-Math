@@ -101,8 +101,8 @@
 						buttonHeight = symbol.largeLayout ? singleButtonHeight * 4 : singleButtonHeight * 1.9931;
 						// height and verticalAlign rely on the format of the SVG parameters
 						// HACK: Adjust these by a factor of 0.8 to match VE's default font size of 0.8em
-						height = parseFloat( data.mathoidStyle.match( /height\:\s*(.*)ex/ )[ 1 ] ) * 0.8;
-						verticalAlign = -parseFloat( data.mathoidStyle.match( /vertical-align\:\s*(.*)ex/ )[ 1 ] ) * 0.8;
+						height = parseFloat( data.mathoidStyle.match( /height:\s*([\d.]+)ex/ )[ 1 ] ) * 0.8;
+						verticalAlign = -parseFloat( data.mathoidStyle.match( /vertical-align:\s*([\d.]+)ex/ )[ 1 ] ) * 0.8;
 						// CSS percentage positioning is based on the difference between the image and container sizes
 						heightDifference = buttonHeight - height;
 						offset = 100 * ( verticalAlign - height + ( baseline * buttonHeight ) ) / heightDifference;
