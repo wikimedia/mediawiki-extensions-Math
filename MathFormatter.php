@@ -10,7 +10,7 @@ use Wikibase\Lib\SnakFormatter;
  * - text/plain: used in the value input field of Wikidata
  * - text/x-wiki: wikitext
  * - text/html: used in Wikidata to display the value of properties
- * Formats can look like this: "text/html; disposition=widget"
+ * Formats can look like this: "text/html; disposition=diff"
  * or just "text/plain"
  */
 
@@ -34,7 +34,6 @@ class MathFormatter implements ValueFormatter {
 			case SnakFormatter::FORMAT_WIKI:
 			case SnakFormatter::FORMAT_HTML:
 			case SnakFormatter::FORMAT_HTML_DIFF:
-			case SnakFormatter::FORMAT_HTML_WIDGET:
 				$this->format = $format;
 				break;
 			default:
