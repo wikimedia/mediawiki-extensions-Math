@@ -16,6 +16,23 @@
       "revId": "5ccbeaef1a89cffdde32ee06c9b0f93111ae7d51",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e742343_16f735d1",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2017-07-11T00:54:11Z",
+      "side": 1,
+      "message": "Why not [\\d\\.]",
+      "revId": "5ccbeaef1a89cffdde32ee06c9b0f93111ae7d51",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
