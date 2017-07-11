@@ -33,6 +33,24 @@
       "revId": "5ccbeaef1a89cffdde32ee06c9b0f93111ae7d51",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e742343_1673b515",
+        "filename": "modules/ve-math/tools/makeSvgsAndCss.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2017-07-11T02:57:20Z",
+      "side": 1,
+      "message": "Escaping dot in character classes ([...]) is not needed. The wildcard dot is not expected there. Escaping it would also be a style violation (ESLint/JSHint).\n\n\u003e /[.]/.exec(\u0027foo\u0027)\n\u003e\u003e null\n\u003e /[.]/.exec(\u0027fo.o\u0027)\n\u003e\u003e [ \u0027.\u0027 ]",
+      "parentUuid": "8e742343_16f735d1",
+      "revId": "5ccbeaef1a89cffdde32ee06c9b0f93111ae7d51",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
