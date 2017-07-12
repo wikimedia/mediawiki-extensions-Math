@@ -96,7 +96,6 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 	);
 
 	this.input = new ve.ui.MWAceEditorWidget( {
-		multiline: true,
 		rows: 1, // This will be recalculated later in onWindowManagerResize
 		autocomplete: 'live',
 		autocompleteWordList: this.constructor.static.autocompleteWordList
