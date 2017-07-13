@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e742343_a4be16a9",
+        "filename": "modules/ext.math.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2017-07-13T02:49:05Z",
+      "side": 1,
+      "message": "Just for the record, this does not work because it stores the result of RegExp.$1 *before* the regex is executed below. Which means this is likely null (becomes 0) or some other unrelated match from previously executed code by some other extension.",
+      "range": {
+        "startLine": 4,
+        "startChar": 5,
+        "endLine": 4,
+        "endChar": 38
+      },
+      "revId": "860ab9b40f05dc806f349d032aaaa3f4dec57a0d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
