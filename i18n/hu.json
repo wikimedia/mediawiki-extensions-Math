@@ -7,7 +7,8 @@
 			"Tacsipacsi",
 			"Bencoke",
 			"Macofe",
-			"Máté"
+			"Máté",
+			"Bencemac"
 		]
 	},
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Gyors szerkesztés",
@@ -18,7 +19,7 @@
 	"math-visualeditor-mwlatexinspector-display-default": "Alapértelmezett",
 	"math-visualeditor-mwlatexinspector-display-inline": "A szöveggel egy sorban",
 	"math-visualeditor-mwlatexinspector-id": "Linkazonosító (opcionális, a képletre mutató közvetlen hivatkozásokhoz szükséges)",
-	"math-visualeditor-mwmathdialog-title": "Képlet",
+	"math-visualeditor-mwmathdialog-title": "Matematikai képlet",
 	"math-visualeditor-symbol-group-math-accents": "Ékezetek és egyéb megkülönböztető jelek",
 	"math-visualeditor-symbol-group-math-arrows": "Nyilak",
 	"math-visualeditor-symbol-group-math-bounds": "Határértékek",
@@ -58,7 +59,6 @@
 	"math_tip": "Matematikai képlet (LaTeX)",
 	"math_unknown_error": "ismeretlen hiba",
 	"math_unknown_function": "ismeretlen „$1” függvény",
-	"mw_math_mathjax": "Kliens-oldali MathJax (lassú; egyes böngészők és kisegítő eszközök esetén javítja a renderelést)",
 	"mw_math_mathml": "MathML SVG vagy PNG tartalékkal (modern böngészők és kisegítő eszközök számára ajánlott)",
 	"mw_math_png": "PNG-képek",
 	"mw_math_source": "LaTeX-forrás (szöveges böngészőknek)",
