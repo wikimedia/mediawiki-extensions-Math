@@ -30,7 +30,7 @@
 
 		function encodeURIComponentForCSS( str ) {
 			return encodeURIComponent( str )
-				.replace( /[!'\(\)\*]/g, function ( chr ) {
+				.replace( /[!'*()]/g, function ( chr ) {
 					return '%' + chr.charCodeAt( 0 ).toString( 16 );
 				} );
 		}
