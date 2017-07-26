@@ -60,7 +60,7 @@ class MathSource extends MathRenderer {
 
 	/**
 	 * No rendering required in plain text mode
-	 * @return boolean
+	 * @return bool
 	 */
 	function render() {
 		// assume unchanged to avoid unnecessary database access

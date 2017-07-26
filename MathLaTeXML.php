@@ -92,7 +92,7 @@ class MathLaTeXML extends MathMathML {
 
 	/**
 	 * Does the actual web request to convert TeX to MathML.
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function doRender() {
 		if ( trim( $this->getTex() ) === '' ) {
@@ -180,7 +180,7 @@ class MathLaTeXML extends MathMathML {
 	/**
 	 * Calculates the SVG image based on the MathML input
 	 * No cache is used.
-	 * @return boolean
+	 * @return bool
 	 */
 	public function calculateSvg() {
 		$renderer = new MathMathML( $this->getTex() );

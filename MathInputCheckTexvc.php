@@ -46,7 +46,7 @@ class MathInputCheckTexvc extends MathInputCheck {
 	}
 
 	/**
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isValid() {
 		$us = $this;
@@ -59,7 +59,7 @@ class MathInputCheckTexvc extends MathInputCheck {
 	}
 
 	/**
-	 * @return boolean
+	 * @return bool
 	 */
 	public function doValidCheck() {
 		global $wgMathTexvcCheckExecutable;

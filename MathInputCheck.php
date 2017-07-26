@@ -27,7 +27,7 @@ abstract class MathInputCheck {
 
 	/**
 	 * Returns true if the TeX input String is valid
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isValid() {
 		return $this->isValid;

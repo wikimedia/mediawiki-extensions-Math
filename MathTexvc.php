@@ -372,7 +372,7 @@ class MathTexvc extends MathRenderer {
 	/**
 	 * Reads the rendering information from the database.  If configured, checks whether files exist
 	 *
-	 * @return boolean true if retrieved, false otherwise
+	 * @return bool true if retrieved, false otherwise
 	 */
 	public function readCache() {
 		global $wgMathCheckFiles;

@@ -267,7 +267,7 @@ class MathHooks {
 		];
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
-		$mode = MathHooks::mathModeToString( $wgDefaultUserOptions['math'] );
+		$mode = self::mathModeToString( $wgDefaultUserOptions['math'] );
 		if ( ! in_array( $mode, MathRenderer::getValidModes() ) ) {
 			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: '.
 				"\$wgDefaultUserOptions['math'] is not in " . MathRenderer::getValidModes() . ".\n".
@@ -297,7 +297,7 @@ class MathHooks {
 	 * MaintenanceRefreshLinksInit handler; optimize settings for refreshLinks batch job.
 	 *
 	 * @param Maintenance $maint
-	 * @return boolean hook return code
+	 * @return bool hook return code
 	 */
 	static function onMaintenanceRefreshLinksInit( $maint ) {
 		global $wgUser;
@@ -422,7 +422,7 @@ class MathHooks {
 	 */
 	static function chemTagHook( $content, $attributes, $parser ) {
 		$attributes['chem'] = true;
-		return MathHooks::mathTagHook( '\ce{' . $content . '}', $attributes, $parser );
+		return self::mathTagHook( '\ce{' . $content . '}', $attributes, $parser );
 	}
 
 }

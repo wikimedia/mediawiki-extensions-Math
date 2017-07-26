@@ -301,7 +301,7 @@ class MathRestbaseInterface {
 	}
 
 	/**
-	 * @return boolean
+	 * @return bool
 	 */
 	public function getSuccess() {
 		if ( $this->success === null ) {

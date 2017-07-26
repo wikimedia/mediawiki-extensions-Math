@@ -261,7 +261,7 @@ abstract class MathRenderer {
 	/**
 	 * Reads rendering data from database
 	 *
-	 * @return boolean true if read successfully, false otherwise
+	 * @return bool true if read successfully, false otherwise
 	 */
 	public function readFromDatabase() {
 		$dbr = wfGetDB( DB_SLAVE );
@@ -508,7 +508,7 @@ abstract class MathRenderer {
 	/**
 	 * Checks if the instance was modified i.e., because math was rendered
 	 *
-	 * @return boolean true if something was changed false otherwise
+	 * @return bool true if something was changed false otherwise
 	 */
 	public function isChanged() {
 		return $this->changed;
@@ -516,7 +516,7 @@ abstract class MathRenderer {
 
 	/**
 	 * Checks if there is an explicit user request to rerender the math-tag.
-	 * @return boolean
+	 * @return bool
 	 */
 	function isPurge() {
 		if ( $this->purge ) {
@@ -574,7 +574,7 @@ abstract class MathRenderer {
 
 	/**
 	 * Get if the input tex was marked as secure
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isTexSecure() {
 		return $this->texSecure;

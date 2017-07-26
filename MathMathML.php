@@ -164,7 +164,7 @@ class MathMathML extends MathRenderer {
 	 * @param mixed $res the result
 	 * @param mixed $error the formatted error message or null
 	 * @param String $httpRequestClass class name of MWHttpRequest (needed for testing only)
-	 * @return boolean success
+	 * @return bool success
 	 */
 	public function makeRequest(
 			$host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest'
@@ -252,7 +252,7 @@ class MathMathML extends MathRenderer {
 
 	/**
 	 * Does the actual web request to convert TeX to MathML.
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function doRender() {
 		if ( $this->getTex() === '' ) {
@@ -307,7 +307,7 @@ class MathMathML extends MathRenderer {
 	 * Checks if the input is valid MathML,
 	 * and if the root element has the name math
 	 * @param string $XML
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isValidMathML( $XML ) {
 		$out = false;
