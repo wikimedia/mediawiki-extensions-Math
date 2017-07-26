@@ -59,7 +59,7 @@ class MathInputCheckRestbase extends MathInputCheck {
 		return $errorRenderer->getError( 'math_unknown_error' );
 	}
 	/**
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isValid() {
 		return $this->restbaseInterface->getSuccess();
