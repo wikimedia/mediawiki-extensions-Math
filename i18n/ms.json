@@ -5,7 +5,8 @@
 			"Aviator",
 			"CoolCityCat",
 			"Kurniasan",
-			"Macofe"
+			"Macofe",
+			"Jeluang Terluang"
 		]
 	},
 	"math-desc": "Mengolah rumus-rumus matematik antara teg-teg <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -18,9 +19,9 @@
 	"math_bad_tmpdir": "Direktori temp matematik tidak boleh ditulis atau dicipta",
 	"math_failure": "Gagal menghurai",
 	"math_image_error": "Penukaran PNG gagal; periksa sama ada latex dan dvipng (atau dvips + gs + convert) telah dipasang dengan betul",
-	"math_invalidjson": "Respons pelayan $1 adalah JSON yang tidak sah.",
+	"math_invalidjson": "Respons pelayan $1 ialah JSON yang tidak sah.",
 	"math_invalidresponse": "$1: Respons tidak sah (\"$3\") dari pelayan \"$2\":",
-	"math_invalidxml": "MathML atau SVG adalah XML yang tidak sah.",
+	"math_invalidxml": "MathML atau SVG ialah XML yang tidak sah.",
 	"math_lexing_error": "ralat ''lexing''",
 	"math_notexvc": "Atur cara <code>texvc</code> hilang; sila lihat fail math/README untuk maklumat konfigurasi.",
 	"math_output_error": "Imej matematik tidak dapat disimpan di dalam sistem fail.",
@@ -30,7 +31,6 @@
 	"math_unknown_error": "ralat yang tidak dikenali",
 	"math_unknown_function": "fungsi '$1' yang tidak dikenali",
 	"mw_math_latexml": "LaTeXML (percubaan; menggunakan MathML)",
-	"mw_math_mathjax": "MathJax sebelah klien (perlahan, mempertingkat rendering pada sesetengah pelayar dan alat-alat aksesibiliti)",
 	"mw_math_mathml": "MathML dengan sandaran SVG atau PNG (disyorkan untuk pelayar dan alat-alat aksesibiliti moden)",
 	"mw_math_png": "Imej PNG",
 	"mw_math_source": "Sumber LaTeX (untuk pelayar teks)",

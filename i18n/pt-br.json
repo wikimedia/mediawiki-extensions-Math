@@ -28,6 +28,7 @@
 	"math-visualeditor-symbol-group-chem-arrows": "Setas de reação",
 	"math-visualeditor-symbol-group-chem-brackets": "Parênteses, colchetes e chaves",
 	"math-visualeditor-symbol-group-chem-charges": "Cargas",
+	"math-visualeditor-symbol-group-chem-dots": "Elétrons desemparelhados & pontos radicais",
 	"math-visualeditor-symbol-group-chem-equations": "Equações químicas",
 	"math-visualeditor-symbol-group-chem-formulae": "Fórmulas químicas",
 	"math-visualeditor-symbol-group-chem-greek": "Caracteres gregos",
@@ -93,5 +94,6 @@
 	"prefs-math": "Matemática",
 	"mathstatus": "Status matemáticos",
 	"datatypes-type-math": "Expressão matemática",
-	"wikibase-listdatatypes-math-head": "Expressão matemática"
+	"wikibase-listdatatypes-math-head": "Expressão matemática",
+	"wikibase-listdatatypes-math-body": "Campo de dados literal para expressões matemáticas, fórmula, equações e tal, expressado em uma variante de LaTeX."
 }
