@@ -88,8 +88,6 @@
 	"math_unknown_error": "未知错误",
 	"math_unknown_function": "未知函数“$1”",
 	"mw_math_latexml": "LaTeXML（试验中，使用MathML）",
-	"mw_math_latexml_jax": "带客户端MathJax的LaTeXML（实验中；使用MathML）",
-	"mw_math_mathjax": "客户端MathJax（慢；改进一些浏览器和辅助工具的渲染）",
 	"mw_math_mathml": "带SVG或PNG备选的MathML（建议用于现代的浏览器和辅助工具）",
 	"mw_math_png": "PNG图片",
 	"mw_math_source": "LaTeX源（用于文字浏览器）",
