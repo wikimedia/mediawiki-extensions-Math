@@ -100,12 +100,13 @@ class MathHooks {
 		}
 	}
 
-	/*
+	/**
 	 * Generate a user dependent hash cache key.
 	 * The hash key depends on the rendering mode.
-	 * @param &$confstr The to-be-hashed key string that is being constructed
+	 * @param string &$confstr The to-be-hashed key string that is being constructed
 	 * @param User $user reference to the current user
 	 * @param array &$forOptions userOptions used on that page
+	 * @return true
 	 */
 	public static function onPageRenderingHash( &$confstr, $user = false, &$forOptions = [] ) {
 		global $wgUser;
@@ -166,8 +167,8 @@ class MathHooks {
 	/**
 	 * Register the <math> tag with the Parser.
 	 *
-	 * @param $parser Parser instance of Parser
-	 * @return Boolean: true
+	 * @param Parser $parser instance of Parser
+	 * @return bool true
 	 */
 	static function onParserFirstCallInit( $parser ) {
 		$parser->setHook( 'math', [ 'MathHooks', 'mathTagHook' ] );
@@ -181,8 +182,8 @@ class MathHooks {
 	/**
 	 * Callback function for the <math> parser hook.
 	 *
-	 * @param $content (the LaTeX input)
-	 * @param $attributes
+	 * @param string $content (the LaTeX input)
+	 * @param array $attributes
 	 * @param Parser $parser
 	 * @return array
 	 */
@@ -253,9 +254,9 @@ class MathHooks {
 	/**
 	 * Add the new math rendering options to Special:Preferences.
 	 *
-	 * @param $user Object: current User object
-	 * @param $defaultPreferences Object: Preferences object
-	 * @return Boolean: true
+	 * @param User $user current User object
+	 * @param array &$defaultPreferences Preferences array
+	 * @return bool true
 	 */
 	static function onGetPreferences( $user, &$defaultPreferences ) {
 		global $wgDefaultUserOptions;
@@ -311,7 +312,7 @@ class MathHooks {
 	/**
 	 * LoadExtensionSchemaUpdates handler; set up math table on install/upgrade.
 	 *
-	 * @param $updater DatabaseUpdater
+	 * @param DatabaseUpdater $updater
 	 * @throws Exception
 	 * @return bool
 	 */
@@ -357,7 +358,7 @@ class MathHooks {
 	 * Add 'math' and 'mathlatexml' tables to the list of tables that need to be copied to
 	 * temporary tables for parser tests to run.
 	 *
-	 * @param array $tables
+	 * @param array &$tables
 	 * @return bool
 	 */
 	static function onParserTestTables( &$tables ) {
@@ -367,8 +368,8 @@ class MathHooks {
 	}
 
 	/**
-	 * @param Parser $parser
-	 * @param $text
+	 * @param Parser &$parser
+	 * @param string &$text
 	 * @return bool
 	 */
 	public static function onParserAfterTidy( &$parser, &$text ) {
@@ -395,7 +396,7 @@ class MathHooks {
 	}
 
 	/**
-	 * @param string $toolbar HTML
+	 * @param string &$toolbar HTML
 	 */
 	static function onEditPageBeforeEditToolbar( &$toolbar ) {
 		global $wgOut;
@@ -415,8 +416,8 @@ class MathHooks {
 	/**
 	 * Callback function for the <ce> parser hook.
 	 *
-	 * @param $content (the LaTeX input)
-	 * @param $attributes
+	 * @param string $content (the LaTeX input)
+	 * @param array $attributes
 	 * @param Parser $parser
 	 * @return array
 	 */

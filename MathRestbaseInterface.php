@@ -18,7 +18,7 @@ class MathRestbaseInterface {
 	private $error;
 	private $mathoidStyle;
 	private $mml;
-	/** @var boolean is there a request to purge the existing mathematical content */
+	/** @var bool is there a request to purge the existing mathematical content */
 	private $purge = false;
 
 	/**
@@ -359,7 +359,7 @@ class MathRestbaseInterface {
 	}
 
 	/**
-	 * @param $response
+	 * @param array $response
 	 * @return bool
 	 */
 	public function evaluateRestbaseCheckResponse( $response ) {
@@ -436,8 +436,8 @@ class MathRestbaseInterface {
 	}
 
 	/**
-	 * @param $type
-	 * @param $body
+	 * @param string $type
+	 * @param string $body
 	 * @throws MWException
 	 */
 	public static function throwContentError( $type, $body ) {

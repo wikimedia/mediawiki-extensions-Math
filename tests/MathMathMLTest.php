@@ -20,9 +20,9 @@ class MathMathMLTest extends MediaWikiTestCase {
 	/**
 	 * Set the mock values for the HTTP Mockup classes
 	 *
-	 * @param boolean $good
+	 * @param bool $good
 	 * @param mixed $html HTML of the error message or false if no error is present.
-	 * @param boolean $timeout true if
+	 * @param bool $timeout true if
 	 */
 	public static function setMockValues( $good, $html, $timeout ) {
 		self::$good = $good;

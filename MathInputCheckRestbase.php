@@ -17,7 +17,7 @@ class MathInputCheckRestbase extends MathInputCheck {
 	 * (performs no checking)
 	 * @param string $tex the TeX input string to be checked
 	 * @param string $type
-	 * @param MathRestbaseInterface $ref
+	 * @param MathRestbaseInterface &$ref
 	 */
 	public function __construct( $tex = '', $type = 'tex', &$ref = null ) {
 		parent::__construct( $tex );

@@ -18,7 +18,7 @@ class MathMathML extends MathRenderer {
 	protected $allowedRootElements = '';
 	protected $hosts;
 
-	/** @var boolean if false MathML output is not validated */
+	/** @var bool if false MathML output is not validated */
 	private $XMLValidation = true;
 
 	/**
@@ -65,7 +65,7 @@ class MathMathML extends MathRenderer {
 	/**
 	 * Sets the XML validation.
 	 * If set to false the output of MathML is not validated.
-	 * @param boolean $validation
+	 * @param bool $validation
 	 */
 	public function setXMLValidation( $validation = true ) {
 		$this->XMLValidation = $validation;
@@ -80,9 +80,11 @@ class MathMathML extends MathRenderer {
 		$this->allowedRootElements = $settings;
 	}
 
-	/* (non-PHPdoc)
+	/**
 	 * @see MathRenderer::render()
-	*/
+	 * @param bool $forceReRendering
+	 * @return bool
+	 */
 	public function render( $forceReRendering = false ) {
 		global $wgMathFullRestbaseURL;
 		try {
@@ -122,7 +124,7 @@ class MathMathML extends MathRenderer {
 
 	/**
 	 * Helper function to checks if the math tag must be rendered.
-	 * @return boolean
+	 * @return bool
 	 */
 	private function renderingRequired() {
 		$logger = LoggerFactory::getInstance( 'Math' );
@@ -161,8 +163,8 @@ class MathMathML extends MathRenderer {
 	 * @global int $wgMathLaTeXMLTimeout
 	 * @param string $host
 	 * @param string $post the encoded post request
-	 * @param mixed $res the result
-	 * @param mixed $error the formatted error message or null
+	 * @param mixed &$res the result
+	 * @param mixed &$error the formatted error message or null
 	 * @param String $httpRequestClass class name of MWHttpRequest (needed for testing only)
 	 * @return bool success
 	 */
@@ -337,7 +339,7 @@ class MathMathML extends MathRenderer {
 	}
 
 	/**
-	 * @param boolean $noRender
+	 * @param bool $noRender
 	 * @return Title|string
 	 */
 	private function getFallbackImageUrl( $noRender = false ) {
@@ -355,7 +357,7 @@ class MathMathML extends MathRenderer {
 	/**
 	 * Helper function to correct the style information for a
 	 * linked SVG image.
-	 * @param string $style current style information to be updated
+	 * @param string &$style current style information to be updated
 	 */
 	public function correctSvgStyle( &$style ) {
 		if ( preg_match( '/style="([^"]*)"/', $this->getSvg(), $styles ) ) {
@@ -383,9 +385,9 @@ class MathMathML extends MathRenderer {
 
 	/**
 	 * Gets img tag for math image
-	 * @param boolean $noRender if true no rendering will be performed
+	 * @param bool $noRender if true no rendering will be performed
 	 * if the image is not stored in the database
-	 * @param boolean|string $classOverride if classOverride
+	 * @param bool|string $classOverride if classOverride
 	 * is false the class name will be calculated by getClassName
 	 * @return string XML the image html tag
 	 */
@@ -418,7 +420,7 @@ class MathMathML extends MathRenderer {
 
 	/**
 	 * Calculates the default class name for a math element
-	 * @param boolean $fallback
+	 * @param bool $fallback
 	 * @return string the class name
 	 */
 	private function getClassName( $fallback = false ) {

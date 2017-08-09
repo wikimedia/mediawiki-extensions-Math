@@ -151,8 +151,7 @@ class MathLaTeXML extends MathMathML {
 
 	/**
 	 * Internal version of @link self::embedMathML
-	 * @return string
-	 * @return html element with rendered math
+	 * @return string html element with rendered math
 	 */
 	protected function getMathMLTag() {
 		return self::embedMathML( $this->getMathml(), urldecode( $this->getTex() ) );

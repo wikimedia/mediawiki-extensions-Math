@@ -40,13 +40,13 @@ abstract class MathRenderer {
 	protected $id = '';
 
 	// STATE OF THE CLASS INSTANCE
-	/** @var boolean has variable tex been security-checked */
+	/** @var bool has variable tex been security-checked */
 	protected $texSecure = false;
-	/** @var boolean has the mathematical content changed */
+	/** @var bool has the mathematical content changed */
 	protected $changed = false;
-	/** @var boolean is there a database entry for the mathematical content */
+	/** @var bool is there a database entry for the mathematical content */
 	protected $storedInDatabase = null;
-	/** @var boolean is there a request to purge the existing mathematical content */
+	/** @var bool is there a request to purge the existing mathematical content */
 	protected $purge = false;
 	/** @var string with last occurred error */
 	protected $lastError = '';
@@ -183,7 +183,7 @@ abstract class MathRenderer {
 	/**
 	 * Performs the rendering
 	 *
-	 * @return boolean if rendering was successful.
+	 * @return bool if rendering was successful.
 	 */
 	abstract public function render();
 
@@ -226,7 +226,7 @@ abstract class MathRenderer {
 
 	/**
 	 * Set the input hash (if user input tex is not available)
-	 * @param $md5
+	 * @param string $md5
 	 * @return string hash
 	 */
 	public function setMd5( $md5 ) {
@@ -407,6 +407,7 @@ abstract class MathRenderer {
 
 	/**
 	 * Writes cache. Writes the database entry if values were changed
+	 * @return bool
 	 */
 	public function writeCache() {
 		$logger = LoggerFactory::getInstance( 'Math' );
@@ -537,7 +538,7 @@ abstract class MathRenderer {
 	 * Sets purge. If set to true the render is forced to rerender and must not
 	 * use a cached version.
 	 * @param bool $purge
-	 * @return boolean
+	 * @return bool
 	 */
 	function setPurge( $purge = true ) {
 		$this->changed = true;
@@ -621,7 +622,7 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * @param string user defined ID
+	 * @param string $id user defined ID
 	 */
 	public function setID( $id ) {
 		// Changes in the ID affect the container for the math element on the current page
