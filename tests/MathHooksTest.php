@@ -88,8 +88,8 @@ class MathHooksTest extends MediaWikiTestCase {
 			'png'    => 0,
 			'source' => 3,
 			'mathml' => 5,
-			'latexml'=> 7,
-			'invalid'=> $default
+			'latexml' => 7,
+			'invalid' => $default
 		];
 
 		foreach ( $testCases as $input => $expected ) {

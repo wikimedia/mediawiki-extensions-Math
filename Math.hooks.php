@@ -81,7 +81,7 @@ class MathHooks {
 			'MW_MATH_PNG'    => 0,
 			'MW_MATH_SOURCE' => 3,
 			'MW_MATH_MATHML' => 5,
-			'MW_MATH_LATEXML'=> 7 ];
+			'MW_MATH_LATEXML' => 7 ];
 
 		return self::mathConstantToString( $mode, $defs, $prefix = 'MW_MATH_', $default );
 	}
@@ -91,7 +91,7 @@ class MathHooks {
 			'png'    => 0,
 			'source' => 3,
 			'mathml' => 5,
-			'latexml'=> 7 ];
+			'latexml' => 7 ];
 
 		if ( array_key_exists( $mode, $defs ) ) {
 			return $defs[$mode];

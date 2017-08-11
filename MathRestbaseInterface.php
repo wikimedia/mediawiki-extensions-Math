@@ -122,7 +122,7 @@ class MathRestbaseInterface {
 	private function executeRestbaseCheckRequest( $request ) {
 		$res = null;
 		$serviceClient = $this->getServiceClient();
-		$response =  $serviceClient->run( $request );
+		$response = $serviceClient->run( $request );
 		if ( $response['code'] !== 200 ) {
 			$this->log()->info( 'Tex check failed:', [
 					'post'  => $request['body'],

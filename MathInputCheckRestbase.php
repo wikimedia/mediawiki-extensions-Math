@@ -37,7 +37,7 @@ class MathInputCheckRestbase extends MathInputCheck {
 	 */
 	public function errorObjectToHtml( stdClass $e, $errorRenderer = null ) {
 		if ( $errorRenderer === null ) {
-			$errorRenderer =  new MathSource( $this->inputTeX );
+			$errorRenderer = new MathSource( $this->inputTeX );
 		}
 		if ( isset( $e->error->message ) ) {
 			if ( $e->error->message === 'Illegal TeX function' ) {

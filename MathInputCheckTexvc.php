@@ -25,7 +25,7 @@ class MathInputCheckTexvc extends MathInputCheck {
 		$errDetails = htmlspecialchars( substr( $texvcResult, 1 ) );
 
 		if ( $errorRenderer === false ) {
-			$errorRenderer =  new MathSource( $this->inputTeX );
+			$errorRenderer = new MathSource( $this->inputTeX );
 		}
 
 		switch ( $texvcStatus ) {
