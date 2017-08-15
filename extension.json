@@ -267,7 +267,8 @@
 		"MathStatus": "SpecialMathStatus"
 	},
 	"TrackingCategories": [
-		"math-tracking-category-error"
+		"math-tracking-category-error",
+		"math-tracking-category-render-error"
 	],
 	"manifest_version": 1
 }
