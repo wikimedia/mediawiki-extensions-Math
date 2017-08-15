@@ -91,6 +91,8 @@
 	"math_tip": "Mathematical formula (LaTeX)",
 	"math-tracking-category-error": "Pages with math errors",
 	"math-tracking-category-error-desc": "Pages in this category have errors in the usage of math tags.",
+	"math-tracking-category-render-error": "Pages with math render errors",
+	"math-tracking-category-render-error-desc": "Pages in this category have errors in the render of math tags.",
 	"math_unknown_error": "unknown error",
 	"math_unknown_function": "unknown function \"$1\"",
 	"mw_math_latexml": "LaTeXML (experimental; uses MathML)",
