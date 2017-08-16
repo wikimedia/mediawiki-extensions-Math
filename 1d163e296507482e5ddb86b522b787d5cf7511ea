@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e7eab26_55d5a545",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2017-08-16T02:39:03Z",
+      "side": 1,
+      "message": "I would say\nPages in this category have rendering errors in the math tags.",
+      "range": {
+        "startLine": 95,
+        "startChar": 88,
+        "endLine": 95,
+        "endChar": 94
+      },
+      "revId": "1d163e296507482e5ddb86b522b787d5cf7511ea",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
