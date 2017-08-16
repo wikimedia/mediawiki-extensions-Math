@@ -21,6 +21,7 @@
 		"MathTexvc": "MathTexvc.php",
 		"MathSource": "MathSource.php",
 		"MathMathML": "MathMathML.php",
+		"MathMathMLCli": "MathMathMLCli.php",
 		"MathLaTeXML": "MathLaTeXML.php",
 		"MathInputCheck": "MathInputCheck.php",
 		"MathInputCheckTexvc": "MathInputCheckTexvc.php",
@@ -109,6 +110,7 @@
 		"MathConcurrentReqs": 50,
 		"MathPath": false,
 		"MathTexvcCheckExecutable": false,
+		"MathoidCli": false,
 		"MathValidModes": [
 			"png",
 			"source",

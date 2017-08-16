@@ -189,7 +189,7 @@ class MathHooks {
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		static $n = 1;
-		if ( trim( $content ) === '' ) { // bug 8372
+		if ( trim( $content ) === '' ) { // bug 8372 https://phabricator.wikimedia.org/rSVN18870
 			return '';
 		}
 
@@ -346,6 +346,10 @@ class MathHooks {
 			if ( in_array( $type, [ 'mysql', 'sqlite', 'postgres' ] ) ) {
 				$sql = __DIR__ . '/db/mathoid.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathoid', $sql );
+				if ( $type == 'mysql' ) {
+					$sql = __DIR__ . '/db/patches/mathoid.add_png.mysql.sql';
+					$updater->addExtensionField( 'mathoid', 'math_png', $sql );
+				}
 			} else {
 				throw new Exception( "Math extension does not currently support $type database for Mathoid." );
 			}
@@ -373,17 +377,14 @@ class MathHooks {
 	 * @return bool
 	 */
 	public static function onParserAfterTidy( &$parser, &$text ) {
-		$rbis = [];
-		foreach ( self::$tags as $key => $tag ) {
-			/** @var MathRenderer $renderer */
-			$renderer = $tag[0];
-			$rbi = new MathRestbaseInterface( $renderer->getTex(), $renderer->getInputType() );
-			$renderer->setRestbaseInterface( $rbi );
-			$rbis[] = $rbi;
+		global $wgMathoidCli;
+		if ( $wgMathoidCli ) {
+			MathMathMLCli::batchEvaluate( self::$tags );
+		} else {
+			MathMathML::batchEvaluate( self::$tags );
 		}
-		MathRestbaseInterface::batchEvaluate( $rbis );
 		foreach ( self::$tags as $key => $tag ) {
-			$value = call_user_func_array( [ "MathHooks","mathPostTagHook" ], $tag );
+			$value = call_user_func_array( [ "MathHooks", "mathPostTagHook" ], $tag );
 			// Workaround for https://phabricator.wikimedia.org/T103269
 			$text = preg_replace( '/(<mw:editsection[^>]*>.*?)' . preg_quote( $key ) .
 				'(.*?)<\/mw:editsection>/',

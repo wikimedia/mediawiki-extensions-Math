@@ -29,6 +29,8 @@ abstract class MathRenderer {
 	protected $mathml = '';
 	/** @var string SVG layout only (no semantics) */
 	protected $svg = '';
+	/** @var string PNG  image only (no semantics) */
+	protected $png = '';
 	/** @var string the original user input string (which was used to calculate the inputhash) */
 	protected $userInputTex = '';
 	// FURTHER PROPERTIES OF THE MATHEMATICAL CONTENT
@@ -141,7 +143,7 @@ abstract class MathRenderer {
 	 * @return MathRenderer appropriate renderer for mode
 	 */
 	public static function getRenderer( $tex, $params = [], $mode = 'png' ) {
-		global $wgDefaultUserOptions, $wgMathEnableExperimentalInputFormats;
+		global $wgDefaultUserOptions, $wgMathEnableExperimentalInputFormats, $wgMathoidCli;
 
 		if ( isset( $params['forcemathmode'] ) ) {
 			$mode = $params['forcemathmode'];
@@ -173,7 +175,11 @@ abstract class MathRenderer {
 				break;
 			case 'mathml':
 			default:
-				$renderer = new MathMathML( $tex, $params );
+				if ( $wgMathoidCli ) {
+					$renderer = new MathMathMLCli( $tex, $params );
+				} else {
+					$renderer = new MathMathML( $tex, $params );
+				}
 		}
 		LoggerFactory::getInstance( 'Math' )->debug( 'Start rendering $' . $renderer->tex .
 			'$ in mode ' . $mode );
@@ -706,4 +712,12 @@ abstract class MathRenderer {
 		$this->lastError = $checker->getError();
 		return false;
 	}
+
+	/**
+	 * @return string
+	 */
+	public function getPng() {
+		return $this->png;
+	}
+
 }

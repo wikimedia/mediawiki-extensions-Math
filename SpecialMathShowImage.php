@@ -42,7 +42,7 @@ class SpecialMathShowImage extends SpecialPage {
 	}
 
 	function execute( $par ) {
-		global $wgMathEnableExperimentalInputFormats;
+		global $wgMathEnableExperimentalInputFormats, $wgMathoidCli;
 		$request = $this->getRequest();
 		$hash = $request->getText( 'hash', '' );
 		$tex = $request->getText( 'tex', '' );
@@ -51,7 +51,9 @@ class SpecialMathShowImage extends SpecialPage {
 		} else {
 			$asciimath = '';
 		}
-		$this->mode = MathHooks::mathModeToString( $request->getText( 'mode' ), 'mathml' );
+		$mode = $request->getText( 'mode' );
+		$this->mode = MathHooks::mathModeToString( $mode, 'mathml' );
+
 		if ( !in_array( $this->mode, MathRenderer::getValidModes() ) ) {
 			// Fallback to the default if an invalid mode was specified
 			$this->mode = 'mathml';
@@ -61,22 +63,18 @@ class SpecialMathShowImage extends SpecialPage {
 			echo $this->printSvgError( 'No Inputhash specified' );
 		} else {
 			if ( $tex === '' && $asciimath === '' ) {
-				switch ( $this->mode ) {
-					case 'png':
-						$this->renderer = MathTexvc::newFromMd5( $hash );
-						break;
-					case 'latexml':
-						$this->renderer = MathLaTeXML::newFromMd5( $hash );
-						break;
-					default:
-						$this->renderer = MathMathML::newFromMd5( $hash );
+				if ( $wgMathoidCli && $this->mode === 'png' ) {
+					$this->renderer = MathRenderer::getRenderer( '', [], 'mathml' );
+				} else {
+					$this->renderer = MathRenderer::getRenderer( '', [], $this->mode );
 				}
+				$this->renderer->setMd5( $hash );
 				$this->noRender = $request->getBool( 'noRender', false );
 				$isInDatabase = $this->renderer->readFromDatabase();
 				if ( $isInDatabase || $this->noRender ) {
 					$success = $isInDatabase;
 				} else {
-					if ( $this->mode == 'png' ) {
+					if ( $this->mode == 'png' && !$wgMathoidCli ) {
 						// get the texvc input from the mathoid database table
 						// and render the conventional way
 						$mmlRenderer = MathMathML::newFromMd5( $hash );
