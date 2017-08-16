@@ -13,6 +13,7 @@
 	if ( !document.implementation.hasFeature( 'http://www.w3.org/TR/SVG11/feature#Image', '1.1' ) ) {
 		$( '.mwe-math-fallback-image-inline, .mwe-math-fallback-image-display' ).each( function () {
 			this.src = this.src.replace( 'media/math/render/svg/', 'media/math/render/png/' );
+			this.src = this.src.replace( 'mode=mathml', 'mode=mathml-png' );
 		} );
 	}
 }( jQuery ) );
