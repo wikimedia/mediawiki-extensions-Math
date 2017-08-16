@@ -29,6 +29,8 @@ abstract class MathRenderer {
 	protected $mathml = '';
 	/** @var string SVG layout only (no semantics) */
 	protected $svg = '';
+	/** @var string PNG  image only (no semantics) */
+	protected $png = '';
 	/** @var string the original user input string (which was used to calculate the inputhash) */
 	protected $userInputTex = '';
 	// FURTHER PROPERTIES OF THE MATHEMATICAL CONTENT
@@ -129,6 +131,7 @@ abstract class MathRenderer {
 		$instance = new $class;
 		$instance->setMd5( $md5 );
 		$instance->readFromDatabase();
+
 		return $instance;
 	}
 
@@ -141,7 +144,7 @@ abstract class MathRenderer {
 	 * @return MathRenderer appropriate renderer for mode
 	 */
 	public static function getRenderer( $tex, $params = [], $mode = 'png' ) {
-		global $wgDefaultUserOptions, $wgMathEnableExperimentalInputFormats;
+		global $wgDefaultUserOptions, $wgMathEnableExperimentalInputFormats, $wgMathoidCli;
 
 		if ( isset( $params['forcemathmode'] ) ) {
 			$mode = $params['forcemathmode'];
@@ -150,7 +153,8 @@ abstract class MathRenderer {
 			$mode = $wgDefaultUserOptions['math'];
 		}
 		if ( $wgMathEnableExperimentalInputFormats === true && $mode == 'mathml' &&
-			 isset( $params['type'] ) ) {
+		     isset( $params['type'] )
+		) {
 			// Support of MathML input (experimental)
 			// Currently support for mode 'mathml' only
 			if ( !in_array( $params['type'], [ 'pmml', 'ascii' ] ) ) {
@@ -173,10 +177,15 @@ abstract class MathRenderer {
 				break;
 			case 'mathml':
 			default:
-				$renderer = new MathMathML( $tex, $params );
+				if ( $wgMathoidCli ) {
+					$renderer = new MathMathMLCli( $tex, $params );
+				} else {
+					$renderer = new MathMathML( $tex, $params );
+				}
 		}
 		LoggerFactory::getInstance( 'Math' )->debug( 'Start rendering $' . $renderer->tex .
-			'$ in mode ' . $mode );
+		                                             '$ in mode ' . $mode );
+
 		return $renderer;
 	}
 
@@ -209,6 +218,7 @@ abstract class MathRenderer {
 		array_shift( $parameters );
 		$errmsg = wfMessage( $msg, $parameters )->inContentLanguage()->escaped();
 		$source = htmlspecialchars( str_replace( "\n", ' ', $this->tex ) );
+
 		return "<strong class='error texerror'>$mf ($errmsg): $source</strong>\n";
 	}
 
@@ -218,9 +228,10 @@ abstract class MathRenderer {
 	 * @return string hash
 	 */
 	public function getMd5() {
-		if ( ! $this->md5 ) {
+		if ( !$this->md5 ) {
 			$this->md5 = md5( $this->userInputTex );
 		}
+
 		return $this->md5;
 	}
 
@@ -242,8 +253,10 @@ abstract class MathRenderer {
 		// TODO: What happens if $tex is empty?
 		if ( !$this->inputHash ) {
 			$dbr = wfGetDB( DB_SLAVE );
+
 			return $dbr->encodeBlob( pack( "H32", $this->getMd5() ) ); # Binary packed, not hex
 		}
+
 		return $this->inputHash;
 	}
 
@@ -255,6 +268,7 @@ abstract class MathRenderer {
 	private static function dbHash2md5( $hash ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$xhash = unpack( 'H32md5', $dbr->decodeBlob( $hash ) . "                " );
+
 		return $xhash['md5'];
 	}
 
@@ -265,17 +279,18 @@ abstract class MathRenderer {
 	 */
 	public function readFromDatabase() {
 		$dbr = wfGetDB( DB_SLAVE );
-		$rpage = $dbr->selectRow( $this->getMathTableName(),
-			$this->dbInArray(),
-			[ 'math_inputhash' => $this->getInputHash() ],
-			__METHOD__ );
+		$rpage =
+			$dbr->selectRow( $this->getMathTableName(), $this->dbInArray(),
+				[ 'math_inputhash' => $this->getInputHash() ], __METHOD__ );
 		if ( $rpage !== false ) {
 			$this->initializeFromDatabaseRow( $rpage );
 			$this->storedInDatabase = true;
-				return true;
+
+			return true;
 		} else {
 			# Missing from the database and/or the render cache
 			$this->storedInDatabase = false;
+
 			return false;
 		}
 	}
@@ -284,12 +299,14 @@ abstract class MathRenderer {
 	 * @return array with the database column names
 	 */
 	protected function dbInArray() {
-		$in = [ 'math_inputhash',
+		$in = [
+			'math_inputhash',
 			'math_mathml',
 			'math_inputtex',
 			'math_tex',
-			'math_svg'
+			'math_svg',
 		];
+
 		return $in;
 	}
 
@@ -300,17 +317,17 @@ abstract class MathRenderer {
 	protected function initializeFromDatabaseRow( $rpage ) {
 		$this->inputHash = $rpage->math_inputhash; // MUST NOT BE NULL
 		$this->md5 = self::dbHash2md5( $this->inputHash );
-		if ( ! empty( $rpage->math_mathml ) ) {
+		if ( !empty( $rpage->math_mathml ) ) {
 			$this->mathml = utf8_decode( $rpage->math_mathml );
 		}
-		if ( ! empty( $rpage->math_inputtex ) ) {
+		if ( !empty( $rpage->math_inputtex ) ) {
 			// in the current database the field is probably not set.
 			$this->userInputTex = $rpage->math_inputtex;
 		}
-		if ( ! empty( $rpage->math_tex ) ) {
+		if ( !empty( $rpage->math_tex ) ) {
 			$this->tex = $rpage->math_tex;
 		}
-		if ( ! empty( $rpage->math_svg ) ) {
+		if ( !empty( $rpage->math_svg ) ) {
 			$this->svg = $rpage->math_svg;
 		}
 		$this->changed = false;
@@ -331,7 +348,8 @@ abstract class MathRenderer {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
 			LoggerFactory::getInstance( 'Math' )->debug( 'Store entry for $' . $this->tex .
-				'$ in database (hash:' . $this->getMd5() . ')' );
+			                                             '$ in database (hash:' . $this->getMd5() .
+			                                             ')' );
 			$outArray = $this->dbOutArray();
 			$mathTableName = $this->getMathTableName();
 			if ( $this->isInDatabase() ) {
@@ -341,11 +359,11 @@ abstract class MathRenderer {
 				) {
 					$dbw = $dbw ?: wfGetDB( DB_MASTER );
 
-					$dbw->update( $mathTableName, $outArray,
-						[ 'math_inputhash' => $inputHash ], __METHOD__ );
-					LoggerFactory::getInstance( 'Math' )->debug(
-						'Row updated after db transaction was idle: ' .
-						var_export( $outArray, true ) . " to database" );
+					$dbw->update( $mathTableName, $outArray, [ 'math_inputhash' => $inputHash ],
+						__METHOD__ );
+					LoggerFactory::getInstance( 'Math' )
+						->debug( 'Row updated after db transaction was idle: ' .
+						         var_export( $outArray, true ) . " to database" );
 				} );
 			} else {
 				DeferredUpdates::addCallableUpdate( function () use (
@@ -354,13 +372,13 @@ abstract class MathRenderer {
 					$dbw = $dbw ?: wfGetDB( DB_MASTER );
 
 					$dbw->insert( $mathTableName, $outArray, __METHOD__, [ 'IGNORE' ] );
-					LoggerFactory::getInstance( 'Math' )->debug(
-						'Row inserted after db transaction was idle ' .
-						var_export( $outArray, true ) . " to database" );
+					LoggerFactory::getInstance( 'Math' )
+						->debug( 'Row inserted after db transaction was idle ' .
+						         var_export( $outArray, true ) . " to database" );
 					if ( $dbw->affectedRows() == 0 ) {
 						// That's the price for the delayed update.
-						LoggerFactory::getInstance( 'Math' )->warning(
-							'Entry could not be written. Might be changed in between.' );
+						LoggerFactory::getInstance( 'Math' )
+							->warning( 'Entry could not be written. Might be changed in between.' );
 					}
 				} );
 			}
@@ -377,8 +395,9 @@ abstract class MathRenderer {
 			'math_mathml' => utf8_encode( $this->mathml ),
 			'math_inputtex' => $this->userInputTex,
 			'math_tex' => $this->tex,
-			'math_svg' => $this->svg
+			'math_svg' => $this->svg,
 		];
+
 		return $out;
 	}
 
@@ -402,6 +421,7 @@ abstract class MathRenderer {
 		$attribs = Sanitizer::validateTagAttributes( $this->params, $tag );
 		$attribs = Sanitizer::mergeAttributes( $defaults, $attribs );
 		$attribs = Sanitizer::mergeAttributes( $attribs, $overrides );
+
 		return $attribs;
 	}
 
@@ -415,9 +435,11 @@ abstract class MathRenderer {
 		if ( $this->isChanged() ) {
 			$logger->debug( 'Change detected. Perform writing.' );
 			$this->writeToDatabase();
+
 			return true;
 		} else {
 			$logger->debug( "Nothing was changed. Don't write to database." );
+
 			return false;
 		}
 	}
@@ -448,6 +470,7 @@ abstract class MathRenderer {
 	public function setMode( $newMode ) {
 		if ( in_array( $newMode, self::getValidModes() ) ) {
 			$this->mode = $newMode;
+
 			return true;
 		} else {
 			return false;
@@ -474,6 +497,7 @@ abstract class MathRenderer {
 		if ( !StringUtils::isUtf8( $this->mathml ) ) {
 			$this->setMathml( '' );
 		}
+
 		return $this->mathml;
 	}
 
@@ -528,9 +552,11 @@ abstract class MathRenderer {
 			parse_str( parse_url( $refererHeader, PHP_URL_QUERY ), $refererParam );
 			if ( isset( $refererParam['action'] ) && $refererParam['action'] === 'purge' ) {
 				LoggerFactory::getInstance( 'Math' )->debug( 'Re-Rendering on user request' );
+
 				return true;
 			}
 		}
+
 		return false;
 	}
 
@@ -595,6 +621,7 @@ abstract class MathRenderer {
 					return true;
 				}
 			}
+
 			return $this->doCheck();
 		}
 	}
@@ -603,6 +630,7 @@ abstract class MathRenderer {
 		if ( $this->storedInDatabase === null ) {
 			$this->readFromDatabase();
 		}
+
 		return $this->storedInDatabase;
 	}
 
@@ -650,11 +678,15 @@ abstract class MathRenderer {
 	 *
 	 * @return string XML-Document of the rendered SVG
 	 */
-	public function getSvg( /** @noinspection PhpUnusedParameterInspection */ $render = 'render' ) {
+	public function getSvg(
+		/** @noinspection PhpUnusedParameterInspection */
+		$render = 'render'
+	) {
 		// Spaces will prevent the image from being displayed correctly in the browser
 		if ( !$this->svg && $this->rbi ) {
 			$this->svg = $this->rbi->getSvg();
 		}
+
 		return trim( $this->svg );
 	}
 
@@ -662,16 +694,19 @@ abstract class MathRenderer {
 
 	public function getModeStr() {
 		$names = MathHooks::getMathNames();
-		return $names[ $this->getMode() ];
+
+		return $names[$this->getMode()];
 	}
 
 	public static function getValidModes() {
 		global $wgMathValidModes;
+
 		return array_map( "MathHooks::mathModeToString", $wgMathValidModes );
 	}
 
 	public static function getDisableTexFilter() {
 		global $wgMathDisableTexFilter;
+
 		return MathHooks::mathCheckToString( $wgMathDisableTexFilter );
 	}
 
@@ -698,12 +733,22 @@ abstract class MathRenderer {
 			if ( $checker->isValid() ) {
 				$this->setTex( $checker->getValidTex() );
 				$this->texSecure = true;
+
 				return true;
 			}
 		}
 		catch ( MWException $e ) {
 		}
 		$this->lastError = $checker->getError();
+
 		return false;
 	}
+
+	/**
+	 * @return string
+	 */
+	public function getPng() {
+		return $this->png;
+	}
+
 }

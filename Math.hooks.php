@@ -22,8 +22,8 @@ class MathHooks {
 			if ( !defined( $defKey ) ) {
 				define( $defKey, $defValue );
 			} elseif ( $defValue !== constant( $defKey ) ) {
-				throw new Exception( 'Math constant "'. $defKey . '" has unexpected value "' .
-					constant( $defKey ) . '" instead of "' . $defValue );
+				throw new Exception( 'Math constant "' . $defKey . '" has unexpected value "' .
+				                     constant( $defKey ) . '" instead of "' . $defValue );
 			}
 		}
 		$invDefs = array_flip( $defs );
@@ -47,25 +47,28 @@ class MathHooks {
 				return $value;
 			}
 		}
+
 		return $default;
 	}
 
 	public static function mathStyleToString( $style, $default = 'inlineDisplaystyle' ) {
 		$defs = [
-			'MW_MATHSTYLE_INLINE_DISPLAYSTYLE'  => 0, // default large operator inline
-			'MW_MATHSTYLE_DISPLAY'              => 1, // large operators centered in a new line
-			'MW_MATHSTYLE_INLINE'               => 2, // small operators inline
-			'MW_MATHSTYLE_LINEBREAK'            => 3, // break long lines (experimental)
+			'MW_MATHSTYLE_INLINE_DISPLAYSTYLE' => 0, // default large operator inline
+			'MW_MATHSTYLE_DISPLAY' => 1, // large operators centered in a new line
+			'MW_MATHSTYLE_INLINE' => 2, // small operators inline
+			'MW_MATHSTYLE_LINEBREAK' => 3, // break long lines (experimental)
 		];
+
 		return self::mathConstantToString( $style, $defs, $prefix = 'MW_MATHSTYLE_', $default );
 	}
 
 	public static function mathCheckToString( $style, $default = 'always' ) {
 		$defs = [
 			'MW_MATH_CHECK_ALWAYS' => 0,
-			'MW_MATH_CHECK_NEVER'  => 1,
-			'MW_MATH_CHECK_NEW'    => 2,
+			'MW_MATH_CHECK_NEVER' => 1,
+			'MW_MATH_CHECK_NEW' => 2,
 		];
+
 		return self::mathConstantToString( $style, $defs, $prefix = 'MW_MATH_CHECK_', $default );
 	}
 
@@ -78,20 +81,22 @@ class MathHooks {
 		// 'MW_MATH_LATEXML_JAX' => 8
 
 		$defs = [
-			'MW_MATH_PNG'    => 0,
+			'MW_MATH_PNG' => 0,
 			'MW_MATH_SOURCE' => 3,
 			'MW_MATH_MATHML' => 5,
-			'MW_MATH_LATEXML' => 7 ];
+			'MW_MATH_LATEXML' => 7,
+		];
 
 		return self::mathConstantToString( $mode, $defs, $prefix = 'MW_MATH_', $default );
 	}
 
 	public static function mathModeToHashKey( $mode, $default = 0 ) {
 		$defs = [
-			'png'    => 0,
+			'png' => 0,
 			'source' => 3,
 			'mathml' => 5,
-			'latexml' => 7 ];
+			'latexml' => 7,
+		];
 
 		if ( array_key_exists( $mode, $defs ) ) {
 			return $defs[$mode];
@@ -121,20 +126,13 @@ class MathHooks {
 			$mathString = self::mathModeToString( $user->getOption( 'math' ) );
 			$mathOption = self::mathModeToHashKey( $mathString, 0 );
 			// Check if the key already contains the math option part
-			if (
-				!preg_match(
-					'/(^|!)' . self::MATHCACHEKEY . $mathOption . '(!|$)/',
-					$confstr
-				)
-			) {
+			if ( !preg_match( '/(^|!)' . self::MATHCACHEKEY . $mathOption . '(!|$)/', $confstr ) ) {
 				// The math part of cache key starts with "math="
 				// followed by a star or a number for the math mode
 				if ( preg_match( '/(^|!)' . self::MATHCACHEKEY . '[*\d]m?(!|$)/', $confstr ) ) {
-					$confstr = preg_replace(
-						'/(^|!)' . self::MATHCACHEKEY . '[*\d]m?(!|$)/',
-						'\1' . self::MATHCACHEKEY . $mathOption . '\2',
-						$confstr
-					);
+					$confstr =
+						preg_replace( '/(^|!)' . self::MATHCACHEKEY . '[*\d]m?(!|$)/',
+							'\1' . self::MATHCACHEKEY . $mathOption . '\2', $confstr );
 				} else {
 					$confstr .= '!' . self::MATHCACHEKEY . $mathOption;
 				}
@@ -152,8 +150,7 @@ class MathHooks {
 	 * Set up $wgMathPath and $wgMathDirectory globals if they're not already set.
 	 */
 	static function setup() {
-		global $wgMathPath, $wgMathDirectory,
-			$wgUploadPath, $wgUploadDirectory;
+		global $wgMathPath, $wgMathDirectory, $wgUploadPath, $wgUploadDirectory;
 
 		if ( $wgMathPath === false ) {
 			$wgMathPath = "{$wgUploadPath}/math";
@@ -202,12 +199,14 @@ class MathHooks {
 		$parser->getOutput()->addModuleStyles( [ 'ext.math.styles' ] );
 		if ( $mode == 'mathml' ) {
 			$parser->getOutput()->addModules( [ 'ext.math.scripts' ] );
-			$marker = Parser::MARKER_PREFIX .
-				'-postMath-' . sprintf( '%08X', $n ++ ) .
+			$marker =
+				Parser::MARKER_PREFIX . '-postMath-' . sprintf( '%08X', $n ++ ) .
 				Parser::MARKER_SUFFIX;
 			self::$tags[$marker] = [ $renderer, $parser ];
+
 			return $marker;
 		}
+
 		return [ self::mathPostTagHook( $renderer, $parser ), 'markerType' => 'nowiki' ];
 	}
 
@@ -226,6 +225,7 @@ class MathHooks {
 		if ( $checkResult !== true ) {
 			// Returns the error message and add tracking category
 			$parser->addTrackingCategory( 'math-tracking-category-error' );
+
 			return $renderer->getLastError();
 		}
 
@@ -233,13 +233,14 @@ class MathHooks {
 			LoggerFactory::getInstance( 'Math' )->debug( "Rendering successful. Writing output" );
 			$renderedMath = $renderer->getHtmlOutput();
 		} else {
-			LoggerFactory::getInstance( 'Math' )->warning(
-				"Rendering failed. Printing error message." );
+			LoggerFactory::getInstance( 'Math' )
+				->warning( "Rendering failed. Printing error message." );
 			// Set a short parser cache time (10 minutes) after encountering
 			// render issues, but not syntax issues.
 			$parser->getOutput()->updateCacheExpiry( 600 );
 			// Add a tracking category specialized on render errors.
 			$parser->addTrackingCategory( 'math-tracking-category-render-error' );
+
 			return $renderer->getLastError();
 		}
 		Hooks::run( 'MathFormulaPostRender',
@@ -269,14 +270,16 @@ class MathHooks {
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
 		$mode = self::mathModeToString( $wgDefaultUserOptions['math'] );
-		if ( ! in_array( $mode, MathRenderer::getValidModes() ) ) {
-			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: '.
-				"\$wgDefaultUserOptions['math'] is not in " . MathRenderer::getValidModes() . ".\n".
-				"Please check your LocalSetting.php file." );
+		if ( !in_array( $mode, MathRenderer::getValidModes() ) ) {
+			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: ' .
+			                                             "\$wgDefaultUserOptions['math'] is not in " .
+			                                             MathRenderer::getValidModes() . ".\n" .
+			                                             "Please check your LocalSetting.php file." );
 			// Display the checkbox in the first option.
 			$validModes = MathRenderer::getValidModes();
 			$wgDefaultUserOptions['math'] = $validModes[0];
 		}
+
 		return true;
 	}
 
@@ -346,6 +349,10 @@ class MathHooks {
 			if ( in_array( $type, [ 'mysql', 'sqlite', 'postgres' ] ) ) {
 				$sql = __DIR__ . '/db/mathoid.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathoid', $sql );
+				if ( $type == 'mysql' ) {
+					$sql = __DIR__ . '/db/patches/mathoid.add_png.mysql.sql';
+					$updater->addExtensionField( 'mathoid', 'math_png', $sql );
+				}
 			} else {
 				throw new Exception( "Math extension does not currently support $type database for Mathoid." );
 			}
@@ -364,6 +371,7 @@ class MathHooks {
 	static function onParserTestTables( &$tables ) {
 		$tables[] = 'math';
 		$tables[] = 'mathlatexml';
+
 		return true;
 	}
 
@@ -373,25 +381,24 @@ class MathHooks {
 	 * @return bool
 	 */
 	public static function onParserAfterTidy( &$parser, &$text ) {
-		$rbis = [];
-		foreach ( self::$tags as $key => $tag ) {
-			/** @var MathRenderer $renderer */
-			$renderer = $tag[0];
-			$rbi = new MathRestbaseInterface( $renderer->getTex(), $renderer->getInputType() );
-			$renderer->setRestbaseInterface( $rbi );
-			$rbis[] = $rbi;
+		global $wgMathoidCli;
+		if ( $wgMathoidCli ) {
+			MathMathMLCli::batchEvaluate( self::$tags );
+		} else {
+			MathMathML::batchEvaluate( self::$tags );
 		}
-		MathRestbaseInterface::batchEvaluate( $rbis );
 		foreach ( self::$tags as $key => $tag ) {
-			$value = call_user_func_array( [ "MathHooks","mathPostTagHook" ], $tag );
+			$value = call_user_func_array( [ "MathHooks", "mathPostTagHook" ], $tag );
 			// Workaround for https://phabricator.wikimedia.org/T103269
-			$text = preg_replace( '/(<mw:editsection[^>]*>.*?)' . preg_quote( $key ) .
-				'(.*?)<\/mw:editsection>/',
-				'\1 $' . htmlspecialchars( $tag[0]->getTex() ) . '\2</mw:editsection>', $text );
+			$text =
+				preg_replace( '/(<mw:editsection[^>]*>.*?)' . preg_quote( $key ) .
+				              '(.*?)<\/mw:editsection>/',
+					'\1 $' . htmlspecialchars( $tag[0]->getTex() ) . '\2</mw:editsection>', $text );
 			$text = str_replace( $key, $value, $text );
 		}
 		// This hook might be called multiple times. However one the tags are rendered the job is done.
 		self::$tags = [];
+
 		return true;
 	}
 
@@ -423,6 +430,7 @@ class MathHooks {
 	 */
 	static function chemTagHook( $content, $attributes, $parser ) {
 		$attributes['chem'] = true;
+
 		return self::mathTagHook( '\ce{' . $content . '}', $attributes, $parser );
 	}
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Description of SpecialMathShowSVG
  *
@@ -10,9 +11,7 @@ class SpecialMathShowImage extends SpecialPage {
 	private $mode = 'mathml';
 
 	function __construct() {
-		parent::__construct(
-			'MathShowImage',
-			'', // Don't restrict
+		parent::__construct( 'MathShowImage', '', // Don't restrict
 			false // Don't show on Special:SpecialPages - it's not useful interactively
 		);
 	}
@@ -34,15 +33,14 @@ class SpecialMathShowImage extends SpecialPage {
 			$request->response()->header( "Content-type: image/svg+xml; charset=utf-8" );
 		}
 		if ( $success && !( $this->noRender ) ) {
-			$request->response()->header(
-				'Cache-Control: public, s-maxage=604800, max-age=3600'
-			); // 1 week (server) 1 hour (client)
+			$request->response()
+				->header( 'Cache-Control: public, s-maxage=604800, max-age=3600' ); // 1 week (server) 1 hour (client)
 			$request->response()->header( 'Vary: User-Agent' );
 		}
 	}
 
 	function execute( $par ) {
-		global $wgMathEnableExperimentalInputFormats;
+		global $wgMathEnableExperimentalInputFormats, $wgMathoidCli;
 		$request = $this->getRequest();
 		$hash = $request->getText( 'hash', '' );
 		$tex = $request->getText( 'tex', '' );
@@ -51,7 +49,9 @@ class SpecialMathShowImage extends SpecialPage {
 		} else {
 			$asciimath = '';
 		}
-		$this->mode = MathHooks::mathModeToString( $request->getText( 'mode' ), 'mathml' );
+		$mode = $request->getText( 'mode' );
+		$this->mode = MathHooks::mathModeToString( $mode, 'mathml' );
+
 		if ( !in_array( $this->mode, MathRenderer::getValidModes() ) ) {
 			// Fallback to the default if an invalid mode was specified
 			$this->mode = 'mathml';
@@ -61,29 +61,24 @@ class SpecialMathShowImage extends SpecialPage {
 			echo $this->printSvgError( 'No Inputhash specified' );
 		} else {
 			if ( $tex === '' && $asciimath === '' ) {
-				switch ( $this->mode ) {
-					case 'png':
-						$this->renderer = MathTexvc::newFromMd5( $hash );
-						break;
-					case 'latexml':
-						$this->renderer = MathLaTeXML::newFromMd5( $hash );
-						break;
-					default:
-						$this->renderer = MathMathML::newFromMd5( $hash );
+				if($wgMathoidCli && $this->mode === 'png' ){
+					$this->renderer = MathRenderer::getRenderer( '', [], 'mathml' );
+				} else {
+					$this->renderer = MathRenderer::getRenderer( '', [], $this->mode );
 				}
+				$this->renderer->setMd5( $hash );
 				$this->noRender = $request->getBool( 'noRender', false );
 				$isInDatabase = $this->renderer->readFromDatabase();
 				if ( $isInDatabase || $this->noRender ) {
 					$success = $isInDatabase;
 				} else {
-					if ( $this->mode == 'png' ) {
+					if ( $this->mode == 'png' && !$wgMathoidCli ) {
 						// get the texvc input from the mathoid database table
 						// and render the conventional way
 						$mmlRenderer = MathMathML::newFromMd5( $hash );
 						$mmlRenderer->readFromDatabase();
-						$this->renderer = MathRenderer::getRenderer(
-							$mmlRenderer->getUserInputTex(), [], 'png'
-						);
+						$this->renderer =
+							MathRenderer::getRenderer( $mmlRenderer->getUserInputTex(), [], 'png' );
 						$this->renderer->setMathStyle( $mmlRenderer->getMathStyle() );
 					}
 					$success = $this->renderer->render();
@@ -92,9 +87,8 @@ class SpecialMathShowImage extends SpecialPage {
 				$this->renderer = MathRenderer::getRenderer( $tex, [], $this->mode );
 				$success = $this->renderer->render();
 			} else {
-				$this->renderer = MathRenderer::getRenderer(
-					$asciimath, [ 'type' => 'ascii' ], $this->mode
-				);
+				$this->renderer =
+					MathRenderer::getRenderer( $asciimath, [ 'type' => 'ascii' ], $this->mode );
 				$success = $this->renderer->render();
 			}
 			if ( $success ) {
@@ -127,12 +121,15 @@ class SpecialMathShowImage extends SpecialPage {
 	private function printSvgError( $msg ) {
 		global $wgDebugComments;
 		// @codingStandardsIgnoreStart
-		$result =  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 4" preserveAspectRatio="xMidYMid meet" >' .
-			'<text text-anchor="start" fill="red" y="2">' . htmlspecialchars( $msg ) . '</text></svg>';
+		$result =
+			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 4" preserveAspectRatio="xMidYMid meet" >' .
+			'<text text-anchor="start" fill="red" y="2">' . htmlspecialchars( $msg ) .
+			'</text></svg>';
 		// @codingStandardsIgnoreEnd
 		if ( $wgDebugComments ) {
-			$result .= '<!--'. var_export( $this->renderer, true ) .'-->';
+			$result .= '<!--' . var_export( $this->renderer, true ) . '-->';
 		}
+
 		return $result;
 	}
 
