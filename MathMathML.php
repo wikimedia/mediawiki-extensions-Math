@@ -49,6 +49,18 @@ class MathMathML extends MathRenderer {
 		}
 	}
 
+	public static function batchEvaluate( &$tags ) {
+		$rbis = [];
+		foreach ( $tags as $key => $tag ) {
+			/** @var MathRenderer $renderer */
+			$renderer = $tag[0];
+			$rbi = new MathRestbaseInterface( $renderer->getTex(), $renderer->getInputType() );
+			$renderer->setRestbaseInterface( $rbi );
+			$rbis[] = $rbi;
+		}
+		MathRestbaseInterface::batchEvaluate( $rbis );
+	}
+
 	/**
 	 * Gets the allowed root elements the rendered math tag might have.
 	 *
@@ -507,7 +519,7 @@ class MathMathML extends MathRenderer {
 	 *
 	 * @return bool
 	 */
-	private function processJsonResult( $jsonResult, $host ) {
+	protected function processJsonResult( $jsonResult, $host ) {
 		if ( $this->getMode() == 'latexml' || $this->inputType == 'pmml' ||
 			 $this->isValidMathML( $jsonResult->mml )
 		) {
