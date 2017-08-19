@@ -13,18 +13,20 @@ module.exports = function ( grunt ) {
 		jsonlint: {
 			all: [
 				'**/*.json',
-				'!node_modules/**'
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		},
 		stylelint: {
 			all: [
 				'**/*.css',
-				'!node_modules/**'
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		},
 		watch: {
 			files: [
-				'.{stylelintrc,.eslintrc.json}',
+				'.{stylelintrc,.eslintrc}.json',
 				'<%= eslint.all %>',
 				'<%= stylelint.all %>'
 			],
@@ -34,7 +36,8 @@ module.exports = function ( grunt ) {
 			all: [
 				'*.js',
 				'modules/**/*.js',
-				'!**/node_modules/**'
+				'!**/node_modules/**',
+				'!vendor/**'
 			]
 		}
 	} );
