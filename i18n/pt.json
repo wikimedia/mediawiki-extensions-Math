@@ -85,6 +85,8 @@
 	"math_tip": "Fórmula matemática (LaTeX)",
 	"math-tracking-category-error": "Páginas com erros de formatação matemática",
 	"math-tracking-category-error-desc": "As páginas nesta categoria contêm erros no uso dos elementos de formatação matemática.",
+	"math-tracking-category-render-error": "Páginas com erros de composição de imagem matemática",
+	"math-tracking-category-render-error-desc": "As páginas desta categoria têm erros de composição de imagem nas etiquetas de matemática.",
 	"math_unknown_error": "erro desconhecido",
 	"math_unknown_function": "função desconhecida: \"$1\"",
 	"mw_math_latexml": "LaTeXML (experimental; usa MathML)",

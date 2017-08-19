@@ -79,14 +79,18 @@
 	"math-test-contains-diff": "Tagastatud sõne $1 ei sisalda oodatud sõnet $2.",
 	"math-test-equals-diff": "Tagastatud sõne $1 erineb oodatud sõnest $2.",
 	"math_tip": "Matemaatiline valem (LaTeX)",
-	"math-tracking-category-error": "Leheküljed, kus matemaatilises valemis on tõrge",
+	"math-tracking-category-error": "Matemaatilise valemi tõrkega leheküljed",
 	"math-tracking-category-error-desc": "Selles kategoorias on leheküljed, kus matemaatiliste siltide kasutuses on tõrkeid.",
+	"math-tracking-category-render-error": "Matemaatilise valemi viimistlustõrkega leheküljed",
+	"math-tracking-category-render-error-desc": "Selles kategoorias on leheküljed, kus matemaatiliste siltide viimistluses on tõrkeid.",
 	"math_unknown_error": "Tundmatu viga",
 	"math_unknown_function": "tundmatu funktsioon '$1'",
-	"mw_math_mathjax": "Kliendipoolne MathJax (aeglane, parem viimistlus mõne brauseri ja hõlbustusriista puhul)",
 	"mw_math_mathml": "MathML SVG- või PNG-taanderežiimiga (soovitatav uuemate brauseri ja hõlbustusriistade puhul)",
 	"mw_math_png": "PNG-pildid",
 	"mw_math_source": "LaTeX-lähtetekst (tekstibrauserite puhul)",
 	"prefs-math": "Valemite näitamine",
-	"mathstatus": "Matemaatiliste valemite olek"
+	"mathstatus": "Matemaatiliste valemite olek",
+	"datatypes-type-math": "Avaldis",
+	"wikibase-listdatatypes-math-head": "Avaldis",
+	"wikibase-listdatatypes-math-body": "Literaalandmete väli LaTeX-i variandis esitatud matemaatiliste avaldiste, valemite, võrrandite ja muu seesuguse jaoks."
 }

@@ -9,7 +9,8 @@
 			"Sfic",
 			"जनक राज भट्ट",
 			"Rajat11",
-			"Jayprakash12345"
+			"Jayprakash12345",
+			"Sachinkatiyar"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> टैगों के बीच गणितीय सूत्र रेंडर करें",
@@ -65,6 +66,8 @@
 	"math_tip": "गणितीय सूत्र (लेटेक्स)",
 	"math-tracking-category-error": "गणित त्रुटियों वाले पृष्ठ",
 	"math-tracking-category-error-desc": "इस श्रेणी के पृष्ठों में गणित टैग के उपयोग में त्रुटियां हैं I",
+	"math-tracking-category-render-error": "गणित में अनुवादित त्रुटियों के साथ प्रष्ठ",
+	"math-tracking-category-render-error-desc": "इस श्रेणी के पेजों ने गणित टैग्स में रेंडरिंग त्रुटियां प्रदान की हैं।",
 	"math_unknown_error": "अज्ञात त्रुटि",
 	"math_unknown_function": "अज्ञात फंक्शन '$1'",
 	"mw_math_latexml": "लेटेक्सएमएल (प्रयोगात्मक; मैथ॰एम॰एल का प्रयोग करता है)",
