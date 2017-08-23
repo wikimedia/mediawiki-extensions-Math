@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Agurzil",
-			"Mmistmurt"
+			"Mmistmurt",
+			"Belkacem77"
 		]
 	},
 	"math_bad_output": "Ur yezmir ara ad yaru ɣef/ɣer tusnakt n tuffɣa directory/dossier",
@@ -15,7 +16,7 @@
 	"math_syntax_error": "Agul n tseddast",
 	"math_tip": "Tasemselt tusnakt (LaTeX)",
 	"math_unknown_error": "Agul mačči d aḍahri",
-	"math_unknown_function": "tawuri warisem « $1 »",
+	"math_unknown_function": "tawuri tarussint \"$1\"",
 	"mw_math_mathml": "MathML ma yezmer (experimental)",
 	"mw_math_png": "Daymen err-it PNG",
 	"mw_math_source": "Eǧǧ-it s TeX (i browsers/explorateurs n weḍris)",
