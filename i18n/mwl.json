@@ -2,10 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Cecílio",
-			"MCruz"
+			"MCruz",
+			"MokaAkashiyaPT"
 		]
 	},
 	"math_sample": "Poner fórmula eiqui",
 	"math_tip": "Fórmula matemática (LaTeX)",
+	"mw_math_latexml": "LaTeXML (spurmental; outeliza MathML)",
+	"mw_math_mathml": "MathML, cun SVG ó PNG an altarnatiba (recomendado pa nabegadores modernos i ferramientas d'acessibelidade)",
+	"mw_math_png": "Eimaiges PNG",
+	"mw_math_source": "Fuonte LaTeX (pa nabegadores de testo)",
 	"prefs-math": "Matemática"
 }
