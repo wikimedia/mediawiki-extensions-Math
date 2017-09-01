@@ -72,7 +72,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 		/** @var int the number of runs used in that test */
 		$numberOfRuns = 10;
 		/** @var double the maximal average time accetable for a execution of is_executable in seconds*/
-		$maxAvgTime = .001;
+		$maxAvgTime = 0.001;
 		$tstart = microtime( true );
 
 		for ( $i = 1; $i <= $numberOfRuns; $i++ ) {
