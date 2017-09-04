@@ -78,6 +78,8 @@
 	"math_tip": "Formula matemateche (LaTeX)",
 	"math-tracking-category-error": "Pàggene cu errore de matemateche",
 	"math-tracking-category-error-desc": "Pàggene jndr'à sta categorije ca onne errore jndr'à l'ause de le tag matematece.",
+	"math-tracking-category-render-error": "Pàggene cu errore de referimende de matemateche",
+	"math-tracking-category-render-error-desc": "Pàggene jndr'à sta categorije ca tènene errore de renderizzazzione jndr'à le tag matematece.",
 	"math_unknown_error": "errore scanusciute",
 	"math_unknown_function": "funziona scanusciute '$1'",
 	"mw_math_latexml": "LaTeXML (sperimendale; ause MathML)",
