@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Bunukwiki",
-			"Tokoabibi"
+			"Tokoabibi",
+			"Benel"
 		]
 	},
 	"math-visualeditor-mwlatexdialog-card-formula": "tatudungay a sausi",
@@ -11,5 +12,7 @@
 	"math-visualeditor-mwlatexinspector-display-block": "malangat",
 	"math-visualeditor-mwlatexinspector-display-default": "sulul",
 	"math-visualeditor-mwlatexinspector-display-inline": "ilabu nu tusil",
-	"math-visualeditor-symbol-group-math-logic": "loci"
+	"math-visualeditor-symbol-group-chem-greek": "sulit-bacu nu Sila",
+	"math-visualeditor-symbol-group-math-logic": "loci",
+	"math_failure": "patingalaw mungangaw"
 }
