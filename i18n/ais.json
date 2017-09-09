@@ -12,7 +12,12 @@
 	"math-visualeditor-mwlatexinspector-display-block": "malangat",
 	"math-visualeditor-mwlatexinspector-display-default": "sulul",
 	"math-visualeditor-mwlatexinspector-display-inline": "ilabu nu tusil",
+	"math-visualeditor-mwmathdialog-title": "sapisausi a tatudungay",
 	"math-visualeditor-symbol-group-chem-greek": "sulit-bacu nu Sila",
+	"math-visualeditor-symbol-group-chem-precipitate": "celem atu bali",
 	"math-visualeditor-symbol-group-math-logic": "loci",
-	"math_failure": "patingalaw mungangaw"
+	"math_failure": "patingalaw mungangaw",
+	"math_lexing_error": "sakamuan mungangaw",
+	"math_syntax_error": "sakilul nu kamu mungangaw",
+	"math_unknown_error": "caay kapulita ku mungangaw"
 }
