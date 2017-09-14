@@ -14,5 +14,6 @@
 	"mw_math_mathml": "MathML, cun SVG ó PNG an altarnatiba (recomendado pa nabegadores modernos i ferramientas d'acessibelidade)",
 	"mw_math_png": "Eimaiges PNG",
 	"mw_math_source": "Fuonte LaTeX (pa nabegadores de testo)",
-	"prefs-math": "Matemática"
+	"prefs-math": "Matemática",
+	"mathstatus": "Stado de la formataçon matemática"
 }
