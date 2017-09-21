@@ -11,11 +11,14 @@
 	"math-visualeditor-mwlatexinspector-display-block": "Rhzyal",
 	"math-visualeditor-mwlatexinspector-display-default": "Pinnama’ smi’",
 	"math-visualeditor-mwlatexinspector-display-inline": "Qsahuy na pinkgan",
+	"math-visualeditor-mwmathdialog-title": "Kungs’ na plpgan",
 	"math-visualeditor-symbol-group-chem-formulae": "Kagaku siki’",
 	"math-visualeditor-symbol-group-chem-greek": "T’ringan biru’ na Greek",
 	"math-visualeditor-symbol-group-math-logic": "Tuqiy na kkayal",
 	"math_failure": "Ini’ baqiy ’mita’ bniru’",
 	"math_lexing_error": "min’uqu’ na kay’",
+	"math_syntax_error": "min’uqu’ na kkayal",
 	"math_unknown_error": "ini’ bqbaqiy ginlaylwan pin’qwan",
-	"mw_math_png": "Pinzga’ na PNG"
+	"mw_math_png": "Pinzga’ na PNG",
+	"prefs-math": "Kungs’ na plpgan"
 }
