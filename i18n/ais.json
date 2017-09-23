@@ -22,6 +22,7 @@
 	"math_lexing_error": "sakamuan mungangaw",
 	"math_sample": "papaheceken tatudungay a sausi itini",
 	"math_syntax_error": "sakilul nu kamu mungangaw",
+	"math_timeout": "$2 nu $1 mautang.",
 	"math_unknown_error": "caay kapulita ku mungangaw",
 	"math_unknown_function": "caykapulita a hansu-sausi \"$1\"",
 	"mw_math_png": "PNG zunga’",
