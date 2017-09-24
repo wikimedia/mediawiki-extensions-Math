@@ -241,7 +241,7 @@ abstract class MathRenderer {
 	public function getInputHash() {
 		// TODO: What happens if $tex is empty?
 		if ( !$this->inputHash ) {
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 			return $dbr->encodeBlob( pack( "H32", $this->getMd5() ) ); # Binary packed, not hex
 		}
 		return $this->inputHash;
@@ -253,7 +253,7 @@ abstract class MathRenderer {
 	 * @return string md5
 	 */
 	private static function dbHash2md5( $hash ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$xhash = unpack( 'H32md5', $dbr->decodeBlob( $hash ) . "                " );
 		return $xhash['md5'];
 	}
@@ -264,7 +264,7 @@ abstract class MathRenderer {
 	 * @return bool true if read successfully, false otherwise
 	 */
 	public function readFromDatabase() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$rpage = $dbr->selectRow( $this->getMathTableName(),
 			$this->dbInArray(),
 			[ 'math_inputhash' => $this->getInputHash() ],

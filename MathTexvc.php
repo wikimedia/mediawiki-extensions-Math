@@ -36,7 +36,7 @@ class MathTexvc extends MathRenderer {
 	 */
 	public function dbOutArray() {
 		$out = [];
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$outmd5_sql = $dbr->encodeBlob( pack( 'H32', $this->hash ) );
 		if ( $outmd5_sql instanceof Blob ) {
 			$outmd5_sql = $outmd5_sql->fetch();
@@ -64,7 +64,7 @@ class MathTexvc extends MathRenderer {
 		parent::initializeFromDatabaseRow( $rpage );
 		// get deprecated fields
 		if ( $rpage->math_outputhash ) {
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 			$xhash = unpack( 'H32md5',
 				$dbr->decodeBlob( $rpage->math_outputhash ) . "                " );
 			$this->hash = $xhash['md5'];
