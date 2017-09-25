@@ -18,6 +18,8 @@
 	"math-visualeditor-symbol-group-chem-greek": "sulit-bacu nu Sila",
 	"math-visualeditor-symbol-group-chem-precipitate": "celem atu bali",
 	"math-visualeditor-symbol-group-math-logic": "loci",
+	"math_bad_output": "la’cus suliten saca patizeng sausi-tatudungay patahkal dilyikotoling",
+	"math_bad_tmpdir": "la’cus suliten saca patizeng sausi-tatudungay nanunuz dilyikotoling",
 	"math_failure": "patingalaw mungangaw",
 	"math_lexing_error": "sakamuan mungangaw",
 	"math_sample": "papaheceken tatudungay a sausi itini",
