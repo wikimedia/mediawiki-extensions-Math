@@ -15,6 +15,7 @@
 		]
 	},
 	"math-desc": "فرمول‌های ریاضی میان برچسب‌های <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> را رندر می‌کند",
+	"math-visualeditor-mwchemdialog-title": "فرمول شیمیایی",
 	"math-visualeditor-mwcheminspector-title": "فرمول شیمیایی",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "ویرایش سریع",
 	"math-visualeditor-mwlatexdialog-card-formula": "فرمول",
@@ -34,6 +35,7 @@
 	"math-visualeditor-symbol-group-chem-isotopes": "ایزوتوپ‌ها",
 	"math-visualeditor-symbol-group-chem-operators": "عملگرهای معادله",
 	"math-visualeditor-symbol-group-chem-oxidation": "وضعیت اکسیداسیون",
+	"math-visualeditor-symbol-group-chem-stoichiometric": "ضرایب استوکیومتری",
 	"math-visualeditor-symbol-group-math-bounds": "پیوندها",
 	"math-visualeditor-symbol-group-math-greek": "الفبای یونانی",
 	"math-visualeditor-symbol-group-math-hebrew": "الفبای عبری",
@@ -45,6 +47,8 @@
 	"math-visualeditor-symbol-group-math-root": "رادیکال‌ها",
 	"math-visualeditor-symbol-group-math-sets": "مجموعه‌ها",
 	"math-visualeditor-symbol-group-math-special": "خاص",
+	"math-visualeditor-symbol-group-math-subscripts": "زیرنویس، سرنویس و انتگرال‌ها",
+	"math-visualeditor-symbol-group-math-symbols": "نمادها و ثابت‌ها",
 	"math-visualeditor-symbol-group-math-unsorted": "نامرتب",
 	"math_bad_output": "امکان ایجاد یا نوشتن اطلاعات در پوشه خروجی (output) ریاضی وجود ندارد.",
 	"math_bad_tmpdir": "امکان ایجاد یا نوشتن اطلاعات در پوشه موقت (temp) ریاضی وجود ندارد.",
@@ -62,6 +66,7 @@
 	"math_timeout": "$1 زمان از دست رفتن از «$2»",
 	"math_tip": "فرمول ریاضی (LaTeX)",
 	"math-tracking-category-error": "صفحات با خطای ریاضی",
+	"math-tracking-category-render-error": "صفحه‌های دارای اشکال پردازش ریاضی",
 	"math_unknown_error": "خطای ناشناخته",
 	"math_unknown_function": "تابع ناشناختهٔ '$1'",
 	"mw_math_latexml": "لته ایکس‌ام ال (تجربی؛ از مت‌ ام‌ال استفاده می‌کند)",
@@ -69,5 +74,7 @@
 	"mw_math_png": "تصاویر PNG",
 	"mw_math_source": "در قالب LaTeX باقی بماند (برای مرورگرهای متنی)",
 	"prefs-math": "نمایش ریاضیات",
-	"mathstatus": "وضعیت ریاضی"
+	"mathstatus": "وضعیت ریاضی",
+	"datatypes-type-math": "عبارت ریاضی",
+	"wikibase-listdatatypes-math-head": "عبارت ریاضی"
 }
