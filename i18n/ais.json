@@ -21,6 +21,7 @@
 	"math_bad_output": "la’cus suliten saca patizeng sausi-tatudungay patahkal dilyikotoling",
 	"math_bad_tmpdir": "la’cus suliten saca patizeng sausi-tatudungay nanunuz dilyikotoling",
 	"math_failure": "patingalaw mungangaw",
+	"math_invalidjson": "$1 sefu-sakaluk patukil la’cusay a JSON.",
 	"math_lexing_error": "sakamuan mungangaw",
 	"math_output_error": "la’cus misuped sausi-tatudungay a zunga i tangan sisetyimo",
 	"math_sample": "papaheceken tatudungay a sausi itini",
