@@ -31,6 +31,11 @@ $specialPageAliases['mk'] = [
 	'MathStatus' => [ 'МатСтатус' ],
 ];
 
+/** Urdu (اردو) */
+$specialPageAliases['ur'] = [
+	'MathStatus' => [ 'کیفیت_ریاضی' ],
+];
+
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = [
 	'MathStatus' => [ '数学状态' ],
