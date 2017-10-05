@@ -27,9 +27,14 @@
 	"math_sample": "papaheceken tatudungay a sausi itini",
 	"math_syntax_error": "sakilul nu kamu mungangaw",
 	"math_timeout": "$2 nu $1 mautang.",
+	"math-test-end": "mizunga muse ''$1'' a zikuzan mitanam malaheci tuway",
+	"math-test-start": "mileku mizunga muse ''$1'' a zikuzan mitanam",
+	"math-test-contains-diff": "maminay tu sulisulitan $1 caay yamalyilu talaayaway mazateng a sulisulitan $2",
+	"math-test-equals-diff": "maminay tu sulisulitan $1 caykalecad talaayaway mazateng sulisulitan $2.",
 	"math_tip": "pacucuk sausi-tatudungay (LaTeX)",
 	"math_unknown_error": "caay kapulita ku mungangaw",
 	"math_unknown_function": "caykapulita a hansu-sausi \"$1\"",
 	"mw_math_png": "PNG zunga’",
+	"mw_math_source": "LaTeX yuensma-mima (pabeli sulit saazihay-sakaluk pisaungay)",
 	"prefs-math": "sapisausi a tatudungay"
 }
