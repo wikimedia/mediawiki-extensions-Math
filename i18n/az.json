@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"PrinceValiant",
-			"Macofe"
+			"Macofe",
+			"Wertuose"
 		]
 	},
+	"math-visualeditor-mwchemdialog-title": "Kimyəvi formul",
+	"math-visualeditor-mwmathdialog-title": "Riyazi formul",
 	"math_sample": "Riyazi formulu bura yazın",
 	"math_syntax_error": "sintaksis xətası",
 	"math_tip": "Riyazi formul (LaTeX formatı)",
