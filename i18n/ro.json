@@ -5,7 +5,8 @@
 			"Laurap",
 			"Minisarm",
 			"Strainu",
-			"XXN"
+			"XXN",
+			"Adrianbblk"
 		]
 	},
 	"math-desc": "Randează formulele matematice cuprinse între etichetele <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -29,7 +30,7 @@
 	"math-visualeditor-symbol-group-math-arrows": "Săgeți",
 	"math-visualeditor-symbol-group-math-bounds": "Limite",
 	"math-visualeditor-symbol-group-math-derivatives": "Diferențiale și derivate",
-	"math-visualeditor-symbol-group-math-geometry": "Geometrice",
+	"math-visualeditor-symbol-group-math-geometry": "Geometric",
 	"math-visualeditor-symbol-group-math-greek": "Alfabetul grecesc",
 	"math-visualeditor-symbol-group-math-hebrew": "Alfabetul ebraic",
 	"math-visualeditor-symbol-group-math-logic": "Logică",
@@ -45,7 +46,7 @@
 	"math-visualeditor-symbol-group-math-subscripts": "Indici, exponenți și integrale",
 	"math-visualeditor-symbol-group-math-symbols": "Simboluri și constante",
 	"math-visualeditor-symbol-group-math-typefaces": "Fonturi",
-	"math-visualeditor-symbol-group-math-unsorted": "Nesortate",
+	"math-visualeditor-symbol-group-math-unsorted": "Nesortat",
 	"math_bad_output": "Nu se poate crea sau nu se poate scrie în directorul de ieșire pentru formule matematice",
 	"math_bad_tmpdir": "Nu se poate crea sau nu se poate scrie în directorul temporar pentru formule matematice",
 	"math_failure": "Nu s-a putut interpreta",
@@ -62,7 +63,7 @@
 	"math-test-fail": "Testul ''$1'' <span style=\"color:red\">a eșuat</span>.",
 	"math-test-success": "Testul ''$1'' <span style=\"color:green\">a trecut</span>.",
 	"math_tip": "Formulă matematică (LaTeX)",
-	"math-tracking-category-error": "Pagini cu formule cu erori",
+	"math-tracking-category-error": "Pagini cu erori de formule",
 	"math_unknown_error": "eroare necunoscută",
 	"math_unknown_function": "funcție „$1” necunoscută",
 	"mw_math_latexml": "LaTeXML (experimental; folosește MathML)",
