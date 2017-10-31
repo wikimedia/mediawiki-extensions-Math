@@ -18,6 +18,7 @@
 		"MathHooks": "Math.hooks.php",
 		"MathRenderer": "MathRenderer.php",
 		"MathRestbaseInterface": "MathRestbaseInterface.php",
+		"MathLatexRender": "MathLatexRender.php",
 		"MathTexvc": "MathTexvc.php",
 		"MathSource": "MathSource.php",
 		"MathMathML": "MathMathML.php",
@@ -272,3 +273,4 @@
 	],
 	"manifest_version": 1
 }
+
