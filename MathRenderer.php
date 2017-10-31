@@ -141,7 +141,7 @@ abstract class MathRenderer {
 	 * @return MathRenderer appropriate renderer for mode
 	 */
 	public static function getRenderer( $tex, $params = [], $mode = 'png' ) {
-		global $wgDefaultUserOptions, $wgMathEnableExperimentalInputFormats;
+		global $wgDefaultUserOptions, $wgMathEnableExperimentalInputFormats, $wgLatexOnWindows;
 
 		if ( isset( $params['forcemathmode'] ) ) {
 			$mode = $params['forcemathmode'];
@@ -166,7 +166,12 @@ abstract class MathRenderer {
 				$renderer = new MathSource( $tex, $params );
 				break;
 			case 'png':
-				$renderer = new MathTexvc( $tex, $params );
+				if ( $wgLatexOnWindows ) {
+					$renderer = new MathLatexRender( $tex, $params) ;
+				}
+				else {
+					$renderer = new MathTexvc( $tex, $params );
+				}
 				break;
 			case 'latexml':
 				$renderer = new MathLaTeXML( $tex, $params );
