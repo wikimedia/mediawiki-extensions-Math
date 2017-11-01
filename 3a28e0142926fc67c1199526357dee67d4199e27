@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e5a8fde_0983edae",
+        "filename": "MathMathMLCli.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2017-11-01T17:34:51Z",
+      "side": 1,
+      "message": "Any ideas how to find a more elegant solution to this problem?",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 47
+      },
+      "revId": "3a28e0142926fc67c1199526357dee67d4199e27",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
