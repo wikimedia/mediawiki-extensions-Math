@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e5a8fde_5d599f00",
+        "filename": "MathLatexRender.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 3
+      },
+      "writtenOn": "2017-11-01T23:10:26Z",
+      "side": 1,
+      "message": "unnecessary comment",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "d56f3a1605a2a3a1e51005035acefd0bbf63dae5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e5a8fde_3d54e3c8",
+        "filename": "MathLatexRender.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 3
+      },
+      "writtenOn": "2017-11-01T23:10:26Z",
+      "side": 1,
+      "message": "unnecessary comment",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 3
+      },
+      "revId": "d56f3a1605a2a3a1e51005035acefd0bbf63dae5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e5a8fde_fd6e4b92",
+        "filename": "MathLatexRender.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 3
+      },
+      "writtenOn": "2017-11-01T23:10:26Z",
+      "side": 1,
+      "message": "Should be spaces around the .",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 35
+      },
+      "revId": "d56f3a1605a2a3a1e51005035acefd0bbf63dae5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e5a8fde_1d456718",
+        "filename": "extension.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 3
+      },
+      "writtenOn": "2017-11-01T23:10:26Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "range": {
+        "startLine": 20,
+        "startChar": 55,
+        "endLine": 20,
+        "endChar": 57
+      },
+      "revId": "d56f3a1605a2a3a1e51005035acefd0bbf63dae5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
