@@ -4,9 +4,13 @@
 			"Milicevic01",
 			"Rancher",
 			"Srdjan m",
-			"Macofe"
+			"Macofe",
+			"Zoranzoki21"
 		]
 	},
+	"math-visualeditor-mwlatexdialog-card-formula": "Формула",
+	"math-visualeditor-mwlatexdialog-card-options": "Опције",
+	"math-visualeditor-mwlatexinspector-display": "Прикажи",
 	"math-visualeditor-mwlatexinspector-display-default": "Подразумевано",
 	"math-visualeditor-symbol-group-math-functions": "Стандардне нумеричке функције",
 	"math-visualeditor-symbol-group-math-geometry": "Геометрија",
@@ -24,7 +28,6 @@
 	"math_unknown_error": "непозната грешка",
 	"math_unknown_function": "непозната функција „$1“",
 	"mw_math_latexml": "LaTeXML (експриментално; користи MathML)",
-	"mw_math_mathjax": "MathJax корисничке стране (споро; побољшава приказ на неким веб-прегледачима и алаткама за приступачност)",
 	"mw_math_mathml": "MathML са ослањањем на SVG или PNG (препоручљиво за најновије веб-прегледаче)",
 	"mw_math_png": "PNG слике",
 	"mw_math_source": "LaTeX (за текстуалне прегледаче)",
