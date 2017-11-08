@@ -65,7 +65,7 @@
 	"math_invalidxml": "El MathML o'l SVG ye XML inválidu.",
 	"math_lexing_error": "Error lléxicu",
 	"math_mathoid_error": "Error de conversion. El sirvidor (\"$1\") informó: «$2»",
-	"math_notexvc": "Falta l'executable <code>texvc</code>; por favor vea math/README pa configuralu.",
+	"math_notexvc": "Falta l'executable <code>texvc</code>. Llei math/README pa configuralu.",
 	"math_output_error": "Nun pue guardase la imaxe matemática nel sistema de ficheros.",
 	"math_sample": "Inxertar fórmula equí",
 	"math-status-introduction": "Esta páxina amuesa información tocante {{PLURAL:$1|al mou|a los moos}} de representar les matemátiques activaos.\n\n{{PLURAL:$1|El siguiente mou de representación ta activáu|Los siguientes moos de representación tan activaos}}:",
