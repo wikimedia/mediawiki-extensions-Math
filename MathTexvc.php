@@ -363,7 +363,7 @@ class MathTexvc extends MathRenderer {
 		// If we're replacing an older version of the image, make sure it's current.
 		if ( $updated && $wgUseSquid ) {
 			$urls = [ $this->getMathImageUrl() ];
-			$u = new SquidUpdate( $urls );
+			$u = new CdnCacheUpdate( $urls );
 			$u->doUpdate();
 		}
 
