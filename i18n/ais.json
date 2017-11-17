@@ -30,6 +30,7 @@
 	"math_notexvc": "caay kataneng <code>texvc</code> paculil tu cengse; kapiazih tu tatenga’ay math/README miteka setin",
 	"math_output_error": "la’cus misuped sausi-tatudungay a zunga i tangan sisetyimo",
 	"math_sample": "papaheceken tatudungay a sausi itini",
+	"math-status-introduction": "tina kasabelih paazih mahizaay mawawah a asip-subana’ mizunga {{PLURAL:$1|muse}} cesyun.\n\nisasa’say mikulitay a {{PLURAL:$1|muse}} mawawah tu:",
 	"math_syntax_error": "sakilul nu kamu mungangaw",
 	"math_timeout": "$2 nu $1 mautang.",
 	"math-test-end": "mizunga muse ''$1'' a zikuzan mitanam malaheci tuway",
