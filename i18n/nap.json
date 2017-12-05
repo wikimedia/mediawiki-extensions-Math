@@ -63,8 +63,6 @@
 	"math_unknown_error": "errore scanusciuto",
 	"math_unknown_function": "funziona scanusciuta \"$1\".",
 	"mw_math_latexml": "LaTeXML (sperimentale; aùsa MathML)",
-	"mw_math_latexml_jax": "LaTeXML cu MathJax lato cliente (sperimentale; ausàte MathML)",
-	"mw_math_mathjax": "MathJax lato cliente (lento; migliorea 'u disegno ncopp'a quacche browser e le strumiente d'accesso)",
 	"mw_math_mathml": "MathML cu SVG o PNG fallback (raccummandate pe' browser muderne e strumiente d'accesso)",
 	"mw_math_png": "Immaggene PNG",
 	"mw_math_source": "Sorgente LaTeX (p' 'e browser 'e testo)",

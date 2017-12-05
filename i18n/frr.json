@@ -30,8 +30,6 @@
 	"math_unknown_error": "Ünbekäänd feeler",
 	"math_unknown_function": "Ünbekäänd funktjuun „$1“",
 	"mw_math_latexml": "LaTeXML (experimentel; werket mä MathML)",
-	"mw_math_latexml_jax": "LaTeXML mä clientsidjag MathJax (eksperimentel; brükt MathML)",
-	"mw_math_mathjax": "Clientsidjag MathJax (eewen, ferbeedert oober det uunwisin üüb enkelt browsern an halperwerktjüügen)",
 	"mw_math_mathml": "MathML mä SVG- of PNG-fallback (beeder för neier browsern an halperwerktjüügen)",
 	"mw_math_png": "PNG-bilen",
 	"mw_math_source": "LaTeX-kwel (för tekst-browsern)",

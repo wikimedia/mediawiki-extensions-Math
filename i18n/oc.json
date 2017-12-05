@@ -18,7 +18,6 @@
 	"math-tracking-category-error": "Paginas amb errors dins balisas math",
 	"math_unknown_error": "error indeterminada",
 	"math_unknown_function": "foncion desconeguda « $1 »",
-	"mw_math_mathjax": "MathJax costat client (lent, melhora lo rendut per certans navigadors e aisinas d’accessibilitat)",
 	"mw_math_mathml": "MathML amb SVG o PNG en secors (recomandat pels navigadors modèrnes e las aisinas d’accessibilitat)",
 	"mw_math_png": "Imatges PNG",
 	"mw_math_source": "Font LaTeX (pels navigadors en mòde tèxte)",

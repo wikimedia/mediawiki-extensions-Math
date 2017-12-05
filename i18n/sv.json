@@ -82,8 +82,6 @@
 	"math_unknown_error": "okänt fel",
 	"math_unknown_function": "okänd funktion \"$1\"",
 	"mw_math_latexml": "LaTeXML (experimentell; använder MathML)",
-	"mw_math_latexml_jax": "LaTeXML med MathJax på klientsidan (experimentellt; använder MathML)",
-	"mw_math_mathjax": "MathJax på klientsidan (långsam; förbättrar rendering på vissa webbläsare och tillgänglighetsverktyg)",
 	"mw_math_mathml": "MathML med SVG- eller PNG-återgång (rekommenderas för moderna webbläsare och tillgänglighetsverktyg)",
 	"mw_math_png": "PNG-bilder",
 	"mw_math_source": "LaTeX-källa (för textbaserade webbläsare)",

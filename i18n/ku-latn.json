@@ -5,10 +5,9 @@
 			"George Animal"
 		]
 	},
-	"math-visualeditor-mwmathdialog-card-formula": "Formûl",
-	"math-visualeditor-mwmathdialog-card-options": "Vebijêrk",
-	"math-visualeditor-mwmathinspector-title": "Formûl",
-	"math-visualeditor-symbol-group-modular": "Arîtmetîka modûlar",
+	"math-visualeditor-mwlatexdialog-card-formula": "Formûl",
+	"math-visualeditor-mwlatexdialog-card-options": "Vebijêrk",
+	"math-visualeditor-symbol-group-math-modular": "Arîtmetîka modûlar",
 	"math_image_error": "Wêşandana PNG nemeşî",
 	"math_sample": "Kurteristê matêmatîk li vir binivisîne",
 	"math_tip": "Kurteristê matêmatîk (LaTeX)",

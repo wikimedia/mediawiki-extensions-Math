@@ -7,9 +7,9 @@
 			"NehalDaveND"
 		]
 	},
-	"math-visualeditor-mwmathinspector-display": "दृश्य",
-	"math-visualeditor-mwmathinspector-display-block": "रोक्ने",
-	"math-visualeditor-mwmathinspector-display-default": "पूर्वनिर्धारित",
+	"math-visualeditor-mwlatexinspector-display": "दृश्य",
+	"math-visualeditor-mwlatexinspector-display-block": "रोक्ने",
+	"math-visualeditor-mwlatexinspector-display-default": "पूर्वनिर्धारित",
 	"math_failure": "पढ्न सकिएन",
 	"math_lexing_error": "वर्ण(lexing) त्रुटी",
 	"math_sample": "सूत्र यहाँ थप्नुहोस्",

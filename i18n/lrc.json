@@ -4,12 +4,11 @@
 			"Mogoeilor"
 		]
 	},
-	"math-visualeditor-mwmathinspector-display": "نشون دئن",
-	"math-visualeditor-mwmathinspector-display-block": "نهاگری کردن",
-	"math-visualeditor-mwmathinspector-display-default": "پيش فرض",
-	"math-visualeditor-mwmathinspector-display-inline": "ری خط",
-	"math-visualeditor-mwmathinspector-id": "هوم پیوند نوم دیارکن",
-	"math-visualeditor-mwmathinspector-title": "فرمول",
+	"math-visualeditor-mwlatexinspector-display": "نشون دئن",
+	"math-visualeditor-mwlatexinspector-display-block": "نهاگری کردن",
+	"math-visualeditor-mwlatexinspector-display-default": "پيش فرض",
+	"math-visualeditor-mwlatexinspector-display-inline": "ری خط",
+	"math-visualeditor-mwlatexinspector-id": "هوم پیوند نوم دیارکن",
 	"math_sample": "ایچه فرمول وارد بکیت",
 	"math_syntax_error": "خطا دستوری",
 	"math_tip": "فرمول اشمار دونسمنی(لاتکس)",

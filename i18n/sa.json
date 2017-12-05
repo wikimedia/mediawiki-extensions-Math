@@ -5,9 +5,9 @@
 			"NehalDaveND"
 		]
 	},
-	"math-visualeditor-mwmathinspector-display": "प्रदर्श्यताम्",
-	"math-visualeditor-mwmathinspector-display-block": "अवरुद्ध्यताम्",
-	"math-visualeditor-mwmathinspector-display-default": "यदभावे",
+	"math-visualeditor-mwlatexinspector-display": "प्रदर्श्यताम्",
+	"math-visualeditor-mwlatexinspector-display-block": "अवरुद्ध्यताम्",
+	"math-visualeditor-mwlatexinspector-display-default": "यदभावे",
 	"math_sample": "सूत्रवाक्यं अत्र निवेशयतु",
 	"math_syntax_error": "समवायदोषः",
 	"math_tip": "गणितीयसूत्रम् (LaTeX)",

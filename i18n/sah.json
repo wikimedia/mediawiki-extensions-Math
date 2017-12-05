@@ -65,8 +65,6 @@
 	"math_unknown_error": "биллибэт алҕас",
 	"math_unknown_function": "\"$1\"биллибэт дьайыы (функция)",
 	"mw_math_latexml": "LaTeXML (холоон көрүү; MathML туттар)",
-	"mw_math_latexml_jax": "LaTeXML MathJaxы кытары клиент диэки (MathML туттар холоон көрөр опция)",
-	"mw_math_mathjax": "MathJax клиент диэки (бытааннык; сорох браузердарга уонна түргэтэтэр тэриллэргэ чочуйуутун, оҥоруутун көннөрөр)",
 	"mw_math_mathml": "MathML SVG эбэтэр PNG көһүүлээх (аныгы браузердарга уонна түргэтэр тэриллэргэ сүбэлиибит)",
 	"mw_math_png": "PNG-ойуулар",
 	"mw_math_source": "LaTeX разметката (тиэкиһинэн эрэ үлэлиир браузерга)",

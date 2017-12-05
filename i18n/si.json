@@ -22,7 +22,6 @@
 	"math_tip": "ගණිත සූත්‍රය (LaTeX)",
 	"math_unknown_error": "හඳුනා නොගත් දෝෂය",
 	"math_unknown_function": "නොදන්නා ශ්‍රිතය '$1'",
-	"mw_math_mathjax": "Client-side MathJax (පරික්ෂණාත්මක)",
 	"mw_math_mathml": "MathML, සමග SVG හෝ PNG (නව බ්‍රවුසරයන් සදහා)",
 	"mw_math_png": "PNG පින්තුර",
 	"mw_math_source": "LaTeX මූලාශ්‍රය (පෙළ බ්‍රවුසරයන් සඳහා)",

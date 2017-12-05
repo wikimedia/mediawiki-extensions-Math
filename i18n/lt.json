@@ -68,8 +68,6 @@
 	"math_unknown_error": "nežinoma klaida",
 	"math_unknown_function": "nežinoma funkcija \"$1\"",
 	"mw_math_latexml": "LaTeXML (eksperimentinis; naudoja MathML)",
-	"mw_math_latexml_jax": "LaTeXML su klientinės pusės MathJax (eksperimentinis; naudoja MathML)",
-	"mw_math_mathjax": "Klientinės pusės MathJax (lėtas; pagerina atvaizdavimą kai kuriose naršyklėse ir prieinamumo įrankiuose)",
 	"mw_math_mathml": "MathML su SVG ar PNG surogatu (rekomenduojama modernioms naršyklėms ir pasiekiamumo įrankiams)",
 	"mw_math_png": "PNG paveikslėliai",
 	"mw_math_source": "LaTeX išeities kodas (teksto naršyklėms)",

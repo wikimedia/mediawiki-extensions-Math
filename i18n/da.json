@@ -47,8 +47,6 @@
 	"math_unknown_error": "ukendt fejl",
 	"math_unknown_function": "ukendt funktion '$1'",
 	"mw_math_latexml": "LaTeXML (eksperimentel; anvender MathML)",
-	"mw_math_latexml_jax": "LaTeXML med client-side MathJax (eksperimentel; bruger MathML)",
-	"mw_math_mathjax": "Client-side MathJax (langsom; forbedrer præstationen på nogle browsere og værktøjer)",
 	"mw_math_mathml": "MathML med SVG- eller PNG-fallback (anbefalet til moderne browsere og værktøjer)",
 	"mw_math_png": "PNG-billeder",
 	"mw_math_source": "LaTeX-source (for tekstbrowsere)",

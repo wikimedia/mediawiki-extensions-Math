@@ -5,8 +5,8 @@
 			"Leeheonjin"
 		]
 	},
-	"math-visualeditor-symbol-group-logic": "Lohiku",
-	"math-visualeditor-symbol-group-special": "Espesyal",
+	"math-visualeditor-symbol-group-math-logic": "Lohiku",
+	"math-visualeditor-symbol-group-math-special": "Espesyal",
 	"math_bad_output": "E makasulat king o makapaglalang piyakitan (directory) a math output",
 	"math_bad_tmpdir": "E makasulat king o makapaglalang piyakitan (directory) a math temp",
 	"math_failure": "E melaus ing pamag-parse",

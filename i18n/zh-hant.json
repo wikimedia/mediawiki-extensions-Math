@@ -57,8 +57,6 @@
 	"math_unknown_error": "不明錯誤",
 	"math_unknown_function": "不明函數 \"$1\"",
 	"mw_math_latexml": "LaTeXML (實驗性；使用 MathML)",
-	"mw_math_latexml_jax": "LaTeXML 使用用戶端 MathJax (實驗中；使用 MathML)",
-	"mw_math_mathjax": "客戶端 MathJax (速度較慢，改進於部份瀏覽器與輔助工具的繪圖效果)",
 	"mw_math_mathml": "MathML 使用 SVG 或 PNG 備用 (建議用於現代瀏覽器與輔助工具)",
 	"mw_math_png": "PNG 圖片",
 	"mw_math_source": "LaTeX 原始碼 (供文字瀏覽器使用)",
