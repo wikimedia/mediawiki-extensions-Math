@@ -1,0 +1,7 @@
+Code-Review+2: Libraryupgrader <tools.libraryupgrader@tools.wmflabs.org>
+Verified+2: jenkins-bot
+Submitted-by: jenkins-bot
+Submitted-at: Sun, 10 Dec 2017 23:48:59 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/397069
+Project: mediawiki/extensions/Math
+Branch: refs/heads/master
