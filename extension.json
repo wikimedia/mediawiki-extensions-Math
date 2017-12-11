@@ -15,7 +15,7 @@
 	"AutoloadClasses": {
 		"MathMathSymbolsDataModule": "MathMathSymbolsDataModule.php",
 		"MathChemSymbolsDataModule": "MathChemSymbolsDataModule.php",
-		"MathHooks": "Math.hooks.php",
+		"MathHooks": "MathHooks.php",
 		"MathRenderer": "MathRenderer.php",
 		"MathRestbaseInterface": "MathRestbaseInterface.php",
 		"MathTexvc": "MathTexvc.php",
