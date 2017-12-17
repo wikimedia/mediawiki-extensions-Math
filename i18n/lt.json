@@ -4,7 +4,8 @@
 			"Perkunas",
 			"Albertas",
 			"Macofe",
-			"Eitvys200"
+			"Eitvys200",
+			"Manvydasz"
 		]
 	},
 	"math-desc": "Atvaizduoti matematines formules tarp <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> žymių",
@@ -16,7 +17,7 @@
 	"math-visualeditor-mwlatexinspector-display-default": "Numatytasis",
 	"math-visualeditor-mwlatexinspector-display-inline": "Įterptas į tekstą",
 	"math-visualeditor-mwlatexinspector-id": "Nuorodos ID (pasirinktinai)",
-	"math-visualeditor-mwmathdialog-title": "Formulė",
+	"math-visualeditor-mwmathdialog-title": "Matematinė formulė",
 	"math-visualeditor-symbol-group-math-accents": "Akcentai ir diakritiniai ženklai",
 	"math-visualeditor-symbol-group-math-arrows": "Rodyklės",
 	"math-visualeditor-symbol-group-math-bounds": "Ribos",

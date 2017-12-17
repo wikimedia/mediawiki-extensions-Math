@@ -67,7 +67,7 @@
 	"math-tracking-category-error": "Stranice s matematičkim pogrješkama",
 	"math-tracking-category-error-desc": "Stranice u ovoj kategoriji imaju pogrješke u uporabi matematičkih oznaka.",
 	"math_unknown_error": "nepoznata pogrješka",
-	"math_unknown_function": "nepoznata funkcija",
+	"math_unknown_function": "nepoznata funkcija \"$1\"",
 	"mw_math_mathml": "Ako je moguće MathML (u pokusnoj fazi)",
 	"mw_math_png": "PNG slike",
 	"mw_math_source": "Ostavi u formatu TeX (za tekstualne preglednike)",
