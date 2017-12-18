@@ -37,7 +37,7 @@
 	"math-visualeditor-symbol-group-math-relations": "Erlazioak",
 	"math-visualeditor-symbol-group-math-root": "Erradikalak",
 	"math-visualeditor-symbol-group-math-special": "Bereziak",
-	"math-visualeditor-symbol-group-math-subscripts": "Azpiindizeak, goi-indizeak eta integralak",
+	"math-visualeditor-symbol-group-math-subscripts": "Azpi-indizeak, goi-indizeak eta integralak",
 	"math-visualeditor-symbol-group-math-symbols": "Ikurrak eta konstanteak",
 	"math_bad_output": "Ezin da math direktorioa sortu edo bertan idatzi",
 	"math_bad_tmpdir": "Ezin da math direktorio tenporala sortu edo bertan idatzi",
