@@ -14,7 +14,8 @@
 			"Macofe",
 			"Vigorous action",
 			"Suchichi02",
-			"Wicklo"
+			"Wicklo",
+			"Omotecho"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング",
@@ -23,9 +24,9 @@
 	"math-visualeditor-mwlatexcontextitem-quickedit": "簡易編集",
 	"math-visualeditor-mwlatexdialog-card-formula": "数式",
 	"math-visualeditor-mwlatexdialog-card-options": "オプション",
-	"math-visualeditor-mwlatexinspector-display": "ディスプレイ",
+	"math-visualeditor-mwlatexinspector-display": "表示",
 	"math-visualeditor-mwlatexinspector-display-block": "ブロック",
-	"math-visualeditor-mwlatexinspector-display-default": "デフォルト",
+	"math-visualeditor-mwlatexinspector-display-default": "既定",
 	"math-visualeditor-mwlatexinspector-display-inline": "インライン",
 	"math-visualeditor-mwlatexinspector-id": "リンクID(オプション)",
 	"math-visualeditor-mwmathdialog-title": "数式",
