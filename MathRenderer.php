@@ -325,7 +325,7 @@ abstract class MathRenderer {
 	 * to the database even if they are empty.
 	 *
 	 * This function can be seen as protected function.
-	 * @param DatabaseBase $dbw
+	 * @param \Wikimedia\Rdbms\IDatabase $dbw
 	 */
 	public function writeToDatabase( $dbw = null ) {
 		# Now save it back to the DB:
