@@ -21,7 +21,7 @@
 	"math-visualeditor-mwlatexinspector-display-block": "Em bloco",
 	"math-visualeditor-mwlatexinspector-display-default": "Padrão",
 	"math-visualeditor-mwlatexinspector-display-inline": "Em linha",
-	"math-visualeditor-mwlatexinspector-id": "Identificador da ligação (opcional)",
+	"math-visualeditor-mwlatexinspector-id": "Identificador da hiperligação (opcional)",
 	"math-visualeditor-mwmathdialog-title": "Fórmula matemática",
 	"math-visualeditor-symbol-group-chem-addition": "Compostos de adição",
 	"math-visualeditor-symbol-group-chem-aggregation": "Estados de agregação",
