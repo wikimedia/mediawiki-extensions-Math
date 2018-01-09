@@ -24,6 +24,7 @@
 	"math_sample": "Тук въведете формулата",
 	"math_syntax_error": "синтактична грешка",
 	"math_tip": "Математическа формула (LaTeX)",
+	"math-tracking-category-error": "Страници с математически грешки",
 	"math-tracking-category-render-error": "Страници с грешки в показването на математически изрази",
 	"math_unknown_error": "непозната грешка",
 	"math_unknown_function": "непозната функция „$1“",
