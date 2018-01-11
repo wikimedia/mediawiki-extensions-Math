@@ -274,12 +274,11 @@ ve.ui.MWLatexDialog.prototype.getBodyHeight = function () {
  */
 ve.ui.MWLatexDialog.prototype.onWindowManagerResize = function () {
 	var dialog = this;
-	this.input.loadingPromise.done( function () {
+	this.input.loadingPromise.always( function () {
 		var availableSpace, maxInputHeight, singleLineHeight, minRows,
 			border = 1,
 			padding = 3,
 			borderAndPadding = 2 * ( border + padding );
-
 		// Toggle short mode as necessary
 		// NB a change of mode triggers a transition...
 		dialog.menuLayout.$element.toggleClass(
@@ -293,7 +292,11 @@ ve.ui.MWLatexDialog.prototype.onWindowManagerResize = function () {
 			singleLineHeight = 19;
 			maxInputHeight = availableSpace - borderAndPadding;
 			minRows = Math.floor( maxInputHeight / singleLineHeight );
-			dialog.input.setMinRows( minRows );
+			dialog.input.loadingPromise.done( function () {
+				dialog.input.setMinRows( minRows );
+			} ).fail( function () {
+				dialog.input.$input.attr( 'rows', minRows );
+			} );
 		}, OO.ui.theme.getDialogTransitionDuration() );
 	} );
 };
