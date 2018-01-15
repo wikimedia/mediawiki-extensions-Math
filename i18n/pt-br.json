@@ -8,7 +8,8 @@
 			"Macofe",
 			"Dianakc",
 			"Hamilton Abreu",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"math-desc": "Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -85,6 +86,8 @@
 	"math_tip": "Fórmula matemática (LaTeX)",
 	"math-tracking-category-error": "Páginas com erros matemáticos",
 	"math-tracking-category-error-desc": "Páginas nesta categoria têm erros no uso de tags matemáticas.",
+	"math-tracking-category-render-error": "Páginas com erros de composição de imagem matemática",
+	"math-tracking-category-render-error-desc": "As páginas desta categoria têm erros de composição de imagem nas etiquetas de matemática.",
 	"math_unknown_error": "erro desconhecido",
 	"math_unknown_function": "função desconhecida '$1'",
 	"mw_math_latexml": "LaTeXML (experimental; usa MathML)",
