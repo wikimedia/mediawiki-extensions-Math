@@ -254,7 +254,7 @@ ve.ui.MWLatexDialog.prototype.updateMwData = function ( mwData ) {
 	ve.ui.MWLatexDialog.super.prototype.updateMwData.call( this, mwData );
 
 	// Get data from dialog
-	display = this.displaySelect.getSelectedItem().getData();
+	display = this.displaySelect.findSelectedItem().getData();
 	id = this.idInput.getValue();
 
 	// Update attributes

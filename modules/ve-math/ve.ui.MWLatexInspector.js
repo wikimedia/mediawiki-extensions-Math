@@ -116,7 +116,7 @@ ve.ui.MWLatexInspector.prototype.updateMwData = function ( mwData ) {
 	// Parent method
 	ve.ui.MWLatexInspector.super.prototype.updateMwData.call( this, mwData );
 
-	display = this.displaySelect.getSelectedItem().getData();
+	display = this.displaySelect.findSelectedItem().getData();
 	id = this.idInput.getValue();
 
 	mwData.attrs.display = display !== 'default' ? display : undefined;
