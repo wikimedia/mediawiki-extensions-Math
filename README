@@ -1,39 +1,13 @@
-This version (for MediaWiki 1.19) has some changes since previous versions:
+This version (for MediaWiki 1.31) has some changes since previous versions:
 
-* rendering options have been reduced to just 'Always PNG' and 'Leave it as TeX'
-** all other rendering options will merge to PNG.
-* initial experimental support for integrating MathJax client-side rendering
+By default the math rendering service from the Wikimedia Foundation located at
+https://wikimedia.org/api/rest_v1/
+will be used for math rendering.
+Therefore php-curl is required.
+cf. https://www.mediawiki.org/wiki/Manual:CURL
 
-See the README in the math subdirectory for more info on setting up the
-low-level conversion tools.
-See the README in the texvccheck subdirectory for more info on setting up the
-security checking tools for MathJax and LaTeXML.
+Consult https://www.mediawiki.org/wiki/Extension:Math for further information and advanced settings.
 
-MathML support:
-If you prefer MathML rather than images you can use LaTeXML to convert the
-math tags to MathML. To use that feature you have to enable LaTeXML by setting
-$wgMathUseLaTeXML = true;
-It is possible to choose LaTeXML as default option (for anonymous user) by setting
-$wgDefaultUserOptions['math'] = 'latexml';
-in the LocalSettings.php file.
-The LaTeXML option requires php5-curl to be installed. Without php5-curl no proper
-error handling can be guaranteed.
-Furthermore, a core version of wmf/1.22wmf7 or newer is recommended.
-Otherwise, errors in LaTeXML can lead to mal-formatted XML output and disturb the
-page layout.
-
-MathJax configuration:
-Client-side configuration of MathJax can be done by specifying a mathJax.config
-table, which takes a table as described in:
-http://docs.mathjax.org/en/v1.1-latest/options/index.html#configuration
-
-Example:
-if ( typeof mathJax === 'undefined' ) {
-  mathJax = {};
-  mathJax.config = {
-    showProcessingMessages: true
-  };
-}
 
 Attributes of the <math /> element:
 attribute "display":
