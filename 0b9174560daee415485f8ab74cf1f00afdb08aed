@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1df4852_b5139765",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-02-05T11:58:50Z",
+      "side": 1,
+      "message": "we could also use https://wikimedia.org/api/rest_ however it\u0027s not so nice since T133178",
+      "range": {
+        "startLine": 108,
+        "startChar": 26,
+        "endLine": 108,
+        "endChar": 31
+      },
+      "revId": "0b9174560daee415485f8ab74cf1f00afdb08aed",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
