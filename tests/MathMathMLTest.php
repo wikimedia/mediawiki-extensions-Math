@@ -33,7 +33,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	/**
 	 * Tests behavior of makeRequest() that communicates with the host.
 	 * Testcase: Invalid request.
-	 * @covers MathTexvc::makeRequest
+	 * @covers MathMathML::makeRequest
 	 */
 	public function testMakeRequestInvalid() {
 		self::setMockValues( false, false, false );
@@ -57,7 +57,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	/**
 	 * Tests behavior of makeRequest() that communicates with the host.
 	 * Testcase: Valid request.
-	 * @covers MathTexvc::makeRequest
+	 * @covers MathMathML::makeRequest
 	 */
 	public function testMakeRequestSuccess() {
 		self::setMockValues( true, true, false );
@@ -96,9 +96,9 @@ class MathMathMLTest extends MediaWikiTestCase {
 
 	/**
 	 * Checks if a String is a valid MathML element
-	 * @covers MathMathML::isValidXML
+	 * @covers MathMathML::isValidMathML
 	 */
-	public function testisValidXML() {
+	public function testisValidMathML() {
 		$renderer = $this->getMockBuilder( 'MathMathML' )
 				->setMethods( null )
 				->disableOriginalConstructor()

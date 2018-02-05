@@ -171,7 +171,7 @@ class MathTexvcTest extends MediaWikiTestCase {
 
 	/**
 	 * Test behavior $change when the rendered hash was changed
-	 * @covers MathRenderer::setHash()
+	 * @covers MathTexvc::setHash
 	 */
 	public function testChangeHash() {
 		$renderer = $this->getMockBuilder( 'MathTexvc' )

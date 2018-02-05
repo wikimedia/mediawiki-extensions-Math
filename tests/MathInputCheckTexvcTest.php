@@ -87,7 +87,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers MathInputCheckTexvc::testGetError
+	 * @covers MathInputCheckTexvc::getError
 	 */
 	public function testGetError() {
 		$this->assertNull( $this->GoodObject->getError() );

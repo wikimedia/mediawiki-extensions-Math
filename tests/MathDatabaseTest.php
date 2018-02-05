@@ -61,8 +61,8 @@ class MathDatabaseTest extends MediaWikiTestCase {
 
 	/**
 	 * Checks database access. Writes an entry and reads it back.
-	 * @covers MathRenderer::writeDatabaseEntry()
-	 * @covers MathRenderer::readDatabaseEntry()
+	 * @covers MathRenderer::writeToDatabase
+	 * @covers MathRenderer::readFromDatabase
 	 */
 	public function testDBBasics() {
 		$this->setValues();
