@@ -57,7 +57,7 @@ class MathHooks {
 			'MW_MATHSTYLE_INLINE'               => 2, // small operators inline
 			'MW_MATHSTYLE_LINEBREAK'            => 3, // break long lines (experimental)
 		];
-		return self::mathConstantToString( $style, $defs, $prefix = 'MW_MATHSTYLE_', $default );
+		return self::mathConstantToString( $style, $defs, 'MW_MATHSTYLE_', $default );
 	}
 
 	public static function mathCheckToString( $style, $default = 'always' ) {
@@ -66,7 +66,7 @@ class MathHooks {
 			'MW_MATH_CHECK_NEVER'  => 1,
 			'MW_MATH_CHECK_NEW'    => 2,
 		];
-		return self::mathConstantToString( $style, $defs, $prefix = 'MW_MATH_CHECK_', $default );
+		return self::mathConstantToString( $style, $defs, 'MW_MATH_CHECK_', $default );
 	}
 
 	public static function mathModeToString( $mode, $default = 'png' ) {
@@ -83,7 +83,7 @@ class MathHooks {
 			'MW_MATH_MATHML' => 5,
 			'MW_MATH_LATEXML' => 7 ];
 
-		return self::mathConstantToString( $mode, $defs, $prefix = 'MW_MATH_', $default );
+		return self::mathConstantToString( $mode, $defs, 'MW_MATH_', $default );
 	}
 
 	public static function mathModeToHashKey( $mode, $default = 0 ) {
