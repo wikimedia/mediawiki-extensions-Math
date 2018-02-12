@@ -131,7 +131,6 @@
 	],
 	"ResourceModules": {
 		"ext.math.styles": {
-			"position": "top",
 			"styles": "ext.math.css",
 			"targets": [
 				"desktop",
