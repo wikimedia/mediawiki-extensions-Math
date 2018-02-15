@@ -6,10 +6,11 @@
 			"Srdjan m",
 			"Macofe",
 			"Zoranzoki21",
-			"Prevodim"
+			"Prevodim",
+			"Acamicamacaraca"
 		]
 	},
-	"math-visualeditor-mwchemdialog-title": "Хемијска формула",
+	"math-visualeditor-mwchemdialog-title": "Хемијску формулу",
 	"math-visualeditor-mwcheminspector-title": "Хемијска формула",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Брза промена",
 	"math-visualeditor-mwlatexdialog-card-formula": "Формула",
@@ -17,7 +18,7 @@
 	"math-visualeditor-mwlatexinspector-display": "Прикажи",
 	"math-visualeditor-mwlatexinspector-display-block": "Блок",
 	"math-visualeditor-mwlatexinspector-display-default": "Подразумевано",
-	"math-visualeditor-mwmathdialog-title": "Математичка формула",
+	"math-visualeditor-mwmathdialog-title": "Математичку формулу",
 	"math-visualeditor-symbol-group-chem-aggregation": "Агрегатна стања",
 	"math-visualeditor-symbol-group-chem-arrows": "Стрелице за реакције",
 	"math-visualeditor-symbol-group-chem-brackets": "Обле, витичасте и угласте заграде",
@@ -64,7 +65,7 @@
 	"mw_math_mathml": "MathML са ослањањем на SVG или PNG (препоручљиво за најновије веб-прегледаче)",
 	"mw_math_png": "PNG слике",
 	"mw_math_source": "LaTeX (за текстуалне прегледаче)",
-	"prefs-math": "Приказ математичких формула",
+	"prefs-math": "Математичке формуле",
 	"mathstatus": "Стање приказа математичких формула",
 	"datatypes-type-math": "Математички израз",
 	"wikibase-listdatatypes-math-head": "Математички израз"
