@@ -8,7 +8,8 @@
 			"Wix",
 			"Stryn",
 			"Macofe",
-			"01miki10"
+			"01miki10",
+			"Pyscowicz"
 		]
 	},
 	"math-desc": "Esittää matemaattiset kaavat tunnisteiden <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> välillä",
@@ -52,5 +53,6 @@
 	"mw_math_mathml": "Näytä MathML:nä, jos mahdollista (kokeellinen)",
 	"mw_math_png": "PNG-kuvat",
 	"mw_math_source": "Näytä LaTeX-muodossa (tekstiselaimille)",
-	"prefs-math": "Matematiikka"
+	"prefs-math": "Matematiikka",
+	"mathstatus": "Math-tila"
 }
