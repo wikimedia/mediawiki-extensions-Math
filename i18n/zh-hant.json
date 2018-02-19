@@ -12,7 +12,8 @@
 			"Bowleerin",
 			"Macofe",
 			"Alexsh",
-			"烈羽"
+			"烈羽",
+			"Hello903hello"
 		]
 	},
 	"math-desc": "在 <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code> 標籤顯示數學公式",
@@ -24,7 +25,7 @@
 	"math-visualeditor-mwlatexinspector-display-block": "區塊",
 	"math-visualeditor-mwlatexinspector-display-default": "預設",
 	"math-visualeditor-mwlatexinspector-display-inline": "行內",
-	"math-visualeditor-mwlatexinspector-id": "連結 ID (選填)",
+	"math-visualeditor-mwlatexinspector-id": "連結 ID（選填）",
 	"math-visualeditor-mwmathdialog-title": "數學公式",
 	"math-visualeditor-symbol-group-chem-formulae": "化學式",
 	"math-visualeditor-symbol-group-chem-greek": "希臘字母",
