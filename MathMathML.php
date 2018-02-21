@@ -49,6 +49,18 @@ class MathMathML extends MathRenderer {
 		}
 	}
 
+	public static function batchEvaluate( &$tags ) {
+		$rbis = [];
+		foreach ( $tags as $key => $tag ) {
+			/** @var MathRenderer $renderer */
+			$renderer = $tag[0];
+			$rbi = new MathRestbaseInterface( $renderer->getTex(), $renderer->getInputType() );
+			$renderer->setRestbaseInterface( $rbi );
+			$rbis[] = $rbi;
+		}
+		MathRestbaseInterface::batchEvaluate( $rbis );
+	}
+
 	/**
 	 * Gets the allowed root elements the rendered math tag might have.
 	 *
@@ -257,11 +269,7 @@ class MathMathML extends MathRenderer {
 	 * @return bool
 	 */
 	protected function doRender() {
-		if ( $this->getTex() === '' ) {
-			LoggerFactory::getInstance( 'Math' )->debug(
-				'Rendering was requested, but no TeX string is specified.'
-			);
-			$this->lastError = $this->getError( 'math_empty_tex' );
+		if ( $this->isEmpty() ) {
 			return false;
 		}
 		$res = '';
@@ -502,12 +510,12 @@ class MathMathML extends MathRenderer {
 	}
 
 	/**
-	 * @param $jsonResult
-	 * @param $host
+	 * @param object $jsonResult json result
+	 * @param string $host name
 	 *
 	 * @return bool
 	 */
-	private function processJsonResult( $jsonResult, $host ) {
+	protected function processJsonResult( $jsonResult, $host ) {
 		if ( $this->getMode() == 'latexml' || $this->inputType == 'pmml' ||
 			 $this->isValidMathML( $jsonResult->mml )
 		) {
@@ -535,5 +543,18 @@ class MathMathML extends MathRenderer {
 			$this->lastError = $this->getError( 'math_unknown_error', $host );
 			return false;
 		}
+	}
+
+	/**
+	 * @return bool
+	 */
+	protected function isEmpty() {
+		if ( $this->userInputTex === '' ) {
+			LoggerFactory::getInstance( 'Math' )
+				->debug( 'Rendering was requested, but no TeX string is specified.' );
+			$this->lastError = $this->getError( 'math_empty_tex' );
+			return true;
+		}
+		return false;
 	}
 }
