@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f3827a57_89ade207",
+        "filename": "MathHooks.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-02-21T19:29:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75c6849b_d7f4e566",
+      "revId": "7e95999389222eb48d79b316574a3d90bbac0821",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e01c0663_e53eb699",
         "filename": "MathMathMLCli.php",
         "patchSetId": 9
@@ -30,6 +48,24 @@
       "writtenOn": "2018-02-21T18:15:50Z",
       "side": 1,
       "message": "How can this switch produce an exception?",
+      "revId": "7e95999389222eb48d79b316574a3d90bbac0821",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc8f8823_7c6a9408",
+        "filename": "MathMathMLCli.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-02-21T19:29:00Z",
+      "side": 1,
+      "message": "In the long term, we should use the Swagger generated PHP code to check if the response matches the schema. However, I think it\u0027s ok to just ignore errors if the response has an invalid format.\nNote that both, CLI and HTTP format use the same results spec.",
+      "parentUuid": "e01c0663_e53eb699",
       "revId": "7e95999389222eb48d79b316574a3d90bbac0821",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "02cfb6c3_b062165b",
+        "filename": "MathMathMLCli.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-02-21T19:29:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a7cd94f_6bad94aa",
+      "revId": "7e95999389222eb48d79b316574a3d90bbac0821",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e4f19bd_bc1cc32e",
         "filename": "MathRenderer.php",
         "patchSetId": 9
@@ -64,6 +118,24 @@
       "writtenOn": "2018-02-21T18:15:50Z",
       "side": 1,
       "message": "ETOOMANYTABS :)",
+      "revId": "7e95999389222eb48d79b316574a3d90bbac0821",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "076c9ed9_d5b52fb5",
+        "filename": "MathRenderer.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-02-21T19:29:00Z",
+      "side": 1,
+      "message": "I undid all the WS changes. I accidentally hit the reformat key. However, there is an option which should avoid this in the future.\nhttps://www.mediawiki.org/w/index.php?title\u003dJetBrains_IDEs\u0026type\u003drevision\u0026diff\u003d2706485\u0026oldid\u003d2306547",
+      "parentUuid": "2e4f19bd_bc1cc32e",
       "revId": "7e95999389222eb48d79b316574a3d90bbac0821",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
