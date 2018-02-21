@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75c6849b_d7f4e566",
+        "filename": "MathHooks.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2018-02-21T18:15:50Z",
+      "side": 1,
+      "message": "Why so many tabs?",
+      "revId": "7e95999389222eb48d79b316574a3d90bbac0821",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e01c0663_e53eb699",
+        "filename": "MathMathMLCli.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2018-02-21T18:15:50Z",
+      "side": 1,
+      "message": "How can this switch produce an exception?",
+      "revId": "7e95999389222eb48d79b316574a3d90bbac0821",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a7cd94f_6bad94aa",
+        "filename": "MathMathMLCli.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2018-02-21T18:15:50Z",
+      "side": 1,
+      "message": "$exitCode is not set by this method.",
+      "revId": "7e95999389222eb48d79b316574a3d90bbac0821",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e4f19bd_bc1cc32e",
+        "filename": "MathRenderer.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2018-02-21T18:15:50Z",
+      "side": 1,
+      "message": "ETOOMANYTABS :)",
+      "revId": "7e95999389222eb48d79b316574a3d90bbac0821",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
