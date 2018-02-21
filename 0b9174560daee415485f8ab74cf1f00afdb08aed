@@ -22,6 +22,30 @@
       "revId": "0b9174560daee415485f8ab74cf1f00afdb08aed",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c741f965_713ea11a",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2018-02-21T17:02:32Z",
+      "side": 1,
+      "message": "Why? Actually https://wikimedia.org/api/rest_ would be more correct and it works; https://www.wikimedia.org/api/rest_ wouldn\u0027t.",
+      "parentUuid": "d1df4852_b5139765",
+      "range": {
+        "startLine": 108,
+        "startChar": 26,
+        "endLine": 108,
+        "endChar": 31
+      },
+      "revId": "0b9174560daee415485f8ab74cf1f00afdb08aed",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
