@@ -6,7 +6,8 @@
 			"Indoril",
 			"Evropi",
 			"Glavkos",
-			"Macofe"
+			"Macofe",
+			"Nikosgranturismogt"
 		]
 	},
 	"math_bad_output": "Δεν είναι δυνατή η δημιουργία  μαθηματικών δεδομένων (ή η εγγραφή σε κατάλογο εξόδου)",
@@ -23,5 +24,6 @@
 	"mw_math_mathml": "MathML με SVG ή μετάπτωση σε PNG (συνιστάται για σύγχρονους browsers και εργαλεία πρόσβασης)",
 	"mw_math_png": "Εικόνες PNG",
 	"mw_math_source": "Πηγή LaTeX (για text browsers)",
-	"prefs-math": "Απόδοση μαθηματικών"
+	"prefs-math": "Απόδοση μαθηματικών",
+	"mathstatus": "Μαθηματικά στατιστικά"
 }
