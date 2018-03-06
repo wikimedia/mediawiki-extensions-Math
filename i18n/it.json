@@ -5,7 +5,8 @@
 			"Ricordisamoa",
 			"Statix64",
 			"Fringio",
-			"Macofe"
+			"Macofe",
+			"Horcrux92"
 		]
 	},
 	"math-desc": "Esegue il rendering di formule matematiche tra i tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -82,6 +83,7 @@
 	"math_tip": "Formula matematica (LaTeX)",
 	"math-tracking-category-error": "Pagine con errori matematici",
 	"math-tracking-category-error-desc": "Le pagine in questa categoria hanno errori nell'uso dei tag math.",
+	"math-tracking-category-render-error": "Pagine con errori di rendering delle formule matematiche",
 	"math_unknown_error": "errore sconosciuto",
 	"math_unknown_function": "funzione sconosciuta '$1'",
 	"mw_math_latexml": "LaTeXML (sperimentale; usa MathML)",
