@@ -1,4 +1,10 @@
 <?php
+
+use DataValues\StringValue;
+use Wikibase\DataModel\Entity\PropertyId;
+use Wikibase\DataModel\Snak\PropertyValueSnak;
+use Wikimedia\Purtle\NTriplesRdfWriter;
+
 /**
  * Test the MathML RDF formatter
  *
@@ -6,12 +12,6 @@
  * @covers MathMLRdfBuilder
  * @author Moritz Schubotz (physikerwelt)
  */
-
-use DataValues\StringValue;
-use Wikibase\DataModel\Entity\PropertyId;
-use Wikibase\DataModel\Snak\PropertyValueSnak;
-use Wikimedia\Purtle\NTriplesRdfWriter;
-
 class MathMLRdfBuilderTest extends MediaWikiTestCase {
 	const ACME_PREFIX_URL = 'http://acme/';
 	const ACME_REF = 'testing';
