@@ -10,6 +10,9 @@
  * @file
  */
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\Shell\Shell;
+use MediaWiki\ProcOpenError;
+use MediaWiki\ShellDisabledError;
 
 /**
  * Takes LaTeX fragments, sends them to a helper program (texvc) for rendering
@@ -174,9 +177,12 @@ class MathTexvc extends MathRenderer {
 	 * Does the actual call to texvc
 	 *
 	 * @return int|string MW_TEXVC_SUCCESS or error string
+	 * @throws Exception
+	 * @throws ProcOpenError
+	 * @throws ShellDisabledError
 	 */
 	public function callTexvc() {
-		global $wgTexvc, $wgTexvcBackgroundColor, $wgHooks;
+		global $wgTexvc, $wgTexvcBackgroundColor, $wgTexvcEnvPath, $wgHooks;
 		if ( $wgTexvc === false ) {
 			$texvc = __DIR__ . '/math/texvc';
 		} else {
@@ -189,28 +195,29 @@ class MathTexvc extends MathRenderer {
 			return $this->getError( 'math_notexvc' );
 		}
 
-		$escapedTmpDir = wfEscapeShellArg( $tmpDir );
-
-		$cmd = $texvc . ' ' .
-			$escapedTmpDir . ' ' .
-			$escapedTmpDir . ' ' .
-			wfEscapeShellArg( $this->getUserInputTex() ) . ' ' .
-			wfEscapeShellArg( 'UTF-8' ) . ' ' .
-			wfEscapeShellArg( $wgTexvcBackgroundColor );
+		$cmdArgs = [ $texvc, $tmpDir, $tmpDir, $this->getUserInputTex(), 'UTF-8',
+			$wgTexvcBackgroundColor ];
 
 		if ( wfIsWindows() ) {
 			# Invoke it within cygwin sh, because texvc expects sh features in its default shell
-			$cmd = 'sh -c ' . wfEscapeShellArg( $cmd );
+			$cmdArgs = [ 'sh', '-c', implode( ' ', $cmdArgs ) ];
 		}
-		LoggerFactory::getInstance( 'Math' )->debug( "TeX: $cmd" );
-		LoggerFactory::getInstance( 'Math' )->debug( "Executing '$cmd'." );
+
 		$retval = null;
-		if ( strlen( $cmd ) > SHELL_MAX_ARG_STRLEN ) {
+		$cmd = Shell::command( $cmdArgs );
+		if ( !isset( $_SERVER['PATH'] ) && !$wgTexvcEnvPath ) {
 			LoggerFactory::getInstance( 'Math' )->error(
-				"User input exceeded SHELL_MAX_ARG_STRLEN." );
-			return $this->getError( 'math_unknown_error' );
+				"PATH environment var is empty, set \$wgTexvcEnvPath so $texvc may find other ".
+				"required binaries." );
+			return $this->getError( 'math_notexvc_env_path' );
+		} elseif ( $wgTexvcEnvPath ) {
+			$cmd->environment( [ 'PATH' => $wgTexvcEnvPath ] );
 		}
-		$contents = wfShellExec( $cmd, $retval );
+		$cmd->setLogger( LoggerFactory::getInstance( 'Math' ) );
+
+		$result = $cmd->execute();
+		$contents = $result->getStdout();
+
 		LoggerFactory::getInstance( 'Math' )->debug( "TeX output:\n $contents\n---" );
 
 		if ( strlen( $contents ) == 0 ) {
