@@ -10,6 +10,9 @@
  * @file
  */
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\Shell\Shell;
+use MediaWiki\ProcOpenError;
+use MediaWiki\ShellDisabledError;
 
 /**
  * Takes LaTeX fragments, sends them to a helper program (texvc) for rendering
@@ -174,6 +177,9 @@ class MathTexvc extends MathRenderer {
 	 * Does the actual call to texvc
 	 *
 	 * @return int|string MW_TEXVC_SUCCESS or error string
+	 * @throws Exception
+	 * @throws ProcOpenError
+	 * @throws ShellDisabledError
 	 */
 	public function callTexvc() {
 		global $wgTexvc, $wgTexvcBackgroundColor, $wgHooks;
@@ -189,28 +195,22 @@ class MathTexvc extends MathRenderer {
 			return $this->getError( 'math_notexvc' );
 		}
 
-		$escapedTmpDir = wfEscapeShellArg( $tmpDir );
-
-		$cmd = $texvc . ' ' .
-			$escapedTmpDir . ' ' .
-			$escapedTmpDir . ' ' .
-			wfEscapeShellArg( $this->getUserInputTex() ) . ' ' .
-			wfEscapeShellArg( 'UTF-8' ) . ' ' .
-			wfEscapeShellArg( $wgTexvcBackgroundColor );
+		$cmdArgs = array($texvc, $tmpDir, $tmpDir , $this->getUserInputTex(), 'UTF-8', $wgTexvcBackgroundColor);
 
 		if ( wfIsWindows() ) {
 			# Invoke it within cygwin sh, because texvc expects sh features in its default shell
-			$cmd = 'sh -c ' . wfEscapeShellArg( $cmd );
+			$cmdArgs = array('sh', '-c', implode(' ', $cmdArgs));
 		}
-		LoggerFactory::getInstance( 'Math' )->debug( "TeX: $cmd" );
-		LoggerFactory::getInstance( 'Math' )->debug( "Executing '$cmd'." );
+
 		$retval = null;
-		if ( strlen( $cmd ) > SHELL_MAX_ARG_STRLEN ) {
-			LoggerFactory::getInstance( 'Math' )->error(
-				"User input exceeded SHELL_MAX_ARG_STRLEN." );
-			return $this->getError( 'math_unknown_error' );
-		}
-		$contents = wfShellExec( $cmd, $retval );
+		$cmd = Shell::command( $cmdArgs )
+			->environment( array( 'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' ) )
+			->includeStderr();
+		$cmd->setLogger( LoggerFactory::getInstance( 'Math' ) );
+
+		$result = $cmd->execute();
+		$contents = $result->getStdout();
+
 		LoggerFactory::getInstance( 'Math' )->debug( "TeX output:\n $contents\n---" );
 
 		if ( strlen( $contents ) == 0 ) {
