@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68429aaa_5b93174e",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-03-15T12:31:18Z",
+      "side": 1,
+      "message": "I think the path variable should be set on the server not by MediaWiki",
+      "revId": "cd45a8f35ed0708aba0c5d4e78ed9624338df0ba",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
