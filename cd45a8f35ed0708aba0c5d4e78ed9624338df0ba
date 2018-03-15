@@ -16,6 +16,24 @@
       "revId": "cd45a8f35ed0708aba0c5d4e78ed9624338df0ba",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4158718f_2efc32d2",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 5825
+      },
+      "writtenOn": "2018-03-15T16:54:20Z",
+      "side": 1,
+      "message": "My reasoning here was that per default php-fpm has `clear_env \u003d yes` set, which makes sense from a security perspective, personally I wouldn\u0027t want to set this in the global config. Additionally not all people might have the means to change the server config.\n\nThat being said this could be improved to check if the exec env already has a `PATH` var, but as the class is deprecated anyways probably not worth the effort.",
+      "parentUuid": "68429aaa_5b93174e",
+      "revId": "cd45a8f35ed0708aba0c5d4e78ed9624338df0ba",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
