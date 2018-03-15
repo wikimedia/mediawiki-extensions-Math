@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "87ca8ed4_68bad62e",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-03-15T17:12:39Z",
+      "side": 1,
+      "message": "This array syntax is not allowed by the coding conventions. Please use [] instead",
+      "range": {
+        "startLine": 198,
+        "startChar": 13,
+        "endLine": 198,
+        "endChar": 18
+      },
+      "revId": "cd45a8f35ed0708aba0c5d4e78ed9624338df0ba",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3413ed68_e69a6fa5",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-03-15T17:12:39Z",
+      "side": 1,
+      "message": "See above",
+      "range": {
+        "startLine": 202,
+        "startChar": 14,
+        "endLine": 202,
+        "endChar": 19
+      },
+      "revId": "cd45a8f35ed0708aba0c5d4e78ed9624338df0ba",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68429aaa_5b93174e",
         "filename": "MathTexvc.php",
         "patchSetId": 1
@@ -31,6 +77,24 @@
       "side": 1,
       "message": "My reasoning here was that per default php-fpm has `clear_env \u003d yes` set, which makes sense from a security perspective, personally I wouldn\u0027t want to set this in the global config. Additionally not all people might have the means to change the server config.\n\nThat being said this could be improved to check if the exec env already has a `PATH` var, but as the class is deprecated anyways probably not worth the effort.",
       "parentUuid": "68429aaa_5b93174e",
+      "revId": "cd45a8f35ed0708aba0c5d4e78ed9624338df0ba",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "223c4276_d7be9a96",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-03-15T17:12:39Z",
+      "side": 1,
+      "message": "This extension is used by different OS. Thus a hard-coded path setting is not really optimal. Moreover, I think this should also go to the Shell class in core, since it\u0027s not specific for math.",
+      "parentUuid": "4158718f_2efc32d2",
       "revId": "cd45a8f35ed0708aba0c5d4e78ed9624338df0ba",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
