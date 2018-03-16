@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b9507769_a7b627cf",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 5825
+      },
+      "writtenOn": "2018-03-16T04:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87ca8ed4_68bad62e",
+      "range": {
+        "startLine": 198,
+        "startChar": 13,
+        "endLine": 198,
+        "endChar": 18
+      },
+      "revId": "cd45a8f35ed0708aba0c5d4e78ed9624338df0ba",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3413ed68_e69a6fa5",
         "filename": "MathTexvc.php",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-15T17:12:39Z",
       "side": 1,
       "message": "See above",
+      "range": {
+        "startLine": 202,
+        "startChar": 14,
+        "endLine": 202,
+        "endChar": 19
+      },
+      "revId": "cd45a8f35ed0708aba0c5d4e78ed9624338df0ba",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2aa73c7f_877d2c9e",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 5825
+      },
+      "writtenOn": "2018-03-16T04:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3413ed68_e69a6fa5",
       "range": {
         "startLine": 202,
         "startChar": 14,
@@ -95,6 +143,24 @@
       "side": 1,
       "message": "This extension is used by different OS. Thus a hard-coded path setting is not really optimal. Moreover, I think this should also go to the Shell class in core, since it\u0027s not specific for math.",
       "parentUuid": "4158718f_2efc32d2",
+      "revId": "cd45a8f35ed0708aba0c5d4e78ed9624338df0ba",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "286f8609_94439a51",
+        "filename": "MathTexvc.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 5825
+      },
+      "writtenOn": "2018-03-16T04:09:46Z",
+      "side": 1,
+      "message": "Agreed, hard-coded paths are not ideal, it\u0027s now configurable via `$wgTexvcEnvPath`. I\u0027m a bit on the fence if this should be handled by `Shell` though. There is a point for using `$wgShellEnvPath` or whatever as a global config option to handle the matter, on the other hand this approach is all-in. I think this is very much specific to MathTexvc, we have been using this same docker php setup for many other non-trivial projects for years now and this was the very first time not having a proper `PATH` in the php env caused an issue.",
+      "parentUuid": "223c4276_d7be9a96",
       "revId": "cd45a8f35ed0708aba0c5d4e78ed9624338df0ba",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
