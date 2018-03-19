@@ -2,11 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Bangin",
-			"George Animal"
+			"George Animal",
+			"Ghybu"
 		]
 	},
+	"math-visualeditor-mwchemdialog-title": "Formula kîmyewî",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formûl",
 	"math-visualeditor-mwlatexdialog-card-options": "Vebijêrk",
+	"math-visualeditor-mwmathdialog-title": "Formula matematîkî",
 	"math-visualeditor-symbol-group-math-modular": "Arîtmetîka modûlar",
 	"math_image_error": "Wêşandana PNG nemeşî",
 	"math_sample": "Kurteristê matêmatîk li vir binivisîne",
