@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="2 2 20 20">
-    <g id="math">
-        <path id="sigma" d="M 13.609,11.391 10.004,16.004 16,16 l 0,-1 1,0 0,3 -10,0 5,-6 -5,-6 10,0 0,3 -1,0 0,-2 -6,0 3.609,4.391" />
-    </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" height="20" width="20">
+    <title>math</title>
+    <path d="M12.643 8.829L7.495 15H14.5v-1.5H16V18H3l6.666-8L3 2h13v4h-1.5V3.5H8.112" id="sigma"/>
 </svg>
