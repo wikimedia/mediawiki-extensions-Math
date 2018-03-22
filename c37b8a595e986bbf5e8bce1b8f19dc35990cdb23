@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e71b6ec_594159f0",
+        "filename": "modules/ve-math/math.svg",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 366
+      },
+      "writtenOn": "2018-03-22T15:34:48Z",
+      "side": 1,
+      "message": "Tsk",
+      "range": {
+        "startLine": 1,
+        "startChar": 36,
+        "endLine": 1,
+        "endChar": 52
+      },
+      "revId": "c37b8a595e986bbf5e8bce1b8f19dc35990cdb23",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
