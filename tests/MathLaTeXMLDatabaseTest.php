@@ -6,7 +6,7 @@
  * @group Math
  * @group Database (Used by needsDB)
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  */
 class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	public $renderer;

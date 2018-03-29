@@ -9,7 +9,7 @@
  *
  * @group Math
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  */
 class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 	protected static $hasRestbase;

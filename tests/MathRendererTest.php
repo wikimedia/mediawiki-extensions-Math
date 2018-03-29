@@ -7,7 +7,7 @@
  *
  * @group Math
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  */
 class MathRendererTest extends MediaWikiTestCase {
 	const SOME_TEX = "a+b";
