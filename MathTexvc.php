@@ -9,7 +9,9 @@
  * Contains the driver function for the texvc program
  * @file
  */
+
 use MediaWiki\Logger\LoggerFactory;
+use Wikimedia\Rdbms\Blob;
 
 /**
  * Takes LaTeX fragments, sends them to a helper program (texvc) for rendering
