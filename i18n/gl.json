@@ -6,7 +6,8 @@
 			"Xosé",
 			"Elisardojm",
 			"Banjo",
-			"Macofe"
+			"Macofe",
+			"Navhy"
 		]
 	},
 	"math-desc": "Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -15,7 +16,7 @@
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Edición rápida",
 	"math-visualeditor-mwlatexdialog-card-formula": "Fórmula",
 	"math-visualeditor-mwlatexdialog-card-options": "Opcións",
-	"math-visualeditor-mwlatexinspector-display": "Mostrar",
+	"math-visualeditor-mwlatexinspector-display": "Amosar",
 	"math-visualeditor-mwlatexinspector-display-block": "Bloquear",
 	"math-visualeditor-mwlatexinspector-display-default": "Por defecto",
 	"math-visualeditor-mwlatexinspector-display-inline": "En liña",
