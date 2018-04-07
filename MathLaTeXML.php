@@ -26,7 +26,7 @@ class MathLaTeXML extends MathMathML {
 	 * Converts an array with LaTeXML settings to a URL encoded String.
 	 * If the argument is a string the input will be returned.
 	 * Thus the function has projector properties and can be applied a second time safely.
-	 * @param (string|array) $array
+	 * @param string|array $array
 	 * @return string
 	 */
 	public function serializeSettings( $array ) {
@@ -162,7 +162,7 @@ class MathLaTeXML extends MathMathML {
 	 * @param string $mml : the MathML string
 	 * @param string $tagId : optional tagID for references like (pagename#equation2)
 	 * @param bool $attribs
-	 * @return html element with rendered math
+	 * @return string html element with rendered math
 	 */
 	public static function embedMathML( $mml, $tagId = '', $attribs = false ) {
 		$mml = str_replace( "\n", " ", $mml );

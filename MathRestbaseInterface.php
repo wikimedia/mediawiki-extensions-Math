@@ -117,7 +117,7 @@ class MathRestbaseInterface {
 	 * @see Http::post()
 	 *
 	 * @param array $request the request object
-	 * @return bool success
+	 * @return array
 	 */
 	private function executeRestbaseCheckRequest( $request ) {
 		$res = null;

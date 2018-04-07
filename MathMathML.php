@@ -15,7 +15,7 @@ class MathMathML extends MathRenderer {
 
 	protected $defaultAllowedRootElements = [ 'math' ];
 	protected $restbaseInputTypes = [ 'tex', 'inline-tex', 'chem' ];
-	protected $allowedRootElements = '';
+	protected $allowedRootElements = [];
 	protected $hosts;
 
 	/** @var bool if false MathML output is not validated */
