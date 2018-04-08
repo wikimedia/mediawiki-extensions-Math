@@ -34,7 +34,7 @@ abstract class MathRenderer {
 	/** @var string the original user input string (which was used to calculate the inputhash) */
 	protected $userInputTex = '';
 	// FURTHER PROPERTIES OF THE MATHEMATICAL CONTENT
-	/** @var ('inlineDisplaystyle'|'display'|'inline'|'linebreak') the rendering style */
+	/** @var string ('inlineDisplaystyle'|'display'|'inline'|'linebreak') the rendering style */
 	protected $mathStyle = 'inlineDisplaystyle';
 	/** @var array with userdefined parameters passed to the extension (not used) */
 	protected $params = [];
@@ -204,7 +204,7 @@ abstract class MathRenderer {
 	 * Returns an internationalized HTML error string
 	 *
 	 * @param string $msg message key for specific error
-	 * @internal param \Varargs $parameters (optional) zero
+	 * @note param \Varargs $parameters (optional) zero
 	 * or more message parameters for specific error
 	 *
 	 * @return string HTML error string
@@ -233,7 +233,6 @@ abstract class MathRenderer {
 	/**
 	 * Set the input hash (if user input tex is not available)
 	 * @param string $md5
-	 * @return string hash
 	 */
 	public function setMd5( $md5 ) {
 		$this->md5 = $md5;

@@ -110,7 +110,7 @@ class MathMathMLCli extends MathMathML {
 	}
 
 	/**
-	 * @param string $req request
+	 * @param mixed $req request
 	 * @param int &$exitCode exit code
 	 * @return mixed
 	 * @throws MWException

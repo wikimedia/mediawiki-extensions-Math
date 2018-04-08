@@ -104,7 +104,7 @@ class MathHooks {
 	 * Generate a user dependent hash cache key.
 	 * The hash key depends on the rendering mode.
 	 * @param string &$confstr The to-be-hashed key string that is being constructed
-	 * @param User $user reference to the current user
+	 * @param User|bool $user reference to the current user
 	 * @param array &$forOptions userOptions used on that page
 	 * @return true
 	 */
@@ -185,7 +185,7 @@ class MathHooks {
 	 * @param string $content (the LaTeX input)
 	 * @param array $attributes
 	 * @param Parser $parser
-	 * @return array
+	 * @return array|string
 	 */
 	static function mathTagHook( $content, $attributes, $parser ) {
 		static $n = 1;
@@ -214,9 +214,9 @@ class MathHooks {
 	/**
 	 * Callback function for the <math> parser hook.
 	 *
-	 * @param Parser $parser
 	 * @param MathRenderer $renderer
-	 * @return array
+	 * @param Parser $parser
+	 * @return string
 	 * @throws FatalError
 	 * @throws MWException
 	 */
