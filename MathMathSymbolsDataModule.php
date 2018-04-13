@@ -1,13 +1,11 @@
 <?php
+
 /**
  * Resource loader module providing extra data from the server to Math.
  *
- * @file
- * @ingroup Extensions
  * @copyright 2011-2015 VisualEditor Team and others; see AUTHORS.txt
  * @license The MIT License (MIT); see LICENSE.txt
  */
-
 class MathMathSymbolsDataModule extends ResourceLoaderModule {
 
 	protected $origin = self::ORIGIN_USER_SITEWIDE;
