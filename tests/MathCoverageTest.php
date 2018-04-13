@@ -21,7 +21,7 @@
  *
  * @group Math
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  */
 class MathCoverageTest extends MediaWikiTestCase {
 	protected static $hasTexvc;
