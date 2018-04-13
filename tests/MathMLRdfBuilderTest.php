@@ -34,7 +34,6 @@ class MathMLRdfBuilderTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 *
 	 * @param string $test
 	 * @return string
 	 */
