@@ -8,9 +8,7 @@ use MediaWiki\Logger\LoggerFactory;
  * GPLv2 license; info in main package.
  *
  * Contains the driver function for the LaTeXML daemon
- * @file
  */
-
 class MathLaTeXML extends MathMathML {
 	protected $defaultAllowedRootElements = [ 'math', 'div', 'table', 'query' ];
 	/** @var String settings for LaTeXML daemon */

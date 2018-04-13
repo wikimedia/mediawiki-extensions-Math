@@ -1,13 +1,11 @@
 <?php
+
 /**
  * Resource loader module providing extra data from the server to Chem.
  *
- * @file
- * @ingroup Extensions
  * @copyright 2011-2015 VisualEditor Team and others; see AUTHORS.txt
  * @license The MIT License (MIT); see LICENSE.txt
  */
-
 class MathChemSymbolsDataModule extends ResourceLoaderModule {
 
 	/* Protected Members */
