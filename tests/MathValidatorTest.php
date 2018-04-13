@@ -8,7 +8,7 @@ use DataValues\NumberValue;
  *
  * @group Math
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  */
 class MathValidatorTest extends MediaWikiTestCase {
 	const VADLID_TEX = "a^2+b^2=c^2";
