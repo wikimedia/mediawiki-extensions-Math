@@ -128,9 +128,6 @@
 			"i18n"
 		]
 	},
-	"ParserTestFiles": [
-		"mathParserTests.txt"
-	],
 	"ResourceModules": {
 		"ext.math.styles": {
 			"styles": "ext.math.css",
