@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3cb1a017_68671798",
+        "filename": "MathFormatter.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-04-13T14:10:19Z",
+      "side": 1,
+      "message": "This is the reason why the code for the two \"diff\" vs. \"non-diff\" HTML formats is nested like this. All fine here. Can be merged.",
+      "range": {
+        "startLine": 57,
+        "startChar": 34,
+        "endLine": 57,
+        "endChar": 39
+      },
+      "revId": "19728a0eadb12e8ad8922d9e490d915f762703e4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
