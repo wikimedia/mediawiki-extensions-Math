@@ -22,6 +22,29 @@
       "revId": "19728a0eadb12e8ad8922d9e490d915f762703e4",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4a09c94_4b9d1524",
+        "filename": "MathFormatter.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-04-13T14:18:05Z",
+      "side": 1,
+      "message": "I don\u0027t think returning the MediaWiki specific LaTeX dialect should be the standard. I think return standardized HTML/MATHML output would be better.",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 64,
+        "endChar": 14
+      },
+      "revId": "19728a0eadb12e8ad8922d9e490d915f762703e4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
