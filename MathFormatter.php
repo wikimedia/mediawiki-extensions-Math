@@ -25,20 +25,9 @@ class MathFormatter implements ValueFormatter {
 	 * Loads format to distinguish the type of formatting
 	 *
 	 * @param string $format One of the SnakFormatter::FORMAT_... constants.
-	 *
-	 * @throws InvalidArgumentException
 	 */
 	public function __construct( $format ) {
-		switch ( $format ) {
-			case SnakFormatter::FORMAT_PLAIN:
-			case SnakFormatter::FORMAT_WIKI:
-			case SnakFormatter::FORMAT_HTML:
-			case SnakFormatter::FORMAT_HTML_DIFF:
-				$this->format = $format;
-				break;
-			default:
-				throw new InvalidArgumentException( 'Unsupported output format: ' . $format );
-		}
+		$this->format = $format;
 	}
 
 	/**
@@ -54,26 +43,25 @@ class MathFormatter implements ValueFormatter {
 
 		$tex = $value->getValue();
 
-		switch ( $this->format ) {
-			case SnakFormatter::FORMAT_PLAIN:
-				return $tex;
-			case SnakFormatter::FORMAT_WIKI:
-				return "<math>$tex</math>";
-			default:
-				$renderer = new MathMathML( $tex );
+		// Format identifiers are MIME types, so we can just check the prefix.
+		if ( strpos( $this->format, SnakFormatter::FORMAT_HTML ) === 0 ) {
+			$renderer = new MathMathML( $tex );
 
-				if ( $renderer->checkTeX() && $renderer->render() ) {
-					$html = $renderer->getHtmlOutput();
-				} else {
-					$html = $renderer->getLastError();
-				}
+			if ( $renderer->checkTeX() && $renderer->render() ) {
+				$html = $renderer->getHtmlOutput();
+			} else {
+				$html = $renderer->getLastError();
+			}
 
-				if ( $this->format === SnakFormatter::FORMAT_HTML_DIFF ) {
-					$html = $this->formatDetails( $html, $tex );
-				}
+			if ( $this->format === SnakFormatter::FORMAT_HTML_DIFF ) {
+				$html = $this->formatDetails( $html, $tex );
+			}
 
-				// TeX string is not valid or rendering failed
-				return $html;
+			return $html;
+		} elseif ( $this->format === SnakFormatter::FORMAT_WIKI ) {
+			return "<math>$tex</math>";
+		} else {
+			return $tex;
 		}
 	}
 
