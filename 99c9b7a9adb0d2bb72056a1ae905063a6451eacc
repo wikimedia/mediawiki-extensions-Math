@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9372408_8b3294bf",
+        "filename": "MathSource.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-04-13T15:44:10Z",
+      "side": 1,
+      "message": "The patch failed because this copyright makes the line too long.",
+      "revId": "99c9b7a9adb0d2bb72056a1ae905063a6451eacc",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
