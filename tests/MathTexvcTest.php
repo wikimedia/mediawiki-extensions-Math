@@ -5,7 +5,6 @@
  *
  * @covers MathTexvc
  *
- * @group Extensions
  * @group Math
  *
  * @license GNU GPL v2+
