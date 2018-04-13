@@ -5,7 +5,7 @@
  * for the different tags in the Math extension.
  *
  * @copyright 2011-2015 VisualEditor Team and others; see AUTHORS.txt
- * @license The MIT License (MIT); see LICENSE.txt
+ * @license MIT
  */
 
 /**
