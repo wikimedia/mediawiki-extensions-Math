@@ -9,7 +9,7 @@
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:Math",
 	"descriptionmsg": "math-desc",
-	"license-name": "GPL-2.0-or-later",
+	"license-name": "GPL-2.0-only",
 	"callback": "MathHooks::registerExtension",
 	"type": "parserhook",
 	"AutoloadClasses": {

@@ -2,8 +2,8 @@
 /**
  * MediaWiki math extension
  *
- * (c) 2002-2015 various MediaWiki contributors
- * GPLv2 license; info in main package.
+ * @copyright 2002-2015 various MediaWiki contributors
+ * @license GPL-2.0-only
  */
 
 use MediaWiki\Logger\LoggerFactory;
