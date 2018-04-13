@@ -80,8 +80,8 @@ class MathFormatter implements ValueFormatter {
 	/**
 	 * Constructs a detailed HTML rendering for use in diff views.
 	 *
-	 * @param string $valueHtml HTML
-	 * @param string $tex TeX
+	 * @param string $valueHtml
+	 * @param string $tex
 	 *
 	 * @return string HTML
 	 */

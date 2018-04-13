@@ -121,7 +121,6 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 *
 	 * @param string $md5
 	 * @return MathRenderer the MathRenderer generated from md5
 	 */
@@ -555,7 +554,6 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 *
 	 * @param string $mathStyle ('inlineDisplaystyle'|'display'|'inline')
 	 */
 	public function setMathStyle( $mathStyle = 'display' ) {

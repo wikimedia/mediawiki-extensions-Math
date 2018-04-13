@@ -10,12 +10,8 @@
 
 class MathChemSymbolsDataModule extends ResourceLoaderModule {
 
-	/* Protected Members */
-
 	protected $origin = self::ORIGIN_USER_SITEWIDE;
 	protected $targets = [ 'desktop', 'mobile' ];
-
-	/* Methods */
 
 	public function getScript( ResourceLoaderContext $context ) {
 		return 've.ui.MWChemDialog.static.setSymbols(' .
