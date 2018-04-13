@@ -4,7 +4,7 @@
  * Resource loader module providing extra data from the server to Chem.
  *
  * @copyright 2011-2015 VisualEditor Team and others; see AUTHORS.txt
- * @license The MIT License (MIT); see LICENSE.txt
+ * @license MIT
  */
 class MathChemSymbolsDataModule extends ResourceLoaderModule {
 
