@@ -58,11 +58,11 @@ class MathFormatterTest extends MediaWikiTestCase {
 		$formatter->format( null );
 	}
 
-	/**
-	 * @expectedException InvalidArgumentException
-	 */
-	public function testUnknownFormat() {
-		new MathFormatter( 'unknown/unknown' );
+	public function testUnknownFormatFallsBackToMathMl() {
+		$formatter = new MathFormatter( 'unknown/unknown' );
+		$value = new StringValue( self::SOME_TEX );
+		$resultFormat = $formatter->format( $value );
+		$this->assertContains( '</math>', $resultFormat );
 	}
 
 	public function testFormatPlain() {

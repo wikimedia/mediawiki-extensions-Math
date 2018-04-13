@@ -25,20 +25,9 @@ class MathFormatter implements ValueFormatter {
 	 * Loads format to distinguish the type of formatting
 	 *
 	 * @param string $format One of the SnakFormatter::FORMAT_... constants.
-	 *
-	 * @throws InvalidArgumentException
 	 */
 	public function __construct( $format ) {
-		switch ( $format ) {
-			case SnakFormatter::FORMAT_PLAIN:
-			case SnakFormatter::FORMAT_WIKI:
-			case SnakFormatter::FORMAT_HTML:
-			case SnakFormatter::FORMAT_HTML_DIFF:
-				$this->format = $format;
-				break;
-			default:
-				throw new InvalidArgumentException( 'Unsupported output format: ' . $format );
-		}
+		$this->format = $format;
 	}
 
 	/**
@@ -59,6 +48,8 @@ class MathFormatter implements ValueFormatter {
 				return $tex;
 			case SnakFormatter::FORMAT_WIKI:
 				return "<math>$tex</math>";
+
+			// Intentionally fall back to MathML output in all other, possibly unknown cases.
 			default:
 				$renderer = new MathMathML( $tex );
 
@@ -72,7 +63,6 @@ class MathFormatter implements ValueFormatter {
 					$html = $this->formatDetails( $html, $tex );
 				}
 
-				// TeX string is not valid or rendering failed
 				return $html;
 		}
 	}
