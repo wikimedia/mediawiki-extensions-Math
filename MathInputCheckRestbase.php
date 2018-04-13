@@ -2,10 +2,9 @@
 /**
  * MediaWiki math extension
  *
- * (c) 2002-2015 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz,
+ * @copyright 2002-2015 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz,
  * and other MediaWiki contributors
- * GPLv2 license; info in main package.
- *
+ * @license GPL-2.0-or-later
  * @author Moritz Schubotz
  */
 
