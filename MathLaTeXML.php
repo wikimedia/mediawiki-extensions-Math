@@ -1,13 +1,12 @@
 <?php
+
 use MediaWiki\Logger\LoggerFactory;
 
 /**
- * MediaWiki math extension
- *
- * (c)2012 Moritz Schubotz
- * GPLv2 license; info in main package.
- *
  * Contains the driver function for the LaTeXML daemon
+ *
+ * @copyright 2012 Moritz Schubotz
+ * @license GPL-2.0-or-later
  */
 class MathLaTeXML extends MathMathML {
 	protected $defaultAllowedRootElements = [ 'math', 'div', 'table', 'query' ];
