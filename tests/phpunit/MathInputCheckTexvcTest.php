@@ -20,6 +20,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 
 	public static function setUpBeforeClass() {
 		global $wgMathTexvcCheckExecutable;
+		parent::setUpBeforeClass();
 
 		if ( is_executable( $wgMathTexvcCheckExecutable ) ) {
 			wfDebugLog( __CLASS__, " using build in texvccheck from "
@@ -30,7 +31,7 @@ class MathInputCheckTexvcTest extends MediaWikiTestCase {
 		} else {
 			# Attempt to compile
 			wfDebugLog( __CLASS__, " compiling texvccheck..." );
-			$cmd = 'cd ' . dirname( __DIR__ ) . '/texvccheck; make --always-make 2>&1';
+			$cmd = 'cd ' . dirname( __DIR__ ) . '../texvccheck; make --always-make 2>&1';
 			wfShellExec( $cmd, $retval );
 			if ( $retval === 0 ) {
 				self::$hasTexvccheck = true;
