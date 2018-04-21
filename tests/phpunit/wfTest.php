@@ -5,7 +5,7 @@
  * Date: 14.08.2017
  * Time: 12:09
  */
-require_once __DIR__ . '/../../../maintenance/Maintenance.php';
+require_once __DIR__ . '/../../../../maintenance/Maintenance.php';
 
 class DummyTest extends Maintenance {
 	const REFERENCE_PAGE = 'mediawikiwiki:Extension:Math/CoverageTest';
