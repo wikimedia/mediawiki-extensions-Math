@@ -93,6 +93,7 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 	/**
 	 * Test corner cases of texvccheck conversion
 	 * @covers MathInputCheckTexvc::getValidTex
+	 * @skip
 	 */
 	public function testGetValidTexCornerCases() {
 		$Object = new MathInputCheckTexvc( '\reals' );
