@@ -25,5 +25,7 @@
 	"mw_math_mathml": "MathML калі магчыма (эксперыментальнае)",
 	"mw_math_png": "PNG-выявы",
 	"mw_math_source": "Пакідаць у выглядзе LaTeX (для тэкставых браўзераў)",
-	"prefs-math": "Матэматыка"
+	"prefs-math": "Матэматыка",
+	"datatypes-type-math": "Матэматычны выраз",
+	"wikibase-listdatatypes-math-head": "Матэматычны выраз"
 }
