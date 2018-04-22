@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a35d3215_4ac74ed8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-04-22T08:26:54Z",
+      "side": 1,
+      "message": "\u003e I would mention, that the tests currently are not running.\n \u003e \n \u003e Or split the patch in running the tests (With the Hook) and fixing\n \u003e the test failure.\n \u003e After that moving the files and removing the hook.\n\nI split the patch. I could not find a hook in the Math extension. However, I am sure that jenkins discovered the tests in the directory /tests that ended on Test.php in the past. Maybe there was some special configuration for this extension somewhere.\nI could imagine that after this patch is merged also the coverage reporter will be able to find the /tests/phpunit directory.",
+      "parentUuid": "92ac4414_0b9f2068",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "1b0f6eb2477d0eb54d82ba1c3be4bc1ae2d62236",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1a02c23_afbae725",
         "filename": "tests/phpunit/MathInputCheckTexvcTest.php",
         "patchSetId": 6
