@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92ac4414_0b9f2068",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2018-04-22T06:43:07Z",
+      "side": 1,
+      "message": "I would mention, that the tests currently are not running. \n\nOr split the patch in running the tests (With the Hook) and fixing the test failure.\nAfter that moving the files and removing the hook.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "1b0f6eb2477d0eb54d82ba1c3be4bc1ae2d62236",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1a02c23_afbae725",
+        "filename": "tests/phpunit/MathInputCheckTexvcTest.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2018-04-22T06:43:07Z",
+      "side": 1,
+      "message": "remove one space",
+      "range": {
+        "startLine": 58,
+        "startChar": 83,
+        "endLine": 58,
+        "endChar": 85
+      },
+      "revId": "1b0f6eb2477d0eb54d82ba1c3be4bc1ae2d62236",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4783a17a_d02b6a5d",
+        "filename": "tests/phpunit/MathInputCheckTexvcTest.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2018-04-22T06:43:07Z",
+      "side": 1,
+      "message": "add a space between",
+      "range": {
+        "startLine": 58,
+        "startChar": 59,
+        "endLine": 58,
+        "endChar": 61
+      },
+      "revId": "1b0f6eb2477d0eb54d82ba1c3be4bc1ae2d62236",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}

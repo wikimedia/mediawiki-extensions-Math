@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbd99330_e703a7ef",
+        "filename": "tests/phpunit/ParserTest.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2018-04-22T06:43:07Z",
+      "side": 0,
+      "message": "maintenance/MathGenerateTests.php refers this file and needs adjust of the path\n\nMove it to tests/data? or tests/phpunit/data?",
+      "revId": "a1263dbe1fcc22d671370c44ec874463009b96df",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9b367fd_00638132",
+        "filename": "tests/phpunit/wfTest.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2018-04-22T06:43:07Z",
+      "side": 0,
+      "message": "This is not a unit test class, I would not move it to the phpunit folder",
+      "revId": "a1263dbe1fcc22d671370c44ec874463009b96df",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
