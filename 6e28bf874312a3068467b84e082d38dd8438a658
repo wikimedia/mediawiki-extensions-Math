@@ -22,6 +22,30 @@
       "revId": "6e28bf874312a3068467b84e082d38dd8438a658",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa8b32c9_b90e8a56",
+        "filename": "src/MathMathML.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-04-23T13:43:29Z",
+      "side": 1,
+      "message": "Done. https://gerrit.wikimedia.org/r/#/c/428336/ I was just kept XML::tags since I was unsure if converting to HTML:rawElement might have side effects.",
+      "parentUuid": "31b94ab4_a5cf465b",
+      "range": {
+        "startLine": 418,
+        "startChar": 9,
+        "endLine": 418,
+        "endChar": 21
+      },
+      "revId": "6e28bf874312a3068467b84e082d38dd8438a658",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
