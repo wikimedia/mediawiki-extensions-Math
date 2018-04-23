@@ -75,8 +75,8 @@ class SpecialMathStatus extends SpecialPage {
 	 * i.e. if the span element is generated right.
 	 */
 	public function testMathMLIntegration() {
-		$svgRef = file_get_contents( __DIR__ .'/images/reference.svg' );
-		$svgRefNoSpeech = file_get_contents( __DIR__ .'/images/reference-nospeech.svg' );
+		$svgRef = file_get_contents( __DIR__ . '/../images/reference.svg' );
+		$svgRefNoSpeech = file_get_contents( __DIR__ . '/../images/reference-nospeech.svg' );
 		$renderer = MathRenderer::getRenderer( "a+b", [], 'mathml' );
 		$this->assertTrue( $renderer->render( true ), "Rendering of a+b in plain MathML mode" );
 		$real = str_replace( "\n", '', $renderer->getHtmlOutput() );

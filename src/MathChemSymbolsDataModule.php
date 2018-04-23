@@ -1,20 +1,20 @@
 <?php
 
 /**
- * Resource loader module providing extra data from the server to Math.
+ * Resource loader module providing extra data from the server to Chem.
  *
  * @copyright 2011-2015 VisualEditor Team and others; see AUTHORS.txt
  * @license MIT
  */
-class MathMathSymbolsDataModule extends ResourceLoaderModule {
+class MathChemSymbolsDataModule extends ResourceLoaderModule {
 
 	protected $origin = self::ORIGIN_USER_SITEWIDE;
 	protected $targets = [ 'desktop', 'mobile' ];
 
 	public function getScript( ResourceLoaderContext $context ) {
-		return 've.ui.MWMathDialog.static.setSymbols(' .
-				file_get_contents( __DIR__ . '/modules/ve-math/mathSymbols.json' ) .
-			');';
+		return 've.ui.MWChemDialog.static.setSymbols(' .
+				file_get_contents( __DIR__ . '/../modules/ve-math/chemSymbols.json' ) .
+			   ');';
 	}
 
 	public function getDependencies( ResourceLoaderContext $context = null ) {

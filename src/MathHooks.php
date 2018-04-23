@@ -328,14 +328,14 @@ class MathHooks {
 		if ( !in_array( $type, $map ) ) {
 			throw new Exception( "Math extension does not currently support $type database." );
 		}
-		$sql = __DIR__ . '/db/math.' . $type . '.sql';
+		$sql = __DIR__ . '/../db/math.' . $type . '.sql';
 		$updater->addExtensionTable( 'math', $sql );
 		if ( in_array( 'latexml', MathRenderer::getValidModes() ) ) {
 			if ( in_array( $type, [ 'mysql', 'sqlite', 'postgres' ] ) ) {
-				$sql = __DIR__ . '/db/mathlatexml.' . $type . '.sql';
+				$sql = __DIR__ . '/../db/mathlatexml.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathlatexml', $sql );
 				if ( $type == 'mysql' ) {
-					$sql = __DIR__ . '/db/patches/mathlatexml.mathml-length-adjustment.mysql.sql';
+					$sql = __DIR__ . '/../db/patches/mathlatexml.mathml-length-adjustment.mysql.sql';
 					$updater->modifyExtensionField( 'mathlatexml', 'math_mathml', $sql );
 				}
 			} else {
@@ -344,10 +344,10 @@ class MathHooks {
 		}
 		if ( in_array( 'mathml', MathRenderer::getValidModes() ) ) {
 			if ( in_array( $type, [ 'mysql', 'sqlite', 'postgres' ] ) ) {
-				$sql = __DIR__ . '/db/mathoid.' . $type . '.sql';
+				$sql = __DIR__ . '/../db/mathoid.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathoid', $sql );
 				if ( $type == 'mysql' ) {
-					$sql = __DIR__ . '/db/patches/mathoid.add_png.mysql.sql';
+					$sql = __DIR__ . '/../db/patches/mathoid.add_png.mysql.sql';
 					$updater->addExtensionField( 'mathoid', 'math_png', $sql );
 				}
 			} else {
