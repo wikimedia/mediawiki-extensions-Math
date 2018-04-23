@@ -13,8 +13,8 @@ class MathChemSymbolsDataModule extends ResourceLoaderModule {
 
 	public function getScript( ResourceLoaderContext $context ) {
 		return 've.ui.MWChemDialog.static.setSymbols(' .
-				file_get_contents( __DIR__ . '/modules/ve-math/chemSymbols.json' ) .
-			');';
+				file_get_contents( __DIR__ . '/../modules/ve-math/chemSymbols.json' ) .
+				');';
 	}
 
 	public function getDependencies( ResourceLoaderContext $context = null ) {

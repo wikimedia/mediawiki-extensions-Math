@@ -13,8 +13,8 @@ class MathMathSymbolsDataModule extends ResourceLoaderModule {
 
 	public function getScript( ResourceLoaderContext $context ) {
 		return 've.ui.MWMathDialog.static.setSymbols(' .
-				file_get_contents( __DIR__ . '/modules/ve-math/mathSymbols.json' ) .
-			');';
+				file_get_contents( __DIR__ . '/../modules/ve-math/mathSymbols.json' ) .
+				');';
 	}
 
 	public function getDependencies( ResourceLoaderContext $context = null ) {
