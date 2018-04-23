@@ -41,7 +41,7 @@ class MathSource extends MathRenderer {
 		} else {
 			$class = 'mwe-math-fallback-source-inline';
 		}
-		return Xml::element( 'span',
+		return Html::element( 'span',
 			$this->getAttributes(
 				'span',
 				[
