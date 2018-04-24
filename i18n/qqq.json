@@ -23,6 +23,7 @@
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Label for the quick edit button in the math context item",
 	"math-visualeditor-mwlatexdialog-card-formula": "Label for the generic formula card of the dialog for mathematics, chemistry, etc.\n{{Identical|Formula}}",
 	"math-visualeditor-mwlatexdialog-card-options": "Label for the options card of the formula dialog.\n{{Identical|Options}}",
+	"math-visualeditor-mwlatexdialog-card-semantics": "Label for the semantics card of the formula dialog.\n{{Identical|Semantics}}",
 	"math-visualeditor-mwlatexinspector-display": "Label for the display attribute of the math node\n{{Identical|Display}}",
 	"math-visualeditor-mwlatexinspector-display-block": "Label for the 'block' value of the display attribute\n{{Identical|Block}}",
 	"math-visualeditor-mwlatexinspector-display-default": "Label for the 'default' value of the display attribute\n{{Identical|Default}}",

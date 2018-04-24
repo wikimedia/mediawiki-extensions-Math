@@ -55,7 +55,7 @@ ve.ui.MWLatexDialog.static.setSymbols = function ( symbols ) {
  */
 ve.ui.MWLatexDialog.prototype.initialize = function () {
 	var formulaPanel, inputField, displayField, idField, category,
-		formulaTabPanel, optionsTabPanel,
+		formulaTabPanel, optionsTabPanel, semanticsTabPanel,
 		dialog = this;
 
 	// Parent method
@@ -79,10 +79,17 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 		scrollable: false,
 		padded: true
 	} );
+	semanticsTabPanel = new OO.ui.TabPanelLayout( 'semantics', {
+		label: ve.msg( 'math-visualeditor-mwlatexdialog-card-semantics' ),
+		expandable: false,
+		scrollable: false,
+		padded: true
+	} );
 
 	this.indexLayout.addTabPanels( [
 		formulaTabPanel,
-		optionsTabPanel
+		optionsTabPanel,
+		semanticsTabPanel
 	] );
 
 	// Layout for symbol picker (menu) and input and preview (content)

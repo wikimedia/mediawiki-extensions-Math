@@ -183,6 +183,7 @@
 				"math-visualeditor-mwlatexcontextitem-quickedit",
 				"math-visualeditor-mwlatexdialog-card-formula",
 				"math-visualeditor-mwlatexdialog-card-options",
+				"math-visualeditor-mwlatexdialog-card-semantics",
 				"math-visualeditor-mwlatexinspector-display",
 				"math-visualeditor-mwlatexinspector-display-block",
 				"math-visualeditor-mwlatexinspector-display-default",
