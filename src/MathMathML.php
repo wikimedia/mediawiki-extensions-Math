@@ -415,7 +415,7 @@ class MathMathML extends MathRenderer {
 			$attribs['class'] = $class;
 		}
 
-		return Xml::element( 'img', $this->getAttributes( 'span', $attribs, [
+		return Html::element( 'img', $this->getAttributes( 'span', $attribs, [
 			'aria-hidden' => 'true',
 			'style' => $this->mathoidStyle,
 			'alt' => $this->tex
