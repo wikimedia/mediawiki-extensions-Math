@@ -5,6 +5,18 @@
 			"Pahles"
 		]
 	},
+	"math-desc": "Tuin wiskóndige formules tösse <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-labels",
+	"math-visualeditor-mwchemdialog-title": "Sjemische formuul",
+	"math-visualeditor-mwcheminspector-title": "Sjemische formuul",
+	"math-visualeditor-mwlatexcontextitem-quickedit": "Snel bewirking",
+	"math-visualeditor-mwlatexdialog-card-formula": "Formuul",
+	"math-visualeditor-mwlatexdialog-card-options": "Opties",
+	"math-visualeditor-mwlatexinspector-display": "Waergaaf",
+	"math-visualeditor-mwlatexinspector-display-block": "Blokkeer",
+	"math-visualeditor-mwlatexinspector-display-default": "Standerd",
+	"math-visualeditor-mwlatexinspector-display-inline": "In de regel",
+	"math-visualeditor-mwlatexinspector-id": "Linknómmer (keusvrie)",
+	"math-visualeditor-mwmathdialog-title": "Wiskóndige formuul",
 	"math_bad_output": "Kin neet sjrieve nao de output directory veur mattematik",
 	"math_bad_tmpdir": "De map veur tiedelike bestenj veur wiskóndige formules bestuit neet of kin neet gemaak waere",
 	"math_failure": "Parse misluk",
@@ -15,9 +27,10 @@
 	"math_syntax_error": "fout vanne syntax",
 	"math_tip": "Wiskóndige formule (LaTeX)",
 	"math_unknown_error": "onbekènde fout",
-	"math_unknown_function": "onbekènde functie",
+	"math_unknown_function": "ónbekènde functie \"$1\"",
+	"mw_math_latexml": "LaTeXML (experimenteel; gebroek MathML)",
 	"mw_math_mathml": "MathML woe meugelik (experimenteil)",
-	"mw_math_png": "Ummer PNG rendere",
-	"mw_math_source": "Laot de TeX code sjtaon (vuur tèksbrowsers)",
+	"mw_math_png": "PNG-plaetjes",
+	"mw_math_source": "LaTeX-brón (veur teksbrowsers)",
 	"prefs-math": "Mattemetik rendere"
 }
