@@ -32,6 +32,7 @@
 	"math-visualeditor-symbol-group-chem-precipitate": "沉澱與氣體",
 	"math-visualeditor-symbol-group-math-functions": "標準數值函數",
 	"math-visualeditor-symbol-group-math-logic": "邏輯",
+	"math-visualeditor-symbol-group-math-sets": "設定",
 	"math-visualeditor-symbol-group-math-special": "特殊",
 	"math_bad_output": "無法寫入或建立數學公式輸出目錄",
 	"math_bad_tmpdir": "無法寫入或建立數學公式暫存目錄",
