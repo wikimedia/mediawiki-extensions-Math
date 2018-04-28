@@ -9,7 +9,8 @@
 			"Tar Lócesilion",
 			"Devwebtel",
 			"Matma Rex",
-			"Sethakill"
+			"Sethakill",
+			"Railfail536"
 		]
 	},
 	"math-desc": "Renderowanie formuł matematycznych między znacznikami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -46,7 +47,7 @@
 	"math-visualeditor-symbol-group-math-geometry": "Geometryczne",
 	"math-visualeditor-symbol-group-math-greek": "Litery greckie",
 	"math-visualeditor-symbol-group-math-hebrew": "Litery hebrajskie",
-	"math-visualeditor-symbol-group-math-large": "Większe konstrukcje",
+	"math-visualeditor-symbol-group-math-large": "Duże układy",
 	"math-visualeditor-symbol-group-math-logic": "Logiczne",
 	"math-visualeditor-symbol-group-math-matrices": "Macierze",
 	"math-visualeditor-symbol-group-math-modular": "Arytmetyka modularna",
@@ -87,6 +88,7 @@
 	"math-tracking-category-error": "Strony z błędami rozszerzenia math",
 	"math-tracking-category-error-desc": "Strony w tej kategorii zawierają błędy w użyciu znaczników matematycznych.",
 	"math-tracking-category-render-error": "Strony z błędami renderowania wyrażeń matematycznych",
+	"math-tracking-category-render-error-desc": "Strony w tej kategorii zawierają problemy z renderowaniem tagów math",
 	"math_unknown_error": "nieznany błąd",
 	"math_unknown_function": "nieznana funkcja '$1'",
 	"mw_math_latexml": "LaTeXML (eksperymentalne; wykorzystuje MathML)",
