@@ -8,7 +8,6 @@
  */
 class MathChemSymbolsDataModule extends ResourceLoaderModule {
 
-	protected $origin = self::ORIGIN_USER_SITEWIDE;
 	protected $targets = [ 'desktop', 'mobile' ];
 
 	public function getScript( ResourceLoaderContext $context ) {
