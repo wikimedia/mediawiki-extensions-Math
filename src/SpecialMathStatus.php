@@ -95,9 +95,8 @@ class SpecialMathStatus extends SpecialPage {
 		// New Mexico' in ''Journal of Environmental and Public Health'' , vol. 2010p.
 		// authors  Joseph E. Bunnell;  Linda V. Garcia;  Jill M. Furst;
 		// Harry Lerch;  Ricardo A. Olea;  Stephen E. Suitt;  Allan Kolker
-		// @codingStandardsIgnoreStart
+		// phpcs:ignore Generic.Files.LineLength.TooLong
 		$inputSample = '<msub>  <mrow>  <mi> P</mi> </mrow>  <mrow>  <mi> i</mi>  <mi> j</mi> </mrow> </msub>  <mo> =</mo>  <mfrac>  <mrow>  <mn> 100</mn>  <msub>  <mrow>  <mi> d</mi> </mrow>  <mrow>  <mi> i</mi>  <mi> j</mi> </mrow> </msub> </mrow>  <mrow>  <mn> 6.75</mn>  <msub>  <mrow>  <mi> r</mi> </mrow>  <mrow>  <mi> j</mi> </mrow> </msub> </mrow> </mfrac>  <mo> ,</mo> </math>';
-		// @codingStandardsIgnoreEnd
 		$attribs = [ 'type' => 'pmml' ];
 		$renderer = new MathMathML( $inputSample, $attribs );
 		$this->assertEquals( 'pmml', $renderer->getInputType(), 'Checking if MathML input is supported' );
@@ -114,9 +113,8 @@ class SpecialMathStatus extends SpecialPage {
 	public function testLaTeXMLIntegration() {
 		$renderer = MathRenderer::getRenderer( "a+b", [], 'latexml' );
 		$this->assertTrue( $renderer->render( true ), "Rendering of a+b in LaTeXML mode" );
-		// @codingStandardsIgnoreStart
+		// phpcs:ignore Generic.Files.LineLength.TooLong
 		$expected = '<math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.m1" class="ltx_Math" alttext="{\displaystyle a+b}" ><semantics><mrow id="p1.m1.4" xref="p1.m1.4.cmml"><mi id="p1.m1.1" xref="p1.m1.1.cmml">a</mi><mo id="p1.m1.2" xref="p1.m1.2.cmml">+</mo><mi id="p1.m1.3" xref="p1.m1.3.cmml">b</mi></mrow><annotation-xml encoding="MathML-Content"><apply id="p1.m1.4.cmml" xref="p1.m1.4"><plus id="p1.m1.2.cmml" xref="p1.m1.2"/><ci id="p1.m1.1.cmml" xref="p1.m1.1">a</ci><ci id="p1.m1.3.cmml" xref="p1.m1.3">b</ci></apply></annotation-xml><annotation encoding="application/x-tex">{\displaystyle a+b}</annotation></semantics></math>';
-		// @codingStandardsIgnoreEnd
 		$real = preg_replace( "/\n\\s*/", '', $renderer->getHtmlOutput() );
 		$this->assertContains( $expected, $real,
 			"Comparing the output to the MathML reference rendering" .

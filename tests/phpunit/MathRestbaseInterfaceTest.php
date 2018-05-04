@@ -92,9 +92,8 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 	 * @expectedExceptionMessage Cannot get mml. TeX parse error: Missing close brace
 	 */
 	public function testLateError() {
-		// @codingStandardsIgnoreStart
+		// phpcs:ignore Generic.Files.LineLength.TooLong
 		$input = '{"type":"https://mediawiki.org/wiki/HyperSwitch/errors/bad_request","title":"Bad Request","method":"POST","detail":["TeX parse error: Missing close brace"],"uri":"/complete"}';
-		// @codingStandardsIgnoreEnd
 		MathRestbaseInterface::throwContentError( 'mml', $input );
 	}
 
@@ -105,9 +104,8 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 	 * @expectedExceptionMessage Cannot get mml. TeX parse error: Missing close brace
 	 */
 	public function testLateErrorString() {
-		// @codingStandardsIgnoreStart
+		// phpcs:ignore Generic.Files.LineLength.TooLong
 		$input = '{"type":"https://mediawiki.org/wiki/HyperSwitch/errors/bad_request","title":"Bad Request","method":"POST","detail": "TeX parse error: Missing close brace","uri":"/complete"}';
-		// @codingStandardsIgnoreEnd
 		MathRestbaseInterface::throwContentError( 'mml', $input );
 	}
 

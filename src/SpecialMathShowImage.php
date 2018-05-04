@@ -124,10 +124,14 @@ class SpecialMathShowImage extends SpecialPage {
 	 */
 	private function printSvgError( $msg ) {
 		global $wgDebugComments;
-		// @codingStandardsIgnoreStart
-		$result =  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 4" preserveAspectRatio="xMidYMid meet" >' .
-			'<text text-anchor="start" fill="red" y="2">' . htmlspecialchars( $msg ) . '</text></svg>';
-		// @codingStandardsIgnoreEnd
+		$escaped = htmlspecialchars( $msg );
+		$result = <<<SVG
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 4" preserveAspectRatio="xMidYMid meet" >
+<text text-anchor="start" fill="red" y="2">
+$escaped
+</text>
+</svg>
+SVG;
 		if ( $wgDebugComments ) {
 			$result .= '<!--'. var_export( $this->renderer, true ) .'-->';
 		}
