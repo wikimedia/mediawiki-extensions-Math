@@ -49,7 +49,7 @@ class MathMathML extends MathRenderer {
 		}
 	}
 
-	public static function batchEvaluate( &$tags ) {
+	public static function batchEvaluate( array $tags ) {
 		$rbis = [];
 		foreach ( $tags as $key => $tag ) {
 			/** @var MathRenderer $renderer */

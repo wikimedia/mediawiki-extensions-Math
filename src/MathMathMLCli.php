@@ -12,11 +12,11 @@ use \MediaWiki\MediaWikiServices;
 class MathMathMLCli extends MathMathML {
 
 	/**
-	 * @param array &$tags math tags
+	 * @param array[] $tags math tags
 	 * @return bool
 	 * @throws MWException
 	 */
-	public static function batchEvaluate( &$tags ) {
+	public static function batchEvaluate( array $tags ) {
 		$req = [];
 		foreach ( $tags as $key => $tag ) {
 			/** @var MathMathMLCli $renderer */

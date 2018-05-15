@@ -372,11 +372,11 @@ class MathHooks {
 	}
 
 	/**
-	 * @param Parser &$parser
+	 * @param Parser $parser
 	 * @param string &$text
 	 * @return bool
 	 */
-	public static function onParserAfterTidy( &$parser, &$text ) {
+	public static function onParserAfterTidy( $parser, &$text ) {
 		global $wgMathoidCli;
 		if ( $wgMathoidCli ) {
 			MathMathMLCli::batchEvaluate( self::$tags );

@@ -13,7 +13,7 @@ class MathWikidataHook {
 
 	/**
 	 * Add Datatype "Math" to the Wikibase Repository
-	 * @param array &$dataTypeDefinitions
+	 * @param array[] &$dataTypeDefinitions
 	 */
 	public static function onWikibaseRepoDataTypes( array &$dataTypeDefinitions ) {
 		global $wgMathEnableWikibaseDataType;
@@ -60,7 +60,7 @@ class MathWikidataHook {
 
 	/**
 	 * Add Datatype "Math" to the Wikibase Client
-	 * @param array &$dataTypeDefinitions
+	 * @param array[] &$dataTypeDefinitions
 	 */
 	public static function onWikibaseClientDataTypes( array &$dataTypeDefinitions ) {
 		global $wgMathEnableWikibaseDataType;
