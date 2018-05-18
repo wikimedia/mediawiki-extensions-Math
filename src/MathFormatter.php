@@ -1,7 +1,6 @@
 <?php
 
 use DataValues\StringValue;
-use ValueFormatters\Exceptions\MismatchingDataValueTypeException;
 use ValueFormatters\ValueFormatter;
 use Wikibase\Lib\SnakFormatter;
 
@@ -33,12 +32,12 @@ class MathFormatter implements ValueFormatter {
 	/**
 	 * @param StringValue $value
 	 *
-	 * @throws MismatchingDataValueTypeException
+	 * @throws InvalidArgumentException if not called with a StringValue
 	 * @return string
 	 */
 	public function format( $value ) {
 		if ( !( $value instanceof StringValue ) ) {
-			throw new MismatchingDataValueTypeException( 'StringValue', get_class( $value ) );
+			throw new InvalidArgumentException( '$value must be a StringValue' );
 		}
 
 		$tex = $value->getValue();

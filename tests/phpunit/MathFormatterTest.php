@@ -43,7 +43,7 @@ class MathFormatterTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @expectedException ValueFormatters\Exceptions\MismatchingDataValueTypeException
+	 * @expectedException InvalidArgumentException
 	 */
 	public function testNotStringValue() {
 		$formatter = new MathFormatter( SnakFormatter::FORMAT_PLAIN );
@@ -51,7 +51,7 @@ class MathFormatterTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @expectedException ValueFormatters\Exceptions\MismatchingDataValueTypeException
+	 * @expectedException InvalidArgumentException
 	 */
 	public function testNullValue() {
 		$formatter = new MathFormatter( SnakFormatter::FORMAT_PLAIN );
