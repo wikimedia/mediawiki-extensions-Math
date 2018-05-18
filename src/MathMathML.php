@@ -351,7 +351,7 @@ class MathMathML extends MathRenderer {
 	 * @return Title|string
 	 */
 	private function getFallbackImageUrl( $noRender = false ) {
-		if ( $this->svgPath ) {
+		if ( 'mathml' == $this->getMode() && $this->svgPath ) {
 			return $this->svgPath;
 		}
 		return SpecialPage::getTitleFor( 'MathShowImage' )->getLocalURL( [
@@ -399,7 +399,7 @@ class MathMathML extends MathRenderer {
 	 * is false the class name will be calculated by getClassName
 	 * @return string XML the image html tag
 	 */
-	private function getFallbackImage( $noRender = false, $classOverride = false ) {
+	protected function getFallbackImage( $noRender = false, $classOverride = false ) {
 		$attribs = [
 			'src' => $this->getFallbackImageUrl( $noRender )
 		];
