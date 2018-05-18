@@ -31,7 +31,8 @@
 		"MathValidator": "src/MathValidator.php",
 		"MathFormatter": "src/MathFormatter.php",
 		"MathWikidataHook": "src/MathWikidataHook.php",
-		"MathMLRdfBuilder": "src/MathMLRdfBuilder.php"
+		"MathMLRdfBuilder": "src/MathMLRdfBuilder.php",
+		"MathPng": "src/MathPng.php"
 	},
 	"DefaultUserOptions": {
 		"math": "mathml"
