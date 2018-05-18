@@ -125,7 +125,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$t = new Title( "test" );
 		$res = $p->parse( '[[test|<math forcemathmode="png">a+b</math>]]', $t, $po )->getText();
 		$this->assertContains( '</a>', $res );
-		$this->assertContains( '.png', $res );
+		$this->assertContains( 'png', $res );
 	}
 
 	/**
