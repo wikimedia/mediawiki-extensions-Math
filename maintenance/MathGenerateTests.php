@@ -78,8 +78,12 @@ class MathGenerateTests extends Maintenance {
 		$i = 0;
 		foreach ( array_slice( $allEquations, $offset, $length, true ) as $input ) {
 			$output = MathRenderer::renderMath( $input[1], $input[2], 'png' );
-			$output = preg_replace( '#src="(.*?)/(([a-f]|\d)*).png"#', 'src="\2.png"', $output );
-			$parserTests[] = [ (string)$input[1], $output ];
+			$output = preg_replace( '#src="(.*?)/(([a-f]|\d)*)"#', 'src="\2"', $output );
+			$parserTests[] = [
+				'input' => (string)$input[1],
+				'params' => $input[2],
+				'output' => $output
+			];
 			$i++;
 			echo '.';
 		}

@@ -71,27 +71,27 @@ class MathCoverageTest extends MediaWikiTestCase {
 	 * Compares each the rendering result of each input with the expected output.
 	 * @dataProvider provideCoverage
 	 */
-	public function testCoverage( $input, $output ) {
+	public function testCoverage( $input, $options, $output ) {
 		// TODO: Make rendering mode configurable
 		// TODO: Provide test-ids
 		// TODO: Link to the wikipage that contains the reference rendering
 		$this->assertEquals(
 			$this->normalize( $output ),
-			$this->normalize( MathRenderer::renderMath( $input, [], 'png' ) ),
-			"Failed to render $input"
+			$this->normalize( MathRenderer::renderMath( $input, $options, 'png' ) ),
+			"Failed to render ${input}"
 		);
 	}
 
 	/**
 	 * Gets the test-data from the file ParserTest.json
-	 * @return string[] [ $input, $output ] where $input is the test input string
+	 * @return array where $input is the test input string
 	 * and $output is the rendered html5-output string
 	 */
 	public function provideCoverage() {
-		return json_decode( file_get_contents( __DIR__ . '/ParserTest.json' ) );
+		return json_decode( file_get_contents( __DIR__ . '/ParserTest.json' ), true );
 	}
 
 	private function normalize( $input ) {
-		return preg_replace( '#src="(.*?)/(([a-f]|\d)*).png"#', 'src="\2.png"', $input );
+		return preg_replace( '#src="(.*?)/(([a-f]|\d)*)"#', 'src="\2"', $input );
 	}
 }

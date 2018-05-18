@@ -15,6 +15,7 @@ class MathMathML extends MathRenderer {
 
 	protected $defaultAllowedRootElements = [ 'math' ];
 	protected $restbaseInputTypes = [ 'tex', 'inline-tex', 'chem' ];
+	protected $restbaseRenderingModes = [ 'mathml', 'png' ];
 	protected $allowedRootElements = [];
 	protected $hosts;
 
@@ -25,6 +26,9 @@ class MathMathML extends MathRenderer {
 	 * @var string|bool
 	 */
 	private $svgPath = false;
+
+	/** @var string|bool */
+	private $pngPath = false;
 
 	private $mathoidStyle;
 
@@ -104,7 +108,7 @@ class MathMathML extends MathRenderer {
 				$this->setPurge( true );
 			}
 			if ( in_array( $this->inputType, $this->restbaseInputTypes ) &&
-				$this->mode == 'mathml'
+				 in_array( $this->mode, $this->restbaseRenderingModes )
 			) {
 				if ( !$this->rbi ) {
 					$this->rbi =
@@ -116,6 +120,7 @@ class MathMathML extends MathRenderer {
 					$this->mathml = $rbi->getMathML();
 					$this->mathoidStyle = $rbi->getMathoidStyle();
 					$this->svgPath = $rbi->getFullSvgUrl();
+					$this->pngPath = $rbi->getFullPngUrl();
 				} elseif ( $this->lastError === '' ) {
 					$this->doCheck();
 				}
@@ -351,6 +356,9 @@ class MathMathML extends MathRenderer {
 	 * @return Title|string
 	 */
 	private function getFallbackImageUrl( $noRender = false ) {
+		if ( 'png' === $this->getMode() && $this->pngPath ) {
+			return $this->pngPath;
+		}
 		if ( $this->svgPath ) {
 			return $this->svgPath;
 		}
@@ -399,7 +407,7 @@ class MathMathML extends MathRenderer {
 	 * is false the class name will be calculated by getClassName
 	 * @return string XML the image html tag
 	 */
-	private function getFallbackImage( $noRender = false, $classOverride = false ) {
+	protected function getFallbackImage( $noRender = false, $classOverride = false ) {
 		$attribs = [
 			'src' => $this->getFallbackImageUrl( $noRender )
 		];
