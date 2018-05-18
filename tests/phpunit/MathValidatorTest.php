@@ -38,7 +38,7 @@ class MathValidatorTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @expectedException ValueFormatters\Exceptions\MismatchingDataValueTypeException
+	 * @expectedException InvalidArgumentException
 	 */
 	public function testNotStringValue() {
 		$validator = new MathValidator();
@@ -46,7 +46,7 @@ class MathValidatorTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @expectedException ValueFormatters\Exceptions\MismatchingDataValueTypeException
+	 * @expectedException InvalidArgumentException
 	 */
 	public function testNullValue() {
 		$validator = new MathValidator();
