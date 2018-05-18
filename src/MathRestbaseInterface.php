@@ -294,6 +294,16 @@ class MathRestbaseInterface {
 	}
 
 	/**
+	 * Gets a publicly accessible link to the generated SVG image.
+	 * @return string
+	 * @throws MWException
+	 */
+	public function getFullpngUrl() {
+		$this->calculateHash();
+		return $this->getUrl( "media/math/render/png/{$this->hash}", false );
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getCheckedTex() {

@@ -24,74 +24,36 @@
  * @license GPL-2.0-or-later
  */
 class MathCoverageTest extends MediaWikiTestCase {
-	protected static $hasTexvc;
-	protected static $texvcPath;
-
-	public static function setUpBeforeClass() {
-		global $wgTexvc;
-
-		if ( is_executable( $wgTexvc ) ) {
-			wfDebugLog( __CLASS__, " using build in texvc from "
-				. "\$wgMathTexvcCheckExecutable = $wgTexvc" );
-			# Using build-in
-			self::$hasTexvc = true;
-			self::$texvcPath = $wgTexvc;
-		} else {
-			# Attempt to compile
-			wfDebugLog( __CLASS__, " compiling texvc..." );
-			$cmd = 'cd ' . dirname( __DIR__ ) . '/math; make --always-make 2>&1';
-			wfShellExec( $cmd, $retval );
-			if ( $retval === 0 ) {
-				self::$hasTexvc = true;
-				self::$texvcPath = dirname( __DIR__ ) . '/math/texvc';
-				wfDebugLog( __CLASS__, ' compiled texvc at ' . self::$texvcPath );
-			} else {
-				wfDebugLog( __CLASS__, ' ocaml not available or compilation of texvc failed' );
-			}
-		}
-	}
-
-	/**
-	 * Sets up the fixture, for example, opens a network connection.
-	 * This method is called before a test is executed.
-	 */
-	protected function setUp() {
-		parent::setUp();
-
-		if ( ! self::$hasTexvc ) {
-			$this->markTestSkipped( "No texvc installed on server" );
-		} else {
-			$this->setMwGlobals( 'wgTexvc',
-				self::$texvcPath );
-		}
-	}
 
 	/**
 	 * Loops over all test cases provided by the provider function.
 	 * Compares each the rendering result of each input with the expected output.
 	 * @dataProvider provideCoverage
 	 */
-	public function testCoverage( $input, $output ) {
+	public function testCoverage( $input, $options, $output ) {
 		// TODO: Make rendering mode configurable
 		// TODO: Provide test-ids
 		// TODO: Link to the wikipage that contains the reference rendering
 		$this->assertEquals(
 			$this->normalize( $output ),
-			$this->normalize( MathRenderer::renderMath( $input, [], 'png' ) ),
-			"Failed to render $input"
+			$this->normalize( MathRenderer::renderMath( $input, $options, 'png' ) ),
+			"Failed to render ${input}"
 		);
 	}
 
 	/**
 	 * Gets the test-data from the file ParserTest.json
-	 * @return string[] [ $input, $output ] where $input is the test input string
+	 * @return array where $input is the test input string
 	 * and $output is the rendered html5-output string
 	 */
 	public function provideCoverage() {
-		return json_decode( file_get_contents( __DIR__ . '/ParserTest.json' ) );
+		$testcases = json_decode( file_get_contents( __DIR__ . '/../ParserTest.json' ), true );
+		// uncomment for fast testing
+		// $testcases = array_slice($testcases,0,3);
+		return $testcases;
 	}
 
 	private function normalize( $input ) {
-		return preg_replace( '#src="(.*?)/(([a-f]|\d)*).png"#', 'src="\2.png"', $input );
+		return preg_replace( '#src="(.*?)/(([a-f]|\d)*)"#', 'src="\2"', $input );
 	}
 }

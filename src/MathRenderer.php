@@ -167,7 +167,7 @@ abstract class MathRenderer {
 				$renderer = new MathSource( $tex, $params );
 				break;
 			case 'png':
-				$renderer = new MathTexvc( $tex, $params );
+				$renderer = new MathPng( $tex, $params );
 				break;
 			case 'latexml':
 				$renderer = new MathLaTeXML( $tex, $params );
