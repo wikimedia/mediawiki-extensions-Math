@@ -1,26 +1,28 @@
 <?php
 
 use DataValues\StringValue;
-use ValueFormatters\Exceptions\MismatchingDataValueTypeException;
 use ValueValidators\Error;
 use ValueValidators\Result;
 use ValueValidators\ValueValidator;
 
-// @author Duc Linh Tran, Julian Hilbig, Moritz Schubotz
-
+/**
+ * @author Duc Linh Tran
+ * @author Julian Hilbig
+ * @author Moritz Schubotz
+ */
 class MathValidator implements ValueValidator {
 
 	/**
 	 * Validates a value with MathInputCheckRestbase
 	 *
-	 * @param mixed $value The value to validate
+	 * @param StringValue $value The value to validate
 	 *
 	 * @return \ValueValidators\Result
-	 * @throws ValueFormatters\Exceptions\MismatchingDataValueTypeException
+	 * @throws InvalidArgumentException if not called with a StringValue
 	 */
 	public function validate( $value ) {
 		if ( !( $value instanceof StringValue ) ) {
-			throw new MismatchingDataValueTypeException( 'StringValue', get_class( $value ) );
+			throw new InvalidArgumentException( '$value must be a StringValue' );
 		}
 
 		// get input String from value
