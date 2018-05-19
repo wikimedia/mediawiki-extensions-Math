@@ -317,19 +317,8 @@ class MathHooks {
 	 * @return bool
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
-		if ( is_null( $updater ) ) {
-			throw new Exception( 'Math extension is only necessary in 1.18 or above' );
-		}
-
-		$map = [ 'mysql', 'sqlite', 'postgres', 'oracle', 'mssql' ];
-
 		$type = $updater->getDB()->getType();
 
-		if ( !in_array( $type, $map ) ) {
-			throw new Exception( "Math extension does not currently support $type database." );
-		}
-		$sql = __DIR__ . '/../db/math.' . $type . '.sql';
-		$updater->addExtensionTable( 'math', $sql );
 		if ( in_array( 'latexml', MathRenderer::getValidModes() ) ) {
 			if ( in_array( $type, [ 'mysql', 'sqlite', 'postgres' ] ) ) {
 				$sql = __DIR__ . '/../db/mathlatexml.' . $type . '.sql';
