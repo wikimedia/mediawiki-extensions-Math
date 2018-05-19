@@ -90,17 +90,4 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 		$this->assertEquals( $this->GoodObject->getValidTex(), '\\sin \\left({\\frac {1}{2}}x\\right)' );
 	}
 
-	/**
-	 * Test corner cases of texvccheck conversion
-	 * @covers MathInputCheckTexvc::getValidTex
-	 */
-	public function testGetValidTexCornerCases() {
-		$Object = new MathInputCheckTexvc( '\reals' );
-		$Object->isValid();
-		$this->assertEquals( "\\mathbb{R} ", $Object->getValidTex() );
-		$Object = new MathInputCheckTexvc( '\lbrack' ); // Bug: 54624
-		$Object->isValid();
-		$this->assertEquals( '\\lbrack ', $Object->getValidTex() );
-	}
-
 }
