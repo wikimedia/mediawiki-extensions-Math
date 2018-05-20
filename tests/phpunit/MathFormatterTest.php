@@ -65,6 +65,16 @@ class MathFormatterTest extends MediaWikiTestCase {
 		$this->assertContains( '</math>', $resultFormat );
 	}
 
+	/**
+	 * @covers MathFormatter::format
+	 */
+	public function testUnknownFormatFailure() {
+		$formatter = new MathFormatter( 'unknown/unknown' );
+		$value = new StringValue( '\noTex' );
+		$resultFormat = $formatter->format( $value );
+		$this->assertContains( 'unknown function', $resultFormat );
+	}
+
 	public function testFormatPlain() {
 		$formatter = new MathFormatter( SnakFormatter::FORMAT_PLAIN );
 		$value = new StringValue( self::SOME_TEX );
