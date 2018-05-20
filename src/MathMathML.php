@@ -38,13 +38,12 @@ class MathMathML extends MathRenderer {
 		$this->setMode( 'mathml' );
 		$this->hosts = $wgMathMathMLUrl;
 		if ( isset( $params['type'] ) ) {
+			$allowedTypes = [ 'pmml', 'ascii', 'chem' ];
+			if ( in_array( $params['type'], $allowedTypes ) ) {
+				$this->inputType = $params['type'];
+			}
 			if ( $params['type'] == 'pmml' ) {
-				$this->inputType = 'pmml';
 				$this->setMathml( '<math>' . $tex . '</math>' );
-			} elseif ( $params['type'] == 'ascii' ) {
-				$this->inputType = 'ascii';
-			} elseif ( $params['type'] == 'chem' ) {
-				$this->inputType = 'chem';
 			}
 		}
 		if ( !isset( $params['display'] ) && $this->getMathStyle() == 'inlineDisplaystyle' ) {
@@ -194,7 +193,7 @@ class MathMathML extends MathRenderer {
 		$error = '';
 		$res = null;
 		if ( !$host ) {
-			$host = self::pickHost();
+			$host = $this->pickHost();
 		}
 		if ( !$post ) {
 			$this->getPostData();
@@ -237,10 +236,11 @@ class MathMathML extends MathRenderer {
 	 * If more than one demon is available, one is chosen at random.
 	 *
 	 * @return string
+	 * @deprecated
 	 */
 	protected function pickHost() {
 		if ( is_array( $this->hosts ) ) {
-			$host = array_rand( $this->hosts );
+			$host = $this->hosts[array_rand( $this->hosts )];
 			$this->hosts = $host; // Use the same host for this class instance
 		} else {
 			$host = $this->hosts;
@@ -278,7 +278,7 @@ class MathMathML extends MathRenderer {
 			return false;
 		}
 		$res = '';
-		$host = self::pickHost();
+		$host = $this->pickHost();
 		$post = $this->getPostData();
 		$this->lastError = '';
 		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
@@ -337,15 +337,11 @@ class MathMathML extends MathRenderer {
 		} else {
 			$name = $xmlObject->getRootElement();
 			$elementSplit = explode( ':', $name );
-			if ( is_array( $elementSplit ) ) {
-				$localName = end( $elementSplit );
-			} else {
-				$localName = $name;
-			}
+			$localName = end( $elementSplit );
 			if ( in_array( $localName, $this->getAllowedRootElements() ) ) {
 				$out = true;
 			} else {
-				LoggerFactory::getInstance( 'Math' )->error( "Got wrong root element : $name" );
+				LoggerFactory::getInstance( 'Math' )->error( "Got wrong root element: $name" );
 			}
 		}
 		return $out;
