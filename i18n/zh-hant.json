@@ -63,5 +63,5 @@
 	"mw_math_png": "PNG 圖片",
 	"mw_math_source": "LaTeX 原始碼 (供文字瀏覽器使用)",
 	"prefs-math": "數學公式",
-	"mathstatus": "公式生成器狀態"
+	"mathstatus": "數學狀態"
 }
