@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "21d25c59_b1d314d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2018-05-21T08:39:19Z",
+      "side": 1,
+      "message": "Add also the bug number for reference.",
+      "revId": "af753e362c8397b227054b8f95e2aa431fbbc266",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55c62955_e381b6f5",
         "filename": "src/MathRestbaseInterface.php",
         "patchSetId": 8
