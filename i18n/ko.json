@@ -86,5 +86,6 @@
 	"prefs-math": "수식",
 	"mathstatus": "수식 상태",
 	"datatypes-type-math": "수식",
-	"wikibase-listdatatypes-math-head": "수식"
+	"wikibase-listdatatypes-math-head": "수식",
+	"wikibase-listdatatypes-math-body": "수식, 공식, 등호 등에 대한 리터럴 데이터 필드이며 LaTeX로 표현합니다."
 }
