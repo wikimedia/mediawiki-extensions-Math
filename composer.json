@@ -1,4 +1,9 @@
 {
+	"name": "mediawiki/math",
+	"type": "mediawiki-extension",
+	"description": "The Math extension provides support for rendering mathematical formulae.",
+	"homepage": "https://www.mediawiki.org/wiki/Extension:Math",
+	"license": "GPL-2.0+",
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "1.0.0",
 		"mediawiki/mediawiki-codesniffer": "18.0.0",
