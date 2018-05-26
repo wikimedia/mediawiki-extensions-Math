@@ -16,7 +16,7 @@ class MathInputCheckRestbase extends MathInputCheck {
 	 * (performs no checking)
 	 * @param string $tex the TeX input string to be checked
 	 * @param string $type
-	 * @param MathRestbaseInterface &$ref
+	 * @param MathRestbaseInterface|null &$ref
 	 */
 	public function __construct( $tex = '', $type = 'tex', &$ref = null ) {
 		parent::__construct( $tex );
@@ -31,7 +31,7 @@ class MathInputCheckRestbase extends MathInputCheck {
 	/**
 	 * @see https://phabricator.wikimedia.org/T119300
 	 * @param stdClass $e
-	 * @param MathRenderer $errorRenderer
+	 * @param MathRenderer|null $errorRenderer
 	 * @return string
 	 */
 	public function errorObjectToHtml( stdClass $e, $errorRenderer = null ) {
