@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "56bc4680_92b7e3cf",
+        "filename": "tests/phpunit/MathPngTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-05-29T15:14:30Z",
+      "side": 1,
+      "message": "Function-level @covers are meant to *reduce* accidental coverage. With this, the coverage this particular test creates will only be counted for the functions named in the @covers tags.\n\nWithout function-level @covers, the class-level @covers above will kick in and count all code in the class that is executed while this test runs.\n\nThe counters for methods and classes you see in the end are calculated from the line coverage, but not directly influenced by @covers tags.\n\nHere in this particular case it does not make a difference.",
+      "parentUuid": "8a45c67c_68a3542e",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "c61217b7e8dcb6bb5070c8f070adb109aad63902",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7aaf0b54_53f8367b",
         "filename": "tests/phpunit/MathPngTest.php",
         "patchSetId": 2
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "I like your proposal. However, I have the feeling that it would be better to create a ticket for that.\n\nWould you agree?\nAnd what does LSP mean? I guess nothing from https://en.wikipedia.org/wiki/LSP",
       "parentUuid": "7aaf0b54_53f8367b",
+      "range": {
+        "startLine": 21,
+        "startChar": 48,
+        "endLine": 21,
+        "endChar": 64
+      },
+      "revId": "c61217b7e8dcb6bb5070c8f070adb109aad63902",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b73803b_9b62ff69",
+        "filename": "tests/phpunit/MathPngTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-05-29T15:14:30Z",
+      "side": 1,
+      "message": "I meant https://en.wikipedia.org/wiki/Liskov_substitution_principle, but I think I was wrong and it does not apply here.\n\nSure, most of this was not meant as an edit request for this patch, but possible later steps. Let me try to rephrase my actual edit request: Can you please replace this \"expects once\" with an assertion that checks the actual output of the getHtmlOutput() call?",
+      "parentUuid": "391f2389_f5475ce2",
       "range": {
         "startLine": 21,
         "startChar": 48,
