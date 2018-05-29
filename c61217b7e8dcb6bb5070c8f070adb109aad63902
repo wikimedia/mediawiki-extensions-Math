@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d57b778e_ce0d28a1",
+        "filename": "tests/phpunit/MathPngTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-05-29T11:21:17Z",
+      "side": 1,
+      "message": "With the @covers above this additional one is not really needed, but doesn\u0027t hurt.",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "c61217b7e8dcb6bb5070c8f070adb109aad63902",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aaf0b54_53f8367b",
+        "filename": "tests/phpunit/MathPngTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-05-29T11:21:17Z",
+      "side": 1,
+      "message": "Hm. I think this here is more an implementation detail. Lets see: What is the MathPng class actually supposed to do? Or to be more precise: What is the difference between using MathPng and using MathMathML directly? I think the only relevant assertion is if MathPng::getHtmlOutput returns a PNG image. It should not matter how it achieves this.\n\nI suggest to plan for a refactoring like this:\n* First, introduce one or a few interfaces in addition to MathRenderer, which currently is an abstract base class. Let each interface fulfill one very specific purpose.\n* Let all code use one of these interfaces, instead of the abstract MathRenderer. Basically: make sure no code expects a MathRenderer subclass any more.\n* If this is done, you can refactor the MathPng to be a facade, instead of a subclass that overrides certain aspects of it\u0027s baseclass (and by that violates LSP).\n\nA dependency on a getFallbackImage call is not relevant at any point.",
+      "range": {
+        "startLine": 21,
+        "startChar": 48,
+        "endLine": 21,
+        "endChar": 64
+      },
+      "revId": "c61217b7e8dcb6bb5070c8f070adb109aad63902",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
