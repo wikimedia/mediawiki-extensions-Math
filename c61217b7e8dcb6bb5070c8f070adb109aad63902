@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "9cd72adb_31c369af",
+        "filename": "tests/phpunit/MathPngTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-05-29T16:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56bc4680_92b7e3cf",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "c61217b7e8dcb6bb5070c8f070adb109aad63902",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7aaf0b54_53f8367b",
         "filename": "tests/phpunit/MathPngTest.php",
         "patchSetId": 2
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I meant https://en.wikipedia.org/wiki/Liskov_substitution_principle, but I think I was wrong and it does not apply here.\n\nSure, most of this was not meant as an edit request for this patch, but possible later steps. Let me try to rephrase my actual edit request: Can you please replace this \"expects once\" with an assertion that checks the actual output of the getHtmlOutput() call?",
       "parentUuid": "391f2389_f5475ce2",
+      "range": {
+        "startLine": 21,
+        "startChar": 48,
+        "endLine": 21,
+        "endChar": 64
+      },
+      "revId": "c61217b7e8dcb6bb5070c8f070adb109aad63902",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "770ccc3c_d6e52675",
+        "filename": "tests/phpunit/MathPngTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-05-29T16:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b73803b_9b62ff69",
       "range": {
         "startLine": 21,
         "startChar": 48,
