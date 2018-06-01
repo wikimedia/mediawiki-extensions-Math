@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cgboeree"
+			"Cgboeree",
+			"Mafcadio"
 		]
 	},
 	"math_sample": "Introdui formula asi",
 	"math_tip": "Formula matematical (LaTeX)",
-	"prefs-math": "Matematica"
+	"prefs-math": "Matematica",
+	"mathstatus": "State de matematica"
 }
