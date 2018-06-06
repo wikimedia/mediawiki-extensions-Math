@@ -94,5 +94,5 @@ class MathGenerateTests extends Maintenance {
 	}
 }
 
-$maintClass = 'MathGenerateTests';
+$maintClass = MathGenerateTests::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

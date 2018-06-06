@@ -23,7 +23,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	 * @return ReflectionMethod
 	 */
 	protected static function getMethod( $name ) {
-		$class = new ReflectionClass( 'MathLaTeXML' );
+		$class = new ReflectionClass( MathLaTeXML::class );
 		$method = $class->getMethod( $name );
 		$method->setAccessible( true );
 		return $method;

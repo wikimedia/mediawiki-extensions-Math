@@ -171,10 +171,10 @@ class MathHooks {
 	 * @return bool true
 	 */
 	static function onParserFirstCallInit( $parser ) {
-		$parser->setHook( 'math', [ 'MathHooks', 'mathTagHook' ] );
+		$parser->setHook( 'math', [ self::class, 'mathTagHook' ] );
 		// @deprecated the ce tag is deprecated in favour of chem cf. T153606
-		$parser->setHook( 'ce', [ 'MathHooks', 'chemTagHook' ] );
-		$parser->setHook( 'chem', [ 'MathHooks', 'chemTagHook' ] );
+		$parser->setHook( 'ce', [ self::class, 'chemTagHook' ] );
+		$parser->setHook( 'chem', [ self::class, 'chemTagHook' ] );
 
 		return true;
 	}
@@ -373,7 +373,7 @@ class MathHooks {
 			MathMathML::batchEvaluate( self::$tags );
 		}
 		foreach ( self::$tags as $key => $tag ) {
-			$value = call_user_func_array( [ "MathHooks", "mathPostTagHook" ], $tag );
+			$value = call_user_func_array( [ self::class, 'mathPostTagHook' ], $tag );
 			// Workaround for https://phabricator.wikimedia.org/T103269
 			$text = preg_replace( '/(<mw:editsection[^>]*>.*?)' . preg_quote( $key ) .
 				'(.*?)<\/mw:editsection>/',

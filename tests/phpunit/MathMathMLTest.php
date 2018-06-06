@@ -65,12 +65,14 @@ class MathMathMLTest extends MediaWikiTestCase {
 		self::setMockValues( false, false, false );
 		$url = 'http://example.com/invalid';
 
-		$renderer = $this->getMockBuilder( 'MathMathML' )
+		$renderer = $this->getMockBuilder( MathMathML::class )
 				->setMethods( null )
 				->disableOriginalConstructor()
 				->getMock();
+
+		/** @var MathMathML $renderer */
 		$requestReturn = $renderer->makeRequest( $url, 'a+b', $res, $error,
-			'MathMLHttpRequestTester' );
+			MathMLHttpRequestTester::class );
 		$this->assertEquals( false, $requestReturn,
 			"requestReturn is false if HTTP::post returns false." );
 		$this->assertEquals( false, $res,
@@ -89,13 +91,14 @@ class MathMathMLTest extends MediaWikiTestCase {
 		self::setMockValues( true, true, false );
 		self::$content = 'test content';
 		$url = 'http://example.com/valid';
-		/** @var MathMathML */
-		$renderer = $this->getMockBuilder( 'MathMathML' )
+		$renderer = $this->getMockBuilder( MathMathML::class )
 				->setMethods( null )
 				->disableOriginalConstructor()
 				->getMock();
+
+		/** @var MathMathML $renderer */
 		$requestReturn = $renderer->makeRequest( $url, 'a+b', $res, $error,
-			'MathMLHttpRequestTester' );
+			MathMLHttpRequestTester::class );
 		$this->assertEquals( true, $requestReturn, "successful call return" );
 		$this->assertEquals( 'test content', $res, 'successful call' );
 		$this->assertEquals( $error, '', "successful call error-message" );
@@ -109,12 +112,14 @@ class MathMathMLTest extends MediaWikiTestCase {
 	public function testMakeRequestTimeout() {
 		self::setMockValues( false, true, true );
 		$url = 'http://example.com/timeout';
-		$renderer = $this->getMockBuilder( 'MathMathML' )
+		$renderer = $this->getMockBuilder( MathMathML::class )
 				->setMethods( null )
 				->disableOriginalConstructor()
 				->getMock();
+
+		/** @var MathMathML $renderer */
 		$requestReturn = $renderer->makeRequest(
-			$url, '$\longcommand$', $res, $error, 'MathMLHttpRequestTester'
+			$url, '$\longcommand$', $res, $error, MathMLHttpRequestTester::class
 		);
 		$this->assertEquals( false, $requestReturn, "timeout call return" );
 		$this->assertEquals( false, $res, "timeout call return" );
@@ -130,12 +135,14 @@ class MathMathMLTest extends MediaWikiTestCase {
 	public function testMakeRequestGetPostData() {
 		self::setMockValues( false, true, true );
 		$url = 'http://example.com/timeout';
-		$renderer = $this->getMockBuilder( 'MathMathML' )
+		$renderer = $this->getMockBuilder( MathMathML::class )
 			->setMethods( [ 'getPostData' ] )
 			->disableOriginalConstructor()
 			->getMock();
 		$renderer->expects( $this->once() )->method( 'getPostData' );
-		$renderer->makeRequest( $url, false, $res, $error, 'MathMLHttpRequestTester' );
+
+		/** @var MathMathML $renderer */
+		$renderer->makeRequest( $url, false, $res, $error, MathMLHttpRequestTester::class );
 	}
 
 	/**
@@ -146,12 +153,14 @@ class MathMathMLTest extends MediaWikiTestCase {
 	public function testMakeRequestGetHost() {
 		self::setMockValues( false, true, true );
 		$url = 'http://example.com/timeout';
-		$renderer = $this->getMockBuilder( 'MathMathML' )
+		$renderer = $this->getMockBuilder( MathMathML::class )
 			->setMethods( [ 'getPostData', 'pickHost' ] )
 			->disableOriginalConstructor()
 			->getMock();
 		$renderer->expects( $this->once() )->method( 'pickHost' );
-		$renderer->makeRequest( false, false, $res, $error, 'MathMLHttpRequestTester' );
+
+		/** @var MathMathML $renderer */
+		$renderer->makeRequest( false, false, $res, $error, MathMLHttpRequestTester::class );
 	}
 
 	/**
@@ -159,7 +168,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	 * @covers MathMathML::isValidMathML
 	 */
 	public function testisValidMathML() {
-		$renderer = $this->getMockBuilder( 'MathMathML' )
+		$renderer = $this->getMockBuilder( MathMathML::class )
 				->setMethods( null )
 				->disableOriginalConstructor()
 				->getMock();
@@ -175,7 +184,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	 * @covers MathMathML::isValidMathML
 	 */
 	public function testInvalidXml() {
-		$renderer = $this->getMockBuilder( 'MathMathML' )
+		$renderer = $this->getMockBuilder( MathMathML::class )
 			->setMethods( null )
 			->disableOriginalConstructor()
 			->getMock();
@@ -213,7 +222,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	public function testPickHost() {
 		$hosts = [ 'a', 'b', 'c' ];
 		$this->setMwGlobals( 'wgMathMathMLUrl', $hosts );
-		$class = new ReflectionClass( 'MathMathML' );
+		$class = new ReflectionClass( MathMathML::class );
 		$method = $class->getMethod( 'pickHost' );
 		$method->setAccessible( true );
 		srand( 0 ); // Make array_rand always return the same elements
@@ -239,7 +248,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 class MathMLHttpRequestTester {
 
 	public static function factory() {
-		return new MathMLHttpRequestTester();
+		return new self();
 	}
 
 	public static function execute() {

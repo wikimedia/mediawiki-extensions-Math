@@ -12,7 +12,7 @@ class MathInputCheckTest extends MediaWikiTestCase {
 	 * @covers MathInputCheck::isValid
 	 */
 	public function testIsValid() {
-		$InputCheck = $this->getMockBuilder( 'MathInputCheck' )->getMock();
+		$InputCheck = $this->getMockBuilder( MathInputCheck::class )->getMock();
 		$this->assertEquals( $InputCheck->IsValid(), false );
 	}
 
@@ -21,7 +21,7 @@ class MathInputCheckTest extends MediaWikiTestCase {
 	 * @todo   Implement testGetError().
 	 */
 	public function testGetError() {
-		$InputCheck = $this->getMockBuilder( 'MathInputCheck' )->getMock();
+		$InputCheck = $this->getMockBuilder( MathInputCheck::class )->getMock();
 		$this->assertNull( $InputCheck->getError() );
 	}
 
@@ -29,7 +29,7 @@ class MathInputCheckTest extends MediaWikiTestCase {
 	 * @covers MathInputCheck::getValidTex
 	 */
 	public function testGetValidTex() {
-		$InputCheck = $this->getMockBuilder( 'MathInputCheck' )
+		$InputCheck = $this->getMockBuilder( MathInputCheck::class )
 			->setConstructorArgs( [ 'some tex input' ] )
 			->getMock();
 		$this->assertNull( $InputCheck->getValidTex() );
