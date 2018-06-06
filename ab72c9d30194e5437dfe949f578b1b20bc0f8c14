@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ff321fd_881aebe3",
+        "filename": "tests/phpunit/MathPngTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-06-06T10:06:56Z",
+      "side": 1,
+      "message": "Other tests don\u0027t use namespaces. Thus I\u0027ll remove the \\ for consistency.",
+      "revId": "ab72c9d30194e5437dfe949f578b1b20bc0f8c14",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a333b1d_f1107479",
+        "filename": "tests/phpunit/MathPngTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-06-06T10:06:56Z",
+      "side": 1,
+      "message": "Here your solution is better since it allows for refactoring without searching in string constants.",
+      "revId": "ab72c9d30194e5437dfe949f578b1b20bc0f8c14",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb8ad9d9_ef2619a0",
+        "filename": "tests/phpunit/MathPngTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-06-06T10:06:56Z",
+      "side": 1,
+      "message": "This is interesting. A coding convention would help for future refactoring here.",
+      "revId": "ab72c9d30194e5437dfe949f578b1b20bc0f8c14",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a425aa78_b1c5cdf1",
+        "filename": "tests/phpunit/MathPngTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-06-06T10:06:56Z",
+      "side": 1,
+      "message": "Also, your solution is better since it follows the \u003d\u003d -\u003e \u003d\u003d\u003d idea.",
+      "revId": "ab72c9d30194e5437dfe949f578b1b20bc0f8c14",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
