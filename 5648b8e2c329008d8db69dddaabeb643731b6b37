@@ -33,6 +33,24 @@
       "revId": "5648b8e2c329008d8db69dddaabeb643731b6b37",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2ec006b_f0ad4bea",
+        "filename": "tests/phpunit/MathMathMLTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-06-06T12:38:30Z",
+      "side": 1,
+      "message": "Good type-safety in a codebase is something I care about. This is why I started touching the incomplete @var line, and added identical ones to identical code below. However, every of these @var lines comes with (pretty significant) cost: It\u0027s an other line of code separate from the line of code it refers to, it must be maintained, and can become outdated or even obsolete. I don\u0027t think aiming for any \"consistency\" is worth it in this case. The code will be scattered with hundreds of these @var, but most of them don\u0027t give enough advantage to be worth it.\n\nSure, I could have split this into 2 patches. Would it have been worth it? I don\u0027t think so. I do have a lot of experience in creating patches like this, especially splitting them into chunks that are a breeze to review. I guess all I can do at this point is to ask you to trust me, which I think you did by hitting the +2 button.",
+      "parentUuid": "d8e1e3d9_0913dbe7",
+      "revId": "5648b8e2c329008d8db69dddaabeb643731b6b37",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
