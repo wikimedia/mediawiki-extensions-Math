@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6e398d9_8f5b5eb4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-06-06T12:16:33Z",
+      "side": 1,
+      "message": "While I like the well-written explanation, I would instead link to http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.class.class\nwhich states:\n\n\u003e Note:\n\u003e The class name resolution using ::class is a compile time transformation. That means at the time the class name string is created no autoloading has happened yet. As a consequence, class names are expanded even if the class does not exist. No error is issued in that case. \n\nDoing so has two advantages\n1) you save some time\n2) PHP experts can identify the MW specific aspects quicker",
+      "revId": "5648b8e2c329008d8db69dddaabeb643731b6b37",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8e1e3d9_0913dbe7",
+        "filename": "tests/phpunit/MathMathMLTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-06-06T12:16:33Z",
+      "side": 1,
+      "message": "Technically this is an independent change. For the future, I think we will achieve best results if we do refactorings isolated. To change this consistently, we would need to investigate all variables created by the MockBuilder.",
+      "revId": "5648b8e2c329008d8db69dddaabeb643731b6b37",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
