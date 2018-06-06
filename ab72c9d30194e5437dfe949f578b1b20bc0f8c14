@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ccdb0098_fde8613b",
+        "filename": "tests/phpunit/MathPngTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-06-06T10:31:02Z",
+      "side": 1,
+      "message": "It\u0027s good practice to let all @covers start with the top-level backslash. There are tools out there that don\u0027t understand it if the backslash is missing. They think it is a relative path, but it is meant to be absolute.",
+      "parentUuid": "7ff321fd_881aebe3",
+      "revId": "ab72c9d30194e5437dfe949f578b1b20bc0f8c14",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a333b1d_f1107479",
         "filename": "tests/phpunit/MathPngTest.php",
         "patchSetId": 3
