@@ -16,11 +16,9 @@
  * @constructor
  * @param {Object} [config] Configuration options
  */
-
 ve.ui.MWLatexDialog = function VeUiMWLatexDialog( config ) {
 	// Parent constructor
 	ve.ui.MWLatexDialog.super.call( this, config );
-
 };
 
 /* Inheritance */
@@ -289,7 +287,8 @@ ve.ui.MWLatexDialog.prototype.onWindowManagerResize = function () {
 		setTimeout( function () {
 			// Give the input the right number of rows to fit the space
 			availableSpace = dialog.menuLayout.$content.height() - dialog.input.$element.position().top;
-			singleLineHeight = 19;
+			// TODO: Compute this line height from the skin
+			singleLineHeight = 21;
 			maxInputHeight = availableSpace - borderAndPadding;
 			minRows = Math.floor( maxInputHeight / singleLineHeight );
 			dialog.input.loadingPromise.done( function () {
