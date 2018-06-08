@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "891185d0_a1095945",
+        "filename": "modules/ve-math/ve.ui.MWLatexDialog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 366
+      },
+      "writtenOn": "2018-06-08T18:10:54Z",
+      "side": 1,
+      "message": "Ick!",
+      "range": {
+        "startLine": 291,
+        "startChar": 3,
+        "endLine": 291,
+        "endChar": 25
+      },
+      "revId": "7f043788684ae2354970d9b7aef1af9b2806d649",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
