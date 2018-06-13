@@ -5,9 +5,13 @@
 			"Yury Tarasievich",
 			"Macofe",
 			"Mechanizatar",
-			"Artsiom91"
+			"Artsiom91",
+			"Maksim L."
 		]
 	},
+	"math-visualeditor-mwchemdialog-title": "Хімічную формулу",
+	"math-visualeditor-mwcheminspector-title": "Хімічную формулу",
+	"math-visualeditor-mwmathdialog-title": "Матэматычную формулу",
 	"math_bad_output": "Немагчыма запісаць у або стварыць выводны каталог для матэматыкі",
 	"math_bad_tmpdir": "Немагчыма запісаць у або стварыць тымчасовы каталог для матэматыкі",
 	"math_failure": "Не ўдалося разабраць",
