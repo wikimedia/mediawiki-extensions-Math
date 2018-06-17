@@ -3,16 +3,14 @@
 /**
  * Test the TeX source output format.
  *
- * @covers MathRenderer
- *
- * @group Math
+ * @covers MathSource
  *
  * @license GPL-2.0-or-later
  */
 class MathSourceTest extends MediaWikiTestCase {
 
 	/**
-	 * Checks the basic functionallity
+	 * Checks the basic functionality
 	 * i.e. if the span element is generated right.
 	 */
 	public function testBasics() {
@@ -36,4 +34,16 @@ class MathSourceTest extends MediaWikiTestCase {
 		);
 	}
 
+	public function testConstructor() {
+		$renderer = new MathSource( 'a' );
+
+		$this->assertEquals( 'source', $renderer->getMode() );
+	}
+
+	public function testRender() {
+		$renderer = new MathSource( 'a+b' );
+
+		$this->assertTrue( $renderer->render() );
+		$this->assertFalse( $renderer->isChanged() );
+	}
 }
