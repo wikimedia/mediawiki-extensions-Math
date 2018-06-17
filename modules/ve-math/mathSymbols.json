@@ -1181,15 +1181,11 @@
             "insert": "\\And"
         },
         {
-            "insert": "\\or"
-        },
-        {
-            "insert": "\\lor",
-            "duplicate": "\\or"
+            "insert": "\\lor"
         },
         {
             "insert": "\\vee",
-            "duplicate": "\\or"
+            "duplicate": "\\lor"
         },
         {
             "insert": "\\curlyvee"
@@ -1198,15 +1194,11 @@
             "insert": "\\bigvee"
         },
         {
-            "insert": "\\and"
-        },
-        {
-            "insert": "\\land",
-            "duplicate": "\\and"
+            "insert": "\\land"
         },
         {
             "insert": "\\wedge",
-            "duplicate": "\\and"
+            "duplicate": "\\land"
         },
         {
             "insert": "\\curlywedge"
