@@ -585,7 +585,6 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * @global $wgMathDisableTexFilter
 	 * @return bool
 	 */
 	public function checkTeX() {

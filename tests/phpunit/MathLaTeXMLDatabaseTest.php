@@ -19,7 +19,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 
 	/**
 	 * Helper function to test protected/private Methods
-	 * @param $name
+	 * @param string $name
 	 * @return ReflectionMethod
 	 */
 	protected static function getMethod( $name ) {

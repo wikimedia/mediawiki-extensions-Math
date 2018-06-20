@@ -401,7 +401,7 @@ class MathRestbaseInterface {
 	}
 
 	/**
-	 * @param $type
+	 * @param string $type
 	 * @return array
 	 * @throws MWException
 	 */
@@ -421,13 +421,13 @@ class MathRestbaseInterface {
 	}
 
 	/**
-	 * @param $type
-	 * @param $response
-	 * @param $request
-	 * @return mixed
+	 * @param string $type
+	 * @param array $response
+	 * @param array $request
+	 * @return string
 	 * @throws MWException
 	 */
-	private function evaluateContentResponse( $type, $response, $request ) {
+	private function evaluateContentResponse( $type, array $response, array $request ) {
 		if ( $response['code'] === 200 ) {
 			if ( array_key_exists( 'x-mathoid-style', $response['headers'] ) ) {
 				$this->mathoidStyle = $response['headers']['x-mathoid-style'];
