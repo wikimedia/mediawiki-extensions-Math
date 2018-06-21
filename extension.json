@@ -43,6 +43,9 @@
 		"MathAliasNoTranslate": "Math.alias.noTranslate.php"
 	},
 	"Hooks": {
+		"BeforePageDisplay": [
+			"MathHooks::onBeforePageDisplay"
+		],
 		"ParserFirstCallInit": [
 			"MathHooks::onParserFirstCallInit"
 		],
