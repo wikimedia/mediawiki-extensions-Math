@@ -9,7 +9,9 @@ use MediaWiki\Logger\LoggerFactory;
  * @license GPL-2.0-or-later
  */
 class MathLaTeXML extends MathMathML {
+
 	protected $defaultAllowedRootElements = [ 'math', 'div', 'table', 'query' ];
+
 	/** @var String settings for LaTeXML daemon */
 	private $LaTeXMLSettings = '';
 
@@ -19,6 +21,7 @@ class MathLaTeXML extends MathMathML {
 		$this->hosts = $wgMathLaTeXMLUrl;
 		$this->setMode( 'latexml' );
 	}
+
 	/**
 	 * Converts an array with LaTeXML settings to a URL encoded String.
 	 * If the argument is a string the input will be returned.
@@ -29,15 +32,16 @@ class MathLaTeXML extends MathMathML {
 	public function serializeSettings( $array ) {
 		if ( !is_array( $array ) ) {
 			return $array;
-		} else {
-			// removes the [1] [2]... for the unnamed subarrays since LaTeXML
-			// assigns multiple values to one key e.g.
-			// preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty
-			$cgi_string = wfArrayToCgi( $array );
-			$cgi_string = preg_replace( '|\%5B\d+\%5D|', '', $cgi_string );
-			$cgi_string = preg_replace( '|&\d+=|', '&', $cgi_string );
-			return $cgi_string;
 		}
+
+		// removes the [1] [2]... for the unnamed subarrays since LaTeXML
+		// assigns multiple values to one key e.g.
+		// preload=amsmath.sty&preload=amsthm.sty&preload=amstext.sty
+		$cgi_string = wfArrayToCgi( $array );
+		$cgi_string = preg_replace( '|\%5B\d+\%5D|', '', $cgi_string );
+		$cgi_string = preg_replace( '|&\d+=|', '&', $cgi_string );
+
+		return $cgi_string;
 	}
 	/**
 	 * Gets the settings for the LaTeXML daemon.
@@ -48,9 +52,9 @@ class MathLaTeXML extends MathMathML {
 		global $wgMathDefaultLaTeXMLSetting;
 		if ( $this->LaTeXMLSettings ) {
 			return $this->LaTeXMLSettings;
-		} else {
-			return $wgMathDefaultLaTeXMLSetting;
 		}
+
+		return $wgMathDefaultLaTeXMLSetting;
 	}
 
 	/**
@@ -118,32 +122,34 @@ class MathLaTeXML extends MathMathML {
 					Hooks::run( 'MathRenderingResultRetrieved',
 						[ &$renderer, &$jsonResult ] );// Enables debugging of server results
 					return true;
-				} else {
-					// Do not print bad mathml. It's probably too verbose and might
-					// mess up the browser output.
-					$this->lastError = $this->getError( 'math_invalidxml', $this->getModeStr(), $host );
-					LoggerFactory::getInstance( 'Math' )->warning(
-						'LaTeXML InvalidMathML: ' . var_export( [
-							'post' => $post,
-							'host' => $host,
-							'result' => $res
-						], true ) );
-					return false;
 				}
-			} else {
-				$this->lastError = $this->getError( 'math_invalidjson', $this->getModeStr(), $host );
+
+				// Do not print bad mathml. It's probably too verbose and might
+				// mess up the browser output.
+				$this->lastError = $this->getError( 'math_invalidxml', $this->getModeStr(), $host );
 				LoggerFactory::getInstance( 'Math' )->warning(
-					'LaTeXML InvalidJSON:' . var_export( [
+					'LaTeXML InvalidMathML: ' . var_export( [
 						'post' => $post,
 						'host' => $host,
-						'res' => $res
+						'result' => $res
 					], true ) );
+
 				return false;
 			}
-		} else {
-			// Error message has already been set.
+
+			$this->lastError = $this->getError( 'math_invalidjson', $this->getModeStr(), $host );
+			LoggerFactory::getInstance( 'Math' )->warning(
+				'LaTeXML InvalidJSON:' . var_export( [
+					'post' => $post,
+					'host' => $host,
+					'res' => $res
+				], true ) );
+
 			return false;
 		}
+
+		// Error message has already been set.
+		return false;
 	}
 
 	/**
@@ -163,7 +169,7 @@ class MathLaTeXML extends MathMathML {
 	 */
 	public static function embedMathML( $mml, $tagId = '', $attribs = false ) {
 		$mml = str_replace( "\n", " ", $mml );
-		if ( ! $attribs ) {
+		if ( !$attribs ) {
 			$attribs = [ 'class' => 'tex', 'dir' => 'ltr' ];
 			if ( $tagId ) {
 				$attribs['id'] = $tagId;
