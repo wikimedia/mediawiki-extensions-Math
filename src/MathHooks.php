@@ -149,6 +149,22 @@ class MathHooks {
 	}
 
 	/**
+	 * Ensure Math styles and scripts are added to a page where a Math element is rendered
+	 * @param OutputPage &$out current state of page
+	 * @param Skin &$skin to render in
+	 * @return true
+	 */
+	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
+		// If a math element is found in the HTML it may have not been added via a parser hook
+		// so make sure the styles/scripts are loaded, as we do in Skin::getDefaultModules
+		if ( strpos( $out->getHTML(), 'mwe-math-element' ) !== false ) {
+			$out->addModuleStyles( [ 'ext.math.styles' ] );
+			$out->addModules( [ 'ext.math.scripts' ] );
+		}
+		return true;
+	}
+
+	/**
 	 * Set up $wgMathPath and $wgMathDirectory globals if they're not already set.
 	 */
 	static function setup() {
