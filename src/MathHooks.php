@@ -149,6 +149,24 @@ class MathHooks {
 	}
 
 	/**
+	 * Ensure Math styles and scripts are added to a page where a Math element is rendered
+	 * @param OutputPage &$out current state of page
+	 * @param Skin &$skin to render in
+	 * @return true
+	 */
+	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
+		// If a math element is found in the HTML it may have not been added via a parser hook
+		// so make sure the styles/scripts are loaded, as we do in Skin::getDefaultModules
+		// Note just as is the case for other modules that use this mechanism - there will be
+		// false positives if the phrase mwe-math-element appears in the text of a page.
+		if ( strpos( $out->getHTML(), 'mwe-math-element' ) !== false ) {
+			$out->addModuleStyles( [ 'ext.math.styles' ] );
+			$out->addModules( [ 'ext.math.scripts' ] );
+		}
+		return true;
+	}
+
+	/**
 	 * Set up $wgMathPath and $wgMathDirectory globals if they're not already set.
 	 */
 	static function setup() {
@@ -199,9 +217,7 @@ class MathHooks {
 		$parser->getOptions()->optionUsed( 'math' );
 		$renderer = MathRenderer::getRenderer( $content, $attributes, $mode );
 
-		$parser->getOutput()->addModuleStyles( [ 'ext.math.styles' ] );
 		if ( $mode == 'mathml' ) {
-			$parser->getOutput()->addModules( [ 'ext.math.scripts' ] );
 			$marker = Parser::MARKER_PREFIX .
 				'-postMath-' . sprintf( '%08X', $n ++ ) .
 				Parser::MARKER_SUFFIX;
