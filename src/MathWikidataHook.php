@@ -72,9 +72,6 @@ class MathWikidataHook {
 		$dataTypeDefinitions['PT:math'] = [
 			'value-type'                 => 'string',
 			'formatter-factory-callback' => function ( $format, FormatterOptions $options ) {
-				global $wgOut;
-				$wgOut->addModuleStyles( [ 'ext.math.styles' ] );
-				$wgOut->addModules( [ 'ext.math.scripts' ] );
 				return new MathFormatter( $format );
 			},
 		];
