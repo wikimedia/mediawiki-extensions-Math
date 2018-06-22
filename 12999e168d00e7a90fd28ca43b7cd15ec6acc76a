@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b2d1575_cdcd3fd8",
+        "filename": "src/MathHooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-06-22T10:44:44Z",
+      "side": 1,
+      "message": "I find this quite fascinating. This means that the .js file is only loaded when this particular renderer is enabled. The two places in the other file don\u0027t do it like this, but load the .js file unconditionally.\n\nI think this should be made consistent.",
+      "range": {
+        "startLine": 203,
+        "startChar": 2,
+        "endLine": 203,
+        "endChar": 26
+      },
+      "revId": "12999e168d00e7a90fd28ca43b7cd15ec6acc76a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da9d2acf_14707b6c",
+        "filename": "src/MathWikidataHook.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-06-22T10:44:44Z",
+      "side": 1,
+      "message": "The same is done here. I believe both places need to stay consistent, whatever is done to them.",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 49
+      },
+      "revId": "12999e168d00e7a90fd28ca43b7cd15ec6acc76a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
