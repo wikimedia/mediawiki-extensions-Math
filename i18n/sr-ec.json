@@ -8,14 +8,15 @@
 			"Zoranzoki21",
 			"Prevodim",
 			"Acamicamacaraca",
-			"BadDog"
+			"BadDog",
+			"Милан Јелисавчић"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Хемијска формула",
 	"math-visualeditor-mwcheminspector-title": "Хемијска формула",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Брза измена",
 	"math-visualeditor-mwlatexdialog-card-formula": "Формула",
-	"math-visualeditor-mwlatexdialog-card-options": "Подешавања",
+	"math-visualeditor-mwlatexdialog-card-options": "Опције",
 	"math-visualeditor-mwlatexinspector-display": "Приказ",
 	"math-visualeditor-mwlatexinspector-display-block": "Блок",
 	"math-visualeditor-mwlatexinspector-display-default": "Подразумеван",
@@ -78,6 +79,6 @@
 	"mw_math_source": "LaTeX (за текстуалне прегледаче)",
 	"prefs-math": "Математичке формуле",
 	"mathstatus": "Стање приказа математичких формула",
-	"datatypes-type-math": "Математички израз",
-	"wikibase-listdatatypes-math-head": "Математички израз"
+	"datatypes-type-math": "математички израз",
+	"wikibase-listdatatypes-math-head": "математички израз"
 }
