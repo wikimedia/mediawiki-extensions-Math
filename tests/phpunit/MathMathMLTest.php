@@ -238,6 +238,28 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$host3 = $method->invoke( $m2, [] );
 		$this->assertEquals( $h2, $host3 );
 	}
+
+	public function testWarning() {
+		$this->setMwGlobals( "wgMathDisableTexFilter", 'always' );
+		$renderer = new MathMathML();
+		$rbi = $this->getMockBuilder( MathRestbaseInterface::class )
+			->setMethods( [ 'getWarnings', 'getSuccess' ] )
+			->setConstructorArgs( [ 'a+b' ] )
+			->getMock();
+		$rbi->method( 'getWarnings' )->willReturn( [ (object)[ 'type' => 'mhchem-deprecation' ] ] );
+		$rbi->method( 'getSuccess' )->willReturn( true );
+		$renderer->setRestbaseInterface( $rbi );
+		$renderer->render();
+		$parser = $this->getMockBuilder( Parser::class )
+			->setMethods( [ 'addTrackingCategory' ] )
+			->disableOriginalConstructor()
+			->getMock();
+		$parser->method( 'addTrackingCategory' )->willReturn( true );
+		$parser->expects( $this->once() )
+			->method( 'addTrackingCategory' )
+			->with( 'math-tracking-category-mhchem-deprecation' );
+		$renderer->addTrackingCategories( $parser );
+	}
 }
 
 /**
