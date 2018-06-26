@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4a51e994_5c0aeaf5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-06-26T15:32:29Z",
+      "side": 1,
+      "message": "Modules that relate to stuff on the page inserted by the power of wikitext, should be associated with the ParserOutput object during the parser run, not with wgOut (OutputPage).\n\nIf this callback is run during the parser run, why is it using wgOut?\n\nIf this callback is run at a different point, we should instead queue these modules from a point that is triggered by parser, so that it can be stored in ParserOutput.\n\nI do not know if this particular callback is the cause of the associated bug, it seems to me that that bug would be caused by something that *is* using ParserOutput already but is using it wrongly.\n\nThe summary of the bug is that: When we parse the same wikitext on mobile and on desktop domains, the mobile domain ends up loading a math style module, which then somehow ends up in parser cache and used on desktop as well. When triggering the purge/save/parse from desktop it doesn\u0027t get triggered and gets cached, and then doesn\u0027t load it on mobile either.",
+      "parentUuid": "18e18ea2_63eb7b25",
+      "revId": "4b7bd710067f3fe951d041434a2f9e954c5cf542",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d694abed_cbdb1f74",
         "filename": "src/MathHooks.php",
         "patchSetId": 3
