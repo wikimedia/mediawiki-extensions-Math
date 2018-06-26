@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18e18ea2_63eb7b25",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-06-26T05:09:27Z",
+      "side": 1,
+      "message": "Can you be more specific what is unclear. I would feel much better if what we are doing is clear.",
+      "revId": "4b7bd710067f3fe951d041434a2f9e954c5cf542",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d694abed_cbdb1f74",
+        "filename": "src/MathHooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-06-26T05:09:27Z",
+      "side": 1,
+      "message": "1) this might cause false positive on documentation pages that use the string, which is not a big problem but should be documented\n\n2) I think it would be better if we removed https://github.com/wikimedia/mediawiki-extensions-Math/blob/master/src/MathHooks.php#L202 that way there is only one code path that adds the styles and scripts",
+      "revId": "4b7bd710067f3fe951d041434a2f9e954c5cf542",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
