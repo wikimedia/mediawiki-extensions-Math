@@ -51,6 +51,24 @@
       "revId": "4b7bd710067f3fe951d041434a2f9e954c5cf542",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0274f8cf_a16556bc",
+        "filename": "src/MathHooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-06-27T18:47:35Z",
+      "side": 1,
+      "message": "With regards to #1 this is also true for the other modules in the Skin. It\u0027s not a big problem. We\u0027ve had talks of formalising this in the past but we shouldn\u0027t worry about it.",
+      "parentUuid": "d694abed_cbdb1f74",
+      "revId": "4b7bd710067f3fe951d041434a2f9e954c5cf542",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
