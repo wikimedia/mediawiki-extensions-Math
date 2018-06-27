@@ -77,7 +77,7 @@
 	"mw_math_mathml": "MathML са ослањањем на SVG или PNG (препоручљиво за најновије веб-прегледаче)",
 	"mw_math_png": "PNG слике",
 	"mw_math_source": "LaTeX (за текстуалне прегледаче)",
-	"prefs-math": "Математичке формуле",
+	"prefs-math": "Математика",
 	"mathstatus": "Стање приказа математичких формула",
 	"datatypes-type-math": "математички израз",
 	"wikibase-listdatatypes-math-head": "математички израз"

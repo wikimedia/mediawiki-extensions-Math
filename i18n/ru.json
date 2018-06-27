@@ -15,7 +15,8 @@
 			"Macofe",
 			"Redredsonia",
 			"Mailman",
-			"Ole Yves"
+			"Ole Yves",
+			"Stjn"
 		]
 	},
 	"math-desc": "Отображает математические формулы в тегах <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
