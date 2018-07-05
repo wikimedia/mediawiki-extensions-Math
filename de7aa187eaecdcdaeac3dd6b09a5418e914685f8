@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "390b81a7_842a25aa",
+        "filename": "src/MathDataUpdater.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-07-05T22:03:22Z",
+      "side": 1,
+      "message": "when and where is this instantiated?",
+      "revId": "de7aa187eaecdcdaeac3dd6b09a5418e914685f8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
