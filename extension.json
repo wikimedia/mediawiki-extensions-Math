@@ -30,7 +30,8 @@
 		"MathFormatter": "src/MathFormatter.php",
 		"MathWikidataHook": "src/MathWikidataHook.php",
 		"MathMLRdfBuilder": "src/MathMLRdfBuilder.php",
-		"MathPng": "src/MathPng.php"
+		"MathPng": "src/MathPng.php",
+		"MathDataUpdater": "src/MathDataUpdater.php"
 	},
 	"DefaultUserOptions": {
 		"math": "mathml"
