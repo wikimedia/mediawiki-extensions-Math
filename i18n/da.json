@@ -5,12 +5,13 @@
 			"Nghtwlkr",
 			"Peter Alberti",
 			"Thomsen",
-			"Macofe"
+			"Macofe",
+			"Cgtdk"
 		]
 	},
 	"math-desc": "Gengiver matematiske formler inden i <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>-tags",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formel",
-	"math-visualeditor-mwlatexdialog-card-options": "Valgmuligheder",
+	"math-visualeditor-mwlatexdialog-card-options": "Indstillinger",
 	"math-visualeditor-mwmathdialog-title": "Formel",
 	"math-visualeditor-symbol-group-math-accents": "Accenter og diakritiske tegn",
 	"math-visualeditor-symbol-group-math-arrows": "Pile",
