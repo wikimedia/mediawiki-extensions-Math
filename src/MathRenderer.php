@@ -542,7 +542,6 @@ abstract class MathRenderer {
 	 * Sets purge. If set to true the render is forced to rerender and must not
 	 * use a cached version.
 	 * @param bool $purge
-	 * @return bool
 	 */
 	function setPurge( $purge = true ) {
 		$this->changed = true;
