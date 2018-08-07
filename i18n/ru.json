@@ -16,7 +16,8 @@
 			"Redredsonia",
 			"Mailman",
 			"Ole Yves",
-			"Stjn"
+			"Stjn",
+			"Shaleych"
 		]
 	},
 	"math-desc": "Отображает математические формулы в тегах <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -31,6 +32,7 @@
 	"math-visualeditor-mwlatexinspector-display-inline": "Линейное",
 	"math-visualeditor-mwlatexinspector-id": "ID ссылки (необязательно)",
 	"math-visualeditor-mwmathdialog-title": "Математическая формула",
+	"math-visualeditor-symbol-group-chem-charges": "Изменения",
 	"math-visualeditor-symbol-group-chem-equations": "Химические уравнения",
 	"math-visualeditor-symbol-group-chem-formulae": "Химические формулы",
 	"math-visualeditor-symbol-group-chem-greek": "Греческие символы",
