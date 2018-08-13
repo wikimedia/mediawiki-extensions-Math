@@ -21,7 +21,7 @@
 	"math-visualeditor-mwlatexinspector-display-block": "Блок",
 	"math-visualeditor-mwlatexinspector-display-default": "Подразумеван",
 	"math-visualeditor-mwlatexinspector-display-inline": "Редан",
-	"math-visualeditor-mwlatexinspector-id": "ID везе (необавезно)",
+	"math-visualeditor-mwlatexinspector-id": "ID везе (опционално)",
 	"math-visualeditor-mwmathdialog-title": "Математичка формула",
 	"math-visualeditor-symbol-group-chem-addition": "Адукти",
 	"math-visualeditor-symbol-group-chem-aggregation": "Агрегатна стања",
