@@ -32,7 +32,7 @@ class MathRestbaseInterface {
 
 	/**
 	 * Bundles several requests for fetching MathML.
-	 * Does not send requests, if the the input TeX is invalid.
+	 * Does not send requests, if the input TeX is invalid.
 	 * @param MathRestbaseInterface[] $rbis
 	 * @param VirtualRESTServiceClient $serviceClient
 	 */

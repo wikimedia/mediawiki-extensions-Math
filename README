@@ -8,7 +8,6 @@ cf. https://www.mediawiki.org/wiki/Manual:CURL
 
 Consult https://www.mediawiki.org/wiki/Extension:Math for further information and advanced settings.
 
-
 Attributes of the <math /> element:
 attribute "display":
 possible values: "inline", "block" or "inline-displaystyle" (default)
@@ -24,10 +23,9 @@ users input ($tex). The equation is displayed in the current text line.
 "inline-displaystyle" renders the equation in with large height operands centered in a new line by adding
 {\displaystyle $tex } to the user input ($tex).
 
-
 For testing your installation run
 php tests/phpunit/phpunit.php extensions/Math/tests/
-from your MediWiki home path.
+from your MediaWiki home path.
 
 == Logging ==
 The math extension supports PSR-3 logging:
