@@ -3,7 +3,8 @@
 		"authors": [
 			"PrinceValiant",
 			"Macofe",
-			"Wertuose"
+			"Wertuose",
+			"Serkanland"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Kimyəvi formul",
@@ -11,6 +12,7 @@
 	"math_sample": "Riyazi formulu bura yazın",
 	"math_syntax_error": "sintaksis xətası",
 	"math_tip": "Riyazi formul (LaTeX formatı)",
+	"math-tracking-category-error": "Riyazi xəta olan səhifələr",
 	"math_unknown_error": "bilinməyən xəta",
 	"math_unknown_function": "bilinməyən funksiya",
 	"mw_math_mathml": "Mümkünsə MathML (sınaq)",
