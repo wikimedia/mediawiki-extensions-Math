@@ -29,22 +29,11 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 		return $method;
 	}
 
-	/**
-	 * creates a new database connection and a new math renderer
-	 * TODO: Check if there is a way to get database access without creating
-	 * the connection to the database explicitly
-	 * function addDBData() {
-	 * 	$this->tablesUsed[] = 'math';
-	 * }
-	 * was not sufficient.
-	 */
-	protected function setup() {
+	protected function setUp() {
 		parent::setUp();
-		// TODO: figure out why this is necessary
-		$this->db = wfGetDB( DB_MASTER );
 		// Create a new instance of MathSource
 		$this->renderer = new MathLaTeXML( self::SOME_TEX );
-		self::setupTestDB( $this->db, "mathtest" );
+		$this->tablesUsed[] = 'mathlatexml'];
 	}
 
 	/**
