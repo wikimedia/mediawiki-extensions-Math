@@ -668,6 +668,13 @@ abstract class MathRenderer {
 
 	public static function getValidModes() {
 		global $wgMathValidModes;
+		if ( !is_array( $wgMathValidModes ) ) {
+			$wgMathValidModes = [ 'mathml' ];
+			LoggerFactory::getInstance( 'Math' )
+				->warning( 'Configuration for MathValidModes is not an array. Falling back to "mathml" mode',
+					[ $wgMathValidModes ] );
+		}
+
 		return array_map( "MathHooks::mathModeToString", $wgMathValidModes );
 	}
 
