@@ -21,22 +21,11 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	const SOME_CONSERVATIVENESS = 2;
 	const SOME_OUTPUTHASH = 'C65c884f742c8591808a121a828bc09f8<';
 
-	/**
-	 * creates a new database connection and a new math renderer
-	 * TODO: Check if there is a way to get database access without creating
-	 * the connection to the database explicitly
-	 * function addDBData() {
-	 *    $this->tablesUsed[] = 'math';
-	 * }
-	 * was not sufficient.
-	 */
 	protected function setup() {
+		$this->tablesUsed[] = 'mathoid';
 		parent::setUp();
-		// TODO: figure out why this is necessary
-		$this->db = wfGetDB( DB_MASTER );
 		// Create a new instance of MathSource
 		$this->renderer = new MathMathML( self::SOME_TEX );
-		$this->tablesUsed[] = 'mathoid';
 	}
 
 	/**

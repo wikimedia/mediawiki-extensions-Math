@@ -9,6 +9,7 @@
  * @file
  */
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Abstract base class with static methods for rendering the <math> tags using
@@ -666,9 +667,21 @@ abstract class MathRenderer {
 		return $names[ $this->getMode() ];
 	}
 
+	/**
+	 * @return array
+	 */
 	public static function getValidModes() {
-		global $wgMathValidModes;
-		return array_map( "MathHooks::mathModeToString", $wgMathValidModes );
+		$config = MediaWikiServices::getInstance()->getMainConfig();
+		try {
+			$mathValidModes = $config->get( 'MathValidModes' );
+		}
+		catch ( ConfigException $e ) {
+			LoggerFactory::getInstance( 'Math' )
+				->warning( 'Can not read configuration for MathValidModes falling back to "mathml" mode' );
+			return [ 'mathml' ];
+		}
+
+		return array_map( "MathHooks::mathModeToString", $mathValidModes );
 	}
 
 	public static function getDisableTexFilter() {
