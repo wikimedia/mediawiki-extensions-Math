@@ -152,9 +152,13 @@ class MathHooks {
 	 * Set up $wgMathPath and $wgMathDirectory globals if they're not already set.
 	 */
 	static function setup() {
-		global $wgMathPath, $wgMathDirectory,
-			$wgUploadPath, $wgUploadDirectory;
-
+		global $wgMathPath, $wgMathDirectory, $wgUploadPath, $wgUploadDirectory,
+			$wgDefaultUserOptions, $wgMathDisableTexFilter;
+		if ( $wgMathDisableTexFilter === true ) { // ensure backwards compatibility
+			$wgMathDisableTexFilter = 'never';
+		}
+		$wgMathDisableTexFilter = MathRenderer::getDisableTexFilter();
+		$wgDefaultUserOptions['math'] = self::mathModeToString( $wgDefaultUserOptions['math'] );
 		if ( $wgMathPath === false ) {
 			$wgMathPath = "{$wgUploadPath}/math";
 		}
@@ -394,8 +398,7 @@ class MathHooks {
 	}
 
 	public static function registerExtension() {
-		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathDisableTexFilter;
-		$wgMathValidModes = MathRenderer::getValidModes();
+		global $wgDefaultUserOptions, $wgMathDisableTexFilter;
 		if ( $wgMathDisableTexFilter === true ) { // ensure backwards compatibility
 			$wgMathDisableTexFilter = 'never';
 		}
