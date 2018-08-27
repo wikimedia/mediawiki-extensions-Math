@@ -9,6 +9,7 @@
  * @file
  */
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Abstract base class with static methods for rendering the <math> tags using
@@ -667,8 +668,17 @@ abstract class MathRenderer {
 		return $names[ $this->getMode() ];
 	}
 
-	public static function getValidModes() {
-		global $wgMathValidModes;
+	/**
+	 * @param MediaWikiServices $cfg
+	 * @return array
+	 * @throws ConfigException
+	 */
+	public static function getValidModes( $cfg = null ) {
+		if ( !$cfg ) {
+			$cfg = MediaWikiServices::getInstance()->getMainConfig();
+		}
+		$wgMathValidModes = $cfg->get( 'MathValidModes' );
+
 		return array_map( "MathHooks::mathModeToString", $wgMathValidModes );
 	}
 
