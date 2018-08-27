@@ -303,5 +303,11 @@
 		"math-tracking-category-error",
 		"math-tracking-category-render-error"
 	],
+	"ConfigRegistry": {
+		"math": "GlobalVarConfig::newInstance"
+	},
+	"requires": {
+		"MediaWiki": ">= 1.30.0"
+	},
 	"manifest_version": 1
 }

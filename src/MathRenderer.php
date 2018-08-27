@@ -9,6 +9,7 @@
  * @file
  */
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Abstract base class with static methods for rendering the <math> tags using
@@ -363,8 +364,8 @@ abstract class MathRenderer {
 						var_export( $outArray, true ) . " to database" );
 					if ( $dbw->affectedRows() == 0 ) {
 						// That's the price for the delayed update.
-						LoggerFactory::getInstance( 'Math' )->warning(
-							'Entry could not be written. Might be changed in between.' );
+						LoggerFactory::getInstance( 'Math' )
+							->warning( 'Entry could not be written. Might be changed in between.' );
 					}
 				} );
 			}
@@ -666,9 +667,15 @@ abstract class MathRenderer {
 		return $names[ $this->getMode() ];
 	}
 
+	/**
+	 * @return array
+	 * @throws ConfigException
+	 */
 	public static function getValidModes() {
-		global $wgMathValidModes;
-		return array_map( "MathHooks::mathModeToString", $wgMathValidModes );
+		$config = MediaWikiServices::getInstance()->getMainConfig();
+		$wgMathValidModes = $config->get( 'MathValidModes' );
+		die( var_export( $wgMathValidModes, true ) );
+		//return array_map( "MathHooks::mathModeToString", $wgMathValidModes );
 	}
 
 	public static function getDisableTexFilter() {
