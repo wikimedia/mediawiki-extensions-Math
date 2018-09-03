@@ -318,7 +318,8 @@ class MathHooks {
 	 */
 	static function onLoadExtensionSchemaUpdates( $updater = null ) {
 		$type = $updater->getDB()->getType();
-
+		var_dump( MathRenderer::getValidModes() );
+		die();
 		if ( in_array( 'latexml', MathRenderer::getValidModes() ) ) {
 			if ( in_array( $type, [ 'mysql', 'sqlite', 'postgres' ] ) ) {
 				$sql = __DIR__ . '/../db/mathlatexml.' . $type . '.sql';
