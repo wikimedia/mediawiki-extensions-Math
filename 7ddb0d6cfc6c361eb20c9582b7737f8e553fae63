@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2b3b7a8_5b0d9335",
+        "filename": "extension.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2018-09-03T18:58:34Z",
+      "side": 1,
+      "message": "Should this be added to the top?",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 3
+      },
+      "revId": "7ddb0d6cfc6c361eb20c9582b7737f8e553fae63",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
