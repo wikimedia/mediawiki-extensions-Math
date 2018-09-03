@@ -162,6 +162,14 @@ class MathHooks {
 		if ( $wgMathDirectory === false ) {
 			$wgMathDirectory = "{$wgUploadDirectory}/math";
 		}
+          
+		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathDisableTexFilter;
+		$wgMathValidModes = MathRenderer::getValidModes();
+		if ( $wgMathDisableTexFilter === true ) { // ensure backwards compatibility
+			$wgMathDisableTexFilter = 'never';
+		}
+		$wgMathDisableTexFilter = MathRenderer::getDisableTexFilter();
+		$wgDefaultUserOptions['math'] = self::mathModeToString( $wgDefaultUserOptions['math'] );
 	}
 
 	/**
@@ -391,16 +399,6 @@ class MathHooks {
 	static function onEditPageBeforeEditToolbar( &$toolbar ) {
 		global $wgOut;
 		$wgOut->addModules( [ 'ext.math.editbutton.enabler' ] );
-	}
-
-	public static function registerExtension() {
-		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathDisableTexFilter;
-		$wgMathValidModes = MathRenderer::getValidModes();
-		if ( $wgMathDisableTexFilter === true ) { // ensure backwards compatibility
-			$wgMathDisableTexFilter = 'never';
-		}
-		$wgMathDisableTexFilter = MathRenderer::getDisableTexFilter();
-		$wgDefaultUserOptions['math'] = self::mathModeToString( $wgDefaultUserOptions['math'] );
 	}
 
 	/**
