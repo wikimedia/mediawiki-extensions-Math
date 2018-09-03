@@ -22,6 +22,75 @@
       "revId": "7ddb0d6cfc6c361eb20c9582b7737f8e553fae63",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cd78e1b_eb66cf97",
+        "filename": "src/MathRenderer.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2018-09-03T19:01:23Z",
+      "side": 1,
+      "message": "Maybe here do\n\n\t\t$this-\u003emathConfig \u003d MediaWikiServices::getInstance()-\u003egetConfigFactory()\n\t\t\t-\u003emakeConfig( \u0027math\u0027 );\n\nthen at the top do\n\n\t/**\n\t * @var Config\n\t */\n\tprivate $mathConfig;",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 2
+      },
+      "revId": "7ddb0d6cfc6c361eb20c9582b7737f8e553fae63",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfb61b0f_746ae339",
+        "filename": "src/MathRenderer.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2018-09-03T19:01:23Z",
+      "side": 1,
+      "message": "Per feedback at top lets remove this.",
+      "range": {
+        "startLine": 675,
+        "startChar": 0,
+        "endLine": 676,
+        "endChar": 42
+      },
+      "revId": "7ddb0d6cfc6c361eb20c9582b7737f8e553fae63",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c6ac81_831d85bd",
+        "filename": "src/MathRenderer.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2018-09-03T19:01:23Z",
+      "side": 1,
+      "message": "do $this-\u003emathConfig-\u003eget( \u0027MathValidModes\u0027  );",
+      "range": {
+        "startLine": 677,
+        "startChar": 22,
+        "endLine": 677,
+        "endChar": 30
+      },
+      "revId": "7ddb0d6cfc6c361eb20c9582b7737f8e553fae63",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
