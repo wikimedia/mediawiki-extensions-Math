@@ -4,7 +4,7 @@
  * @covers MathLaTeXML
  *
  * @group Math
- * @group Database (Used by needsDB)
+ * @group Database
  *
  * @license GPL-2.0-or-later
  */
@@ -68,7 +68,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	 * covers MathHooks::onLoadExtensionSchemaUpdates
 	 * TODO: Enable test after T202223 has been resolved
 	 */
-	private function skipTestCreateTable() {
+	public function testCreateTable() {
 		$this->setMwGlobals( 'wgMathValidModes', [ 'latexml' ] );
 		$this->db->dropTable( "mathlatexml", __METHOD__ );
 		$dbu = DatabaseUpdater::newForDB( $this->db );
