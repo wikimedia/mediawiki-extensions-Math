@@ -6,7 +6,7 @@
  * @covers MathRenderer
  *
  * @group Math
- * @group Database //Used by needsDB
+ * @group Database
  *
  * @license GPL-2.0-or-later
  */
