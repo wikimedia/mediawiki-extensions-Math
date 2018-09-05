@@ -381,7 +381,7 @@ class MathMathML extends MathRenderer {
 				);
 			}
 			$style = trim( preg_replace( '/position:\s*absolute;\s*left:\s*0px;/', '', $style ),
-				"; \t\n\r\0\x0B" ) .'; ';
+				"; \t\n\r\0\x0B" ) . '; ';
 
 		}
 		// TODO: Figure out if there is a way to construct

@@ -133,7 +133,7 @@ $escaped
 </svg>
 SVG;
 		if ( $wgDebugComments ) {
-			$result .= '<!--'. var_export( $this->renderer, true ) .'-->';
+			$result .= '<!--' . var_export( $this->renderer, true ) . '-->';
 		}
 		return $result;
 	}
