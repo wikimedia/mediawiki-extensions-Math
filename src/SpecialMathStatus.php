@@ -183,7 +183,7 @@ class SpecialMathStatus extends SpecialPage {
 			$real = "<syntaxhighlight lang=\"xml\">$real</syntaxhighlight>";
 			$this->getOutput()->addWikiMsgArray( $message, [ $real, $expected ] );
 		} else {
-			LoggerFactory::getInstance( 'Math' )->warning( 'Can not display expected and real value.'.
+			LoggerFactory::getInstance( 'Math' )->warning( 'Can not display expected and real value.' .
 				'SyntaxHighlight is not installed.' );
 		}
 	}

@@ -47,7 +47,7 @@ class MathSource extends MathRenderer {
 				[
 					// the former class name was 'tex'
 					// for backwards compatibility we keep this classname
-					'class' => $class. ' tex',
+					'class' => $class . ' tex',
 					'dir' => 'ltr'
 				]
 			),

@@ -22,7 +22,7 @@ class MathHooks {
 			if ( !defined( $defKey ) ) {
 				define( $defKey, $defValue );
 			} elseif ( $defValue !== constant( $defKey ) ) {
-				throw new Exception( 'Math constant "'. $defKey . '" has unexpected value "' .
+				throw new Exception( 'Math constant "' . $defKey . '" has unexpected value "' .
 					constant( $defKey ) . '" instead of "' . $defValue );
 			}
 		}
@@ -270,8 +270,8 @@ class MathHooks {
 		// user interface throws an exception (BUG 64844)
 		$mode = self::mathModeToString( $wgDefaultUserOptions['math'] );
 		if ( ! in_array( $mode, MathRenderer::getValidModes() ) ) {
-			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: '.
-				"\$wgDefaultUserOptions['math'] is not in " . MathRenderer::getValidModes() . ".\n".
+			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: ' .
+				"\$wgDefaultUserOptions['math'] is not in " . MathRenderer::getValidModes() . ".\n" .
 				"Please check your LocalSetting.php file." );
 			// Display the checkbox in the first option.
 			$validModes = MathRenderer::getValidModes();
