@@ -176,7 +176,6 @@ class MathMathML extends MathRenderer {
 	 * Generates error messages on failure
 	 * @see Http::post()
 	 *
-	 * @global int $wgMathLaTeXMLTimeout
 	 * @param string $host
 	 * @param string $post the encoded post request
 	 * @param mixed &$res the result

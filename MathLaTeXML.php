@@ -45,7 +45,6 @@ class MathLaTeXML extends MathMathML {
 	}
 	/**
 	 * Gets the settings for the LaTeXML daemon.
-	 * @global (array|string) $wgMathDefaultLaTeXMLSetting
 	 * @return string
 	 */
 	public function getLaTeXMLSettings() {
