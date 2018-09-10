@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81db1b56_66919a31",
+        "filename": "i18n/en.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-09-10T11:33:05Z",
+      "side": 1,
+      "message": "I find this overly long as a category name. Suggestions:\n* Pages using deprecated features in chem tags\n* Pages with a deprecated chem tag format\n* Pages with deprecated chem tags",
+      "range": {
+        "startLine": 94,
+        "startChar": 47,
+        "endLine": 94,
+        "endChar": 98
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4aaf62fb_d2fde758",
+        "filename": "i18n/en.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-09-10T11:33:05Z",
+      "side": 1,
+      "message": "What does \"format\" mean in this context?",
+      "range": {
+        "startLine": 95,
+        "startChar": 92,
+        "endLine": 95,
+        "endChar": 98
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c11f6708_fde982e1",
+        "filename": "src/MathRenderer.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-09-10T11:33:05Z",
+      "side": 1,
+      "message": "I had a brief look at this method, and it looks *very* expensive. With this patch it is now executed multiple times. If this is worth it I don\u0027t know. But what I very much dislike about this change is that this expensive call is hidden in a method called \"addTrackingCategories\". This does not sound like it can be expensive, so it shouldn\u0027t, in my humble opinion.",
+      "range": {
+        "startLine": 413,
+        "startChar": 15,
+        "endLine": 413,
+        "endChar": 23
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ccf3acb3_39ff196a",
+        "filename": "src/MathRenderer.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-09-10T11:33:05Z",
+      "side": 1,
+      "message": "Where does it return this?",
+      "range": {
+        "startLine": 414,
+        "startChar": 6,
+        "endLine": 414,
+        "endChar": 31
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbca067b_89f94d96",
+        "filename": "src/MathRestbaseInterface.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-09-10T11:33:05Z",
+      "side": 1,
+      "message": "Why not initialize the property with an empty array above?",
+      "range": {
+        "startLine": 360,
+        "startChar": 2,
+        "endLine": 360,
+        "endChar": 32
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
