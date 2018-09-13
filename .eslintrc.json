@@ -2,8 +2,7 @@
 	"extends": "wikimedia",
 	"env": {
 		"browser": true,
-		"jquery": true,
-		"qunit": true
+		"jquery": true
 	},
 	"globals": {
 		"ve": true,
@@ -12,6 +11,7 @@
 		"OO": false
 	},
 	"rules": {
-		"dot-notation": [ "error", { "allowKeywords": true } ]
+		"dot-notation": [ "error", { "allowKeywords": true } ],
+		"max-len": 0
 	}
 }
