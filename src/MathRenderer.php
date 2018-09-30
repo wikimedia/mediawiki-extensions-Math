@@ -338,26 +338,27 @@ abstract class MathRenderer {
 				'$ in database (hash:' . $this->getMd5() . ')' );
 			$outArray = $this->dbOutArray();
 			$mathTableName = $this->getMathTableName();
+			$fname = __METHOD__;
 			if ( $this->isInDatabase() ) {
 				$inputHash = $this->getInputHash();
 				DeferredUpdates::addCallableUpdate( function () use (
-					$dbw, $outArray, $inputHash, $mathTableName
+					$dbw, $outArray, $inputHash, $mathTableName, $fname
 				) {
 					$dbw = $dbw ?: wfGetDB( DB_MASTER );
 
 					$dbw->update( $mathTableName, $outArray,
-						[ 'math_inputhash' => $inputHash ], __METHOD__ );
+						[ 'math_inputhash' => $inputHash ], $fname );
 					LoggerFactory::getInstance( 'Math' )->debug(
 						'Row updated after db transaction was idle: ' .
 						var_export( $outArray, true ) . " to database" );
 				} );
 			} else {
 				DeferredUpdates::addCallableUpdate( function () use (
-					$dbw, $outArray, $mathTableName
+					$dbw, $outArray, $mathTableName, $fname
 				) {
 					$dbw = $dbw ?: wfGetDB( DB_MASTER );
 
-					$dbw->insert( $mathTableName, $outArray, __METHOD__, [ 'IGNORE' ] );
+					$dbw->insert( $mathTableName, $outArray, $fname, [ 'IGNORE' ] );
 					LoggerFactory::getInstance( 'Math' )->debug(
 						'Row inserted after db transaction was idle ' .
 						var_export( $outArray, true ) . " to database" );
