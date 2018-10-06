@@ -12,7 +12,8 @@
 			"Mjbmr",
 			"Macofe",
 			"Ladsgroup",
-			"Alifakoor"
+			"Alifakoor",
+			"Arash.pt"
 		]
 	},
 	"math-desc": "فرمول‌های ریاضی میان برچسب‌های <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> را رندر می‌کند",
@@ -45,6 +46,7 @@
 	"math-visualeditor-symbol-group-math-geometry": "هندسی",
 	"math-visualeditor-symbol-group-math-greek": "الفبای یونانی",
 	"math-visualeditor-symbol-group-math-hebrew": "الفبای عبری",
+	"math-visualeditor-symbol-group-math-large": "لایه‌های بزرگ",
 	"math-visualeditor-symbol-group-math-logic": "منطق",
 	"math-visualeditor-symbol-group-math-matrices": "ماتریس‌ها",
 	"math-visualeditor-symbol-group-math-operators": "عملگرها",
