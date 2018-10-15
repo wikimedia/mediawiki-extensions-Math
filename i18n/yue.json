@@ -3,11 +3,12 @@
 		"authors": [
 			"Waihorace",
 			"Ktchankt",
-			"Macofe"
+			"Macofe",
+			"Hello903hello"
 		]
 	},
 	"math-visualeditor-mwlatexinspector-display": "顯示",
-	"math-visualeditor-mwlatexinspector-display-block": "封鎖",
+	"math-visualeditor-mwlatexinspector-display-block": "塊",
 	"math-visualeditor-mwlatexinspector-display-default": "預設",
 	"math-visualeditor-mwlatexinspector-display-inline": "行內",
 	"math_bad_output": "唔能夠寫入或建立輸出數目錄",
