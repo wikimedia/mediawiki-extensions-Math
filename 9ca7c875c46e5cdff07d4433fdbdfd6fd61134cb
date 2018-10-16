@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f6a1f251_0cfbdd3e",
+        "filename": "i18n/en.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-10-16T07:01:49Z",
+      "side": 1,
+      "message": "I can see two other categories in this file that are nicely named: \"Pages with […] errors\". So I\u0027m not sure to what other categories you refer to. If you think there is room for improvement, go ahead. But I strongly suggest to rename existing categories in a separate patch, and exclusively focus on the added ones in this patch.",
+      "parentUuid": "b3019096_f608525e",
+      "range": {
+        "startLine": 94,
+        "startChar": 47,
+        "endLine": 94,
+        "endChar": 98
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4aaf62fb_d2fde758",
         "filename": "i18n/en.json",
         "patchSetId": 6
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "893c71b2_de1fefab",
+        "filename": "i18n/en.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-10-16T07:01:49Z",
+      "side": 1,
+      "message": "Oh, ok. I think it\u0027s critical to have a documentation page somewhere that explains this. If such a page exists, e.g. on meta or mediawiki.org, could you link it in this message?",
+      "parentUuid": "82e8c9fa_c38ad920",
+      "range": {
+        "startLine": 95,
+        "startChar": 92,
+        "endLine": 95,
+        "endChar": 98
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c11f6708_fde982e1",
         "filename": "src/MathRenderer.php",
         "patchSetId": 6
@@ -131,6 +179,30 @@
       "side": 1,
       "message": "Indeed it is expensive. However, it\u0027s only executed once. Afterwards the result is cached. To eliminate this problem we can keep the outer call outside the method...however I was initially thinking that would be even more confusing. I will think about how to model that this method requires that check has been executed.",
       "parentUuid": "c11f6708_fde982e1",
+      "range": {
+        "startLine": 413,
+        "startChar": 15,
+        "endLine": 413,
+        "endChar": 23
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8470b05a_e32a236d",
+        "filename": "src/MathRenderer.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-10-16T07:01:49Z",
+      "side": 1,
+      "message": "Ah. I had another look and found $this-\u003etexSecure. I think this is the cache you are referring to. All fine then.",
+      "parentUuid": "d9cc9488_9e794b74",
       "range": {
         "startLine": 413,
         "startChar": 15,
@@ -225,6 +297,30 @@
       "side": 1,
       "message": "It\u0027s a question of style. I will have to think if there is a scenario where the result is not an array...",
       "parentUuid": "cbca067b_89f94d96",
+      "range": {
+        "startLine": 360,
+        "startChar": 2,
+        "endLine": 360,
+        "endChar": 32
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a98a7c49_83397a6e",
+        "filename": "src/MathRestbaseInterface.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-10-16T07:01:49Z",
+      "side": 1,
+      "message": "That\u0027s even more problematic then. If, for some reason, $this-\u003ewarnings contains a number, string, or object, calling getWarnings would return an empty array. This doesn\u0027t sound right.",
+      "parentUuid": "2006a641_612140e9",
       "range": {
         "startLine": 360,
         "startChar": 2,
