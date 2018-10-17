@@ -35,7 +35,7 @@ class SpecialMathStatus extends SpecialPage {
 		$out->addWikiMsg( 'math-status-introduction', count( $enabledMathModes ) );
 
 		foreach ( $enabledMathModes as $modeNr => $modeName ) {
-			$out->addWikiText( "=== $modeName ===" );
+			$out->addWikiTextAsInterface( "=== $modeName ===" );
 			switch ( $modeNr ) {
 				case 'mathml':
 					$this->runMathMLTest( $modeName );
