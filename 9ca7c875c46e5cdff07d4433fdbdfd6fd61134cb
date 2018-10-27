@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "40bd4dca_0fdb21fd",
+        "filename": "i18n/en.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-10-27T18:27:23Z",
+      "side": 1,
+      "message": "ok. I\u0027ll discuss that with the people using these categories and do it in a separate patch if they agree on a better description.",
+      "parentUuid": "f6a1f251_0cfbdd3e",
+      "range": {
+        "startLine": 94,
+        "startChar": 47,
+        "endLine": 94,
+        "endChar": 98
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4aaf62fb_d2fde758",
         "filename": "i18n/en.json",
         "patchSetId": 6
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Oh, ok. I think it\u0027s critical to have a documentation page somewhere that explains this. If such a page exists, e.g. on meta or mediawiki.org, could you link it in this message?",
       "parentUuid": "82e8c9fa_c38ad920",
+      "range": {
+        "startLine": 95,
+        "startChar": 92,
+        "endLine": 95,
+        "endChar": 98
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48dbdfb4_20b8a9c7",
+        "filename": "i18n/en.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-10-27T18:27:23Z",
+      "side": 1,
+      "message": "Do you mean WP:MATHCHEM? Since it\u0027s part of the Help:TeX page I think it\u0027s the canonical documentation page, and one could/should other messages to respective pages as well for instance math-tracking-category-render-error has not a link as well. I would perefere to do it consistent and start with a message congruent to other messages.",
+      "parentUuid": "893c71b2_de1fefab",
       "range": {
         "startLine": 95,
         "startChar": 92,
@@ -215,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "3c7d0c1b_04a38035",
+        "filename": "src/MathRenderer.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-10-27T18:27:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8470b05a_e32a236d",
+      "range": {
+        "startLine": 413,
+        "startChar": 15,
+        "endLine": 413,
+        "endChar": 23
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ccf3acb3_39ff196a",
         "filename": "src/MathRenderer.php",
         "patchSetId": 6
@@ -250,6 +322,30 @@
       "side": 1,
       "message": "Oups. I will fix this.",
       "parentUuid": "ccf3acb3_39ff196a",
+      "range": {
+        "startLine": 414,
+        "startChar": 6,
+        "endLine": 414,
+        "endChar": 31
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbc6b5ee_d2a21d8d",
+        "filename": "src/MathRenderer.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-10-27T18:27:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc9f096f_67c8b12f",
       "range": {
         "startLine": 414,
         "startChar": 6,
@@ -321,6 +417,30 @@
       "side": 1,
       "message": "That\u0027s even more problematic then. If, for some reason, $this-\u003ewarnings contains a number, string, or object, calling getWarnings would return an empty array. This doesn\u0027t sound right.",
       "parentUuid": "2006a641_612140e9",
+      "range": {
+        "startLine": 360,
+        "startChar": 2,
+        "endLine": 360,
+        "endChar": 32
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15825d56_fb3a83f4",
+        "filename": "src/MathRestbaseInterface.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-10-27T18:27:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a98a7c49_83397a6e",
       "range": {
         "startLine": 360,
         "startChar": 2,
