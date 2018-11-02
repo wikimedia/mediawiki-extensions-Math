@@ -9,7 +9,7 @@ class SpecialMathShowImage extends SpecialPage {
 	private $renderer = null;
 	private $mode = 'mathml';
 
-	function __construct() {
+	public function __construct() {
 		parent::__construct(
 			'MathShowImage',
 			'', // Don't restrict
@@ -21,7 +21,7 @@ class SpecialMathShowImage extends SpecialPage {
 	 * Sets headers - this should be called from the execute() method of all derived classes!
 	 * @param bool $success
 	 */
-	function setHeaders( $success = true ) {
+	public function setHeaders( $success = true ) {
 		$out = $this->getOutput();
 		$request = $this->getRequest();
 		$out->setArticleBodyOnly( true );
@@ -41,7 +41,7 @@ class SpecialMathShowImage extends SpecialPage {
 		}
 	}
 
-	function execute( $par ) {
+	public function execute( $par ) {
 		global $wgMathEnableExperimentalInputFormats, $wgMathoidCli;
 		$request = $this->getRequest();
 		$hash = $request->getText( 'hash', '' );

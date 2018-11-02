@@ -23,7 +23,7 @@ class MathSource extends MathRenderer {
 	 * @param string $tex
 	 * @param array $params
 	 */
-	function __construct( $tex = '', $params = [] ) {
+	public function __construct( $tex = '', $params = [] ) {
 		parent::__construct( $tex, $params );
 		$this->setMode( 'source' );
 	}
@@ -33,7 +33,7 @@ class MathSource extends MathRenderer {
 	 *
 	 * @return string span tag with TeX
 	 */
-	function getHtmlOutput() {
+	public function getHtmlOutput() {
 		# No need to render or parse anything more!
 		# New lines are replaced with spaces, which avoids confusing our parser (bugs 23190, 22818)
 		if ( $this->getMathStyle() == 'display' ) {
@@ -63,7 +63,7 @@ class MathSource extends MathRenderer {
 	 * No rendering required in plain text mode
 	 * @return bool
 	 */
-	function render() {
+	public function render() {
 		// assume unchanged to avoid unnecessary database access
 		$this->changed = false;
 		return true;

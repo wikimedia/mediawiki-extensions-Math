@@ -524,7 +524,7 @@ abstract class MathRenderer {
 	 * Checks if there is an explicit user request to rerender the math-tag.
 	 * @return bool
 	 */
-	function isPurge() {
+	public function isPurge() {
 		if ( $this->purge ) {
 			return true;
 		}
@@ -544,12 +544,12 @@ abstract class MathRenderer {
 	 * use a cached version.
 	 * @param bool $purge
 	 */
-	function setPurge( $purge = true ) {
+	public function setPurge( $purge = true ) {
 		$this->changed = true;
 		$this->purge = $purge;
 	}
 
-	function getLastError() {
+	public function getLastError() {
 		return $this->lastError;
 	}
 

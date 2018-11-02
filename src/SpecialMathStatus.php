@@ -22,7 +22,7 @@ class SpecialMathStatus extends SpecialPage {
 	 * @throws MWException
 	 * @throws PermissionsError
 	 */
-	function execute( $query ) {
+	public function execute( $query ) {
 		$this->setHeaders();
 		if ( ! ( $this->getUser()->isAllowed( 'purge' ) ) ) {
 			// The effect of loading this page is comparable to purge a page.

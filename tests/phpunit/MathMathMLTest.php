@@ -268,11 +268,11 @@ class MathMLHttpRequestTester {
  */
 class MathMLTestStatus {
 
-	static function isGood() {
+	public static function isGood() {
 		return MathMathMLTest::$good;
 	}
 
-	static function hasMessage( $s ) {
+	public static function hasMessage( $s ) {
 		if ( $s == 'http-timed-out' ) {
 			return MathMathMLTest::$timeout;
 		} else {
@@ -280,11 +280,11 @@ class MathMLTestStatus {
 		}
 	}
 
-	static function getHtml() {
+	public static function getHtml() {
 		return MathMathMLTest::$html;
 	}
 
-	static function getWikiText() {
+	public static function getWikiText() {
 		return MathMathMLTest::$html;
 	}
 

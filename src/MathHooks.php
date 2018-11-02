@@ -151,7 +151,7 @@ class MathHooks {
 	/**
 	 * Set up $wgMathPath and $wgMathDirectory globals if they're not already set.
 	 */
-	static function setup() {
+	public static function setup() {
 		global $wgMathPath, $wgMathDirectory,
 			$wgUploadPath, $wgUploadDirectory;
 
@@ -170,7 +170,7 @@ class MathHooks {
 	 * @param Parser $parser instance of Parser
 	 * @return bool true
 	 */
-	static function onParserFirstCallInit( $parser ) {
+	public static function onParserFirstCallInit( $parser ) {
 		$parser->setHook( 'math', [ self::class, 'mathTagHook' ] );
 		// @deprecated the ce tag is deprecated in favour of chem cf. T153606
 		$parser->setHook( 'ce', [ self::class, 'chemTagHook' ] );
@@ -187,7 +187,7 @@ class MathHooks {
 	 * @param Parser $parser
 	 * @return array|string
 	 */
-	static function mathTagHook( $content, $attributes, $parser ) {
+	public static function mathTagHook( $content, $attributes, $parser ) {
 		static $n = 1;
 		if ( trim( $content ) === '' ) { // bug 8372 https://phabricator.wikimedia.org/rSVN18870
 			return '';
@@ -258,7 +258,7 @@ class MathHooks {
 	 * @param array &$defaultPreferences Preferences array
 	 * @return bool true
 	 */
-	static function onGetPreferences( $user, &$defaultPreferences ) {
+	public static function onGetPreferences( $user, &$defaultPreferences ) {
 		global $wgDefaultUserOptions;
 		$defaultPreferences['math'] = [
 			'type' => 'radio',
@@ -300,7 +300,7 @@ class MathHooks {
 	 * @param Maintenance $maint
 	 * @return bool hook return code
 	 */
-	static function onMaintenanceRefreshLinksInit( $maint ) {
+	public static function onMaintenanceRefreshLinksInit( $maint ) {
 		global $wgUser;
 
 		# Don't generate TeX PNGs (the lack of a sensible current directory causes errors anyway)
@@ -316,7 +316,7 @@ class MathHooks {
 	 * @throws Exception
 	 * @return bool
 	 */
-	static function onLoadExtensionSchemaUpdates( $updater = null ) {
+	public static function onLoadExtensionSchemaUpdates( $updater = null ) {
 		$type = $updater->getDB()->getType();
 
 		if ( in_array( 'latexml', MathRenderer::getValidModes() ) ) {
@@ -354,7 +354,7 @@ class MathHooks {
 	 * @param array &$tables
 	 * @return bool
 	 */
-	static function onParserTestTables( &$tables ) {
+	public static function onParserTestTables( &$tables ) {
 		$tables[] = 'math';
 		$tables[] = 'mathlatexml';
 		return true;
@@ -388,7 +388,7 @@ class MathHooks {
 	/**
 	 * @param string &$toolbar HTML
 	 */
-	static function onEditPageBeforeEditToolbar( &$toolbar ) {
+	public static function onEditPageBeforeEditToolbar( &$toolbar ) {
 		global $wgOut;
 		$wgOut->addModules( [ 'ext.math.editbutton.enabler' ] );
 	}
@@ -411,7 +411,7 @@ class MathHooks {
 	 * @param Parser $parser
 	 * @return array
 	 */
-	static function chemTagHook( $content, $attributes, $parser ) {
+	public static function chemTagHook( $content, $attributes, $parser ) {
 		$attributes['chem'] = true;
 		return self::mathTagHook( '\ce{' . $content . '}', $attributes, $parser );
 	}
