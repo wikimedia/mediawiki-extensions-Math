@@ -260,6 +260,16 @@ class MathMathMLTest extends MediaWikiTestCase {
 			->with( 'math-tracking-category-mhchem-deprecation' );
 		$renderer->addTrackingCategories( $parser );
 	}
+
+	public function testGetHtmlOutput() {
+		$math = new MathMathML( "a+b", [ "qid" => "Q123" ] );
+		$out = $math->getHtmlOutput();
+		$this->assertContains( "data-qid=\"Q123\"", $out );
+		// test with not valid ID. An ID must match /Q\d+/
+		$math = new MathMathML( "a+b", [ "qid" => "123" ] );
+		$out = $math->getHtmlOutput();
+		$this->assertNotContains( "data-qid", $out );
+	}
 }
 
 /**
