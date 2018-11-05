@@ -465,6 +465,9 @@ class MathMathML extends MathRenderer {
 		if ( $this->getID() !== '' ) {
 			$attribs['id'] = $this->getID();
 		}
+		if ( isset( $this->params['qid'] ) ) {
+			$attribs['data-qid'] = $this->params['qid'];
+		}
 		$output = Html::openElement( $element, $attribs );
 		// MathML has to be wrapped into a div or span in order to be able to hide it.
 		// Remove displayStyle attributes set by the MathML converter
