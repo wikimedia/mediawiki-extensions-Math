@@ -238,6 +238,12 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$host3 = $method->invoke( $m2, [] );
 		$this->assertEquals( $h2, $host3 );
 	}
+
+	public function testGetHtmlOutput() {
+		$math = new MathMathML( "a+b", [ "qid" => "123" ] );
+		$out = $math->getHtmlOutput();
+		$this->assertContains( "data-qid=\"123\"", $out );
+	}
 }
 
 /**
