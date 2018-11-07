@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b518e1ef_5d0f14be",
+        "filename": "src/MathMathML.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-11-07T17:08:11Z",
+      "side": 1,
+      "message": "even though the HTML::openElement function takes care of sanitation of the arguments, I would add regexp based check that $this-\u003eparams[\u0027qid\u0027] matches Q\\d+",
+      "revId": "a9ea6bc515ec35830f0b99c43229369310486c31",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
