@@ -62,9 +62,6 @@
 		"PageRenderingHash": [
 			"MathHooks::onPageRenderingHash"
 		],
-		"EditPageBeforeEditToolbar": [
-			"MathHooks::onEditPageBeforeEditToolbar"
-		],
 		"WikibaseClientDataTypes": [
 			"MathWikidataHook::onWikibaseClientDataTypes"
 		],
@@ -141,13 +138,6 @@
 		},
 		"ext.math.scripts": {
 			"scripts": "ext.math.js"
-		},
-		"ext.math.editbutton.enabler": {
-			"scripts": "ext.math.editbutton.js",
-			"messages": [
-				"math_tip",
-				"math_sample"
-			]
 		},
 		"ext.math.visualEditor": {
 			"scripts": [

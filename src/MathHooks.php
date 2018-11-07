@@ -385,14 +385,6 @@ class MathHooks {
 		return true;
 	}
 
-	/**
-	 * @param string &$toolbar HTML
-	 */
-	public static function onEditPageBeforeEditToolbar( &$toolbar ) {
-		global $wgOut;
-		$wgOut->addModules( [ 'ext.math.editbutton.enabler' ] );
-	}
-
 	public static function registerExtension() {
 		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathDisableTexFilter;
 		$wgMathValidModes = MathRenderer::getValidModes();
