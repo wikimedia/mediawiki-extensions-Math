@@ -6,9 +6,7 @@
 	},
 	"math_failure": "Njuumte ci xayma",
 	"math_lexing_error": "Njuumteg mbindin",
-	"math_sample": "Duggalal sa mbind fii",
 	"math_syntax_error": "njuumtey mbindin",
-	"math_tip": "Mbindu xayma (LaTeX)",
 	"math_unknown_error": "Njuumte li xamuñ ko",
 	"math_unknown_function": "Solo si xamuñ ko",
 	"prefs-math": "Xayma"

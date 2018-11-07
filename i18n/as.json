@@ -8,9 +8,7 @@
 		]
 	},
 	"math_failure": "পাৰ্চ কৰিব অসমৰ্থ",
-	"math_sample": "ইয়াত গণিতীয় সুত্ৰ সুমুৱাওক",
 	"math_syntax_error": "চীন্‌টেক্স ত্ৰুটি",
-	"math_tip": "গণিতীয় সুত্ৰ (LaTeX)",
 	"math_unknown_error": "অজ্ঞাত ত্ৰুটি",
 	"math_unknown_function": "অজ্ঞাত কাৰ্য্য",
 	"prefs-math": "গণিত"

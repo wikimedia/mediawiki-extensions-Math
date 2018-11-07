@@ -8,8 +8,6 @@
 	},
 	"math_bad_output": "Onu ne povas skribar o krear la arkivaro por la matematiko",
 	"math_bad_tmpdir": "Onu ne povas skribar o krear la tempala matematikala arkivaro",
-	"math_sample": "Insertez formulo hike",
-	"math_tip": "Formulo matematika (LaTeX)",
 	"math_unknown_error": "nekonocata eroro",
 	"mw_math_mathml": "MathML kun alternativi SVG o PNG (preferinda por moderna retnavigili ed utensili por acesebleso)",
 	"mw_math_png": "imaji PNG",

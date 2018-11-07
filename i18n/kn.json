@@ -5,8 +5,6 @@
 		]
 	},
 	"math_image_error": "PNGಗೆ ಬದಲಾವಣೆ ವಿಫಲವಾಯಿತು;\nlatex, dvips, gs, ಸರಿಯಾಗಿ ಸ್ಥಾಪಿತವಾಗಿದೆಯೆ ಎಂದು ಖಾತ್ರಿ ಮಾಡಿ ಬದಲಾಯಿಸಿ",
-	"math_sample": "ಇಲ್ಲಿ ಸೂತ್ರವನ್ನು ಅಳವಡಿಸಿ",
-	"math_tip": "ಗಣಿತ ಸೂತ್ರ (LaTeX)",
 	"math_unknown_error": "ತಿಳಿದಿಲ್ಲದ ದೋಷ",
 	"mw_math_png": "ಯಾವಾಗಲೂ PNG ಪ್ರಕಾರ ತೋರಿಸು",
 	"prefs-math": "ಗಣಿತ"

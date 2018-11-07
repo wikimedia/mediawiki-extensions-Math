@@ -6,9 +6,7 @@
 		]
 	},
 	"math_lexing_error": "σφάλμαν λεξικής ανάλυσης",
-	"math_sample": "Αδά εισάγετε την φόρμουλαν",
 	"math_syntax_error": "σφάλμαν σύνταξης",
-	"math_tip": "Μαθεματικόν φόρμουλα (LaTeX)",
 	"math_unknown_function": "άγνωρος συνάρτησην",
 	"prefs-math": "Απόδοσην μαθηματικίων"
 }

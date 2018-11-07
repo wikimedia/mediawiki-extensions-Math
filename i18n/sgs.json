@@ -1,8 +1,6 @@
 {
 	"@metadata": [],
 	"math_failure": "Nepavīka apdoruotė",
-	"math_sample": "Iveskėt fuormolė",
-	"math_tip": "Matematinė fuormolė (LaTeX fuormato)",
 	"math_unknown_error": "nežinuoma klaida",
 	"math_unknown_function": "nežinuoma funkcėjė",
 	"mw_math_mathml": "MathML jēgo imanuoma (ekspermentinis)",

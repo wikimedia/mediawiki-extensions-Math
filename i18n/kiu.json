@@ -10,9 +10,7 @@
 	"math_image_error": "Werênaisê ''PNG''y de xeta biye;\nenstale-kerdena ''latex'', ''dvips'', ''gs'', u ''convert''i qontrol ke",
 	"math_lexing_error": "xeta grameri",
 	"math_notexvc": "''Texvc''o gurênae çino;\nSerba areze-kerdene qaytê ''math/README''y ke.",
-	"math_sample": "İta formuli cıke",
 	"math_syntax_error": "xeta cumla",
-	"math_tip": "Formulê matematiki (formatê LaTeXi de)",
 	"math_unknown_error": "xeta nêzanaiye",
 	"math_unknown_function": "fonksiyono nêzanae",
 	"prefs-math": "Mat"

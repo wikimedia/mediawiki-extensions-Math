@@ -11,7 +11,6 @@
 	"math_image_error": "de PNG-Konvertierung schlug fehl",
 	"math_lexing_error": "„Lexing“-Fahler",
 	"math_notexvc": "Doas <code>texvc</code>-Programm wurde ne gefunda. Bitte math/README beachten.",
-	"math_sample": "Formel hier eifiega",
 	"math_syntax_error": "Syntaxfahler",
 	"math_unknown_error": "Unbekennter Fahler",
 	"math_unknown_function": "Unbekennte Funksjonn",

@@ -6,9 +6,7 @@
 		]
 	},
 	"math_lexing_error": "leksikalıq qa'telik",
-	"math_sample": "Usı jerge formulanı jazın'",
 	"math_syntax_error": "sintaksikalıq qa'telik",
-	"math_tip": "Matematik formula (LaTeX)",
 	"math_unknown_error": "belgisiz qa'telik",
 	"math_unknown_function": "belgisiz funktsiya",
 	"prefs-math": "Formulalar"

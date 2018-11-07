@@ -6,8 +6,6 @@
 		]
 	},
 	"math_lexing_error": "leksikografi fowtu",
-	"math_sample": "Poti formula dyaso",
 	"math_syntax_error": "sintaki fowtu",
-	"math_tip": "Formula fu teri (LaTeX)",
 	"prefs-math": "Fomula"
 }

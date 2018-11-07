@@ -5,9 +5,7 @@
 		]
 	},
 	"math_lexing_error": "römjde lexám",
-	"math_sample": "Heformula cuerte damir",
 	"math_syntax_error": "römjde syntáx",
-	"math_tip": "Formula mathematatl (LaTeX)",
 	"math_unknown_error": "römj ác",
 	"math_unknown_function": "functión ác",
 	"prefs-math": "HTML-cuat"
