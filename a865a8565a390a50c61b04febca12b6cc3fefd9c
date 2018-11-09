@@ -22,6 +22,30 @@
       "revId": "a865a8565a390a50c61b04febca12b6cc3fefd9c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0887d15_5fe55724",
+        "filename": "src/MathRenderer.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-11-09T00:12:59Z",
+      "side": 1,
+      "message": "Ok. I was not aware that this is the preferred style. However, such identities should be really normalized by an algorithm rather than human debate.\nI ckaim: If there is a list with zero elements in it this list is [].",
+      "parentUuid": "271990c2_d48d4d19",
+      "range": {
+        "startLine": 400,
+        "startChar": 38,
+        "endLine": 400,
+        "endChar": 62
+      },
+      "revId": "a865a8565a390a50c61b04febca12b6cc3fefd9c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
