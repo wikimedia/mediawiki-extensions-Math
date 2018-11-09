@@ -150,7 +150,7 @@ class MathRendererTest extends MediaWikiTestCase {
 					'readFromDatabase',
 					'setTex'
 				] )->setConstructorArgs( [ self::TEXVCCHECK_INPUT ] )->getMock();
-		$renderer->expects( $this->exactly( 2 ) )->method( 'readFromDatabase' )
+		$renderer->expects( $this->exactly( 1 ) )->method( 'readFromDatabase' )
 			->will( $this->returnValue( true ) );
 		$renderer->expects( $this->never() )->method( 'setTex' );
 

@@ -62,6 +62,8 @@ abstract class MathRenderer {
 	protected $inputType = 'tex';
 	/** @var MathRestbaseInterface used for checking */
 	protected $rbi;
+	/** @var array with rendering warnings*/
+	protected $warnings;
 
 	/**
 	 * Constructs a base MathRenderer
@@ -395,6 +397,29 @@ abstract class MathRenderer {
 		$this->rbi->setPurge( $this->isPurge() );
 	}
 
+	public function hasWarnings() {
+		if ( is_array( $this->warnings ) && count( $this->warnings ) ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds tracking categories to the parser
+	 *
+	 * @param Parser $parser
+	 */
+	public function addTrackingCategories( $parser ) {
+		if ( !$this->checkTeX() ) {
+			$parser->addTrackingCategory( 'math-tracking-category-error' );
+		}
+		if ( $this->lastError ) {
+			// Add a tracking category specialized on render errors.
+			$parser->addTrackingCategory( 'math-tracking-category-render-error' );
+		}
+	}
+
 	/**
 	 * Returns sanitized attributes
 	 *
@@ -594,6 +619,7 @@ abstract class MathRenderer {
 		} else {
 			if ( self::getDisableTexFilter() == 'new' && $this->mode != 'source' ) {
 				if ( $this->readFromDatabase() ) {
+					$this->texSecure = true;
 					return true;
 				}
 			}

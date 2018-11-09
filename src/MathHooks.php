@@ -224,22 +224,21 @@ class MathHooks {
 		$checkResult = $renderer->checkTeX();
 
 		if ( $checkResult !== true ) {
-			// Returns the error message and add tracking category
-			$parser->addTrackingCategory( 'math-tracking-category-error' );
+			$renderer->addTrackingCategories( $parser );
 			return $renderer->getLastError();
 		}
 
 		if ( $renderer->render() ) {
 			LoggerFactory::getInstance( 'Math' )->debug( "Rendering successful. Writing output" );
 			$renderedMath = $renderer->getHtmlOutput();
+			$renderer->addTrackingCategories( $parser );
 		} else {
 			LoggerFactory::getInstance( 'Math' )->warning(
 				"Rendering failed. Printing error message." );
 			// Set a short parser cache time (10 minutes) after encountering
 			// render issues, but not syntax issues.
 			$parser->getOutput()->updateCacheExpiry( 600 );
-			// Add a tracking category specialized on render errors.
-			$parser->addTrackingCategory( 'math-tracking-category-render-error' );
+			$renderer->addTrackingCategories( $parser );
 			return $renderer->getLastError();
 		}
 		Hooks::run( 'MathFormulaPostRender',

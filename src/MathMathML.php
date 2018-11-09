@@ -52,6 +52,20 @@ class MathMathML extends MathRenderer {
 		}
 	}
 
+	/**
+	 * @inheritDoc
+	 */
+	public function addTrackingCategories( $parser ) {
+		parent::addTrackingCategories( $parser );
+		if ( $this->hasWarnings() ) {
+			foreach ( $this->warnings as $warning ) {
+				if ( isset( $warning->type ) && $warning->type === 'mhchem-deprecation' ) {
+					$parser->addTrackingCategory( 'math-tracking-category-mhchem-deprecation' );
+				}
+			}
+		}
+	}
+
 	public static function batchEvaluate( array $tags ) {
 		$rbis = [];
 		foreach ( $tags as $key => $tag ) {
@@ -120,6 +134,7 @@ class MathMathML extends MathRenderer {
 					$this->mathoidStyle = $rbi->getMathoidStyle();
 					$this->svgPath = $rbi->getFullSvgUrl();
 					$this->pngPath = $rbi->getFullPngUrl();
+					$this->warnings = $rbi->getWarnings();
 				} elseif ( $this->lastError === '' ) {
 					$this->doCheck();
 				}

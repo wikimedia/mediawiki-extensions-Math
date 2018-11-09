@@ -18,6 +18,7 @@ class MathRestbaseInterface {
 	private $error;
 	private $mathoidStyle;
 	private $mml;
+	private $warnings = [];
 	/** @var bool is there a request to purge the existing mathematical content */
 	private $purge = false;
 
@@ -354,6 +355,13 @@ class MathRestbaseInterface {
 
 	/**
 	 * @return array
+	 */
+	public function getWarnings() {
+		return $this->warnings;
+	}
+
+	/**
+	 * @return array
 	 * @throws MWException
 	 */
 	public function getCheckRequest() {
@@ -380,6 +388,9 @@ class MathRestbaseInterface {
 			$this->success = $json->success;
 			$this->checkedTex = $json->checked;
 			$this->identifiers = $json->identifiers;
+			if ( isset( $json->warnings ) ) {
+				$this->warnings = $json->warnings;
+			}
 			return true;
 		} else {
 			if ( isset( $json->detail ) && isset( $json->detail->success ) ) {

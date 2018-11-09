@@ -89,6 +89,8 @@
 	"math-test-equals-diff" : "Returned string $1 is different from expected string $2.",
 	"math-tracking-category-error": "Pages with math errors",
 	"math-tracking-category-error-desc": "Pages in this category have errors in the usage of math tags.",
+	"math-tracking-category-mhchem-deprecation": "Pages that use a deprecated format of the chem tags",
+	"math-tracking-category-mhchem-deprecation-desc": "Pages in this category use a deprecated format of the chem tags",
 	"math-tracking-category-render-error": "Pages with math render errors",
 	"math-tracking-category-render-error-desc": "Pages in this category have rendering errors in the math tags.",
 	"math_unknown_error": "unknown error",
