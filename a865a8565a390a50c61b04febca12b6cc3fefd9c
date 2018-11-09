@@ -46,6 +46,30 @@
       "revId": "a865a8565a390a50c61b04febca12b6cc3fefd9c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "017fb8b7_66aca28b",
+        "filename": "src/MathRenderer.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-11-09T11:53:30Z",
+      "side": 1,
+      "message": "Thats a very sensible suggestion. However, I\u0027m not sure if it\u0027s possible to have a fully automated PHPCS sniff for this that would not cause trouble by either stressing people with false positives, or missing instances it can\u0027t detect (think of \"$c \u003d count( … ); if ( $c \u003e 0 )\"). Plus I\u0027m not sure if it\u0027s worth developing such a thing.\n\nThere will always be a gray area of coding style questions where developers disagree on what – essentially – is better readable. An automated sniff can not understand what \"readable\" means. That\u0027s up to us humans. Sometimes a count() might be the more readable option.",
+      "parentUuid": "e0887d15_5fe55724",
+      "range": {
+        "startLine": 400,
+        "startChar": 38,
+        "endLine": 400,
+        "endChar": 62
+      },
+      "revId": "a865a8565a390a50c61b04febca12b6cc3fefd9c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }

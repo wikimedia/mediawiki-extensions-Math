@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "c1971f23_c194fe20",
+        "filename": "i18n/en.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-11-09T11:53:30Z",
+      "side": 1,
+      "message": "Uh? This sounds weirdly exaggerated to me. I did not suggested to \"not merge\" this. Sorry if I said something inappropriate.",
+      "parentUuid": "b2bf0907_4a9d6390",
+      "range": {
+        "startLine": 94,
+        "startChar": 47,
+        "endLine": 94,
+        "endChar": 98
+      },
+      "revId": "9ca7c875c46e5cdff07d4433fdbdfd6fd61134cb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4aaf62fb_d2fde758",
         "filename": "i18n/en.json",
         "patchSetId": 6
