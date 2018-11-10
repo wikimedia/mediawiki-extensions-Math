@@ -69,6 +69,8 @@
 	"math_notexvc": "Недостаје извршна датотека <code>texvc</code>. Погледајте math/README за подешавање.",
 	"math_syntax_error": "грешка у синтакси",
 	"math-tracking-category-error": "Стране са математичким грешкама",
+	"math-tracking-category-mhchem-deprecation": "Странице које користе застарели формат хемијских ознака",
+	"math-tracking-category-mhchem-deprecation-desc": "Странице у овој категорији користе застарели формат хемијских ознака",
 	"math_unknown_error": "непозната грешка",
 	"math_unknown_function": "непозната функција „$1“",
 	"mw_math_latexml": "LaTeXML (експриментално; користи MathML)",

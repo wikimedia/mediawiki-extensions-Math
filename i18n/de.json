@@ -79,6 +79,8 @@
 	"math-test-equals-diff": "Die zurückgegebene Zeichenfolge $1 weicht von der erwarteten Zeichenfolge $2 ab.",
 	"math-tracking-category-error": "Seiten mit Math-Fehlern",
 	"math-tracking-category-error-desc": "Seiten in dieser Kategorie haben Fehler in der Verwendung von Math-Tags.",
+	"math-tracking-category-mhchem-deprecation": "Seiten, die ein veraltetes Format des chem-Tags verwenden",
+	"math-tracking-category-mhchem-deprecation-desc": "Seiten in dieser Kategorie verwenden ein veraltetes Format des chem-Tags.",
 	"math-tracking-category-render-error": "Seiten mit Math-Renderingfehlern",
 	"math-tracking-category-render-error-desc": "Seiten in dieser Kategorie haben Renderingfehler in den Math-Tags.",
 	"math_unknown_error": "Unbekannter Fehler",
