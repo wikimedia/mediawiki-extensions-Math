@@ -9,7 +9,8 @@
 			"Olion",
 			"Ypryima",
 			"Piramidion",
-			"Macofe"
+			"Macofe",
+			"Vlad5250"
 		]
 	},
 	"math-desc": "Відображає математичні формули у тегах <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
@@ -84,6 +85,8 @@
 	"math-test-equals-diff": "Виведений рядок $1 відрізняється від очікуваного рядка $2.",
 	"math-tracking-category-error": "Сторінки з математичними помилками",
 	"math-tracking-category-error-desc": "Сторінок у цій категорії мають помилки у використанні математичних теґів.",
+	"math-tracking-category-mhchem-deprecation": "Сторінки, які використовують хімічні теги у застарілому форматі",
+	"math-tracking-category-mhchem-deprecation-desc": "Сторінки в цій категорії використовують хімічні теги у застарілому форматі",
 	"math-tracking-category-render-error": "Сторінки з помилками відтворення математичних формул",
 	"math-tracking-category-render-error-desc": "Сторінки в цій категорії мають помилки відтворення в математичних тегах.",
 	"math_unknown_error": "невідома помилка",

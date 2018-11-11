@@ -17,7 +17,8 @@
 			"Mailman",
 			"Ole Yves",
 			"Stjn",
-			"Shaleych"
+			"Shaleych",
+			"Vlad5250"
 		]
 	},
 	"math-desc": "Отображает математические формулы в тегах <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -81,6 +82,8 @@
 	"math-test-fail": "Тестирование ''$1'' <span style=\"color:red\">не прошло</span>.",
 	"math-test-success": "Тестирование «$1» <span style=\"color:green\">прошло успешно</span>.",
 	"math-tracking-category-error": "Страницы с ошибками в формулах",
+	"math-tracking-category-mhchem-deprecation": "Страницы, использующие химические теги в устаревшем формате",
+	"math-tracking-category-mhchem-deprecation-desc": "Страницы в этой категории используют химические теги в устаревшем формате",
 	"math-tracking-category-render-error": "Страницы с ошибками в математических формулах",
 	"math-tracking-category-render-error-desc": "Страницы этой категории имеют проблемы с отображением в тэгах math.",
 	"math_unknown_error": "неизвестная ошибка",
