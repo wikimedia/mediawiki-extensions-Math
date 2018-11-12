@@ -1,4 +1,4 @@
-( function ( $ ) {
+( function () {
 	'use strict';
 
 	// If MathPlayer is installed we show the MathML rendering.
@@ -16,4 +16,4 @@
 			this.src = this.src.replace( 'mode=mathml', 'mode=mathml-png' );
 		} );
 	}
-}( jQuery ) );
+}() );
