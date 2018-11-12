@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"VinodSBangera"
+			"VinodSBangera",
+			"Ravi Mundkur"
 		]
 	},
-	"math_sample": "ಮುಲ್ಪ ಸೂತ್ರೊನು ಪಾಡ್’ಲೆ",
-	"math_tip": "ಗಣಿತ ಸೂತ್ರ (LaTeX)"
+	"math-tracking-category-mhchem-deprecation": "ರಸಾಯನಿಕ  ಕುಚ್ಚಿಲೆನ ಅಸಮ್ಮತ ರೂಪಿಕೆ ಬಳಕೆ ಮಲ್ಪುನ ಪುಟೊಲು",
+	"math-tracking-category-mhchem-deprecation-desc": "ಈ ವರ್ಗದ ಪುಟೊಕುಲು ರಸಾಯನಿಕ ಕುಚ್ಚಿಲೆನ ಅಸಮ್ಮತ ರೂಪಿಕೆ ಬಳಕೆ ಮಲ್ಪುವಾ."
 }

@@ -13,6 +13,8 @@
 	"math_lexing_error": "error lexic",
 	"math_notexvc": "Le executabile ''<code>texvc</code>'' manca;\nper favor vide math/README pro configurar lo.",
 	"math_syntax_error": "error de syntaxe",
+	"math-tracking-category-mhchem-deprecation": "Paginas que usa un formato obsolescente del etiquettas chimic",
+	"math-tracking-category-mhchem-deprecation-desc": "Le paginas in iste categoria usa un formato obsolescente del etiquettas chimic",
 	"math_unknown_error": "error incognite",
 	"math_unknown_function": "function '$1' incognite",
 	"mw_math_mathml": "MathML con recurso a SVG o PNG (recommendate pro navigatores moderne e instrumentos de accessibilitate)",
