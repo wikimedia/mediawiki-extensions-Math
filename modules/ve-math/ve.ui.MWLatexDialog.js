@@ -60,21 +60,14 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 	ve.ui.MWLatexDialog.super.prototype.initialize.call( this );
 
 	// Layout for the formula inserter (formula tab panel) and options form (options tab panel)
-	this.indexLayout = new OO.ui.IndexLayout( {
-		scrollable: false,
-		expanded: true
-	} );
+	this.indexLayout = new OO.ui.IndexLayout();
 
 	formulaTabPanel = new OO.ui.TabPanelLayout( 'formula', {
 		label: ve.msg( 'math-visualeditor-mwlatexdialog-card-formula' ),
-		expandable: false,
-		scrollable: false,
 		padded: true
 	} );
 	optionsTabPanel = new OO.ui.TabPanelLayout( 'options', {
 		label: ve.msg( 'math-visualeditor-mwlatexdialog-card-options' ),
-		expandable: false,
-		scrollable: false,
 		padded: true
 	} );
 
@@ -137,6 +130,7 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 	} );
 
 	formulaPanel = new OO.ui.PanelLayout( {
+		scrollable: true,
 		padded: true
 	} );
 
@@ -166,16 +160,12 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 		);
 
 		// Append everything
-		dialog.menuLayout.$menu.append(
-			dialog.bookletLayout.$element
+		formulaPanel.$element.append(
+			dialog.previewElement.$element,
+			inputField.$element
 		);
-
-		dialog.menuLayout.$content.append(
-			formulaPanel.$element.append(
-				dialog.previewElement.$element,
-				inputField.$element
-			)
-		);
+		dialog.menuLayout.setMenuPanel( dialog.bookletLayout );
+		dialog.menuLayout.setContentPanel( formulaPanel );
 
 		formulaTabPanel.$element.append(
 			dialog.menuLayout.$element
@@ -239,6 +229,10 @@ ve.ui.MWLatexDialog.prototype.getTeardownProcess = function ( data ) {
 			this.displaySelect.off( 'choose', this.onChangeHandler );
 			this.idInput.off( 'change', this.onChangeHandler );
 			this.getManager().disconnect( this );
+			this.indexLayout.setTabPanel( 'formula' );
+			this.indexLayout.resetScroll();
+			this.menuLayout.resetScroll();
+			this.bookletLayout.resetScroll();
 		}, this );
 };
 
