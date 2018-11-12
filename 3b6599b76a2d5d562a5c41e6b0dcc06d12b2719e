@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98569a2f_11d64e23",
+        "filename": "src/MathMathML.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-11-12T07:19:21Z",
+      "side": 1,
+      "message": "can you merge that to the previous if statement with and (\u0026\u0026)",
+      "revId": "3b6599b76a2d5d562a5c41e6b0dcc06d12b2719e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2ae97a9_c8f7dab8",
+        "filename": "tests/phpunit/MathMathMLTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-11-12T07:19:21Z",
+      "side": 1,
+      "message": "Can you make a separate test for this case?",
+      "revId": "3b6599b76a2d5d562a5c41e6b0dcc06d12b2719e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
