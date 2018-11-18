@@ -90,7 +90,7 @@
 	"math-tracking-category-error": "Pages avec erreurs dans balises math",
 	"math-tracking-category-error-desc": "Les pages dans cette catégorie ont des erreurs liées à  l’utilisation des balises mathématiques.",
 	"math-tracking-category-mhchem-deprecation": "Pages qui utilisent un format obsolète des balises chem",
-	"math-tracking-category-mhchem-deprecation-desc": "Pages dans cette catégorie qui utilisent un format obsolète des balises chem",
+	"math-tracking-category-mhchem-deprecation-desc": "Les pages dans cette catégorie utilisent un format obsolète des balises chem",
 	"math-tracking-category-render-error": "Pages avec erreurs de rendu de textes mathémathiques",
 	"math-tracking-category-render-error-desc": "Les pages de cette catégorie ont des erreurs de rendu liées aux balises mathématiques.",
 	"math_unknown_error": "erreur indéterminée",
