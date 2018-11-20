@@ -123,13 +123,14 @@ class MathMathMLCli extends MathMathML {
 		$cmd->input( $json_req );
 		$result = $cmd->execute();
 		if ( $result->getExitCode() != 0 ) {
+			$errorMsg = $result->getStderr();
 			LoggerFactory::getInstance( 'Math' )->error( 'Can not process {req} with config
 			 {conf} returns {res}', [
 				'req' => $req,
 				'conf' => var_export( $wgMathoidCli, true ),
 				'res' => var_export( $result, true ),
 			] );
-			throw new MWException( "Mathoid cli '$wgMathoidCli[0]' is not executable." );
+			throw new MWException( "Failed to execute Mathoid cli '$wgMathoidCli[0]', reason: $errorMsg" );
 		}
 		$res = json_decode( $result->getStdout() );
 		if ( !$res ) {
