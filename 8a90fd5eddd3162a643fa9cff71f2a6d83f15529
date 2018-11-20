@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29626447_91949d99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2018-11-20T11:58:05Z",
+      "side": 1,
+      "message": "Log STDERR from mathoids cli output",
+      "revId": "8a90fd5eddd3162a643fa9cff71f2a6d83f15529",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
