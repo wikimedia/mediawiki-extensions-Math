@@ -22,6 +22,30 @@
       "revId": "888d5500b32e3a9605c05017af0f31c338e4ab9e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b51c1d8_f7b0815a",
+        "filename": "tests/selenium/.eslintrc.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 658
+      },
+      "writtenOn": "2018-11-27T20:07:22Z",
+      "side": 1,
+      "message": "I keep mistaking this for env:browser:false too, but it\u0027s actually a global called \"browser\".\n\nAnd don\u0027t call me S...",
+      "parentUuid": "50f94ad8_b5fdd9e2",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 3
+      },
+      "revId": "888d5500b32e3a9605c05017af0f31c338e4ab9e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
     }
   ]
 }
