@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-/* eslint-env node */
 /* eslint-disable no-console, no-use-before-define */
 
 ( function () {
@@ -41,7 +40,7 @@
 		 * The reverse of function would look like this, although we have no use for it yet:
 		 *
 		 *  return className.replace( /_([0-9]+)_/g, function () {
-		 *  	return String.fromCharCode( +arguments[ 1 ] );
+		 *    return String.fromCharCode( +arguments[ 1 ] );
 		 *  } );
 		 *
 		 * @param {string} tex TeX input
