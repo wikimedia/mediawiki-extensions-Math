@@ -9,7 +9,8 @@
 			"Stryn",
 			"Macofe",
 			"01miki10",
-			"Pyscowicz"
+			"Pyscowicz",
+			"Valtlait"
 		]
 	},
 	"math-desc": "Esittää matemaattiset kaavat tunnisteiden <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> välillä",
@@ -57,7 +58,7 @@
 	"math-test-success": "Testi ''$1'' <span style=\"color:green\">onnistui</span>.",
 	"math-tracking-category-error": "Sivut, joissa on matematiikkavirheitä",
 	"math_unknown_error": "Tuntematon virhe",
-	"math_unknown_function": "tuntematon funktio '$1'",
+	"math_unknown_function": "tuntematon funktio ”$1”",
 	"mw_math_latexml": "LaTeXML (kokeellinen; käyttää MathML:ää)",
 	"mw_math_mathml": "MathML, sekä SVG tai PNG varalla (suositeltu nykyaikaisille selaimille ja helppokäyttötyökaluille)",
 	"mw_math_png": "PNG-kuvat",
