@@ -74,10 +74,10 @@
 	"math_unknown_error": "непозната грешка",
 	"math_unknown_function": "непозната функција „$1“",
 	"mw_math_latexml": "LaTeXML (експриментално; користи MathML)",
-	"mw_math_mathml": "MathML са SVG или PNG резервом (препоручљиво за савремене прегледаче и алатке за приступачност)",
+	"mw_math_mathml": "MathML са SVG или PNG резервом (препоручује се за савремене прегледаче и алатке за приступачност)",
 	"mw_math_png": "PNG слике",
 	"mw_math_source": "LaTeX извор (за текстуалне прегледаче)",
-	"prefs-math": "Математика",
+	"prefs-math": "Приказ математичких формула",
 	"mathstatus": "Стање приказа математичких формула",
 	"datatypes-type-math": "математички израз",
 	"wikibase-listdatatypes-math-head": "математички израз"
