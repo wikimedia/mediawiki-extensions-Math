@@ -5,12 +5,7 @@
 		]
 	},
 	"math-desc": "Přidawa matematiske formle mjez tafličkomaj <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math_bad_output": "Njemóžno do matematiskeho zapisa za wudaće pisać abo jón wutworić",
-	"math_bad_tmpdir": "Njemóžno do nachwilneho matematiskeho zapisa pisać abo jón wutworić",
 	"math_failure": "Analyza njeje so poradźiła",
-	"math_image_error": "Konwertowanje do PNG zwrěšćiło; kontroluj prawu instalaciju latex a dvipng (abo dvips + gs + konwertuj)",
-	"math_lexing_error": "leksikalny zmylk",
-	"math_notexvc": "Wuwjedźomny <code>texvc</code> pobrachuje; prošu hlej math/README za konfiguraciju.",
 	"math_syntax_error": "syntaktiski zmylk",
 	"math_unknown_error": "njeznaty zmylk",
 	"math_unknown_function": "njeznata funkcija \"$1\"",

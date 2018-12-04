@@ -11,12 +11,7 @@
 			1100100
 		]
 	},
-	"math_bad_output": "ගණිත ප්‍රතිදාන ඩිරෙක්ටරිය තැනීමට හෝ එයට ලිවීමට නොහැක",
-	"math_bad_tmpdir": "තාවකාලික ගණිත  ඩිරෙක්ටරිය තැනීමට හෝ එහි ලිවීමට නොහැක",
 	"math_failure": "ව්‍යාකරණ විග්‍රහය අසමත් විය",
-	"math_image_error": "PNG අන්වර්තනය අසාර්ථකවිය;latex, සහ dvipng (හෝ dvips + gs + convert) හී නිදොස්  ස්ථාපනය සිදුවී ඇතිදැයි පිරික්සන්න",
-	"math_lexing_error": "රීතිමය දෝෂයකි",
-	"math_notexvc": "<code>texvc</code> අභිවාහකය දක්නට නොමැත;\nවින්‍යාස කෙරුමට කරුණාකර math/README බලන්න.",
 	"math_syntax_error": "කාරක-රීති දෝෂය",
 	"math_unknown_error": "හඳුනා නොගත් දෝෂය",
 	"math_unknown_function": "නොදන්නා ශ්‍රිතය '$1'",

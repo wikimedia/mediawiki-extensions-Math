@@ -1,11 +1,6 @@
 {
 	"@metadata": [],
-	"math_bad_output": "math دەگەن بەرىس قالتاسىنا جازىلمادى, نە قالتا قۇرىلمادى",
-	"math_bad_tmpdir": "math دەگەن ۋاقىتشا قالتاسىنا جازىلمادى, نە قالتا قۇرىلمادى",
 	"math_failure": "قۇرىلىمىن تالداتۋى ٴساتسىز ٴبىتتى",
-	"math_image_error": "PNG اۋدارىسى ٴساتسىز ٴبىتتى;\nlatex, dvips, gs جانە convert باعدارلامالارىنىڭ دۇرىس ورناتۋىن تەكسەرىپ شىعىڭىز",
-	"math_lexing_error": "ٴسوز كەنىنىڭ قاتەسى",
-	"math_notexvc": "<code>texvc</code> اتقارىلمالىسى تابىلمادى;\nباپتاۋ ٴۇشىن math/README قۇجاتىن قاراڭىز.",
 	"math_syntax_error": "سويلەم جۇيەسىنىڭ قاتەسى",
 	"math_unknown_error": "بەلگىسىز قاتە",
 	"math_unknown_function": "بەلگىسىز جەتە",

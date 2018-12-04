@@ -5,12 +5,7 @@
 		]
 	},
 	"math-desc": "Ezitada matematižed formulad <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-virgoiden keskes",
-	"math_bad_output": "Ei voi säta matematine lähtmižkatalog vai ei voi kirjutada sinnä",
-	"math_bad_tmpdir": "Ei voi säta pordaigaline matematine katalog vai ei voi kirjutada sinnä",
 	"math_failure": "Ei voi palastada",
-	"math_image_error": "PNG-ks kändmižes ozaižihe petuz;\nkodvgat, oiged-ik oma järgetud latex da dvips (vai dvips + gs + convert).",
-	"math_lexing_error": "leksine petuz",
-	"math_notexvc": "En voi löuta <code>texvc</code>-töfailad;\nkc. math/README järgendamižen täht.",
 	"math_syntax_error": "sintaksine petuz",
 	"math_unknown_error": "tundmatoi petuz",
 	"math_unknown_function": "tundmatoi funkcii",

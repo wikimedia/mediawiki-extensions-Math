@@ -6,12 +6,7 @@
 			"Ernác"
 		]
 	},
-	"math_bad_output": "Математиканы чыгъыш каталогуна не джазар, неда къурар мадар джокъду",
-	"math_bad_tmpdir": "Математиканы кёзюулю каталогуна не джазаргъа, неда къураргъа мадар джокъду",
 	"math_failure": "Ангылашынамады",
-	"math_image_error": "PNG конвертация джетишимсиз болду; latex бла dvips джарашдырыуларына къарагъыз (неда dvips + gs + convert)",
-	"math_lexing_error": "лексика халат",
-	"math_notexvc": "<code>texvc</code> файл табылмайды; джарашдырыр ючюн math/README-ге къара.",
 	"math_syntax_error": "синтаксис халат",
 	"math_unknown_error": "билинмеген халат",
 	"math_unknown_function": "билинмеген функция",

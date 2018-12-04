@@ -7,12 +7,7 @@
 			"Macofe"
 		]
 	},
-	"math_bad_output": "Mpussìbbili scrìviri o criari la directory di output pi math",
-	"math_bad_tmpdir": "Mpussìbbili scrìviri o criari la directory timpurània pi math",
 	"math_failure": "S'hà virificatu un erruri ntô parsing",
-	"math_image_error": "Cunvirsioni 'n PNG nun arrinisciuta; cuntrullari la curretta nstallazzioni di latex e dvipng (o puru dvips + gs + convert).",
-	"math_lexing_error": "erruri lissicali",
-	"math_notexvc": "Esiquìbbili <code>texvc</code> mancanti; pi favuri cunzurtari math/README pi la cunfigurazzioni.",
 	"math_syntax_error": "erruri di sintassi",
 	"math_unknown_error": "erruri scanusciutu",
 	"math_unknown_function": "funzioni scanusciuta \"$1\"",

@@ -4,12 +4,7 @@
 			"Võrok"
 		]
 	},
-	"math_bad_output": "Matõmaatigateksti kirotaminõ välläandmiskausta vai sääntse kausta luuminõ ei lääq kõrda",
-	"math_bad_tmpdir": "Matõmaatigateksti kirotaminõ aotlistõ kausta vai taa kausta luuminõ ei lääq kõrdaq",
 	"math_failure": "Arvosaamalda süntaks",
-	"math_image_error": "PNG-muutus lää-s kõrda; kaeq üle, et latex, dvips, gs ja convert ommaq õigõhe paika säedüq",
-	"math_lexing_error": "Vällälugõmisviga",
-	"math_notexvc": "Olõ-i <code>texvc</code>-tüüriista; loeq tuu paikasäädmise kotsilõ math/README-st.",
 	"math_syntax_error": "Süntaksiviga",
 	"math_unknown_error": "Tundmalda viga",
 	"math_unknown_function": "Tundmalda tallitus",

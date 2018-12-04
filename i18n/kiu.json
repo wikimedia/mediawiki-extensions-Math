@@ -4,12 +4,7 @@
 			"Mirzali"
 		]
 	},
-	"math_bad_output": "Sıma nêşikinê indeksê formulunê matematiki de bınusê ya ki bıafernê",
-	"math_bad_tmpdir": "Sıma nêşikinê indeksê ''math temp''i de bınusê ya ki bıafernê",
 	"math_failure": "Analiz de xeta",
-	"math_image_error": "Werênaisê ''PNG''y de xeta biye;\nenstale-kerdena ''latex'', ''dvips'', ''gs'', u ''convert''i qontrol ke",
-	"math_lexing_error": "xeta grameri",
-	"math_notexvc": "''Texvc''o gurênae çino;\nSerba areze-kerdene qaytê ''math/README''y ke.",
 	"math_syntax_error": "xeta cumla",
 	"math_unknown_error": "xeta nêzanaiye",
 	"math_unknown_function": "fonksiyono nêzanae",

@@ -9,12 +9,7 @@
 		]
 	},
 	"math-desc": "Dodawa matematiske formule mjazy toflickoma <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math_bad_output": "Njejo móžno celowy zapisk za matematiske formule załožyś resp. do njogo pisaś.",
-	"math_bad_tmpdir": "Njejo móžno temporarny zapisk za matematiske formule załožyś resp. do njogo pisaś.",
 	"math_failure": "Zmólka",
-	"math_image_error": "PNG-konwertěrowanje njejo se raźiło; pśekontrolěruj korektnu instalaciju latex a dvipng (abo dvips + gs + konwertěruj)",
-	"math_lexing_error": "leksikaliska zmólka",
-	"math_notexvc": "Program <code>texvc</code> felujo. Pšosym glědaj do math/README.",
 	"math_syntax_error": "syntaktiska zmólka",
 	"math_unknown_error": "njeznata zmólka",
 	"math_unknown_function": "njeznata funkcija \"$1\"",

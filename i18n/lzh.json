@@ -1,11 +1,6 @@
 {
 	"@metadata": [],
-	"math_bad_output": "無寫或建數式出目",
-	"math_bad_tmpdir": "無寫或建數式臨目",
 	"math_failure": "譯不成",
-	"math_image_error": "PNG 轉敗之；查已裝 latex, dvipng（或dvips + gs + convert）乎",
-	"math_lexing_error": "律有誤",
-	"math_notexvc": "少「<code>texvc</code>」；參 math/README 置之。",
 	"math_syntax_error": "語法有誤",
 	"math_unknown_error": "未知之誤",
 	"math_unknown_function": "未知函式",

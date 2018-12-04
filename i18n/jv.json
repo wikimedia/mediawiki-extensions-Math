@@ -5,12 +5,7 @@
 			"NoiX180"
 		]
 	},
-	"math_bad_output": "Ora bisa nulis utawa nggawé dirèktori paweton math",
-	"math_bad_tmpdir": "Ora bisa nulis utawa nggawé dirèktori sauntara math",
 	"math_failure": "Gagal nglakoni parse",
-	"math_image_error": "Konversi PNG gagal; priksa apa latex, dvips, gs, lan convert wis diinstalasi sing bener",
-	"math_lexing_error": "kaluputan ''lexing''",
-	"math_notexvc": "Executable <code>texvc</code> ilang;\nmangga delengen math/README kanggo cara konfigurasi.",
 	"math_syntax_error": "''syntax error'' (kaluputan sintaksis)",
 	"math_unknown_error": "Kaluputan sing ora dimangertèni",
 	"math_unknown_function": "fungsi sing ora dimangertèni",

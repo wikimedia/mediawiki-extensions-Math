@@ -4,12 +4,7 @@
 			"Gazeb"
 		]
 	},
-	"math_bad_output": "Не дасть ся записати або створити дочасный адресарь про выступ математіку",
-	"math_bad_tmpdir": "Не дасть ся записати або створити дочасный адресарь про математіку",
 	"math_failure": "Не дасть ся розобрати выраз",
-	"math_image_error": "Злигала конверзія до PNG; перевірте правилну іншталацію latex, dvips (або dvips + gs + convert)",
-	"math_lexing_error": "лексічна хыба",
-	"math_notexvc": "Хыбить спустительный <code>texvc</code>; посмотьте ся до math/README на конфіґурацію.",
 	"math_syntax_error": "сінтаксічна хыба",
 	"math_unknown_error": "незнама хыба",
 	"math_unknown_function": "незнама функція",

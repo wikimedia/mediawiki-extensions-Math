@@ -6,12 +6,7 @@
 			"Numulunj pilgae"
 		]
 	},
-	"math_bad_output": "Аф сёрматфтови нолдамань математик директориес эди директориесь аф тиеви",
-	"math_bad_tmpdir": "Аф сёрматфтови ётконь математик директориес эди директориесь аф тиеви",
 	"math_failure": "Аф морафтови",
-	"math_image_error": "PNG форматс сёрматфтомась изь лисев; ватт лац эли аф арафтовсть latex, dvips, gs эди convert",
-	"math_lexing_error": "лексиконь эльбятькс",
-	"math_notexvc": "Нолдамань файл <code>texvc</code> изь мув; Ванк math/README ладямать колга.",
 	"math_syntax_error": "синтаксонь эльбятькс",
 	"math_unknown_error": "аф содаф эльбятькс",
 	"math_unknown_function": "аф содаф функцие",

@@ -5,12 +5,7 @@
 		]
 	},
 	"math-desc": "Chhiarkawp dàn rëng rëng  <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> te inkara ziah luh tùr.",
-	"math_bad_output": "Chhiarkawpa chhuahna báwmah ziaklûtin a siam thei lo",
-	"math_bad_tmpdir": "Chhiarkawp báwm lailâwk a siamin a ziaklût thei lo",
 	"math_failure": "Chhiarkawp dàn chhut sùal a awm",
-	"math_image_error": "PNG-a chhuah a tlawlh; latex leh dvipng  (a nih loh pawhin dvips+gs+convert) i bun dik nge dik lo finfiah rawh",
-	"math_lexing_error": "chhiarkawp ṭawngkam dik lo",
-	"math_notexvc": "<code>texvc</code> tihnun theih a awm lo; khawngaihin herrem tùrin math/README en rawh.",
 	"math_syntax_error": "chhiarkawp ṭawngkauchheh dik lo",
 	"math_unknown_error": "dikhlelhna hriat loh",
 	"math_unknown_function": "hnathawh hriat loh",

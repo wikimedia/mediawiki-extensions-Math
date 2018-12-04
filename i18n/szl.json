@@ -5,12 +5,7 @@
 			"Timpul"
 		]
 	},
-	"math_bad_output": "Ńy idźe utwořić abo naškryflać we wyjśćowym katalůgu do wzorůw matymatyčnych",
-	"math_bad_tmpdir": "Ńy idźe utwořić abo naškryflać w tymčasowym katalůgu do wzorůw matymatyčnych",
 	"math_failure": "Parser ńy můg rozpoznać",
-	"math_image_error": "kůnwersyjo do formatu PNG ńy powjodua śe; uobadej, eli poprawńy zainštalowane sům lotex, dvips, gs i convert",
-	"math_lexing_error": "feler leksera",
-	"math_notexvc": "Ńy ma sam <code>texvc</code>; zapoznej śe z math/README w celu kůnfiguracyje.",
 	"math_syntax_error": "felerno skuadńa",
 	"math_unknown_error": "ńyznany feler",
 	"math_unknown_function": "ńyznano funkcyjo",

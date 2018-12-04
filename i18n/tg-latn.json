@@ -4,12 +4,7 @@
 			"Liangent"
 		]
 	},
-	"math_bad_output": "Imkoni eçod jo navistani ittiloot dar pūşai xuruçiji rijozī (output) vuçud nadorad",
-	"math_bad_tmpdir": "Imkoni eçod jo navistani ittiloot dar pūşai muvaqqatiji rijozī (temp) vuçud nadorad",
 	"math_failure": "Şikast dar taçzeh",
-	"math_image_error": "Tabdil ba PNG şikast xūr; nasbi durusti latex, dvips, gs, va tabdilotro barrasī kuned",
-	"math_lexing_error": "xatoi lexing",
-	"math_notexvc": "Barnomai icroiji <code>texvc</code> mavçud nest; baroi ittilooti beştar ba math/README nigared.",
 	"math_syntax_error": "xatoi nahvī",
 	"math_unknown_error": "xatoi noşinos",
 	"math_unknown_function": "amali noma'lum",

@@ -5,12 +5,7 @@
 			"Thakurji"
 		]
 	},
-	"math_bad_output": "Math output directory me likhe nai to banae nai sakta hai",
-	"math_bad_tmpdir": "Math temporary directory nai banae sakta hai",
 	"math_failure": "Parse nai kare sakaa",
-	"math_image_error": "PNG conversion fail hoe gais; latex, dvips aur gs ke correct installation ke check kar ke convert convert karo",
-	"math_lexing_error": "lexing me galti",
-	"math_notexvc": "Texvc executable nai hai;\nConfigure kare khatir meharbani kar ke math/README ke dekho.",
 	"math_syntax_error": "syntax me galti",
 	"math_unknown_error": "galti ke nai samajhta",
 	"math_unknown_function": "nai samajhta ki ii kon chij khatir hai",

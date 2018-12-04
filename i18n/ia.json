@@ -6,12 +6,7 @@
 		]
 	},
 	"math-desc": "Visualisar formulas mathematic inter etiquettas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math_bad_output": "Non pote scriber in o crear le directorio de output \"math\".",
-	"math_bad_tmpdir": "Non pote scriber in o crear le directorio temporari \"math\".",
 	"math_failure": "Error durante le analyse del syntaxe",
-	"math_image_error": "Le conversion in PNG ha fallite;\nverifica le installation del programmas ''latex\" e \"dvipng\" (o \"dvips\" + \"gs\" + ''convert'').",
-	"math_lexing_error": "error lexic",
-	"math_notexvc": "Le executabile ''<code>texvc</code>'' manca;\nper favor vide math/README pro configurar lo.",
 	"math_syntax_error": "error de syntaxe",
 	"math-tracking-category-mhchem-deprecation": "Paginas que usa un formato obsolescente del etiquettas chimic",
 	"math-tracking-category-mhchem-deprecation-desc": "Le paginas in iste categoria usa un formato obsolescente del etiquettas chimic",

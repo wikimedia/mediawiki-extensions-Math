@@ -5,12 +5,7 @@
 			"Macofe"
 		]
 	},
-	"math_bad_output": "نه تونیت بنویسیت یا مشیر خروجی ریاضی شرکنت.",
-	"math_bad_tmpdir": "نه نونیت بنویسیت یا مسیر غیر دایمی ریاضی شرکنت",
 	"math_failure": "تجزیه پروش وارت",
-	"math_image_error": "بدل کتن PNGپروش وارت;\nکنترل کنیت په نصب latex, dvips, gs, و convert",
-	"math_lexing_error": "حطا نوشتاری",
-	"math_notexvc": "ترکیب کتن <code>texvc</code>  قابل اجرا;\nلطفا بچار math/README په تنظیم کتن.",
 	"math_syntax_error": "حطا ساختار",
 	"math_unknown_error": "ناشناسین حطا",
 	"math_unknown_function": "ناشناس عملگر",

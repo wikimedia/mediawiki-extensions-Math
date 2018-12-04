@@ -4,12 +4,7 @@
 			"Hanberke"
 		]
 	},
-	"math_bad_output": "Matematika çykyş katalogyny ýazyp ýa-da döredip bolanok",
-	"math_bad_tmpdir": "Matematikanyň wagtlaýyn katalogyny ýazyp ýa-da döredip bolanok",
 	"math_failure": "Derňäp bolmady",
-	"math_image_error": "PNG öwürmeklik şowsuz boldy;\nlatex, dvips, gs we convert gurluşlarynyň dogrulygyny barlaň",
-	"math_lexing_error": "leksiki säwlik",
-	"math_notexvc": "<code>texvc</code> ýerine ýetirilýän faýl tapylmady;\nkonfigurirlemek üçin math/README serediň.",
 	"math_syntax_error": "sintaktik säwlik",
 	"math_unknown_error": "näbelli säwlik",
 	"math_unknown_function": "näbelli funksiýa",

@@ -5,12 +5,7 @@
 			"Kazu89"
 		]
 	},
-	"math_bad_output": "Betg pussaivel da scriver u crear l'ordinatur da destinaziun math",
-	"math_bad_tmpdir": "Betg pussaivel da scriver u crear l'ordinatur temporar math",
 	"math_failure": "Errur dal parser",
-	"math_image_error": "La conversiun da PNG n'è betg reussida; \ncontrollescha l'installaziun correcta da latext, dvips, gs e convertescha lura",
-	"math_lexing_error": "Errur lexicala",
-	"math_notexvc": "Il program <code>texvc</code> n'è betg vegnì chattà. Legia math/README per al configurar.",
 	"math_syntax_error": "Sbagl da la sintaxta",
 	"math_unknown_error": "errur nunenconuschenta",
 	"math_unknown_function": "funcziun nunenconuschenta",

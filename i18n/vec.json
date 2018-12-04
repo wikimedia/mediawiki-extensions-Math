@@ -6,12 +6,7 @@
 			"Vajotwo"
 		]
 	},
-	"math_bad_output": "Inpossibile scrìvar o crear la directory de output par math",
-	"math_bad_tmpdir": "Inpossibile scrìvar o crear la directory tenporanea par math",
 	"math_failure": "Eror del parser",
-	"math_image_error": "La conversion in PNG no xe riusida; verifegare che i seguenti programi sìe instaładi coretamente: latex e dvipng (o dvips + gs + convert).",
-	"math_lexing_error": "eror lessicale",
-	"math_notexvc": "Eseguibile <code>texvc</code> mancante; par piaser consulta math/README par la configurazion.",
 	"math_syntax_error": "eror de sintassi",
 	"math_unknown_error": "eror sconossiùo",
 	"math_unknown_function": "funzion sconossiùa",

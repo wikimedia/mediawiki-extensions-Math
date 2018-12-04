@@ -5,12 +5,7 @@
 			"Ammartivari"
 		]
 	},
-	"math_bad_output": "Nuk munda të shkruaj ose të krijoj prodhimin matematik në dosjen",
-	"math_bad_tmpdir": "Nuk munda të shkruaj ose krijoj dosjen e përkohshme për matematikë",
 	"math_failure": "Nuk e kuptoj",
-	"math_image_error": "Konversioni PNG dështoi; kontrolloni për ndonjë gabim instalimi të latex-it, dvips-it, gs-it, dhe convert-it.",
-	"math_lexing_error": "gabim leximi",
-	"math_notexvc": "Mungon zbatuesi <code>texvc</code>; ju lutem shikoni math/README për konfigurimin.",
 	"math_syntax_error": "Gabim sintakse",
 	"math_unknown_error": "gabim i panjohur",
 	"math_unknown_function": "funksion i panjohur \"$1\"",

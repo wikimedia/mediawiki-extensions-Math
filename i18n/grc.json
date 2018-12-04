@@ -5,12 +5,7 @@
 			"Omnipaedista"
 		]
 	},
-	"math_bad_output": "Ἀδύνατος ἦτο ἡ ποίησις μαθηματικῶν δεδομένων ἢ ἡ ἐγγραφὴ ἐν ἀρχειοκαταλόγῳ ἐξόδου",
-	"math_bad_tmpdir": "Ἀδύνατος ἦτο ἡ ποίησις μαθηματικῶν δεδομένων ἢ ἡ ἐγγραφὴ ἐν προσκαίρῳ ἀρχειοκαταλόγῳ",
 	"math_failure": "Λεξιανάλυσις ἀποτετυχηκυῖα",
-	"math_image_error": "Ἡ PNG-μετατροπὴ ἀπετεύχθη·\nἔλεγξον τὴν ὀρθὴν ἐγκατάστασιν τῶν latex καὶ dvipng (ἢ dvips + gs + convert)",
-	"math_lexing_error": "σφάλμα λεξικῆς ἀναλύσεως",
-	"math_notexvc": "Ἐλλεῖπον ἐκτελέσιμον <code>texvc</code>;\nἴδε math/README διὰ τὸ διαμορφοῦν.",
 	"math_syntax_error": "σφάλμα συντάξεως",
 	"math_unknown_error": "ἄγνωστον σφάλμα",
 	"math_unknown_function": "ἄγνωστος ἐνέργεια",

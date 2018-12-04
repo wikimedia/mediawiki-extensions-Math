@@ -16,7 +16,6 @@
 	"math-visualeditor-symbol-group-math-greek": "یونانی حروف تہجی",
 	"math-visualeditor-symbol-group-math-hebrew": "عبرانی حروف تہجی",
 	"math_failure": "تجزیہ میں ناکام",
-	"math_image_error": "PNG; کی تحویل ناکام\nlatex، dvips، gs کی صحیح تنصیب کی جانچ کرنے کے بعد دوبارہ تحویل کی کوشش کیجیے۔",
 	"math_syntax_error": "نحوی غلطی",
 	"math_unknown_error": "نامعلوم غلطی",
 	"math_unknown_function": "نامعلوم فعل \"$1\"",

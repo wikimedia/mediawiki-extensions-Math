@@ -5,13 +5,7 @@
 		]
 	},
 	"math-desc": "Huchhawa minuywakunata <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> unanchachapura qillqamuy",
-	"math_bad_output": "Manam atinichu <em>math</em> nisqapaq lluqsichina willañiqi churanata kamayta icha qillqayta",
-	"math_bad_tmpdir": "Manam atinichu <em>math</em> nisqapaq mit'alla willañiqi churanata kamayta icha qillqayta",
 	"math_failure": "Manam hap'inichu",
-	"math_image_error": "Manam atinichu PNG-man t'ikrayta; latex nisqawan dvipng (icha dvips + gs + convert) nisqakunap tiyachisqa kayninta llanchiy",
-	"math_lexing_error": "rima pantasqa",
-	"math_notexvc": "Manam kanchu ruranalla <strong><code>texvc</code></strong>. Ama hina kaspa, <em>math/README</em> nisqata ñawiriy allinkachinaykipaq.",
-	"math_output_error": "Manam atinichu huchhawa rikch'ata willañiqi llikapi qullqachayta.",
 	"math_syntax_error": "rimay ukhunpuray pantasqa",
 	"math_unknown_error": "mana riqsisqa pantasqa",
 	"math_unknown_function": "mana riqsisqa rurana '$1'",

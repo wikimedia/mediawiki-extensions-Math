@@ -6,7 +6,6 @@
 		]
 	},
 	"math_failure": "Айырыштырыламды",
-	"math_lexing_error": "лексик хата",
 	"math_syntax_error": "синтаксис хатасы",
 	"math_unknown_error": "билинмеген хата",
 	"math_unknown_function": "бельгисиз функция",

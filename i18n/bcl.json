@@ -7,12 +7,7 @@
 			"Macofe"
 		]
 	},
-	"math_bad_output": "Dai masuratan o magibo an direktoryo kan salida nin math",
-	"math_bad_tmpdir": "Dai masuratan o magibo an direktoryo nin mat temp",
 	"math_failure": "Nagprakaso an pagatíd-atíd",
-	"math_image_error": "Nagprakaso an konbersyon kan PNG; sosogon tabî an pagkaag nin latex, dvips, gs, asin ikonbertir",
-	"math_lexing_error": "may salâ sa analisador léxico",
-	"math_notexvc": "May nawawarang <code>texvc</code> na ehekutable; hilingón tabî an mat/README para makonpigurar.",
 	"math_syntax_error": "may salâ sa analisador nin sintaksis",
 	"math_unknown_error": "dai aram an salâ",
 	"math_unknown_function": "Dai aram an gamit",

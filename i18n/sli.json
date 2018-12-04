@@ -5,12 +5,7 @@
 			"Teutonius"
 		]
 	},
-	"math_bad_output": "Doas Zielverzeichnis fier mathematische Formeln koan ne oagelegt oder beschrieba waan.",
-	"math_bad_tmpdir": "Doas temporäre Verzeichnis fier mathematische Formeln koan ne oagelagt oder beschrieba waan.",
 	"math_failure": "Parser-Fahler",
-	"math_image_error": "de PNG-Konvertierung schlug fehl",
-	"math_lexing_error": "„Lexing“-Fahler",
-	"math_notexvc": "Doas <code>texvc</code>-Programm wurde ne gefunda. Bitte math/README beachten.",
 	"math_syntax_error": "Syntaxfahler",
 	"math_unknown_error": "Unbekennter Fahler",
 	"math_unknown_function": "Unbekennte Funksjonn",

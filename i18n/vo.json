@@ -4,12 +4,7 @@
 			"Smeira"
 		]
 	},
-	"math_bad_output": "No mögos ad penön ini / jafön ragiviär(i) matematik labü seks",
-	"math_bad_tmpdir": "No mögos ad penön ini / jafön ragiviär(i) matematik nelaidüpik.",
 	"math_failure": "Diletam fomüla no eplöpon",
-	"math_image_error": "Feajafam ela PNG no eplöpon;\nvestigolös stitami verätik ela latex, ela dvips, ela gs, e feajafön",
-	"math_lexing_error": "vödidiletam no eplöpon",
-	"math_notexvc": "Program-<code>texvc</code> ledunovik no petuvon;\nlogolös eli math/README ad givulön parametemi.",
 	"math_syntax_error": "süntagapöl",
 	"math_unknown_error": "pök nesevädik",
 	"math_unknown_function": "dun nesevädik",

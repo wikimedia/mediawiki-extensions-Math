@@ -1,11 +1,6 @@
 {
 	"@metadata": [],
-	"math_bad_output": "math degen beris qaltasına jazılmadı, ne qalta qurılmadı",
-	"math_bad_tmpdir": "math degen waqıtşa qaltasına jazılmadı, ne qalta qurılmadı",
 	"math_failure": "Qurılımın taldatwı sätsiz bitti",
-	"math_image_error": "PNG awdarısı sätsiz bitti;\nlatex, dvips, gs jäne convert bağdarlamalarınıñ durıs ornatwın tekserip şığıñız",
-	"math_lexing_error": "söz keniniñ qatesi",
-	"math_notexvc": "<code>texvc</code> atqarılmalısı tabılmadı;\nbaptaw üşin math/README qujatın qarañız.",
 	"math_syntax_error": "söýlem jüýesiniñ qatesi",
 	"math_unknown_error": "belgisiz qate",
 	"math_unknown_function": "belgisiz jete",

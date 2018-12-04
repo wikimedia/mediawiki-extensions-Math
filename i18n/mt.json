@@ -6,14 +6,9 @@
 			"Leli Forte"
 		]
 	},
-	"math_bad_output": "Impossibli tikteb jew toħloq direttorju tal-''output'' tal-''math''",
-	"math_bad_tmpdir": "Impossibli tikteb jew toħloq direttorju temporanju għal ''math''",
 	"math_failure": "Problema fil-''parser''",
-	"math_image_error": "Konverżjoni għal PNG falliet; iċċekkja għall-installazzjoni tajba ta' latex jew dvipng (jew dvips, gs u convert).",
 	"math_invalidxml": "MathML jew SVG hu XML invalidu.",
-	"math_lexing_error": "żball lessikali",
 	"math_mathoid_error": "Żball fil-konverżjoni. Is-server (\"$1\") irrapporta: \"$2\"",
-	"math_notexvc": "Esekuzzjoni ''<code>texvc</code>'' nieqes; jekk jogħġbok konsultà ''math/README'' għal konfigurazzjoni.",
 	"math_syntax_error": "żball fis-sintassi",
 	"math_unknown_error": "Problema mhux magħrufa",
 	"math_unknown_function": "funżjoni mhux magħrufa",

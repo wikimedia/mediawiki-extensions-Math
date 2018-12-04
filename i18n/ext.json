@@ -5,12 +5,7 @@
 			"Macofe"
 		]
 	},
-	"math_bad_output": "Nu es posibri escribil u crial el diretoriu e salia e <em>math</em>",
-	"math_bad_tmpdir": "Nu es posibri escribil u crial el diretoriu temporal de <em>math</em>",
 	"math_failure": "Nu es posibri entendel",
-	"math_image_error": "Marru convirtiendu a PNG; compreba que latex, dvips, gs, i convert estén corretamenti istalaus",
-	"math_lexing_error": "marru lésicu",
-	"math_notexvc": "Farta el ehecutabri e <strong><code>texvc</code></strong>; pol favol, lei <em>math/README</em> pa configuralu.",
 	"math_syntax_error": "marru ena sintasis",
 	"math_unknown_error": "marru andarriu",
 	"math_unknown_function": "hunción andarria",

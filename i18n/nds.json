@@ -4,12 +4,7 @@
 			"Joachim Mos"
 		]
 	},
-	"math_bad_output": "Kann dat Teelverteken för mathematsche Formeln nich anleggen oder beschrieven.",
-	"math_bad_tmpdir": "Kann dat Temporärverteken för mathematsche Formeln nich anleggen oder beschrieven.",
 	"math_failure": "Parser-Fehler",
-	"math_image_error": "dat Konverteren na PNG harr keen Spood.",
-	"math_lexing_error": "'Lexing'-Fehler",
-	"math_notexvc": "Dat <code>texvc</code>-Programm kann nich funnen warrn. Kiek ok math/README.",
 	"math_syntax_error": "Syntaxfehler",
 	"math_unknown_error": "Unbekannten Fehler",
 	"math_unknown_function": "Unbekannte Funktschoon \"$1\"",

@@ -9,12 +9,7 @@
 		]
 	},
 	"math-visualeditor-mwlatexinspector-display-default": "Standert",
-	"math_bad_output": "De formulepad kin net skreaun of makke wêze.",
-	"math_bad_tmpdir": "De tydlike formulepad kin net skreaun of makke wêze.",
 	"math_failure": "Untsjutbere formule",
-	"math_image_error": "PNG-omsetting is mislearre. Gean nei oft atex en dvipng (of dvips + gs + convert) goed ynstallearre binne en set om.",
-	"math_lexing_error": "Unbekind wurd",
-	"math_notexvc": "It programma <code>texvc</code> net fûn; sjoch math/README te ynstallearjen.",
 	"math_syntax_error": "Sinboufout",
 	"math_unknown_error": "Unbekinde fout",
 	"math_unknown_function": "unbekinde funksje \"$1\"",

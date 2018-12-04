@@ -6,12 +6,7 @@
 			"Belkacem77"
 		]
 	},
-	"math_bad_output": "Ur yezmir ara ad yaru ɣef/ɣer tusnakt n tuffɣa directory/dossier",
-	"math_bad_tmpdir": "Ur yezmir ara ad yaru ɣef/ɣer tusnakt n temp directory/dossier",
 	"math_failure": "Agul n tusnakt",
-	"math_image_error": "Aselket ɣer PNG yexser ; ssenqed aserkeb n latex d dvipng (neɣ dvips + gs + convert)",
-	"math_lexing_error": "Agul n tmawalt",
-	"math_notexvc": "''<code>texvc</code> executable'' / ''executable <code>texvc</code>'' ulac-it; ẓer math/README akken a textareḍ isemyifiyen.",
 	"math_syntax_error": "Agul n tseddast",
 	"math_unknown_error": "Agul mačči d aḍahri",
 	"math_unknown_function": "tawuri tarussint \"$1\"",

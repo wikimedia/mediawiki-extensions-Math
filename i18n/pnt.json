@@ -5,7 +5,6 @@
 			"Sinopeus"
 		]
 	},
-	"math_lexing_error": "σφάλμαν λεξικής ανάλυσης",
 	"math_syntax_error": "σφάλμαν σύνταξης",
 	"math_unknown_function": "άγνωρος συνάρτησην",
 	"prefs-math": "Απόδοσην μαθηματικίων"

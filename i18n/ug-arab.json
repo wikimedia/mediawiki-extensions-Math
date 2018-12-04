@@ -4,12 +4,7 @@
 			"Sahran"
 		]
 	},
-	"math_bad_output": "ماتېماتېكىلىق فورمۇلا چىقىرىدىغان مۇندەرىجىگە يازالمىدى ياكى قۇرالمىدى",
-	"math_bad_tmpdir": "ماتېماتېكىلىق فورمۇلا يازىدىغان ياكى قۇرىدىغان ۋاقىتلىق مۇندەرىجە قۇرالمىدى",
 	"math_failure": "تەھلىل قىلالمىدى",
-	"math_image_error": "PNG ئايلاندۇرۇش مەغلۇپ بولدى؛\nlatex، dvips، gs، ۋە convert توغرا قاچىلانغانلىقىنى تەكشۈرۈڭ",
-	"math_lexing_error": "جۈملە خاتالىقى",
-	"math_notexvc": " <code>texvc</code> ئىجرا قىلالمىدى؛ math/README دىن پايدىلىنىپ سەپلەڭ.",
 	"math_syntax_error": "گرامماتىكىلىق خاتالىق",
 	"math_unknown_error": "نامەلۇم خاتالىق",
 	"math_unknown_function": "نامەلۇم فونكسىيە",

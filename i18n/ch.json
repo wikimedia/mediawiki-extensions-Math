@@ -5,7 +5,6 @@
 		]
 	},
 	"math_failure": "Lachi ma parse",
-	"math_lexing_error": "linachi lexing",
 	"math_syntax_error": "linachi syntax",
 	"math_unknown_error": "linachi ti matungo'",
 	"math_unknown_function": "fonksion ti matungo'",

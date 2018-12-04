@@ -6,12 +6,7 @@
 		]
 	},
 	"math-desc": "Rende le fòrmule matemàtiche antra le tichëtte <code>&lt;math&gt;</code> ... \n<code>&lt;/math&gt;</code>",
-	"math_bad_output": "Ël sistema a-i la fa pa a creé la diretriss '''math output''', ò pura a-i la fa nen a scriv-je andrinta",
-	"math_bad_tmpdir": "Ël sistema a-i la fa pa a creé la diretriss '''math temp''', ò pura a-i la fa nen a scriv-je andrinta",
 	"math_failure": "Parsificassion falà",
-	"math_image_error": "La conversion an PNG a l'é falìa; che a contròla l'ùltima instalassion ëd latex e dvipng (o dvips + gs + convert)",
-	"math_lexing_error": "eror ëd léssich",
-	"math_notexvc": "Pa gnun <code>texvc</code> executable; për piasì, che a contròla math/README për la configurassion.",
 	"math_syntax_error": "eror ëd sintassi",
 	"math_unknown_error": "Eror nen conossù",
 	"math_unknown_function": "funsion che as sa pa lòn che a la sia",

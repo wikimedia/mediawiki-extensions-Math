@@ -4,12 +4,7 @@
 			"ChrisPtDe"
 		]
 	},
-	"math_bad_output": "Empossiblo d’ècrire dens ou ben de fâre lo rèpèrtouèro math de sortia",
-	"math_bad_tmpdir": "Empossiblo d’ècrire dens ou ben de fâre lo rèpèrtouèro math temporèro",
 	"math_failure": "Èrror d’analise sintaxica",
-	"math_image_error": "La convèrsion en PNG at pas reussia ; controlâd l’enstalacion de LaTeX et dvipng (ou ben dvips + gs + convert)",
-	"math_lexing_error": "èrror lèxicâla",
-	"math_notexvc": "L’ègzécutâblo « <code>texvc</code> » est entrovâblo.\nVolyéd liére « math/README » por lo configurar.",
 	"math_syntax_error": "èrror de sintaxa",
 	"math_unknown_error": "èrror encognua",
 	"math_unknown_function": "fonccion encognua",

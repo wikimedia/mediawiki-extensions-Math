@@ -5,12 +5,7 @@
 			"Macofe"
 		]
 	},
-	"math_bad_output": "Redura ik sutera ko divaxo tid merotisa",
-	"math_bad_tmpdir": "Redura ik sutera ko ugaloraxo tid merotisa",
 	"math_failure": "Erreur math",
-	"math_image_error": "La conversion en PNG a échoué, vérifiez l'installation de Latex, dvips, gs et convert",
-	"math_lexing_error": "ravlemafa rokla",
-	"math_notexvc": "L'éxécutable « <code>texvc</code> » est introuvable. Lisez math/README pour le configurer.",
 	"math_syntax_error": "erurafa rokla",
 	"math_unknown_error": "erreur indéterminée",
 	"math_unknown_function": "megrupen fliok",

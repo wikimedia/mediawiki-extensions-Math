@@ -5,7 +5,6 @@
 		]
 	},
 	"math_failure": "Excutare non potest",
-	"math_lexing_error": "erratum lexicale",
 	"math_syntax_error": "erratum syntaxis",
 	"math_unknown_error": "error ignotus",
 	"math_unknown_function": "functio ignota",

@@ -4,12 +4,7 @@
 			"Macofe"
 		]
 	},
-	"math_bad_output": "写伓正或建伓正数学公式输出目录",
-	"math_bad_tmpdir": "写伓正或建伓正数学公式临时目录",
 	"math_failure": "分析失败",
-	"math_image_error": "PNG转换失败；请检查系否装正嘞latex, dvips, gs同到convert",
-	"math_lexing_error": "句法错误",
-	"math_notexvc": "执行伓正\"<code>texvc</code>\"；请参看 math/README 再配置过。",
 	"math_syntax_error": "文法错误",
 	"math_unknown_error": "未知错误",
 	"math_unknown_function": "未知函数",

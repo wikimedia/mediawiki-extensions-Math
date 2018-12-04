@@ -7,12 +7,7 @@
 			"Macofe"
 		]
 	},
-	"math_bad_output": "مش ممكن الكتابة لـ أو إنشاء مجلد الخرج للرياضيات",
-	"math_bad_tmpdir": "مش ممكن الكتابة أو انشاء مجلد الرياضة الموؤقت",
 	"math_failure": "الاعراب فشل",
-	"math_image_error": "فشل التحويل لـ PNG ؛\nاتاكد من التثبيت المضبوط لـ :Latex و dvips و gs و convert.",
-	"math_lexing_error": "غلط فى الكلمة",
-	"math_notexvc": "ضايع<code>texvc</code> executable ؛ لو سمحت شوفmath/README للضبط.",
 	"math_syntax_error": "غلط فى تركيب الجملة",
 	"math_unknown_error": "غلط مش معروف",
 	"math_unknown_function": "وظيفة مش معروفة",

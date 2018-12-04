@@ -6,12 +6,7 @@
 		]
 	},
 	"math-desc": "Vykresľovať matematické vzorce medzi značkami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"math_bad_output": "Nemožno zapisovať alebo vytvoriť výstupný matematický adresár",
-	"math_bad_tmpdir": "Nemožno zapisovať alebo vytvoriť dočasný matematický adresár",
 	"math_failure": "Syntaktická analýza (parsing) neúspešná",
-	"math_image_error": "PNG konverzia neúspešná; skontrolujte správnosť inštalácie programov: latex a dvipng (alebo dvips + gs + convert)",
-	"math_lexing_error": "lexikálna chyba",
-	"math_notexvc": "Chýbajúci program <code>texvc</code>; konfigurácia je popísaná v math/README.",
 	"math_syntax_error": "syntaktická chyba",
 	"math_unknown_error": "neznáma chyba",
 	"math_unknown_function": "neznáma funkcia",

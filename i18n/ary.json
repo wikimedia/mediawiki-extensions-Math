@@ -6,7 +6,6 @@
 		]
 	},
 	"math_failure": "khata flmat",
-	"math_lexing_error": "khata fsigha",
 	"math_syntax_error": "khata fsiyagha",
 	"math_unknown_error": "khat mjhol",
 	"math_unknown_function": "wadifa mjhola",

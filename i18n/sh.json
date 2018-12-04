@@ -5,12 +5,7 @@
 			"OC Ripper"
 		]
 	},
-	"math_bad_output": "Ne može se napisati ili napraviti direktorijum za matematički izvještaj.",
-	"math_bad_tmpdir": "Ne može se napisati ili napraviti privremeni matematički direktorijum",
 	"math_failure": "Neuspjeh pri parsiranju",
-	"math_image_error": "PNG konverzija neuspješna; provjerite tačnu instalaciju latex-a i dvipng-a (ili dvips + gs + convert)",
-	"math_lexing_error": "riječnička greška",
-	"math_notexvc": "Nedostaje izvršno <code>texvc</code>; molimo Vas da pogledate math/README da podesite.",
 	"math_syntax_error": "greška u sintaksi - грешка у синтакси",
 	"math_unknown_error": "nepoznata greška",
 	"math_unknown_function": "nepoznata funkcija",

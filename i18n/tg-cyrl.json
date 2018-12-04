@@ -4,12 +4,7 @@
 			"Ibrahim"
 		]
 	},
-	"math_bad_output": "Имкони эҷод ё навистани иттилоот дар пӯшаи хуруҷии риёзӣ (output) вуҷуд надорад",
-	"math_bad_tmpdir": "Имкони эҷод ё навистани иттилоот дар пӯшаи муваққатии риёзӣ (temp) вуҷуд надорад",
 	"math_failure": "Шикаст дар таҷзеҳ",
-	"math_image_error": "Табдил ба PNG шикаст хӯрд; насби дурусти latex ва dvipng (ё dvips + gs + convert) баррасӣ кунед",
-	"math_lexing_error": "хатои lexing",
-	"math_notexvc": "Барномаи ичроии <code>texvc</code> мавҷуд нест; барои иттилооти бештар ба math/README нигаред.",
 	"math_syntax_error": "хатои наҳвӣ",
 	"math_unknown_error": "хатои ношинос",
 	"math_unknown_function": "амали номаълум '$1'",

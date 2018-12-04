@@ -4,12 +4,7 @@
 			"Felis"
 		]
 	},
-	"math_bad_output": "Impussìbiri ischribì o crià la carthella d'iscidda pa ''math''",
-	"math_bad_tmpdir": "Impussìbiri ischribì o crià la carthella timpurània pa ''math''",
 	"math_failure": "Errori i'l'anàrisi sintàttigga",
-	"math_image_error": "Cunvirthimentu in PNG nò ridisciddu; verifiggà chi siani isthalladdi currentementi i sighenti prugrammi: latex, dvips, gs, e convert.",
-	"math_lexing_error": "errori di lingàggiu",
-	"math_notexvc": "Fattìbiri ''<code>texvc</code>'' mancanti; pa piazeri cunsulthà ''math/README'' pa la cunfigurazioni.",
 	"math_syntax_error": "errori di sintassi",
 	"math_unknown_error": "errori ischunisciddu",
 	"math_unknown_function": "funzioni ischuniscidda",

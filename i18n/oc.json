@@ -5,12 +5,7 @@
 			"Macofe"
 		]
 	},
-	"math_bad_output": "Impossible de crear o d’escriure dins lo repertòri math de sortida",
-	"math_bad_tmpdir": "Impossible de crear o d’escriure dins lo repertòri math temporari",
 	"math_failure": "Error matas",
-	"math_image_error": "La conversion en PNG a pas capitat ; verificatz l’installacion de Latex e dvipng (o dvips + gs + convert)",
-	"math_lexing_error": "error lexicala",
-	"math_notexvc": "L’executable « <code>texvc</code> » es introbable. Legissètz math/README per lo configurar.",
 	"math_syntax_error": "error de sintaxi",
 	"math-test-contains-diff": "La cadena renviada $1 conten pas la cadena esperada $2.",
 	"math-tracking-category-error": "Paginas amb errors dins balisas math",
