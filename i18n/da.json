@@ -7,10 +7,12 @@
 			"Thomsen",
 			"Macofe",
 			"Cgtdk",
-			"Saederup92"
+			"Saederup92",
+			"Weblars"
 		]
 	},
 	"math-desc": "Gengiver matematiske formler inden i <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>-tags",
+	"math-visualeditor-mwchemdialog-title": "Kemisk formel",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formel",
 	"math-visualeditor-mwlatexdialog-card-options": "Indstillinger",
 	"math-visualeditor-mwlatexinspector-display-block": "Blokér",
