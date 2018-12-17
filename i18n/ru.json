@@ -18,7 +18,8 @@
 			"Ole Yves",
 			"Stjn",
 			"Shaleych",
-			"Vlad5250"
+			"Vlad5250",
+			"Nk88"
 		]
 	},
 	"math-desc": "Отображает математические формулы в тегах <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -33,13 +34,17 @@
 	"math-visualeditor-mwlatexinspector-display-inline": "Линейное",
 	"math-visualeditor-mwlatexinspector-id": "ID ссылки (необязательно)",
 	"math-visualeditor-mwmathdialog-title": "Математическая формула",
+	"math-visualeditor-symbol-group-chem-addition": "Дополнительные соединения",
+	"math-visualeditor-symbol-group-chem-aggregation": "Состояния агрегации",
 	"math-visualeditor-symbol-group-chem-charges": "Изменения",
+	"math-visualeditor-symbol-group-chem-dots": "Непарные электроны и радикальные точки",
 	"math-visualeditor-symbol-group-chem-equations": "Химические уравнения",
 	"math-visualeditor-symbol-group-chem-formulae": "Химические формулы",
 	"math-visualeditor-symbol-group-chem-greek": "Греческие символы",
 	"math-visualeditor-symbol-group-chem-isotopes": "Изотопы",
 	"math-visualeditor-symbol-group-chem-operators": "Операторы уравнений",
 	"math-visualeditor-symbol-group-chem-oxidation": "Состояния окисления",
+	"math-visualeditor-symbol-group-chem-precipitate": "Осадок и газ",
 	"math-visualeditor-symbol-group-chem-stoichiometric": "Стехиометрические числа",
 	"math-visualeditor-symbol-group-math-accents": "Ударения и диакритические знаки",
 	"math-visualeditor-symbol-group-math-arrows": "Стрелки",
@@ -73,9 +78,14 @@
 	"math-status-introduction": "Эта страница показывает информацию о {{PLURAL:$1|включённом режиме|включённых режимах}} показа математики.\n\n{{PLURAL:$1|Включён следующий режим показа математики|Включены следующие режимы показа математики}}:",
 	"math_syntax_error": "синтаксическая ошибка",
 	"math_timeout": "$1 превысило время ожидания от «$2»",
+	"math-test-end": "\nВнутренние тесты для режима рендеринга ''$1'' завершены.",
 	"math-test-fail": "Тестирование ''$1'' <span style=\"color:red\">не прошло</span>.",
+	"math-test-start": "\nЗапуск бэкэнд-тестов для режима рендеринга ''$1''.",
 	"math-test-success": "Тестирование «$1» <span style=\"color:green\">прошло успешно</span>.",
+	"math-test-contains-diff": "Возвращенная строка $1 не содержит ожидаемой строки $2.",
+	"math-test-equals-diff": "Возвращенная строка $1 отличается от ожидаемой строки $2.",
 	"math-tracking-category-error": "Страницы с ошибками в формулах",
+	"math-tracking-category-error-desc": "Страницы в этой категории имеют ошибки в использовании математических тегов.",
 	"math-tracking-category-mhchem-deprecation": "Страницы, использующие химические теги в устаревшем формате",
 	"math-tracking-category-mhchem-deprecation-desc": "Страницы в этой категории используют химические теги в устаревшем формате",
 	"math-tracking-category-render-error": "Страницы с ошибками в математических формулах",
@@ -89,5 +99,6 @@
 	"prefs-math": "Отображение формул",
 	"mathstatus": "Состояние Math",
 	"datatypes-type-math": "Математическое выражение",
-	"wikibase-listdatatypes-math-head": "Математическое выражение"
+	"wikibase-listdatatypes-math-head": "Математическое выражение",
+	"wikibase-listdatatypes-math-body": "Буквальное поле данных для математических выражений, формул, уравнений и тому подобное, выраженное в варианте LaTeX."
 }
