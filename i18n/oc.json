@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Cedric31",
-			"Macofe"
+			"Macofe",
+			"Townie"
 		]
 	},
 	"math_failure": "Error matas",
@@ -15,5 +16,5 @@
 	"mw_math_png": "Imatges PNG",
 	"mw_math_source": "Font LaTeX (pels navigadors en mòde tèxte)",
 	"prefs-math": "Rendut de las matas",
-	"mathstatus": "Estat matematic"
+	"mathstatus": "Estat matemàtic"
 }
