@@ -64,17 +64,26 @@ class MathMathMLCli extends MathMathML {
 			return false;
 		}
 		$this->texSecure = true;
-		$this->tex = $response->sanetex;
+		if ( isset( $response->sanetex ) ) {
+			$this->tex = $response->sanetex;
+		}
 		// The host name is only relevant for the debugging. So using file:// to indicate that the
 		// cli interface seems to be OK.
 		$this->processJsonResult( $response, 'file://' . $wgMathoidCli[0] );
-		$this->mathStyle = $response->mathoidStyle;
-		$this->png = implode( array_map( "chr", $response->png->data ) );
+		if ( isset( $response->mathoidStyle ) ) {
+			$this->mathStyle = $response->mathoidStyle;
+		}
+		if ( isset( $response->png ) && isset( $response->png->data ) ) {
+			$this->png = implode( array_map( "chr", $response->png->data ) );
+		}
 		$this->changed = true;
 	}
 
 	public function renderError( $response ) {
 		$msg = $response->error;
+		if ( !isset( $response->detail ) || !isset( $response->detail->status ) ) {
+			return $this->getError( 'math_mathoid_error', 'cli', $msg );
+		}
 		try {
 			switch ( $response->detail->status ) {
 				case "F":
@@ -88,8 +97,7 @@ class MathMathMLCli extends MathMathML {
 				case '-':
 					// we do not know any cases that triggers this error
 			}
-		}
-		catch ( Exception $e ) {
+		} catch ( Exception $e ) {
 			// use default error message
 		}
 
