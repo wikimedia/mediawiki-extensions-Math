@@ -63,6 +63,11 @@ class MathMathMLCli extends MathMathML {
 			$this->lastError = $this->renderError( $response );
 			return false;
 		}
+		if ( !isset( $response->sanetex ) && !isset( $response->mathoidStyle ) &&
+			!isset( $response->png ) && !isset( $response->png->data )
+		) {
+			return false;
+		}
 		$this->texSecure = true;
 		$this->tex = $response->sanetex;
 		// The host name is only relevant for the debugging. So using file:// to indicate that the
