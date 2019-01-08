@@ -12,6 +12,7 @@
 			"Милан Јелисавчић"
 		]
 	},
+	"math-desc": "Рендерује математичке формуле између ознака <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwchemdialog-title": "Хемијска формула",
 	"math-visualeditor-mwcheminspector-title": "Хемијска формула",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Брзо уреди",
