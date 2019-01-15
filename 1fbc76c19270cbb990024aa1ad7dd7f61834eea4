@@ -22,6 +22,30 @@
       "revId": "1fbc76c19270cbb990024aa1ad7dd7f61834eea4",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d219878_ddbe8548",
+        "filename": "src/MathMathMLCli.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2019-01-15T18:06:05Z",
+      "side": 1,
+      "message": "Like using error_log or var_dump?",
+      "parentUuid": "9499981b_4e4472f7",
+      "range": {
+        "startLine": 69,
+        "startChar": 10,
+        "endLine": 69,
+        "endChar": 15
+      },
+      "revId": "1fbc76c19270cbb990024aa1ad7dd7f61834eea4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
