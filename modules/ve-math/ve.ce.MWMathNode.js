@@ -30,7 +30,7 @@ ve.ce.MWMathNode.static.name = 'mwMath';
 
 ve.ce.MWMathNode.static.primaryCommandName = 'mathDialog';
 
-ve.ce.MWMathNode.static.iconWhenInvisible = 'math';
+ve.ce.MWMathNode.static.iconWhenInvisible = 'mathematics';
 
 /* Registration */
 

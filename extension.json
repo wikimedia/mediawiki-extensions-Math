@@ -168,8 +168,8 @@
 			],
 			"dependencies": [
 				"ext.visualEditor.mwcore",
-				"ext.math.visualEditor.icons",
-				"ext.math.styles"
+				"ext.math.styles",
+				"oojs-ui.styles.icons-editing-advanced"
 			],
 			"messages": [
 				"math-visualeditor-mwchemdialog-title",
@@ -247,41 +247,6 @@
 			"dependencies": [
 				"ext.math.visualEditor.chemSymbolsData"
 			]
-		},
-		"ext.math.visualEditor.icons": {
-			"class": "ResourceLoaderImageModule",
-			"selectorWithoutVariant": ".oo-ui-icon-{name}",
-			"selectorWithVariant": ".oo-ui-image-{variant}.oo-ui-icon-{name}",
-			"variants": {
-				"progressive": {
-					"color": "#36c"
-				},
-				"invert": {
-					"color": "#fff"
-				}
-			},
-			"images": {
-				"math": {
-					"file": "ve-math/math.svg",
-					"variants": [ "progressive" ]
-				},
-				"math-display-block": {
-					"file": "ve-math/math-display-block.svg",
-					"variants": [ "invert" ]
-				},
-				"math-display-default": {
-					"file": "ve-math/math-display-default.svg",
-					"variants": [ "invert" ]
-				},
-				"math-display-inline": {
-					"file": "ve-math/math-display-inline.svg",
-					"variants": [ "invert" ]
-				},
-				"chem": {
-					"file": "ve-math/chem.svg",
-					"variants": [ "progressive" ]
-				}
-			}
 		}
 	},
 	"ResourceFileModulePaths": {

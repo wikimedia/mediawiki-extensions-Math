@@ -27,7 +27,7 @@ OO.inheritClass( ve.ui.MWChemContextItem, ve.ui.MWLatexContextItem );
 
 ve.ui.MWChemContextItem.static.name = 'chem';
 
-ve.ui.MWChemContextItem.static.icon = 'chem';
+ve.ui.MWChemContextItem.static.icon = 'beaker';
 
 ve.ui.MWChemContextItem.static.label = OO.ui.deferMsg( 'math-visualeditor-mwchemdialog-title' );
 

@@ -44,17 +44,17 @@ ve.ui.MWLatexInspector.prototype.initialize = function () {
 		items: [
 			new OO.ui.ButtonOptionWidget( {
 				data: 'default',
-				icon: 'math-display-default',
+				icon: 'mathematicsDisplayDefault',
 				label: ve.msg( 'math-visualeditor-mwlatexinspector-display-default' )
 			} ),
 			new OO.ui.ButtonOptionWidget( {
 				data: 'inline',
-				icon: 'math-display-inline',
+				icon: 'mathematicsDisplayInline',
 				label: ve.msg( 'math-visualeditor-mwlatexinspector-display-inline' )
 			} ),
 			new OO.ui.ButtonOptionWidget( {
 				data: 'block',
-				icon: 'math-display-block',
+				icon: 'mathematicsDisplayBlock',
 				label: ve.msg( 'math-visualeditor-mwlatexinspector-display-block' )
 			} )
 		]
