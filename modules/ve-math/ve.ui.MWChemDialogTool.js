@@ -20,7 +20,7 @@ ve.ui.MWChemDialogTool = function VeUiMWChemDialogTool( toolGroup, config ) {
 OO.inheritClass( ve.ui.MWChemDialogTool, ve.ui.FragmentWindowTool );
 ve.ui.MWChemDialogTool.static.name = 'chem';
 ve.ui.MWChemDialogTool.static.group = 'object';
-ve.ui.MWChemDialogTool.static.icon = 'chem';
+ve.ui.MWChemDialogTool.static.icon = 'beaker';
 ve.ui.MWChemDialogTool.static.title = OO.ui.deferMsg(
 	'math-visualeditor-mwchemdialog-title' );
 ve.ui.MWChemDialogTool.static.modelClasses = [ ve.dm.MWChemNode ];

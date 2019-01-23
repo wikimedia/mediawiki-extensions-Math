@@ -27,7 +27,7 @@ OO.inheritClass( ve.ui.MWMathContextItem, ve.ui.MWLatexContextItem );
 
 ve.ui.MWMathContextItem.static.name = 'math';
 
-ve.ui.MWMathContextItem.static.icon = 'math';
+ve.ui.MWMathContextItem.static.icon = 'mathematics';
 
 ve.ui.MWMathContextItem.static.label = OO.ui.deferMsg( 'math-visualeditor-mwmathdialog-title' );
 
