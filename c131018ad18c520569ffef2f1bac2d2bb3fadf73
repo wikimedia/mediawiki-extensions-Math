@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06387b24_4254cc74",
+        "filename": "extension.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 366
+      },
+      "writtenOn": "2019-01-23T23:51:43Z",
+      "side": 1,
+      "message": "We should bump this to 1.33 as we now rely on icons in MW 1.33+ OOUI versions.",
+      "range": {
+        "startLine": 16,
+        "startChar": 19,
+        "endLine": 16,
+        "endChar": 25
+      },
+      "revId": "c131018ad18c520569ffef2f1bac2d2bb3fadf73",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
