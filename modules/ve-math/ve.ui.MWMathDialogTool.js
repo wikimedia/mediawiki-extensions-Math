@@ -20,7 +20,7 @@ ve.ui.MWMathDialogTool = function VeUiMWMathDialogTool( toolGroup, config ) {
 OO.inheritClass( ve.ui.MWMathDialogTool, ve.ui.FragmentWindowTool );
 ve.ui.MWMathDialogTool.static.name = 'math';
 ve.ui.MWMathDialogTool.static.group = 'object';
-ve.ui.MWMathDialogTool.static.icon = 'math';
+ve.ui.MWMathDialogTool.static.icon = 'mathematics';
 ve.ui.MWMathDialogTool.static.title = OO.ui.deferMsg(
 	'math-visualeditor-mwmathdialog-title' );
 ve.ui.MWMathDialogTool.static.modelClasses = [ ve.dm.MWMathNode ];
