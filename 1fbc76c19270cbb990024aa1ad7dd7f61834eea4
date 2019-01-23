@@ -94,6 +94,30 @@
       "revId": "1fbc76c19270cbb990024aa1ad7dd7f61834eea4",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c6b2fd9_8833bca8",
+        "filename": "src/MathMathMLCli.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-01-23T08:08:54Z",
+      "side": 1,
+      "message": "Thank you. Sorry for not being clear about the debug output. I mean something like var_dump for $this and $res so that we can get to the root of the problem.\nAnother route to go is to make this endpoint more robust to invalid data and implement a check if the result format fits  the spec https://github.com/wikimedia/mathoid/blob/master/spec.yaml",
+      "parentUuid": "ba363087_016eb9d6",
+      "range": {
+        "startLine": 69,
+        "startChar": 10,
+        "endLine": 69,
+        "endChar": 15
+      },
+      "revId": "1fbc76c19270cbb990024aa1ad7dd7f61834eea4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
