@@ -118,6 +118,30 @@
       "revId": "1fbc76c19270cbb990024aa1ad7dd7f61834eea4",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab6c91d0_2b32dbaf",
+        "filename": "src/MathMathMLCli.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2019-02-01T17:19:52Z",
+      "side": 1,
+      "message": "This is what i get:\n\n\"http://mathoid.testme.wmflabs.org\" [\"XMLValidation\":\"MathMathML\":private]\u003d\u003e bool(true) [\"svgPath\":\"MathMathML\":private]\u003d\u003e bool(false) [\"pngPath\":\"MathMathML\":private]\u003d\u003e bool(false) [\"mathoidStyle\":\"MathMathML\":private]\u003d\u003e NULL [\"tex\":protected]\u003d\u003e NULL [\"mathml\":protected]\u003d\u003e string(840) \"\n{\\displaystyle [e^{tA}]^g \u003d e^{gtA}}\n\" [\"svg\":protected]\u003d\u003e string(4022) \"\" [\"png\":protected]\u003d\u003e NULL [\"userInputTex\":protected]\u003d\u003e string(20) \"[e^{tA}]^g \u003d e^{gtA}\" [\"mathStyle\":protected]\u003d\u003e string(57) \"vertical-align: -0.838ex; width:12.487ex; height:3.176ex;\" [\"params\":protected]\u003d\u003e array(0) { } [\"id\":protected]\u003d\u003e string(0) \"\" [\"texSecure\":protected]\u003d\u003e bool(true) [\"changed\":protected]\u003d\u003e bool(true) [\"storedInDatabase\":protected]\u003d\u003e bool(false) [\"purge\":protected]\u003d\u003e bool(false) [\"lastError\":protected]\u003d\u003e string(0) \"\" [\"md5\":protected]\u003d\u003e string(32) \"6c3ae4b4be1c737f01c374658d53b4a5\" [\"inputHash\":protected]\u003d\u003e string(0) \"\" [\"mode\":protected]\u003d\u003e string(6) \"mathml\" [\"inputType\":protected]\u003d\u003e string(3) \"tex\" [\"rbi\":protected]\u003d\u003e NULL } object(stdClass)#461 (3) { [\"nohash\"]\u003d\u003e array(0) { } [\"success\"]\u003d\u003e bool(true) [\"6c3ae4b4be1c737f01c374658d53b4a5\"]\u003d\u003e object(stdClass)#462 (9) { [\"speakText\"]\u003d\u003e string(36) \"{\\displaystyle [e^{tA}]^g \u003d e^{gtA}}\" [\"mml\"]\u003d\u003e string(840) \"\n{\\displaystyle [e^{tA}]^g \u003d e^{gtA}}\n\" [\"svg\"]\u003d\u003e string(4022) \"\" [\"width\"]\u003d\u003e string(8) \"12.487ex\" [\"height\"]\u003d\u003e string(7) \"3.176ex\" [\"style\"]\u003d\u003e string(25) \"vertical-align: -0.838ex;\" [\"success\"]\u003d\u003e bool(true) [\"log\"]\u003d\u003e string(7) \"success\" [\"mathoidStyle\"]\u003d\u003e string(57) \"vertical-align: -0.838ex; width:12.487ex; height:3.176ex;\" } }\n\nI have no idea why http://mathoid.testme.wmflabs.org is set though.",
+      "parentUuid": "3c6b2fd9_8833bca8",
+      "range": {
+        "startLine": 69,
+        "startChar": 10,
+        "endLine": 69,
+        "endChar": 15
+      },
+      "revId": "1fbc76c19270cbb990024aa1ad7dd7f61834eea4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
