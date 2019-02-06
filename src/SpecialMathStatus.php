@@ -24,7 +24,7 @@ class SpecialMathStatus extends SpecialPage {
 	 */
 	public function execute( $query ) {
 		$this->setHeaders();
-		if ( ! ( $this->getUser()->isAllowed( 'purge' ) ) ) {
+		if ( !( $this->getUser()->isAllowed( 'purge' ) ) ) {
 			// The effect of loading this page is comparable to purge a page.
 			// If desired a dedicated right e.g. "viewmathstatus" could be used instead.
 			throw new PermissionsError( 'purge' );
@@ -153,7 +153,7 @@ class SpecialMathStatus extends SpecialPage {
 	}
 
 	private function assertContains( $expected, $real, $message = '' ) {
-		if ( ! $this->assertTrue( strpos( $real, $expected ) !== false, $message ) ) {
+		if ( !$this->assertTrue( strpos( $real, $expected ) !== false, $message ) ) {
 			$this->printDiff( $expected, $real, 'math-test-contains-diff' );
 		}
 	}

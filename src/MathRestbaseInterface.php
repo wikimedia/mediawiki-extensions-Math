@@ -48,12 +48,12 @@ class MathRestbaseInterface {
 			} else {
 				$skips[] = $i;
 			}
-			$i ++;
+			$i++;
 		}
 		$results = $serviceClient->runMulti( $requests );
 		$lenRbis = count( $rbis );
 		$j = 0;
-		for ( $i = 0; $i < $lenRbis; $i ++ ) {
+		for ( $i = 0; $i < $lenRbis; $i++ ) {
 			if ( !in_array( $i, $skips ) ) {
 				/** @var MathRestbaseInterface $rbi */
 				$rbi = $rbis[$i];
@@ -63,7 +63,7 @@ class MathRestbaseInterface {
 				}
 				catch ( Exception $e ) {
 				}
-				$j ++;
+				$j++;
 			}
 		}
 	}
@@ -153,7 +153,7 @@ class MathRestbaseInterface {
 		$i = 0;
 		foreach ( $results as $response ) {
 			/** @var MathRestbaseInterface $rbi */
-			$rbi = $rbis[$i ++];
+			$rbi = $rbis[$i++];
 			try {
 				$rbi->evaluateRestbaseCheckResponse( $response );
 			} catch ( Exception $e ) {
@@ -261,7 +261,7 @@ class MathRestbaseInterface {
 		// Generates a TeX string that probably has not been generated before
 		$uniqueTeX = uniqid( 't=', true );
 		$testInterface = new MathRestbaseInterface( $uniqueTeX );
-		if ( ! $testInterface->checkTeX() ) {
+		if ( !$testInterface->checkTeX() ) {
 			$this->log()->warning( 'Config check failed, since test expression was considered as invalid.',
 				[ 'uniqueTeX' => $uniqueTeX ] );
 			return false;

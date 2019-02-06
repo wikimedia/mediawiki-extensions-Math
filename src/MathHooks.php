@@ -203,7 +203,7 @@ class MathHooks {
 		if ( $mode == 'mathml' ) {
 			$parser->getOutput()->addModules( [ 'ext.math.scripts' ] );
 			$marker = Parser::MARKER_PREFIX .
-				'-postMath-' . sprintf( '%08X', $n ++ ) .
+				'-postMath-' . sprintf( '%08X', $n++ ) .
 				Parser::MARKER_SUFFIX;
 			self::$tags[$marker] = [ $renderer, $parser ];
 			return $marker;
@@ -268,7 +268,7 @@ class MathHooks {
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
 		$mode = self::mathModeToString( $wgDefaultUserOptions['math'] );
-		if ( ! in_array( $mode, MathRenderer::getValidModes() ) ) {
+		if ( !in_array( $mode, MathRenderer::getValidModes() ) ) {
 			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: ' .
 				"\$wgDefaultUserOptions['math'] is not in " . MathRenderer::getValidModes() . ".\n" .
 				"Please check your LocalSetting.php file." );

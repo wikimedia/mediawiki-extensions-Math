@@ -69,7 +69,7 @@ class DummyTest extends Maintenance {
 			$rend[] = [ MathRenderer::getRenderer( $input[1], $input[2], 'mathml' ), $input ];
 			$output = preg_replace( '#src="(.*?)/(([a-f]|\d)*).png"#', 'src="\2.png"', $output );
 			$parserTests[] = [ (string)$input[1], $output ];
-			$i ++;
+			$i++;
 			echo '.';
 		}
 		echo "Generated $i tests\n";
