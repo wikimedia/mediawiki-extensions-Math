@@ -225,7 +225,7 @@ abstract class MathRenderer {
 	 * @return string hash
 	 */
 	public function getMd5() {
-		if ( ! $this->md5 ) {
+		if ( !$this->md5 ) {
 			$this->md5 = md5( $this->userInputTex );
 		}
 		return $this->md5;
@@ -306,17 +306,17 @@ abstract class MathRenderer {
 	protected function initializeFromDatabaseRow( $rpage ) {
 		$this->inputHash = $rpage->math_inputhash; // MUST NOT BE NULL
 		$this->md5 = self::dbHash2md5( $this->inputHash );
-		if ( ! empty( $rpage->math_mathml ) ) {
+		if ( !empty( $rpage->math_mathml ) ) {
 			$this->mathml = utf8_decode( $rpage->math_mathml );
 		}
-		if ( ! empty( $rpage->math_inputtex ) ) {
+		if ( !empty( $rpage->math_inputtex ) ) {
 			// in the current database the field is probably not set.
 			$this->userInputTex = $rpage->math_inputtex;
 		}
-		if ( ! empty( $rpage->math_tex ) ) {
+		if ( !empty( $rpage->math_tex ) ) {
 			$this->tex = $rpage->math_tex;
 		}
-		if ( ! empty( $rpage->math_svg ) ) {
+		if ( !empty( $rpage->math_svg ) ) {
 			$this->svg = $rpage->math_svg;
 		}
 		$this->changed = false;

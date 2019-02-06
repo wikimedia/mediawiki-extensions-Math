@@ -426,7 +426,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$class = $classOverride;
 		}
-		if ( ! $this->mathoidStyle ) {
+		if ( !$this->mathoidStyle ) {
 			$this->correctSvgStyle( $this->mathoidStyle );
 		}
 		if ( $class ) {
@@ -522,7 +522,7 @@ class MathMathML extends MathRenderer {
 	protected function initializeFromDatabaseRow( $rpage ) {
 		// mathoid allows different input formats
 		// therefore the column name math_inputtex was changed to math_input
-		if ( $this->getMathTableName() == 'mathoid' && ! empty( $rpage->math_input ) ) {
+		if ( $this->getMathTableName() == 'mathoid' && !empty( $rpage->math_input ) ) {
 			$this->userInputTex = $rpage->math_input;
 		}
 		parent::initializeFromDatabaseRow( $rpage );
