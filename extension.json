@@ -31,7 +31,7 @@
 		"SpecialMathStatus": "src/SpecialMathStatus.php",
 		"MathValidator": "src/MathValidator.php",
 		"MathFormatter": "src/MathFormatter.php",
-		"MathWikidataHook": "src/MathWikidataHook.php",
+		"MathWikibaseHook": "src/MathWikibaseHook.php",
 		"MathMLRdfBuilder": "src/MathMLRdfBuilder.php",
 		"MathPng": "src/MathPng.php",
 		"MathDataUpdater": "src/MathDataUpdater.php"
@@ -63,10 +63,10 @@
 			"MathHooks::onPageRenderingHash"
 		],
 		"WikibaseClientDataTypes": [
-			"MathWikidataHook::onWikibaseClientDataTypes"
+			"MathWikibaseHook::onWikibaseClientDataTypes"
 		],
 		"WikibaseRepoDataTypes": [
-			"MathWikidataHook::onWikibaseRepoDataTypes"
+			"MathWikibaseHook::onWikibaseRepoDataTypes"
 		],
 		"ParserAfterTidy": [
 			"MathHooks::onParserAfterTidy"

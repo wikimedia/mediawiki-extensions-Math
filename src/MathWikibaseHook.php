@@ -9,7 +9,7 @@ use Wikibase\Repo\Parsers\WikibaseStringValueNormalizer;
 use Wikibase\Repo\WikibaseRepo;
 use Wikimedia\Purtle\RdfWriter;
 
-class MathWikidataHook {
+class MathWikibaseHook {
 
 	/**
 	 * Add Datatype "Math" to the Wikibase Repository
