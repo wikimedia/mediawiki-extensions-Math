@@ -26,7 +26,7 @@ ve.ui.MWLatexContextItem = function VeUiMWLatexContextItem() {
 	} );
 
 	// Don't show quick edit button in mobile as the primary action will be quick edit
-	if ( !this.context.isMobile() ) {
+	if ( !this.context.isMobile() && !this.isReadOnly() ) {
 		this.actionButtons.addItems( [ this.quickEditButton ], 0 );
 	}
 

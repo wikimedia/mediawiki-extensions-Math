@@ -190,11 +190,13 @@ ve.ui.MWLatexDialog.prototype.getSetupProcess = function ( data ) {
 		.next( function () {
 			var attributes = this.selectedNode && this.selectedNode.getAttribute( 'mw' ).attrs,
 				display = attributes && attributes.display || 'default',
-				id = attributes && attributes.id || '';
+				id = attributes && attributes.id || '',
+				isReadOnly = this.isReadOnly();
 
 			// Populate form
-			this.displaySelect.selectItemByData( display );
-			this.idInput.setValue( id );
+			// TODO: This widget is not readable when disabled
+			this.displaySelect.selectItemByData( display ).setDisabled( isReadOnly );
+			this.idInput.setValue( id ).setDisabled( isReadOnly );
 
 			// Add event handlers
 			this.input.on( 'change', this.onChangeHandler );
@@ -304,6 +306,10 @@ ve.ui.MWLatexDialog.prototype.onListClick = function ( e ) {
 		encapsulate = symbol.encapsulate,
 		insert = symbol.insert,
 		range = this.input.getRange();
+
+	if ( this.isReadOnly() ) {
+		return;
+	}
 
 	if ( encapsulate ) {
 		if ( range.from === range.to ) {
