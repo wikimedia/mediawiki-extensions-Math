@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a73343a8_389ec902",
+        "filename": "modules/ve-math/ve.ui.MWLatexDialog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 417
+      },
+      "writtenOn": "2019-02-22T05:45:56Z",
+      "side": 1,
+      "message": "Hm, interesting. I guess we need OOUI styling for disabled active buttons.",
+      "revId": "f22a61c000b9ad2f3114f40e918af26e7f61a783",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
