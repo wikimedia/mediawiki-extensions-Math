@@ -1,9 +1,28 @@
 {
 	"@metadata": {
 		"authors": [
-			"Behdarvandyani"
+			"Behdarvandyani",
+			"Mogoeilor"
 		]
 	},
-	"math_sample": "فرمول نهادن ایچو",
-	"math_tip": "فرمول ریاضی (LaTeX)"
+	"math-visualeditor-mwchemdialog-title": "فورمۊل شیمیایی",
+	"math-visualeditor-mwcheminspector-title": "فورمۊل شیمیایی",
+	"math-visualeditor-mwlatexcontextitem-quickedit": "آلشدکای سریع",
+	"math-visualeditor-mwlatexdialog-card-formula": "فورمۊل",
+	"math-visualeditor-mwlatexdialog-card-options": "گوزیناْیٱل",
+	"math-visualeditor-mwlatexinspector-display": "نشوݩ داڌن",
+	"math-visualeditor-mwlatexinspector-display-block": "نیاگری ڤابۊ",
+	"math-visualeditor-mwlatexinspector-display-default": "پیش فٱرز",
+	"math-visualeditor-mwmathdialog-title": "فورمۊل اْشماردونسمٱندی",
+	"math-visualeditor-symbol-group-chem-formulae": "فورمۊل شیمیایی",
+	"math-visualeditor-symbol-group-chem-isotopes": "ایزوتوپ",
+	"math-visualeditor-symbol-group-math-geometry": "جئومتریک",
+	"math-visualeditor-symbol-group-math-logic": "مٱنتقی",
+	"math-visualeditor-symbol-group-math-parentheses": "پرانتز",
+	"math-visualeditor-symbol-group-math-special": "ڤیجاْ",
+	"math_syntax_error": "خٱتا سینتٱکس",
+	"math_unknown_error": "خٱتا نادیار",
+	"mw_math_png": "عسگٱل پی اْن جی",
+	"prefs-math": "اْشماردونسمٱندی",
+	"mathstatus": "هال و بال اْشماردونسمٱندی"
 }
