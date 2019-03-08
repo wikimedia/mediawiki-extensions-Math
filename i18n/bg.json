@@ -5,7 +5,8 @@
 			"Vodnokon4e",
 			"Macofe",
 			"StanProg",
-			"ShockD"
+			"ShockD",
+			"Ted Masters"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Химична формула",
@@ -22,7 +23,9 @@
 	"math_failure": "Неуспех при разбора",
 	"math_syntax_error": "синтактична грешка",
 	"math-tracking-category-error": "Страници с математически грешки",
+	"math-tracking-category-error-desc": "Страниците в тази категория имат грешки при използването на математическите тагове.",
 	"math-tracking-category-render-error": "Страници с грешки в показването на математически изрази",
+	"math-tracking-category-render-error-desc": "Страниците в тази категория имат грешки при визуализирането на математическите изрази.",
 	"math_unknown_error": "непозната грешка",
 	"math_unknown_function": "непозната функция „$1“",
 	"mw_math_mathml": "MathML с резервен вариант SVG или PNG (препоръчва се за съвременни браузъри и инструменти за подобряване на достъпността)",
