@@ -102,5 +102,5 @@ class DummyTest extends Maintenance {
 	}
 }
 
-$maintClass = 'DummyTest';
+$maintClass = DummyTest::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
