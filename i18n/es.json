@@ -82,6 +82,8 @@
 	"math-test-equals-diff": "La cadena devuelta $1 es diferente de la esperada $2",
 	"math-tracking-category-error": "Páginas con errores de matemáticas",
 	"math-tracking-category-error-desc": "Las páginas en esta categoría tienen errores en el uso de etiquetas de matemáticas.",
+	"math-tracking-category-mhchem-deprecation": "Páginas que utilizan un formato obsoleto de la etiqueta chem",
+	"math-tracking-category-mhchem-deprecation-desc": "Las páginas de esta categoría utilizan un formato obsoleto de las etiquetas chem",
 	"math-tracking-category-render-error": "Páginas con errores de representación matemática",
 	"math-tracking-category-render-error-desc": "Las páginas de esta categoría contienen errores de representación en las etiquetas matemáticas.",
 	"math_unknown_error": "error desconocido",
