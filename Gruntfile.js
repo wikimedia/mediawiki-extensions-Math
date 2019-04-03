@@ -33,6 +33,10 @@ module.exports = function ( grunt ) {
 			tasks: 'test'
 		},
 		eslint: {
+			options: {
+				reportUnusedDisableDirectives: true,
+				cache: true
+			},
 			all: [
 				'**/*.js',
 				'!**/node_modules/**',
