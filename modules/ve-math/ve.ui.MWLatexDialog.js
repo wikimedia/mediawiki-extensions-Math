@@ -196,7 +196,7 @@ ve.ui.MWLatexDialog.prototype.getSetupProcess = function ( data ) {
 			// Populate form
 			// TODO: This widget is not readable when disabled
 			this.displaySelect.selectItemByData( display ).setDisabled( isReadOnly );
-			this.idInput.setValue( id ).setDisabled( isReadOnly );
+			this.idInput.setValue( id ).setReadOnly( isReadOnly );
 
 			// Add event handlers
 			this.input.on( 'change', this.onChangeHandler );
