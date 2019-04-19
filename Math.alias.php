@@ -21,6 +21,11 @@ $specialPageAliases['ar'] = [
 	'MathStatus' => [ 'حالة_الرياضيات' ],
 ];
 
+/** Czech (čeština) */
+$specialPageAliases['cs'] = [
+	'MathStatus' => [ 'Stav_matematiky' ],
+];
+
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = [
 	'MathStatus' => [ 'وضعیت_ریاضی' ],
