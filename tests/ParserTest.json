@@ -2123,7 +2123,7 @@
     {
         "input": " with a thumbnail- we don't render math in the parsertests by default, so math is not stripped and turns up as escaped &lt;math&gt; tags. [[Image:foobar.jpg|thumb|<math>2+2",
         "params": [],
-        "output": "<strong class='error texerror'>Failed to parse (syntax error): {\\displaystyle  with a thumbnail- we don't render math in the parsertests by default, so math is not stripped and turns up as escaped &amp;lt;math&amp;gt; tags. [[Image:foobar.jpg|thumb|&lt;math&gt;2+2}<\/strong>\n"
+        "output": "<strong class=\"error texerror\">Failed to parse (syntax error): {\\displaystyle  with a thumbnail- we don't render math in the parsertests by default, so math is not stripped and turns up as escaped &amp;lt;math&amp;gt; tags. [[Image:foobar.jpg|thumb|&lt;math&gt;2+2}<\/strong>\n"
     },
     {
         "input": " with a thumbnail- math enabled [[Image:foobar.jpg|thumb|<math>2+2",
@@ -2293,12 +2293,12 @@
     {
         "input": "",
         "params": [],
-        "output": "<strong class='error texerror'>Failed to parse (Conversion error. Server (&quot;https:\/\/wikimedia.org\/api\/rest_&quot;) reported: &quot;Cannot get mml. Expected width &gt; 0.&quot;): {\\displaystyle }<\/strong>\n"
+        "output": "<strong class=\"error texerror\">Failed to parse (Conversion error. Server (&quot;https:\/\/wikimedia.org\/api\/rest_&quot;) reported: &quot;Cannot get mml. Expected width &gt; 0.&quot;): {\\displaystyle }<\/strong>\n"
     },
     {
         "input": " ",
         "params": [],
-        "output": "<strong class='error texerror'>Failed to parse (Conversion error. Server (&quot;https:\/\/wikimedia.org\/api\/rest_&quot;) reported: &quot;Cannot get mml. Expected width &gt; 0.&quot;): {\\displaystyle  }<\/strong>\n"
+        "output": "<strong class=\"error texerror\">Failed to parse (Conversion error. Server (&quot;https:\/\/wikimedia.org\/api\/rest_&quot;) reported: &quot;Cannot get mml. Expected width &gt; 0.&quot;): {\\displaystyle  }<\/strong>\n"
     },
     {
         "input": "\\left(\\begin{smallmatrix}a & b\\\\ c & d\\end{smallmatrix}\\right)",
