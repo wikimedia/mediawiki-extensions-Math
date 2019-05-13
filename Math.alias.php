@@ -36,6 +36,16 @@ $specialPageAliases['mk'] = [
 	'MathStatus' => [ 'МатСтатус' ],
 ];
 
+/** Serbian Cyrillic (српски (ћирилица)) */
+$specialPageAliases['sr-ec'] = [
+	'MathStatus' => [ 'СтањеПриказаМатематичкихФормула' ],
+];
+
+/** Serbian Latin (srpski (latinica)) */
+$specialPageAliases['sr-el'] = [
+	'MathStatus' => [ 'StanjePrikazaMatematičkihFormula' ],
+];
+
 /** Urdu (اردو) */
 $specialPageAliases['ur'] = [
 	'MathStatus' => [ 'کیفیت_ریاضی' ],
