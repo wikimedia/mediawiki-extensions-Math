@@ -6,7 +6,8 @@
 			"Macofe",
 			"Mechanizatar",
 			"Artsiom91",
-			"Maksim L."
+			"Maksim L.",
+			"Vlad5250"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Хімічную формулу",
@@ -15,7 +16,7 @@
 	"math_failure": "Не ўдалося разабраць",
 	"math_syntax_error": "памылка сінтаксісу",
 	"math-tracking-category-error": "Старонкі з матэматычнымі памылкамі",
-	"math-tracking-category-error-desc": "Старонка з памылкамі пры выкарыстанні матэматычных тэгаў.",
+	"math-tracking-category-error-desc": "Старонкі ў гэтай катэгорыі маюць памылкі пры выкарыстанні матэматычных тэгаў.",
 	"math-tracking-category-render-error": "Старонкі з памылкамі ў матэматычных формулах",
 	"math_unknown_error": "невядомая памылка",
 	"math_unknown_function": "невядомая функцыя \"$1\"",
