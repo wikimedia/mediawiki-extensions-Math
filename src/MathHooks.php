@@ -268,12 +268,12 @@ class MathHooks {
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
 		$mode = self::mathModeToString( $wgDefaultUserOptions['math'] );
-		if ( !in_array( $mode, MathRenderer::getValidModes() ) ) {
+		$validModes = MathRenderer::getValidModes();
+		if ( !in_array( $mode, $validModes ) ) {
 			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: ' .
-				"\$wgDefaultUserOptions['math'] is not in " . MathRenderer::getValidModes() . ".\n" .
+				"\$wgDefaultUserOptions['math'] is not in [ " . implode( ', ', $validModes ) . " ].\n" .
 				"Please check your LocalSetting.php file." );
 			// Display the checkbox in the first option.
-			$validModes = MathRenderer::getValidModes();
 			$wgDefaultUserOptions['math'] = $validModes[0];
 		}
 		return true;
