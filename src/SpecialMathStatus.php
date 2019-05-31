@@ -78,7 +78,7 @@ class SpecialMathStatus extends SpecialPage {
 		$svgRef = file_get_contents( __DIR__ . '/../images/reference.svg' );
 		$svgRefNoSpeech = file_get_contents( __DIR__ . '/../images/reference-nospeech.svg' );
 		$renderer = MathRenderer::getRenderer( "a+b", [], 'mathml' );
-		$this->assertTrue( $renderer->render( true ), "Rendering of a+b in plain MathML mode" );
+		$this->assertTrue( $renderer->render(), "Rendering of a+b in plain MathML mode" );
 		$real = str_replace( "\n", '', $renderer->getHtmlOutput() );
 		$expected = '<mo>+</mo>';
 		$this->assertContains( $expected, $real, "Checking the presence of '+' in the MathML output" );
@@ -112,7 +112,7 @@ class SpecialMathStatus extends SpecialPage {
 	 */
 	public function testLaTeXMLIntegration() {
 		$renderer = MathRenderer::getRenderer( "a+b", [], 'latexml' );
-		$this->assertTrue( $renderer->render( true ), "Rendering of a+b in LaTeXML mode" );
+		$this->assertTrue( $renderer->render(), "Rendering of a+b in LaTeXML mode" );
 		// phpcs:ignore Generic.Files.LineLength.TooLong
 		$expected = '<math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.m1" class="ltx_Math" alttext="{\displaystyle a+b}" ><semantics><mrow id="p1.m1.4" xref="p1.m1.4.cmml"><mi id="p1.m1.1" xref="p1.m1.1.cmml">a</mi><mo id="p1.m1.2" xref="p1.m1.2.cmml">+</mo><mi id="p1.m1.3" xref="p1.m1.3.cmml">b</mi></mrow><annotation-xml encoding="MathML-Content"><apply id="p1.m1.4.cmml" xref="p1.m1.4"><plus id="p1.m1.2.cmml" xref="p1.m1.2"/><ci id="p1.m1.1.cmml" xref="p1.m1.1">a</ci><ci id="p1.m1.3.cmml" xref="p1.m1.3">b</ci></apply></annotation-xml><annotation encoding="application/x-tex">{\displaystyle a+b}</annotation></semantics></math>';
 		$real = preg_replace( "/\n\\s*/", '', $renderer->getHtmlOutput() );
