@@ -52,7 +52,7 @@ class MathMathMLCli extends MathMathML {
 		if ( !property_exists( $res, $this->getMd5() ) ) {
 			$this->lastError =
 				$this->getError( 'math_mathoid_error', 'cli',
-					var_export( get_object_vars( $res ) ) );
+					var_export( get_object_vars( $res ), true ) );
 			return false;
 		}
 		if ( $this->isEmpty() ) {
