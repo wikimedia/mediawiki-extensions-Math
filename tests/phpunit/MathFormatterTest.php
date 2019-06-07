@@ -2,7 +2,7 @@
 
 use DataValues\StringValue;
 use DataValues\NumberValue;
-use Wikibase\Lib\SnakFormatter;
+use Wikibase\Lib\Formatters\SnakFormatter;
 
 /**
  * Test the results of MathFormatter
