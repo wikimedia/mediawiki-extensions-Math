@@ -19,7 +19,8 @@
 			"Stjn",
 			"Shaleych",
 			"Vlad5250",
-			"Nk88"
+			"Nk88",
+			"Putnik"
 		]
 	},
 	"math-desc": "Отображает математические формулы в тегах <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -36,6 +37,7 @@
 	"math-visualeditor-mwmathdialog-title": "Математическая формула",
 	"math-visualeditor-symbol-group-chem-addition": "Дополнительные соединения",
 	"math-visualeditor-symbol-group-chem-aggregation": "Состояния агрегации",
+	"math-visualeditor-symbol-group-chem-brackets": "Круглые, квадратные и фигурные скобки",
 	"math-visualeditor-symbol-group-chem-charges": "Изменения",
 	"math-visualeditor-symbol-group-chem-dots": "Непарные электроны и радикальные точки",
 	"math-visualeditor-symbol-group-chem-equations": "Химические уравнения",

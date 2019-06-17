@@ -7,7 +7,8 @@
 			"Ronel1",
 			"Guycn2",
 			"Macofe",
-			"IKhitron"
+			"IKhitron",
+			"Putnik"
 		]
 	},
 	"math-desc": "הדפסת נוסחאות מתמטיות בין תגי <bdi><code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code></bdi>",
@@ -25,7 +26,7 @@
 	"math-visualeditor-symbol-group-chem-addition": "תרכובות צירוף",
 	"math-visualeditor-symbol-group-chem-aggregation": "מצבי צבירה",
 	"math-visualeditor-symbol-group-chem-arrows": "חצי תגובה",
-	"math-visualeditor-symbol-group-chem-brackets": "סוגריים עגולים, מרובעים, ומסולסלים",
+	"math-visualeditor-symbol-group-chem-brackets": "סוגריים מעוגלים, סוגריים מרובעים וסוגריים מסולסלים",
 	"math-visualeditor-symbol-group-chem-charges": "מטענים",
 	"math-visualeditor-symbol-group-chem-dots": "אלקטרונים לא־מזווגים ונקודות רדיקלים",
 	"math-visualeditor-symbol-group-chem-equations": "משוואות כימיות",
