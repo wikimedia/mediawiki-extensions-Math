@@ -43,6 +43,7 @@ class MathLaTeXML extends MathMathML {
 
 		return $cgi_string;
 	}
+
 	/**
 	 * Gets the settings for the LaTeXML daemon.
 	 * @return string

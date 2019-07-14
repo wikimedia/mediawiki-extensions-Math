@@ -57,6 +57,7 @@ class MathInputCheckRestbase extends MathInputCheck {
 		}
 		return $errorRenderer->getError( 'math_unknown_error' );
 	}
+
 	/**
 	 * @return bool
 	 */

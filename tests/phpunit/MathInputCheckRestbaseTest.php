@@ -11,6 +11,7 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 	protected $BadObject;
 	/** @var MathInputCheckRestbase */
 	protected $GoodObject;
+
 	public static function setUpBeforeClass() {
 		$rbi = new MathRestbaseInterface();
 		self::$hasRestbase = $rbi->checkBackend( true );
@@ -43,6 +44,7 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 		)->inContentLanguage()->escaped();
 		$this->assertContains( $expectedMessage, $this->BadObject->getError() );
 	}
+
 	/**
 	 * @covers MathInputCheckRestbase::getError
 	 */
@@ -52,6 +54,7 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 		$expectedMessage = wfMessage( 'math_syntax_error' )->inContentLanguage()->escaped();
 		$this->assertContains( $expectedMessage, $o->getError() );
 	}
+
 	/**
 	 * @covers MathInputCheckRestbase::getError
 	 */

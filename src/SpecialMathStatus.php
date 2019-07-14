@@ -187,6 +187,7 @@ class SpecialMathStatus extends SpecialPage {
 				'SyntaxHighlight is not installed.' );
 		}
 	}
+
 	protected function getGroupName() {
 		return 'other';
 	}

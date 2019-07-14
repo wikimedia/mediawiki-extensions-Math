@@ -65,6 +65,7 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 		$this->assertContains( '<msubsup>', $rbi->getMathML() );
 		$this->assertContains( '<mtext>H</mtext>', $rbi->getMathML() );
 	}
+
 	/**
 	 * @expectedException MWException
 	 * @expectedExceptionMessage TeX input is invalid.
