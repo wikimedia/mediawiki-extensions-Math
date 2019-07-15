@@ -24,6 +24,7 @@
 	"math_syntax_error": "синтактична грешка",
 	"math-tracking-category-error": "Страници с математически грешки",
 	"math-tracking-category-error-desc": "Страниците в тази категория имат грешки при използването на математическите тагове.",
+	"math-tracking-category-mhchem-deprecation": "Страници, използващи отпаднал формат в таговете за химични формули",
 	"math-tracking-category-render-error": "Страници с грешки в показването на математически изрази",
 	"math-tracking-category-render-error-desc": "Страниците в тази категория имат грешки при визуализирането на математическите изрази.",
 	"math_unknown_error": "непозната грешка",
