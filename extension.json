@@ -5,7 +5,8 @@
 		"Tomasz Wegrzanowski",
 		"Brion Vibber",
 		"Moritz Schubotz",
-		"Derk-Jan Hartman"
+		"Derk-Jan Hartman",
+		"André Greiner-Petter"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:Math",
 	"descriptionmsg": "math-desc",
@@ -29,15 +30,25 @@
 		"MathInputCheckRestbase": "src/MathInputCheckRestbase.php",
 		"SpecialMathShowImage": "src/SpecialMathShowImage.php",
 		"SpecialMathStatus": "src/SpecialMathStatus.php",
+		"SpecialMathWikibase": "src/SpecialMathWikibase.php",
 		"MathValidator": "src/MathValidator.php",
 		"MathFormatter": "src/MathFormatter.php",
 		"MathWikibaseHook": "src/MathWikibaseHook.php",
 		"MathMLRdfBuilder": "src/MathMLRdfBuilder.php",
 		"MathPng": "src/MathPng.php",
-		"MathDataUpdater": "src/MathDataUpdater.php"
+		"MathDataUpdater": "src/MathDataUpdater.php",
+		"MathWikibaseConfig": "src/MathWikibaseConfig.php",
+		"MathWikibaseConnector": "src/MathWikibaseConnector.php",
+		"MathWikibaseInfo": "src/MathWikibaseInfo.php",
+		"ApiMathWikibaseExtracts": "src/ApiMathWikibaseExtracts.php"
 	},
 	"DefaultUserOptions": {
 		"math": "mathml"
+	},
+	"APIPropModules": {
+		"mathwbextracts": {
+			"class": "ApiMathWikibaseExtracts"
+		}
 	},
 	"ExtensionMessagesFiles": {
 		"MathAlias": "Math.alias.php",
@@ -108,7 +119,11 @@
 			"source",
 			"mathml"
 		],
-		"MathEnableWikibaseDataType": true
+		"MathEnableWikibaseDataType": true,
+		"MathEnableFormulaLinks": false,
+		"MathWikibasePropertyIdHasPart": "P527",
+		"MathWikibasePropertyIdDefiningFormula": "P2534",
+		"MathWikibasePropertyIdQuantitySymbol": "P416"
 	},
 	"VisualEditorPluginModules": [
 		"ext.math.visualEditor"
@@ -128,6 +143,12 @@
 		},
 		"ext.math.scripts": {
 			"scripts": "ext.math.js"
+		},
+		"ext.math.wikibase.scripts": {
+			"scripts": "ext.math.wikibase.js",
+			"dependencies": [
+				"jquery.wikibase.entityselector"
+			]
 		},
 		"ext.math.visualEditor": {
 			"scripts": [
@@ -246,7 +267,8 @@
 	},
 	"SpecialPages": {
 		"MathShowImage": "SpecialMathShowImage",
-		"MathStatus": "SpecialMathStatus"
+		"MathStatus": "SpecialMathStatus",
+		"MathWikibase": "SpecialMathWikibase"
 	},
 	"TrackingCategories": [
 		"math-tracking-category-error",
