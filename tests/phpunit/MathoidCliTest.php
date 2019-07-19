@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers MathInputCheckTexvc
+ * @covers MathMathMLCli
  *
  * @group Math
  *

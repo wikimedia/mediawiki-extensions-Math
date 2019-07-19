@@ -149,22 +149,6 @@ class MathHooks {
 	}
 
 	/**
-	 * Set up $wgMathPath and $wgMathDirectory globals if they're not already set.
-	 */
-	public static function setup() {
-		global $wgMathPath, $wgMathDirectory,
-			$wgUploadPath, $wgUploadDirectory;
-
-		if ( $wgMathPath === false ) {
-			$wgMathPath = "{$wgUploadPath}/math";
-		}
-
-		if ( $wgMathDirectory === false ) {
-			$wgMathDirectory = "{$wgUploadDirectory}/math";
-		}
-	}
-
-	/**
 	 * Register the <math> tag with the Parser.
 	 *
 	 * @param Parser $parser instance of Parser

@@ -39,9 +39,6 @@
 	"DefaultUserOptions": {
 		"math": "mathml"
 	},
-	"ExtensionFunctions": [
-		"MathHooks::setup"
-	],
 	"ExtensionMessagesFiles": {
 		"MathAlias": "Math.alias.php",
 		"MathAliasNoTranslate": "Math.alias.noTranslate.php"
@@ -73,7 +70,6 @@
 		]
 	},
 	"config": {
-		"MathCheckFiles": true,
 		"MathDefaultLaTeXMLSetting": {
 			"format": "xhtml",
 			"whatsin": "math",
@@ -98,27 +94,21 @@
 			],
 			"linelength": 90
 		},
-		"MathDirectory": false,
 		"MathDisableTexFilter": "new",
 		"MathEnableExperimentalInputFormats": false,
-		"MathFileBackend": false,
 		"MathLaTeXMLTimeout": 240,
 		"MathLaTeXMLUrl": "http://gw125.iu.xsede.org:8888",
 		"MathMathMLTimeout": 20,
 		"MathMathMLUrl": "http://mathoid.testme.wmflabs.org",
 		"MathFullRestbaseURL": "https://wikimedia.org/api/rest_",
 		"MathConcurrentReqs": 50,
-		"MathPath": false,
-		"MathTexvcCheckExecutable": false,
 		"MathoidCli": false,
 		"MathValidModes": [
 			"png",
 			"source",
 			"mathml"
 		],
-		"MathEnableWikibaseDataType": true,
-		"Texvc": false,
-		"TexvcBackgroundColor": "transparent"
+		"MathEnableWikibaseDataType": true
 	},
 	"VisualEditorPluginModules": [
 		"ext.math.visualEditor"
