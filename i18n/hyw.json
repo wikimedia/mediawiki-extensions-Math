@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Azniv Stepanian"
+			"Azniv Stepanian",
+			"Դավիթ Սարոյան"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Քիմիական բանաձեւ",
@@ -11,6 +12,7 @@
 	"math-visualeditor-mwlatexinspector-display": "Ցուցադրել",
 	"math-visualeditor-mwlatexinspector-display-block": "‎Արգելակել",
 	"math-visualeditor-mwlatexinspector-display-default": "Լռելեան",
+	"math-visualeditor-mwmathdialog-title": "Ուսողական բանաձեւ",
 	"math-visualeditor-symbol-group-math-logic": "Տրամաբանութիւն",
 	"math-visualeditor-symbol-group-math-operators": "Գործարկուներ"
 }
