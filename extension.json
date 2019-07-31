@@ -164,6 +164,7 @@
 				"ve-math/ve.ui.MWLatexDialog.css",
 				"ve-math/ve.ce.MWLatexNode.css",
 				"ve-math/ve.ui.MWLatexInspector.css",
+				"ve-math/ve.ui.MWLatexContextItem.css",
 				"ve-math/ve.ui.MWLatexPage.css"
 			],
 			"dependencies": [
