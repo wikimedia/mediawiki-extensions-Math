@@ -63,3 +63,10 @@ ve.ui.MWLatexContextItem.prototype.getCommand = function () {
 		this.context.isMobile() ? this.constructor.static.inlineEditCommand : this.constructor.static.commandName
 	);
 };
+
+/**
+ * @inheritdoc
+ */
+ve.ui.MWLatexContextItem.prototype.getDescription = function () {
+	return ve.ce.nodeFactory.getDescription( this.model );
+};
