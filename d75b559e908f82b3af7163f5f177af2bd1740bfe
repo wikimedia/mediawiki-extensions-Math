@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c01da00_59db6536",
+        "filename": "extension.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 366
+      },
+      "writtenOn": "2019-07-31T16:38:35Z",
+      "side": 1,
+      "message": "You didn\u0027t commit this file.",
+      "range": {
+        "startLine": 167,
+        "startChar": 5,
+        "endLine": 167,
+        "endChar": 41
+      },
+      "revId": "d75b559e908f82b3af7163f5f177af2bd1740bfe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
