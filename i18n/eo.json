@@ -23,6 +23,7 @@
 	"math-visualeditor-mwlatexinspector-id": "Identigilo de ligo (laŭvola)",
 	"math-visualeditor-mwmathdialog-title": "Matematika formulo",
 	"math-visualeditor-symbol-group-chem-addition": "Aldonaj kemiaĵoj",
+	"math-visualeditor-symbol-group-chem-aggregation": "Agregaj statoj",
 	"math-visualeditor-symbol-group-chem-arrows": "Reakciaj sagoj",
 	"math-visualeditor-symbol-group-chem-brackets": "Parentezoj kaj krampoj",
 	"math-visualeditor-symbol-group-chem-charges": "Ŝargoj",
@@ -64,8 +65,12 @@
 	"math_invalidresponse": "$1: Ne valida respondo (\"$3\") de servilo \"$2\":",
 	"math_invalidxml": "MathML aŭ SVG ne estas valida XML.",
 	"math_mathoid_error": "Eraro pri konverto. Servilo (\"$1\") raportis: \"$2\"",
+	"math-status-introduction": "Ĉi-suba paĝo montras informon pri la {{PLURAL:$1|ŝaltita reĝimo|ŝaltitaj reĝimoj}} pri bildigo de matematikaĵoj.\n\nJen la {{PLURAL:$1|ŝaltita reĝimo|ŝaltitaj reĝimoj}}:",
 	"math_syntax_error": "sintakseraro",
+	"math_timeout": "$1 uzis tro da tempo el \"$2\".",
+	"math-test-end": "Finiĝis interna testo de bildiga reĝimo ''$1''.",
 	"math-test-fail": "Testo ''$1'' <span style=\"color:red\">malsukcesis</span>.",
+	"math-test-start": "Interne testante bildigan reĝimon ''$1''.",
 	"math-test-success": "Testo ''$1'' <span style=\"color:green\">sukcesis</span>.",
 	"math-test-contains-diff": "Liverita signoĉeno $1 ne enhavas atenditan signoĉenon $2.",
 	"math-test-equals-diff": "Liverita signoĉeno $1 ne egalas atenditan signoĉenon $2.",
@@ -84,5 +89,6 @@
 	"prefs-math": "Matematikaĵoj",
 	"mathstatus": "Stato pri matematikaĵoj",
 	"datatypes-type-math": "Matematika esprimo",
-	"wikibase-listdatatypes-math-head": "Matematika esprimo"
+	"wikibase-listdatatypes-math-head": "Matematika esprimo",
+	"wikibase-listdatatypes-math-body": "Laŭvorta datenkampo por matematikaj esprimoj, formuloj, ekvacioj ktp, en dialekto de LaTeX."
 }
