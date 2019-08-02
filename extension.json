@@ -5,7 +5,8 @@
 		"Tomasz Wegrzanowski",
 		"Brion Vibber",
 		"Moritz Schubotz",
-		"Derk-Jan Hartman"
+		"Derk-Jan Hartman",
+		"Andre Greiner-Petter"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:Math",
 	"descriptionmsg": "math-desc",
@@ -29,15 +30,27 @@
 		"MathInputCheckRestbase": "src/MathInputCheckRestbase.php",
 		"SpecialMathShowImage": "src/SpecialMathShowImage.php",
 		"SpecialMathStatus": "src/SpecialMathStatus.php",
+		"SpecialMathWikidata": "src/SpecialMathWikidata.php",
 		"MathValidator": "src/MathValidator.php",
 		"MathFormatter": "src/MathFormatter.php",
 		"MathWikibaseHook": "src/MathWikibaseHook.php",
 		"MathMLRdfBuilder": "src/MathMLRdfBuilder.php",
 		"MathPng": "src/MathPng.php",
-		"MathDataUpdater": "src/MathDataUpdater.php"
+		"MathDataUpdater": "src/MathDataUpdater.php",
+		"MathWikidataConnector": "src/MathWikidataConnector.php",
+		"ApiMathWikidataExtracts": "src/ApiMathWikidataExtracts.php"
 	},
 	"DefaultUserOptions": {
 		"math": "mathml"
+	},
+	"ConfigRegistry": {
+		"math": "GlobalVarConfig::newInstance"
+	},
+	"APIPropModules": {
+		"wikidataextracts": {
+			"class": "ApiMathWikidataExtracts",
+			"factory": "ApiMathWikidataExtracts::factory"
+		}
 	},
 	"ExtensionFunctions": [
 		"MathHooks::setup"
@@ -118,7 +131,11 @@
 		],
 		"MathEnableWikibaseDataType": true,
 		"Texvc": false,
-		"TexvcBackgroundColor": "transparent"
+		"TexvcBackgroundColor": "transparent",
+		"WikidataPropertyIdHasPart": "P527",
+		"WikidataPropertyIdDefiningFormula": "P2534",
+		"WikidataPropertyIdQuantitySymbol": "P416",
+		"MathWikidataBaseUrl": "https://www.wikidata.org/wiki/"
 	},
 	"VisualEditorPluginModules": [
 		"ext.math.visualEditor"
@@ -256,7 +273,8 @@
 	},
 	"SpecialPages": {
 		"MathShowImage": "SpecialMathShowImage",
-		"MathStatus": "SpecialMathStatus"
+		"MathStatus": "SpecialMathStatus",
+		"MathWikidata": "SpecialMathWikidata"
 	},
 	"TrackingCategories": [
 		"math-tracking-category-error",
