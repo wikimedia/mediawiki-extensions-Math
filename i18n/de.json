@@ -87,5 +87,9 @@
 	"mathstatus": "Math-Status",
 	"datatypes-type-math": "Mathematischer Ausdruck",
 	"wikibase-listdatatypes-math-head": "Mathematischer Ausdruck",
-	"wikibase-listdatatypes-math-body": "Literales Datenfeld für mathematische Ausdrücke, Formeln, Gleichungen oder ähnliches, ausgedrückt in einer LaTeX-Variante."
+	"wikibase-listdatatypes-math-body": "Literales Datenfeld für mathematische Ausdrücke, Formeln, Gleichungen oder ähnliches, ausgedrückt in einer LaTeX-Variante.",
+	"apihelp-query+wikidataextracts-example-1": "Ruft eine Zusammenfassung von mathematischen Wikidata Einträgen ab.",
+	"apihelp-query+wikidataextracts-summary": "Gibt eine Zusammenfassung in HTML von mathematischen Wikidata Einträgen zurück.",
+	"apihelp-query+wikidataextracts-param-qid": "Welcher Wikidata Eintrag wird angefordert.",
+	"apihelp-query+wikidataextracts-param-uselang": "In welcher Sprache wird der Wikidata Eintrag angefordert. Wenn nicht weiter spezifiert, wird Englisch angefordert."
 }

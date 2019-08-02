@@ -95,7 +95,19 @@
 	"mw_math_source": "In user preferences (math). All mw_math_* messages MUST be different, things will break otherwise!\n\nUsed as label for source radio button.\n\nSee also:\n* {{msg-mw|Mw math png}}\n* {{msg-mw|Mw math latexml}}",
 	"prefs-math": "Used in user preferences as a section heading.\n{{Identical|Math}}",
 	"mathstatus": "Title of a special page that displays information about the enabled math rendering modes.",
+	"mathwikidata": "Title of a special page that displays information about a mathematical Wikidata item.",
 	"datatypes-type-math": "The name of a data type.\n{{related|Datatypes-type}}\n{{Identical|Mathematical expression}}",
 	"wikibase-listdatatypes-math-head": "{{Wikibase-datatype-head|Mathematical expression|math}}\n{{Identical|Mathematical expression}}",
-	"wikibase-listdatatypes-math-body": "{{Wikibase-datatype-body|Mathematical expression}}"
+	"wikibase-listdatatypes-math-body": "{{Wikibase-datatype-body|Mathematical expression}}",
+	"apihelp-query+wikidataextracts-example-1": "{{doc-apihelp-example|query+wikidataextracts}}",
+	"apihelp-query+wikidataextracts-summary": "{{doc-apihelp-summary|query+wikidataextracts}}",
+	"apihelp-query+wikidataextracts-param-qid": "{{doc-apihelp-param|query+wikidataextracts|qid}}",
+	"apihelp-query+wikidataextracts-param-uselang": "{{doc-apihelp-param|query+wikidataextracts|uselang}}",
+	"wikidata-formula": "Label for the formula: $1",
+	"wikidata-formula-type": "Label for the type of the formula: $1",
+	"wikidata-formula-description": "Label for the description of the formula: $1",
+	"wikidata-formula-information": "Header for information section of the formula",
+	"wikidata-formula-elements-header": "Header for the elements section of the forumla",
+	"wikidata-special-section-header": "The form header to request information from a Wikidata item.",
+	"wikidata-special-request-label": "The field label in the form to request information from a Wikidata item."
 }
