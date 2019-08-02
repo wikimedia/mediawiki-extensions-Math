@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73adc09f_10068d9e",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-02T15:23:07Z",
+      "side": 1,
+      "message": "+1,:-)",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5f5c7d6_17525912",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-02T15:23:07Z",
+      "side": 1,
+      "message": "what does this do?",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8760e1ba_62b7b1dc",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-02T15:23:07Z",
+      "side": 1,
+      "message": "Why was this done?",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb65376b_a8192c3b",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-02T15:23:07Z",
+      "side": 1,
+      "message": "This should not be required. Try to get the FQDN for the connected Wikidata instance from within the API.",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c586f9b6_979703a5",
+        "filename": "src/ApiMathWikidataExtracts.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-02T15:23:07Z",
+      "side": 1,
+      "message": "Add the parameter via the API not via String concatination!",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5eca297_02e8cb3e",
+        "filename": "src/ApiMathWikidataExtracts.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-02T15:23:07Z",
+      "side": 1,
+      "message": "why do we need this config object?",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf436912_bfcdfd4b",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-02T15:23:07Z",
+      "side": 1,
+      "message": "If you want to show these label to a user they have to be localized. But is that required? Can\u0027t you use the property names from Wikidata? They should be localized!",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b202dcd_163b88a7",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-02T15:23:07Z",
+      "side": 1,
+      "message": "great comment... we really need a JOSN schema at some point in time. But until that time comments like this one help a lot.",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f565387_64f2024a",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-02T15:23:07Z",
+      "side": 1,
+      "message": "is it always called has part. Especially for other languages than English?",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c4a7898_3552dc4a",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-02T15:23:07Z",
+      "side": 1,
+      "message": "Needs localization https://www.mediawiki.org/wiki/Localisation",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6022ee9_2562bac0",
+        "filename": "src/SpecialMathWikidata.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-02T15:23:07Z",
+      "side": 1,
+      "message": "localize",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a0157ab_3dd3456c",
+        "filename": "src/SpecialMathWikidata.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-02T15:23:07Z",
+      "side": 1,
+      "message": "log the error. Don\u0027t print the exact error to the user.",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ccba257_d336148d",
+        "filename": "src/SpecialMathWikidata.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-02T15:23:07Z",
+      "side": 1,
+      "message": "needs localization and auto complete",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb86ea45_1913ddf1",
+        "filename": "src/SpecialMathWikidata.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-02T15:23:07Z",
+      "side": 1,
+      "message": "localize",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
