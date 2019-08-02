@@ -70,6 +70,41 @@
     },
     {
       "key": {
+        "uuid": "80ffd235_7ea9aab3",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 2426
+      },
+      "writtenOn": "2019-08-02T17:18:56Z",
+      "side": 1,
+      "message": "I don\u0027t know if this is correct but I think you could obtain this information via:\n\nWikibase\\Client\\WikibaseClient::getDefaultInstance()-\u003egetSettings()-\u003egetSetting(\u0027repoUrl\u0027)\nWikibase\\Client\\WikibaseClient::getDefaultInstance()-\u003egetSettings()-\u003egetSetting(\u0027repoArticlePath\u0027)\n\nhttps://gerrit.wikimedia.org/g/mediawiki/extensions/Wikibase/+/a2d2f84a4cff5104f6e54a619d720b9e2b035728/docs/options.wiki#217",
+      "parentUuid": "cb65376b_a8192c3b",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fc112e2_9e9095cc",
+        "filename": "src/ApiMathWikidataExtracts.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 2426
+      },
+      "writtenOn": "2019-08-02T17:18:56Z",
+      "side": 1,
+      "message": "I think you can specify parameter type for $query like `ApiQuery $query`.",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c586f9b6_979703a5",
         "filename": "src/ApiMathWikidataExtracts.php",
         "patchSetId": 1
@@ -172,6 +207,52 @@
     },
     {
       "key": {
+        "uuid": "84908eea_43ff88c3",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 2426
+      },
+      "writtenOn": "2019-08-02T17:18:56Z",
+      "side": 1,
+      "message": "Per Physikerwelt\u0027s earlier comment, this may also want to be built by API to ensure the URI is valid.",
+      "range": {
+        "startLine": 338,
+        "startChar": 32,
+        "endLine": 338,
+        "endChar": 33
+      },
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "331c405a_18230b5b",
+        "filename": "src/SpecialMathWikidata.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 2426
+      },
+      "writtenOn": "2019-08-02T17:18:56Z",
+      "side": 1,
+      "message": "Is this just here because of the super? If so, maybe add @inheritDoc. I don\u0027t see it being used otherwise.",
+      "range": {
+        "startLine": 27,
+        "startChar": 26,
+        "endLine": 27,
+        "endChar": 30
+      },
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6022ee9_2562bac0",
         "filename": "src/SpecialMathWikidata.php",
         "patchSetId": 1
@@ -217,6 +298,29 @@
       "writtenOn": "2019-08-02T15:23:07Z",
       "side": 1,
       "message": "needs localization and auto complete",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03ffbe4e_a7df0b54",
+        "filename": "src/SpecialMathWikidata.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 2426
+      },
+      "writtenOn": "2019-08-02T17:18:56Z",
+      "side": 1,
+      "message": "Would you mind adding a documentation for the parameter and return types?",
+      "range": {
+        "startLine": 68,
+        "startChar": 17,
+        "endLine": 68,
+        "endChar": 26
+      },
       "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
