@@ -95,7 +95,19 @@
 	"mw_math_source": "LaTeX source (for text browsers)",
 	"prefs-math": "Math",
 	"mathstatus": "Math status",
+	"mathwikidata": "Math Wikidata Information",
 	"datatypes-type-math": "Mathematical expression",
 	"wikibase-listdatatypes-math-head": "Mathematical expression",
-	"wikibase-listdatatypes-math-body": "Literal data field for mathematical expressions, formula, equations and such, expressed in a variant of LaTeX."
+	"wikibase-listdatatypes-math-body": "Literal data field for mathematical expressions, formula, equations and such, expressed in a variant of LaTeX.",
+	"wikidata-formula": "'''Formula:''' $1",
+	"wikidata-formula-type": "'''Type:''' $1",
+	"wikidata-formula-description": "'''Description:''' $1",
+	"wikidata-formula-information": "Formula Information",
+	"wikidata-formula-elements-header": "Elements of the Forumla",
+	"wikidata-special-section-header": "Specify Wikidata Item ID",
+	"wikidata-special-request-label": "Wikidata QID",
+	"apihelp-query+wikidataextracts-example-1": "Requests a summary of mathematical Wikidata items.",
+	"apihelp-query+wikidataextracts-summary": "Returns a summary of a mathematical Wikidata item in HTML.",
+	"apihelp-query+wikidataextracts-param-qid": "What Wikidata item to return.",
+	"apihelp-query+wikidataextracts-param-uselang": "In which language should the item returned. English is the default value."
 }

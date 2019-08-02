@@ -14,5 +14,6 @@ $specialPageAliases = [];
 
 /** English (English) */
 $specialPageAliases['en'] = [
-	'MathShowImage' => [ 'MathShowImage' ]
+	'MathShowImage' => [ 'MathShowImage' ],
+	'MathWikidata' => [ 'MathWikidata' ]
 ];
