@@ -9,6 +9,7 @@ $cfg['directory_list'] = array_merge(
 	[
 		'../../extensions/VisualEditor',
 		'../../extensions/Wikibase/repo',
+		'../../extensions/Wikibase/client',
 		'../../extensions/Wikibase/lib',
 	]
 );
