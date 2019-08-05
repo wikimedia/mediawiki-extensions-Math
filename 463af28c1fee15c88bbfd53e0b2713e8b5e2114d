@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "2876139b_036baf68",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-05T08:11:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5f5c7d6_17525912",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8760e1ba_62b7b1dc",
         "filename": "extension.json",
         "patchSetId": 1
@@ -47,6 +65,24 @@
       "writtenOn": "2019-08-02T15:23:07Z",
       "side": 1,
       "message": "Why was this done?",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21edbe4d_eff8855b",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-05T08:11:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8760e1ba_62b7b1dc",
       "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -122,6 +158,24 @@
     },
     {
       "key": {
+        "uuid": "cf17f69a_3e53e30d",
+        "filename": "src/ApiMathWikidataExtracts.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-05T08:11:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c586f9b6_979703a5",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5eca297_02e8cb3e",
         "filename": "src/ApiMathWikidataExtracts.php",
         "patchSetId": 1
@@ -184,6 +238,57 @@
       "writtenOn": "2019-08-02T15:23:07Z",
       "side": 1,
       "message": "is it always called has part. Especially for other languages than English?",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ebb535f_1275ec77",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-05T08:11:17Z",
+      "side": 1,
+      "message": "I\u0027d rather throw an exception here!",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d541704e_5b9ed154",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-05T08:11:17Z",
+      "side": 1,
+      "message": "remove custom isValidQID check",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a30d4ff9_627dcd75",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-05T08:11:17Z",
+      "side": 1,
+      "message": "needs comment",
       "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
