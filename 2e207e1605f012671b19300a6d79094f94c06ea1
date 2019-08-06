@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a19b89af_6be72bad",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 2426
+      },
+      "writtenOn": "2019-08-06T14:00:39Z",
+      "side": 1,
+      "message": "No, but maybe the Phan config needs to be updated to add the client:\n\nhttps://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/extensions/Math/+/master/.phan/config.php#11\n\nSomething like:\n\nhttps://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/extensions/MobileFrontend/+/master/.phan/config.php#13",
+      "parentUuid": "7ff068c1_ad3ee3cb",
+      "revId": "2e207e1605f012671b19300a6d79094f94c06ea1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19b91b7a_f1fbfda3",
         "filename": "src/MathWikidataConnector.php",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2019-08-06T11:35:19Z",
       "side": 1,
       "message": "@ Niedzielski does that make sense to you?",
+      "revId": "2e207e1605f012671b19300a6d79094f94c06ea1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c358655_80d744ac",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 2426
+      },
+      "writtenOn": "2019-08-06T14:00:39Z",
+      "side": 1,
+      "message": "I think `\"$1\"` can be in single quotes and I\u0027m unsure if $articleId should be encoded.\n\nHopefully someone from Wikibase can comment whether this the best API to use.",
+      "parentUuid": "19b91b7a_f1fbfda3",
       "revId": "2e207e1605f012671b19300a6d79094f94c06ea1",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
