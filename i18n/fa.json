@@ -13,7 +13,8 @@
 			"Macofe",
 			"Ladsgroup",
 			"Alifakoor",
-			"Arash.pt"
+			"Arash.pt",
+			"Ahmad252"
 		]
 	},
 	"math-desc": "فرمول‌های ریاضی میان برچسب‌های <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> را رندر می‌کند",
@@ -69,6 +70,8 @@
 	"math_syntax_error": "خطای نحوی",
 	"math_timeout": "$1 زمان از دست رفتن از «$2»",
 	"math-tracking-category-error": "صفحات با خطای ریاضی",
+	"math-tracking-category-mhchem-deprecation": "صفحه‌هایی که از فرمت منسوخ برچسب‌های شیمی استفاده می‌کنند",
+	"math-tracking-category-mhchem-deprecation-desc": "صفحه‌های این رده از یک فرمت منسوخ برچسب (تگ) شیمی بهره می‌برند.",
 	"math-tracking-category-render-error": "صفحه‌های دارای اشکال پردازش ریاضی",
 	"math_unknown_error": "خطای ناشناخته",
 	"math_unknown_function": "تابع ناشناختهٔ '$1'",
