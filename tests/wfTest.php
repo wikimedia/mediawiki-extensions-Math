@@ -13,7 +13,7 @@ class DummyTest extends Maintenance {
 	public function __construct() {
 		parent::__construct();
 		$this->requireExtension( 'Math' );
-		$this->mDescription = 'Test Mathoid CLI';
+		$this->addDescription( 'Test Mathoid CLI' );
 		$this->addArg( 'page', "The page used for the testset generation.", false );
 		$this->addOption( 'offset', "If set the first n equations on the page are skipped", false,
 			true, "o" );
