@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47546634_b44652d0",
+        "filename": ".phan/config.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5450
+      },
+      "writtenOn": "2019-08-23T09:45:25Z",
+      "side": 1,
+      "message": "You can also replace these lines with\n\n \u0027../../extensions/Wikibase\u0027\n\nso that you don\u0027t have to add new folders every time.",
+      "range": {
+        "startLine": 11,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 34
+      },
+      "revId": "7a0ad9368764018c2dcb016478b773cd966aa991",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af298adc_d0912b7f",
+        "filename": ".phan/config.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5450
+      },
+      "writtenOn": "2019-08-23T09:45:25Z",
+      "side": 1,
+      "message": "And this should be kept in sync",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 34
+      },
+      "revId": "7a0ad9368764018c2dcb016478b773cd966aa991",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
