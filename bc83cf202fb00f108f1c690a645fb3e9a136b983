@@ -1,0 +1,639 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a156696c_b2ac8a26",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "Please read https://www.mediawiki.org/wiki/Gerrit/Commit_message_guidelines",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "156194fa_f475e1b4",
+        "filename": "extension.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "Just out of curiosity: Can\u0027t you use é in your name?",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1eb372a4_48312a27",
+        "filename": "i18n/de.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "I think you only need to fill the English version.",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75b524ce_d86ce1da",
+        "filename": "i18n/en.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "is this the official capitalization?",
+      "range": {
+        "startLine": 112,
+        "startChar": 65,
+        "endLine": 112,
+        "endChar": 73
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a10608_70c66ae2",
+        "filename": "i18n/en.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "Can we make this message a bit more specific? I see frustration-potential here.",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3747126f_2d66b130",
+        "filename": "i18n/en.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "I see that you read https://www.mediawiki.org/wiki/Localisation#Adding_new_messages ... I know you are a mathematician and thus the message name fits very well to the guide. However, I would prefer shorter names starting with math-",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac656644_890a2be9",
+        "filename": "i18n/en.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "Can you find a more formal wording, here?",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ccf9d7b_d9f1d0f1",
+        "filename": "i18n/en.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7489b613_fb6f09f9",
+        "filename": "modules/ext.math.wikidata.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "This seems odd. Is there no other way to get the API-URL. How is it done by other instantiations of the entity-selector?",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b318024b_19ea3953",
+        "filename": "src/ApiMathWikidataExtracts.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "what does argument mean here?",
+      "range": {
+        "startLine": 8,
+        "startChar": 20,
+        "endLine": 8,
+        "endChar": 28
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8669b621_32b7d103",
+        "filename": "src/ApiMathWikidataExtracts.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "I would delete the highlighted words...there is no added value IMHO.",
+      "range": {
+        "startLine": 13,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 50
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5877ab53_85192a24",
+        "filename": "src/ApiMathWikidataExtracts.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "drop..comment no added value",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 40
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92ea9cdc_84483827",
+        "filename": "src/ApiMathWikidataExtracts.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "do we have a guarantee that these params are always set? According to my experience bug reports that were caused by unset parameters are frequent on phabricator. It is hard for users to figure out that the reason for the error might be cause by something else.",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "085230d2_4934d58a",
+        "filename": "src/ApiMathWikidataExtracts.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "merge with line above",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "409dc624_bd4aa35a",
+        "filename": "src/ApiMathWikidataExtracts.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "drop..",
+      "range": {
+        "startLine": 56,
+        "startChar": 23,
+        "endLine": 56,
+        "endChar": 30
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31285c72_664eab3c",
+        "filename": "src/ApiMathWikidataExtracts.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 25
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8cf62bc9_c9c218a9",
+        "filename": "src/ApiMathWikidataExtracts.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "Does this section exist, or is there a ticket to create it?",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf74bd66_d85a2dd5",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "really?",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ee04b33_a3317dbe",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "why not call this variable qid (with consistent capitalization)?",
+      "range": {
+        "startLine": 96,
+        "startChar": 18,
+        "endLine": 96,
+        "endChar": 21
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76fbc81c_3e4d6627",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "a congruent variable was called lang before, correct?",
+      "range": {
+        "startLine": 97,
+        "startChar": 18,
+        "endLine": 97,
+        "endChar": 27
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1236b1a0_e6df590f",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "I think this should be formalized as MathWikidataInfo|null",
+      "range": {
+        "startLine": 100,
+        "startChar": 12,
+        "endLine": 100,
+        "endChar": 28
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dd7fea2_26e06409",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "where?",
+      "range": {
+        "startLine": 101,
+        "startChar": 60,
+        "endLine": 101,
+        "endChar": 69
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4621c8fa_4a2574fd",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "you used throw annotations in the method comment before",
+      "range": {
+        "startLine": 107,
+        "startChar": 13,
+        "endLine": 107,
+        "endChar": 37
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e4455cd_ae5f6028",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "combine with previous catch statement.",
+      "range": {
+        "startLine": 119,
+        "startChar": 12,
+        "endLine": 119,
+        "endChar": 31
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f283496f_a01e4e1f",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "check the capitalization of wikidata id and qid throughout the commit.",
+      "range": {
+        "startLine": 134,
+        "startChar": 28,
+        "endLine": 134,
+        "endChar": 36
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ac787ee_582ef9f9",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "word",
+      "range": {
+        "startLine": 164,
+        "startChar": 8,
+        "endLine": 164,
+        "endChar": 13
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df365df4_0e652121",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "Maybe add a todo note that this method should be refactored once wikidata has more convenient API for those things.",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75d8c18d_74904895",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "Also, add a needs refactoring notice to this method.",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d13d208_75e06849",
+        "filename": "src/MathWikidataInfo.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "this is php not java...;-)",
+      "range": {
+        "startLine": 6,
+        "startChar": 19,
+        "endLine": 6,
+        "endChar": 23
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3f673d5_737ca432",
+        "filename": "src/SpecialMathWikidata.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "drop..",
+      "range": {
+        "startLine": 13,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 50
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6676cd1d_f868ad74",
+        "filename": "src/SpecialMathWikidata.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-28T19:14:29Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 36
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
