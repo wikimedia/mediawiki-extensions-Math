@@ -6,6 +6,7 @@
 	function generateCSS( symbolsFile, cssFile, inputType ) {
 		var i, count, currentClassName, group, symbol, symbols, symbolObject,
 			symbolsData, cssData, cssLines, alignBaseline,
+			rerenderAll = process.argv.slice( 2 ).indexOf( '--all' ) !== -1,
 			unmodifiedClasses = {},
 			cssRules = [], // Whole CSS rules
 			cssClasses = {}, // Unique part of class name and whether baseline is shifted
@@ -182,9 +183,12 @@
 				alignBaseline = !symbol.alignBaseline;
 				// If symbol is not in the old CSS file, or its alignBaseline status has changed,
 				// add it to symbolList. Check to make sure it hasn't already been added.
-				if ( cssClasses[ currentClassName ] === undefined ||
+				if (
+					rerenderAll ||
+					cssClasses[ currentClassName ] === undefined ||
 					( unmodifiedClasses[ currentClassName ] !== true &&
-						cssClasses[ currentClassName ] === alignBaseline ) ) {
+						cssClasses[ currentClassName ] === alignBaseline )
+				) {
 					symbolList.push( symbol );
 				} else {
 					// At the end of this loop, any CSS class names that aren't in unmodifiedClasses
@@ -193,6 +197,15 @@
 					unmodifiedClasses[ currentClassName ] = true;
 				}
 			}
+		}
+
+		console.log( '----' );
+		console.log( 'Comparing ' + cssFile + ' and ' + symbolsFile );
+		console.log( Object.keys( cssClasses ).length + ' images found in ' + cssFile );
+		console.log( symbolList.length + ' symbols need rendering' );
+		if ( !rerenderAll ) {
+			console.log( Object.keys( unmodifiedClasses ).length + ' symbols already rendered' );
+			console.log( 'To re-render all symbols, use --all' );
 		}
 
 		// Keep only classes that will stay the same. Remove classes that are being adjusted and
