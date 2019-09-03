@@ -6,7 +6,8 @@
 			"Statix64",
 			"Fringio",
 			"Macofe",
-			"Horcrux92"
+			"Horcrux92",
+			"Valepert"
 		]
 	},
 	"math-desc": "Esegue il rendering di formule matematiche tra i tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -75,6 +76,7 @@
 	"math-test-equals-diff": "La stringa restituita $1 è diversa dalla stringa prevista $2.",
 	"math-tracking-category-error": "Pagine con errori matematici",
 	"math-tracking-category-error-desc": "Le pagine in questa categoria hanno errori nell'uso dei tag math.",
+	"math-tracking-category-mhchem-deprecation": "Pagine che utilizzano un formato obsoleto del tag chem",
 	"math-tracking-category-render-error": "Pagine con errori di rendering delle formule matematiche",
 	"math_unknown_error": "errore sconosciuto",
 	"math_unknown_function": "funzione sconosciuta '$1'",
