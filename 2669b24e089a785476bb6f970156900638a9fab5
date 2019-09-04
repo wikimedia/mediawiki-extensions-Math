@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52f3bbf1_32dfc929",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-09-04T09:52:22Z",
+      "side": 1,
+      "message": "see comment for PS5.",
+      "range": {
+        "startLine": 7,
+        "startChar": 3,
+        "endLine": 7,
+        "endChar": 5
+      },
+      "revId": "2669b24e089a785476bb6f970156900638a9fab5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25c1b0ce_a47cec4c",
+        "filename": "i18n/en.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-09-04T09:52:22Z",
+      "side": 1,
+      "message": "grammar.",
+      "range": {
+        "startLine": 113,
+        "startChar": 66,
+        "endLine": 113,
+        "endChar": 69
+      },
+      "revId": "2669b24e089a785476bb6f970156900638a9fab5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff47bbba_c4231111",
+        "filename": "src/SpecialMathWikidata.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-09-04T09:52:22Z",
+      "side": 1,
+      "message": "Maybe add a comment?",
+      "range": {
+        "startLine": 42,
+        "startChar": 15,
+        "endLine": 42,
+        "endChar": 23
+      },
+      "revId": "2669b24e089a785476bb6f970156900638a9fab5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
