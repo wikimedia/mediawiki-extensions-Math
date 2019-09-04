@@ -247,6 +247,24 @@
     },
     {
       "key": {
+        "uuid": "26067dee_b13e4dfd",
+        "filename": "src/ApiMathWikidataExtracts.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "In the method below \"getAllowedParams\" you see that \"qid\" is a required parameter. The API will return automatically an error if qid is not given.",
+      "parentUuid": "92ea9cdc_84483827",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "085230d2_4934d58a",
         "filename": "src/ApiMathWikidataExtracts.php",
         "patchSetId": 5
@@ -327,6 +345,24 @@
     },
     {
       "key": {
+        "uuid": "51f5cc01_1fdfd826",
+        "filename": "src/ApiMathWikidataExtracts.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "https://phabricator.wikimedia.org/T231970",
+      "parentUuid": "8cf62bc9_c9c218a9",
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf74bd66_d85a2dd5",
         "filename": "src/MathWikidataConnector.php",
         "patchSetId": 5
@@ -396,6 +432,30 @@
     },
     {
       "key": {
+        "uuid": "89328930_b3fe4bd4",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "The variable $lang you mean is an instance of the class Language. The parameter here $langCode is just the language code string. So I choose a different name here.",
+      "parentUuid": "76fbc81c_3e4d6627",
+      "range": {
+        "startLine": 97,
+        "startChar": 18,
+        "endLine": 97,
+        "endChar": 27
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1236b1a0_e6df590f",
         "filename": "src/MathWikidataConnector.php",
         "patchSetId": 5
@@ -407,6 +467,30 @@
       "writtenOn": "2019-08-28T19:14:29Z",
       "side": 1,
       "message": "I think this should be formalized as MathWikidataInfo|null",
+      "range": {
+        "startLine": 100,
+        "startChar": 12,
+        "endLine": 100,
+        "endChar": 28
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7136e3d_c8aea68f",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "It will never be null but the returned item might be empty.",
+      "parentUuid": "1236b1a0_e6df590f",
       "range": {
         "startLine": 100,
         "startChar": 12,
@@ -476,6 +560,30 @@
       "writtenOn": "2019-08-28T19:14:29Z",
       "side": 1,
       "message": "combine with previous catch statement.",
+      "range": {
+        "startLine": 119,
+        "startChar": 12,
+        "endLine": 119,
+        "endChar": 31
+      },
+      "revId": "bc83cf202fb00f108f1c690a645fb3e9a136b983",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f98d646d_0b5d4949",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "This only works since PHP 7.1\nI was working on PHP 7.0.\nhttps://www.mediawiki.org/wiki/Compatibility/de",
+      "parentUuid": "7e4455cd_ae5f6028",
       "range": {
         "startLine": 119,
         "startChar": 12,

@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "03eee4c9_68e790cd",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36e63c91_e7eb65d6",
+      "revId": "032f3ae6385368d6d3ec44db5632939a04e098b4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d3f4e8b_9fc918ba",
         "filename": "src/MathWikidataConnector.php",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2019-08-05T14:10:28Z",
       "side": 1,
       "message": "this looks strange. If it\u0027s correct I guess a comment would be nice here.",
+      "revId": "032f3ae6385368d6d3ec44db5632939a04e098b4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73515b18_16f58612",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d3f4e8b_9fc918ba",
       "revId": "032f3ae6385368d6d3ec44db5632939a04e098b4",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false

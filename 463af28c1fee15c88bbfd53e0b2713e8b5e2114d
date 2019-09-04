@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "912bc2f9_d99feca5",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73adc09f_10068d9e",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5f5c7d6_17525912",
         "filename": "extension.json",
         "patchSetId": 1
@@ -210,6 +228,24 @@
     },
     {
       "key": {
+        "uuid": "09b9268c_16991091",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf436912_bfcdfd4b",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b202dcd_163b88a7",
         "filename": "src/MathWikidataConnector.php",
         "patchSetId": 1
@@ -221,6 +257,24 @@
       "writtenOn": "2019-08-02T15:23:07Z",
       "side": 1,
       "message": "great comment... we really need a JOSN schema at some point in time. But until that time comments like this one help a lot.",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad0e179f_a140c5ee",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b202dcd_163b88a7",
       "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -244,6 +298,24 @@
     },
     {
       "key": {
+        "uuid": "75c49fd8_b6d62041",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f565387_64f2024a",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ebb535f_1275ec77",
         "filename": "src/MathWikidataConnector.php",
         "patchSetId": 1
@@ -255,6 +327,24 @@
       "writtenOn": "2019-08-05T08:11:17Z",
       "side": 1,
       "message": "I\u0027d rather throw an exception here!",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0946ce91_22715089",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ebb535f_1275ec77",
       "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -278,6 +368,24 @@
     },
     {
       "key": {
+        "uuid": "e9dcda81_c5dce8d6",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d541704e_5b9ed154",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a30d4ff9_627dcd75",
         "filename": "src/MathWikidataConnector.php",
         "patchSetId": 1
@@ -289,6 +397,24 @@
       "writtenOn": "2019-08-05T08:11:17Z",
       "side": 1,
       "message": "needs comment",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4af77161_db1d6d28",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a30d4ff9_627dcd75",
       "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -312,6 +438,24 @@
     },
     {
       "key": {
+        "uuid": "6d4c0865_2ab9823a",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c4a7898_3552dc4a",
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84908eea_43ff88c3",
         "filename": "src/MathWikidataConnector.php",
         "patchSetId": 1
@@ -323,6 +467,30 @@
       "writtenOn": "2019-08-02T17:18:56Z",
       "side": 1,
       "message": "Per Physikerwelt\u0027s earlier comment, this may also want to be built by API to ensure the URI is valid.",
+      "range": {
+        "startLine": 338,
+        "startChar": 32,
+        "endLine": 338,
+        "endChar": 33
+      },
+      "revId": "463af28c1fee15c88bbfd53e0b2713e8b5e2114d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c82ea4d_4aa5f2d7",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-04T09:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84908eea_43ff88c3",
       "range": {
         "startLine": 338,
         "startChar": 32,
