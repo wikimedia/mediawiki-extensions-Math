@@ -7,7 +7,8 @@
 			"Elisardojm",
 			"Banjo",
 			"Macofe",
-			"Navhy"
+			"Navhy",
+			"Iváns"
 		]
 	},
 	"math-desc": "Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
