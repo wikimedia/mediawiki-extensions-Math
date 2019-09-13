@@ -11,7 +11,8 @@
 			"Matma Rex",
 			"Sethakill",
 			"Railfail536",
-			"CiaPan"
+			"CiaPan",
+			"Rail"
 		]
 	},
 	"math-desc": "Renderowanie formuł matematycznych między znacznikami <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",

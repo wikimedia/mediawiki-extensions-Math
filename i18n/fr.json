@@ -14,7 +14,8 @@
 			"Grind24",
 			"Macofe",
 			"Wladek92",
-			"Zebulon84"
+			"Zebulon84",
+			"Thibaut120094"
 		]
 	},
 	"math-desc": "Restitue les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -71,13 +72,13 @@
 	"math_invalidjson": "La réponse du serveur $1 est un JSON invalide",
 	"math_invalidresponse": "$1: Réponse invalide(« $3 ») du serveur « $2 » :",
 	"math_invalidxml": "MathML ou SVG n'est pas du XML valide.",
-	"math_mathoid_error": "Erreur de conversion. Le serveur (« $1 ») a indiqué : « $2 »",
+	"math_mathoid_error": "Erreur de conversion. Le serveur (« $1 ») a indiqué : « $2 »",
 	"math-status-introduction": "Cette page affiche des informations sur {{PLURAL:$1|le mode activé|les modes activés}} de rendu mathématique.\n\n{{PLURAL:$1|Le mode de rendu suivant est activé|Les modes de rendu suivants sont activés}} :",
 	"math_syntax_error": "erreur de syntaxe",
 	"math_timeout": "$1 délais de \"$2\"",
-	"math-test-end": "Tests du serveur pour le mode rendu « $1 » terminés.",
+	"math-test-end": "Tests du serveur pour le mode rendu « $1 » terminés.",
 	"math-test-fail": "Le test \"$1\" <span style=\"color:red\">a échoué</span>.",
-	"math-test-start": "Exécution des tests de serveur pour le mode de rendu « $1 ».",
+	"math-test-start": "Exécution des tests de serveur pour le mode de rendu « $1 ».",
 	"math-test-success": "Le test \"$1\" <span style=\"color:green\">a réussi</span>.",
 	"math-test-contains-diff": "La chaîne renvoyée $1 ne contient pas la chaîne attendue $2.",
 	"math-test-equals-diff": "La chaîne renvoyée $1 est différente de celle attendue $2.",
