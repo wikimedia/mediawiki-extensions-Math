@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7f3b323_9f0523ac",
+        "filename": "extension.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-09-17T16:55:10Z",
+      "side": 1,
+      "message": "this was a rebase mistake",
+      "revId": "a63872180680401d5d96bc05c029b7648eb13174",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
