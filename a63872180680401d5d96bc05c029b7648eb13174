@@ -16,6 +16,63 @@
       "revId": "a63872180680401d5d96bc05c029b7648eb13174",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d8fa514_c50b9c5d",
+        "filename": "src/MathMathML.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-09-17T17:05:15Z",
+      "side": 1,
+      "message": "false",
+      "revId": "a63872180680401d5d96bc05c029b7648eb13174",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb1466bd_3535ea40",
+        "filename": "src/MathWikidataInfo.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-09-17T17:05:15Z",
+      "side": 1,
+      "message": "have you considered display\u003dblock?",
+      "revId": "a63872180680401d5d96bc05c029b7648eb13174",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2df906b0_57a76fb6",
+        "filename": "src/SpecialMathWikidata.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-09-17T17:05:15Z",
+      "side": 1,
+      "message": "I would add an extra space here. What do you think?",
+      "range": {
+        "startLine": 178,
+        "startChar": 64,
+        "endLine": 178,
+        "endChar": 66
+      },
+      "revId": "a63872180680401d5d96bc05c029b7648eb13174",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
