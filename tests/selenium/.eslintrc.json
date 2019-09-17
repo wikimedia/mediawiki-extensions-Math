@@ -10,6 +10,6 @@
 		"browser": false
 	},
 	"rules": {
-		"no-console": 0
+		"prefer-template": "off"
 	}
 }

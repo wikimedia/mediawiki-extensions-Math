@@ -4,6 +4,7 @@
 		"wikimedia/server"
 	],
 	"rules": {
-		"max-len": 0
+		"max-len": "off",
+		"prefer-template": "off"
 	}
 }

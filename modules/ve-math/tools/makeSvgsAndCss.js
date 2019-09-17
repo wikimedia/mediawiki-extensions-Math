@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/* eslint-disable no-console, no-use-before-define */
+/* eslint-disable no-use-before-define */
 
 ( function () {
 	function generateCSS( symbolsFile, cssFile, inputType ) {

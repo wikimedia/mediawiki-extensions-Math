@@ -12,8 +12,7 @@ module.exports = function ( grunt ) {
 		stylelint: {
 			all: [
 				'**/*.css',
-				'!node_modules/**',
-				'!vendor/**'
+				'!**/{vendor,node_modules}/**'
 			]
 		},
 		watch: {
@@ -31,8 +30,8 @@ module.exports = function ( grunt ) {
 				cache: true
 			},
 			all: [
-				'**/*.js{,on}',
-				'!{vendor,node_modules}/**'
+				'**/*.{js,json}',
+				'!**/{vendor,node_modules}/**'
 			]
 		}
 	} );
