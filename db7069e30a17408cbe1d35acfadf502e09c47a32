@@ -16,6 +16,23 @@
       "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29ef2a00_5970f22c",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-09-18T11:08:46Z",
+      "side": 1,
+      "message": "@mobrovac Do you mean there is a more convenient way to access data from wikibase.",
+      "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
