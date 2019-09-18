@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e217494_6fa9a347",
+        "filename": "extension.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2019-09-18T09:59:01Z",
+      "side": 1,
+      "message": "Hm, so this adds a *global* query module named wikidataextracts, but it is located in the Math extension. This is very confusing and has to be avoided at all costs.",
+      "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
