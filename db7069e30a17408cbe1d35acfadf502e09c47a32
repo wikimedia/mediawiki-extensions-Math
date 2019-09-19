@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "e3e4ab62_b828c9e5",
+        "filename": "extension.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-19T09:29:44Z",
+      "side": 1,
+      "message": "Delete lines 122-123 (wrong rebase)",
+      "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29ef2a00_5970f22c",
         "filename": "src/MathWikidataConnector.php",
         "patchSetId": 10
