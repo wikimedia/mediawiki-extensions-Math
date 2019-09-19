@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "38092b3d_52d4c64e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-09-19T13:48:31Z",
+      "side": 1,
+      "message": "I see that T208758 talks about the Popups extension, and that this patch is a requirement to make this possible. But \"popup support\" is not actually what this patch does. This will be done later, in another patch over there in the Popups extension. This patch does what is described below. Please change the first line accordingly. Thanks.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e217494_6fa9a347",
         "filename": "extension.json",
         "patchSetId": 10
@@ -36,6 +59,92 @@
     },
     {
       "key": {
+        "uuid": "2b0cafec_04b26235",
+        "filename": "i18n/en.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-09-19T13:48:31Z",
+      "side": 1,
+      "message": "These messages will be confusing to translate for our translators over there at translatewiki.net. Can we somehow split this up into a series of plain text messages that contain nothing but the labels (headers?), and a more technical message like \"\u0027\u0027\u0027$1:\u0027\u0027\u0027 $2\". The later should still be localized, as not all languages use a colon and a space as separator. Even the order of the arguments might switch in certain languages. Having this localizable is certainly great, and we can avoid the need to do this four times (with one of the four even being different from the others).",
+      "range": {
+        "startLine": 106,
+        "startChar": 39,
+        "endLine": 106,
+        "endChar": 60
+      },
+      "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "635d7914_c6fe259f",
+        "filename": "i18n/qqq.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-09-19T13:48:31Z",
+      "side": 1,
+      "message": "Why does it contain a colon and \u0027\u0027\u0027 syntax for bold formatting if it\u0027s described as a header here? Shouldn\u0027t a header be styled via CSS, not wikisyntax?",
+      "range": {
+        "startLine": 106,
+        "startChar": 48,
+        "endLine": 106,
+        "endChar": 54
+      },
+      "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f7e6220_fa1da652",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-09-19T13:48:31Z",
+      "side": 1,
+      "message": "Injecting all this via constructor parameters would make it possible to write much more separated, much faster tests for this class.",
+      "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "706df365_4b9e2db4",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-09-19T13:48:31Z",
+      "side": 1,
+      "message": "Please avoid this as well and inject it as constructor parameters, e.g. as a tiny HashConfig object that contains nothing but these 3 options.\n\nAdditionally, directly accessing global $wg… variables is pretty much deprecated for quite a while now. Preferred method is to use MediaWikiServices::getInstance()-\u003egetMainConfig() now.",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 8
+      },
+      "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29ef2a00_5970f22c",
         "filename": "src/MathWikidataConnector.php",
         "patchSetId": 10
@@ -47,6 +156,69 @@
       "writtenOn": "2019-09-18T11:08:46Z",
       "side": 1,
       "message": "@mobrovac Do you mean there is a more convenient way to access data from wikibase.",
+      "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3600b08_6d101a4b",
+        "filename": "src/MathWikidataConnector.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-09-19T13:48:31Z",
+      "side": 1,
+      "message": "Please don\u0027t use the singleton pattern. It\u0027s highly discouraged.",
+      "range": {
+        "startLine": 285,
+        "startChar": 24,
+        "endLine": 285,
+        "endChar": 35
+      },
+      "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e7e064a_4566ff3a",
+        "filename": "src/MathWikidataInfo.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-09-19T13:48:31Z",
+      "side": 1,
+      "message": "return $this-\u003ehasParts !\u003d\u003d [];",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 134,
+        "endChar": 38
+      },
+      "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec1a27fc_e8dbdd00",
+        "filename": "src/MathWikidataInfo.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-09-19T13:48:31Z",
+      "side": 1,
+      "message": "This will break if any field (label, description, …) contains a pipe character, single quotes, or anything that resembles wikisyntax.\n\nAlso, it looks like this code hard-codes assumptions about this always being rendered in a left-to-right context, as well as specific formatting that may be different in different contexts.",
       "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
