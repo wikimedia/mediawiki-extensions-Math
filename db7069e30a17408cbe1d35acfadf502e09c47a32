@@ -222,6 +222,24 @@
       "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf36a9a8_5bc6e4b3",
+        "filename": "src/MathWikidataInfo.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-09-20T14:03:23Z",
+      "side": 1,
+      "message": "Good catch! Thank you.\n\nRegarding the language direction, I build a table in wikitext here. I thought the order of the columns is reversed on rtl-languages automatically?\nIf that\u0027s not the case, is there a library to build tables in wikitext in a more convenient way regarding the content language direction?",
+      "parentUuid": "ec1a27fc_e8dbdd00",
+      "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
