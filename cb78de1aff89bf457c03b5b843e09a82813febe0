@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf1c14bb_bf362009",
+        "filename": "i18n/en.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-09-23T08:22:13Z",
+      "side": 1,
+      "message": "This is very nice, thank you!",
+      "range": {
+        "startLine": 106,
+        "startChar": 40,
+        "endLine": 106,
+        "endChar": 54
+      },
+      "revId": "cb78de1aff89bf457c03b5b843e09a82813febe0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "573e4564_f45a3559",
+        "filename": "src/MathWikibaseInfo.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-09-23T08:22:13Z",
+      "side": 1,
+      "message": "Huh?",
+      "range": {
+        "startLine": 33,
+        "startChar": 28,
+        "endLine": 33,
+        "endChar": 36
+      },
+      "revId": "cb78de1aff89bf457c03b5b843e09a82813febe0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810ebef2_90e308b1",
+        "filename": "src/SpecialMathWikibase.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-09-23T08:22:13Z",
+      "side": 1,
+      "message": "Did you tried to use the …-\u003erawParam( … ) or …-\u003eplaintextParam( … ) methods of the Message class?",
+      "range": {
+        "startLine": 185,
+        "startChar": 6,
+        "endLine": 185,
+        "endChar": 89
+      },
+      "revId": "cb78de1aff89bf457c03b5b843e09a82813febe0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "361c9eee_52f783a9",
+        "filename": "src/SpecialMathWikibase.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-09-23T08:22:13Z",
+      "side": 1,
+      "message": "At the moment, this special page does a mixture of outputting HTML in the first half, and wikitext in the second half. Can you please turn this all into HTML?",
+      "range": {
+        "startLine": 231,
+        "startChar": 12,
+        "endLine": 231,
+        "endChar": 34
+      },
+      "revId": "cb78de1aff89bf457c03b5b843e09a82813febe0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}

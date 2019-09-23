@@ -240,6 +240,24 @@
       "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da1378fd_08593aff",
+        "filename": "src/MathWikidataInfo.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-09-23T08:22:13Z",
+      "side": 1,
+      "message": "I believe there is something off with the current approach. My question is basically: why is there even code that creates wikitext? Where is this needed? Patch set 10 appears to contain a call to this method in the special page. But special pages don\u0027t need to do anything with wikitext and by that requiring the (slow) parser to run every time, like the input is from a user (which it isn\u0027t). Special pages should output HTML directly.",
+      "parentUuid": "cf36a9a8_5bc6e4b3",
+      "revId": "db7069e30a17408cbe1d35acfadf502e09c47a32",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
