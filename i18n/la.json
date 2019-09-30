@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Omnipaedista"
+			"Omnipaedista",
+			"1233qwer1234qwer4"
 		]
 	},
-	"math_failure": "Excutare non potest",
+	"math_failure": "Executare non potest",
 	"math_syntax_error": "erratum syntaxis",
 	"math_unknown_error": "error ignotus",
 	"math_unknown_function": "functio ignota",
