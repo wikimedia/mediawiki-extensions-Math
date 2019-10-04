@@ -8,8 +8,5 @@
 	},
 	"globals": {
 		"browser": false
-	},
-	"rules": {
-		"prefer-template": "off"
 	}
 }
