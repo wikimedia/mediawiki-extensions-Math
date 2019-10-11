@@ -24,7 +24,7 @@ class MathFormatterTest extends MediaWikiTestCase {
 		self::$hasRestbase = $rbi->checkBackend( true );
 	}
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 
 		if ( !self::$hasRestbase ) {

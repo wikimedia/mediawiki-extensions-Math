@@ -1,7 +1,7 @@
 <?php
 
 use MediaWiki\Logger\LoggerFactory;
-use \MediaWiki\MediaWikiServices;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Created by PhpStorm.
