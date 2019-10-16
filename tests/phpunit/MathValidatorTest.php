@@ -37,19 +37,15 @@ class MathValidatorTest extends MediaWikiTestCase {
 		parent::tearDown();
 	}
 
-	/**
-	 * @expectedException InvalidArgumentException
-	 */
 	public function testNotStringValue() {
 		$validator = new MathValidator();
+		$this->expectException( InvalidArgumentException::class );
 		$validator->validate( new NumberValue( 0 ) );
 	}
 
-	/**
-	 * @expectedException InvalidArgumentException
-	 */
 	public function testNullValue() {
 		$validator = new MathValidator();
+		$this->expectException( InvalidArgumentException::class );
 		$validator->validate( null );
 	}
 

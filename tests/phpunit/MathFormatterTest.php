@@ -42,19 +42,15 @@ class MathFormatterTest extends MediaWikiTestCase {
 		$this->assertSame( SnakFormatter::FORMAT_PLAIN, $formatter->getFormat(), 'test getFormat' );
 	}
 
-	/**
-	 * @expectedException InvalidArgumentException
-	 */
 	public function testNotStringValue() {
 		$formatter = new MathFormatter( SnakFormatter::FORMAT_PLAIN );
+		$this->expectException( InvalidArgumentException::class );
 		$formatter->format( new NumberValue( 0 ) );
 	}
 
-	/**
-	 * @expectedException InvalidArgumentException
-	 */
 	public function testNullValue() {
 		$formatter = new MathFormatter( SnakFormatter::FORMAT_PLAIN );
+		$this->expectException( InvalidArgumentException::class );
 		$formatter->format( null );
 	}
 
