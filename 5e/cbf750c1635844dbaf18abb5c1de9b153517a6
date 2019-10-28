@@ -1,0 +1,10 @@
+Code-Review+2: VolkerE <volker.e@wikimedia.org>
+Code-Review+2: MarcoAurelio <maurelio@tools.wmflabs.org>
+Code-Review+2: Umherirrender <umherirrender_de.wp@web.de>
+Code-Review+2: Jforrester <jforrester@wikimedia.org>
+Verified+2: jenkins-bot
+Submitted-by: jenkins-bot
+Submitted-at: Mon, 28 Oct 2019 08:48:38 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/546237
+Project: mediawiki/extensions/Math
+Branch: refs/heads/master
