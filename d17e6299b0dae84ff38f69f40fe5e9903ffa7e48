@@ -16,6 +16,24 @@
       "revId": "d17e6299b0dae84ff38f69f40fe5e9903ffa7e48",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9355440_353a248c",
+        "filename": "src/ApiMathWikibaseExtracts.php",
+        "patchSetId": 13
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-10-28T06:00:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2347287e_5c70b86d",
+      "revId": "d17e6299b0dae84ff38f69f40fe5e9903ffa7e48",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
     }
   ]
 }
