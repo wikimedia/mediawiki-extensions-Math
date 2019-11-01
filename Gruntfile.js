@@ -12,7 +12,7 @@ module.exports = function ( grunt ) {
 		stylelint: {
 			all: [
 				'**/*.css',
-				'!{vendor,node_modules}/**'
+				'!**/{vendor,node_modules}/**'
 			]
 		},
 		watch: {
@@ -25,13 +25,12 @@ module.exports = function ( grunt ) {
 		},
 		eslint: {
 			options: {
-				reportUnusedDisableDirectives: true,
 				extensions: [ '.js', '.json' ],
 				cache: true
 			},
 			all: [
 				'**/*.{js,json}',
-				'!{vendor,node_modules}/**'
+				'!**/{vendor,node_modules}/**'
 			]
 		}
 	} );

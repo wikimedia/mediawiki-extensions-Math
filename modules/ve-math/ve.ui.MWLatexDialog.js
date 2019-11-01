@@ -146,10 +146,15 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 		var symbols = dialog.constructor.static.symbols;
 		for ( category in symbols ) {
 			dialog.pages.push(
-				new ve.ui.MWLatexPage( ve.msg( category ), {
-					label: ve.msg( category ),
-					symbols: symbols[ category ]
-				} )
+				new ve.ui.MWLatexPage(
+					// eslint-disable-next-line mediawiki/msg-doc
+					ve.msg( category ),
+					{
+						// eslint-disable-next-line mediawiki/msg-doc
+						label: ve.msg( category ),
+						symbols: symbols[ category ]
+					}
+				)
 			);
 		}
 		dialog.bookletLayout.addPages( dialog.pages );
