@@ -12,7 +12,7 @@ class MathoidCliTest extends MediaWikiTestCase {
 	private $badInput = '\newcommand{\text{do evil things}}';
 	protected static $hasMathoidCli;
 
-	public static function setUpBeforeClass() {
+	public static function setUpBeforeClass() : void {
 		global $wgMathoidCli;
 		if ( is_array( $wgMathoidCli ) && is_executable( $wgMathoidCli[0] ) ) {
 			self::$hasMathoidCli = true;
