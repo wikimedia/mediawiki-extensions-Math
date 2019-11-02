@@ -22,6 +22,30 @@
       "revId": "06c330429fea522afc7c448cb74c1eb23323a97a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cecec2f8_d1cf661f",
+        "filename": "Gruntfile.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 366
+      },
+      "writtenOn": "2019-11-02T19:37:23Z",
+      "side": 0,
+      "message": "We should probably fix LibUp to not duplicate it, then (it\u0027s now set upstream in eslint-config-wikimedia).",
+      "parentUuid": "d4154a27_6c988ee5",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "06c330429fea522afc7c448cb74c1eb23323a97a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
