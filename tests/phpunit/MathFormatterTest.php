@@ -19,7 +19,7 @@ class MathFormatterTest extends MediaWikiTestCase {
 
 	protected static $hasRestbase;
 
-	public static function setUpBeforeClass() {
+	public static function setUpBeforeClass() : void {
 		$rbi = new MathRestbaseInterface();
 		self::$hasRestbase = $rbi->checkBackend( true );
 	}
