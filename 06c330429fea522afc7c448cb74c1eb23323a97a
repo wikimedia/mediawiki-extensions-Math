@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4154a27_6c988ee5",
+        "filename": "Gruntfile.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2019-11-02T09:01:20Z",
+      "side": 0,
+      "message": "This will be readded by next Libraryupdater run",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "06c330429fea522afc7c448cb74c1eb23323a97a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}

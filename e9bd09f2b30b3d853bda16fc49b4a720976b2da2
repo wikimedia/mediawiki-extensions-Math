@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c9f1a91_9f6ea395",
+        "filename": "Gruntfile.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2019-11-02T09:01:20Z",
+      "side": 1,
+      "message": "This reverts Ice2c4d16de258dac5506322d6f4551587b8e3022, why?",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 9
+      },
+      "revId": "e9bd09f2b30b3d853bda16fc49b4a720976b2da2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
