@@ -405,7 +405,7 @@ class MathRestbaseInterface {
 	}
 
 	/**
-	 * @return mixed
+	 * @return string
 	 */
 	public function getMathoidStyle() {
 		return $this->mathoidStyle;

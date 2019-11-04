@@ -30,6 +30,7 @@ class MathMathML extends MathRenderer {
 	/** @var string|bool */
 	private $pngPath = false;
 
+	/** @var string|null */
 	private $mathoidStyle;
 
 	public function __construct( $tex = '', $params = [] ) {
@@ -66,6 +67,9 @@ class MathMathML extends MathRenderer {
 		}
 	}
 
+	/**
+	 * @param array[] $tags
+	 */
 	public static function batchEvaluate( array $tags ) {
 		$rbis = [];
 		foreach ( $tags as $key => $tag ) {
