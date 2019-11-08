@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50fa528b_3a347fff",
+        "filename": "src/MathMathMLCli.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-11-08T15:28:07Z",
+      "side": 1,
+      "message": "I feel like we could use the nifty ?? operator in all these cases, and make the code much shorter and much nicer to read this way. What do you think?",
+      "revId": "5b386ab966952849b126c3b1eea7d581b099d7c9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54be3593_200735a7",
+        "filename": "src/MathMathMLCli.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-11-08T15:28:07Z",
+      "side": 1,
+      "message": "I guess this shouldn\u0027t be set to true if there is no $this-\u003etex.",
+      "range": {
+        "startLine": 66,
+        "startChar": 9,
+        "endLine": 66,
+        "endChar": 25
+      },
+      "revId": "5b386ab966952849b126c3b1eea7d581b099d7c9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8108492c_a35dfd66",
+        "filename": "src/MathMathMLCli.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-11-08T15:28:07Z",
+      "side": 1,
+      "message": "I everything above failed, nothing changed.",
+      "range": {
+        "startLine": 79,
+        "startChar": 9,
+        "endLine": 79,
+        "endChar": 23
+      },
+      "revId": "5b386ab966952849b126c3b1eea7d581b099d7c9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
