@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "435414e0_7949a1ad",
+        "filename": "extension.json",
+        "patchSetId": 17
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-11-13T14:42:46Z",
+      "side": 1,
+      "message": "I was unsure if that is a good idea. So I just discussed this with people from WMDE at the Wikimedia Tech Conf 2019.\nThe dominant opinion is to call it\n\nMathWikibasePropertyIdDefiningFormula\n\netc.",
+      "parentUuid": "a60780d3_77f5cf5a",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f055c133_7290f069",
         "filename": "i18n/en.json",
         "patchSetId": 17
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "f4f3048a_765bf87a",
+        "filename": "i18n/en.json",
+        "patchSetId": 17
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-11-13T14:42:46Z",
+      "side": 1,
+      "message": "Wikibase should not appear in the UI from a Wikibase product point of view.",
+      "parentUuid": "f055c133_7290f069",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e179d1f_04be67a9",
         "filename": "src/MathMathML.php",
         "patchSetId": 17
@@ -47,6 +83,24 @@
       "writtenOn": "2019-11-13T13:08:44Z",
       "side": 1,
       "message": "Turning formulae into links seems like a rather big visual change. Has the WP Math community discussed this?\n\nAt the very least, there should be an option to disable/enable this in the config. Ideally, this should also be made a user preference.",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a5f8618_85e1441a",
+        "filename": "src/MathMathML.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-11-13T14:42:46Z",
+      "side": 1,
+      "message": "The ability to create links from within formulae is definitely a whish by the community. Note that this link will be only visible for math tags that use the wikidata property. It won\u0027t change anything for all formulae currently used in wikis. Only if authors explicitly specify the id the link will be displayed. Thus I think this is ok.\nAs far as I know, there is also no way to disable other links within Wikipedia, so I don\u0027t think we need a config variable to disable the link from the beginning.",
+      "parentUuid": "9e179d1f_04be67a9",
       "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
