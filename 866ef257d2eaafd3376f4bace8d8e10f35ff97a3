@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a60780d3_77f5cf5a",
+        "filename": "extension.json",
+        "patchSetId": 17
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2019-11-13T13:08:44Z",
+      "side": 1,
+      "message": "These do not seem to be WB ext properties, so should be prefixed with `Math`",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f055c133_7290f069",
+        "filename": "i18n/en.json",
+        "patchSetId": 17
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2019-11-13T13:08:44Z",
+      "side": 1,
+      "message": "Math Wikibase Item Information?",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e179d1f_04be67a9",
+        "filename": "src/MathMathML.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2019-11-13T13:08:44Z",
+      "side": 1,
+      "message": "Turning formulae into links seems like a rather big visual change. Has the WP Math community discussed this?\n\nAt the very least, there should be an option to disable/enable this in the config. Ideally, this should also be made a user preference.",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ea117e8_ccd2107e",
+        "filename": "src/MathWikibaseConfig.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2019-11-13T13:08:44Z",
+      "side": 1,
+      "message": "You should make a static instance and create it only once and return it on each call.",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4117f8d_68e7fc8b",
+        "filename": "src/MathWikibaseInfo.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2019-11-13T13:08:44Z",
+      "side": 1,
+      "message": "The return needs to go on a new line.",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6cb7625_ca9beb95",
+        "filename": "src/SpecialMathWikibase.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2019-11-13T13:08:44Z",
+      "side": 1,
+      "message": "Here and elsewhere:\n\n  s/reqeustId/requestId/",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
