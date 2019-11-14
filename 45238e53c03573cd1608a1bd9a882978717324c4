@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96641f42_6c7b4b59",
+        "filename": "extension.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2019-11-14T10:08:46Z",
+      "side": 1,
+      "message": "This should be set to false by default, as we want to keep the output as-is. Then, in a second (later) step, it can be enabled in mediawiki-config on a per-project or per-group basis, depending on the communities\u0027 wishes.",
+      "revId": "45238e53c03573cd1608a1bd9a882978717324c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17afbd99_d4a0094d",
+        "filename": "src/MathMathML.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2019-11-14T10:08:46Z",
+      "side": 1,
+      "message": "We still want to have the data-qid attribute set, but we just don\u0027t want to show the link. Therefore, remove it from the clause and add surround the lines 494-495 with if ( $enableLinks )",
+      "revId": "45238e53c03573cd1608a1bd9a882978717324c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcc110a9_58180c2e",
+        "filename": "src/MathWikibaseConfig.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 2177
+      },
+      "writtenOn": "2019-11-14T10:08:46Z",
+      "side": 1,
+      "message": "if ( !self::$defaultConfig )",
+      "revId": "45238e53c03573cd1608a1bd9a882978717324c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
