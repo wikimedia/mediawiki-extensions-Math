@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "d493b230_3f73f6ee",
+        "filename": "extension.json",
+        "patchSetId": 17
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-11-14T05:31:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43236dda_ad715f1f",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f055c133_7290f069",
         "filename": "i18n/en.json",
         "patchSetId": 17
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "or Math Formula Information or Math Item Information, or something along those lines. Just \"Math Information\" strikes me as oddly imprecise.",
       "parentUuid": "f4f3048a_765bf87a",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35d7df67_833d889b",
+        "filename": "i18n/en.json",
+        "patchSetId": 17
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-11-14T05:31:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da7649a5_e68fae0b",
       "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -161,6 +197,24 @@
     },
     {
       "key": {
+        "uuid": "a0595a1f_93e216f6",
+        "filename": "src/MathMathML.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-11-14T05:31:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d69bda8a_697aaa3f",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ea117e8_ccd2107e",
         "filename": "src/MathWikibaseConfig.php",
         "patchSetId": 17
@@ -172,6 +226,24 @@
       "writtenOn": "2019-11-13T13:08:44Z",
       "side": 1,
       "message": "You should make a static instance and create it only once and return it on each call.",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21ad01d3_71a2d07e",
+        "filename": "src/MathWikibaseConfig.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-11-14T05:31:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ea117e8_ccd2107e",
       "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -195,6 +267,24 @@
     },
     {
       "key": {
+        "uuid": "ea26c7ca_c408175e",
+        "filename": "src/MathWikibaseInfo.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-11-14T05:31:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4117f8d_68e7fc8b",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6cb7625_ca9beb95",
         "filename": "src/SpecialMathWikibase.php",
         "patchSetId": 17
@@ -206,6 +296,24 @@
       "writtenOn": "2019-11-13T13:08:44Z",
       "side": 1,
       "message": "Here and elsewhere:\n\n  s/reqeustId/requestId/",
+      "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ede549cd_d6d783a9",
+        "filename": "src/SpecialMathWikibase.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-11-14T05:31:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6cb7625_ca9beb95",
       "revId": "866ef257d2eaafd3376f4bace8d8e10f35ff97a3",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
