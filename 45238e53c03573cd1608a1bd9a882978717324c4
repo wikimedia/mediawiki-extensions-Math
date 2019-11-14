@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "195cec27_00f36c59",
+        "filename": "extension.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-11-14T14:43:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96641f42_6c7b4b59",
+      "revId": "45238e53c03573cd1608a1bd9a882978717324c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17afbd99_d4a0094d",
         "filename": "src/MathMathML.php",
         "patchSetId": 19
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "3a03fe62_7c053d09",
+        "filename": "src/MathMathML.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-11-14T14:43:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17afbd99_d4a0094d",
+      "revId": "45238e53c03573cd1608a1bd9a882978717324c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcc110a9_58180c2e",
         "filename": "src/MathWikibaseConfig.php",
         "patchSetId": 19
@@ -47,6 +83,24 @@
       "writtenOn": "2019-11-14T10:08:46Z",
       "side": 1,
       "message": "if ( !self::$defaultConfig )",
+      "revId": "45238e53c03573cd1608a1bd9a882978717324c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99750e45_69cf5536",
+        "filename": "src/MathWikibaseConfig.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-11-14T14:43:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcc110a9_58180c2e",
       "revId": "45238e53c03573cd1608a1bd9a882978717324c4",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
