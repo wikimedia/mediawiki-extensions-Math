@@ -7,6 +7,7 @@
  */
 
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Converts LaTeX to MathML using the mathoid-server
@@ -475,6 +476,8 @@ class MathMathML extends MathRenderer {
 	 * @return string Html output that is embedded in the page
 	 */
 	public function getHtmlOutput() {
+		$config = MediaWikiServices::getInstance()->getMainConfig();
+		$enableLinks = $config->get( "MathEnableFormulaLinks" );
 		if ( $this->getMathStyle() == 'display' ) {
 			$element = 'div';
 		} else {
@@ -484,10 +487,18 @@ class MathMathML extends MathRenderer {
 		if ( $this->getID() !== '' ) {
 			$attribs['id'] = $this->getID();
 		}
+		$hyperlink = null;
 		if ( isset( $this->params['qid'] ) && preg_match( '/Q\d+/', $this->params['qid'] ) ) {
 			$attribs['data-qid'] = $this->params['qid'];
+			// TODO: SpecialPage::getTitleFor uses the depcrated method Title::newFromTitleValue and
+			// declares a never thrown MWException. Once this SpecialPage is updated, update the next line.
+			$titleObj = Title::newFromLinkTarget( SpecialPage::getTitleValueFor( 'MathWikibase' ) );
+			$hyperlink = $titleObj->getLocalURL( [ 'qid' => $this->params['qid'] ] );
 		}
 		$output = Html::openElement( $element, $attribs );
+		if ( $hyperlink && $enableLinks ) {
+			$output .= Html::openElement( 'a', [ 'href' => $hyperlink, 'style' => 'color:inherit;' ] );
+		}
 		// MathML has to be wrapped into a div or span in order to be able to hide it.
 		// Remove displayStyle attributes set by the MathML converter
 		// (Beginning from Mathoid 0.2.5 block is the default layout.)
@@ -501,6 +512,9 @@ class MathMathML extends MathRenderer {
 			'class' => $this->getClassName(), 'style' => 'display: none;'
 		], $mml );
 		$output .= $this->getFallbackImage();
+		if ( $hyperlink && $enableLinks ) {
+			$output .= Html::closeElement( 'a' );
+		}
 		$output .= Html::closeElement( $element );
 		return $output;
 	}
