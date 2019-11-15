@@ -1,11 +1,11 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use Wikibase\Client\WikibaseClient;
 use Wikibase\DataModel\Entity\EntityIdParser;
 use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\Lib\Store\EntityRevisionLookup;
 use Wikibase\Lib\Store\LanguageFallbackLabelDescriptionLookupFactory;
-use Wikibase\Repo\WikibaseRepo;
 
 /**
  * A config class for the MathWikibaseConnector to connect with Wikibase
@@ -121,11 +121,11 @@ class MathWikibaseConfig {
 	 */
 	public static function getDefaultMathWikibaseConfig() : MathWikibaseConfig {
 		if ( !self::$defaultConfig ) {
-			$wikibaseRepo = WikibaseRepo::getDefaultInstance();
+			$wikibaseClient = WikibaseClient::getDefaultInstance();
 			self::$defaultConfig = new MathWikibaseConfig(
-				$wikibaseRepo->getEntityIdParser(),
-				$wikibaseRepo->getEntityRevisionLookup(),
-				$wikibaseRepo->getLanguageFallbackLabelDescriptionLookupFactory()
+				$wikibaseClient->getEntityIdParser(),
+				$wikibaseClient->getStore()->getEntityRevisionLookup(),
+				$wikibaseClient->getLanguageFallbackLabelDescriptionLookupFactory()
 			);
 		}
 		return self::$defaultConfig;
