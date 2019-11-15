@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb631cc1_b0bbca3a",
+        "filename": "src/SpecialMathWikibase.php",
+        "patchSetId": 20
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-11-15T14:58:51Z",
+      "side": 1,
+      "message": "this is probably the problem why the special page is not showing on beta...\n\nhttps://en.wikipedia.beta.wmflabs.org/wiki/Special:MathWikibase\n\nWhy do we actually need the Repo for the specialpage?",
+      "revId": "4a7bc3ee313745b78e13c32c9df8aabef36f4443",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
