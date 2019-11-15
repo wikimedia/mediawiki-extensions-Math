@@ -180,7 +180,7 @@ class SpecialMathWikibase extends SpecialPage {
 				wfMessage( 'math-wikibase-formula' )->inContentLanguage(),
 				$math
 			);
-			$output->addHTML( HTML::rawElement( "p", [], $formulaInfo->inContentLanguage() ) );
+			$output->addHTML( Html::rawElement( "p", [], $formulaInfo->inContentLanguage() ) );
 		}
 
 		$labelName = wfMessage(
@@ -188,7 +188,7 @@ class SpecialMathWikibase extends SpecialPage {
 			wfMessage( 'math-wikibase-formula-name' )->inContentLanguage(),
 			$info->getLabel()
 		)->inContentLanguage();
-		$output->addHTML( HTML::rawElement( "p", [], $labelName ) );
+		$output->addHTML( Html::rawElement( "p", [], $labelName ) );
 
 		if ( count( $matches ) > 2 ) {
 			$labelType = wfMessage(
@@ -203,15 +203,15 @@ class SpecialMathWikibase extends SpecialPage {
 				$matches[2]
 			)->inContentLanguage();
 
-			$output->addHTML( HTML::rawElement( "p", [], $labelType ) );
-			$output->addHTML( HTML::rawElement( "p", [], $labelDesc ) );
+			$output->addHTML( Html::rawElement( "p", [], $labelType ) );
+			$output->addHTML( Html::rawElement( "p", [], $labelDesc ) );
 		} else {
 			$labelDesc = wfMessage(
 				'math-wikibase-formula-header-format',
 				wfMessage( 'math-wikibase-formula-description' )->inContentLanguage(),
 				$info->getDescription()
 			)->inContentLanguage();
-			$output->addHTML( HTML::rawElement( "p", [], $labelDesc ) );
+			$output->addHTML( Html::rawElement( "p", [], $labelDesc ) );
 		}
 
 		// add parts of formula
@@ -231,8 +231,8 @@ class SpecialMathWikibase extends SpecialPage {
 		$output->addHTML( self::createHTMLHeader( $wikibaseHeader ) );
 
 		$url = MathWikibaseConnector::buildURL( $qid );
-		$link = HTML::linkButton( $url, [ "href" => $url ] );
-		$output->addHTML( HTML::rawElement( "p", [], $link ) );
+		$link = Html::linkButton( $url, [ "href" => $url ] );
+		$output->addHTML( Html::rawElement( "p", [], $link ) );
 	}
 
 	/**
@@ -241,9 +241,9 @@ class SpecialMathWikibase extends SpecialPage {
 	 * @return string
 	 */
 	private static function createHTMLHeader( $header ) {
-		$headerOut = HTML::openElement( "h2" );
-		$headerOut .= HTML::rawElement( "span", [ "class" => "mw-headline" ], $header );
-		$headerOut .= HTML::closeElement( "h2" );
+		$headerOut = Html::openElement( "h2" );
+		$headerOut .= Html::rawElement( "span", [ "class" => "mw-headline" ], $header );
+		$headerOut .= Html::closeElement( "h2" );
 		return $headerOut;
 	}
 
