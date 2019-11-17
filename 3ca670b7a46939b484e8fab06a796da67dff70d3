@@ -1,0 +1,289 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "136ab994_925c480f",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "I would not write \"user story\" that could sound weird for an outsider. I would write something like \"Create a ticket and describe the problem. Also it goes more into the direction of what\u0027s the concrete step.",
+      "range": {
+        "startLine": 20,
+        "startChar": 11,
+        "endLine": 20,
+        "endChar": 21
+      },
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9862dc56_dfc9083f",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "Propose..",
+      "range": {
+        "startLine": 21,
+        "startChar": 3,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0d0baca_8cbfc0e6",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "In this case I\u0027m even thinking of leaving that out might be better here.",
+      "range": {
+        "startLine": 21,
+        "startChar": 28,
+        "endLine": 21,
+        "endChar": 79
+      },
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c83585c5_b005091d",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "Maybe: Get familiar with the code base and environment \n\n( we could mention later, that this is also kind of the step where you should figure out what to do where )",
+      "range": {
+        "startLine": 23,
+        "startChar": 3,
+        "endLine": 23,
+        "endChar": 34
+      },
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65c4a198_58191216",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "I would always repeat the title of the steps here...",
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "782b253e_746bc237",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "Here we could add the more explanatory sentence like \"Get familiar with the code and figure out where you need to add your changes and how you could test them.",
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16b7e051_99172f07",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "I think this page is bit overwhelming ( what\u0027s a different problem ) and not suuuper necessary here. It could be mentioned, but not as the top step here. ( also: you have these mentioned in the next steps already )",
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b378f21_a1c2d48b",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "This is a bit interesting. Ideally here could be a link to a wiki page that explains some of the structure of the code. So for example, what to find in what directory. Additional to that would be a list then which class is responsible for what.\n\nFor the former one, the \"best practices\" could in theory work ( since we follow these here ). But like I said it\u0027s a bit overwhelming. - I could imagine either a wiki page or a part in this .md file that just explains the rough folder structure.\n\n( Maybe there\u0027s already a good wikipage explaining _just_ that for the \"usual\" extensions. )\n\nFor the latter the ideal thing probably would be a PHPDoc/JSDoc auto generated overview. This would also encourage good docs in code.",
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd008150_f9a657b2",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "I would imagine examples more as questions here and introduced with a sentence like \"It might for example help if you\u0027re able to answer some of these questions to if you want to make sure that you understood the code.\":\n\n\n\"Where would you need to add phpUnit test that check if the css attribute is present?\"\n\"How are options handled by the math extension?\"\n....",
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49af2ca9_424d40a6",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "I could imagine this being a separate step. Also realizing that we miss instructions how to setup and run tests. ... right?",
+      "range": {
+        "startLine": 90,
+        "startChar": 30,
+        "endLine": 90,
+        "endChar": 34
+      },
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47d56bd7_97dd1e81",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "I think that\u0027s better here ... +1 ;-)",
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8f85da4_f25308cf",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "I guess examples on very well implemented contributions should go here. ( If we have another step for implementing test I would probably put direct links to the test files of the patches there )",
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dffa85e9_fffaf930",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "From here on I\u0027m not sure if we should communicate this as \"Steps\" it rather something like \"A note to the deployment workflow\"",
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7ccf44a_56a72052",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "\"A note on larger changes and feature additions\"\n\nThis step / note makes totally sense. I\u0027m not familiar with your code base but in general I would imagine something like\n\n\"Consider adding a feature flag to isolate your changes that way the could be tested intensely before going live.\" ( then maybe some institutions / wiki page on how to \"feature flag\" )\n\n\"If your code includes a feature flag in is merged and deployed you need to enable it on the beta cluster. This is done by adding a change to the settings file for the cluster. Find help for doing that in #wikimedia-tech\"\n\nYeah I\u0027m not sure how to finish here and if it makes sense to try to explain the whole package of this aspect.\n\n... it gets more and more tricky done here :-) ...",
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ebf993b_5bfbd832",
+        "filename": "CONTRIBUTING.MD",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1883
+      },
+      "writtenOn": "2019-11-17T12:51:10Z",
+      "side": 1,
+      "message": "Good point :-)",
+      "revId": "3ca670b7a46939b484e8fab06a796da67dff70d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
