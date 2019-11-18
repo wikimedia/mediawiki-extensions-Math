@@ -9,6 +9,7 @@
  * @file
  */
 use MediaWiki\Logger\LoggerFactory;
+use Psr\Log\LoggerInterface;
 
 /**
  * Abstract base class with static methods for rendering the <math> tags using
@@ -64,6 +65,8 @@ abstract class MathRenderer {
 	protected $rbi;
 	/** @var array with rendering warnings*/
 	protected $warnings;
+	/** @var LoggerInterface */
+	protected $logger;
 
 	/**
 	 * Constructs a base MathRenderer

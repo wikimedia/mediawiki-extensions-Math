@@ -8,6 +8,7 @@
 
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use Psr\Log\LoggerInterface;
 
 /**
  * Converts LaTeX to MathML using the mathoid-server
@@ -19,6 +20,9 @@ class MathMathML extends MathRenderer {
 	protected $restbaseRenderingModes = [ 'mathml', 'png' ];
 	protected $allowedRootElements = [];
 	protected $hosts;
+
+	/** @var LoggerInterface */
+	protected $logger;
 
 	/** @var bool if false MathML output is not validated */
 	private $XMLValidation = true;
