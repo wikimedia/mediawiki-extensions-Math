@@ -53,5 +53,8 @@
 	"mw_math_source": "LaTeX-source (for tekstbrowsere)",
 	"prefs-math": "Matematiske formler",
 	"datatypes-type-math": "Matematisk udtryk",
-	"wikibase-listdatatypes-math-head": "Matematisk udtryk"
+	"wikibase-listdatatypes-math-head": "Matematisk udtryk",
+	"math-wikibase-formula-name": "Navn",
+	"math-wikibase-formula-description": "Beskrivelse",
+	"math-wikibase-special-error-header": "Fejl"
 }

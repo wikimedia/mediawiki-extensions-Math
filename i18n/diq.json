@@ -54,5 +54,8 @@
 	"mw_math_png": "PNG resimi",
 	"mw_math_source": "Çımeyê LaTeXi (seba geyroğê metınan rê)",
 	"prefs-math": "Matematigane simgey",
-	"mathstatus": "Weziyetê matematiki"
+	"mathstatus": "Weziyetê matematiki",
+	"math-wikibase-formula-type": "Babet",
+	"math-wikibase-formula-description": "Şınasnayış",
+	"math-wikibase-formula-link-header": "Çımeyê melumati"
 }

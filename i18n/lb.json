@@ -43,5 +43,13 @@
 	"mw_math_source": "LaTeX-Quell (fir Textbrowser)",
 	"prefs-math": "Math/TeX",
 	"datatypes-type-math": "Mathemateschen Ausdrock",
-	"wikibase-listdatatypes-math-head": "Mathemateschen Ausdrock"
+	"wikibase-listdatatypes-math-head": "Mathemateschen Ausdrock",
+	"math-wikibase-formula": "Formel",
+	"math-wikibase-formula-name": "Numm",
+	"math-wikibase-formula-type": "Typ",
+	"math-wikibase-formula-description": "Beschreiwung",
+	"math-wikibase-formula-link-header": "Source vun den Donnéeën",
+	"math-wikibase-formula-elements-header": "Elementer vun der Formel",
+	"math-wikibase-special-form-placeholder": "Titel vun der Formel",
+	"math-wikibase-special-error-header": "Feeler"
 }
