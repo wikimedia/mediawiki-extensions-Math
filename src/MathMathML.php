@@ -8,6 +8,7 @@
 
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use Psr\Log\LoggerInterface;
 
 /**
  * Converts LaTeX to MathML using the mathoid-server
@@ -19,6 +20,9 @@ class MathMathML extends MathRenderer {
 	protected $restbaseRenderingModes = [ 'mathml', 'png' ];
 	protected $allowedRootElements = [];
 	protected $hosts;
+
+	/** @var LoggerInterface */
+	private $logger;
 
 	/** @var bool if false MathML output is not validated */
 	private $XMLValidation = true;
@@ -52,6 +56,7 @@ class MathMathML extends MathRenderer {
 			// default preserve the (broken) layout as it was
 			$this->tex = '{\\displaystyle ' . $tex . '}';
 		}
+		$this->logger = LoggerFactory::getInstance( 'Math' );
 	}
 
 	/**
@@ -153,7 +158,7 @@ class MathMathML extends MathRenderer {
 		} catch ( Exception $e ) {
 			$this->lastError = $this->getError( 'math_mathoid_error',
 				$wgMathFullRestbaseURL, $e->getMessage() );
-			LoggerFactory::getInstance( 'Math' )->error( $e->getMessage(), [ $e, $this ] );
+			$this->logger->error( $e->getMessage(), [ $e, $this ] );
 			return false;
 		}
 	}
@@ -163,28 +168,27 @@ class MathMathML extends MathRenderer {
 	 * @return bool
 	 */
 	private function renderingRequired() {
-		$logger = LoggerFactory::getInstance( 'Math' );
 		if ( $this->isPurge() ) {
-			$logger->debug( 'Rerendering was requested.' );
+			$this->logger->debug( 'Rerendering was requested.' );
 			return true;
 		} else {
 			$dbres = $this->isInDatabase();
 			if ( $dbres ) {
 				if ( $this->isValidMathML( $this->getMathml() ) ) {
-					$logger->debug( 'Valid MathML entry found in database.' );
+					$this->logger->debug( 'Valid MathML entry found in database.' );
 					if ( $this->getSvg( 'cached' ) ) {
-						$logger->debug( 'SVG-fallback found in database.' );
+						$this->logger->debug( 'SVG-fallback found in database.' );
 						return false;
 					} else {
-						$logger->debug( 'SVG-fallback missing.' );
+						$this->logger->debug( 'SVG-fallback missing.' );
 						return true;
 					}
 				} else {
-					$logger->debug( 'Malformatted entry found in database' );
+					$this->logger->debug( 'Malformatted entry found in database' );
 					return true;
 				}
 			} else {
-				$logger->debug( 'No entry found in database.' );
+				$this->logger->debug( 'No entry found in database.' );
 				return true;
 			}
 		}
@@ -228,7 +232,7 @@ class MathMathML extends MathRenderer {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
 				$error = $this->getError( 'math_timeout', $this->getModeStr(), $host );
 				$res = false;
-				LoggerFactory::getInstance( 'Math' )->warning( 'Timeout:' . var_export( [
+				$this->logger->warning( 'Timeout:' . var_export( [
 						'post' => $post,
 						'host' => $host,
 						'timeout' => $wgMathLaTeXMLTimeout
@@ -239,7 +243,7 @@ class MathMathML extends MathRenderer {
 				$error =
 					$this->getError( 'math_invalidresponse', $this->getModeStr(), $host, $errormsg,
 						$this->getModeStr() );
-				LoggerFactory::getInstance( 'Math' )->warning( 'NoResponse:' . var_export( [
+				$this->logger->warning( 'NoResponse:' . var_export( [
 						'post' => $post,
 						'host' => $host,
 						'errormsg' => $errormsg
@@ -264,7 +268,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			$host = $this->hosts;
 		}
-		LoggerFactory::getInstance( 'Math' )->debug( 'Picking host ' . $host );
+		$this->logger->debug( 'Picking host ' . $host );
 		return $host;
 	}
 
@@ -284,7 +288,7 @@ class MathMathML extends MathRenderer {
 		} else {
 			throw new MWException( 'Internal error: Restbase should be used for tex rendering' );
 		}
-		LoggerFactory::getInstance( 'Math' )->debug( 'Get post data: ' . $out );
+		$this->logger->debug( 'Get post data: ' . $out );
 		return $out;
 	}
 
@@ -313,7 +317,7 @@ class MathMathML extends MathRenderer {
 						$log = wfMessage( 'math_unknown_error' )->inContentLanguage()->escaped();
 					}
 					$this->lastError = $this->getError( 'math_mathoid_error', $host, $log );
-					LoggerFactory::getInstance( 'Math' )->warning(
+					$this->logger->warning(
 						'Mathoid conversion error:' . var_export( [
 							'post' => $post,
 							'host' => $host,
@@ -323,7 +327,7 @@ class MathMathML extends MathRenderer {
 				}
 			} else {
 				$this->lastError = $this->getError( 'math_invalidjson', $host );
-				LoggerFactory::getInstance( 'Math' )->error(
+				$this->logger->error(
 					'MathML InvalidJSON:' . var_export( [
 						'post' => $post,
 						'host' => $host,
@@ -351,7 +355,7 @@ class MathMathML extends MathRenderer {
 
 		$xmlObject = new XmlTypeCheck( $XML, null, false );
 		if ( !$xmlObject->wellFormed ) {
-			LoggerFactory::getInstance( 'Math' )->error(
+			$this->logger->error(
 				'XML validation error: ' . var_export( $XML, true ) );
 		} else {
 			$name = $xmlObject->getRootElement();
@@ -360,7 +364,7 @@ class MathMathML extends MathRenderer {
 			if ( in_array( $localName, $this->getAllowedRootElements() ) ) {
 				$out = true;
 			} else {
-				LoggerFactory::getInstance( 'Math' )->error( "Got wrong root element: $name" );
+				$this->logger->error( "Got wrong root element: $name" );
 			}
 		}
 		return $out;
@@ -565,7 +569,7 @@ class MathMathML extends MathRenderer {
 					$this->setSvg( $jsonResult->svg );
 				}
 			} else {
-				LoggerFactory::getInstance( 'Math' )->error(
+				$this->logger->error(
 					'Missing SVG property in JSON result.' );
 			}
 			if ( $this->getMode() != 'latexml' && $this->inputType != 'pmml' ) {
@@ -587,8 +591,7 @@ class MathMathML extends MathRenderer {
 	 */
 	protected function isEmpty() {
 		if ( $this->userInputTex === '' ) {
-			LoggerFactory::getInstance( 'Math' )
-				->debug( 'Rendering was requested, but no TeX string is specified.' );
+			$this->logger->debug( 'Rendering was requested, but no TeX string is specified.' );
 			$this->lastError = $this->getError( 'math_empty_tex' );
 			return true;
 		}

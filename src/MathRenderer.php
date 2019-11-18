@@ -9,6 +9,7 @@
  * @file
  */
 use MediaWiki\Logger\LoggerFactory;
+use Psr\Log\LoggerInterface;
 
 /**
  * Abstract base class with static methods for rendering the <math> tags using
@@ -64,6 +65,8 @@ abstract class MathRenderer {
 	protected $rbi;
 	/** @var array with rendering warnings*/
 	protected $warnings;
+	/** @var LoggerInterface */
+	private $logger;
 
 	/**
 	 * Constructs a base MathRenderer
@@ -103,6 +106,7 @@ abstract class MathRenderer {
 		// be centered in a new line, or just in be displayed in the current line.
 		$this->userInputTex = $tex;
 		$this->tex = $tex;
+		$this->logger = LoggerFactory::getInstance( 'Math' );
 	}
 
 	/**
@@ -182,7 +186,7 @@ abstract class MathRenderer {
 					$renderer = new MathMathML( $tex, $params );
 				}
 		}
-		LoggerFactory::getInstance( 'Math' )->debug( 'Start rendering $' . $renderer->tex .
+		self::$logger->debug( 'Start rendering $' . $renderer->tex .
 			'$ in mode ' . $mode );
 		return $renderer;
 	}
@@ -334,7 +338,7 @@ abstract class MathRenderer {
 	public function writeToDatabase( $dbw = null ) {
 		# Now save it back to the DB:
 		if ( !wfReadOnly() ) {
-			LoggerFactory::getInstance( 'Math' )->debug( 'Store entry for $' . $this->tex .
+			$this->logger->debug( 'Store entry for $' . $this->tex .
 				'$ in database (hash:' . $this->getMd5() . ')' );
 			$outArray = $this->dbOutArray();
 			$mathTableName = $this->getMathTableName();
@@ -348,7 +352,7 @@ abstract class MathRenderer {
 
 					$dbw->update( $mathTableName, $outArray,
 						[ 'math_inputhash' => $inputHash ], $fname );
-					LoggerFactory::getInstance( 'Math' )->debug(
+					$this->logger->debug(
 						'Row updated after db transaction was idle: ' .
 						var_export( $outArray, true ) . " to database" );
 				} );
@@ -359,12 +363,12 @@ abstract class MathRenderer {
 					$dbw = $dbw ?: wfGetDB( DB_MASTER );
 
 					$dbw->insert( $mathTableName, $outArray, $fname, [ 'IGNORE' ] );
-					LoggerFactory::getInstance( 'Math' )->debug(
+					$this->logger->debug(
 						'Row inserted after db transaction was idle ' .
 						var_export( $outArray, true ) . " to database" );
 					if ( $dbw->affectedRows() == 0 ) {
 						// That's the price for the delayed update.
-						LoggerFactory::getInstance( 'Math' )->warning(
+						$this->logger->warning(
 							'Entry could not be written. Might be changed in between.' );
 					}
 				} );
@@ -438,7 +442,6 @@ abstract class MathRenderer {
 	 * @return bool
 	 */
 	public function writeCache() {
-		$logger = LoggerFactory::getInstance( 'Math' );
 		$logger->debug( 'Writing of cache requested.' );
 		if ( $this->isChanged() ) {
 			$logger->debug( 'Change detected. Perform writing.' );
@@ -555,7 +558,7 @@ abstract class MathRenderer {
 		if ( $refererHeader ) {
 			parse_str( parse_url( $refererHeader, PHP_URL_QUERY ), $refererParam );
 			if ( isset( $refererParam['action'] ) && $refererParam['action'] === 'purge' ) {
-				LoggerFactory::getInstance( 'Math' )->debug( 'Re-Rendering on user request' );
+				$this->logger->debug( 'Re-Rendering on user request' );
 				return true;
 			}
 		}
