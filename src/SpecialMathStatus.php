@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Logger\LoggerFactory;
+use Psr\Log\LoggerInterface;
 
 /**
  * MediaWiki math extension
@@ -11,9 +12,13 @@ use MediaWiki\Logger\LoggerFactory;
  * @author Moritz Schubotz
  */
 class SpecialMathStatus extends SpecialPage {
+	/** @var LoggerInterface */
+	private $logger;
 
 	public function __construct( $name = 'MathStatus' ) {
 		parent::__construct( $name );
+
+		$this->logger = LoggerFactory::getInstance( 'Math' );
 	}
 
 	/**
@@ -183,7 +188,7 @@ class SpecialMathStatus extends SpecialPage {
 			$real = "<syntaxhighlight lang=\"xml\">$real</syntaxhighlight>";
 			$this->getOutput()->addWikiMsgArray( $message, [ $real, $expected ] );
 		} else {
-			LoggerFactory::getInstance( 'Math' )->warning( 'Can not display expected and real value.' .
+			$this->logger->warning( 'Can not display expected and real value.' .
 				'SyntaxHighlight is not installed.' );
 		}
 	}
