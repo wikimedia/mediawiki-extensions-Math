@@ -9,6 +9,7 @@
  * @file
  */
 use MediaWiki\Logger\LoggerFactory;
+use Psr\Log\LoggerInterface;
 
 /**
  * Abstract base class with static methods for rendering the <math> tags using
@@ -64,6 +65,8 @@ abstract class MathRenderer {
 	protected $rbi;
 	/** @var array with rendering warnings*/
 	protected $warnings;
+	/** @var LoggerInterface */
+	private $logger;
 
 	/**
 	 * Constructs a base MathRenderer
@@ -103,6 +106,7 @@ abstract class MathRenderer {
 		// be centered in a new line, or just in be displayed in the current line.
 		$this->userInputTex = $tex;
 		$this->tex = $tex;
+		$this->$logger = LoggerFactory::getInstance( 'Math' );
 	}
 
 	/**
@@ -438,7 +442,6 @@ abstract class MathRenderer {
 	 * @return bool
 	 */
 	public function writeCache() {
-		$logger = LoggerFactory::getInstance( 'Math' );
 		$logger->debug( 'Writing of cache requested.' );
 		if ( $this->isChanged() ) {
 			$logger->debug( 'Change detected. Perform writing.' );
