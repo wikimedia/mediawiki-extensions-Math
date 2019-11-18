@@ -64,6 +64,8 @@ abstract class MathRenderer {
 	protected $rbi;
 	/** @var array with rendering warnings*/
 	protected $warnings;
+	/** @var LoggerInterface */
+	protected $logger;
 
 	/**
 	 * Constructs a base MathRenderer

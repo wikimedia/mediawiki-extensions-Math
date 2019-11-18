@@ -20,6 +20,9 @@ class MathMathML extends MathRenderer {
 	protected $allowedRootElements = [];
 	protected $hosts;
 
+	/** @var LoggerInterface */
+	protected $logger;
+
 	/** @var bool if false MathML output is not validated */
 	private $XMLValidation = true;
 
