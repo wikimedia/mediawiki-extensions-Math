@@ -21,6 +21,7 @@ class MathRestbaseInterface {
 	private $warnings = [];
 	/** @var bool is there a request to purge the existing mathematical content */
 	private $purge = false;
+	private $logger;
 
 	/**
 	 * @param string $tex
@@ -29,6 +30,7 @@ class MathRestbaseInterface {
 	public function __construct( $tex = '', $type = 'tex' ) {
 		$this->tex = $tex;
 		$this->type = $type;
+		$this->logger = LoggerFactory::getInstance( 'Math' );
 	}
 
 	/**
@@ -219,7 +221,7 @@ class MathRestbaseInterface {
 	 * @return \Psr\Log\LoggerInterface
 	 */
 	private function log() {
-		return LoggerFactory::getInstance( 'Math' );
+		return $this->$logger;
 	}
 
 	public function getSvg() {
