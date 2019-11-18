@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8536615_8f701f05",
+        "filename": "src/MathMathML.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-11-18T16:53:03Z",
+      "side": 1,
+      "message": "This patch appears to be incomplete.\n\nFirst, in the constructor the property should be set:\n\n $this-\u003elogger \u003d LoggerFactory::getInstance( \u0027Math\u0027 );\n\nThen, all code like the one I highlighted here should be replaced with the property.\n\nAlso, please make the property private!",
+      "range": {
+        "startLine": 235,
+        "startChar": 4,
+        "endLine": 235,
+        "endChar": 40
+      },
+      "revId": "ec270cbde3926bdd39b78c161cf22eafac3685ad",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
