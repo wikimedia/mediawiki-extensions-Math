@@ -9,7 +9,8 @@
 			"Vriullop",
 			"Arnaugir",
 			"Macofe",
-			"Ssola"
+			"Ssola",
+			"Fitoschido"
 		]
 	},
 	"math-desc": "Composa fórmules matemàtiques escrites entre les etiquetes <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -33,5 +34,17 @@
 	"mw_math_mathml": "MathML si és possible (experimental)",
 	"mw_math_png": "Produeix sempre PNG",
 	"mw_math_source": "Deixa com a LaTeX (per a navegadors de text)",
-	"prefs-math": "Com es mostren les fórmules"
+	"prefs-math": "Com es mostren les fórmules",
+	"mathwikibase": "Informació de la fòrmula matemàtica",
+	"math-wikibase-header": "Informació dels elements matemàtics",
+	"math-wikibase-formula": "Fòrmula",
+	"math-wikibase-formula-name": "Nom",
+	"math-wikibase-formula-type": "Tipus",
+	"math-wikibase-formula-description": "Descripció",
+	"math-wikibase-formula-information": "Informació de la fòrmula matemàtica",
+	"math-wikibase-formula-link-header": "Font de dades",
+	"math-wikibase-formula-elements-header": "Elements de la fòrmula",
+	"math-wikibase-special-form-header": "Especifiqueu el nom de la fòrmula:",
+	"math-wikibase-special-form-placeholder": "Títol de la fòrmula",
+	"math-wikibase-special-error-header": "Error"
 }

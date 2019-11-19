@@ -81,5 +81,11 @@
 	"mathstatus": "Math-status",
 	"datatypes-type-math": "Matematiska uttryck",
 	"wikibase-listdatatypes-math-head": "Matematiska uttryck",
-	"wikibase-listdatatypes-math-body": "Literallt datafält för matematiska uttryck, formler, ekvationer och dylikt, uttryckt i en variant av LaTeX."
+	"wikibase-listdatatypes-math-body": "Literallt datafält för matematiska uttryck, formler, ekvationer och dylikt, uttryckt i en variant av LaTeX.",
+	"math-wikibase-formula": "Formel",
+	"math-wikibase-formula-name": "Namn",
+	"math-wikibase-formula-type": "Typ",
+	"math-wikibase-formula-description": "Beskrivning",
+	"math-wikibase-formula-link-header": "Datakälla",
+	"math-wikibase-special-error-header": "Fel"
 }

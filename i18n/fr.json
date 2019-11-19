@@ -96,7 +96,20 @@
 	"mw_math_source": "Source LaTeX (pour les navigateurs en mode texte)",
 	"prefs-math": "Rendu des maths",
 	"mathstatus": "État mathématique",
+	"mathwikibase": "Information de formule mathématique",
 	"datatypes-type-math": "Expression mathématique",
 	"wikibase-listdatatypes-math-head": "Expression mathématique",
-	"wikibase-listdatatypes-math-body": "Champ de données littéral pour les expressions mathématiques, les formules, les équations et autres, exprimé dans une variante de LaTeX."
+	"wikibase-listdatatypes-math-body": "Champ de données littéral pour les expressions mathématiques, les formules, les équations et autres, exprimé dans une variante de LaTeX.",
+	"math-wikibase-header": "Information sur les éléments mathématiques",
+	"math-wikibase-formula": "Formule",
+	"math-wikibase-formula-name": "Name",
+	"math-wikibase-formula-type": "Type",
+	"math-wikibase-formula-description": "Description",
+	"math-wikibase-formula-information": "Information de formule mathématique",
+	"math-wikibase-formula-link-header": "Source des données",
+	"math-wikibase-formula-elements-header": "Eléments de formule",
+	"math-wikibase-special-form-header": "Précisez le nom de la formule :",
+	"math-wikibase-special-form-placeholder": "Titre de la formule",
+	"math-wikibase-special-form-button": "Demander des informations",
+	"math-wikibase-special-error-header": "Erreur"
 }
