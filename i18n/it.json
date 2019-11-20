@@ -88,5 +88,6 @@
 	"mathstatus": "Stato Math",
 	"datatypes-type-math": "Espressione matematica",
 	"wikibase-listdatatypes-math-head": "Espressione matematica",
-	"wikibase-listdatatypes-math-body": "Campo dati letterale per espressioni matematiche, formule, equazioni e simili, espresse in una variante di LaTeX."
+	"wikibase-listdatatypes-math-body": "Campo dati letterale per espressioni matematiche, formule, equazioni e simili, espresse in una variante di LaTeX.",
+	"math-wikibase-formula-elements-header": "Elementi della formula"
 }

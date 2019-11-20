@@ -111,5 +111,12 @@
 	"math-wikibase-special-form-header": "Précisez le nom de la formule :",
 	"math-wikibase-special-form-placeholder": "Titre de la formule",
 	"math-wikibase-special-form-button": "Demander des informations",
-	"math-wikibase-special-error-header": "Erreur"
+	"math-wikibase-special-error-header": "Erreur",
+	"math-wikibase-special-error-invalid-argument": "Votre ID d’élément Wikibase spécifié n’existe pas.",
+	"math-wikibase-special-error-unknown": "Une erreur inconnue s’est produite, du fait de la récupération des données depuis Wikibase.",
+	"math-wikibase-special-error-no-wikibase": "L’extension Wikibase est nécessaire pour utiliser cette page spéciale.",
+	"apihelp-query+mathwbextracts-example-1": "Nécessite un résumé des éléments mathématiques Wikibase.",
+	"apihelp-query+mathwbextracts-summary": "Renvoie un résumé de l’élément mathématique Wikibase en HTML.",
+	"apihelp-query+mathwbextracts-param-qid": "Le QID de l’élément Wikibase qui sera interrogé.",
+	"apihelp-query+mathwbextracts-param-uselang": "La langue qui doit être demandé pour l’élément Wikibase. L’anglais est la valeur par défaut."
 }

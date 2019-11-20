@@ -4,7 +4,8 @@
 			"Praveenp",
 			"Sadik Khalid",
 			"Shijualex",
-			"Macofe"
+			"Macofe",
+			"Adithyak1997"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> റ്റാഗുകൾക്കുള്ളിൽ നൽകുന്ന ഗണിതശാസ്ത്ര സൂത്രവാക്യങ്ങൾ പ്രദർശിപ്പിക്കൽ",
@@ -52,5 +53,11 @@
 	"mw_math_png": "പി.എൻ.ജി. ചിത്രങ്ങൾ",
 	"mw_math_source": "LaTeX മൂലരൂപം (ടെക്സ്റ്റ് ബ്രൗസറുകൾക്ക്)",
 	"prefs-math": "സമവാക്യം",
-	"mathstatus": "മാത് തൽസ്ഥിതി"
+	"mathstatus": "മാത് തൽസ്ഥിതി",
+	"math-wikibase-formula": "സൂത്രവാക്യം",
+	"math-wikibase-formula-name": "നാമം",
+	"math-wikibase-formula-type": "തരം",
+	"math-wikibase-formula-description": "വിവരണം",
+	"math-wikibase-formula-link-header": "ഡാറ്റയുടെ ഉത്ഭവം",
+	"math-wikibase-special-error-header": "പിഴവ്"
 }

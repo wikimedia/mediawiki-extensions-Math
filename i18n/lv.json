@@ -48,5 +48,6 @@
 	"mw_math_source": "LaTeX kods (teksta pārlūkiem)",
 	"prefs-math": "Formulas",
 	"datatypes-type-math": "Matemātiska izteiksme",
-	"wikibase-listdatatypes-math-head": "Matemātiska izteiksme"
+	"wikibase-listdatatypes-math-head": "Matemātiska izteiksme",
+	"math-wikibase-formula-elements-header": "Formulas elementi"
 }
