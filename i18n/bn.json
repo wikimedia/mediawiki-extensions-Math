@@ -77,5 +77,6 @@
 	"prefs-math": "গণিত",
 	"mathstatus": "গণিতের অবস্থা",
 	"datatypes-type-math": "গাণিতিক এক্সপ্রেশন",
-	"wikibase-listdatatypes-math-head": "গাণিতিক এক্সপ্রেশন"
+	"wikibase-listdatatypes-math-head": "গাণিতিক এক্সপ্রেশন",
+	"math-wikibase-formula-elements-header": "সূত্রের উপাদানসমূহ"
 }

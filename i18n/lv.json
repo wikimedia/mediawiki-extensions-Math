@@ -49,5 +49,7 @@
 	"prefs-math": "Formulas",
 	"datatypes-type-math": "Matemātiska izteiksme",
 	"wikibase-listdatatypes-math-head": "Matemātiska izteiksme",
-	"math-wikibase-formula-elements-header": "Formulas elementi"
+	"math-wikibase-formula": "Formula",
+	"math-wikibase-formula-elements-header": "Formulas elementi",
+	"math-wikibase-special-error-header": "Kļūda"
 }

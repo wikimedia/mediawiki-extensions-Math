@@ -55,7 +55,9 @@
 	"mw_math_source": "Çımeyê LaTeXi (seba geyroğê metınan rê)",
 	"prefs-math": "Matematigane simgey",
 	"mathstatus": "Weziyetê matematiki",
+	"math-wikibase-formula-name": "Name",
 	"math-wikibase-formula-type": "Babet",
 	"math-wikibase-formula-description": "Şınasnayış",
-	"math-wikibase-formula-link-header": "Çımeyê melumati"
+	"math-wikibase-formula-link-header": "Çımeyê melumati",
+	"math-wikibase-special-error-header": "Xeta"
 }
