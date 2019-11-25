@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2449f56b_06333f29",
+        "filename": "src/MathRestbaseInterface.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-11-25T10:39:29Z",
+      "side": 1,
+      "message": "I would expect a function called \"log\" to *do* logging not *return* a logger.\n\nBut this is unrelated.",
+      "range": {
+        "startLine": 225,
+        "startChar": 18,
+        "endLine": 225,
+        "endChar": 21
+      },
+      "revId": "8a95e882e3f84e697d08e9e0a6468f85a2d2863f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
