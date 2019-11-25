@@ -299,7 +299,7 @@ class MathHooks {
 	 * @throws Exception
 	 * @return bool
 	 */
-	public static function onLoadExtensionSchemaUpdates( $updater = null ) {
+	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater = null ) {
 		$type = $updater->getDB()->getType();
 
 		if ( in_array( 'latexml', MathRenderer::getValidModes() ) ) {
