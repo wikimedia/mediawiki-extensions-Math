@@ -56,5 +56,6 @@
 	"wikibase-listdatatypes-math-head": "Matematisk udtryk",
 	"math-wikibase-formula-name": "Navn",
 	"math-wikibase-formula-description": "Beskrivelse",
+	"math-wikibase-formula-link-header": "Datakilde",
 	"math-wikibase-special-error-header": "Fejl"
 }

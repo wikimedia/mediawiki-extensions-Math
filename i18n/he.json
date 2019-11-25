@@ -108,5 +108,8 @@
 	"math-wikibase-special-error-invalid-argument": "מזהה פריט הוויקיבייס אינו קיים.",
 	"math-wikibase-special-error-unknown": "אירעה שגיאה בלתי־ידועה באחזור נתונים מוויקיבייס.",
 	"math-wikibase-special-error-no-wikibase": "ההרחבה ויקיבייס נחוצה לשימוש בדף המיוחד הזה.",
-	"apihelp-query+mathwbextracts-example-1": "בקשת סיכום של פריטי ויקיבייס מתמטיים."
+	"apihelp-query+mathwbextracts-example-1": "בקשת סיכום של פריטי ויקיבייס מתמטיים.",
+	"apihelp-query+mathwbextracts-summary": "מחזיר סיכום של פריטי ויקיבייס מתמטי ב־HTML.",
+	"apihelp-query+mathwbextracts-param-qid": "מספר ה־Q של פריט הוויקיבייס שיבוקש.",
+	"apihelp-query+mathwbextracts-param-uselang": "השפה שצריך לבקש עבור פריט הוויקיבייס. אנגלית היא ברירת המחדל."
 }

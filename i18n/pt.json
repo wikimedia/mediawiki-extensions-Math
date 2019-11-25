@@ -8,7 +8,8 @@
 			"Ti4goc",
 			"He7d3r",
 			"Imperadeiro90",
-			"Macofe"
+			"Macofe",
+			"Mansil alfalb"
 		]
 	},
 	"math-desc": "Faz a composição gráfica ''(rendering)'' das fórmulas matemáticas entre os elementos <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -91,5 +92,16 @@
 	"mathstatus": "Estado da formatação matemática",
 	"datatypes-type-math": "Expressão matemática",
 	"wikibase-listdatatypes-math-head": "Expressão matemática",
-	"wikibase-listdatatypes-math-body": "Campo de dados literais para expressões matemáticas, fórmulas e equações, expressas numa variante do LaTeX."
+	"wikibase-listdatatypes-math-body": "Campo de dados literais para expressões matemáticas, fórmulas e equações, expressas numa variante do LaTeX.",
+	"math-wikibase-formula": "Fórmula",
+	"math-wikibase-formula-name": "Nome",
+	"math-wikibase-formula-type": "Tipo",
+	"math-wikibase-formula-description": "Descrição",
+	"math-wikibase-formula-information": "Informação da fórmula matemática",
+	"math-wikibase-formula-link-header": "Fonte dos dados",
+	"math-wikibase-formula-elements-header": "Elementos da fórmula",
+	"math-wikibase-special-form-header": "Especifique o nome da fórmula:",
+	"math-wikibase-special-form-placeholder": "Título da fórmula",
+	"math-wikibase-special-form-button": "Pedir informação",
+	"math-wikibase-special-error-unknown": "Ocorreu um erro desconhecido ao obter os dados da wiki Wikibase."
 }
