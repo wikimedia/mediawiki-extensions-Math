@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use Wikibase\Client\WikibaseClient;
 use Wikibase\DataModel\Entity\EntityIdParser;
@@ -28,6 +29,11 @@ class MathWikibaseConfig {
 	private $labelLookupFactory;
 
 	/**
+	 * @var Site
+	 */
+	private $site;
+
+	/**
 	 * @var PropertyId
 	 */
 	private $propertyIdHasPart;
@@ -52,15 +58,18 @@ class MathWikibaseConfig {
 	 * @param EntityIdParser $entityIdParser
 	 * @param EntityRevisionLookup $entityRevisionLookup
 	 * @param LanguageFallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory
+	 * @param Site $site
 	 */
 	public function __construct(
 		EntityIdParser $entityIdParser,
 		EntityRevisionLookup $entityRevisionLookup,
-		LanguageFallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory
+		LanguageFallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory,
+		Site $site
 	) {
 		$this->idParser = $entityIdParser;
 		$this->entityRevisionLookup = $entityRevisionLookup;
 		$this->labelLookupFactory = $labelDescriptionLookupFactory;
+		$this->site = $site;
 
 		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$this->propertyIdHasPart = $this->idParser->parse(
@@ -96,6 +105,20 @@ class MathWikibaseConfig {
 	}
 
 	/**
+	 * @return Site
+	 */
+	public function getSite() : Site {
+		return $this->site;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function hasSite() {
+		return is_null( $this->site );
+	}
+
+	/**
 	 * @return PropertyId
 	 */
 	public function getPropertyIdHasPart() : PropertyId {
@@ -122,10 +145,20 @@ class MathWikibaseConfig {
 	public static function getDefaultMathWikibaseConfig() : MathWikibaseConfig {
 		if ( !self::$defaultConfig ) {
 			$wikibaseClient = WikibaseClient::getDefaultInstance();
+
+			$site = null;
+			try {
+				$site = $wikibaseClient->getSite();
+			} catch ( MWException $e ) {
+				$logger = LoggerFactory::getInstance( 'Math' );
+				$logger->warning( "Cannot get Site handler: " . $e->getMessage() );
+			}
+
 			self::$defaultConfig = new MathWikibaseConfig(
 				$wikibaseClient->getEntityIdParser(),
 				$wikibaseClient->getStore()->getEntityRevisionLookup(),
-				$wikibaseClient->getLanguageFallbackLabelDescriptionLookupFactory()
+				$wikibaseClient->getLanguageFallbackLabelDescriptionLookupFactory(),
+				$site
 			);
 		}
 		return self::$defaultConfig;
