@@ -295,11 +295,11 @@ class MathHooks {
 	/**
 	 * LoadExtensionSchemaUpdates handler; set up math table on install/upgrade.
 	 *
-	 * @param DatabaseUpdater|null $updater
+	 * @param DatabaseUpdater $updater
 	 * @throws Exception
 	 * @return bool
 	 */
-	public static function onLoadExtensionSchemaUpdates( $updater = null ) {
+	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$type = $updater->getDB()->getType();
 
 		if ( in_array( 'latexml', MathRenderer::getValidModes() ) ) {
