@@ -3,6 +3,8 @@
 use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\DataModel\Services\Entity\PropertyDataTypeMatcher;
 use Wikibase\DataModel\Services\Lookup\PropertyDataTypeLookup;
+use Wikibase\DataModel\Snak\PropertyNoValueSnak;
+use Wikibase\DataModel\Statement\Statement;
 
 /**
  * Test the MathDataUpdater for Wikidata
@@ -34,13 +36,7 @@ class MathDataUpdaterTest extends MediaWikiTestCase {
 	public function testNoMath() {
 		$matcher = new PropertyDataTypeMatcher( new DummyPropertyDataTypeLookup() );
 		$updater = new MathDataUpdater( $matcher );
-		$statement =
-			$this->getMockBuilder( Wikibase\DataModel\Statement\Statement::class )
-				->setMethods( [ 'getPropertyId' ] )
-				->disableOriginalConstructor()
-				->getMock();
-		$statement->method( 'getPropertyId' )->willReturn( $this->otherProperty );
-		/** @var Wikibase\DataModel\Statement\Statement $statement */
+		$statement = new Statement( new PropertyNoValueSnak( $this->otherProperty ) );
 		$updater->processStatement( $statement );
 		$parserOutput = $this->getMockBuilder( ParserOutput::class )->setMethods( [
 			'addModules',
@@ -55,13 +51,7 @@ class MathDataUpdaterTest extends MediaWikiTestCase {
 	public function testMath() {
 		$matcher = new PropertyDataTypeMatcher( new DummyPropertyDataTypeLookup() );
 		$updater = new MathDataUpdater( $matcher );
-		$statement =
-			$this->getMockBuilder( Wikibase\DataModel\Statement\Statement::class )
-				->setMethods( [ 'getPropertyId' ] )
-				->disableOriginalConstructor()
-				->getMock();
-		$statement->method( 'getPropertyId' )->willReturn( $this->mathProperty );
-		/** @var Wikibase\DataModel\Statement\Statement $statement */
+		$statement = new Statement( new PropertyNoValueSnak( $this->mathProperty ) );
 		$updater->processStatement( $statement );
 		$parserOutput = $this->getMockBuilder( ParserOutput::class )->setMethods( [
 			'addModules',
