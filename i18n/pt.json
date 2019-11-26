@@ -100,7 +100,7 @@
 	"math-wikibase-formula-information": "Informação da fórmula matemática",
 	"math-wikibase-formula-link-header": "Fonte dos dados",
 	"math-wikibase-formula-elements-header": "Elementos da fórmula",
-	"math-wikibase-special-form-header": "Especifique o nome da fórmula:",
+	"math-wikibase-special-form-header": "Especificar o nome da fórmula:",
 	"math-wikibase-special-form-placeholder": "Título da fórmula",
 	"math-wikibase-special-form-button": "Pedir informação",
 	"math-wikibase-special-error-unknown": "Ocorreu um erro desconhecido ao obter os dados da wiki Wikibase."
