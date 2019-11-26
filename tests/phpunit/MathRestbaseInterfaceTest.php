@@ -5,7 +5,7 @@
  * /media/math/check/{type}
  * /media/math/render/{format}/{hash}
  *
- * @covers MathRestbaseInterface
+ * @covers \MathRestbaseInterface
  *
  * @group Math
  *

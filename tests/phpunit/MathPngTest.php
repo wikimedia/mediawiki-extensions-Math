@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers MathPng
+ * @covers \MathPng
  *
  * @license GPL-2.0-or-later
  */

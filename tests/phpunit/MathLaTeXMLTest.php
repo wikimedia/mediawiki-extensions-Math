@@ -3,7 +3,7 @@
 /**
  * Test the LaTeXML output format.
  *
- * @covers MathLaTeXML
+ * @covers \MathLaTeXML
  *
  * @group Math
  *
@@ -13,7 +13,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 
 	/**
 	 * Tests the serialization of the LaTeXML settings
-	 * @covers MathLaTeXML::serializeSettings
+	 * @covers \MathLaTeXML::serializeSettings
 	 */
 	public function testSerializeSettings() {
 		$renderer = $this->getMockBuilder( MathLaTeXML::class )

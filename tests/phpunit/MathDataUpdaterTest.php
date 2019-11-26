@@ -7,7 +7,7 @@ use Wikibase\DataModel\Services\Lookup\PropertyDataTypeLookup;
 /**
  * Test the MathDataUpdater for Wikidata
  *
- * @covers MathDataUpdater
+ * @covers \MathDataUpdater
  **
  * @license GPL-2.0-or-later
  */

@@ -3,7 +3,7 @@
 /**
  * Test the TeX source output format.
  *
- * @covers MathSource
+ * @covers \MathSource
  *
  * @license GPL-2.0-or-later
  */

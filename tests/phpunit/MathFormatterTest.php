@@ -7,7 +7,7 @@ use Wikibase\Lib\Formatters\SnakFormatter;
 /**
  * Test the results of MathFormatter
  *
- * @covers MathFormatter
+ * @covers \MathFormatter
  *
  * @group Math
  *
@@ -34,7 +34,7 @@ class MathFormatterTest extends MediaWikiTestCase {
 
 	/**
 	 * Checks the
-	 * @covers MathFormatter::__construct()
+	 * @covers \MathFormatter::__construct
 	 */
 	public function testBasics() {
 		$formatter = new MathFormatter( SnakFormatter::FORMAT_PLAIN );
@@ -62,7 +62,7 @@ class MathFormatterTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers MathFormatter::format
+	 * @covers \MathFormatter::format
 	 */
 	public function testUnknownFormatFailure() {
 		$formatter = new MathFormatter( 'unknown/unknown' );
