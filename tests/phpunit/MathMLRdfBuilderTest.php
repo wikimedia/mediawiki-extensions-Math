@@ -9,7 +9,7 @@ use Wikimedia\Purtle\NTriplesRdfWriter;
  * Test the MathML RDF formatter
  *
  * @group Math
- * @covers MathMLRdfBuilder
+ * @covers \MathMLRdfBuilder
  * @author Moritz Schubotz (physikerwelt)
  */
 class MathMLRdfBuilderTest extends MediaWikiTestCase {

@@ -4,7 +4,7 @@ use DataValues\StringValue;
 use DataValues\NumberValue;
 
 /**
- * @covers MathValidator
+ * @covers \MathValidator
  *
  * @group Math
  *

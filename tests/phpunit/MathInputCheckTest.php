@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers MathInputCheck
+ * @covers \MathInputCheck
  *
  * @group Math
  *
@@ -9,7 +9,7 @@
  */
 class MathInputCheckTest extends MediaWikiTestCase {
 	/**
-	 * @covers MathInputCheck::isValid
+	 * @covers \MathInputCheck::isValid
 	 */
 	public function testIsValid() {
 		$InputCheck = $this->getMockBuilder( MathInputCheck::class )->getMock();
@@ -17,7 +17,7 @@ class MathInputCheckTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers MathInputCheck::getError
+	 * @covers \MathInputCheck::getError
 	 * @todo   Implement testGetError().
 	 */
 	public function testGetError() {
@@ -26,7 +26,7 @@ class MathInputCheckTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers MathInputCheck::getValidTex
+	 * @covers \MathInputCheck::getValidTex
 	 */
 	public function testGetValidTex() {
 		$InputCheck = $this->getMockBuilder( MathInputCheck::class )

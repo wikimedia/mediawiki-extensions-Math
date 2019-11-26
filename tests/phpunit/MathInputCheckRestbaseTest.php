@@ -31,8 +31,8 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 	}
 
 	/**
- * @covers MathInputCheckRestbase::getError
- */
+	 * @covers \MathInputCheckRestbase::getError
+	 */
 	public function testGetError() {
 		$this->assertNull( $this->GoodObject->getError() );
 		$this->assertNull( $this->BadObject->getError() );
@@ -46,7 +46,7 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers MathInputCheckRestbase::getError
+	 * @covers \MathInputCheckRestbase::getError
 	 */
 	public function testErrorSyntax() {
 		$o = new MathInputCheckRestbase( '\left(' );
@@ -56,7 +56,7 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers MathInputCheckRestbase::getError
+	 * @covers \MathInputCheckRestbase::getError
 	 */
 	public function testErrorLexing() {
 		$o = new MathInputCheckRestbase( "\x61\xCC\x81" );
@@ -71,7 +71,7 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers MathInputCheckRestbase::isValid
+	 * @covers \MathInputCheckRestbase::isValid
 	 */
 	public function testIsValid() {
 		$this->assertFalse( $this->BadObject->isValid() );
@@ -79,7 +79,7 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers MathInputCheckRestbase::getValidTex
+	 * @covers \MathInputCheckRestbase::getValidTex
 	 */
 	public function testGetValidTex() {
 		$this->assertNull( $this->GoodObject->getValidTex() );

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers MathHooks
+ * @covers \MathHooks
  *
  * @group Math
  *

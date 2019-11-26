@@ -4,7 +4,7 @@
 /**
  * Test the MathML output format.
  *
- * @covers MathMathML
+ * @covers \MathMathML
  *
  * @group Math
  *
@@ -36,20 +36,26 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$this->setMwGlobals( 'wgMathoidCli', false );
 	}
 
-	/**@covers MathMathML::__constructor */
+	/**
+	 * @covers \MathMathML::__construct
+	 */
 	public function testMathMLConstructorWithPmml() {
 		$mml = new MathMathML( '<mo>sin</mo>', [ 'type' => 'pmml' ] );
 		$this->assertEquals( 'pmml', $mml->getInputType() );
 		$this->assertEquals( '<math><mo>sin</mo></math>', $mml->getMathml() );
 	}
 
-	/**@covers MathMathML::__constructor */
+	/**
+	 * @covers \MathMathML::__construct
+	 */
 	public function testMathMLConstructorWithInvalidType() {
 		$mml = new MathMathML( '<mo>sin</mo>', [ 'type' => 'invalid' ] );
 		$this->assertEquals( 'tex', $mml->getInputType() );
 	}
 
-	/**@covers MathMathML::__constructor */
+	/**
+	 * @covers \MathMathML::__construct
+	 */
 	public function testChangeRootElemts() {
 		$mml = new MathMathML( '<mo>sin</mo>', [ 'type' => 'invalid' ] );
 		$mml->setAllowedRootElements( [ 'a','b' ] );
@@ -59,7 +65,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	/**
 	 * Tests behavior of makeRequest() that communicates with the host.
 	 * Testcase: Invalid request.
-	 * @covers MathMathML::makeRequest
+	 * @covers \MathMathML::makeRequest
 	 */
 	public function testMakeRequestInvalid() {
 		self::setMockValues( false, false, false );
@@ -85,7 +91,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	/**
 	 * Tests behavior of makeRequest() that communicates with the host.
 	 * Testcase: Valid request.
-	 * @covers MathMathML::makeRequest
+	 * @covers \MathMathML::makeRequest
 	 */
 	public function testMakeRequestSuccess() {
 		self::setMockValues( true, true, false );
@@ -107,7 +113,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	/**
 	 * Tests behavior of makeRequest() that communicates with the host.
 	 * Testcase: Timeout.
-	 * @covers MathMathML::makeRequest
+	 * @covers \MathMathML::makeRequest
 	 */
 	public function testMakeRequestTimeout() {
 		self::setMockValues( false, true, true );
@@ -130,7 +136,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	/**
 	 * Tests behavior of makeRequest() that communicates with the host.
 	 * Test case: Get PostData.
-	 * @covers MathMathML::makeRequest
+	 * @covers \MathMathML::makeRequest
 	 */
 	public function testMakeRequestGetPostData() {
 		self::setMockValues( false, true, true );
@@ -148,7 +154,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	/**
 	 * Tests behavior of makeRequest() that communicates with the host.
 	 * Test case: Get host.
-	 * @covers MathMathML::pickHost
+	 * @covers \MathMathML::pickHost
 	 */
 	public function testMakeRequestGetHost() {
 		self::setMockValues( false, true, true );
@@ -165,7 +171,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 
 	/**
 	 * Checks if a String is a valid MathML element
-	 * @covers MathMathML::isValidMathML
+	 * @covers \MathMathML::isValidMathML
 	 */
 	public function testisValidMathML() {
 		$renderer = $this->getMockBuilder( MathMathML::class )
@@ -181,7 +187,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers MathMathML::isValidMathML
+	 * @covers \MathMathML::isValidMathML
 	 */
 	public function testInvalidXml() {
 		$renderer = $this->getMockBuilder( MathMathML::class )
@@ -206,7 +212,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers MathMathML::correctSvgStyle
+	 * @covers \MathMathML::correctSvgStyle
 	 * @see https://phabricator.wikimedia.org/T132563
 	 */
 	public function testMathMLStyle() {

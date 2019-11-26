@@ -3,7 +3,7 @@
 /**
  * Test the Id feature
  *
- * @covers MathRenderer
+ * @covers \MathRenderer
  *
  * @group Math
  *

@@ -17,7 +17,7 @@
  *		/vagrant/mediawiki/extensions/Math/tests/MathCoverageTest.php</code>
  *    (If you don't use sudo you might have problems with the permissions set at vagrant.)
  *
- * @covers MathRenderer
+ * @covers \MathRenderer
  *
  * @group Math
  *

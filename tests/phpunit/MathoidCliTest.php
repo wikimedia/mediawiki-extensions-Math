@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers MathMathMLCli
+ * @covers \MathMathMLCli
  *
  * @group Math
  *

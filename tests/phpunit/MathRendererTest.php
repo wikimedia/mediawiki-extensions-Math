@@ -3,7 +3,7 @@
 /**
  * Test the database access and core functionality of MathRenderer.
  *
- * @covers MathRenderer
+ * @covers \MathRenderer
  *
  * @group Math
  *
@@ -34,8 +34,8 @@ class MathRendererTest extends MediaWikiTestCase {
 
 	/**
 	 * Checks the tex and hash functions
-	 * @covers MathRenderer::getTex()
-	 * @covers MathRenderer::__construct()
+	 * @covers \MathRenderer::getTex
+	 * @covers \MathRenderer::__construct
 	 */
 	public function testBasics() {
 		$renderer = $this->getMockForAbstractClass( MathRenderer::class, [ self::SOME_TEX ] );
@@ -46,7 +46,7 @@ class MathRendererTest extends MediaWikiTestCase {
 
 	/**
 	 * Test behavior of writeCache() when nothing was changed
-	 * @covers MathRenderer::writeCache()
+	 * @covers \MathRenderer::writeCache
 	 */
 	public function testWriteCacheSkip() {
 		$renderer =
@@ -62,7 +62,7 @@ class MathRendererTest extends MediaWikiTestCase {
 
 	/**
 	 * Test behavior of writeCache() when values were changed.
-	 * @covers MathRenderer::writeCache()
+	 * @covers \MathRenderer::writeCache
 	 */
 	public function testWriteCache() {
 		$renderer =
