@@ -132,7 +132,6 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$url = 'http://example.com/timeout';
 		$renderer = $this->getMockBuilder( MathMathML::class )
 			->setMethods( [ 'getPostData' ] )
-			->disableOriginalConstructor()
 			->getMock();
 		$renderer->expects( $this->once() )->method( 'getPostData' );
 
@@ -149,7 +148,6 @@ class MathMathMLTest extends MediaWikiTestCase {
 		self::setMockValues( false, true, true );
 		$renderer = $this->getMockBuilder( MathMathML::class )
 			->setMethods( [ 'getPostData', 'pickHost' ] )
-			->disableOriginalConstructor()
 			->getMock();
 		$renderer->expects( $this->once() )->method( 'pickHost' );
 
@@ -237,10 +235,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$rbi->method( 'getSuccess' )->willReturn( true );
 		$renderer->setRestbaseInterface( $rbi );
 		$renderer->render();
-		$parser = $this->getMockBuilder( Parser::class )
-			->setMethods( [ 'addTrackingCategory' ] )
-			->disableOriginalConstructor()
-			->getMock();
+		$parser = $this->createMock( Parser::class );
 		$parser->method( 'addTrackingCategory' )->willReturn( true );
 		$parser->expects( $this->once() )
 			->method( 'addTrackingCategory' )
