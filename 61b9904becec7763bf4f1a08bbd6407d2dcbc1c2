@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc54b172_9dd19798",
+        "filename": "tests/phpunit/MathMathMLTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-11-26T10:57:37Z",
+      "side": 1,
+      "message": "This test ensures that the random selection within the pickHost method always picks the same host as the precomputed host $h1. I am not sure if it even makes sense to check this?",
+      "revId": "61b9904becec7763bf4f1a08bbd6407d2dcbc1c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11474957_db3d6d4e",
+        "filename": "tests/phpunit/MathMathMLTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-11-26T10:57:37Z",
+      "side": 1,
+      "message": "Ensure that the same instance alsways returns the same host.",
+      "revId": "61b9904becec7763bf4f1a08bbd6407d2dcbc1c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f082f43_a2dee8d0",
+        "filename": "tests/phpunit/MathMathMLTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-11-26T10:57:37Z",
+      "side": 1,
+      "message": "Ensure that another instance picks a random host.\n\nAll in all the pickHost method is deprecated and not thus I think we do not need to invest in improving the tests.",
+      "revId": "61b9904becec7763bf4f1a08bbd6407d2dcbc1c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
