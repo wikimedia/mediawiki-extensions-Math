@@ -1,5 +1,6 @@
 <?php
 
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * Test the MathML output format.
@@ -39,21 +40,21 @@ class MathMathMLTest extends MediaWikiTestCase {
 	/**@covers MathMathML::__constructor */
 	public function testMathMLConstructorWithPmml() {
 		$mml = new MathMathML( '<mo>sin</mo>', [ 'type' => 'pmml' ] );
-		$this->assertEquals( 'pmml', $mml->getInputType() );
-		$this->assertEquals( '<math><mo>sin</mo></math>', $mml->getMathml() );
+		$this->assertSame( 'pmml', $mml->getInputType() );
+		$this->assertSame( '<math><mo>sin</mo></math>', $mml->getMathml() );
 	}
 
 	/**@covers MathMathML::__constructor */
 	public function testMathMLConstructorWithInvalidType() {
 		$mml = new MathMathML( '<mo>sin</mo>', [ 'type' => 'invalid' ] );
-		$this->assertEquals( 'tex', $mml->getInputType() );
+		$this->assertSame( 'tex', $mml->getInputType() );
 	}
 
 	/**@covers MathMathML::__constructor */
 	public function testChangeRootElemts() {
 		$mml = new MathMathML( '<mo>sin</mo>', [ 'type' => 'invalid' ] );
 		$mml->setAllowedRootElements( [ 'a','b' ] );
-		$this->assertEquals( [ 'a','b' ], $mml->getAllowedRootElements() );
+		$this->assertSame( [ 'a','b' ], $mml->getAllowedRootElements() );
 	}
 
 	/**
@@ -65,18 +66,14 @@ class MathMathMLTest extends MediaWikiTestCase {
 		self::setMockValues( false, false, false );
 		$url = 'http://example.com/invalid';
 
-		$renderer = $this->getMockBuilder( MathMathML::class )
-				->setMethods( null )
-				->disableOriginalConstructor()
-				->getMock();
+		$renderer = new MathMathML();
 
-		/** @var MathMathML $renderer */
 		$requestReturn = $renderer->makeRequest( $url, 'a+b', $res, $error,
 			MathMLHttpRequestTester::class );
-		$this->assertEquals( false, $requestReturn,
+		$this->assertFalse( $requestReturn,
 			"requestReturn is false if HTTP::post returns false." );
-		$this->assertEquals( false, $res,
-			"res is false if HTTP:post returns false." );
+		$this->assertNull( $res,
+			"res is null if HTTP::post returns false." );
 		$errmsg = wfMessage( 'math_invalidresponse', '', $url, '' )->inContentLanguage()->escaped();
 		$this->assertContains( $errmsg, $error,
 			"return an error if HTTP::post returns false" );
@@ -91,17 +88,13 @@ class MathMathMLTest extends MediaWikiTestCase {
 		self::setMockValues( true, true, false );
 		self::$content = 'test content';
 		$url = 'http://example.com/valid';
-		$renderer = $this->getMockBuilder( MathMathML::class )
-				->setMethods( null )
-				->disableOriginalConstructor()
-				->getMock();
+		$renderer = new MathMathML();
 
-		/** @var MathMathML $renderer */
 		$requestReturn = $renderer->makeRequest( $url, 'a+b', $res, $error,
 			MathMLHttpRequestTester::class );
-		$this->assertEquals( true, $requestReturn, "successful call return" );
-		$this->assertEquals( 'test content', $res, 'successful call' );
-		$this->assertEquals( $error, '', "successful call error-message" );
+		$this->assertTrue( $requestReturn, "successful call return" );
+		$this->assertSame( 'test content', $res, 'successful call' );
+		$this->assertSame( $error, '', "successful call error-message" );
 	}
 
 	/**
@@ -112,17 +105,13 @@ class MathMathMLTest extends MediaWikiTestCase {
 	public function testMakeRequestTimeout() {
 		self::setMockValues( false, true, true );
 		$url = 'http://example.com/timeout';
-		$renderer = $this->getMockBuilder( MathMathML::class )
-				->setMethods( null )
-				->disableOriginalConstructor()
-				->getMock();
+		$renderer = new MathMathML();
 
-		/** @var MathMathML $renderer */
 		$requestReturn = $renderer->makeRequest(
 			$url, '$\longcommand$', $res, $error, MathMLHttpRequestTester::class
 		);
-		$this->assertEquals( false, $requestReturn, "timeout call return" );
-		$this->assertEquals( false, $res, "timeout call return" );
+		$this->assertFalse( $requestReturn, "timeout call return" );
+		$this->assertFalse( $res, "timeout call return" );
 		$errmsg = wfMessage( 'math_timeout', '', $url )->inContentLanguage()->escaped();
 		$this->assertContains( $errmsg, $error, "timeout call errormessage" );
 	}
@@ -152,7 +141,6 @@ class MathMathMLTest extends MediaWikiTestCase {
 	 */
 	public function testMakeRequestGetHost() {
 		self::setMockValues( false, true, true );
-		$url = 'http://example.com/timeout';
 		$renderer = $this->getMockBuilder( MathMathML::class )
 			->setMethods( [ 'getPostData', 'pickHost' ] )
 			->disableOriginalConstructor()
@@ -168,10 +156,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	 * @covers MathMathML::isValidMathML
 	 */
 	public function testisValidMathML() {
-		$renderer = $this->getMockBuilder( MathMathML::class )
-				->setMethods( null )
-				->disableOriginalConstructor()
-				->getMock();
+		$renderer = new MathMathML();
 		$validSample = '<math>content</math>';
 		$invalidSample = '<notmath />';
 		$this->assertTrue( $renderer->isValidMathML( $validSample ),
@@ -184,10 +169,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	 * @covers MathMathML::isValidMathML
 	 */
 	public function testInvalidXml() {
-		$renderer = $this->getMockBuilder( MathMathML::class )
-			->setMethods( null )
-			->disableOriginalConstructor()
-			->getMock();
+		$renderer = new MathMathML();
 		$invalidSample = '<mat';
 		$this->assertFalse( $renderer->isValidMathML( $invalidSample ),
 			'test if math expression is invalid mathml sample' );
@@ -199,7 +181,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	public function testintegrationTestWithLinks() {
 		$p = new Parser();
 		$po = new ParserOptions();
-		$t = new Title( "test" );
+		$t = new Title();
 		$res = $p->parse( '[[test|<math forcemathmode="png">a+b</math>]]', $t, $po )->getText();
 		$this->assertContains( '</a>', $res );
 		$this->assertContains( 'png', $res );
@@ -214,29 +196,28 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$m->setSvg( 'style="vertical-align:-.505ex" height="2.843ex" width="28.527ex"' );
 		$style = '';
 		$m->correctSvgStyle( $style );
-		$this->assertEquals( 'vertical-align:-.505ex; height: 2.843ex; width: 28.527ex;', $style );
+		$this->assertSame( 'vertical-align:-.505ex; height: 2.843ex; width: 28.527ex;', $style );
 		$m->setSvg( 'style=" vertical-align:-.505ex; \n" height="2.843ex" width="28.527ex"' );
-		$this->assertEquals( 'vertical-align:-.505ex; height: 2.843ex; width: 28.527ex;', $style );
+		$this->assertSame( 'vertical-align:-.505ex; height: 2.843ex; width: 28.527ex;', $style );
 	}
 
 	public function testPickHost() {
 		$hosts = [ 'a', 'b', 'c' ];
 		$this->setMwGlobals( 'wgMathMathMLUrl', $hosts );
-		$class = new ReflectionClass( MathMathML::class );
-		$method = $class->getMethod( 'pickHost' );
-		$method->setAccessible( true );
 		srand( 0 ); // Make array_rand always return the same elements
 		$h1 = $hosts[array_rand( $hosts )];
 		$h2 = $hosts[array_rand( $hosts )];
 		srand( 0 );
-		$m = new MathMathML();
-		$host1 = $method->invoke( $m, [] );
-		$this->assertEquals( $h1, $host1 );
-		$host2 = $method->invoke( $m, [] );
-		$this->assertEquals( $host1, $host2 );
-		$m2 = new MathMathML();
-		$host3 = $method->invoke( $m2, [] );
-		$this->assertEquals( $h2, $host3 );
+		/** @var MathMathML $m */
+		$m = TestingAccessWrapper::newFromObject( new MathMathML() );
+		$host1 = $m->pickHost();
+		$this->assertSame( $h1, $host1, 'first call' );
+		$host2 = $m->pickHost();
+		$this->assertSame( $host1, $host2, 'second call' );
+		/** @var MathMathML $m2 */
+		$m2 = TestingAccessWrapper::newFromObject( new MathMathML() );
+		$host3 = $m2->pickHost();
+		$this->assertSame( $h2, $host3, 'third call' );
 	}
 
 	public function testWarning() {

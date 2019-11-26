@@ -16,10 +16,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 	 * @covers MathLaTeXML::serializeSettings
 	 */
 	public function testSerializeSettings() {
-		$renderer = $this->getMockBuilder( MathLaTeXML::class )
-			->setMethods( null )
-			->disableOriginalConstructor()
-			->getMock();
+		$renderer = new MathLaTeXML();
 		$sampleSettings = [
 			'k1' => 'v1',
 			'k2&=' => 'v2 + & *üö',
