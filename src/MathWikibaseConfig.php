@@ -28,6 +28,11 @@ class MathWikibaseConfig {
 	private $labelLookupFactory;
 
 	/**
+	 * @var Site
+	 */
+	private $site;
+
+	/**
 	 * @var PropertyId
 	 */
 	private $propertyIdHasPart;
@@ -52,15 +57,18 @@ class MathWikibaseConfig {
 	 * @param EntityIdParser $entityIdParser
 	 * @param EntityRevisionLookup $entityRevisionLookup
 	 * @param LanguageFallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory
+	 * @param Site $site
 	 */
 	public function __construct(
 		EntityIdParser $entityIdParser,
 		EntityRevisionLookup $entityRevisionLookup,
-		LanguageFallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory
+		LanguageFallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory,
+		Site $site
 	) {
 		$this->idParser = $entityIdParser;
 		$this->entityRevisionLookup = $entityRevisionLookup;
 		$this->labelLookupFactory = $labelDescriptionLookupFactory;
+		$this->site = $site;
 
 		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$this->propertyIdHasPart = $this->idParser->parse(
@@ -96,6 +104,13 @@ class MathWikibaseConfig {
 	}
 
 	/**
+	 * @return Site
+	 */
+	public function getSite() : Site {
+		return $this->site;
+	}
+
+	/**
 	 * @return PropertyId
 	 */
 	public function getPropertyIdHasPart() : PropertyId {
@@ -118,6 +133,7 @@ class MathWikibaseConfig {
 
 	/**
 	 * @return MathWikibaseConfig default config
+	 * @throws MWException
 	 */
 	public static function getDefaultMathWikibaseConfig() : MathWikibaseConfig {
 		if ( !self::$defaultConfig ) {
@@ -125,7 +141,8 @@ class MathWikibaseConfig {
 			self::$defaultConfig = new MathWikibaseConfig(
 				$wikibaseClient->getEntityIdParser(),
 				$wikibaseClient->getStore()->getEntityRevisionLookup(),
-				$wikibaseClient->getLanguageFallbackLabelDescriptionLookupFactory()
+				$wikibaseClient->getLanguageFallbackLabelDescriptionLookupFactory(),
+				$wikibaseClient->getSite()
 			);
 		}
 		return self::$defaultConfig;
