@@ -108,9 +108,5 @@
 	"math-wikibase-special-error-header": "Erro",
 	"math-wikibase-special-error-invalid-argument": "O ID do item especificado do Wikibase não existe.",
 	"math-wikibase-special-error-unknown": "Ocorreu um erro desconhecido devido à busca de dados do Wikibase.",
-	"math-wikibase-special-error-no-wikibase": "A extensão Wikibase é necessária para usar esta página especial.",
-	"apihelp-query+mathwbextracts-example-1": "Solicita um resumo dos itens matemáticos do Wikibase.",
-	"apihelp-query+mathwbextracts-summary": "Retorna um resumo de um item matemático da Wikibase em HTML.",
-	"apihelp-query+mathwbextracts-param-qid": "O QID do item da Wikibase que será solicitado.",
-	"apihelp-query+mathwbextracts-param-uselang": "O idioma que deve ser solicitado para o item da Wikibase. Inglês é o valor padrão."
+	"math-wikibase-special-error-no-wikibase": "A extensão Wikibase é necessária para usar esta página especial."
 }
