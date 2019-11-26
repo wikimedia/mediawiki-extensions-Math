@@ -27,6 +27,7 @@
 	"math-test-contains-diff": "Юхаберзина могӀа $1 хила беза $2 могӀа бац.",
 	"math-test-equals-diff": "Юхаберзина могӀа $1 хила безачунга $2 тера бац.",
 	"math-tracking-category-error": "Формулашкахь гӀалаташ долу агӀонаш",
+	"math-tracking-category-render-error": "Математикин формулийн гӀалаташ долу агӀонаш",
 	"math-tracking-category-render-error-desc": "ХӀокху категори чура агӀонийн ю math тэгашкахь проблемаш.",
 	"math_unknown_error": "дойзаш доцу гӀалат",
 	"math_unknown_function": "йоьвзуш йоцу функци «$1»",
