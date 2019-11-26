@@ -2,6 +2,7 @@
 
 use DataValues\StringValue;
 use Wikibase\Client\WikibaseClient;
+use Wikibase\DataModel\Entity\EntityId;
 use Wikibase\DataModel\Entity\EntityIdParsingException;
 use Wikibase\DataModel\Entity\EntityIdValue;
 use Wikibase\DataModel\Entity\Item;
@@ -181,6 +182,10 @@ class MathWikibaseConnector {
 							$innerEntityId = $entityIdValue->getEntityId();
 							$innerInfo = new MathWikibaseInfo( $innerEntityId );
 							$this->fetchLabelDescription( $innerInfo, $langLookup );
+							$url = $this->fetchPageUrl( $innerEntityId );
+							if ( $url ) {
+								$innerInfo->setUrl( $url );
+							}
 						}
 					}
 				}
@@ -193,6 +198,29 @@ class MathWikibaseConnector {
 		}
 
 		return $output;
+	}
+
+	/**
+	 * Fetch the page url for a given entity id.
+	 * @param EntityId $entityId
+	 * @return string|bool
+	 */
+	private function fetchPageUrl( EntityId $entityId ) {
+		try {
+			$entityRevisionLookup = $this->config->getEntityRevisionLookup();
+			$entityRevision = $entityRevisionLookup->getEntityRevision( $entityId );
+			$innerEntity = $entityRevision->getEntity();
+			if ( $innerEntity instanceof Item ) {
+				$globalID = $this->config->getSite()->getGlobalId();
+				if ( $innerEntity->hasLinkToSite( $globalID ) ) {
+					$siteLink = $innerEntity->getSiteLink( $globalID );
+					return $this->config->getSite()->getPageUrl( $siteLink->getPageName() );
+				}
+			}
+			return false;
+		} catch ( StorageException $e ) {
+			return false;
+		}
 	}
 
 	/**
