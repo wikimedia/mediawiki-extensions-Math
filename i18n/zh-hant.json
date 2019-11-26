@@ -113,9 +113,5 @@
 	"math-wikibase-special-error-header": "錯誤",
 	"math-wikibase-special-error-invalid-argument": "您指定的 Wikibase 項目 ID 不存在。",
 	"math-wikibase-special-error-unknown": "索取來自 Wikibase 的資料時發生未知錯誤。",
-	"math-wikibase-special-error-no-wikibase": "要使用此特殊頁面需要 Wikibase 擴充套件。",
-	"apihelp-query+mathwbextracts-example-1": "請求一個數學 Wikibase 項目摘要。",
-	"apihelp-query+mathwbextracts-summary": "請求一個在 HTML 的數學 Wikibase 項目摘要。",
-	"apihelp-query+mathwbextracts-param-qid": "Wikibase 項目的 QID 將被請求。",
-	"apihelp-query+mathwbextracts-param-uselang": "應請求於 Wikibase 項目的語言。預設值為英語。"
+	"math-wikibase-special-error-no-wikibase": "要使用此特殊頁面需要 Wikibase 擴充套件。"
 }

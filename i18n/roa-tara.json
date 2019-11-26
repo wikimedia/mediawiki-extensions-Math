@@ -100,9 +100,5 @@
 	"math-wikibase-special-error-header": "Errore",
 	"math-wikibase-special-error-invalid-argument": "L'ID d'a vôsce de Uicchibase ca è mise non g'esiste.",
 	"math-wikibase-special-error-unknown": "Ha assute 'n'errore scanusciute mendre analizzave le date da Uicchibase.",
-	"math-wikibase-special-error-no-wikibase": "L'estenzione Uicchibase jè obbligatorije pe ausà sta pàgena speciale.",
-	"apihelp-query+mathwbextracts-example-1": "Richieste de 'nu riepiloghe de le eleminde matemateche Uicchibase.",
-	"apihelp-query+mathwbextracts-summary": "Torne 'nu riepiloghe de le eleminde matemateche Uicchibase jndr'à l'HTML.",
-	"apihelp-query+mathwbextracts-param-qid": "'U QUID d'a vôsce Uicchibase ca avène cercate.",
-	"apihelp-query+mathwbextracts-param-uselang": "'A lènghe ca avessa essere cercate pa vôsce Uicchibase. 'Nglese jè 'u valore predefinite."
+	"math-wikibase-special-error-no-wikibase": "L'estenzione Uicchibase jè obbligatorije pe ausà sta pàgena speciale."
 }
