@@ -39,6 +39,11 @@ class MathWikibaseInfo {
 	 */
 	private $mathFormatter;
 
+	/**
+	 * @var
+	 */
+	private $url;
+
 	public function __construct( EntityId $entityId ) {
 		$this->id = $entityId;
 		$this->mathFormatter = new MathFormatter( SnakFormatter::FORMAT_HTML );
@@ -70,6 +75,13 @@ class MathWikibaseInfo {
 	 */
 	public function addHasPartElement( MathWikibaseInfo $info ) {
 		array_push( $this->hasParts, $info );
+	}
+
+	/**
+	 * @param string $link
+	 */
+	public function setUrl( $link ) {
+		$this->url = $link;
 	}
 
 	/**
@@ -145,55 +157,79 @@ class MathWikibaseInfo {
 		$labelAlign = $lang->isRTL() ? 'left' : 'right';
 		$labelAlignOpposite = !$lang->isRTL() ? 'left' : 'right';
 
-		$output = HTML::openElement( "table", [ "style" => "padding: 5px" ] );
-		$output .= HTML::openElement( "tbody" );
+		$output = Html::openElement( "table", [ "style" => "padding: 5px" ] );
+		$output .= Html::openElement( "tbody" );
 
 		foreach ( $this->hasParts as $part ) {
-			$output .= HTML::openElement( "tr" );
-			$output .= HTML::element(
+			$output .= Html::openElement( "tr" );
+
+			$output .= Html::openElement(
 				"td",
-				[ "style" => "font-weight: bold; text-align:$labelAlign;" ],
-				$part->getLabel()
+				[ "style" => "font-weight: bold; text-align:$labelAlign;" ]
 			);
-			$output .= HTML::rawElement(
+
+			if ( $part->url ) {
+				$output .= Html::element(
+					"a",
+					[ "href" => $part->url ],
+					$part->getLabel()
+				);
+			} else {
+				$output .= $part->getLabel();
+			}
+
+			$output .= Html::closeElement( "td" );
+			$output .= Html::openElement(
 				"td",
-				[ "style" => "text-align:center; padding: 2px; padding-left: 10px; padding-right: 10px;" ],
-				$part->getFormattedSymbol()
+				[ "style" => "text-align:center; padding: 2px; padding-left: 10px; padding-right: 10px;" ]
 			);
-			$output .= HTML::element(
+
+			if ( $part->url ) {
+				$output .= Html::rawElement(
+					"a",
+					[ "href" => $part->url ],
+					$part->getFormattedSymbol()
+				);
+			} else {
+				$output .= $part->getFormattedSymbol();
+			}
+
+			$output .= Html::closeElement( "td" );
+			$output .= Html::element(
 				"td",
 				[ "style" => "font-style: italic; text-align:$labelAlignOpposite;" ],
 				$part->getDescription()
 			);
-			$output .= HTML::closeElement( "tr" );
+			$output .= Html::closeElement( "tr" );
 		}
 
-		$output .= HTML::closeElement( "tbody" );
-		$output .= HTML::closeElement( "table" );
+		$output .= Html::closeElement( "tbody" );
+		$output .= Html::closeElement( "table" );
+
 		return $output;
 	}
 
 	/**
-	 * Generates a minimalized HTML representation of the has-parts elements.
+	 * Generates a minimalized Html representation of the has-parts elements.
 	 * @return string
 	 */
 	public function generateSmallTableOfParts() {
-		$output = HTML::openElement( "table" );
-		$output .= HTML::openElement( "tbody" );
+		$output = Html::openElement( "table" );
+		$output .= Html::openElement( "tbody" );
 
 		foreach ( $this->hasParts as $part ) {
-			$output .= HTML::openElement( "tr" );
-			$output .= HTML::rawElement(
+			$output .= Html::openElement( "tr" );
+			$output .= Html::rawElement(
 				"td",
 				[ "style" => "text-align:right;" ],
 				$part->getFormattedSymbol()
 			);
-			$output .= HTML::element( "td", [ "style" => "text-align:left;" ], $part->getLabel() );
-			$output .= HTML::closeElement( "tr" );
+			$output .= Html::element( "td", [ "style" => "text-align:left;" ], $part->getLabel() );
+			$output .= Html::closeElement( "tr" );
 		}
 
-		$output .= HTML::closeElement( "tbody" );
-		$output .= HTML::closeElement( "table" );
+		$output .= Html::closeElement( "tbody" );
+		$output .= Html::closeElement( "table" );
 		return $output;
 	}
 }
