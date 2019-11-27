@@ -17,7 +17,7 @@
 			"Kly"
 		]
 	},
-	"math-desc": "在 <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code> 標籤顯示數學公式",
+	"math-desc": "在 <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code> 標籤之間呈現數學公式",
 	"math-visualeditor-mwchemdialog-title": "化學式",
 	"math-visualeditor-mwcheminspector-title": "化學式",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "快速編輯",
@@ -103,6 +103,7 @@
 	"math-wikibase-formula": "公式",
 	"math-wikibase-formula-name": "名稱",
 	"math-wikibase-formula-type": "類型",
+	"math-wikibase-formula-header-format": "'''$1：'''$2",
 	"math-wikibase-formula-description": "描述",
 	"math-wikibase-formula-information": "數學公式資訊",
 	"math-wikibase-formula-link-header": "資料來源",

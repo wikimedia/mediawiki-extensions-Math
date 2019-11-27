@@ -9,7 +9,8 @@
 			"He7d3r",
 			"Imperadeiro90",
 			"Macofe",
-			"Mansil alfalb"
+			"Mansil alfalb",
+			"Mansil"
 		]
 	},
 	"math-desc": "Faz a composição gráfica ''(rendering)'' das fórmulas matemáticas entre os elementos <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -103,5 +104,6 @@
 	"math-wikibase-special-form-header": "Especificar o nome da fórmula:",
 	"math-wikibase-special-form-placeholder": "Título da fórmula",
 	"math-wikibase-special-form-button": "Pedir informação",
+	"math-wikibase-special-error-header": "Erro",
 	"math-wikibase-special-error-unknown": "Ocorreu um erro desconhecido ao obter os dados da wiki Wikibase."
 }

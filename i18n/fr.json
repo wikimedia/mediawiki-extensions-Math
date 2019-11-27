@@ -15,7 +15,8 @@
 			"Macofe",
 			"Wladek92",
 			"Zebulon84",
-			"Thibaut120094"
+			"Thibaut120094",
+			"Amire80"
 		]
 	},
 	"math-desc": "Restitue les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -104,6 +105,7 @@
 	"math-wikibase-formula": "Formule",
 	"math-wikibase-formula-name": "Name",
 	"math-wikibase-formula-type": "Type",
+	"math-wikibase-formula-header-format": "'''$1 :''' $2",
 	"math-wikibase-formula-description": "Description",
 	"math-wikibase-formula-information": "Information de formule mathématique",
 	"math-wikibase-formula-link-header": "Source des données",
