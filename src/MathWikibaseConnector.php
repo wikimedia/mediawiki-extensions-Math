@@ -212,7 +212,7 @@ class MathWikibaseConnector {
 			$entityRevision = $entityRevisionLookup->getEntityRevision( $entityId );
 			$innerEntity = $entityRevision->getEntity();
 			if ( $innerEntity instanceof Item ) {
-				if ( !$this->config->hasSite() ) {
+				if ( $this->config->hasSite() ) {
 					$site = $this->config->getSite();
 					$globalID = $site->getGlobalId();
 					if ( $innerEntity->hasLinkToSite( $globalID ) ) {
