@@ -87,5 +87,10 @@
 	"mathstatus": "수식 상태",
 	"datatypes-type-math": "수식",
 	"wikibase-listdatatypes-math-head": "수식",
-	"wikibase-listdatatypes-math-body": "수식, 공식, 등호 등에 대한 리터럴 데이터 필드이며 LaTeX로 표현합니다."
+	"wikibase-listdatatypes-math-body": "수식, 공식, 등호 등에 대한 리터럴 데이터 필드이며 LaTeX로 표현합니다.",
+	"math-wikibase-formula": "공식",
+	"math-wikibase-formula-name": "이름",
+	"math-wikibase-formula-description": "설명",
+	"math-wikibase-formula-link-header": "데이터 원본",
+	"math-wikibase-special-error-header": "오류"
 }

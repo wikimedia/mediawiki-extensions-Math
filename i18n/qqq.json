@@ -103,7 +103,7 @@
 	"math-wikibase-formula": "Label for the inline header for formulae\n{{Identical|Formula}}",
 	"math-wikibase-formula-name": "Label for the name of the formula\n{{Identical|Name}}",
 	"math-wikibase-formula-type": "Label for the type of the formula",
-	"math-wikibase-formula-header-format": "The pattern to organize label $1 with information $2",
+	"math-wikibase-formula-header-format": "{{Optional}}\n\nThe pattern to organize label $1 with information $2",
 	"math-wikibase-formula-description": "Label for the description of the formula",
 	"math-wikibase-formula-information": "Header for information section of the formula",
 	"math-wikibase-formula-link-header": "Header for the hyperlink section to wikibase of the formula",

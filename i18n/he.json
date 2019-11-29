@@ -11,7 +11,7 @@
 			"Putnik"
 		]
 	},
-	"math-desc": "הדפסת נוסחאות מתמטיות בין תגי <bdi><code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code></bdi>",
+	"math-desc": "הצגת נוסחאות מתמטיות בין תגי <bdi><code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code></bdi>",
 	"math-visualeditor-mwchemdialog-title": "נוסחה כימית",
 	"math-visualeditor-mwcheminspector-title": "נוסחה כימית",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "עריכה מהירה",
@@ -19,7 +19,7 @@
 	"math-visualeditor-mwlatexdialog-card-options": "אפשרויות",
 	"math-visualeditor-mwlatexinspector-display": "הצגה",
 	"math-visualeditor-mwlatexinspector-display-block": "בפִסקה נפרדת",
-	"math-visualeditor-mwlatexinspector-display-default": "ברירת מחדל",
+	"math-visualeditor-mwlatexinspector-display-default": "ברירת המחדל",
 	"math-visualeditor-mwlatexinspector-display-inline": "בתוך הפִסקה",
 	"math-visualeditor-mwlatexinspector-id": "מזהה קישור (לא חובה)",
 	"math-visualeditor-mwmathdialog-title": "נוסחה מתמטית",
