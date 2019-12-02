@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ibrahim"
+			"Ibrahim",
+			"ToJack"
 		]
 	},
 	"math_failure": "Шикаст дар таҷзеҳ",
@@ -11,5 +12,12 @@
 	"mw_math_mathml": "Истифода аз MathML дар сурати имкон (озмоишӣ)",
 	"mw_math_png": "Ҳамеша PNG кашида шавад",
 	"mw_math_source": "Ҳамчун TeX боқӣ бимон (барои мурургарҳои матнӣ)",
-	"prefs-math": "Риёзиёт"
+	"prefs-math": "Риёзиёт",
+	"math-wikibase-formula": "Формула",
+	"math-wikibase-formula-name": "Ном",
+	"math-wikibase-formula-type": "Навъ",
+	"math-wikibase-formula-description": "Тавзеҳот",
+	"math-wikibase-formula-link-header": "Маълумоти манбаъ",
+	"math-wikibase-special-form-placeholder": "Унвони формула",
+	"math-wikibase-special-error-header": "Хато"
 }
