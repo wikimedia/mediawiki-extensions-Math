@@ -103,6 +103,7 @@
 	"math-wikibase-formula-description": "Descripción",
 	"math-wikibase-formula-information": "Información de fórmula matemática",
 	"math-wikibase-formula-link-header": "Fuente de datos",
+	"math-wikibase-formula-elements-header": "Elementos de la fórmula",
 	"math-wikibase-special-form-header": "Especifica el nombre de la fórmula:",
 	"math-wikibase-special-form-placeholder": "Título de la fórmula",
 	"math-wikibase-special-form-button": "Solicitar información",
