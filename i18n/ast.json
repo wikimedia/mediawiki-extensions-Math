@@ -72,6 +72,8 @@
 	"math-test-equals-diff": "La cadena «$1» devuelta ye distinta de la cadena esperada «$2»",
 	"math-tracking-category-error": "Páxines con errores matemáticos",
 	"math-tracking-category-error-desc": "Les páxines d'esta categoría tienen errores nel usu de les etiquetes de matemátiques.",
+	"math-tracking-category-mhchem-deprecation": "Páxines qu'utilicen un formatu anticuáu de les etiquetes chem",
+	"math-tracking-category-mhchem-deprecation-desc": "Les páxines d'esta categoría utilicen un formatu anticuáu de les etiquetes chem",
 	"math-tracking-category-render-error": "Páxines con errores na representación matemática",
 	"math-tracking-category-render-error-desc": "Les páxines d'esta categoría contienen errores de representación nes etiquetes matemátiques.",
 	"math_unknown_error": "error desconocíu",
@@ -82,9 +84,11 @@
 	"mw_math_source": "Fonte LaTeX (pa restoladores de testu)",
 	"prefs-math": "Fórmules matemátiques",
 	"mathstatus": "Estau de Math",
+	"mathwikibase": "Información de fórmula matemática",
 	"datatypes-type-math": "Espresión matemática",
 	"wikibase-listdatatypes-math-head": "Espresión matemática",
 	"wikibase-listdatatypes-math-body": "Campu lliteral de datos pa espresiones matemátiques, formules, ecuaciones y coses asemeyaes, espresaes nuna variante de LaTeX.",
+	"math-wikibase-header": "Información de los elementos matemáticos",
 	"math-wikibase-formula": "Fórmula",
 	"math-wikibase-formula-name": "Nome",
 	"math-wikibase-formula-type": "Triba",
@@ -95,5 +99,8 @@
 	"math-wikibase-special-form-header": "Especifica'l nome de la fórmula:",
 	"math-wikibase-special-form-placeholder": "Títulu de la fórmula",
 	"math-wikibase-special-form-button": "Solicitar información",
-	"math-wikibase-special-error-header": "Error"
+	"math-wikibase-special-error-header": "Error",
+	"math-wikibase-special-error-invalid-argument": "L'ID d'elementu de Wikibase qu'especificasti nun esiste.",
+	"math-wikibase-special-error-unknown": "Asocedió un error desconocíu al recuperar datos de Wikibase.",
+	"math-wikibase-special-error-no-wikibase": "Ríquese la estensión Wikibase pa utilizar esta páxina especial."
 }
