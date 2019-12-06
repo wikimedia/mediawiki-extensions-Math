@@ -40,7 +40,10 @@
 		"MathWikibaseConfig": "src/MathWikibaseConfig.php",
 		"MathWikibaseConnector": "src/MathWikibaseConnector.php",
 		"MathWikibaseInfo": "src/MathWikibaseInfo.php",
-		"ApiMathWikibaseExtracts": "src/ApiMathWikibaseExtracts.php"
+		"ApiMathWikibaseExtracts": "src/ApiMathWikibaseExtracts.php",
+		"MathMLHttpRequestTester": "tests/phpunit/MathMLHttpRequestTester.php",
+		"MathMLTestStatus": "tests/phpunit/MathMLTestStatus.php",
+		"DummyPropertyDataTypeLookup": "tests/phpunit/DummyPropertyDataTypeLookup.php"
 	},
 	"DefaultUserOptions": {
 		"math": "mathml"

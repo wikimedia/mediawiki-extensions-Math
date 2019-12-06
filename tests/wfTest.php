@@ -7,7 +7,7 @@
  */
 require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 
-class DummyTest extends Maintenance {
+class WfTest extends Maintenance {
 	const REFERENCE_PAGE = 'mediawikiwiki:Extension:Math/CoverageTest';
 
 	public function __construct() {
@@ -102,5 +102,5 @@ class DummyTest extends Maintenance {
 	}
 }
 
-$maintClass = DummyTest::class;
+$maintClass = WfTest::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

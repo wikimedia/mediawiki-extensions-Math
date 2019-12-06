@@ -2,7 +2,6 @@
 
 use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\DataModel\Services\Entity\PropertyDataTypeMatcher;
-use Wikibase\DataModel\Services\Lookup\PropertyDataTypeLookup;
 use Wikibase\DataModel\Snak\PropertyNoValueSnak;
 use Wikibase\DataModel\Statement\Statement;
 
@@ -61,26 +60,5 @@ class MathDataUpdaterTest extends MediaWikiTestCase {
 		$parserOutput->expects( $this->once() )->method( 'addModuleStyles' );
 		/** @var ParserOutput $parserOutput */
 		$updater->updateParserOutput( $parserOutput );
-	}
-}
-
-class DummyPropertyDataTypeLookup implements PropertyDataTypeLookup {
-	/**
-	 * @var int
-	 */
-	public static $mathId = 1;
-
-	/**
-	 * Returns the data type for the Property of which the id is given.
-	 *
-	 * @since 2.0
-	 *
-	 * @param \Wikibase\DataModel\Entity\PropertyId $propertyId
-	 *
-	 * @return string
-	 * @throws \Wikibase\DataModel\Services\Lookup\PropertyDataTypeLookupException
-	 */
-	public function getDataTypeIdForProperty( \Wikibase\DataModel\Entity\PropertyId $propertyId ) {
-		return $propertyId->getNumericId() == self::$mathId ? 'math' : 'not-math';
 	}
 }
