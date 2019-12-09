@@ -16,5 +16,8 @@
 	"mw_math_mathml": "వీలయితే MathML (ప్రయోగాత్మకం)",
 	"mw_math_png": "ఎల్లప్పుడూ PNGగా చూపించు",
 	"mw_math_source": "టెక్ గానే ఉండనివ్వు (టెక్స్ట్‌ బ్రౌజర్ల కొరకు)",
-	"prefs-math": "గణితం"
+	"prefs-math": "గణితం",
+	"math-wikibase-formula-name": "పేరు",
+	"math-wikibase-formula-type": "రకం",
+	"math-wikibase-formula-description": "వివరణ"
 }
