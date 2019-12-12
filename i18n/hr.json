@@ -68,5 +68,6 @@
 	"mw_math_png": "PNG slike",
 	"mw_math_source": "Ostavi u formatu TeX (za tekstualne preglednike)",
 	"prefs-math": "Prikaz matematičkih formula",
-	"mathstatus": "Stanje izvedbe ispisa matematičkih formula"
+	"mathstatus": "Stanje izvedbe ispisa matematičkih formula",
+	"mathwikibase": "Informacije o matematičkim formulama"
 }
