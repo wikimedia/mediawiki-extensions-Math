@@ -107,7 +107,7 @@
 		"MathLaTeXMLTimeout": 240,
 		"MathLaTeXMLUrl": "http://gw125.iu.xsede.org:8888",
 		"MathMathMLTimeout": 20,
-		"MathMathMLUrl": "http://mathoid.testme.wmflabs.org",
+		"MathMathMLUrl": "https://mathoid-beta.wmflabs.org",
 		"MathFullRestbaseURL": "https://wikimedia.org/api/rest_",
 		"MathConcurrentReqs": 50,
 		"MathoidCli": false,
