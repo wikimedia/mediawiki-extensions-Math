@@ -306,6 +306,7 @@ class MathMathML extends MathRenderer {
 		$this->lastError = '';
 		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
 		if ( $requestResult ) {
+			// @phan-supppress-next-line PhanTypeMismatchArgumentInternal
 			$jsonResult = json_decode( $res );
 			if ( $jsonResult && json_last_error() === JSON_ERROR_NONE ) {
 				if ( $jsonResult->success ) {

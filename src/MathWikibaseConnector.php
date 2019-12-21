@@ -192,7 +192,7 @@ class MathWikibaseConnector {
 				}
 			}
 
-			if ( $innerInfo ) {
+			if ( $innerInfo && $symbol ) {
 				$innerInfo->setSymbol( $symbol );
 				$output->addHasPartElement( $innerInfo );
 			}

@@ -77,6 +77,7 @@ class MathGenerateTests extends Maintenance {
 		}
 		$i = 0;
 		foreach ( array_slice( $allEquations, $offset, $length, true ) as $input ) {
+			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 			$output = MathRenderer::renderMath( $input[1], $input[2], 'png' );
 			$output = preg_replace( '#src="(.*?)/(([a-f]|\d)*)"#', 'src="\2"', $output );
 			$parserTests[] = [
