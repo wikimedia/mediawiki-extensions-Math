@@ -81,7 +81,7 @@
 	"math-tracking-category-mhchem-deprecation-desc": "דפים בקטגוריה הזאת משתמשים בתסדיר מיושן של תגי chem",
 	"math-tracking-category-render-error": "דפים עם שגיאות בתצוגת נוסחאות מתמטיות",
 	"math-tracking-category-render-error-desc": "בדפים בקטגוריה הזאת יש שגיאות בתצוגת נוסחאות מתמטיות.",
-	"math_unknown_error": "שגיאה לא ידועה",
+	"math_unknown_error": "שגיאה בלתי־ידועה",
 	"math_unknown_function": "פונקציה $1 לא מוכרת",
 	"mw_math_latexml": "LaTeXML (ניסיוני; משתמש ב־MathML)",
 	"mw_math_mathml": "MathML עם גיבוי SVG או PNG (מומלץ לדפדפנים מודרניים ולכלי נגישות)",
