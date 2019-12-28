@@ -70,6 +70,30 @@
       "revId": "8faab2c2a0e8a786e18ef74890ac8bd493f2be24",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75e13974_819dc2b9",
+        "filename": "src/MathHooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2019-12-28T10:49:58Z",
+      "side": 1,
+      "message": "I could, but I was planning to upload a separate patch to remove that function entirely - its a one-line return statement (`return class_exists( \u0027\\Wikibase\\Client\\WikibaseClient\u0027 );\n` that doesn\u0027t warrant a function, in my view",
+      "parentUuid": "54f53875_cd052cc6",
+      "range": {
+        "startLine": 402,
+        "startChar": 22,
+        "endLine": 402,
+        "endChar": 55
+      },
+      "revId": "8faab2c2a0e8a786e18ef74890ac8bd493f2be24",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
