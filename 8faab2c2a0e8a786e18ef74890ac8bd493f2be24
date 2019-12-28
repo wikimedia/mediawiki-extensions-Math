@@ -94,6 +94,30 @@
       "revId": "8faab2c2a0e8a786e18ef74890ac8bd493f2be24",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ebf1051_f05d8f67",
+        "filename": "src/MathHooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-12-28T11:19:53Z",
+      "side": 1,
+      "message": "ok. The rationality for this function was that we were unsure how to determine if wikibase is \"up and running\".",
+      "parentUuid": "75e13974_819dc2b9",
+      "range": {
+        "startLine": 402,
+        "startChar": 22,
+        "endLine": 402,
+        "endChar": 55
+      },
+      "revId": "8faab2c2a0e8a786e18ef74890ac8bd493f2be24",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
