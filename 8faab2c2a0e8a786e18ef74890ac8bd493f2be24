@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "541e72bd_adca04d8",
+        "filename": "src/MathHooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 3
+      },
+      "writtenOn": "2019-12-28T10:05:03Z",
+      "side": 1,
+      "message": "Can\u0027t you do \\Wikibase\\Client\\WikibaseClient::class?",
+      "range": {
+        "startLine": 402,
+        "startChar": 22,
+        "endLine": 402,
+        "endChar": 55
+      },
+      "revId": "8faab2c2a0e8a786e18ef74890ac8bd493f2be24",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
