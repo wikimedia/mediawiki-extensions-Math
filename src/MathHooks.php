@@ -391,4 +391,18 @@ class MathHooks {
 		return self::mathTagHook( '\ce{' . $content . '}', $attributes, $parser );
 	}
 
+	/**
+	 * Remove Special:MathWikibase if the Wikibase client extension isn't loaded
+	 *
+	 * @param array &$list
+	 * @return bool true
+	 */
+	// phpcs:ignore MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+	public static function onSpecialPage_initList( &$list ) {
+		if ( !class_exists( '\Wikibase\Client\WikibaseClient' ) ) {
+			unset( $list['MathWikibase'] );
+		}
+		return true;
+	}
+
 }
