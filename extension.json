@@ -117,7 +117,7 @@
 			"mathml"
 		],
 		"MathEnableWikibaseDataType": true,
-		"MathEnableFormulaLinks": false,
+		"MathEnableFormulaLinks": true,
 		"MathWikibasePropertyIdHasPart": "P527",
 		"MathWikibasePropertyIdDefiningFormula": "P2534",
 		"MathWikibasePropertyIdQuantitySymbol": "P416"
