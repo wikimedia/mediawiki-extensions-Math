@@ -118,6 +118,30 @@
       "revId": "8faab2c2a0e8a786e18ef74890ac8bd493f2be24",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee15f5d8_5bfcc46f",
+        "filename": "src/MathHooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2019-12-28T19:49:25Z",
+      "side": 1,
+      "message": "\u003e I could, but I was planning to upload a separate patch to remove\n \u003e that function entirely - its a one-line return statement (`return\n \u003e class_exists( \u0027\\Wikibase\\Client\\WikibaseClient\u0027 );\n \u003e ` that doesn\u0027t warrant a function, in my view\n\nI think it makes sense to have an extra function for it since there might be more complex but precise tests coming later. Also, there are multiple situations that require to check for the existence of WikibaseClient and it makes sense if they all rely on the same logic.\n\nSaid that I don\u0027t see a reason why not using the SpecialMathWikibase::isWikibaseAvailable function here.",
+      "parentUuid": "75e13974_819dc2b9",
+      "range": {
+        "startLine": 402,
+        "startChar": 22,
+        "endLine": 402,
+        "endChar": 55
+      },
+      "revId": "8faab2c2a0e8a786e18ef74890ac8bd493f2be24",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
