@@ -10,7 +10,8 @@
 			"Lokal Profil",
 			"Jopparn",
 			"Fader",
-			"Macofe"
+			"Macofe",
+			"Mjälten"
 		]
 	},
 	"math-desc": "Rendera matematiska formler mellan <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-taggar",
@@ -25,6 +26,8 @@
 	"math-visualeditor-mwlatexinspector-display-inline": "I texten",
 	"math-visualeditor-mwlatexinspector-id": "Länk-ID (valfritt)",
 	"math-visualeditor-mwmathdialog-title": "Matematisk formel",
+	"math-visualeditor-symbol-group-chem-addition": "Additionbindningar",
+	"math-visualeditor-symbol-group-chem-arrows": "Reaktionspilar",
 	"math-visualeditor-symbol-group-chem-brackets": "Parenteser, hakparenteser och klammerparenteser",
 	"math-visualeditor-symbol-group-chem-charges": "Ändringar",
 	"math-visualeditor-symbol-group-chem-equations": "Kemiska ekvationer",
@@ -39,7 +42,7 @@
 	"math-visualeditor-symbol-group-math-geometry": "Geometri",
 	"math-visualeditor-symbol-group-math-greek": "Grekiska alfabetet",
 	"math-visualeditor-symbol-group-math-hebrew": "Hebreiska alfabetet",
-	"math-visualeditor-symbol-group-math-large": "Stora layouter",
+	"math-visualeditor-symbol-group-math-large": "Stora uttryck",
 	"math-visualeditor-symbol-group-math-logic": "Logik",
 	"math-visualeditor-symbol-group-math-matrices": "Matriser",
 	"math-visualeditor-symbol-group-math-modular": "Modulär aritmetik",
