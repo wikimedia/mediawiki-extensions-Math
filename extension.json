@@ -39,7 +39,9 @@
 		"MathDataUpdater": "src/MathDataUpdater.php",
 		"MathWikibaseConfig": "src/MathWikibaseConfig.php",
 		"MathWikibaseConnector": "src/MathWikibaseConnector.php",
-		"MathWikibaseInfo": "src/MathWikibaseInfo.php",
+		"MathWikibaseInfo": "src/MathWikibaseInfo.php"
+	},
+	"TestAutoloadClasses": {
 		"MathMLHttpRequestTester": "tests/phpunit/MathMLHttpRequestTester.php",
 		"MathMLTestStatus": "tests/phpunit/MathMLTestStatus.php",
 		"DummyPropertyDataTypeLookup": "tests/phpunit/DummyPropertyDataTypeLookup.php"
