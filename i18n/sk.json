@@ -2,16 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Helix84",
-			"Teslaton"
+			"Teslaton",
+			"Luky001"
 		]
 	},
 	"math-desc": "Vykresľovať matematické vzorce medzi značkami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math_failure": "Syntaktická analýza (parsing) neúspešná",
 	"math_syntax_error": "syntaktická chyba",
 	"math_unknown_error": "neznáma chyba",
-	"math_unknown_function": "neznáma funkcia",
+	"math_unknown_function": "neznáma funkcia „$1“",
 	"mw_math_mathml": "MathML (experimentálne)",
-	"mw_math_png": "Vždy vykresľovať PNG",
-	"mw_math_source": "Ponechať TeX (pre textové prehliadače)",
+	"mw_math_png": "PNG obrázky",
+	"mw_math_source": "Zdrojový kód LaTeX (pre textové prehliadače)",
 	"prefs-math": "Vykreslenie matematiky"
 }
