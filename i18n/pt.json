@@ -91,9 +91,11 @@
 	"mw_math_source": "Fonte LaTeX (para navegadores de texto)",
 	"prefs-math": "Matemática",
 	"mathstatus": "Estado da formatação matemática",
+	"mathwikibase": "Informações sobre fórmula matemática",
 	"datatypes-type-math": "Expressão matemática",
 	"wikibase-listdatatypes-math-head": "Expressão matemática",
 	"wikibase-listdatatypes-math-body": "Campo de dados literais para expressões matemáticas, fórmulas e equações, expressas numa variante do LaTeX.",
+	"math-wikibase-header": "Informações de elementos matemáticos",
 	"math-wikibase-formula": "Fórmula",
 	"math-wikibase-formula-name": "Nome",
 	"math-wikibase-formula-type": "Tipo",
@@ -105,5 +107,7 @@
 	"math-wikibase-special-form-placeholder": "Título da fórmula",
 	"math-wikibase-special-form-button": "Pedir informação",
 	"math-wikibase-special-error-header": "Erro",
-	"math-wikibase-special-error-unknown": "Ocorreu um erro desconhecido ao obter os dados da wiki Wikibase."
+	"math-wikibase-special-error-invalid-argument": "O identificador de elemento Wikibase especificado não existe.",
+	"math-wikibase-special-error-unknown": "Ocorreu um erro desconhecido ao obter os dados da wiki Wikibase.",
+	"math-wikibase-special-error-no-wikibase": "A extensão Wikibase é necessária para usar esta página especial."
 }
