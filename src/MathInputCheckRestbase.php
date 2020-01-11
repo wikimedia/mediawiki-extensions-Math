@@ -32,7 +32,7 @@ class MathInputCheckRestbase extends MathInputCheck {
 	 * @see https://phabricator.wikimedia.org/T119300
 	 * @param stdClass $e
 	 * @param MathRenderer|null $errorRenderer
-	 * @return string
+	 * @return string|null
 	 */
 	public function errorObjectToHtml( stdClass $e, $errorRenderer = null ) {
 		if ( $errorRenderer === null ) {
@@ -77,7 +77,7 @@ class MathInputCheckRestbase extends MathInputCheck {
 
 	/**
 	 * Returns the string of the last error.
-	 * @return string
+	 * @return string|null
 	 */
 	public function getError() {
 		$err = $this->restbaseInterface->getError();
