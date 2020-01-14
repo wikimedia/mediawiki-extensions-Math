@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6be2a788_cbc3a640",
+        "filename": "src/MathWikibaseConfig.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-01-14T18:19:48Z",
+      "side": 1,
+      "message": "why not remove the entire method?",
+      "range": {
+        "startLine": 115,
+        "startChar": 5,
+        "endLine": 115,
+        "endChar": 15
+      },
+      "revId": "8c7cc2dc805a5f6914f3114997d2b38ed7ea478e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
