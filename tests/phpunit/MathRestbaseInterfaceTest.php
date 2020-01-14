@@ -52,7 +52,7 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 		$input = '\\sin\\newcommand';
 		$rbi = new MathRestbaseInterface( $input );
 		$this->assertFalse( $rbi->getSuccess(), "Assuming that $input is invalid input." );
-		$this->assertEquals( '', $rbi->getCheckedTex() );
+		$this->assertNull( $rbi->getCheckedTex() );
 		$this->assertEquals( 'Illegal TeX function', $rbi->getError()->error->message );
 	}
 

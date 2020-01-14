@@ -112,10 +112,12 @@ class MathWikibaseConfig {
 	}
 
 	/**
-	 * @return bool
+	 * @deprecated Not needed, cannot return anything but true
+	 *
+	 * @return true
 	 */
 	public function hasSite() {
-		return !is_null( $this->site );
+		return true;
 	}
 
 	/**
