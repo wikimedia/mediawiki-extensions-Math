@@ -22,6 +22,30 @@
       "revId": "8c7cc2dc805a5f6914f3114997d2b38ed7ea478e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da68e9d3_e08871d3",
+        "filename": "src/MathWikibaseConfig.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2020-01-14T18:37:54Z",
+      "side": 1,
+      "message": "If this site is never null, I also think it makes more sense to remove the entire method.\n\nThe function is only used once in: MathWikibaseConnector-\u003efetchPageUrl",
+      "parentUuid": "6be2a788_cbc3a640",
+      "range": {
+        "startLine": 115,
+        "startChar": 5,
+        "endLine": 115,
+        "endChar": 15
+      },
+      "revId": "8c7cc2dc805a5f6914f3114997d2b38ed7ea478e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
