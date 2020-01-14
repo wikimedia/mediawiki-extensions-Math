@@ -46,6 +46,30 @@
       "revId": "8c7cc2dc805a5f6914f3114997d2b38ed7ea478e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49dfac20_16649797",
+        "filename": "src/MathWikibaseConfig.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2020-01-14T19:13:08Z",
+      "side": 1,
+      "message": "Sure, go ahead. Feel free to update this patch, or upload a follow-up. I was not yet able to make sure the method is really not used anywhere else. The method\u0027s name is a bit ambiguous.",
+      "parentUuid": "da68e9d3_e08871d3",
+      "range": {
+        "startLine": 115,
+        "startChar": 5,
+        "endLine": 115,
+        "endChar": 15
+      },
+      "revId": "8c7cc2dc805a5f6914f3114997d2b38ed7ea478e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
