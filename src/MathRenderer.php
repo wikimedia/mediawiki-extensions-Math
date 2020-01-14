@@ -63,7 +63,7 @@ abstract class MathRenderer {
 	protected $inputType = 'tex';
 	/** @var MathRestbaseInterface used for checking */
 	protected $rbi;
-	/** @var array with rendering warnings*/
+	/** @var array with rendering warnings */
 	protected $warnings;
 	/** @var LoggerInterface */
 	private $logger;

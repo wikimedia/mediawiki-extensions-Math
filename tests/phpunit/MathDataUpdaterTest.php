@@ -9,7 +9,7 @@ use Wikibase\DataModel\Statement\Statement;
  * Test the MathDataUpdater for Wikidata
  *
  * @covers \MathDataUpdater
- **
+ *
  * @license GPL-2.0-or-later
  */
 class MathDataUpdaterTest extends MediaWikiTestCase {

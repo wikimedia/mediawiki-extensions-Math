@@ -186,7 +186,7 @@ class MathMathMLCli extends MathMathML {
 	}
 
 	/**
-	 * @param $response object from cli
+	 * @param stdClass $response object from cli
 	 * @return string containing the location information
 	 */
 	private function appendLocationInfo( $response ) {
