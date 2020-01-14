@@ -88,7 +88,20 @@
 	"mw_math_source": "LaTeX-fonto (por tekstfoliumiloj)",
 	"prefs-math": "Matematikaĵoj",
 	"mathstatus": "Stato pri matematikaĵoj",
+	"mathwikibase": "Informoj pri la matematika formulo",
 	"datatypes-type-math": "Matematika esprimo",
 	"wikibase-listdatatypes-math-head": "Matematika esprimo",
-	"wikibase-listdatatypes-math-body": "Laŭvorta datenkampo por matematikaj esprimoj, formuloj, ekvacioj ktp, en dialekto de LaTeX."
+	"wikibase-listdatatypes-math-body": "Laŭvorta datenkampo por matematikaj esprimoj, formuloj, ekvacioj ktp, en dialekto de LaTeX.",
+	"math-wikibase-header": "Informoj de matematikaj eroj",
+	"math-wikibase-formula": "Formulo",
+	"math-wikibase-formula-name": "Nomo",
+	"math-wikibase-formula-type": "Tipo",
+	"math-wikibase-formula-header-format": "'''$1:''' $2",
+	"math-wikibase-formula-description": "Priskribo",
+	"math-wikibase-formula-information": "Informoj pri la matematika formulo",
+	"math-wikibase-formula-link-header": "Datumfonto",
+	"math-wikibase-formula-elements-header": "Elementoj de la formulo",
+	"math-wikibase-special-form-header": "Precizigu la nomon de la formulo:",
+	"math-wikibase-special-form-placeholder": "Titolo de la formulo",
+	"math-wikibase-special-error-header": "Eraro"
 }

@@ -10,7 +10,8 @@
 			"McDutchie",
 			"Macofe",
 			"Mainframe98",
-			"Mar(c)"
+			"Mar(c)",
+			"Robin van der Vliet"
 		]
 	},
 	"math-desc": "Wiskundige formules tussen <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-labels weergeven",
@@ -25,10 +26,14 @@
 	"math-visualeditor-mwlatexinspector-display-inline": "In de regel",
 	"math-visualeditor-mwlatexinspector-id": "Koppelings-ID (optioneel)",
 	"math-visualeditor-mwmathdialog-title": "Wiskundige formule",
+	"math-visualeditor-symbol-group-chem-arrows": "Reactiepijlen",
 	"math-visualeditor-symbol-group-chem-equations": "Scheikundige vergelijking",
 	"math-visualeditor-symbol-group-chem-formulae": "Scheikundige formule",
 	"math-visualeditor-symbol-group-chem-greek": "Griekse tekens",
 	"math-visualeditor-symbol-group-chem-isotopes": "Isotopen",
+	"math-visualeditor-symbol-group-chem-operators": "Vergelijkingsoperatoren",
+	"math-visualeditor-symbol-group-chem-oxidation": "Oxidatietoestanden",
+	"math-visualeditor-symbol-group-chem-stoichiometric": "Stoichiometrische getallen",
 	"math-visualeditor-symbol-group-math-accents": "Accenten en leestekens",
 	"math-visualeditor-symbol-group-math-arrows": "Pijlen",
 	"math-visualeditor-symbol-group-math-bounds": "Grenzen",
@@ -76,5 +81,16 @@
 	"prefs-math": "Formules",
 	"mathstatus": "Status formuleweergave",
 	"datatypes-type-math": "Wiskundige uitdrukking",
-	"wikibase-listdatatypes-math-head": "Wiskundige uitdrukking"
+	"wikibase-listdatatypes-math-head": "Wiskundige uitdrukking",
+	"math-wikibase-header": "Informatie van wiskundige items",
+	"math-wikibase-formula": "Formule",
+	"math-wikibase-formula-name": "Naam",
+	"math-wikibase-formula-type": "Type",
+	"math-wikibase-formula-header-format": "'''$1:''' $2",
+	"math-wikibase-formula-description": "Beschrijving",
+	"math-wikibase-formula-link-header": "Gegegevensbron",
+	"math-wikibase-formula-elements-header": "Elementen van de formule",
+	"math-wikibase-special-form-header": "Specificeer de naam van de formule",
+	"math-wikibase-special-form-placeholder": "Titel van de formule",
+	"math-wikibase-special-error-header": "Fout"
 }
