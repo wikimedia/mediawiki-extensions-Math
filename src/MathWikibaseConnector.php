@@ -160,7 +160,7 @@ class MathWikibaseConnector {
 	 * @param StatementList $statements the 'has part' statements
 	 * @param LabelDescriptionLookup $langLookup
 	 * @return MathWikibaseInfo
-	 *@todo refactor this method once Wikibase has a more convenient way to handle snaks
+	 * @todo refactor this method once Wikibase has a more convenient way to handle snaks
 	 */
 	private function fetchHasPartSnaks(
 		MathWikibaseInfo $output,

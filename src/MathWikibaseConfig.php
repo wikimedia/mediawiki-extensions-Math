@@ -115,7 +115,7 @@ class MathWikibaseConfig {
 	 * @return bool
 	 */
 	public function hasSite() {
-		return !is_null( $this->site );
+		return $this->site !== null;
 	}
 
 	/**
