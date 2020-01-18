@@ -13,6 +13,7 @@ class MathMLRdfBuilder implements ValueSnakRdfBuilder {
 	 * @param string $propertyValueNamespace Property value relation namespace
 	 * @param string $propertyValueLName Property value relation name
 	 * @param string $dataType Property data type
+	 * @param string $snakNamespace
 	 * @param PropertyValueSnak $snak
 	 */
 	public function addValue(
@@ -20,6 +21,7 @@ class MathMLRdfBuilder implements ValueSnakRdfBuilder {
 		$propertyValueNamespace,
 		$propertyValueLName,
 		$dataType,
+		$snakNamespace,
 		PropertyValueSnak $snak
 	) {
 		$renderer = new MathMathML( $snak->getDataValue()->getValue() );
