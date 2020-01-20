@@ -16,6 +16,24 @@
       "revId": "14cc1f4e9c7f9b96222e9c04e12c74cdcbcd211c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bd52b61_eb8f8b0d",
+        "filename": "src/MathMLRdfBuilder.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 3
+      },
+      "writtenOn": "2020-01-20T08:01:56Z",
+      "side": 1,
+      "message": "In Wikibase its the same, unfortunately",
+      "parentUuid": "f76a5b95_c1052ee5",
+      "revId": "14cc1f4e9c7f9b96222e9c04e12c74cdcbcd211c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
