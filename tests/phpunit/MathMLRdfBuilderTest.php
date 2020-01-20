@@ -47,7 +47,7 @@ class MathMLRdfBuilderTest extends MediaWikiTestCase {
 		$writer->about( 'www', 'Q1' );
 
 		$snak = new PropertyValueSnak( new PropertyId( 'P1' ), new StringValue( $test ) );
-		$builder->addValue( $writer, 'acme', self::ACME_REF, 'DUMMY', $snak );
+		$builder->addValue( $writer, 'acme', self::ACME_REF, 'DUMMY', '', $snak );
 
 		return trim( $writer->drain() );
 	}
