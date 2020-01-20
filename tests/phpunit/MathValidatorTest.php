@@ -52,16 +52,14 @@ class MathValidatorTest extends MediaWikiTestCase {
 	public function testValidInput() {
 		$validator = new MathValidator();
 		$result = $validator->validate( new StringValue( self::VADLID_TEX ) );
-		// not supported by jenkins php version
-		// $this->assertType( \ValueValidators\Result::class, $result );
+		$this->assertInstanceOf( \ValueValidators\Result::class, $result );
 		$this->assertTrue( $result->isValid() );
 	}
 
 	public function testInvalidInput() {
 		$validator = new MathValidator();
 		$result = $validator->validate( new StringValue( self::INVADLID_TEX ) );
-		// not supported by jenkins php version
-		// $this->assertType( \ValueValidators\Result::class, $result );
+		$this->assertInstanceOf( \ValueValidators\Result::class, $result );
 		$this->assertFalse( $result->isValid() );
 	}
 }
