@@ -30,7 +30,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 * }
 	 * was not sufficient.
 	 */
-	protected function setup() {
+	protected function setUp() : void {
 		parent::setUp();
 		// TODO: figure out why this is necessary
 		$this->db = wfGetDB( DB_MASTER );
