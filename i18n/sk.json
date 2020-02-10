@@ -3,7 +3,8 @@
 		"authors": [
 			"Helix84",
 			"Teslaton",
-			"Luky001"
+			"Luky001",
+			"TomášPolonec"
 		]
 	},
 	"math-desc": "Vykresľovať matematické vzorce medzi značkami <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -11,7 +12,7 @@
 	"math_syntax_error": "syntaktická chyba",
 	"math_unknown_error": "neznáma chyba",
 	"math_unknown_function": "neznáma funkcia „$1“",
-	"mw_math_mathml": "MathML (experimentálne)",
+	"mw_math_mathml": "MathML s fallbackom na SVG alebo PNG (odporúčané pre moderné prehliadače a nástroje pre zjednodušenie prístupu)",
 	"mw_math_png": "PNG obrázky",
 	"mw_math_source": "Zdrojový kód LaTeX (pre textové prehliadače)",
 	"prefs-math": "Vykreslenie matematiky"
