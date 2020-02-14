@@ -130,9 +130,9 @@ class MathRestbaseInterface {
 		$response = $serviceClient->run( $request );
 		if ( $response['code'] !== 200 ) {
 			$this->log()->info( 'Tex check failed:', [
-					'post'  => $request['body'],
-					'error' => $response['error'],
-					'url'   => $request['url']
+				'post'  => $request['body'],
+				'error' => $response['error'],
+				'url'   => $request['url']
 			] );
 		}
 		return $response;
@@ -372,8 +372,8 @@ class MathRestbaseInterface {
 		$request = [
 				'method' => 'POST',
 				'body'   => [
-						'type' => $this->type,
-						'q'    => $this->tex
+					'type' => $this->type,
+					'q'    => $this->tex
 				],
 				'url'    => $this->getUrl( "media/math/check/{$this->type}" )
 		];
