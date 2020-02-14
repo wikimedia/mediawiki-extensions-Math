@@ -132,7 +132,7 @@ class MathRestbaseInterface {
 			$this->log()->info( 'Tex check failed:', [
 				'post'  => $request['body'],
 				'error' => $response['error'],
-				'url'   => $request['url']
+				'urlparams'   => $request['url']
 			] );
 		}
 		return $response;
@@ -237,8 +237,8 @@ class MathRestbaseInterface {
 	public function checkBackend( $skipConfigCheck = false ) {
 		try {
 			$request = [
-				'method' => 'GET',
-				'url'    => $this->getUrl( '?spec' )
+				'method'    => 'GET',
+				'urlparams' => $this->getUrl( '?spec' )
 			];
 		} catch ( Exception $e ) {
 			return false;
@@ -452,7 +452,7 @@ class MathRestbaseInterface {
 		// Remove "convenience" duplicate keys put in place by MultiHttpClient
 		unset( $response[0], $response[1], $response[2], $response[3], $response[4] );
 		$this->log()->error( 'Restbase math server problem:', [
-			'url' => $request['url'],
+			'urlparams' => $request['url'],
 			'response' => [ 'code' => $response['code'], 'body' => $response['body'] ],
 			'math_type' => $type,
 			'tex' => $this->tex
