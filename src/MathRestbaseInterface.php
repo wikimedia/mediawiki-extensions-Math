@@ -129,7 +129,7 @@ class MathRestbaseInterface {
 		$serviceClient = $this->getServiceClient();
 		$response = $serviceClient->run( $request );
 		if ( $response['code'] !== 200 ) {
-			$this->log()->info( 'Tex check failed:', [
+			$this->log()->info( 'Tex check failed', [
 				'post'  => $request['body'],
 				'error' => $response['error'],
 				'urlparams'   => $request['url']
@@ -451,7 +451,7 @@ class MathRestbaseInterface {
 		}
 		// Remove "convenience" duplicate keys put in place by MultiHttpClient
 		unset( $response[0], $response[1], $response[2], $response[3], $response[4] );
-		$this->log()->error( 'Restbase math server problem:', [
+		$this->log()->error( 'Restbase math server problem', [
 			'urlparams' => $request['url'],
 			'response' => [ 'code' => $response['code'], 'body' => $response['body'] ],
 			'math_type' => $type,
