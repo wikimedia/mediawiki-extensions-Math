@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -183,7 +184,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	}
 
 	public function testintegrationTestWithLinks() {
-		$p = new Parser();
+		$p = MediaWikiServices::getInstance()->getParserFactory()->create();
 		$po = new ParserOptions();
 		$t = new Title();
 		$res = $p->parse( '[[test|<math forcemathmode="png">a+b</math>]]', $t, $po )->getText();
