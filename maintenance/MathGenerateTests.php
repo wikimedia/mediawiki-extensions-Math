@@ -45,7 +45,7 @@ class MathGenerateTests extends Maintenance {
 		} else {
 			if ( $title->getPrefixedDBkey() === self::REFERENCE_PAGE ) {
 				$wgEnableScaryTranscluding = true;
-				$parser = new Parser();
+				$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
 				$wikiText = $parser->interwikiTransclude( $title, 'raw' );
 			} else {
 				return 'Page does not exist';
