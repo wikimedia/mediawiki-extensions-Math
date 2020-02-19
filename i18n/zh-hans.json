@@ -11,7 +11,8 @@
 			"TransTS",
 			"神樂坂秀吉",
 			"予弦",
-			"A Retired User"
+			"A Retired User",
+			"VulpesVulpes825"
 		]
 	},
 	"math-desc": "在<code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code>标签间生成数学公式",
@@ -91,7 +92,15 @@
 	"mw_math_source": "LaTeX源（用于文字浏览器）",
 	"prefs-math": "数学公式",
 	"mathstatus": "公式生成器状态",
+	"mathwikibase": "数学公式信息",
 	"datatypes-type-math": "数学表达式",
 	"wikibase-listdatatypes-math-head": "数学表达式",
-	"wikibase-listdatatypes-math-body": "用于数学表达式、公式、方程等的文字数据字段，以LaTeX的一种变体表达。"
+	"wikibase-listdatatypes-math-body": "用于数学表达式、公式、方程等的文字数据字段，以LaTeX的一种变体表达。",
+	"math-wikibase-header": "数学项目信息",
+	"math-wikibase-formula": "公式",
+	"math-wikibase-formula-name": "名称",
+	"math-wikibase-formula-type": "类型",
+	"math-wikibase-formula-header-format": "'''$1：'''$2",
+	"math-wikibase-formula-description": "描述",
+	"math-wikibase-formula-link-header": "数据源"
 }
