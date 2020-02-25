@@ -9,7 +9,10 @@
 			"PiefPafPier"
 		]
 	},
+	"math-visualeditor-mwchemdialog-title": "Skiekundeformule",
+	"math-visualeditor-mwcheminspector-title": "Skiekundeformule",
 	"math-visualeditor-mwlatexinspector-display-default": "Standert",
+	"math-visualeditor-mwmathdialog-title": "Wiskundeformule",
 	"math_failure": "Untsjutbere formule",
 	"math_syntax_error": "Sinboufout",
 	"math_unknown_error": "Unbekinde fout",
