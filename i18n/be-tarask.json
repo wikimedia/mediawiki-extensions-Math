@@ -10,7 +10,7 @@
 		]
 	},
 	"math-desc": "Выводзіць матэматычныя формулы, запісаныя паміж тэгамі <code>&lt;math&gt;</code> і <code>&lt;/math&gt;</code>",
-	"math-visualeditor-mwlatexcontextitem-quickedit": "Хуткая праўка",
+	"math-visualeditor-mwlatexcontextitem-quickedit": "Хуткае рэдагаваньне",
 	"math_failure": "Немагчыма разабраць",
 	"math_syntax_error": "сынтаксычная памылка",
 	"math-tracking-category-error": "Старонкі з матэматычнымі памылкамі",
