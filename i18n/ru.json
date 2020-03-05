@@ -104,5 +104,10 @@
 	"mathstatus": "Состояние Math",
 	"datatypes-type-math": "Математическое выражение",
 	"wikibase-listdatatypes-math-head": "Математическое выражение",
-	"wikibase-listdatatypes-math-body": "Буквальное поле данных для математических выражений, формул, уравнений и тому подобное, выраженное в варианте LaTeX."
+	"wikibase-listdatatypes-math-body": "Буквальное поле данных для математических выражений, формул, уравнений и тому подобное, выраженное в варианте LaTeX.",
+	"math-wikibase-formula": "Формула",
+	"math-wikibase-formula-name": "Название",
+	"math-wikibase-formula-type": "Тип",
+	"math-wikibase-formula-description": "Описание",
+	"math-wikibase-special-error-header": "Ошибка"
 }
