@@ -186,7 +186,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	public function testintegrationTestWithLinks() {
 		$p = MediaWikiServices::getInstance()->getParserFactory()->create();
 		$po = ParserOptions::newFromAnon();
-		$t = new Title();
+		$t = Title::newFromText( __METHOD__ );
 		$res = $p->parse( '[[test|<math forcemathmode="png">a+b</math>]]', $t, $po )->getText();
 		$this->assertContains( '</a>', $res );
 		$this->assertContains( 'png', $res );
