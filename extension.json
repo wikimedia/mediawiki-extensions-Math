@@ -54,33 +54,15 @@
 		"MathAliasNoTranslate": "Math.alias.noTranslate.php"
 	},
 	"Hooks": {
-		"ParserFirstCallInit": [
-			"MathHooks::onParserFirstCallInit"
-		],
-		"GetPreferences": [
-			"MathHooks::onGetPreferences"
-		],
-		"LoadExtensionSchemaUpdates": [
-			"MathHooks::onLoadExtensionSchemaUpdates"
-		],
-		"ParserTestTables": [
-			"MathHooks::onParserTestTables"
-		],
-		"PageRenderingHash": [
-			"MathHooks::onPageRenderingHash"
-		],
-		"WikibaseClientDataTypes": [
-			"MathWikibaseHook::onWikibaseClientDataTypes"
-		],
-		"WikibaseRepoDataTypes": [
-			"MathWikibaseHook::onWikibaseRepoDataTypes"
-		],
-		"ParserAfterTidy": [
-			"MathHooks::onParserAfterTidy"
-		],
-		"SpecialPage_initList": [
-			"MathHooks::onSpecialPage_initList"
-		]
+		"ParserFirstCallInit": "MathHooks::onParserFirstCallInit",
+		"GetPreferences": "MathHooks::onGetPreferences",
+		"LoadExtensionSchemaUpdates": "MathHooks::onLoadExtensionSchemaUpdates",
+		"ParserTestTables": "MathHooks::onParserTestTables",
+		"PageRenderingHash": "MathHooks::onPageRenderingHash",
+		"WikibaseClientDataTypes": "MathWikibaseHook::onWikibaseClientDataTypes",
+		"WikibaseRepoDataTypes": "MathWikibaseHook::onWikibaseRepoDataTypes",
+		"ParserAfterTidy": "MathHooks::onParserAfterTidy",
+		"SpecialPage_initList": "MathHooks::onSpecialPage_initList"
 	},
 	"config": {
 		"MathDefaultLaTeXMLSetting": {
