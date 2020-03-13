@@ -21,7 +21,7 @@
 			"BaRaN6161 TURK"
 		]
 	},
-	"math-desc": "Render matematiksel formüller arasında <code><math></code> ... <code></math></code> etiketler",
+	"math-desc": "Render matematiksel formüller arasında <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> etiketler",
 	"math-visualeditor-mwchemdialog-title": "Kimyasal formül",
 	"math-visualeditor-mwcheminspector-title": "Kimyasal formül",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Hızlı düzenleme",
@@ -89,7 +89,7 @@
 	"math-tracking-category-error-desc": "Bu kategorideki sayfalarda matematik etiketlerinin kullanımında hatalar var.",
 	"math-tracking-category-mhchem-deprecation": "Chem etiketlerinin kullanımdan kaldırılmış biçimini kullanan sayfalar",
 	"math-tracking-category-mhchem-deprecation-desc": "Bu kategorideki sayfalarda, kimyasal etiketlerin kullanımdan kaldırılmış bir biçimi kullanılıyor",
-	"math-tracking-category-render-error": "Matematik işlemli sayfalarda hata oluşturma",
+	"math-tracking-category-render-error": "Matematik oluşturma hataları olan sayfalar",
 	"math-tracking-category-render-error-desc": "Bu kategorideki sayfaların matematik etiketlerinde oluşturma hataları var.",
 	"math_unknown_error": "bilinmeyen hata",
 	"math_unknown_function": "bilinmeyen işlev \"$1\"",
@@ -113,7 +113,7 @@
 	"math-wikibase-formula-elements-header": "Formülün Elemanları",
 	"math-wikibase-special-form-header": "Formülün adını belirtin:",
 	"math-wikibase-special-form-placeholder": "Formülün başlığı",
-	"math-wikibase-special-form-button": "Bilgi İsteme",
+	"math-wikibase-special-form-button": "Bilgi İste",
 	"math-wikibase-special-error-header": "Hata",
 	"math-wikibase-special-error-invalid-argument": "Belirlediğiniz Wikibase öğe kimliği yok.",
 	"math-wikibase-special-error-unknown": "Wikibase'den veri alınırken bilinmeyen bir hata oluştu.",
