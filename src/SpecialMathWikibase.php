@@ -36,7 +36,7 @@ class SpecialMathWikibase extends SpecialPage {
 	 * @inheritDoc
 	 */
 	public function execute( $par ) {
-		global $wgContLanguageCode;
+		global $wgLanguageCode;
 
 		if ( !$this->isWikibaseAvailable() ) {
 			$out = $this->getOutput();
@@ -76,7 +76,7 @@ class SpecialMathWikibase extends SpecialPage {
 		} else {
 			$this->logger->debug( "Request qID: " . $requestId );
 			try {
-				$info = $this->wikibase->fetchWikibaseFromId( $requestId, $wgContLanguageCode );
+				$info = $this->wikibase->fetchWikibaseFromId( $requestId, $wgLanguageCode );
 				$this->logger->debug( "Successfully fetched information for qID: " . $requestId );
 				self::buildPageRepresentation( $info, $requestId, $output );
 			} catch ( Exception $e ) {
