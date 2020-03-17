@@ -4,10 +4,7 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 
 /**
- * Created by PhpStorm.
- * User: Moritz
- * Date: 15.08.2017
- * Time: 09:33
+ * @author Moritz Schubotz
  */
 class MathMathMLCli extends MathMathML {
 

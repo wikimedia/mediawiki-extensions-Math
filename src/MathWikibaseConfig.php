@@ -54,7 +54,6 @@ class MathWikibaseConfig {
 	private static $defaultConfig;
 
 	/**
-	 * MathWikibaseConfig constructor.
 	 * @param EntityIdParser $entityIdParser
 	 * @param EntityRevisionLookup $entityRevisionLookup
 	 * @param LanguageFallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory

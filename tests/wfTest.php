@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Moritz
- * Date: 14.08.2017
- * Time: 12:09
+ * @author Moritz Schubotz
  */
 require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 

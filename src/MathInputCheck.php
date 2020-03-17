@@ -14,8 +14,6 @@ abstract class MathInputCheck {
 	protected $lastError = null;
 
 	/**
-	 * Default constructor
-	 * (performs no checking)
 	 * @param string $tex the TeX InputString to be checked
 	 */
 	public function __construct( $tex = '' ) {
