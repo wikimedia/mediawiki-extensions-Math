@@ -12,8 +12,6 @@ class MathInputCheckRestbase extends MathInputCheck {
 	private $restbaseInterface;
 
 	/**
-	 * Default constructor
-	 * (performs no checking)
 	 * @param string $tex the TeX input string to be checked
 	 * @param string $type
 	 * @param MathRestbaseInterface|null &$ref

@@ -34,7 +34,6 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		parent::setUp();
 		// TODO: figure out why this is necessary
 		$this->db = wfGetDB( DB_MASTER );
-		// Create a new instance of MathSource
 		$this->renderer = new MathMathML( self::SOME_TEX );
 		$this->tablesUsed[] = 'mathoid';
 	}
@@ -93,7 +92,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->renderer->writeToDatabase();
 		$res = $this->db->select( "mathoid", "*" );
 		$row = $res->fetchRow();
-		$this->assertEquals( 16, count( $row ) );
+		$this->assertCount( 16, $row );
 	}
 
 	/*
