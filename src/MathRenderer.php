@@ -636,7 +636,6 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 *
 	 * @return string TeX the original tex string specified by the user
 	 */
 	public function getUserInputTex() {
@@ -661,7 +660,6 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 *
 	 * @param string $svg
 	 */
 	public function setSvg( $svg ) {

@@ -42,7 +42,6 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 		parent::setUp();
 		// TODO: figure out why this is necessary
 		$this->db = wfGetDB( DB_MASTER );
-		// Create a new instance of MathSource
 		$this->renderer = new MathLaTeXML( self::SOME_TEX );
 		self::setupTestDB( $this->db, "mathtest" );
 	}
@@ -89,7 +88,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 		$this->renderer->writeToDatabase();
 		$res = $this->db->select( "mathlatexml", "*" );
 		$row = $res->fetchRow();
-		$this->assertEquals( 12,  count( $row ) );
+		$this->assertCount( 12, $row );
 	}
 
 	/**
