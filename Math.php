@@ -1,4 +1,5 @@
 <?php
+
 if ( function_exists( 'wfLoadExtension' ) ) {
 	wfLoadExtension( 'Math' );
 	// Keep i18n globals so mergeMessageFileList.php doesn't break

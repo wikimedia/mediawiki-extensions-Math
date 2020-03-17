@@ -151,7 +151,7 @@ class MathHooks {
 	/**
 	 * Register the <math> tag with the Parser.
 	 *
-	 * @param Parser $parser instance of Parser
+	 * @param Parser $parser
 	 * @return bool true
 	 */
 	public static function onParserFirstCallInit( $parser ) {

@@ -28,7 +28,6 @@ class MathWikibaseConnector {
 	private $config;
 
 	/**
-	 * MathWikibaseConnector constructor.
 	 * @param MathWikibaseConfig $config
 	 */
 	public function __construct( MathWikibaseConfig $config ) {
