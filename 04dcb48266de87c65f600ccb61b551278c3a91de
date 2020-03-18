@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "520e1dd5_8b9dafcf",
+        "filename": "src/SpecialMathWikibase.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 3940
+      },
+      "writtenOn": "2020-03-18T08:33:14Z",
+      "side": 1,
+      "message": "Indeed. It would be better the MathWikibaseInfo object could carry the \"instance of\" information. This would require to extend the build of the object here: https://github.com/wikimedia/mediawiki-extensions-Math/blob/4578c4e0f541734b9224733337b4a80a62401eef/src/MathWikibaseConnector.php#L81",
+      "range": {
+        "startLine": 159,
+        "startChar": 5,
+        "endLine": 159,
+        "endChar": 81
+      },
+      "revId": "04dcb48266de87c65f600ccb61b551278c3a91de",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
