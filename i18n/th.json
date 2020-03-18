@@ -3,9 +3,23 @@
 		"authors": [
 			"Ans",
 			"Octahedron80",
-			"Horus"
+			"Horus",
+			"Aefgh39622"
 		]
 	},
+	"math-visualeditor-mwchemdialog-title": "สูตรเคมี",
+	"math-visualeditor-mwcheminspector-title": "สูตรเคมี",
+	"math-visualeditor-mwlatexdialog-card-formula": "สูตร",
+	"math-visualeditor-mwlatexdialog-card-options": "ตัวเลือก",
+	"math-visualeditor-mwlatexinspector-display-default": "ค่าเริ่มต้น",
+	"math-visualeditor-mwmathdialog-title": "สูตรคณิตศาสตร์",
+	"math-visualeditor-symbol-group-chem-greek": "อักษรกรีก",
+	"math-visualeditor-symbol-group-chem-isotopes": "ไอโซโทป",
+	"math-visualeditor-symbol-group-math-greek": "อักษรกรีก",
+	"math-visualeditor-symbol-group-math-hebrew": "อักษรฮีบรู",
+	"math-visualeditor-symbol-group-math-logic": "ตรรกศาสตร์",
+	"math-visualeditor-symbol-group-math-matrices": "เมทริกซ์",
+	"math-visualeditor-symbol-group-math-parentheses": "วงเล็บ",
 	"math_failure": "ส่งผ่านค่าไม่ได้",
 	"math_syntax_error": "ไวยากรณ์ผิดพลาด",
 	"math_unknown_error": "ข้อผิดพลาดที่ไม่ทราบ",
