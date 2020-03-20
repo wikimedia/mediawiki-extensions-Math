@@ -16,7 +16,7 @@ abstract class MathInputCheck {
 	/**
 	 * Default constructor
 	 * (performs no checking)
-	 * @param String $tex the TeX InputString to be checked
+	 * @param string $tex the TeX InputString to be checked
 	 */
 	public function __construct( $tex = '' ) {
 		$this->inputTeX = $tex;

@@ -204,7 +204,7 @@ class MathMathML extends MathRenderer {
 	 * @param string $post the encoded post request
 	 * @param mixed &$res the result
 	 * @param mixed &$error the formatted error message or null
-	 * @param String $httpRequestClass class name of MWHttpRequest (needed for testing only)
+	 * @param string $httpRequestClass class name of MWHttpRequest (needed for testing only)
 	 * @return bool success
 	 */
 	public function makeRequest(
