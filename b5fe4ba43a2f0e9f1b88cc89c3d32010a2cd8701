@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd312866_9008a707",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2020-03-21T14:46:45Z",
+      "side": 1,
+      "message": "This part is already done in a separate patch set and no longer part of this patch set",
+      "revId": "b5fe4ba43a2f0e9f1b88cc89c3d32010a2cd8701",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
