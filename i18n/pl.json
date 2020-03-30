@@ -94,5 +94,9 @@
 	"prefs-math": "Wzory",
 	"mathstatus": "Status renderowania formuł matematycznych",
 	"datatypes-type-math": "Wyrażenie matematyczne",
-	"wikibase-listdatatypes-math-head": "Wyrażenie matematyczne"
+	"wikibase-listdatatypes-math-head": "Wyrażenie matematyczne",
+	"math-wikibase-formula-name": "Nazwa",
+	"math-wikibase-formula-type": "Typ",
+	"math-wikibase-formula-description": "Opis",
+	"math-wikibase-special-error-header": "Błąd"
 }

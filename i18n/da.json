@@ -8,7 +8,8 @@
 			"Macofe",
 			"Cgtdk",
 			"Saederup92",
-			"Weblars"
+			"Weblars",
+			"Steenth"
 		]
 	},
 	"math-desc": "Gengiver matematiske formler inden i <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>-tags",
@@ -45,6 +46,7 @@
 	"math_syntax_error": "syntaksfejl",
 	"math_timeout": "$1 timeout fra \"$2\".",
 	"math-tracking-category-error": "Sider med matematikfejl",
+	"math-tracking-category-render-error": "Sider med math visningsfejl",
 	"math_unknown_error": "ukendt fejl",
 	"math_unknown_function": "ukendt funktion '$1'",
 	"mw_math_latexml": "LaTeXML (eksperimentel; anvender MathML)",
