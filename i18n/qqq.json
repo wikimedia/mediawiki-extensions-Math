@@ -85,6 +85,8 @@
 	"math-tracking-category-error-desc": "Tracking category description.",
 	"math-tracking-category-mhchem-deprecation": "Tracking category name.",
 	"math-tracking-category-mhchem-deprecation-desc": "Tracking category description.",
+	"math-tracking-category-texvc-deprecation": "Tracking category name.",
+	"math-tracking-category-texvc-deprecation-desc": "Tracking category description.",
 	"math-tracking-category-render-error": "Tracking category name.",
 	"math-tracking-category-render-error-desc": "Tracking category description.",
 	"math_unknown_error": "Used as error message for unknown texvc error.\n\nThis message follows the message {{msg-mw|Math failure}}.\n{{Identical|Unknown error}}",

@@ -66,11 +66,16 @@ class MathMathML extends MathRenderer {
 		parent::addTrackingCategories( $parser );
 		if ( $this->hasWarnings() ) {
 			foreach ( $this->warnings as $warning ) {
-				if ( isset( $warning->type ) && $warning->type === 'mhchem-deprecation' ) {
-					$parser->addTrackingCategory( 'math-tracking-category-mhchem-deprecation' );
+				if ( isset( $warning->type ) )
+					switch ($warning->type){
+						case 'mhchem-deprecation':
+							$parser->addTrackingCategory( 'math-tracking-category-mhchem-deprecation' );
+							break;
+						case 'texvc-deprecation':
+							$parser->addTrackingCategory('math-tracking-category-texvc-deprecation' );
+					}
 				}
 			}
-		}
 	}
 
 	/**
