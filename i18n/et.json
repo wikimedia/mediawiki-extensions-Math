@@ -82,6 +82,7 @@
 	"mw_math_source": "LaTeX-lähtetekst (tekstibrauserites)",
 	"prefs-math": "Valemite näitamine",
 	"mathstatus": "Matemaatiliste valemite olek",
+	"mathwikibase": "Matemaatilise valemi teave",
 	"datatypes-type-math": "Avaldis",
 	"wikibase-listdatatypes-math-head": "Avaldis",
 	"wikibase-listdatatypes-math-body": "Literaalandmete väli LaTeX-i variandis esitatud matemaatiliste avaldiste, valemite, võrrandite ja muu seesuguse jaoks."
