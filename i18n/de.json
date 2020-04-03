@@ -75,6 +75,8 @@
 	"math-tracking-category-error-desc": "Seiten in dieser Kategorie haben Fehler in der Verwendung von Math-Tags.",
 	"math-tracking-category-mhchem-deprecation": "Seiten, die ein veraltetes Format des chem-Tags verwenden",
 	"math-tracking-category-mhchem-deprecation-desc": "Seiten in dieser Kategorie verwenden ein veraltetes Format des chem-Tags.",
+	"math-tracking-category-texvc-deprecation": "Seiten, die ein veraltetes Format des math-Tags verwenden",
+	"math-tracking-category-texvc-deprecation-desc": "Seiten in dieser Kategorie verwenden ein veraltetes Format des math-Tags.",
 	"math-tracking-category-render-error": "Seiten mit Math-Renderingfehlern",
 	"math-tracking-category-render-error-desc": "Seiten in dieser Kategorie haben Renderingfehler in den Math-Tags.",
 	"math_unknown_error": "Unbekannter Fehler",

@@ -89,6 +89,8 @@
 	"math-tracking-category-error-desc": "Bu kategorideki sayfalarda matematik etiketlerinin kullanımında hatalar var.",
 	"math-tracking-category-mhchem-deprecation": "Chem etiketlerinin kullanımdan kaldırılmış biçimini kullanan sayfalar",
 	"math-tracking-category-mhchem-deprecation-desc": "Bu kategorideki sayfalarda, kimyasal etiketlerin kullanımdan kaldırılmış bir biçimi kullanılıyor",
+	"math-tracking-category-texvc-deprecation": "Matematik etiketlerinin kullanımdan kaldırılmış biçimini kullanan sayfalar",
+	"math-tracking-category-texvc-deprecation-desc": "Bu kategorideki sayfalar, matematik etiketlerinin kullanımdan kaldırılmış bir biçimini kullanıyor",
 	"math-tracking-category-render-error": "Matematik oluşturma hataları olan sayfalar",
 	"math-tracking-category-render-error-desc": "Bu kategorideki sayfaların matematik etiketlerinde oluşturma hataları var.",
 	"math_unknown_error": "bilinmeyen hata",
