@@ -92,7 +92,7 @@
 		"MathDisableTexFilter": "new",
 		"MathEnableExperimentalInputFormats": false,
 		"MathLaTeXMLTimeout": 240,
-		"MathLaTeXMLUrl": "http://gw125.iu.xsede.org:8888",
+		"MathLaTeXMLUrl": "https://latexml.formulasearchengine.com/convert",
 		"MathMathMLTimeout": 20,
 		"MathMathMLUrl": "https://mathoid-beta.wmflabs.org",
 		"MathFullRestbaseURL": "https://wikimedia.org/api/rest_",
