@@ -66,7 +66,12 @@ class MathMathMLCli extends MathMathML {
 		// cli interface seems to be OK.
 		$this->processJsonResult( $response, 'file://' . $wgMathoidCli[0] );
 		$this->mathStyle = $response->mathoidStyle;
-		$this->png = implode( array_map( "chr", $response->png->data ) );
+		if ( array_key_exists( 'png', $response ) ) {
+			$this->png = implode( array_map( "chr", $response->png->data ) );
+		} else {
+			LoggerFactory::getInstance( 'Math' )->error( 'Mathoid did not return a PNG image.' .
+				' Check your librsvg installation https://github.com/wikimedia/mathoid/.' );
+		}
 		$this->changed = true;
 	}
 
