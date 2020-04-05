@@ -40,12 +40,12 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 		$rbi = new MathRestbaseInterface( $input );
 		$this->assertTrue( $rbi->getSuccess(), "Assuming that $input is valid input." );
 		$this->assertEquals( '\\sin x^{2}', $rbi->getCheckedTex() );
-		$this->assertContains( '<mi>sin</mi>', $rbi->getMathML() );
+		$this->assertStringContainsString( '<mi>sin</mi>', $rbi->getMathML() );
 		$url = $rbi->getFullSvgUrl();
 		$req = MWHttpRequest::factory( $url );
 		$status = $req->execute();
 		$this->assertTrue( $status->isOK() );
-		$this->assertContains( '</svg>', $req->getContent() );
+		$this->assertStringContainsString( '</svg>', $req->getContent() );
 	}
 
 	public function testFail() {
@@ -62,8 +62,8 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 		$this->assertTrue( $rbi->checkTeX(), "Assuming that $input is valid input." );
 		$this->assertTrue( $rbi->getSuccess(), "Assuming that $input is valid input." );
 		$this->assertEquals( '{\ce {H2O}}', $rbi->getCheckedTex() );
-		$this->assertContains( '<msubsup>', $rbi->getMathML() );
-		$this->assertContains( '<mtext>H</mtext>', $rbi->getMathML() );
+		$this->assertStringContainsString( '<msubsup>', $rbi->getMathML() );
+		$this->assertStringContainsString( '<mtext>H</mtext>', $rbi->getMathML() );
 	}
 
 	public function testException() {

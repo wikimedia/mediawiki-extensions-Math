@@ -42,7 +42,7 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 		$expectedMessage = wfMessage(
 				'math_unknown_function', '\newcommand'
 		)->inContentLanguage()->escaped();
-		$this->assertContains( $expectedMessage, $this->BadObject->getError() );
+		$this->assertStringContainsString( $expectedMessage, $this->BadObject->getError() );
 	}
 
 	/**
@@ -52,7 +52,7 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 		$o = new MathInputCheckRestbase( '\left(' );
 		$this->assertFalse( $o->isValid() );
 		$expectedMessage = wfMessage( 'math_syntax_error' )->inContentLanguage()->escaped();
-		$this->assertContains( $expectedMessage, $o->getError() );
+		$this->assertStringContainsString( $expectedMessage, $o->getError() );
 	}
 
 	/**
@@ -67,7 +67,7 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 		// [-+*=], [0-9], [><~], [\\/|] or [a-zA-Z] but "\\u0301" found.
 		// is more expressive anyhow.
 		$expectedMessage = wfMessage( 'math_syntax_error' )->inContentLanguage()->escaped();
-		$this->assertContains( $expectedMessage, $o->getError() );
+		$this->assertStringContainsString( $expectedMessage, $o->getError() );
 	}
 
 	/**

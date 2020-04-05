@@ -82,7 +82,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$this->assertNull( $res,
 			"res is null if HTTP::post returns false." );
 		$errmsg = wfMessage( 'math_invalidresponse', '', $url, '' )->inContentLanguage()->escaped();
-		$this->assertContains( $errmsg, $error,
+		$this->assertStringContainsString( $errmsg, $error,
 			"return an error if HTTP::post returns false" );
 	}
 
@@ -120,7 +120,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$this->assertFalse( $requestReturn, "timeout call return" );
 		$this->assertFalse( $res, "timeout call return" );
 		$errmsg = wfMessage( 'math_timeout', '', $url )->inContentLanguage()->escaped();
-		$this->assertContains( $errmsg, $error, "timeout call errormessage" );
+		$this->assertStringContainsString( $errmsg, $error, "timeout call errormessage" );
 	}
 
 	/**
@@ -188,8 +188,8 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$po = ParserOptions::newFromAnon();
 		$t = Title::newFromText( __METHOD__ );
 		$res = $p->parse( '[[test|<math forcemathmode="png">a+b</math>]]', $t, $po )->getText();
-		$this->assertContains( '</a>', $res );
-		$this->assertContains( 'png', $res );
+		$this->assertStringContainsString( '</a>', $res );
+		$this->assertStringContainsString( 'png', $res );
 	}
 
 	/**
@@ -247,13 +247,13 @@ class MathMathMLTest extends MediaWikiTestCase {
 	public function testGetHtmlOutputQID() {
 		$math = new MathMathML( "a+b", [ "qid" => "Q123" ] );
 		$out = $math->getHtmlOutput();
-		$this->assertContains( "data-qid=\"Q123\"", $out );
+		$this->assertStringContainsString( "data-qid=\"Q123\"", $out );
 	}
 
 	public function testGetHtmlOutputInvalidQID() {
 		// test with not valid ID. An ID must match /Q\d+/
 		$math = new MathMathML( "a+b", [ "qid" => "123" ] );
 		$out = $math->getHtmlOutput();
-		$this->assertNotContains( "data-qid", $out );
+		$this->assertStringNotContainsString( "data-qid", $out );
 	}
 }
