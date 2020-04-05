@@ -35,7 +35,7 @@ class MathoidCliTest extends MediaWikiTestCase {
 		$input = [ 'good' => [ $mml ] ];
 		MathMathMLCli::batchEvaluate( $input );
 		$this->assertTrue( $mml->render(), 'assert that renders' );
-		$this->assertContains( '</mo>', $mml->getMathml() );
+		$this->assertStringContainsString( '</mo>', $mml->getMathml() );
 	}
 
 	public function testUndefinedFunctionError() {
@@ -43,7 +43,7 @@ class MathoidCliTest extends MediaWikiTestCase {
 		$input = [ 'bad' => [ $mml ] ];
 		MathMathMLCli::batchEvaluate( $input );
 		$this->assertFalse( $mml->render(), 'assert that fails' );
-		$this->assertContains( 'newcommand', $mml->getLastError() );
+		$this->assertStringContainsString( 'newcommand', $mml->getLastError() );
 	}
 
 	public function testSyntaxError() {
@@ -51,7 +51,7 @@ class MathoidCliTest extends MediaWikiTestCase {
 		$input = [ 'bad' => [ $mml ] ];
 		MathMathMLCli::batchEvaluate( $input );
 		$this->assertFalse( $mml->render(), 'assert that fails' );
-		$this->assertContains( 'SyntaxError', $mml->getLastError() );
+		$this->assertStringContainsString( 'SyntaxError', $mml->getLastError() );
 	}
 
 	public function testCeError() {
@@ -59,7 +59,7 @@ class MathoidCliTest extends MediaWikiTestCase {
 		$input = [ 'bad' => [ $mml ] ];
 		MathMathMLCli::batchEvaluate( $input );
 		$this->assertFalse( $mml->render(), 'assert that fails' );
-		$this->assertContains( 'SyntaxError', $mml->getLastError() );
+		$this->assertStringContainsString( 'SyntaxError', $mml->getLastError() );
 	}
 
 	public function testEmpty() {
@@ -68,7 +68,7 @@ class MathoidCliTest extends MediaWikiTestCase {
 		MathMathMLCli::batchEvaluate( $input );
 		$this->assertFalse( $mml->render(), 'assert that renders' );
 		$this->assertFalse( $mml->isTexSecure() );
-		$this->assertContains( 'empty', $mml->getLastError() );
+		$this->assertStringContainsString( 'empty', $mml->getLastError() );
 	}
 
 }
