@@ -79,6 +79,8 @@
 	"math-tracking-category-error-desc": "קטגוריה זו מכילה דפים מסוימים עם שגיאות בתגי math.",
 	"math-tracking-category-mhchem-deprecation": "דפים שמשתמשים בתסדיר מיושן של תגי chem",
 	"math-tracking-category-mhchem-deprecation-desc": "דפים בקטגוריה הזאת משתמשים בתסדיר מיושן של תגי chem",
+	"math-tracking-category-texvc-deprecation": "דפים שמשתמשים בתסדיר מיושן של תגי math",
+	"math-tracking-category-texvc-deprecation-desc": "דפים בקטגוריה הזאת משתמשים בתסדיר מיושן של תגי math",
 	"math-tracking-category-render-error": "דפים עם שגיאות בתצוגת נוסחאות מתמטיות",
 	"math-tracking-category-render-error-desc": "בדפים בקטגוריה הזאת יש שגיאות בתצוגת נוסחאות מתמטיות.",
 	"math_unknown_error": "שגיאה בלתי־ידועה",

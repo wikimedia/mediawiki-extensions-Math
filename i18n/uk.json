@@ -10,7 +10,8 @@
 			"Ypryima",
 			"Piramidion",
 			"Macofe",
-			"Vlad5250"
+			"Vlad5250",
+			"Movses"
 		]
 	},
 	"math-desc": "Відображає математичні формули у тегах <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
@@ -78,9 +79,11 @@
 	"math-test-contains-diff": "Виведений рядок $1 не містить очікуваного рядка $2.",
 	"math-test-equals-diff": "Виведений рядок $1 відрізняється від очікуваного рядка $2.",
 	"math-tracking-category-error": "Сторінки з математичними помилками",
-	"math-tracking-category-error-desc": "Сторінок у цій категорії мають помилки у використанні математичних теґів.",
+	"math-tracking-category-error-desc": "Сторінки в цій категорії мають помилки у використанні математичних тегів.",
 	"math-tracking-category-mhchem-deprecation": "Сторінки, які використовують хімічні теги у застарілому форматі",
 	"math-tracking-category-mhchem-deprecation-desc": "Сторінки в цій категорії використовують хімічні теги у застарілому форматі",
+	"math-tracking-category-texvc-deprecation": "Сторінки, що використовують застарілий формат математичних тегів",
+	"math-tracking-category-texvc-deprecation-desc": "Сторінки цієї категорії використовують застарілий формат математичних тегів",
 	"math-tracking-category-render-error": "Сторінки з помилками відтворення математичних формул",
 	"math-tracking-category-render-error-desc": "Сторінки в цій категорії мають помилки відтворення в математичних тегах.",
 	"math_unknown_error": "невідома помилка",

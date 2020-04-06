@@ -73,6 +73,8 @@
 	"math-tracking-category-error-desc": "Страниците во оваа категорија имаат грешки во употребата на математичките ознаки.",
 	"math-tracking-category-mhchem-deprecation": "Страници што користат хемиски ознаки во застарен формат",
 	"math-tracking-category-mhchem-deprecation-desc": "Страниците во категоријава користат хемиски ознаки во застарен формат",
+	"math-tracking-category-texvc-deprecation": "Страници што користат математички ознаки во застарен формат",
+	"math-tracking-category-texvc-deprecation-desc": "Страниците во категоријава користат математички ознаки во застарен формат",
 	"math-tracking-category-render-error": "Страници со грешки во математичкиот испис",
 	"math-tracking-category-render-error-desc": "Страниците во оваа категорија имаат грешки во исписот на математичките ознаки.",
 	"math_unknown_error": "непозната грешка",

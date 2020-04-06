@@ -85,6 +85,8 @@
 	"math-tracking-category-error-desc": "在此分類內的頁面在數學標籤的使用上有錯誤。",
 	"math-tracking-category-mhchem-deprecation": "使用 chem 標籤之棄用格式的頁面",
 	"math-tracking-category-mhchem-deprecation-desc": "在此分類使用 chem 標籤之棄用格式的頁面",
+	"math-tracking-category-texvc-deprecation": "使用數學標籤之棄用格式的頁面",
+	"math-tracking-category-texvc-deprecation-desc": "在此分類使用數學標籤之棄用格式的頁面",
 	"math-tracking-category-render-error": "帶有數學呈現錯誤的頁面",
 	"math-tracking-category-render-error-desc": "在此分類內的頁面有呈現數學標籤上的錯誤。",
 	"math_unknown_error": "不明錯誤",
