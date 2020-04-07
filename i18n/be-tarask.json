@@ -3,10 +3,10 @@
 		"authors": [
 			"EugeneZelenko",
 			"Jim-by",
-			"Wizardist",
-			"Red Winged Duck",
 			"Macofe",
-			"Renessaince"
+			"Red Winged Duck",
+			"Renessaince",
+			"Wizardist"
 		]
 	},
 	"math-desc": "Выводзіць матэматычныя формулы, запісаныя паміж тэгамі <code>&lt;math&gt;</code> і <code>&lt;/math&gt;</code>",

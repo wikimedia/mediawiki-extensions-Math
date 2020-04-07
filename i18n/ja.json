@@ -1,24 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
+			"Afaz",
 			"Ant176",
 			"Eseki",
 			"Fryed-peach",
-			"Ohgi",
-			"Shirayuki",
-			"Whym",
-			"青子守歌",
-			"SkyDaisy9",
-			"Sujiniku",
-			"Otokoume",
-			"Macofe",
-			"Vigorous action",
-			"Suchichi02",
-			"Wicklo",
-			"Omotecho",
-			"Yusuke1109",
 			"Kkairri",
-			"Afaz"
+			"Macofe",
+			"Ohgi",
+			"Omotecho",
+			"Otokoume",
+			"Shirayuki",
+			"SkyDaisy9",
+			"Suchichi02",
+			"Sujiniku",
+			"Vigorous action",
+			"Whym",
+			"Wicklo",
+			"Yusuke1109",
+			"青子守歌"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング",

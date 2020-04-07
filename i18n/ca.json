@@ -2,15 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Alvaro Vidal-Abarca",
+			"Arnaugir",
+			"Fitoschido",
+			"Macofe",
 			"Martorell",
 			"Papapep",
 			"SMP",
-			"Toniher",
-			"Vriullop",
-			"Arnaugir",
-			"Macofe",
 			"Ssola",
-			"Fitoschido"
+			"Toniher",
+			"Vriullop"
 		]
 	},
 	"math-desc": "Composa fórmules matemàtiques escrites entre les etiquetes <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -35,6 +35,7 @@
 	"mw_math_png": "Produeix sempre PNG",
 	"mw_math_source": "Deixa com a LaTeX (per a navegadors de text)",
 	"prefs-math": "Com es mostren les fórmules",
+	"mathstatus": "Estat matemàtic",
 	"mathwikibase": "Informació de la fòrmula matemàtica",
 	"math-wikibase-header": "Informació dels elements matemàtics",
 	"math-wikibase-formula": "Fòrmula",

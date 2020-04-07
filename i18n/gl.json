@@ -2,13 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Alma",
-			"Toliño",
-			"Xosé",
-			"Elisardojm",
 			"Banjo",
+			"Elisardojm",
+			"Iváns",
 			"Macofe",
-			"Navhy",
-			"Iváns"
+			"Toliño",
+			"Xosé"
 		]
 	},
 	"math-desc": "Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",

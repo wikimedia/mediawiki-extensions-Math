@@ -1,18 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ciphers",
-			"Meno25",
-			"زكريا",
-			"Omda4wady",
 			"Abanima",
+			"Ciphers",
 			"Macofe",
-			"محمد أحمد عبد الفتاح",
 			"Maroen1990",
-			"Shbib Al-Subaie",
-			"Moud hosny",
+			"Meno25",
 			"Mido",
-			"ديفيد"
+			"Moud hosny",
+			"Omda4wady",
+			"Shbib Al-Subaie",
+			"ديفيد",
+			"زكريا",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"math-desc": "حوِّل الصيغ الرياضية بين وسمي <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",

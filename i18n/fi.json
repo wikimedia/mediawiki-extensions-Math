@@ -1,16 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Crt",
-			"Nike",
-			"Samoasambia",
-			"VezonThunder",
-			"Wix",
-			"Stryn",
-			"Macofe",
 			"01miki10",
+			"Crt",
+			"Macofe",
+			"Nike",
 			"Pyscowicz",
-			"Valtlait"
+			"Samoasambia",
+			"Stryn",
+			"Valtlait",
+			"VezonThunder",
+			"Wix"
 		]
 	},
 	"math-desc": "Esittää matemaattiset kaavat tunnisteiden <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> välillä",

@@ -1,20 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bluemersen",
+			"Garam",
+			"Hwangjy9",
+			"Hym411",
 			"IRTC1015",
+			"Jonghaya",
 			"Klutzy",
 			"Kwj2772",
+			"Macofe",
 			"Priviet",
 			"PuzzletChung",
-			"아라",
-			"Hym411",
 			"Revi",
-			"Bluemersen",
-			"Hwangjy9",
-			"Macofe",
-			"Jonghaya",
 			"Ykhwong",
-			"Garam"
+			"아라"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> 태그 사이에 수학 수식을 렌더합니다",

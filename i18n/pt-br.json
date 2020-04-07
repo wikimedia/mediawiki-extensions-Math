@@ -2,14 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Cainamarques",
-			"Giro720",
-			"Luckas",
-			"555",
-			"Macofe",
 			"Dianakc",
-			"Hamilton Abreu",
+			"Eduardo Addad de Oliveira",
 			"Felipe L. Ewald",
-			"Eduardo Addad de Oliveira"
+			"Giro720",
+			"Hamilton Abreu",
+			"Luckas",
+			"Macofe",
+			555
 		]
 	},
 	"math-desc": "Renderiza fórmulas matemáticas entre etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",

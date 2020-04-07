@@ -3,15 +3,15 @@
 		"authors": [
 			"Andriykopanytsia",
 			"Base",
-			"Olvin",
-			"Ата",
-			"Тест",
-			"Olion",
-			"Ypryima",
-			"Piramidion",
 			"Macofe",
+			"Movses",
+			"Olion",
+			"Olvin",
+			"Piramidion",
 			"Vlad5250",
-			"Movses"
+			"Ypryima",
+			"Ата",
+			"Тест"
 		]
 	},
 	"math-desc": "Відображає математичні формули у тегах <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",

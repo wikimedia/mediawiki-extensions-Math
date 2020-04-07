@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Minh Nguyen",
-			"Vinhtantran",
-			"Trần Nguyễn Minh Huy",
-			"Max20091",
 			"Dinhxuanduyet",
-			"Macofe"
+			"Macofe",
+			"Max20091",
+			"Minh Nguyen",
+			"Trần Nguyễn Minh Huy",
+			"Vinhtantran"
 		]
 	},
 	"math-desc": "Kết xuất các công thức nằm giữa thẻ <code>&lt;math&gt;</code> …<code>&lt;/math&gt;</code>",

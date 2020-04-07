@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"math_failure": "قۇرىلىمىن تالداتۋى ٴساتسىز ٴبىتتى",
 	"math_syntax_error": "سويلەم جۇيەسىنىڭ قاتەسى",
 	"math_unknown_error": "بەلگىسىز قاتە",

@@ -1,20 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
+			"Artsiom91",
 			"Cainamarques",
 			"Jon Harald Søby",
 			"Kizito",
+			"Liuxinyu970226",
+			"McDutchie",
+			"Mormegil",
 			"Physikerwelt",
 			"Raymond",
+			"Robby",
 			"Shirayuki",
 			"Siebrand",
-			"Mormegil",
-			"Liuxinyu970226",
-			"Umherirrender",
-			"McDutchie",
-			"Amire80",
-			"Robby",
-			"Artsiom91"
+			"Umherirrender"
 		]
 	},
 	"math-desc": "{{desc|name=Math|url=https://www.mediawiki.org/wiki/Extension:Math}}",

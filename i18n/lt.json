@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Perkunas",
 			"Albertas",
-			"Macofe",
 			"Eitvys200",
-			"Manvydasz"
+			"Macofe",
+			"Manvydasz",
+			"Perkunas"
 		]
 	},
 	"math-desc": "Atvaizduoti matematines formules tarp <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> žymių",

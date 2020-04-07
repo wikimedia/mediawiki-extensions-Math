@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bennylin",
+			"Gombang",
+			"Hidayatsrf",
 			"IvanLanin",
 			"Iwan Novirion",
-			"William Surya Permana",
-			"Bennylin",
 			"Rachmat.Wahidi",
-			"Hidayatsrf",
-			"Gombang"
+			"William Surya Permana"
 		]
 	},
 	"math-desc": "Menghasilkan rumus matematika di antara tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",

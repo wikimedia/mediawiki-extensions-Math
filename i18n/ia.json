@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"McDutchie",
-			"Macofe"
+			"Macofe",
+			"McDutchie"
 		]
 	},
 	"math-desc": "Visualisar formulas mathematic inter etiquettas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",

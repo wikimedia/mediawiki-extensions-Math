@@ -2,11 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"DCLXVI",
-			"Vodnokon4e",
 			"Macofe",
-			"StanProg",
 			"ShockD",
-			"Ted Masters"
+			"StanProg",
+			"Ted Masters",
+			"Vodnokon4e"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Химична формула",

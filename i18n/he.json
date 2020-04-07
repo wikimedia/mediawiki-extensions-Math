@@ -3,12 +3,12 @@
 		"authors": [
 			"Amire80",
 			"ExampleTomer",
-			"Yona b",
-			"Ronel1",
 			"Guycn2",
-			"Macofe",
 			"IKhitron",
-			"Putnik"
+			"Macofe",
+			"Putnik",
+			"Ronel1",
+			"Yona b"
 		]
 	},
 	"math-desc": "הצגת נוסחאות מתמטיות בין תגי <bdi><code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code></bdi>",

@@ -1,17 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Romaine",
-			"SPQRobin",
-			"Siebrand",
-			"Sjoerddebruin",
-			"Mirolith",
 			"Esketti",
-			"McDutchie",
 			"Macofe",
 			"Mainframe98",
 			"Mar(c)",
-			"Robin van der Vliet"
+			"McDutchie",
+			"Mirolith",
+			"Robin van der Vliet",
+			"Romaine",
+			"SPQRobin",
+			"Siebrand",
+			"Sjoerddebruin"
 		]
 	},
 	"math-desc": "Wiskundige formules tussen <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-labels weergeven",

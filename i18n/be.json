@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mienski",
-			"Yury Tarasievich",
-			"Macofe",
-			"Mechanizatar",
 			"Artsiom91",
+			"Macofe",
 			"Maksim L.",
-			"Vlad5250"
+			"Mechanizatar",
+			"Mienski",
+			"Vlad5250",
+			"Yury Tarasievich"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Хімічную формулу",

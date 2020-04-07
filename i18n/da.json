@@ -1,15 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cgtdk",
 			"Christian List",
+			"Macofe",
 			"Nghtwlkr",
 			"Peter Alberti",
-			"Thomsen",
-			"Macofe",
-			"Cgtdk",
 			"Saederup92",
-			"Weblars",
-			"Steenth"
+			"Steenth",
+			"Thomsen",
+			"Weblars"
 		]
 	},
 	"math-desc": "Gengiver matematiske formler inden i <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>-tags",

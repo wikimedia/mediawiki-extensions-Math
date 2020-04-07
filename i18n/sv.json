@@ -2,16 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Boivie",
+			"Fader",
 			"Habj",
+			"Jopparn",
+			"Lokal Profil",
+			"Macofe",
 			"Martinwiss",
+			"Mjälten",
 			"Nghtwlkr",
 			"Sannab",
-			"WikiPhoenix",
-			"Lokal Profil",
-			"Jopparn",
-			"Fader",
-			"Macofe",
-			"Mjälten"
+			"WikiPhoenix"
 		]
 	},
 	"math-desc": "Rendera matematiska formler mellan <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-taggar",

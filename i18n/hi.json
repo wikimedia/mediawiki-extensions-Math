@@ -1,16 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jayprakash12345",
 			"Kaustubh",
+			"NehalDaveND",
+			"Rajat11",
+			"Sachinkatiyar",
+			"Sfic",
 			"Siddhartha Ghai",
 			"आलोक",
-			"संजीव कुमार",
-			"NehalDaveND",
-			"Sfic",
 			"जनक राज भट्ट",
-			"Rajat11",
-			"Jayprakash12345",
-			"Sachinkatiyar"
+			"संजीव कुमार"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> टैगों के बीच गणितीय सूत्र रेंडर करें",

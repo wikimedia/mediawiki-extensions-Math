@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Macofe",
 			"Sasan700",
-			"Умар",
-			"Macofe"
+			"Умар"
 		]
 	},
 	"math-desc": "Гойту математикан формулш тегашкахь <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",

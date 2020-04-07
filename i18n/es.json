@@ -1,19 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amitie 10g",
 			"Armando-Martin",
 			"Ciencia Al Poder",
 			"Dferg",
+			"Dgstranz",
 			"Fitoschido",
+			"Indiralena",
+			"Macofe",
 			"MarcoAurelio",
 			"Platonides",
-			"Translationista",
-			"Macofe",
-			"Amitie 10g",
 			"Ryo567",
 			"Syum90",
-			"Indiralena",
-			"Dgstranz"
+			"Translationista"
 		]
 	},
 	"math-desc": "Representa fórmulas matemáticas entre las etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",

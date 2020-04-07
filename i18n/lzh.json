@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"math_failure": "譯不成",
 	"math_syntax_error": "語法有誤",
 	"math_unknown_error": "未知之誤",

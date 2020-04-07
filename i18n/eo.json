@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mihxil",
-			"Yekrats",
-			"לערי ריינהארט",
 			"KuboF",
-			"Robin van der Vliet",
 			"Macofe",
-			"Mirin"
+			"Mihxil",
+			"Mirin",
+			"Robin van der Vliet",
+			"Yekrats",
+			"לערי ריינהארט"
 		]
 	},
 	"math-desc": "Prezenti matematikajn formulojn inter la etikedoj <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",

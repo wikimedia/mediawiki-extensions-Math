@@ -1,20 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alexsh",
+			"Bowleerin",
+			"Cwlin0416",
+			"Hello903hello",
 			"Justincheng12345",
+			"Kly",
+			"LNDDYL",
 			"Liangent",
 			"Liuxinyu970226",
-			"Mark85296341",
-			"Simon Shek",
-			"Cwlin0416",
-			"LNDDYL",
-			"PhiLiP",
-			"Bowleerin",
 			"Macofe",
-			"Alexsh",
-			"烈羽",
-			"Hello903hello",
-			"Kly"
+			"Mark85296341",
+			"PhiLiP",
+			"Simon Shek",
+			"烈羽"
 		]
 	},
 	"math-desc": "在 <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code> 標籤之間呈現數學公式",

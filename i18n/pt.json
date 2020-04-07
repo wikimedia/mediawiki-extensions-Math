@@ -2,15 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Hamilton Abreu",
-			"Luckas",
-			"Vitorvicentevalente",
-			"Helder.wiki",
-			"Ti4goc",
 			"He7d3r",
+			"Helder.wiki",
 			"Imperadeiro90",
+			"Luckas",
 			"Macofe",
+			"Mansil",
 			"Mansil alfalb",
-			"Mansil"
+			"Ti4goc",
+			"Vitorvicentevalente"
 		]
 	},
 	"math-desc": "Faz a composição gráfica ''(rendering)'' das fórmulas matemáticas entre os elementos <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",

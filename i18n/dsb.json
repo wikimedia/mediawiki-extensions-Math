@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Macofe",
 			"Michawiki",
 			"Nepl1",
 			"Pe7er",
-			"Qualia",
-			"Macofe"
+			"Qualia"
 		]
 	},
 	"math-desc": "Dodawa matematiske formule mjazy toflickoma <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",

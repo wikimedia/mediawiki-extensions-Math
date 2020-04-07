@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Macofe",
 			"Murma174",
-			"Pyt",
-			"Macofe"
+			"Pyt"
 		]
 	},
 	"math-desc": "Wiset matemaatisk formeln tesken <code>&lt;math&gt;</code> an <code>&lt;/math&gt;</code> uun.",

@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Cedric31",
+			"Fitoschido",
 			"Macofe",
 			"Townie"
 		]
@@ -16,5 +17,5 @@
 	"mw_math_png": "Imatges PNG",
 	"mw_math_source": "Font LaTeX (pels navigadors en mòde tèxte)",
 	"prefs-math": "Rendut de las matas",
-	"mathstatus": "Estat matemàtic"
+	"mathstatus": "Estat matematic"
 }

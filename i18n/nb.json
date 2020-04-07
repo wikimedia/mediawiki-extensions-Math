@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Event",
-			"Nghtwlkr",
-			"Stigmj",
 			"Danmichaelo",
-			"Macofe",
+			"Event",
 			"Jeblad",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Macofe",
+			"Nghtwlkr",
+			"Stigmj"
 		]
 	},
 	"math-desc": "Fremstill matematiske formler inne i taggparet <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",

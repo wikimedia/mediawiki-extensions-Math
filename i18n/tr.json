@@ -1,24 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
+			"Arystanbek",
+			"BaRaN6161 TURK",
+			"Bulgu",
 			"Emperyan",
 			"Erkan Yilmaz",
+			"HakanIST",
 			"Hcagri",
+			"Imabadplayer",
 			"Joseph",
+			"Macofe",
+			"McAang",
+			"Meelo",
+			"Rapsar",
 			"Runningfridgesrule",
+			"Sayginer",
 			"Srhat",
 			"Uğur Başak",
-			"Rapsar",
-			"Arystanbek",
-			"Meelo",
-			"Watermelon juice",
-			"McAang",
-			"HakanIST",
-			"Sayginer",
-			"Imabadplayer",
-			"Macofe",
-			"Bulgu",
-			"BaRaN6161 TURK"
+			"Watermelon juice"
 		]
 	},
 	"math-desc": "Render matematiksel formüller arasında <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> etiketler",

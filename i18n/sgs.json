@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"math_failure": "Nepavīka apdoruotė",
 	"math_unknown_error": "nežinuoma klaida",
 	"math_unknown_function": "nežinuoma funkcėjė",

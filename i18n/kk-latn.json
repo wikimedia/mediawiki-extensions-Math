@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"math_failure": "Qurılımın taldatwı sätsiz bitti",
 	"math_syntax_error": "söýlem jüýesiniñ qatesi",
 	"math_unknown_error": "belgisiz qate",
