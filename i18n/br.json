@@ -11,6 +11,8 @@
 	"math-visualeditor-mwlatexinspector-display-default": "Dre ziouer",
 	"math_failure": "Fazi jedoniezh",
 	"math_syntax_error": "fazi ereadur",
+	"math-tracking-category-texvc-deprecation": "Pajennoù a ra gant ur furmad dispredet eus an tikedennoù matematik",
+	"math-tracking-category-texvc-deprecation-desc": "Ar pajennoù implijet er rummad-mañ a ra gant ur furmad dispredet eus an tikedennoù metematik",
 	"math_unknown_error": "fazi dianav",
 	"math_unknown_function": "arc'hwel dianav \"$1\"",
 	"mw_math_mathml": "MathML",
