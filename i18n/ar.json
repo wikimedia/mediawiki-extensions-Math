@@ -10,6 +10,7 @@
 			"Moud hosny",
 			"Omda4wady",
 			"Shbib Al-Subaie",
+			"Tala Ali",
 			"ديفيد",
 			"زكريا",
 			"محمد أحمد عبد الفتاح"
@@ -83,6 +84,7 @@
 	"math-tracking-category-error-desc": "الصفحات في هذا التصنيف تحتوي على أخطاء في استخدام وسوم الرياضيات.",
 	"math-tracking-category-mhchem-deprecation": "الصفحات التي تستخدم تنسيقا مهملا للعلامات الكيميائية",
 	"math-tracking-category-mhchem-deprecation-desc": "تستخدم الصفحات الموجودة في هذا التصنيف تنسيقا موقوفا للعلامات الكيميائية",
+	"math-tracking-category-texvc-deprecation-desc": "تستخدم الصفحات الموجودة في هذا التصنيف تنسيقا موقوفا لعلامات الرياضيات",
 	"math-tracking-category-render-error": "الصفحات بأخطاء عرض رياضيات",
 	"math-tracking-category-render-error-desc": "الصفحات في هذا التصنيف بها أخطاء عرض في وسوم الرياضيات.",
 	"math_unknown_error": "خطأ غير معروف",
