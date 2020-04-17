@@ -107,7 +107,7 @@
 	"wikibase-listdatatypes-math-body": "Bir LaTeX varyantında ifade edilen matematiksel ifadeler, formül, denklemler ve benzerleri için hazır bilgi alanı.",
 	"math-wikibase-header": "Matematiksel Madde Öğeleri",
 	"math-wikibase-formula": "Formül",
-	"math-wikibase-formula-name": "İsim",
+	"math-wikibase-formula-name": "Ad",
 	"math-wikibase-formula-type": "Tür",
 	"math-wikibase-formula-description": "Açıklama",
 	"math-wikibase-formula-information": "Matematik Formül Bilgisi",
