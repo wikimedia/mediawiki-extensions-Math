@@ -11,8 +11,8 @@ describe( 'Math', function () {
 		var pageName = Math.random().toString();
 
 		// create a page with a simple addition
-		browser.call( function () {
-			return Api.edit( pageName, '<math>3 + 2</math>' );
+		browser.call( async () => {
+			await Api.edit( pageName, '<math>3 + 2</math>' );
 		} );
 
 		MathPage.openTitle( pageName );
