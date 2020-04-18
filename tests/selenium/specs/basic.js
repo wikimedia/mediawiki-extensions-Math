@@ -12,7 +12,8 @@ describe( 'Math', function () {
 
 		// create a page with a simple addition
 		browser.call( function () {
-			return Api.edit( pageName, '<math>3 + 2</math>' );
+			var bot = await Api.bot();
+			return await bot.edit( pageName, '<math>3 + 2</math>' );
 		} );
 
 		MathPage.openTitle( pageName );

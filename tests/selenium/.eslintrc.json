@@ -1,12 +1,19 @@
 {
 	"root": true,
 	"extends": [
-		"wikimedia/server"
+		"wikimedia",
+		"wikimedia/node",
+		"wikimedia/language/es2017",
+		"wikimedia/jquery"
 	],
 	"env": {
 		"mocha": true
 	},
 	"globals": {
-		"browser": false
+		"browser": "readonly",
+		"mw": "readonly"
+	},
+	"rules": {
+		"no-jquery/no-global-selector": "off"
 	}
 }
