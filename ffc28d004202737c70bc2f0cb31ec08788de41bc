@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e006a56_b2b57944",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 487
+      },
+      "writtenOn": "2020-04-18T13:36:20Z",
+      "side": 1,
+      "message": "Please add phabricator task number to the commit message.",
+      "revId": "ffc28d004202737c70bc2f0cb31ec08788de41bc",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
