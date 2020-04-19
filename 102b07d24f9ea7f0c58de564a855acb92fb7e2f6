@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0a127cc_688b235e",
+        "filename": "tests/selenium/wdio.conf.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-04-19T16:39:43Z",
+      "side": 0,
+      "message": "I think it would be good to mention where this code is coming from. Is there anything specific to math or is it just a copz of a global template?",
+      "revId": "102b07d24f9ea7f0c58de564a855acb92fb7e2f6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
