@@ -3,9 +3,11 @@
 		"authors": [
 			"Alunardon90",
 			"Candalua",
+			"Fierodelveneto",
 			"Vajotwo"
 		]
 	},
+	"math-visualeditor-symbol-group-math-special": "Speçiałe",
 	"math_failure": "Eror del parser",
 	"math_syntax_error": "eror de sintassi",
 	"math_unknown_error": "eror sconossiùo",
