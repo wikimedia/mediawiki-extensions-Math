@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bdijkstra",
 			"Esketti",
 			"Macofe",
 			"Mainframe98",
@@ -73,7 +74,7 @@
 	"math-test-success": "Test \"$1\" <span style=\"color:green\">is geslaagd</span>.",
 	"math-tracking-category-error": "Pagina's met rekenkundige fouten",
 	"math-tracking-category-error-desc": "Pagina's in deze categorie hebben fouten in het gebruik van math tags.",
-	"math-tracking-category-texvc-deprecation": "Pagina's die een verouderd wiskundig labelformaat gebruiken",
+	"math-tracking-category-texvc-deprecation": "Pagina's die een verouderd wiskundig formaat gebruiken",
 	"math-tracking-category-texvc-deprecation-desc": "Pagina's in deze categorie gebruiken een verouderd wiskundig labelformaat",
 	"math_unknown_error": "onbekende fout",
 	"math_unknown_function": "onbekende functie \"$1\"",
