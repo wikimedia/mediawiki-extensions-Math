@@ -72,6 +72,8 @@
 	"math-tracking-category-error-desc": "Pàggene jndr'à sta categorije ca onne errore jndr'à l'ause de le tag matematece.",
 	"math-tracking-category-mhchem-deprecation": "Le pàggene ca ausane 'nu formate sconzigliate de le tag chem",
 	"math-tracking-category-mhchem-deprecation-desc": "Le pàggene jndr'à sta categorije ca ausane 'nu formate sconzigliate de le tag chem",
+	"math-tracking-category-texvc-deprecation": "Le pàggene ca ausane 'nu formate sconzigliate de le tag math",
+	"math-tracking-category-texvc-deprecation-desc": "Le pàggene jndr'à sta categorije ca ausane 'nu formate sconzigliate de le tag math",
 	"math-tracking-category-render-error": "Pàggene cu errore de referimende de matemateche",
 	"math-tracking-category-render-error-desc": "Pàggene jndr'à sta categorije ca tènene errore de renderizzazzione jndr'à le tag matematece.",
 	"math_unknown_error": "errore scanusciute",
