@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6e4b63b_bea28428",
+        "filename": "src/MathMathMLCli.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 366
+      },
+      "writtenOn": "2020-05-01T16:08:21Z",
+      "side": 1,
+      "message": "This change means that this function can now return undefined; is that OK?",
+      "range": {
+        "startLine": 176,
+        "startChar": 17,
+        "endLine": 176,
+        "endChar": 23
+      },
+      "revId": "ef984ca9322b92439b317805a75cf9d1bc00d9e2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
