@@ -22,6 +22,30 @@
       "revId": "ef984ca9322b92439b317805a75cf9d1bc00d9e2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7445db1a_2cd12dc7",
+        "filename": "src/MathMathMLCli.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-01T16:43:21Z",
+      "side": 1,
+      "message": "It is a compromise. For those with browsers with NO SVG support, it means that they still don\u0027t see images if the svg to png conversion is not properly set up on the server. For the rest of the users it is an advatage as they won\u0027t see the warning.",
+      "parentUuid": "a6e4b63b_bea28428",
+      "range": {
+        "startLine": 176,
+        "startChar": 17,
+        "endLine": 176,
+        "endChar": 23
+      },
+      "revId": "ef984ca9322b92439b317805a75cf9d1bc00d9e2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
     }
   ]
 }
