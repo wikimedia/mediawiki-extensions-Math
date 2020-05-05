@@ -18,6 +18,7 @@
 			"Whym",
 			"Wicklo",
 			"Yusuke1109",
+			"おはぐろ蜻蛉",
 			"青子守歌"
 		]
 	},
@@ -92,6 +93,7 @@
 	"datatypes-type-math": "数式",
 	"wikibase-listdatatypes-math-head": "数式",
 	"wikibase-listdatatypes-math-body": "LaTeXで表現された方程式や公式など数式のリテラルデータ。",
+	"math-wikibase-header": "数学項目の情報",
 	"math-wikibase-formula-description": "説明",
 	"math-wikibase-formula-link-header": "情報源",
 	"math-wikibase-special-error-invalid-argument": "あなたが指定したウィキベースIDは存在しません。"
