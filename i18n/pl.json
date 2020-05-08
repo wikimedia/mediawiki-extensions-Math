@@ -88,7 +88,7 @@
 	"math-tracking-category-render-error": "Strony z błędami renderowania wyrażeń matematycznych",
 	"math-tracking-category-render-error-desc": "Strony w tej kategorii zawierają problemy z renderowaniem tagów math",
 	"math_unknown_error": "nieznany błąd",
-	"math_unknown_function": "nieznana funkcja '$1'",
+	"math_unknown_function": "nieznana funkcja „$1”",
 	"mw_math_latexml": "LaTeXML (eksperymentalne; wykorzystuje MathML)",
 	"mw_math_mathml": "MathML z przejściem w SVG lub PNG (zalecane dla nowoczesnych przeglądarek i narzędzi zwiększenia dostępności)",
 	"mw_math_png": "Obrazy PNG",
