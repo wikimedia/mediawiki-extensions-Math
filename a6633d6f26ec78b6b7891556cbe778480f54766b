@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25648adb_8a328346",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-11T17:12:22Z",
+      "side": 1,
+      "message": "Seems like this is used via service container. This means all the dependencies (everything you get from MediaWikiServices as well as all the globals should be injected via the constructor. That means it needs to be injected into the InputCheckerFactory too.\n\nI guess that can be split into a separate commit.",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2dd0d67_2f417016",
+        "filename": "src/Math/InputCheck/ServiceWiring.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-11T17:12:22Z",
+      "side": 1,
+      "message": "Usually ServiceWiring should be in the top of he hierarchy",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bfb7ea2_db9adc8c",
+        "filename": "src/Math/Rest/Check.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-11T17:12:22Z",
+      "side": 1,
+      "message": "1. We usually call the \"SomethingHandler\" not just \"Something\"\n2. If you extend \u0027SimpleHandler\u0027 you\u0027d can your path parameters as arguments to \u0027run\u0027 method.",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16a91333_14196136",
+        "filename": "src/Math/Rest/Check.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-11T17:12:22Z",
+      "side": 1,
+      "message": "This is a method to check conditional http request headers (If-Mach, If-Modified-Since etc.) You are not using them AFAIK, so you don\u0027t need to implement this method.",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "436a4574_b2dffec4",
+        "filename": "src/Math/Rest/Check.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-11T17:12:22Z",
+      "side": 1,
+      "message": "All service objects has to be injected. This is done by providing the names of your services into \u0027services\u0027 object in the declaration of your REST routes in extension.json. See https://github.com/wikimedia/mediawiki-extensions-EventBus/blob/master/extension.json#L56 for an example. All the services you require would be passed in as constructor arguments, and you\u0027d be able to save them into private fields. See https://github.com/wikimedia/mediawiki-extensions-EventBus/blob/master/includes/Rest/RunSingleJobHandler.php#L60",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86742110_86c0ac4d",
+        "filename": "tests/phpunit/Math/Rest/testRoutes.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-11T17:12:22Z",
+      "side": 1,
+      "message": "Don\u0027t need this file",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
