@@ -16,7 +16,7 @@ class SpecialMathStatus extends SpecialPage {
 	private $logger;
 
 	public function __construct( $name = 'MathStatus' ) {
-		parent::__construct( $name );
+		parent::__construct( $name, 'purge' );
 
 		$this->logger = LoggerFactory::getInstance( 'Math' );
 	}
@@ -29,11 +29,6 @@ class SpecialMathStatus extends SpecialPage {
 	 */
 	public function execute( $query ) {
 		$this->setHeaders();
-		if ( !( $this->getUser()->isAllowed( 'purge' ) ) ) {
-			// The effect of loading this page is comparable to purge a page.
-			// If desired a dedicated right e.g. "viewmathstatus" could be used instead.
-			throw new PermissionsError( 'purge' );
-		}
 
 		$out = $this->getOutput();
 		$enabledMathModes = MathHooks::getMathNames();
