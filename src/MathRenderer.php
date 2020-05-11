@@ -720,7 +720,7 @@ abstract class MathRenderer {
 	 * @return bool
 	 */
 	protected function doCheck() {
-		$checker = new MathInputCheckRestbase( $this->tex, $this->getInputType(), $this->rbi );
+		$checker = new RestbaseChecker( $this->tex, $this->getInputType(), $this->rbi );
 		try {
 			if ( $checker->isValid() ) {
 				$this->setTex( $checker->getValidTex() );

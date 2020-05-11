@@ -28,7 +28,7 @@ class MathValidator implements ValueValidator {
 		// get input String from value
 		$tex = $value->getValue();
 
-		$checker = new MathInputCheckRestbase( $tex );
+		$checker = new RestbaseChecker( $tex );
 		if ( $checker->isValid() ) {
 			return Result::newSuccess();
 		}

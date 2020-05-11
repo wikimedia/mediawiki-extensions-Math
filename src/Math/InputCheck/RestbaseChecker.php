@@ -1,4 +1,13 @@
 <?php
+namespace MediaWiki\Extension\Math\InputCheck;
+
+use Exception;
+use MathHooks;
+use MathRenderer;
+use MathRestbaseInterface;
+use MathSource;
+use stdClass;
+
 /**
  * MediaWiki math extension
  *
@@ -8,7 +17,7 @@
  * @author Moritz Schubotz
  */
 
-class MathInputCheckRestbase extends MathInputCheck {
+class RestbaseChecker extends BaseChecker {
 	private $restbaseInterface;
 
 	/**
@@ -34,7 +43,7 @@ class MathInputCheckRestbase extends MathInputCheck {
 	 */
 	public function errorObjectToHtml( stdClass $e, $errorRenderer = null ) {
 		if ( $errorRenderer === null ) {
-			$errorRenderer = new MathSource( $this->inputTeX );
+			$errorRenderer = new MathSource( $this->input );
 		}
 		if ( isset( $e->error->message ) ) {
 			if ( $e->error->message === 'Illegal TeX function' ) {
