@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "603633ad_39d3f392",
+        "filename": "tests/selenium/wdio.conf.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 487
+      },
+      "writtenOn": "2020-05-11T14:54:54Z",
+      "side": 1,
+      "message": "Please remove video recording from the file until T247960 is resolved. Recreate the file using the instructions in the blog post:\n\nhttps://webdriver.io/blog/2018/12/19/webdriverio-v5-released.html#how-to-upgrade-to-v5",
+      "revId": "0c8ecb11e48631dd9add608c26c2d9234967576c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
