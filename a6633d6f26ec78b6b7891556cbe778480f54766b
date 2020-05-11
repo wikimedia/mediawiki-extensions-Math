@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b577b4ac_f45330f7",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-11T17:42:16Z",
+      "side": 1,
+      "message": "OK. I understand how to inject the services, but how would I do it for the global variables?",
+      "parentUuid": "25648adb_8a328346",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2dd0d67_2f417016",
         "filename": "src/Math/InputCheck/ServiceWiring.php",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2020-05-11T17:12:22Z",
       "side": 1,
       "message": "Usually ServiceWiring should be in the top of he hierarchy",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d161ab43_5528ad5f",
+        "filename": "src/Math/InputCheck/ServiceWiring.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-11T17:42:16Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "a2dd0d67_2f417016",
       "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "eeaddaf8_6749f6e1",
+        "filename": "src/Math/Rest/Check.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-11T17:42:16Z",
+      "side": 1,
+      "message": "1. OK\n2. That\u0027s how I started. But it did not work out in the end. One can not easily return non-200 return codes.",
+      "parentUuid": "5bfb7ea2_db9adc8c",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "16a91333_14196136",
         "filename": "src/Math/Rest/Check.php",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2020-05-11T17:12:22Z",
       "side": 1,
       "message": "This is a method to check conditional http request headers (If-Mach, If-Modified-Since etc.) You are not using them AFAIK, so you don\u0027t need to implement this method.",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56e6f1f2_8ffa0368",
+        "filename": "src/Math/Rest/Check.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-11T17:42:16Z",
+      "side": 1,
+      "message": "This is a workaround, for the 400 return codes.",
+      "parentUuid": "16a91333_14196136",
       "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
@@ -87,6 +159,41 @@
     },
     {
       "key": {
+        "uuid": "311fbf84_c49918dc",
+        "filename": "src/Math/Rest/Check.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-11T17:42:16Z",
+      "side": 1,
+      "message": "ok. got it.",
+      "parentUuid": "436a4574_b2dffec4",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24ab0f2f_4775d276",
+        "filename": "tests/phpunit/Math/Rest/CheckTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-11T17:42:16Z",
+      "side": 1,
+      "message": "This can not be an empty array.",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86742110_86c0ac4d",
         "filename": "tests/phpunit/Math/Rest/testRoutes.json",
         "patchSetId": 3
@@ -98,6 +205,24 @@
       "writtenOn": "2020-05-11T17:12:22Z",
       "side": 1,
       "message": "Don\u0027t need this file",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e63b69d8_ed9eb8f2",
+        "filename": "tests/phpunit/Math/Rest/testRoutes.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-11T17:42:16Z",
+      "side": 1,
+      "message": "I could not figure out how to avoid this file.",
+      "parentUuid": "86742110_86c0ac4d",
       "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
