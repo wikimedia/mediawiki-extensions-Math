@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "7d3ea3c1_b023d50f",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-11T18:00:32Z",
+      "side": 1,
+      "message": "You gotta use ServiceOptions. Example:\n1. Add an argument in the constructor: https://gerrit.wikimedia.org/r/c/mediawiki/extensions/EventBus/+/590471/7/includes/EventBusFactory.php#72\n2. List the names of the config variables: https://gerrit.wikimedia.org/r/c/mediawiki/extensions/EventBus/+/590471/7/includes/EventBusFactory.php#38\n3. Create ServiceOption within ServiceWiring: https://gerrit.wikimedia.org/r/c/mediawiki/extensions/EventBus/+/590471/7/ServiceWiring.php#12\n\nin your case since you are creating the MathoidChecker via a factory, you\u0027d need to inject ServiceOptions into the factory and pass them along into the implementations.",
+      "parentUuid": "b577b4ac_f45330f7",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2dd0d67_2f417016",
         "filename": "src/Math/InputCheck/ServiceWiring.php",
         "patchSetId": 3
@@ -107,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "adf28228_ea831c77",
+        "filename": "src/Math/Rest/Check.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-11T18:00:32Z",
+      "side": 1,
+      "message": "For non-200 codes you need to throw LocalizedHttpException - it will be caught by the REST framework and converted into a proper non-200 response.",
+      "parentUuid": "eeaddaf8_6749f6e1",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "16a91333_14196136",
         "filename": "src/Math/Rest/Check.php",
         "patchSetId": 3
@@ -136,6 +172,24 @@
       "side": 1,
       "message": "This is a workaround, for the 400 return codes.",
       "parentUuid": "16a91333_14196136",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86d3174a_92bfb13e",
+        "filename": "src/Math/Rest/Check.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-11T18:00:32Z",
+      "side": 1,
+      "message": "just throw LocalizedHttpException. Example https://github.com/wikimedia/mediawiki/blob/master/includes/Rest/Handler/MediaLinksHandler.php#L80",
+      "parentUuid": "56e6f1f2_8ffa0368",
       "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
@@ -188,6 +242,24 @@
       "writtenOn": "2020-05-11T17:42:16Z",
       "side": 1,
       "message": "This can not be an empty array.",
+      "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b17143c6_de93862b",
+        "filename": "tests/phpunit/Math/Rest/CheckTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-11T18:00:32Z",
+      "side": 1,
+      "message": "This test in general is doing too much - it\u0027s more of an integration test, and for that we now have the api-testing framework. PHPUni tests for REST shouldn\u0027t really create a router etc etc, you should create the Check handler, inject all dependencies (or mocks) and call methods on your handler directly. No need to exercise whether Router works - it probably does.\n\nFor integration testing via api-testing - since these depend on Mathoid, you probably can\u0027t do it.",
+      "parentUuid": "24ab0f2f_4775d276",
       "revId": "a6633d6f26ec78b6b7891556cbe778480f54766b",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
