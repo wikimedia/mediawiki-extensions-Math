@@ -1,7 +1,9 @@
 <?php
 
+use MediaWiki\Extension\Math\InputCheck\BaseChecker;
+
 /**
- * @covers \MathInputCheck
+ * @covers \MediaWiki\Extension\Math\InputCheck\BaseChecker
  *
  * @group Math
  *
@@ -10,8 +12,8 @@
 class MathInputCheckTest extends MediaWikiTestCase {
 
 	public function testAbstractClass() {
-		$InputCheck = $this->getMockForAbstractClass( MathInputCheck::class );
-		/** @var MathInputCheck $InputCheck */
+		$InputCheck = $this->getMockForAbstractClass( BaseChecker::class );
+		/** @var BaseChecker $InputCheck */
 		$this->assertFalse( $InputCheck->IsValid() );
 		$this->assertNull( $InputCheck->getError() );
 		$this->assertNull( $InputCheck->getValidTex() );
