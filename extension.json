@@ -26,8 +26,6 @@
 		"MathMathML": "src/MathMathML.php",
 		"MathMathMLCli": "src/MathMathMLCli.php",
 		"MathLaTeXML": "MathLaTeXML.php",
-		"MathInputCheck": "src/MathInputCheck.php",
-		"MathInputCheckRestbase": "src/MathInputCheckRestbase.php",
 		"SpecialMathShowImage": "src/SpecialMathShowImage.php",
 		"SpecialMathStatus": "src/SpecialMathStatus.php",
 		"SpecialMathWikibase": "src/SpecialMathWikibase.php",
@@ -40,6 +38,11 @@
 		"MathWikibaseConfig": "src/MathWikibaseConfig.php",
 		"MathWikibaseConnector": "src/MathWikibaseConnector.php",
 		"MathWikibaseInfo": "src/MathWikibaseInfo.php"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\Math\\": "src/Math/",
+		"MediaWiki\\Extension\\Math\\Rest\\": "src/Math/Rest",
+		"MediaWiki\\Extension\\Math\\InputCheck\\": "src/Math/InputCheck"
 	},
 	"TestAutoloadClasses": {
 		"MathMLHttpRequestTester": "tests/phpunit/MathMLHttpRequestTester.php",
@@ -258,6 +261,16 @@
 	"TrackingCategories": [
 		"math-tracking-category-error",
 		"math-tracking-category-render-error"
+	],
+	"RestRoutes": [
+		{
+			"path": "/math/v0/check/{type}",
+			"method": "POST",
+			"class": "MediaWiki\\Extension\\Math\\Rest\\Check"
+		}
+	],
+	"ServiceWiringFiles": [
+		"src/Math/InputCheck/ServiceWiring.php"
 	],
 	"manifest_version": 1
 }
