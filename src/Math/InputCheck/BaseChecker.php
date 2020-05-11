@@ -1,4 +1,7 @@
 <?php
+
+namespace MediaWiki\Extension\Math\InputCheck;
+
 /**
  * MediaWiki math extension
  *
@@ -7,17 +10,17 @@
  * @license GPL-2.0-or-later
  * @author Moritz Schubotz
  */
-abstract class MathInputCheck {
-	protected $inputTeX;
-	protected $validTeX;
+abstract class BaseChecker {
+	protected $input;
+	protected $validInput;
+	protected $type;
+	protected $version = null;
 	protected $isValid = false;
 	protected $lastError = null;
 
-	/**
-	 * @param string $tex the TeX InputString to be checked
-	 */
-	public function __construct( $tex = '' ) {
-		$this->inputTeX = $tex;
+	public function __construct( $tex = '', $type = 'tex' ) {
+		$this->input = $tex;
+		$this->type = $type;
 		$this->isValid = false;
 	}
 
@@ -44,6 +47,6 @@ abstract class MathInputCheck {
 	 * @return string A valid Tex string
 	 */
 	public function getValidTex() {
-		return $this->validTeX;
+		return $this->validInput;
 	}
 }

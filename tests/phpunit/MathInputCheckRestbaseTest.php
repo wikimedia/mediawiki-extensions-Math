@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Math\InputCheck\RestbaseChecker;
+
 /**
  * @group Math
  *
@@ -7,9 +9,9 @@
  */
 class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 	protected static $hasRestbase;
-	/** @var MathInputCheckRestbase */
+	/** @var RestbaseChecker */
 	protected $BadObject;
-	/** @var MathInputCheckRestbase */
+	/** @var RestbaseChecker */
 	protected $GoodObject;
 
 	public static function setUpBeforeClass() : void {
@@ -26,12 +28,12 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 		if ( !self::$hasRestbase ) {
 			$this->markTestSkipped( "Can not connect to Restbase Math interface." );
 		}
-		$this->BadObject = new MathInputCheckRestbase( '\newcommand{\text{do evil things}}' );
-		$this->GoodObject = new MathInputCheckRestbase( '\sin\left(\frac12x\right)' );
+		$this->BadObject = new RestbaseChecker( '\newcommand{\text{do evil things}}' );
+		$this->GoodObject = new RestbaseChecker( '\sin\left(\frac12x\right)' );
 	}
 
 	/**
-	 * @covers \MathInputCheckRestbase::getError
+	 * @covers \MediaWiki\Extension\Math\InputCheck\RestbaseChecker::getError
 	 */
 	public function testGetError() {
 		$this->assertNull( $this->GoodObject->getError() );
@@ -46,20 +48,20 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers \MathInputCheckRestbase::getError
+	 * @covers \RestbaseChecker::getError
 	 */
 	public function testErrorSyntax() {
-		$o = new MathInputCheckRestbase( '\left(' );
+		$o = new RestbaseChecker( '\left(' );
 		$this->assertFalse( $o->isValid() );
 		$expectedMessage = wfMessage( 'math_syntax_error' )->inContentLanguage()->escaped();
 		$this->assertStringContainsString( $expectedMessage, $o->getError() );
 	}
 
 	/**
-	 * @covers \MathInputCheckRestbase::getError
+	 * @covers \RestbaseChecker::getError
 	 */
 	public function testErrorLexing() {
-		$o = new MathInputCheckRestbase( "\x61\xCC\x81" );
+		$o = new RestbaseChecker( "\x61\xCC\x81" );
 		$this->assertFalse( $o->isValid() );
 		// Lexical errors are no longer supported. The new error message
 		// Expected "-", "[", "\\\\",
@@ -71,7 +73,7 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers \MathInputCheckRestbase::isValid
+	 * @covers \RestbaseChecker::isValid
 	 */
 	public function testIsValid() {
 		$this->assertFalse( $this->BadObject->isValid() );
@@ -79,7 +81,7 @@ class MathInputCheckRestbaseTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers \MathInputCheckRestbase::getValidTex
+	 * @covers \RestbaseChecker::getValidTex
 	 */
 	public function testGetValidTex() {
 		$this->assertNull( $this->GoodObject->getValidTex() );
