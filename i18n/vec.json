@@ -15,5 +15,7 @@
 	"mw_math_mathml": "Usa MathML se se pol (sperimental)",
 	"mw_math_png": "Mostra senpre in PNG",
 	"mw_math_source": "Lassa in formato TeX (par browser testuali)",
-	"prefs-math": "Formułe matematiche"
+	"prefs-math": "Formułe matematiche",
+	"mathwikibase": "Informasion de fòrmuła matemàdega",
+	"math-wikibase-formula-information": "Informasion de fòrmuła matemàdega"
 }

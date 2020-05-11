@@ -19,6 +19,7 @@
 			"Wicklo",
 			"Yusuke1109",
 			"おはぐろ蜻蛉",
+			"ネイ",
 			"青子守歌"
 		]
 	},
@@ -81,6 +82,10 @@
 	"math-test-start": "''$1''のレンダリング方式のバックエンドテストを実行中。",
 	"math-test-success": "''$1''のテストは<span style=\"color:green\">成功しました</span>。",
 	"math-tracking-category-error": "mathエラーのあるページ",
+	"math-tracking-category-mhchem-deprecation": "Chemタグに非推奨の書式を使用しているページ",
+	"math-tracking-category-mhchem-deprecation-desc": "このカテゴリに含まれるページはchemタグに非推奨の書式を使用しています",
+	"math-tracking-category-texvc-deprecation": "Mathタグに非推奨の書式を使用しているページ",
+	"math-tracking-category-texvc-deprecation-desc": "このカテゴリに含まれるページはmathタグに非推奨の書式を使用しています",
 	"math-tracking-category-render-error": "math 参照エラーのあるページ",
 	"math_unknown_error": "不明なエラー",
 	"math_unknown_function": "不明な関数「$1」",
@@ -96,5 +101,6 @@
 	"math-wikibase-header": "数学項目の情報",
 	"math-wikibase-formula-description": "説明",
 	"math-wikibase-formula-link-header": "情報源",
+	"math-wikibase-special-error-header": "エラー",
 	"math-wikibase-special-error-invalid-argument": "あなたが指定したウィキベースIDは存在しません。"
 }
