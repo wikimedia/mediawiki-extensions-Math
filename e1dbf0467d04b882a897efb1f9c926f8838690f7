@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "287d4e75_e26b1c8d",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-12T18:37:32Z",
+      "side": 1,
+      "message": "I am not sure if this a good interim solution to define the content version of the Math tag. The idea is to update the content version every time the syntax to define formulae changes.",
+      "revId": "e1dbf0467d04b882a897efb1f9c926f8838690f7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d407c138_bc2d1f66",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-12T18:37:32Z",
+      "side": 1,
+      "message": "I am surprised that this contacts all values rather than hashing the input. Especially that the inputTex can be rather long \u003e64kB. cf. Bug 73090",
+      "revId": "e1dbf0467d04b882a897efb1f9c926f8838690f7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6af5d9bd_18cbf741",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-12T18:37:32Z",
+      "side": 1,
+      "message": "I am not sure if WANObjectCache::TTL_INDEFINITE is an adequate value here. It is like storing it in the DB.",
+      "revId": "e1dbf0467d04b882a897efb1f9c926f8838690f7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e36267e_f21ca27c",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-12T18:37:32Z",
+      "side": 1,
+      "message": "I am not sure, how to do proper type hints here.",
+      "revId": "e1dbf0467d04b882a897efb1f9c926f8838690f7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8377278e_58a88ffb",
+        "filename": "tests/phpunit/InputCheck/MathoidTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-12T18:37:32Z",
+      "side": 1,
+      "message": "Maybe it is paranoid to double-check this? I was under the impression that WAN defaults to newEmpty",
+      "revId": "e1dbf0467d04b882a897efb1f9c926f8838690f7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
