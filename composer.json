@@ -7,14 +7,18 @@
 		"mediawiki/mediawiki-phan-config": "0.9.1"
 	},
 	"scripts": {
-		"test": [
+		"lint": [
 			"parallel-lint . --exclude vendor --exclude node_modules",
-			"phpcs -p -s",
+			"phpcs -p -s"
+		],
+		"test": [
+			"@lint",
 			"minus-x check ."
 		],
+		"fix-lint": "phpcbf",
 		"fix": [
-			"minus-x fix .",
-			"phpcbf"
+			"@fix-lint",
+			"minus-x fix ."
 		]
 	},
 	"extra": {
