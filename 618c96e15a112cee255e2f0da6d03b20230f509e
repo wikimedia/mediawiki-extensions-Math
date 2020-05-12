@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3ec45a8_7a248278",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T19:09:44Z",
+      "side": 1,
+      "message": "I don\u0027t think you\u0027d need Math directory in the directory structure. \n\nIdeally, all the classes should be properly namespaced. So instead of all the AutoloadClasses you\u0027d have a single AutoloadNamespaces: \"MediaWiki\\\\Extension\\\\Math\\\\\": \"src/\" and the directory structure resabmling your namespaces structure.",
+      "revId": "618c96e15a112cee255e2f0da6d03b20230f509e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
