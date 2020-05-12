@@ -296,5 +296,8 @@
 		"math-tracking-category-error",
 		"math-tracking-category-render-error"
 	],
+	"ServiceWiringFiles": [
+		"ServiceWiring.php"
+	],
 	"manifest_version": 2
 }
