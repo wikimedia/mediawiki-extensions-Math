@@ -1,4 +1,7 @@
 <?php
+
+namespace MediaWiki\Extension\Math\InputCheck;
+
 /**
  * MediaWiki math extension
  *
@@ -7,7 +10,7 @@
  * @license GPL-2.0-or-later
  * @author Moritz Schubotz
  */
-abstract class MathInputCheck {
+abstract class BaseChecker {
 	protected $inputTeX;
 	protected $validTeX;
 	protected $isValid = false;
