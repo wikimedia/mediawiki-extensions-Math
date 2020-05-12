@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ce3e59b_b6e3c385",
+        "filename": "ServiceWiring.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:37:12Z",
+      "side": 1,
+      "message": "Prefix it with extension name. Like \u0027Math.MathCheckerFacroy\u0027",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb29521e_78808adc",
+        "filename": "src/Math/InputCheck/InputCheckFactory.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:37:12Z",
+      "side": 1,
+      "message": "phpdoc",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4823e1b_d9405eb3",
+        "filename": "src/Math/InputCheck/InputCheckFactory.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:37:12Z",
+      "side": 1,
+      "message": "You could add a unit test for this using FactoryArgTestTrait. you can find an example in usages of the trait. PageHandlerFactoryTest in core for example.",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccd19ded_410049b8",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:37:12Z",
+      "side": 1,
+      "message": "@var with type pls",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42753c63_c95bc149",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:37:12Z",
+      "side": 1,
+      "message": "phpdoc",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2837fe37_e732dddc",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:37:12Z",
+      "side": 1,
+      "message": "Split these on separate lines please",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4e657a4_bf88fbff",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:37:12Z",
+      "side": 1,
+      "message": "typehints please, and one var per line",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9f38ad3_8b0132b9",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:37:12Z",
+      "side": 1,
+      "message": "phpdoc",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f8ad9e6_b8dc014d",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:37:12Z",
+      "side": 1,
+      "message": "phpdoc",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9238234a_d2d3e4c4",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:37:12Z",
+      "side": 1,
+      "message": "Maybe inject a logger and log something more useful here with actual response. This is quite useless for debugging.",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db3a24a1_a56d25e8",
+        "filename": "tests/phpunit/InputCheck/MathoidTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:37:12Z",
+      "side": 1,
+      "message": "Maybe MathoidCheckerTest?",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9d6965e_09f4baf0",
+        "filename": "tests/phpunit/InputCheck/MathoidTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:37:12Z",
+      "side": 1,
+      "message": "It\u0027s better to just construct it and pass in your fake services instead of using \u0027setService\u0027.\n\nSo, you\u0027d have something like: \ngetMathoidChecker( WANObjectCache $cacheOverride \u003d null ) {\n return new MathCheckerFactory(\n  new ServiceOptions( MathCheckerFactory::CONSTRUCTOR_OPTIONS, MediaWikiService::getInstance()-\u003egetMainConfig ), // Or you can construct a HashConfig if you want to override \n  $cacheOverride ?? MediaWikiServices::getInstance()-\u003egetWANObjectCache(),\n  ...\n}\n\nOr even pass $this-\u003ecreateNoopMock instead of services if hey are not needed for a test.",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2438cf9f_ed624a4a",
+        "filename": "tests/phpunit/InputCheck/MathoidTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:37:12Z",
+      "side": 1,
+      "message": "Same, you can just provide this fake factory into the constructor of your service.",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
