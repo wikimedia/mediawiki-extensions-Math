@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "180e1883_a7293e6a",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-12T21:46:26Z",
+      "side": 1,
+      "message": "I would rather only deviate from the standard if there is a really strong reason for it. If it does not break, it is good enough.",
+      "parentUuid": "d85e5117_b8041e33",
+      "revId": "e1dbf0467d04b882a897efb1f9c926f8838690f7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6af5d9bd_18cbf741",
         "filename": "src/Math/InputCheck/MathoidChecker.php",
         "patchSetId": 1

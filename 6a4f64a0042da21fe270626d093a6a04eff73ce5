@@ -206,6 +206,24 @@
     },
     {
       "key": {
+        "uuid": "b6c0fb37_fc3366fa",
+        "filename": "tests/phpunit/InputCheck/MathoidTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-12T21:46:26Z",
+      "side": 1,
+      "message": "I do not understand why this is better.\nOn https://www.mediawiki.org/wiki/Dependency_Injection#Quick_Start setService is advertised.\nIf I understand correctly\n\nMediaWikiServices::getInstance()-\u003egetService( \u0027MathCheckerFactory\u0027 )\n\nis the standard way how others should use the service, rather than be creating it via constructor with all these options.\nBy overriding services with a fake service, the test-case explains how the service can be used.\n\nBy creating an instance of the underlying factory class the service wiring is untested and every change in the signature of the constructor must be replicated in the test cases.",
+      "parentUuid": "f9d6965e_09f4baf0",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2438cf9f_ed624a4a",
         "filename": "tests/phpunit/InputCheck/MathoidTest.php",
         "patchSetId": 3
