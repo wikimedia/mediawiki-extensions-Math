@@ -16,6 +16,24 @@
       "revId": "102b07d24f9ea7f0c58de564a855acb92fb7e2f6",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05597693_22ef76a5",
+        "filename": "tests/selenium/wdio.conf.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 487
+      },
+      "writtenOn": "2020-05-12T11:49:29Z",
+      "side": 0,
+      "message": "This file is mostly copied from mediawiki/core.\n\nSorry for the late reply, just noticed your question. :)",
+      "parentUuid": "d0a127cc_688b235e",
+      "revId": "102b07d24f9ea7f0c58de564a855acb92fb7e2f6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
