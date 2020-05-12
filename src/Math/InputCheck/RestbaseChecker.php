@@ -1,4 +1,14 @@
 <?php
+
+namespace MediaWiki\Extension\Math\InputCheck;
+
+use Exception;
+use MathHooks;
+use MathRenderer;
+use MathRestbaseInterface;
+use MathSource;
+use stdClass;
+
 /**
  * MediaWiki math extension
  *
@@ -7,8 +17,7 @@
  * @license GPL-2.0-or-later
  * @author Moritz Schubotz
  */
-
-class MathInputCheckRestbase extends MathInputCheck {
+class RestbaseChecker extends BaseChecker {
 	private $restbaseInterface;
 
 	/**
@@ -49,10 +58,13 @@ class MathInputCheckRestbase extends MathInputCheck {
 					$host = 'invalid';
 				}
 				$msg = $e->error->message;
+
 				return $errorRenderer->getError( 'math_invalidresponse', $mode, $host, $msg );
 			}
+
 			return $errorRenderer->getError( 'math_syntax_error' );
 		}
+
 		return $errorRenderer->getError( 'math_unknown_error' );
 	}
 
@@ -82,6 +94,7 @@ class MathInputCheckRestbase extends MathInputCheck {
 		if ( $err === null ) {
 			return null;
 		}
+
 		return $this->errorObjectToHtml( $err );
 	}
 

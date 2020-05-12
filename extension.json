@@ -26,8 +26,6 @@
 		"MathMathML": "src/MathMathML.php",
 		"MathMathMLCli": "src/MathMathMLCli.php",
 		"MathLaTeXML": "MathLaTeXML.php",
-		"MathInputCheck": "src/MathInputCheck.php",
-		"MathInputCheckRestbase": "src/MathInputCheckRestbase.php",
 		"SpecialMathShowImage": "src/SpecialMathShowImage.php",
 		"SpecialMathStatus": "src/SpecialMathStatus.php",
 		"SpecialMathWikibase": "src/SpecialMathWikibase.php",
@@ -40,6 +38,9 @@
 		"MathWikibaseConfig": "src/MathWikibaseConfig.php",
 		"MathWikibaseConnector": "src/MathWikibaseConnector.php",
 		"MathWikibaseInfo": "src/MathWikibaseInfo.php"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\Math\\InputCheck\\": "src/Math/InputCheck"
 	},
 	"TestAutoloadClasses": {
 		"MathMLHttpRequestTester": "tests/phpunit/MathMLHttpRequestTester.php",
