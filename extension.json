@@ -66,48 +66,80 @@
 	},
 	"config": {
 		"MathDefaultLaTeXMLSetting": {
-			"format": "xhtml",
-			"whatsin": "math",
-			"whatsout": "math",
-			"0": "pmml",
-			"1": "cmml",
-			"2": "mathtex",
-			"3": "nodefaultresources",
-			"preload": [
-				"LaTeX.pool",
-				"article.cls",
-				"amsmath.sty",
-				"amsthm.sty",
-				"amstext.sty",
-				"amssymb.sty",
-				"eucal.sty",
-				"[dvipsnames]xcolor.sty",
-				"url.sty",
-				"hyperref.sty",
-				"[ids]latexml.sty",
-				"texvc"
-			],
-			"linelength": 90
+			"value": {
+				"format": "xhtml",
+				"whatsin": "math",
+				"whatsout": "math",
+				"0": "pmml",
+				"1": "cmml",
+				"2": "mathtex",
+				"3": "nodefaultresources",
+				"preload": [
+					"LaTeX.pool",
+					"article.cls",
+					"amsmath.sty",
+					"amsthm.sty",
+					"amstext.sty",
+					"amssymb.sty",
+					"eucal.sty",
+					"[dvipsnames]xcolor.sty",
+					"url.sty",
+					"hyperref.sty",
+					"[ids]latexml.sty",
+					"texvc"
+				],
+				"linelength": 90
+			}
 		},
-		"MathDisableTexFilter": "new",
-		"MathEnableExperimentalInputFormats": false,
-		"MathLaTeXMLTimeout": 240,
-		"MathLaTeXMLUrl": "https://latexml.formulasearchengine.com/convert",
-		"MathMathMLTimeout": 20,
-		"MathMathMLUrl": "https://mathoid-beta.wmflabs.org",
-		"MathFullRestbaseURL": "https://wikimedia.org/api/rest_",
-		"MathConcurrentReqs": 50,
-		"MathoidCli": false,
-		"MathValidModes": [
-			"png",
-			"source",
-			"mathml"
-		],
-		"MathEnableWikibaseDataType": true,
-		"MathEnableFormulaLinks": true,
-		"MathWikibasePropertyIdHasPart": "P527",
-		"MathWikibasePropertyIdDefiningFormula": "P2534",
-		"MathWikibasePropertyIdQuantitySymbol": "P416"
+		"MathDisableTexFilter": {
+			"value": "new"
+		},
+		"MathEnableExperimentalInputFormats": {
+			"value": false
+		},
+		"MathLaTeXMLTimeout": {
+			"value": 240
+		},
+		"MathLaTeXMLUrl": {
+			"value": "https://latexml.formulasearchengine.com/convert"
+		},
+		"MathMathMLTimeout": {
+			"value": 20
+		},
+		"MathMathMLUrl": {
+			"value": "https://mathoid-beta.wmflabs.org"
+		},
+		"MathFullRestbaseURL": {
+			"value": "https://wikimedia.org/api/rest_"
+		},
+		"MathConcurrentReqs": {
+			"value": 50
+		},
+		"MathoidCli": {
+			"value": false
+		},
+		"MathValidModes": {
+			"value": [
+				"png",
+				"source",
+				"mathml"
+			]
+		},
+		"MathEnableWikibaseDataType": {
+			"value": true
+		},
+		"MathEnableFormulaLinks": {
+			"value": true
+		},
+		"MathWikibasePropertyIdHasPart": {
+			"value": "P527"
+		},
+		"MathWikibasePropertyIdDefiningFormula": {
+			"value": "P2534"
+		},
+		"MathWikibasePropertyIdQuantitySymbol": {
+			"value": "P416"
+		}
 	},
 	"VisualEditorPluginModules": [
 		"ext.math.visualEditor"
@@ -259,5 +291,5 @@
 		"math-tracking-category-error",
 		"math-tracking-category-render-error"
 	],
-	"manifest_version": 1
+	"manifest_version": 2
 }
