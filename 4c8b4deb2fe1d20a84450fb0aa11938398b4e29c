@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "073f93d7_027b9acd",
+        "filename": "extension.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-12T10:44:01Z",
+      "side": 1,
+      "message": "I looked at the merge strategy documentation. This would not help in giving the ability to remove rendering modes on a wiki. Currently, it is only possible to extend rendering modes.",
+      "revId": "4c8b4deb2fe1d20a84450fb0aa11938398b4e29c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
