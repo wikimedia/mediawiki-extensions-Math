@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "d85e5117_b8041e33",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:52:56Z",
+      "side": 1,
+      "message": "It does (at least should) for the BagOStuff implementations where this matters. If you are worried about it you can manually hash the inputTex",
+      "parentUuid": "d407c138_bc2d1f66",
+      "revId": "e1dbf0467d04b882a897efb1f9c926f8838690f7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6af5d9bd_18cbf741",
         "filename": "src/Math/InputCheck/MathoidChecker.php",
         "patchSetId": 1
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "258c458d_2bc9da05",
+        "filename": "src/Math/InputCheck/MathoidChecker.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:52:56Z",
+      "side": 1,
+      "message": "just say it\u0027s array, that\u0027s good enough",
+      "parentUuid": "4e36267e_f21ca27c",
+      "revId": "e1dbf0467d04b882a897efb1f9c926f8838690f7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8377278e_58a88ffb",
         "filename": "tests/phpunit/InputCheck/MathoidTest.php",
         "patchSetId": 1
@@ -81,6 +117,24 @@
       "writtenOn": "2020-05-12T18:37:32Z",
       "side": 1,
       "message": "Maybe it is paranoid to double-check this? I was under the impression that WAN defaults to newEmpty",
+      "revId": "e1dbf0467d04b882a897efb1f9c926f8838690f7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e14e933d_9233127c",
+        "filename": "tests/phpunit/InputCheck/MathoidTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-12T20:52:56Z",
+      "side": 1,
+      "message": "Doesn\u0027t hurt.",
+      "parentUuid": "8377278e_58a88ffb",
       "revId": "e1dbf0467d04b882a897efb1f9c926f8838690f7",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
