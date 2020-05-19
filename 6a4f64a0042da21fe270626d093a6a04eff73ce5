@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "6ce83a66_e832da98",
+        "filename": "src/Math/InputCheck/InputCheckFactory.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-19T10:33:01Z",
+      "side": 1,
+      "message": "I tried really hard to get it working, but even after spending hours, I can not understand how this is supposed to work. The testing framework does not seem to be aware that parameter from the service options are extracted and then passed into the class, rather than the whole ServiceOptions object.",
+      "parentUuid": "9da714e5_ae57bf2a",
+      "revId": "6a4f64a0042da21fe270626d093a6a04eff73ce5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ccd19ded_410049b8",
         "filename": "src/Math/InputCheck/MathoidChecker.php",
         "patchSetId": 3
