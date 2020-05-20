@@ -1,0 +1,366 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "979eb122_d1b0fc0c",
+        "filename": "src/InputCheck/InputCheckFactory.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "[nitpick] in MathoidChecker there is a blank line before the CONSTRUCTOR_OPTIONS, here there isn\u0027t; should be consistent",
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f96c352d_a85603d1",
+        "filename": "src/InputCheck/InputCheckFactory.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "should just be `int`",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 16
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7409ea06_0b047540",
+        "filename": "src/InputCheck/InputCheckFactory.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "[nitpick] for readability, I would suggest putting the comments on one line each and having blank lines between the variables:\n\n/** @var string */\nprivate $url;\n\n/** @var integer */\nprivate $timeout;\n\n/** @var WANObjectCache */\nprivate $cache;\n\n/** @var HttpRequestFactory */\nprivate $httpFactory;\n\n/** @var LoggerInterface */\nprivate $logger;",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 17
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "139b769b_dc7fa434",
+        "filename": "src/InputCheck/InputCheckFactory.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "This is a bit obvious and unneeded",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 34
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d424e59_047e0b86",
+        "filename": "src/InputCheck/InputCheckFactory.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "Can this have documentation please?",
+      "range": {
+        "startLine": 57,
+        "startChar": 17,
+        "endLine": 57,
+        "endChar": 34
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bad6e5f_4f57a1d5",
+        "filename": "src/InputCheck/InputCheckFactory.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "Suggest putting one parameter per line",
+      "range": {
+        "startLine": 58,
+        "startChar": 27,
+        "endLine": 60,
+        "endChar": 19
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "589c6761_d3cf1bb9",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "Same comment about the display",
+      "range": {
+        "startLine": 14,
+        "startChar": 1,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd728408_8536842b",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 31
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67e70524_29dde35d",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "Suggest splitting one per line",
+      "range": {
+        "startLine": 71,
+        "startChar": 43,
+        "endLine": 72,
+        "endChar": 56
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34a547b6_bcc7ef40",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 79,
+        "startChar": 38,
+        "endLine": 80,
+        "endChar": 18
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4362ea1_88425040",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "`else` isn\u0027t needed, if the `if` was true the function has returned already",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 10
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57702330_675e48f2",
+        "filename": "tests/phpunit/InputCheck/MathoidCheckerTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "Is it possible for this to be a unit test with dependencies injected here rather than using setService and getService?",
+      "range": {
+        "startLine": 68,
+        "startChar": 18,
+        "endLine": 68,
+        "endChar": 35
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd8cc6c0_8daeb0cb",
+        "filename": "tests/phpunit/unit/InputCheckFactoryTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "What does this mean?",
+      "range": {
+        "startLine": 8,
+        "startChar": 3,
+        "endLine": 8,
+        "endChar": 6
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca0a80bd_db7dd775",
+        "filename": "tests/phpunit/unit/InputCheckFactoryTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "@code ?",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 10
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0616956e_99bfd730",
+        "filename": "tests/phpunit/unit/InputCheckFactoryTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "@endcode",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 11
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb2c140d_3c5eb719",
+        "filename": "tests/phpunit/unit/InputCheckFactoryTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-20T05:03:31Z",
+      "side": 1,
+      "message": "Shouldn\u0027t be indented",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 3
+      },
+      "revId": "da4e44ba8fe633bc9b32ad22f320843166db8225",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
