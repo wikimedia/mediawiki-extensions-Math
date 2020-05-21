@@ -7,6 +7,7 @@
  */
 
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 use Psr\Log\LoggerInterface;
 
 class MathRestbaseInterface {
@@ -171,7 +172,8 @@ class MathRestbaseInterface {
 	 */
 	private function getServiceClient() {
 		global $wgVirtualRestConfig, $wgMathConcurrentReqs;
-		$http = new MultiHttpClient( [ 'maxConnsPerHost' => $wgMathConcurrentReqs ] );
+		$http = MediaWikiServices::getInstance()->getHttpRequestFactory()->createMultiClient(
+			[ 'maxConnsPerHost' => $wgMathConcurrentReqs ] );
 		$serviceClient = new VirtualRESTServiceClient( $http );
 		if ( isset( $wgVirtualRestConfig['modules']['restbase'] ) ) {
 			$cfg = $wgVirtualRestConfig['modules']['restbase'];
