@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92a084ea_c6d51cc3",
+        "filename": "src/InputCheck/InputCheckFactory.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-23T21:53:30Z",
+      "side": 1,
+      "message": "Should go on the next line",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 11
+      },
+      "revId": "3442539e6c40dae64a04352f5905383262c8d7f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bab1625_7b46b474",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-23T21:53:30Z",
+      "side": 1,
+      "message": "are you expecting this to change at run time or be used by subclasses? If not, suggest `private const VERSION` instead",
+      "range": {
+        "startLine": 13,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 10
+      },
+      "revId": "3442539e6c40dae64a04352f5905383262c8d7f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b71f0f3_7e920033",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-23T21:53:30Z",
+      "side": 1,
+      "message": "should be lower case",
+      "range": {
+        "startLine": 14,
+        "startChar": 10,
+        "endLine": 14,
+        "endChar": 16
+      },
+      "revId": "3442539e6c40dae64a04352f5905383262c8d7f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8ac862e_d1899ec4",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-23T21:53:30Z",
+      "side": 1,
+      "message": "Next line",
+      "range": {
+        "startLine": 61,
+        "startChar": 24,
+        "endLine": 61,
+        "endChar": 27
+      },
+      "revId": "3442539e6c40dae64a04352f5905383262c8d7f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ef9991c_8b836ecd",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-23T21:53:30Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 72,
+        "startChar": 19,
+        "endLine": 72,
+        "endChar": 21
+      },
+      "revId": "3442539e6c40dae64a04352f5905383262c8d7f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe43bab0_588b67a2",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-23T21:53:30Z",
+      "side": 1,
+      "message": "should be aligned with the opening [, wherever that may be",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 102,
+        "endChar": 3
+      },
+      "revId": "3442539e6c40dae64a04352f5905383262c8d7f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "672a6b1d_0f977401",
+        "filename": "tests/phpunit/InputCheck/MathoidCheckerTest.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-23T21:53:30Z",
+      "side": 1,
+      "message": "Old alias for MediaWikiIntegrationTestCase, suggest using the class name directly; also doesn\u0027t need leading \\, should be imported instead",
+      "range": {
+        "startLine": 10,
+        "startChar": 34,
+        "endLine": 10,
+        "endChar": 51
+      },
+      "revId": "3442539e6c40dae64a04352f5905383262c8d7f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f825d305_4f270598",
+        "filename": "tests/phpunit/InputCheck/MathoidCheckerTest.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-23T21:53:30Z",
+      "side": 1,
+      "message": "Should go on the next line - \"The method operator should always be put at the beginning of the next line.\"[1]\n\n[1] https://www.mediawiki.org/wiki/Manual:Coding_conventions#Line_continuation",
+      "range": {
+        "startLine": 69,
+        "startChar": 78,
+        "endLine": 69,
+        "endChar": 80
+      },
+      "revId": "3442539e6c40dae64a04352f5905383262c8d7f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
