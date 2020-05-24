@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e777cebe_df1a1cb7",
+        "filename": "src/InputCheck/InputCheckFactory.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-24T07:06:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92a084ea_c6d51cc3",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 11
+      },
+      "revId": "3442539e6c40dae64a04352f5905383262c8d7f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bab1625_7b46b474",
         "filename": "src/InputCheck/MathoidChecker.php",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2020-05-23T21:53:30Z",
       "side": 1,
       "message": "are you expecting this to change at run time or be used by subclasses? If not, suggest `private const VERSION` instead",
+      "range": {
+        "startLine": 13,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 10
+      },
+      "revId": "3442539e6c40dae64a04352f5905383262c8d7f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54090de1_bccc111c",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-24T07:06:16Z",
+      "side": 1,
+      "message": "you are right. This would be more confusing than helpful for the cache key.",
+      "parentUuid": "4bab1625_7b46b474",
       "range": {
         "startLine": 13,
         "startChar": 1,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "08c98b70_23030c6c",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-24T07:06:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8ac862e_d1899ec4",
+      "range": {
+        "startLine": 61,
+        "startChar": 24,
+        "endLine": 61,
+        "endChar": 27
+      },
+      "revId": "3442539e6c40dae64a04352f5905383262c8d7f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ef9991c_8b836ecd",
         "filename": "src/InputCheck/MathoidChecker.php",
         "patchSetId": 6
@@ -105,6 +177,30 @@
       "writtenOn": "2020-05-23T21:53:30Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 72,
+        "startChar": 19,
+        "endLine": 72,
+        "endChar": 21
+      },
+      "revId": "3442539e6c40dae64a04352f5905383262c8d7f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3ca8bed_3828770b",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-24T07:06:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ef9991c_8b836ecd",
       "range": {
         "startLine": 72,
         "startChar": 19,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "91b6318e_4878fedd",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-24T07:06:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe43bab0_588b67a2",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 102,
+        "endChar": 3
+      },
+      "revId": "3442539e6c40dae64a04352f5905383262c8d7f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "672a6b1d_0f977401",
         "filename": "tests/phpunit/InputCheck/MathoidCheckerTest.php",
         "patchSetId": 6
@@ -151,6 +271,30 @@
       "writtenOn": "2020-05-23T21:53:30Z",
       "side": 1,
       "message": "Old alias for MediaWikiIntegrationTestCase, suggest using the class name directly; also doesn\u0027t need leading \\, should be imported instead",
+      "range": {
+        "startLine": 10,
+        "startChar": 34,
+        "endLine": 10,
+        "endChar": 51
+      },
+      "revId": "3442539e6c40dae64a04352f5905383262c8d7f5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "324504f6_665409ab",
+        "filename": "tests/phpunit/InputCheck/MathoidCheckerTest.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-24T07:06:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "672a6b1d_0f977401",
       "range": {
         "startLine": 10,
         "startChar": 34,
