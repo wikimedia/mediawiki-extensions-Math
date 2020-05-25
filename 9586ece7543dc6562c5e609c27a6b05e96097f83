@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff1f67d9_75405d6d",
+        "filename": "src/InputCheck/InputCheckFactory.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-25T08:01:18Z",
+      "side": 1,
+      "message": "suggest adding strong typehints here, like in the constructor above",
+      "range": {
+        "startLine": 52,
+        "startChar": 34,
+        "endLine": 52,
+        "endChar": 53
+      },
+      "revId": "9586ece7543dc6562c5e609c27a6b05e96097f83",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6268695c_484bf4e7",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-25T08:01:18Z",
+      "side": 1,
+      "message": "suggest adding a strong typehint",
+      "range": {
+        "startLine": 57,
+        "startChar": 33,
+        "endLine": 57,
+        "endChar": 37
+      },
+      "revId": "9586ece7543dc6562c5e609c27a6b05e96097f83",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3120655_ec7eee1b",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-25T08:01:18Z",
+      "side": 1,
+      "message": "suggest adding a strong typehint",
+      "range": {
+        "startLine": 68,
+        "startChar": 28,
+        "endLine": 68,
+        "endChar": 32
+      },
+      "revId": "9586ece7543dc6562c5e609c27a6b05e96097f83",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfacb43d_176416e1",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-25T08:01:18Z",
+      "side": 1,
+      "message": "extra indent",
+      "range": {
+        "startLine": 89,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 3
+      },
+      "revId": "9586ece7543dc6562c5e609c27a6b05e96097f83",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d30e6a89_984effa9",
+        "filename": "tests/phpunit/InputCheck/MathoidCheckerTest.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-25T08:01:18Z",
+      "side": 1,
+      "message": "should be on the next line",
+      "range": {
+        "startLine": 70,
+        "startChar": 78,
+        "endLine": 70,
+        "endChar": 80
+      },
+      "revId": "9586ece7543dc6562c5e609c27a6b05e96097f83",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f45818f4_e65a4414",
+        "filename": "tests/phpunit/unit/InputCheckFactoryTest.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-25T08:01:18Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 8,
+        "startChar": 3,
+        "endLine": 8,
+        "endChar": 6
+      },
+      "revId": "9586ece7543dc6562c5e609c27a6b05e96097f83",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8be4afe_6bc91bbc",
+        "filename": "tests/phpunit/unit/InputCheckFactoryTest.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-25T08:01:18Z",
+      "side": 1,
+      "message": "Can you file a bug for fixing this?",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 75
+      },
+      "revId": "9586ece7543dc6562c5e609c27a6b05e96097f83",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
