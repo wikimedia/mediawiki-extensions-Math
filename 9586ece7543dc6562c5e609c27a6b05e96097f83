@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "05c8615b_3e1093b0",
+        "filename": "src/InputCheck/InputCheckFactory.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-25T20:26:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff1f67d9_75405d6d",
+      "range": {
+        "startLine": 52,
+        "startChar": 34,
+        "endLine": 52,
+        "endChar": 53
+      },
+      "revId": "9586ece7543dc6562c5e609c27a6b05e96097f83",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6268695c_484bf4e7",
         "filename": "src/InputCheck/MathoidChecker.php",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2020-05-25T08:01:18Z",
       "side": 1,
       "message": "suggest adding a strong typehint",
+      "range": {
+        "startLine": 57,
+        "startChar": 33,
+        "endLine": 57,
+        "endChar": 37
+      },
+      "revId": "9586ece7543dc6562c5e609c27a6b05e96097f83",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48db0fe4_c8331cf8",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-25T20:26:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6268695c_484bf4e7",
       "range": {
         "startLine": 57,
         "startChar": 33,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3634c294_b1ca996e",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-25T20:26:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3120655_ec7eee1b",
+      "range": {
+        "startLine": 68,
+        "startChar": 28,
+        "endLine": 68,
+        "endChar": 32
+      },
+      "revId": "9586ece7543dc6562c5e609c27a6b05e96097f83",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfacb43d_176416e1",
         "filename": "src/InputCheck/MathoidChecker.php",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2020-05-25T08:01:18Z",
       "side": 1,
       "message": "extra indent",
+      "range": {
+        "startLine": 89,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 3
+      },
+      "revId": "9586ece7543dc6562c5e609c27a6b05e96097f83",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0aae6c69_ac206612",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-25T20:26:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfacb43d_176416e1",
       "range": {
         "startLine": 89,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "73944830_4fb03a69",
+        "filename": "tests/phpunit/InputCheck/MathoidCheckerTest.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-25T20:26:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d30e6a89_984effa9",
+      "range": {
+        "startLine": 70,
+        "startChar": 78,
+        "endLine": 70,
+        "endChar": 80
+      },
+      "revId": "9586ece7543dc6562c5e609c27a6b05e96097f83",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f45818f4_e65a4414",
         "filename": "tests/phpunit/unit/InputCheckFactoryTest.php",
         "patchSetId": 7
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "2311ce7d_458d4ea2",
+        "filename": "tests/phpunit/unit/InputCheckFactoryTest.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-25T20:26:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f45818f4_e65a4414",
+      "range": {
+        "startLine": 8,
+        "startChar": 3,
+        "endLine": 8,
+        "endChar": 6
+      },
+      "revId": "9586ece7543dc6562c5e609c27a6b05e96097f83",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8be4afe_6bc91bbc",
         "filename": "tests/phpunit/unit/InputCheckFactoryTest.php",
         "patchSetId": 7
@@ -151,6 +295,30 @@
       "writtenOn": "2020-05-25T08:01:18Z",
       "side": 1,
       "message": "Can you file a bug for fixing this?",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 75
+      },
+      "revId": "9586ece7543dc6562c5e609c27a6b05e96097f83",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d9bc919_962eba24",
+        "filename": "tests/phpunit/unit/InputCheckFactoryTest.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-25T20:26:00Z",
+      "side": 1,
+      "message": "will do",
+      "parentUuid": "a8be4afe_6bc91bbc",
       "range": {
         "startLine": 26,
         "startChar": 4,
