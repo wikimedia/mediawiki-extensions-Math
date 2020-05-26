@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "092d9ae7_71c7da66",
+        "filename": "src/InputCheck/InputCheckFactory.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-26T16:03:08Z",
+      "side": 1,
+      "message": "return type typehint",
+      "revId": "afc701a234da97f61cd5656820bd0a0db448dc15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04cd7f22_1ba971bb",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-26T16:03:08Z",
+      "side": 1,
+      "message": "we space out the : in the return type hint. Should be \"getCheckResponse() : array\". Applies to whole file",
+      "revId": "afc701a234da97f61cd5656820bd0a0db448dc15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef53d7e9_fa8b7ea4",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-26T16:03:08Z",
+      "side": 1,
+      "message": "Does it need to be public? Seems like an implementation detail",
+      "revId": "afc701a234da97f61cd5656820bd0a0db448dc15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40cd9214_0a02e6c8",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-26T16:03:08Z",
+      "side": 1,
+      "message": "can you add {} around $this-\u003eurl for better readability?",
+      "revId": "afc701a234da97f61cd5656820bd0a0db448dc15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
