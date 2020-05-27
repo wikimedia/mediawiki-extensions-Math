@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb9d47c6_7722f129",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-27T05:18:13Z",
+      "side": 1,
+      "message": "is this expected to change at run time? If not, suggest a constant",
+      "range": {
+        "startLine": 13,
+        "startChar": 9,
+        "endLine": 13,
+        "endChar": 17
+      },
+      "revId": "bba40f9c3f871aac8b84fb19f4ea812833b48e6f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
