@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "23af7d86_98b93932",
+        "filename": "src/InputCheck/InputCheckFactory.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-27T05:26:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "092d9ae7_71c7da66",
+      "revId": "afc701a234da97f61cd5656820bd0a0db448dc15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "04cd7f22_1ba971bb",
         "filename": "src/InputCheck/MathoidChecker.php",
         "patchSetId": 10
@@ -30,6 +48,24 @@
       "writtenOn": "2020-05-26T16:03:08Z",
       "side": 1,
       "message": "we space out the : in the return type hint. Should be \"getCheckResponse() : array\". Applies to whole file",
+      "revId": "afc701a234da97f61cd5656820bd0a0db448dc15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0f12e6e_9c27ef9f",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-27T05:26:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04cd7f22_1ba971bb",
       "revId": "afc701a234da97f61cd5656820bd0a0db448dc15",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "c0309300_f1efc813",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-27T05:26:09Z",
+      "side": 1,
+      "message": "I was thinking it would be good having this information available in case something does not work as expected. Currently, there is only a simple test, but maybe we need to add some regression tests for cases where the cache key generator did not work. Certainly, these tests could also go to core...",
+      "parentUuid": "ef53d7e9_fa8b7ea4",
+      "revId": "afc701a234da97f61cd5656820bd0a0db448dc15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "40cd9214_0a02e6c8",
         "filename": "src/InputCheck/MathoidChecker.php",
         "patchSetId": 10
@@ -64,6 +118,24 @@
       "writtenOn": "2020-05-26T16:03:08Z",
       "side": 1,
       "message": "can you add {} around $this-\u003eurl for better readability?",
+      "revId": "afc701a234da97f61cd5656820bd0a0db448dc15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "447fe3fe_5d48b322",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-27T05:26:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40cd9214_0a02e6c8",
       "revId": "afc701a234da97f61cd5656820bd0a0db448dc15",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
