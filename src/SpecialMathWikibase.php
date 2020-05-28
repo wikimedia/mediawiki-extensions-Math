@@ -37,7 +37,7 @@ class SpecialMathWikibase extends SpecialPage {
 				$this->getPlainText( 'math-wikibase-special-error-header' )
 			);
 			$out->addHTML(
-				wfMessage( 'math-wikibase-special-error-no-wikibase' )->inContentLanguage()
+				wfMessage( 'math-wikibase-special-error-no-wikibase' )->inContentLanguage()->parse()
 			);
 			return;
 		}
@@ -122,14 +122,14 @@ class SpecialMathWikibase extends SpecialPage {
 		if ( $e instanceof InvalidArgumentException ) {
 			$this->logger->warning( "An invalid ID was specified. Reason: " . $e->getMessage() );
 			$this->getOutput()->addHTML(
-				wfMessage( 'math-wikibase-special-error-invalid-argument' )->inContentLanguage()
+				wfMessage( 'math-wikibase-special-error-invalid-argument' )->inContentLanguage()->parse()
 			);
 		} else {
 			$this->logger->error( "An unknown error occured due fetching data from Wikibase.", [
 				'exception' => $e
 			] );
 			$this->getOutput()->addHTML(
-				wfMessage( 'math-wikibase-special-error-unknown' )->inContentLanguage()
+				wfMessage( 'math-wikibase-special-error-unknown' )->inContentLanguage()->parse()
 			);
 		}
 	}
@@ -173,14 +173,14 @@ class SpecialMathWikibase extends SpecialPage {
 				wfMessage( 'math-wikibase-formula' )->inContentLanguage(),
 				$math
 			);
-			$output->addHTML( Html::rawElement( "p", [], $formulaInfo->inContentLanguage() ) );
+			$output->addHTML( Html::rawElement( "p", [], $formulaInfo->inContentLanguage()->parse() ) );
 		}
 
 		$labelName = wfMessage(
 			'math-wikibase-formula-header-format',
 			wfMessage( 'math-wikibase-formula-name' )->inContentLanguage(),
 			$info->getLabel()
-		)->inContentLanguage();
+		)->inContentLanguage()->parse();
 		$output->addHTML( Html::rawElement( "p", [], $labelName ) );
 
 		if ( isset( $matches[2] ) ) {
@@ -188,7 +188,7 @@ class SpecialMathWikibase extends SpecialPage {
 				'math-wikibase-formula-header-format',
 				wfMessage( 'math-wikibase-formula-type' )->inContentLanguage(),
 				$matches[1]
-			)->inContentLanguage();
+			)->inContentLanguage()->parse();
 			$output->addHTML( Html::rawElement( "p", [], $labelType ) );
 
 			$description = $matches[2];
@@ -199,7 +199,7 @@ class SpecialMathWikibase extends SpecialPage {
 			'math-wikibase-formula-header-format',
 			wfMessage( 'math-wikibase-formula-description' )->inContentLanguage(),
 			$description
-		)->inContentLanguage();
+		)->inContentLanguage()->parse();
 		$output->addHTML( Html::rawElement( "p", [], $labelDesc ) );
 
 		// add parts of formula
