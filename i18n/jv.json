@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diki Ananta",
 			"Meursault2004",
 			"NoiX180"
 		]
 	},
 	"math_failure": "Gagal nglakoni parse",
-	"math_syntax_error": "''syntax error'' (kaluputan sintaksis)",
+	"math_syntax_error": "Kasalahan sintaksis",
 	"math_unknown_error": "Kaluputan sing ora dimangertèni",
 	"math_unknown_function": "fungsi sing ora dimangertèni",
 	"mw_math_mathml": "MathML yèn bisa (pracoban)",
