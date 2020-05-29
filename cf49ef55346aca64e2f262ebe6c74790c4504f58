@@ -247,6 +247,24 @@
     },
     {
       "key": {
+        "uuid": "d111d5e0_5aadaaf2",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-29T18:56:49Z",
+      "side": 1,
+      "message": "ok, there\u0027s a bit to unpack here. \n\nFirst, the piece of code you have referenced is for Math extension to contact RESTBase. After we eliminate RESTBase from the picture, our own WMF installation of Math should not be contacting any API for this, it should go directly to your new MathoidChecker. Why would WMF installation of MW talk to itself via REST API? \n\nSo, what we are concerned with is non-WMF installations that rely on WMF instance of Mathoid. I think that once you have this API completed, you\u0027d have 3 ways of contacting mathoid: via Restbase (used by legacy third-party), via MW Core REST API (used by third-party), directly connecting to Mathoid (used by WMF). So, perhaps it would be nice to have a service interface - \u0027IMathoidAccess\u0027 implemented by 3 classes \u0027RestbaseMathoidAccess\u0027 (your current RESTBAseInterface), \u0027RESTMathAccess\u0027 and \u0027DirectMathAccess\u0027 - whatever. They can share some of the implementation, but given that we would have \u0027DirectMathAccess\u0027, that\u0027s entirely different from going to Mathoid via RESTBase/Core API, we\u0027d need this hierarchy anyway, so maybe keeping this API completely compatible with RESTBase API is not such a large value.\n\nAs for LocalizedHttpException - the localization is done only for the top-level error message. See messages in core includes/Rest/i18n for examples. I\u0027m ok with looking into localization as a followup.",
+      "parentUuid": "aeb5da84_36ce3725",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46f46445_78be3622",
         "filename": "src/Rest/MathoidException.php",
         "patchSetId": 2
