@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6d945d9_c4320415",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-29T15:23:50Z",
+      "side": 1,
+      "message": "The \u0027SimpleHandler\u0027 doesn\u0027t really do anything with the return value - it just parses the path parameters and gives it to the \u0027run\u0027 method as a method parameter. You can return the Response just like you would with Handler.",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1f0476a_47a8aff4",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-29T15:23:50Z",
+      "side": 1,
+      "message": "You can inject this one! Just add Math.CheckerFactory into the \u0027services\u0027 key in the rest endpoint declaration in extension.json and you should get it as a constructor parameter. If everything works correctly :)",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bbf6bde_c01204e7",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-29T15:23:50Z",
+      "side": 1,
+      "message": "here you can be sure $type is a string because you checked via parameter validation. Thus you can add a string typehint.",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70137a9e_128e38f4",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-29T15:23:50Z",
+      "side": 1,
+      "message": "It\u0027s by design :)",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "839ff57e_ae51233b",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-29T15:23:50Z",
+      "side": 1,
+      "message": "\u003d\u003d\u003d",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff5814cf_ff2c130d",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-29T15:23:50Z",
+      "side": 1,
+      "message": "Ok, this is not really needed. You can do \n\n$response \u003d $this-\u003egetResponseFactory()-\u003ecreate();\n$response-\u003esetBody( new StringStream( $content ) );\n\nAnd you would avoid decoding and encoding it back.",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a083ce00_253a4986",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-29T15:23:50Z",
+      "side": 1,
+      "message": "This should be a LocalizedHttpException.\n\nRegarding b/c - it would be possible to make it return exactly the same error, however it would add a bunch of b/c code and be quite weird. Also, it would make this inconsistent with errors generated in other places, like parameter validation errors. Does anything really depend on the exact structure of the error body? I think breaking b/c is OK here.",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46f46445_78be3622",
+        "filename": "src/Rest/MathoidException.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-29T15:23:50Z",
+      "side": 1,
+      "message": "Use should strive to use LocalizedHttpException.",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5485fed7_c8076f01",
+        "filename": "tests/api-testing/checkHandlerTest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-29T15:23:50Z",
+      "side": 1,
+      "message": "Checking for 405 is enough, afaik this message is added by the library.",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
