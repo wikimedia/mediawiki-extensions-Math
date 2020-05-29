@@ -40,7 +40,8 @@
 		"MathWikibaseInfo": "src/MathWikibaseInfo.php"
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\Math\\InputCheck\\": "src/InputCheck"
+		"MediaWiki\\Extension\\Math\\InputCheck\\": "src/InputCheck",
+		"MediaWiki\\Extension\\Math\\Rest\\": "src/Rest"
 	},
 	"TestAutoloadClasses": {
 		"MathMLHttpRequestTester": "tests/phpunit/MathMLHttpRequestTester.php",
@@ -298,6 +299,18 @@
 	],
 	"ServiceWiringFiles": [
 		"ServiceWiring.php"
+	],
+	"RestRoutes": [
+		{
+			"path": "/math/v0/check/{type}",
+			"method": "POST",
+			"class": "MediaWiki\\Extension\\Math\\Rest\\CheckHandler",
+			"services": [
+				"MainConfig",
+				"MainWANObjectCache",
+				"HttpRequestFactory"
+			]
+		}
 	],
 	"manifest_version": 2
 }
