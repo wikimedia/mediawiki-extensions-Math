@@ -283,6 +283,24 @@
     },
     {
       "key": {
+        "uuid": "a0e7bfae_e7cd2a48",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-29T23:54:08Z",
+      "side": 1,
+      "message": "\u003e This would be required if we wanted to redirect $wgMathFullRestbaseURL from https://wikimedia.org/api/rest_... to something else. \n\nHm... That\u0027s a good point. So, let\u0027s try to get the best of 2 world?\n\nRESTBase error currently looks like this:\n\n```\n{\n  \"type\": \"https://mediawiki.org/wiki/HyperSwitch/errors/bad_request\",\n  \"title\": \"Bad Request\",\n  \"method\": \"POST\",\n  \"detail\": {\n    \"error\": {\n     \u0027blablabla this is the error demo mathoid\u0027\n    ...\n```\n\nFor REST API error, throwing something like this:\n\n```\nthrow new HttpException( \u0027test_message\u0027, 500, [\n  \u0027test_error\u0027 \u003d\u003e \u0027bla\u0027\n] );\n```\n\nresults in the following JSON body:\n```\n{\n  \"message\": \"test_message\",\n  \"test_error\": \"bla\",\n  \"httpCode\": 500,\n  \"httpReason\": \"Internal Server Error\"\n}\n```\n\nSo, if you put mathoid error into the \"detail\" key in the extra parameter creating HttpError, you\u0027d have more-or-less good compatibility? Not 100%, but I would assume that\u0027s good enough\n\n\u003e This would be of little help. The error message would then sound for a non-english speaker like.\n\nYeah. Totally agree. Maybe would be nice to file a ticket about errors i18n for Math, but we can certainly address it later.",
+      "parentUuid": "037141c6_540d0d84",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46f46445_78be3622",
         "filename": "src/Rest/MathoidException.php",
         "patchSetId": 2
