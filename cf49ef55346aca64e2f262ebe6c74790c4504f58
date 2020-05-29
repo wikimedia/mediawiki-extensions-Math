@@ -265,6 +265,24 @@
     },
     {
       "key": {
+        "uuid": "037141c6_540d0d84",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-29T23:29:52Z",
+      "side": 1,
+      "message": "\u003e it should go directly to your new MathoidChecker\nThis is one option. The other option would be to fetch mathoids complete endpoint rather than the texvcinfo endpoint. This would reduce the number of requests made to mathoid. On the other hand, it would slightly blow up the cache since the non-normalized version of the tex string would be used for caching.\n\n\u003e IMathoidAccess\n\nThere is also the mathoid CLI Access... All is currently wrapped up in if statements that depend on globals. So this interface is long overdue.\n\n\u003e keeping this API completely compatible with RESTBase API is not such a large value.\n\nThis would be required if we wanted to redirect $wgMathFullRestbaseURL from https://wikimedia.org/api/rest_... to something else. \n\n\u003e As for LocalizedHttpException - the localization is done only for the top-level error message.\n\nThis would be of little help. The error message would then sound for a non-english speaker like.\n\nLaTeX error: 不平衡括弧",
+      "parentUuid": "d111d5e0_5aadaaf2",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46f46445_78be3622",
         "filename": "src/Rest/MathoidException.php",
         "patchSetId": 2
