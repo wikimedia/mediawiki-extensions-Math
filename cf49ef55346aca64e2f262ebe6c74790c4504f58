@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4adfa697_48bdcdcb",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-29T18:36:42Z",
+      "side": 1,
+      "message": "That\u0027s what I did at first. https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/Math/+/595558/4/src/Math/Rest/Check.php\n\nI thought the first appraoch might smell like a computer scientist approach rather than an enterprise developer solution.\n\nWhile the bytes won\u0027t care, I have the dream that a large and open community will maintain this code in the future. Therefore, I want to be as standard conform as possible.",
+      "parentUuid": "b6d945d9_c4320415",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e1f0476a_47a8aff4",
         "filename": "src/Rest/CheckHandler.php",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "0b0be1af_8edb5386",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-29T18:36:42Z",
+      "side": 1,
+      "message": "oh, the effort pays off:-)",
+      "parentUuid": "e1f0476a_47a8aff4",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6bbf6bde_c01204e7",
         "filename": "src/Rest/CheckHandler.php",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2020-05-29T15:23:50Z",
       "side": 1,
       "message": "here you can be sure $type is a string because you checked via parameter validation. Thus you can add a string typehint.",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d888647_0c3efe84",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-29T18:36:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bbf6bde_c01204e7",
       "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "25f93f6c_570df8f2",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-29T18:36:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "839ff57e_ae51233b",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ff5814cf_ff2c130d",
         "filename": "src/Rest/CheckHandler.php",
         "patchSetId": 2
@@ -98,6 +170,24 @@
       "writtenOn": "2020-05-29T15:23:50Z",
       "side": 1,
       "message": "Ok, this is not really needed. You can do \n\n$response \u003d $this-\u003egetResponseFactory()-\u003ecreate();\n$response-\u003esetBody( new StringStream( $content ) );\n\nAnd you would avoid decoding and encoding it back.",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0b05373_a8fc0dbd",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-29T18:36:42Z",
+      "side": 1,
+      "message": "but what would I return \"\"?",
+      "parentUuid": "ff5814cf_ff2c130d",
       "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
@@ -121,6 +211,24 @@
     },
     {
       "key": {
+        "uuid": "aeb5da84_36ce3725",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-29T18:36:42Z",
+      "side": 1,
+      "message": "localized errors would be really nice. But it is quite a bit of work. Can we please do it in a follow-up? We need to change texvcjs for this. I see a real added value if someone, who does not understand English gets hints on how to correct his LaTeX code. On the top of my head, this code uses the details field. https://github.com/wikimedia/mediawiki-extensions-Math/blob/b07aefbd36f3c2f03e0f48cb4a3a648c358f5869/src/MathRestbaseInterface.php#L403-L404\n\nWith b/c I am referring to that this new endpoint could be used as drop-in replacement of the old RESTbase endpoint. But maybe this is not even desirable? What are your thoughts on that?",
+      "parentUuid": "a083ce00_253a4986",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46f46445_78be3622",
         "filename": "src/Rest/MathoidException.php",
         "patchSetId": 2
@@ -138,6 +246,24 @@
     },
     {
       "key": {
+        "uuid": "6b1bc715_74573a45",
+        "filename": "src/Rest/MathoidException.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-29T18:36:42Z",
+      "side": 1,
+      "message": "see my comment on b/c.",
+      "parentUuid": "46f46445_78be3622",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5485fed7_c8076f01",
         "filename": "tests/api-testing/checkHandlerTest.js",
         "patchSetId": 2
@@ -149,6 +275,24 @@
       "writtenOn": "2020-05-29T15:23:50Z",
       "side": 1,
       "message": "Checking for 405 is enough, afaik this message is added by the library.",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67620738_5952732e",
+        "filename": "tests/api-testing/checkHandlerTest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-29T18:36:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5485fed7_c8076f01",
       "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
