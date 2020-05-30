@@ -13,8 +13,8 @@ use Wikimedia\Purtle\NTriplesRdfWriter;
  * @author Moritz Schubotz (physikerwelt)
  */
 class MathMLRdfBuilderTest extends MediaWikiTestCase {
-	const ACME_PREFIX_URL = 'http://acme/';
-	const ACME_REF = 'testing';
+	private const ACME_PREFIX_URL = 'http://acme/';
+	private const ACME_REF = 'testing';
 	protected static $hasRestbase;
 
 	public static function setUpBeforeClass() : void {

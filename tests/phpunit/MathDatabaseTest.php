@@ -15,11 +15,11 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	 * @var MathRenderer
 	 */
 	private $renderer;
-	const SOME_TEX = "a+b";
-	const SOME_HTML = "a<sub>b</sub> and so on";
-	const SOME_MATHML = "iℏ∂_tΨ=H^Ψ<mrow><\ci>";
-	const SOME_CONSERVATIVENESS = 2;
-	const SOME_OUTPUTHASH = 'C65c884f742c8591808a121a828bc09f8<';
+	private const SOME_TEX = "a+b";
+	private const SOME_HTML = "a<sub>b</sub> and so on";
+	private const SOME_MATHML = "iℏ∂_tΨ=H^Ψ<mrow><\ci>";
+	private const SOME_CONSERVATIVENESS = 2;
+	private const SOME_OUTPUTHASH = 'C65c884f742c8591808a121a828bc09f8<';
 
 	/**
 	 * creates a new database connection and a new math renderer
