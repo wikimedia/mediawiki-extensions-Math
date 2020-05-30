@@ -11,8 +11,8 @@ use DataValues\StringValue;
  * @license GPL-2.0-or-later
  */
 class MathValidatorTest extends MediaWikiTestCase {
-	const VADLID_TEX = "a^2+b^2=c^2";
-	const INVADLID_TEX = "\\notExists";
+	private const VADLID_TEX = "a^2+b^2=c^2";
+	private const INVADLID_TEX = "\\notExists";
 
 	protected static $hasRestbase;
 

@@ -15,7 +15,7 @@ class MathHooks {
 	 */
 	private static $tags = [];
 
-	const MATHCACHEKEY = 'math=';
+	private const MATHCACHEKEY = 'math=';
 
 	public static function mathConstantToString( $value, array $defs, $prefix, $default ) {
 		foreach ( $defs as $defKey => $defValue ) {

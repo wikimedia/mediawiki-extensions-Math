@@ -10,12 +10,12 @@
  */
 class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	public $renderer;
-	const SOME_TEX = "a+b";
-	const SOME_HTML = "a<sub>b</sub>";
-	const SOME_MATHML = "iℏ∂_tΨ=H^Ψ<mrow><\ci>";
-	const SOME_LOG = "Sample Log Text.";
-	const SOME_TIMESTAMP = 1272509157;
-	const SOME_SVG = "<?xml </svg >>%%LIKE;'\" DROP TABLE math;";
+	private const SOME_TEX = "a+b";
+	private const SOME_HTML = "a<sub>b</sub>";
+	private const SOME_MATHML = "iℏ∂_tΨ=H^Ψ<mrow><\ci>";
+	private const SOME_LOG = "Sample Log Text.";
+	private const SOME_TIMESTAMP = 1272509157;
+	private const SOME_SVG = "<?xml </svg >>%%LIKE;'\" DROP TABLE math;";
 
 	/**
 	 * Helper function to test protected/private Methods

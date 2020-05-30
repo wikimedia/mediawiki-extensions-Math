@@ -6,7 +6,7 @@ class SpecialMathWikibase extends SpecialPage {
 	/**
 	 * The parameter for this special page
 	 */
-	const PARAMETER = "qid";
+	private const PARAMETER = "qid";
 
 	/**
 	 * @var MathWikibaseConnector Wikibase connection
