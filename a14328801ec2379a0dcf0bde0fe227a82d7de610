@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "599d7a56_9afc6b22",
+        "filename": "tests/api-testing/checkHandlerTest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-30T12:09:02Z",
+      "side": 1,
+      "message": "I copied this code from the example but Jenkins complains\n\n09:58:43   \u001b[2m1error  Parsing error: The keyword \u0027const\u0027 is reserved",
+      "revId": "a14328801ec2379a0dcf0bde0fe227a82d7de610",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
