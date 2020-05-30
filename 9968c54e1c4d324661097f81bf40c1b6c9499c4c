@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c4de25e3_d96f083a",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-30T07:41:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eae01990_42ccd72a",
+      "revId": "9968c54e1c4d324661097f81bf40c1b6c9499c4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc719626_ac69fc5e",
         "filename": "src/Rest/CheckHandler.php",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2020-05-30T00:06:47Z",
       "side": 1,
       "message": "What happens if you don\u0027t suppress the inspection?",
+      "revId": "9968c54e1c4d324661097f81bf40c1b6c9499c4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d5f8be9_a6976f34",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-30T07:41:11Z",
+      "side": 1,
+      "message": "Oh sorry. My PHPStorm setup did not not find PSR",
+      "parentUuid": "dc719626_ac69fc5e",
       "revId": "9968c54e1c4d324661097f81bf40c1b6c9499c4c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8894cba3_048a7d39",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-30T07:41:11Z",
+      "side": 1,
+      "message": "This was my intention.\n\nIt is the same way as mathoid does it. However, I think mathoid should use 200 for incorrect LaTeX. That the check result is that the LaTeX string is malformed, does not indicate to me that the request is malformed. This is comparable to a situation where a spell checker returns 400 if the sentence is not correct. See\nhttps://docs.microsoft.com/en-us/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#error-codes\n\nThus, I would in the medium term rather make mathoid return 200 then using this error code here.",
+      "parentUuid": "bed84a4e_de838869",
+      "revId": "9968c54e1c4d324661097f81bf40c1b6c9499c4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4e36d574_00c36454",
         "filename": "src/Rest/CheckHandler.php",
         "patchSetId": 3
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "aed9c3b0_d30ad656",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-30T07:41:11Z",
+      "side": 1,
+      "message": "Yes. But therefore, we need the more complex render endpoint;-) Thus, we can not do it in this patch.",
+      "parentUuid": "4e36d574_00c36454",
+      "revId": "9968c54e1c4d324661097f81bf40c1b6c9499c4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4fd2e51e_125374a3",
         "filename": "tests/phpunit/Rest/CheckHandlerTest.php",
         "patchSetId": 3
@@ -81,6 +153,24 @@
       "writtenOn": "2020-05-30T00:06:47Z",
       "side": 1,
       "message": "I believe this is not really needed. There\u0027s a RestStructureTest in core, which when run verifies that all core and extension parameters are valid. Core test suite is run on all extension commits by CI.\n\nNo harm in keeping the test too though, but it should be MediaWikiUnitTestCase and reside under phpunit/unit - this test doesn\u0027t need starting up MW to execute.",
+      "revId": "9968c54e1c4d324661097f81bf40c1b6c9499c4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56622ec6_ba2cee1b",
+        "filename": "tests/phpunit/Rest/CheckHandlerTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-30T07:41:11Z",
+      "side": 1,
+      "message": "ok. I think we do not need it. Some day when we want to push code coverage from 99% to 100% we might reintroduce it;-)\n\nBut we are nowhere close to that\nhttps://doc.wikimedia.org/cover-extensions/Math/dashboard.html",
+      "parentUuid": "4fd2e51e_125374a3",
       "revId": "9968c54e1c4d324661097f81bf40c1b6c9499c4c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true

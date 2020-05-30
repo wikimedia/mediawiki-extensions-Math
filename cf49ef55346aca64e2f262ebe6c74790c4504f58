@@ -301,6 +301,24 @@
     },
     {
       "key": {
+        "uuid": "3ba3f47f_07084501",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-05-30T07:41:11Z",
+      "side": 1,
+      "message": "Mh. That was what MathoidError intended to do and I got the impression that it did work somehow, just not localized. I filed https://phabricator.wikimedia.org/T254056 for localization.",
+      "parentUuid": "a0e7bfae_e7cd2a48",
+      "revId": "cf49ef55346aca64e2f262ebe6c74790c4504f58",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46f46445_78be3622",
         "filename": "src/Rest/MathoidException.php",
         "patchSetId": 2
