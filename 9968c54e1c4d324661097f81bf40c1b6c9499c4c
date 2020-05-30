@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eae01990_42ccd72a",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-30T00:06:47Z",
+      "side": 1,
+      "message": "Maybe remove this comment, we don\u0027t really need it do we?",
+      "revId": "9968c54e1c4d324661097f81bf40c1b6c9499c4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc719626_ac69fc5e",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-30T00:06:47Z",
+      "side": 1,
+      "message": "What happens if you don\u0027t suppress the inspection?",
+      "revId": "9968c54e1c4d324661097f81bf40c1b6c9499c4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bed84a4e_de838869",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-30T00:06:47Z",
+      "side": 1,
+      "message": "Ha! Interesting, so you just set the 400 without making an exception out of it... This will make the error responses produced here and responses produced by the framework not quite comfy to each other... Maybe try wrapping it in HttpException after all and provide the mathoid response to the error detail array? I think it would make the body merge with the standard REST framework error details.",
+      "revId": "9968c54e1c4d324661097f81bf40c1b6c9499c4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e36d574_00c36454",
+        "filename": "src/Rest/CheckHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-30T00:06:47Z",
+      "side": 1,
+      "message": "So, RESTBase was also setting a x-resource-location header with the hash of the formulae we\u0027ve just checked. Do we need that too?",
+      "revId": "9968c54e1c4d324661097f81bf40c1b6c9499c4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fd2e51e_125374a3",
+        "filename": "tests/phpunit/Rest/CheckHandlerTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-30T00:06:47Z",
+      "side": 1,
+      "message": "I believe this is not really needed. There\u0027s a RestStructureTest in core, which when run verifies that all core and extension parameters are valid. Core test suite is run on all extension commits by CI.\n\nNo harm in keeping the test too though, but it should be MediaWikiUnitTestCase and reside under phpunit/unit - this test doesn\u0027t need starting up MW to execute.",
+      "revId": "9968c54e1c4d324661097f81bf40c1b6c9499c4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
