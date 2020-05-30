@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3facf87_817fe3ac",
+        "filename": "tests/phpunit/MathRendererTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-05-30T01:19:04Z",
+      "side": 1,
+      "message": "Heads up that the line is now 101 characters and Jenkins may complain - perhaps move the comment?",
+      "revId": "b77f596f3e15796c36128adc068a115ff5949721",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
