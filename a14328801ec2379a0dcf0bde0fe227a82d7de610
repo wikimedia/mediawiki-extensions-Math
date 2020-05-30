@@ -16,6 +16,24 @@
       "revId": "a14328801ec2379a0dcf0bde0fe227a82d7de610",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a1f3967_12dd2a23",
+        "filename": "tests/api-testing/checkHandlerTest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2020-05-30T14:37:02Z",
+      "side": 1,
+      "message": "Ok, this is something definitely missing from the docs: you need to override eslint config. So, create a file just like this: https://github.com/wikimedia/mediawiki-extensions-EventBus/blob/master/tests/api-testing/.eslintrc.json in api-testing folder. It might make you change the code style a little bit.\n\n@clarakosi - I think we need to add this to the documentation!",
+      "parentUuid": "599d7a56_9afc6b22",
+      "revId": "a14328801ec2379a0dcf0bde0fe227a82d7de610",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
