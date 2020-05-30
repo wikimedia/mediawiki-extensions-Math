@@ -7,7 +7,7 @@ require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 use MediaWiki\MediaWikiServices;
 
 class WfTest extends Maintenance {
-	const REFERENCE_PAGE = 'mediawikiwiki:Extension:Math/CoverageTest';
+	private const REFERENCE_PAGE = 'mediawikiwiki:Extension:Math/CoverageTest';
 
 	public function __construct() {
 		parent::__construct();

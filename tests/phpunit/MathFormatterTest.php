@@ -15,7 +15,7 @@ use Wikibase\Lib\Formatters\SnakFormatter;
  */
 class MathFormatterTest extends MediaWikiTestCase {
 
-	const SOME_TEX = 'a^2+b^2 < c^2';
+	private const SOME_TEX = 'a^2+b^2 < c^2';
 
 	protected static $hasRestbase;
 

@@ -10,9 +10,9 @@
  * @license GPL-2.0-or-later
  */
 class MathRendererTest extends MediaWikiTestCase {
-	const SOME_TEX = "a+b";
-	const TEXVCCHECK_INPUT = '\forall \epsilon \exist \delta';
-	const TEXVCCHECK_OUTPUT = '\forall \epsilon \exists \delta '; // be aware of the s at exists
+	private const SOME_TEX = "a+b";
+	private const TEXVCCHECK_INPUT = '\forall \epsilon \exist \delta';
+	private const TEXVCCHECK_OUTPUT = '\forall \epsilon \exists \delta '; // be aware of the s at exists
 
 	protected static $hasRestbase;
 
