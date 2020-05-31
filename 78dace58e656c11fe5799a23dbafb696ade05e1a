@@ -16,6 +16,24 @@
       "revId": "78dace58e656c11fe5799a23dbafb696ade05e1a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f554e59_449c3efd",
+        "filename": ".phan/config.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5450
+      },
+      "writtenOn": "2020-05-31T16:06:11Z",
+      "side": 1,
+      "message": "Makes sense, yes. I hope to fix this kind of conflicts in mediawiki-phan-config itself. We\u0027d need something like a recursive directory analyzer to exclude e.g. duplicated stubs or vendor directories",
+      "parentUuid": "25a5f610_3818a521",
+      "revId": "78dace58e656c11fe5799a23dbafb696ade05e1a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
