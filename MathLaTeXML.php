@@ -113,6 +113,7 @@ class MathLaTeXML extends MathMathML {
 		$this->lastError = '';
 		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
 		if ( $requestResult ) {
+			// @phan-suppress-next-line PhanTypeMismatchArgumentInternal
 			$jsonResult = json_decode( $res );
 			if ( $jsonResult && json_last_error() === JSON_ERROR_NONE ) {
 				if ( $this->isValidMathML( $jsonResult->result ) ) {
