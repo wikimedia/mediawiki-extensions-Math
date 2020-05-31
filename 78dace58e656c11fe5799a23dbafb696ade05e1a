@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25a5f610_3818a521",
+        "filename": ".phan/config.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2020-05-31T15:58:11Z",
+      "side": 1,
+      "message": "This has to be splitted because Wikibase ships some stubs for Math extension and that result in duplicate classes parsed by phan",
+      "revId": "78dace58e656c11fe5799a23dbafb696ade05e1a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
