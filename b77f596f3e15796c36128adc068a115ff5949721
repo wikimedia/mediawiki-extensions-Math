@@ -16,6 +16,24 @@
       "revId": "b77f596f3e15796c36128adc068a115ff5949721",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "967c3e82_eaadc733",
+        "filename": "tests/phpunit/MathRendererTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-06-01T17:27:35Z",
+      "side": 1,
+      "message": "Yes, or delete.",
+      "parentUuid": "f3facf87_817fe3ac",
+      "revId": "b77f596f3e15796c36128adc068a115ff5949721",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
