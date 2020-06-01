@@ -7,18 +7,18 @@
 		"api-testing": "mocha tests/api-testing"
 	},
 	"devDependencies": {
-		"api-testing": "^1.0.4",
-		"mocha": "^7.1.1",
+		"api-testing": "1.0.4",
+		"mocha": "7.2.0",
 		"eslint-config-wikimedia": "0.15.3",
 		"grunt": "1.1.0",
 		"grunt-banana-checker": "0.9.0",
 		"grunt-contrib-watch": "1.1.0",
-		"grunt-eslint": "22.0.0",
+		"grunt-eslint": "23.0.0",
 		"grunt-stylelint": "0.15.0",
 		"stylelint-config-wikimedia": "0.10.1",
-		"wdio-mediawiki": "0.4.0",
+		"wdio-mediawiki": "0.5.0",
 		"wdio-mocha-framework": "0.6.4",
-		"wdio-spec-reporter": "0.0.5",
-		"webdriverio": "4.12.0"
+		"wdio-spec-reporter": "0.1.5",
+		"webdriverio": "6.1.14"
 	}
 }
