@@ -1,0 +1,8 @@
+Code-Review+2: Jforrester <jforrester@wikimedia.org>
+Code-Review+2: Libraryupgrader <tools.libraryupgrader@tools.wmflabs.org>
+Verified+2: jenkins-bot
+Submitted-by: jenkins-bot
+Submitted-at: Mon, 01 Jun 2020 21:08:14 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/600717
+Project: mediawiki/extensions/Math
+Branch: refs/heads/master
