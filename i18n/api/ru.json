@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Diman Russkov"
+		]
+	},
+	"apihelp-query+mathwbextracts-param-uselang": "Язык, который следует запрашивать для элемента Wikibase. Английский является значением по умолчанию."
+}
