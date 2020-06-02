@@ -4,6 +4,11 @@ const assert = require( 'assert' ),
 	MathPage = require( '../pageobjects/math.page' );
 
 describe( 'Math', function () {
+	let bot;
+
+	before( async () => {
+		bot = await Api.bot();
+	} );
 
 	it( 'should work for addition', function () {
 
@@ -11,8 +16,8 @@ describe( 'Math', function () {
 		var pageName = Math.random().toString();
 
 		// create a page with a simple addition
-		browser.call( function () {
-			return Api.edit( pageName, '<math>3 + 2</math>' );
+		browser.call( async () => {
+			await bot.edit( pageName, '<math>3 + 2</math>' );
 		} );
 
 		MathPage.openTitle( pageName );
