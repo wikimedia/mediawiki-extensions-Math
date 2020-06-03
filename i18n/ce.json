@@ -36,5 +36,6 @@
 	"mw_math_png": "PNG-сурт",
 	"mw_math_source": "LaTeX билгало (йозанан браузерашна)",
 	"prefs-math": "Формулаш гар",
-	"mathstatus": "Математикан статус"
+	"mathstatus": "Математикан статус",
+	"math-wikibase-formula-type": "Тайпа"
 }
