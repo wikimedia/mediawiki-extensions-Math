@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8561281_1042d2c7",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 487
+      },
+      "writtenOn": "2020-06-04T08:57:02Z",
+      "side": 1,
+      "message": "6.1.16 is released. Let\u0027s use it.",
+      "range": {
+        "startLine": 25,
+        "startChar": 18,
+        "endLine": 25,
+        "endChar": 24
+      },
+      "revId": "ce547d43c3fcb13d80caff618a8496e4121028f7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
