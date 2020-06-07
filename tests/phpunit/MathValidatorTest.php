@@ -33,10 +33,6 @@ class MathValidatorTest extends MediaWikiTestCase {
 		}
 	}
 
-	protected function tearDown() : void {
-		parent::tearDown();
-	}
-
 	public function testNotStringValue() {
 		$validator = new MathValidator();
 		$this->expectException( InvalidArgumentException::class );
