@@ -275,7 +275,7 @@ class MathRestbaseInterface {
 
 		try {
 			$url = $testInterface->getFullSvgUrl();
-			$req = MWHttpRequest::factory( $url );
+			$req = MediaWikiServices::getInstance()->getHttpRequestFactory()->create( $url, [], __METHOD__ );
 			$status = $req->execute();
 			if ( $status->isOK() ) {
 				return true;
