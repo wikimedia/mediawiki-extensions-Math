@@ -85,7 +85,7 @@ class MathoidChecker extends BaseChecker {
 			'postData' => $postData,
 			'timeout' => $this->timeout,
 		];
-		$req = $this->httpFactory->create( $url, $options );
+		$req = $this->httpFactory->create( $url, $options, __METHOD__ );
 		$req->execute();
 		$statusCode = $req->getStatus();
 		if ( in_array( $statusCode, self::EXPECTED_RETURN_CODES ) ) {
