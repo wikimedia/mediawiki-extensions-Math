@@ -1,7 +1,7 @@
 <?php
 
 use Wikibase\DataModel\Snak\PropertyValueSnak;
-use Wikibase\Rdf\ValueSnakRdfBuilder;
+use Wikibase\Repo\Rdf\ValueSnakRdfBuilder;
 use Wikimedia\Purtle\RdfWriter;
 
 class MathMLRdfBuilder implements ValueSnakRdfBuilder {
