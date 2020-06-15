@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"A Retired User",
+			"Blackteahamburger",
 			"Hzy980512",
 			"Liangent",
 			"Liuxinyu970226",
@@ -82,6 +83,9 @@
 	"math-tracking-category-error": "有数学错误的页面",
 	"math-tracking-category-error-desc": "此分类中的页面在数学标签的使用上有错误。",
 	"math-tracking-category-mhchem-deprecation": "使用chem标签的弃用格式的页面",
+	"math-tracking-category-mhchem-deprecation-desc": "此类别中的页面使用不推荐使用的chem标签格式",
+	"math-tracking-category-texvc-deprecation": "使用过时的math标签格式的页面",
+	"math-tracking-category-texvc-deprecation-desc": "此类别中的页面使用不赞成使用的math标记格式",
 	"math-tracking-category-render-error": "有数学渲染错误的页面",
 	"math-tracking-category-render-error-desc": "此分类中的页面有数学标签的渲染错误。",
 	"math_unknown_error": "未知错误",
@@ -102,5 +106,6 @@
 	"math-wikibase-formula-type": "类型",
 	"math-wikibase-formula-header-format": "'''$1：'''$2",
 	"math-wikibase-formula-description": "描述",
+	"math-wikibase-formula-information": "数学公式信息",
 	"math-wikibase-formula-link-header": "数据源"
 }
