@@ -14,7 +14,7 @@
 	"callback": "MathHooks::registerExtension",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.32.0"
+		"MediaWiki": ">= 1.35.0"
 	},
 	"AutoloadClasses": {
 		"MathMathSymbolsDataModule": "src/MathMathSymbolsDataModule.php",
