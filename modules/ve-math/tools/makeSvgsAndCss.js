@@ -10,6 +10,7 @@ function generateCSS( symbolsFile, cssFile, inputType ) {
 		rerenderAll = process.argv.slice( 2 ).indexOf( '--all' ) !== -1,
 		unmodifiedClasses = {},
 		cssClasses = {}, // Unique part of class name and whether baseline is shifted
+		generatedRules = [],
 		currentRule = [],
 		symbolList = [], // Symbols whose CSS rules need to be added or adjusted
 		cssPrefix = '.ve-ui-mwLatexSymbol-',
@@ -80,6 +81,14 @@ function generateCSS( symbolsFile, cssFile, inputType ) {
 					className = texToClass( tex ),
 					data = JSON.parse( body ),
 					svg = data.svg;
+
+				if ( Object.prototype.hasOwnProperty.call( generatedRules, className ) ) {
+					console.log( className + ' already generated' );
+					onEnd();
+					return;
+				}
+
+				generatedRules[ className ] = true;
 
 				if ( !svg ) {
 					console.log( tex + ' FAILED: ' + body );
