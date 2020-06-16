@@ -5,11 +5,7 @@
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
 	],
-	"globals": {
-		"OO": false
-	},
 	"rules": {
-		"max-len": "off",
-		"mediawiki/class-doc": "warn"
+		"max-len": "off"
 	}
 }

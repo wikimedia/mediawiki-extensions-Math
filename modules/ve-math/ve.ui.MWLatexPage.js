@@ -50,6 +50,13 @@ ve.ui.MWLatexPage = function VeUiMWLatexPage( name, config ) {
 			}
 			symbolNode = document.createElement( 'div' );
 			for ( j = 0, jlen = classes.length; j < jlen; j++ ) {
+				// The following classes are used here:
+				// * ve-ui-mwLatexPage-symbol
+				// * ve-ui-mwLatexPage-symbol-wide
+				// * ve-ui-mwLatexPage-symbol-wider
+				// * ve-ui-mwLatexPage-symbol-widest
+				// * ve-ui-mwLatexPage-symbol-contain
+				// * ve-ui-mwLatexPage-symbol-largeLayout
 				symbolNode.classList.add( classes[ j ] );
 			}
 			$.data( symbolNode, 'symbol', symbol );

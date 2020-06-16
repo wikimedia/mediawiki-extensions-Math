@@ -12,7 +12,7 @@ module.exports = function ( grunt ) {
 		stylelint: {
 			all: [
 				'**/*.css',
-				'!**/{vendor,node_modules}/**'
+				'!{vendor,node_modules,modules/ve-math/tools/node_modules}/**'
 			]
 		},
 		watch: {
@@ -25,12 +25,12 @@ module.exports = function ( grunt ) {
 		},
 		eslint: {
 			options: {
-				extensions: [ '.js', '.json' ],
-				cache: true
+				cache: true,
+				fix: grunt.option( 'fix' )
 			},
 			all: [
 				'**/*.{js,json}',
-				'!**/{vendor,node_modules}/**'
+				'!{vendor,node_modules,modules/ve-math/tools/node_modules}/**'
 			]
 		}
 	} );

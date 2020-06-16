@@ -1,3 +1,5 @@
+'use strict';
+
 const { assert, REST } = require( 'api-testing' );
 
 describe( 'Math check endpoint test', () => {
