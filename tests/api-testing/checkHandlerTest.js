@@ -5,16 +5,17 @@ describe( 'Math check endpoint test', () => {
 
 	it( 'should get a 200 response for a good request', async () => {
 
-		const { status, body } = await client.post( '/check/tex', {
+		const result = await client.post( '/check/tex', {
 			q: '\\sin  x'
 		},
 		'application/x-www-form-urlencoded'
 		);
 
-		assert.strictEqual( status, 200 );
-		assert.strictEqual( body.success, true );
+		assert.strictEqual( result.status, 200 );
+		assert.strictEqual( result.body.success, true );
 		// Check that the superfluous space in the input was removed
-		assert.strictEqual( body.checked, '\\sin x' );
+		assert.strictEqual( result.body.checked, '\\sin x' );
+		assert.strictEqual( result.header[ 'x-resource-location' ], '3e25a0e63fc6d8d183a12ab9f0df047cea44e2d9' );
 	} );
 
 	it( 'should get a 400 response for missing post param', async () => {
@@ -69,4 +70,88 @@ describe( 'Math check endpoint test', () => {
 
 		assert.strictEqual( status, 405 );
 	} );
+} );
+
+describe( 'Math formula endpoint test', () => {
+	const client = new REST( 'rest.php/math/v0' );
+
+	before( () => client.post( '/check/tex', { q: '\\sin  x' }, 'application/x-www-form-urlencoded' ) );
+
+	it( 'should get a 200 response for a good request', async () => {
+
+		const result = await client.get( '/formula/3e25a0e63fc6d8d183a12ab9f0df047cea44e2d9' );
+
+		assert.strictEqual( result.status, 200 );
+		assert.strictEqual( result.body.type, 'tex' );
+		assert.strictEqual( result.body.q, '\\sin x' );
+
+	} );
+
+	it( 'should get a 404 response for bad value of hash param', async () => {
+
+		const { status, body } = await client.get( '/formula/thebadvalue' );
+
+		assert.strictEqual( status, 404 );
+		assert.strictEqual( body.httpReason, 'Not Found' );
+		assert.include( body.messageTranslations.en, 'thebadvalue' );
+
+	} );
+
+} );
+
+describe( 'Math render endpoint test', () => {
+	const client = new REST( 'rest.php/math/v0' );
+
+	before( () => client.post( '/check/tex', { q: '\\sin  x' }, 'application/x-www-form-urlencoded' ) );
+
+	it( 'should get a 200 response for a mml request', async () => {
+
+		const result = await client.get( '/render/mml/3e25a0e63fc6d8d183a12ab9f0df047cea44e2d9' );
+
+		assert.strictEqual( result.status, 200 );
+		assert.include( result.header[ 'content-type' ], 'mathml' );
+		assert.include( result.text, '<math' );
+		assert.include( result.text, 'sin' );
+		assert.include( result.text, '<mrow' );
+	} );
+
+	it( 'should get a 200 response for a svg request', async () => {
+
+		const result = await client.get( '/render/svg/3e25a0e63fc6d8d183a12ab9f0df047cea44e2d9' );
+
+		assert.strictEqual( result.status, 200 );
+		assert.include( result.header[ 'content-type' ], 'svg' );
+		assert.isAbove( result.body.length, 1000 );
+	} );
+
+	it( 'should get a 200 response for a png request', async () => {
+
+		const result = await client.get( '/render/png/3e25a0e63fc6d8d183a12ab9f0df047cea44e2d9' );
+
+		assert.strictEqual( result.status, 200 );
+		assert.include( result.header[ 'content-type' ], 'png' );
+		assert.isAbove( result.body.length, 500 );
+
+	} );
+
+	it( 'should get a 404 response for bad value of hash param', async () => {
+
+		const { status, body } = await client.get( '/render/mml/thebadvalue' );
+
+		assert.strictEqual( status, 404 );
+		assert.strictEqual( body.httpReason, 'Not Found' );
+		assert.include( body.messageTranslations.en, 'thebadvalue' );
+
+	} );
+
+	it( 'should get a 400 response for bad value of format param', async () => {
+
+		const { status, body } = await client.get( '/render/thebadvalue/3e25a0e63fc6d8d183a12ab9f0df047cea44e2d9' );
+		assert.strictEqual( status, 400 );
+		assert.strictEqual( body.failureCode, 'badvalue' );
+		assert.strictEqual( body.name, 'format' );
+		assert.strictEqual( body.value, 'thebadvalue' );
+
+	} );
+
 } );
