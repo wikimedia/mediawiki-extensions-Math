@@ -74,6 +74,7 @@
 	"math_mathoid_error": "Conversion error. Server (\"$1\") reported: \"$2\"",
 	"math-status-introduction" : "This page displays information about the enabled math rendering {{PLURAL:$1|mode|modes}}.\n\nThe following rendering {{PLURAL:$1|mode is|modes are}} enabled:",
 	"math_syntax_error": "syntax error",
+	"math-rest-nonexistent-hash": "The specified hash ($1) does not exist",
 	"math_timeout": "$1 timeout from \"$2\".",
 	"math-test-end": "Backend tests for rendering mode ''$1'' completed.",
 	"math-test-fail": "Test ''$1'' <span style=\"color:red\">failed</span>.",

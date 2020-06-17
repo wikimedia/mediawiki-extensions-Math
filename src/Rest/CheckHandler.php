@@ -2,19 +2,24 @@
 
 namespace MediaWiki\Extension\Math\Rest;
 
+use MediaWiki\Extension\Math\Backend\MathoidBackend;
 use MediaWiki\Extension\Math\InputCheck\InputCheckFactory;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
 use MediaWiki\Rest\StringStream;
+use WANObjectCache;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class CheckHandler extends SimpleHandler {
 	private const VALID_TYPES = [ 'tex', 'inline-tex', 'chem' ];
 	/** @var InputCheckFactory */
 	private $checkerFactory;
+	/** @var WANObjectCache */
+	private $cache;
 
-	public function __construct( InputCheckFactory $checkerFactory ) {
+	public function __construct( InputCheckFactory $checkerFactory, WANObjectCache $cache ) {
 		$this->checkerFactory = $checkerFactory;
+		$this->cache = $cache;
 	}
 
 	public function getParamSettings() {
@@ -40,6 +45,19 @@ class CheckHandler extends SimpleHandler {
 		$response->setBody( new StringStream( $content ) );
 		$response->setStatus( $statusCode );
 		$response->setHeader( 'Content-Type', 'application/json' );
+		if ( $statusCode === 200 ) {
+			$hash = sha1( MathoidBackend::VERSION . '-' . $type . '-' . $content );
+			$this->cache->set(
+				$this->cache->makeGlobalKey( self::class, $hash ),
+				[
+					'q' => json_decode( $content )->checked,
+					'type' => $type
+				],
+				WANObjectCache::TTL_INDEFINITE
+			);
+			$response->setHeader( 'x-resource-location', $hash );
+		}
+
 		return $response;
 	}
 

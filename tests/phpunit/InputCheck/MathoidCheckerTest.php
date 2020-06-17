@@ -9,13 +9,13 @@ use MediaWikiTestCase;
 use WANObjectCache;
 
 class MathoidCheckerTest extends MediaWikiTestCase {
-	private const SAMPLE_KEY = 'global:MediaWiki\Extension\Math\InputCheck\MathoidChecker:' .
-		'75463d043824b7ba3ebf56f082e0b4fc065aaf41';
+	private const SAMPLE_KEY = 'global:MediaWiki\Extension\Math\Backend\MathoidBackend:' .
+		'8204ad4d000171b5166e2e74dc8e1099bb8b65c4';
 
 	public function provideTexExamples() {
 		return [
-			[ '\sin x', '75463d043824b7ba3ebf56f082e0b4fc065aaf41' ],
-			[ '\sin_x', '1bbb41ff0c2e1ddd1a2a2563c8c31c381062551f' ],
+			[ '\sin x', '8204ad4d000171b5166e2e74dc8e1099bb8b65c4' ],
+			[ '\sin_x', '1a731021771b998a7409a45c4c79a59c960c8879' ],
 		];
 	}
 
