@@ -306,7 +306,25 @@
 			"method": "POST",
 			"class": "MediaWiki\\Extension\\Math\\Rest\\CheckHandler",
 			"services": [
-				"Math.CheckerFactory"
+				"Math.CheckerFactory",
+				"MainWANObjectCache"
+			]
+		},
+		{
+			"path": "/math/v0/formula/{hash}",
+			"method": "POST",
+			"class": "MediaWiki\\Extension\\Math\\Rest\\HashLookupHandler",
+			"services": [
+				"MainWANObjectCache"
+			]
+		},
+		{
+			"path": "/math/v0/render/{format}/{hash}",
+			"method": "GET",
+			"class": "MediaWiki\\Extension\\Math\\Rest\\RenderHandler",
+			"services": [
+				"Math.BackendFactory",
+				"MainWANObjectCache"
 			]
 		}
 	],
