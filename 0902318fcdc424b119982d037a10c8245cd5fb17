@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "164a11ba_61d9d157",
+        "filename": "src/Rest/RenderHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-06-18T09:06:50Z",
+      "side": 1,
+      "message": "I don\u0027t know which kind of stream is required...",
+      "revId": "0902318fcdc424b119982d037a10c8245cd5fb17",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
