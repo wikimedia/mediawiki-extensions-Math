@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cf27a56_c13bcd39",
+        "filename": "src/Backend/MathoidBackend.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-06-20T22:08:32Z",
+      "side": 1,
+      "message": "suggest moving to the next line",
+      "range": {
+        "startLine": 81,
+        "startChar": 22,
+        "endLine": 81,
+        "endChar": 24
+      },
+      "revId": "69e98480aefc80c89315ddcf7664b73fd61340b4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
