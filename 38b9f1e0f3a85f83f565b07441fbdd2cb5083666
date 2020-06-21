@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e114342_ff197bd3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-06-21T08:46:50Z",
+      "side": 1,
+      "message": "should be split:\n\nBug: T...\nBug: T...",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 21
+      },
+      "revId": "38b9f1e0f3a85f83f565b07441fbdd2cb5083666",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11862a2b_967f7073",
+        "filename": "src/Backend/MathoidBackendFactory.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-06-21T08:46:50Z",
+      "side": 1,
+      "message": "are there constants that can be used to represent what I assume are the different backend types?",
+      "range": {
+        "startLine": 61,
+        "startChar": 3,
+        "endLine": 61,
+        "endChar": 13
+      },
+      "revId": "38b9f1e0f3a85f83f565b07441fbdd2cb5083666",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7d36f87_e25ede4c",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-06-21T08:46:50Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 43,
+        "endChar": 14
+      },
+      "revId": "38b9f1e0f3a85f83f565b07441fbdd2cb5083666",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ab8d013_701db78e",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-06-21T08:46:50Z",
+      "side": 1,
+      "message": "no need to save with $response:\n\nreturn $this-\u003ebackend-\u003egetResponse();",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "38b9f1e0f3a85f83f565b07441fbdd2cb5083666",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbe933a4_d0453a29",
+        "filename": "src/Rest/HashLookupHandler.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-06-21T08:46:50Z",
+      "side": 1,
+      "message": "suggest formatting for readability:\n\nthrow new LocalizedHttpException(\n    new MessageValue( \u0027math-rest-nonexistent-hash\u0027, [ $hash ] ),\n    404\n);",
+      "range": {
+        "startLine": 31,
+        "startChar": 3,
+        "endLine": 32,
+        "endChar": 71
+      },
+      "revId": "38b9f1e0f3a85f83f565b07441fbdd2cb5083666",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "898f1b98_2b8d8690",
+        "filename": "src/Rest/HashLookupHandler.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-06-21T08:46:50Z",
+      "side": 1,
+      "message": "I would recommend returning on a valid content, and then throwing otherwise, instead of the other way around:\n\nif ( $content ) {\n    return $content;\n}\n\nthrow new ...",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 18
+      },
+      "revId": "38b9f1e0f3a85f83f565b07441fbdd2cb5083666",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b6904a6_669f77fd",
+        "filename": "src/Rest/RenderHandler.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2020-06-21T08:46:50Z",
+      "side": 1,
+      "message": "same suggestion regarding formatting over multiple lines for readability",
+      "range": {
+        "startLine": 51,
+        "startChar": 35,
+        "endLine": 51,
+        "endChar": 36
+      },
+      "revId": "38b9f1e0f3a85f83f565b07441fbdd2cb5083666",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
