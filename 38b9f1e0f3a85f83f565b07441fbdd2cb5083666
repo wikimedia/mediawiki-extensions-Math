@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c2a7c4a5_7e112a3d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-06-21T09:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e114342_ff197bd3",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 21
+      },
+      "revId": "38b9f1e0f3a85f83f565b07441fbdd2cb5083666",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11862a2b_967f7073",
         "filename": "src/Backend/MathoidBackendFactory.php",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2020-06-21T08:46:50Z",
       "side": 1,
       "message": "are there constants that can be used to represent what I assume are the different backend types?",
+      "range": {
+        "startLine": 61,
+        "startChar": 3,
+        "endLine": 61,
+        "endChar": 13
+      },
+      "revId": "38b9f1e0f3a85f83f565b07441fbdd2cb5083666",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42532cca_cc3719ce",
+        "filename": "src/Backend/MathoidBackendFactory.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-06-21T09:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11862a2b_967f7073",
       "range": {
         "startLine": 61,
         "startChar": 3,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b2a51e6a_7b5b378d",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-06-21T09:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7d36f87_e25ede4c",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 43,
+        "endChar": 14
+      },
+      "revId": "38b9f1e0f3a85f83f565b07441fbdd2cb5083666",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ab8d013_701db78e",
         "filename": "src/InputCheck/MathoidChecker.php",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2020-06-21T08:46:50Z",
       "side": 1,
       "message": "no need to save with $response:\n\nreturn $this-\u003ebackend-\u003egetResponse();",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "38b9f1e0f3a85f83f565b07441fbdd2cb5083666",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ed77969_593acad6",
+        "filename": "src/InputCheck/MathoidChecker.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-06-21T09:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ab8d013_701db78e",
       "range": {
         "startLine": 51,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "07917703_838c4649",
+        "filename": "src/Rest/HashLookupHandler.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-06-21T09:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbe933a4_d0453a29",
+      "range": {
+        "startLine": 31,
+        "startChar": 3,
+        "endLine": 32,
+        "endChar": 71
+      },
+      "revId": "38b9f1e0f3a85f83f565b07441fbdd2cb5083666",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "898f1b98_2b8d8690",
         "filename": "src/Rest/HashLookupHandler.php",
         "patchSetId": 6
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "f6a1844e_795401a8",
+        "filename": "src/Rest/HashLookupHandler.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-06-21T09:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "898f1b98_2b8d8690",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 18
+      },
+      "revId": "38b9f1e0f3a85f83f565b07441fbdd2cb5083666",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b6904a6_669f77fd",
         "filename": "src/Rest/RenderHandler.php",
         "patchSetId": 6
@@ -151,6 +295,30 @@
       "writtenOn": "2020-06-21T08:46:50Z",
       "side": 1,
       "message": "same suggestion regarding formatting over multiple lines for readability",
+      "range": {
+        "startLine": 51,
+        "startChar": 35,
+        "endLine": 51,
+        "endChar": 36
+      },
+      "revId": "38b9f1e0f3a85f83f565b07441fbdd2cb5083666",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c653a00e_6713c624",
+        "filename": "src/Rest/RenderHandler.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-06-21T09:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b6904a6_669f77fd",
       "range": {
         "startLine": 51,
         "startChar": 35,
