@@ -10,7 +10,12 @@
 		]
 	},
 	"math-desc": "Выводзіць матэматычныя формулы, запісаныя паміж тэгамі <code>&lt;math&gt;</code> і <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwchemdialog-title": "Хімічная формула",
+	"math-visualeditor-mwcheminspector-title": "Хімічная формула",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Хуткае рэдагаваньне",
+	"math-visualeditor-mwlatexdialog-card-formula": "Формула",
+	"math-visualeditor-mwlatexdialog-card-options": "Налады",
+	"math-visualeditor-mwlatexinspector-id": "Ідэнтыфікатар спасылкі (неабавязковы)",
 	"math_failure": "Немагчыма разабраць",
 	"math_syntax_error": "сынтаксычная памылка",
 	"math-tracking-category-error": "Старонкі з матэматычнымі памылкамі",
