@@ -22,6 +22,30 @@
       "revId": "b643f66e5fe35be2a8f9c2ff1ea00e5ce5aeb1e2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15f4db28_ce734fe7",
+        "filename": "src/Backend/MathoidBackend.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2020-06-28T17:49:52Z",
+      "side": 1,
+      "message": "I am not really sure what to write. Can you maybe describe what is unclear. I think it would not make sense to write comments a la \"the version\" the \"mathoid endpoint\"... Also I think we should not duplicate the mathoid API description \nhttps://github.com/wikimedia/mathoid#api-description",
+      "parentUuid": "928112a9_8a6b932f",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 16,
+        "endChar": 32
+      },
+      "revId": "b643f66e5fe35be2a8f9c2ff1ea00e5ce5aeb1e2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
