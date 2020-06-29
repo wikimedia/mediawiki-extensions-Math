@@ -16,6 +16,24 @@
       "revId": "1dace50aecdd1fce0470438935bdf6a95c0f38ae",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e28a382_e2a692a7",
+        "filename": "math/texutil.ml",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 664
+      },
+      "writtenOn": "2020-06-29T16:58:51Z",
+      "side": 1,
+      "message": "The change is only to the TEX_ONLY portion of the literal.  The HTML is unaffected.",
+      "parentUuid": "8e28a382_f8e768a5",
+      "revId": "1dace50aecdd1fce0470438935bdf6a95c0f38ae",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
