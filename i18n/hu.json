@@ -8,6 +8,7 @@
 			"Dj",
 			"Macofe",
 			"Máté",
+			"Palotabarát 3",
 			"Tacsipacsi"
 		]
 	},
@@ -69,6 +70,7 @@
 	"math-test-equals-diff": "A visszaadott $1 különbözik az elvárt $2 karakterlánctól.",
 	"math-tracking-category-error": "Hibás képletet tartalmazó lapok",
 	"math-tracking-category-error-desc": "A kategóriában található lapok hibás &lt;math&gt; címkéket tartalmaznak.",
+	"math-tracking-category-texvc-deprecation": "Lapok elavult formátumú matematikai tagekkel",
 	"math-tracking-category-render-error": "Lapok képletfeldolgozási hibákkal",
 	"math-tracking-category-render-error-desc": "A kategóriában található lapokon feldolgozási hibák vannak &lt;math&gt; címkékben.",
 	"math_unknown_error": "ismeretlen hiba",
