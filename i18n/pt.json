@@ -81,6 +81,8 @@
 	"math-tracking-category-error-desc": "As páginas nesta categoria contêm erros no uso dos elementos de formatação matemática.",
 	"math-tracking-category-mhchem-deprecation": "Páginas que usam um formato descontinuado das etiquetas de química",
 	"math-tracking-category-mhchem-deprecation-desc": "As páginas nesta categoria usam um formato descontinuado das etiquetas de química",
+	"math-tracking-category-texvc-deprecation": "Páginas que usam um formato descontinuado das etiquetas de matemática",
+	"math-tracking-category-texvc-deprecation-desc": "As páginas nesta categoria usam um formato descontinuado das etiquetas de matemática",
 	"math-tracking-category-render-error": "Páginas com erros de composição de imagem matemática",
 	"math-tracking-category-render-error-desc": "As páginas desta categoria têm erros de composição de imagem nas etiquetas de matemática.",
 	"math_unknown_error": "erro desconhecido",
