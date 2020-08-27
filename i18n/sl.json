@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Dbc334",
+			"Eleassar",
 			"Macofe"
 		]
 	},
 	"math-desc": "Izriši matematične formule med oznakama <code>&lt;math&gt;</code> in <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwchemdialog-title": "Kemična formula",
+	"math-visualeditor-mwcheminspector-title": "Kemična formula",
 	"math-visualeditor-mwlatexinspector-display": "Prikaz",
 	"math-visualeditor-mwlatexinspector-display-block": "Blokiraj",
 	"math-visualeditor-mwlatexinspector-display-default": "Privzeto",
