@@ -125,7 +125,7 @@ class SpecialMathWikibase extends SpecialPage {
 				wfMessage( 'math-wikibase-special-error-invalid-argument' )->inContentLanguage()->parse()
 			);
 		} else {
-			$this->logger->error( "An unknown error occured due fetching data from Wikibase.", [
+			$this->logger->error( "An unknown error occurred while fetching data from Wikibase.", [
 				'exception' => $e
 			] );
 			$this->getOutput()->addHTML(
