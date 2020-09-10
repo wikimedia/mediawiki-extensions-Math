@@ -46,6 +46,30 @@
       "revId": "b92a11d6094a225708140d608c413d2b7f4954c9",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "122e40d6_b272de21",
+        "filename": "src/SpecialMathWikibase.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 787
+      },
+      "writtenOn": "2020-09-10T16:53:04Z",
+      "side": 1,
+      "message": "Thanks! I\u0027ll fix.",
+      "parentUuid": "4103b7fd_cc9d6c26",
+      "range": {
+        "startLine": 128,
+        "startChar": 25,
+        "endLine": 128,
+        "endChar": 85
+      },
+      "revId": "b92a11d6094a225708140d608c413d2b7f4954c9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
     }
   ]
 }
