@@ -115,6 +115,6 @@
 	"math-wikibase-special-form-button": "Request Information",
 	"math-wikibase-special-error-header": "Error",
 	"math-wikibase-special-error-invalid-argument": "Your specified Wikibase item ID does not exist.",
-	"math-wikibase-special-error-unknown": "An unknown error occured due fetching data from Wikibase.",
+	"math-wikibase-special-error-unknown": "An unknown error occurred while fetching data from Wikibase.",
 	"math-wikibase-special-error-no-wikibase": "The Wikibase extension is required in order to use this special page."
 }
