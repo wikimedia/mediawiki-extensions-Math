@@ -101,5 +101,6 @@
 	"math-wikibase-formula-name": "Nazwa",
 	"math-wikibase-formula-type": "Typ",
 	"math-wikibase-formula-description": "Opis",
-	"math-wikibase-special-error-header": "Błąd"
+	"math-wikibase-special-error-header": "Błąd",
+	"math-wikibase-special-error-unknown": "Podczas pobierania danych z Wikibase wystąpił nieznany błąd."
 }
