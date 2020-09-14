@@ -91,5 +91,6 @@
 	"datatypes-type-math": "Espressione matematica",
 	"wikibase-listdatatypes-math-head": "Espressione matematica",
 	"wikibase-listdatatypes-math-body": "Campo dati letterale per espressioni matematiche, formule, equazioni e simili, espresse in una variante di LaTeX.",
-	"math-wikibase-formula-elements-header": "Elementi della formula"
+	"math-wikibase-formula-elements-header": "Elementi della formula",
+	"math-wikibase-special-error-unknown": "Si è verificato un errore sconosciuto durante il recupero dei dati da Wikibase."
 }

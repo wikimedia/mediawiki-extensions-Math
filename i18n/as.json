@@ -4,12 +4,13 @@
 			"Bishnu Saikia",
 			"Chaipau",
 			"Gitartha.bordoloi",
-			"Rajuonline"
+			"Rajuonline",
+			"Simbu123"
 		]
 	},
 	"math_failure": "পাৰ্চ কৰিব অসমৰ্থ",
 	"math_syntax_error": "চীন্‌টেক্স ত্ৰুটি",
 	"math_unknown_error": "অজ্ঞাত ত্ৰুটি",
-	"math_unknown_function": "অজ্ঞাত কাৰ্য্য",
+	"math_unknown_function": "অজ্ঞাত কাৰ্য \"$1\"",
 	"prefs-math": "গণিত"
 }

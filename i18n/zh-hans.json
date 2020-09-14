@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"A Retired User",
+			"AYZ04",
 			"Blackteahamburger",
 			"Hzy980512",
 			"Liangent",
@@ -107,5 +108,6 @@
 	"math-wikibase-formula-header-format": "'''$1：'''$2",
 	"math-wikibase-formula-description": "描述",
 	"math-wikibase-formula-information": "数学公式信息",
-	"math-wikibase-formula-link-header": "数据源"
+	"math-wikibase-formula-link-header": "数据源",
+	"math-wikibase-special-error-unknown": "从Wikibase提取数据时发生未知错误。"
 }
