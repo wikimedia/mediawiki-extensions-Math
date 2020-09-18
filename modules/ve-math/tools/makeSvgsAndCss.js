@@ -72,15 +72,15 @@ function generateCSS( symbolsFile, cssFile, inputType ) {
 			let body = '';
 			res.setEncoding( 'utf8' );
 
-			res.on( 'data', ( data ) => {
-				body += data;
+			res.on( 'data', ( innerData ) => {
+				body += innerData;
 			} );
 
 			res.on( 'end', () => {
 				const
 					className = texToClass( tex ),
-					data = JSON.parse( body ),
-					svg = data.svg;
+					bodyData = JSON.parse( body ),
+					svg = bodyData.svg;
 
 				if ( Object.prototype.hasOwnProperty.call( generatedRules, className ) ) {
 					console.log( className + ' already generated' );
@@ -105,8 +105,8 @@ function generateCSS( symbolsFile, cssFile, inputType ) {
 					const buttonHeight = symbol.largeLayout ? singleButtonHeight * 4 : singleButtonHeight * 1.9931;
 					// height and verticalAlign rely on the format of the SVG parameters
 					// HACK: Adjust these by a factor of 0.8 to match VE's default font size of 0.8em
-					const height = parseFloat( data.mathoidStyle.match( /height:\s*([\d.]+)ex/ )[ 1 ] ) * 0.8;
-					const verticalAlign = -parseFloat( data.mathoidStyle.match( /vertical-align:\s*([-\d.]+)ex/ )[ 1 ] ) * 0.8;
+					const height = parseFloat( bodyData.mathoidStyle.match( /height:\s*([\d.]+)ex/ )[ 1 ] ) * 0.8;
+					const verticalAlign = -parseFloat( bodyData.mathoidStyle.match( /vertical-align:\s*([-\d.]+)ex/ )[ 1 ] ) * 0.8;
 					// CSS percentage positioning is based on the difference between the image and container sizes
 					const heightDifference = buttonHeight - height;
 					const offset = 100 * ( verticalAlign - height + ( baseline * buttonHeight ) ) / heightDifference;
