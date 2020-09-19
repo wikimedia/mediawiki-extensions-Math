@@ -1868,7 +1868,7 @@
     {
         "input": "\\oint_C \\bold{B} \\cdot {\\rm d} \\boldsymbol{\\ell} = \\mu_0 ",
         "params": [],
-        "output": "<img src=\"e7acad6ef86a9151e97ac0617cfc752a9f092de1\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -2.505ex; width:17.107ex; height:6.009ex;\" alt=\"{\\displaystyle \\oint_C \\bold{B} \\cdot {\\rm d} \\boldsymbol{\\ell} = \\mu_0 }\"\/>"
+        "output": "<img src=\"e7acad6ef86a9151e97ac0617cfc752a9f092de1\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -2.338ex; width:14.69ex; height:5.676ex;\" alt=\"{\\displaystyle \\oint_C \\bold{B} \\cdot {\\rm d} \\boldsymbol{\\ell} = \\mu_0 }\"\/>"
     },
     {
         "input": "{\\scriptstyle S}",
