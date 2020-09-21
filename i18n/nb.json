@@ -107,6 +107,6 @@
 	"math-wikibase-special-form-button": "Be om informasjon",
 	"math-wikibase-special-error-header": "Feil",
 	"math-wikibase-special-error-invalid-argument": "Den angitte Wikibase-element-ID-en finnes ikke.",
-	"math-wikibase-special-error-unknown": "EN ukjent feil oppsto under henting av data fra Wikibase.",
+	"math-wikibase-special-error-unknown": "En ukjent feil oppsto under henting av data fra Wikibase.",
 	"math-wikibase-special-error-no-wikibase": "Wikibase-utvidelsen er påkrevd for å kunne bruke denne spesialsiden."
 }
