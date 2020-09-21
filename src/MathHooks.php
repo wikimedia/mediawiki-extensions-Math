@@ -104,20 +104,16 @@ class MathHooks {
 	 * Generate a user dependent hash cache key.
 	 * The hash key depends on the rendering mode.
 	 * @param string &$confstr The to-be-hashed key string that is being constructed
-	 * @param User|bool $user reference to the current user
+	 * @param User $user reference to the current user
 	 * @param array &$forOptions userOptions used on that page
 	 * @return true
 	 */
-	public static function onPageRenderingHash( &$confstr, $user = false, &$forOptions = [] ) {
-		global $wgUser;
-
+	public static function onPageRenderingHash( &$confstr, $user, &$forOptions = [] ) {
 		// To be independent of the MediaWiki core version,
 		// we check if the core caching logic for math is still available.
+		// TODO this check shouldn't be needed anymore, since none of the versions of MediaWiki
+		// core that this extension supports have the method.
 		if ( !is_callable( 'ParserOptions::getMath' ) && in_array( 'math', $forOptions ) ) {
-			if ( $user === false ) {
-				$user = $wgUser;
-			}
-
 			$mathString = self::mathModeToString( $user->getOption( 'math' ) );
 			$mathOption = self::mathModeToHashKey( $mathString, 0 );
 			// Check if the key already contains the math option part
