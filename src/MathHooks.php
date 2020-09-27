@@ -280,10 +280,10 @@ class MathHooks {
 	 * @return bool hook return code
 	 */
 	public static function onMaintenanceRefreshLinksInit( $maint ) {
-		global $wgUser;
+		$user = RequestContext::getMain()->getUser();
 
 		# Don't generate TeX PNGs (the lack of a sensible current directory causes errors anyway)
-		$wgUser->setOption( 'math', 'source' );
+		$user->setOption( 'math', 'source' );
 
 		return true;
 	}
