@@ -27,6 +27,7 @@ class MathMLRdfBuilderTest extends MediaWikiTestCase {
 	 * This method is called before a test is executed.
 	 */
 	protected function setUp() : void {
+		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
 		parent::setUp();
 		if ( !self::$hasRestbase ) {
 			$this->markTestSkipped( "Can not connect to Restbase Math interface." );

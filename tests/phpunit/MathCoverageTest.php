@@ -25,12 +25,16 @@
  */
 class MathCoverageTest extends MediaWikiTestCase {
 
+	use MockHttpTrait;
+
 	/**
 	 * Loops over all test cases provided by the provider function.
 	 * Compares each the rendering result of each input with the expected output.
 	 * @dataProvider provideCoverage
 	 */
 	public function testCoverage( $input, $options, $output ) {
+		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
+
 		// TODO: Make rendering mode configurable
 		// TODO: Provide test-ids
 		// TODO: Link to the wikipage that contains the reference rendering

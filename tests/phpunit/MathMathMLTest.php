@@ -184,6 +184,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	}
 
 	public function testintegrationTestWithLinks() {
+		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
 		$p = MediaWikiServices::getInstance()->getParserFactory()->create();
 		$po = ParserOptions::newFromAnon();
 		$t = Title::newFromText( __METHOD__ );
@@ -226,6 +227,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	}
 
 	public function testWarning() {
+		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
 		$this->setMwGlobals( "wgMathDisableTexFilter", 'always' );
 		$renderer = new MathMathML();
 		$rbi = $this->getMockBuilder( MathRestbaseInterface::class )
