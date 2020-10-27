@@ -282,9 +282,8 @@ class MathHooks {
 	public static function onMaintenanceRefreshLinksInit( $maint ) {
 		$user = RequestContext::getMain()->getUser();
 
-		# Don't generate TeX PNGs (the lack of a sensible current directory causes errors anyway)
+		// Don't parse LaTeX to improve performance
 		$user->setOption( 'math', 'source' );
-
 		return true;
 	}
 

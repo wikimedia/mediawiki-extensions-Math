@@ -64,7 +64,8 @@
 		"WikibaseClientDataTypes": "MathWikibaseHook::onWikibaseClientDataTypes",
 		"WikibaseRepoDataTypes": "MathWikibaseHook::onWikibaseRepoDataTypes",
 		"ParserAfterTidy": "MathHooks::onParserAfterTidy",
-		"SpecialPage_initList": "MathHooks::onSpecialPage_initList"
+		"SpecialPage_initList": "MathHooks::onSpecialPage_initList",
+		"MaintenanceRefreshLinksInit": "MathHooks::onMaintenanceRefreshLinksInit"
 	},
 	"config": {
 		"MathDefaultLaTeXMLSetting": {
