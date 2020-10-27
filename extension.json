@@ -295,7 +295,9 @@
 	},
 	"TrackingCategories": [
 		"math-tracking-category-error",
-		"math-tracking-category-render-error"
+		"math-tracking-category-render-error",
+		"math-tracking-category-mhchem-deprecation",
+		"math-tracking-category-texvc-deprecation"
 	],
 	"ServiceWiringFiles": [
 		"ServiceWiring.php"
