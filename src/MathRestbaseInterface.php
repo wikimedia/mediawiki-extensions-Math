@@ -122,7 +122,7 @@ class MathRestbaseInterface {
 	 * Generates error messages on failure
 	 * @see Http::post()
 	 *
-	 * @param array $request the request object
+	 * @param array $request
 	 * @return array
 	 */
 	private function executeRestbaseCheckRequest( $request ) {
