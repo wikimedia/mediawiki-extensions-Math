@@ -40,7 +40,8 @@
 		"MathWikibaseInfo": "src/MathWikibaseInfo.php"
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\Math\\InputCheck\\": "src/InputCheck"
+		"MediaWiki\\Extension\\Math\\InputCheck\\": "src/InputCheck",
+		"MediaWiki\\Extension\\Math\\Widget\\": "src/Widget"
 	},
 	"TestAutoloadClasses": {
 		"MathMLHttpRequestTester": "tests/phpunit/MathMLHttpRequestTester.php",
@@ -167,10 +168,15 @@
 		"ext.math.scripts": {
 			"scripts": "ext.math.js"
 		},
-		"ext.math.wikibase.scripts": {
-			"scripts": "ext.math.wikibase.js",
+		"mw.widgets.MathWbEntitySelector": {
+			"scripts": "mw.widgets.MathWbEntitySelector.js",
 			"dependencies": [
-				"jquery.wikibase.entityselector"
+				"oojs-ui-core",
+				"oojs-ui-windows",
+				"oojs-ui-widgets",
+				"mw.config.values.wbRepo",
+				"mediawiki.ForeignApi",
+				"mediawiki.widgets"
 			]
 		},
 		"ext.math.visualEditor": {
