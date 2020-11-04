@@ -41,7 +41,7 @@ class MathMathMLCli extends MathMathML {
 	}
 
 	/**
-	 * @param Object $res
+	 * @param object $res
 	 * @return bool
 	 */
 	private function initializeFromCliResponse( $res ) {

@@ -12,7 +12,7 @@ class MathLaTeXML extends MathMathML {
 
 	protected $defaultAllowedRootElements = [ 'math', 'div', 'table', 'query' ];
 
-	/** @var String settings for LaTeXML daemon */
+	/** @var string settings for LaTeXML daemon */
 	private $LaTeXMLSettings = '';
 
 	public function __construct( $tex = '', $params = [] ) {

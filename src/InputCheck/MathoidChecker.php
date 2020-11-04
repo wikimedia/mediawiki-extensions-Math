@@ -28,7 +28,7 @@ class MathoidChecker extends BaseChecker {
 	 * @param WANObjectCache $cache
 	 * @param HttpRequestFactory $httpFactory
 	 * @param LoggerInterface $logger
-	 * @param String $url
+	 * @param string $url
 	 * @param int $timeout
 	 * @param string $input
 	 * @param string $type
