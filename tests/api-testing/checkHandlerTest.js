@@ -10,7 +10,7 @@ describe( 'Math check endpoint test', () => {
 		const { status, body } = await client.post( '/check/tex', {
 			q: '\\sin  x'
 		},
-		'application/x-www-form-urlencoded'
+		{ 'content-type': 'application/x-www-form-urlencoded' }
 		);
 
 		assert.strictEqual( status, 200 );
@@ -24,7 +24,7 @@ describe( 'Math check endpoint test', () => {
 		const { status, body } = await client.post( '/check/tex', {
 			wrong: '\\sin  x'
 		},
-		'application/x-www-form-urlencoded'
+		{ 'content-type': 'application/x-www-form-urlencoded' }
 		);
 
 		assert.strictEqual( status, 400 );
@@ -37,7 +37,7 @@ describe( 'Math check endpoint test', () => {
 		const { status, body } = await client.post( '/check/thebadvalue', {
 			q: '\\sin  x'
 		},
-		'application/x-www-form-urlencoded'
+		{ 'content-type': 'application/x-www-form-urlencoded' }
 		);
 
 		assert.strictEqual( status, 400 );
@@ -52,7 +52,7 @@ describe( 'Math check endpoint test', () => {
 		const { status, body } = await client.post( '/check/tex', {
 			q: '\\invalid  x'
 		},
-		'application/x-www-form-urlencoded'
+		{ 'content-type': 'application/x-www-form-urlencoded' }
 		);
 
 		assert.strictEqual( status, 400 );
@@ -66,7 +66,7 @@ describe( 'Math check endpoint test', () => {
 		const { status } = await client.get( '/check/tex', {
 			q: '\\sin  x'
 		},
-		'application/x-www-form-urlencoded'
+		{ 'content-type': 'application/x-www-form-urlencoded' }
 		);
 
 		assert.strictEqual( status, 405 );
