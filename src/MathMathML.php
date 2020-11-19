@@ -382,7 +382,7 @@ class MathMathML extends MathRenderer {
 	 * @return Title|string
 	 */
 	private function getFallbackImageUrl( $noRender = false ) {
-		if ( 'png' === $this->getMode() && $this->pngPath ) {
+		if ( $this->getMode() === 'png' && $this->pngPath ) {
 			return $this->pngPath;
 		}
 		if ( $this->svgPath ) {
