@@ -61,9 +61,7 @@ class MathWikibaseConnector {
 			$entityRevision = $entityRevisionLookup->getEntityRevision( $entityId );
 		} catch ( EntityIdParsingException $e ) {
 			throw new InvalidArgumentException( "Invalid Wikibase ID." );
-		} catch ( RevisionedUnresolvedRedirectException $e ) {
-			throw new InvalidArgumentException( "Non-existing Wikibase ID." );
-		} catch ( StorageException $e ) {
+		} catch ( RevisionedUnresolvedRedirectException | StorageException $e ) {
 			throw new InvalidArgumentException( "Non-existing Wikibase ID." );
 		}
 
