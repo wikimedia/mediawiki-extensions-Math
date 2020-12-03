@@ -40,6 +40,11 @@
 	"mw_math_source": "LaTeX билгало (йозанан браузерашна)",
 	"prefs-math": "Формулаш гар",
 	"mathstatus": "Математикан статус",
+	"mathwikibase": "Математикин формулех лаьцна хаам",
 	"math-wikibase-formula-type": "Тайпа",
-	"math-wikibase-formula-link-header": "Хаамийн хьост"
+	"math-wikibase-formula-information": "Математикин формулех лаьцна хаам",
+	"math-wikibase-formula-link-header": "Хаамийн хьост",
+	"math-wikibase-special-form-header": "Язъе формулан цӀе:",
+	"math-wikibase-special-form-placeholder": "Формулан цӀе",
+	"math-wikibase-special-form-button": "Дехарах хаам"
 }
