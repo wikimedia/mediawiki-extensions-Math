@@ -60,13 +60,12 @@ class MathGenerateTests extends Maintenance {
 	}
 
 	public function execute() {
-		global $wgUser;
 		$parserTests = [];
 		$page = $this->getArg( 0, self::REFERENCE_PAGE );
 		$offset = $this->getOption( 'offset', 0 );
 		$length = $this->getOption( 'length', PHP_INT_MAX );
 		$userName = $this->getOption( 'user', 'Maintenance script' );
-		$wgUser = User::newFromName( $userName );
+		RequestContext::getMain()->setUser( User::newFromName( $userName ) );
 		$allEquations = self::getMathTagsFromPage( $page );
 		if ( !is_array( $allEquations ) ) {
 			echo "Could not get equations from page '$page'\n";
