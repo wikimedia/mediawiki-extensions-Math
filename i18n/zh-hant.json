@@ -115,6 +115,6 @@
 	"math-wikibase-special-form-button": "請求資訊",
 	"math-wikibase-special-error-header": "錯誤",
 	"math-wikibase-special-error-invalid-argument": "您指定的 Wikibase 項目 ID 不存在。",
-	"math-wikibase-special-error-unknown": "索取來自 Wikibase 的資料時發生未知錯誤。",
+	"math-wikibase-special-error-unknown": "在索取來自 Wikibase 的資料時發生未知錯誤。",
 	"math-wikibase-special-error-no-wikibase": "要使用此特殊頁面需要 Wikibase 擴充套件。"
 }
