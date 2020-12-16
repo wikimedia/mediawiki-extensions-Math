@@ -110,6 +110,6 @@
 	"math-wikibase-special-form-button": "Pedir informação",
 	"math-wikibase-special-error-header": "Erro",
 	"math-wikibase-special-error-invalid-argument": "O identificador de elemento Wikibase especificado não existe.",
-	"math-wikibase-special-error-unknown": "Ocorreu um erro desconhecido ao obter os dados da wiki Wikibase.",
+	"math-wikibase-special-error-unknown": "Ocorreu um erro desconhecido ao obter dados da wiki Wikibase.",
 	"math-wikibase-special-error-no-wikibase": "A extensão Wikibase é necessária para usar esta página especial."
 }
