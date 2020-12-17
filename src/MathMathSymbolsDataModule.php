@@ -8,6 +8,7 @@
  */
 class MathMathSymbolsDataModule extends ResourceLoaderModule {
 
+	/** @inheritDoc */
 	protected $targets = [ 'desktop', 'mobile' ];
 
 	public function getScript( ResourceLoaderContext $context ) {

@@ -201,7 +201,7 @@ class MathWikibaseConnector {
 	/**
 	 * Fetch the page url for a given entity id.
 	 * @param EntityId $entityId
-	 * @return string|bool
+	 * @return string|false
 	 */
 	private function fetchPageUrl( EntityId $entityId ) {
 		try {

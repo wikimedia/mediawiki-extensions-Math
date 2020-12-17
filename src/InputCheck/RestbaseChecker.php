@@ -18,6 +18,7 @@ use stdClass;
  * @author Moritz Schubotz
  */
 class RestbaseChecker extends BaseChecker {
+	/** @var MathRestbaseInterface */
 	private $restbaseInterface;
 
 	/**

@@ -15,10 +15,15 @@ use Psr\Log\LoggerInterface;
  */
 class MathMathML extends MathRenderer {
 
+	/** @var string[] */
 	protected $defaultAllowedRootElements = [ 'math' ];
+	/** @var string[] */
 	protected $restbaseInputTypes = [ 'tex', 'inline-tex', 'chem' ];
+	/** @var string[] */
 	protected $restbaseRenderingModes = [ 'mathml', 'png' ];
+	/** @var string[] */
 	protected $allowedRootElements = [];
+	/** @var string|string[] */
 	protected $hosts;
 
 	/** @var LoggerInterface */
@@ -32,7 +37,7 @@ class MathMathML extends MathRenderer {
 	 */
 	private $svgPath = false;
 
-	/** @var string|bool */
+	/** @var string|false */
 	private $pngPath = false;
 
 	/** @var string|null */
@@ -97,7 +102,7 @@ class MathMathML extends MathRenderer {
 	/**
 	 * Gets the allowed root elements the rendered math tag might have.
 	 *
-	 * @return array
+	 * @return string[]
 	 */
 	public function getAllowedRootElements() {
 		if ( $this->allowedRootElements ) {
@@ -119,7 +124,7 @@ class MathMathML extends MathRenderer {
 	/**
 	 * Sets the allowed root elements the rendered math tag might have.
 	 * An empty value indicates to use the default settings.
-	 * @param array $settings
+	 * @param string[] $settings
 	 */
 	public function setAllowedRootElements( $settings ) {
 		$this->allowedRootElements = $settings;
@@ -429,7 +434,7 @@ class MathMathML extends MathRenderer {
 	 * Gets img tag for math image
 	 * @param bool $noRender if true no rendering will be performed
 	 * if the image is not stored in the database
-	 * @param bool|string $classOverride if classOverride
+	 * @param false|string $classOverride if classOverride
 	 * is false the class name will be calculated by getClassName
 	 * @return string XML the image html tag
 	 */
@@ -558,7 +563,7 @@ class MathMathML extends MathRenderer {
 	}
 
 	/**
-	 * @param object $jsonResult json result
+	 * @param stdClass $jsonResult json result
 	 * @param string $host name
 	 *
 	 * @return bool

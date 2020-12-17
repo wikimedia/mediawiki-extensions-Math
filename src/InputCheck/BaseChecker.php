@@ -11,9 +11,13 @@ namespace MediaWiki\Extension\Math\InputCheck;
  * @author Moritz Schubotz
  */
 abstract class BaseChecker {
+	/** @var string */
 	protected $inputTeX;
+	/** @var string|null */
 	protected $validTeX;
+	/** @var bool */
 	protected $isValid = false;
+	/** @var string|null */
 	protected $lastError = null;
 
 	/**

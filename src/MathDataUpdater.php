@@ -12,6 +12,7 @@ use Wikibase\Repo\ParserOutput\StatementDataUpdater;
  */
 class MathDataUpdater implements StatementDataUpdater {
 
+	/** @var bool */
 	private $hasMath = false;
 	/**
 	 * @var PropertyDataTypeMatcher

@@ -11,15 +11,25 @@ use MediaWiki\MediaWikiServices;
 use Psr\Log\LoggerInterface;
 
 class MathRestbaseInterface {
+	/** @var string|false */
 	private $hash = false;
+	/** @var string */
 	private $tex;
+	/** @var string */
 	private $type;
+	/** @var string|null */
 	private $checkedTex;
+	/** @var bool|null */
 	private $success;
+	/** @var array */
 	private $identifiers;
+	/** @var stdClass|null */
 	private $error;
+	/** @var string|null */
 	private $mathoidStyle;
+	/** @var string|null */
 	private $mml;
+	/** @var array */
 	private $warnings = [];
 	/** @var bool is there a request to purge the existing mathematical content */
 	private $purge = false;

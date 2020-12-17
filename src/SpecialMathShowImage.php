@@ -6,8 +6,11 @@
  * @author Moritz Schubotz (Physikerwelt)
  */
 class SpecialMathShowImage extends SpecialPage {
+	/** @var bool */
 	private $noRender = false;
+	/** @var MathRenderer|null */
 	private $renderer = null;
+	/** @var string */
 	private $mode = 'mathml';
 
 	public function __construct() {
