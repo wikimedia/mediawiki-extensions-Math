@@ -37,7 +37,7 @@ class SpecialMathWikibase extends SpecialPage {
 				$this->getPlainText( 'math-wikibase-special-error-header' )
 			);
 			$out->addHTML(
-				wfMessage( 'math-wikibase-special-error-no-wikibase' )->inContentLanguage()->parse()
+				$this->msg( 'math-wikibase-special-error-no-wikibase' )->inContentLanguage()->parse()
 			);
 			return;
 		}
@@ -122,14 +122,14 @@ class SpecialMathWikibase extends SpecialPage {
 		if ( $e instanceof InvalidArgumentException ) {
 			$this->logger->warning( "An invalid ID was specified. Reason: " . $e->getMessage() );
 			$this->getOutput()->addHTML(
-				wfMessage( 'math-wikibase-special-error-invalid-argument' )->inContentLanguage()->parse()
+				$this->msg( 'math-wikibase-special-error-invalid-argument' )->inContentLanguage()->parse()
 			);
 		} else {
 			$this->logger->error( "An unknown error occurred while fetching data from Wikibase.", [
 				'exception' => $e
 			] );
 			$this->getOutput()->addHTML(
-				wfMessage( 'math-wikibase-special-error-unknown' )->inContentLanguage()->parse()
+				$this->msg( 'math-wikibase-special-error-unknown' )->inContentLanguage()->parse()
 			);
 		}
 	}
@@ -140,7 +140,7 @@ class SpecialMathWikibase extends SpecialPage {
 	 * @return string the plain text in current content language
 	 */
 	private function getPlainText( $key ) {
-		return wfMessage( $key )->inContentLanguage()->plain();
+		return $this->msg( $key )->inContentLanguage()->plain();
 	}
 
 	/**
