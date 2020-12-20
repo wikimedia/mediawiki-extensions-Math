@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Math\Widget\WikibaseEntitySelector;
 use MediaWiki\Logger\LoggerFactory;
 
 class SpecialMathWikibase extends SpecialPage {
@@ -53,7 +54,7 @@ class SpecialMathWikibase extends SpecialPage {
 		$output->enableOOUI();
 
 		$this->setHeaders();
-		$output->addModules( [ 'ext.math.wikibase.scripts' ] );
+		$output->addModules( [ 'mw.widgets.MathWbEntitySelector' ] );
 
 		$output->setPageTitle(
 			$this->getPlainText( 'math-wikibase-header' )
@@ -82,12 +83,12 @@ class SpecialMathWikibase extends SpecialPage {
 	 */
 	private function showForm() {
 		$actionField = new \OOUI\ActionFieldLayout(
-			new \OOUI\TextInputWidget( [
+			new WikibaseEntitySelector( [
 				'name' => self::PARAMETER,
 				'placeholder' => $this->getPlainText( 'math-wikibase-special-form-placeholder' ),
 				'required' => true,
-				'autocomplete' => false,
-				'classes' => [ 'mwe-math-wikibase-entityselector-input' ]
+				'infusable' => true,
+				'id' => 'wbEntitySelector'
 			] ),
 			new OOUI\ButtonInputWidget( [
 				'name' => 'request-qid',
