@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Insübrich"
+			"Insübrich",
+			"Salvemm el lombard"
 		]
 	},
-	"mw_math_mathml": "MathML se l è pussíbil (sperimentaal)",
-	"mw_math_png": "Trasfurmá sempər in PNG",
-	"mw_math_source": "Lassá in furmaa TeX (pər i prugráma də navigazziún dumá in furmaa da testu)",
-	"prefs-math": "Matem"
+	"mw_math_mathml": "MathML o inscambi SVG o PNG (consilad per i moderni programa de navigazzion e i istrument de andagh denter)",
+	"mw_math_png": "Imagin PNG",
+	"mw_math_source": "Sorgent LaTeX (per i programa de navigazzion testuai)",
+	"prefs-math": "Formola de matematica"
 }
