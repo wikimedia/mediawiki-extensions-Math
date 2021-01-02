@@ -33,6 +33,9 @@ module.exports = function ( grunt ) {
 			tasks: 'test'
 		},
 		eslint: {
+			options: {
+				cache: true
+			},
 			all: [
 				'*.js',
 				'modules/**/*.js',
