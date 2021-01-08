@@ -46,6 +46,8 @@
 	"math_syntax_error": "syntaksfejl",
 	"math_timeout": "$1 timeout fra \"$2\".",
 	"math-tracking-category-error": "Sider med matematikfejl",
+	"math-tracking-category-mhchem-deprecation": "Sider der bruger udgået format af taget chem",
+	"math-tracking-category-texvc-deprecation": "Sider der bruger udgået format af taget math",
 	"math-tracking-category-render-error": "Sider med math visningsfejl",
 	"math_unknown_error": "ukendt fejl",
 	"math_unknown_function": "ukendt funktion '$1'",
