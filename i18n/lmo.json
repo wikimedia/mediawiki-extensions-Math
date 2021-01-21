@@ -60,7 +60,7 @@
 	"math_invalidresponse": "$1: risposta minga valida (\"$3\") del server \"$2\":",
 	"math_invalidxml": "MathML o SVG a l'è un XML minga valid.",
 	"math_mathoid_error": "Erore de trasformazzion. El server (\"$1\") el raporta: \"$2\"",
-	"math-status-introduction": "Questa pagina chì la fà vedè di informazziona sora {{PLURAL:$1|la manera de rapresentazzion ativada|i manere de rapresentazzion ativade}} per la matematica.\n\n{{PLURAL:$1|Quela manera de rapresentazzion l'è ativada|Chi manere de rapresentazzion chì a inn ativade}}:",
+	"math-status-introduction": "Questa pagina chì la fà vedè di informazziona sora {{PLURAL:$1|la manera de rapresentazzion ativada|i manere de rapresentazzion ativade}} per la matematica.\n\n{{PLURAL:$1|Quella manera de rapresentazzion l'è ativada|Chi manere de rapresentazzion chì a inn ativade}}:",
 	"math_syntax_error": "eror de sintassi",
 	"math_timeout": "el temp per spetà de $1 per \"$2\" l'è scadud",
 	"math-test-end": "Proeuva di aplicazzion de servizzi per la manera di rappresentazzion ''$1'' completad.",
@@ -70,13 +70,13 @@
 	"math-test-contains-diff": "La stringa dada indree $1 la gh'hà denter minga la stringa preveduda $2.",
 	"math-test-equals-diff": "La stringa dada indree $1 l'è diversa de la stringa preveduda $2.",
 	"math-tracking-category-error": "Pagine con di eror de matematica",
-	"math-tracking-category-error-desc": "Pagine in quela categoria chì che hann di eror in l'uso di etichete de matematica.",
+	"math-tracking-category-error-desc": "Pagine in quella categoria chì che hann di eror in l'uso di etichete de matematica.",
 	"math-tracking-category-mhchem-deprecation": "Pagine che droven un formad scongiurad de l'eticheta chem",
-	"math-tracking-category-mhchem-deprecation-desc": "Pagine in quela categoria chì che droven un formad sconsgiurad di etichete de chimica.",
+	"math-tracking-category-mhchem-deprecation-desc": "Pagine in quella categoria chì che droven un formad sconsgiurad di etichete de chimica.",
 	"math-tracking-category-texvc-deprecation": "Pagine che droven un formad sconsgiurad di etichete de matematica.",
-	"math-tracking-category-texvc-deprecation-desc": "Pagine in quela categoria chì che droven un formad sconsgiurad di etichete matematiche",
+	"math-tracking-category-texvc-deprecation-desc": "Pagine in quella categoria chì che droven un formad sconsgiurad di etichete matematiche",
 	"math-tracking-category-render-error": "Pagine con di eror in la rapresentazzion di formole de matematica",
-	"math-tracking-category-render-error-desc": "Pagine in quela categoria chì che gh'hann di eror de restituzzion in di formole matematiche.",
+	"math-tracking-category-render-error-desc": "Pagine in quella categoria chì che gh'hann di eror de restituzzion in di formole matematiche.",
 	"math_unknown_error": "eror conossud de nissun",
 	"math_unknown_function": "fonsion '$1' conossuda de nissun",
 	"mw_math_latexml": "LaTeXML (sperimental; la drova MathML)",
@@ -103,5 +103,5 @@
 	"math-wikibase-special-error-header": "Eror",
 	"math-wikibase-special-error-invalid-argument": "L'ID de l'oget Wikibase specifegad a l'esist minga.",
 	"math-wikibase-special-error-unknown": "In del cors del recuper di dati de Wikibase l'è capitad un eror minga conossud.",
-	"math-wikibase-special-error-no-wikibase": "A gh'è besogn de l'estesion Wikibase al fin de drovà quela pagina special chì."
+	"math-wikibase-special-error-no-wikibase": "A gh'è besogn de l'estesion Wikibase al fin de drovà quella pagina special chì."
 }
