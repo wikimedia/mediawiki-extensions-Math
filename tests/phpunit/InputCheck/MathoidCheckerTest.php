@@ -20,10 +20,8 @@ class MathoidCheckerTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers       \MediaWiki\Extension\Math\InputCheck\MathoidChecker::getCacheKey
+	 * @covers \MediaWiki\Extension\Math\InputCheck\MathoidChecker::getCacheKey
 	 * @dataProvider provideTexExamples
-	 * @param $input
-	 * @param $expected
 	 */
 	public function testCacheKey( string $input, string $expected ) {
 		$checker = $this->getMathoidChecker( $input );

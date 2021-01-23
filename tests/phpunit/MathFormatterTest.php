@@ -17,6 +17,7 @@ class MathFormatterTest extends MediaWikiTestCase {
 
 	private const SOME_TEX = 'a^2+b^2 < c^2';
 
+	/** @var bool */
 	protected static $hasRestbase;
 
 	public static function setUpBeforeClass() : void {

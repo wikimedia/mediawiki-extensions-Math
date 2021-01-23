@@ -8,6 +8,7 @@ use MediaWiki\Extension\Math\InputCheck\RestbaseChecker;
  * @license GPL-2.0-or-later
  */
 class MathInputCheckRestbaseTest extends MediaWikiTestCase {
+	/** @var bool */
 	protected static $hasRestbase;
 	/** @var RestbaseChecker */
 	protected $BadObject;

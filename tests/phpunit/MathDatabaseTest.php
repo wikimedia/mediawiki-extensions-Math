@@ -95,7 +95,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 		$this->assertCount( 16, $row );
 	}
 
-	/*
+	/**
 	 * This test checks if no additional write operation
 	 * is performed, if the entry already existed in the database.
 	 */
