@@ -101,7 +101,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 			MathMLHttpRequestTester::class );
 		$this->assertTrue( $requestReturn, "successful call return" );
 		$this->assertSame( 'test content', $res, 'successful call' );
-		$this->assertSame( $error, '', "successful call error-message" );
+		$this->assertSame( '', $error, "successful call error-message" );
 	}
 
 	/**
