@@ -2,6 +2,11 @@
 
 namespace MediaWiki\Extension\Math\InputCheck;
 
+use MathHooks;
+use MathRenderer;
+use MathSource;
+use stdClass;
+
 /**
  * MediaWiki math extension
  *
@@ -52,5 +57,33 @@ abstract class BaseChecker {
 	 */
 	public function getValidTex() {
 		return $this->validTeX;
+	}
+
+	/**
+	 * @see https://phabricator.wikimedia.org/T119300
+	 * @param stdClass $e
+	 * @param MathRenderer|null $errorRenderer
+	 * @param string $host
+	 * @return string|null
+	 */
+	protected function errorObjectToHtml( stdClass $e, $errorRenderer = null, $host = 'invalid' ) {
+		if ( $errorRenderer === null ) {
+			$errorRenderer = new MathSource( $this->inputTeX );
+		}
+		if ( isset( $e->error->message ) ) {
+			if ( $e->error->message === 'Illegal TeX function' ) {
+				return $errorRenderer->getError( 'math_unknown_function', $e->error->found );
+			} elseif ( preg_match( '/Math extension/', $e->error->message ) ) {
+				$names = MathHooks::getMathNames();
+				$mode = $names['mathml'];
+				$msg = $e->error->message;
+
+				return $errorRenderer->getError( 'math_invalidresponse', $mode, $host, $msg );
+			}
+
+			return $errorRenderer->getError( 'math_syntax_error' );
+		}
+
+		return $errorRenderer->getError( 'math_unknown_error' );
 	}
 }

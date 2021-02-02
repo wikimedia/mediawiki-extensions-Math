@@ -3,11 +3,7 @@
 namespace MediaWiki\Extension\Math\InputCheck;
 
 use Exception;
-use MathHooks;
-use MathRenderer;
 use MathRestbaseInterface;
-use MathSource;
-use stdClass;
 
 /**
  * MediaWiki math extension
@@ -37,39 +33,6 @@ class RestbaseChecker extends BaseChecker {
 	}
 
 	/**
-	 * @see https://phabricator.wikimedia.org/T119300
-	 * @param stdClass $e
-	 * @param MathRenderer|null $errorRenderer
-	 * @return string|null
-	 */
-	public function errorObjectToHtml( stdClass $e, $errorRenderer = null ) {
-		if ( $errorRenderer === null ) {
-			$errorRenderer = new MathSource( $this->inputTeX );
-		}
-		if ( isset( $e->error->message ) ) {
-			if ( $e->error->message === 'Illegal TeX function' ) {
-				return $errorRenderer->getError( 'math_unknown_function', $e->error->found );
-			} elseif ( preg_match( '/Math extension/', $e->error->message ) ) {
-				$names = MathHooks::getMathNames();
-				$mode = $names['mathml'];
-				try {
-					$host = $this->restbaseInterface->getUrl( '' );
-				}
-				catch ( Exception $ignore ) {
-					$host = 'invalid';
-				}
-				$msg = $e->error->message;
-
-				return $errorRenderer->getError( 'math_invalidresponse', $mode, $host, $msg );
-			}
-
-			return $errorRenderer->getError( 'math_syntax_error' );
-		}
-
-		return $errorRenderer->getError( 'math_unknown_error' );
-	}
-
-	/**
 	 * @return bool
 	 */
 	public function isValid() {
@@ -95,8 +58,13 @@ class RestbaseChecker extends BaseChecker {
 		if ( $err === null ) {
 			return null;
 		}
-
-		return $this->errorObjectToHtml( $err );
+		try {
+			$host = $this->restbaseInterface->getUrl( '' );
+		}
+		catch ( Exception $ignore ) {
+			$host = 'invalid';
+		}
+		return $this->errorObjectToHtml( $err, null, $host );
 	}
 
 	public function getRbi() {

@@ -10,7 +10,7 @@ use WANObjectCache;
 class MathoidChecker extends BaseChecker {
 
 	private const EXPECTED_RETURN_CODES = [ 200, 400 ];
-	private const VERSION = '1.0.0';
+	public const VERSION = 1;
 	/** @var string */
 	private $url;
 	/** @var int */
@@ -23,6 +23,10 @@ class MathoidChecker extends BaseChecker {
 	private $type;
 	/** @var LoggerInterface */
 	private $logger;
+	/** @var int */
+	private $statusCode;
+	/** @var string */
+	private $response;
 
 	/**
 	 * @param WANObjectCache $cache
@@ -55,11 +59,15 @@ class MathoidChecker extends BaseChecker {
 	 * @return array
 	 */
 	public function getCheckResponse() : array {
-		return $this->cache->getWithSetCallback(
-			$this->getCacheKey(),
-			WANObjectCache::TTL_INDEFINITE,
-			[ $this, 'runCheck' ]
-		);
+		if ( !isset( $this->statusCode ) ) {
+			list( $this->statusCode, $this->response ) = $this->cache->getWithSetCallback(
+				$this->getCacheKey(),
+				WANObjectCache::TTL_INDEFINITE,
+				[ $this, 'runCheck' ],
+				[ 'version' => self::VERSION ]
+			);
+		}
+		return [ $this->statusCode, $this->response ];
 	}
 
 	/**
@@ -68,7 +76,7 @@ class MathoidChecker extends BaseChecker {
 	public function getCacheKey() : string {
 		return $this->cache->makeGlobalKey(
 			self::class,
-			sha1( self::VERSION . '-' . $this->type . '-' . $this->inputTeX )
+			md5( $this->type . '-' . $this->inputTeX )
 		);
 	}
 
@@ -103,4 +111,36 @@ class MathoidChecker extends BaseChecker {
 		);
 		throw $e;
 	}
+
+	public function isValid() {
+		[ $statusCode ] = $this->getCheckResponse();
+		if ( $statusCode === 200 ) {
+			return true;
+		}
+		return false;
+	}
+
+	public function getError() {
+		[ $statusCode, $content ] = $this->getCheckResponse();
+		if ( $statusCode !== 200 ) {
+			// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
+			$json = @json_decode( $content );
+			if ( $json && isset( $json->detail ) ) {
+				return $this->errorObjectToHtml( $json->detail, null,  $this->url );
+			}
+			return $this->errorObjectToHtml( (object)[ 'error' => (object)[
+				'message' => 'Math extension cannot connect to mathoid.' ] ], null, $this->url );
+		}
+		return parent::getError();
+	}
+
+	public function getValidTex() {
+		[ $statusCode, $content ] = $this->getCheckResponse();
+		if ( $statusCode === 200 ) {
+			$json = json_decode( $content );
+			return $json->checked;
+		}
+		return parent::getValidTex();
+	}
+
 }
