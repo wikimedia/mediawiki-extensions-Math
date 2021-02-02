@@ -9,7 +9,7 @@
 			"Vinhtantran"
 		]
 	},
-	"math-desc": "Kết xuất các công thức nằm giữa thẻ <code>&lt;math&gt;</code> …<code>&lt;/math&gt;</code>",
+	"math-desc": "Kết xuất các công thức nằm giữa thẻ <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwchemdialog-title": "Công thức hóa học",
 	"math-visualeditor-mwcheminspector-title": "Công thức hóa học",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Sửa đổi nhanh",
@@ -29,7 +29,7 @@
 	"math-visualeditor-symbol-group-chem-dots": "Điện tử độc thân và dấu chấm điện tử lẻ",
 	"math-visualeditor-symbol-group-chem-equations": "Phương trình hóa học",
 	"math-visualeditor-symbol-group-chem-formulae": "Công thức hóa học",
-	"math-visualeditor-symbol-group-chem-greek": "Chữ Hy Lạp",
+	"math-visualeditor-symbol-group-chem-greek": "Ký tự Hy Lạp",
 	"math-visualeditor-symbol-group-chem-isotopes": "Đồng vị",
 	"math-visualeditor-symbol-group-chem-operators": "Toán tử phương trình",
 	"math-visualeditor-symbol-group-chem-oxidation": "Trạng thái ôxy hóa",
@@ -87,5 +87,6 @@
 	"mathstatus": "Trạng thái toán học",
 	"datatypes-type-math": "Biểu thức toán",
 	"wikibase-listdatatypes-math-head": "Biểu thức toán",
-	"wikibase-listdatatypes-math-body": "Trường dữ liệu thô dành cho các biểu thức, công thức, phương trình toán học ở dạng giống LaTeX."
+	"wikibase-listdatatypes-math-body": "Trường dữ liệu thô dành cho các biểu thức, công thức, phương trình toán học ở dạng giống LaTeX.",
+	"math-wikibase-header": "Thông tin về Mục Toán học"
 }
