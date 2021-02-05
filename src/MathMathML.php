@@ -287,7 +287,6 @@ class MathMathML extends MathRenderer {
 	 * Calculates the HTTP POST Data for the request. Depends on the settings
 	 * and the input string only.
 	 * @return string HTTP POST data
-	 * @throws MWException
 	 */
 	public function getPostData() {
 		$input = $this->getTex();
@@ -297,7 +296,14 @@ class MathMathML extends MathRenderer {
 		} elseif ( $this->inputType == 'ascii' ) {
 			$out = 'type=asciimath&q=' . rawurlencode( $input );
 		} else {
-			throw new MWException( 'Internal error: Restbase should be used for tex rendering' );
+			if ( $this->getMathStyle() === 'inlineDisplaystyle' ) {
+				// default preserve the (broken) layout as it was
+				$out = 'type=inline-TeX&q=' . rawurlencode( '{\\displaystyle ' . $input . '}' );
+			} elseif ( $this->getMathStyle() === 'inline' ) {
+				$out = 'type=inline-TeX&q=' . rawurlencode( $input );
+			} else {
+				$out = 'type=tex&q=' . rawurlencode( $input );
+			}
 		}
 		$this->logger->debug( 'Get post data: ' . $out );
 		return $out;
@@ -540,6 +546,7 @@ class MathMathML extends MathRenderer {
 		if ( $this->getMathTableName() == 'mathoid' ) {
 			$out['math_input'] = $out['math_inputtex'];
 			unset( $out['math_inputtex'] );
+			$out['math_png'] = $this->png;
 		}
 		return $out;
 	}
