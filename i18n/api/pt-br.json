@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Eduardoaddad"
 		]
 	},
 	"apihelp-query+mathwbextracts-example-1": "Solicita um resumo dos itens matemáticos do Wikibase.",
