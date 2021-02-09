@@ -121,6 +121,9 @@
 		"MathoidCli": {
 			"value": false
 		},
+		"MathUseRestBase": {
+			"value": true
+		},
 		"MathValidModes": {
 			"value": [
 				"png",
