@@ -11,7 +11,6 @@
 	"url": "https://www.mediawiki.org/wiki/Extension:Math",
 	"descriptionmsg": "math-desc",
 	"license-name": "GPL-2.0-or-later",
-	"callback": "MathHooks::registerExtension",
 	"type": "parserhook",
 	"requires": {
 		"MediaWiki": ">= 1.35.0"
@@ -95,6 +94,7 @@
 			}
 		},
 		"MathDisableTexFilter": {
+			"description": "To access this at run-time, use MathRenderer::getDisableTexFilter(). Do not use the non-normalized configuration directly.",
 			"value": "new"
 		},
 		"MathEnableExperimentalInputFormats": {
@@ -122,6 +122,7 @@
 			"value": false
 		},
 		"MathValidModes": {
+			"description": "To access this at run-time, use MathRenderer::getValidModes(). Do not use the non-normalized configuration directly.",
 			"value": [
 				"png",
 				"source",

@@ -252,7 +252,8 @@ class MathHooks {
 		if ( !in_array( $mode, $validModes ) ) {
 			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: ' .
 				"\$wgDefaultUserOptions['math'] is not in [ " . implode( ', ', $validModes ) . " ].\n" .
-				"Please check your LocalSetting.php file." );
+				"Please check your LocalSettings.php file."
+			);
 			// Display the checkbox in the first option.
 			$wgDefaultUserOptions['math'] = $validModes[0];
 		}
@@ -366,16 +367,6 @@ class MathHooks {
 			}
 		}
 		return true;
-	}
-
-	public static function registerExtension() {
-		global $wgDefaultUserOptions, $wgMathValidModes, $wgMathDisableTexFilter;
-		$wgMathValidModes = MathRenderer::getValidModes();
-		if ( $wgMathDisableTexFilter === true ) { // ensure backwards compatibility
-			$wgMathDisableTexFilter = 'never';
-		}
-		$wgMathDisableTexFilter = MathRenderer::getDisableTexFilter();
-		$wgDefaultUserOptions['math'] = self::mathModeToString( $wgDefaultUserOptions['math'] );
 	}
 
 	/**
