@@ -6,6 +6,7 @@
 			"Emily",
 			"Laurap",
 			"Minisarm",
+			"NGC 54",
 			"Strainu",
 			"XXN"
 		]
@@ -31,6 +32,7 @@
 	"math-visualeditor-symbol-group-math-arrows": "Săgeți",
 	"math-visualeditor-symbol-group-math-bounds": "Limite",
 	"math-visualeditor-symbol-group-math-derivatives": "Diferențiale și derivate",
+	"math-visualeditor-symbol-group-math-functions": "Funcții numerice standard",
 	"math-visualeditor-symbol-group-math-geometry": "Geometric",
 	"math-visualeditor-symbol-group-math-greek": "Alfabetul grecesc",
 	"math-visualeditor-symbol-group-math-hebrew": "Alfabetul ebraic",
