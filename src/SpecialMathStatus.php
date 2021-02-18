@@ -47,18 +47,18 @@ class SpecialMathStatus extends SpecialPage {
 	}
 
 	private function runMathMLTest( $modeName ) {
-		$this->getOutput()->addWikiMsgArray( 'math-test-start', $modeName );
+		$this->getOutput()->addWikiMsgArray( 'math-test-start', [ $modeName ] );
 		$this->testSpecialCaseText();
 		$this->testMathMLIntegration();
 		$this->testPmmlInput();
-		$this->getOutput()->addWikiMsgArray( 'math-test-end', $modeName );
+		$this->getOutput()->addWikiMsgArray( 'math-test-end', [ $modeName ] );
 	}
 
 	private function runMathLaTeXMLTest( $modeName ) {
-		$this->getOutput()->addWikiMsgArray( 'math-test-start', $modeName );
+		$this->getOutput()->addWikiMsgArray( 'math-test-start', [ $modeName ] );
 		$this->testLaTeXMLIntegration();
 		$this->testLaTeXMLLinebreak();
-		$this->getOutput()->addWikiMsgArray( 'math-test-end', $modeName );
+		$this->getOutput()->addWikiMsgArray( 'math-test-end', [ $modeName ] );
 	}
 
 	public function testSpecialCaseText() {

@@ -130,7 +130,7 @@ abstract class MathRenderer {
 
 	/**
 	 * @param string $md5
-	 * @return MathRenderer the MathRenderer generated from md5
+	 * @return self the MathRenderer generated from md5
 	 */
 	public static function newFromMd5( $md5 ) {
 		$class = get_called_class();
@@ -147,7 +147,7 @@ abstract class MathRenderer {
 	 * @param string $tex LaTeX markup
 	 * @param array $params HTML attributes
 	 * @param string $mode indicating rendering mode
-	 * @return MathRenderer appropriate renderer for mode
+	 * @return self appropriate renderer for mode
 	 */
 	public static function getRenderer( $tex, $params = [], $mode = 'png' ) {
 		global $wgDefaultUserOptions, $wgMathEnableExperimentalInputFormats, $wgMathoidCli;
@@ -700,6 +700,9 @@ abstract class MathRenderer {
 		return trim( $this->svg );
 	}
 
+	/**
+	 * @return string
+	 */
 	abstract protected function getMathTableName();
 
 	public function getModeStr() {
