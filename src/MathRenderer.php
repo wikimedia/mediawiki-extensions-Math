@@ -716,6 +716,10 @@ abstract class MathRenderer {
 
 	public static function getDisableTexFilter() {
 		global $wgMathDisableTexFilter;
+		if ( $wgMathDisableTexFilter === true ) {
+			// ensure backwards compatibility
+			$wgMathDisableTexFilter = 'never';
+		}
 		return MathHooks::mathCheckToString( $wgMathDisableTexFilter );
 	}
 
