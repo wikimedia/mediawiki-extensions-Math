@@ -467,6 +467,9 @@ class MathMathML extends MathRenderer {
 		] ) );
 	}
 
+	/**
+	 * @return string
+	 */
 	protected function getMathTableName() {
 		return 'mathoid';
 	}

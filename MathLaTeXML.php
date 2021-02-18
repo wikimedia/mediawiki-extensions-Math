@@ -218,6 +218,9 @@ class MathLaTeXML extends MathMathML {
 		return parent::getSvg( $render );
 	}
 
+	/**
+	 * @return string
+	 */
 	protected function getMathTableName() {
 		return 'mathlatexml';
 	}

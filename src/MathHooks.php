@@ -262,7 +262,7 @@ class MathHooks {
 	/**
 	 * List of message keys for the various math output settings.
 	 *
-	 * @return array of strings
+	 * @return string[]
 	 */
 	public static function getMathNames() {
 		$names = [];
