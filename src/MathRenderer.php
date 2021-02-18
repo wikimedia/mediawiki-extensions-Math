@@ -133,9 +133,8 @@ abstract class MathRenderer {
 	 * @return MathRenderer the MathRenderer generated from md5
 	 */
 	public static function newFromMd5( $md5 ) {
-		$class = get_called_class();
-		/** @var MathRenderer $instance */
-		$instance = new $class;
+		// @phan-suppress-next-line PhanTypeInstantiateAbstractStatic
+		$instance = new static();
 		$instance->setMd5( $md5 );
 		$instance->readFromDatabase();
 		return $instance;
