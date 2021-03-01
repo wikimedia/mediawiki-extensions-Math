@@ -156,7 +156,7 @@ class MathWikibaseConfig {
 			}
 
 			self::$defaultConfig = new MathWikibaseConfig(
-				$wikibaseClient->getEntityIdParser(),
+				WikibaseClient::getEntityIdParser(),
 				$wikibaseClient->getStore()->getEntityRevisionLookup(),
 				$wikibaseClient->getLanguageFallbackLabelDescriptionLookupFactory(),
 				$site
