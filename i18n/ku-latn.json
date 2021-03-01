@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Bangin",
+			"Bikarhêner",
 			"George Animal",
 			"Ghybu",
 			"Guherto"
@@ -14,7 +15,7 @@
 	"math-visualeditor-symbol-group-math-modular": "Arîtmetîka modûlar",
 	"math_unknown_error": "şaşbûnekî nezanîn",
 	"math_unknown_function": "fonksiyona nenas \"$1\"",
-	"mw_math_mathml": "MathML eger bibe (ceribandin)",
+	"mw_math_mathml": "MathML tevî paşvegera SVG an PNG (ji bo gerok û amûrên gihaniyên yên modern tê pêşniyarkirin)",
 	"mw_math_png": "Wêneyên PNG",
 	"mw_math_source": "Wek LaTeX nîşan bide (ji gerokên nivîsan re)",
 	"prefs-math": "TeX"
