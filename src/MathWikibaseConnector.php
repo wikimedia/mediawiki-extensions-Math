@@ -243,12 +243,10 @@ class MathWikibaseConnector {
 	 * @return string
 	 */
 	public static function buildURL( $qID ) {
-		$baseurl = WikibaseClient::getDefaultInstance()
-			->getSettings()->getSetting( 'repoUrl' );
-		$articlePath = WikibaseClient::getDefaultInstance()
-			->getSettings()->getSetting( 'repoArticlePath' );
-		$namespaces = WikibaseClient::getDefaultInstance()
-			->getSettings()->getSetting( 'repoNamespaces' );
+		$settings = WikibaseClient::getSettings();
+		$baseurl = $settings->getSetting( 'repoUrl' );
+		$articlePath = $settings->getSetting( 'repoArticlePath' );
+		$namespaces = $settings->getSetting( 'repoNamespaces' );
 
 		$url = $baseurl . $articlePath;
 
