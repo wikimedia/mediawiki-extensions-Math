@@ -149,7 +149,7 @@ class MathWikibaseConfig {
 
 			$site = null;
 			try {
-				$site = $wikibaseClient->getSite();
+				$site = WikibaseClient::getSite();
 			} catch ( MWException $e ) {
 				$logger = LoggerFactory::getInstance( 'Math' );
 				$logger->warning( "Cannot get Site handler: " . $e->getMessage() );
