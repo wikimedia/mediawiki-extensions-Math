@@ -110,7 +110,12 @@
 	"math-wikibase-formula-description": "描述",
 	"math-wikibase-formula-information": "数学公式信息",
 	"math-wikibase-formula-link-header": "数据源",
+	"math-wikibase-formula-elements-header": "公式元素",
+	"math-wikibase-special-form-header": "指定公式的名称：",
+	"math-wikibase-special-form-placeholder": "公式标题",
 	"math-wikibase-special-form-button": "请求信息",
 	"math-wikibase-special-error-header": "错误",
-	"math-wikibase-special-error-unknown": "从Wikibase提取数据时发生未知错误。"
+	"math-wikibase-special-error-invalid-argument": "您指定的Wikibase项ID不存在。",
+	"math-wikibase-special-error-unknown": "从Wikibase提取数据时发生未知错误。",
+	"math-wikibase-special-error-no-wikibase": "使用此特殊页面需要Wikibase扩展。"
 }
