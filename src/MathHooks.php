@@ -7,6 +7,7 @@
  */
 
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 
 class MathHooks {
 
@@ -284,7 +285,8 @@ class MathHooks {
 		$user = RequestContext::getMain()->getUser();
 
 		// Don't parse LaTeX to improve performance
-		$user->setOption( 'math', 'source' );
+		MediaWikiServices::getInstance()->getUserOptionsManager()
+			->setOption( $user, 'math', 'source' );
 		return true;
 	}
 
