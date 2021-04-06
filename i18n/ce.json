@@ -39,12 +39,13 @@
 	"mw_math_png": "PNG-сурт",
 	"mw_math_source": "LaTeX билгало (йозанан браузерашна)",
 	"prefs-math": "Формулаш гар",
-	"mathstatus": "Математикан статус",
+	"mathstatus": "Математикин статус",
 	"mathwikibase": "Математикин формулех лаьцна хаам",
+	"math-wikibase-header": "Математикин хӀуманех хаам",
 	"math-wikibase-formula-type": "Тайпа",
 	"math-wikibase-formula-information": "Математикин формулех лаьцна хаам",
 	"math-wikibase-formula-link-header": "Хаамийн хьост",
-	"math-wikibase-special-form-header": "Язъе формулан цӀе:",
-	"math-wikibase-special-form-placeholder": "Формулан цӀе",
+	"math-wikibase-special-form-header": "Язъе формулин цӀе:",
+	"math-wikibase-special-form-placeholder": "Формулин цӀе",
 	"math-wikibase-special-form-button": "Дехарах хаам"
 }
