@@ -145,8 +145,6 @@ class MathWikibaseConfig {
 	 */
 	public static function getDefaultMathWikibaseConfig() : MathWikibaseConfig {
 		if ( !self::$defaultConfig ) {
-			$wikibaseClient = WikibaseClient::getDefaultInstance();
-
 			$site = null;
 			try {
 				$site = WikibaseClient::getSite();
@@ -158,7 +156,7 @@ class MathWikibaseConfig {
 			self::$defaultConfig = new MathWikibaseConfig(
 				WikibaseClient::getEntityIdParser(),
 				WikibaseClient::getStore()->getEntityRevisionLookup(),
-				$wikibaseClient->getLanguageFallbackLabelDescriptionLookupFactory(),
+				WikibaseClient::getLanguageFallbackLabelDescriptionLookupFactory(),
 				$site
 			);
 		}
