@@ -6,9 +6,16 @@
  * @license GPL-2.0-or-later
  */
 
+namespace MediaWiki\Extension\Math;
+
+use Exception;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MWException;
 use Psr\Log\LoggerInterface;
+use RestbaseVirtualRESTService;
+use stdClass;
+use VirtualRESTServiceClient;
 
 class MathRestbaseInterface {
 	/** @var string|false */
@@ -381,15 +388,14 @@ class MathRestbaseInterface {
 	 * @throws MWException
 	 */
 	public function getCheckRequest() {
-		$request = [
-				'method' => 'POST',
-				'body'   => [
-					'type' => $this->type,
-					'q'    => $this->tex
-				],
-				'url'    => $this->getUrl( "media/math/check/{$this->type}" )
+		return [
+			'method' => 'POST',
+			'body'   => [
+				'type' => $this->type,
+				'q'    => $this->tex
+			],
+			'url'    => $this->getUrl( "media/math/check/{$this->type}" )
 		];
-		return $request;
 	}
 
 	/**
@@ -490,3 +496,5 @@ class MathRestbaseInterface {
 		throw new MWException( "Cannot get $type. $detail" );
 	}
 }
+
+class_alias( MathRestbaseInterface::class, 'MathRestbaseInterface' );

@@ -1,7 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Math;
+
+use Exception;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MWException;
+use stdClass;
 
 /**
  * @author Moritz Schubotz

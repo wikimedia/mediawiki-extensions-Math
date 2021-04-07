@@ -1,6 +1,11 @@
 <?php
 
+namespace MediaWiki\Extension\Math;
+
+use Hooks;
 use MediaWiki\Logger\LoggerFactory;
+use Sanitizer;
+use Xml;
 
 /**
  * Contains the driver function for the LaTeXML daemon
@@ -122,7 +127,8 @@ class MathLaTeXML extends MathMathML {
 					// Avoid PHP 7.1 warning from passing $this by reference
 					$renderer = $this;
 					Hooks::run( 'MathRenderingResultRetrieved',
-						[ &$renderer, &$jsonResult ] );// Enables debugging of server results
+						[ &$renderer, &$jsonResult ]
+					); // Enables debugging of server results
 					return true;
 				}
 
@@ -225,3 +231,5 @@ class MathLaTeXML extends MathMathML {
 		return 'mathlatexml';
 	}
 }
+
+class_alias( MathLaTeXML::class, 'MathLaTeXML' );

@@ -1,6 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\Math;
+
 use DataValues\StringValue;
+use Html;
+use InvalidArgumentException;
 use ValueFormatters\ValueFormatter;
 use Wikibase\Lib\Formatters\SnakFormatter;
 
@@ -75,8 +79,7 @@ class MathFormatter implements ValueFormatter {
 	 * @return string HTML
 	 */
 	private function formatDetails( $valueHtml, $tex ) {
-		$html = '';
-		$html .= Html::rawElement( 'h4',
+		$html = Html::rawElement( 'h4',
 			[ 'class' => 'wb-details wb-math-details wb-math-rendered' ],
 			$valueHtml
 		);

@@ -1,6 +1,8 @@
 <?php
 
 use DataValues\StringValue;
+use MediaWiki\Extension\Math\MathMLRdfBuilder;
+use MediaWiki\Extension\Math\MathRestbaseInterface;
 use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\DataModel\Snak\PropertyValueSnak;
 use Wikimedia\Purtle\NTriplesRdfWriter;
@@ -9,7 +11,7 @@ use Wikimedia\Purtle\NTriplesRdfWriter;
  * Test the MathML RDF formatter
  *
  * @group Math
- * @covers \MathMLRdfBuilder
+ * @covers \MediaWiki\Extension\Math\MathMLRdfBuilder
  * @author Moritz Schubotz (physikerwelt)
  */
 class MathMLRdfBuilderTest extends MediaWikiTestCase {

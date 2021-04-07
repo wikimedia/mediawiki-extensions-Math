@@ -2,9 +2,10 @@
 
 use DataValues\NumberValue;
 use DataValues\StringValue;
+use MediaWiki\Extension\Math\MathValidator;
 
 /**
- * @covers \MathValidator
+ * @covers \MediaWiki\Extension\Math\MathValidator
  *
  * @group Math
  *

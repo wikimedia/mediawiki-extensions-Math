@@ -1,9 +1,11 @@
 <?php
 
+use MediaWiki\Extension\Math\MathRenderer;
+
 /**
  * Test the Id feature
  *
- * @covers \MathRenderer
+ * @covers \MediaWiki\Extension\Math\MathRenderer
  *
  * @group Math
  *

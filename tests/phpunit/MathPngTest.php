@@ -1,7 +1,9 @@
 <?php
 
+use MediaWiki\Extension\Math\MathPng;
+
 /**
- * @covers \MathPng
+ * @covers \MediaWiki\Extension\Math\MathPng
  *
  * @license GPL-2.0-or-later
  */

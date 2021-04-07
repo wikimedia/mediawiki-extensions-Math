@@ -1,7 +1,13 @@
 <?php
 
+namespace MediaWiki\Extension\Math;
+
+use ExtensionRegistry;
 use MediaWiki\Logger\LoggerFactory;
+use MWException;
+use PermissionsError;
 use Psr\Log\LoggerInterface;
+use SpecialPage;
 
 /**
  * MediaWiki math extension
@@ -31,7 +37,7 @@ class SpecialMathStatus extends SpecialPage {
 		$this->setHeaders();
 
 		$out = $this->getOutput();
-		$enabledMathModes = MathHooks::getMathNames();
+		$enabledMathModes = Hooks::getMathNames();
 		$out->addWikiMsg( 'math-status-introduction', count( $enabledMathModes ) );
 
 		foreach ( $enabledMathModes as $modeNr => $modeName ) {

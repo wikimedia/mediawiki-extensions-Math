@@ -6,9 +6,21 @@
  * @license GPL-2.0-or-later
  */
 
+namespace MediaWiki\Extension\Math;
+
+use CurlHttpRequest;
+use Exception;
+use Hooks;
+use Html;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use PhpHttpRequest;
 use Psr\Log\LoggerInterface;
+use SpecialPage;
+use stdClass;
+use Title;
+use Xml;
+use XmlTypeCheck;
 
 /**
  * Converts LaTeX to MathML using the mathoid-server
@@ -182,26 +194,26 @@ class MathMathML extends MathRenderer {
 		if ( $this->isPurge() ) {
 			$this->logger->debug( 'Rerendering was requested.' );
 			return true;
-		} else {
-			$dbres = $this->isInDatabase();
-			if ( $dbres ) {
-				if ( $this->isValidMathML( $this->getMathml() ) ) {
-					$this->logger->debug( 'Valid MathML entry found in database.' );
-					if ( $this->getSvg( 'cached' ) ) {
-						$this->logger->debug( 'SVG-fallback found in database.' );
-						return false;
-					} else {
-						$this->logger->debug( 'SVG-fallback missing.' );
-						return true;
-					}
+		}
+
+		$dbres = $this->isInDatabase();
+		if ( $dbres ) {
+			if ( $this->isValidMathML( $this->getMathml() ) ) {
+				$this->logger->debug( 'Valid MathML entry found in database.' );
+				if ( $this->getSvg( 'cached' ) ) {
+					$this->logger->debug( 'SVG-fallback found in database.' );
+					return false;
 				} else {
-					$this->logger->debug( 'Malformatted entry found in database' );
+					$this->logger->debug( 'SVG-fallback missing.' );
 					return true;
 				}
 			} else {
-				$this->logger->debug( 'No entry found in database.' );
+				$this->logger->debug( 'Malformatted entry found in database' );
 				return true;
 			}
+		} else {
+			$this->logger->debug( 'No entry found in database.' );
+			return true;
 		}
 	}
 
@@ -600,7 +612,8 @@ class MathMathML extends MathRenderer {
 			// Avoid PHP 7.1 warning from passing $this by reference
 			$renderer = $this;
 			Hooks::run( 'MathRenderingResultRetrieved',
-				[ &$renderer, &$jsonResult ] ); // Enables debugging of server results
+				[ &$renderer, &$jsonResult ]
+			); // Enables debugging of server results
 			return true;
 		} else {
 			$this->lastError = $this->getError( 'math_unknown_error', $host );
@@ -620,3 +633,5 @@ class MathMathML extends MathRenderer {
 		return false;
 	}
 }
+
+class_alias( MathMathML::class, 'MathMathML' );

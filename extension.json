@@ -16,31 +16,21 @@
 		"MediaWiki": ">= 1.35.0"
 	},
 	"AutoloadClasses": {
-		"MathMathSymbolsDataModule": "src/MathMathSymbolsDataModule.php",
-		"MathChemSymbolsDataModule": "src/MathChemSymbolsDataModule.php",
-		"MathHooks": "src/MathHooks.php",
+		"MathDataUpdater": "src/MathDataUpdater.php",
+		"MathHooks": "src/Hooks.php",
+		"MathLaTeXML": "src/MathLaTeXML.php",
+		"MathMathML": "src/MathMathML.php",
 		"MathRenderer": "src/MathRenderer.php",
 		"MathRestbaseInterface": "src/MathRestbaseInterface.php",
-		"MathSource": "src/MathSource.php",
-		"MathMathML": "src/MathMathML.php",
-		"MathMathMLCli": "src/MathMathMLCli.php",
-		"MathLaTeXML": "MathLaTeXML.php",
-		"SpecialMathShowImage": "src/SpecialMathShowImage.php",
-		"SpecialMathStatus": "src/SpecialMathStatus.php",
-		"SpecialMathWikibase": "src/SpecialMathWikibase.php",
-		"MathValidator": "src/MathValidator.php",
-		"MathFormatter": "src/MathFormatter.php",
-		"MathWikibaseHook": "src/MathWikibaseHook.php",
-		"MathMLRdfBuilder": "src/MathMLRdfBuilder.php",
-		"MathPng": "src/MathPng.php",
-		"MathDataUpdater": "src/MathDataUpdater.php",
-		"MathWikibaseConfig": "src/MathWikibaseConfig.php",
-		"MathWikibaseConnector": "src/MathWikibaseConnector.php",
-		"MathWikibaseInfo": "src/MathWikibaseInfo.php"
+		"MediaWiki\\Extension\\Math\\MathDataUpdater": "src/MathDataUpdater.php",
+		"MediaWiki\\Extension\\Math\\Hooks": "src/Hooks.php",
+		"MediaWiki\\Extension\\Math\\MathLaTeXML": "src/MathLaTeXML.php",
+		"MediaWiki\\Extension\\Math\\MathMathML": "src/MathMathML.php",
+		"MediaWiki\\Extension\\Math\\MathRenderer": "src/MathRenderer.php",
+		"MediaWiki\\Extension\\Math\\MathRestbaseInterface": "src/MathRestbaseInterface.php"
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\Math\\InputCheck\\": "src/InputCheck",
-		"MediaWiki\\Extension\\Math\\Widget\\": "src/Widget"
+		"MediaWiki\\Extension\\Math\\": "src/"
 	},
 	"TestAutoloadClasses": {
 		"MathMLHttpRequestTester": "tests/phpunit/MathMLHttpRequestTester.php",
@@ -55,16 +45,16 @@
 		"MathAliasNoTranslate": "Math.alias.noTranslate.php"
 	},
 	"Hooks": {
-		"ParserFirstCallInit": "MathHooks::onParserFirstCallInit",
-		"GetPreferences": "MathHooks::onGetPreferences",
-		"LoadExtensionSchemaUpdates": "MathHooks::onLoadExtensionSchemaUpdates",
-		"ParserTestTables": "MathHooks::onParserTestTables",
-		"PageRenderingHash": "MathHooks::onPageRenderingHash",
-		"WikibaseClientDataTypes": "MathWikibaseHook::onWikibaseClientDataTypes",
-		"WikibaseRepoDataTypes": "MathWikibaseHook::onWikibaseRepoDataTypes",
-		"ParserAfterTidy": "MathHooks::onParserAfterTidy",
-		"SpecialPage_initList": "MathHooks::onSpecialPage_initList",
-		"MaintenanceRefreshLinksInit": "MathHooks::onMaintenanceRefreshLinksInit"
+		"ParserFirstCallInit": "MediaWiki\\Extension\\Math\\Hooks::onParserFirstCallInit",
+		"GetPreferences": "MediaWiki\\Extension\\Math\\Hooks::onGetPreferences",
+		"LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\Math\\Hooks::onLoadExtensionSchemaUpdates",
+		"ParserTestTables": "MediaWiki\\Extension\\Math\\Hooks::onParserTestTables",
+		"PageRenderingHash": "MediaWiki\\Extension\\Math\\Hooks::onPageRenderingHash",
+		"WikibaseClientDataTypes": "MediaWiki\\Extension\\Math\\WikibaseHook::onWikibaseClientDataTypes",
+		"WikibaseRepoDataTypes": "MediaWiki\\Extension\\Math\\WikibaseHook::onWikibaseRepoDataTypes",
+		"ParserAfterTidy": "MediaWiki\\Extension\\Math\\Hooks::onParserAfterTidy",
+		"SpecialPage_initList": "MediaWiki\\Extension\\Math\\Hooks::onSpecialPage_initList",
+		"MaintenanceRefreshLinksInit": "MediaWiki\\Extension\\Math\\Hooks::onMaintenanceRefreshLinksInit"
 	},
 	"config": {
 		"MathDefaultLaTeXMLSetting": {
@@ -272,7 +262,7 @@
 			]
 		},
 		"ext.math.visualEditor.mathSymbolsData": {
-			"class": "MathMathSymbolsDataModule"
+			"class": "MediaWiki\\Extension\\Math\\MathMathSymbolsDataModule"
 		},
 		"ext.math.visualEditor.mathSymbols": {
 			"styles": [
@@ -283,7 +273,7 @@
 			]
 		},
 		"ext.math.visualEditor.chemSymbolsData": {
-			"class": "MathChemSymbolsDataModule"
+			"class": "MediaWiki\\Extension\\Math\\MathChemSymbolsDataModule"
 		},
 		"ext.math.visualEditor.chemSymbols": {
 			"styles": [
@@ -299,9 +289,9 @@
 		"remoteExtPath": "Math/modules"
 	},
 	"SpecialPages": {
-		"MathShowImage": "SpecialMathShowImage",
-		"MathStatus": "SpecialMathStatus",
-		"MathWikibase": "SpecialMathWikibase"
+		"MathShowImage": "MediaWiki\\Extension\\Math\\SpecialMathShowImage",
+		"MathStatus": "MediaWiki\\Extension\\Math\\SpecialMathStatus",
+		"MathWikibase": "MediaWiki\\Extension\\Math\\SpecialMathWikibase"
 	},
 	"TrackingCategories": [
 		"math-tracking-category-error",

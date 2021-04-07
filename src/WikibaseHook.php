@@ -1,5 +1,8 @@
 <?php
 
+namespace MediaWiki\Extension\Math;
+
+use ParserOptions;
 use ValueFormatters\FormatterOptions;
 use ValueParsers\StringParser;
 use Wikibase\Repo\Parsers\WikibaseStringValueNormalizer;
@@ -9,7 +12,7 @@ use Wikibase\Repo\Rdf\RdfVocabulary;
 use Wikibase\Repo\WikibaseRepo;
 use Wikimedia\Purtle\RdfWriter;
 
-class MathWikibaseHook {
+class WikibaseHook {
 
 	/**
 	 * Add Datatype "Math" to the Wikibase Repository

@@ -1,6 +1,9 @@
 <?php
 
+namespace MediaWiki\Extension\Math;
+
 use DataValues\StringValue;
+use InvalidArgumentException;
 use MediaWiki\Extension\Math\InputCheck\RestbaseChecker;
 use MediaWiki\MediaWikiServices;
 use ValueValidators\Error;
@@ -19,7 +22,7 @@ class MathValidator implements ValueValidator {
 	 *
 	 * @param StringValue $value The value to validate
 	 *
-	 * @return \ValueValidators\Result
+	 * @return Result
 	 * @throws InvalidArgumentException if not called with a StringValue
 	 */
 	public function validate( $value ) {

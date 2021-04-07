@@ -1,11 +1,13 @@
 <?php
 
+use MediaWiki\Extension\Math\MathRestbaseInterface;
+
 /**
  * Test the interface to access Restbase paths
  * /media/math/check/{type}
  * /media/math/render/{format}/{hash}
  *
- * @covers \MathRestbaseInterface
+ * @covers \MediaWiki\Extension\Math\MathRestbaseInterface
  *
  * @group Math
  *

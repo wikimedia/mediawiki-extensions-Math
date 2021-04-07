@@ -1,7 +1,9 @@
 <?php
 
+use MediaWiki\Extension\Math\MathMathMLCli;
+
 /**
- * @covers \MathMathMLCli
+ * @covers \MediaWiki\Extension\Math\MathMathMLCli
  *
  * @group Math
  *

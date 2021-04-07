@@ -10,6 +10,11 @@
  * @file
  */
 
+namespace MediaWiki\Extension\Math;
+
+use Exception;
+use Html;
+
 /**
  * Takes LaTeX fragments and outputs the source directly to the browser
  *

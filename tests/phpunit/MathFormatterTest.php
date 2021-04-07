@@ -2,12 +2,13 @@
 
 use DataValues\NumberValue;
 use DataValues\StringValue;
+use MediaWiki\Extension\Math\MathFormatter;
 use Wikibase\Lib\Formatters\SnakFormatter;
 
 /**
  * Test the results of MathFormatter
  *
- * @covers \MathFormatter
+ * @covers \MediaWiki\Extension\Math\MathFormatter
  *
  * @group Math
  *
@@ -36,7 +37,7 @@ class MathFormatterTest extends MediaWikiTestCase {
 
 	/**
 	 * Checks the
-	 * @covers \MathFormatter::__construct
+	 * @covers \MediaWiki\Extension\Math\MathFormatter::__construct
 	 */
 	public function testBasics() {
 		$formatter = new MathFormatter( SnakFormatter::FORMAT_PLAIN );
@@ -64,7 +65,7 @@ class MathFormatterTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers \MathFormatter::format
+	 * @covers \MediaWiki\Extension\Math\MathFormatter::format
 	 */
 	public function testUnknownFormatFailure() {
 		$formatter = new MathFormatter( 'unknown/unknown' );

@@ -1,7 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Math;
+
 use DataValues\StringValue;
+use InvalidArgumentException;
+use Language;
 use MediaWiki\Logger\LoggerFactory;
+use MWException;
 use Wikibase\Client\WikibaseClient;
 use Wikibase\DataModel\Entity\EntityId;
 use Wikibase\DataModel\Entity\EntityIdParsingException;

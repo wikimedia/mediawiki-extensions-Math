@@ -1,9 +1,12 @@
 <?php
 
+use MediaWiki\Extension\Math\MathRenderer;
+use MediaWiki\Extension\Math\MathSource;
+
 /**
  * Test the TeX source output format.
  *
- * @covers \MathSource
+ * @covers \MediaWiki\Extension\Math\MathSource
  *
  * @license GPL-2.0-or-later
  */

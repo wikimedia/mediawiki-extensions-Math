@@ -6,10 +6,21 @@
  * @license GPL-2.0-or-later
  */
 
+namespace MediaWiki\Extension\Math;
+
+use DatabaseUpdater;
+use Exception;
+use FatalError;
+use Hooks as MWHooks;
+use Maintenance;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MWException;
+use Parser;
+use RequestContext;
+use User;
 
-class MathHooks {
+class Hooks {
 
 	/**
 	 * @var array[]
@@ -222,8 +233,9 @@ class MathHooks {
 			$renderer->addTrackingCategories( $parser );
 			return $renderer->getLastError();
 		}
-		Hooks::run( 'MathFormulaPostRender',
-			[ $parser, $renderer, &$renderedMath ] );// Enables indexing of math formula
+		MWHooks::run( 'MathFormulaPostRender',
+			[ $parser, $renderer, &$renderedMath ]
+		); // Enables indexing of math formula
 
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
@@ -399,3 +411,5 @@ class MathHooks {
 	}
 
 }
+
+class_alias( Hooks::class, 'MathHooks' );

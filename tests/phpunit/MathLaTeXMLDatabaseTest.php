@@ -1,7 +1,9 @@
 <?php
 
+use MediaWiki\Extension\Math\MathLaTeXML;
+
 /**
- * @covers \MathLaTeXML
+ * @covers \MediaWiki\Extension\Math\MathLaTeXML
  *
  * @group Math
  * @group Database
@@ -48,7 +50,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 
 	/**
 	 * Checks the tex and hash functions
-	 * @covers \MathRenderer::getInputHash
+	 * @covers \MediaWiki\Extension\Math\MathRenderer::getInputHash
 	 */
 	public function testInputHash() {
 		$expectedhash = $this->db->encodeBlob( pack( "H32", md5( self::SOME_TEX ) ) );
@@ -65,7 +67,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers \MathLaTeXML::getMathTableName
+	 * @covers \MediaWiki\Extension\Math\MathLaTeXML::getMathTableName
 	 */
 	public function testTableName() {
 		$fnGetMathTableName = self::getMethod( 'getMathTableName' );
@@ -76,7 +78,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 
 	/**
 	 * Checks the creation of the math table.
-	 * @covers \MathHooks::onLoadExtensionSchemaUpdates
+	 * @covers \MediaWiki\Extension\Math\Hooks::onLoadExtensionSchemaUpdates
 	 */
 	public function testCreateTable() {
 		$this->setMwGlobals( 'wgMathValidModes', [ 'latexml' ] );
@@ -94,8 +96,8 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	/**
 	 * Checks database access. Writes an entry and reads it back.
 	 * @depends testCreateTable
-	 * @covers \MathRenderer::writeToDatabase
-	 * @covers \MathRenderer::readFromDatabase
+	 * @covers \MediaWiki\Extension\Math\MathRenderer::writeToDatabase
+	 * @covers \MediaWiki\Extension\Math\MathRenderer::readFromDatabase
 	 */
 	public function testDBBasics() {
 		$this->setValues();

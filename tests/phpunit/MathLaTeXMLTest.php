@@ -1,9 +1,11 @@
 <?php
 
+use MediaWiki\Extension\Math\MathLaTeXML;
+
 /**
  * Test the LaTeXML output format.
  *
- * @covers \MathLaTeXML
+ * @covers \MediaWiki\Extension\Math\MathLaTeXML
  *
  * @group Math
  *
@@ -13,7 +15,7 @@ class MathLaTeXMLTest extends MediaWikiTestCase {
 
 	/**
 	 * Tests the serialization of the LaTeXML settings
-	 * @covers \MathLaTeXML::serializeSettings
+	 * @covers \MediaWiki\Extension\Math\MathLaTeXML::serializeSettings
 	 */
 	public function testSerializeSettings() {
 		$renderer = new MathLaTeXML();

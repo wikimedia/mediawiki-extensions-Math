@@ -9,9 +9,18 @@
  * @file
  */
 
+namespace MediaWiki\Extension\Math;
+
+use DeferredUpdates;
 use MediaWiki\Extension\Math\InputCheck\RestbaseChecker;
 use MediaWiki\Logger\LoggerFactory;
+use MWException;
+use Parser;
 use Psr\Log\LoggerInterface;
+use RequestContext;
+use Sanitizer;
+use stdClass;
+use StringUtils;
 
 /**
  * Abstract base class with static methods for rendering the <math> tags using
@@ -444,8 +453,7 @@ abstract class MathRenderer {
 	protected function getAttributes( $tag, $defaults = [], $overrides = [] ) {
 		$attribs = Sanitizer::validateTagAttributes( $this->params, $tag );
 		$attribs = Sanitizer::mergeAttributes( $defaults, $attribs );
-		$attribs = Sanitizer::mergeAttributes( $attribs, $overrides );
-		return $attribs;
+		return Sanitizer::mergeAttributes( $attribs, $overrides );
 	}
 
 	/**
@@ -705,13 +713,13 @@ abstract class MathRenderer {
 	abstract protected function getMathTableName();
 
 	public function getModeStr() {
-		$names = MathHooks::getMathNames();
+		$names = Hooks::getMathNames();
 		return $names[ $this->getMode() ];
 	}
 
 	public static function getValidModes() {
 		global $wgMathValidModes;
-		return array_map( "MathHooks::mathModeToString", $wgMathValidModes );
+		return array_map( "MediaWiki\\Extension\\Math\\Hooks::mathModeToString", $wgMathValidModes );
 	}
 
 	public static function getDisableTexFilter() {
@@ -720,7 +728,7 @@ abstract class MathRenderer {
 			// ensure backwards compatibility
 			$wgMathDisableTexFilter = 'never';
 		}
-		return MathHooks::mathCheckToString( $wgMathDisableTexFilter );
+		return Hooks::mathCheckToString( $wgMathDisableTexFilter );
 	}
 
 	/**
@@ -766,3 +774,5 @@ abstract class MathRenderer {
 		$this->logger->debug( "$msg for \"{tex}\".", [ 'tex' => $this->userInputTex ] );
 	}
 }
+
+class_alias( MathRenderer::class, 'MathRenderer' );

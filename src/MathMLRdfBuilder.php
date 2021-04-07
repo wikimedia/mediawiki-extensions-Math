@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\Math;
+
 use Wikibase\DataModel\Snak\PropertyValueSnak;
 use Wikibase\Repo\Rdf\ValueSnakRdfBuilder;
 use Wikimedia\Purtle\RdfWriter;

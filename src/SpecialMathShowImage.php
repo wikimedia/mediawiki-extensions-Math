@@ -1,5 +1,9 @@
 <?php
 
+namespace MediaWiki\Extension\Math;
+
+use SpecialPage;
+
 /**
  * Description of SpecialMathShowSVG
  *
@@ -56,7 +60,7 @@ class SpecialMathShowImage extends SpecialPage {
 			$asciimath = '';
 		}
 		$mode = $request->getText( 'mode' );
-		$this->mode = MathHooks::mathModeToString( $mode, 'mathml' );
+		$this->mode = Hooks::mathModeToString( $mode, 'mathml' );
 
 		if ( !in_array( $this->mode, MathRenderer::getValidModes() ) ) {
 			// Fallback to the default if an invalid mode was specified

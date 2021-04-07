@@ -1,9 +1,12 @@
 <?php
 
+use MediaWiki\Extension\Math\MathMathML;
+use MediaWiki\Extension\Math\MathRenderer;
+
 /**
  * Test the database access and core functionality of MathRenderer.
  *
- * @covers \MathRenderer
+ * @covers \MediaWiki\Extension\Math\MathRenderer
  *
  * @group Math
  * @group Database
@@ -40,7 +43,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 
 	/**
 	 * Checks the tex and hash functions
-	 * @covers \MathRenderer::getInputHash
+	 * @covers \MediaWiki\Extension\Math\MathRenderer::getInputHash
 	 */
 	public function testInputHash() {
 		$expectedhash = $this->db->encodeBlob( pack( "H32", md5( self::SOME_TEX ) ) );
@@ -58,8 +61,8 @@ class MathDatabaseTest extends MediaWikiTestCase {
 
 	/**
 	 * Checks database access. Writes an entry and reads it back.
-	 * @covers \MathRenderer::writeToDatabase
-	 * @covers \MathRenderer::readFromDatabase
+	 * @covers \MediaWiki\Extension\Math\MathRenderer::writeToDatabase
+	 * @covers \MediaWiki\Extension\Math\MathRenderer::readFromDatabase
 	 */
 	public function testDBBasics() {
 		$this->setValues();
@@ -80,7 +83,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 
 	/**
 	 * Checks the creation of the math table.
-	 * @covers \MathHooks::onLoadExtensionSchemaUpdates
+	 * @covers \MediaWiki\Extension\Math\Hooks::onLoadExtensionSchemaUpdates
 	 */
 	public function testCreateTable() {
 		$this->setMwGlobals( 'wgMathValidModes', [ 'mathml' ] );

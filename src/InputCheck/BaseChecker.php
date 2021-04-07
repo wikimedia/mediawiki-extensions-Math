@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Math\InputCheck;
 
-use MathHooks;
-use MathRenderer;
-use MathSource;
+use MediaWiki\Extension\Math\Hooks;
+use MediaWiki\Extension\Math\MathRenderer;
+use MediaWiki\Extension\Math\MathSource;
 use stdClass;
 
 /**
@@ -74,7 +74,7 @@ abstract class BaseChecker {
 			if ( $e->error->message === 'Illegal TeX function' ) {
 				return $errorRenderer->getError( 'math_unknown_function', $e->error->found );
 			} elseif ( preg_match( '/Math extension/', $e->error->message ) ) {
-				$names = MathHooks::getMathNames();
+				$names = Hooks::getMathNames();
 				$mode = $names['mathml'];
 				$msg = $e->error->message;
 

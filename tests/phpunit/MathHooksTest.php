@@ -1,7 +1,9 @@
 <?php
 
+use MediaWiki\Extension\Math\Hooks;
+
 /**
- * @covers \MathHooks
+ * @covers \MediaWiki\Extension\Math\Hooks
  *
  * @group Math
  *
@@ -36,7 +38,7 @@ class MathHooksTest extends MediaWikiTestCase {
 			'latexml'             => 'latexml',
 		];
 		foreach ( $testCases as $input => $expected ) {
-			$real = MathHooks::mathModeToString( $input, $default );
+			$real = Hooks::mathModeToString( $input, $default );
 			$this->assertEquals( $expected, $real, "Conversion math mode $input -> $expected" );
 		}
 	}
@@ -55,7 +57,7 @@ class MathHooksTest extends MediaWikiTestCase {
 			'inline'                            => 'inline',
 		];
 		foreach ( $testCases as $input => $expected ) {
-			$real = MathHooks::mathStyleToString( $input, $default );
+			$real = Hooks::mathStyleToString( $input, $default );
 			$this->assertEquals( $expected, $real, "Conversion in math style" );
 		}
 	}
@@ -77,7 +79,7 @@ class MathHooksTest extends MediaWikiTestCase {
 		];
 
 		foreach ( $testCases as $input => $expected ) {
-			$real = MathHooks::mathCheckToString( $input, $default );
+			$real = Hooks::mathCheckToString( $input, $default );
 			$this->assertEquals( $expected, $real, "Conversion in math check method" );
 		}
 	}
@@ -93,13 +95,13 @@ class MathHooksTest extends MediaWikiTestCase {
 		];
 
 		foreach ( $testCases as $input => $expected ) {
-			$real = MathHooks::mathModeToHashKey( $input, $default );
+			$real = Hooks::mathModeToHashKey( $input, $default );
 			$this->assertEquals( $expected, $real, "Conversion to hash key" );
 		}
 	}
 
 	public function testGetMathNames() {
-		$real = MathHooks::getMathNames();
+		$real = Hooks::getMathNames();
 		$this->assertEquals( 'PNG images', $real['png'] );
 	}
 

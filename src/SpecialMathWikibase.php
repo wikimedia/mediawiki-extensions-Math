@@ -1,7 +1,17 @@
 <?php
 
+namespace MediaWiki\Extension\Math;
+
+use Exception;
+use Html;
+use InvalidArgumentException;
 use MediaWiki\Extension\Math\Widget\WikibaseEntitySelector;
 use MediaWiki\Logger\LoggerFactory;
+use Message;
+use OOUI\ButtonInputWidget;
+use OOUI\FormLayout;
+use OutputPage;
+use SpecialPage;
 
 class SpecialMathWikibase extends SpecialPage {
 	/**
@@ -31,7 +41,7 @@ class SpecialMathWikibase extends SpecialPage {
 	public function execute( $par ) {
 		global $wgLanguageCode;
 
-		if ( !$this->isWikibaseAvailable() ) {
+		if ( !self::isWikibaseAvailable() ) {
 			$out = $this->getOutput();
 
 			$out->setPageTitle(
@@ -90,7 +100,7 @@ class SpecialMathWikibase extends SpecialPage {
 				'infusable' => true,
 				'id' => 'wbEntitySelector'
 			] ),
-			new OOUI\ButtonInputWidget( [
+			new ButtonInputWidget( [
 				'name' => 'request-qid',
 				'label' => $this->getPlainText( 'math-wikibase-special-form-button' ),
 				'type' => 'submit',
@@ -103,7 +113,7 @@ class SpecialMathWikibase extends SpecialPage {
 			]
 		);
 
-		$formLayout = new \OOUI\FormLayout( [
+		$formLayout = new FormLayout( [
 			'method' => 'POST',
 			'items' => [ $actionField ]
 		] );

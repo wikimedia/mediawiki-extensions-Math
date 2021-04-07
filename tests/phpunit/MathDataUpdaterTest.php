@@ -8,7 +8,7 @@ use Wikibase\DataModel\Statement\Statement;
 /**
  * Test the MathDataUpdater for Wikidata
  *
- * @covers \MathDataUpdater
+ * @covers \MediaWiki\Extension\Math\MathDataUpdater
  *
  * @license GPL-2.0-or-later
  */

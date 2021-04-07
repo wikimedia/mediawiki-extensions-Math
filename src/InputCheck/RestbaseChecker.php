@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Math\InputCheck;
 
 use Exception;
-use MathRestbaseInterface;
+use MediaWiki\Extension\Math\MathRestbaseInterface;
 
 /**
  * MediaWiki math extension

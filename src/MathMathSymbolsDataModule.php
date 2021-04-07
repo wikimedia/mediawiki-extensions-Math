@@ -1,5 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\Math;
+
+use ResourceLoaderContext;
+use ResourceLoaderModule;
+
 /**
  * Resource loader module providing extra data from the server to Math.
  *

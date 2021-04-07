@@ -4,7 +4,7 @@ use MediaWiki\Extension\Math\InputCheck\InputCheckFactory;
 use MediaWiki\Extension\Math\InputCheck\MathoidChecker;
 
 /**
- * @covers MediaWiki\Extension\Math\InputCheck\InputCheckFactory
+ * @covers \MediaWiki\Extension\Math\InputCheck\InputCheckFactory
  */
 class InputCheckFactoryTest extends MediaWikiUnitTestCase {
 	use FactoryArgTestTrait;
