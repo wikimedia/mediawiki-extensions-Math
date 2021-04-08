@@ -404,7 +404,7 @@ class Hooks {
 	 */
 	// phpcs:ignore MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 	public static function onSpecialPage_initList( &$list ) {
-		if ( !class_exists( '\Wikibase\Client\WikibaseClient' ) ) {
+		if ( !class_exists( \Wikibase\Client\WikibaseClient::class ) ) {
 			unset( $list['MathWikibase'] );
 		}
 		return true;

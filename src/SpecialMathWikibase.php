@@ -251,6 +251,6 @@ class SpecialMathWikibase extends SpecialPage {
 	 * @return bool
 	 */
 	public static function isWikibaseAvailable() {
-		return class_exists( '\Wikibase\Client\WikibaseClient' );
+		return class_exists( \Wikibase\Client\WikibaseClient::class );
 	}
 }
