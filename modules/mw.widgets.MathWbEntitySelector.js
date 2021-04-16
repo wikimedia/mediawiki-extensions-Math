@@ -18,7 +18,6 @@
 		config = config || {};
 		this.api = config.api;
 		if ( !this.api ) {
-			// eslint-disable-next-line vars-on-top
 			var repoConfig = mw.config.get( 'wbRepo' ), url = repoConfig.url + repoConfig.scriptPath + '/api.php';
 			this.api = new mw.ForeignApi( url );
 		}
@@ -94,7 +93,7 @@
 		promiseAbortObject.abort = req.abort.bind( req );
 		return req.promise( promiseAbortObject );
 	};
-	// eslint-disable-next-line no-jquery/no-global-selector,vars-on-top
+	// eslint-disable-next-line no-jquery/no-global-selector
 	var $wbEntitySelector = $( '#wbEntitySelector' );
 	if ( $wbEntitySelector.length ) {
 		OO.ui.infuse( $wbEntitySelector );
