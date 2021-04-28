@@ -23,7 +23,6 @@ use Wikibase\Lib\Store\StorageException;
  * A class that connects with the local instance of wikibase to fetch
  * information from single items. There is always only one instance of this class.
  *
- * @see WikibaseRepo::getDefaultInstance()      the instance thats been used to fetch the data
  * @see MathWikibaseConnector::getInstance()    to get an instance of the class
  */
 class MathWikibaseConnector {
