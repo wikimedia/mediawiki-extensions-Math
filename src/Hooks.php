@@ -49,7 +49,7 @@ class Hooks {
 		if ( is_string( $value ) ) {
 			$newValues = [];
 			foreach ( $defs as $k => $v ) {
-				$newValues[$k] = preg_replace_callback( '/_(.)/', function ( $matches ) {
+				$newValues[$k] = preg_replace_callback( '/_(.)/', static function ( $matches ) {
 					return strtoupper( $matches[1] );
 				}, strtolower( substr( $k, strlen( $prefix ) ) ) );
 			}

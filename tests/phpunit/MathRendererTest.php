@@ -54,7 +54,7 @@ class MathRendererTest extends MediaWikiTestCase {
 	 */
 	public function testWriteCacheSkip() {
 		$renderer =
-			$this->getMockBuilder( MathRenderer::class )->setMethods( [
+			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
 					'writeToDatabase',
 					'render',
 					'getMathTableName',
@@ -71,7 +71,7 @@ class MathRendererTest extends MediaWikiTestCase {
 	 */
 	public function testWriteCache() {
 		$renderer =
-			$this->getMockBuilder( MathRenderer::class )->setMethods( [
+			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
 					'writeToDatabase',
 					'render',
 					'getMathTableName',
@@ -84,7 +84,7 @@ class MathRendererTest extends MediaWikiTestCase {
 
 	public function testSetPurge() {
 		$renderer =
-			$this->getMockBuilder( MathRenderer::class )->setMethods( [
+			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
 					'render',
 					'getMathTableName',
 					'getHtmlOutput'
@@ -97,7 +97,7 @@ class MathRendererTest extends MediaWikiTestCase {
 	public function testDisableCheckingAlways() {
 		$this->setMwGlobals( "wgMathDisableTexFilter", 'never' );
 		$renderer =
-			$this->getMockBuilder( MathRenderer::class )->setMethods( [
+			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
 					'render',
 					'getMathTableName',
 					'getHtmlOutput',
@@ -116,7 +116,7 @@ class MathRendererTest extends MediaWikiTestCase {
 	public function testDisableCheckingNever() {
 		$this->setMwGlobals( "wgMathDisableTexFilter", 'always' );
 		$renderer =
-			$this->getMockBuilder( MathRenderer::class )->setMethods( [
+			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
 					'render',
 					'getMathTableName',
 					'getHtmlOutput',
@@ -133,7 +133,7 @@ class MathRendererTest extends MediaWikiTestCase {
 	public function testCheckingNewUnknown() {
 		$this->setMwGlobals( "wgMathDisableTexFilter", 'new' );
 		$renderer =
-			$this->getMockBuilder( MathRenderer::class )->setMethods( [
+			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
 					'render',
 					'getMathTableName',
 					'getHtmlOutput',
@@ -153,7 +153,7 @@ class MathRendererTest extends MediaWikiTestCase {
 	public function testCheckingNewKnown() {
 		$this->setMwGlobals( "wgMathDisableTexFilter", 'new' );
 		$renderer =
-			$this->getMockBuilder( MathRenderer::class )->setMethods( [
+			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
 					'render',
 					'getMathTableName',
 					'getHtmlOutput',

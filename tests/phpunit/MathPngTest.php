@@ -20,7 +20,7 @@ class MathPngTest extends MediaWikiTestCase {
 
 	public function testOutput() {
 		$renderer = $this->getMockBuilder( MathPng::class )
-			->setMethods( [ 'getFallbackImage' ] )
+			->onlyMethods( [ 'getFallbackImage' ] )
 			->getMock();
 		$renderer->method( 'getFallbackImage' )
 			->willReturn( self::TEST_DUMMY );

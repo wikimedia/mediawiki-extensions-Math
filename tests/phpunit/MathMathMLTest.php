@@ -133,7 +133,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 		self::setMockValues( false, true, true );
 		$url = 'http://example.com/timeout';
 		$renderer = $this->getMockBuilder( MathMathML::class )
-			->setMethods( [ 'getPostData' ] )
+			->onlyMethods( [ 'getPostData' ] )
 			->getMock();
 		$renderer->expects( $this->once() )->method( 'getPostData' );
 
@@ -149,7 +149,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 	public function testMakeRequestGetHost() {
 		self::setMockValues( false, true, true );
 		$renderer = $this->getMockBuilder( MathMathML::class )
-			->setMethods( [ 'getPostData', 'pickHost' ] )
+			->onlyMethods( [ 'getPostData', 'pickHost' ] )
 			->getMock();
 		$renderer->expects( $this->once() )->method( 'pickHost' );
 
@@ -232,7 +232,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$this->setMwGlobals( "wgMathDisableTexFilter", 'always' );
 		$renderer = new MathMathML();
 		$rbi = $this->getMockBuilder( MathRestbaseInterface::class )
-			->setMethods( [ 'getWarnings', 'getSuccess' ] )
+			->onlyMethods( [ 'getWarnings', 'getSuccess' ] )
 			->setConstructorArgs( [ 'a+b' ] )
 			->getMock();
 		$rbi->method( 'getWarnings' )->willReturn( [ (object)[ 'type' => 'mhchem-deprecation' ] ] );

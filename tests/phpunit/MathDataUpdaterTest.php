@@ -37,7 +37,7 @@ class MathDataUpdaterTest extends MediaWikiTestCase {
 		$updater = new MathDataUpdater( $matcher );
 		$statement = new Statement( new PropertyNoValueSnak( $this->otherProperty ) );
 		$updater->processStatement( $statement );
-		$parserOutput = $this->getMockBuilder( ParserOutput::class )->setMethods( [
+		$parserOutput = $this->getMockBuilder( ParserOutput::class )->onlyMethods( [
 			'addModules',
 			'addModuleStyles',
 		] )->getMock();
@@ -52,7 +52,7 @@ class MathDataUpdaterTest extends MediaWikiTestCase {
 		$updater = new MathDataUpdater( $matcher );
 		$statement = new Statement( new PropertyNoValueSnak( $this->mathProperty ) );
 		$updater->processStatement( $statement );
-		$parserOutput = $this->getMockBuilder( ParserOutput::class )->setMethods( [
+		$parserOutput = $this->getMockBuilder( ParserOutput::class )->onlyMethods( [
 			'addModules',
 			'addModuleStyles',
 		] )->getMock();

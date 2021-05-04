@@ -6,7 +6,7 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 
 return [
-	'Math.CheckerFactory' => function ( MediaWikiServices $services ): InputCheckFactory {
+	'Math.CheckerFactory' => static function ( MediaWikiServices $services ): InputCheckFactory {
 		return new InputCheckFactory(
 			new ServiceOptions(
 				InputCheckFactory::CONSTRUCTOR_OPTIONS,
