@@ -1,29 +1,21 @@
 # Selenium tests
 
-Please see tests/selenium/README.md file in mediawiki/core repository and
-https://www.mediawiki.org/wiki/Selenium/Node.js.
+For more information see https://www.mediawiki.org/wiki/Selenium
 
-## Usage
+## Setup
 
-Set up MediaWiki-Vagrant:
+See https://www.mediawiki.org/wiki/MediaWiki-Docker/Extension/Math
 
-    cd mediawiki/vagrant
-    vagrant up
-    vagrant roles enable math
-    vagrant provision
+## Run all specs
 
-Run both mediawiki/core and Math tests from mediawiki/core folder:
+    npm run selenium-test
 
-    npm run selenium
+## Run specific tests
 
-To run only Math tests in one terminal window or tab start Chromedriver:
+Filter by file name:
 
-    chromedriver --url-base=/wd/hub --port=4444
+    npm run selenium-test -- --spec tests/selenium/specs/[FILE-NAME]
 
-In another terminal tab or window go to mediawiki/core folder:
+Filter by file name and test name:
 
-    ./node_modules/.bin/wdio tests/selenium/wdio.conf.js --spec extensions/Math/tests/selenium/specs/*.js
-
-Run only one Math test file from mediawiki/core:
-
-    ./node_modules/.bin/wdio tests/selenium/wdio.conf.js --spec extensions/Math/tests/selenium/specs/basic.js
+    npm run selenium-test -- --spec tests/selenium/specs/[FILE-NAME] --mochaOpts.grep [TEST-NAME]
