@@ -17,11 +17,6 @@ class MathValidatorTest extends MediaWikiTestCase {
 	private const VADLID_TEX = "\sin x";
 	private const INVADLID_TEX = "\\notExists";
 
-	protected function setUp() : void {
-		parent::setUp();
-		$this->setMwGlobals( 'wgMathUseRestBase', false );
-	}
-
 	public function testNotStringValue() {
 		$validator = new MathValidator();
 		$this->expectException( InvalidArgumentException::class );
