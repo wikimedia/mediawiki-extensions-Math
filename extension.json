@@ -111,9 +111,6 @@
 		"MathoidCli": {
 			"value": false
 		},
-		"MathUseRestBase": {
-			"value": true
-		},
 		"MathValidModes": {
 			"description": "To access this at run-time, use MathRenderer::getValidModes(). Do not use the non-normalized configuration directly.",
 			"value": [
