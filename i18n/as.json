@@ -16,6 +16,7 @@
 	"math_unknown_error": "অজ্ঞাত ত্ৰুটি",
 	"math_unknown_function": "অজ্ঞাত কাৰ্য \"$1\"",
 	"prefs-math": "গণিত",
+	"mathstatus": "গণিতৰ স্থিতি",
 	"mathwikibase": "গণিতৰ সূত্ৰৰ তথ্য",
 	"math-wikibase-formula-information": "গণিতৰ সূত্ৰৰ তথ্য"
 }
