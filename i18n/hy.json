@@ -3,6 +3,7 @@
 		"authors": [
 			"Azniv Stepanian",
 			"Chaojoker",
+			"Kareyac",
 			"Macofe",
 			"Teak",
 			"Xelgen",
@@ -70,5 +71,6 @@
 	"prefs-math": "Մաթեմատիկական բանաձևեր",
 	"mathstatus": "Math-ի կարգավիճակ",
 	"datatypes-type-math": "Մաթեմատիկական արտահայտություն",
-	"wikibase-listdatatypes-math-head": "Մաթեմատիկական արտահայտություն"
+	"wikibase-listdatatypes-math-head": "Մաթեմատիկական արտահայտություն",
+	"math-wikibase-formula": "Բանաձև"
 }
