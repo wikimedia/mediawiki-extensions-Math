@@ -10,6 +10,7 @@ namespace MediaWiki\Extension\Math;
 
 use DatabaseUpdater;
 use Exception;
+use ExtensionRegistry;
 use FatalError;
 use Hooks as MWHooks;
 use Maintenance;
@@ -402,9 +403,8 @@ class Hooks {
 	 * @param array &$list
 	 * @return bool true
 	 */
-	// phpcs:ignore MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
-	public static function onSpecialPage_initList( &$list ) {
-		if ( !class_exists( \Wikibase\Client\WikibaseClient::class ) ) {
+	public static function onSpecialPageInitList( &$list ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'WikibaseClient' ) ) {
 			unset( $list['MathWikibase'] );
 		}
 		return true;

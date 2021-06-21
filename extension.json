@@ -53,7 +53,7 @@
 		"WikibaseClientDataTypes": "MediaWiki\\Extension\\Math\\WikibaseHook::onWikibaseClientDataTypes",
 		"WikibaseRepoDataTypes": "MediaWiki\\Extension\\Math\\WikibaseHook::onWikibaseRepoDataTypes",
 		"ParserAfterTidy": "MediaWiki\\Extension\\Math\\Hooks::onParserAfterTidy",
-		"SpecialPage_initList": "MediaWiki\\Extension\\Math\\Hooks::onSpecialPage_initList",
+		"SpecialPage_initList": "MediaWiki\\Extension\\Math\\Hooks::onSpecialPageInitList",
 		"MaintenanceRefreshLinksInit": "MediaWiki\\Extension\\Math\\Hooks::onMaintenanceRefreshLinksInit"
 	},
 	"config": {
