@@ -23,7 +23,7 @@
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Label for the quick edit button in the math context item",
 	"math-visualeditor-mwlatexdialog-card-formula": "Label for the generic formula card of the dialog for mathematics, chemistry, etc.\n{{Identical|Formula}}",
 	"math-visualeditor-mwlatexdialog-card-options": "Label for the options card of the formula dialog.\n{{Identical|Options}}",
-	"math-visualeditor-mwlatexinspector-display": "Label for the display attribute of the math node\n{{Identical|Display}}",
+	"math-visualeditor-mwlatexinspector-display": "Label for the <code>display</code> attribute of the math node. This attribute has two options, <code>inline</code> and <code>block</code>. With <code>inline</code>, there will be no new paragraph for the equation and the operators will be rendered consuming only little vertical space. In <code>block</code> style, the equation is rendered in its own paragraph and the operators are rendered consuming less horizontal space.\n\n{{Identical|Display}}",
 	"math-visualeditor-mwlatexinspector-display-block": "Label for the 'block' value of the display attribute\n{{Identical|Block}}",
 	"math-visualeditor-mwlatexinspector-display-default": "Label for the 'default' value of the display attribute\n{{Identical|Default}}",
 	"math-visualeditor-mwlatexinspector-display-inline": "Label for the 'inline' value of the display attribute\n{{Identical|Inline}}",
