@@ -64,7 +64,7 @@
 	"math_syntax_error": "error de syntaxe",
 	"math_timeout": "$1 ha expirate sur \"$2\".",
 	"math-test-end": "Le tests de servitor pro le modo de representation \"$1\" ha terminate.",
-	"math-test-fail": "Le test ''$1'' ha <span style=\"color:red\">fallite</span>.</span>",
+	"math-test-fail": "Le test ''$1'' ha <span style=\"color:red\">fallite</span>.",
 	"math-test-start": "Execution in curso del tests de servitor pro le modo de representation \"$1\".",
 	"math-test-success": "Le test \"$1\" <span style=\"color:green\">ha succedite</span>.",
 	"math-test-contains-diff": "Le catena retornate, $1, non contine le catena expectate, $2.",
