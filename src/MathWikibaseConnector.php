@@ -12,6 +12,7 @@ use Wikibase\DataModel\Entity\EntityId;
 use Wikibase\DataModel\Entity\EntityIdParsingException;
 use Wikibase\DataModel\Entity\EntityIdValue;
 use Wikibase\DataModel\Entity\Item;
+use Wikibase\DataModel\Entity\ItemId;
 use Wikibase\DataModel\Services\Lookup\LabelDescriptionLookup;
 use Wikibase\DataModel\Snak\PropertyValueSnak;
 use Wikibase\DataModel\Snak\Snak;
@@ -242,26 +243,11 @@ class MathWikibaseConnector {
 	}
 
 	/**
-	 * @todo should be refactored once there is an easier way to get the URL
 	 * @param string $qID
 	 * @return string
 	 */
 	public static function buildURL( $qID ) {
-		$settings = WikibaseClient::getSettings();
-		$baseurl = $settings->getSetting( 'repoUrl' );
-		$articlePath = $settings->getSetting( 'repoArticlePath' );
-		$namespaces = $settings->getSetting( 'repoNamespaces' );
-
-		$url = $baseurl . $articlePath;
-
-		if ( $namespaces && $namespaces["item"] ) {
-			$articleId = $namespaces["item"] . ":" . $qID;
-		} else {
-			$articleId = $qID;
-		}
-
-		// repoArticlePath contains the placeholder $1 for the page title
-		// see: https://www.mediawiki.org/wiki/Manual:$wgArticlePath
-		return str_replace( '$1', $articleId, $url );
+		return WikibaseClient::getRepoLinker()
+			->getEntityUrl( new ItemId( $qID ) );
 	}
 }
