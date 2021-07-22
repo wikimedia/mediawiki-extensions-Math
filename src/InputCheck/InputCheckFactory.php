@@ -49,7 +49,7 @@ class InputCheckFactory {
 	 * @param string $type
 	 * @return MathoidChecker
 	 */
-	public function newMathoidChecker( string $input, string $type ) : MathoidChecker {
+	public function newMathoidChecker( string $input, string $type ): MathoidChecker {
 		return new MathoidChecker(
 			$this->cache,
 			$this->httpFactory,

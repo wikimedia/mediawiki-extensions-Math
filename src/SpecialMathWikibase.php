@@ -239,7 +239,7 @@ class SpecialMathWikibase extends SpecialPage {
 	 * @param string $header Plain text
 	 * @return string Raw HTML
 	 */
-	private static function createHTMLHeader( string $header ) : string {
+	private static function createHTMLHeader( string $header ): string {
 		return Html::rawElement(
 			'h2',
 			[],

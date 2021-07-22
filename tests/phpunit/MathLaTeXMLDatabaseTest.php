@@ -40,7 +40,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	 * }
 	 * was not sufficient.
 	 */
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 		// TODO: figure out why this is necessary
 		$this->db = wfGetDB( DB_MASTER );

@@ -89,28 +89,28 @@ class MathWikibaseConfig {
 	/**
 	 * @return EntityIdParser
 	 */
-	public function getIdParser() : EntityIdParser {
+	public function getIdParser(): EntityIdParser {
 		return $this->idParser;
 	}
 
 	/**
 	 * @return EntityRevisionLookup
 	 */
-	public function getEntityRevisionLookup() : EntityRevisionLookup {
+	public function getEntityRevisionLookup(): EntityRevisionLookup {
 		return $this->entityRevisionLookup;
 	}
 
 	/**
 	 * @return LanguageFallbackLabelDescriptionLookupFactory
 	 */
-	public function getLabelLookupFactory() : LanguageFallbackLabelDescriptionLookupFactory {
+	public function getLabelLookupFactory(): LanguageFallbackLabelDescriptionLookupFactory {
 		return $this->labelLookupFactory;
 	}
 
 	/**
 	 * @return Site
 	 */
-	public function getSite() : Site {
+	public function getSite(): Site {
 		return $this->site;
 	}
 
@@ -126,28 +126,28 @@ class MathWikibaseConfig {
 	/**
 	 * @return PropertyId
 	 */
-	public function getPropertyIdHasPart() : PropertyId {
+	public function getPropertyIdHasPart(): PropertyId {
 		return $this->propertyIdHasPart;
 	}
 
 	/**
 	 * @return PropertyId
 	 */
-	public function getPropertyIdQuantitySymbol() : PropertyId {
+	public function getPropertyIdQuantitySymbol(): PropertyId {
 		return $this->propertyIdQuantitySymbol;
 	}
 
 	/**
 	 * @return PropertyId
 	 */
-	public function getPropertyIdDefiningFormula() : PropertyId {
+	public function getPropertyIdDefiningFormula(): PropertyId {
 		return $this->propertyIdDefiningFormula;
 	}
 
 	/**
 	 * @return MathWikibaseConfig default config
 	 */
-	public static function getDefaultMathWikibaseConfig() : MathWikibaseConfig {
+	public static function getDefaultMathWikibaseConfig(): MathWikibaseConfig {
 		if ( !self::$defaultConfig ) {
 			$site = null;
 			try {

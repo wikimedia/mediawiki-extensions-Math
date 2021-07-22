@@ -35,7 +35,7 @@ class InputCheckFactoryTest extends MediaWikiUnitTestCase {
 		return 'new' . ( new \ReflectionClass( MathoidChecker::class ) )->getShortName();
 	}
 
-	protected function setUp():void {
+	protected function setUp(): void {
 		parent::setUp();
 		$this->markTestSkipped( 'FactoryArgTestTrait can not yet handle the parameter numbers.' );
 	}

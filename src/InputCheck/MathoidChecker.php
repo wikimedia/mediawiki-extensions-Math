@@ -58,7 +58,7 @@ class MathoidChecker extends BaseChecker {
 	/**
 	 * @return array
 	 */
-	public function getCheckResponse() : array {
+	public function getCheckResponse(): array {
 		if ( !isset( $this->statusCode ) ) {
 			list( $this->statusCode, $this->response ) = $this->cache->getWithSetCallback(
 				$this->getCacheKey(),
@@ -73,7 +73,7 @@ class MathoidChecker extends BaseChecker {
 	/**
 	 * @return string
 	 */
-	public function getCacheKey() : string {
+	public function getCacheKey(): string {
 		return $this->cache->makeGlobalKey(
 			self::class,
 			md5( $this->type . '-' . $this->inputTeX )
@@ -84,7 +84,7 @@ class MathoidChecker extends BaseChecker {
 	 * @return array
 	 * @throws MWException
 	 */
-	public function runCheck() : array {
+	public function runCheck(): array {
 		$url = "{$this->url}/texvcinfo";
 		$q = rawurlencode( $this->inputTeX );
 		$postData = "type=$this->type&q=$q";

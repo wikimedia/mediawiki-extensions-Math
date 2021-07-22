@@ -21,12 +21,12 @@ class MathFormatterTest extends MediaWikiTestCase {
 	/** @var bool */
 	protected static $hasRestbase;
 
-	public static function setUpBeforeClass() : void {
+	public static function setUpBeforeClass(): void {
 		$rbi = new MathRestbaseInterface();
 		self::$hasRestbase = $rbi->checkBackend( true );
 	}
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
 		parent::setUp();
 

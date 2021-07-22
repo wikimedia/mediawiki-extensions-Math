@@ -16,7 +16,7 @@ use MediaWiki\Extension\Math\MathRestbaseInterface;
 class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 	protected static $hasRestbase;
 
-	public static function setUpBeforeClass() : void {
+	public static function setUpBeforeClass(): void {
 		$rbi = new MathRestbaseInterface();
 		self::$hasRestbase = $rbi->checkBackend( true );
 	}
@@ -25,7 +25,7 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 	 * Sets up the fixture, for example, opens a network connection.
 	 * This method is called before a test is executed.
 	 */
-	protected function setUp() : void {
+	protected function setUp(): void {
 		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
 		parent::setUp();
 		if ( !self::$hasRestbase ) {
