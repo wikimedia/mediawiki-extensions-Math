@@ -43,7 +43,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 		// TODO: figure out why this is necessary
-		$this->db = wfGetDB( DB_MASTER );
+		$this->db = wfGetDB( DB_PRIMARY );
 		$this->renderer = new MathLaTeXML( self::SOME_TEX );
 		self::setupTestDB( $this->db, "mathtest" );
 	}

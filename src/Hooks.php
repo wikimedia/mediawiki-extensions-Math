@@ -186,7 +186,8 @@ class Hooks {
 			return '';
 		}
 
-		$mode = self::mathModeToString( $parser->getUser()->getOption( 'math' ) );
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		$mode = self::mathModeToString( $userOptionsLookup->getOption( $parser->getUserIdentity(), 'math' ) );
 		// Indicate that this page uses math.
 		// This affects the page caching behavior.
 		$parser->getOptions()->optionUsed( 'math' );

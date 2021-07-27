@@ -36,7 +36,7 @@ class MathDatabaseTest extends MediaWikiTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 		// TODO: figure out why this is necessary
-		$this->db = wfGetDB( DB_MASTER );
+		$this->db = wfGetDB( DB_PRIMARY );
 		$this->renderer = new MathMathML( self::SOME_TEX );
 		$this->tablesUsed[] = 'mathoid';
 	}

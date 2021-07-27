@@ -364,7 +364,7 @@ abstract class MathRenderer {
 			DeferredUpdates::addCallableUpdate( function () use (
 				$dbw, $outArray, $inputHash, $mathTableName, $fname
 			) {
-				$dbw = $dbw ?: wfGetDB( DB_MASTER );
+				$dbw = $dbw ?: wfGetDB( DB_PRIMARY );
 
 				$dbw->update( $mathTableName, $outArray,
 					[ 'math_inputhash' => $inputHash ], $fname );
@@ -378,7 +378,7 @@ abstract class MathRenderer {
 			DeferredUpdates::addCallableUpdate( function () use (
 				$dbw, $outArray, $mathTableName, $fname
 			) {
-				$dbw = $dbw ?: wfGetDB( DB_MASTER );
+				$dbw = $dbw ?: wfGetDB( DB_PRIMARY );
 
 				$dbw->insert( $mathTableName, $outArray, $fname, [ 'IGNORE' ] );
 				LoggerFactory::getInstance( 'Math' )->debug(
