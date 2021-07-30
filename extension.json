@@ -48,7 +48,6 @@
 		"ParserFirstCallInit": "MediaWiki\\Extension\\Math\\Hooks::onParserFirstCallInit",
 		"GetPreferences": "MediaWiki\\Extension\\Math\\Hooks::onGetPreferences",
 		"LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\Math\\Hooks::onLoadExtensionSchemaUpdates",
-		"ParserTestTables": "MediaWiki\\Extension\\Math\\Hooks::onParserTestTables",
 		"PageRenderingHash": "MediaWiki\\Extension\\Math\\Hooks::onPageRenderingHash",
 		"WikibaseClientDataTypes": "MediaWiki\\Extension\\Math\\WikibaseHook::onWikibaseClientDataTypes",
 		"WikibaseRepoDataTypes": "MediaWiki\\Extension\\Math\\WikibaseHook::onWikibaseRepoDataTypes",

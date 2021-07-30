@@ -343,19 +343,6 @@ class Hooks {
 	}
 
 	/**
-	 * Add 'math' and 'mathlatexml' tables to the list of tables that need to be copied to
-	 * temporary tables for parser tests to run.
-	 *
-	 * @param array &$tables
-	 * @return bool
-	 */
-	public static function onParserTestTables( &$tables ) {
-		$tables[] = 'math';
-		$tables[] = 'mathlatexml';
-		return true;
-	}
-
-	/**
 	 * @param Parser $parser
 	 * @param string &$text
 	 * @return bool
