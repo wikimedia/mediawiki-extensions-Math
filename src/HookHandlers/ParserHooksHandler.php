@@ -8,6 +8,7 @@ use MediaWiki\Extension\Math\Hooks;
 use MediaWiki\Extension\Math\MathMathML;
 use MediaWiki\Extension\Math\MathMathMLCli;
 use MediaWiki\Extension\Math\MathRenderer;
+use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\Hook\ParserAfterTidyHook;
 use MediaWiki\Hook\ParserFirstCallInitHook;
 use MediaWiki\Logger\LoggerFactory;
@@ -26,15 +27,24 @@ class ParserHooksHandler implements
 	/** @var int */
 	private $mathTagCounter = 1;
 
-	/** @var array */
-	private $mathTags = [];
+	/** @var array[] renders delayed to be done as a batch [ MathRenderer, Parser ] */
+	private $mathLazyRenderBatch = [];
+
+	/** @var RendererFactory */
+	private $rendererFactory;
 
 	/** @var UserOptionsLookup */
 	private $userOptionsLookup;
 
+	/**
+	 * @param RendererFactory $rendererFactory
+	 * @param UserOptionsLookup $userOptionsLookup
+	 */
 	public function __construct(
+		RendererFactory $rendererFactory,
 		UserOptionsLookup $userOptionsLookup
 	) {
+		$this->rendererFactory = $rendererFactory;
 		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
@@ -69,7 +79,7 @@ class ParserHooksHandler implements
 		// Indicate that this page uses math.
 		// This affects the page caching behavior.
 		$parser->getOptions()->optionUsed( 'math' );
-		$renderer = MathRenderer::getRenderer( $content, $attributes, $mode );
+		$renderer = $this->rendererFactory->getRenderer( $content, $attributes, $mode );
 
 		$parser->getOutput()->addModuleStyles( [ 'ext.math.styles' ] );
 		if ( $mode == 'mathml' ) {
@@ -77,7 +87,7 @@ class ParserHooksHandler implements
 			$marker = Parser::MARKER_PREFIX .
 				'-postMath-' . sprintf( '%08X', $this->mathTagCounter++ ) .
 				Parser::MARKER_SUFFIX;
-			$this->mathTags[$marker] = [ $renderer, $parser ];
+			$this->mathLazyRenderBatch[$marker] = [ $renderer, $parser ];
 			return $marker;
 		}
 		return [ $this->mathPostTagHook( $renderer, $parser ), 'markerType' => 'nowiki' ];
@@ -144,23 +154,23 @@ class ParserHooksHandler implements
 	public function onParserAfterTidy( $parser, &$text ) {
 		global $wgMathoidCli;
 		if ( $wgMathoidCli ) {
-			MathMathMLCli::batchEvaluate( $this->mathTags );
+			MathMathMLCli::batchEvaluate( $this->mathLazyRenderBatch );
 		} else {
-			MathMathML::batchEvaluate( $this->mathTags );
+			MathMathML::batchEvaluate( $this->mathLazyRenderBatch );
 		}
-		foreach ( $this->mathTags as $key => $tag ) {
-			$value = $this->mathPostTagHook( ...$tag );
+		foreach ( $this->mathLazyRenderBatch as $key => [ $renderer, $renderParser ] ) {
+			$value = $this->mathPostTagHook( $renderer, $renderParser );
 			// Workaround for https://phabricator.wikimedia.org/T103269
 			$text = preg_replace(
 				'/(<mw:editsection[^>]*>.*?)' . preg_quote( $key ) . '(.*?)<\/mw:editsection>/',
-				'\1 $' . htmlspecialchars( $tag[0]->getTex() ) . '\2</mw:editsection>',
+				'\1 $' . htmlspecialchars( $renderer->getTex() ) . '\2</mw:editsection>',
 				$text
 			);
 			$count = 0;
 			$text = str_replace( $key, $value, $text, $count );
 			if ( $count ) {
 				// This hook might be called multiple times. However once the tag is rendered the job is done.
-				unset( $this->mathTags[ $key ] );
+				unset( $this->mathLazyRenderBatch[ $key ] );
 			}
 		}
 	}
