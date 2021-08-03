@@ -52,14 +52,16 @@ class MathMathMLTest extends MediaWikiTestCase {
 	 * @covers \MediaWiki\Extension\Math\MathMathML::makeRequest
 	 */
 	public function testMakeRequestInvalid() {
+		$url = 'http://example.com/invalid';
+		$this->setMwGlobals( [
+			'wgMathMathMLUrl' => $url,
+		] );
 		$this->installMockHttp(
 			$this->makeFakeHttpRequest( 'Method Not Allowed', 405 )
 		);
 
 		$renderer = new MathMathML();
-		$url = 'http://example.com/invalid';
-
-		$requestReturn = $renderer->makeRequest( $url, 'a+b', $res, $error );
+		$requestReturn = $renderer->makeRequest( $res, $error );
 		$this->assertFalse( $requestReturn,
 			"requestReturn is false if HTTP::post returns false." );
 		$this->assertNull( $res,
@@ -80,10 +82,9 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$this->installMockHttp(
 			$this->makeFakeHttpRequest( 'test content' )
 		);
-		$url = 'http://example.com/valid';
 		$renderer = new MathMathML();
 
-		$requestReturn = $renderer->makeRequest( $url, 'a+b', $res, $error );
+		$requestReturn = $renderer->makeRequest( $res, $error );
 		$this->assertTrue( $requestReturn, "successful call return" );
 		$this->assertSame( 'test content', $res, 'successful call' );
 		$this->assertSame( '', $error, "successful call error-message" );
@@ -95,15 +96,16 @@ class MathMathMLTest extends MediaWikiTestCase {
 	 * @covers \MediaWiki\Extension\Math\MathMathML::makeRequest
 	 */
 	public function testMakeRequestTimeout() {
+		$url = 'http://example.com/timeout';
+		$this->setMwGlobals( [
+			'wgMathMathMLUrl' => $url,
+		] );
 		$this->installMockHttp(
 			$this->makeFakeTimeoutRequest()
 		);
-		$url = 'http://example.com/timeout';
 		$renderer = new MathMathML();
 
-		$requestReturn = $renderer->makeRequest(
-			$url, '$\longcommand$', $res, $error
-		);
+		$requestReturn = $renderer->makeRequest( $res, $error );
 		$this->assertFalse( $requestReturn, "timeout call return" );
 		$this->assertFalse( $res, "timeout call return" );
 		$errmsg = wfMessage( 'math_timeout', '', $url )->inContentLanguage()->escaped();
@@ -124,7 +126,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$renderer->expects( $this->once() )->method( 'getPostData' );
 
 		/** @var MathMathML $renderer */
-		$renderer->makeRequest( $url, false, $res, $error );
+		$renderer->makeRequest( $res, $error );
 	}
 
 	/**

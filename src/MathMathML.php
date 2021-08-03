@@ -219,44 +219,41 @@ class MathMathML extends MathRenderer {
 	 * Generates error messages on failure
 	 * @see Http::post()
 	 *
-	 * @param string $host
-	 * @param string $post the encoded post request
 	 * @param mixed &$res the result
 	 * @param mixed &$error the formatted error message or null
 	 * @return bool success
 	 */
-	public function makeRequest( $host, $post, &$res, &$error = '' ) {
+	public function makeRequest( &$res, &$error = '' ) {
 		// TODO: Change the timeout mechanism.
 		global $wgMathLaTeXMLTimeout;
 
 		$error = '';
 		$res = null;
-		$host = $host ?: $this->host;
-		$post = $post ?: $this->getPostData();
+		$post = $this->getPostData();
 		$options = [ 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout ];
-		$req = MediaWikiServices::getInstance()->getHttpRequestFactory()->create( $host, $options );
+		$req = MediaWikiServices::getInstance()->getHttpRequestFactory()->create( $this->host, $options );
 		$status = $req->execute();
 		if ( $status->isGood() ) {
 			$res = $req->getContent();
 			return true;
 		} else {
 			if ( $status->hasMessage( 'http-timed-out' ) ) {
-				$error = $this->getError( 'math_timeout', $this->getModeStr(), $host );
+				$error = $this->getError( 'math_timeout', $this->getModeStr(), $this->host );
 				$res = false;
 				$this->logger->warning( 'Timeout:' . var_export( [
 						'post' => $post,
-						'host' => $host,
+						'host' => $this->host,
 						'timeout' => $wgMathLaTeXMLTimeout
 					], true ) );
 			} else {
 				// for any other unkonwn http error
 				$errormsg = $req->getContent();
 				$error =
-					$this->getError( 'math_invalidresponse', $this->getModeStr(), $host, $errormsg,
+					$this->getError( 'math_invalidresponse', $this->getModeStr(), $this->host, $errormsg,
 						$this->getModeStr() );
 				$this->logger->warning( 'NoResponse:' . var_export( [
 						'post' => $post,
-						'host' => $host,
+						'host' => $this->host,
 						'errormsg' => $errormsg
 					], true ) );
 			}
@@ -299,9 +296,8 @@ class MathMathML extends MathRenderer {
 			return false;
 		}
 		$res = '';
-		$post = $this->getPostData();
 		$this->lastError = '';
-		$requestResult = $this->makeRequest( $this->host, $post, $res, $this->lastError );
+		$requestResult = $this->makeRequest( $res, $this->lastError );
 		if ( $requestResult ) {
 			// @phan-suppress-next-line PhanTypeMismatchArgumentInternal
 			$jsonResult = json_decode( $res );
@@ -316,21 +312,21 @@ class MathMathML extends MathRenderer {
 					}
 					$this->lastError = $this->getError( 'math_mathoid_error', $this->host, $log );
 					$this->logger->warning(
-						'Mathoid conversion error:' . var_export( [
-							'post' => $post,
+						'Mathoid conversion error', [
+							'post' => $this->getPostData(),
 							'host' => $this->host,
 							'result' => $res
-						], true ) );
+						] );
 					return false;
 				}
 			} else {
 				$this->lastError = $this->getError( 'math_invalidjson', $this->host );
 				$this->logger->error(
-					'MathML InvalidJSON:' . var_export( [
-						'post' => $post,
+					'MathML InvalidJSON', [
+						'post' => $this->getPostData(),
 						'host' => $this->host,
 						'res' => $res
-					], true ) );
+					] );
 				return false;
 			}
 		} else {
