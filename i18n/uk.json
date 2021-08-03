@@ -3,6 +3,7 @@
 		"authors": [
 			"Andriykopanytsia",
 			"Base",
+			"DDPAT",
 			"Macofe",
 			"Movses",
 			"Olion",
@@ -54,7 +55,7 @@
 	"math-visualeditor-symbol-group-math-modular": "Модульна арифметика",
 	"math-visualeditor-symbol-group-math-operators": "Оператори",
 	"math-visualeditor-symbol-group-math-parentheses": "Дужки",
-	"math-visualeditor-symbol-group-math-projections": "Проекції",
+	"math-visualeditor-symbol-group-math-projections": "Проєкції",
 	"math-visualeditor-symbol-group-math-relations": "Відношення",
 	"math-visualeditor-symbol-group-math-root": "Корені",
 	"math-visualeditor-symbol-group-math-sets": "Набори",
