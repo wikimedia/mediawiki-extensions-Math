@@ -95,13 +95,11 @@ class MathMathML extends MathRenderer {
 	}
 
 	/**
-	 * @param array[] $tags
+	 * @param MathRenderer[] $renderers
 	 */
-	public static function batchEvaluate( array $tags ) {
+	public static function batchEvaluate( array $renderers ) {
 		$rbis = [];
-		foreach ( $tags as $key => $tag ) {
-			/** @var MathRenderer $renderer */
-			$renderer = $tag[0];
+		foreach ( $renderers as $key => $renderer ) {
 			$rbi = new MathRestbaseInterface( $renderer->getTex(), $renderer->getInputType() );
 			$renderer->setRestbaseInterface( $rbi );
 			$rbis[] = $rbi;
