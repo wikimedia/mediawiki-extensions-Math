@@ -154,6 +154,17 @@
 			"i18n/api"
 		]
 	},
+	"QUnitTestModule": {
+		"localBasePath": "modules/ve-math/tests",
+		"remoteExtPath": "Math/modules/tests",
+		"scripts": [
+			"ve.dm.Autocomplete.test.js"
+		],
+		"dependencies": [
+			"ext.math.visualEditor",
+			"test.VisualEditor"
+		]
+	},
 	"ResourceModules": {
 		"ext.math.styles": {
 			"styles": "ext.math.css",
