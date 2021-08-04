@@ -48,6 +48,7 @@
 		"ParserHooksHandler": {
 			"class": "MediaWiki\\Extension\\Math\\HookHandlers\\ParserHooksHandler",
 			"services": [
+				"Math.RendererFactory",
 				"UserOptionsLookup"
 			]
 		}
@@ -293,8 +294,18 @@
 		"remoteExtPath": "Math/modules"
 	},
 	"SpecialPages": {
-		"MathShowImage": "MediaWiki\\Extension\\Math\\SpecialMathShowImage",
-		"MathStatus": "MediaWiki\\Extension\\Math\\SpecialMathStatus",
+		"MathShowImage": {
+			"class": "MediaWiki\\Extension\\Math\\SpecialMathShowImage",
+			"services": [
+				"Math.RendererFactory"
+			]
+		},
+		"MathStatus": {
+			"class": "MediaWiki\\Extension\\Math\\SpecialMathStatus",
+			"services": [
+				"Math.RendererFactory"
+			]
+		},
 		"MathWikibase": "MediaWiki\\Extension\\Math\\SpecialMathWikibase"
 	},
 	"TrackingCategories": [

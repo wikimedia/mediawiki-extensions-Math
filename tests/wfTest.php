@@ -62,9 +62,10 @@ class WfTest extends Maintenance {
 		}
 		$i = 0;
 		$rend = [];
+		$rendererFactory = MediaWikiServices::getInstance()->get( 'Math.RendererFactory' );
 		foreach ( array_slice( $allEquations, $offset, $length, true ) as $input ) {
 			$output = MathRenderer::renderMath( $input[1], $input[2], 'mathml' );
-			$rend[] = [ MathRenderer::getRenderer( $input[1], $input[2], 'mathml' ), $input ];
+			$rend[] = [ $rendererFactory->getRenderer( $input[1], $input[2], 'mathml' ), $input ];
 			$output = preg_replace( '#src="(.*?)/(([a-f]|\d)*).png"#', 'src="\2.png"', $output );
 			$parserTests[] = [ (string)$input[1], $output ];
 			$i++;

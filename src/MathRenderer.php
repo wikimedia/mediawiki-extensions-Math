@@ -14,6 +14,7 @@ namespace MediaWiki\Extension\Math;
 use DeferredUpdates;
 use MediaWiki\Extension\Math\InputCheck\RestbaseChecker;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 use MWException;
 use Parser;
 use Psr\Log\LoggerInterface;
@@ -129,7 +130,9 @@ abstract class MathRenderer {
 	 * @return string HTML for math tag
 	 */
 	public static function renderMath( $tex, $params = [], $mode = 'png' ) {
-		$renderer = self::getRenderer( $tex, $params, $mode );
+		$renderer = MediaWikiServices::getInstance()
+			->get( 'Math.RendererFactory' )
+			->getRenderer( $tex, $params, $mode );
 		if ( $renderer->render() ) {
 			return $renderer->getHtmlOutput();
 		} else {
@@ -152,58 +155,16 @@ abstract class MathRenderer {
 	/**
 	 * Static factory method for getting a renderer based on mode
 	 *
+	 * @deprecated since 3.0.0. Use Math.RendererFactory service instead.
 	 * @param string $tex LaTeX markup
 	 * @param array $params HTML attributes
 	 * @param string $mode indicating rendering mode
 	 * @return self appropriate renderer for mode
 	 */
 	public static function getRenderer( $tex, $params = [], $mode = 'png' ) {
-		global $wgDefaultUserOptions, $wgMathEnableExperimentalInputFormats, $wgMathoidCli;
-
-		if ( isset( $params['forcemathmode'] ) ) {
-			$mode = $params['forcemathmode'];
-		}
-		if ( !in_array( $mode, self::getValidModes() ) ) {
-			$mode = $wgDefaultUserOptions['math'];
-		}
-		if ( $wgMathEnableExperimentalInputFormats === true && $mode == 'mathml' &&
-			 isset( $params['type'] ) ) {
-			// Support of MathML input (experimental)
-			// Currently support for mode 'mathml' only
-			if ( !in_array( $params['type'], [ 'pmml', 'ascii' ] ) ) {
-				unset( $params['type'] );
-			}
-		}
-		if ( isset( $params['chem'] ) ) {
-			$mode = 'mathml';
-			$params['type'] = 'chem';
-		}
-		switch ( $mode ) {
-			case 'source':
-				$renderer = new MathSource( $tex, $params );
-				break;
-			case 'png':
-				$renderer = new MathPng( $tex, $params );
-				break;
-			case 'latexml':
-				$renderer = new MathLaTeXML( $tex, $params );
-				break;
-			case 'mathml':
-			default:
-				if ( $wgMathoidCli ) {
-					$renderer = new MathMathMLCli( $tex, $params );
-				} else {
-					$renderer = new MathMathML( $tex, $params );
-				}
-		}
-		LoggerFactory::getInstance( 'Math' )->debug(
-			'Start rendering "{tex}" in mode {mode}',
-			[
-				'tex' => $tex,
-				'mode' => $mode
-			]
-		);
-		return $renderer;
+		return MediaWikiServices::getInstance()
+			->get( 'Math.RendererFactory' )
+			->getRenderer( $tex, $params, $mode );
 	}
 
 	/**
@@ -717,6 +678,11 @@ abstract class MathRenderer {
 		return $names[ $this->getMode() ];
 	}
 
+	/**
+	 * @deprecated since 3.0.0. Use 'Math.RendererFactory' service instead.
+	 *
+	 * @return array
+	 */
 	public static function getValidModes() {
 		global $wgMathValidModes;
 		return array_map( "MediaWiki\\Extension\\Math\\Hooks::mathModeToString", $wgMathValidModes );
