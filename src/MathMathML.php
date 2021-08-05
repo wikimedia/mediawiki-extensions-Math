@@ -33,8 +33,8 @@ class MathMathML extends MathRenderer {
 	protected $restbaseRenderingModes = [ 'mathml', 'png' ];
 	/** @var string[] */
 	protected $allowedRootElements = [];
-	/** @var string|string[] */
-	protected $hosts;
+	/** @var string */
+	protected $host;
 
 	/** @var LoggerInterface */
 	private $logger;
@@ -57,7 +57,7 @@ class MathMathML extends MathRenderer {
 		global $wgMathMathMLUrl;
 		parent::__construct( $tex, $params );
 		$this->setMode( 'mathml' );
-		$this->hosts = $wgMathMathMLUrl;
+		$this->host = $wgMathMathMLUrl;
 		if ( isset( $params['type'] ) ) {
 			$allowedTypes = [ 'pmml', 'ascii', 'chem' ];
 			if ( in_array( $params['type'], $allowedTypes ) ) {
@@ -233,12 +233,8 @@ class MathMathML extends MathRenderer {
 
 		$error = '';
 		$res = null;
-		if ( !$host ) {
-			$host = $this->pickHost();
-		}
-		if ( !$post ) {
-			$this->getPostData();
-		}
+		$host = $host ?: $this->host;
+		$post = $post ?: $this->getPostData();
 		$options = [ 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout ];
 		$req = MediaWikiServices::getInstance()->getHttpRequestFactory()->create( $host, $options );
 		$status = $req->execute();
@@ -268,25 +264,6 @@ class MathMathML extends MathRenderer {
 			}
 			return false;
 		}
-	}
-
-	/**
-	 * Return a MathML daemon host.
-	 *
-	 * If more than one demon is available, one is chosen at random.
-	 *
-	 * @return string
-	 * @deprecated
-	 */
-	protected function pickHost() {
-		if ( is_array( $this->hosts ) ) {
-			$host = $this->hosts[array_rand( $this->hosts )];
-			$this->hosts = $host; // Use the same host for this class instance
-		} else {
-			$host = $this->hosts;
-		}
-		$this->logger->debug( 'Picking host ' . $host );
-		return $host;
 	}
 
 	/**
@@ -324,37 +301,36 @@ class MathMathML extends MathRenderer {
 			return false;
 		}
 		$res = '';
-		$host = $this->pickHost();
 		$post = $this->getPostData();
 		$this->lastError = '';
-		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
+		$requestResult = $this->makeRequest( $this->host, $post, $res, $this->lastError );
 		if ( $requestResult ) {
 			// @phan-suppress-next-line PhanTypeMismatchArgumentInternal
 			$jsonResult = json_decode( $res );
 			if ( $jsonResult && json_last_error() === JSON_ERROR_NONE ) {
 				if ( $jsonResult->success ) {
-					return $this->processJsonResult( $jsonResult, $host );
+					return $this->processJsonResult( $jsonResult, $this->host );
 				} else {
 					if ( property_exists( $jsonResult, 'log' ) ) {
 						$log = $jsonResult->log;
 					} else {
 						$log = wfMessage( 'math_unknown_error' )->inContentLanguage()->escaped();
 					}
-					$this->lastError = $this->getError( 'math_mathoid_error', $host, $log );
+					$this->lastError = $this->getError( 'math_mathoid_error', $this->host, $log );
 					$this->logger->warning(
 						'Mathoid conversion error:' . var_export( [
 							'post' => $post,
-							'host' => $host,
+							'host' => $this->host,
 							'result' => $res
 						], true ) );
 					return false;
 				}
 			} else {
-				$this->lastError = $this->getError( 'math_invalidjson', $host );
+				$this->lastError = $this->getError( 'math_invalidjson', $this->host );
 				$this->logger->error(
 					'MathML InvalidJSON:' . var_export( [
 						'post' => $post,
-						'host' => $host,
+						'host' => $this->host,
 						'res' => $res
 					], true ) );
 				return false;

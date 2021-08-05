@@ -2,7 +2,6 @@
 
 use MediaWiki\Extension\Math\MathMathML;
 use MediaWiki\MediaWikiServices;
-use Wikimedia\TestingAccessWrapper;
 
 /**
  * Test the MathML output format.
@@ -129,22 +128,6 @@ class MathMathMLTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Tests behavior of makeRequest() that communicates with the host.
-	 * Test case: Get host.
-	 * @covers \MediaWiki\Extension\Math\MathMathML::pickHost
-	 */
-	public function testMakeRequestGetHost() {
-		$this->installMockHttp( $this->makeFakeHttpRequest() );
-		$renderer = $this->getMockBuilder( MathMathML::class )
-			->onlyMethods( [ 'getPostData', 'pickHost' ] )
-			->getMock();
-		$renderer->expects( $this->once() )->method( 'pickHost' );
-
-		/** @var MathMathML $renderer */
-		$renderer->makeRequest( false, false, $res, $error );
-	}
-
-	/**
 	 * Checks if a String is a valid MathML element
 	 * @covers \MediaWiki\Extension\Math\MathMathML::isValidMathML
 	 */
@@ -171,7 +154,7 @@ class MathMathMLTest extends MediaWikiTestCase {
 			'test if math expression is invalid mathml sample' );
 	}
 
-	public function testintegrationTestWithLinks() {
+	public function testIntegrationTestWithLinks() {
 		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
 		$p = MediaWikiServices::getInstance()->getParserFactory()->create();
 		$po = ParserOptions::newFromAnon();
@@ -193,25 +176,6 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$this->assertSame( 'vertical-align:-.505ex; height: 2.843ex; width: 28.527ex;', $style );
 		$m->setSvg( 'style=" vertical-align:-.505ex; \n" height="2.843ex" width="28.527ex"' );
 		$this->assertSame( 'vertical-align:-.505ex; height: 2.843ex; width: 28.527ex;', $style );
-	}
-
-	public function testPickHost() {
-		$hosts = [ 'a', 'b', 'c' ];
-		$this->setMwGlobals( 'wgMathMathMLUrl', $hosts );
-		srand( 0 ); // Make array_rand always return the same elements
-		$h1 = $hosts[array_rand( $hosts )];
-		$h2 = $hosts[array_rand( $hosts )];
-		srand( 0 );
-		/** @var MathMathML $m */
-		$m = TestingAccessWrapper::newFromObject( new MathMathML() );
-		$host1 = $m->pickHost();
-		$this->assertSame( $h1, $host1, 'first call' );
-		$host2 = $m->pickHost();
-		$this->assertSame( $host1, $host2, 'second call' );
-		/** @var MathMathML $m2 */
-		$m2 = TestingAccessWrapper::newFromObject( new MathMathML() );
-		$host3 = $m2->pickHost();
-		$this->assertSame( $h2, $host3, 'third call' );
 	}
 
 	public function testWarning() {

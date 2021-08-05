@@ -24,7 +24,7 @@ class MathLaTeXML extends MathMathML {
 	public function __construct( $tex = '', $params = [] ) {
 		global $wgMathLaTeXMLUrl;
 		parent::__construct( $tex, $params );
-		$this->hosts = $wgMathLaTeXMLUrl;
+		$this->host = $wgMathLaTeXMLUrl;
 		$this->setMode( 'latexml' );
 	}
 
@@ -109,15 +109,14 @@ class MathLaTeXML extends MathMathML {
 			return false;
 		}
 		$res = '';
-		$host = $this->pickHost();
 		$post = $this->getLaTeXMLPostData();
 		// There is an API-inconsistency between different versions of the LaTeXML daemon
 		// some versions require the literal prefix other don't allow it.
-		if ( !strpos( $host, '/convert' ) ) {
+		if ( !strpos( $this->host, '/convert' ) ) {
 			$post = preg_replace( '/&tex=/', '&tex=literal:', $post, 1 );
 		}
 		$this->lastError = '';
-		$requestResult = $this->makeRequest( $host, $post, $res, $this->lastError );
+		$requestResult = $this->makeRequest( $this->host, $post, $res, $this->lastError );
 		if ( $requestResult ) {
 			// @phan-suppress-next-line PhanTypeMismatchArgumentInternal
 			$jsonResult = json_decode( $res );
@@ -134,22 +133,22 @@ class MathLaTeXML extends MathMathML {
 
 				// Do not print bad mathml. It's probably too verbose and might
 				// mess up the browser output.
-				$this->lastError = $this->getError( 'math_invalidxml', $this->getModeStr(), $host );
+				$this->lastError = $this->getError( 'math_invalidxml', $this->getModeStr(), $this->host );
 				LoggerFactory::getInstance( 'Math' )->warning(
 					'LaTeXML InvalidMathML: ' . var_export( [
 						'post' => $post,
-						'host' => $host,
+						'host' => $this->host,
 						'result' => $res
 					], true ) );
 
 				return false;
 			}
 
-			$this->lastError = $this->getError( 'math_invalidjson', $this->getModeStr(), $host );
+			$this->lastError = $this->getError( 'math_invalidjson', $this->getModeStr(), $this->host );
 			LoggerFactory::getInstance( 'Math' )->warning(
 				'LaTeXML InvalidJSON:' . var_export( [
 					'post' => $post,
-					'host' => $host,
+					'host' => $this->host,
 					'res' => $res
 				], true ) );
 
