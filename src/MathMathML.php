@@ -8,13 +8,11 @@
 
 namespace MediaWiki\Extension\Math;
 
-use CurlHttpRequest;
 use Exception;
 use Hooks;
 use Html;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
-use PhpHttpRequest;
 use Psr\Log\LoggerInterface;
 use SpecialPage;
 use stdClass;
@@ -227,12 +225,9 @@ class MathMathML extends MathRenderer {
 	 * @param string $post the encoded post request
 	 * @param mixed &$res the result
 	 * @param mixed &$error the formatted error message or null
-	 * @param string $httpRequestClass class name of MWHttpRequest (needed for testing only)
 	 * @return bool success
 	 */
-	public function makeRequest(
-			$host, $post, &$res, &$error = '', $httpRequestClass = 'MWHttpRequest'
-		) {
+	public function makeRequest( $host, $post, &$res, &$error = '' ) {
 		// TODO: Change the timeout mechanism.
 		global $wgMathLaTeXMLTimeout;
 
@@ -245,8 +240,7 @@ class MathMathML extends MathRenderer {
 			$this->getPostData();
 		}
 		$options = [ 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout ];
-		/** @var CurlHttpRequest|PhpHttpRequest $req the request object */
-		$req = $httpRequestClass::factory( $host, $options );
+		$req = MediaWikiServices::getInstance()->getHttpRequestFactory()->create( $host, $options );
 		$status = $req->execute();
 		if ( $status->isGood() ) {
 			$res = $req->getContent();
@@ -262,7 +256,7 @@ class MathMathML extends MathRenderer {
 					], true ) );
 			} else {
 				// for any other unkonwn http error
-				$errormsg = $status->getHtml();
+				$errormsg = $req->getContent();
 				$error =
 					$this->getError( 'math_invalidresponse', $this->getModeStr(), $host, $errormsg,
 						$this->getModeStr() );
