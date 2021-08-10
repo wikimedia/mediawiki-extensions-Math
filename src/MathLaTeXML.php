@@ -80,7 +80,7 @@ class MathLaTeXML extends MathMathML {
 	 * and the input string only.
 	 * @return string HTTP POST data
 	 */
-	public function getLaTeXMLPostData() {
+	public function getPostData() {
 		$tex = $this->getTex();
 		if ( $this->getMathStyle() == 'inlineDisplaystyle' ) {
 			// In 'inlineDisplaystyle' the old
@@ -93,6 +93,13 @@ class MathLaTeXML extends MathMathML {
 		$texcmd = rawurlencode( $tex );
 		$settings = $this->serializeSettings( $this->getLaTeXMLSettings() );
 		$postData = $settings . '&tex=' . $texcmd;
+
+		// There is an API-inconsistency between different versions of the LaTeXML daemon
+		// some versions require the literal prefix other don't allow it.
+		if ( !strpos( $this->host, '/convert' ) ) {
+			$postData = preg_replace( '/&tex=/', '&tex=literal:', $postData, 1 );
+		}
+
 		LoggerFactory::getInstance( 'Math' )->debug( 'Get post data: ' . $postData );
 		return $postData;
 	}
@@ -109,14 +116,8 @@ class MathLaTeXML extends MathMathML {
 			return false;
 		}
 		$res = '';
-		$post = $this->getLaTeXMLPostData();
-		// There is an API-inconsistency between different versions of the LaTeXML daemon
-		// some versions require the literal prefix other don't allow it.
-		if ( !strpos( $this->host, '/convert' ) ) {
-			$post = preg_replace( '/&tex=/', '&tex=literal:', $post, 1 );
-		}
 		$this->lastError = '';
-		$requestResult = $this->makeRequest( $this->host, $post, $res, $this->lastError );
+		$requestResult = $this->makeRequest( $res, $this->lastError );
 		if ( $requestResult ) {
 			// @phan-suppress-next-line PhanTypeMismatchArgumentInternal
 			$jsonResult = json_decode( $res );
@@ -135,22 +136,22 @@ class MathLaTeXML extends MathMathML {
 				// mess up the browser output.
 				$this->lastError = $this->getError( 'math_invalidxml', $this->getModeStr(), $this->host );
 				LoggerFactory::getInstance( 'Math' )->warning(
-					'LaTeXML InvalidMathML: ' . var_export( [
-						'post' => $post,
+					'LaTeXML InvalidMathML', [
+						'post' => $this->getPostData(),
 						'host' => $this->host,
-						'result' => $res
-					], true ) );
+						'result' => $res,
+					] );
 
 				return false;
 			}
 
 			$this->lastError = $this->getError( 'math_invalidjson', $this->getModeStr(), $this->host );
 			LoggerFactory::getInstance( 'Math' )->warning(
-				'LaTeXML InvalidJSON:' . var_export( [
-					'post' => $post,
+				'LaTeXML InvalidJSON', [
+					'post' => $this->getPostData(),
 					'host' => $this->host,
-					'res' => $res
-				], true ) );
+					'res' => $res,
+				] );
 
 			return false;
 		}
