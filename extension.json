@@ -61,10 +61,10 @@
 	"Hooks": {
 		"ParserFirstCallInit": "ParserHooksHandler",
 		"ParserAfterTidy": "ParserHooksHandler",
+		"ParserOptionsRegister": "ParserHooksHandler",
 		"GetPreferences": "PreferencesHooksHandler",
 		"UserGetDefaultOptions": "PreferencesHooksHandler",
 		"LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\Math\\Hooks::onLoadExtensionSchemaUpdates",
-		"PageRenderingHash": "MediaWiki\\Extension\\Math\\Hooks::onPageRenderingHash",
 		"WikibaseClientDataTypes": "MediaWiki\\Extension\\Math\\WikibaseHook::onWikibaseClientDataTypes",
 		"WikibaseRepoDataTypes": "MediaWiki\\Extension\\Math\\WikibaseHook::onWikibaseRepoDataTypes",
 		"SpecialPage_initList": "MediaWiki\\Extension\\Math\\Hooks::onSpecialPageInitList",

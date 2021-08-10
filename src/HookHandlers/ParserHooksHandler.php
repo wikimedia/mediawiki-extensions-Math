@@ -11,17 +11,20 @@ use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\Hook\ParserAfterTidyHook;
 use MediaWiki\Hook\ParserFirstCallInitHook;
+use MediaWiki\Hook\ParserOptionsRegisterHook;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\User\UserOptionsLookup;
 use MWException;
 use Parser;
+use ParserOptions;
 
 /**
  * Hook handler for Parser hooks
  */
 class ParserHooksHandler implements
 	ParserFirstCallInitHook,
-	ParserAfterTidyHook
+	ParserAfterTidyHook,
+	ParserOptionsRegisterHook
 {
 
 	/** @var int */
@@ -72,12 +75,8 @@ class ParserHooksHandler implements
 		if ( trim( $content ?? '' ) === '' ) { // bug 8372 https://phabricator.wikimedia.org/rSVN18870
 			return '';
 		}
-		$mode = MathConfig::normalizeRenderingMode(
-			$this->userOptionsLookup->getOption( $parser->getUserIdentity(), 'math' )
-		);
-		// Indicate that this page uses math.
-		// This affects the page caching behavior.
-		$parser->getOptions()->optionUsed( 'math' );
+
+		$mode = $parser->getOptions()->getOption( 'math' );
 		$renderer = $this->rendererFactory->getRenderer( $content ?? '', $attributes, $mode );
 
 		$parser->getOutput()->addModuleStyles( [ 'ext.math.styles' ] );
@@ -178,5 +177,15 @@ class ParserHooksHandler implements
 				unset( $this->mathLazyRenderBatch[ $key ] );
 			}
 		}
+	}
+
+	public function onParserOptionsRegister( &$defaults, &$inCacheKey, &$lazyLoad ) {
+		$defaults['math'] = $this->userOptionsLookup->getDefaultOption( 'math' );
+		$inCacheKey['math'] = true;
+		$lazyLoad['math'] = function ( ParserOptions $options ) {
+			return MathConfig::normalizeRenderingMode(
+				$this->userOptionsLookup->getOption( $options->getUserIdentity(), 'math' )
+			);
+		};
 	}
 }

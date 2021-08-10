@@ -12,72 +12,10 @@ use DatabaseUpdater;
 use Exception;
 use ExtensionRegistry;
 use Maintenance;
-use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use RequestContext;
-use User;
 
 class Hooks {
-
-	private const MATHCACHEKEY = 'math=';
-
-	public static function mathModeToHashKey( $mode, $default = 0 ) {
-		$defs = [
-			'png'    => 0,
-			'source' => 3,
-			'mathml' => 5,
-			'latexml' => 7 ];
-
-		if ( array_key_exists( $mode, $defs ) ) {
-			return $defs[$mode];
-		} else {
-			return $default;
-		}
-	}
-
-	/**
-	 * Generate a user dependent hash cache key.
-	 * The hash key depends on the rendering mode.
-	 * @param string &$confstr The to-be-hashed key string that is being constructed
-	 * @param User $user reference to the current user
-	 * @param array &$forOptions userOptions used on that page
-	 * @return true
-	 */
-	public static function onPageRenderingHash( &$confstr, $user, &$forOptions = [] ) {
-		// To be independent of the MediaWiki core version,
-		// we check if the core caching logic for math is still available.
-		// TODO this check shouldn't be needed anymore, since none of the versions of MediaWiki
-		// core that this extension supports have the method.
-		if ( !is_callable( 'ParserOptions::getMath' ) && in_array( 'math', $forOptions ) ) {
-			$mathString = MathConfig::normalizeRenderingMode( $user->getOption( 'math' ) );
-			$mathOption = self::mathModeToHashKey( $mathString, 0 );
-			// Check if the key already contains the math option part
-			if (
-				!preg_match(
-					'/(^|!)' . self::MATHCACHEKEY . $mathOption . '(!|$)/',
-					$confstr
-				)
-			) {
-				// The math part of cache key starts with "math="
-				// followed by a star or a number for the math mode
-				if ( preg_match( '/(^|!)' . self::MATHCACHEKEY . '[*\d]m?(!|$)/', $confstr ) ) {
-					$confstr = preg_replace(
-						'/(^|!)' . self::MATHCACHEKEY . '[*\d]m?(!|$)/',
-						'\1' . self::MATHCACHEKEY . $mathOption . '\2',
-						$confstr
-					);
-				} else {
-					$confstr .= '!' . self::MATHCACHEKEY . $mathOption;
-				}
-
-				LoggerFactory::getInstance( 'Math' )->debug( "New cache key: $confstr" );
-			} else {
-				LoggerFactory::getInstance( 'Math' )->debug( "Cache key found: $confstr" );
-			}
-		}
-
-		return true;
-	}
 
 	/**
 	 * MaintenanceRefreshLinksInit handler; optimize settings for refreshLinks batch job.
