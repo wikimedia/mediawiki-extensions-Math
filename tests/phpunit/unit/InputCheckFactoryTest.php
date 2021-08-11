@@ -2,41 +2,18 @@
 
 use MediaWiki\Extension\Math\InputCheck\InputCheckFactory;
 use MediaWiki\Extension\Math\InputCheck\MathoidChecker;
+use MediaWiki\Tests\Unit\MockServiceDependenciesTrait;
 
 /**
+ * @method InputCheckFactory newServiceInstance( string $serviceClass, array $parameterOverrides )
  * @covers \MediaWiki\Extension\Math\InputCheck\InputCheckFactory
  */
 class InputCheckFactoryTest extends MediaWikiUnitTestCase {
-	use FactoryArgTestTrait;
+	use MockServiceDependenciesTrait;
 
-	protected static function getFactoryClass() {
-		return InputCheckFactory::class;
-	}
-
-	protected static function getInstanceClass() {
-		return MathoidChecker::class;
-	}
-
-	protected static function getExtraClassArgCount() {
-		return 2;
-	}
-
-	/**
-	 * This is required since the FactoryArgTestTrait uses the full classname.
-	 * Testing without overwriting this function would result in
-	 *
-	 * ReflectionException: Method MediaWiki\Extension\Math\InputCheck\InputCheckFactory::
-	 * newMediaWiki\Extension\Math\InputCheck\MathoidChecker() does not exist
-	 *
-	 * see T253613
-	 * @return string
-	 */
-	protected function getFactoryMethodName() {
-		return 'new' . ( new \ReflectionClass( MathoidChecker::class ) )->getShortName();
-	}
-
-	protected function setUp(): void {
-		parent::setUp();
-		$this->markTestSkipped( 'FactoryArgTestTrait can not yet handle the parameter numbers.' );
+	public function testNewMathoidChecker() {
+		$checker = $this->newServiceInstance( InputCheckFactory::class, [] )
+			->newMathoidChecker( 'FORMULA', 'TYPE' );
+		$this->assertInstanceOf( MathoidChecker::class, $checker );
 	}
 }

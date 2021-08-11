@@ -250,31 +250,6 @@ class MathRestbaseInterface {
 	}
 
 	/**
-	 * @param bool|false $skipConfigCheck
-	 * @return bool
-	 */
-	public function checkBackend( $skipConfigCheck = false ) {
-		try {
-			$request = [
-				'method' => 'GET',
-				'url'    => $this->getUrl( '?spec' )
-			];
-		} catch ( Exception $e ) {
-			return false;
-		}
-		$serviceClient = $this->getServiceClient();
-		$response = $serviceClient->run( $request );
-		if ( $response['code'] === 200 ) {
-			return $skipConfigCheck || $this->checkConfig();
-		}
-		$this->log()->error( "Restbase backend is not correctly set up.", [
-			'request'  => $request,
-			'response' => $response
-		] );
-		return false;
-	}
-
-	/**
 	 * Generates a unique TeX string, renders it and gets it via a public URL.
 	 * The method fails, if the public URL does not point to the same server, who did render
 	 * the unique TeX input in the first place.

@@ -31,7 +31,7 @@ class MathValidatorTest extends MediaWikiTestCase {
 
 	public function testValidInput() {
 		$this->installMockHttp( $this->makeFakeHttpRequest( file_get_contents( __DIR__ .
-			'/InputCheck/data/sinx.json' ) ) );
+			'/InputCheck/data/mathoid/sinx.json' ) ) );
 		$validator = new MathValidator();
 		$result = $validator->validate( new StringValue( self::VADLID_TEX ) );
 		$this->assertInstanceOf( \ValueValidators\Result::class, $result );
@@ -40,7 +40,7 @@ class MathValidatorTest extends MediaWikiTestCase {
 
 	public function testInvalidInput() {
 		$this->installMockHttp( $this->makeFakeHttpRequest( file_get_contents( __DIR__ .
-			'/InputCheck/data/invalidF.json' ), 400 ) );
+			'/InputCheck/data/mathoid/invalidF.json' ), 400 ) );
 		$validator = new MathValidator();
 		$result = $validator->validate( new StringValue( self::INVADLID_TEX ) );
 		$this->assertInstanceOf( \ValueValidators\Result::class, $result );

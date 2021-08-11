@@ -2,7 +2,7 @@
 
 use DataValues\StringValue;
 use MediaWiki\Extension\Math\MathMLRdfBuilder;
-use MediaWiki\Extension\Math\MathRestbaseInterface;
+use MediaWiki\Extension\Math\Tests\MathMockHttpTrait;
 use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\DataModel\Snak\PropertyValueSnak;
 use Wikimedia\Purtle\NTriplesRdfWriter;
@@ -15,26 +15,10 @@ use Wikimedia\Purtle\NTriplesRdfWriter;
  * @author Moritz Schubotz (physikerwelt)
  */
 class MathMLRdfBuilderTest extends MediaWikiTestCase {
+	use MathMockHttpTrait;
+
 	private const ACME_PREFIX_URL = 'http://acme/';
 	private const ACME_REF = 'testing';
-	protected static $hasRestbase;
-
-	public static function setUpBeforeClass(): void {
-		$rbi = new MathRestbaseInterface();
-		self::$hasRestbase = $rbi->checkBackend( true );
-	}
-
-	/**
-	 * Sets up the fixture, for example, opens a network connection.
-	 * This method is called before a test is executed.
-	 */
-	protected function setUp(): void {
-		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
-		parent::setUp();
-		if ( !self::$hasRestbase ) {
-			$this->markTestSkipped( "Can not connect to Restbase Math interface." );
-		}
-	}
 
 	/**
 	 * @param string $test
@@ -56,22 +40,26 @@ class MathMLRdfBuilderTest extends MediaWikiTestCase {
 	}
 
 	public function testValidInput() {
-		$triples = $this->makeCase( 'a^2' );
+		$this->setupGoodMathRestBaseMockHttp();
+
+		$triples = $this->makeCase( '\sin x^2' );
 		$this->assertStringContainsString(
 			self::ACME_PREFIX_URL . self::ACME_REF . '> "<math',
 			$triples
 		);
-		$this->assertStringContainsString( '<mi>a</mi>\n', $triples );
+		$this->assertStringContainsString( '<mi>sin</mi>\n', $triples );
 		$this->assertStringContainsString( '<mn>2</mn>\n', $triples );
-		$this->assertStringContainsString( 'a^{2}', $triples );
+		$this->assertStringContainsString( 'x^{2}', $triples );
 		$this->assertStringContainsString( '^^<http://www.w3.org/1998/Math/MathML> .', $triples );
 	}
 
 	public function testInvalidInput() {
-		$triples = $this->makeCase( '\notExists' );
+		$this->setupBadMathRestBaseMockHttp();
+
+		$triples = $this->makeCase( '\sin\newcommand' );
 		$this->assertStringContainsString( '<math', $triples );
 		$this->assertStringContainsString( 'unknown function', $triples );
-		$this->assertStringContainsString( 'notExists', $triples );
+		$this->assertStringContainsString( 'newcommand', $triples );
 		$this->assertStringContainsString( '^^<http://www.w3.org/1998/Math/MathML> .', $triples );
 	}
 }

@@ -1,7 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Math\MathMathML;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Extension\Math\Tests\MathMockHttpTrait;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -14,7 +14,7 @@ use Wikimedia\TestingAccessWrapper;
  * @license GPL-2.0-or-later
  */
 class MathMathMLTest extends MediaWikiTestCase {
-	use MockHttpTrait;
+	use MathMockHttpTrait;
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -159,16 +159,6 @@ class MathMathMLTest extends MediaWikiTestCase {
 			'test if math expression is invalid mathml sample' );
 	}
 
-	public function testIntegrationTestWithLinks() {
-		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
-		$p = MediaWikiServices::getInstance()->getParserFactory()->create();
-		$po = ParserOptions::newFromAnon();
-		$t = Title::newFromText( __METHOD__ );
-		$res = $p->parse( '[[test|<math forcemathmode="png">a+b</math>]]', $t, $po )->getText();
-		$this->assertStringContainsString( '</a>', $res );
-		$this->assertStringContainsString( 'png', $res );
-	}
-
 	/**
 	 * @covers \MediaWiki\Extension\Math\MathMathML::correctSvgStyle
 	 * @see https://phabricator.wikimedia.org/T132563
@@ -184,12 +174,13 @@ class MathMathMLTest extends MediaWikiTestCase {
 	}
 
 	public function testWarning() {
-		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
+		$this->setupGoodMathRestBaseMockHttp();
 		$this->setMwGlobals( "wgMathDisableTexFilter", 'always' );
+
 		$renderer = new MathMathML();
 		$rbi = $this->getMockBuilder( MathRestbaseInterface::class )
 			->onlyMethods( [ 'getWarnings', 'getSuccess' ] )
-			->setConstructorArgs( [ 'a+b' ] )
+			->setConstructorArgs( [ '\sin x' ] )
 			->getMock();
 		$rbi->method( 'getWarnings' )->willReturn( [ (object)[ 'type' => 'mhchem-deprecation' ] ] );
 		$rbi->method( 'getSuccess' )->willReturn( true );

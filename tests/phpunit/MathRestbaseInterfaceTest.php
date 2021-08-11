@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Math\MathRestbaseInterface;
+use MediaWiki\Extension\Math\Tests\MathMockHttpTrait;
 
 /**
  * Test the interface to access Restbase paths
@@ -14,44 +15,23 @@ use MediaWiki\Extension\Math\MathRestbaseInterface;
  * @license GPL-2.0-or-later
  */
 class MathRestbaseInterfaceTest extends MediaWikiTestCase {
-	protected static $hasRestbase;
-
-	public static function setUpBeforeClass(): void {
-		$rbi = new MathRestbaseInterface();
-		self::$hasRestbase = $rbi->checkBackend( true );
-	}
-
-	/**
-	 * Sets up the fixture, for example, opens a network connection.
-	 * This method is called before a test is executed.
-	 */
-	protected function setUp(): void {
-		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
-		parent::setUp();
-		if ( !self::$hasRestbase ) {
-			$this->markTestSkipped( "Can not connect to Restbase Math interface." );
-		}
-	}
-
-	public function testConfig() {
-		$rbi = new MathRestbaseInterface();
-		$this->assertTrue( $rbi->checkBackend() );
-	}
+	use MathMockHttpTrait;
 
 	public function testSuccess() {
+		$this->setupGoodMathRestBaseMockHttp();
+
 		$input = '\\sin x^2';
 		$rbi = new MathRestbaseInterface( $input );
 		$this->assertTrue( $rbi->getSuccess(), "Assuming that $input is valid input." );
 		$this->assertEquals( '\\sin x^{2}', $rbi->getCheckedTex() );
 		$this->assertStringContainsString( '<mi>sin</mi>', $rbi->getMathML() );
-		$url = $rbi->getFullSvgUrl();
-		$req = MWHttpRequest::factory( $url );
-		$status = $req->execute();
-		$this->assertTrue( $status->isOK() );
-		$this->assertStringContainsString( '</svg>', $req->getContent() );
+		$this->assertStringContainsString( '/svg/RESOURCE_LOCATION', $rbi->getFullSvgUrl() );
+		$this->assertStringContainsString( '/png/RESOURCE_LOCATION', $rbi->getFullPngUrl() );
 	}
 
 	public function testFail() {
+		$this->setupBadMathRestBaseMockHttp();
+
 		$input = '\\sin\\newcommand';
 		$rbi = new MathRestbaseInterface( $input );
 		$this->assertFalse( $rbi->getSuccess(), "Assuming that $input is invalid input." );
@@ -60,6 +40,8 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 	}
 
 	public function testChem() {
+		$this->setupGoodChemRestBaseMockHttp();
+
 		$input = '\ce{H2O}';
 		$rbi = new MathRestbaseInterface( $input, 'chem' );
 		$this->assertTrue( $rbi->checkTeX(), "Assuming that $input is valid input." );
@@ -70,7 +52,9 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 	}
 
 	public function testException() {
-		$input = '\\newcommand';
+		$this->setupBadMathRestBaseMockHttp();
+
+		$input = '\\sin\\newcommand';
 		$rbi = new MathRestbaseInterface( $input );
 		$this->expectException( MWException::class );
 		$this->expectExceptionMessage( 'TeX input is invalid.' );
@@ -78,7 +62,9 @@ class MathRestbaseInterfaceTest extends MediaWikiTestCase {
 	}
 
 	public function testExceptionSvg() {
-		$input = '\\newcommand';
+		$this->setupBadMathRestBaseMockHttp();
+
+		$input = '\\sin\\newcommand';
 		$rbi = new MathRestbaseInterface( $input );
 		$this->expectException( MWException::class );
 		$this->expectExceptionMessage( 'TeX input is invalid.' );

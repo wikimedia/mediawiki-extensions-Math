@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Math\MathRenderer;
+use MediaWiki\Extension\Math\Tests\MathMockHttpTrait;
 
 /**
  * Test the database access and core functionality of MathRenderer.
@@ -12,28 +13,11 @@ use MediaWiki\Extension\Math\MathRenderer;
  * @license GPL-2.0-or-later
  */
 class MathRendererTest extends MediaWikiTestCase {
+	use MathMockHttpTrait;
+
 	private const SOME_TEX = "a+b";
-	private const TEXVCCHECK_INPUT = '\forall \epsilon \exist \delta';
-	private const TEXVCCHECK_OUTPUT = '\forall \epsilon \exists \delta ';
-
-	protected static $hasRestbase;
-
-	public static function setUpBeforeClass(): void {
-		$rbi = new MathRestbaseInterface();
-		self::$hasRestbase = $rbi->checkBackend( true );
-	}
-
-	/**
-	 * Sets up the fixture, for example, opens a network connection.
-	 * This method is called before a test is executed.
-	 */
-	protected function setUp(): void {
-		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
-		parent::setUp();
-		if ( !self::$hasRestbase ) {
-			$this->markTestSkipped( "Can not connect to Restbase Math interface." );
-		}
-	}
+	private const TEXVCCHECK_INPUT = '\sin x^2';
+	private const TEXVCCHECK_OUTPUT = '\sin x^{2}';
 
 	/**
 	 * Checks the tex and hash functions
@@ -95,6 +79,8 @@ class MathRendererTest extends MediaWikiTestCase {
 	}
 
 	public function testDisableCheckingAlways() {
+		$this->setupGoodMathRestBaseMockHttp();
+
 		$this->setMwGlobals( "wgMathDisableTexFilter", 'never' );
 		$renderer =
 			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
@@ -109,7 +95,7 @@ class MathRendererTest extends MediaWikiTestCase {
 
 		/** @var MathRenderer $renderer */
 		$this->assertTrue( $renderer->checkTeX() );
-		// now setTex sould not be called again
+		// now setTex should not be called again
 		$this->assertTrue( $renderer->checkTeX() );
 	}
 
@@ -131,6 +117,8 @@ class MathRendererTest extends MediaWikiTestCase {
 	}
 
 	public function testCheckingNewUnknown() {
+		$this->setupGoodMathRestBaseMockHttp();
+
 		$this->setMwGlobals( "wgMathDisableTexFilter", 'new' );
 		$renderer =
 			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
@@ -146,11 +134,13 @@ class MathRendererTest extends MediaWikiTestCase {
 
 		/** @var MathRenderer $renderer */
 		$this->assertTrue( $renderer->checkTeX() );
-		// now setTex sould not be called again
+		// now setTex should not be called again
 		$this->assertTrue( $renderer->checkTeX() );
 	}
 
 	public function testCheckingNewKnown() {
+		$this->setupGoodMathRestBaseMockHttp();
+
 		$this->setMwGlobals( "wgMathDisableTexFilter", 'new' );
 		$renderer =
 			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [

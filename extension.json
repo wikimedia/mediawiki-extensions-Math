@@ -33,7 +33,8 @@
 		"MediaWiki\\Extension\\Math\\": "src/"
 	},
 	"TestAutoloadClasses": {
-		"DummyPropertyDataTypeLookup": "tests/phpunit/DummyPropertyDataTypeLookup.php"
+		"DummyPropertyDataTypeLookup": "tests/phpunit/DummyPropertyDataTypeLookup.php",
+		"MediaWiki\\Extension\\Math\\Tests\\MathMockHttpTrait": "tests/phpunit/MathMockHttpTrait.php"
 	},
 	"DefaultUserOptions": {
 		"math": "mathml"

@@ -3,6 +3,7 @@
 use DataValues\NumberValue;
 use DataValues\StringValue;
 use MediaWiki\Extension\Math\MathFormatter;
+use MediaWiki\Extension\Math\Tests\MathMockHttpTrait;
 use Wikibase\Lib\Formatters\SnakFormatter;
 
 /**
@@ -15,25 +16,9 @@ use Wikibase\Lib\Formatters\SnakFormatter;
  * @license GPL-2.0-or-later
  */
 class MathFormatterTest extends MediaWikiTestCase {
+	use MathMockHttpTrait;
 
-	private const SOME_TEX = 'a^2+b^2 < c^2';
-
-	/** @var bool */
-	protected static $hasRestbase;
-
-	public static function setUpBeforeClass(): void {
-		$rbi = new MathRestbaseInterface();
-		self::$hasRestbase = $rbi->checkBackend( true );
-	}
-
-	protected function setUp(): void {
-		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
-		parent::setUp();
-
-		if ( !self::$hasRestbase ) {
-			$this->markTestSkipped( 'Can not connect to Restbase Math interface.' );
-		}
-	}
+	private const SOME_TEX = '\sin x^2';
 
 	/**
 	 * Checks the
@@ -58,6 +43,8 @@ class MathFormatterTest extends MediaWikiTestCase {
 	}
 
 	public function testUnknownFormatFallsBackToMathMl() {
+		$this->setupGoodMathRestBaseMockHttp( true );
+
 		$formatter = new MathFormatter( 'unknown/unknown' );
 		$value = new StringValue( self::SOME_TEX );
 		$resultFormat = $formatter->format( $value );
@@ -68,8 +55,10 @@ class MathFormatterTest extends MediaWikiTestCase {
 	 * @covers \MediaWiki\Extension\Math\MathFormatter::format
 	 */
 	public function testUnknownFormatFailure() {
+		$this->setupBadMathRestBaseMockHttp();
+
 		$formatter = new MathFormatter( 'unknown/unknown' );
-		$value = new StringValue( '\noTex' );
+		$value = new StringValue( '\newcommand' );
 		$resultFormat = $formatter->format( $value );
 		$this->assertStringContainsString( 'unknown function', $resultFormat );
 	}
@@ -82,6 +71,8 @@ class MathFormatterTest extends MediaWikiTestCase {
 	}
 
 	public function testFormatHtml() {
+		$this->setupGoodMathRestBaseMockHttp( true );
+
 		$formatter = new MathFormatter( SnakFormatter::FORMAT_HTML );
 		$value = new StringValue( self::SOME_TEX );
 		$resultFormat = $formatter->format( $value );
@@ -89,6 +80,8 @@ class MathFormatterTest extends MediaWikiTestCase {
 	}
 
 	public function testFormatDiffHtml() {
+		$this->setupGoodMathRestBaseMockHttp( true );
+
 		$formatter = new MathFormatter( SnakFormatter::FORMAT_HTML_DIFF );
 		$value = new StringValue( self::SOME_TEX );
 		$resultFormat = $formatter->format( $value );

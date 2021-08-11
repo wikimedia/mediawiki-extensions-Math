@@ -152,23 +152,23 @@ class MathoidCheckerTest extends MediaWikiTestCase {
 	public function provideMathoidSamples() {
 		yield '\ sin x' => [
 			'\sin x',
-			$this->makeFakeHttpRequest( file_get_contents( __DIR__ . '/data/sinx.json' ), 200 ),
+			$this->makeFakeHttpRequest( file_get_contents( __DIR__ . '/data/mathoid/sinx.json' ), 200 ),
 			[ 'valid' => true, 'checked' => '\sin x' ],
 		];
 		yield 'invalid F' => [
 			'1+\invalid',
-			$this->makeFakeHttpRequest( file_get_contents( __DIR__ . '/data/invalidF.json' ), 400 ),
+			$this->makeFakeHttpRequest( file_get_contents( __DIR__ . '/data/mathoid/invalidF.json' ), 400 ),
 			[ 'valid' => false, 'checked' => null, 'error' => 'unknown function' ],
 		];
 		yield 'unescaped' => [
 			'1.5%',
-			$this->makeFakeHttpRequest( file_get_contents( __DIR__ . '/data/deprecated.json' ),
+			$this->makeFakeHttpRequest( file_get_contents( __DIR__ . '/data/mathoid/deprecated.json' ),
 				200 ),
 			[ 'valid' => true, 'checked' => '1.5\%' ],
 		];
 		yield 'syntax error' => [
 			'\left( x',
-			$this->makeFakeHttpRequest( file_get_contents( __DIR__ . '/data/syntaxE.json' ), 400 ),
+			$this->makeFakeHttpRequest( file_get_contents( __DIR__ . '/data/mathoid/syntaxE.json' ), 400 ),
 			[ 'valid' => false, 'checked' => null, 'error' => 'Failed to parse' ],
 		];
 	}
