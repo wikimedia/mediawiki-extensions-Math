@@ -11,7 +11,7 @@ namespace MediaWiki\Extension\Math;
 class MathPng extends MathMathML {
 	public function __construct( $tex = '', array $params = [] ) {
 		parent::__construct( $tex, $params );
-		$this->setMode( 'png' );
+		$this->setMode( MathConfig::MODE_PNG );
 	}
 
 	public function getHtmlOutput() {

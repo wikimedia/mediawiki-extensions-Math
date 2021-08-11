@@ -21,75 +21,6 @@ class Hooks {
 
 	private const MATHCACHEKEY = 'math=';
 
-	public static function mathConstantToString( $value, array $defs, $prefix, $default ) {
-		foreach ( $defs as $defKey => $defValue ) {
-			if ( !defined( $defKey ) ) {
-				define( $defKey, $defValue );
-			} elseif ( $defValue !== constant( $defKey ) ) {
-				throw new Exception( 'Math constant "' . $defKey . '" has unexpected value "' .
-					constant( $defKey ) . '" instead of "' . $defValue );
-			}
-		}
-		$invDefs = array_flip( $defs );
-		if ( is_int( $value ) ) {
-			if ( array_key_exists( $value, $invDefs ) ) {
-				$value = $invDefs[$value];
-			} else {
-				return $default;
-			}
-		}
-		if ( is_string( $value ) ) {
-			$newValues = [];
-			foreach ( $defs as $k => $v ) {
-				$newValues[$k] = preg_replace_callback( '/_(.)/', static function ( $matches ) {
-					return strtoupper( $matches[1] );
-				}, strtolower( substr( $k, strlen( $prefix ) ) ) );
-			}
-			if ( array_key_exists( $value, $defs ) ) {
-				return $newValues[$value];
-			} elseif ( in_array( $value, $newValues ) ) {
-				return $value;
-			}
-		}
-		return $default;
-	}
-
-	public static function mathStyleToString( $style, $default = 'inlineDisplaystyle' ) {
-		$defs = [
-			'MW_MATHSTYLE_INLINE_DISPLAYSTYLE'  => 0, // default large operator inline
-			'MW_MATHSTYLE_DISPLAY'              => 1, // large operators centered in a new line
-			'MW_MATHSTYLE_INLINE'               => 2, // small operators inline
-			'MW_MATHSTYLE_LINEBREAK'            => 3, // break long lines (experimental)
-		];
-		return self::mathConstantToString( $style, $defs, 'MW_MATHSTYLE_', $default );
-	}
-
-	public static function mathCheckToString( $style, $default = 'always' ) {
-		$defs = [
-			'MW_MATH_CHECK_ALWAYS' => 0,
-			'MW_MATH_CHECK_NEVER'  => 1,
-			'MW_MATH_CHECK_NEW'    => 2,
-		];
-		return self::mathConstantToString( $style, $defs, 'MW_MATH_CHECK_', $default );
-	}
-
-	public static function mathModeToString( $mode, $default = 'png' ) {
-		// The following deprecated modes have been removed:
-		// 'MW_MATH_SIMPLE'      => 1
-		// 'MW_MATH_HTML'        => 2
-		// 'MW_MATH_MODERN'      => 4
-		// 'MW_MATH_MATHJAX'     => 6
-		// 'MW_MATH_LATEXML_JAX' => 8
-
-		$defs = [
-			'MW_MATH_PNG'    => 0,
-			'MW_MATH_SOURCE' => 3,
-			'MW_MATH_MATHML' => 5,
-			'MW_MATH_LATEXML' => 7 ];
-
-		return self::mathConstantToString( $mode, $defs, 'MW_MATH_', $default );
-	}
-
 	public static function mathModeToHashKey( $mode, $default = 0 ) {
 		$defs = [
 			'png'    => 0,
@@ -118,7 +49,7 @@ class Hooks {
 		// TODO this check shouldn't be needed anymore, since none of the versions of MediaWiki
 		// core that this extension supports have the method.
 		if ( !is_callable( 'ParserOptions::getMath' ) && in_array( 'math', $forOptions ) ) {
-			$mathString = self::mathModeToString( $user->getOption( 'math' ) );
+			$mathString = MathConfig::normalizeRenderingMode( $user->getOption( 'math' ) );
 			$mathOption = self::mathModeToHashKey( $mathString, 0 );
 			// Check if the key already contains the math option part
 			if (
@@ -165,9 +96,11 @@ class Hooks {
 		];
 		// If the default option is not in the valid options the
 		// user interface throws an exception (BUG 64844)
-		$mode = self::mathModeToString( $wgDefaultUserOptions['math'] );
-		$validModes = MathRenderer::getValidModes();
-		if ( !in_array( $mode, $validModes ) ) {
+		/** @var MathConfig $mathConfig */
+		$mathConfig = MediaWikiServices::getInstance()->get( 'Math.Config' );
+		$mode = MathConfig::normalizeRenderingMode( $wgDefaultUserOptions['math'] );
+		if ( !$mathConfig->isValidRenderingMode( $mode ) ) {
+			$validModes = $mathConfig->getValidRenderingModes();
 			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: ' .
 				"\$wgDefaultUserOptions['math'] is not in [ " . implode( ', ', $validModes ) . " ].\n" .
 				"Please check your LocalSettings.php file."
@@ -185,7 +118,10 @@ class Hooks {
 	 */
 	public static function getMathNames() {
 		$names = [];
-		foreach ( MathRenderer::getValidModes() as $mode ) {
+		$validModes = MediaWikiServices::getInstance()
+			->get( 'Math.Config' )
+			->getValidRenderingModes();
+		foreach ( $validModes as $mode ) {
 			$names[$mode] = wfMessage( 'mw_math_' . $mode )->escaped();
 		}
 
@@ -203,7 +139,7 @@ class Hooks {
 
 		// Don't parse LaTeX to improve performance
 		MediaWikiServices::getInstance()->getUserOptionsManager()
-			->setOption( $user, 'math', 'source' );
+			->setOption( $user, 'math', MathConfig::MODE_SOURCE );
 		return true;
 	}
 
@@ -215,9 +151,15 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
-		$type = $updater->getDB()->getType();
+		// This hook runs before services are initialized, so we cannot
+		// use MathConfig service directly.
+		global $wgMathValidModes;
 
-		if ( in_array( 'latexml', MathRenderer::getValidModes() ) ) {
+		$type = $updater->getDB()->getType();
+		$validModes = array_map( static function ( $mode ) {
+			return MathConfig::normalizeRenderingMode( $mode );
+		}, $wgMathValidModes );
+		if ( in_array( MathConfig::MODE_LATEXML, $validModes ) ) {
 			if ( in_array( $type, [ 'mysql', 'sqlite', 'postgres' ] ) ) {
 				$sql = __DIR__ . '/../db/mathlatexml.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathlatexml', $sql );
@@ -229,7 +171,7 @@ class Hooks {
 				throw new Exception( "Math extension does not currently support $type database for LaTeXML." );
 			}
 		}
-		if ( in_array( 'mathml', MathRenderer::getValidModes() ) ) {
+		if ( in_array( MathConfig::MODE_MATHML, $validModes ) ) {
 			if ( in_array( $type, [ 'mysql', 'sqlite', 'postgres' ] ) ) {
 				$sql = __DIR__ . '/../db/mathoid.' . $type . '.sql';
 				$updater->addExtensionTable( 'mathoid', $sql );

@@ -30,7 +30,7 @@ class MathSource extends MathRenderer {
 	 */
 	public function __construct( $tex = '', $params = [] ) {
 		parent::__construct( $tex, $params );
-		$this->setMode( 'source' );
+		$this->setMode( MathConfig::MODE_SOURCE );
 	}
 
 	/**

@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Math\MathConfig;
+
 /**
  * Test the Id feature
  *
@@ -15,11 +17,11 @@ class MathIdTest extends MediaWikiIntegrationTestCase {
 	 * Checks if the id specified as attribute is set in the renderer object
 	 */
 	public function testBasics() {
-		define( 'RANDOM_ID', 'a_random_id' );
+		$randomId = 'a_random_id';
 		$renderer = $this->getServiceContainer()
 			->get( 'Math.RendererFactory' )
-			->getRenderer( "a+b", [ 'id' => RANDOM_ID ] );
-		$this->assertEquals( RANDOM_ID, $renderer->getID() );
+			->getRenderer( "a+b", [ 'id' => $randomId ], MathConfig::MODE_PNG );
+		$this->assertEquals( $randomId, $renderer->getID() );
 	}
 
 }

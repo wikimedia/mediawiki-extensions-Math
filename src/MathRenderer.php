@@ -70,7 +70,7 @@ abstract class MathRenderer {
 	/** @var string binary packed inputhash */
 	protected $inputHash = '';
 	/** @var string rendering mode */
-	protected $mode = 'png';
+	protected $mode = MathConfig::MODE_PNG;
 	/** @var string input type */
 	protected $inputType = 'tex';
 	/** @var MathRestbaseInterface used for checking */
@@ -129,7 +129,7 @@ abstract class MathRenderer {
 	 * @param string $mode constant indicating rendering mode
 	 * @return string HTML for math tag
 	 */
-	public static function renderMath( $tex, $params = [], $mode = 'png' ) {
+	public static function renderMath( $tex, $params = [], $mode = MathConfig::MODE_PNG ) {
 		$renderer = MediaWikiServices::getInstance()
 			->get( 'Math.RendererFactory' )
 			->getRenderer( $tex, $params, $mode );
@@ -161,7 +161,7 @@ abstract class MathRenderer {
 	 * @param string $mode indicating rendering mode
 	 * @return self appropriate renderer for mode
 	 */
-	public static function getRenderer( $tex, $params = [], $mode = 'png' ) {
+	public static function getRenderer( $tex, $params = [], $mode = MathConfig::MODE_PNG ) {
 		return MediaWikiServices::getInstance()
 			->get( 'Math.RendererFactory' )
 			->getRenderer( $tex, $params, $mode );
@@ -457,7 +457,7 @@ abstract class MathRenderer {
 	 * @return bool
 	 */
 	public function setMode( $newMode ) {
-		if ( in_array( $newMode, self::getValidModes() ) ) {
+		if ( MediaWikiServices::getInstance()->get( 'Math.Config' )->isValidRenderingMode( $newMode ) ) {
 			$this->mode = $newMode;
 			return true;
 		} else {
@@ -594,12 +594,19 @@ abstract class MathRenderer {
 	 * @return bool
 	 */
 	public function checkTeX() {
-		if ( $this->texSecure || self::getDisableTexFilter() == 'always' ) {
-			// equation was already checked or checking is disabled
+		if ( $this->texSecure ) {
+			// equation was already checked
+			return true;
+		}
+		$texCheckDisabled = MediaWikiServices::getInstance()
+			->get( 'Math.Config' )
+			->texCheckDisabled();
+		if ( $texCheckDisabled === MathConfig::ALWAYS ) {
+			// checking is disabled
 			$this->debug( 'Skip TeX check ' );
 			return true;
 		} else {
-			if ( self::getDisableTexFilter() == 'new' && $this->mode != 'source' ) {
+			if ( $texCheckDisabled === MathConfig::NEW && $this->mode != MathConfig::MODE_SOURCE ) {
 				if ( $this->readFromDatabase() ) {
 					$this->debug( 'Skip TeX check' );
 					$this->texSecure = true;
@@ -676,25 +683,6 @@ abstract class MathRenderer {
 	public function getModeStr() {
 		$names = Hooks::getMathNames();
 		return $names[ $this->getMode() ];
-	}
-
-	/**
-	 * @deprecated since 3.0.0. Use 'Math.RendererFactory' service instead.
-	 *
-	 * @return array
-	 */
-	public static function getValidModes() {
-		global $wgMathValidModes;
-		return array_map( "MediaWiki\\Extension\\Math\\Hooks::mathModeToString", $wgMathValidModes );
-	}
-
-	public static function getDisableTexFilter() {
-		global $wgMathDisableTexFilter;
-		if ( $wgMathDisableTexFilter === true ) {
-			// ensure backwards compatibility
-			$wgMathDisableTexFilter = 'never';
-		}
-		return Hooks::mathCheckToString( $wgMathDisableTexFilter );
 	}
 
 	/**

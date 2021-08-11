@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathPng;
 
 /**
@@ -15,7 +16,7 @@ class MathPngTest extends MediaWikiTestCase {
 	public function testConstructor() {
 		$renderer = new MathPng( 'a' );
 
-		$this->assertEquals( 'png', $renderer->getMode() );
+		$this->assertEquals( MathConfig::MODE_PNG, $renderer->getMode() );
 	}
 
 	public function testOutput() {

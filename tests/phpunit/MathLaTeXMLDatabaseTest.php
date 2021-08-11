@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathLaTeXML;
 
 /**
@@ -81,7 +82,7 @@ class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
 	 * @covers \MediaWiki\Extension\Math\Hooks::onLoadExtensionSchemaUpdates
 	 */
 	public function testCreateTable() {
-		$this->setMwGlobals( 'wgMathValidModes', [ 'latexml' ] );
+		$this->setMwGlobals( 'wgMathValidModes', [ MathConfig::MODE_LATEXML ] );
 		$this->db->dropTable( "mathlatexml", __METHOD__ );
 		$dbu = DatabaseUpdater::newForDB( $this->db );
 		$dbu->doUpdates( [ "extensions" ] );

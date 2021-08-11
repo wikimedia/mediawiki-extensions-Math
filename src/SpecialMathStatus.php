@@ -50,10 +50,10 @@ class SpecialMathStatus extends SpecialPage {
 		foreach ( $enabledMathModes as $modeNr => $modeName ) {
 			$out->addWikiTextAsInterface( "=== $modeName ===" );
 			switch ( $modeNr ) {
-				case 'mathml':
+				case MathConfig::MODE_MATHML:
 					$this->runMathMLTest( $modeName );
 					break;
-				case 'latexml':
+				case MathConfig::MODE_LATEXML:
 					$this->runMathLaTeXMLTest( $modeName );
 			}
 		}
@@ -75,7 +75,7 @@ class SpecialMathStatus extends SpecialPage {
 	}
 
 	public function testSpecialCaseText() {
-		$renderer = $this->rendererFactory->getRenderer( 'x^2+\text{a sample Text}', [], 'mathml' );
+		$renderer = $this->rendererFactory->getRenderer( 'x^2+\text{a sample Text}', [], MathConfig::MODE_MATHML );
 		$expected = 'a sample Text</mtext>';
 		$this->assertTrue( $renderer->render(), 'Rendering the input "x^2+\text{a sample Text}"' );
 		$this->assertContains(
@@ -90,7 +90,7 @@ class SpecialMathStatus extends SpecialPage {
 	public function testMathMLIntegration() {
 		$svgRef = file_get_contents( __DIR__ . '/../images/reference.svg' );
 		$svgRefNoSpeech = file_get_contents( __DIR__ . '/../images/reference-nospeech.svg' );
-		$renderer = $this->rendererFactory->getRenderer( "a+b", [], 'mathml' );
+		$renderer = $this->rendererFactory->getRenderer( "a+b", [], MathConfig::MODE_MATHML );
 		$this->assertTrue( $renderer->render(), "Rendering of a+b in plain MathML mode" );
 		$real = str_replace( "\n", '', $renderer->getHtmlOutput() );
 		$expected = '<mo>+</mo>';
@@ -114,7 +114,7 @@ class SpecialMathStatus extends SpecialPage {
 		$renderer = new MathMathML( $inputSample, $attribs );
 		$this->assertEquals( 'pmml', $renderer->getInputType(), 'Checking if MathML input is supported' );
 		$this->assertTrue( $renderer->render(), 'Rendering Presentation MathML sample' );
-		$real = MathRenderer::renderMath( $inputSample, $attribs, 'mathml' );
+		$real = MathRenderer::renderMath( $inputSample, $attribs, MathConfig::MODE_MATHML );
 		$expected = 'hash=5628b8248b79267ecac656102334d5e3&amp;mode=mathml';
 		$this->assertContains( $expected, $real, 'Checking if the link to SVG image is correct' );
 	}
@@ -124,7 +124,7 @@ class SpecialMathStatus extends SpecialPage {
 	 * i.e. if the span element is generated right.
 	 */
 	public function testLaTeXMLIntegration() {
-		$renderer = $this->rendererFactory->getRenderer( "a+b", [], 'latexml' );
+		$renderer = $this->rendererFactory->getRenderer( "a+b", [], MathConfig::MODE_LATEXML );
 		$this->assertTrue( $renderer->render(), "Rendering of a+b in LaTeXML mode" );
 		// phpcs:ignore Generic.Files.LineLength.TooLong
 		$expected = '<math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.m1" class="ltx_Math" alttext="{\displaystyle a+b}" ><semantics><mrow id="p1.m1.4" xref="p1.m1.4.cmml"><mi id="p1.m1.1" xref="p1.m1.1.cmml">a</mi><mo id="p1.m1.2" xref="p1.m1.2.cmml">+</mo><mi id="p1.m1.3" xref="p1.m1.3.cmml">b</mi></mrow><annotation-xml encoding="MathML-Content"><apply id="p1.m1.4.cmml" xref="p1.m1.4"><plus id="p1.m1.2.cmml" xref="p1.m1.2"/><ci id="p1.m1.1.cmml" xref="p1.m1.1">a</ci><ci id="p1.m1.3.cmml" xref="p1.m1.3">b</ci></apply></annotation-xml><annotation encoding="application/x-tex">{\displaystyle a+b}</annotation></semantics></math>';

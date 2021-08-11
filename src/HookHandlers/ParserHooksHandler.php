@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Math\HookHandlers;
 
 use FatalError;
 use Hooks as MWHooks;
-use MediaWiki\Extension\Math\Hooks;
+use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathMathML;
 use MediaWiki\Extension\Math\MathMathMLCli;
 use MediaWiki\Extension\Math\MathRenderer;
@@ -72,7 +72,7 @@ class ParserHooksHandler implements
 		if ( trim( $content ?? '' ) === '' ) { // bug 8372 https://phabricator.wikimedia.org/rSVN18870
 			return '';
 		}
-		$mode = Hooks::mathModeToString(
+		$mode = MathConfig::normalizeRenderingMode(
 			$this->userOptionsLookup->getOption( $parser->getUserIdentity(), 'math' )
 		);
 		// Indicate that this page uses math.
@@ -81,7 +81,7 @@ class ParserHooksHandler implements
 		$renderer = $this->rendererFactory->getRenderer( $content ?? '', $attributes, $mode );
 
 		$parser->getOutput()->addModuleStyles( [ 'ext.math.styles' ] );
-		if ( $mode == 'mathml' ) {
+		if ( $mode == MathConfig::MODE_MATHML ) {
 			$parser->getOutput()->addModules( [ 'ext.math.scripts' ] );
 			$marker = Parser::MARKER_PREFIX .
 				'-postMath-' . sprintf( '%08X', $this->mathTagCounter++ ) .

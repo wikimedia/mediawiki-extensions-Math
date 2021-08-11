@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\Extension\Math\MathSource;
 
@@ -17,7 +18,7 @@ class MathSourceTest extends MediaWikiTestCase {
 	 * i.e. if the span element is generated right.
 	 */
 	public function testBasics() {
-		$real = MathRenderer::renderMath( "a+b", [], 'source' );
+		$real = MathRenderer::renderMath( "a+b", [], MathConfig::MODE_SOURCE );
 		$this->assertEquals(
 			'<span class="mwe-math-fallback-source-inline tex" dir="ltr">$ a+b $</span>',
 			$real,
@@ -29,7 +30,7 @@ class MathSourceTest extends MediaWikiTestCase {
 	 * Checks if newlines are converted to spaces correctly.
 	 */
 	public function testNewLines() {
-		$real = MathRenderer::renderMath( "a\n b", [], 'source' );
+		$real = MathRenderer::renderMath( "a\n b", [], MathConfig::MODE_SOURCE );
 		$this->assertSame(
 			'<span class="mwe-math-fallback-source-inline tex" dir="ltr">$ a  b $</span>',
 			$real,
@@ -40,7 +41,7 @@ class MathSourceTest extends MediaWikiTestCase {
 	public function testConstructor() {
 		$renderer = new MathSource( 'a' );
 
-		$this->assertEquals( 'source', $renderer->getMode() );
+		$this->assertEquals( MathConfig::MODE_SOURCE, $renderer->getMode() );
 	}
 
 	public function testRender() {

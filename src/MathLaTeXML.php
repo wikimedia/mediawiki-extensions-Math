@@ -26,7 +26,7 @@ class MathLaTeXML extends MathMathML {
 		global $wgMathLaTeXMLUrl;
 		parent::__construct( $tex, $params );
 		$this->host = $wgMathLaTeXMLUrl;
-		$this->setMode( 'latexml' );
+		$this->setMode( MathConfig::MODE_LATEXML );
 	}
 
 	/**
@@ -187,7 +187,7 @@ class MathLaTeXML extends MathMathML {
 	public function calculateSvg() {
 		$renderer = new MathMathML( $this->getTex() );
 		$renderer->setMathml( $this->getMathml() );
-		$renderer->setMode( 'latexml' );
+		$renderer->setMode( MathConfig::MODE_LATEXML );
 		$res = $renderer->render( true );
 		if ( $res == true ) {
 			$this->setSvg( $renderer->getSvg() );
