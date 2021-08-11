@@ -2,6 +2,7 @@
 
 use MediaWiki\Extension\Math\MathMathML;
 use MediaWiki\MediaWikiServices;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * Test the MathML output format.
@@ -61,16 +62,17 @@ class MathMathMLTest extends MediaWikiTestCase {
 		);
 
 		$renderer = new MathMathML();
-		$requestReturn = $renderer->makeRequest( $res, $error );
-		$this->assertFalse( $requestReturn,
+		$requestReturn = $renderer->makeRequest();
+		$this->assertFalse( $requestReturn->isGood(),
 			"requestReturn is false if HTTP::post returns false." );
-		$this->assertNull( $res,
-			"res is null if HTTP::post returns false." );
-		$errmsg = wfMessage( 'math_invalidresponse', '', $url, 'Method Not Allowed' )
-			->inContentLanguage()
-			->escaped();
-		$this->assertStringContainsString( $errmsg, $error,
-			"return an error if HTTP::post returns false" );
+		$this->assertNull( $requestReturn->getValue(),
+			"result value is null if HTTP::post returns false." );
+		$this->assertTrue(
+			$requestReturn->hasMessage(
+				wfMessage( 'math_invalidresponse', '', $url, 'Method Not Allowed' )
+			),
+			"return an error if HTTP::post returns false"
+		);
 	}
 
 	/**
@@ -84,10 +86,10 @@ class MathMathMLTest extends MediaWikiTestCase {
 		);
 		$renderer = new MathMathML();
 
-		$requestReturn = $renderer->makeRequest( $res, $error );
-		$this->assertTrue( $requestReturn, "successful call return" );
-		$this->assertSame( 'test content', $res, 'successful call' );
-		$this->assertSame( '', $error, "successful call error-message" );
+		$requestReturn = $renderer->makeRequest();
+		$this->assertTrue( $requestReturn->isGood(), "successful call return" );
+		$this->assertSame( 'test content', $requestReturn->getValue(), 'successful call' );
+		$this->assertArrayEquals( [], $requestReturn->getErrors(), "successful call error-message" );
 	}
 
 	/**
@@ -105,11 +107,13 @@ class MathMathMLTest extends MediaWikiTestCase {
 		);
 		$renderer = new MathMathML();
 
-		$requestReturn = $renderer->makeRequest( $res, $error );
-		$this->assertFalse( $requestReturn, "timeout call return" );
-		$this->assertFalse( $res, "timeout call return" );
-		$errmsg = wfMessage( 'math_timeout', '', $url )->inContentLanguage()->escaped();
-		$this->assertStringContainsString( $errmsg, $error, "timeout call errormessage" );
+		$requestReturn = $renderer->makeRequest();
+		$this->assertFalse( $requestReturn->isGood(), "timeout call return" );
+		$this->assertNull( $requestReturn->getValue(), "timeout call return" );
+		$this->assertTrue(
+			$requestReturn->hasMessage( wfMessage( 'math_timeout', '', $url ) ),
+			"timeout call errormessage"
+		);
 	}
 
 	/**
@@ -119,14 +123,13 @@ class MathMathMLTest extends MediaWikiTestCase {
 	 */
 	public function testMakeRequestGetPostData() {
 		$this->installMockHttp( $this->makeFakeHttpRequest() );
-		$url = 'http://example.com/timeout';
 		$renderer = $this->getMockBuilder( MathMathML::class )
 			->onlyMethods( [ 'getPostData' ] )
 			->getMock();
 		$renderer->expects( $this->once() )->method( 'getPostData' );
 
 		/** @var MathMathML $renderer */
-		$renderer->makeRequest( $res, $error );
+		$renderer->makeRequest();
 	}
 
 	/**
@@ -211,5 +214,13 @@ class MathMathMLTest extends MediaWikiTestCase {
 		$math = new MathMathML( "a+b", [ "qid" => "123" ] );
 		$out = $math->getHtmlOutput();
 		$this->assertStringNotContainsString( "data-qid", $out );
+	}
+
+	public function testEmpty() {
+		// TODO: Once render returns status, we won't need TestingAccessWrapper anymore.
+		$math = TestingAccessWrapper::newFromObject( new MathMathML( '' ) );
+		$renderStatus = $math->doRender();
+		$this->assertFalse( $renderStatus->isGood() );
+		$this->assertTrue( $renderStatus->hasMessage( 'math_empty_tex' ) );
 	}
 }

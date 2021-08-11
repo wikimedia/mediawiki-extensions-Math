@@ -725,7 +725,8 @@ abstract class MathRenderer {
 		}
 		catch ( MWException $e ) {
 		}
-		$this->lastError = $checker->getError();
+		$checkerError = $checker->getError();
+		$this->lastError = $this->getError( $checkerError->getKey(), ...$checkerError->getParams() );
 		return false;
 	}
 

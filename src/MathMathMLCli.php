@@ -56,6 +56,7 @@ class MathMathMLCli extends MathMathML {
 			return false;
 		}
 		if ( $this->isEmpty() ) {
+			$this->lastError = $this->getError( 'math_empty_tex' );
 			return false;
 		}
 		$response = $res->{$this->getMd5()};

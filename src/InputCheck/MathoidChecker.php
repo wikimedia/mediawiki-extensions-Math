@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Math\InputCheck;
 
 use MediaWiki\Http\HttpRequestFactory;
+use Message;
 use MWException;
 use Psr\Log\LoggerInterface;
 use WANObjectCache;
@@ -120,18 +121,18 @@ class MathoidChecker extends BaseChecker {
 		return false;
 	}
 
-	public function getError() {
+	public function getError(): ?Message {
 		[ $statusCode, $content ] = $this->getCheckResponse();
 		if ( $statusCode !== 200 ) {
 			// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
 			$json = @json_decode( $content );
 			if ( $json && isset( $json->detail ) ) {
-				return $this->errorObjectToHtml( $json->detail, null,  $this->url );
+				return $this->errorObjectToMessage( $json->detail, $this->url );
 			}
-			return $this->errorObjectToHtml( (object)[ 'error' => (object)[
-				'message' => 'Math extension cannot connect to mathoid.' ] ], null, $this->url );
+			return $this->errorObjectToMessage( (object)[ 'error' => (object)[
+				'message' => 'Math extension cannot connect to mathoid.' ] ], $this->url );
 		}
-		return parent::getError();
+		return null;
 	}
 
 	public function getValidTex() {

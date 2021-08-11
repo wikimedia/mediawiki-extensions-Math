@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Math;
 use Hooks;
 use MediaWiki\Logger\LoggerFactory;
 use Sanitizer;
+use StatusValue;
 use Xml;
 
 /**
@@ -106,21 +107,17 @@ class MathLaTeXML extends MathMathML {
 
 	/**
 	 * Does the actual web request to convert TeX to MathML.
-	 * @return bool
+	 * @return StatusValue
 	 */
-	protected function doRender() {
+	protected function doRender(): StatusValue {
 		if ( trim( $this->getTex() ) === '' ) {
 			LoggerFactory::getInstance( 'Math' )->warning(
 				'Rendering was requested, but no TeX string is specified.' );
-			$this->lastError = $this->getError( 'math_empty_tex' );
-			return false;
+			return StatusValue::newFatal( 'math_empty_tex' );
 		}
-		$res = '';
-		$this->lastError = '';
-		$requestResult = $this->makeRequest( $res, $this->lastError );
-		if ( $requestResult ) {
-			// @phan-suppress-next-line PhanTypeMismatchArgumentInternal
-			$jsonResult = json_decode( $res );
+		$requestStatus = $this->makeRequest();
+		if ( $requestStatus->isGood() ) {
+			$jsonResult = json_decode( $requestStatus->getValue() );
 			if ( $jsonResult && json_last_error() === JSON_ERROR_NONE ) {
 				if ( $this->isValidMathML( $jsonResult->result ) ) {
 					$this->setMathml( $jsonResult->result );
@@ -129,35 +126,30 @@ class MathLaTeXML extends MathMathML {
 					Hooks::run( 'MathRenderingResultRetrieved',
 						[ &$renderer, &$jsonResult ]
 					); // Enables debugging of server results
-					return true;
+					return StatusValue::newGood();
 				}
 
 				// Do not print bad mathml. It's probably too verbose and might
 				// mess up the browser output.
-				$this->lastError = $this->getError( 'math_invalidxml', $this->getModeStr(), $this->host );
-				LoggerFactory::getInstance( 'Math' )->warning(
-					'LaTeXML InvalidMathML', [
+				LoggerFactory::getInstance( 'Math' )
+					->warning( 'LaTeXML invalid MathML', [
 						'post' => $this->getPostData(),
 						'host' => $this->host,
-						'result' => $res,
+						'result' => $requestStatus->getValue()
 					] );
-
-				return false;
+				return StatusValue::newFatal( 'math_invalidxml', $this->getModeStr(), $this->host );
 			}
-
-			$this->lastError = $this->getError( 'math_invalidjson', $this->getModeStr(), $this->host );
-			LoggerFactory::getInstance( 'Math' )->warning(
-				'LaTeXML InvalidJSON', [
+			LoggerFactory::getInstance( 'Math' )
+				->warning( 'LaTeXML invalid JSON', [
 					'post' => $this->getPostData(),
 					'host' => $this->host,
-					'res' => $res,
+					'res' => $requestStatus->getValue()
 				] );
 
-			return false;
+			return StatusValue::newFatal( $this->getError( 'math_invalidjson', $this->getModeStr(), $this->host ) );
+		} else {
+			return $requestStatus;
 		}
-
-		// Error message has already been set.
-		return false;
 	}
 
 	/**

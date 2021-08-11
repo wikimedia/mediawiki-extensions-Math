@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Math\InputCheck;
 
 use Exception;
 use MediaWiki\Extension\Math\MathRestbaseInterface;
+use Message;
 
 /**
  * MediaWiki math extension
@@ -51,9 +52,9 @@ class RestbaseChecker extends BaseChecker {
 
 	/**
 	 * Returns the string of the last error.
-	 * @return string|null
+	 * @return ?Message
 	 */
-	public function getError() {
+	public function getError(): ?Message {
 		$err = $this->restbaseInterface->getError();
 		if ( $err === null ) {
 			return null;
@@ -64,7 +65,7 @@ class RestbaseChecker extends BaseChecker {
 		catch ( Exception $ignore ) {
 			$host = 'invalid';
 		}
-		return $this->errorObjectToHtml( $err, null, $host );
+		return $this->errorObjectToMessage( $err, $host );
 	}
 
 	public function getRbi() {

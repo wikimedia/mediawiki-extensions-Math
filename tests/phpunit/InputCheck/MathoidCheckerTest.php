@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Math\InputCheck;
 
 use HashBagOStuff;
+use MathMathML;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWikiTestCase;
@@ -114,7 +115,11 @@ class MathoidCheckerTest extends MediaWikiTestCase {
 		$this->installMockHttp( $request );
 		$checker = $this->getMathoidChecker( $input );
 		if ( array_key_exists( 'error', $expeted ) ) {
-			$this->assertStringContainsString( $expeted['error'], $checker->getError() );
+			$checkerError = $checker->getError();
+			$this->assertNotNull( $checkerError );
+			$renderedCheckerError = ( new MathMathML( 'a' ) )
+				->getError( $checkerError->getKey(), ...$checkerError->getParams() );
+			$this->assertStringContainsString( $expeted['error'], $renderedCheckerError );
 		} else {
 			$this->assertNull( $checker->getError() );
 		}
