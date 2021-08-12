@@ -97,6 +97,19 @@ class MathConfig {
 	}
 
 	/**
+	 * Get message keys for the names of the valid rendering modes.
+	 *
+	 * @return string[]
+	 */
+	public function getValidRenderingModeKeys(): array {
+		$result = [];
+		foreach ( $this->getValidRenderingModes() as $mode ) {
+			$result[$mode] = 'mw_math_' . $mode;
+		}
+		return $result;
+	}
+
+	/**
 	 * Checks whether $mode is a valid rendering mode.
 	 *
 	 * @param string $mode

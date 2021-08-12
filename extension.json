@@ -50,12 +50,19 @@
 				"Math.RendererFactory",
 				"UserOptionsLookup"
 			]
+		},
+		"PreferencesHooksHandler": {
+			"class": "MediaWiki\\Extension\\Math\\HookHandlers\\PreferencesHooksHandler",
+			"services": [
+				"Math.Config"
+			]
 		}
 	},
 	"Hooks": {
 		"ParserFirstCallInit": "ParserHooksHandler",
 		"ParserAfterTidy": "ParserHooksHandler",
-		"GetPreferences": "MediaWiki\\Extension\\Math\\Hooks::onGetPreferences",
+		"GetPreferences": "PreferencesHooksHandler",
+		"UserGetDefaultOptions": "PreferencesHooksHandler",
 		"LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\Math\\Hooks::onLoadExtensionSchemaUpdates",
 		"PageRenderingHash": "MediaWiki\\Extension\\Math\\Hooks::onPageRenderingHash",
 		"WikibaseClientDataTypes": "MediaWiki\\Extension\\Math\\WikibaseHook::onWikibaseClientDataTypes",

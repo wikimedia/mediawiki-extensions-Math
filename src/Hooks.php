@@ -80,38 +80,6 @@ class Hooks {
 	}
 
 	/**
-	 * Add the new math rendering options to Special:Preferences.
-	 *
-	 * @param User $user current User object
-	 * @param array &$defaultPreferences Preferences array
-	 * @return bool true
-	 */
-	public static function onGetPreferences( $user, &$defaultPreferences ) {
-		global $wgDefaultUserOptions;
-		$defaultPreferences['math'] = [
-			'type' => 'radio',
-			'options' => array_flip( self::getMathNames() ),
-			'label' => '&#160;',
-			'section' => 'rendering/math',
-		];
-		// If the default option is not in the valid options the
-		// user interface throws an exception (BUG 64844)
-		/** @var MathConfig $mathConfig */
-		$mathConfig = MediaWikiServices::getInstance()->get( 'Math.Config' );
-		$mode = MathConfig::normalizeRenderingMode( $wgDefaultUserOptions['math'] );
-		if ( !$mathConfig->isValidRenderingMode( $mode ) ) {
-			$validModes = $mathConfig->getValidRenderingModes();
-			LoggerFactory::getInstance( 'Math' )->error( 'Misconfiguration: ' .
-				"\$wgDefaultUserOptions['math'] is not in [ " . implode( ', ', $validModes ) . " ].\n" .
-				"Please check your LocalSettings.php file."
-			);
-			// Display the checkbox in the first option.
-			$wgDefaultUserOptions['math'] = $validModes[0];
-		}
-		return true;
-	}
-
-	/**
 	 * List of message keys for the various math output settings.
 	 *
 	 * @return string[]

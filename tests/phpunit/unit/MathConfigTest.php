@@ -86,4 +86,11 @@ class MathConfigTest extends MediaWikiUnitTestCase {
 		] );
 		$this->assertSame( $expected, $mathConfig->isValidRenderingMode( $mode ) );
 	}
+
+	public function testGetValidRenderingModeKeys() {
+		$mathConfig = $this->newMathConfig( [
+			'MathValidModes' => [ MathConfig::MODE_PNG ],
+		] );
+		$this->assertArrayEquals( [ 'mw_math_png' ], $mathConfig->getValidRenderingModeKeys() );
+	}
 }
