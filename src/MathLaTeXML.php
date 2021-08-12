@@ -137,7 +137,7 @@ class MathLaTeXML extends MathMathML {
 						'host' => $this->host,
 						'result' => $requestStatus->getValue()
 					] );
-				return StatusValue::newFatal( 'math_invalidxml', $this->getModeStr(), $this->host );
+				return StatusValue::newFatal( 'math_invalidxml', $this->getModeName(), $this->host );
 			}
 			LoggerFactory::getInstance( 'Math' )
 				->warning( 'LaTeXML invalid JSON', [
@@ -146,7 +146,7 @@ class MathLaTeXML extends MathMathML {
 					'res' => $requestStatus->getValue()
 				] );
 
-			return StatusValue::newFatal( $this->getError( 'math_invalidjson', $this->getModeStr(), $this->host ) );
+			return StatusValue::newFatal( $this->getError( 'math_invalidjson', $this->getModeName(), $this->host ) );
 		} else {
 			return $requestStatus;
 		}

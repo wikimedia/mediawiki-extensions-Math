@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Math;
 
 use MediaWiki\Config\ServiceOptions;
+use Message;
 
 class MathConfig {
 
@@ -107,6 +108,30 @@ class MathConfig {
 			$result[$mode] = 'mw_math_' . $mode;
 		}
 		return $result;
+	}
+
+	/**
+	 * Get Messages for the names of the valid rendering
+	 * modes.
+	 *
+	 * @return Message[]
+	 */
+	public function getValidRenderingModeNames(): array {
+		$result = [];
+		foreach ( $this->getValidRenderingModes() as $mode ) {
+			$result[$mode] = Message::newFromKey( 'mw_math_' . $mode );
+		}
+		return $result;
+	}
+
+	/**
+	 * Get the human-readable name of a rendering mode.
+	 *
+	 * @param string $mode one of self::MODE_* constants.
+	 * @return Message
+	 */
+	public function getRenderingModeName( string $mode ): Message {
+		return Message::newFromKey( 'mw_math_' . $mode );
 	}
 
 	/**

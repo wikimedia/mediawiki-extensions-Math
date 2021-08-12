@@ -321,6 +321,7 @@
 		"MathStatus": {
 			"class": "MediaWiki\\Extension\\Math\\SpecialMathStatus",
 			"services": [
+				"Math.Config",
 				"Math.RendererFactory"
 			]
 		},

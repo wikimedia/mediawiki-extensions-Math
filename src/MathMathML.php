@@ -242,7 +242,7 @@ class MathMathML extends MathRenderer {
 					'host' => $this->host,
 					'timeout' => $wgMathLaTeXMLTimeout
 				] );
-				return StatusValue::newFatal( 'math_timeout', $this->getModeStr(), $this->host );
+				return StatusValue::newFatal( 'math_timeout', $this->getModeName(), $this->host );
 			} else {
 				$errormsg = $req->getContent();
 				$this->logger->warning( 'Math service request failed', [
@@ -252,10 +252,10 @@ class MathMathML extends MathRenderer {
 				] );
 				return StatusValue::newFatal(
 					'math_invalidresponse',
-					$this->getModeStr(),
+					$this->getModeName(),
 					$this->host,
 					$errormsg,
-					$this->getModeStr()
+					$this->getModeName()
 				);
 			}
 		}

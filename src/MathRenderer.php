@@ -15,6 +15,7 @@ use DeferredUpdates;
 use MediaWiki\Extension\Math\InputCheck\RestbaseChecker;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use Message;
 use MWException;
 use Parser;
 use Psr\Log\LoggerInterface;
@@ -680,9 +681,10 @@ abstract class MathRenderer {
 	 */
 	abstract protected function getMathTableName();
 
-	public function getModeStr() {
-		$names = Hooks::getMathNames();
-		return $names[ $this->getMode() ];
+	protected function getModeName(): Message {
+		return MediaWikiServices::getInstance()
+			->get( 'Math.Config' )
+			->getRenderingModeName( $this->getMode() );
 	}
 
 	/**

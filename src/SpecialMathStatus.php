@@ -22,14 +22,19 @@ class SpecialMathStatus extends SpecialPage {
 	/** @var LoggerInterface */
 	private $logger;
 
+	/** @var MathConfig */
+	private $mathConfig;
+
 	/** @var RendererFactory */
 	private $rendererFactory;
 
 	public function __construct(
+		MathConfig $mathConfig,
 		RendererFactory $rendererFactory
 	) {
 		parent::__construct( 'MathStatus', 'purge' );
 
+		$this->mathConfig = $mathConfig;
 		$this->rendererFactory = $rendererFactory;
 		$this->logger = LoggerFactory::getInstance( 'Math' );
 	}
@@ -44,11 +49,11 @@ class SpecialMathStatus extends SpecialPage {
 		$this->setHeaders();
 
 		$out = $this->getOutput();
-		$enabledMathModes = Hooks::getMathNames();
+		$enabledMathModes = $this->mathConfig->getValidRenderingModeNames();
 		$out->addWikiMsg( 'math-status-introduction', count( $enabledMathModes ) );
 
 		foreach ( $enabledMathModes as $modeNr => $modeName ) {
-			$out->addWikiTextAsInterface( "=== $modeName ===" );
+			$out->wrapWikiMsg( '=== $1 ===', $modeName );
 			switch ( $modeNr ) {
 				case MathConfig::MODE_MATHML:
 					$this->runMathMLTest( $modeName );

@@ -80,23 +80,6 @@ class Hooks {
 	}
 
 	/**
-	 * List of message keys for the various math output settings.
-	 *
-	 * @return string[]
-	 */
-	public static function getMathNames() {
-		$names = [];
-		$validModes = MediaWikiServices::getInstance()
-			->get( 'Math.Config' )
-			->getValidRenderingModes();
-		foreach ( $validModes as $mode ) {
-			$names[$mode] = wfMessage( 'mw_math_' . $mode )->escaped();
-		}
-
-		return $names;
-	}
-
-	/**
 	 * MaintenanceRefreshLinksInit handler; optimize settings for refreshLinks batch job.
 	 *
 	 * @param Maintenance $maint
