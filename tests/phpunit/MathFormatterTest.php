@@ -20,6 +20,11 @@ class MathFormatterTest extends MediaWikiTestCase {
 
 	private const SOME_TEX = '\sin x^2';
 
+	protected function setUp(): void {
+		$this->markTestSkippedIfExtensionNotLoaded( 'WikibaseClient' );
+		parent::setUp();
+	}
+
 	/**
 	 * Checks the
 	 * @covers \MediaWiki\Extension\Math\MathFormatter::__construct

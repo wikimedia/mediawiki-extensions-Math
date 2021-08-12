@@ -28,6 +28,7 @@ class MathDataUpdaterTest extends MediaWikiTestCase {
 	 */
 	protected function setUp(): void {
 		parent::setUp();
+		$this->markTestSkippedIfExtensionNotLoaded( 'WikibaseClient' );
 		$this->mathProperty = new PropertyId( 'P' . DummyPropertyDataTypeLookup::$mathId );
 		$this->otherProperty = new PropertyId( 'P' . ( DummyPropertyDataTypeLookup::$mathId + 1 ) );
 	}

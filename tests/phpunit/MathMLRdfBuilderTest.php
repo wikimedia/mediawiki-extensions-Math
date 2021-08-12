@@ -20,6 +20,11 @@ class MathMLRdfBuilderTest extends MediaWikiTestCase {
 	private const ACME_PREFIX_URL = 'http://acme/';
 	private const ACME_REF = 'testing';
 
+	protected function setUp(): void {
+		$this->markTestSkippedIfExtensionNotLoaded( 'WikibaseClient' );
+		parent::setUp();
+	}
+
 	/**
 	 * @param string $test
 	 * @return string
