@@ -63,13 +63,13 @@ class ParserHooksHandler implements
 	/**
 	 * Callback function for the <math> parser hook.
 	 *
-	 * @param string $content (the LaTeX input)
+	 * @param ?string $content (the LaTeX input)
 	 * @param array $attributes
 	 * @param Parser $parser
 	 * @return array|string
 	 */
-	public function mathTagHook( string $content, array $attributes, Parser $parser ) {
-		if ( trim( $content ) === '' ) { // bug 8372 https://phabricator.wikimedia.org/rSVN18870
+	public function mathTagHook( ?string $content, array $attributes, Parser $parser ) {
+		if ( !$content || trim( $content ) === '' ) { // bug 8372 https://phabricator.wikimedia.org/rSVN18870
 			return '';
 		}
 
@@ -96,12 +96,15 @@ class ParserHooksHandler implements
 	/**
 	 * Callback function for the <ce> parser hook.
 	 *
-	 * @param string $content (the LaTeX input)
+	 * @param ?string $content (the LaTeX input)
 	 * @param array $attributes
 	 * @param Parser $parser
-	 * @return array
+	 * @return array|string
 	 */
-	public function chemTagHook( string $content, array $attributes, Parser $parser ) {
+	public function chemTagHook( ?string $content, array $attributes, Parser $parser ) {
+		if ( !$content ) {
+			return '';
+		}
 		$attributes['chem'] = true;
 		return $this->mathTagHook( '\ce{' . $content . '}', $attributes, $parser );
 	}
