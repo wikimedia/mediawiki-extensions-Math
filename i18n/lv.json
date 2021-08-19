@@ -52,6 +52,7 @@
 	"math-wikibase-formula": "Formula",
 	"math-wikibase-formula-name": "Nosaukums",
 	"math-wikibase-formula-description": "Apraksts",
+	"math-wikibase-formula-information": "Matemātiskās formulas informācija",
 	"math-wikibase-formula-link-header": "Datu avots",
 	"math-wikibase-formula-elements-header": "Formulas elementi",
 	"math-wikibase-special-form-header": "Norādi formulas nosaukumu:",
