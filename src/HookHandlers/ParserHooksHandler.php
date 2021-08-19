@@ -69,17 +69,16 @@ class ParserHooksHandler implements
 	 * @return array|string
 	 */
 	public function mathTagHook( ?string $content, array $attributes, Parser $parser ) {
-		if ( !$content || trim( $content ) === '' ) { // bug 8372 https://phabricator.wikimedia.org/rSVN18870
+		if ( trim( $content ?? '' ) === '' ) { // bug 8372 https://phabricator.wikimedia.org/rSVN18870
 			return '';
 		}
-
 		$mode = Hooks::mathModeToString(
 			$this->userOptionsLookup->getOption( $parser->getUserIdentity(), 'math' )
 		);
 		// Indicate that this page uses math.
 		// This affects the page caching behavior.
 		$parser->getOptions()->optionUsed( 'math' );
-		$renderer = $this->rendererFactory->getRenderer( $content, $attributes, $mode );
+		$renderer = $this->rendererFactory->getRenderer( $content ?? '', $attributes, $mode );
 
 		$parser->getOutput()->addModuleStyles( [ 'ext.math.styles' ] );
 		if ( $mode == 'mathml' ) {
@@ -102,7 +101,7 @@ class ParserHooksHandler implements
 	 * @return array|string
 	 */
 	public function chemTagHook( ?string $content, array $attributes, Parser $parser ) {
-		if ( !$content ) {
+		if ( trim( $content ?? '' ) === '' ) {
 			return '';
 		}
 		$attributes['chem'] = true;
