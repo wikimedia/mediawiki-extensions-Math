@@ -25,5 +25,7 @@
 	"mw_math_mathml": "MathML mä SVG- of PNG-fallback (beeder för neier browsern an halperwerktjüügen)",
 	"mw_math_png": "PNG-bilen",
 	"mw_math_source": "LaTeX-kwel (för tekst-browsern)",
-	"prefs-math": "TeX"
+	"prefs-math": "TeX",
+	"mathwikibase": "Informatsion tu matemaatisk formeln",
+	"math-wikibase-formula-information": "Informatsion tu matemaatisk formeln"
 }
