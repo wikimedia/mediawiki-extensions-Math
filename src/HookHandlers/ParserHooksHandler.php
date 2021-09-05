@@ -72,10 +72,6 @@ class ParserHooksHandler implements
 	 * @return array|string
 	 */
 	public function mathTagHook( ?string $content, array $attributes, Parser $parser ) {
-		if ( trim( $content ?? '' ) === '' ) { // bug 8372 https://phabricator.wikimedia.org/rSVN18870
-			return '';
-		}
-
 		$mode = $parser->getOptions()->getOption( 'math' );
 		$renderer = $this->rendererFactory->getRenderer( $content ?? '', $attributes, $mode );
 
@@ -100,9 +96,6 @@ class ParserHooksHandler implements
 	 * @return array|string
 	 */
 	public function chemTagHook( ?string $content, array $attributes, Parser $parser ) {
-		if ( trim( $content ?? '' ) === '' ) {
-			return '';
-		}
 		$attributes['chem'] = true;
 		return $this->mathTagHook( '\ce{' . $content . '}', $attributes, $parser );
 	}
