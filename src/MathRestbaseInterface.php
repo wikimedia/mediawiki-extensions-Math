@@ -457,6 +457,7 @@ class MathRestbaseInterface {
 	 * @param string $type
 	 * @param string $body
 	 * @throws MWException
+	 * @return never
 	 */
 	public static function throwContentError( $type, $body ) {
 		$detail = 'Server problem.';

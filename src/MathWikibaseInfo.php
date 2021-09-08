@@ -145,9 +145,6 @@ class MathWikibaseInfo {
 	 * @return bool true if there are elements otherwise false
 	 */
 	public function hasParts() {
-		if ( !$this->hasParts ) {
-			return false;
-		}
 		return $this->hasParts !== [];
 	}
 
