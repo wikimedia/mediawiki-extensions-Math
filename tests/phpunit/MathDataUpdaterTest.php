@@ -1,6 +1,6 @@
 <?php
 
-use Wikibase\DataModel\Entity\PropertyId;
+use Wikibase\DataModel\Entity\NumericPropertyId;
 use Wikibase\DataModel\Services\Entity\PropertyDataTypeMatcher;
 use Wikibase\DataModel\Snak\PropertyNoValueSnak;
 use Wikibase\DataModel\Statement\Statement;
@@ -15,11 +15,11 @@ use Wikibase\DataModel\Statement\Statement;
 class MathDataUpdaterTest extends MediaWikiTestCase {
 
 	/**
-	 * @var PropertyId
+	 * @var NumericPropertyId
 	 */
 	private $mathProperty;
 	/**
-	 * @var PropertyId
+	 * @var NumericPropertyId
 	 */
 	private $otherProperty;
 
@@ -29,8 +29,8 @@ class MathDataUpdaterTest extends MediaWikiTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 		$this->markTestSkippedIfExtensionNotLoaded( 'WikibaseClient' );
-		$this->mathProperty = new PropertyId( 'P' . DummyPropertyDataTypeLookup::$mathId );
-		$this->otherProperty = new PropertyId( 'P' . ( DummyPropertyDataTypeLookup::$mathId + 1 ) );
+		$this->mathProperty = new NumericPropertyId( 'P' . DummyPropertyDataTypeLookup::$mathId );
+		$this->otherProperty = new NumericPropertyId( 'P' . ( DummyPropertyDataTypeLookup::$mathId + 1 ) );
 	}
 
 	public function testNoMath() {

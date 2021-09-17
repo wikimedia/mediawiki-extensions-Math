@@ -3,7 +3,7 @@
 use DataValues\StringValue;
 use MediaWiki\Extension\Math\MathMLRdfBuilder;
 use MediaWiki\Extension\Math\Tests\MathMockHttpTrait;
-use Wikibase\DataModel\Entity\PropertyId;
+use Wikibase\DataModel\Entity\NumericPropertyId;
 use Wikibase\DataModel\Snak\PropertyValueSnak;
 use Wikimedia\Purtle\NTriplesRdfWriter;
 
@@ -38,7 +38,7 @@ class MathMLRdfBuilderTest extends MediaWikiTestCase {
 		$writer->start();
 		$writer->about( 'www', 'Q1' );
 
-		$snak = new PropertyValueSnak( new PropertyId( 'P1' ), new StringValue( $test ) );
+		$snak = new PropertyValueSnak( new NumericPropertyId( 'P1' ), new StringValue( $test ) );
 		$builder->addValue( $writer, 'acme', self::ACME_REF, 'DUMMY', '', $snak );
 
 		return trim( $writer->drain() );
