@@ -223,5 +223,3 @@ class MathLaTeXML extends MathMathML {
 		return 'mathlatexml';
 	}
 }
-
-class_alias( MathLaTeXML::class, 'MathLaTeXML' );

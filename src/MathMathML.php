@@ -582,5 +582,3 @@ class MathMathML extends MathRenderer {
 		return $this->userInputTex === '';
 	}
 }
-
-class_alias( MathMathML::class, 'MathMathML' );

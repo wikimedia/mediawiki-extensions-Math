@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\Math\Render;
 
-use MathMathML;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathLaTeXML;
+use MediaWiki\Extension\Math\MathMathML;
 use MediaWiki\Extension\Math\MathMathMLCli;
 use MediaWiki\Extension\Math\MathPng;
 use MediaWiki\Extension\Math\MathRenderer;

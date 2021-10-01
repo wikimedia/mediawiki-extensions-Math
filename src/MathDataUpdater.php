@@ -58,5 +58,3 @@ class MathDataUpdater implements StatementDataUpdater {
 		}
 	}
 }
-
-class_alias( MathDataUpdater::class, 'MathDataUpdater' );

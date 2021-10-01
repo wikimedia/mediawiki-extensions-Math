@@ -15,20 +15,6 @@
 	"requires": {
 		"MediaWiki": ">= 1.36.0"
 	},
-	"AutoloadClasses": {
-		"MathDataUpdater": "src/MathDataUpdater.php",
-		"MathHooks": "src/Hooks.php",
-		"MathLaTeXML": "src/MathLaTeXML.php",
-		"MathMathML": "src/MathMathML.php",
-		"MathRenderer": "src/MathRenderer.php",
-		"MathRestbaseInterface": "src/MathRestbaseInterface.php",
-		"MediaWiki\\Extension\\Math\\MathDataUpdater": "src/MathDataUpdater.php",
-		"MediaWiki\\Extension\\Math\\Hooks": "src/Hooks.php",
-		"MediaWiki\\Extension\\Math\\MathLaTeXML": "src/MathLaTeXML.php",
-		"MediaWiki\\Extension\\Math\\MathMathML": "src/MathMathML.php",
-		"MediaWiki\\Extension\\Math\\MathRenderer": "src/MathRenderer.php",
-		"MediaWiki\\Extension\\Math\\MathRestbaseInterface": "src/MathRestbaseInterface.php"
-	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\Math\\": "src/"
 	},

@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Math\MathMathML;
+use MediaWiki\Extension\Math\MathRestbaseInterface;
 use MediaWiki\Extension\Math\Tests\MathMockHttpTrait;
 use Wikimedia\TestingAccessWrapper;
 

@@ -472,5 +472,3 @@ class MathRestbaseInterface {
 		throw new MWException( "Cannot get $type. $detail" );
 	}
 }
-
-class_alias( MathRestbaseInterface::class, 'MathRestbaseInterface' );

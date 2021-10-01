@@ -90,5 +90,3 @@ class Hooks {
 	}
 
 }
-
-class_alias( Hooks::class, 'MathHooks' );

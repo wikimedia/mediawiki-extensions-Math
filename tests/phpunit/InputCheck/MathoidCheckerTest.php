@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Math\InputCheck;
 
 use HashBagOStuff;
-use MathMathML;
+use MediaWiki\Extension\Math\MathMathML;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWikiTestCase;

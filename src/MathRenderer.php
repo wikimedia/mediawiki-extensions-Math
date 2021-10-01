@@ -731,5 +731,3 @@ abstract class MathRenderer {
 		$this->logger->debug( "$msg for \"{tex}\".", [ 'tex' => $this->userInputTex ] );
 	}
 }
-
-class_alias( MathRenderer::class, 'MathRenderer' );
