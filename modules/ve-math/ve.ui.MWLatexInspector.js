@@ -35,8 +35,6 @@ ve.ui.MWLatexInspector.static.dir = 'ltr';
  * @inheritdoc
  */
 ve.ui.MWLatexInspector.prototype.initialize = function () {
-	var inputField, displayField, idField;
-
 	// Parent method
 	ve.ui.MWLatexInspector.super.prototype.initialize.call( this );
 
@@ -62,15 +60,15 @@ ve.ui.MWLatexInspector.prototype.initialize = function () {
 
 	this.idInput = new OO.ui.TextInputWidget();
 
-	inputField = new OO.ui.FieldLayout( this.input, {
+	var inputField = new OO.ui.FieldLayout( this.input, {
 		align: 'top',
 		label: ve.msg( 'math-visualeditor-mwlatexdialog-card-formula' )
 	} );
-	displayField = new OO.ui.FieldLayout( this.displaySelect, {
+	var displayField = new OO.ui.FieldLayout( this.displaySelect, {
 		align: 'top',
 		label: ve.msg( 'math-visualeditor-mwlatexinspector-display' )
 	} );
-	idField = new OO.ui.FieldLayout( this.idInput, {
+	var idField = new OO.ui.FieldLayout( this.idInput, {
 		align: 'top',
 		label: ve.msg( 'math-visualeditor-mwlatexinspector-id' )
 	} );
@@ -111,13 +109,11 @@ ve.ui.MWLatexInspector.prototype.getTeardownProcess = function ( data ) {
  * @inheritdoc
  */
 ve.ui.MWLatexInspector.prototype.updateMwData = function ( mwData ) {
-	var display, id;
-
 	// Parent method
 	ve.ui.MWLatexInspector.super.prototype.updateMwData.call( this, mwData );
 
-	display = this.displaySelect.findSelectedItem().getData();
-	id = this.idInput.getValue();
+	var display = this.displaySelect.findSelectedItem().getData();
+	var id = this.idInput.getValue();
 
 	mwData.attrs.display = display !== 'default' ? display : undefined;
 	mwData.attrs.id = id || undefined;

@@ -52,9 +52,7 @@ ve.ui.MWLatexDialog.static.setSymbols = function ( symbols ) {
  * @inheritdoc
  */
 ve.ui.MWLatexDialog.prototype.initialize = function () {
-	var formulaPanel, inputField, displayField, idField, category,
-		formulaTabPanel, optionsTabPanel,
-		dialog = this;
+	var dialog = this;
 
 	// Parent method
 	ve.ui.MWLatexDialog.super.prototype.initialize.call( this );
@@ -62,11 +60,11 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 	// Layout for the formula inserter (formula tab panel) and options form (options tab panel)
 	this.indexLayout = new OO.ui.IndexLayout();
 
-	formulaTabPanel = new OO.ui.TabPanelLayout( 'formula', {
+	var formulaTabPanel = new OO.ui.TabPanelLayout( 'formula', {
 		label: ve.msg( 'math-visualeditor-mwlatexdialog-card-formula' ),
 		padded: true
 	} );
-	optionsTabPanel = new OO.ui.TabPanelLayout( 'options', {
+	var optionsTabPanel = new OO.ui.TabPanelLayout( 'options', {
 		label: ve.msg( 'math-visualeditor-mwlatexdialog-card-options' ),
 		padded: true
 	} );
@@ -116,20 +114,20 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 
 	this.idInput = new OO.ui.TextInputWidget();
 
-	inputField = new OO.ui.FieldLayout( this.input, {
+	var inputField = new OO.ui.FieldLayout( this.input, {
 		align: 'top',
 		label: ve.msg( 'math-visualeditor-mwlatexdialog-card-formula' )
 	} );
-	displayField = new OO.ui.FieldLayout( this.displaySelect, {
+	var displayField = new OO.ui.FieldLayout( this.displaySelect, {
 		align: 'top',
 		label: ve.msg( 'math-visualeditor-mwlatexinspector-display' )
 	} );
-	idField = new OO.ui.FieldLayout( this.idInput, {
+	var idField = new OO.ui.FieldLayout( this.idInput, {
 		align: 'top',
 		label: ve.msg( 'math-visualeditor-mwlatexinspector-id' )
 	} );
 
-	formulaPanel = new OO.ui.PanelLayout( {
+	var formulaPanel = new OO.ui.PanelLayout( {
 		scrollable: true,
 		padded: true
 	} );
@@ -144,7 +142,7 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 	this.pages = [];
 	this.symbolsPromise = mw.loader.using( this.constructor.static.symbolsModule ).done( function () {
 		var symbols = dialog.constructor.static.symbols;
-		for ( category in symbols ) {
+		for ( var category in symbols ) {
 			dialog.pages.push(
 				new ve.ui.MWLatexPage(
 					// eslint-disable-next-line mediawiki/msg-doc
@@ -247,14 +245,12 @@ ve.ui.MWLatexDialog.prototype.getTeardownProcess = function ( data ) {
  * @inheritdoc
  */
 ve.ui.MWLatexDialog.prototype.updateMwData = function ( mwData ) {
-	var display, id;
-
 	// Parent method
 	ve.ui.MWLatexDialog.super.prototype.updateMwData.call( this, mwData );
 
 	// Get data from dialog
-	display = this.displaySelect.findSelectedItem().getData();
-	id = this.idInput.getValue();
+	var display = this.displaySelect.findSelectedItem().getData();
+	var id = this.idInput.getValue();
 
 	// Update attributes
 	mwData.attrs.display = display !== 'default' ? display : undefined;
@@ -274,10 +270,6 @@ ve.ui.MWLatexDialog.prototype.getBodyHeight = function () {
 ve.ui.MWLatexDialog.prototype.onWindowManagerResize = function () {
 	var dialog = this;
 	this.input.loadingPromise.always( function () {
-		var availableSpace, maxInputHeight, singleLineHeight, minRows,
-			border = 1,
-			padding = 3,
-			borderAndPadding = 2 * ( border + padding );
 		// Toggle short mode as necessary
 		// NB a change of mode triggers a transition...
 		dialog.menuLayout.$element.toggleClass(
@@ -287,11 +279,14 @@ ve.ui.MWLatexDialog.prototype.onWindowManagerResize = function () {
 		// ...So wait for the possible menuLayout transition to finish
 		setTimeout( function () {
 			// Give the input the right number of rows to fit the space
-			availableSpace = dialog.menuLayout.$content.height() - dialog.input.$element.position().top;
+			var availableSpace = dialog.menuLayout.$content.height() - dialog.input.$element.position().top;
 			// TODO: Compute this line height from the skin
-			singleLineHeight = 21;
-			maxInputHeight = availableSpace - borderAndPadding;
-			minRows = Math.floor( maxInputHeight / singleLineHeight );
+			var singleLineHeight = 21;
+			var border = 1;
+			var padding = 3;
+			var borderAndPadding = 2 * ( border + padding );
+			var maxInputHeight = availableSpace - borderAndPadding;
+			var minRows = Math.floor( maxInputHeight / singleLineHeight );
 			dialog.input.loadingPromise.done( function () {
 				dialog.input.setMinRows( minRows );
 			} ).fail( function () {
@@ -307,22 +302,22 @@ ve.ui.MWLatexDialog.prototype.onWindowManagerResize = function () {
  * @param {jQuery.Event} e Mouse click event
  */
 ve.ui.MWLatexDialog.prototype.onListClick = function ( e ) {
-	var symbol = $( e.target ).data( 'symbol' ),
-		encapsulate = symbol.encapsulate,
-		insert = symbol.insert,
-		range = this.input.getRange();
-
 	if ( this.isReadOnly() ) {
 		return;
 	}
 
+	var symbol = $( e.target ).data( 'symbol' ),
+		encapsulate = symbol.encapsulate;
+
 	if ( encapsulate ) {
+		var range = this.input.getRange();
 		if ( range.from === range.to ) {
 			this.input.insertContent( encapsulate.placeholder );
 			this.input.selectRange( range.from, range.from + encapsulate.placeholder.length );
 		}
 		this.input.encapsulateContent( encapsulate.pre, encapsulate.post );
 	} else {
+		var insert = symbol.insert;
 		this.input.insertContent( insert );
 	}
 };

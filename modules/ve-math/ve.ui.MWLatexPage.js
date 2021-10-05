@@ -16,24 +16,20 @@
  * @param {Object} [config] Configuration options
  */
 ve.ui.MWLatexPage = function VeUiMWLatexPage( name, config ) {
-	var i, ilen, j, jlen, symbol, symbols, $symbols,
-		symbolNode, symbolsNode, tex, classes;
-
 	// Parent constructor
 	ve.ui.MWLatexPage.super.call( this, name, config );
 
 	this.label = config.label;
 
-	symbols = config.symbols;
-	$symbols = $( '<div>' ).addClass( 've-ui-specialCharacterPage-characters' );
-	symbolsNode = $symbols[ 0 ];
+	var symbols = config.symbols;
+	var $symbols = $( '<div>' ).addClass( 've-ui-specialCharacterPage-characters' );
+	var symbolsNode = $symbols[ 0 ];
 
 	// Avoiding jQuery wrappers as advised in ve.ui.SpecialCharacterPage
-	for ( i = 0, ilen = symbols.length; i < ilen; i++ ) {
-		symbol = symbols[ i ];
+	symbols.forEach( function ( symbol ) {
 		if ( !symbol.notWorking && !symbol.duplicate ) {
-			tex = symbol.tex || symbol.insert;
-			classes = [ 've-ui-mwLatexPage-symbol' ];
+			var tex = symbol.tex || symbol.insert;
+			var classes = [ 've-ui-mwLatexPage-symbol' ];
 			classes.push(
 				've-ui-mwLatexSymbol-' + tex.replace( /[^\w]/g, function ( c ) {
 					return '_' + c.charCodeAt( 0 ) + '_';
@@ -48,8 +44,8 @@ ve.ui.MWLatexPage = function VeUiMWLatexPage( name, config ) {
 			if ( symbol.largeLayout ) {
 				classes.push( 've-ui-mwLatexPage-symbol-largeLayout' );
 			}
-			symbolNode = document.createElement( 'div' );
-			for ( j = 0, jlen = classes.length; j < jlen; j++ ) {
+			var symbolNode = document.createElement( 'div' );
+			classes.forEach( function ( className ) {
 				// The following classes are used here:
 				// * ve-ui-mwLatexPage-symbol
 				// * ve-ui-mwLatexPage-symbol-wide
@@ -57,12 +53,12 @@ ve.ui.MWLatexPage = function VeUiMWLatexPage( name, config ) {
 				// * ve-ui-mwLatexPage-symbol-widest
 				// * ve-ui-mwLatexPage-symbol-contain
 				// * ve-ui-mwLatexPage-symbol-largeLayout
-				symbolNode.classList.add( classes[ j ] );
-			}
+				symbolNode.classList.add( className );
+			} );
 			$.data( symbolNode, 'symbol', symbol );
 			symbolsNode.appendChild( symbolNode );
 		}
-	}
+	} );
 
 	this.$element
 		.addClass( 've-ui-mwLatexPage' )

@@ -6,7 +6,6 @@
 		"wikimedia/mediawiki"
 	],
 	"rules": {
-		"max-len": "off",
-		"no-useless-escape": "warn"
+		"max-len": "off"
 	}
 }

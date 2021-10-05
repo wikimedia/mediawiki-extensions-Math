@@ -7,8 +7,8 @@
 	 *
 	 * @class
 	 * @extends OO.ui.TextInputWidget
-	 * @mixins mw.widgets.TitleWidget
-	 * @mixins OO.ui.mixin.LookupElement
+	 * @mixin mw.widgets.TitleWidget
+	 * @mixin OO.ui.mixin.LookupElement
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration options
@@ -27,6 +27,7 @@
 	};
 	OO.inheritClass( mw.widgets.MathWbEntitySelector, OO.ui.TextInputWidget );
 	OO.mixinClass( mw.widgets.MathWbEntitySelector, OO.ui.mixin.LookupElement );
+
 	/**
 	 * Get the API object for wikibase requests
 	 *
@@ -35,6 +36,7 @@
 	mw.widgets.MathWbEntitySelector.prototype.getApi = function () {
 		return this.api;
 	};
+
 	/**
 	 * Get the current value of the search query
 	 *
@@ -44,12 +46,14 @@
 	mw.widgets.MathWbEntitySelector.prototype.getQueryValue = function () {
 		return this.getValue();
 	};
+
 	/**
 	 * @inheritdoc OO.ui.mixin.LookupElement
 	 */
 	mw.widgets.MathWbEntitySelector.prototype.getLookupCacheDataFromResponse = function ( response ) {
 		return response.search || {};
 	};
+
 	/**
 	 * @inheritdoc OO.ui.mixin.LookupElement
 	 */
@@ -58,6 +62,7 @@
 			return new OO.ui.MenuOptionWidget( { data: res.id, label: res.label, title: res.description } );
 		} );
 	};
+
 	/**
 	 * Get API params for a given query
 	 *
@@ -75,12 +80,12 @@
 			uselang: mw.config.get( 'wgContentLanguage' )
 		};
 	};
+
 	/**
 	 * @inheritdoc
 	 */
 	mw.widgets.MathWbEntitySelector.prototype.getLookupRequest = function () {
-		var req,
-			api = this.getApi(),
+		var api = this.getApi(),
 			query = this.getQueryValue(),
 			widget = this,
 			promiseAbortObject = {
@@ -88,11 +93,12 @@
 					// Do nothing. This is just so OOUI doesn't break due to abort being undefined.
 					// see also mw.widgets.TitleWidget.prototype.getSuggestionsPromise
 				}
-			};
-		req = api.get( widget.getApiParams( query ) );
+			},
+			req = api.get( widget.getApiParams( query ) );
 		promiseAbortObject.abort = req.abort.bind( req );
 		return req.promise( promiseAbortObject );
 	};
+
 	// eslint-disable-next-line no-jquery/no-global-selector
 	var $wbEntitySelector = $( '#wbEntitySelector' );
 	if ( $wbEntitySelector.length ) {
