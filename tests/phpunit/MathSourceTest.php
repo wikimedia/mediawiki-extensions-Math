@@ -11,7 +11,7 @@ use MediaWiki\Extension\Math\MathSource;
  *
  * @license GPL-2.0-or-later
  */
-class MathSourceTest extends MediaWikiTestCase {
+class MathSourceTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * Checks the basic functionality

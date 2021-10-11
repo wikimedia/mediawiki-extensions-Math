@@ -14,7 +14,7 @@ use Wikimedia\Purtle\NTriplesRdfWriter;
  * @covers \MediaWiki\Extension\Math\MathMLRdfBuilder
  * @author Moritz Schubotz (physikerwelt)
  */
-class MathMLRdfBuilderTest extends MediaWikiTestCase {
+class MathMLRdfBuilderTest extends MediaWikiIntegrationTestCase {
 	use MathMockHttpTrait;
 
 	private const ACME_PREFIX_URL = 'http://acme/';

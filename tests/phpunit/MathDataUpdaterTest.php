@@ -13,7 +13,7 @@ use Wikibase\DataModel\Statement\Statement;
  *
  * @license GPL-2.0-or-later
  */
-class MathDataUpdaterTest extends MediaWikiTestCase {
+class MathDataUpdaterTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @var NumericPropertyId

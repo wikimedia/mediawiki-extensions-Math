@@ -11,7 +11,7 @@ use MediaWiki\Extension\Math\MathValidator;
  *
  * @license GPL-2.0-or-later
  */
-class MathValidatorTest extends MediaWikiTestCase {
+class MathValidatorTest extends MediaWikiIntegrationTestCase {
 	use MockHttpTrait;
 
 	private const VADLID_TEX = "\sin x";

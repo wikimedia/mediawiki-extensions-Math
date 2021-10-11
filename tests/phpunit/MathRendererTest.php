@@ -12,7 +12,7 @@ use MediaWiki\Extension\Math\Tests\MathMockHttpTrait;
  *
  * @license GPL-2.0-or-later
  */
-class MathRendererTest extends MediaWikiTestCase {
+class MathRendererTest extends MediaWikiIntegrationTestCase {
 	use MathMockHttpTrait;
 
 	private const SOME_TEX = "a+b";

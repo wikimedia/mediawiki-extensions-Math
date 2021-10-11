@@ -11,7 +11,7 @@ use MediaWiki\Extension\Math\MathLaTeXML;
  *
  * @license GPL-2.0-or-later
  */
-class MathLaTeXMLDatabaseTest extends MediaWikiTestCase {
+class MathLaTeXMLDatabaseTest extends MediaWikiIntegrationTestCase {
 	public $renderer;
 	private const SOME_TEX = "a+b";
 	private const SOME_HTML = "a<sub>b</sub>";

@@ -8,7 +8,7 @@ use MediaWiki\Extension\Math\MathPng;
  *
  * @license GPL-2.0-or-later
  */
-class MathPngTest extends MediaWikiTestCase {
+class MathPngTest extends MediaWikiIntegrationTestCase {
 
 	/** @var string The fallback image HTML tag */
 	private const TEST_DUMMY = '<img src="test.png" />';

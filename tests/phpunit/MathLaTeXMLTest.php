@@ -11,7 +11,7 @@ use MediaWiki\Extension\Math\MathLaTeXML;
  *
  * @license GPL-2.0-or-later
  */
-class MathLaTeXMLTest extends MediaWikiTestCase {
+class MathLaTeXMLTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * Tests the serialization of the LaTeXML settings

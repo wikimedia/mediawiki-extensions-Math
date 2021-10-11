@@ -10,7 +10,7 @@ use MediaWiki\Extension\Math\Tests\MathMockHttpTrait;
  *
  * @covers \MediaWiki\Extension\Math\InputCheck\RestbaseChecker
  */
-class RestbaseCheckerTest extends MediaWikiTestCase {
+class RestbaseCheckerTest extends MediaWikiIntegrationTestCase {
 	use MathMockHttpTrait;
 
 	public function testValid() {

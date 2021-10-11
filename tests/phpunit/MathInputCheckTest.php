@@ -9,7 +9,7 @@ use MediaWiki\Extension\Math\InputCheck\BaseChecker;
  *
  * @license GPL-2.0-or-later
  */
-class MathInputCheckTest extends MediaWikiTestCase {
+class MathInputCheckTest extends MediaWikiIntegrationTestCase {
 
 	public function testAbstractClass() {
 		$InputCheck = $this->getMockForAbstractClass( BaseChecker::class );

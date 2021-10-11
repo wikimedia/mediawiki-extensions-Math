@@ -14,7 +14,7 @@ use Wikimedia\TestingAccessWrapper;
  *
  * @license GPL-2.0-or-later
  */
-class MathMathMLTest extends MediaWikiTestCase {
+class MathMathMLTest extends MediaWikiIntegrationTestCase {
 	use MathMockHttpTrait;
 
 	protected function setUp(): void {

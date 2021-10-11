@@ -14,7 +14,7 @@ use MediaWiki\Extension\Math\MathRenderer;
  *
  * @license GPL-2.0-or-later
  */
-class MathDatabaseTest extends MediaWikiTestCase {
+class MathDatabaseTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @var MathRenderer
 	 */

@@ -14,7 +14,7 @@ use MediaWiki\Extension\Math\Tests\MathMockHttpTrait;
  *
  * @license GPL-2.0-or-later
  */
-class MathRestbaseInterfaceTest extends MediaWikiTestCase {
+class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 	use MathMockHttpTrait;
 
 	public function testSuccess() {

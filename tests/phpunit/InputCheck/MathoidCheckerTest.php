@@ -6,11 +6,11 @@ use HashBagOStuff;
 use MediaWiki\Extension\Math\MathMathML;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\MediaWikiServices;
-use MediaWikiTestCase;
+use MediaWikiIntegrationTestCase;
 use MockHttpTrait;
 use WANObjectCache;
 
-class MathoidCheckerTest extends MediaWikiTestCase {
+class MathoidCheckerTest extends MediaWikiIntegrationTestCase {
 	use MockHttpTrait;
 
 	private const SAMPLE_KEY = 'global:MediaWiki\Extension\Math\InputCheck\MathoidChecker:' .

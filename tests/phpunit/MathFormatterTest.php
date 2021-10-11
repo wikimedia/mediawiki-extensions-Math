@@ -15,7 +15,7 @@ use Wikibase\Lib\Formatters\SnakFormatter;
  *
  * @license GPL-2.0-or-later
  */
-class MathFormatterTest extends MediaWikiTestCase {
+class MathFormatterTest extends MediaWikiIntegrationTestCase {
 	use MathMockHttpTrait;
 
 	private const SOME_TEX = '\sin x^2';
