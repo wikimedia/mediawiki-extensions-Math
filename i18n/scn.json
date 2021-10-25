@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Macofe",
 			"Pippinu",
 			"Sarvaturi",
 			"Tonyfroio"
 		]
 	},
+	"math-visualeditor-symbol-group-math-relations": "Rilazziona",
 	"math_failure": "S'hà virificatu un erruri ntô parsing",
 	"math_syntax_error": "erruri di sintassi",
 	"math_unknown_error": "erruri scanusciutu",
