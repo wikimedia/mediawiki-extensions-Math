@@ -162,8 +162,8 @@ class MathLaTeXML extends MathMathML {
 
 	/**
 	 * Embeds the MathML-XML element in a HTML span element with class tex
-	 * @param string $mml : the MathML string
-	 * @param string $tagId : optional tagID for references like (pagename#equation2)
+	 * @param string $mml the MathML string
+	 * @param string $tagId optional tagID for references like (pagename#equation2)
 	 * @param array|false $attribs
 	 * @return string html element with rendered math
 	 */
