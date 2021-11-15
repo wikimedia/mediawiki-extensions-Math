@@ -7,7 +7,7 @@
 function generateCSS( symbolsFile, cssFile, inputType ) {
 	let cssRules = []; // Whole CSS rules
 	const
-		rerenderAll = process.argv.slice( 2 ).indexOf( '--all' ) !== -1,
+		rerenderAll = process.argv.slice( 2 ).includes( '--all' ),
 		unmodifiedClasses = {},
 		cssClasses = {}, // Unique part of class name and whether baseline is shifted
 		generatedRules = [],

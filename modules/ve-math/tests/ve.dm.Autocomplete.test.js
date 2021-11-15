@@ -5,7 +5,7 @@ QUnit.test( 'Autocomplete list', function ( assert ) {
 		ve.ui.MWMathDialog.static.autocompleteWordList,
 		undefined,
 		'autocomplete list exists' );
-	assert.notEqual(
+	assert.notStrictEqual(
 		ve.ui.MWMathDialog.static.autocompleteWordList.indexOf( '\\alpha' ),
 		-1,
 		'autocomplete contains \\alpha' );
