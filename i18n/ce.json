@@ -25,7 +25,7 @@
 	"math_syntax_error": "синтаксин гӀалат",
 	"math_timeout": "$1 хьоьжу хан сов аьлла «$2»",
 	"math-test-end": "Рендеринган ражан ''$1'' чоьхьара тесташ чекхяьхна.",
-	"math-test-fail": "Тест ''$1'' <span style=\"color:red\">чекх цаяьлий</span>.",
+	"math-test-fail": "Тест ''$1'' <span style=\"color:red\">чекх цайаьлий</span>.",
 	"math-test-success": "Тест «$1» <span style=\"color:green\">кхиамца чекхйаьлла</span>.",
 	"math-test-contains-diff": "Йухаберзина могӀа $1 хила беза $2 могӀа бац.",
 	"math-test-equals-diff": "Йухаберзина могӀа $1 хила безачунга $2 тера бац.",
