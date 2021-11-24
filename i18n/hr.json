@@ -5,7 +5,8 @@
 			"Herr Mlinka",
 			"MaGa",
 			"Roberta F.",
-			"SpeedyGonsales"
+			"SpeedyGonsales",
+			"Ponor"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Kemijska formula",
@@ -59,19 +60,19 @@
 	"math-visualeditor-symbol-group-math-unsorted": "Nerazvrstano",
 	"math_failure": "Obrada nije uspjela.",
 	"math-status-introduction": "Ova stranica prikazuje informacije o {{PLURAL:$1|načinu|načinima}}. izvedbe ispisa matematičkih formula.\n\nSljedeći {{PLURAL:$1|je način omogućen|su načini omogućeni}}:",
-	"math_syntax_error": "sintaksna pogrješka",
+	"math_syntax_error": "neispravna sintaksa",
 	"math-test-end": "''Backend'' testovi za načine prikaza ''$1'' su završeni.",
 	"math-test-fail": "Test ''$1'' <span style=\"color:red\">neuspješan</span>.",
 	"math-test-success": "Test ''$1'' <span style=\"color:green\">uspješan</span>.",
 	"math-tracking-category-error": "Stranice s matematičkim pogrješkama",
-	"math-tracking-category-error-desc": "Stranice u ovoj kategoriji imaju pogrješke u uporabi matematičkih oznaka.",
+	"math-tracking-category-error-desc": "Stranice u ovoj kategoriji imaju pogreške u uporabi matematičkih oznaka.",
 	"math-tracking-category-mhchem-deprecation": "Stranice na kojima je zastarjeli format kemijskih oznaka",
 	"math-tracking-category-mhchem-deprecation-desc": "Stranice u ovoj kategoriji imaju zastarjeli format kemijskih oznaka",
 	"math-tracking-category-texvc-deprecation": "Stranice na kojima je zastarjeli format matematičkih oznaka",
 	"math-tracking-category-texvc-deprecation-desc": "Stranice u ovoj kategoriji imaju zastarjeli format matematičkih oznaka",
 	"math-tracking-category-render-error": "Stranice s pogrješkama u prikazu matematike",
-	"math-tracking-category-render-error-desc": "Stranice u ovoj kategoriji imaju pogrješke u prikazu matematičkih oznaka",
-	"math_unknown_error": "nepoznata pogrješka",
+	"math-tracking-category-render-error-desc": "Stranice u ovoj kategoriji imaju pogreške u prikazu matematičkih oznaka",
+	"math_unknown_error": "nepoznata pogreška",
 	"math_unknown_function": "nepoznata funkcija \"$1\"",
 	"mw_math_mathml": "MathML sa SVG ili PNG za rezervu (preporučljivo za moderne preglednike i alate za pristupačnost)",
 	"mw_math_png": "PNG slike",
@@ -85,5 +86,5 @@
 	"math-wikibase-formula-name": "Ime",
 	"math-wikibase-formula-type": "Vrsta",
 	"math-wikibase-formula-description": "Opis",
-	"math-wikibase-special-error-header": "Pogrješka"
+	"math-wikibase-special-error-header": "Pogreška"
 }
