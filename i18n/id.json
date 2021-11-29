@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"ANukuma",
 			"Bennylin",
 			"Gombang",
 			"Hidayatsrf",
@@ -18,7 +19,7 @@
 	"math-visualeditor-mwlatexdialog-card-formula": "Rumus",
 	"math-visualeditor-mwlatexdialog-card-options": "Opsi",
 	"math-visualeditor-mwlatexinspector-display": "Tampilan",
-	"math-visualeditor-mwlatexinspector-display-block": "Blokir",
+	"math-visualeditor-mwlatexinspector-display-block": "Blok",
 	"math-visualeditor-mwlatexinspector-display-default": "Bawaan",
 	"math-visualeditor-mwlatexinspector-display-inline": "Sebaris",
 	"math-visualeditor-mwlatexinspector-id": "ID pranala (opsional)",
