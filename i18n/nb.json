@@ -7,7 +7,8 @@
 			"Jon Harald Søby",
 			"Macofe",
 			"Nghtwlkr",
-			"Stigmj"
+			"Stigmj",
+			"Ranveig"
 		]
 	},
 	"math-desc": "Fremstill matematiske formler inne i taggparet <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -78,7 +79,7 @@
 	"math-tracking-category-error-desc": "Sider i denne kategorien har feil i bruk av mattetagger",
 	"math-tracking-category-mhchem-deprecation": "Sider som bruker utdatert format for chem-taggene",
 	"math-tracking-category-mhchem-deprecation-desc": "Sider i denne kategorien bruker et utdatert format for chem-taggene",
-	"math-tracking-category-texvc-deprecation": "Sider som bruker et udtatert format for mattetagger",
+	"math-tracking-category-texvc-deprecation": "Sider som bruker et utdatert format for mattetagger",
 	"math-tracking-category-texvc-deprecation-desc": "Sider i denne kategorien bruker et utdatert format for mattetaggene",
 	"math-tracking-category-render-error": "Sider med mattevisningsfeil",
 	"math-tracking-category-render-error-desc": "Sider i denne kategorien har visningsfeil i mattetaggene.",

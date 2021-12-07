@@ -6,7 +6,8 @@
 			"Macofe",
 			"Teak",
 			"Xelgen",
-			"Դավիթ Սարոյան"
+			"Դավիթ Սարոյան",
+			"Kareyac"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Քիմիական բանաձև",
@@ -70,5 +71,6 @@
 	"prefs-math": "Մաթեմատիկական բանաձևեր",
 	"mathstatus": "Math-ի կարգավիճակ",
 	"datatypes-type-math": "Մաթեմատիկական արտահայտություն",
-	"wikibase-listdatatypes-math-head": "Մաթեմատիկական արտահայտություն"
+	"wikibase-listdatatypes-math-head": "Մաթեմատիկական արտահայտություն",
+	"math-wikibase-formula": "Բանաձև"
 }

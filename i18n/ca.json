@@ -11,7 +11,8 @@
 			"SMP",
 			"Ssola",
 			"Toniher",
-			"Vriullop"
+			"Vriullop",
+			"Jmarchn"
 		]
 	},
 	"math-desc": "Composa fórmules matemàtiques escrites entre les etiquetes <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -32,8 +33,8 @@
 	"math_unknown_error": "error desconegut",
 	"math_unknown_function": "funció '$1' desconeguda",
 	"mw_math_latexml": "LaTeXML (experimental; utilitza MathML)",
-	"mw_math_mathml": "MathML si és possible (experimental)",
-	"mw_math_png": "Produeix sempre PNG",
+	"mw_math_mathml": "MathML amb SVG o PNG alternatiu (recomanat per a navegadors moderns i eines d'accessibilitat)",
+	"mw_math_png": "Imatges PNG",
 	"mw_math_source": "Deixa com a LaTeX (per a navegadors de text)",
 	"prefs-math": "Com es mostren les fórmules",
 	"mathstatus": "Estat matemàtic",

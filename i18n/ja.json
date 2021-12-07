@@ -21,7 +21,8 @@
 			"Yusuke1109",
 			"おはぐろ蜻蛉",
 			"ネイ",
-			"青子守歌"
+			"青子守歌",
+			"Hzy980512"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング",
@@ -83,11 +84,13 @@
 	"math-test-start": "''$1''のレンダリング方式のバックエンドテストを実行中。",
 	"math-test-success": "''$1''のテストは<span style=\"color:green\">成功しました</span>。",
 	"math-tracking-category-error": "mathエラーのあるページ",
+	"math-tracking-category-error-desc": "このカテゴリーに含まれるページはmathタグの使用時にエラーが発生しています。",
 	"math-tracking-category-mhchem-deprecation": "Chemタグに非推奨の書式を使用しているページ",
 	"math-tracking-category-mhchem-deprecation-desc": "このカテゴリに含まれるページはchemタグに非推奨の書式を使用しています",
 	"math-tracking-category-texvc-deprecation": "Mathタグに非推奨の書式を使用しているページ",
 	"math-tracking-category-texvc-deprecation-desc": "このカテゴリに含まれるページはmathタグに非推奨の書式を使用しています",
 	"math-tracking-category-render-error": "math 参照エラーのあるページ",
+	"math-tracking-category-render-error-desc": "このカテゴリーに含まれるページにはmathタグでの表示エラーが発生しています。",
 	"math_unknown_error": "不明なエラー",
 	"math_unknown_function": "不明な関数「$1」",
 	"mw_math_latexml": "LaTeXML (開発中。MathML を使用)",

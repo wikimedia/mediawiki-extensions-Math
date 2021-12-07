@@ -4,7 +4,8 @@
 			"Fohanno",
 			"Fulup",
 			"Macofe",
-			"Y-M D"
+			"Y-M D",
+			"Adriendelucca"
 		]
 	},
 	"math-visualeditor-mwlatexinspector-display-block": "Stankañ",
@@ -18,5 +19,6 @@
 	"mw_math_mathml": "MathML",
 	"mw_math_png": "Produiñ atav ur skeudenn PNG",
 	"mw_math_source": "Leuskel ar c'hod LaTeX orin",
-	"prefs-math": "Tres jedoniel"
+	"prefs-math": "Tres jedoniel",
+	"math-wikibase-formula-link-header": "Mammenn ar roadennoù"
 }
