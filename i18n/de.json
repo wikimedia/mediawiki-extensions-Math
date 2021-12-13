@@ -65,7 +65,7 @@
 	"math-status-introduction": "Diese Seite zeigt Informationen über {{PLURAL:$1|den aktivierten Math-Renderingsmodus|die aktivierten Math-Renderingsmodi}} an.\n\n{{PLURAL:$1|Der folgende Renderingsmodus ist|Die folgenden Renderingsmodi sind}} aktiviert.",
 	"math_syntax_error": "Syntaxfehler",
 	"math_timeout": "$1 Zeitüberschreitung von „$2“",
-	"math-test-end": "Die Backend-Tests für den Renderingsmodus ''$1'' wurden abgeschlossen.",
+	"math-test-end": "Die Tests für den Renderingsmodus ''$1'' wurden abgeschlossen.",
 	"math-test-fail": "Test ''$1'' <span style=\"color:red\">fehlgeschlagen</span>.",
 	"math-test-start": "Führt Backend-Tests für den Renderingsmodus ''$1'' aus.",
 	"math-test-success": "Test ''$1'' <span style=\"color:green\">erfolgreich</span>.",

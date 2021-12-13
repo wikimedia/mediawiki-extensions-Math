@@ -11,7 +11,8 @@
 			"Vlad5250",
 			"Ypryima",
 			"Ата",
-			"Тест"
+			"Тест",
+			"DDPAT"
 		]
 	},
 	"math-desc": "Відображає математичні формули у тегах <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
@@ -54,7 +55,7 @@
 	"math-visualeditor-symbol-group-math-modular": "Модульна арифметика",
 	"math-visualeditor-symbol-group-math-operators": "Оператори",
 	"math-visualeditor-symbol-group-math-parentheses": "Дужки",
-	"math-visualeditor-symbol-group-math-projections": "Проекції",
+	"math-visualeditor-symbol-group-math-projections": "Проєкції",
 	"math-visualeditor-symbol-group-math-relations": "Відношення",
 	"math-visualeditor-symbol-group-math-root": "Корені",
 	"math-visualeditor-symbol-group-math-sets": "Набори",
@@ -102,6 +103,7 @@
 	"math-wikibase-formula": "Формула",
 	"math-wikibase-formula-name": "Назва",
 	"math-wikibase-formula-type": "Тип",
+	"math-wikibase-formula-header-format": "'''$1:''' $2",
 	"math-wikibase-formula-description": "Опис",
 	"math-wikibase-formula-information": "Інформація про математичну формулу",
 	"math-wikibase-formula-link-header": "Джерело даних",

@@ -7,7 +7,8 @@
 			"Laurap",
 			"Minisarm",
 			"Strainu",
-			"XXN"
+			"XXN",
+			"NGC 54"
 		]
 	},
 	"math-desc": "Randează formulele matematice cuprinse între etichetele <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -31,6 +32,7 @@
 	"math-visualeditor-symbol-group-math-arrows": "Săgeți",
 	"math-visualeditor-symbol-group-math-bounds": "Limite",
 	"math-visualeditor-symbol-group-math-derivatives": "Diferențiale și derivate",
+	"math-visualeditor-symbol-group-math-functions": "Funcții numerice standard",
 	"math-visualeditor-symbol-group-math-geometry": "Geometric",
 	"math-visualeditor-symbol-group-math-greek": "Alfabetul grecesc",
 	"math-visualeditor-symbol-group-math-hebrew": "Alfabetul ebraic",

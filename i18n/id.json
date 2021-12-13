@@ -7,7 +7,9 @@
 			"IvanLanin",
 			"Iwan Novirion",
 			"Rachmat.Wahidi",
-			"William Surya Permana"
+			"William Surya Permana",
+			"ANukuma",
+			"Rachmat04"
 		]
 	},
 	"math-desc": "Menghasilkan rumus matematika di antara tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -78,6 +80,8 @@
 	"math-tracking-category-error-desc": "Halaman dalam kategori ini mempunyai galat dalam menggunakan tag matematika.",
 	"math-tracking-category-mhchem-deprecation": "Halaman yang menggunakan format tag kimia usang",
 	"math-tracking-category-mhchem-deprecation-desc": "Halaman dalam kategori ini menggunakan tag kimia dengan format yang telah usang.",
+	"math-tracking-category-texvc-deprecation": "Halaman yang menggunakan format tag matematika usang",
+	"math-tracking-category-texvc-deprecation-desc": "Halaman dalam kategori ini menggunakan tag matematika dengan format yang usang",
 	"math-tracking-category-render-error": "Halaman dengan kesalahan tampilan matematika",
 	"math-tracking-category-render-error-desc": "Halaman dalam kategori ini memiliki kesalahan tampilan dalam tag matematika.",
 	"math_unknown_error": "galat tak dikenal",
@@ -88,7 +92,22 @@
 	"mw_math_source": "Sumber LaTeX (untuk peramban teks)",
 	"prefs-math": "Matematika",
 	"mathstatus": "Status matematika",
+	"mathwikibase": "Informasi Rumus Matematika",
 	"datatypes-type-math": "Ekspresi matematika",
 	"wikibase-listdatatypes-math-head": "Ekspresi matematika",
-	"wikibase-listdatatypes-math-body": "Bidang data literal untuk ekspesi, rumus, persamaan matematika dan sejenisnya yang diungkapkan dalam variasi LaTeX."
+	"wikibase-listdatatypes-math-body": "Bidang data literal untuk ekspesi, rumus, persamaan matematika dan sejenisnya yang diungkapkan dalam variasi LaTeX.",
+	"math-wikibase-header": "Informasi Butir Matematika",
+	"math-wikibase-formula": "Rumus",
+	"math-wikibase-formula-name": "Nama",
+	"math-wikibase-formula-type": "Jenis",
+	"math-wikibase-formula-description": "Deskripsi",
+	"math-wikibase-formula-information": "Informasi Rumus Matematika",
+	"math-wikibase-formula-link-header": "Sumber Data",
+	"math-wikibase-formula-elements-header": "Elemen Rumus",
+	"math-wikibase-special-form-header": "Tentuka nama rumus:",
+	"math-wikibase-special-form-placeholder": "Judul rumus",
+	"math-wikibase-special-form-button": "Informasi Permintaan",
+	"math-wikibase-special-error-header": "Galat",
+	"math-wikibase-special-error-invalid-argument": "ID butir Wikibase yang Anda tentukan tidak ada.",
+	"math-wikibase-special-error-no-wikibase": "Ekstensi Wikibase diperlukan untuk menggunakan halaman istimewa ini."
 }

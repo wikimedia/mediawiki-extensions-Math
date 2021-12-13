@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Khalid Mahmood"
+			"Khalid Mahmood",
+			"Abbas dhothar"
 		]
 	},
 	"math_unknown_error": "انجان مسئلہ",
 	"math_unknown_function": "انجان کم",
-	"prefs-math": "حساب کتاب"
+	"prefs-math": "حساب کتاب",
+	"math-wikibase-formula-description": "تفصیل"
 }

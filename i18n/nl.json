@@ -76,6 +76,7 @@
 	"math-tracking-category-error-desc": "Pagina's in deze categorie hebben fouten in het gebruik van math tags.",
 	"math-tracking-category-texvc-deprecation": "Pagina's die een verouderd wiskundig formaat gebruiken",
 	"math-tracking-category-texvc-deprecation-desc": "Pagina's in deze categorie gebruiken een verouderd wiskundig labelformaat",
+	"math-tracking-category-render-error": "Pagina's met renderfouten in wiskundige formules",
 	"math_unknown_error": "onbekende fout",
 	"math_unknown_function": "onbekende functie \"$1\"",
 	"mw_math_latexml": "LaTeXML (experimenteel; gebruikt MathML)",

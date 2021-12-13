@@ -9,7 +9,8 @@
 			"Rancher",
 			"Srdjan m",
 			"Zoranzoki21",
-			"Милан Јелисавчић"
+			"Милан Јелисавчић",
+			"Kizule"
 		]
 	},
 	"math-desc": "Рендерује математичке формуле између ознака <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
@@ -79,7 +80,7 @@
 	"wikibase-listdatatypes-math-head": "математички израз",
 	"math-wikibase-formula": "Формула",
 	"math-wikibase-formula-name": "Име",
-	"math-wikibase-formula-type": "Тип",
+	"math-wikibase-formula-type": "Врста",
 	"math-wikibase-formula-description": "Опис",
 	"math-wikibase-formula-information": "Информације о математичкој формули",
 	"math-wikibase-formula-link-header": "Извор податка",

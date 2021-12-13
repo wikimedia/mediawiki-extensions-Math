@@ -4,9 +4,12 @@
 			"Cedric31",
 			"Fitoschido",
 			"Macofe",
-			"Townie"
+			"Townie",
+			"Guilhelma"
 		]
 	},
+	"math-visualeditor-mwchemdialog-title": "Formula quimica",
+	"math-visualeditor-mwmathdialog-title": "formula matematica",
 	"math_failure": "Error matas",
 	"math_syntax_error": "error de sintaxi",
 	"math-test-contains-diff": "La cadena renviada $1 conten pas la cadena esperada $2.",

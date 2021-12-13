@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Enzoreg",
-			"Zanatos"
+			"Zanatos",
+			"Anass Sedrati"
 		]
 	},
 	"math_failure": "khata flmat",
 	"math_syntax_error": "khata fsiyagha",
 	"math_unknown_error": "khat mjhol",
-	"math_unknown_function": "wadifa mjhola",
-	"mw_math_png": "dima biyn bhal  PNG",
+	"math_unknown_function": "وظيفة مامعروفاش «$1»",
+	"mw_math_png": "ديما بيًن على شكل PNG",
 	"prefs-math": "mat"
 }

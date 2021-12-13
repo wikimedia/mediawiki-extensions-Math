@@ -26,6 +26,9 @@
 	"math-tracking-category-error": "Страници с математически грешки",
 	"math-tracking-category-error-desc": "Страниците в тази категория имат грешки при използването на математическите тагове.",
 	"math-tracking-category-mhchem-deprecation": "Страници, използващи непрепоръчителен формат в таговете за химични формули",
+	"math-tracking-category-mhchem-deprecation-desc": "Страниците в тази категория използват непрепоръчителен формат в таговете за химични формули",
+	"math-tracking-category-texvc-deprecation": "Страници, използващи непрепоръчителен формат в таговете за математически формули‎",
+	"math-tracking-category-texvc-deprecation-desc": "Страниците в тази категория използват непрепоръчителен формат в таговете за математически формули",
 	"math-tracking-category-render-error": "Страници с грешки в показването на математически изрази",
 	"math-tracking-category-render-error-desc": "Страниците в тази категория имат грешки при визуализирането на математическите изрази.",
 	"math_unknown_error": "непозната грешка",
@@ -35,5 +38,7 @@
 	"mw_math_source": "Оставяне като LaTeX (за текстови браузъри)",
 	"prefs-math": "Математически формули",
 	"mathstatus": "Статус на математическите възможности",
-	"math-wikibase-formula-information": "Информация за математическа формула"
+	"math-wikibase-header": "Информация за математически обекти",
+	"math-wikibase-formula-information": "Информация за математическа формула",
+	"math-wikibase-special-form-header": "Посочете името на формулата:"
 }

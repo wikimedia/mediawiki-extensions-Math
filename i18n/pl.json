@@ -12,7 +12,8 @@
 			"Sethakill",
 			"Sp5uhe",
 			"Tar Lócesilion",
-			"Woytecr"
+			"Woytecr",
+			"SemanticPioneer"
 		]
 	},
 	"math-desc": "Renderowanie formuł matematycznych między znacznikami <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
@@ -95,11 +96,22 @@
 	"mw_math_source": "Źródło w LaTeX (dla przeglądarek tekstowych)",
 	"prefs-math": "Wzory",
 	"mathstatus": "Status renderowania formuł matematycznych",
+	"mathwikibase": "Informacje o formułach matematycznych",
 	"datatypes-type-math": "Wyrażenie matematyczne",
 	"wikibase-listdatatypes-math-head": "Wyrażenie matematyczne",
+	"wikibase-listdatatypes-math-body": "Pole danych dla dosłownych wyrażeń matematycznych, formuł, równań itp., Wyrażone w wariancie LaTeX.",
+	"math-wikibase-header": "Informacje o elementach matematycznych",
 	"math-wikibase-formula": "Wzór",
 	"math-wikibase-formula-name": "Nazwa",
 	"math-wikibase-formula-type": "Typ",
 	"math-wikibase-formula-description": "Opis",
-	"math-wikibase-special-error-header": "Błąd"
+	"math-wikibase-formula-information": "Informacje o formułach matematycznych",
+	"math-wikibase-formula-link-header": "Źródło danych",
+	"math-wikibase-formula-elements-header": "Elementy formuły",
+	"math-wikibase-special-form-header": "Podaj nazwę formuły:",
+	"math-wikibase-special-form-placeholder": "Tytuł formuły",
+	"math-wikibase-special-form-button": "Pobierz dane",
+	"math-wikibase-special-error-header": "Błąd",
+	"math-wikibase-special-error-invalid-argument": "Element WIkibase o podanym ID nie istnieje.",
+	"math-wikibase-special-error-no-wikibase": "Rozszerzenie Wikibase jest niezbędne, aby użyć tej strony specjalnej."
 }
