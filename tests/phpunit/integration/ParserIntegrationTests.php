@@ -77,14 +77,14 @@ class ParserIntegrationTests extends MediaWikiIntegrationTestCase {
 
 		// source was set as a default, so the rendering will be shared with
 		// canonical rendering produced by page edit
-		$parserOptions1 = ParserOptions::newCanonical( 'canonical' );
+		$parserOptions1 = ParserOptions::newFromAnon();
 		$parserOptions1->setOption( 'math', MathConfig::MODE_SOURCE );
 		$render = $parserOutputAccess->getCachedParserOutput( $page, $parserOptions1 );
 		$this->assertNotNull( $render );
 		$this->assertStringContainsString( "<render>source:TEST_FORMULA</render>", $render->getText() );
 
 		// Now render with 'png' and make sure we didn't get the cached output
-		$parserOptions2 = ParserOptions::newCanonical( 'canonical' );
+		$parserOptions2 = ParserOptions::newFromAnon();
 		$parserOptions2->setOption( 'math', MathConfig::MODE_PNG );
 		$this->assertNull( $parserOutputAccess->getCachedParserOutput( $page, $parserOptions2 ) );
 		$renderStatus = $parserOutputAccess->getParserOutput( $page, $parserOptions2 );
