@@ -314,7 +314,7 @@ abstract class MathRenderer {
 	 */
 	public function writeToDatabase( $dbw = null ) {
 		# Now save it back to the DB:
-		if ( wfReadOnly() ) {
+		if ( MediaWikiServices::getInstance()->getReadOnlyMode()->isReadOnly() ) {
 			return;
 		}
 		$outArray = $this->dbOutArray();
