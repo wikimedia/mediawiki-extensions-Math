@@ -11,20 +11,18 @@ describe( 'Math', function () {
 		bot = await Api.bot();
 	} );
 
-	it( 'should work for addition', function () {
+	it( 'should work for addition', async function () {
 
 		// page should have random name
 		const pageName = Math.random().toString();
 
 		// create a page with a simple addition
-		browser.call( async () => {
-			await bot.edit( pageName, '<math>3 + 2</math>' );
-		} );
+		await bot.edit( pageName, '<math>3 + 2</math>' );
 
-		MathPage.openTitle( pageName );
+		await MathPage.openTitle( pageName );
 
 		// check if the page displays the image
-		assert( MathPage.img.isExisting() );
+		assert( await MathPage.img.isExisting() );
 
 	} );
 
