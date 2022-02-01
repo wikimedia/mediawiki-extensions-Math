@@ -63,7 +63,7 @@
 	"math-visualeditor-symbol-group-math-unsorted": "לא ממוין",
 	"math_failure": "הפענוח נכשל",
 	"math_invalidjson": "התשובה משרת $1 היא JSON בלתי־תקין.",
-	"math_invalidresponse": "$1: תגובה בלתי־תקינה (\"$3\") מהשרת \"$2\":",
+	"math_invalidresponse": "$1: תשובה בלתי־תקינה (\"$3\") מהשרת \"$2\":",
 	"math_invalidxml": "קוד XML של MathML או SVG אינו תקין.",
 	"math_mathoid_error": "שגיאת המרה. השרת (\"$1\") השיב: \"$2\"",
 	"math-status-introduction": "הדף הזה מציג מידע על {{PLURAL:$1|מצב תיצוג המתמטיקה המופעל|מצבי תיצוג המתמטיקה המופעלים}}.\n\n{{PLURAL:$1|מצב התיצוג הבא מופעל|מצבי התיצוג הבאים מופעלים}} כאן.",
