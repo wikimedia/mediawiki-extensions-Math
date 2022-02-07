@@ -72,7 +72,7 @@
 	"math-test-end": "Унутраныя тэсты для рэжыму выяўлення ''$1'' завершаны.",
 	"math-test-fail": "Тэст ''$1'' <span style=\"color:red\">прайшоў непаспяхова</span>.",
 	"math-test-start": "Выконванне ўнутраных тэстаў для рэжыму выяўлення ''$1''.",
-	"math-test-success": "Тэст ''$1'' <span style=\"color:red\">прайшоў паспяхова</span>.",
+	"math-test-success": "Тэст ''$1'' <span style=\"color:green\">прайшоў паспяхова</span>.",
 	"math-test-contains-diff": "Вернуты радок $1 не ўтрымлівае чаканы радок $2.",
 	"math-test-equals-diff": "Вернуты радок $1 адрозніваецца ад чаканага радка $2.",
 	"math-tracking-category-error": "Старонкі з матэматычнымі памылкамі",
