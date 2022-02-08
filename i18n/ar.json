@@ -13,7 +13,8 @@
 			"Tala Ali",
 			"ديفيد",
 			"زكريا",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"SaldırganSincap"
 		]
 	},
 	"math-desc": "حوِّل الصيغ الرياضية بين وسمي <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -84,6 +85,7 @@
 	"math-tracking-category-error-desc": "الصفحات في هذا التصنيف تحتوي على أخطاء في استخدام وسوم الرياضيات.",
 	"math-tracking-category-mhchem-deprecation": "الصفحات التي تستخدم تنسيقا مهملا للعلامات الكيميائية",
 	"math-tracking-category-mhchem-deprecation-desc": "تستخدم الصفحات الموجودة في هذا التصنيف تنسيقا موقوفا للعلامات الكيميائية",
+	"math-tracking-category-texvc-deprecation": "الصفحات التي تستخدم تنسيقا مهملا لعلامات الرياضيات",
 	"math-tracking-category-texvc-deprecation-desc": "تستخدم الصفحات الموجودة في هذا التصنيف تنسيقا موقوفا لعلامات الرياضيات",
 	"math-tracking-category-render-error": "الصفحات بأخطاء عرض رياضيات",
 	"math-tracking-category-render-error-desc": "الصفحات في هذا التصنيف بها أخطاء عرض في وسوم الرياضيات.",
@@ -112,6 +114,6 @@
 	"math-wikibase-special-form-button": "طلب معلومات",
 	"math-wikibase-special-error-header": "خطأ",
 	"math-wikibase-special-error-invalid-argument": "معرف عنصر قاعدة الويكي المحدد غير موجود.",
-	"math-wikibase-special-error-unknown": "حدث خطأ غير معروف بسبب جلب البيانات من قاعدة الويكي.",
+	"math-wikibase-special-error-unknown": "حدث خطأ غير معروف أثناء جلب البيانات من ويكي.",
 	"math-wikibase-special-error-no-wikibase": "ملحق قاعدة الويكي مطلوب من أجل استخدام هذه الصفحة الخاصة."
 }
