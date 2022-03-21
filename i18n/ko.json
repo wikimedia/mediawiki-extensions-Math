@@ -14,7 +14,8 @@
 			"PuzzletChung",
 			"Revi",
 			"Ykhwong",
-			"아라"
+			"아라",
+			"MemphisA5"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> 태그 사이에 수학 수식을 렌더합니다",
@@ -43,7 +44,7 @@
 	"math-visualeditor-symbol-group-math-arrows": "화살표",
 	"math-visualeditor-symbol-group-math-bounds": "유계",
 	"math-visualeditor-symbol-group-math-derivatives": "미분과 도함수",
-	"math-visualeditor-symbol-group-math-functions": "함수",
+	"math-visualeditor-symbol-group-math-functions": "표준 수치 함수",
 	"math-visualeditor-symbol-group-math-geometry": "기하",
 	"math-visualeditor-symbol-group-math-greek": "그리스 문자",
 	"math-visualeditor-symbol-group-math-hebrew": "히브리 문자",
