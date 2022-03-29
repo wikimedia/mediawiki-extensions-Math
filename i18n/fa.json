@@ -17,7 +17,8 @@
 			"Reza1615",
 			"ZxxZxxZ",
 			"Jeeputer",
-			"Mahdy Saffar"
+			"Mahdy Saffar",
+			"Beginneruser"
 		]
 	},
 	"math-desc": "فرمول‌های ریاضی میان برچسب‌های <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> را رندر می‌کند",
@@ -60,7 +61,7 @@
 	"math-visualeditor-symbol-group-math-root": "رادیکال‌ها",
 	"math-visualeditor-symbol-group-math-sets": "مجموعه‌ها",
 	"math-visualeditor-symbol-group-math-spacing": "فاصله‌گذاری",
-	"math-visualeditor-symbol-group-math-special": "خاص",
+	"math-visualeditor-symbol-group-math-special": "ویژه",
 	"math-visualeditor-symbol-group-math-subscripts": "زیرنویس، سرنویس و انتگرال‌ها",
 	"math-visualeditor-symbol-group-math-symbols": "نمادها و ثابت‌ها",
 	"math-visualeditor-symbol-group-math-typefaces": "شکل قلم",
