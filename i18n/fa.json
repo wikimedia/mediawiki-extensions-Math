@@ -74,7 +74,7 @@
 	"math-status-introduction": "این صفحه اطلاعاتی را پیرامون {{PLURAL:$1|حالت|حالت‌های}} فعال رندر کردن ریاضی را نشان می‌دهد.\n\n{{PLURAL:$1|حالت|حالت‌های}} رندر کردن زیر فعال {{PLURAL:$1|است|هستند}}:",
 	"math_syntax_error": "خطای نحوی",
 	"math_timeout": "$1 زمان از دست رفتن از «$2»",
-	"math-tracking-category-error": "صفحات با خطای ریاضی",
+	"math-tracking-category-error": "صفحه‌هایی با خطای ریاضی",
 	"math-tracking-category-error-desc": "صفحه‌هایی که در این رده قرار می‌گیرند دارای خطا در استفاده از برچسب‌های ریاضی هستند.",
 	"math-tracking-category-mhchem-deprecation": "صفحه‌هایی که از فرمت منسوخ برچسب‌های شیمی استفاده می‌کنند",
 	"math-tracking-category-mhchem-deprecation-desc": "صفحه‌های این رده از یک فرمت منسوخ برچسب (تگ) شیمی بهره می‌برند.",
