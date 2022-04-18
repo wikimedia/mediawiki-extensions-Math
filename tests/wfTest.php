@@ -5,6 +5,8 @@
 require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 
 use MediaWiki\Extension\Math\MathConfig;
+use MediaWiki\Extension\Math\MathMathMLCli;
+use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\MediaWikiServices;
 
 class WfTest extends Maintenance {
@@ -27,7 +29,10 @@ class WfTest extends Maintenance {
 		$title = Title::newFromText( $titleString );
 		if ( $title->exists() ) {
 			$article = new Article( $title );
-			$wikiText = $article->getPage()->getContent()->getNativeData();
+			/** @var TextContent $content */
+			'@phan-var TextContent $content';
+			$content = $article->getPage()->getContent();
+			$wikiText = $content->getText();
 		} else {
 			if ( $title == self::REFERENCE_PAGE ) {
 				$wgEnableScaryTranscluding = true;
