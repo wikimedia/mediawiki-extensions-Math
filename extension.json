@@ -102,6 +102,11 @@
 		"MathMathMLUrl": {
 			"value": "https://mathoid-beta.wmflabs.org"
 		},
+		"wgMathUseInternalRestbasePath": {
+			"description": "Whether to allow to use of internal RESTBase path instead of $wgMathFullRestbaseURL and $wgVisualEditorFullRestbaseURL. Set false if you want to use external RESTBase in any case.",
+			"value": true,
+			"public": true
+		},
 		"MathFullRestbaseURL": {
 			"value": "https://wikimedia.org/api/rest_"
 		},
