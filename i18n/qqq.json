@@ -28,6 +28,7 @@
 	"math-visualeditor-mwlatexinspector-display-default": "Label for the 'default' value of the display attribute\n{{Identical|Default}}",
 	"math-visualeditor-mwlatexinspector-display-inline": "Label for the 'inline' value of the display attribute\n{{Identical|Inline}}",
 	"math-visualeditor-mwlatexinspector-id": "Label for the link ID attribute of the math node",
+	"math-visualeditor-mwlatexinspector-qid": "Label for the Wikidata ID attribute of the math node",
 	"math-visualeditor-mwmathdialog-title": "Title for the dialog to edit <nowiki><math></nowiki> formula blocks.",
 	"math-visualeditor-symbol-group-chem-addition": "Label for the addition compounds group of chem symbols",
 	"math-visualeditor-symbol-group-chem-aggregation": "Label for the states of aggregation group of chem symbols",
