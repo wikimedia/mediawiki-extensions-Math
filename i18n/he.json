@@ -22,6 +22,7 @@
 	"math-visualeditor-mwlatexinspector-display-default": "ברירת המחדל",
 	"math-visualeditor-mwlatexinspector-display-inline": "בתוך הפִסקה",
 	"math-visualeditor-mwlatexinspector-id": "מזהה קישור (לא חובה)",
+	"math-visualeditor-mwlatexinspector-qid": "מזהה ויקיבייס (עם תחילית Q)",
 	"math-visualeditor-mwmathdialog-title": "נוסחה מתמטית",
 	"math-visualeditor-symbol-group-chem-addition": "תרכובות צירוף",
 	"math-visualeditor-symbol-group-chem-aggregation": "מצבי צבירה",

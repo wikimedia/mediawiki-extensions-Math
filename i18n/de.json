@@ -18,6 +18,7 @@
 	"math-visualeditor-mwlatexinspector-display-default": "Standard",
 	"math-visualeditor-mwlatexinspector-display-inline": "Inline",
 	"math-visualeditor-mwlatexinspector-id": "Linkkennung (optional)",
+	"math-visualeditor-mwlatexinspector-qid": "Wikibase-ID (mit Q-Präfix)",
 	"math-visualeditor-mwmathdialog-title": "Math-Formel",
 	"math-visualeditor-symbol-group-chem-addition": "Zusatzverbindungen",
 	"math-visualeditor-symbol-group-chem-aggregation": "Aggregatszustände",
