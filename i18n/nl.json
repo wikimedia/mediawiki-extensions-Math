@@ -13,7 +13,8 @@
 			"Romaine",
 			"SPQRobin",
 			"Siebrand",
-			"Sjoerddebruin"
+			"Sjoerddebruin",
+			"Vistaus"
 		]
 	},
 	"math-desc": "Wiskundige formules tussen <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-labels weergeven",
@@ -27,6 +28,7 @@
 	"math-visualeditor-mwlatexinspector-display-default": "Standaard",
 	"math-visualeditor-mwlatexinspector-display-inline": "In de regel",
 	"math-visualeditor-mwlatexinspector-id": "Koppelings-ID (optioneel)",
+	"math-visualeditor-mwlatexinspector-qid": "Wikibase-id (voorzien van Q-achtervoegsel)",
 	"math-visualeditor-mwmathdialog-title": "Wiskundige formule",
 	"math-visualeditor-symbol-group-chem-arrows": "Reactiepijlen",
 	"math-visualeditor-symbol-group-chem-equations": "Scheikundige vergelijking",
