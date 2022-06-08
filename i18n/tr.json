@@ -34,6 +34,7 @@
 	"math-visualeditor-mwlatexinspector-display-default": "Varsayılan",
 	"math-visualeditor-mwlatexinspector-display-inline": "Satır içi",
 	"math-visualeditor-mwlatexinspector-id": "Bağlantı kimliği (isteğe bağlı)",
+	"math-visualeditor-mwlatexinspector-qid": "Wikibase kimliği (Q öneki ile)",
 	"math-visualeditor-mwmathdialog-title": "Matematik formülü",
 	"math-visualeditor-symbol-group-chem-addition": "Ek bileşikler",
 	"math-visualeditor-symbol-group-chem-aggregation": "Toplanma durumları",
