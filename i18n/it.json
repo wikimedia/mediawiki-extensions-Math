@@ -83,7 +83,7 @@
 	"math_unknown_error": "errore sconosciuto",
 	"math_unknown_function": "funzione sconosciuta '$1'",
 	"mw_math_latexml": "LaTeXML (sperimentale; usa MathML)",
-	"mw_math_mathml": "MathML, altrimenti SVG o PNG (consigliato per browser moderni e strumenti di accesso facilitato)",
+	"mw_math_mathml": "SVG, altrimenti PNG (MathML può essere abilitato tramite plug-in del browser)",
 	"mw_math_png": "Immagini PNG",
 	"mw_math_source": "Sorgente LaTeX (per browser testuali)",
 	"prefs-math": "Formule matematiche",

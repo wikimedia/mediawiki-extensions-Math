@@ -81,7 +81,7 @@
 	"math_unknown_error": "neznana napaka",
 	"math_unknown_function": "neznana funkcija '$1'",
 	"mw_math_latexml": "LaTeXML (poskusno; uporablja MathML)",
-	"mw_math_mathml": "MathML z rezervnim SVG ali PNG (priporočeno za sodobne brskalnike in pripomočke za dostopnost)",
+	"mw_math_mathml": "SVG z rezervnim PNG (MathML lahko omogočite s vtičnikom brskalnika)",
 	"mw_math_png": "Slike PNG",
 	"mw_math_source": "Vir LaTeX (za besedilne brskalnike)",
 	"prefs-math": "Prikaz matematičnega besedila",
