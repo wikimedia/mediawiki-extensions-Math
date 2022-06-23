@@ -94,8 +94,7 @@ class MathMathMLCli extends MathMathML {
 				case '-':
 					// we do not know any cases that triggers this error
 			}
-		}
-		catch ( Exception $e ) {
+		} catch ( Exception $e ) {
 			// use default error message
 		}
 

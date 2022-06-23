@@ -82,8 +82,7 @@ class MathRestbaseInterface {
 				try {
 					$mml = $rbi->evaluateContentResponse( 'mml', $results[$j], $requests[$j] );
 					$rbi->mml = $mml;
-				}
-				catch ( Exception $e ) {
+				} catch ( Exception $e ) {
 				}
 				$j++;
 			}

@@ -712,8 +712,7 @@ abstract class MathRenderer {
 				$this->texSecure = true;
 				return true;
 			}
-		}
-		catch ( MWException $e ) {
+		} catch ( MWException $e ) {
 		}
 		$checkerError = $checker->getError();
 		$this->lastError = $this->getError( $checkerError->getKey(), ...$checkerError->getParams() );
