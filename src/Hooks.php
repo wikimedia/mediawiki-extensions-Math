@@ -50,11 +50,6 @@ class Hooks {
 		}
 
 		if ( $type === 'mysql' ) {
-			$updater->modifyExtensionField(
-				'mathlatexml',
-				'math_mathml',
-				__DIR__ . '/../db/patches/mathlatexml.mathml-length-adjustment.mysql.sql'
-			);
 			$updater->addExtensionField(
 				'mathoid',
 				'math_png',
