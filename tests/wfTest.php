@@ -6,7 +6,6 @@ require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 
 use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathMathMLCli;
-use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\MediaWikiServices;
 
 class WfTest extends Maintenance {
@@ -70,8 +69,13 @@ class WfTest extends Maintenance {
 		$rend = [];
 		$rendererFactory = MediaWikiServices::getInstance()->get( 'Math.RendererFactory' );
 		foreach ( array_slice( $allEquations, $offset, $length, true ) as $input ) {
-			$output = MathRenderer::renderMath( $input[1], $input[2], MathConfig::MODE_MATHML );
-			$rend[] = [ $rendererFactory->getRenderer( $input[1], $input[2], MathConfig::MODE_MATHML ), $input ];
+			$renderer = $rendererFactory->getRenderer( $input[1], $input[2], MathConfig::MODE_MATHML );
+			if ( $renderer->render() ) {
+				$output = $renderer->getHtmlOutput();
+			} else {
+				$output = $renderer->getLastError();
+			}
+			$rend[] = [ $renderer, $input ];
 			$output = preg_replace( '#src="(.*?)/(([a-f]|\d)*).png"#', 'src="\2.png"', $output );
 			$parserTests[] = [ (string)$input[1], $output ];
 			$i++;

@@ -123,25 +123,6 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * Static method for rendering math tag
-	 *
-	 * @param string $tex LaTeX markup
-	 * @param array $params HTML attributes
-	 * @param string $mode constant indicating rendering mode
-	 * @return string HTML for math tag
-	 */
-	public static function renderMath( $tex, $params = [], $mode = MathConfig::MODE_PNG ) {
-		$renderer = MediaWikiServices::getInstance()
-			->get( 'Math.RendererFactory' )
-			->getRenderer( $tex, $params, $mode );
-		if ( $renderer->render() ) {
-			return $renderer->getHtmlOutput();
-		} else {
-			return $renderer->getLastError();
-		}
-	}
-
-	/**
 	 * @param string $md5
 	 * @return self the MathRenderer generated from md5
 	 */
@@ -668,7 +649,7 @@ abstract class MathRenderer {
 	 *
 	 * @return string XML-Document of the rendered SVG
 	 */
-	public function getSvg( /** @noinspection PhpUnusedParameterInspection */ $render = 'render' ) {
+	public function getSvg( $render = 'render' ) {
 		// Spaces will prevent the image from being displayed correctly in the browser
 		if ( !$this->svg && $this->rbi ) {
 			$this->svg = $this->rbi->getSvg();
