@@ -168,6 +168,11 @@
 		}
 	},
 	"attributes": {
+		"Popups": {
+			"PluginModules": [
+				"ext.math.popup"
+			]
+		},
 		"VisualEditor": {
 			"PluginModules": [
 				"ext.math.visualEditor"
@@ -201,6 +206,13 @@
 		},
 		"ext.math.scripts": {
 			"scripts": "ext.math.js"
+		},
+		"ext.math.popup": {
+			"es6": true,
+			"packageFiles": "ext.math.popup.js",
+			"dependencies": [
+				"mediawiki.api"
+			]
 		},
 		"mw.widgets.MathWbEntitySelector": {
 			"scripts": "mw.widgets.MathWbEntitySelector.js",

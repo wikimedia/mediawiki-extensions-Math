@@ -114,7 +114,7 @@ class Popup extends SimpleHandler {
 			'qid' => [
 				self::PARAM_SOURCE => 'path',
 				ParamValidator::PARAM_TYPE => 'integer',
-				ParamValidator::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true
 			]
 		];
 	}
