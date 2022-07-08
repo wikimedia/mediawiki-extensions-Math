@@ -178,7 +178,7 @@ class SpecialMathWikibase extends SpecialPage {
 			->plain();
 		$output->addHTML( self::createHTMLHeader( $header ) );
 
-		if ( $info->getSymbol() ) {
+		if ( $info->getFormattedSymbol() ) {
 			$math = $info->getFormattedSymbol();
 			$formulaInfo = new Message( 'math-wikibase-formula-header-format' );
 			$formulaInfo->rawParams(
@@ -251,7 +251,7 @@ class SpecialMathWikibase extends SpecialPage {
 	 * Check whether Wikibase is available or not
 	 * @return bool
 	 */
-	public static function isWikibaseAvailable() {
+	public static function isWikibaseAvailable(): bool {
 		return ExtensionRegistry::getInstance()->isLoaded( 'WikibaseClient' );
 	}
 }

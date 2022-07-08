@@ -60,6 +60,9 @@ class MathWikibaseConnector {
 	/** @var FallbackLabelDescriptionLookupFactory */
 	private $labelDescriptionLookupFactory;
 
+	/** @var MathFormatter */
+	private $mathFormatter;
+
 	/** @var EntityIdParser */
 	private $idParser;
 
@@ -86,6 +89,7 @@ class MathWikibaseConnector {
 	 * @param FallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory
 	 * @param Site $site
 	 * @param EntityIdParser $entityIdParser
+	 * @param MathFormatter $mathFormatter
 	 * @param LoggerInterface $logger
 	 */
 	public function __construct(
@@ -96,6 +100,7 @@ class MathWikibaseConnector {
 		FallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory,
 		Site $site,
 		EntityIdParser $entityIdParser,
+		MathFormatter $mathFormatter,
 		LoggerInterface $logger
 	) {
 		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
@@ -105,6 +110,7 @@ class MathWikibaseConnector {
 		$this->labelDescriptionLookupFactory = $labelDescriptionLookupFactory;
 		$this->site = $site;
 		$this->idParser = $entityIdParser;
+		$this->mathFormatter = $mathFormatter;
 		$this->logger = $logger;
 
 		$this->propertyIdHasPart = $this->loadPropertyId(
@@ -160,7 +166,7 @@ class MathWikibaseConnector {
 	 * @throws InvalidArgumentException if the language code does not exist or the given
 	 * id does not exist
 	 */
-	public function fetchWikibaseFromId( $qid, $langCode ): MathWikibaseInfo {
+	public function fetchWikibaseFromId( string $qid, string $langCode ): MathWikibaseInfo {
 		try {
 			$lang = $this->languageFactory->getLanguage( $langCode );
 		} catch ( MWException $e ) {
@@ -182,7 +188,7 @@ class MathWikibaseConnector {
 		}
 
 		$entity = $entityRevision->getEntity();
-		$output = new MathWikibaseInfo( $entityId );
+		$output = new MathWikibaseInfo( $entityId, $this->mathFormatter );
 
 		if ( $entity instanceof Item ) {
 			$this->fetchLabelDescription( $output, $langLookup );
@@ -292,7 +298,7 @@ class MathWikibaseConnector {
 						$entityIdValue = $dataVal->getValue();
 						if ( $entityIdValue instanceof EntityIdValue ) {
 							$innerEntityId = $entityIdValue->getEntityId();
-							$innerInfo = new MathWikibaseInfo( $innerEntityId );
+							$innerInfo = new MathWikibaseInfo( $innerEntityId, $output->getFormatter() );
 							$this->fetchLabelDescription( $innerInfo, $langLookup );
 							$url = $this->fetchPageUrl( $innerEntityId );
 							if ( $url ) {
