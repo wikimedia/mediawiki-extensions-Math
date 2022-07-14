@@ -10,7 +10,7 @@ use Wikibase\Client\WikibaseClient;
 use Wikibase\DataModel\Entity\EntityIdParser;
 use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\Lib\Store\EntityRevisionLookup;
-use Wikibase\Lib\Store\LanguageFallbackLabelDescriptionLookupFactory;
+use Wikibase\Lib\Store\FallbackLabelDescriptionLookupFactory;
 
 /**
  * A config class for the MathWikibaseConnector to connect with Wikibase
@@ -28,7 +28,7 @@ class MathWikibaseConfig {
 	private $entityRevisionLookup;
 
 	/**
-	 * @var LanguageFallbackLabelDescriptionLookupFactory
+	 * @var FallbackLabelDescriptionLookupFactory
 	 */
 	private $labelLookupFactory;
 
@@ -60,13 +60,13 @@ class MathWikibaseConfig {
 	/**
 	 * @param EntityIdParser $entityIdParser
 	 * @param EntityRevisionLookup $entityRevisionLookup
-	 * @param LanguageFallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory
+	 * @param FallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory
 	 * @param Site $site
 	 */
 	public function __construct(
 		EntityIdParser $entityIdParser,
 		EntityRevisionLookup $entityRevisionLookup,
-		LanguageFallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory,
+		FallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory,
 		Site $site
 	) {
 		$this->idParser = $entityIdParser;
@@ -101,9 +101,9 @@ class MathWikibaseConfig {
 	}
 
 	/**
-	 * @return LanguageFallbackLabelDescriptionLookupFactory
+	 * @return FallbackLabelDescriptionLookupFactory
 	 */
-	public function getLabelLookupFactory(): LanguageFallbackLabelDescriptionLookupFactory {
+	public function getLabelLookupFactory(): FallbackLabelDescriptionLookupFactory {
 		return $this->labelLookupFactory;
 	}
 
@@ -160,7 +160,7 @@ class MathWikibaseConfig {
 			self::$defaultConfig = new MathWikibaseConfig(
 				WikibaseClient::getEntityIdParser(),
 				WikibaseClient::getStore()->getEntityRevisionLookup(),
-				WikibaseClient::getLanguageFallbackLabelDescriptionLookupFactory(),
+				WikibaseClient::getFallbackLabelDescriptionLookupFactory(),
 				$site
 			);
 		}
