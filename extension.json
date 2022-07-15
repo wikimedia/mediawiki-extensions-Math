@@ -142,13 +142,24 @@
 			"value": true
 		},
 		"MathWikibasePropertyIdHasPart": {
+			"description": "Original Wikidata property that described the elements of a mathematical formula with the data type item.",
 			"value": "P527"
 		},
+		"MathWikibasePropertyIdInDefiningFormula": {
+			"description": "New Wikidata property that describe the elements of a mathematical formula with the data type 'mathematical expression'. This potentially replaces 'has part' in the future.",
+			"value": "P7235"
+		},
 		"MathWikibasePropertyIdDefiningFormula": {
+			"description": "The property that describes the mathematical formula representing an item in Wikidata.",
 			"value": "P2534"
 		},
 		"MathWikibasePropertyIdQuantitySymbol": {
+			"description": "The Wikidata property that is used to present mathematical expressions in 'has part'. The data type is 'string'.",
 			"value": "P416"
+		},
+		"MathWikibasePropertyIdSymbolRepresents": {
+			"description": "The Wikidata property that is used to present mathematical expressions in 'in defining formula'. The data type is 'item'.",
+			"value": "P9758"
 		}
 	},
 	"attributes": {

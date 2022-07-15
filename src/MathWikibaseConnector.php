@@ -37,7 +37,9 @@ class MathWikibaseConnector {
 	public const CONSTRUCTOR_OPTIONS = [
 		'MathWikibasePropertyIdHasPart',
 		'MathWikibasePropertyIdDefiningFormula',
-		'MathWikibasePropertyIdQuantitySymbol'
+		'MathWikibasePropertyIdInDefiningFormula',
+		'MathWikibasePropertyIdQuantitySymbol',
+		'MathWikibasePropertyIdSymbolRepresents'
 	];
 
 	/** @var LoggerInterface */
@@ -61,14 +63,20 @@ class MathWikibaseConnector {
 	/** @var EntityIdParser */
 	private $idParser;
 
-	/** @var PropertyId */
+	/** @var PropertyId|null */
 	private $propertyIdHasPart;
 
-	/** @var PropertyId */
+	/** @var PropertyId|null */
 	private $propertyIdDefiningFormula;
 
-	/** @var PropertyId */
+	/** @var PropertyId|null */
+	private $propertyIdInDefiningFormula;
+
+	/** @var PropertyId|null */
 	private $propertyIdQuantitySymbol;
+
+	/** @var PropertyId|null */
+	private $propertyIdSymbolRepresents;
 
 	/**
 	 * @param ServiceOptions $options
@@ -99,15 +107,48 @@ class MathWikibaseConnector {
 		$this->idParser = $entityIdParser;
 		$this->logger = $logger;
 
-		$this->propertyIdHasPart = $this->idParser->parse(
+		$this->propertyIdHasPart = $this->loadPropertyId(
 			$options->get( "MathWikibasePropertyIdHasPart" )
 		);
-		$this->propertyIdDefiningFormula = $this->idParser->parse(
+		$this->propertyIdDefiningFormula = $this->loadPropertyId(
 			$options->get( "MathWikibasePropertyIdDefiningFormula" )
 		);
-		$this->propertyIdQuantitySymbol = $this->idParser->parse(
+		$this->propertyIdInDefiningFormula = $this->loadPropertyId(
+			$options->get( "MathWikibasePropertyIdInDefiningFormula" )
+		);
+		$this->propertyIdQuantitySymbol = $this->loadPropertyId(
 			$options->get( "MathWikibasePropertyIdQuantitySymbol" )
 		);
+		$this->propertyIdSymbolRepresents = $this->loadPropertyId(
+			$options->get( "MathWikibasePropertyIdSymbolRepresents" )
+		);
+	}
+
+	/**
+	 * Returns the given PropertyId if available.
+	 * @param string $propertyId the string of the Wikibase property
+	 * @return EntityId|null the property object or null if unavailable
+	 */
+	private function loadPropertyId( string $propertyId ): ?EntityId {
+		try {
+			return $this->idParser->parse( $propertyId );
+		} catch ( \ConfigException $e ) {
+			return null;
+		}
+	}
+
+	/**
+	 * Returns the inner statements from given statements for a given property ID or an empty list if the given ID
+	 * not exists.
+	 * @param StatementList $statements
+	 * @param PropertyId|null $id
+	 * @return StatementList might be empty
+	 */
+	private function getStatements( StatementList $statements, ?PropertyId $id ): StatementList {
+		if ( $id === null ) {
+			return new StatementList();
+		}
+		return $statements->getByPropertyId( $id );
 	}
 
 	/**
@@ -119,7 +160,7 @@ class MathWikibaseConnector {
 	 * @throws InvalidArgumentException if the language code does not exist or the given
 	 * id does not exist
 	 */
-	public function fetchWikibaseFromId( $qid, $langCode ) {
+	public function fetchWikibaseFromId( $qid, $langCode ): MathWikibaseInfo {
 		try {
 			$lang = $this->languageFactory->getLanguage( $langCode );
 		} catch ( MWException $e ) {
@@ -188,13 +229,15 @@ class MathWikibaseConnector {
 		Item $item,
 		LabelDescriptionLookup $langLookup ) {
 		$statements = $item->getStatements();
+		$formulaComponentStatements = $this->getStatements( $statements, $this->propertyIdHasPart );
+		if ( $formulaComponentStatements->isEmpty() ) {
+			$formulaComponentStatements = $this->getStatements( $statements, $this->propertyIdInDefiningFormula );
+		}
+		$this->fetchHasPartSnaks( $output, $formulaComponentStatements, $langLookup );
 
-		$hasPartStatements = $statements->getByPropertyId( $this->propertyIdHasPart );
-		$this->fetchHasPartSnaks( $output, $hasPartStatements, $langLookup );
-
-		$symbolStatement = $statements->getByPropertyId( $this->propertyIdDefiningFormula );
+		$symbolStatement = $this->getStatements( $statements, $this->propertyIdDefiningFormula );
 		if ( $symbolStatement->count() < 1 ) { // if it's not a formula, it might be a symbol
-			$symbolStatement = $statements->getByPropertyId( $this->propertyIdQuantitySymbol );
+			$symbolStatement = $this->getStatements( $statements, $this->propertyIdQuantitySymbol );
 		}
 		$this->fetchSymbol( $output, $symbolStatement );
 		return $output;
@@ -210,7 +253,7 @@ class MathWikibaseConnector {
 	private function fetchSymbol( MathWikibaseInfo $output, StatementList $statements ) {
 		foreach ( $statements as $statement ) {
 			$snak = $statement->getMainSnak();
-			if ( $snak instanceof PropertyValueSnak && $this->isQualifierDefinien( $snak ) ) {
+			if ( $snak instanceof PropertyValueSnak && $this->isSymbolSnak( $snak ) ) {
 				$dataVal = $snak->getDataValue();
 				$symbol = new StringValue( $dataVal->getValue() );
 				$output->setSymbol( $symbol );
@@ -241,10 +284,10 @@ class MathWikibaseConnector {
 
 			foreach ( $snaks as $snak ) {
 				if ( $snak instanceof PropertyValueSnak ) {
-					if ( $this->isQualifierDefinien( $snak ) ) {
+					if ( $this->isSymbolSnak( $snak ) ) {
 						$dataVal = $snak->getDataValue();
 						$symbol = new StringValue( $dataVal->getValue() );
-					} elseif ( $snak->getPropertyId()->equals( $this->propertyIdHasPart ) ) {
+					} elseif ( $this->isFormulaItemSnak( $snak ) ) {
 						$dataVal = $snak->getDataValue();
 						$entityIdValue = $dataVal->getValue();
 						if ( $entityIdValue instanceof EntityIdValue ) {
@@ -285,22 +328,31 @@ class MathWikibaseConnector {
 						return $this->site->getPageUrl( $siteLink->getPageName() );
 					}
 			}
-			return false;
 		} catch ( StorageException $e ) {
 			$this->logger->warning(
 				"Cannot fetch URL for EntityId " . $entityId . ". Reason: " . $e->getMessage()
 			);
-			return false;
 		}
+		return false;
 	}
 
 	/**
 	 * @param Snak $snak
-	 * @return bool true if the given snak is either a defining formula or a quantity symbol
+	 * @return bool true if the given snak is either a defining formula, a quantity symbol, or a 'in defining formula'
 	 */
-	private function isQualifierDefinien( Snak $snak ) {
+	private function isSymbolSnak( Snak $snak ) {
 		return $snak->getPropertyId()->equals( $this->propertyIdQuantitySymbol ) ||
-			$snak->getPropertyId()->equals( $this->propertyIdDefiningFormula );
+			$snak->getPropertyId()->equals( $this->propertyIdDefiningFormula ) ||
+			$snak->getPropertyId()->equals( $this->propertyIdInDefiningFormula );
+	}
+
+	/**
+	 * @param Snak $snak
+	 * @return bool true if the given snak is either the 'has part or parts' or the 'symbol represents' property
+	 */
+	private function isFormulaItemSnak( Snak $snak ) {
+		return $snak->getPropertyId()->equals( $this->propertyIdHasPart ) ||
+			$snak->getPropertyId()->equals( $this->propertyIdSymbolRepresents );
 	}
 
 	/**

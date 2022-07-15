@@ -141,6 +141,13 @@ class MathWikibaseInfo {
 	}
 
 	/**
+	 * @return string
+	 */
+	public function getUrl() {
+		return $this->url;
+	}
+
+	/**
 	 * Does this info object has elements?
 	 * @return bool true if there are elements otherwise false
 	 */
