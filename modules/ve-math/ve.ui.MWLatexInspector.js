@@ -59,7 +59,7 @@ ve.ui.MWLatexInspector.prototype.initialize = function () {
 	} );
 
 	this.idInput = new OO.ui.TextInputWidget();
-	this.qidInput = new mw.widgets.MathWbEntitySelector();
+	this.qidInput = new OO.ui.TextInputWidget();
 
 	var inputField = new OO.ui.FieldLayout( this.input, {
 		align: 'top',
