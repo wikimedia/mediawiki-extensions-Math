@@ -24,7 +24,8 @@ return [
 	},
 	'Math.Config' => static function ( MediaWikiServices $services ): MathConfig {
 		return new MathConfig(
-			new ServiceOptions( MathConfig::CONSTRUCTOR_OPTIONS, $services->getMainConfig() )
+			new ServiceOptions( MathConfig::CONSTRUCTOR_OPTIONS, $services->getMainConfig() ),
+			ExtensionRegistry::getInstance()
 		);
 	},
 	'Math.RendererFactory' => static function ( MediaWikiServices $services ): RendererFactory {
