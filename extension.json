@@ -205,7 +205,8 @@
 				"ve-math/ve.ui.MWMathInspector.js",
 				"ve-math/ve.ui.MWMathContextItem.js",
 				"ve-math/ve.ui.MWMathDialog.js",
-				"ve-math/ve.ui.MWMathDialogTool.js"
+				"ve-math/ve.ui.MWMathDialogTool.js",
+				"mw.widgets.MathWbEntitySelector.js"
 			],
 			"styles": [
 				"ve-math/ve.ui.MWLatexDialog.css",
@@ -217,6 +218,7 @@
 			"dependencies": [
 				"ext.visualEditor.mwcore",
 				"ext.math.styles",
+				"mw.config.values.wbRepo",
 				"oojs-ui.styles.icons-editing-advanced"
 			],
 			"messages": [
