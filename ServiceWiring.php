@@ -3,6 +3,8 @@
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\InputCheck\InputCheckFactory;
 use MediaWiki\Extension\Math\MathConfig;
+use MediaWiki\Extension\Math\MathWikibaseConfig;
+use MediaWiki\Extension\Math\MathWikibaseConnector;
 use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
@@ -32,6 +34,13 @@ return [
 			),
 			$services->get( 'Math.Config' ),
 			$services->getUserOptionsLookup(),
+			LoggerFactory::getInstance( 'Math' )
+		);
+	},
+	'Math.WikibaseConnector' => static function ( MediaWikiServices $services ): MathWikibaseConnector {
+		return new MathWikibaseConnector(
+			MathWikibaseConfig::getDefaultMathWikibaseConfig(),
+			$services->get( 'WikibaseClient.RepoLinker' ),
 			LoggerFactory::getInstance( 'Math' )
 		);
 	},

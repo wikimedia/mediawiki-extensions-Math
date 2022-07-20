@@ -5,9 +5,9 @@ namespace MediaWiki\Extension\Math;
 use DataValues\StringValue;
 use InvalidArgumentException;
 use Language;
-use MediaWiki\Logger\LoggerFactory;
 use MWException;
-use Wikibase\Client\WikibaseClient;
+use Psr\Log\LoggerInterface;
+use Wikibase\Client\RepoLinker;
 use Wikibase\DataModel\Entity\EntityId;
 use Wikibase\DataModel\Entity\EntityIdParsingException;
 use Wikibase\DataModel\Entity\EntityIdValue;
@@ -32,11 +32,25 @@ class MathWikibaseConnector {
 	 */
 	private $config;
 
+	/** @var LoggerInterface */
+	private $logger;
+
+	/** @var RepoLinker */
+	private $repoLinker;
+
 	/**
 	 * @param MathWikibaseConfig $config
+	 * @param RepoLinker $repoLinker
+	 * @param LoggerInterface $logger
 	 */
-	public function __construct( MathWikibaseConfig $config ) {
+	public function __construct(
+		MathWikibaseConfig $config,
+		RepoLinker $repoLinker,
+		LoggerInterface $logger
+	) {
 		$this->config = $config;
+		$this->repoLinker = $repoLinker;
+		$this->logger = $logger;
 	}
 
 	/**
@@ -225,8 +239,7 @@ class MathWikibaseConnector {
 			}
 			return false;
 		} catch ( StorageException $e ) {
-			$logger = LoggerFactory::getInstance( 'Math' );
-			$logger->warning(
+			$this->logger->warning(
 				"Cannot fetch URL for EntityId " . $entityId . ". Reason: " . $e->getMessage()
 			);
 			return false;
@@ -246,8 +259,7 @@ class MathWikibaseConnector {
 	 * @param string $qID
 	 * @return string
 	 */
-	public static function buildURL( $qID ) {
-		return WikibaseClient::getRepoLinker()
-			->getEntityUrl( new ItemId( $qID ) );
+	public function buildURL( string $qID ): string {
+		return $this->repoLinker->getEntityUrl( new ItemId( $qID ) );
 	}
 }
