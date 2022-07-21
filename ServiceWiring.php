@@ -8,6 +8,7 @@ use MediaWiki\Extension\Math\MathWikibaseConnector;
 use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use Wikibase\Client\WikibaseClient;
 
 return [
 	'Math.CheckerFactory' => static function ( MediaWikiServices $services ): InputCheckFactory {
@@ -39,9 +40,19 @@ return [
 	},
 	'Math.WikibaseConnector' => static function ( MediaWikiServices $services ): MathWikibaseConnector {
 		return new MathWikibaseConnector(
-			MathWikibaseConfig::getDefaultMathWikibaseConfig(),
-			$services->get( 'WikibaseClient.RepoLinker' ),
+			$services->get( 'Math.WikibaseConfig' ),
+			WikibaseClient::getRepoLinker( $services ),
+			$services->getLanguageFactory(),
 			LoggerFactory::getInstance( 'Math' )
+		);
+	},
+	'Math.WikibaseConfig' => static function ( MediaWikiServices $services ): MathWikibaseConfig {
+		return new MathWikibaseConfig(
+			WikibaseClient::getEntityIdParser( $services ),
+			WikibaseClient::getEntityRevisionLookup( $services ),
+			WikibaseClient::getFallbackLabelDescriptionLookupFactory( $services ),
+			WikibaseClient::getSite( $services ),
+			$services->getMainConfig()
 		);
 	},
 ];
