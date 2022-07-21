@@ -2,6 +2,7 @@
 
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\InputCheck\InputCheckFactory;
+use MediaWiki\Extension\Math\Math;
 use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathWikibaseConfig;
 use MediaWiki\Extension\Math\MathWikibaseConnector;
@@ -33,7 +34,7 @@ return [
 				RendererFactory::CONSTRUCTOR_OPTIONS,
 				$services->getMainConfig()
 			),
-			$services->get( 'Math.Config' ),
+			Math::getMathConfig( $services ),
 			$services->getUserOptionsLookup(),
 			LoggerFactory::getInstance( 'Math' )
 		);
