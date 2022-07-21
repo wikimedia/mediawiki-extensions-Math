@@ -56,11 +56,6 @@ class MathWikibaseConfigTest extends MediaWikiUnitTestCase {
 		$this->assertInstanceOf( 'Wikibase\DataModel\Entity\BasicEntityIdParser', $config->getIdParser() );
 	}
 
-	public function testHasSite() {
-		$config = $this->getConfig();
-		$this->assertTrue( $config->hasSite() );
-	}
-
 	public function testGetPropertyIdHasPart() {
 		$config = $this->getConfig();
 		$this->assertEquals( 'P1', $config->getPropertyIdHasPart()->getLocalPart() );

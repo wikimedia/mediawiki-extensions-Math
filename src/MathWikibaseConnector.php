@@ -234,14 +234,12 @@ class MathWikibaseConnector {
 			$entityRevision = $entityRevisionLookup->getEntityRevision( $entityId );
 			$innerEntity = $entityRevision->getEntity();
 			if ( $innerEntity instanceof Item ) {
-				if ( $this->config->hasSite() ) {
 					$site = $this->config->getSite();
 					$globalID = $site->getGlobalId();
 					if ( $innerEntity->hasLinkToSite( $globalID ) ) {
 						$siteLink = $innerEntity->getSiteLink( $globalID );
 						return $site->getPageUrl( $siteLink->getPageName() );
 					}
-				}
 			}
 			return false;
 		} catch ( StorageException $e ) {

@@ -108,15 +108,6 @@ class MathWikibaseConfig {
 	}
 
 	/**
-	 * @deprecated Not needed, cannot return anything but true
-	 *
-	 * @return true
-	 */
-	public function hasSite() {
-		return true;
-	}
-
-	/**
 	 * @return PropertyId
 	 */
 	public function getPropertyIdHasPart(): PropertyId {
