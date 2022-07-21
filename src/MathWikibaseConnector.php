@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Math;
 
 use DataValues\StringValue;
 use InvalidArgumentException;
-use Language;
+use MediaWiki\Languages\LanguageFactory;
 use MWException;
 use Psr\Log\LoggerInterface;
 use Wikibase\Client\RepoLinker;
@@ -38,18 +38,24 @@ class MathWikibaseConnector {
 	/** @var RepoLinker */
 	private $repoLinker;
 
+	/** @var LanguageFactory */
+	private $languageFactory;
+
 	/**
 	 * @param MathWikibaseConfig $config
 	 * @param RepoLinker $repoLinker
+	 * @param LanguageFactory $languageFactory
 	 * @param LoggerInterface $logger
 	 */
 	public function __construct(
 		MathWikibaseConfig $config,
 		RepoLinker $repoLinker,
+		LanguageFactory $languageFactory,
 		LoggerInterface $logger
 	) {
 		$this->config = $config;
 		$this->repoLinker = $repoLinker;
+		$this->languageFactory = $languageFactory;
 		$this->logger = $logger;
 	}
 
@@ -64,7 +70,7 @@ class MathWikibaseConnector {
 	 */
 	public function fetchWikibaseFromId( $qid, $langCode ) {
 		try {
-			$lang = Language::factory( $langCode );
+			$lang = $this->languageFactory->getLanguage( $langCode );
 		} catch ( MWException $e ) {
 			throw new InvalidArgumentException( "Invalid language code specified." );
 		}

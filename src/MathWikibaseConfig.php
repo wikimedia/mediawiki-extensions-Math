@@ -2,11 +2,8 @@
 
 namespace MediaWiki\Extension\Math;
 
-use MediaWiki\Logger\LoggerFactory;
-use MediaWiki\MediaWikiServices;
-use MWException;
+use Config;
 use Site;
-use Wikibase\Client\WikibaseClient;
 use Wikibase\DataModel\Entity\EntityIdParser;
 use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\Lib\Store\EntityRevisionLookup;
@@ -53,28 +50,24 @@ class MathWikibaseConfig {
 	private $propertyIdDefiningFormula;
 
 	/**
-	 * @var MathWikibaseConfig
-	 */
-	private static $defaultConfig;
-
-	/**
 	 * @param EntityIdParser $entityIdParser
 	 * @param EntityRevisionLookup $entityRevisionLookup
 	 * @param FallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory
 	 * @param Site $site
+	 * @param Config $config
 	 */
 	public function __construct(
 		EntityIdParser $entityIdParser,
 		EntityRevisionLookup $entityRevisionLookup,
 		FallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory,
-		Site $site
+		Site $site,
+		Config $config
 	) {
 		$this->idParser = $entityIdParser;
 		$this->entityRevisionLookup = $entityRevisionLookup;
 		$this->labelLookupFactory = $labelDescriptionLookupFactory;
 		$this->site = $site;
 
-		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$this->propertyIdHasPart = $this->idParser->parse(
 			$config->get( "MathWikibasePropertyIdHasPart" )
 		);
@@ -142,28 +135,5 @@ class MathWikibaseConfig {
 	 */
 	public function getPropertyIdDefiningFormula(): PropertyId {
 		return $this->propertyIdDefiningFormula;
-	}
-
-	/**
-	 * @return MathWikibaseConfig default config
-	 */
-	public static function getDefaultMathWikibaseConfig(): MathWikibaseConfig {
-		if ( !self::$defaultConfig ) {
-			$site = null;
-			try {
-				$site = WikibaseClient::getSite();
-			} catch ( MWException $e ) {
-				$logger = LoggerFactory::getInstance( 'Math' );
-				$logger->warning( "Cannot get Site handler: " . $e->getMessage() );
-			}
-
-			self::$defaultConfig = new MathWikibaseConfig(
-				WikibaseClient::getEntityIdParser(),
-				WikibaseClient::getStore()->getEntityRevisionLookup(),
-				WikibaseClient::getFallbackLabelDescriptionLookupFactory(),
-				$site
-			);
-		}
-		return self::$defaultConfig;
 	}
 }

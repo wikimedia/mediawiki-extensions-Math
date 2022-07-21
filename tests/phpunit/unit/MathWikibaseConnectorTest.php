@@ -2,20 +2,27 @@
 
 namespace MediaWiki\Extension\Math\Tests;
 
+use HashConfig;
 use MediaWiki\Extension\Math\MathWikibaseConfig;
 use MediaWiki\Extension\Math\MathWikibaseConnector;
-use MediaWikiIntegrationTestCase;
+use MediaWiki\Languages\LanguageFactory;
+use MediaWikiUnitTestCase;
+use MWException;
+use Site;
 use TestLogger;
 use Wikibase\Client\RepoLinker;
-use Wikibase\Client\WikibaseClient;
 use Wikibase\DataAccess\DatabaseEntitySource;
 use Wikibase\DataAccess\EntitySourceDefinitions;
+use Wikibase\DataModel\Entity\BasicEntityIdParser;
+use Wikibase\Lib\Store\EntityRevisionLookup;
+use Wikibase\Lib\Store\FallbackLabelDescriptionLookupFactory;
 use Wikibase\Lib\SubEntityTypesMapper;
+use const MWException;
 
 /**
  * @covers \MediaWiki\Extension\Math\MathWikibaseConnector
  */
-class MathWikibaseConnectorTest extends MediaWikiIntegrationTestCase {
+class MathWikibaseConnectorTest extends MediaWikiUnitTestCase {
 
 	private const EXAMPLE_URL = 'https://example.com/';
 
@@ -26,7 +33,11 @@ class MathWikibaseConnectorTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testFetchInvalidLanguage() {
-		$mathWikibase = $this->getWikibaseConnector();
+		$languageFactory = $this->createMock( LanguageFactory::class );
+		$languageFactory->method( 'getLanguage' )
+			->willThrowException( new MWException( 'Invalid code' ) );
+		$mathWikibase = $this->getWikibaseConnector( $languageFactory );
+
 		$this->expectException( 'InvalidArgumentException' );
 		$this->expectErrorMessage( 'Invalid language code specified.' );
 		$mathWikibase->fetchWikibaseFromId( 'Q1', '&' );
@@ -61,13 +72,26 @@ class MathWikibaseConnectorTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * @param LanguageFactory|null $languageFactory
 	 * @return MathWikibaseConnector
 	 */
-	public function getWikibaseConnector(): MathWikibaseConnector {
-		return new MathWikibaseConnector( new MathWikibaseConfig( WikibaseClient::getEntityIdParser(),
-				WikibaseClient::getStore()->getEntityRevisionLookup(),
-				WikibaseClient::getFallbackLabelDescriptionLookupFactory(),
-				WikibaseClient::getSite() ), $this->newConnector(), new TestLogger() );
+	public function getWikibaseConnector( LanguageFactory $languageFactory = null ): MathWikibaseConnector {
+		$entityRevisionLookup = $this->createMock( EntityRevisionLookup::class );
+		$labelDescriptionLookupFactory = $this->createMock( FallbackLabelDescriptionLookupFactory::class );
+		$languageFactory = $languageFactory ?: $this->createMock( LanguageFactory::class );
+		return new MathWikibaseConnector( new MathWikibaseConfig(
+			new BasicEntityIdParser(),
+			$entityRevisionLookup,
+			$labelDescriptionLookupFactory,
+			new Site(),
+			new HashConfig( [
+				'MathWikibasePropertyIdHasPart' => 'P1',
+				'MathWikibasePropertyIdDefiningFormula' => 'P2',
+				'MathWikibasePropertyIdQuantitySymbol' => 'P3'
+			] ) ),
+			$this->newConnector(),
+			$languageFactory,
+			new TestLogger() );
 	}
 
 }
