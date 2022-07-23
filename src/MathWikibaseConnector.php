@@ -4,19 +4,25 @@ namespace MediaWiki\Extension\Math;
 
 use DataValues\StringValue;
 use InvalidArgumentException;
+use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Languages\LanguageFactory;
 use MWException;
 use Psr\Log\LoggerInterface;
+use Site;
 use Wikibase\Client\RepoLinker;
 use Wikibase\DataModel\Entity\EntityId;
+use Wikibase\DataModel\Entity\EntityIdParser;
 use Wikibase\DataModel\Entity\EntityIdParsingException;
 use Wikibase\DataModel\Entity\EntityIdValue;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\DataModel\Entity\ItemId;
+use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\DataModel\Services\Lookup\LabelDescriptionLookup;
 use Wikibase\DataModel\Snak\PropertyValueSnak;
 use Wikibase\DataModel\Snak\Snak;
 use Wikibase\DataModel\Statement\StatementList;
+use Wikibase\Lib\Store\EntityRevisionLookup;
+use Wikibase\Lib\Store\FallbackLabelDescriptionLookupFactory;
 use Wikibase\Lib\Store\RevisionedUnresolvedRedirectException;
 use Wikibase\Lib\Store\StorageException;
 
@@ -27,10 +33,12 @@ use Wikibase\Lib\Store\StorageException;
  * @see MathWikibaseConnector::getInstance()    to get an instance of the class
  */
 class MathWikibaseConnector {
-	/**
-	 * @var MathWikibaseConfig
-	 */
-	private $config;
+	/** @var string[] */
+	public const CONSTRUCTOR_OPTIONS = [
+		'MathWikibasePropertyIdHasPart',
+		'MathWikibasePropertyIdDefiningFormula',
+		'MathWikibasePropertyIdQuantitySymbol'
+	];
 
 	/** @var LoggerInterface */
 	private $logger;
@@ -41,22 +49,65 @@ class MathWikibaseConnector {
 	/** @var LanguageFactory */
 	private $languageFactory;
 
+	/** @var EntityRevisionLookup */
+	private $entityRevisionLookup;
+
+	/** @var Site */
+	private $site;
+
+	/** @var FallbackLabelDescriptionLookupFactory */
+	private $labelDescriptionLookupFactory;
+
+	/** @var EntityIdParser */
+	private $idParser;
+
+	/** @var PropertyId */
+	private $propertyIdHasPart;
+
+	/** @var PropertyId */
+	private $propertyIdDefiningFormula;
+
+	/** @var PropertyId */
+	private $propertyIdQuantitySymbol;
+
 	/**
-	 * @param MathWikibaseConfig $config
+	 * @param ServiceOptions $options
 	 * @param RepoLinker $repoLinker
 	 * @param LanguageFactory $languageFactory
+	 * @param EntityRevisionLookup $entityRevisionLookup
+	 * @param FallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory
+	 * @param Site $site
+	 * @param EntityIdParser $entityIdParser
 	 * @param LoggerInterface $logger
 	 */
 	public function __construct(
-		MathWikibaseConfig $config,
+		ServiceOptions $options,
 		RepoLinker $repoLinker,
 		LanguageFactory $languageFactory,
+		EntityRevisionLookup $entityRevisionLookup,
+		FallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory,
+		Site $site,
+		EntityIdParser $entityIdParser,
 		LoggerInterface $logger
 	) {
-		$this->config = $config;
+		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
 		$this->repoLinker = $repoLinker;
 		$this->languageFactory = $languageFactory;
+		$this->entityRevisionLookup = $entityRevisionLookup;
+		$this->labelDescriptionLookupFactory = $labelDescriptionLookupFactory;
+		$this->site = $site;
+		$this->idParser = $entityIdParser;
 		$this->logger = $logger;
+
+		$this->propertyIdHasPart = $this->idParser->parse(
+			$options->get( "MathWikibasePropertyIdHasPart" )
+		);
+		$this->propertyIdDefiningFormula = $this->idParser->parse(
+			$options->get( "MathWikibasePropertyIdDefiningFormula" )
+		);
+		$this->propertyIdQuantitySymbol = $this->idParser->parse(
+			$options->get( "MathWikibasePropertyIdQuantitySymbol" )
+		);
 	}
 
 	/**
@@ -75,15 +126,10 @@ class MathWikibaseConnector {
 			throw new InvalidArgumentException( "Invalid language code specified." );
 		}
 
-		$langLookupFactory = $this->config->getLabelLookupFactory();
-		$langLookup = $langLookupFactory->newLabelDescriptionLookup( $lang );
-
-		$idParser = $this->config->getIdParser();
-		$entityRevisionLookup = $this->config->getEntityRevisionLookup();
-
+		$langLookup = $this->labelDescriptionLookupFactory->newLabelDescriptionLookup( $lang );
 		try {
-			$entityId = $idParser->parse( $qid ); // exception if the given ID is invalid
-			$entityRevision = $entityRevisionLookup->getEntityRevision( $entityId );
+			$entityId = $this->idParser->parse( $qid ); // exception if the given ID is invalid
+			$entityRevision = $this->entityRevisionLookup->getEntityRevision( $entityId );
 		} catch ( EntityIdParsingException $e ) {
 			throw new InvalidArgumentException( "Invalid Wikibase ID." );
 		} catch ( RevisionedUnresolvedRedirectException | StorageException $e ) {
@@ -143,12 +189,12 @@ class MathWikibaseConnector {
 		LabelDescriptionLookup $langLookup ) {
 		$statements = $item->getStatements();
 
-		$hasPartStatements = $statements->getByPropertyId( $this->config->getPropertyIdHasPart() );
+		$hasPartStatements = $statements->getByPropertyId( $this->propertyIdHasPart );
 		$this->fetchHasPartSnaks( $output, $hasPartStatements, $langLookup );
 
-		$symbolStatement = $statements->getByPropertyId( $this->config->getPropertyIdDefiningFormula() );
+		$symbolStatement = $statements->getByPropertyId( $this->propertyIdDefiningFormula );
 		if ( $symbolStatement->count() < 1 ) { // if it's not a formula, it might be a symbol
-			$symbolStatement = $statements->getByPropertyId( $this->config->getPropertyIdQuantitySymbol() );
+			$symbolStatement = $statements->getByPropertyId( $this->propertyIdQuantitySymbol );
 		}
 		$this->fetchSymbol( $output, $symbolStatement );
 		return $output;
@@ -198,7 +244,7 @@ class MathWikibaseConnector {
 					if ( $this->isQualifierDefinien( $snak ) ) {
 						$dataVal = $snak->getDataValue();
 						$symbol = new StringValue( $dataVal->getValue() );
-					} elseif ( $snak->getPropertyId()->equals( $this->config->getPropertyIdHasPart() ) ) {
+					} elseif ( $snak->getPropertyId()->equals( $this->propertyIdHasPart ) ) {
 						$dataVal = $snak->getDataValue();
 						$entityIdValue = $dataVal->getValue();
 						if ( $entityIdValue instanceof EntityIdValue ) {
@@ -230,15 +276,13 @@ class MathWikibaseConnector {
 	 */
 	private function fetchPageUrl( EntityId $entityId ) {
 		try {
-			$entityRevisionLookup = $this->config->getEntityRevisionLookup();
-			$entityRevision = $entityRevisionLookup->getEntityRevision( $entityId );
+			$entityRevision = $this->entityRevisionLookup->getEntityRevision( $entityId );
 			$innerEntity = $entityRevision->getEntity();
 			if ( $innerEntity instanceof Item ) {
-					$site = $this->config->getSite();
-					$globalID = $site->getGlobalId();
+					$globalID = $this->site->getGlobalId();
 					if ( $innerEntity->hasLinkToSite( $globalID ) ) {
 						$siteLink = $innerEntity->getSiteLink( $globalID );
-						return $site->getPageUrl( $siteLink->getPageName() );
+						return $this->site->getPageUrl( $siteLink->getPageName() );
 					}
 			}
 			return false;
@@ -255,8 +299,8 @@ class MathWikibaseConnector {
 	 * @return bool true if the given snak is either a defining formula or a quantity symbol
 	 */
 	private function isQualifierDefinien( Snak $snak ) {
-		return $snak->getPropertyId()->equals( $this->config->getPropertyIdQuantitySymbol() ) ||
-			$snak->getPropertyId()->equals( $this->config->getPropertyIdDefiningFormula() );
+		return $snak->getPropertyId()->equals( $this->propertyIdQuantitySymbol ) ||
+			$snak->getPropertyId()->equals( $this->propertyIdDefiningFormula );
 	}
 
 	/**
