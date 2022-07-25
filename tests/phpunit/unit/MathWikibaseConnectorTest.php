@@ -2,8 +2,7 @@
 
 namespace MediaWiki\Extension\Math\Tests;
 
-use HashConfig;
-use MediaWiki\Extension\Math\MathWikibaseConfig;
+use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathWikibaseConnector;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWikiUnitTestCase;
@@ -17,7 +16,6 @@ use Wikibase\DataModel\Entity\BasicEntityIdParser;
 use Wikibase\Lib\Store\EntityRevisionLookup;
 use Wikibase\Lib\Store\FallbackLabelDescriptionLookupFactory;
 use Wikibase\Lib\SubEntityTypesMapper;
-use const MWException;
 
 /**
  * @covers \MediaWiki\Extension\Math\MathWikibaseConnector
@@ -79,18 +77,18 @@ class MathWikibaseConnectorTest extends MediaWikiUnitTestCase {
 		$entityRevisionLookup = $this->createMock( EntityRevisionLookup::class );
 		$labelDescriptionLookupFactory = $this->createMock( FallbackLabelDescriptionLookupFactory::class );
 		$languageFactory = $languageFactory ?: $this->createMock( LanguageFactory::class );
-		return new MathWikibaseConnector( new MathWikibaseConfig(
-			new BasicEntityIdParser(),
-			$entityRevisionLookup,
-			$labelDescriptionLookupFactory,
-			new Site(),
-			new HashConfig( [
+		return new MathWikibaseConnector(
+			new ServiceOptions( MathWikibaseConnector::CONSTRUCTOR_OPTIONS, [
 				'MathWikibasePropertyIdHasPart' => 'P1',
 				'MathWikibasePropertyIdDefiningFormula' => 'P2',
 				'MathWikibasePropertyIdQuantitySymbol' => 'P3'
-			] ) ),
+			] ),
 			$this->newConnector(),
 			$languageFactory,
+			$entityRevisionLookup,
+			$labelDescriptionLookupFactory,
+			new Site(),
+			new BasicEntityIdParser(),
 			new TestLogger() );
 	}
 
