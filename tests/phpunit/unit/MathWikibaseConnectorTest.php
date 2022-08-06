@@ -3,61 +3,25 @@
 namespace MediaWiki\Extension\Math\Tests;
 
 use DataValues\StringValue;
-use Language;
-use MediaWiki\Config\ServiceOptions;
-use MediaWiki\Extension\Math\MathWikibaseConnector;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\Logger\LoggerFactory;
-use MediaWikiUnitTestCase;
 use MWException;
-use Psr\Log\LoggerInterface;
-use Site;
-use TestLogger;
-use Wikibase\Client\RepoLinker;
-use Wikibase\DataAccess\DatabaseEntitySource;
-use Wikibase\DataAccess\EntitySourceDefinitions;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
-use Wikibase\DataModel\Entity\EntityId;
-use Wikibase\DataModel\Entity\EntityIdParser;
 use Wikibase\DataModel\Entity\EntityIdParsingException;
-use Wikibase\DataModel\Entity\EntityIdValue;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\DataModel\Entity\ItemId;
 use Wikibase\DataModel\Entity\NumericPropertyId;
-use Wikibase\DataModel\SiteLink;
 use Wikibase\DataModel\Snak\PropertyValueSnak;
-use Wikibase\DataModel\Snak\SnakList;
 use Wikibase\DataModel\Statement\Statement;
 use Wikibase\DataModel\Statement\StatementList;
-use Wikibase\DataModel\Term\Term;
 use Wikibase\Lib\Store\EntityRevision;
 use Wikibase\Lib\Store\EntityRevisionLookup;
-use Wikibase\Lib\Store\FallbackLabelDescriptionLookup;
-use Wikibase\Lib\Store\FallbackLabelDescriptionLookupFactory;
 use Wikibase\Lib\Store\StorageException;
-use Wikibase\Lib\SubEntityTypesMapper;
 
 /**
  * @covers \MediaWiki\Extension\Math\MathWikibaseConnector
  */
-class MathWikibaseConnectorTest extends MediaWikiUnitTestCase {
-
-	private const EXAMPLE_URL = 'https://example.com/';
-
-	private const TEST_ITEMS = [
-		'Q1' => [ 'mass–energy equivalence', 'physical law relating mass to energy', 'E = mc^2' ],
-		'Q2' => [ 'energy', 'measure for the ability of a system to do work', 'E' ],
-		'Q3' => [
-			'speed of light',
-			'speed at which all massless particles and associated fields travel in vacuum',
-			'c'
-		],
-		'Q4' => [
-			'mass',
-			'property of matter to resist changes of the state of motion and to attract other bodies',
-			'm'
-		]
-	];
+class MathWikibaseConnectorTest extends MathWikibaseConnectorTestFactory {
 
 	public function testGetUrl() {
 		$mathWikibase = $this->getWikibaseConnector();
@@ -184,6 +148,7 @@ class MathWikibaseConnectorTest extends MediaWikiUnitTestCase {
 		$this->assertCount( 0, $wikibaseInfo->getParts() );
 		$this->assertFalse( $wikibaseInfo->hasParts() );
 		$this->assertNull( $wikibaseInfo->getSymbol() );
+		$this->assertNull( $wikibaseInfo->getFormattedSymbol() );
 	}
 
 	public function testFetchItemWithFormula() {
@@ -203,6 +168,10 @@ class MathWikibaseConnectorTest extends MediaWikiUnitTestCase {
 		$wikibaseInfo = $wikibaseConnector->fetchWikibaseFromId( 'Q1', 'en' );
 		$this->assertFalse( $wikibaseInfo->hasParts() );
 		$this->assertEquals( $formulaValue, $wikibaseInfo->getSymbol() );
+		$this->assertEquals(
+			$this->getExpectedMathML( $formulaValue->getValue() ),
+			$wikibaseInfo->getFormattedSymbol()
+		);
 	}
 
 	/**
@@ -215,7 +184,9 @@ class MathWikibaseConnectorTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( $item->getId(), $wikibaseInfo->getId() );
 		$this->assertEquals( self::TEST_ITEMS[ 'Q1' ][0], $wikibaseInfo->getLabel() );
 		$this->assertEquals( self::TEST_ITEMS[ 'Q1' ][1], $wikibaseInfo->getDescription() );
-		$this->assertEquals( self::TEST_ITEMS[ 'Q1' ][2], $wikibaseInfo->getSymbol()->getValue() );
+		$mathFormula = self::TEST_ITEMS[ 'Q1' ][2];
+		$this->assertEquals( $mathFormula, $wikibaseInfo->getSymbol()->getValue() );
+		$this->assertEquals( $this->getExpectedMathML( $mathFormula ), $wikibaseInfo->getFormattedSymbol() );
 
 		$this->assertTrue( $wikibaseInfo->hasParts() );
 		$parts = $wikibaseInfo->getParts();
@@ -224,7 +195,9 @@ class MathWikibaseConnectorTest extends MediaWikiUnitTestCase {
 			$key = $part->getId()->getSerialization();
 			$this->assertEquals( self::TEST_ITEMS[ $key ][0], $part->getLabel() );
 			$this->assertEquals( self::TEST_ITEMS[ $key ][1], $part->getDescription() );
-			$this->assertEquals( self::TEST_ITEMS[ $key ][2], $part->getSymbol()->getValue() );
+			$mathFormula = self::TEST_ITEMS[ $key ][2];
+			$this->assertEquals( $mathFormula, $part->getSymbol()->getValue() );
+			$this->assertEquals( $this->getExpectedMathML( $mathFormula ), $part->getFormattedSymbol() );
 			$this->assertEquals( self::EXAMPLE_URL, $part->getUrl() );
 		}
 	}
@@ -269,175 +242,5 @@ class MathWikibaseConnectorTest extends MediaWikiUnitTestCase {
 			[ $this->setupMassEnergyEquivalenceItem( true ) ],
 			[ $this->setupMassEnergyEquivalenceItem( false ) ],
 		];
-	}
-
-	private function setupMassEnergyEquivalenceItem(
-		bool $hasPartMode
-	) {
-		$partPropertyId = new NumericPropertyId( $hasPartMode ? 'P1' : 'P4' );
-		$symbolPropertyId = new NumericPropertyId( $hasPartMode ? 'P3' : 'P5' );
-		$items = [];
-		$statements = [];
-		foreach ( self::TEST_ITEMS as $key => $itemInfo ) {
-			$itemId = new ItemId( $key );
-			$items[ $key ] = new Item( $itemId );
-
-			$siteLinkMock = $this->createMock( SiteLink::class );
-			$siteLinkMock->method( 'getSiteId' )->willReturn( '' );
-			$siteLinkMock->method( 'getPageName' )->willReturn( '' );
-			$items[ $key ]->addSiteLink( $siteLinkMock );
-
-			if ( $key === 'Q1' ) {
-				continue;
-			}
-
-			$partSnak = new PropertyValueSnak(
-				$partPropertyId,
-				$hasPartMode ? new EntityIdValue( $items[ $key ]->getId() ) : new StringValue( $itemInfo[2] )
-			);
-			$partQualifier = new PropertyValueSnak(
-				$symbolPropertyId,
-				$hasPartMode ? new StringValue( $itemInfo[2] ) : new EntityIdValue( $items[ $key ]->getId() )
-			);
-
-			$statement = new Statement( $partSnak );
-			$statement->setQualifiers( new SnakList( [ $partQualifier ] ) );
-			$statements[] = $statement;
-		}
-
-		$mainFormulaValue = new StringValue( self::TEST_ITEMS[ 'Q1' ][2] );
-		$definingFormulaStatement = new Statement( new PropertyValueSnak(
-			new NumericPropertyId( 'P2' ),
-			$mainFormulaValue
-		) );
-
-		$statementList = new StatementList( ...$statements );
-		$statementList->addStatement( $definingFormulaStatement );
-		$items[ 'Q1' ]->setStatements( $statementList );
-		return $items[ 'Q1' ];
-	}
-
-	private function newConnector(): RepoLinker {
-		return new RepoLinker(
-			new EntitySourceDefinitions(
-				[
-					new DatabaseEntitySource(
-						'test',
-						'testdb',
-						[ 'item' => [ 'namespaceId' => 123, 'slot' => 'main' ] ],
-						self::EXAMPLE_URL . 'entity',
-						'',
-						'',
-						''
-					)
-				],
-				new SubEntityTypesMapper( [] )
-			),
-			self::EXAMPLE_URL,
-			'/wiki/$1',
-	'' );
-	}
-
-	private function getWikibaseConnectorWithExistingItems(
-		EntityRevision $entityRevision,
-		bool $storageExceptionOnQ3 = false,
-		LoggerInterface $logger = null,
-		EntityIdParser $parser = null
-	): MathWikibaseConnector {
-		$revisionLookupMock = $this->createMock( EntityRevisionLookup::class );
-		$revisionLookupMock->method( 'getEntityRevision' )->willReturnCallback(
-			static function ( EntityId $entityId ) use ( $entityRevision, $storageExceptionOnQ3 ) {
-				if ( $storageExceptionOnQ3 && $entityId->getSerialization() === 'Q3' ) {
-					throw new StorageException( 'Test Exception' );
-				} else {
-					return $entityRevision;
-				}
-			}
-		);
-		$revisionLookupMock->expects( $this->atLeastOnce() )
-			->method( 'getEntityRevision' );
-
-		$fallbackLabelDescriptionLookupFactoryMock = $this->createMock( FallbackLabelDescriptionLookupFactory::class );
-		$languageMock = $this->createMock( Language::class );
-		$languageFactoryMock = $this->createMock( LanguageFactory::class );
-		$languageFactoryMock->method( 'getLanguage' )
-			->with( 'en' )
-			->willReturn( $languageMock );
-		$fallbackLabelDescriptionLookupFactoryMock->method( 'newLabelDescriptionLookup' )
-			->with( $languageMock )
-			->willReturnCallback( [ $this, 'newLabelDescriptionLookup' ] );
-
-		return $this->getWikibaseConnector(
-			$languageFactoryMock,
-			$fallbackLabelDescriptionLookupFactoryMock,
-			$revisionLookupMock,
-			$logger,
-			$parser
-		);
-	}
-
-	/**
-	 * @param LanguageFactory|null $languageFactory
-	 * @param FallbackLabelDescriptionLookupFactory|null $labelDescriptionLookupFactory
-	 * @param EntityRevisionLookup|null $entityRevisionLookupMock
-	 * @param LoggerInterface|null $logger
-	 * @param EntityIdParser|null $parser
-	 * @return MathWikibaseConnector
-	 */
-	public function getWikibaseConnector(
-		LanguageFactory $languageFactory = null,
-		FallbackLabelDescriptionLookupFactory $labelDescriptionLookupFactory = null,
-		EntityRevisionLookup $entityRevisionLookupMock = null,
-		LoggerInterface $logger = null,
-		EntityIdParser $parser = null
-	): MathWikibaseConnector {
-		$labelDescriptionLookupFactory = $labelDescriptionLookupFactory ?:
-			$this->createMock( FallbackLabelDescriptionLookupFactory::class );
-		$entityRevisionLookup = $entityRevisionLookupMock ?:
-			$this->createMock( EntityRevisionLookup::class );
-		$languageFactory = $languageFactory ?: $this->createMock( LanguageFactory::class );
-		$site = $this->createMock( Site::class );
-		$site->method( 'getGlobalId' )->willReturn( '' );
-		$site->method( 'getPageUrl' )->willReturn( self::EXAMPLE_URL );
-		return new MathWikibaseConnector(
-			new ServiceOptions( MathWikibaseConnector::CONSTRUCTOR_OPTIONS, [
-				'MathWikibasePropertyIdHasPart' => 'P1',
-				'MathWikibasePropertyIdDefiningFormula' => 'P2',
-				'MathWikibasePropertyIdQuantitySymbol' => 'P3',
-				'MathWikibasePropertyIdInDefiningFormula' => 'P4',
-				'MathWikibasePropertyIdSymbolRepresents' => 'P5'
-			] ),
-			$this->newConnector(),
-			$languageFactory,
-			$entityRevisionLookup,
-			$labelDescriptionLookupFactory,
-			$site,
-			$parser ?: new BasicEntityIdParser(),
-			$logger ?: new TestLogger()
-		);
-	}
-
-	public function newLabelDescriptionLookup(): FallbackLabelDescriptionLookup {
-		$lookup = $this->createMock( FallbackLabelDescriptionLookup::class );
-
-		$lookup->method( 'getLabel' )
-			->willReturnCallback( static function ( EntityId $entityId ) {
-				if ( self::TEST_ITEMS[ $entityId->getSerialization() ] !== null ) {
-					return new Term( 'en', self::TEST_ITEMS[ $entityId->getSerialization() ][0] );
-				} else {
-					return null;
-				}
-			} );
-
-		$lookup->method( 'getDescription' )
-			->willReturnCallback( static function ( EntityId $entityId ) {
-				if ( self::TEST_ITEMS[ $entityId->getSerialization() ] !== null ) {
-					return new Term( 'en', self::TEST_ITEMS[ $entityId->getSerialization() ][1] );
-				} else {
-					return null;
-				}
-			} );
-
-		return $lookup;
 	}
 }

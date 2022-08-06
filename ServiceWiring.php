@@ -4,11 +4,13 @@ use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\InputCheck\InputCheckFactory;
 use MediaWiki\Extension\Math\Math;
 use MediaWiki\Extension\Math\MathConfig;
+use MediaWiki\Extension\Math\MathFormatter;
 use MediaWiki\Extension\Math\MathWikibaseConnector;
 use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use Wikibase\Client\WikibaseClient;
+use Wikibase\Lib\Formatters\SnakFormatter;
 
 return [
 	'Math.CheckerFactory' => static function ( MediaWikiServices $services ): InputCheckFactory {
@@ -48,6 +50,7 @@ return [
 			WikibaseClient::getFallbackLabelDescriptionLookupFactory( $services ),
 			WikibaseClient::getSite( $services ),
 			WikibaseClient::getEntityIdParser( $services ),
+			new MathFormatter( SnakFormatter::FORMAT_HTML ),
 			LoggerFactory::getInstance( 'Math' )
 		);
 	}

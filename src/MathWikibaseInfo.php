@@ -47,9 +47,13 @@ class MathWikibaseInfo {
 	 */
 	private $url;
 
-	public function __construct( EntityId $entityId ) {
+	/**
+	 * @param EntityId $entityId
+	 * @param MathFormatter|null $mathFormatter to format math equations. Default format is HTML.
+	 */
+	public function __construct( EntityId $entityId, MathFormatter $mathFormatter = null ) {
 		$this->id = $entityId;
-		$this->mathFormatter = new MathFormatter( SnakFormatter::FORMAT_HTML );
+		$this->mathFormatter = $mathFormatter ?: new MathFormatter( SnakFormatter::FORMAT_HTML );
 	}
 
 	/**
@@ -77,7 +81,7 @@ class MathWikibaseInfo {
 	 * @param MathWikibaseInfo $info
 	 */
 	public function addHasPartElement( MathWikibaseInfo $info ) {
-		array_push( $this->hasParts, $info );
+		$this->hasParts[] = $info;
 	}
 
 	/**
@@ -145,6 +149,13 @@ class MathWikibaseInfo {
 	 */
 	public function getUrl() {
 		return $this->url;
+	}
+
+	/**
+	 * @return MathFormatter
+	 */
+	public function getFormatter() {
+		return $this->mathFormatter;
 	}
 
 	/**

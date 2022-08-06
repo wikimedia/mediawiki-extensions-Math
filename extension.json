@@ -20,6 +20,7 @@
 	},
 	"TestAutoloadClasses": {
 		"DummyPropertyDataTypeLookup": "tests/phpunit/DummyPropertyDataTypeLookup.php",
+		"MediaWiki\\Extension\\Math\\Tests\\MathWikibaseConnectorTestFactory": "tests/phpunit/unit/MathWikibaseConnectorTestFactory.php",
 		"MediaWiki\\Extension\\Math\\Tests\\MathMockHttpTrait": "tests/phpunit/MathMockHttpTrait.php"
 	},
 	"DefaultUserOptions": {
@@ -350,6 +351,18 @@
 	],
 	"ServiceWiringFiles": [
 		"ServiceWiring.php"
+	],
+	"RestRoutes": [
+		{
+			"path": "/math/v0/popup/html/{qid}",
+			"method": "GET",
+			"class": "MediaWiki\\Extension\\Math\\Rest\\Popup",
+			"services": [
+				"Math.WikibaseConnector",
+				"LanguageFactory",
+				"TitleFactory"
+			]
+		}
 	],
 	"manifest_version": 2
 }
