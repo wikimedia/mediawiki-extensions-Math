@@ -8,14 +8,8 @@ use InvalidArgumentException;
 
 class TexNode {
 
-	/** @var list<TexNode, string> */
 	private $args;
 
-	/**
-	 * Creates a TexNode
-	 * @param list<TexNode, string> ...$args arguments for this node
-	 * @throws InvalidArgumentException
-	 */
 	public function __construct( ...$args ) {
 		foreach ( $args as &$arg ) {
 			if ( !( $arg instanceof TexNode || is_string( $arg ) ) ) {
@@ -41,7 +35,6 @@ class TexNode {
 
 	/**
 	 * Wraps the rendered result in curly brackets.
-	 * @throws InvalidArgumentException
 	 * @return string rendered result in curlies.
 	 */
 	public function inCurlies() {
