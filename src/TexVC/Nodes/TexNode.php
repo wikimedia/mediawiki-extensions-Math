@@ -8,10 +8,15 @@ use InvalidArgumentException;
 
 class TexNode {
 
+	/** @var list<TexNode|string> */
 	private $args;
 
+	/**
+	 * Creates a TexNode
+	 * @param TexNode|string ...$args arguments for this node
+	 */
 	public function __construct( ...$args ) {
-		foreach ( $args as &$arg ) {
+		foreach ( $args as $arg ) {
 			if ( !( $arg instanceof TexNode || is_string( $arg ) ) ) {
 				throw new InvalidArgumentException( 'Wrong input type specified in args.' );
 			}
