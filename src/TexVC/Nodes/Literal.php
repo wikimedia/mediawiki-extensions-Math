@@ -23,7 +23,7 @@ class Literal extends TexNode {
 	}
 
 	public function extractIdentifiers( $args = null ) {
-		return $this->getLiteral( $this->literals, '/^([a-zA-Z\']|\\\int)$/' );
+		return $this->getLiteral( $this->literals, '/^([a-zA-Z\']|\\\\int)$/' );
 	}
 
 	public function extractSubscripts() {

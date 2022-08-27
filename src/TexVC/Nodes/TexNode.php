@@ -96,17 +96,17 @@ class TexNode {
 	 */
 	public static function texContainsFunc( $target, string $t ) {
 		// may have trailing '(', '[', '\\{' or " "
-		$t = preg_replace( '/(\(|\[|\\\{| )$/', '', $t );
+		$t = preg_replace( '/(\(|\[|\\\\{| )$/', '', $t );
 
 		// special case #1: \\operatorname {someword}
-		$m = preg_match( '/^\\\operatorname \{([^\\\]*)}$/', $t );
+		$m = preg_match( '/^\\\\operatorname \{([^\\\\]*)}$/', $t );
 		if ( $m == 1 ) {
 			return self::match( $target, '\\operatorname' );
 		}
 
 		// special case #2: \\mbox{\\somefunc}
 		$matches = [];
-		$m = preg_match( '/^\\\mbox\{(\\\.*)}$/', $t, $matches );
+		$m = preg_match( '/^\\\\mbox\{(\\\\.*)}$/', $t, $matches );
 		if ( $m == 1 ) {
 			$match1 = self::match( $target, '\\mbox' );
 			if ( $match1 ) {
@@ -117,14 +117,14 @@ class TexNode {
 
 		// special case #3: \\color, \\pagecolor, \\definecolor
 		$matches = [];
-		$m = preg_match( '/^(\\\(color|pagecolor|definecolor))/', $t, $matches );
+		$m = preg_match( '/^(\\\\(color|pagecolor|definecolor))/', $t, $matches );
 		if ( $m == 1 ) {
 			return self::match( $target, $matches[1] );
 		}
 
 		// special case #4: \\mathbb, \\mathrm
 		$matches = [];
-		$m = preg_match( '/^(\\\math..) \{(\\.*)}$/', $t, $matches );
+		$m = preg_match( '/^(\\\\math..) \{(\\.*)}$/', $t, $matches );
 		if ( $m == 1 ) {
 			$match = self::match( $target, $matches[1] );
 			if ( $match ) {
