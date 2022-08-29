@@ -9,7 +9,7 @@ use InvalidArgumentException;
 class TexNode {
 
 	/** @var list<TexNode|string> */
-	private $args;
+	protected $args;
 
 	/**
 	 * Creates a TexNode
@@ -36,6 +36,14 @@ class TexNode {
 		}
 
 		return $child;
+	}
+
+	public function getLength(): ?int {
+		if ( isset( $this->args[0] ) ) {
+			return count( $this->args );
+		} else {
+			return 0;
+		}
 	}
 
 	/**
