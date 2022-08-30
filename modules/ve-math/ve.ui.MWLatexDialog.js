@@ -62,11 +62,13 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 
 	var formulaTabPanel = new OO.ui.TabPanelLayout( 'formula', {
 		label: ve.msg( 'math-visualeditor-mwlatexdialog-card-formula' ),
-		padded: true
+		padded: true,
+		classes: [ 'latex-dialog-formula-panel' ]
 	} );
 	var optionsTabPanel = new OO.ui.TabPanelLayout( 'options', {
 		label: ve.msg( 'math-visualeditor-mwlatexdialog-card-options' ),
-		padded: true
+		padded: true,
+		classes: [ 'latex-dialog-options-panel' ]
 	} );
 
 	this.indexLayout.addTabPanels( [
@@ -117,18 +119,22 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 
 	var inputField = new OO.ui.FieldLayout( this.input, {
 		align: 'top',
+		classes: [ 'latex-dialog-formula-field' ],
 		label: ve.msg( 'math-visualeditor-mwlatexdialog-card-formula' )
 	} );
 	var displayField = new OO.ui.FieldLayout( this.displaySelect, {
 		align: 'top',
+		classes: [ 'latex-dialog-display-field' ],
 		label: ve.msg( 'math-visualeditor-mwlatexinspector-display' )
 	} );
 	var idField = new OO.ui.FieldLayout( this.idInput, {
 		align: 'top',
+		classes: [ 'latex-dialog-id-field' ],
 		label: ve.msg( 'math-visualeditor-mwlatexinspector-id' )
 	} );
 	var qidField = new OO.ui.FieldLayout( this.qidInput, {
 		align: 'top',
+		classes: [ 'latex-dialog-qid-field' ],
 		label: ve.msg( 'math-visualeditor-mwlatexinspector-qid' )
 	} );
 
@@ -221,6 +227,7 @@ ve.ui.MWLatexDialog.prototype.getSetupProcess = function ( data ) {
  * @inheritdoc
  */
 ve.ui.MWLatexDialog.prototype.getReadyProcess = function ( data ) {
+	mw.hook( 've.ui.MwLatexDialogReadyProcess' ).fire();
 	return ve.ui.MWLatexDialog.super.prototype.getReadyProcess.call( this, data )
 		.next( function () {
 			return this.symbolsPromise;
