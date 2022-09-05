@@ -19,7 +19,7 @@ class Literal extends TexNode {
 		$tu = new TexUtil();
 		$this->literals = array_keys( $tu->getBaseElements()['is_literal'] );
 		$this->extendedLiterals = $this->literals;
-		array_push( $this->extendedLiterals, [ '\\infty', '\\emptyset' ] );
+		array_push( $this->extendedLiterals,  '\\infty', '\\emptyset' );
 	}
 
 	public function extractIdentifiers( $args = null ) {
@@ -39,7 +39,6 @@ class Literal extends TexNode {
 
 	private function getLiteral( $lit, $regexp ) {
 		$s = trim( $this->arg );
-
 		if ( preg_match( $regexp, $s ) == 1 ) {
 			return [ $s ];
 		} elseif ( in_array( $s, $lit ) ) {
