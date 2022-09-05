@@ -71,9 +71,13 @@ class TexNode {
 		return $output;
 	}
 
-	public function containsFunc( $target ) {
+	public function containsFunc( $target, $args = null ) {
+		if ( $args == null ) {
+			$args = $this->args;
+		}
+
 		$output = false;
-		array_walk( $this->args, static function ( $value, $key ) use ( &$target, &$output ) {
+		array_walk( $args, static function ( $value, $key ) use ( &$target, &$output ) {
 			if ( $output ) {
 				// Do not check the other items, if some function has been found already.
 				return;
