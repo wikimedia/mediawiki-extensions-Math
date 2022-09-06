@@ -15,6 +15,7 @@
 		"@wdio/mocha-framework": "7.16.13",
 		"@wdio/spec-reporter": "7.16.13",
 		"api-testing": "1.5.0",
+		"commander": "^9.4.1",
 		"eslint-config-wikimedia": "0.22.1",
 		"grunt": "1.5.3",
 		"grunt-banana-checker": "0.10.0",
@@ -24,6 +25,8 @@
 		"mocha": "^7.1.1",
 		"stylelint-config-wikimedia": "0.13.0",
 		"wdio-mediawiki": "2.1.0",
-		"webdriverio": "7.16.13"
+		"webdriverio": "7.16.13",
+		"peggy": "1.0.0",
+		"phpeggy": "^1.0.1"
 	}
 }
