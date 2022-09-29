@@ -147,9 +147,7 @@ class ParserHooksHandler implements
 	 */
 	public function onParserAfterTidy( $parser, &$text ) {
 		global $wgMathoidCli;
-		$renderers = array_map( static function ( $tag ) {
-			return $tag[0];
-		}, $this->mathLazyRenderBatch );
+		$renderers = array_column( $this->mathLazyRenderBatch, 0 );
 		if ( $wgMathoidCli ) {
 			MathMathMLCli::batchEvaluate( $renderers );
 		} else {

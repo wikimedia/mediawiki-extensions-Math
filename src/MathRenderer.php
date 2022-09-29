@@ -549,13 +549,9 @@ abstract class MathRenderer {
 	 */
 	public function setMathStyle( $mathStyle = 'display' ) {
 		if ( $this->mathStyle !== $mathStyle ) {
+			$this->mathStyle = $mathStyle;
 			$this->changed = true;
-		}
-		$this->mathStyle = $mathStyle;
-		if ( $mathStyle == 'inline' ) {
-			$this->inputType = 'inline-tex';
-		} else {
-			$this->inputType = 'tex';
+			$this->inputType = $mathStyle === 'inline' ? 'inline-tex' : 'tex';
 		}
 	}
 
@@ -700,6 +696,7 @@ abstract class MathRenderer {
 				return true;
 			}
 		} catch ( MWException $e ) {
+			// Error handling is below
 		}
 		$checkerError = $checker->getError();
 		$this->lastError = $this->getError( $checkerError->getKey(), ...$checkerError->getParams() );
