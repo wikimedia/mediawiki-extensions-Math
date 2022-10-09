@@ -49,7 +49,7 @@ class Matrix extends TexNode {
 	}
 
 	private function renderMatrix( $matrix ) {
-		$mapped = array_map( 'self::renderLine', $matrix->args );
+		$mapped = array_map( [ self::class, 'renderLine' ], $matrix->args );
 		return implode( '\\\\', $mapped );
 	}
 
@@ -79,7 +79,7 @@ class Matrix extends TexNode {
 			return $a;
 		}
 
-		$reduced = array_reduce( $a, 'self::reduceCallback', [] );
+		$reduced = array_reduce( $a, [ self::class, 'reduceCallback' ], [] );
 		return $reduced;
 	}
 
