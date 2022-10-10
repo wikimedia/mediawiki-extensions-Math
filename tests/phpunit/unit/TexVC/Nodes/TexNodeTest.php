@@ -98,7 +98,6 @@ class TexNodeTest extends MediaWikiUnitTestCase {
 
 	public function testMatchFunctionalityArray() {
 		$res = TexNode::match( [ 'ert', 'asd' ], 'asd' );
-
 		$this->assertEquals( 'asd',  $res,
 			'should return matching string for matching item in array' );
 	}

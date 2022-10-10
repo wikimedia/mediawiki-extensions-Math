@@ -30,7 +30,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 	public function testChecksum() {
 		$tu = new TexUtil();
 
-		$out = []; // { }
+		$out = [];
 		$sets = [
 			'ams_required',
 			'big_literals',
