@@ -103,6 +103,6 @@
 	"math-wikibase-special-form-placeholder": "Naslov formule",
 	"math-wikibase-special-form-button": "Zahtevaj informacije",
 	"math-wikibase-special-error-header": "Napaka",
-	"math-wikibase-special-error-invalid-argument": "ID elementa Wikibase, ki ste ga navedli, ne obstaja.",
+	"math-wikibase-special-error-invalid-argument": "ID predmeta v Wikibazi, ki ste ga navedli, ne obstaja.",
 	"math-wikibase-special-error-no-wikibase": "Za uporabo te posebne strani je potrebna razširitev Wikibase."
 }
