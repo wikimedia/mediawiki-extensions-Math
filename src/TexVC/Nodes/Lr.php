@@ -20,6 +20,27 @@ class Lr extends TexNode {
 		$this->arg = $arg;
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getLeft(): string {
+		return $this->left;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getRight(): string {
+		return $this->right;
+	}
+
+	/**
+	 * @return TexArray
+	 */
+	public function getArg(): TexArray {
+		return $this->arg;
+	}
+
 	public function inCurlies() {
 		return '{' . $this->render() . '}';
 	}

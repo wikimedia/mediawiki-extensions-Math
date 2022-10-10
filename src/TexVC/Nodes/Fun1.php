@@ -22,6 +22,20 @@ class Fun1 extends TexNode {
 		$this->tu = new TexUtil();
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getFname(): string {
+		return $this->fname;
+	}
+
+	/**
+	 * @return TexNode
+	 */
+	public function getArg(): TexNode {
+		return $this->arg;
+	}
+
 	public function inCurlies() {
 		return $this->render();
 	}

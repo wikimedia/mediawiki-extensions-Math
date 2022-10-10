@@ -5,7 +5,6 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
 class DQ extends TexNode {
-
 	/** @var TexNode */
 	private $base;
 	/** @var TexNode */
@@ -15,6 +14,20 @@ class DQ extends TexNode {
 		parent::__construct( $base, $down );
 		$this->base = $base;
 		$this->down = $down;
+	}
+
+	/**
+	 * @return TexNode
+	 */
+	public function getBase(): TexNode {
+		return $this->base;
+	}
+
+	/**
+	 * @return TexNode
+	 */
+	public function getDown(): TexNode {
+		return $this->down;
 	}
 
 	public function render() {

@@ -44,6 +44,11 @@ class MatrixTest extends MediaWikiUnitTestCase {
 			'Should create an instance of TexNode' );
 	}
 
+	public function testGetters() {
+		$this->assertNotEmpty( $this->sampleMatrix->getTop() );
+		$this->assertNotEmpty( $this->sampleMatrix->getMainarg() );
+	}
+
 	public function testRenderMatrix() {
 		$this->assertEquals( '{\\begin{align}a\\end{align}}', $this->sampleMatrix->render() );
 	}

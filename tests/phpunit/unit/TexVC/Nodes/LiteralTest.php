@@ -63,6 +63,13 @@ class LiteralTest extends MediaWikiUnitTestCase {
 			'Identifier modifications should report extra space' );
 	}
 
+	public function testGetters() {
+		$lit = new Literal( 'hello world' );
+		$this->assertNotEmpty( $lit->getExtendedLiterals() );
+		$this->assertNotEmpty( $lit->getLiterals() );
+		$this->assertNotEmpty( $lit->getArg() );
+	}
+
 	public function testExtractSubscripts() {
 		$n = new Literal( '\\beta' );
 		$this->assertEquals( [ '\\beta' ], $n->extractSubscripts(),

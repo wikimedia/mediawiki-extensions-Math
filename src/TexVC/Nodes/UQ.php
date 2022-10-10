@@ -11,10 +11,24 @@ class UQ extends TexNode {
 	/** @var TexNode */
 	private $up;
 
-	public function __construct( TexNode $base, TexNode $down ) {
-		parent::__construct( $base, $down );
+	public function __construct( TexNode $base, TexNode $up ) {
+		parent::__construct( $base, $up );
 		$this->base = $base;
-		$this->up = $down;
+		$this->up = $up;
+	}
+
+	/**
+	 * @return TexNode
+	 */
+	public function getBase(): TexNode {
+		return $this->base;
+	}
+
+	/**
+	 * @return TexNode
+	 */
+	public function getUp(): TexNode {
+		return $this->up;
 	}
 
 	public function render() {

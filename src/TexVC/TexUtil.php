@@ -20,6 +20,8 @@ class TexUtil {
 		// dynamically create functions from the content
 		$this->allFunctions = [];
 		$this->baseElements = [];
+		$this->allFunctions["\\begin"] = true;
+		$this->allFunctions["\\end"] = true;
 
 		foreach ( $jsonContent as $key => $value ) {
 			// Adding all basic elements as functions

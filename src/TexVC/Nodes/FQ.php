@@ -20,6 +20,27 @@ class FQ extends TexNode {
 		$this->down = $down;
 	}
 
+	/**
+	 * @return TexNode
+	 */
+	public function getBase(): TexNode {
+		return $this->base;
+	}
+
+	/**
+	 * @return TexNode
+	 */
+	public function getUp(): TexNode {
+		return $this->up;
+	}
+
+	/**
+	 * @return TexNode
+	 */
+	public function getDown(): TexNode {
+		return $this->down;
+	}
+
 	public function render() {
 		return $this->base->render() . '_' . $this->down->inCurlies() . '^' . $this->up->inCurlies();
 	}

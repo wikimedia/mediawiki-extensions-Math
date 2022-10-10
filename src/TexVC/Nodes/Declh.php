@@ -17,6 +17,20 @@ class Declh extends TexNode {
 		$this->arg = $arg;
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getFname(): string {
+		return $this->fname;
+	}
+
+	/**
+	 * @return TexArray
+	 */
+	public function getArg(): TexArray {
+		return $this->arg;
+	}
+
 	public function inCurlies() {
 		return $this->render();
 	}

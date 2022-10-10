@@ -24,6 +24,13 @@ class TexNode {
 		$this->args = $args;
 	}
 
+	/**
+	 * @return TexNode[]|string[]
+	 */
+	public function getArgs(): array {
+		return $this->args;
+	}
+
 	public function render() {
 		return array_reduce( $this->args, function ( $out, $child ) {
 			return $out . $this->renderChild( $child );
@@ -168,10 +175,12 @@ class TexNode {
 		if ( is_array( $target ) ) {
 			$output = false;
 			array_walk( $target, static function ( $value, $key ) use ( &$output, &$str )  {
+				// In javascript both types are used to comparison in match functionality
+				$compValue = is_string( $key ) ? $key : $value;
 				if ( $output ) {
 					return;
 				}
-				$output = TexNode::match( $value, $str );
+				$output = TexNode::match( $compValue, $str );
 			} );
 			return $output;
 		}

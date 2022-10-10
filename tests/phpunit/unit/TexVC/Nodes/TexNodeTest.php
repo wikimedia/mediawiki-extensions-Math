@@ -58,6 +58,11 @@ class TexNodeTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( [ 'a' ], $n->extractIdentifiers(), 'Should extract identifiers' );
 	}
 
+	public function testGetters() {
+		$n = new TexNode( new TexNode( 'a' ) );
+		$this->assertNotEmpty( $n->getArgs() );
+	}
+
 	public function testIdentiferMods() {
 		$n = new TexNode( '' );
 		$this->assertEquals( [], $n->getModIdent(),

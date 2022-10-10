@@ -39,6 +39,12 @@ class DeclhTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( '{\\rm {a}}', $f->render(), 'Should create a basic function' );
 	}
 
+	public function testGetters() {
+		$f = new Declh( '\\rm', new TexArray( new Literal( 'a' ) ) );
+		$this->assertNotEmpty( $f->getFname() );
+		$this->assertNotEmpty( $f->getArg() );
+	}
+
 	public function testTwoArgsFunctionDeclh() {
 		$f = new Declh( '\\rm',
 			new TexArray( new Literal( 'a' ), new Literal( 'b' ) ) );

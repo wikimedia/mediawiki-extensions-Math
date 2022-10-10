@@ -37,6 +37,13 @@ class LrTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( '\\left(a\\right)', $f->render(), 'Should create a basic function' );
 	}
 
+	public function testGetters() {
+		$f = new Lr( '(', ')', new TexArray( new Literal( 'a' ) ) );
+		$this->assertNotEmpty( $f->getLeft() );
+		$this->assertNotEmpty( $f->getRight() );
+		$this->assertNotEmpty( $f->getArg() );
+	}
+
 	public function testCurliesLr() {
 		$f = new Lr( '(', ')', new TexArray( new Literal( 'a' ), new Literal( 'b' ) ) );
 		$this->assertEquals( '{\\left(ab\\right)}', $f->inCurlies(),

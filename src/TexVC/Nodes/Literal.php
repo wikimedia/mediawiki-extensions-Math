@@ -22,6 +22,27 @@ class Literal extends TexNode {
 		array_push( $this->extendedLiterals,  '\\infty', '\\emptyset' );
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getArg(): string {
+		return $this->arg;
+	}
+
+	/**
+	 * @return int[]|string[]
+	 */
+	public function getLiterals(): array {
+		return $this->literals;
+	}
+
+	/**
+	 * @return int[]|string[]
+	 */
+	public function getExtendedLiterals(): array {
+		return $this->extendedLiterals;
+	}
+
 	public function extractIdentifiers( $args = null ) {
 		return $this->getLiteral( $this->literals, '/^([a-zA-Z\']|\\\\int)$/' );
 	}

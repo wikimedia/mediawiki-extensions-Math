@@ -7,14 +7,28 @@ namespace MediaWiki\Extension\Math\TexVC\Nodes;
 class ChemWord extends TexNode {
 
 	/** @var TexNode */
-	private $left;
+	public $left;
 	/** @var TexNode */
-	private $right;
+	public $right;
 
 	public function __construct( TexNode $left, TexNode $right ) {
 		parent::__construct( $left, $right );
 		$this->left = $left;
 		$this->right = $right;
+	}
+
+	/**
+	 * @return TexNode
+	 */
+	public function getLeft(): TexNode {
+		return $this->left;
+	}
+
+	/**
+	 * @return TexNode
+	 */
+	public function getRight(): TexNode {
+		return $this->right;
 	}
 
 	public function inCurlies() {

@@ -20,6 +20,27 @@ class Infix extends TexNode {
 		$this->arg2 = $arg2;
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getOp(): string {
+		return $this->op;
+	}
+
+	/**
+	 * @return TexArray
+	 */
+	public function getArg1(): TexArray {
+		return $this->arg1;
+	}
+
+	/**
+	 * @return TexArray
+	 */
+	public function getArg2(): TexArray {
+		return $this->arg2;
+	}
+
 	public function inCurlies() {
 		return $this->render();
 	}

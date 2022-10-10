@@ -33,10 +33,19 @@ class InfixTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testBasicInfix() {
-		$fq = new Infix( '\\atop',
+		$infix = new Infix( '\\atop',
 			new TexArray( new Literal( 'a' ) ),
 			new TexArray( new Literal( 'b' ) ) );
-		$this->assertEquals( '{a \\atop b}', $fq->render(), 'Should create a basic infix' );
+		$this->assertEquals( '{a \\atop b}', $infix->render(), 'Should create a basic infix' );
+	}
+
+	public function testGetters() {
+		$infix = new Infix( '\\atop',
+			new TexArray( new Literal( 'a' ) ),
+			new TexArray( new Literal( 'b' ) ) );
+		$this->assertNotEmpty( $infix->getOp() );
+		$this->assertNotEmpty( $infix->getArg1() );
+		$this->assertNotEmpty( $infix->getArg2() );
 	}
 
 	public function testCurliesInfix() {

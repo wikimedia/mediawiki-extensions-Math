@@ -14,6 +14,13 @@ class Curly extends TexNode {
 		$this->arg = $arg;
 	}
 
+	/**
+	 * @return TexArray
+	 */
+	public function getArg(): TexArray {
+		return $this->arg;
+	}
+
 	public function render() {
 		return $this->arg->inCurlies();
 	}

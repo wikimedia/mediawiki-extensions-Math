@@ -10,14 +10,15 @@ class TexArray extends TexNode {
 
 	public function __construct( ...$args ) {
 		$nargs = [];
-		self::checkInput( $args );
 
 		foreach ( $args as &$arg ) {
-			if ( $arg != null ) {
+			if ( $arg !== null ) {
 				array_push( $nargs, $arg );
 			}
 		}
-		parent::__construct( ...$args );
+
+		self::checkInput( $nargs );
+		parent::__construct( ...$nargs );
 	}
 
 	public function inCurlies() {
@@ -97,27 +98,29 @@ class TexArray extends TexNode {
 	}
 
 	/**
-	 * @throws InvalidArgumentException if first value not defined
-	 * @return TexNode|string first value
+	 * @return TexNode|string|null first value
 	 */
 	public function first() {
 		if ( isset( $this->args[0] ) ) {
 			return $this->args[0];
 		} else {
-			throw new InvalidArgumentException( 'Input arguments not have been filled.' );
+			return null;
 		}
 	}
 
 	/**
-	 * @throws InvalidArgumentException if second value not defined
-	 * @return TexNode|string second value
+	 * @return TexNode|string|null second value
 	 */
 	public function second() {
 		if ( isset( $this->args[1] ) ) {
 			return $this->args[1];
 		} else {
-			throw new InvalidArgumentException( 'Input arguments not have been filled.' );
+			return null;
 		}
+	}
+
+	public function unshift( ...$elements ) {
+		array_unshift( $this->args, ...$elements );
 	}
 
 	public function name() {

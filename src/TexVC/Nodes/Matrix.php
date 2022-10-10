@@ -29,6 +29,20 @@ class Matrix extends TexNode {
 		$this->mainarg = $mainarg;
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getTop(): string {
+		return $this->top;
+	}
+
+	/**
+	 * @return TexArray
+	 */
+	public function getMainarg(): TexArray {
+		return $this->mainarg;
+	}
+
 	public function containsFunc( $target, $args = null ) {
 		if ( $args == null ) {
 			$args = [
@@ -57,7 +71,7 @@ class Matrix extends TexNode {
 		$mapped = array_map( static function ( $x ){
 			return $x->render();
 		}, $l->args );
-		return implode( '$', $mapped );
+		return implode( '&', $mapped );
 	}
 
 	public function extractIdentifiers( $args = null ) {
