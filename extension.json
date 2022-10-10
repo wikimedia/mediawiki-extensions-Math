@@ -6,7 +6,8 @@
 		"Brion Vibber",
 		"Moritz Schubotz",
 		"Derk-Jan Hartman",
-		"André Greiner-Petter"
+		"André Greiner-Petter",
+		"Johannes Stegmüller"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:Math",
 	"descriptionmsg": "math-desc",
@@ -101,6 +102,10 @@
 		"MathEntitySelectorFallbackUrl": {
 			"description": "Fallback value for wbEntitySelector if wbRepo is not configured. See https://www.mediawiki.org/wiki/Manual:CORS for cross wiki communication.",
 			"value": "https://www.wikidata.org/w/api.php"
+		},
+		"MathTexVCService": {
+			"description": "Determine which TexVC variant is used, currently available: 'mathoid', 'restbase' (default) and 'local'.",
+			"value": "restbase"
 		},
 		"MathLaTeXMLTimeout": {
 			"value": 240
