@@ -12,7 +12,6 @@
 namespace MediaWiki\Extension\Math;
 
 use DeferredUpdates;
-use MediaWiki\Extension\Math\InputCheck\RestbaseChecker;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use Message;
@@ -238,7 +237,7 @@ abstract class MathRenderer {
 		if ( $rpage !== false ) {
 			$this->initializeFromDatabaseRow( $rpage );
 			$this->storedInDatabase = true;
-				return true;
+			return true;
 		} else {
 			# Missing from the database and/or the render cache
 			$this->storedInDatabase = false;
@@ -690,7 +689,10 @@ abstract class MathRenderer {
 	 * @return bool
 	 */
 	protected function doCheck() {
-		$checker = new RestbaseChecker( $this->tex, $this->getInputType(), $this->rbi );
+		$checker = MediaWikiServices::getInstance()
+			->getService( 'Math.CheckerFactory' )
+			->newDefaultChecker( $this->tex, $this->getInputType(), $this->rbi );
+
 		try {
 			if ( $checker->isValid() ) {
 				$this->setTex( $checker->getValidTex() );
