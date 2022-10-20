@@ -11,7 +11,7 @@ use MediaWikiUnitTestCase;
  * All assertions are currently deactivated, cause high memory load on CI.
  * These tests can be run locally by enabling the ACTIVE flag.
  * File download of the json-input can be done by running:
- * $ cd maintenance && ./downloadWikipediaEnFormulae.sh
+ * $ cd maintenance && ./downloadMoreTexVCtests.sh
  * @covers \MediaWiki\Extension\Math\TexVC\Parser
  * @group Stub
  */

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Downloads files which contain input and supposed output for some tests of TexVC within this extension.
+
+# The tests are deactivated by default. They can be found and activated with a flag in:
+# - EnWikiFormulaeTest.php
+# - ChemRegressionTest.php
+
+# Downloads the file containing all english  wikipedia formula to the testfolder
+FILEPATH=../tests/phpunit/unit/TexVC/en-wiki-formulae.json
+URL=https://raw.githubusercontent.com/wikimedia/mediawiki-services-texvcjs/fb56991251b8889b554fc42ef9fe4825bc35d0ed/test/en-wiki-formulae.json
+curl $URL -o $FILEPATH
+
+# Downloads the file containing for chem-regression tests to the testfolder
+FILEPATH=../tests/phpunit/unit/TexVC/chem-regression.json
+URL=https://raw.githubusercontent.com/wikimedia/mediawiki-services-texvcjs/fb56991251b8889b554fc42ef9fe4825bc35d0ed/test/chem-regression.json
+curl $URL -o $FILEPATH
