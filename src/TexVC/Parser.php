@@ -422,7 +422,7 @@ class Parser {
     private function peg_f4($h, $t) { return new TexArray($h, $t); }
     private function peg_f5($d, $e) { return new TexArray(new Declh($d->getFname(), ParserUtil::lst2arr($e))); }
     private function peg_f6($l1, $l2) {
-            return new FQ($l1->getBase(), $l1->getDown(), $l2); }
+            return new FQ($l1->getBase(), $l1->getUp(), $l2); }
     private function peg_f7($l1, $l2) {
             return new FQ($l1->getBase(), $l2, $l1->getUp()); }
     private function peg_f8($base, $upi) { return new UQ($base, $upi); }

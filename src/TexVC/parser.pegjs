@@ -55,7 +55,7 @@ litsq_aq
 litsq_fq
   = l1:litsq_dq SUP l2:lit
     {
-        return new FQ($l1->getBase(), $l1->getDown(), $l2); }
+        return new FQ($l1->getBase(), $l1->getUp(), $l2); }
   / l1:litsq_uq SUB l2:lit
     {
         return new FQ($l1->getBase(), $l2, $l1->getUp()); }
