@@ -24,7 +24,7 @@ class TexVC {
 
 	public function __construct() {
 		$this->parser = new Parser();
-		$this->tu = new TexUtil();
+		$this->tu = TexUtil::getInstance();
 	}
 
 	private function strStartsWith( $haystack, $needle ): bool {
