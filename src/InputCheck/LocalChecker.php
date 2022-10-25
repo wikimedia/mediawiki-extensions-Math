@@ -21,13 +21,13 @@ class LocalChecker extends BaseChecker {
 	 */
 	public function __construct( $tex = '', $type = 'tex' ) {
 		parent::__construct( $tex );
-		if ( $type !== 'tex' ) {
-			// this type check will be refactored with the introduction of chem-types:
-			// see: https://phabricator.wikimedia.org/T321262
+		if ( $type === 'tex' || $type === 'chem' || $type === 'inline-tex' ) {
+			$this->texVC = new TexVC();
+			$options = $type === 'chem' ? [ "usemhchem" => true ] : null;
+			$this->result = $this->texVC->check( $tex, $options );
+		} else {
 			throw new InvalidArgumentException( "Non supported type passed to LocalChecker: " . $type );
 		}
-		$this->texVC = new TexVC();
-		$this->result = $this->texVC->check( $tex );
 	}
 
 	/**

@@ -24,14 +24,24 @@ class LocalCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( '\\sin x^{2}', $checker->getValidTex() );
 	}
 
-	public function testValidType() {
+	public function testValidTypeTex() {
 		$checker = new LocalChecker( '\sin x^2', 'tex' );
+		$this->assertTrue( $checker->isValid() );
+	}
+
+	public function testValidTypeChem() {
+		$checker = new LocalChecker( '{\\displaystyle {\\ce {\\cdot OHNO_{2}}}}', 'chem' );
+		$this->assertTrue( $checker->isValid() );
+	}
+
+	public function testValidTypeInline() {
+		$checker = new LocalChecker( '{\\textstyle \\log2 }', 'inline-tex' );
 		$this->assertTrue( $checker->isValid() );
 	}
 
 	public function testInvalidType() {
 		$this->expectException( InvalidArgumentException::class );
-		new LocalChecker( '\sin x^2', 'chem' );
+		new LocalChecker( '\sin x^2', 'INVALIDTYPE' );
 	}
 
 	public function testInvalid() {
