@@ -19,7 +19,7 @@ class Fun1 extends TexNode {
 		parent::__construct( $fname, $arg );
 		$this->fname = $fname;
 		$this->arg = $arg;
-		$this->tu = new TexUtil();
+		$this->tu = TexUtil::getInstance();
 	}
 
 	/**

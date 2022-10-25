@@ -16,8 +16,7 @@ class Literal extends TexNode {
 	public function __construct( string $arg ) {
 		parent::__construct( $arg );
 		$this->arg = $arg;
-		$tu = new TexUtil();
-		$this->literals = array_keys( $tu->getBaseElements()['is_literal'] );
+		$this->literals = array_keys( TexUtil::getInstance()->getBaseElements()['is_literal'] );
 		$this->extendedLiterals = $this->literals;
 		array_push( $this->extendedLiterals,  '\\infty', '\\emptyset' );
 	}

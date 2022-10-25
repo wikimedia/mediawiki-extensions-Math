@@ -1,6 +1,7 @@
 /** PEGjs lexer/parser */
 {
-$this->tu = new TexUtil();
+$this->tu = TexUtil::getInstance();
+
 # get reference of the options for usage in functions.
 
 
