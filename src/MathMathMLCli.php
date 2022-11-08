@@ -70,7 +70,7 @@ class MathMathMLCli extends MathMathML {
 		// cli interface seems to be OK.
 		$this->processJsonResult( $response, 'file://' . $wgMathoidCli[0] );
 		$this->mathStyle = $response->mathoidStyle;
-		if ( array_key_exists( 'png', $response ) ) {
+		if ( property_exists( $response, 'png' ) ) {
 			$this->png = implode( array_map( "chr", $response->png->data ) );
 		} else {
 			LoggerFactory::getInstance( 'Math' )->error( 'Mathoid did not return a PNG image.' .
