@@ -31,20 +31,7 @@ ve.ui.MWLatexDialog.static.size = 'larger';
 
 ve.ui.MWLatexDialog.static.dir = 'ltr';
 
-ve.ui.MWLatexDialog.static.symbols = null;
-
 ve.ui.MWLatexDialog.static.symbolsModule = null;
-
-/* static methods */
-
-/**
- * Set the symbols property
- *
- * @param {Object} symbols The symbols and their group names
- */
-ve.ui.MWLatexDialog.static.setSymbols = function ( symbols ) {
-	this.symbols = symbols;
-};
 
 /* Methods */
 
@@ -151,8 +138,8 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 		continuous: true
 	} );
 	this.pages = [];
-	this.symbolsPromise = mw.loader.using( this.constructor.static.symbolsModule ).done( function () {
-		var symbols = dialog.constructor.static.symbols;
+	this.symbolsPromise = mw.loader.using( this.constructor.static.symbolsModule ).done( function ( require ) {
+		var symbols = require( dialog.constructor.static.symbolsModule );
 		for ( var category in symbols ) {
 			dialog.pages.push(
 				new ve.ui.MWLatexPage(
