@@ -33,7 +33,7 @@ class MathValidator implements ValueValidator {
 		$tex = $value->getValue();
 		$checker = MediaWikiServices::getInstance()
 			->getService( 'Math.CheckerFactory' )
-			->newMathoidChecker( $tex, 'tex' );
+			->newLocalChecker( $tex, 'tex' );
 
 		if ( $checker->isValid() ) {
 			return Result::newSuccess();
