@@ -79,27 +79,19 @@ class TexNode {
 	}
 
 	public function containsFunc( $target, $args = null ) {
-		if ( $args == null ) {
-			$args = $this->args;
-		}
-
-		$output = false;
-		array_walk( $args, static function ( $value, $key ) use ( &$target, &$output ) {
-			if ( $output ) {
-				// Do not check the other items, if some function has been found already.
-				return;
-			}
-			if ( $value instanceof TexNode ) {
+		foreach ( $args ?? $this->args as $value ) {
+			if ( $value instanceof self ) {
 				$ret = $value->containsFunc( $target );
 			} else {
-				$ret = TexNode::texContainsFunc( $target, $value );
+				$ret = self::texContainsFunc( $target, $value );
 			}
 			if ( $ret ) {
-				$output = true;
+				// Do not check the other items, if some function has been found already.
+				return true;
 			}
-		} );
+		}
 
-		return $output;
+		return false;
 	}
 
 	public function extractSubscripts() {
@@ -173,21 +165,21 @@ class TexNode {
 	 */
 	public static function match( $target, string $str ) {
 		if ( is_array( $target ) ) {
-			$output = false;
-			array_walk( $target, static function ( $value, $key ) use ( &$output, &$str )  {
+			foreach ( $target as $key => $value ) {
 				// In javascript both types are used to comparison in match functionality
 				$compValue = is_string( $key ) ? $key : $value;
-				if ( $output ) {
-					return;
+				$output = self::match( $compValue, $str );
+				if ( $output !== false ) {
+					return $output;
 				}
-				$output = TexNode::match( $compValue, $str );
-			} );
-			return $output;
+			}
+			return false;
 		}
 		if ( is_string( $target ) ) {
 			return $target === $str ? $str : false;
 		}
 
+		// FIXME: This is dead code, isn't it? Arrays are already handled above.
 		return $target[$str] ? $str : false;
 	}
 }
