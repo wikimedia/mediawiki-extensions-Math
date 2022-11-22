@@ -30,7 +30,10 @@ class MathCoverageTest extends MediaWikiTestCase {
 	 * Compares each the rendering result of each input with the expected output.
 	 * @dataProvider provideCoverage
 	 */
-	public function testCoverage( $input, $options, $output ) {
+	public function testCoverage( $input, $options, $output, $skipped = false ) {
+		if ( $skipped ) {
+			$this->markTestSkipped( "Skipping due to changes in recent mathoid versions, cf., T314823" );
+		}
 		// TODO: Make rendering mode configurable
 		// TODO: Provide test-ids
 		// TODO: Link to the wikipage that contains the reference rendering

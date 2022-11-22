@@ -795,7 +795,8 @@
     {
         "input": "\\oint_{(x,y)\\in C} x^3\\, dx + 4y^2\\, dy",
         "params": [],
-        "output": "<img src=\"9bd8f3ee582e64365cefbfd44860b60a14b4424b\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -2.838ex; width:24.461ex; height:6.343ex;\" alt=\"{\\displaystyle \\oint_{(x,y)\\in C} x^3\\, dx + 4y^2\\, dy}\"\/>"
+        "output": "<img src=\"9bd8f3ee582e64365cefbfd44860b60a14b4424b\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -2.838ex; width:24.461ex; height:6.343ex;\" alt=\"{\\displaystyle \\oint_{(x,y)\\in C} x^3\\, dx + 4y^2\\, dy}\"\/>",
+        "skipped": true
     },
     {
         "input": "\\bigcap_{i=_1}^n E_i",
@@ -1823,7 +1824,8 @@
     {
         "input": "\\oint",
         "params": [],
-        "output": "<img src=\"dbbea2707a4ee041ddc4da8dd11924d25aa59c89\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -2.338ex; width:3.709ex; height:5.843ex;\" alt=\"{\\displaystyle \\oint}\"\/>"
+        "output": "<img src=\"dbbea2707a4ee041ddc4da8dd11924d25aa59c89\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -2.338ex; width:3.709ex; height:5.843ex;\" alt=\"{\\displaystyle \\oint}\"\/>",
+        "skipped": true
     },
     {
         "input": "\\iint\\limits_{S}\\!\\!\\!\\!\\!\\!\\!\\!\\!\\!\\!\\subset\\!\\supset \\mathbf D \\cdot \\mathrm{d}\\mathbf A",
@@ -1853,7 +1855,8 @@
     {
         "input": "( \\nabla \\times \\bold{F} ) \\cdot {\\rm d}\\bold{S} = \\oint_{\\partial S} \\bold{F} \\cdot {\\rm d}\\boldsymbol{\\ell} ",
         "params": [],
-        "output": "<img src=\"561ae6d178581f8938ae976090135ee66a81d801\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -2.505ex; width:27.901ex; height:6.009ex;\" alt=\"{\\displaystyle ( \\nabla \\times \\bold{F} ) \\cdot {\\rm d}\\bold{S} = \\oint_{\\partial S} \\bold{F} \\cdot {\\rm d}\\boldsymbol{\\ell} }\"\/>"
+        "output": "<img src=\"561ae6d178581f8938ae976090135ee66a81d801\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -2.505ex; width:27.901ex; height:6.009ex;\" alt=\"{\\displaystyle ( \\nabla \\times \\bold{F} ) \\cdot {\\rm d}\\bold{S} = \\oint_{\\partial S} \\bold{F} \\cdot {\\rm d}\\boldsymbol{\\ell} }\"\/>",
+        "skipped": true
     },
     {
         "input": "{\\scriptstyle S}",
@@ -1863,12 +1866,14 @@
     {
         "input": "( \\nabla \\times \\bold{F} ) \\cdot {\\rm d}\\bold{S} = \\oint_{\\partial S} \\bold{F} \\cdot {\\rm d}\\boldsymbol{\\ell} ",
         "params": [],
-        "output": "<img src=\"561ae6d178581f8938ae976090135ee66a81d801\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -2.505ex; width:27.901ex; height:6.009ex;\" alt=\"{\\displaystyle ( \\nabla \\times \\bold{F} ) \\cdot {\\rm d}\\bold{S} = \\oint_{\\partial S} \\bold{F} \\cdot {\\rm d}\\boldsymbol{\\ell} }\"\/>"
+        "output": "<img src=\"561ae6d178581f8938ae976090135ee66a81d801\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -2.505ex; width:27.901ex; height:6.009ex;\" alt=\"{\\displaystyle ( \\nabla \\times \\bold{F} ) \\cdot {\\rm d}\\bold{S} = \\oint_{\\partial S} \\bold{F} \\cdot {\\rm d}\\boldsymbol{\\ell} }\"\/>",
+        "skipped": true
     },
     {
         "input": "\\oint_C \\bold{B} \\cdot {\\rm d} \\boldsymbol{\\ell} = \\mu_0 ",
         "params": [],
-        "output": "<img src=\"e7acad6ef86a9151e97ac0617cfc752a9f092de1\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -2.505ex; width:17.107ex; height:6.009ex;\" alt=\"{\\displaystyle \\oint_C \\bold{B} \\cdot {\\rm d} \\boldsymbol{\\ell} = \\mu_0 }\"\/>"
+        "output": "<img src=\"e7acad6ef86a9151e97ac0617cfc752a9f092de1\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -2.505ex; width:17.107ex; height:6.009ex;\" alt=\"{\\displaystyle \\oint_C \\bold{B} \\cdot {\\rm d} \\boldsymbol{\\ell} = \\mu_0 }\"\/>",
+        "skipped": true
     },
     {
         "input": "{\\scriptstyle S}",
@@ -2293,12 +2298,14 @@
     {
         "input": "",
         "params": [],
-        "output": "<strong class=\"error texerror\">Failed to parse (Conversion error. Server (&quot;https:\/\/wikimedia.org\/api\/rest_&quot;) reported: &quot;Cannot get mml. Expected width &gt; 0.&quot;): {\\displaystyle }<\/strong>\n"
+        "output": "<strong class=\"error texerror\">Failed to parse (Conversion error. Server (&quot;https:\/\/wikimedia.org\/api\/rest_&quot;) reported: &quot;Cannot get mml. Expected width &gt; 0.&quot;): {\\displaystyle }<\/strong>\n",
+        "skipped": true
     },
     {
         "input": " ",
         "params": [],
-        "output": "<strong class=\"error texerror\">Failed to parse (Conversion error. Server (&quot;https:\/\/wikimedia.org\/api\/rest_&quot;) reported: &quot;Cannot get mml. Expected width &gt; 0.&quot;): {\\displaystyle  }<\/strong>\n"
+        "output": "<strong class=\"error texerror\">Failed to parse (Conversion error. Server (&quot;https:\/\/wikimedia.org\/api\/rest_&quot;) reported: &quot;Cannot get mml. Expected width &gt; 0.&quot;): {\\displaystyle  }<\/strong>\n",
+        "skipped": true
     },
     {
         "input": "\\left(\\begin{smallmatrix}a & b\\\\ c & d\\end{smallmatrix}\\right)",
