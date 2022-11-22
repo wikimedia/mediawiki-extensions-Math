@@ -132,11 +132,7 @@ class TexNode {
 		$matches = [];
 		$m = preg_match( '/^\\\\mbox\{(\\\\.*)}$/', $t, $matches );
 		if ( $m == 1 ) {
-			$match1 = self::match( $target, '\\mbox' );
-			if ( $match1 ) {
-				return $match1;
-			}
-			return self::match( $target, $matches[1] );
+			return self::match( $target, '\\mbox' ) ?: self::match( $target, $matches[1] );
 		}
 
 		// special case #3: \\color, \\pagecolor, \\definecolor
@@ -150,11 +146,7 @@ class TexNode {
 		$matches = [];
 		$m = preg_match( '/^(\\\\math..) \{(\\.*)}$/', $t, $matches );
 		if ( $m == 1 ) {
-			$match = self::match( $target, $matches[1] );
-			if ( $match ) {
-				return $match;
-			}
-			return self::match( $target, $matches[2] );
+			return self::match( $target, $matches[1] ) ?: self::match( $target, $matches[2] );
 		}
 
 		// protect against using random strings as keys in target
