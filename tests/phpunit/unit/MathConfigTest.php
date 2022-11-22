@@ -19,16 +19,13 @@ class MathConfigTest extends TestCase {
 		array $configOverrides,
 		ExtensionRegistry $registry = null
 	): MathConfig {
-		if ( $registry === null ) {
-			$registry = ExtensionRegistry::getInstance();
-		}
 		return new MathConfig(
 			new ServiceOptions( MathConfig::CONSTRUCTOR_OPTIONS, $configOverrides + [
 				'MathDisableTexFilter' => MathConfig::ALWAYS,
 				'MathValidModes' => [ MathConfig::MODE_SOURCE ],
 				'MathEntitySelectorFallbackUrl' => self::DUMMY_URL,
 			] ),
-			$registry
+			$registry ?? ExtensionRegistry::getInstance()
 		);
 	}
 
