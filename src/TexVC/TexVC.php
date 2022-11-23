@@ -52,13 +52,13 @@ class TexVC {
 	 *      command ...
 	 * @param string|TexArray|stdClass $input tex to be checked as string,
 	 * can also be the output of former parser call
-	 * @param null|array $options array options for settings of the check
+	 * @param array $options array options for settings of the check
 	 * @param array &$warnings reference on warnings occurring during the check
 	 * @return array|string[] output with information status (see above)
 	 * @throws Exception in case of a major problem with the check and activated debug option.
 	 */
-	public function check( $input, $options = null, &$warnings = [] ) {
-		try{
+	public function check( $input, $options = [], &$warnings = [] ) {
+		try {
 			$options = ParserUtil::createOptions( $options );
 			if ( is_string( $input ) ) {
 				$input = $this->parser->parse( $input, $options );

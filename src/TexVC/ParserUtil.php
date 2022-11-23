@@ -7,6 +7,11 @@ namespace MediaWiki\Extension\Math\TexVC;
 use MediaWiki\Extension\Math\TexVC\Nodes\TexArray;
 
 class ParserUtil {
+
+	/**
+	 * @param TexArray|null $l
+	 * @return TexArray
+	 */
 	public static function lst2arr( $l ) {
 		$arr = new TexArray();
 
@@ -21,6 +26,10 @@ class ParserUtil {
 		return $arr;
 	}
 
+	/**
+	 * @param array|null $options
+	 * @return array
+	 */
 	public static function createOptions( $options ) {
 		# get reference of the options for usage in functions and initialize with default values.
 		$optionsBase = [
