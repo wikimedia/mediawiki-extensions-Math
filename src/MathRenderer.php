@@ -689,8 +689,7 @@ abstract class MathRenderer {
 	 * @return bool
 	 */
 	protected function doCheck() {
-		$checker = MediaWikiServices::getInstance()
-			->getService( 'Math.CheckerFactory' )
+		$checker = Math::getCheckerFactory()
 			->newDefaultChecker( $this->tex, $this->getInputType(), $this->rbi );
 
 		try {
