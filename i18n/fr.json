@@ -98,7 +98,6 @@
 	"math_unknown_function": "fonction inconnue « $1 »",
 	"mw_math_latexml": "LaTeXML (expérimental, utilise MathML)",
 	"mw_math_mathml": "SVG avec PNG en repli (MathML peut être activé via une extension du navigateur)",
-	"mw_math_png": "Images PNG",
 	"mw_math_source": "Source LaTeX (pour les navigateurs en mode texte)",
 	"prefs-math": "Mathématiques",
 	"mathstatus": "État mathématique",

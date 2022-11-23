@@ -95,7 +95,6 @@
 	"math_unknown_function": "不明な関数「$1」",
 	"mw_math_latexml": "LaTeXML (開発中。MathML を使用)",
 	"mw_math_mathml": "MathML、ただし動作しない場合はSVGかPNGで代替（最新ブラウザーや補助ツールに推奨）",
-	"mw_math_png": "PNG 画像",
 	"mw_math_source": "LaTeX ソース (テキスト ブラウザー向け)",
 	"prefs-math": "数式",
 	"mathstatus": "Math ステータス",

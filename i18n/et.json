@@ -82,7 +82,6 @@
 	"math_unknown_error": "Tundmatu viga",
 	"math_unknown_function": "tundmatu funktsioon '$1'",
 	"mw_math_mathml": "SVG PNG-taanderežiimiga (MathML-i saab lubada brauseri lisa abil)",
-	"mw_math_png": "PNG-pildid",
 	"mw_math_source": "LaTeX-lähtetekst (tekstibrauserites)",
 	"prefs-math": "Valemite näitamine",
 	"mathstatus": "Matemaatiliste valemite olek",

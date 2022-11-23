@@ -95,7 +95,6 @@
 	"math_unknown_function": "وظيفة غير معروفة «$1»",
 	"mw_math_latexml": "LaTeXML (تجريبي؛ يستخدم MathML)",
 	"mw_math_mathml": "SVG مع PNG احتياطي (يمكن تمكين MathML عبر المكوِّن الإضافي للمتصفح)",
-	"mw_math_png": "دائما اعرض على هيئة PNG",
 	"mw_math_source": "اعرض على هيئة LaTeX (للمتصفحات النصية)",
 	"prefs-math": "رياضيات",
 	"mathstatus": "حالة الرياضيات",

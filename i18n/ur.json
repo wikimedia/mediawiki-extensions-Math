@@ -58,7 +58,6 @@
 	"math_unknown_function": "نامعلوم فعل \"$1\"",
 	"mw_math_latexml": "LaTeXML (تجرباتی؛ MathML زیر استعمال ہے)",
 	"mw_math_mathml": "PNG یا SVG کے ساتھ MathML (جدید براؤزر وغیرہ کے لیے اسے استعمال کرنے کی سفارش کی جاتی ہے)",
-	"mw_math_png": "PNG تصویریں",
 	"mw_math_source": "LaTeX شکل میں دکھائیں (متنی براؤزر کے لیے)",
 	"prefs-math": "ریاضی",
 	"mathstatus": "ریاضی کی صورت حال",

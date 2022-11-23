@@ -60,7 +60,6 @@
 	"math_unknown_error": "nepoznata greška",
 	"math_unknown_function": "nepoznata funkcija \"$1\"",
 	"mw_math_mathml": "SVG s rezervnim PNG-om (MathML se može omogućiti putem plugina u pregledniku)",
-	"mw_math_png": "PNG slike",
 	"mw_math_source": "LaTeX izvor (za tekstualne preglednike)",
 	"prefs-math": "Prikazivanje matematike",
 	"mathstatus": "Stanje prikaza matematičkih formula",

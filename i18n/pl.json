@@ -92,7 +92,6 @@
 	"math_unknown_function": "nieznana funkcja „$1”",
 	"mw_math_latexml": "LaTeXML (eksperymentalne; wykorzystuje MathML)",
 	"mw_math_mathml": "MathML z przejściem w SVG lub PNG (zalecane dla nowoczesnych przeglądarek i narzędzi zwiększenia dostępności)",
-	"mw_math_png": "Obrazy PNG",
 	"mw_math_source": "Źródło w LaTeX (dla przeglądarek tekstowych)",
 	"prefs-math": "Wzory",
 	"mathstatus": "Status renderowania formuł matematycznych",

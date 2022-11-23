@@ -63,7 +63,6 @@
 	"math_unknown_function": "nežinoma funkcija \"$1\"",
 	"mw_math_latexml": "LaTeXML (eksperimentinis; naudoja MathML)",
 	"mw_math_mathml": "MathML su SVG ar PNG surogatu (rekomenduojama modernioms naršyklėms ir pasiekiamumo įrankiams)",
-	"mw_math_png": "PNG paveikslėliai",
 	"mw_math_source": "LaTeX išeities kodas (teksto naršyklėms)",
 	"prefs-math": "Matematika",
 	"mathstatus": "Matematinių formulių statusas",

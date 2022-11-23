@@ -37,7 +37,6 @@
 	"math_unknown_error": "άγνωστο σφάλμα",
 	"math_unknown_function": "άγνωστη συνάρτηση \"$1\"",
 	"mw_math_mathml": "MathML με SVG ή μετάπτωση σε PNG (συνιστάται για σύγχρονους browsers και εργαλεία πρόσβασης)",
-	"mw_math_png": "Εικόνες PNG",
 	"mw_math_source": "Πηγή LaTeX (για text browsers)",
 	"prefs-math": "Απόδοση μαθηματικών",
 	"mathstatus": "Μαθηματικά στατιστικά",

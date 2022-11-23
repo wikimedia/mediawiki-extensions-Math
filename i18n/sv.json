@@ -90,7 +90,6 @@
 	"math_unknown_function": "okänd funktion \"$1\"",
 	"mw_math_latexml": "LaTeXML (experimentell; använder MathML)",
 	"mw_math_mathml": "MathML med SVG- eller PNG-återgång (rekommenderas för moderna webbläsare och tillgänglighetsverktyg)",
-	"mw_math_png": "PNG-bilder",
 	"mw_math_source": "LaTeX-källa (för textbaserade webbläsare)",
 	"prefs-math": "Matematik",
 	"mathstatus": "Math-status",
