@@ -39,12 +39,6 @@ class ParserUtil {
 			'oldmhchem' => false,
 			'debug' => false
 		];
-
-		if ( $options != null ) {
-			foreach ( $options as $key => $value ) {
-				$optionsBase[$key] = $value;
-			}
-		}
-		return $optionsBase;
+		return array_merge( $optionsBase, $options ?? [] );
 	}
 }
