@@ -78,6 +78,8 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 		"e9f6be4c2ba14f4866fe4263bf5c6a0f", # (i)  \mathcal{G} × \mathcal{H}" probably unicode
 		"f31d13eca12a0db895b7062491b44886", # (k) Markdown
 		"f338c7dea84103c7be9626def39d1c7f", # (i) Z^{X × Y} probably unicode
+		"658f88ad3ea4ff14e7b35b0efda8535e", # (i) no math, wikitext.
+		"e5e470bd2eaad8eaa35708534f5927f7", # (i) no math, wikitext
 	];
 
 	protected function setUp(): void {
@@ -279,7 +281,6 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 	public function testAllEnWikiFormulae() {
 		if ( !$this->ACTIVE ) {
 			$this->markTestSkipped( "All MediaWiki formulae en test not active and skipped. This is expected." );
-			return;
 		}
 
 		$texVC = new TexVC();
@@ -291,6 +292,9 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 				$title = $testcase["inputhash"];
 				$f = $testcase["input"];
 				try {
+					if ( in_array( $title, $this->knownBadHashesPHP ) ) {
+						continue;
+					}
 					$result = $texVC->check( $testcase["input"], [
 						"debug" => false,
 						"usemathrm" => false,
