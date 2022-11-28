@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Jon Harald Søby (WMNO)",
+			"Kimberli Mäkäräinen (WMNO)",
 			"Skuolfi",
 			"Yupik"
 		]
@@ -10,5 +11,5 @@
 	"math-visualeditor-mwmathdialog-title": "Matemahtihkka",
 	"math_unknown_error": "dovdameahttun feaila",
 	"math_unknown_function": "dovdameahttun funkšuvdna \"$1\"",
-	"prefs-math": "Matematihkká"
+	"prefs-math": "Matematihkka"
 }
