@@ -32,17 +32,11 @@ class TexNode {
 	}
 
 	public function render() {
-		return array_reduce( $this->args, function ( $out, $child ) {
-			return $out . $this->renderChild( $child );
-		}, '' );
-	}
-
-	public function renderChild( $child ) {
-		if ( $child instanceof TexNode ) {
-			return $child->render();
+		$out = '';
+		foreach ( $this->args as $child ) {
+			$out .= $child instanceof self ? $child->render() : $child;
 		}
-
-		return $child;
+		return $out;
 	}
 
 	public function getLength(): ?int {
@@ -62,18 +56,15 @@ class TexNode {
 	}
 
 	public function extractIdentifiers( $args = null ) {
-		if ( $args == null ) {
-			$args = $this->args;
-		}
 		$output = [];
 
-		array_walk( $args, static function ( $value, $key ) use ( &$output )  {
-			if ( is_string( $value ) ) {
-				array_push( $output, $value );
-			} else {
+		foreach ( $args ?? $this->args as $value ) {
+			if ( $value instanceof self ) {
 				$output = array_merge( $output, $value->extractIdentifiers() );
+			} else {
+				$output[] = $value;
 			}
-		} );
+		}
 
 		return $output;
 	}
@@ -156,22 +147,25 @@ class TexNode {
 	 * @return bool|string matching value or false
 	 */
 	public static function match( $target, string $str ) {
-		if ( is_array( $target ) ) {
-			foreach ( $target as $key => $value ) {
-				// In javascript both types are used to comparison in match functionality
-				$compValue = is_string( $key ) ? $key : $value;
-				$output = self::match( $compValue, $str );
-				if ( $output !== false ) {
-					return $output;
-				}
-			}
-			return false;
-		}
 		if ( is_string( $target ) ) {
 			return $target === $str ? $str : false;
 		}
 
-		// FIXME: This is dead code, isn't it? Arrays are already handled above.
-		return $target[$str] ? $str : false;
+		foreach ( $target as $key => $value ) {
+			// In javascript both types are used to comparison in match functionality
+			if ( is_string( $key ) ) {
+				if ( $key === $str ) {
+					return $str;
+				}
+			} elseif ( is_array( $value ) ) {
+				if ( self::match( $value, $str ) ) {
+					return $str;
+				}
+			} elseif ( $value === $str ) {
+				return $str;
+			}
+		}
+
+		return false;
 	}
 }
