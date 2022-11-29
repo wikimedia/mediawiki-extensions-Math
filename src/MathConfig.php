@@ -98,9 +98,10 @@ class MathConfig {
 		// NOTE: this method is copy-pasted into Hooks::onLoadExtensionSchemaUpdates
 		// since we can't inject services in there.
 
-		$modes = array_map( static function ( $mode ) {
-			return self::normalizeRenderingMode( $mode );
-		}, $this->options->get( 'MathValidModes' ) );
+		$modes = array_map(
+			[ __CLASS__, 'normalizeRenderingMode' ],
+			$this->options->get( 'MathValidModes' )
+		);
 		return array_unique( $modes );
 	}
 

@@ -83,6 +83,7 @@ class MathRestbaseInterface {
 					$mml = $rbi->evaluateContentResponse( 'mml', $results[$j], $requests[$j] );
 					$rbi->mml = $mml;
 				} catch ( Exception $e ) {
+					// FIXME: Why is this silenced? Doesn't this leave invalid data behind?
 				}
 				$j++;
 			}
