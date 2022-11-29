@@ -75,31 +75,38 @@ class TexNodeTest extends MediaWikiUnitTestCase {
 			'Should contain a method stub for extracting subscripts' );
 	}
 
-	public function testMatchFunctionalityFalse() {
-		$res = TexNode::match( 'asd', 'sda' );
-
-		$this->assertFalse( $res,
-			'should return false on non-matching strings' );
+	public function providNegativeMatches() {
+		return [
+			[ 'asd', 'sda' ],
+			[ [ 'asd', 'ert' ], 'sda' ],
+			[ [ 0 => 'not a string key' ], '0' ],
+		];
 	}
 
-	public function testMatchFunctionalityString() {
-		$res = TexNode::match( 'asd', 'asd' );
-
-		$this->assertEquals( 'asd',  $res,
-			'should return matching string' );
+	/**
+	 * @dataProvider providNegativeMatches
+	 */
+	public function testMatchFails( $target, string $str ) {
+		$this->assertFalse( TexNode::match( $target, $str ) );
 	}
 
-	public function testMatchFunctionalityArrayFalse() {
-		$res = TexNode::match( [ 'asd', 'ert' ], 'sda' );
-
-		$this->assertFalse( $res,
-			'should return false on non-matching arrays' );
+	public function providPositiveMatches() {
+		return [
+			[ '', '' ],
+			[ 'asd', 'asd' ],
+			[ [ 'ert', 'asd' ], 'asd' ],
+			[ [ 'asd' => 'key should match' ], 'asd' ],
+			[ '0', '0' ],
+			[ [ '0' ], '0' ],
+			[ [ [ '0' ] ], '0' ],
+		];
 	}
 
-	public function testMatchFunctionalityArray() {
-		$res = TexNode::match( [ 'ert', 'asd' ], 'asd' );
-		$this->assertEquals( 'asd',  $res,
-			'should return matching string for matching item in array' );
+	/**
+	 * @dataProvider providPositiveMatches
+	 */
+	public function testMatchSucceeds( $target, string $str ) {
+		$this->assertSame( $str, TexNode::match( $target, $str ) );
 	}
 
 	public function testSpecialCase1() {

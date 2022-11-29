@@ -158,7 +158,7 @@ class TexNode {
 					return $str;
 				}
 			} elseif ( is_array( $value ) ) {
-				if ( self::match( $value, $str ) ) {
+				if ( self::match( $value, $str ) !== false ) {
 					return $str;
 				}
 			} elseif ( $value === $str ) {
