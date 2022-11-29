@@ -29,7 +29,7 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 	 * many of \begin align cases have & and && maybe not escaped probably
 	 * @var array hashes of cases with no output
 	 */
-	 private $knownBadHashesPHP = [
+	private $knownBadHashesPHP = [
 		"0270c7af664da7afddcac31d7ac3ad0f", # (i) \begin{alignat}2
 		"0448c022977e58b500445d3c92a6579a", # (i)  ρ\colon P \to N
 		"0e7c8b2fe70a6310bb546f3506e8c2ae", # (i)  a>b"="\&lt;<
@@ -304,9 +304,9 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 					$good = ( $result["status"] === '+' );
 
 					if ( array_key_exists( $f, $this->knownBad ) ) {
-						$this->assertEquals( !$good, $f, 'tbd' );
+						$this->assertTrue( !$good, $title . " with input: " . $f );
 					} else {
-						$this->assertEquals( $good, $f,  $title . " with input: " . $f );
+						$this->assertTrue( $good,  $title . " with input: " . $f );
 						$r1 = $texVC->check( $result["output"] );
 						$this->assertEquals( "+", $r1["status"],
 							"error rechecking output: " . $f . " -> " . $result["output"] );
