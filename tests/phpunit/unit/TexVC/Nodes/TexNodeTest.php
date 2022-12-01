@@ -137,21 +137,17 @@ class TexNodeTest extends MediaWikiUnitTestCase {
 			[ '\\mismatch', '\\mbox{\\somefunc}', false ],
 			[ '\\somefunc', '\\mbox {\\somefunc}', false ],
 			[ '\\color', '\\color' ],
-			// FIXME: This might be to relaxed; maybe add a \b to the regex?
-			[ '\\color', '\\colorscheme because the rest is ignored' ],
+			[ '\\color', '\\color the rest is ignored' ],
 			[ '\\pagecolor', '\\pagecolor' ],
 			[ '\\definecolor', '\\definecolor' ],
-			[ '\\mathbb', '\\mathbb {}' ],
+			[ '\\mathbb', '\\mathbb {}', false ],
 			[ '\\mathbb', '\\mathbb {A}', false ],
 			[ '\\mathbb', '\\mathbb {foo}', false ],
 			[ '\\mathbb', '\\mathbb{}', false ],
-
-			// FIXME: I believe these don't make sense; mistake in the regex?
-			[ '\\mathbb', '\\mathbb {.}' ],
-			[ '\\mathbb', '\\mathbb {..........}' ],
-			// FIXME: I believe these should both succeed
-			[ '\\mathbb', '\\mathbb {\\foo}', false ],
-			[ '\\foo', '\\mathbb {\\foo}', false ],
+			[ '\\mathbb', '\\mathbb {.}', false ],
+			[ '\\mathbb', '\\mathbb {..........}', false ],
+			[ '\\mathbb', '\\mathbb {\\foo}' ],
+			[ '\\foo', '\\mathbb {\\foo}' ],
 		];
 	}
 

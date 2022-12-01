@@ -120,14 +120,14 @@ class TexNode {
 
 		// special case #3: \\color, \\pagecolor, \\definecolor
 		$matches = [];
-		$m = preg_match( '/^(\\\\(color|pagecolor|definecolor))/', $t, $matches );
+		$m = preg_match( '/^(\\\\(?:page|define)?color) /', $t, $matches );
 		if ( $m == 1 ) {
 			return self::match( $target, $matches[1] );
 		}
 
 		// special case #4: \\mathbb, \\mathrm
 		$matches = [];
-		$m = preg_match( '/^(\\\\math..) \{(\\.*)}$/', $t, $matches );
+		$m = preg_match( '/^(\\\\math..) \{(\\\\.*)}$/', $t, $matches );
 		if ( $m == 1 ) {
 			return self::match( $target, $matches[1] ) ?: self::match( $target, $matches[2] );
 		}
