@@ -109,20 +109,56 @@ class TexNodeTest extends MediaWikiUnitTestCase {
 
 	public function provideTextContainingFunctions() {
 		return [
+			[ '', '', false ],
+			[ '\\', '\\' ],
+			[ 'bad input', 'bad input', false ],
+			[ '\\operatorname', '\\mismatch', false ],
+			[ '\\operatorname', '\\operatorname' ],
+			[ '\\operatorname', '\\operatorname {}' ],
 			[ '\\operatorname', '\\operatorname {someword}' ],
+			[ '\\operatorname', '\\operatorname {someword}(' ],
+			[ '\\operatorname', '\\operatorname {someword}[' ],
+			[ '\\operatorname', '\\operatorname {someword}{', false ],
+			[ '\\operatorname', '\\operatorname {someword}\\{' ],
+			[ '\\operatorname', '\\operatorname {someword} ' ],
+			[ '\\operatorname', '\\operatorname {someword}  ', false ],
+			[ '\\operatorname', '\\operatorname {\\someword}', false ],
+			[ '\\operatorname', '\\operatorname{someword}', false ],
 			[
 				[ '\\operatorname', '\\nonexistingooperator' ],
 				'\\operatorname {someword}',
 				'\\operatorname'
 			],
+			[ '\\mbox', '\\mbox{}', false ],
+			[ '\\mbox', '\\mbox{foo}', false ],
+			[ '\\mbox', '\\mbox{\\}' ],
 			[ '\\mbox', '\\mbox{\\somefunc}' ],
+			[ '\\somefunc', '\\mbox{\\somefunc}' ],
+			[ '\\mismatch', '\\mbox{\\somefunc}', false ],
+			[ '\\somefunc', '\\mbox {\\somefunc}', false ],
+			[ '\\color', '\\color' ],
+			// FIXME: This might be to relaxed; maybe add a \b to the regex?
+			[ '\\color', '\\colorscheme because the rest is ignored' ],
+			[ '\\pagecolor', '\\pagecolor' ],
+			[ '\\definecolor', '\\definecolor' ],
+			[ '\\mathbb', '\\mathbb {}' ],
+			[ '\\mathbb', '\\mathbb {A}', false ],
+			[ '\\mathbb', '\\mathbb {foo}', false ],
+			[ '\\mathbb', '\\mathbb{}', false ],
+
+			// FIXME: I believe these don't make sense; mistake in the regex?
+			[ '\\mathbb', '\\mathbb {.}' ],
+			[ '\\mathbb', '\\mathbb {..........}' ],
+			// FIXME: I believe these should both succeed
+			[ '\\mathbb', '\\mathbb {\\foo}', false ],
+			[ '\\foo', '\\mathbb {\\foo}', false ],
 		];
 	}
 
 	/**
 	 * @dataProvider provideTextContainingFunctions
 	 */
-	public function testContainsFunc( $target, string $t, string $expected = null ) {
+	public function testContainsFunc( $target, string $t, $expected = null ) {
 		$this->assertSame( $expected ?? $target, TexNode::texContainsFunc( $target, $t ) );
 	}
 
