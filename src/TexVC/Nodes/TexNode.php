@@ -102,6 +102,11 @@ class TexNode {
 	 * @return string|bool rendered LaTeX string or false if not found.
 	 */
 	public static function texContainsFunc( $target, string $t ) {
+		// protect against using random strings as keys in target
+		if ( !$t || $t[0] !== '\\' ) {
+			return false;
+		}
+
 		// may have trailing '(', '[', '\\{' or " "
 		$t = preg_replace( '/(\(|\[|\\\\{| )$/', '', $t );
 
@@ -132,12 +137,7 @@ class TexNode {
 			return self::match( $target, $matches[1] ) ?: self::match( $target, $matches[2] );
 		}
 
-		// protect against using random strings as keys in target
-		if ( substr( $t, 0, 1 ) === '\\' ) {
-			return self::match( $target, $t );
-		} else {
-			return false;
-		}
+		return self::match( $target, $t );
 	}
 
 	/**
