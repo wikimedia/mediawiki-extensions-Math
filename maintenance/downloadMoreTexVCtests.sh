@@ -7,8 +7,8 @@
 # - ChemRegressionTest.php
 
 # Downloads the file containing all english  wikipedia formula to the testfolder
-FILEPATH=../tests/phpunit/unit/TexVC/en-wiki-formulae.json
-URL=https://raw.githubusercontent.com/wikimedia/mediawiki-services-texvcjs/fb56991251b8889b554fc42ef9fe4825bc35d0ed/test/en-wiki-formulae.json
+FILEPATH=../tests/phpunit/unit/TexVC/en-wiki-formulae-good.json
+URL=https://raw.githubusercontent.com/wikimedia/mediawiki-services-texvcjs/ca9b33d3b5081ae78829af4c65322becb4f4a216/test/en-wiki-formulae-good.json
 curl $URL -o $FILEPATH
 
 # Downloads the file containing for chem-regression tests to the testfolder

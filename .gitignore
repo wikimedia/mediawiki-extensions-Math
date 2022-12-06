@@ -5,6 +5,7 @@ vendor
 composer.lock
 /tests/selenium/log
 en-wiki-formulae.json
+en-wiki-formulae-good.json
 chem-regression.json
 # Editors
 *.kate-swp
