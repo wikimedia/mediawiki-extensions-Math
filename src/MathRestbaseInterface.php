@@ -137,7 +137,7 @@ class MathRestbaseInterface {
 	/**
 	 * Performs a service request
 	 * Generates error messages on failure
-	 * @see Http::post()
+	 * @see MediaWiki\Http\HttpRequestFactory::post()
 	 *
 	 * @param array $request
 	 * @return array
