@@ -22,6 +22,7 @@
 			"Yusuke1109",
 			"おはぐろ蜻蛉",
 			"ネイ",
+			"バレロン",
 			"青子守歌"
 		]
 	},
@@ -36,6 +37,7 @@
 	"math-visualeditor-mwlatexinspector-display-default": "既定",
 	"math-visualeditor-mwlatexinspector-display-inline": "インライン",
 	"math-visualeditor-mwlatexinspector-id": "リンクID (オプション)",
+	"math-visualeditor-mwlatexinspector-qid": "ウィキベースID(Q付き)",
 	"math-visualeditor-mwmathdialog-title": "数式",
 	"math-visualeditor-symbol-group-chem-addition": "付加反応",
 	"math-visualeditor-symbol-group-chem-aggregation": "集合状態",
