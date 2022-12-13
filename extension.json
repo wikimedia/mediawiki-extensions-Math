@@ -205,13 +205,21 @@
 			]
 		},
 		"ext.math.scripts": {
-			"scripts": "ext.math.js"
+			"scripts": "ext.math.js",
+			"targets": [
+				"desktop",
+				"mobile"
+			]
 		},
 		"ext.math.popup": {
 			"es6": true,
 			"packageFiles": "ext.math.popup.js",
 			"dependencies": [
 				"mediawiki.api"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"mw.widgets.MathWbEntitySelector": {
@@ -223,6 +231,10 @@
 				"mw.config.values.wbRepo",
 				"mediawiki.ForeignApi",
 				"mediawiki.widgets"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"ext.math.visualEditor": {
@@ -322,6 +334,10 @@
 			],
 			"styles": [
 				"ve-math/ve.ui.MWMathSymbols.css"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"ext.math.visualEditor.chemSymbols": {
@@ -331,6 +347,10 @@
 			],
 			"styles": [
 				"ve-math/ve.ui.MWChemSymbols.css"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		}
 	},
