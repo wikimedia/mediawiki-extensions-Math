@@ -6,12 +6,13 @@
 			"CoolCityCat",
 			"Jeluang Terluang",
 			"Kurniasan",
-			"Macofe"
+			"Macofe",
+			"Tofeiku"
 		]
 	},
 	"math-desc": "Mengolah rumus-rumus matematik antara teg-teg <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwlatexinspector-display": "Paparan",
-	"math-visualeditor-mwlatexinspector-display-block": "Blok",
+	"math-visualeditor-mwlatexinspector-display-block": "Sekat",
 	"math-visualeditor-mwlatexinspector-display-default": "Asali",
 	"math-visualeditor-mwlatexinspector-display-inline": "Inline",
 	"math-visualeditor-mwlatexinspector-id": "ID pautan (pilihan)",
