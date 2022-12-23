@@ -226,7 +226,7 @@ class BaseParsing {
 		return $mo->encapsulate( "&#x2026;" );
 	}
 
-	public function genFrac( $node, $passedArgs, $name, $operatorContent,
+	public static function genFrac( $node, $passedArgs, $name, $operatorContent,
 							 $left = null, $right = null, $thick = null, $style = null ) {
 		// Actually this is in AMSMethods, consider refactoring  left, right, thick, style
 		$bm = new BaseMethods();
