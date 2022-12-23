@@ -1,5 +1,5 @@
 <?php
-namespace MediaWiki\Extension\Math\TexVC\TexConstants;
+namespace MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants;
 
 class Notation {
 	public const LONGDIV = 'longdiv';
