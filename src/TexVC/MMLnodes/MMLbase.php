@@ -4,19 +4,10 @@ namespace MediaWiki\Extension\Math\TexVC\MMLnodes;
 
 use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Tag;
 
-/**
- * This is the basic mathml element and contains the
- * functions to construct MathML tags.
- * @author Johannes Stegmüller
- */
 class MMLbase {
-
-	/** @var string */
-	private $name;
-	/** @var string */
-	private $texclass;
-	/** @var array */
-	private $attributes;
+	private string $name;
+	private string $texclass;
+	private array $attributes;
 
 	public function __construct( string $name, string $texclass = "", array $attributes = [] ) {
 		$this->name = $name;
