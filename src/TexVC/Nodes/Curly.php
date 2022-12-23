@@ -25,6 +25,13 @@ class Curly extends TexNode {
 		return $this->arg->inCurlies();
 	}
 
+	public function renderMML( $arguments = [] ) {
+		// J4T set17
+		//$mmlRow = new MMLmrow();
+		//return $mmlRow->encapsulate(parent::renderMML($arguments));
+		return parent::renderMML( $arguments );
+	}
+
 	public function inCurlies() {
 		return $this->render();
 	}

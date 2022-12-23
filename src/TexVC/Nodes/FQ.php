@@ -4,6 +4,11 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
+use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmsubsup;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmunderover;
+
 class FQ extends TexNode {
 
 	/** @var TexNode */
@@ -43,6 +48,40 @@ class FQ extends TexNode {
 
 	public function render() {
 		return $this->base->render() . '_' . $this->down->inCurlies() . '^' . $this->up->inCurlies();
+	}
+
+	public function renderMML( $arguments = [] ) {
+		$bm = new BaseMethods();
+		if ( $this->getArgs()[0]->getLength() == 0 ) {
+			// this happens when FQ is located in Sideset (is this a common parsing way?)
+			$mrow = new MMLmrow();
+			return $mrow->encapsulate( $this->getDown()->renderMML() ) .
+				$mrow->encapsulate( $this->getUp()->renderMML() );
+		}
+
+		// Not sure if this case is necessary ..
+		if ( is_string( $this->getArgs()[0] ) ) {
+			$res = $bm->checkAndParse( $this->getArgs()[0], $this, $arguments, null );
+			if ( $res ) {
+				return $res;
+			} else {
+				return "Not Implemented FQ for: " . $this->getArgs()[0];
+			}
+		}
+
+		$melement = new MMLmsubsup();
+		// tbd check for more such cases like TexUtilTest 317
+		$base = $this->getBase();
+		if ( $base instanceof Literal ) {
+			if ( trim( $this->getBase()->getArgs()[0] ) === "\\sum" ) {
+				$melement = new MMLmunderover();
+			}
+		}
+
+		// This seems to be the common case
+		$mrow = new MMLmrow();
+		return $melement->encapsulate( $this->getBase()->renderMML() .
+			$mrow->encapsulate( $this->getDown()->renderMML() ) . $mrow->encapsulate( $this->getUp()->renderMML() ) );
 	}
 
 	public function name() {

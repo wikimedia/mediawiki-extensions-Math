@@ -4,6 +4,8 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
+use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
+
 class Infix extends TexNode {
 
 	/** @var string */
@@ -49,6 +51,16 @@ class Infix extends TexNode {
 		return '{' . $this->arg1->render() .
 			' ' . $this->op . ' ' .
 			$this->arg2->render() . '}';
+	}
+
+	public function renderMML( $arguments = [] ) {
+		$bm = new BaseMethods();
+		$res = $bm->checkAndParse( $this->op, $this, $arguments, null );
+		if ( $res ) {
+			return $res;
+		} else {
+			return "Not Implemented Infix for: " . $this->getArgs()[0];
+		}
 	}
 
 	public function extractIdentifiers( $args = null ) {

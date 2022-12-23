@@ -4,6 +4,10 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
+use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmo;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmover;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\TexVC\TexUtil;
 
 class Fun1 extends TexNode {
@@ -42,6 +46,31 @@ class Fun1 extends TexNode {
 
 	public function render() {
 		return '{' . $this->fname . ' ' . $this->arg->inCurlies() . '}';
+	}
+
+	public function renderMML( $arguments = [] ) {
+		$bm = new BaseMethods();
+		$res = $bm->checkAndParse( $this->fname, $this, $arguments, null );
+		if ( $res ) {
+			return $res;
+		} else {
+			return "Not Implemented Fun1 for: " . $this->fname;
+		}
+	}
+
+	public function createMover( $inner, $moArgs = [] ): string {
+		$mrow = new MMLmrow();
+		$mo = new MMLmo( "", $moArgs );
+		$mover = new MMLmover();
+		$ret = $mrow->encapsulate(
+			$mrow->encapsulate(
+				$mover->encapsulate(
+					$this->args[1]->renderMML() .
+					$mo->encapsulate( $inner )
+				)
+			)
+		);
+		return $ret;
 	}
 
 	public function extractIdentifiers( $args = null ) {
@@ -85,4 +114,5 @@ class Fun1 extends TexNode {
 	public function name() {
 		return 'FUN1';
 	}
+
 }

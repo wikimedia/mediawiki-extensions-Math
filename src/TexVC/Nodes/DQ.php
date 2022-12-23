@@ -4,6 +4,10 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
+use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmsub;
+
 class DQ extends TexNode {
 	/** @var TexNode */
 	private $base;
@@ -32,6 +36,20 @@ class DQ extends TexNode {
 
 	public function render() {
 		return $this->base->render() . '_' . $this->down->inCurlies();
+	}
+
+	public function renderMML( $arguments = [] ) {
+		// Check if there is a specific parsing in BaseMethods
+		$bm = new BaseMethods();
+		$res = $bm->checkAndParse( $this->base->getArgs()[0], $this, $arguments, null );
+		if ( $res ) {
+			return $res;
+		} else {
+			// Otherwise use default fallback
+			$mmlMrow = new MMLmrow();
+			$msub = new MMLmsub();
+			return $msub->encapsulate( $this->base->renderMML() . $mmlMrow->encapsulate( $this->down->renderMML() ) );
+		}
 	}
 
 	public function extractIdentifiers( $args = null ) {

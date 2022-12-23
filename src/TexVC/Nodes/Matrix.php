@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
 
 class Matrix extends TexNode {
 
@@ -60,6 +61,16 @@ class Matrix extends TexNode {
 
 	public function render() {
 		return '{\\begin{' . $this->top . '}' . $this->renderMatrix( $this->mainarg ) . '\\end{' . $this->top . '}}';
+	}
+
+	public function renderMML( $arguments = [] ) {
+		$bm = new BaseMethods();
+		$res = $bm->checkAndParse( $this->getTop(), $this, $arguments, null );
+		if ( $res ) {
+			return $res;
+		} else {
+			return "Not Implemented Matrix for: " . $this->getArgs()[0];
+		}
 	}
 
 	private function renderMatrix( $matrix ) {

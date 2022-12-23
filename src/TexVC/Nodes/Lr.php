@@ -4,6 +4,11 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
+use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
+use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\TexClass;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmo;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
+
 class Lr extends TexNode {
 
 	/** @var string */
@@ -47,6 +52,44 @@ class Lr extends TexNode {
 
 	public function render() {
 		return '\\left' . $this->left . $this->arg->render() . '\\right' . $this->right;
+	}
+
+	public function renderMML( $arguments = [] ) {
+		// TBD  set attributes for right AND left correctly
+		$rightAttrs = [];
+		if ( $this->right == "." ) {
+			$rightAttrs = [ "fence" => "true", "stretchy" => "true", "symmetric" => "true" ];
+		}
+
+		$bm = new BaseMethods();
+		$left = $bm->checkAndParseDelimiter( $this->left, $this, [], null, false,
+			TexClass::OPEN );
+		if ( !$left ) {
+			$moLeft = new MMLmo( TexClass::OPEN, [] );
+			$left = $moLeft->encapsulate( $this->right );
+		}
+		$right = $bm->checkAndParseDelimiter( $this->right, $this, $rightAttrs, null, false,
+			TexClass::CLOSE );
+		if ( !$right ) {
+			$moRight = new MMLmo( TexClass::CLOSE, $rightAttrs );
+			$right = $moRight->encapsulate( $this->right );
+		}
+
+		$inner = $this->getArg()->renderMML();
+		$mrow = new MMLmrow( TexClass::INNER );
+		return $mrow->encapsulate(
+			$left . $inner .
+			$right
+		);
+	}
+
+	private function mmlTranslate( $input ) {
+		switch ( trim( $input ) ) {
+			case "\\vert":
+				return "|";
+			default:
+				return $input;
+		}
 	}
 
 	public function containsFunc( $target, $args = null ) {

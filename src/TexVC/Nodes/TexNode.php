@@ -39,6 +39,19 @@ class TexNode {
 		return $out;
 	}
 
+	public function renderMML( $arguments = [] ) {
+		return array_reduce( $this->args, function ( $out, $child ) use ( $arguments ) {
+			return $out . $this->renderChildMML( $child, $arguments );
+		}, '' );
+	}
+
+	public function renderChildMML( $child, $arguments ) {
+		if ( $child instanceof TexNode ) {
+			return $child->renderMML( $arguments );
+		}
+		return $child;
+	}
+
 	public function getLength(): ?int {
 		if ( isset( $this->args[0] ) ) {
 			return count( $this->args );
