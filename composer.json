@@ -18,5 +18,8 @@
 		],
 		"phan": "phan -d . --long-progress-bar",
 		"phpcs": "phpcs -sp --cache"
+	},
+	"require": {
+		"ext-intl": "*"
 	}
 }
