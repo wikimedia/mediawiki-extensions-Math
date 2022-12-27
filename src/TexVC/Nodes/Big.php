@@ -55,7 +55,4 @@ class Big extends TexNode {
 		return [];
 	}
 
-	public function name() {
-		return 'BIG';
-	}
 }

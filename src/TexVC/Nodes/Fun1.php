@@ -111,8 +111,4 @@ class Fun1 extends TexNode {
 		return [];
 	}
 
-	public function name() {
-		return 'FUN1';
-	}
-
 }

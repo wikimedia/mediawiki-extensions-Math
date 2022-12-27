@@ -95,7 +95,4 @@ class DQ extends TexNode {
 		return parent::getModIdent();
 	}
 
-	public function name() {
-		return 'DQ';
-	}
 }

@@ -69,7 +69,4 @@ class Box extends TexNode {
 		return [];
 	}
 
-	public function name() {
-		return 'BOX';
-	}
 }

@@ -68,7 +68,4 @@ class Fun2 extends TexNode {
 		return parent::extractIdentifiers( $args );
 	}
 
-	public function name() {
-		return 'FUN2';
-	}
 }

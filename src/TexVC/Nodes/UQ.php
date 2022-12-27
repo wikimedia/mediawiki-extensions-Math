@@ -54,7 +54,4 @@ class UQ extends TexNode {
 		);
 	}
 
-	public function name() {
-		return 'UQ';
-	}
 }

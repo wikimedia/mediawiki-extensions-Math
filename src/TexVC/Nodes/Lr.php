@@ -106,7 +106,4 @@ class Lr extends TexNode {
 		return parent::extractIdentifiers( $args );
 	}
 
-	public function name() {
-		return 'LR';
-	}
 }

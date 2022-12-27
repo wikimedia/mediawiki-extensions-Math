@@ -44,7 +44,4 @@ class Curly extends TexNode {
 		return $this->arg->getModIdent();
 	}
 
-	public function name() {
-		return 'CURLY';
-	}
 }

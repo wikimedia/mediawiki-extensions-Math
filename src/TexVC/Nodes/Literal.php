@@ -137,7 +137,4 @@ class Literal extends TexNode {
 		}
 	}
 
-	public function name() {
-		return 'LITERAL';
-	}
 }

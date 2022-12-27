@@ -6,10 +6,6 @@ namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
 class Fun2sq extends Fun2 {
 
-	public function name() {
-		return 'FUN2sq';
-	}
-
 	public function inCurlies() {
 		return $this->render();
 	}

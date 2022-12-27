@@ -6,10 +6,6 @@ namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
 class Mhchem extends Fun1 {
 
-	public function name() {
-		return 'MHCHEM';
-	}
-
 	public function inCurlies() {
 		return '{' . $this->render() . '}';
 	}

@@ -41,10 +41,6 @@ class ChemFun2u extends TexNode {
 		return $this->right;
 	}
 
-	public function inCurlies() {
-		return $this->render();
-	}
-
 	public function render() {
 		return $this->fname . $this->left->inCurlies() . '_' . $this->right->inCurlies();
 	}
@@ -53,7 +49,4 @@ class ChemFun2u extends TexNode {
 		return [];
 	}
 
-	public function name() {
-		return 'CHEM_FUN2u';
-	}
 }

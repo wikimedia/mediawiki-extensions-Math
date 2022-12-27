@@ -71,7 +71,4 @@ class Infix extends TexNode {
 		return parent::extractIdentifiers( $args );
 	}
 
-	public function name() {
-		return 'INFIX';
-	}
 }

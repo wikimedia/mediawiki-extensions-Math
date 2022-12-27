@@ -117,7 +117,4 @@ class Matrix extends TexNode {
 		return array_merge( $acc, $fld );
 	}
 
-	public function name() {
-		return 'MATRIX';
-	}
 }

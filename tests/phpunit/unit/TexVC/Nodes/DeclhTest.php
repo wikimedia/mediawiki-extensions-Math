@@ -62,6 +62,11 @@ class DeclhTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( [ 'a' ], $f->extractIdentifiers(), 'Should extract identifiers' );
 	}
 
+	public function testExtractNoIdentifiersDeclh() {
+		$f = new Declh( '\\rm', new TexArray() );
+		$this->assertEquals( [], $f->extractIdentifiers(), 'Should extract identifiers' );
+	}
+
 	public function testExtractIdentifiersMultiDeclh() {
 		$f = new Declh( '\\rm', new TexArray( new Literal( 'a' ), new Literal( 'b' ) ) );
 		$this->assertEquals( [ 'ab' ], $f->extractIdentifiers(), 'Should extract multiple identifiers' );

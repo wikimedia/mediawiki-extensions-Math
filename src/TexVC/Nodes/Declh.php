@@ -90,7 +90,4 @@ class Declh extends TexNode {
 		return parent::extractSubscripts();
 	}
 
-	public function name() {
-		return 'DECLh';
-	}
 }

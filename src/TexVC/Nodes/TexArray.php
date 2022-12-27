@@ -178,10 +178,6 @@ class TexArray extends TexNode {
 		array_unshift( $this->args, ...$elements );
 	}
 
-	public function name() {
-		return 'ARRAY';
-	}
-
 	/**
 	 * @throws InvalidArgumentException if args not of correct type
 	 * @param TexNode[] $args input args

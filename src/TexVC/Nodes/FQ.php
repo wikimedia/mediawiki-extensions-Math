@@ -83,8 +83,4 @@ class FQ extends TexNode {
 		return $melement->encapsulate( $this->getBase()->renderMML() .
 			$mrow->encapsulate( $this->getDown()->renderMML() ) . $mrow->encapsulate( $this->getUp()->renderMML() ) );
 	}
-
-	public function name() {
-		return 'FQ';
-	}
 }

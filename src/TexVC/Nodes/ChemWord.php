@@ -34,10 +34,6 @@ class ChemWord extends TexNode {
 		return $this->right;
 	}
 
-	public function inCurlies() {
-		return $this->render();
-	}
-
 	public function render() {
 		return $this->left->render() . $this->right->render();
 	}
@@ -56,7 +52,4 @@ class ChemWord extends TexNode {
 		return [];
 	}
 
-	public function name() {
-		return 'CHEM_WORD';
-	}
 }

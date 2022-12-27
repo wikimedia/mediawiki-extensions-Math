@@ -8,10 +8,6 @@ use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
 
 class Fun1nb extends Fun1 {
 
-	public function name() {
-		return 'FUN1nb';
-	}
-
 	public function inCurlies() {
 		return '{' . $this->render() . '}';
 	}
