@@ -127,7 +127,7 @@ class ApiTest extends MediaWikiUnitTestCase {
 
 	public function testDefinedCases() {
 		foreach ( $this->testCases as $case ) {
-			$result = $this->texVC->check( $case->in );
+			$result = $this->texVC->check( $case->in, [ 'report_required' => true ] );
 			$resultStatus = array_key_exists( 'status', $result ) ? $result['status'] : '';
 			$caseStatus = property_exists( $case, 'status' ) ? ( (object)$case )->status : '+';
 			$this->assertEquals( $caseStatus, $resultStatus, 'Status incorrect' );

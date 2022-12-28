@@ -37,7 +37,8 @@ class ParserUtil {
 			'usemhchem' => false,
 			'oldtexvc' => false,
 			'oldmhchem' => false,
-			'debug' => false
+			'debug' => false,
+			'report_required' => false
 		];
 		return array_merge( $optionsBase, $options ?? [] );
 	}

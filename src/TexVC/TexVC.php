@@ -72,15 +72,20 @@ class TexVC {
 				'success' => true,
 			];
 
-			$pkgs = [ 'ams', 'cancel', 'color', 'euro', 'teubner', 'mhchem', 'mathoid' ];
+			if ( $options['report_required'] ) {
+				$pkgs = [ 'ams', 'cancel', 'color', 'euro', 'teubner', 'mhchem', 'mathoid' ];
 
-			foreach ( $pkgs as $pkg ) {
-				$pkg .= '_required';
-				$tuRef = $this->tu->getBaseElements()[$pkg];
-				$result[$pkg] = $input->containsFunc( $tuRef );
+				foreach ( $pkgs as $pkg ) {
+					$pkg .= '_required';
+					$tuRef = $this->tu->getBaseElements()[$pkg];
+					$result[$pkg] = $input->containsFunc( $tuRef );
+				}
 			}
+
 			if ( !$options['usemhchem'] ) {
-				if ( $result['mhchem_required'] ) {
+				if ( $result['mhchem_required'] ??
+						$input->containsFunc( $this->tu->getBaseElements()['mhchem_required'] )
+				) {
 					return [
 						'status' => 'C',
 						'details' => 'mhchem package required.'
