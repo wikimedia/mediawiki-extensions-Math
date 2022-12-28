@@ -9,6 +9,8 @@ use MediaWikiUnitTestCase;
 /**
  * @covers \MediaWiki\Extension\Math\TexVC\TexVC
  * @covers \MediaWiki\Extension\Math\TexVC\Parser
+ * @covers \MediaWiki\Extension\Math\TexVC\TexUtil
+ * @covers \MediaWiki\Extension\Math\TexVC\ParserUtil
  */
 class ApiTest extends MediaWikiUnitTestCase {
 	private $testCases;
