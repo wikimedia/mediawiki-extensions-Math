@@ -4,12 +4,14 @@ namespace MediaWiki\Extension\Math\TexVC\MMLmappings;
 use ArgumentCountError;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLutil;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmerror;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmspace;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmtext;
+use MediaWiki\Extension\Math\TexVC\Nodes\TexNode;
 
 /**
  * This contains the basic parsing methods for tex elements, which get invoked
@@ -21,18 +23,18 @@ use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmtext;
  */
 class BaseMethods {
 
-	public function checkAndParse( $input, $node, $passedArgs, $operatorContent ) {
+	public static function checkAndParse( $input, $passedArgs, $operatorContent, TexNode $node ) {
 		if ( !is_string( $input ) ) {
 			// just discard these elements, sometimes empty TexArray
 			return null;
 		}
-	   $input = trim( $input );
+		$input = trim( $input );
 		if ( str_starts_with( $input, "\\" ) ) {
-		   $input = substr( $input, 1 );
+			$input = substr( $input, 1 );
 		}
 
 		// Checking for a named parsing function
-	   $resFct = BaseMappings::getMacroByKey( $input );
+		$resFct = BaseMappings::getMacroByKey( $input );
 		if ( $resFct == null ) {
 			$resFct = AMSMappings::getMacroByKey( $input );
 			if ( $resFct == null ) {
@@ -61,11 +63,13 @@ class BaseMethods {
 			// Passing resolved function as param without first id
 			if ( count( $resFct ) > 1 ) {
 				$shifted = array_shift( $resFct );
+
 				return BaseParsing::{$shifted}( $node, $passedArgs, $operatorContent, $input, ...$resFct );
 			} else {
-				return BaseParsing::{$resFct[0]}( $node,  $passedArgs, $operatorContent, $input );
+				return BaseParsing::{$resFct[0]}( $node, $passedArgs, $operatorContent, $input );
 			}
-		} catch ( \Exception $exception ) {
+		}
+		catch ( \Exception $exception ) {
 			return null;
 		}
 	}
@@ -252,5 +256,11 @@ class BaseMethods {
 				return $mtext->encapsulate( "\\pagecolor" );
 			}
 		}
+	}
+
+	public static function generateMMLError( $msg ): string {
+		return ( new MMLmerror() )->encapsulate(
+			( new MMLmtext() )->encapsulate( $msg )
+		);
 	}
 }

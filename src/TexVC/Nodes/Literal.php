@@ -76,7 +76,7 @@ class Literal extends TexNode {
 		}
 
 		// Sieve for Makros
-		$ret = $bm->checkAndParse( $input, $this, $arguments, $operatorContent );
+		$ret = BaseMethods::checkAndParse( $input, $arguments, $operatorContent, $this );
 		if ( $ret ) {
 			return $ret;
 		}

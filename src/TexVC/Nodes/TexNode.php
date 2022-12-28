@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
 
 class TexNode {
 
@@ -22,6 +23,16 @@ class TexNode {
 			}
 		}
 		$this->args = $args;
+	}
+
+	protected function parseToMML( $input, $passedArgs, $operatorContent ): string {
+		$parsed = BaseMethods::checkAndParse( $input, $passedArgs, $operatorContent, $this );
+		if ( $parsed ) {
+			return $parsed;
+		}
+		$name = strtoupper( get_class() );
+
+		return BaseMethods::generateMMLError( "Not implemented $name for $input" );
 	}
 
 	/**

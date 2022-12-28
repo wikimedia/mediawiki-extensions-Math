@@ -86,4 +86,9 @@ class DeclhTest extends MediaWikiUnitTestCase {
 				"Should extract subscripts for {$mod} font modification" );
 		}
 	}
+
+	public function testRenderMML() {
+		$f = new Declh( '\\bf', new TexArray( new Literal( 'a' ) ) );
+		$this->assertStringContainsString( 'mathvariant="bold"', $f->renderMML(), 'MathML should render bold' );
+	}
 }

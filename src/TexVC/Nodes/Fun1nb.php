@@ -4,8 +4,6 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
-use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
-
 class Fun1nb extends Fun1 {
 
 	public function inCurlies() {
@@ -16,14 +14,8 @@ class Fun1nb extends Fun1 {
 		return $this->fname . ' ' . $this->arg->inCurlies() . ' ';
 	}
 
-	public function renderMML( $arguments = [] ) {
-		$bm = new BaseMethods();
-		$res = $bm->checkAndParse( $this->fname, $this, $arguments, null );
-		if ( $res ) {
-			return $res;
-		} else {
-			return "Not Implemented Fun1nb for: " . $this->fname;
-		}
+	public function renderMML( $arguments = [] ): string {
+		return $this->parseToMML( $this->fname, $arguments, null );
 		// This is very preliminary and should most probably be synced with the mappings from time to time
 		// this might move to Fun1.php
 		/**

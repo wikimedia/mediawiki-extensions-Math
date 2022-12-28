@@ -52,4 +52,9 @@ class BoxTest extends MediaWikiUnitTestCase {
 		$box = new Box( '\\hbox', 'a' );
 		$this->assertEquals( '{\\hbox{a}}', $box->inCurlies(), 'Should create exactly one set of curlies' );
 	}
+
+	public function testRenderMML() {
+		$box = new Box( '\\hbox', 'a' );
+		$this->assertStringContainsString( '</mtext>', $box->renderMML(), 'Render MathML as text.' );
+	}
 }

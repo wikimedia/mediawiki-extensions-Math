@@ -4,8 +4,6 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
-use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
-
 class Fun2 extends TexNode {
 
 	/** @var string */
@@ -51,14 +49,8 @@ class Fun2 extends TexNode {
 		return '{' . $this->fname . ' ' . $this->arg1->inCurlies() . $this->arg2->inCurlies() . '}';
 	}
 
-	public function renderMML( $arguments = [] ) {
-		$bm = new BaseMethods();
-		$res = $bm->checkAndParse( $this->fname, $this, $arguments, null );
-		if ( $res ) {
-			return $res;
-		} else {
-			return "NotImplemented Fun2 for: " . $this->fname;
-		}
+	public function renderMML( $arguments = [] ): string {
+		return $this->parseToMML( $this->fname, $arguments, null );
 	}
 
 	public function extractIdentifiers( $args = null ) {

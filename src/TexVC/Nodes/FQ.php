@@ -61,12 +61,7 @@ class FQ extends TexNode {
 
 		// Not sure if this case is necessary ..
 		if ( is_string( $this->getArgs()[0] ) ) {
-			$res = $bm->checkAndParse( $this->getArgs()[0], $this, $arguments, null );
-			if ( $res ) {
-				return $res;
-			} else {
-				return "Not Implemented FQ for: " . $this->getArgs()[0];
-			}
+			return $this->parseToMML( $this->getArgs()[0], $arguments, null );
 		}
 
 		$melement = new MMLmsubsup();
