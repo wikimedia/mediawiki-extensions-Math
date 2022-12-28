@@ -4,8 +4,6 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
-use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
-
 class Box extends TexNode {
 
 	/** @var string */
@@ -42,13 +40,7 @@ class Box extends TexNode {
 	}
 
 	public function renderMML( $arguments = [] ) {
-		$bm = new BaseMethods();
-		$res = $bm->checkAndParse( $this->getArgs()[0], $this, $arguments, null );
-		if ( $res ) {
-			return $res;
-		} else {
-			return "Not Implemented Box for: " . $this->getArgs()[0];
-		}
+		return $this->parseToMML( $this->getArgs()[0], $arguments, null );
 		/**
 		 * $mrow = new MMLmrow();
 		 * $mtext = new MMLmtext();

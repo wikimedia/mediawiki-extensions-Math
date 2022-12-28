@@ -52,4 +52,9 @@ class BigTest extends MediaWikiUnitTestCase {
 		$big = new Big( '\\big', 'a' );
 		$this->assertEquals( '{\\big a}', $big->inCurlies(), 'Should create exactly one set of curlies' );
 	}
+
+	public function testRenderMML() {
+		$big = new Big( '\\big', 'a' );
+		$this->assertStringContainsString( '</mrow>', $big->renderMML(), 'Should render to MathML' );
+	}
 }

@@ -4,7 +4,6 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
-use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmover;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
@@ -49,13 +48,7 @@ class Fun1 extends TexNode {
 	}
 
 	public function renderMML( $arguments = [] ) {
-		$bm = new BaseMethods();
-		$res = $bm->checkAndParse( $this->fname, $this, $arguments, null );
-		if ( $res ) {
-			return $res;
-		} else {
-			return "Not Implemented Fun1 for: " . $this->fname;
-		}
+		return $this->parseToMML( $this->fname, $arguments, null );
 	}
 
 	public function createMover( $inner, $moArgs = [] ): string {

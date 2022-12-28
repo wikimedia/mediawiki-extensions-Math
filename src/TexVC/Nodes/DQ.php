@@ -39,9 +39,7 @@ class DQ extends TexNode {
 	}
 
 	public function renderMML( $arguments = [] ) {
-		// Check if there is a specific parsing in BaseMethods
-		$bm = new BaseMethods();
-		$res = $bm->checkAndParse( $this->base->getArgs()[0], $this, $arguments, null );
+		$res = BaseMethods::checkAndParse( $this->base->getArgs()[0], $arguments, null, $this );
 		if ( $res ) {
 			return $res;
 		} else {
