@@ -8,6 +8,8 @@ use MediaWikiUnitTestCase;
 /**
  * @covers \MediaWiki\Extension\Math\TexVC\TexVC
  * @covers \MediaWiki\Extension\Math\TexVC\Parser
+ * @covers \MediaWiki\Extension\Math\TexVC\TexUtil
+ * @covers \MediaWiki\Extension\Math\TexVC\ParserUtil
  */
 class AllTest extends MediaWikiUnitTestCase {
 	private $testCases;
@@ -37,9 +39,8 @@ class AllTest extends MediaWikiUnitTestCase {
 		array_shift( $DELIMITERS3 );
 
 		return [
-			[
-				'Box functions',
-				[
+				'Box functions' =>
+				[ [
 						"input" =>
 						"\\text {-0-9a-zA-Z+*,=():/;?.!'` \u{0080}-\u{00FF}} " .
 						"\\mbox {-0-9a-zA-Z+*,=():/;?.!'` \u{0080}-\u{00FF}} " .
@@ -50,17 +51,14 @@ class AllTest extends MediaWikiUnitTestCase {
 						"{\\mbox{-0-9a-zA-Z+*,=():/;?.!'` \u{0080}-\u{00FF}}}" .
 						"{\\hbox{-0-9a-zA-Z+*,=():/;?.!'` \u{0080}-\u{00FF}}}" .
 						"{\\vbox{-0-9a-zA-Z+*,=():/;?.!'` \u{0080}-\u{00FF}}}"
-				],
-			],
-			[
-				'Box functions (2)',
-				[
+				] ],
+				'Box functions (2)' =>
+				[ [
 					'input' => '{\\text{ABC}}{\\mbox{ABC}}{\\hbox{ABC}}{\\vbox{ABC}}',
 					'skipOcaml' => true /* extra braces in ocaml version */
 				]
 			],
-			[
-				'LaTeX functions',
+			'LaTeX functions' => [
 				[
 					'input' =>
 						'\\arccos \\arcsin \\arctan \\arg \\cosh \\cos \\cot \\coth ' .
@@ -69,8 +67,7 @@ class AllTest extends MediaWikiUnitTestCase {
 						'\\sin \\sinh \\sup \\tan \\tanh '
 				]
 			],
-			[
-				'Mediawiki functions',
+			'Mediawiki functions' => [
 				[
 					'input' => '\\arccot\\arcsec\\arccsc\\sgn\\sen',
 					'output' =>
@@ -79,8 +76,7 @@ class AllTest extends MediaWikiUnitTestCase {
 						'\\operatorname {sen} '
 				]
 			],
-			[
-				'Literals (1)',
+			'Literals (1)' => [
 				[
 					'input' =>
 						'\\aleph \\alpha \\amalg \\And \\angle \\approx ' .
@@ -173,8 +169,7 @@ class AllTest extends MediaWikiUnitTestCase {
 						'\\wp \\wr \\xi \\Xi \\zeta '
 				]
 			],
-			[
-				'Literals (2)',
+			'Literals (2)' => [
 				[
 					'input' =>
 						'\\AA\\Coppa\\coppa\\Digamma\\euro\\geneuro\\geneuronarrow' .
@@ -190,8 +185,7 @@ class AllTest extends MediaWikiUnitTestCase {
 						'\\mbox{\\varstigma} '
 				]
 			],
-			[
-				'Literals (2\')',
+				'Literals (2\')' => [
 				[
 					/* We can parse what we emit (but the ocaml version can't) */
 					'input' =>
@@ -205,8 +199,7 @@ class AllTest extends MediaWikiUnitTestCase {
 					'skipOcaml' => true
 				]
 			],
-			[
-				'Literals (2) MJ',
+			'Literals (2) MJ' => [
 				[
 					'usemathrm' => true,
 					'input' =>
@@ -223,8 +216,7 @@ class AllTest extends MediaWikiUnitTestCase {
 						'\\mathrm {\\varstigma} '
 				]
 			],
-			[
-				'Literals (2\') MJ',
+			'Literals (2\') MJ' => [
 				[
 					'usemathrm' => true,
 					/* We can parse what we emit (but the ocaml version can't) */
@@ -239,8 +231,7 @@ class AllTest extends MediaWikiUnitTestCase {
 					'skipOcaml' => true
 				]
 			],
-			[
-				'Literals (3)',
+			'Literals (3)' => [
 				[
 					'oldtexvc' => true,
 					'input' =>
@@ -272,17 +263,14 @@ class AllTest extends MediaWikiUnitTestCase {
 						'\\mathrm {T} \\vartheta \\mbox{\\coppa} \\wp \\mathrm {Z} '
 				]
 			],
-			[
-				'Big', self::bigs( $DELIMITERS1, $DELIMITERS2 ),
+			'Big' => [ self::bigs( $DELIMITERS1, $DELIMITERS2 ),
 			],
-			[
-				'Delimiters (1)',
+			'Delimiters (1)' => [
 				[
 					'input' => implode( '', $DELIMITERS1 ) . implode( ' ', $DELIMITERS2 ) . ' '
 				],
 			],
-			[
-				'Delimiters (2)',
+			'Delimiters (2)' => [
 				[
 					'input' =>
 						'\\darr\\dArr\\Darr\\lang\\rang\\uarr\\uArr\\Uarr',
@@ -291,24 +279,21 @@ class AllTest extends MediaWikiUnitTestCase {
 						'\\uparrow \\Uparrow \\Uparrow '
 				]
 			],
-			[
-				'Delimiters (3)',
+			'Delimiters (3)' => [
 				[
 					'input' =>
 						'\\left' . implode( '\\left', $DELIMITERS1 ) .
 						'\\right' . implode( '\\right', array_reverse( $DELIMITERS1 ) )
 				]
 			],
-			[
-				'Delimiters (4)',
+			'Delimiters (4)' => [
 				[
 					'input' =>
 						'\\left' . implode( ' \\left', $DELIMITERS2 ) .
 						' \\right' . implode( ' \\right', array_reverse( $DELIMITERS2 ) ) . ' '
 				]
 			],
-			[
-				'Delimiters (5)',
+			'Delimiters (5)' => [
 				[
 					'input' =>
 						'\\left\\darr \\left\\dArr \\left\\Darr \\left\\lang ' .
@@ -319,8 +304,7 @@ class AllTest extends MediaWikiUnitTestCase {
 						'\\right\\uparrow \\right\\Uparrow \\right\\Uparrow '
 				]
 			],
-			[
-				'FUN_AR1',
+			'FUN_AR1' => [
 				[
 					'input' =>
 						'\\acute{A}\\bar{A}\\bcancel{A}\\bmod{A}\\boldsymbol{A}' .
@@ -351,43 +335,37 @@ class AllTest extends MediaWikiUnitTestCase {
 					'skipOcaml' => 'double spacing and extra braces',
 				]
 			],
-			[
-				'FUN_AR1NB (1)',
+			'FUN_AR1NB (1)' => [
 				[
 					'input' => '\\operatorname {sin} ',
 					'skipOcaml' => 'missing space'
 				]
 			],
-			[
-				'FUN_AR1NB (2)',
+			'FUN_AR1NB (2)' => [
 				[
 					'input' => '\\mathbb {A} \\mathbf {B} \\mathrm {C} ',
 					'skipOcaml' => 'extra braces'
 				]
 			],
-			[
-				'FUN_AR1NB (3)',
+			'FUN_AR1NB (3)' => [
 				[
 					'input' => '\\overbrace {A} _{b}^{c}\\underbrace {C} _{d}^{e}',
 					'skipOcaml' => 'ocaml bug'
 				]
 			],
-			[
-				'FUN_AR1NB (4)',
+			'FUN_AR1NB (4)' => [
 				[
 					'input' => '\\xleftarrow{A}\\xrightarrow{A}',
 					'output' => '\\xleftarrow {A} \\xrightarrow {A} '
 				]
 			],
-			[
-				'FUN_AR1NB (5)',
+			'FUN_AR1NB (5)' => [
 				[
 					'input' => '\\mathrel{A}\\mathbin{A}',
 					'output' => '\\mathrel {A} \\mathbin {A} '
 				]
 			],
-			[
-				'FUN_AR1OPT',
+			'FUN_AR1OPT' => [
 				[
 					'input' =>
 						'\\sqrt{2}\\sqrt[3]{2}' .
@@ -400,8 +378,7 @@ class AllTest extends MediaWikiUnitTestCase {
 					'skipOcaml' => 'spacing'
 				]
 			],
-			[
-				'FUN_AR2',
+			'FUN_AR2' => [
 				[
 					'input' =>
 						'\\binom{A}{B}\\cancelto{A}{B}\\cfrac{A}{B}\\dbinom{A}{B}' .
@@ -415,85 +392,72 @@ class AllTest extends MediaWikiUnitTestCase {
 					'skipOcaml' => 'double spacing'
 				]
 			],
-			[
-				'FUN_AR2nb',
+			'FUN_AR2nb' => [
 				[
 					'input' => '\\sideset{_\\dagger^*}{_\\dagger^*}\\prod',
 					'output' => '\\sideset {_{\\dagger }^{*}}{_{\\dagger }^{*}}\\prod '
 				]
 			],
-			[
-				'FUN_INFIX (1)',
+			'FUN_INFIX (1)' => [
 				[
 					'input' => '\\left({a\\atop 1}{b\\atop m}{c\\atop n}\\right)',
 					'output' => '\\left({a \\atop 1}{b \\atop m}{c \\atop n}\\right)'
 				]
 			],
-			[
-				'FUN_INFIX (2)',
+			'FUN_INFIX (2)' => [
 				[
 					'input' => '{1\\,0\\choose0\\,1}',
 					'output' => '{1\\,0 \\choose 0\\,1}'
 				]
 			],
-			[
-				'FUN_INFIX (3)',
+			'FUN_INFIX (3)' => [
 				[
 					'input' => '{a\\over b}',
 					'output' => '{a \\over b}'
 				]
 			],
-			[
-				'FUN_INFIX (4)',
+			'FUN_INFIX (4)' => [
 				[
 					'input' => 'a\\over b',
 					'output' => '{a \\over b}'
 				]
 			],
-			[
-				'DECLh', [
-					'input' => '{abc \\rm def \\it ghi \\cal jkl \\bf mno}',
-					'output' => '{abc{\\rm {def{\\it {ghi{\\cal {jkl{\\bf {mno}}}}}}}}}'
-				]
+			'DECLh' => [ [
+				'input' => '{abc \\rm def \\it ghi \\cal jkl \\bf mno}',
+				'output' => '{abc{\\rm {def{\\it {ghi{\\cal {jkl{\\bf {mno}}}}}}}}}'
+			]
 			],
-			[
-				'litsq_zq', [
-					'input' => ']^2',
-					'output' => ']^{2}'
-				]
+			'litsq_zq' => [ [
+				'input' => ']^2',
+				'output' => ']^{2}'
+			]
 			],
-			[
-				'Matrices', self::matrices(),
+			'Matrices' => [ self::matrices(),
 			],
-			[
-				'Matrices (2)',
+			'Matrices (2)' => [
 				[
 					'input' => '{\\begin{array}{|c|}\\hline {\\!n\\!}\\\\\\hline \\end{array}}'
 				]
 			],
-			[
-				'Matrices (3)',
+			'Matrices (3)' => [
 				[
 					'input' => '\\begin{alignedat} { 3 } a & b & c \\end{alignedat}',
 					'output' => '{\\begin{alignedat}{3}a&b&c\\end{alignedat}}'
 				]
 			],
-			[
-				'Color (1)',
+			'Color (1)' => [
 				[
 					'input' => '\\definecolor {mycolor}{rgb}{0.1,.2,0.}\\color {mycolor}'
 				]
 			],
-			[
-				'Color (2)',
+			'Color (2)' => [
 				[
 					'input' =>
 						'\\color {blue}\\color [named]{blue}\\color [gray]{0.5}' .
 						'\\color [rgb]{0,1,0}\\color [cmyk]{1,0,0,0}'
 				]
 			],
-			[
-				'Color (3)',
+			'Color (3)' => [
 				[
 					'input' =>
 						'\\pagecolor {blue}\\pagecolor [named]{blue}' .
@@ -501,8 +465,7 @@ class AllTest extends MediaWikiUnitTestCase {
 						'\\pagecolor [cmyk]{1,0,0,0}'
 				]
 			],
-			[
-				'Color (4)',
+			'Color (4)' => [
 				[
 					'input' =>
 						'\\definecolor{mycolor}{rgb}{0.1,.2,0.}\\color[CMYK]{0,1,0,1}',
@@ -510,8 +473,7 @@ class AllTest extends MediaWikiUnitTestCase {
 						'\\definecolor {mycolor}{rgb}{0.1,.2,0.}\\color [cmyk]{0,1,0,1}'
 				]
 			],
-			[
-				'Color (5)',
+			'Color (5)' => [
 				[
 					'input' =>
 						'\\definecolor{mycolor}{RGB}{255,102,51}' .
@@ -590,7 +552,7 @@ class AllTest extends MediaWikiUnitTestCase {
 	/**
 	 * @dataProvider provideTestCases
 	 */
-	public function testRunCases( $title, $tc ) {
+	public function testRunCases( $tc ) {
 		$tc['output'] = $tc['output'] ?? $tc['input'];
 		if ( !array_key_exists( 'skipJs', $tc ) || !$tc['skipJs'] ) {
 			$message = 'output should be correct';
