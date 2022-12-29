@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Math\InputCheck;
 
+use MediaWiki\Extension\Math\TexVC\Nodes\TexArray;
 use MediaWikiIntegrationTestCase;
 use Message;
-use MockHttpTrait;
 
 /**
  * @group Math
@@ -13,8 +13,6 @@ use MockHttpTrait;
  * @covers \MediaWiki\Extension\Math\InputCheck\LocalChecker
  */
 class LocalCheckerTest extends MediaWikiIntegrationTestCase {
-	use MockHttpTrait;
-
 	public function testValid() {
 		$checker = new LocalChecker( '\sin x^2' );
 		$this->assertNull( $checker->getError() );
@@ -43,6 +41,7 @@ class LocalCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->assertInstanceOf( LocalChecker::class, $checker );
 		$this->assertInstanceOf( Message::class, $checker->getError() );
 		$this->assertFalse( $checker->isValid() );
+		$this->assertNull( $checker->getParseTree() );
 	}
 
 	public function testInvalid() {
@@ -72,5 +71,27 @@ class LocalCheckerTest extends MediaWikiIntegrationTestCase {
 				->inContentLanguage()
 				->escaped()
 		);
+	}
+
+	public function testGetParseTree() {
+		$checker = new LocalChecker( 'e^{i \pi} + 1 = 0' );
+		$this->assertTrue( $checker->isValid() );
+		$parseTree = $checker->getParseTree();
+		$this->assertInstanceOf( TexArray::class, $parseTree );
+		$this->assertEquals( 5, $parseTree->getLength() );
+	}
+
+	public function testGetParseTreeNull() {
+		$checker = new LocalChecker( '\invalid' );
+		$this->assertFalse( $checker->isValid() );
+		$this->assertNull( $checker->getParseTree() );
+	}
+
+	public function testGetParseTreeEmpty() {
+		$checker = new LocalChecker( '' );
+		$this->assertTrue( $checker->isValid() );
+		$parseTree = $checker->getParseTree();
+		$this->assertInstanceOf( TexArray::class, $parseTree );
+		$this->assertSame( 0, $parseTree->getLength() );
 	}
 }

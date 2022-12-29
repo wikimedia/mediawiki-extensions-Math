@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Math\InputCheck;
 
 use Exception;
+use MediaWiki\Extension\Math\TexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\TexVC\TexVC;
 use Message;
 
@@ -10,6 +11,7 @@ class LocalChecker extends BaseChecker {
 
 	private const VALID_TYPES = [ 'tex', 'inline-tex', 'chem' ];
 	private ?Message $error = null;
+	private ?TexArray $parseTree = null;
 
 	/**
 	 * @param string $tex the TeX input string to be checked
@@ -34,6 +36,7 @@ class LocalChecker extends BaseChecker {
 		if ( $result['status'] === '+' ) {
 			$this->isValid = true;
 			$this->validTeX = $result['output'];
+			$this->parseTree = $result['input'];
 		} else {
 			$this->error = $this->errorObjectToMessage(
 				(object)[ "error" => (object)$result["error"] ],
@@ -47,5 +50,9 @@ class LocalChecker extends BaseChecker {
 	 */
 	public function getError(): ?Message {
 		return $this->error;
+	}
+
+	public function getParseTree(): ?TexArray {
+		return $this->parseTree;
 	}
 }
