@@ -158,7 +158,7 @@ class MMLGenerationTest extends MediaWikiUnitTestCase {
 			$errorMessage = "Error Rendering in MathJax";
 			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, $title, $input, $errorMessage,
 													$mathMLtexVC, false, self::$GENERATEHTML );
-			$this->assertTrue( true, $errorMessage );
+			$this->assertTrue( true );
 		} else {
 			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, $title, $input, $resMML3latexml,
 													$mathMLtexVC, false, self::$GENERATEHTML );
@@ -171,11 +171,11 @@ class MMLGenerationTest extends MediaWikiUnitTestCase {
 		}
 	}
 
-	protected function setUp(): void {
+	public static function setUpBeforeClass(): void {
 		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, "MathML(MathJax3)", self::$GENERATEHTML );
 	}
 
-	protected function tearDown(): void {
+	public static function tearDownAfterClass(): void {
 		MMLTestUtilHTML::generateHTMLEnd( self::$GENERATEDHTMLFILE, self::$GENERATEHTML );
 	}
 
@@ -187,7 +187,6 @@ class MMLGenerationTest extends MediaWikiUnitTestCase {
 		$groups = self::createGroups();
 		$overAllCtr = 0;
 		$finalCases = [];
-		$lookupEntriesGenerated = [];
 		foreach ( $groups  as $category => $group ) {
 			if ( self::$APPLYCATEGORYFILTER && !in_array( $category, self::$FILTEREDCATEGORIES ) ) {
 				continue;
@@ -195,7 +194,7 @@ class MMLGenerationTest extends MediaWikiUnitTestCase {
 			$indexCtr = 0;
 			foreach ( $group as $case ) {
 				$title = "set#" . $overAllCtr . ": " . $category . $indexCtr;
-				$finalCases[] = [ $title, $case ];
+				$finalCases[$title] = [ $title, $case ];
 				$indexCtr++;
 				$overAllCtr++;
 			}

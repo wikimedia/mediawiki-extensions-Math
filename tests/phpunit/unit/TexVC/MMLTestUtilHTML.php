@@ -12,9 +12,9 @@ class MMLTestUtilHTML {
 
 	public static function generateHTMLtableItem( $input, $bold = false ) {
 		if ( !$bold ) {
-			return "<th class=\"tg-0lax\">" . $input . "</th>";
+			return "<td class=\"tg-0lax\">" . $input . "</td>";
 		} else {
-			return "<th class=\"tg-0lax\">" . "<b>" . $input . "</b>" . "</th>";
+			return "<td class=\"tg-0lax\">" . "<b>" . $input . "</b>" . "</td>";
 		}
 	}
 
@@ -23,9 +23,7 @@ class MMLTestUtilHTML {
 			return;
 		}
 		$file = fopen( $filePath, 'a' );
-		$stringData = "</thead>
-                </table>";
-		fwrite( $file, $stringData );
+		fwrite( $file, "</tbody></table>" );
 		fclose( $file );
 	}
 
@@ -53,20 +51,55 @@ class MMLTestUtilHTML {
 			return;
 		}
 		$file = fopen( $filePath, 'w' ); // or die("error");
-		$stringData = "<style type=\"text/css\">
-                .tg  {border-collapse:collapse;border-spacing:0;}
-                .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial," .
-				" sans-serif;font-size:14px;
-                  overflow:hidden;padding:10px 5px;word-break:normal;}
-                .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial," .
-				" sans-serif;font-size:14px;
-                  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-                .tg .tg-0lax{text-align:left;vertical-align:top}
-                </style>
-                <table class=\"tg\">
-                <thead>";
+		$stringData = /** @lang HTML */
+			<<<HTML
+		<style>
+			.tg {
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+
+			.tg td {
+				border-color: black;
+				border-style: solid;
+				border-width: 1px;
+				font-family: Arial, sans-serif;
+				font-size: 14px;
+				overflow: hidden;
+				padding: 10px 5px;
+				word-break: normal;
+			}
+
+			.tg th {
+				border-color: black;
+				border-style: solid;
+				border-width: 1px;
+				font-family: Arial,
+				sans-serif;
+				font-size: 14px;
+				font-weight: normal;
+				overflow: hidden;
+				padding: 10px 5px;
+				word-break: normal;
+			}
+
+			.tg .tg-0lax {
+				text-align: left;
+				vertical-align: top
+			}
+		</style>
+		<table class="tg">
+			<thead>
+			<tr>
+				<th class="tg-0lax"><b>name</b></th>
+				<th class="tg-0lax"><b>Tex-Input</b></th>
+				<th class="tg-0lax"><b>MathML(MathJax3)</b></th>
+				<th class="tg-0lax"><b>MathML(TexVC)</b></th>
+			</tr>
+			</thead>
+			<tbody>
+		HTML;
 		fwrite( $file, $stringData );
 		fclose( $file );
-		self::generateHTMLtableRow( $filePath, "-", "Tex-Input", $name, "MathML(TexVC)", true );
 	}
 }
