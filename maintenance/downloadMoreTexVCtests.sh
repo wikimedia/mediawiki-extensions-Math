@@ -15,3 +15,8 @@ curl $URL -o $FILEPATH
 FILEPATH=../tests/phpunit/unit/TexVC/chem-regression.json
 URL=https://raw.githubusercontent.com/wikimedia/mediawiki-services-texvcjs/fb56991251b8889b554fc42ef9fe4825bc35d0ed/test/chem-regression.json
 curl $URL -o $FILEPATH
+
+# Downloads the file containing reference renderings for all english wikipedia chem-regression tests to the testfolder
+FILEPATH=../tests/phpunit/unit/TexVC/en-wiki-formulae-good-reference.json
+URL=https://zenodo.org/record/7494266/files/normalized.json?download=1
+curl $URL -o $FILEPATH

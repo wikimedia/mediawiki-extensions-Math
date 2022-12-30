@@ -18,15 +18,16 @@ use MediaWikiUnitTestCase;
 class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 	private $ACTIVE = true; # indicate whether this test is active
 	private $FILENAME = "en-wiki-formulae-good.json";
+	private $REF_FILENAME = "en-wiki-formulae-good-reference.json";
 	private $CHUNKSIZE = 1000;
 
 	/**
 	 * Reads the json file to an object
-	 * @throws InvalidArgumentException File with testcases does not exists.
+	 * @param string $filePath file to be read
+	 * @throws InvalidArgumentException File with testcases does not exist.
 	 * @return array json with testcases
 	 */
-	private function getJSON() {
-		$filePath = __DIR__ . '/' . $this->FILENAME;
+	private function getJSON( $filePath ): array {
 		if ( !file_exists( $filePath ) ) {
 			throw new InvalidArgumentException( "No testfile found at specified path: " . $filePath );
 		}
@@ -35,26 +36,21 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 		return $json;
 	}
 
-	private static function mkgroups( $arr, $n ) {
-		$result = [];
+	public function provideTestCases(): \Generator {
 		$group = [];
 		$groupNo = 1;
-		foreach ( $arr as $key => $elem ) {
-			$group[$key] = $elem;
-			if ( count( $group ) >= $n ) {
-				$result["Group $groupNo"] = [ $group ];
+		$references = $this->getJSON( __DIR__ . '/' . $this->REF_FILENAME );
+		foreach ( $this->getJSON( __DIR__ . '/' . $this->FILENAME ) as $key => $elem ) {
+			$group[$key] = [ $elem , $references[ $key ] ];
+			if ( count( $group ) >= $this->CHUNKSIZE ) {
+				yield "Group $groupNo" => [ $group ];
 				$groupNo++;
 				$group = [];
 			}
 		}
 		if ( count( $group ) > 0 ) {
-			$result["Group $groupNo"] = [ $group ];
+			yield "Group $groupNo" => [ $group ];
 		}
-		return $result;
-	}
-
-	public function provideTestCases(): array {
-		return self::mkgroups( $this->getJSON(), $this->CHUNKSIZE );
 	}
 
 	/**
@@ -67,7 +63,7 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 
 		$texVC = new TexVC();
 
-		foreach ( $testcase as $hash => $tex ) {
+		foreach ( $testcase as $hash => [ $tex, $ref ] ) {
 			try {
 				$result = $texVC->check( $tex, [
 					"debug" => false,
@@ -75,8 +71,18 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 					"oldtexvc" => false
 				] );
 
-				$good = ( $result["status"] === '+' );
-				$this->assertTrue( $good,  $hash . " with input: " . $tex );
+				$this->assertEquals( '+', $result["status"],
+					$hash . " failed. Input: " . $tex );
+				if ( preg_match( '/\\\\definecolor \{/m', $ref ) ) {
+					// crop long numbers in color codes from 16 to 14 digits
+					// while this heuristic might produce false positivies in general, it is sufficient
+					// for this dataset
+					$ref = preg_replace( '/(0.\d{14})\d{2}([,\}])/m', '$1$2', $ref );
+				}
+
+				$this->assertEquals( $ref, $result["output"],
+					$hash . " does not match reference." );
+
 				$r1 = $texVC->check( $result["output"] );
 				$this->assertEquals( "+", $r1["status"],
 					"error rechecking output: " . $tex . " -> " . $result["output"] );

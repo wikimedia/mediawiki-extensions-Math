@@ -6,6 +6,7 @@ composer.lock
 /tests/selenium/log
 en-wiki-formulae.json
 en-wiki-formulae-good.json
+en-wiki-formulae-good-reference.json
 chem-regression.json
 # Editors
 *.kate-swp
