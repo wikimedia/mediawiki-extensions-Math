@@ -55,17 +55,15 @@ litsq_aq
   / litsq_zq
 litsq_fq
   = l1:litsq_dq SUP l2:lit
-    {
-        return new FQ($l1->getBase(), $l1->getUp(), $l2); }
+    { return new FQ($l1->getBase(), $l1->getDown(), $l2); }
   / l1:litsq_uq SUB l2:lit
-    {
-        return new FQ($l1->getBase(), $l2, $l1->getUp()); }
+    { return new FQ($l1->getBase(), $l2, $l1->getUp()); }
 litsq_uq
   = base:litsq_zq SUP upi:lit
     { return new UQ($base, $upi); }
 litsq_dq
   = base:litsq_zq SUB downi:lit
-    { return new UQ($base, $downi); }
+    { return new DQ($base, $downi); }
 litsq_zq
   = SQ_CLOSE
     { return new Literal( "]"); }

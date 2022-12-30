@@ -31,7 +31,7 @@ module.exports = function ( grunt ) {
 			},
 			all: [
 				'**/*.{js,json}',
-				'!{vendor,node_modules,modules/ve-math/tools/node_modules}/**'
+				'!{vendor,node_modules,modules/ve-math/tools/node_modules,tests/phpunit/unit/TexVC}/**'
 			]
 		}
 	} );
