@@ -55,8 +55,8 @@ class FQ extends TexNode {
 		if ( $this->getArgs()[0]->getLength() == 0 ) {
 			// this happens when FQ is located in Sideset (is this a common parsing way?)
 			$mrow = new MMLmrow();
-			return $mrow->encapsulate( $this->getDown()->renderMML() ) .
-				$mrow->encapsulate( $this->getUp()->renderMML() );
+			return $mrow->encapsulateRaw( $this->getDown()->renderMML() ) .
+				$mrow->encapsulateRaw( $this->getUp()->renderMML() );
 		}
 
 		// Not sure if this case is necessary ..
@@ -75,7 +75,9 @@ class FQ extends TexNode {
 
 		// This seems to be the common case
 		$mrow = new MMLmrow();
-		return $melement->encapsulate( $this->getBase()->renderMML() .
-			$mrow->encapsulate( $this->getDown()->renderMML() ) . $mrow->encapsulate( $this->getUp()->renderMML() ) );
+		return $melement->encapsulateRaw(
+			$this->getBase()->renderMML() .
+			$mrow->encapsulateRaw( $this->getDown()->renderMML() ) .
+			$mrow->encapsulateRaw( $this->getUp()->renderMML() ) );
 	}
 }

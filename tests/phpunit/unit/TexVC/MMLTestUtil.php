@@ -37,7 +37,7 @@ class MMLTestUtil {
 
 	public static function getMMLwrapped( $input ) {
 		$math = new MMLmath();
-		$mml = $math->encapsulate( $input->renderMML() );
+		$mml = $math->encapsulateRaw( $input->renderMML() );
 		return self::prettifyXML( $mml );
 	}
 }

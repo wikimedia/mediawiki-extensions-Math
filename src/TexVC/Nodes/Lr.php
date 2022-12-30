@@ -66,18 +66,18 @@ class Lr extends TexNode {
 			TexClass::OPEN );
 		if ( !$left ) {
 			$moLeft = new MMLmo( TexClass::OPEN, [] );
-			$left = $moLeft->encapsulate( $this->right );
+			$left = $moLeft->encapsulateRaw( $this->right );
 		}
 		$right = $bm->checkAndParseDelimiter( $this->right, $this, $rightAttrs, null, false,
 			TexClass::CLOSE );
 		if ( !$right ) {
 			$moRight = new MMLmo( TexClass::CLOSE, $rightAttrs );
-			$right = $moRight->encapsulate( $this->right );
+			$right = $moRight->encapsulateRaw( $this->right );
 		}
 
 		$inner = $this->getArg()->renderMML();
 		$mrow = new MMLmrow( TexClass::INNER );
-		return $mrow->encapsulate(
+		return $mrow->encapsulateRaw(
 			$left . $inner .
 			$right
 		);

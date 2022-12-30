@@ -46,7 +46,7 @@ class UQ extends TexNode {
 		if ( $this->getBase() instanceof Fun1nb && str_starts_with( $this->getBase()->getArgs()[0], "\\o" ) ) {
 			$mmlBase = new MMLmover();
 		}
-		return $mmlBase->encapsulate(
+		return $mmlBase->encapsulateRaw(
 			$this->base->renderMML( $arguments ) .
 			$mrow->getStart() . // up is inferring a new mrow
 			$this->up->renderMML( $arguments ) .

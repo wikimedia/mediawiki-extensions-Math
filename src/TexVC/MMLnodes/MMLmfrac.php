@@ -11,6 +11,6 @@ namespace MediaWiki\Extension\Math\TexVC\MMLnodes;
 class MMLmfrac extends MMLbase {
 
 	public function __construct( string $texclass = "", array $attributes = [] ) {
-		parent::__construct( "mfrac", $texclass, $attributes );
+		parent::__construct( 'mfrac', $texclass, $attributes );
 	}
 }

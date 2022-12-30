@@ -28,7 +28,7 @@ class Literal extends TexNode {
 	public function renderMML( $arguments = [] ) {
 		if ( is_numeric( $this->arg ) ) {
 			$mn = new MMLmn( "", $arguments );
-			return $mn->encapsulate( $this->arg );
+			return $mn->encapsulateRaw( $this->arg );
 		}
 		// is important to split and find chars within curly and differentiate, see tc 459
 		$foundOperatorContent = MMLutil::initalParseLiteralExpression( $this->arg );
@@ -44,7 +44,7 @@ class Literal extends TexNode {
 		// Sometimes literals from TexVC contain complete \\operatorname {asd} hinted as bug tex-2-mml.json
 		if ( str_contains( $input, "\\operatorname" ) ) {
 			$mi = new MMLmi();
-			return $mi->encapsulate( $operatorContent );
+			return $mi->encapsulateRaw( $operatorContent );
 		}
 		// Sieve for Operators
 		$bm = new BaseMethods();
@@ -83,7 +83,7 @@ class Literal extends TexNode {
 
 		// If falling through all sieves just create an MI element
 		$mi = new MMLmi( "", $arguments );
-		return $mi->encapsulate( $input ); // $this->arg
+		return $mi->encapsulateRaw( $input ); // $this->arg
 	}
 
 	/**

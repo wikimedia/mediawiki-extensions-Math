@@ -22,8 +22,8 @@ final class MMLGenerationTest2 extends MediaWikiUnitTestCase {
 	private static $FILTERSTART = 0;
 	private static $FILTERLENGTH = 1;
 
-	private static $GENERATEHTML = false;
-	private static $GENERATEDHTMLFILE = "./MMLGenerationTest2-Output.html";
+	private static $GENERATEHTML = true;
+	private static $GENERATEDHTMLFILE = __DIR__ . "/MMLGenerationTest2-Output.html";
 
 	protected function setUp(): void {
 		parent::setUp();

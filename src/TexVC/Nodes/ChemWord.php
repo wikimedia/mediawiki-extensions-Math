@@ -44,8 +44,8 @@ class ChemWord extends TexNode {
 		$mtextRight = new MMLmtext();
 		// If right has empty literal content is resolved as dash
 		$right = $this->getRight()->getArgs()[0] == "" ? "-" : $this->getRight()->renderMML();
-		return $mmlMrow->encapsulate( $mmlMrow->encapsulate(
-			$mtextLeft->encapsulate( $this->getLeft()->renderMML() ) . $mtextRight->encapsulate( $right ) ) );
+		return $mmlMrow->encapsulateRaw( $mmlMrow->encapsulateRaw(
+			$mtextLeft->encapsulateRaw( $this->getLeft()->renderMML() ) . $mtextRight->encapsulateRaw( $right ) ) );
 	}
 
 	public function extractIdentifiers( $args = null ) {
