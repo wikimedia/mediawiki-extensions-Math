@@ -226,4 +226,16 @@ class ApiTest extends MediaWikiUnitTestCase {
 			[ 'usemhchem' => true, 'oldmhchem' => true ] );
 		$this->assertEquals( 'F', $result['status'], $message );
 	}
+
+	public function testSquareDq() {
+		$result = $this->texVC->check( ']_x',
+			[ 'usemhchem' => true, 'oldmhchem' => true ] );
+		$this->assertEquals( ']_{x}', $result['output'] );
+	}
+
+	public function testSquareFq() {
+		$result = $this->texVC->check( ']_x^2',
+			[ 'usemhchem' => true, 'oldmhchem' => true ] );
+		$this->assertEquals( ']_{x}^{2}', $result['output'] );
+	}
 }

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * This script is used for generating Parser.php from parser.pegjs.
  * This is used for creating new versions of the parser expression grammar
@@ -19,7 +20,7 @@ const peggy = require( 'peggy' );
 const phpeggy = require( 'phpeggy' );
 const fs = require( 'fs' );
 const DEFAULT_PATH_INPUT = './src/TexVC/parser.pegjs';
-const DEFAULT_PATH_OUTPUT = './Parser.php';
+const DEFAULT_PATH_OUTPUT = './src/TexVC/Parser.php';
 const PHP_INSERTION_LINE = 9; // indicates where the 'use_xyz' statements are inserted
 
 program

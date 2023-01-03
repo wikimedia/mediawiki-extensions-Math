@@ -5,7 +5,8 @@
 		"test": "grunt test",
 		"selenium-daily": "npm run selenium-test",
 		"selenium-test": "wdio tests/selenium/wdio.conf.js",
-		"api-testing": "mocha tests/api-testing"
+		"api-testing": "mocha tests/api-testing",
+		"build": " ./maintenance/buildPHPparser.js"
 	},
 	"devDependencies": {
 		"@wdio/cli": "7.16.13",
