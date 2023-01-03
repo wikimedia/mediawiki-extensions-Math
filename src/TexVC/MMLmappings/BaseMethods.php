@@ -89,7 +89,7 @@ class BaseMethods {
 					}
 					// Atm just do simple parsing for elements in operator dictionary
 					$mmlMo = new MMLmo();
-					return $mmlMo->encapsulate( $input );
+					return $mmlMo->encapsulateRaw( $input );
 				}
 			}
 		}
@@ -115,7 +115,7 @@ class BaseMethods {
 			case ";":
 				$mmlMStyle = new MMLmstyle( "", [ "scriptlevel" => "0" ] );
 				$mSpace = new MMLmspace( "", [ "width" => "0.278em" ] );
-				return $mmlMStyle->encapsulate( $mSpace->encapsulate( "" ) );
+				return $mmlMStyle->encapsulateRaw( $mSpace->encapsulate() );
 			case ",":
 				// this maybe just a default case, this is not rendered when it is the last in row
 				$mmlMo = new MMLmo();
@@ -128,7 +128,7 @@ class BaseMethods {
 		// if($name == "equiv" || $name == "dotplus" || $name == "mp"  || $name == "pm"){
 		$attrs = array_merge( $passedArgs, $attrs ); // this is rather a workaround
 		$mo = new MMLmo( "", $attrs );
-		$text = $mo->encapsulate( $uc );
+		$text = $mo->encapsulateRaw( $uc );
 
 		// Some attributes are nnot used which come from the mapping, tbd refactor this
 		$text = str_replace( " largeop=\"\"", "", $text );
@@ -171,7 +171,7 @@ class BaseMethods {
 
 		$args = array_merge( $passedArgs, $attrs );
 		$mi = new MMLmi( "", $args );
-		$text = $mi->encapsulate( $uc );
+		$text = $mi->encapsulateRaw( $uc );
 		// TODO refactor just for test
 		$text = str_replace( "variantForm=\"True\"", "data-mjx-alternate=\"1\"", $text );
 		$text = str_replace( "variantForm=\"1\"", "data-mjx-alternate=\"1\"", $text );
@@ -200,7 +200,7 @@ class BaseMethods {
 		}
 
 		$mo = new MMLmo( $texClass, $passedArgs );
-		return $mo->encapsulate( $resDelimiter[0] );
+		return $mo->encapsulateRaw( $resDelimiter[0] );
 	}
 
 	public function checkAndParseMathCharacter( $input, $node, $passedArgs, $operatorContent ) {
@@ -215,7 +215,7 @@ class BaseMethods {
 
 		$mi = new MMLmi( "", $args );
 		$enc = MMLutil::uc2xNotation( $resChar );
-		return $mi->encapsulate( $enc );
+		return $mi->encapsulateRaw( $enc );
 	}
 
 	public function checkAndParseColor( $input, $node, $passedArgs, $operatorContent ) {
@@ -239,7 +239,7 @@ class BaseMethods {
 
 		if ( $input === 'color' ) {
 			$mstyle = new MMLmstyle( "", [ "mathcolor" => $resColor ] );
-			return $mstyle->encapsulate( "" );
+			return $mstyle->encapsulate();
 		} else {
 			// Input is 'pagecolor'
 			$mtext = new MMLmtext( "", [ "mathcolor" => $resColor ] );
@@ -248,10 +248,10 @@ class BaseMethods {
 			// Mj3 does this, probably not necessary
 			$innerRow = "";
 			foreach ( str_split( $operatorContent ) as $char ) {
-				$innerRow .= $mi->encapsulate( $char );
+				$innerRow .= $mi->encapsulateRaw( $char );
 			}
 			if ( $innerRow !== "" ) {
-				return $mtext->encapsulate( "\\pagecolor" ) . $mrow->encapsulate( $innerRow );
+				return $mtext->encapsulate( "\\pagecolor" ) . $mrow->encapsulateRaw( $innerRow );
 			} else {
 				return $mtext->encapsulate( "\\pagecolor" );
 			}
@@ -259,7 +259,7 @@ class BaseMethods {
 	}
 
 	public static function generateMMLError( $msg ): string {
-		return ( new MMLmerror() )->encapsulate(
+		return ( new MMLmerror() )->encapsulateRaw(
 			( new MMLmtext() )->encapsulate( $msg )
 		);
 	}

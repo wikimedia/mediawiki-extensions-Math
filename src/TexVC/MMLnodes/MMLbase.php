@@ -2,17 +2,19 @@
 
 namespace MediaWiki\Extension\Math\TexVC\MMLnodes;
 
+use Html;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Tag;
 
 class MMLbase {
 	private string $name;
-	private string $texclass;
 	private array $attributes;
 
-	public function __construct( string $name, string $texclass = "", array $attributes = [] ) {
+	public function __construct( string $name, string $texclass = '', array $attributes = [] ) {
 		$this->name = $name;
-		$this->texclass = $texclass;
 		$this->attributes = $attributes;
+		if ( $texclass !== '' ) {
+			$this->attributes[ TAG::CLASSTAG ] = $texclass;
+		}
 	}
 
 	public function name(): string {
@@ -20,15 +22,23 @@ class MMLbase {
 	}
 
 	/**
+	 * Encapsulating the input structure with start and end element
+	 *
+	 * @param string $input The raw HTML contents of the element: *not* escaped!
+	 * @return string <tag> input </tag>
+	 */
+	public function encapsulateRaw( string $input ): string {
+		return HTML::rawElement( $this->name, $this->attributes, $input );
+	}
+
+	/**
 	 * Encapsulating the input with start and end element
 	 *
-	 * @param string $input input content
-	 * @return string <start> input <end>
+	 * @param string $input
+	 * @return string <tag> input </tag>
 	 */
-	public function encapsulate( $input ): string {
-		return $this->getStart() .
-			$input .
-			$this->getEnd();
+	public function encapsulate( string $input = '' ): string {
+		return HTML::element( $this->name, $this->attributes, $input );
 	}
 
 	/**
@@ -36,9 +46,7 @@ class MMLbase {
 	 * @return string
 	 */
 	public function getStart(): string {
-		$start = $this->getStartWithAttributes();
-		$start .= ">";
-		return $start;
+		return HTML::openElement( $this->name, $this->attributes );
 	}
 
 	/**
@@ -47,7 +55,8 @@ class MMLbase {
 	 * @return string
 	 */
 	public function getEmpty(): string {
-		return $this->getStartWithAttributes() . "/>";
+		return substr( $this->getStart(), 0, -1 )
+			. '/>';
 	}
 
 	/**
@@ -55,21 +64,6 @@ class MMLbase {
 	 * @return string
 	 */
 	public function getEnd(): string {
-		return "</" . $this->name() . ">";
-	}
-
-	/**
-	 * Gets the starting tag with attributes
-	 * @return string
-	 */
-	private function getStartWithAttributes(): string {
-		$start = "<" . $this->name();
-		if ( $this->texclass !== "" ) {
-			$start .= " " . Tag::CLASSTAG . "=\"" . $this->texclass . "\"";
-		}
-		foreach ( $this->attributes as $key => $value ) {
-			$start .= " " . $key . "=" . "\"" . $value . "\"";
-		}
-		return $start;
+		return HTML::closeElement( $this->name );
 	}
 }

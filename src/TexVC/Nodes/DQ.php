@@ -46,7 +46,9 @@ class DQ extends TexNode {
 			// Otherwise use default fallback
 			$mmlMrow = new MMLmrow();
 			$msub = new MMLmsub();
-			return $msub->encapsulate( $this->base->renderMML() . $mmlMrow->encapsulate( $this->down->renderMML() ) );
+			return $msub->encapsulateRaw(
+				$this->base->renderMML() .
+				$mmlMrow->encapsulateRaw( $this->down->renderMML() ) );
 		}
 	}
 

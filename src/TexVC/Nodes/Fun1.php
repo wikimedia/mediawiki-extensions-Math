@@ -55,11 +55,11 @@ class Fun1 extends TexNode {
 		$mrow = new MMLmrow();
 		$mo = new MMLmo( "", $moArgs );
 		$mover = new MMLmover();
-		$ret = $mrow->encapsulate(
-			$mrow->encapsulate(
-				$mover->encapsulate(
+		$ret = $mrow->encapsulateRaw(
+			$mrow->encapsulateRaw(
+				$mover->encapsulateRaw(
 					$this->args[1]->renderMML() .
-					$mo->encapsulate( $inner )
+					$mo->encapsulateRaw( $inner )
 				)
 			)
 		);
