@@ -26,7 +26,6 @@
 		"mocha": "^7.1.1",
 		"stylelint-config-wikimedia": "0.13.0",
 		"wdio-mediawiki": "2.1.0",
-		"webdriverio": "7.16.13",
 		"peggy": "1.0.0",
 		"phpeggy": "^1.0.1"
 	}
