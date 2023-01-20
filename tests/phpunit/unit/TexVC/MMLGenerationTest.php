@@ -156,12 +156,12 @@ class MMLGenerationTest extends MediaWikiUnitTestCase {
 		$resMML3latexml = $mmlLatexML[$input] ?? "merror";
 		if ( str_contains( $resMML3latexml, "merror" ) ) {
 			$errorMessage = "Error Rendering in MathJax";
-			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, $title, $input, $errorMessage,
-													$mathMLtexVC, false, self::$GENERATEHTML );
+			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $title, $input, $errorMessage,
+													$mathMLtexVC ], false, self::$GENERATEHTML );
 			$this->assertTrue( true );
 		} else {
-			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, $title, $input, $resMML3latexml,
-													$mathMLtexVC, false, self::$GENERATEHTML );
+			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $title, $input, $resMML3latexml,
+													$mathMLtexVC ], false, self::$GENERATEHTML );
 			$resMML3latexml = $resMML3latexml ?: "<math> no MML3 from Lookup </math>";
 			if ( !self::$SKIPXMLVALIDATION ) {
 				$this->assertXmlStringEqualsXmlString( $resMML3latexml, $mathMLtexVC );
@@ -172,7 +172,8 @@ class MMLGenerationTest extends MediaWikiUnitTestCase {
 	}
 
 	public static function setUpBeforeClass(): void {
-		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, "MathML(MathJax3)", self::$GENERATEHTML );
+		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name","Tex-Input",
+			"MathML(MathJax3)","MathML(TexVC)" ], self::$GENERATEHTML );
 	}
 
 	public static function tearDownAfterClass(): void {

@@ -22,7 +22,7 @@ final class MMLGenerationTest2 extends MediaWikiUnitTestCase {
 	private static $FILTERSTART = 0;
 	private static $FILTERLENGTH = 1;
 
-	private static $GENERATEHTML = true;
+	private static $GENERATEHTML = false;
 	private static $GENERATEDHTMLFILE = __DIR__ . "/MMLGenerationTest2-Output.html";
 
 	protected function setUp(): void {
@@ -34,7 +34,8 @@ final class MMLGenerationTest2 extends MediaWikiUnitTestCase {
 	}
 
 	public static function setUpBeforeClass(): void {
-		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, self::$GENERATEHTML );
+		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name","Tex-Input",
+			"MathML(MathJax3)","MathML(TexVC)" ], self::$GENERATEHTML );
 	}
 
 	public static function tearDownAfterClass(): void {
@@ -48,8 +49,8 @@ final class MMLGenerationTest2 extends MediaWikiUnitTestCase {
 		$texVC = new TexVC();
 
 		if ( $tc->skipped ?? false ) {
-			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, $tc->ctr, $tc->input,
-				"skipped", "skipped", false, self::$GENERATEHTML );
+			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr, $tc->input,
+				"skipped", "skipped" ], false, self::$GENERATEHTML );
 			$this->assertTrue( true );
 			return;
 		}
@@ -60,8 +61,8 @@ final class MMLGenerationTest2 extends MediaWikiUnitTestCase {
 			'oldtexvc' => $tc->oldtexvc ?? false
 		] );
 		$mathMLtexVC = MMLTestUtil::getMMLwrapped( $resultT["input"] );
-		MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, $tc->ctr, $tc->input, "tbd",
-			$mathMLtexVC, false, self::$GENERATEHTML );
+		MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr, $tc->input, "tbd",
+			$mathMLtexVC ], false, self::$GENERATEHTML );
 		$this->assertTrue( true );
 	}
 
