@@ -14,16 +14,16 @@ use Psr\Log\InvalidArgumentException;
  * @covers \MediaWiki\Extension\Math\TexVC\TexVC
  * @group stub
  */
-final class MMLGenerationTest2 extends MediaWikiUnitTestCase {
+final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
 	private static $FILENAME1 = __DIR__ . "/tex-2-mml.json";
-	private static $FILENAME2 = __DIR__ . "/ParserTest135.json";
+	private static $FILENAME2 = __DIR__ . "/ParserTest-Ref.json";
 	private static $SELECTEDFILE = 0; // 0 , 1 ... for selecting file
 	private static $APPLYFILTER = false;
 	private static $FILTERSTART = 0;
-	private static $FILTERLENGTH = 1;
+	private static $FILTERLENGTH = 50;
 
 	private static $GENERATEHTML = false;
-	private static $GENERATEDHTMLFILE = __DIR__ . "/MMLGenerationTest2-Output.html";
+	private static $GENERATEDHTMLFILE = __DIR__ . "/MMLGenerationParserTest-Output.html";
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -35,7 +35,7 @@ final class MMLGenerationTest2 extends MediaWikiUnitTestCase {
 
 	public static function setUpBeforeClass(): void {
 		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name","Tex-Input",
-			"MathML(MathJax3)","MathML(TexVC)" ], self::$GENERATEHTML );
+			"MathML(LaTeXML)", "MathML(Mathoid)", "MathML(TexVC)" ], self::$GENERATEHTML );
 	}
 
 	public static function tearDownAfterClass(): void {
@@ -61,7 +61,8 @@ final class MMLGenerationTest2 extends MediaWikiUnitTestCase {
 			'oldtexvc' => $tc->oldtexvc ?? false
 		] );
 		$mathMLtexVC = MMLTestUtil::getMMLwrapped( $resultT["input"] );
-		MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr, $tc->input, "tbd",
+		MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr,
+			$tc->input,$tc->mmlLaTeXML ?? "tbd" ,$tc->mmlMathoid ?? "tbd",
 			$mathMLtexVC ], false, self::$GENERATEHTML );
 		$this->assertTrue( true );
 	}
@@ -113,6 +114,7 @@ final class MMLGenerationTest2 extends MediaWikiUnitTestCase {
 		$indexCtr = 0;
 		foreach ( $res as $tc ) {
 			$tc->ctr = $indexCtr;
+			$tc->input = $tc->tex; // Just to have uniform access here
 			$indexCtr += 1;
 			array_push( $f, [ "title N/A", $tc ] );
 		}
