@@ -122,6 +122,15 @@ class JsonToMathML extends Maintenance {
 					];
 				}
 				break;
+			case 2:
+				// Example file ExportedTexUtilKeys.json
+				foreach ( $fileData as $tex => $type ) {
+					$inputF[] = [
+						"tex" => $tex,
+						"type" => $type,
+					];
+				}
+				break;
 		}
 		return $inputF;
 	}
