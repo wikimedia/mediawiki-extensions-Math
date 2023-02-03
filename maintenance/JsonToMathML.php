@@ -53,6 +53,8 @@ class JsonToMathML extends Maintenance {
 			true );
 		$this->addOption( 'inputformat', 'Custom parsing how to format the input-json ( see formatInput function)',
 			false, true, 'i' );
+		$this->addOption( 'chem-fallback', 'If the json read does not define input-type (tex or chem), check ' .
+			'expressions as Tex and then as chem', false, true, 'c' );
 		$this->requireExtension( 'Math' );
 	}
 
@@ -73,8 +75,15 @@ class JsonToMathML extends Maintenance {
 
 		foreach ( $inputTexF as $entry ) {
 			try {
-				$mmlMathoid = $this->fetchMathML( $entry['tex'], 'mathml' );
-				$mmlLaTeXML = $this->fetchMathML( $entry['tex'], 'latexml' );
+				$mmlMathoid = $this->fetchMathML( $entry['tex'], $entry['type'], 'mathml' );
+				if ( $this->getOption( "chem-fallback", 0 ) && !( $mmlMathoid ) || $mmlMathoid == "" ) {
+					$mmlMathoid = $this->fetchMathML( $entry['tex'], "chem", 'mathml' );
+					if ( $mmlMathoid && $mmlMathoid != "" ) {
+						$entry['type'] = "chem";
+					}
+				}
+				$mmlLaTeXML = $this->fetchMathML( $entry['tex'], $entry['type'], 'latexml' );
+
 				$allEntries[] = [
 					"tex" => $entry['tex'],
 					"type" => $entry['type'],
@@ -154,13 +163,14 @@ class JsonToMathML extends Maintenance {
 	/**
 	 * Creates a renderer and fetches the generated MathML
 	 * @param string $tex input tex
+	 * @param string $type input type ('tex' or 'chem')
 	 * @param string $renderingMode mode for rendering (latexml, mathml)
 	 * @return string MathML as string
 	 */
-	public function fetchMathML( $tex, $renderingMode ): string {
+	public function fetchMathML( string $tex, string $type, string $renderingMode ): string {
 		/** @var MathRenderer $renderer */
 		$renderer = MediaWikiServices::getInstance()->get( 'Math.RendererFactory' )
-			->getRenderer( $tex, [], $renderingMode );
+			->getRenderer( $tex, [ "type" => $type ], $renderingMode );
 		$renderer->render();
 		$mml = $renderer->getMathml();
 		return $mml;
