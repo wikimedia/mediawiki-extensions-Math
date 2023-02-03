@@ -37,8 +37,9 @@ class MMLComparator {
 	private const IGNOREDATTRIBUTES = [
 		"mrow" => [ "class", "data-mjx-texclass" ],
 		"math" => [ "alttext", "display" ],
-		"mi"   => [ "class", "data-mjx-variant", "data-mjx-texclass", ],
-		"mo"   => [ "data-mjx-pseudoscript", "stretchy", "fence", "data-mjx-texclass", "texClass" ]
+		"mi"   => [ "class", "data-mjx-variant", "mathvariant", "data-mjx-texclass", "data-mjx-alternate" ],
+		"mo"   => [ "data-mjx-pseudoscript", "stretchy", "fence", "data-mjx-texclass", "texClass", "class",
+					"data-mjx-alternate", "form", "accent" ]
 	];
 
 	/**
