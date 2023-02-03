@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Math\Tests\TexVC;
 
+use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLComparator;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLTestUtil;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLTestUtilHTML;
 use MediaWiki\Extension\Math\TexVC\TexUtil;
@@ -23,6 +24,7 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\TexVC\TexVC
  */
 class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
+	private static $SIMILARITYTRESH = 0.7;
 	private static $SKIPXMLVALIDATION = true;
 	private static $APPLYFILTER = false;
 	private static $APPLYCATEGORYFILTER = false;
@@ -53,12 +55,20 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 		] );
 		$mathMLtexVC = MMLTestUtil::getMMLwrapped( $resultT["input"] ) ?? "<math> error texvc </math>";
 
+		$mmlComparator = new MMLComparator();
+		$compRes = $mmlComparator->compareMathML( $input->mmlMathoid, $mathMLtexVC );
 		MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $title, $input->tex, $input->mmlLaTeXML,
-			$input->mmlMathoid, $mathMLtexVC ], false, self::$GENERATEHTML );
-		// Comparing the result either to MathML result from Mathoid/Mathjax or from LaTeXML
+			$input->mmlMathoid, $mathMLtexVC, $compRes['similarityF'] ], false, self::$GENERATEHTML );
+		// Comparing the result either to MathML result from Mathoid
 		if ( !self::$SKIPXMLVALIDATION ) {
-			// To be done how to validate here. Just an example for now.
-			$this->assertXmlStringEqualsXmlString( $input->mmlMathoid, $mathMLtexVC );
+			if ( !$input->mmlMathoid ) {
+				$this->fail( "No Mathoid reference found for: " . $input->tex );
+			}
+			if ( $compRes['similarityF'] >= self::$SIMILARITYTRESH ) {
+				$this->assertTrue( true );
+			} else {
+				$this->assertXmlStringEqualsXmlString( $input->mmlMathoid, $mathMLtexVC );
+			}
 		} else {
 			$this->assertTrue( true );
 		}
@@ -170,7 +180,7 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 
 	public static function setUpBeforeClass(): void {
 		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name","TeX-Input","MathML(LaTeXML)",
-			"MathML(Mathoid)", "MathML(TexVC)" ], self::$GENERATEHTML );
+			"MathML(Mathoid)", "MathML(TexVC)", "F-Similarity" ], self::$GENERATEHTML );
 	}
 
 	public static function tearDownAfterClass(): void {

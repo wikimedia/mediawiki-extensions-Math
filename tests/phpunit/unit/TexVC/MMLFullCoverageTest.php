@@ -2,6 +2,7 @@
 namespace MediaWiki\Extension\Math\TexVC;
 
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLComparator;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLTestUtil;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLTestUtilHTML;
 
@@ -23,12 +24,14 @@ use MediaWikiUnitTestCase;
  * @group stub
  */
 final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
+	private static $SIMILARITYTRESH = 0.7;
+	private static $SKIPXMLVALIDATION = true;
 	private static $FILENAMELATEXML = __DIR__ . "/mmlRes-latexml-FullCoverage.json";
 	private static $FILENAMEMATHOID = __DIR__ . "/mmlRes-mathml-FullCoverage.json";
 	private static $APPLYFILTER = false;
 	private static $FILTERSTART = 0;
 	private static $FILTERLENGTH = 60;
-	private static $GENERATEHTML = true;
+	private static $GENERATEHTML = false;
 	private static $GENERATEDHTMLFILE = __DIR__ . "/MMLFullCoverageTest-Output.html";
 	private static $SKIPPEDINDICES = [ 0,58, 380, 388 ];
 
@@ -36,7 +39,7 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 
 	public static function setUpBeforeClass(): void {
 		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name","TeX-Input","MathML(LaTeXML)",
-			"MathML(Mathoid)", "MathML(TexVC)" ], self::$GENERATEHTML );
+			"MathML(Mathoid)", "MathML(TexVC)", "F-Similarity" ], self::$GENERATEHTML );
 	}
 
 	public static function tearDownAfterClass(): void {
@@ -64,9 +67,24 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 
 		$mml_latexml = self::$FILTERMML ? self::loadXMLandDeleteAttrs( $tc->mml_latexml ) : $tc->mml_latexml;
 		$mathMLtexVC = MMLTestUtil::getMMLwrapped( $resultT["input"] );
+		$mmlComparator = new MMLComparator();
+		$compRes = $mmlComparator->compareMathML( $tc->mml_mathoid, $mathMLtexVC );
+
 		MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr,  $tc->tex, $mml_latexml,
-			$tc->mml_mathoid, $mathMLtexVC ], false, self::$GENERATEHTML );
-		$this->assertTrue( true );
+			$tc->mml_mathoid, $mathMLtexVC,  $compRes['similarityF'] ], false, self::$GENERATEHTML );
+
+		if ( !self::$SKIPXMLVALIDATION ) {
+			if ( !$tc->mml_mathoid ) {
+				$this->fail( "No Mathoid reference found for: " . $tc->tex );
+			}
+			if ( $compRes['similarityF'] >= self::$SIMILARITYTRESH ) {
+				$this->assertTrue( true );
+			} else {
+				$this->assertXmlStringEqualsXmlString( $tc->mml_mathoid, $mathMLtexVC );
+			}
+		} else {
+			$this->assertTrue( true );
+		}
 	}
 
 	/**

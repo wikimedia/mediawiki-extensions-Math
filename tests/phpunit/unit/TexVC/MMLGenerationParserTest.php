@@ -1,6 +1,7 @@
 <?php
 namespace MediaWiki\Extension\Math\TexVC;
 
+use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLComparator;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLTestUtil;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLTestUtilHTML;
 
@@ -15,6 +16,8 @@ use Psr\Log\InvalidArgumentException;
  * @group stub
  */
 final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
+	private static $SIMILARITYTRESH = 0.7;
+	private static $SKIPXMLVALIDATION = true;
 	private static $FILENAME1 = __DIR__ . "/tex-2-mml.json";
 	private static $FILENAME2 = __DIR__ . "/ParserTest-Ref.json";
 	private static $SELECTEDFILE = 0; // 0 , 1 ... for selecting file
@@ -22,7 +25,7 @@ final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
 	private static $FILTERSTART = 0;
 	private static $FILTERLENGTH = 50;
 
-	private static $GENERATEHTML = false;
+	private static $GENERATEHTML = true;
 	private static $GENERATEDHTMLFILE = __DIR__ . "/MMLGenerationParserTest-Output.html";
 
 	protected function setUp(): void {
@@ -35,7 +38,7 @@ final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
 
 	public static function setUpBeforeClass(): void {
 		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name","Tex-Input",
-			"MathML(LaTeXML)", "MathML(Mathoid)", "MathML(TexVC)" ], self::$GENERATEHTML );
+			"MathML(LaTeXML)", "MathML(Mathoid)", "MathML(TexVC)", "F-Similarity" ], self::$GENERATEHTML );
 	}
 
 	public static function tearDownAfterClass(): void {
@@ -60,11 +63,34 @@ final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
 			'usemathrm' => $tc->usemathrm ?? false,
 			'oldtexvc' => $tc->oldtexvc ?? false
 		] );
+
 		$mathMLtexVC = MMLTestUtil::getMMLwrapped( $resultT["input"] );
+		if ( self::$SELECTEDFILE == 0 ) {
+			// File 0 has no refs, is just for checking basics.
+			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr,
+				$tc->input,$tc->mmlLaTeXML ?? "tbd" ,"tbd",
+				$mathMLtexVC, -0.0 ], false, self::$GENERATEHTML );
+			$this->assertTrue( true );
+			return;
+		}
+		$mmlComparator = new MMLComparator();
+		$compRes = $mmlComparator->compareMathML( $tc->mmlMathoid, $mathMLtexVC );
 		MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr,
 			$tc->input,$tc->mmlLaTeXML ?? "tbd" ,$tc->mmlMathoid ?? "tbd",
-			$mathMLtexVC ], false, self::$GENERATEHTML );
-		$this->assertTrue( true );
+			$mathMLtexVC, $compRes['similarityF'] ], false, self::$GENERATEHTML );
+
+		if ( !self::$SKIPXMLVALIDATION ) {
+			if ( !$tc->mmlMathoid ) {
+				$this->fail( "No Mathoid reference found for: " . $tc->input );
+			}
+			if ( $compRes['similarityF'] >= self::$SIMILARITYTRESH ) {
+				$this->assertTrue( true );
+			} else {
+				$this->assertXmlStringEqualsXmlString( $tc->mmlMathoid, $mathMLtexVC );
+			}
+		} else {
+			$this->assertTrue( true );
+		}
 	}
 
 	public static function provideTestCases() {
