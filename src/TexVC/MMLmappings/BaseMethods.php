@@ -63,7 +63,6 @@ class BaseMethods {
 			// Passing resolved function as param without first id
 			if ( count( $resFct ) > 1 ) {
 				$shifted = array_shift( $resFct );
-
 				return BaseParsing::{$shifted}( $node, $passedArgs, $operatorContent, $input, ...$resFct );
 			} else {
 				return BaseParsing::{$resFct[0]}( $node, $passedArgs, $operatorContent, $input );

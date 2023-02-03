@@ -129,7 +129,6 @@ class BaseMappings {
 			"movesupsub" => true ] ],
 		"bigodot" => [ '\u2A00', [ "texClass" => TexClass::OP,
 			"movesupsub" => true ] ],
-		"oint" => [ '\u222E', [ "texClass" => TexClass::OP ] ],
 		"bigsqcup" => [ '\u2A06', [ "texClass" => TexClass::OP,
 			"movesupsub" => true ] ],
 		"smallint" => [ '\u222B', [ "largeop" => false ] ],
@@ -748,11 +747,11 @@ class BaseMappings {
 	// These are some mappings which are created customly for this
 	private const CUSTOM = [
 		"boldsymbol" => [ 'boldsymbol','' ], // see boldsymbolConfiguration.js
+		"oint" => [ 'oint', '\u222E', [ "texClass" => TexClass::OP ] ],
 		"oiint" => [ 'oint', '\u222F', [ "texClass" => TexClass::OP ] ],
 		"oiiint" => [ 'oint', '\u2230', [ "texClass" => TexClass::OP ] ],
-		"ointctrclockwise" => [ 'oint', '?', [ "texClass" => TexClass::OP ] ],
-		// \varointclockwise
-		"varointclockwise" => [ 'oint', '?', [ "texClass" => TexClass::OP ] ],
+		"ointctrclockwise" => [ 'oint', '\u2233', [ "texClass" => TexClass::OP ] ],
+		"varointclockwise" => [ 'oint', '\u2232', [ "texClass" => TexClass::OP ] ],
 		"P" => [ 'oint', '?', [ "texClass" => TexClass::OP ] ], // not correct but same mapping
 		'textvisiblespace' => [ 'Insert', '\u2423' ], // From TextCompMappings.js (only makro it seems)
 	];

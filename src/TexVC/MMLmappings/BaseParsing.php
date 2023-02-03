@@ -3,6 +3,7 @@ namespace MediaWiki\Extension\Math\TexVC\MMLmappings;
 
 use IntlChar;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Misc;
+use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Sizes;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Tag;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Variants;
@@ -404,7 +405,7 @@ class BaseParsing {
 				);
 				return $mmlRow->encapsulateRaw( $mmlRowInner->encapsulateRaw( $inner ) );
 			case "bmod":
-				$mo = new MMLmo( "", [ "lspace" => "thickmathspace", "rspace" => "thickmathspace" ] );
+				$mo = new MMLmo( "", [ "lspace" => Sizes::THICKMATHSPACE, "rspace" => Sizes::THICKMATHSPACE ] );
 				$mmlRow = new MMLmrow( TexClass::ORD );
 				$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ] );
 				$mspace = new MMLmspace( "", [ "width" => "0.167em" ] );
@@ -551,14 +552,26 @@ class BaseParsing {
 	}
 
 	public static function oint( $node, $passedArgs, $operatorContent,
-								 $name, $uc = null, $smth1 = null, $smth2 = null ) {
+								 $name, $uc = null, $attributes = null, $smth2 = null ) {
 		// This is a custom mapping not in js.
-		$mmlText = new MMLmtext( "", [ "mathcolor" => "red" ] );
+		$mmlText = new MMLmtext( "", $attributes );
+		$mrow = new MMLmrow();
+		$mStyle = new MMLmstyle( "", [ "mathsize" => "2.07em" ] );
+
 		switch ( $name ) {
-			case "oiiint":
+			case "oint":
+				$mo = new MMLmo();
+				return $mrow->encapsulateRaw( $mStyle->encapsulateRaw(
+					$mo->encapsulateRaw( MMLutil::uc2xNotation( $uc ) ) ) );
 			case "oiint":
+			case "oiiint":
 			case "ointctrclockwise":
 			case "varointclockwise":
+				$mSpace = new MMLmspace( "", [ "width" => Sizes::THINMATHSPACE ] );
+				return $mrow->encapsulateRaw( $mStyle->encapsulateRaw(
+					$mmlText->encapsulateRaw( MMLutil::uc2xNotation( $uc ) )
+					. $mSpace->getEmpty() ) );
+
 			case "P":
 				return $mmlText->encapsulate( "\\" . $name );
 			default:

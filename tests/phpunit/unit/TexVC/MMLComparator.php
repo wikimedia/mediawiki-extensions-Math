@@ -39,7 +39,8 @@ class MMLComparator {
 		"math" => [ "alttext", "display" ],
 		"mi"   => [ "class", "data-mjx-variant", "mathvariant", "data-mjx-texclass", "data-mjx-alternate" ],
 		"mo"   => [ "data-mjx-pseudoscript", "stretchy", "fence", "data-mjx-texclass", "texClass", "class",
-					"data-mjx-alternate", "form", "accent" ]
+					"data-mjx-alternate", "form", "accent" ],
+		"mtext" => [ "texClass" ]
 	];
 
 	/**
