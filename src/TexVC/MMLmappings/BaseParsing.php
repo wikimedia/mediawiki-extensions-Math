@@ -37,6 +37,7 @@ use MediaWiki\Extension\Math\TexVC\Nodes\Fun1nb;
 use MediaWiki\Extension\Math\TexVC\Nodes\Fun2sq;
 use MediaWiki\Extension\Math\TexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\TexVC\Nodes\TexArray;
+use MediaWiki\Extension\Math\TexVC\Nodes\TexNode;
 
 /**
  * Parsing functions for specific recognized mappings.
@@ -342,14 +343,9 @@ class BaseParsing {
 		switch ( $name ) {
 			case "mod":
 				$mmlRow = new MMLmrow();
-				$mspace = new MMLmspace( "", [ "width" => "0.444em" ] );
-				$mspace2 = new MMLmspace( "", [ "width" => "0.333em" ] );
-				$mo = new MMLmo( "", [ "stretchy" => "false" ] );
-				$mi = new MMLmi();
-				return $mmlRow->encapsulateRaw(
-					$mspace->encapsulate() . $mo->encapsulate( "(" ) .
-					$mi->encapsulate( "mod" ) . $mspace2->encapsulate( "" ) .
-					$mo->encapsulate( ")" ) );
+				$mo = new MMLmo( "", [ "lspace" => "2.5pt", "rspace" => "2.5pt" ] );
+				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->renderMML() : "";
+				return $mmlRow->encapsulateRaw( $mo->encapsulate( "mod" ) . $inner );
 			case "pmod":
 				// tbd indicate in mapping that this is composed within php
 				$mmlRow = new MMLmrow();
@@ -357,9 +353,11 @@ class BaseParsing {
 				$mspace2 = new MMLmspace( "", [ "width" => "0.333em" ] );
 				$mo = new MMLmo( "", [ "stretchy" => "false" ] );
 				$mi = new MMLmi();
+				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->renderMML() : "";
+
 				return $mmlRow->encapsulateRaw( $mspace->encapsulate() .
 					$mo->encapsulate( "(" ) . $mi->encapsulate( "mod" ) .
-					$mspace2->encapsulate() . $node->getArg()->renderMML() . $mo->encapsulate( ")" ) );
+					$mspace2->encapsulate() . $inner . $mo->encapsulate( ")" ) );
 			case "varlimsup":
 			case "varliminf":
 				// hardcoded macro in php (there is also a dynamic mapping which is not completely resolved atm)
@@ -409,8 +407,10 @@ class BaseParsing {
 				$mmlRow = new MMLmrow( TexClass::ORD );
 				$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ] );
 				$mspace = new MMLmspace( "", [ "width" => "0.167em" ] );
+				$inner = $node->getArg() instanceof TexNode ?
+					$mmlRow->encapsulateRaw( $node->getArg()->renderMML() ) : "";
 				return $mmlRow->encapsulateRaw( $mo->encapsulate( "mod" ) .
-					$mmlRow->encapsulateRaw( $mstyle->encapsulateRaw( $mspace->getEmpty() ) ) );
+					$inner . $mmlRow->encapsulateRaw( $mstyle->encapsulateRaw( $mspace->getEmpty() ) ) );
 			case "implies":
 				$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ] );
 				$mspace = new MMLmspace( "", [ "width" => "0.278em" ] );

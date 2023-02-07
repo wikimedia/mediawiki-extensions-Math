@@ -232,7 +232,7 @@ class AMSMappings {
 		"precnapprox" => '\u2AB9',
 		"succnapprox" => '\u2ABA',
 		"nsim" => '\u2241',
-		"ncong" => '\u2247',
+		"ncong" => '\u2246',
 		"nshortmid" => [ '\u2224', [ "variantForm" => true ] ],
 		"nshortparallel" => [ '\u2226', [ "variantForm" => true ] ],
 		"nmid" => '\u2224',

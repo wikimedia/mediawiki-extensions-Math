@@ -65,18 +65,20 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 		$mathMLtexVC = MMLTestUtil::getMMLwrapped( $resultT["input"] ) ?? "<math> error texvc </math>";
 
 		$mmlComparator = new MMLComparator();
-		$compRes = $mmlComparator->compareMathML( $input->mmlMathoid, $mathMLtexVC );
+		$usedMMLRef = $input->mmlMathoid;
+		if ( !$usedMMLRef ) {
+			$usedMMLRef = $input->mmlLaTeXML;
+		}
+		$compRes = $mmlComparator->compareMathML( $usedMMLRef, $mathMLtexVC );
 		MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $title, $input->tex, $input->mmlLaTeXML,
 			$input->mmlMathoid, $mathMLtexVC, $compRes['similarityF'] ], false, self::$GENERATEHTML );
+
 		// Comparing the result either to MathML result from Mathoid
 		if ( !self::$SKIPXMLVALIDATION ) {
-			if ( !$input->mmlMathoid ) {
-				$this->fail( "No Mathoid reference found for: " . $input->tex );
-			}
 			if ( $compRes['similarityF'] >= self::$SIMILARITYTRESH ) {
 				$this->assertTrue( true );
 			} else {
-				$this->assertXmlStringEqualsXmlString( $input->mmlMathoid, $mathMLtexVC );
+				$this->assertXmlStringEqualsXmlString( $usedMMLRef, $mathMLtexVC );
 			}
 		} else {
 			$this->assertTrue( true );
