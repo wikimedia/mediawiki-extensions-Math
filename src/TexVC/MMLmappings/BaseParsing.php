@@ -792,20 +792,18 @@ class BaseParsing {
 	public static function hBox( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
 		switch ( $name ) {
 			case "mbox":
-				// These seem special case for mbox, otherwise mbox parsed like hbox
-				if ( $operatorContent == "\\textvisiblespace" ) {
-					// there is also custom mapping for now to that,
-					// for TexUtilMMLTest this seems to only occur here though
+				$mo = new MMLmo();
+				$mmlMrow = new MMLmrow();
+				if ( $operatorContent != null ) {
+					$op = MMLutil::inputPreparation( $operatorContent );
+					$macro = BaseMappings::getNullaryMacro( $op );
+					$input = $macro[0] ?? $operatorContent;
+					return $mmlMrow->encapsulateRaw( $mo->encapsulateRaw( $input ) );
+				} else {
 					$mmlMrow = new MMLmrow();
 					$mtext = new MMLmtext();
-					return $mmlMrow->encapsulateRaw( $mtext->encapsulateRaw( "&#x2423;" ) );
-
-				} elseif ( $operatorContent != null ) { // ok ?? \\AA \\Coppa ....
-					$mmlMrow = new MMLmrow();
-					$mtext = new MMLmtext( "", [ "mathcolor" => "red" ] );
-					return $mmlMrow->encapsulateRaw( $mtext->encapsulateRaw( $operatorContent ) );
+					return $mmlMrow->encapsulateRaw( $mtext->encapsulateRaw( "\mbox" ) );
 				}
-				// no break
 			case "hbox":
 				$mmlMrow = new MMLmrow();
 				$mstyle = new MMLmstyle( "", [ "displaystyle" => "false", "scriptlevel" => "0" ] );

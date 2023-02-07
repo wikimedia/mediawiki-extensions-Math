@@ -4,6 +4,9 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmtext;
+
 class Box extends TexNode {
 
 	/** @var string */
@@ -40,21 +43,11 @@ class Box extends TexNode {
 	}
 
 	public function renderMML( $arguments = [] ) {
-		return $this->parseToMML( $this->getArgs()[0], $arguments, null );
-		/**
-		 * $mrow = new MMLmrow();
-		 * $mtext = new MMLmtext();
-		 *
-		 * $renderedMML = $mrow->encapsulate(
-		 * $mtext->encapsulate( $this->arg )
-		 * );
-		 * $color = BaseMappings::getColorByKey($this->arg);
-		 * if($color){
-		 * $mstyle = new MMLmstyle();
-		 * $renderedMML = $renderedMML . $mstyle->getEnd();
-		 * }
-		 * return $renderedMML;
-		 */
+		$mrow = new MMLmrow();
+		$mtext = new MMLmtext();
+		return $mrow->encapsulateRaw(
+			$mtext->encapsulateRaw( $this->getArg() )
+		);
 	}
 
 	public function extractIdentifiers( $args = null ) {
