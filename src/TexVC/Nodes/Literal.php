@@ -8,6 +8,10 @@ use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmn;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmo;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmpadded;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\TexVC\TexUtil;
 
 class Literal extends TexNode {
@@ -81,6 +85,11 @@ class Literal extends TexNode {
 			return $ret;
 		}
 
+		// Specific
+		if ( !( empty( $state['inMatrix'] ) ) && trim( $this->arg ) === '\vline' ) {
+			return $this->createVlineElement();
+		}
+
 		// If falling through all sieves just create an MI element
 		$mi = new MMLmi( "", $arguments );
 		return $mi->encapsulateRaw( $input ); // $this->arg
@@ -135,6 +144,18 @@ class Literal extends TexNode {
 		} else {
 			return [];
 		}
+	}
+
+	/**
+	 * @return string
+	 */
+	public function createVlineElement(): string {
+		$mrow = new MMLmrow();
+		$mpAdded = new MMLmpadded( "", [ "depth" => "0", "height" => "0" ] );
+		$mStyle = new MMLmstyle( "", [ "mathsize" => "1.2em" ] );
+		$mo = new MMLmo( "", [ "fence" => "false", "stretchy" => "false" ] );
+		return $mrow->encapsulateRaw( $mpAdded->encapsulateRaw(
+			$mStyle->encapsulateRaw( $mo->encapsulateRaw( "|" ) ) ) );
 	}
 
 }

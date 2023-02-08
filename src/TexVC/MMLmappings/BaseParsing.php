@@ -459,7 +459,9 @@ class BaseParsing {
 					$usedArg->pop();
 
 				}
-				$resInner .= $mtd->encapsulateRaw( $usedArg->renderMML( $passedArgs ) );
+				$resInner .= $mtd->encapsulateRaw( $usedArg->renderMML( $passedArgs, [ 'inMatrix'
+					=> true ]
+				) );
 			}
 			$resInner .= $mtr->getEnd();
 		}

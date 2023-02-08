@@ -76,4 +76,16 @@ class LiteralTest extends MediaWikiUnitTestCase {
 			'Should extract subscripts' );
 	}
 
+	public function testVLineNotInMatrix() {
+		$n = new Literal( '\\vline' );
+		$this->assertEquals( '<mi>\vline</mi>', $n->renderMML(),
+			'vline should fall through' );
+	}
+
+	public function testVLineInMatrix() {
+		$n = new Literal( '\\vline' );
+		$this->assertStringContainsString( '|</mo>', $n->renderMML( [], [ 'inMatrix' => true ] ),
+			'vline should render a vertical bar operator in matrix context.' );
+	}
+
 }
