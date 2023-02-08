@@ -560,6 +560,7 @@ class BaseParsing {
 
 		switch ( $name ) {
 			case "oint":
+			case "P":
 				$mo = new MMLmo();
 				return $mrow->encapsulateRaw( $mStyle->encapsulateRaw(
 					$mo->encapsulateRaw( MMLutil::uc2xNotation( $uc ) ) ) );
@@ -571,9 +572,6 @@ class BaseParsing {
 				return $mrow->encapsulateRaw( $mStyle->encapsulateRaw(
 					$mmlText->encapsulateRaw( MMLutil::uc2xNotation( $uc ) )
 					. $mSpace->getEmpty() ) );
-
-			case "P":
-				return $mmlText->encapsulate( "\\" . $name );
 			default:
 				return $mmlText->encapsulate( "not found in OintMethod" );
 
