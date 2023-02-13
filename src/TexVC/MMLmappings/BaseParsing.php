@@ -616,7 +616,7 @@ class BaseParsing {
 	}
 
 	public static function underOver( $node, $passedArgs, $operatorContent,
-									  $name, $operatorId = null, $stack = null ) {
+									  $name, $operatorId = null, $stack = null, $nonHex = false ) {
 		// tbd verify if stack interpreted correctly ?
 		$texClass = $stack ? TexClass::OP : TexClass::ORD; // ORD or ""
 
@@ -653,9 +653,9 @@ class BaseParsing {
 				$renderedArg = $node->getArg()->renderMML();
 			}
 		}
-
+		$inner = $nonHex ? $operatorId : MMLutil::number2xNotation( $operatorId );
 		return $mrow->encapsulateRaw( $movun->encapsulateRaw(
-			$renderedArg . $mo->encapsulateRaw( MMLutil::number2xNotation( $operatorId ) )
+			$renderedArg . $mo->encapsulateRaw( $inner )
 		) );
 	}
 
