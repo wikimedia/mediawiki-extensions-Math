@@ -252,7 +252,7 @@ class BaseParsing {
 		$fract = null;
 		$styleAttr = [];
 		$displayStyle = "false";
-		if ( in_array( $thick, [ 'thin', 'medium' ,'thick' ] ) ) {
+		if ( in_array( $thick, [ 'thin', 'medium' ,'thick', '0' ] ) ) {
 			$attrs = array_merge( $attrs, [ "linethickness" => $thick ] );
 		}
 		if ( $style !== '' ) {

@@ -44,7 +44,7 @@ class AMSMappings {
 		"frac" => [ 'genFrac', '', '', '', '' ],
 		"tfrac" => [ 'genFrac', '', '', '', '1' ],
 		"dfrac" => [ 'genFrac', '', '', '', '0' ],
-		"binom" => [ 'genFrac', '(', ')', '0', '' ],
+		"binom" => [ 'genFrac', '(', ')', '0', '0' ],
 		"tbinom" => [ 'genFrac', '(', ')', '0', '1' ],
 		"dbinom" => [ 'genFrac', '(', ')', '0', '0' ],
 		"cfrac" => 'cFrac',
