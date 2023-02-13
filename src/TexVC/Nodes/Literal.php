@@ -90,6 +90,10 @@ class Literal extends TexNode {
 			return $this->createVlineElement();
 		}
 
+		if ( !( empty( $state['inHBox'] ) ) ) {
+			// No mi, if literal is from HBox
+			return $input;
+		}
 		// If falling through all sieves just create an MI element
 		$mi = new MMLmi( "", $arguments );
 		return $mi->encapsulateRaw( $input ); // $this->arg

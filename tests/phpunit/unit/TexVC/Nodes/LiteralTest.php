@@ -88,4 +88,10 @@ class LiteralTest extends MediaWikiUnitTestCase {
 			'vline should render a vertical bar operator in matrix context.' );
 	}
 
+	public function testHBoxLiterals() {
+		$n = new Literal( 'in box' );
+		$this->assertStringContainsString( 'in box', $n->renderMML( [], [ 'inHBox' => true ] ),
+			'hboxes should not be wrapped in to mi elements.' );
+	}
+
 }

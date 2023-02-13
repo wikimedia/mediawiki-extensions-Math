@@ -825,7 +825,11 @@ class BaseParsing {
 			case "texttt":
 				$mmlMrow = new MMLmrow();
 				$mtext = new MMLmtext( "", MMLParsingUtil::getFontArgs( $name, null, null ) );
-				return $mmlMrow->encapsulateRaw( $mtext->encapsulateRaw( $node->getArg()->renderMML() ) );
+
+				$inner = $node->getArg() instanceof Curly ? $node->getArg()->getArg()->renderMML(
+					[], [ "inHBox" => true ] )
+					: $node->getArg()->renderMML( [ "fromHBox" => true ] );
+				return $mmlMrow->encapsulateRaw( $mtext->encapsulateRaw( $inner ) );
 		}
 
 		$msubsup = new MMLmsubsup( "tbd HBox" );
