@@ -166,6 +166,7 @@
     "\\ce{\\beta}": "chem",
     "\\ce{\\ca}": "tex",
     "\\ce{\\chi}": "chem",
+    "\\ce{\\circ}": "chem",
     "\\ce{\\delta}": "chem",
     "\\ce{\\epsilon}": "chem",
     "\\ce{\\eta}": "chem",
