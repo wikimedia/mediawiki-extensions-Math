@@ -16,67 +16,87 @@
     ]
   ],
   "texvctreebugs": [
+      [
+        "Color with elements not in related tree element",
+        {
+          "input": "\\color{red}{red}",
+          "output": "tbd",
+          "type":"tex"
+        }
+      ],
+      [
+        "Color #2 with elements not in related tree element",
+        {
+          "input": "\\color{Orange}\\text{Orange}",
+          "output": "tbd",
+          "type": "tex"
+        }
+      ],
+      [
+        "Pagecolor with elements not in related tree element",
+        {
+          "input": "\\pagecolor{red}{red}'",
+          "output": "tbd",
+          "type":"tex"
+        }
+      ],
     [
-      "Color with elements not in related tree element",
-      {
-        "input": "\\color{red}{red}",
-        "output": "tbd",
-        "type":"tex"
-      },
-      "Color #2 with elements not in related tree element",
-      {
-        "input": "\\color{Orange}\\text{Orange}",
-        "output": "tbd",
-        "type": "tex"
-      },
-      "Pagecolor with elements not in related tree element",
-      {
-        "input": "\\pagecolor{red}{red}'",
-        "output": "tbd",
-        "type":"tex"
-      },
       "Definecolor with elements not in related tree element",
       {
         "input": "\\definecolor{ultramarine}{RGB}{0,32,96}",
         "output": "tbd",
         "type":"tex"
-      },
+      }
+    ],
+    [
       "Sideset with elements not in related tree element",
       {
         "input": "\\sideset{_1^2}{_3^4}\\sum",
         "output": "tbd",
         "type":"tex"
-      },
+      }
+    ],
+    [
       "Lim with elements not in related tree element",
       {
         "input": "\\lim\\limits_{x \\to 2}",
         "output": "tbd",
         "type":"tex"
-      },
+      }
+    ],
+    [
       "Displaystyle with elements not in related tree element, currently solved with custom rendering in TexArray ",
       {
         "input": "\\frac{\\displaystyle \\sum_{k=1}^N k^2}{a}",
         "output": "tbd",
         "type":"tex"
-      },
+      }
+    ],
+    [
       "Scriptscriptstyle with elements not in related tree element, currently solved with custom rendering in TexArray ",
       {
         "input": "\\frac ab + \\scriptscriptstyle{\\frac cd + \\frac ef} + \\frac gh",
         "output": "tbd",
         "type":"tex"
-      },
+      }
+    ],
+    [
       "Scriptstyle with elements not in related tree element, currently solved with custom rendering in TexArray ",
       {
         "input": "{\\scriptstyle \\partial \\Omega}",
         "output": "tbd",
         "type":"tex"
-      },
+      }
+    ],
+    [
       "Textstyle with elements not in related tree element, currently solved with custom rendering in TexArray ",
       {
         "input": "\\textstyle \\sum_{k=1}^N k^2",
         "output": "tbd",
         "type":"tex"
-      },
+      }
+    ],
+    [
       "Literals in array elements are not squashed but each literal is parsed on its own Lit(n) Lit(o) ... ",
       {
         "input": "\\mathfrak{nopqrstuvwxyz}",

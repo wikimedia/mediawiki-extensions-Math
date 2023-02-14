@@ -18,6 +18,8 @@ use Psr\Log\InvalidArgumentException;
 final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
 	private static $SIMILARITYTRESH = 0.7;
 	private static $SKIPXMLVALIDATION = true;
+
+	private static $SELECTEDCATEGORY1 = "texvctreebugs";
 	private static $FILENAME1 = __DIR__ . "/tex-2-mml.json";
 	private static $FILENAME2 = __DIR__ . "/ParserTest-Ref.json";
 	private static $SELECTEDFILE = 0; // 0 , 1 ... for selecting file
@@ -112,9 +114,8 @@ final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
 	 */
 	public static function provideTestCases1() {
 		$res = MMLTestUtil::getJSON( self::$FILENAME1 );
-		// TBD refactor the category filter  here
-		$f = $res->basic;
-		// $f = $res->literalnums;
+		$f = $res->{self::$SELECTEDCATEGORY1};
+
 		// Adding running indices for location of tests.
 		$indexCtr = 0;
 		foreach ( $f as $tc ) {
