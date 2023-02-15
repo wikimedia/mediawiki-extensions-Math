@@ -51,7 +51,7 @@ class Infix extends TexNode {
 			$this->arg2->render() . '}';
 	}
 
-	public function renderMML( $arguments = [] ) {
+	public function renderMML( $arguments = [], $state = [] ) {
 		return $this->parseToMML( $this->op, $arguments, null );
 	}
 

@@ -42,7 +42,7 @@ class Box extends TexNode {
 		return '{' . $this->fname . '{' . $this->arg . '}}';
 	}
 
-	public function renderMML( $arguments = [] ) {
+	public function renderMML( $arguments = [], $state = [] ) {
 		$mrow = new MMLmrow();
 		$mtext = new MMLmtext();
 		return $mrow->encapsulateRaw(

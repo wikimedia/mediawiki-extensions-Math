@@ -39,7 +39,7 @@ class Big extends TexNode {
 		return '{' . $this->fname . ' ' . $this->arg . '}';
 	}
 
-	public function renderMML( $arguments = [] ): string {
+	public function renderMML( $arguments = [], $state = [] ): string {
 		return $this->parseToMML( $this->fname, $arguments, null );
 	}
 

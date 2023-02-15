@@ -50,7 +50,7 @@ class TexNode {
 		return $out;
 	}
 
-	public function renderMML( $arguments = [] ) {
+	public function renderMML( $arguments = [], $state = [] ) {
 		return array_reduce( $this->args, function ( $out, $child ) use ( $arguments ) {
 			return $out . $this->renderChildMML( $child, $arguments );
 		}, '' );

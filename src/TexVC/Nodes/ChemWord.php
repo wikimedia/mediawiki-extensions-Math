@@ -38,14 +38,16 @@ class ChemWord extends TexNode {
 		return $this->left->render() . $this->right->render();
 	}
 
-	public function renderMML( $arguments = [] ) {
+	public function renderMML( $arguments = [], $state = [] ) {
 		$mmlMrow = new MMLmrow();
 		$mtextLeft = new MMLmtext( "", [ "mathcolor" => "red" ] );
 		$mtextRight = new MMLmtext();
 		// If right has empty literal content is resolved as dash
-		$right = $this->getRight()->getArgs()[0] == "" ? "-" : $this->getRight()->renderMML();
+		$right = $this->getRight()->getArgs()[0] == "" ? "-" : $this->getRight()->renderMML( [],
+			$state );
 		return $mmlMrow->encapsulateRaw( $mmlMrow->encapsulateRaw(
-			$mtextLeft->encapsulateRaw( $this->getLeft()->renderMML() ) . $mtextRight->encapsulateRaw( $right ) ) );
+			$mtextLeft->encapsulateRaw( $this->getLeft()->renderMML( [], $state ) )
+			. $mtextRight->encapsulateRaw( $right ) ) );
 	}
 
 	public function extractIdentifiers( $args = null ) {
