@@ -47,7 +47,7 @@ class Fun1 extends TexNode {
 		return '{' . $this->fname . ' ' . $this->arg->inCurlies() . '}';
 	}
 
-	public function renderMML( $arguments = [] ) {
+	public function renderMML( $arguments = [], $state = [] ) {
 		return $this->parseToMML( $this->fname, $arguments, null );
 	}
 

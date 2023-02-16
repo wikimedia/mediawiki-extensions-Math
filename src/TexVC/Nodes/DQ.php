@@ -38,7 +38,7 @@ class DQ extends TexNode {
 		return $this->base->render() . '_' . $this->down->inCurlies();
 	}
 
-	public function renderMML( $arguments = [] ) {
+	public function renderMML( $arguments = [], $state = [] ) {
 		$res = BaseMethods::checkAndParse( $this->base->getArgs()[0], $arguments, null, $this );
 		if ( $res ) {
 			return $res;
@@ -47,8 +47,8 @@ class DQ extends TexNode {
 			$mmlMrow = new MMLmrow();
 			$msub = new MMLmsub();
 			return $msub->encapsulateRaw(
-				$this->base->renderMML() .
-				$mmlMrow->encapsulateRaw( $this->down->renderMML() ) );
+				$this->base->renderMML( [], $state ) .
+				$mmlMrow->encapsulateRaw( $this->down->renderMML( [], $state ) ) );
 		}
 	}
 

@@ -39,7 +39,7 @@ class UQ extends TexNode {
 		return $this->base->render() . '^' . $this->up->inCurlies();
 	}
 
-	public function renderMML( $arguments = [] ) {
+	public function renderMML( $arguments = [], $state = [] ) {
 		$mrow = new MMLmrow();
 		$mmlBase = new MMLmsup();
 		// Sometimes 'overbrace' or similar seems to determine the wrapping element here.
@@ -47,9 +47,9 @@ class UQ extends TexNode {
 			$mmlBase = new MMLmover();
 		}
 		return $mmlBase->encapsulateRaw(
-			$this->base->renderMML( $arguments ) .
+			$this->base->renderMML( $arguments, $state ) .
 			$mrow->getStart() . // up is inferring a new mrow
-			$this->up->renderMML( $arguments ) .
+			$this->up->renderMML( $arguments, $state ) .
 			$mrow->getEnd()
 		);
 	}

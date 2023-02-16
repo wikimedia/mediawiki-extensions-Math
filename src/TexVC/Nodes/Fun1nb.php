@@ -14,7 +14,7 @@ class Fun1nb extends Fun1 {
 		return $this->fname . ' ' . $this->arg->inCurlies() . ' ';
 	}
 
-	public function renderMML( $arguments = [] ): string {
+	public function renderMML( $arguments = [], $state = [] ): string {
 		return $this->parseToMML( $this->fname, $arguments, null );
 		// This is very preliminary and should most probably be synced with the mappings from time to time
 		// this might move to Fun1.php

@@ -25,7 +25,7 @@ class Literal extends TexNode {
 		array_push( $this->extendedLiterals,  '\\infty', '\\emptyset' );
 	}
 
-	public function renderMML( $arguments = [] ) {
+	public function renderMML( $arguments = [], $state = [] ) {
 		if ( is_numeric( $this->arg ) ) {
 			$mn = new MMLmn( "", $arguments );
 			return $mn->encapsulateRaw( $this->arg );

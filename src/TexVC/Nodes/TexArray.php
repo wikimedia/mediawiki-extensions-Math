@@ -39,7 +39,7 @@ class TexArray extends TexNode {
 		return null;
 	}
 
-	public function renderMML( $arguments = [] ) {
+	public function renderMML( $arguments = [], $state = [] ) {
 		// Everything here is for parsing displaystyle, probably refactored to TexVC grammar later
 		$fullRenderedArray = "";
 		$mmlStyle = null;
@@ -57,13 +57,13 @@ class TexArray extends TexNode {
 				$mmlStyle = new MMLmstyle( "", $styleArguments );
 				$fullRenderedArray .= $mmlStyle->getStart();
 				if ( $next instanceof Curly ) {
-					$fullRenderedArray .= $next->renderMML( $arguments );
+					$fullRenderedArray .= $next->renderMML( $arguments, $state );
 					$fullRenderedArray .= $mmlStyle->getEnd();
 					$mmlStyle = null;
 					$i++;
 				}
 			} else {
-				$fullRenderedArray .= $current->renderMML( $arguments );
+				$fullRenderedArray .= $current->renderMML( $arguments, $state );
 			}
 		}
 		if ( $mmlStyle ) {

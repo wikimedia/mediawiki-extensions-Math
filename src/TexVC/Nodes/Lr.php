@@ -54,7 +54,7 @@ class Lr extends TexNode {
 		return '\\left' . $this->left . $this->arg->render() . '\\right' . $this->right;
 	}
 
-	public function renderMML( $arguments = [] ) {
+	public function renderMML( $arguments = [], $state = [] ) {
 		// TBD  set attributes for right AND left correctly
 		$rightAttrs = [];
 		if ( $this->right == "." ) {
@@ -75,7 +75,7 @@ class Lr extends TexNode {
 			$right = $moRight->encapsulateRaw( $this->right );
 		}
 
-		$inner = $this->getArg()->renderMML();
+		$inner = $this->getArg()->renderMML( [], $state );
 		$mrow = new MMLmrow( TexClass::INNER );
 		return $mrow->encapsulateRaw(
 			$left . $inner .

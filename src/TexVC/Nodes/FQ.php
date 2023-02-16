@@ -50,13 +50,13 @@ class FQ extends TexNode {
 		return $this->base->render() . '_' . $this->down->inCurlies() . '^' . $this->up->inCurlies();
 	}
 
-	public function renderMML( $arguments = [] ) {
+	public function renderMML( $arguments = [], $state = [] ) {
 		$bm = new BaseMethods();
 		if ( $this->getArgs()[0]->getLength() == 0 ) {
 			// this happens when FQ is located in Sideset (is this a common parsing way?)
 			$mrow = new MMLmrow();
-			return $mrow->encapsulateRaw( $this->getDown()->renderMML() ) .
-				$mrow->encapsulateRaw( $this->getUp()->renderMML() );
+			return $mrow->encapsulateRaw( $this->getDown()->renderMML( [], $state ) ) .
+				$mrow->encapsulateRaw( $this->getUp()->renderMML( [], $state ) );
 		}
 
 		// Not sure if this case is necessary ..
@@ -76,8 +76,8 @@ class FQ extends TexNode {
 		// This seems to be the common case
 		$mrow = new MMLmrow();
 		return $melement->encapsulateRaw(
-			$this->getBase()->renderMML() .
-			$mrow->encapsulateRaw( $this->getDown()->renderMML() ) .
-			$mrow->encapsulateRaw( $this->getUp()->renderMML() ) );
+			$this->getBase()->renderMML( [], $state ) .
+			$mrow->encapsulateRaw( $this->getDown()->renderMML( [], $state ) ) .
+			$mrow->encapsulateRaw( $this->getUp()->renderMML( [], $state ) ) );
 	}
 }

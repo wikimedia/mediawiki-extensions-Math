@@ -62,7 +62,7 @@ class Matrix extends TexNode {
 		return '{\\begin{' . $this->top . '}' . $this->renderMatrix( $this->mainarg ) . '\\end{' . $this->top . '}}';
 	}
 
-	public function renderMML( $arguments = [] ): string {
+	public function renderMML( $arguments = [], $state = [] ): string {
 		return $this->parseToMML( $this->getTop(), $arguments, null );
 	}
 
