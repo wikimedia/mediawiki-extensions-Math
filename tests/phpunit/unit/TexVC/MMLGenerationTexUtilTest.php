@@ -140,9 +140,6 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 
 	private const SAMPLE_ARGS_RIGHT = [
 		"big_literals" => '(',
-		"color_function" => '{red}{red}',
-		"mhchem_macro_2pc" => '{red}{red}',
-		"definecolor_function" => '{ultramarine}{RGB}{0,32,96}',
 		"fun_ar2nb" => '{_1^2}{_3^4}\\sum',
 		"left_function" => '( \\right.',
 		"mhchem_bond" => '{-}',
@@ -158,6 +155,10 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 		"\\atop" => "{ a \\atop b }",
 		"\\choose" => "{ a \\choose b }",
 		"\\over" => "{a \\over b }",
+		"\\color" => "a {b \\color{red} c} d",
+		"\\ce{\\color}" => "\\ce{a {b \\color{red} c} d}",
+		"\\definecolor" => "\\definecolor{ultramarine}{RGB}{0,32,96} a {b \\color{ultramarine} c} d",
+		"\\pagecolor" => "\\pagecolor{red} e^{i \\pi}",
 		"\\hline" => "\n\\begin{array}{|c||c|} a & b  \\\\\n\\hline\n1&2 \n\\end{array}\n",
 		"\\nolimits" => " \mathop{\\rm cos}\\nolimits^2",
 	   // "\\limits" =>" \mathop{\\rm cos}\\limits^2",
@@ -220,7 +221,12 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 			$indexCtr = 0;
 			foreach ( $group as $case ) {
 				$title = "set#" . $overAllCtr . ": " . $category . $indexCtr;
-				$finalCase = $refAssociative[$case] ?? $case;
+				if ( $refAssociative[$case] ) {
+					$finalCase = $refAssociative[$case];
+				} else {
+					$type = str_starts_with( $case, "ce" ) ? "chem" : "tex";
+					$finalCase = (object)[ "tex" => $case , "type" => $type, "ctr" => null ];
+				}
 				$finalCase->ctr = $overAllCtr;
 
 				$finalCases[$title] = [ $title, $finalCase ];
@@ -250,7 +256,11 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 	private static function addArgs( $set, $entry ) {
 		if ( isset( self::ENTRY_ARGS[$entry] ) ) {
 			// Some entries have specific mappings for non-group related arguments
-			return ( self::ENTRY_ARGS[$entry] );
+			if ( str_starts_with( $set, "mhchem" ) ) {
+				return '\\ce{' . self::ENTRY_ARGS[$entry] . '}';
+			} else {
+				return ( self::ENTRY_ARGS[$entry] );
+			}
 		}
 		$count = !isset( self::ARG_CNTS[$set] ) ? 0 : self::ARG_CNTS[$set];
 		$argsR = '';
