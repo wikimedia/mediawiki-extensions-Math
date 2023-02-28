@@ -40,21 +40,28 @@ class TexArray extends TexNode {
 		return null;
 	}
 
-	public function checkForColor( $node ) {
+	/**
+	 * Checks if an TexNode of Literal contains color information (color, pagecolor)
+	 * and returns info how to continue with the parsing.
+	 * @param TexNode $node node to check if it contains color info
+	 * @return array index 0: (bool) was color element found, index 1: (string) specified color
+	 */
+	public function checkForColor( TexNode $node ) {
 		if ( $node instanceof Literal ) {
 			$name = trim( $node->getArg() );
 			if ( str_contains( $name, "\\color" ) ) {
 				$foundOperatorContent = MMLutil::initalParseLiteralExpression( $node->getArg() );
 				if ( !$foundOperatorContent ) {
 					// discarding color elements which not specify color
-					$operatorContent = null;
+					return [ true, null ];
 				} else {
-					$operatorContent = $foundOperatorContent[2][0];
+					return [ true, $foundOperatorContent[2][0] ];
 				}
-				return $operatorContent;
+			} elseif ( str_contains( $name, "\\pagecolor" ) ) {
+				return [ true, null ];
 			}
 		}
-		return null;
+		return [ false, null ];
 	}
 
 	public function renderMML( $arguments = [], $state = [] ) {
@@ -72,8 +79,8 @@ class TexArray extends TexNode {
 
 			// Pass preceding color info to state
 			$foundColor = $this->checkForColor( $current );
-			if ( $foundColor ) {
-				$currentColor = $foundColor;
+			if ( $foundColor[0] ) {
+				$currentColor = $foundColor[1];
 				// Skipping the color element itself for rendering
 				continue;
 			}
