@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmstyle;
 
 class TexArray extends TexNode {
@@ -39,10 +40,28 @@ class TexArray extends TexNode {
 		return null;
 	}
 
+	public function checkForColor( $node ) {
+		if ( $node instanceof Literal ) {
+			$name = trim( $node->getArg() );
+			if ( str_contains( $name, "\\color" ) ) {
+				$foundOperatorContent = MMLutil::initalParseLiteralExpression( $node->getArg() );
+				if ( !$foundOperatorContent ) {
+					// discarding color elements which not specify color
+					$operatorContent = null;
+				} else {
+					$operatorContent = $foundOperatorContent[2][0];
+				}
+				return $operatorContent;
+			}
+		}
+		return null;
+	}
+
 	public function renderMML( $arguments = [], $state = [] ) {
 		// Everything here is for parsing displaystyle, probably refactored to TexVC grammar later
 		$fullRenderedArray = "";
 		$mmlStyle = null;
+		$currentColor = null;
 		for ( $i = 0, $count = count( $this->args ); $i < $count; $i++ ) {
 			$current = $this->args[$i];
 			if ( isset( $this->args[$i + 1] ) ) {
@@ -50,26 +69,42 @@ class TexArray extends TexNode {
 			} else {
 				$next = null;
 			}
-			$styleArguments = $this->checkForStyleArgs( $current );
 
+			// Pass preceding color info to state
+			$foundColor = $this->checkForColor( $current );
+			if ( $foundColor ) {
+				$currentColor = $foundColor;
+				// Skipping the color element itself for rendering
+				continue;
+			}
+			$styleArguments = $this->checkForStyleArgs( $current );
 			// For cases with "displaystyle{someargs} otherargs"
 			if ( $styleArguments ) {
 				$mmlStyle = new MMLmstyle( "", $styleArguments );
 				$fullRenderedArray .= $mmlStyle->getStart();
 				if ( $next instanceof Curly ) {
-					$fullRenderedArray .= $next->renderMML( $arguments, $state );
+					$fullRenderedArray .= $this->renderMMLwithColor( $currentColor, $current, $state, $arguments );
 					$fullRenderedArray .= $mmlStyle->getEnd();
 					$mmlStyle = null;
 					$i++;
 				}
 			} else {
-				$fullRenderedArray .= $current->renderMML( $arguments, $state );
+				$fullRenderedArray .= $this->renderMMLwithColor( $currentColor, $current, $state, $arguments );
 			}
 		}
 		if ( $mmlStyle ) {
 			$fullRenderedArray .= $mmlStyle->getEnd();
 		}
 		return $fullRenderedArray;
+	}
+
+	private function renderMMLwithColor( $currentColor, $currentNode, $state, $arguments ) {
+		if ( $currentColor ) {
+			$mmlStyleColor = new MMLmstyle( "", [ "mathcolor" => $currentColor ] );
+			return $mmlStyleColor->encapsulateRaw( $currentNode->renderMML( $arguments, $state ) );
+		} else {
+		   return $currentNode->renderMML( $arguments, $state );
+		}
 	}
 
 	public function inCurlies() {
