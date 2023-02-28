@@ -12,10 +12,10 @@
 namespace MediaWiki\Extension\Math;
 
 use DeferredUpdates;
+use MediaWiki\Extension\Math\InputCheck\BaseChecker;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use Message;
-use MWException;
 use Parser;
 use Psr\Log\LoggerInterface;
 use RequestContext;
@@ -384,6 +384,11 @@ abstract class MathRenderer {
 		}
 	}
 
+	protected function getChecker(): BaseChecker {
+		return Math::getCheckerFactory()
+			->newDefaultChecker( $this->tex, $this->getInputType(), $this->rbi );
+	}
+
 	/**
 	 * Returns sanitized attributes
 	 *
@@ -681,22 +686,15 @@ abstract class MathRenderer {
 		return $this->inputType;
 	}
 
-	/**
-	 * @return bool
-	 */
-	protected function doCheck() {
-		$checker = Math::getCheckerFactory()
-			->newDefaultChecker( $this->tex, $this->getInputType(), $this->rbi );
+	protected function doCheck(): bool {
+		$checker = $this->getChecker();
 
-		try {
-			if ( $checker->isValid() ) {
-				$this->setTex( $checker->getValidTex() );
-				$this->texSecure = true;
-				return true;
-			}
-		} catch ( MWException $e ) {
-			// Error handling is below
+		if ( $checker->isValid() ) {
+			$this->setTex( $checker->getValidTex() );
+			$this->texSecure = true;
+			return true;
 		}
+
 		$checkerError = $checker->getError();
 		$this->lastError = $this->getError( $checkerError->getKey(), ...$checkerError->getParams() );
 		return false;
