@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Math\InputCheck;
 
-use InvalidArgumentException;
 use MediaWikiIntegrationTestCase;
 use Message;
 use MockHttpTrait;
@@ -40,8 +39,10 @@ class LocalCheckerTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testInvalidType() {
-		$this->expectException( InvalidArgumentException::class );
-		new LocalChecker( '\sin x^2', 'INVALIDTYPE' );
+		$checker = new LocalChecker( '\sin x^2', 'INVALIDTYPE' );
+		$this->assertInstanceOf( LocalChecker::class, $checker );
+		$this->assertInstanceOf( Message::class, $checker->getError() );
+		$this->assertFalse( $checker->isValid() );
 	}
 
 	public function testInvalid() {

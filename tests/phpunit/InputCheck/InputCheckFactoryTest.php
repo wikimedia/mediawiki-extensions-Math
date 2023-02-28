@@ -2,7 +2,6 @@
 
 namespace phpunit\InputCheck;
 
-use InvalidArgumentException;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\InputCheck\InputCheckFactory;
 use MediaWiki\Extension\Math\InputCheck\LocalChecker;
@@ -12,6 +11,7 @@ use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Tests\Unit\MockServiceDependenciesTrait;
 use MediaWikiIntegrationTestCase;
+use Message;
 use WANObjectCache;
 
 /**
@@ -50,9 +50,11 @@ class InputCheckFactoryTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testInvalidLocalChecker() {
-		$this->expectException( InvalidArgumentException::class );
-		$this->newServiceInstance( InputCheckFactory::class, [] )
-			->newLocalChecker( 'FORMULA', 'invalidtype' );
+		$checker = $this->newServiceInstance( InputCheckFactory::class, [] )
+			->newLocalChecker( 'FORMULA', 'INVALIDTYPE' );
+		$this->assertInstanceOf( LocalChecker::class, $checker );
+		$this->assertInstanceOf( Message::class, $checker->getError() );
+		$this->assertFalse( $checker->isValid() );
 	}
 
 	public function testNewDefaultChecker() {

@@ -2,8 +2,6 @@
 
 namespace MediaWiki\Extension\Math\InputCheck;
 
-use Exception;
-use InvalidArgumentException;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathRestbaseInterface;
 use MediaWiki\Http\HttpRequestFactory;
@@ -87,7 +85,6 @@ class InputCheckFactory {
 	 * @param string $input input string to be checked
 	 * @param string $type type of input (only 'tex')
 	 * @return LocalChecker checker based on php implementation of TexVC within Math-extension
-	 * @throws InvalidArgumentException|Exception if the type is not correct.
 	 */
 	public function newLocalChecker( string $input, string $type ): LocalChecker {
 		return new LocalChecker(

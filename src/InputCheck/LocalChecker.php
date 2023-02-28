@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\Math\InputCheck;
 
 use Exception;
-use InvalidArgumentException;
 use MediaWiki\Extension\Math\TexVC\TexVC;
 use Message;
 
@@ -15,11 +14,12 @@ class LocalChecker extends BaseChecker {
 	/**
 	 * @param string $tex the TeX input string to be checked
 	 * @param string $type the input type
-	 * @throws InvalidArgumentException if the type is not correct.
 	 */
 	public function __construct( $tex = '', string $type = 'tex' ) {
 		if ( !in_array( $type, self::VALID_TYPES ) ) {
-			throw new InvalidArgumentException( "Non supported type passed to LocalChecker: " . $type );
+			$this->error = $this->errorObjectToMessage(
+				(object)[ "error" => "Unsupported type passed to LocalChecker: " . $type ], "LocalCheck" );
+			return;
 		}
 		parent::__construct( $tex );
 		$options = $type === 'chem' ? [ "usemhchem" => true ] : null;
