@@ -37,11 +37,15 @@ class MathConfig {
 	/** @var string render formula into LateXML */
 	public const MODE_LATEXML = 'latexml';
 
+	/** @var string render formula into MathML using PHP (currently in development) */
+	public const MODE_NATIVE_MML = 'native';
+
 	/** @var string[] a list of all supported rendering modes */
 	private const SUPPORTED_MODES = [
 		self::MODE_SOURCE,
 		self::MODE_LATEXML,
 		self::MODE_MATHML,
+		self::MODE_NATIVE_MML
 	];
 
 	/**
@@ -51,6 +55,7 @@ class MathConfig {
 		self::MODE_SOURCE => 3,
 		self::MODE_MATHML => 5,
 		self::MODE_LATEXML => 7,
+		self::MODE_NATIVE_MML => 8
 	];
 
 	/** @var ServiceOptions */
