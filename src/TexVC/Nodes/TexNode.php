@@ -51,14 +51,14 @@ class TexNode {
 	}
 
 	public function renderMML( $arguments = [], $state = [] ) {
-		return array_reduce( $this->args, function ( $out, $child ) use ( $arguments ) {
-			return $out . $this->renderChildMML( $child, $arguments );
+		return array_reduce( $this->args, function ( $out, $child ) use ( $arguments, $state ) {
+			return $out . $this->renderChildMML( $child, $arguments, $state );
 		}, '' );
 	}
 
-	public function renderChildMML( $child, $arguments ) {
+	public function renderChildMML( $child, $arguments, $state ) {
 		if ( $child instanceof TexNode ) {
-			return $child->renderMML( $arguments );
+			return $child->renderMML( $arguments, $state );
 		}
 		return $child;
 	}
