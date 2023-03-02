@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
 use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
+use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmsub;
 
@@ -39,6 +40,11 @@ class DQ extends TexNode {
 	}
 
 	public function renderMML( $arguments = [], $state = [] ) {
+		if ( array_key_exists( "limits", $state ) ) {
+			// A specific DQ case with preceding limits, just invoke the limits parsing manually.
+			return BaseParsing::limits( $this, $arguments, $state, "" );
+		}
+
 		$res = BaseMethods::checkAndParse( $this->base->getArgs()[0], $arguments, null, $this );
 		if ( $res ) {
 			return $res;

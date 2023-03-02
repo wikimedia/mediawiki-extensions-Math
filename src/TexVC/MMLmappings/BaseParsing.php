@@ -523,10 +523,10 @@ class BaseParsing {
 			$id = $name;
 		}
 		// This id statement probably wont work atm:
-
+		$args = count( $passedArgs ) >= 1 ? $passedArgs : [ "movablelimits" => "true" ];
 		// lim&#x2006;inf
 		$id = str_replace( "&thinsp;", '&#x2006;', $id );
-		$mo = new MMLmo( TexClass::OP, [ "movablelimits" => "true" ] );
+		$mo = new MMLmo( TexClass::OP, $args );
 		// "movesupsub"=>"true" activate this also as attribute ?
 		return $mo->encapsulateRaw( $id );
 	}
@@ -732,16 +732,17 @@ class BaseParsing {
 	}
 
 	public static function limits( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
-		// not completely done, has preceding lits
-		$mrow = new MMLmrow( TexClass::ORD, [] ); // tbd remove mathjax specifics
-		$munder = new MMLmunder();
+		$mrow = new MMLmrow( TexClass::ORD, [] );
+		$opParsed = $operatorContent["limits"] ? $operatorContent["limits"]->renderMML( [ "form" => "prefix" ] ) : "";
 
-		if ( $node instanceof Literal ) {
-			// Workaround currently
-			return $munder->encapsulateRaw( $mrow->encapsulateRaw( $node->getArg() ) );
-
+		if ( $node instanceof DQ ) {
+			$munder = new MMLmunder();
+			return $munder->encapsulateRaw( $opParsed . $mrow->encapsulateRaw( $node->getDown()->renderMML() ) );
+		} elseif ( $node instanceof FQ ) {
+			$munderOver = new MMLmunderover();
+			return $munderOver->encapsulateRaw( $opParsed . $mrow->encapsulateRaw( $node->getDown()->renderMML() )
+					. $mrow->encapsulateRaw( $node->getUp()->renderMML() ) );
 		}
-		return $munder->encapsulateRaw( $mrow->encapsulateRaw( $node->getDown()->renderMML() ) );
 	}
 
 	public static function setFont( $node, $passedArgs, $operatorContent, $name, $variant = null ) {

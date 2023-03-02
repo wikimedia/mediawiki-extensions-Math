@@ -49,6 +49,29 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "movablelimits", $mathMLtexVC );
 	}
 
+	public function testLimitsProd() {
+		$input = "\\prod\\limits_{j=1}^k A_{\\alpha_j}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "munderover", $mathMLtexVC );
+		$this->assertStringContainsString( "&#x220F;", $mathMLtexVC, );
+		$this->assertStringContainsString( "msub", $mathMLtexVC, );
+	}
+
+	public function testLimitsSum() {
+		$input = "\\sum\\limits_{j=1}^k A_{\\alpha_j}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "munderover", $mathMLtexVC );
+		$this->assertStringContainsString( "&#x2211;", $mathMLtexVC, );
+		$this->assertStringContainsString( "msub", $mathMLtexVC, );
+	}
+
+	public function testLimitsLim() {
+		$input = "\\lim_{x \\to 2}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "lim", $mathMLtexVC );
+		$this->assertStringContainsString( "munder", $mathMLtexVC, );
+	}
+
 	private function generateMML( $input, $chem = false ) {
 		$texVC = new TexVC();
 		$resultT = $texVC->check( $input, [

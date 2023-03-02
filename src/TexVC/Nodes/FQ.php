@@ -4,7 +4,7 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
-use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
+use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmsubsup;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmunderover;
@@ -51,7 +51,11 @@ class FQ extends TexNode {
 	}
 
 	public function renderMML( $arguments = [], $state = [] ) {
-		$bm = new BaseMethods();
+		if ( array_key_exists( "limits", $state ) ) {
+			// A specific FQ case with preceding limits, just invoke the limits parsing manually.
+			return BaseParsing::limits( $this, $arguments, $state, "" );
+		}
+
 		if ( $this->getArgs()[0]->getLength() == 0 ) {
 			// this happens when FQ is located in Sideset (is this a common parsing way?)
 			$mrow = new MMLmrow();

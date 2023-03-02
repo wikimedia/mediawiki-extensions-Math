@@ -94,6 +94,29 @@ class TexArray extends TexNode {
 		return null;
 	}
 
+	public function checkForLimits( $currentNode, $nextNode ) {
+		$precedingLits = [ "\\sum", "\\prod", "\\lim" ];
+
+		// case 2: "\\lim_{x \\to 2}"
+		if ( ( $currentNode instanceof DQ || $currentNode instanceof FQ )
+			&& $currentNode->getBase() instanceof Literal
+			&& trim( $currentNode->getBase()->getArgs()[0] ) == "\\lim" ) {
+			return [ $currentNode->getBase(), false ];
+		}
+
+		// case 1:
+		if ( !( $currentNode instanceof Literal && in_array( trim( $currentNode->getArg() ), $precedingLits ) ) ) {
+			return [ null,false ];
+		}
+		if ( !( ( $nextNode instanceof DQ || $nextNode instanceof FQ )
+			&& $nextNode->getBase() instanceof Literal
+			&& trim( $nextNode->getBase()->getArgs()[0] ) == "\\limits" ) ) {
+			return [ null,false ];
+		}
+
+		return [ $currentNode, true ];
+	}
+
 	public function renderMML( $arguments = [], $state = [] ) {
 		// Everything here is for parsing displaystyle, probably refactored to TexVC grammar later
 		$fullRenderedArray = "";
@@ -112,6 +135,15 @@ class TexArray extends TexNode {
 				$state["sideset"] = $foundSideset;
 				// Skipping the succeeding Literal
 				$i++;
+			}
+
+			// Check for limits
+			$foundLimits = $this->checkForLimits( $current, $next );
+			if ( $foundLimits[0] ) {
+				$state["limits"] = $foundLimits[0];
+				if ( $foundLimits[1] ) {
+					continue;
+				}
 			}
 
 			// Check if there is a new color definition and add it to state
@@ -155,6 +187,7 @@ class TexArray extends TexNode {
 				&& array_key_exists( $currentColor, $state["colorDefinitions"] ?? [] )
 			   ) {
 				$displayedColor = $state["colorDefinitions"][$currentColor]["hex"];
+
 			} else {
 				$displayedColor = $currentColor;
 			}
