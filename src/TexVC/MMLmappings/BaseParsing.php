@@ -10,6 +10,7 @@ use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmenclose;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmerror;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmfrac;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmmultiscripts;
@@ -33,6 +34,7 @@ use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmunder;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmunderover;
 use MediaWiki\Extension\Math\TexVC\Nodes\Curly;
 use MediaWiki\Extension\Math\TexVC\Nodes\DQ;
+use MediaWiki\Extension\Math\TexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\TexVC\Nodes\Fun1nb;
 use MediaWiki\Extension\Math\TexVC\Nodes\Fun2sq;
 use MediaWiki\Extension\Math\TexVC\Nodes\Literal;
@@ -228,7 +230,7 @@ class BaseParsing {
 		return $mo->encapsulateRaw( "&#x2026;" );
 	}
 
-	public static function genFrac( $node, $passedArgs, $name, $operatorContent,
+	public static function genFrac( $node, $passedArgs, $operatorContent, $name,
 							 $left = null, $right = null, $thick = null, $style = null ) {
 		// Actually this is in AMSMethods, consider refactoring  left, right, thick, style
 		$bm = new BaseMethods();
@@ -748,14 +750,50 @@ class BaseParsing {
 		return $mrow->encapsulateRaw( $mrow->encapsulateRaw( $node->getArg()->renderMML( $args ) ) );
 	}
 
-	public static function sideset( $node, $passedArgs, $operatorContent, $name,
-									$smth1 = null, $smth2 = null, $smth3 = null ) {
-		// Sideset parsing is not completed yet (Waiting for MML)
+	public static function sideset( $node, $passedArgs, $operatorContent, $name ) {
+		if ( !array_key_exists( "sideset", $operatorContent ) ) {
+			$merror = new MMLmerror();
+			return $merror->encapsulateRaw( "Error parsing sideset expression, no succeeding operator found" );
+		}
+
 		$mmlMrow = new MMLmrow( TexClass::OP );
-		$mmlMultiscripts = new MMLmmultiscripts( "", [ Tag::ALIGN => "left" ] );
-		$in1 = $node->getArg1()->renderMML();
-		$in2 = $node->getArg2()->renderMML();
-		return $mmlMrow->encapsulateRaw( $mmlMultiscripts->encapsulateRaw( $in2 . "<mprescripts/>" . $in1 ) );
+		if ( $operatorContent["sideset"] instanceof Literal ) {
+			$mmlMultiscripts = new MMLmmultiscripts( "", [ Tag::ALIGN => "left" ] );
+
+			$bm = new BaseMethods();
+			$opParsed = $bm->checkAndParseOperator( $operatorContent["sideset"]->getArg(), null, [], [] );
+			$in1 = $node->getArg1()->renderMML();
+			$in2 = $node->getArg2()->renderMML();
+			return $mmlMrow->encapsulateRaw( $mmlMultiscripts->encapsulateRaw( $opParsed .
+				$in2 . "<mprescripts/>" . $in1 ) );
+		}
+
+		if ( $operatorContent["sideset"] instanceof FQ ) {
+			$mmlMultiscripts = new MMLmmultiscripts( "", [] );
+			$mmlMunderOver = new MMLmunderover();
+			$mstyle = new MMLmstyle( "", [ "displaystyle" => "true" ] );
+			$bm = new BaseMethods();
+			if ( count( $operatorContent["sideset"]->getBase()->getArgs() ) == 1 ) {
+				$opParsed = $bm->checkAndParseOperator( $operatorContent["sideset"]->getBase()->getArgs()[0],
+					null, [ "largeop" => "true", "movablelimits" => "false", "symmetric" => "true" ], [] );
+			} else {
+				$merror = new MMLmerror();
+				$opParsed = $merror->encapsulateRaw( "Sideset operator parsing not implemented yet" );
+			}
+
+			$in1 = $node->getArg1()->renderMML();
+			$in2 = $node->getArg2()->renderMML();
+
+			$mrowEnd = new MMLmrow( "", [] );
+			$end1 = $mrowEnd->encapsulateRaw( $operatorContent["sideset"]->getDown()->renderMML() );
+			$end2 = $mrowEnd->encapsulateRaw( $operatorContent["sideset"]->getUp()->renderMML() );
+
+			return $mmlMrow->encapsulateRaw( $mmlMunderOver->encapsulateRaw( $mstyle->encapsulateRaw(
+				$mmlMultiscripts->encapsulateRaw( $opParsed . $in2 . "<mprescripts/>" . $in1 ) ) . $end1 . $end2 ) );
+		}
+
+		$merror = new MMLmerror();
+		return $merror->encapsulateRaw( "Error parsing sideset expression, no valid succeeding operator found" );
 	}
 
 	public static function spacer( $node, $passedArgs, $operatorContent, $name, $withIn = null, $smth2 = null ) {

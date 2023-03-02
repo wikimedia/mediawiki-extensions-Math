@@ -50,7 +50,7 @@ class Fun2 extends TexNode {
 	}
 
 	public function renderMML( $arguments = [], $state = [] ): string {
-		return $this->parseToMML( $this->fname, $arguments, null );
+		return $this->parseToMML( $this->fname, $arguments, $state );
 	}
 
 	public function extractIdentifiers( $args = null ) {

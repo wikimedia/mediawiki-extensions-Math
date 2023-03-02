@@ -65,12 +65,31 @@ class TexArray extends TexNode {
 		return [ false, null ];
 	}
 
-	public function checkForColorDefinition( TexNode $node ) {
+	public function checkForColorDefinition( TexNode $node ): ?array {
 		if ( $node instanceof Literal ) {
 			$name = trim( $node->getArg() );
 			if ( str_contains( $name, "\\definecolor" ) ) {
 				return MMLParsingUtil::parseDefineColorExpression( $node->getArg() );
 			}
+		}
+		return null;
+	}
+
+	/**
+	 * Checks two sequential nodes in TexArray if they contain information on sideset expressions.
+	 * @param TexNode $currentNode first node in array to check (for sideset expression)
+	 * @param TexNode|null $nextNode second node in array to check (for succeeding operator)
+	 * @return TexNode|null the succeeding operator for further Parsing or null if sideset not found or invalid
+	 */
+	public function checkForSideset( TexNode $currentNode, ?TexNode $nextNode ): ?TexNode {
+		if ( !( $currentNode instanceof Fun2nb && $currentNode->getFname() == "\\sideset" ) ) {
+			return null;
+		}
+		if ( $nextNode instanceof Literal ) {
+			return $nextNode;
+		}
+		if ( $nextNode instanceof FQ ) {
+			return $nextNode;
 		}
 		return null;
 	}
@@ -87,6 +106,14 @@ class TexArray extends TexNode {
 			} else {
 				$next = null;
 			}
+			// Check for sideset
+			$foundSideset = $this->checkForSideset( $current, $next );
+			if ( $foundSideset ) {
+				$state["sideset"] = $foundSideset;
+				// Skipping the succeeding Literal
+				$i++;
+			}
+
 			// Check if there is a new color definition and add it to state
 			$foundColorDef = $this->checkForColorDefinition( $current );
 			if ( $foundColorDef ) {
@@ -123,7 +150,10 @@ class TexArray extends TexNode {
 
 	private function renderMMLwithColor( $currentColor, $currentNode, $state, $arguments ) {
 		if ( $currentColor ) {
-			if ( array_key_exists( $currentColor, $state["colorDefinitions"] ?? [] ) ) {
+			if ( array_key_exists( "colorDefinitions", $state )
+				&& is_array( $state["colorDefinitions"] )
+				&& array_key_exists( $currentColor, $state["colorDefinitions"] ?? [] )
+			   ) {
 				$displayedColor = $state["colorDefinitions"][$currentColor]["hex"];
 			} else {
 				$displayedColor = $currentColor;
