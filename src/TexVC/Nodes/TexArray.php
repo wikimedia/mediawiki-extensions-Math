@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmstyle;
 
@@ -64,6 +65,16 @@ class TexArray extends TexNode {
 		return [ false, null ];
 	}
 
+	public function checkForColorDefinition( TexNode $node ) {
+		if ( $node instanceof Literal ) {
+			$name = trim( $node->getArg() );
+			if ( str_contains( $name, "\\definecolor" ) ) {
+				return MMLParsingUtil::parseDefineColorExpression( $node->getArg() );
+			}
+		}
+		return null;
+	}
+
 	public function renderMML( $arguments = [], $state = [] ) {
 		// Everything here is for parsing displaystyle, probably refactored to TexVC grammar later
 		$fullRenderedArray = "";
@@ -76,7 +87,12 @@ class TexArray extends TexNode {
 			} else {
 				$next = null;
 			}
-
+			// Check if there is a new color definition and add it to state
+			$foundColorDef = $this->checkForColorDefinition( $current );
+			if ( $foundColorDef ) {
+				$state["colorDefinitions"][$foundColorDef["name"]] = $foundColorDef;
+				continue;
+			}
 			// Pass preceding color info to state
 			$foundColor = $this->checkForColor( $current );
 			if ( $foundColor[0] ) {
@@ -107,7 +123,12 @@ class TexArray extends TexNode {
 
 	private function renderMMLwithColor( $currentColor, $currentNode, $state, $arguments ) {
 		if ( $currentColor ) {
-			$mmlStyleColor = new MMLmstyle( "", [ "mathcolor" => $currentColor ] );
+			if ( array_key_exists( $currentColor, $state["colorDefinitions"] ?? [] ) ) {
+				$displayedColor = $state["colorDefinitions"][$currentColor]["hex"];
+			} else {
+				$displayedColor = $currentColor;
+			}
+			$mmlStyleColor = new MMLmstyle( "", [ "mathcolor" => $displayedColor ] );
 			return $mmlStyleColor->encapsulateRaw( $currentNode->renderMML( $arguments, $state ) );
 		} else {
 		   return $currentNode->renderMML( $arguments, $state );

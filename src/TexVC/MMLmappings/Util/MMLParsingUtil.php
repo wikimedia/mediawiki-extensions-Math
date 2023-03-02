@@ -58,4 +58,34 @@ class MMLParsingUtil {
 		}
 		return $args;
 	}
+
+	/**
+	 * Parses an expression that defines a color; this is usually an argument in Literal.
+	 * Example expression is: "\definecolor {ultramarine}{rgb}{0,0.12549019607843,0.37647058823529}"
+	 * @param string $input tex-string, which contains the expression
+	 * @return array|null either an array which contains hex of parsed expression or null if not parsable
+	 */
+	public static function parseDefineColorExpression( string $input ): ?array {
+		$returnObj = null;
+		$matches = [];
+		$matched = preg_match_all( '/\{(.*?)\}/', $input, $matches );
+		if ( !$matched ) {
+			return null;
+		}
+		$ctr = count( $matches[1] ?? [] );
+
+		if ( $ctr == 3 && $matches[1][1] === "rgb" ) {
+			$returnObj = [];
+			$rgbValues = explode( ",", $matches[1][2] );
+			$r  = round( floatval( $rgbValues[0] ) * 255 );
+			$g = round( floatval( $rgbValues[1] ) * 255 );
+			$b = round( floatval( $rgbValues[2] ) * 255 );
+			$color = sprintf( "#%02x%02x%02x", $r, $g, $b );
+			$returnObj["name"] = $matches[1][0];
+			$returnObj["type"] = "rgb";
+			$returnObj["hex"] = $color;
+		}
+
+		return $returnObj;
+	}
 }
