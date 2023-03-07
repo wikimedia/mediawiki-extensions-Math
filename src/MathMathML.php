@@ -8,7 +8,6 @@
 
 namespace MediaWiki\Extension\Math;
 
-use Exception;
 use Hooks;
 use Html;
 use MediaWiki\Logger\LoggerFactory;
@@ -17,6 +16,7 @@ use Psr\Log\LoggerInterface;
 use SpecialPage;
 use StatusValue;
 use stdClass;
+use Throwable;
 use Title;
 use Xml;
 use XmlTypeCheck;
@@ -173,7 +173,7 @@ class MathMathML extends MathRenderer {
 				return $renderResult->isGood();
 			}
 			return true;
-		} catch ( Exception $e ) {
+		} catch ( Throwable $e ) {
 			$this->lastError = $this->getError( 'math_mathoid_error',
 				$wgMathFullRestbaseURL, $e->getMessage() );
 			$this->logger->error( $e->getMessage(), [ $e, $this ] );
