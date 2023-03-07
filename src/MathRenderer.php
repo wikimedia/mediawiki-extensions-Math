@@ -443,7 +443,7 @@ abstract class MathRenderer {
 	 * @return bool
 	 */
 	public function setMode( $newMode ) {
-		if ( MediaWikiServices::getInstance()->get( 'Math.Config' )->isValidRenderingMode( $newMode ) ) {
+		if ( Math::getMathConfig()->isValidRenderingMode( $newMode ) ) {
 			$this->mode = $newMode;
 			return true;
 		} else {
