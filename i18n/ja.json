@@ -22,7 +22,9 @@
 			"Yusuke1109",
 			"おはぐろ蜻蛉",
 			"ネイ",
-			"青子守歌"
+			"青子守歌",
+			"Marine-Blue",
+			"バレロン"
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング",
@@ -96,7 +98,7 @@
 	"mw_math_latexml": "LaTeXML (開発中。MathML を使用)",
 	"mw_math_mathml": "MathML、ただし動作しない場合はSVGかPNGで代替（最新ブラウザーや補助ツールに推奨）",
 	"mw_math_png": "PNG 画像",
-	"mw_math_source": "LaTeX ソース (テキスト ブラウザー向け)",
+	"mw_math_source": "LaTeX ソース (テキストブラウザ向け)",
 	"prefs-math": "数式",
 	"mathstatus": "Math ステータス",
 	"datatypes-type-math": "数式",
