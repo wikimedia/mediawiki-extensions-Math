@@ -39,8 +39,8 @@ class MatrixTest extends MediaWikiUnitTestCase {
 
 	public function testInstanceOfTexNode() {
 		// this was an instance of TexNode validation didnt verify in php, for review: is this workaround sufficient ?
-		$this->assertEquals( get_parent_class( $this->sampleMatrix ),
-			'MediaWiki\\Extension\\Math\\TexVC\\Nodes\\TexNode',
+		$this->assertEquals( 'MediaWiki\\Extension\\Math\\TexVC\\Nodes\\TexNode',
+			get_parent_class( $this->sampleMatrix ),
 			'Should create an instance of TexNode' );
 	}
 

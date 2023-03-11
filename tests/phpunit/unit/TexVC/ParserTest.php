@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\Math\Tests\TexVC;
 
 use MediaWiki\Extension\Math\TexVC\Parser;
-
 use MediaWikiUnitTestCase;
 
 /**

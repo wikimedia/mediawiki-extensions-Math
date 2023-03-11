@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\Math\Tests\TexVC\MMLmappings;
 
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLParsingUtil;
-
 use MediaWikiUnitTestCase;
 
 /**

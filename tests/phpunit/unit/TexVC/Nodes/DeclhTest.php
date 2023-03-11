@@ -6,7 +6,6 @@ use ArgumentCountError;
 use MediaWiki\Extension\Math\TexVC\Nodes\Declh;
 use MediaWiki\Extension\Math\TexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\TexVC\Nodes\TexArray;
-
 use MediaWikiUnitTestCase;
 use RuntimeException;
 use TypeError;

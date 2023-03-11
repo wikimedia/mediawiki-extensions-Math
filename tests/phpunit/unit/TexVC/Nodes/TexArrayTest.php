@@ -13,7 +13,7 @@ use MediaWikiUnitTestCase;
 class TexArrayTest extends MediaWikiUnitTestCase {
 
 	public function testIsTexNode() {
-		$this->assertEquals( new TexArray() instanceof TexNode, true,
+		$this->assertTrue( new TexArray() instanceof TexNode,
 			'Should create an instance of TexNode' );
 	}
 

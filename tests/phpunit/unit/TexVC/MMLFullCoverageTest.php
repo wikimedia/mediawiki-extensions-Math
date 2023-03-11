@@ -5,7 +5,6 @@ use InvalidArgumentException;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLComparator;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLTestUtil;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLTestUtilHTML;
-
 use MediaWikiUnitTestCase;
 
 /**

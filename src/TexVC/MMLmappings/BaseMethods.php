@@ -67,8 +67,7 @@ class BaseMethods {
 			} else {
 				return BaseParsing::{$resFct[0]}( $node, $passedArgs, $operatorContent, $input );
 			}
-		}
-		catch ( \Exception $exception ) {
+		} catch ( \Exception $exception ) {
 			return null;
 		}
 	}
