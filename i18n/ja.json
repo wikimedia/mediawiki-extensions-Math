@@ -22,6 +22,7 @@
 			"Wicklo",
 			"Yusuke1109",
 			"おはぐろ蜻蛉",
+			"もなー(偽物)",
 			"ネイ",
 			"バレロン",
 			"青子守歌"
@@ -98,6 +99,7 @@
 	"math_unknown_function": "不明な関数「$1」",
 	"mw_math_latexml": "LaTeXML (開発中。MathML を使用)",
 	"mw_math_mathml": "SVG（ブラウザのプラグインで MathML を有効にすることができます）",
+	"mw_math_native": "MathML (実験的; 画像なし)",
 	"mw_math_source": "LaTeX ソース (テキストブラウザ向け)",
 	"prefs-math": "数式",
 	"mathstatus": "Math ステータス",
