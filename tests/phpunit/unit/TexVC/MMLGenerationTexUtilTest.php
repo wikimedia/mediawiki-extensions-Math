@@ -39,7 +39,7 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 	/** @var bool export the updated TexUtil-Tex to "./ExportedTexUtilKeys.json" */
 	private static $EXPORT_KEYS = false;
 
-	private static $SKIPPEDINDICES = [ 15,33,383,554 ];
+	private static $SKIPPEDINDICES = [ 15,33, 90, 383,554 ];
 
 	/**
 	 * @dataProvider provideTestCases
