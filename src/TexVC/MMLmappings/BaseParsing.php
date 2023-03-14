@@ -836,6 +836,9 @@ class BaseParsing {
 				if ( $operatorContent != null ) {
 					$op = MMLutil::inputPreparation( $operatorContent );
 					$macro = BaseMappings::getNullaryMacro( $op );
+					if ( !$macro ) {
+						$macro = BaseMappings::getIdentifierByKey( $op );
+					}
 					$input = $macro[0] ?? $operatorContent;
 					return $mmlMrow->encapsulateRaw( $mo->encapsulateRaw( $input ) );
 				} else {

@@ -65,6 +65,7 @@ class BaseMappings {
 		"varpi" => '\u03D6',
 		"varrho" => '\u03F1',
 		"varsigma" => '\u03C2',
+		"varstigma" => "\u03DB",
 		"varphi" => '\u03C6',
 		// special case with \\ to distinguish from literal:
 		 "\\S" => [ '\u00A7', [ "mathvariant" => Variants::NORMAL ] ],
