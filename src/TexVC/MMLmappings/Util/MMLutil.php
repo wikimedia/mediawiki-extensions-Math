@@ -10,6 +10,7 @@ use IntlChar;
 class MMLutil {
 	/**
 	 * Splits a regular expression in the form '\operatorname {someparams}
+	 * Also recognizes succeeding parentheses '\operatorname (' as params
 	 * @param string $input tex expression
 	 * @return array|null found groups or null
 	 */
@@ -17,6 +18,12 @@ class MMLutil {
 		$pattern = "/([\\a-zA-Z\s]+)\{([^}]+)\}/";
 		$matches = [];
 		$matched = preg_match_all( $pattern, $input, $matches );
+		if ( $matched ) {
+			return $matches;
+		}
+		$pattern2 = "/([\\a-zA-Z\s]+)(\()/";
+		$matches = [];
+		$matched = preg_match_all( $pattern2, $input, $matches );
 		return $matched ? $matches : null;
 	}
 
