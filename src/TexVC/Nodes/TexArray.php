@@ -7,7 +7,9 @@ namespace MediaWiki\Extension\Math\TexVC\Nodes;
 use InvalidArgumentException;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLutil;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmstyle;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmsup;
 use MediaWiki\Extension\Math\TexVC\TexUtil;
 
 class TexArray extends TexNode {
@@ -137,6 +139,20 @@ class TexArray extends TexNode {
 		return false;
 	}
 
+	public function checkForDerivatives( $iStart, $args ): int {
+		$ctr = 0;
+		for ( $i = $iStart, $count = count( $this->args ); $i < $count; $i++ ) {
+			$followUp = $args[$i];
+			if ( $followUp instanceof Literal && $followUp->getArg() === "'" ) {
+				$ctr++;
+			} else {
+				break;
+			}
+		}
+
+		return $ctr;
+	}
+
 	public function renderMML( $arguments = [], $state = [] ) {
 		// Everything here is for parsing displaystyle, probably refactored to TexVC grammar later
 		$fullRenderedArray = "";
@@ -174,6 +190,14 @@ class TexArray extends TexNode {
 				continue;
 			}
 
+			// Check for derivatives
+			$foundDeriv = $this->checkForDerivatives( $i + 1, $this->args );
+			if ( $foundDeriv > 0 ) {
+				// skip the next indices which are derivative characters
+				$i += $foundDeriv;
+				$state["deriv"] = $foundDeriv;
+			}
+
 			// Check if there is a new color definition and add it to state
 			$foundColorDef = $this->checkForColorDefinition( $current );
 			if ( $foundColorDef ) {
@@ -193,13 +217,13 @@ class TexArray extends TexNode {
 				$mmlStyle = new MMLmstyle( "", $styleArguments );
 				$fullRenderedArray .= $mmlStyle->getStart();
 				if ( $next instanceof Curly ) {
-					$fullRenderedArray .= $this->renderMMLwithColor( $currentColor, $next, $state, $arguments );
+					$fullRenderedArray .= $this->createMMLwithContext( $currentColor, $next, $state, $arguments );
 					$fullRenderedArray .= $mmlStyle->getEnd();
 					$mmlStyle = null;
 					$i++;
 				}
 			} else {
-				$fullRenderedArray .= $this->renderMMLwithColor( $currentColor, $current, $state, $arguments );
+				$fullRenderedArray .= $this->createMMLwithContext( $currentColor, $current, $state, $arguments );
 			}
 
 			if ( array_key_exists( "not", $state ) ) {
@@ -207,6 +231,9 @@ class TexArray extends TexNode {
 			}
 			if ( array_key_exists( "limits", $state ) ) {
 				unset( $state["limits"] );
+			}
+			if ( array_key_exists( "deriv", $state ) ) {
+				unset( $state["deriv"] );
 			}
 		}
 		if ( $mmlStyle ) {
@@ -216,7 +243,7 @@ class TexArray extends TexNode {
 		return $fullRenderedArray;
 	}
 
-	private function renderMMLwithColor( $currentColor, $currentNode, $state, $arguments ) {
+	private function createMMLwithContext( $currentColor, $currentNode, $state, $arguments ) {
 		if ( $currentColor ) {
 			if ( array_key_exists( "colorDefinitions", $state )
 				&& is_array( $state["colorDefinitions"] )
@@ -232,7 +259,37 @@ class TexArray extends TexNode {
 		} else {
 			$ret = $currentNode->renderMML( $arguments, $state );
 		}
-		return $ret;
+
+		return $this->addDerivativesContext( $state, $ret );
+	}
+
+	/**
+	 * If derivative was recognized, add the corresponding derivative math operator
+	 * to the mml and wrap with msup element.
+	 * @param array $state state indicator which indicates derivative
+	 * @param string $mml mathml input
+	 * @return string mml with additional mml-elements for derivatives
+	 */
+	public function addDerivativesContext( $state, string $mml ): string {
+		if ( array_key_exists( "deriv", $state ) && $state["deriv"] > 0 ) {
+			$msup = new MMLmsup();
+			$moDeriv = new MMLmo();
+
+			if ( $state["deriv"] == 1 ) {
+				$derInfo = "&#x2032;";
+			} elseif ( $state["deriv"] == 2 ) {
+				$derInfo = "&#x2033;";
+			} elseif ( $state["deriv"] == 3 ) {
+				$derInfo = "&#x2034;";
+			} elseif ( $state["deriv"] == 4 ) {
+				$derInfo = "&#x2057;";
+			} else {
+				$derInfo = str_repeat( "&#x2032;", $state["deriv"] );
+			}
+
+			$mml = $msup->encapsulateRaw( $mml . $moDeriv->encapsulateRaw( $derInfo ) );
+		}
+		return $mml;
 	}
 
 	public function inCurlies() {
@@ -353,4 +410,5 @@ class TexArray extends TexNode {
 			}
 		}
 	}
+
 }
