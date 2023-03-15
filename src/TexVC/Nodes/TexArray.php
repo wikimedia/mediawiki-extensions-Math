@@ -165,7 +165,7 @@ class TexArray extends TexNode {
 				$mmlStyle = new MMLmstyle( "", $styleArguments );
 				$fullRenderedArray .= $mmlStyle->getStart();
 				if ( $next instanceof Curly ) {
-					$fullRenderedArray .= $this->renderMMLwithColor( $currentColor, $current, $state, $arguments );
+					$fullRenderedArray .= $this->renderMMLwithColor( $currentColor, $next, $state, $arguments );
 					$fullRenderedArray .= $mmlStyle->getEnd();
 					$mmlStyle = null;
 					$i++;
