@@ -72,7 +72,7 @@ class BaseMethods {
 		}
 	}
 
-	public function checkAndParseOperator( $input, $node, $passedArgs, $operatorContent ) {
+	public function checkAndParseOperator( $input, $node, $passedArgs, $operatorContent, $state ) {
 		$input = MMLutil::inputPreparation( $input );
 		$resOperator = BaseMappings::getOperatorByKey( $input );
 		if ( $resOperator == null ) {
@@ -100,7 +100,7 @@ class BaseMethods {
 			return null;
 		}
 		try {
-			return $this->parseOperator( $node, $passedArgs, $operatorContent, $input, ...$resOperator );
+			return $this->parseOperator( $node, $passedArgs, $operatorContent, $input, $state, ...$resOperator );
 
 		} catch ( ArgumentCountError $errArgcount ) {
 			return null;
@@ -118,21 +118,32 @@ class BaseMethods {
 				// this maybe just a default case, this is not rendered when it is the last in row
 				$mmlMo = new MMLmo();
 				return $mmlMo->encapsulate( "," );
+			case "<":
+				$mmlMo = new MMLmo();
+				return $mmlMo->encapsulate( "&lt;" );
+			case ">":
+				$mmlMo = new MMLmo();
+				return $mmlMo->encapsulate( "&gt;" );
+
 		}
 		return $input;
 	}
 
-	public function parseOperator( $node, $passedArgs, $operatorContent, $name, $uc = null, $attrs = [] ) {
+	public function parseOperator( $node, $passedArgs, $operatorContent, $name, $state, $uc = null, $attrs = [] ) {
 		// if($name == "equiv" || $name == "dotplus" || $name == "mp"  || $name == "pm"){
 		$attrs = array_merge( $passedArgs, $attrs ); // this is rather a workaround
 		$mo = new MMLmo( "", $attrs );
-		$text = $mo->encapsulateRaw( $uc );
+
+		if ( $state != null && array_key_exists( "not", $state ) && $state["not"] ) {
+			$text = $mo->encapsulateRaw( $uc . "&#x338;" );
+		} else {
+			$text = $mo->encapsulateRaw( $uc );
+		}
 
 		// Some attributes are nnot used which come from the mapping, tbd refactor this
 		$text = str_replace( " largeop=\"\"", "", $text );
 		$text = str_replace( "variantForm=\"True\"", "data-mjx-alternate=\"1\"", $text );
 		$text = str_replace( "variantForm=\"1\"", "data-mjx-alternate=\"1\"", $text );
-
 		$text = str_replace( " movesupsub=\"1\"", "", $text );
 		return str_replace( "texClass", "data-mjx-texclass", $text );
 	}

@@ -52,7 +52,7 @@ class Literal extends TexNode {
 		}
 		// Sieve for Operators
 		$bm = new BaseMethods();
-		$ret = $bm->checkAndParseOperator( $input, $this, $arguments, $operatorContent );
+		$ret = $bm->checkAndParseOperator( $input, $this, $arguments, $operatorContent, $state );
 		if ( $ret ) {
 			return $ret;
 		}

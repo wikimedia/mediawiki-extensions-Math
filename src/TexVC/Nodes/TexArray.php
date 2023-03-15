@@ -117,6 +117,13 @@ class TexArray extends TexNode {
 		return [ $currentNode, true ];
 	}
 
+	public function checkForNot( $currentNode ): bool {
+		if ( $currentNode instanceof Literal && trim( $currentNode->getArg() ) == "\\not" ) {
+			return true;
+		}
+		return false;
+	}
+
 	public function renderMML( $arguments = [], $state = [] ) {
 		// Everything here is for parsing displaystyle, probably refactored to TexVC grammar later
 		$fullRenderedArray = "";
@@ -146,6 +153,13 @@ class TexArray extends TexNode {
 				}
 			}
 
+			// Check for Not
+			$foundNot = $this->checkForNot( $current );
+			if ( $foundNot ) {
+				$state["not"] = true;
+				continue;
+			}
+
 			// Check if there is a new color definition and add it to state
 			$foundColorDef = $this->checkForColorDefinition( $current );
 			if ( $foundColorDef ) {
@@ -173,10 +187,15 @@ class TexArray extends TexNode {
 			} else {
 				$fullRenderedArray .= $this->renderMMLwithColor( $currentColor, $current, $state, $arguments );
 			}
+
+			if ( array_key_exists( "not", $state ) ) {
+				unset( $state["not"] );
+			}
 		}
 		if ( $mmlStyle ) {
 			$fullRenderedArray .= $mmlStyle->getEnd();
 		}
+
 		return $fullRenderedArray;
 	}
 
@@ -192,10 +211,11 @@ class TexArray extends TexNode {
 				$displayedColor = $currentColor;
 			}
 			$mmlStyleColor = new MMLmstyle( "", [ "mathcolor" => $displayedColor ] );
-			return $mmlStyleColor->encapsulateRaw( $currentNode->renderMML( $arguments, $state ) );
+			$ret = $mmlStyleColor->encapsulateRaw( $currentNode->renderMML( $arguments, $state ) );
 		} else {
-		   return $currentNode->renderMML( $arguments, $state );
+			$ret = $currentNode->renderMML( $arguments, $state );
 		}
+		return $ret;
 	}
 
 	public function inCurlies() {
