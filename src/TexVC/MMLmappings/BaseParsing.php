@@ -519,16 +519,24 @@ class BaseParsing {
 
 	public static function namedOp( $node, $passedArgs, $operatorContent, $name, $id = null ) {
 		if ( !$id ) {
-			// $id = substr($name,1); eventually change how name is passed
 			$id = $name;
 		}
-		// This id statement probably wont work atm:
+
 		$args = count( $passedArgs ) >= 1 ? $passedArgs : [ "movablelimits" => "true" ];
-		// lim&#x2006;inf
+		$texClass = TexClass::OP;
+		if ( $name == "min" || $name == "max" || $name === "gcd" ) {
+			$args["form" ] = "prefix";
+			$texClass = "";
+		}
+
 		$id = str_replace( "&thinsp;", '&#x2006;', $id );
-		$mo = new MMLmo( TexClass::OP, $args );
-		// "movesupsub"=>"true" activate this also as attribute ?
-		return $mo->encapsulateRaw( $id );
+		$mo = new MMLmo( $texClass, $args );
+		$ret = $mo->encapsulateRaw( $id );
+		if ( $operatorContent == "(" ) {
+			$moOp = new MMLmo( "", [ "stretchy" => "false" ] );
+			$ret .= $moOp->encapsulateRaw( "(" );
+		}
+		return $ret;
 	}
 
 	public static function over( $node, $passedArgs, $operatorContent, $name, $id = null ) {
