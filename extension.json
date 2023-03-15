@@ -207,13 +207,6 @@
 				"mobile"
 			]
 		},
-		"ext.math.scripts": {
-			"scripts": "ext.math.js",
-			"targets": [
-				"desktop",
-				"mobile"
-			]
-		},
 		"ext.math.popup": {
 			"es6": true,
 			"packageFiles": "ext.math.popup.js",

@@ -80,7 +80,6 @@ class ParserHooksHandler implements
 			$parser->getOutput()->addModules( [ 'ext.math.popup' ] );
 		}
 		if ( $mode == MathConfig::MODE_MATHML ) {
-			$parser->getOutput()->addModules( [ 'ext.math.scripts' ] );
 			$marker = Parser::MARKER_PREFIX .
 				'-postMath-' . sprintf( '%08X', $this->mathTagCounter++ ) .
 				Parser::MARKER_SUFFIX;
