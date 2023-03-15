@@ -14,7 +14,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.39.0"
+		"MediaWiki": ">= 1.40.0"
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\Math\\": "src/"
@@ -201,21 +201,13 @@
 	},
 	"ResourceModules": {
 		"ext.math.styles": {
-			"styles": "ext.math.css",
-			"targets": [
-				"desktop",
-				"mobile"
-			]
+			"styles": "ext.math.css"
 		},
 		"ext.math.popup": {
 			"es6": true,
 			"packageFiles": "ext.math.popup.js",
 			"dependencies": [
 				"mediawiki.api"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"mw.widgets.MathWbEntitySelector": {
@@ -227,10 +219,6 @@
 				"mw.config.values.wbRepo",
 				"mediawiki.ForeignApi",
 				"mediawiki.widgets"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.math.visualEditor": {
@@ -317,10 +305,6 @@
 				"math-visualeditor-symbol-group-math-symbols",
 				"math-visualeditor-symbol-group-math-typefaces",
 				"math-visualeditor-symbol-group-math-unsorted"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.math.visualEditor.mathSymbols": {
@@ -330,10 +314,6 @@
 			],
 			"styles": [
 				"ve-math/ve.ui.MWMathSymbols.css"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.math.visualEditor.chemSymbols": {
@@ -343,10 +323,6 @@
 			],
 			"styles": [
 				"ve-math/ve.ui.MWChemSymbols.css"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		}
 	},
