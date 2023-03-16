@@ -770,7 +770,7 @@ class BaseParsing {
 			$mmlMultiscripts = new MMLmmultiscripts( "", [ Tag::ALIGN => "left" ] );
 
 			$bm = new BaseMethods();
-			$opParsed = $bm->checkAndParseOperator( $operatorContent["sideset"]->getArg(), null, [], [] );
+			$opParsed = $bm->checkAndParseOperator( $operatorContent["sideset"]->getArg(), null, [], [], null );
 			$in1 = $node->getArg1()->renderMML();
 			$in2 = $node->getArg2()->renderMML();
 			return $mmlMrow->encapsulateRaw( $mmlMultiscripts->encapsulateRaw( $opParsed .
@@ -784,7 +784,7 @@ class BaseParsing {
 			$bm = new BaseMethods();
 			if ( count( $operatorContent["sideset"]->getBase()->getArgs() ) == 1 ) {
 				$opParsed = $bm->checkAndParseOperator( $operatorContent["sideset"]->getBase()->getArgs()[0],
-					null, [ "largeop" => "true", "movablelimits" => "false", "symmetric" => "true" ], [] );
+					null, [ "largeop" => "true", "movablelimits" => "false", "symmetric" => "true" ], [], null );
 			} else {
 				$merror = new MMLmerror();
 				$opParsed = $merror->encapsulateRaw( "Sideset operator parsing not implemented yet" );
