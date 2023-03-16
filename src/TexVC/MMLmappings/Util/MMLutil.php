@@ -18,12 +18,6 @@ class MMLutil {
 		$pattern = "/([\\a-zA-Z\s]+)\{([^}]+)\}/";
 		$matches = [];
 		$matched = preg_match_all( $pattern, $input, $matches );
-		if ( $matched ) {
-			return $matches;
-		}
-		$pattern2 = "/([\\a-zA-Z\s]+)(\()/";
-		$matches = [];
-		$matched = preg_match_all( $pattern2, $input, $matches );
 		return $matched ? $matches : null;
 	}
 

@@ -531,12 +531,7 @@ class BaseParsing {
 
 		$id = str_replace( "&thinsp;", '&#x2006;', $id );
 		$mo = new MMLmo( $texClass, $args );
-		$ret = $mo->encapsulateRaw( $id );
-		if ( $operatorContent == "(" ) {
-			$moOp = new MMLmo( "", [ "stretchy" => "false" ] );
-			$ret .= $moOp->encapsulateRaw( "(" );
-		}
-		return $ret;
+		return $mo->encapsulateRaw( $id );
 	}
 
 	public static function over( $node, $passedArgs, $operatorContent, $name, $id = null ) {
