@@ -48,7 +48,7 @@ class OperatorDictionary {
 		'>=' => [ " exports.MO.BIN5" ],
 		'?' => [ " [1, 1], MmlNode_js_1.TEXCLASS.CLOSE], null]" ],
 		'@' => [ " exports.MO.ORD11" ],
-		'\\' => [ " exports.MO.ORD" ],
+		'\\' => [ " exports.MO.ORD", true ],
 		'^' => [ " exports.MO.ORD11" ],
 		'_' => [ " exports.MO.ORD11" ],
 		'|' => [ " [2, 2], MmlNode_js_1.TEXCLASS.ORD]," .

@@ -18,21 +18,21 @@ class BaseMappings {
 
 	// Macro Map 'special'
 	private const SPECIAL = [
-		'{' => 'Open',
-		'}' => 'Close',
-		'~' => 'Tilde',
-		'^' => 'Superscript',
-		'_' => 'Subscript',
-		' ' => 'Space',
-		'\t' => 'Space',
-		'\r' => 'Space',
-		'\n' => 'Space',
-		'\\' => 'Prime',
-		'%' => 'Comment',
-		'&' => 'Entry',
-		'#' => 'Hash',
-		'\u00A0' => 'Space',
-		'\u2019' => 'Prime'
+		'{' => 'open',
+		'}' => 'close',
+		'~' => [ 'tilde',true ],
+		'^' => 'superscript',
+		'_' => 'subscript',
+		' ' => 'space',
+		'\t' => 'space',
+		'\r' => 'space',
+		'\n' => 'space',
+		'\\' => 'prime',
+		'%' => 'comment',
+		'&' => 'entry',
+		'#' => 'hash',
+		'\u00A0' => 'space',
+		'\u2019' => 'prime'
 	];
 
 	private const MATHCHAR0MI = [
@@ -831,7 +831,12 @@ class BaseMappings {
 	}
 
 	public static function getSpecialByKey( $key ) {
-		return MMLutil::getMappingByKeySimple( $key, self::SPECIAL );
+		$ret = MMLutil::getMappingByKeySimple( $key, self::SPECIAL );
+		// Only activated elements get found in this mapping currently.
+		if ( is_array( $ret ) && count( $ret ) >= 2 && $ret[1] ) {
+			return $ret;
+		}
+		return null;
 	}
 
 	public static function getCancelByKey( $key ) {

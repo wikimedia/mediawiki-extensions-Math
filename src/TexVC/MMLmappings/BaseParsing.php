@@ -949,6 +949,11 @@ class BaseParsing {
 		);
 	}
 
+	public static function tilde( $node, $passedArgs, $operatorContent, $name ) {
+		$mText = new MMLmtext( "", $passedArgs );
+		return $mText->encapsulate( "&#xA0;" );
+	}
+
 	public static function xArrow( $node, $passedArgs, $operatorContent, $name, $chr = null, $l = null, $r = null ) {
 		$defWidth = "+" . MMLutil::round2em( ( $l + $r ) / 18 );
 		$defLspace = MMLutil::round2em( $l / 18 );
