@@ -72,6 +72,20 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "munder", $mathMLtexVC, );
 	}
 
+	public function testRenderSpaceSemicolon() {
+		$input = "{\\;}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "mstyle", $mathMLtexVC );
+		$this->assertStringContainsString( "mspace", $mathMLtexVC, );
+	}
+
+	public function testSpacesAndCommas() {
+		$input = "{a}{b , c}\\,";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mo>,", $mathMLtexVC );
+		$this->assertStringContainsString( "mspace", $mathMLtexVC, );
+	}
+
 	private function generateMML( $input, $chem = false ) {
 		$texVC = new TexVC();
 		$resultT = $texVC->check( $input, [

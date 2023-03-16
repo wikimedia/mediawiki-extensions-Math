@@ -129,6 +129,7 @@ class TexArray extends TexNode {
 		$fullRenderedArray = "";
 		$mmlStyle = null;
 		$currentColor = null;
+
 		for ( $i = 0, $count = count( $this->args ); $i < $count; $i++ ) {
 			$current = $this->args[$i];
 			if ( isset( $this->args[$i + 1] ) ) {

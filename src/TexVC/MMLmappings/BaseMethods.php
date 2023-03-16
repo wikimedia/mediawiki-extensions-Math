@@ -2,6 +2,7 @@
 namespace MediaWiki\Extension\Math\TexVC\MMLmappings;
 
 use ArgumentCountError;
+use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Sizes;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmerror;
@@ -110,14 +111,19 @@ class BaseMethods {
 	public function parseOperatorDict( $node, $passedArgs, $operatorContent, $input, $uc = null, $attrs = [] ) {
 		// Some custom parsing from operatorDict
 		switch ( $input ) {
-			case ";":
+			case "\\;":
 				$mmlMStyle = new MMLmstyle( "", [ "scriptlevel" => "0" ] );
 				$mSpace = new MMLmspace( "", [ "width" => "0.278em" ] );
 				return $mmlMStyle->encapsulateRaw( $mSpace->encapsulate() );
+			case "\\,":
+				$mmlMStyle = new MMLmstyle( "", [ "scriptlevel" => "0" ] );
+				$mSpace = new MMLmspace( "", [ "width" => Sizes::THINMATHSPACE ] );
+				return $mmlMStyle->encapsulateRaw( $mSpace->encapsulate() );
+			case ";":
 			case ",":
 				// this maybe just a default case, this is not rendered when it is the last in row
 				$mmlMo = new MMLmo();
-				return $mmlMo->encapsulate( "," );
+				return $mmlMo->encapsulate( $input );
 			case "<":
 				$mmlMo = new MMLmo();
 				return $mmlMo->encapsulate( "&lt;" );
