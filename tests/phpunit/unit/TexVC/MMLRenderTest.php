@@ -109,6 +109,14 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "msup", $mathMLtexVC, );
 	}
 
+	public function testLimitsTextstyle() {
+		$input = "\\textstyle \\lim_{n \\to \\infty}x_n";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "lim", $mathMLtexVC );
+		$this->assertStringContainsString( "munder", $mathMLtexVC, );
+		$this->assertStringContainsString( "movablelimits=\"true\"", $mathMLtexVC );
+	}
+
 	private function generateMML( $input, $chem = false ) {
 		$texVC = new TexVC();
 		$resultT = $texVC->check( $input, [
