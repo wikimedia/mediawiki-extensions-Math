@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Math\Tests\TexVC\Nodes;
 
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\TexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\TexVC\Nodes\TexNode;
 use MediaWikiUnitTestCase;
 use RuntimeException;
@@ -156,6 +157,19 @@ class TexNodeTest extends MediaWikiUnitTestCase {
 	 */
 	public function testContainsFunc( $target, string $t, $expected = null ) {
 		$this->assertSame( $expected ?? $target, TexNode::texContainsFunc( $target, $t ) );
+	}
+
+	public function testIsEmptyString() {
+		$this->assertTrue( ( new TexNode( '', '' ) )->isEmpty() );
+		$this->assertFalse( ( new TexNode( '', 'a' ) )->isEmpty() );
+		$this->assertTrue( ( new TexNode() )->isEmpty() );
+	}
+
+	public function testIsEmptyObject() {
+		$this->assertTrue( ( new TexNode( new TexNode() ) )->isEmpty() );
+		$this->assertFalse( ( new TexNode( new TexNode( 'a' ) ) )->isEmpty() );
+		$this->assertTrue( ( new TexNode( new TexArray() ) )->isEmpty() );
+		$this->assertTrue( ( new TexNode( new TexArray( new TexNode( '' ) ) ) )->isEmpty() );
 	}
 
 }

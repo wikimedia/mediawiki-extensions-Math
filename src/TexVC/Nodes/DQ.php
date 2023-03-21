@@ -49,10 +49,19 @@ class DQ extends TexNode {
 		if ( $res ) {
 			return $res;
 		} else {
+
+			$emptyMrow = "";
+			// In cases with empty curly preceding like: "{}_pF_q"
+			if ( $this->getBase() instanceof Curly && $this->getBase()->isEmpty() ) {
+				$mrow = new MMLmrow();
+				$emptyMrow = $mrow->getEmpty();
+			}
+
 			// Otherwise use default fallback
 			$mmlMrow = new MMLmrow();
 			$msub = new MMLmsub();
 			return $msub->encapsulateRaw(
+				 $emptyMrow .
 				$this->base->renderMML( [], $state ) .
 				$mmlMrow->encapsulateRaw( $this->down->renderMML( [], $state ) ) );
 		}

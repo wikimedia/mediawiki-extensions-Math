@@ -77,9 +77,15 @@ class FQ extends TexNode {
 			}
 		}
 
-		// This seems to be the common case
 		$mrow = new MMLmrow();
+		$emptyMrow = "";
+		// In cases with empty curly preceding like: "{}_1^2\!\Omega_3^4"
+		if ( $this->getBase() instanceof Curly && $this->getBase()->isEmpty() ) {
+			$emptyMrow = $mrow->getEmpty();
+		}
+		// This seems to be the common case
 		return $melement->encapsulateRaw(
+			$emptyMrow .
 			$this->getBase()->renderMML( [], $state ) .
 			$mrow->encapsulateRaw( $this->getDown()->renderMML( [], $state ) ) .
 			$mrow->encapsulateRaw( $this->getUp()->renderMML( [], $state ) ) );

@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Math\Tests\TexVC;
 
+use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Tag;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLTestUtil;
 use MediaWiki\Extension\Math\TexVC\TexVC;
 use MediaWikiUnitTestCase;
@@ -84,6 +85,20 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$mathMLtexVC = $this->generateMML( $input );
 		$this->assertStringContainsString( "<mo>,", $mathMLtexVC );
 		$this->assertStringContainsString( "mspace", $mathMLtexVC, );
+	}
+
+	public function testPrecedingSubscriptsFQ() {
+		$input = "{}_1^2\\!\\Omega_3^4";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mrow " . Tag::CLASSTAG . "=\"ORD\"/>", $mathMLtexVC );
+		$this->assertStringContainsString( "msubsup", $mathMLtexVC, );
+	}
+
+	public function testPrecedingSubscriptsDQ() {
+		$input = "{}_pF_q";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mrow " . Tag::CLASSTAG . "=\"ORD\"/>", $mathMLtexVC );
+		$this->assertStringContainsString( "msub", $mathMLtexVC, );
 	}
 
 	public function testPilcrowAndSectionSign() {
