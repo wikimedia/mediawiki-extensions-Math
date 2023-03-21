@@ -86,6 +86,15 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "mspace", $mathMLtexVC, );
 	}
 
+	public function testPilcrowAndSectionSign() {
+		$input = "\\P P \\S S";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mi>P", $mathMLtexVC );
+		$this->assertStringContainsString( "<mi>S", $mathMLtexVC, );
+		$this->assertStringContainsString( "&#xB6;", $mathMLtexVC, );
+		$this->assertStringContainsString( "&#xA7;", $mathMLtexVC, );
+	}
+
 	private function generateMML( $input, $chem = false ) {
 		$texVC = new TexVC();
 		$resultT = $texVC->check( $input, [

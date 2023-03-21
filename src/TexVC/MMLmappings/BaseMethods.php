@@ -2,14 +2,12 @@
 namespace MediaWiki\Extension\Math\TexVC\MMLmappings;
 
 use ArgumentCountError;
-use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Sizes;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmerror;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
-use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmspace;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmtext;
 use MediaWiki\Extension\Math\TexVC\Nodes\TexNode;
@@ -29,10 +27,7 @@ class BaseMethods {
 			// just discard these elements, sometimes empty TexArray
 			return null;
 		}
-		$input = trim( $input );
-		if ( str_starts_with( $input, "\\" ) ) {
-			$input = substr( $input, 1 );
-		}
+		$input = MMLutil::inputPreparation( $input );
 
 		// Checking for a named parsing function
 		$resFct = BaseMappings::getMacroByKey( $input );
@@ -111,14 +106,6 @@ class BaseMethods {
 	public function parseOperatorDict( $node, $passedArgs, $operatorContent, $input, $uc = null, $attrs = [] ) {
 		// Some custom parsing from operatorDict
 		switch ( $input ) {
-			case "\\;":
-				$mmlMStyle = new MMLmstyle( "", [ "scriptlevel" => "0" ] );
-				$mSpace = new MMLmspace( "", [ "width" => "0.278em" ] );
-				return $mmlMStyle->encapsulateRaw( $mSpace->encapsulate() );
-			case "\\,":
-				$mmlMStyle = new MMLmstyle( "", [ "scriptlevel" => "0" ] );
-				$mSpace = new MMLmspace( "", [ "width" => Sizes::THINMATHSPACE ] );
-				return $mmlMStyle->encapsulateRaw( $mSpace->encapsulate() );
 			case ";":
 			case ",":
 				// this maybe just a default case, this is not rendered when it is the last in row

@@ -473,11 +473,11 @@ class BaseMappings {
 		"lower" => 'RaiseLower',
 		"moveleft" => 'MoveLeftRight',
 		"moveright" => 'MoveLeftRight',
-		',' => [ 'spacer', MathSpace::THINMATHSPACE ],
-		"'" => [ 'spacer', MathSpace::MEDIUMMATHSPACE ],
-		'>' => [ 'spacer', MathSpace::MEDIUMMATHSPACE ],
-		';' => [ 'spacer', MathSpace::THICKMATHSPACE ],
-		'!' => [ 'spacer', MathSpace::NEGATIVETHINMATHSPACE ],
+		'\\,' => [ 'spacer', MathSpace::THINMATHSPACE ],
+		"\\'" => [ 'spacer', MathSpace::MEDIUMMATHSPACE ],
+		'\\>' => [ 'spacer', MathSpace::MEDIUMMATHSPACE ],
+		'\\;' => [ 'spacer', MathSpace::THICKMATHSPACE ],
+		'\\!' => [ 'spacer', MathSpace::NEGATIVETHINMATHSPACE ],
 		"enspace" => [ 'spacer', 0.5 ],
 		"quad" => [ 'spacer', 1 ],
 		"qquad" => [ 'spacer', 2 ],
@@ -772,7 +772,7 @@ class BaseMappings {
 		"oiiint" => [ 'oint', '\u2230', [ "texClass" => TexClass::OP ] ],
 		"ointctrclockwise" => [ 'oint', '\u2233', [ "texClass" => TexClass::OP ] ],
 		"varointclockwise" => [ 'oint', '\u2232', [ "texClass" => TexClass::OP ] ],
-		"P" => [ 'oint', '\u00B6', [ "texClass" => TexClass::OP ] ],
+		"\\P" => [ 'oint', '\u00B6', [ "texClass" => TexClass::OP ] ],
 		'textvisiblespace' => [ 'Insert', '\u2423' ], // From TextCompMappings.js (only makro it seems)
 	];
 

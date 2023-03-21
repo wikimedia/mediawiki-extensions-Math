@@ -567,7 +567,7 @@ class BaseParsing {
 
 		switch ( $name ) {
 			case "oint":
-			case "P":
+			case "\\P":
 				$mo = new MMLmo();
 				return $mrow->encapsulateRaw( $mStyle->encapsulateRaw(
 					$mo->encapsulateRaw( MMLutil::uc2xNotation( $uc ) ) ) );
