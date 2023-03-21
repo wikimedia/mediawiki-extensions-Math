@@ -8,6 +8,7 @@ use InvalidArgumentException;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmstyle;
+use MediaWiki\Extension\Math\TexVC\TexUtil;
 
 class TexArray extends TexNode {
 
@@ -95,25 +96,37 @@ class TexArray extends TexNode {
 	}
 
 	public function checkForLimits( $currentNode, $nextNode ) {
-		$precedingLits = [ "\\sum", "\\prod", "\\lim" ];
-
-		// case 2: "\\lim_{x \\to 2}"
+		// Preceding 'lim' in example: "\\lim_{x \\to 2}"
 		if ( ( $currentNode instanceof DQ || $currentNode instanceof FQ )
-			&& $currentNode->getBase() instanceof Literal
-			&& trim( $currentNode->getBase()->getArgs()[0] ) == "\\lim" ) {
-			return [ $currentNode->getBase(), false ];
+			&& $currentNode->containsFunc( "\\lim" ) ) {
+
+			if ( $currentNode->getBase() instanceof TexArray ) {
+				return [ $currentNode->getBase()->getArgs()[0], false ];
+			} else {
+				return [ $currentNode->getBase(), false ];
+			}
 		}
 
-		// case 1:
-		if ( !( $currentNode instanceof Literal && in_array( trim( $currentNode->getArg() ), $precedingLits ) ) ) {
+		/** Find cases which have preceding Literals with nullary_macro-type operators i.e.:
+		 * "\iint\limits_D \, dx\,dy"
+		 */
+		$tu = TexUtil::getInstance();
+
+		// Check whether the current node is a possible preceding literal
+		if ( !( $currentNode instanceof Literal
+			&& ( $tu->nullary_macro( trim( $currentNode->getArg() ) )
+			|| trim( $currentNode->getArg() ) == "\\lim" ) ) ) {
 			return [ null,false ];
 		}
+
+		// Check whether the next node is a possible limits construct
 		if ( !( ( $nextNode instanceof DQ || $nextNode instanceof FQ )
 			&& $nextNode->getBase() instanceof Literal
-			&& trim( $nextNode->getBase()->getArgs()[0] ) == "\\limits" ) ) {
+			&& $nextNode->containsFunc( "\\limits" )
+			) ) {
 			return [ null,false ];
-		}
 
+		}
 		return [ $currentNode, true ];
 	}
 
@@ -191,6 +204,9 @@ class TexArray extends TexNode {
 
 			if ( array_key_exists( "not", $state ) ) {
 				unset( $state["not"] );
+			}
+			if ( array_key_exists( "limits", $state ) ) {
+				unset( $state["limits"] );
 			}
 		}
 		if ( $mmlStyle ) {
