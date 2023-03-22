@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMappings;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmo;
@@ -256,7 +257,8 @@ class TexArray extends TexNode {
 				$displayedColor = $state["colorDefinitions"][$currentColor]["hex"];
 
 			} else {
-				$displayedColor = $currentColor;
+				$resColor = BaseMappings::getColorByKey( $currentColor );
+				$displayedColor = $resColor ? $resColor[0] : $currentColor;
 			}
 			$mmlStyleColor = new MMLmstyle( "", [ "mathcolor" => $displayedColor ] );
 			$ret = $mmlStyleColor->encapsulateRaw( $currentNode->renderMML( $arguments, $state ) );

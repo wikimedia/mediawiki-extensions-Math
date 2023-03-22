@@ -117,6 +117,24 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "movablelimits=\"true\"", $mathMLtexVC );
 	}
 
+	public function testColorGeneration1() {
+		$input = "\\color{Dandelion}{Dandelion}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "#FDBC42", $mathMLtexVC );
+	}
+
+	public function testColorGeneration2() {
+		$input = "\\color{ForestGreen}{ForestGreen}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "#009B55", $mathMLtexVC );
+	}
+
+	public function testColorGeneration3() {
+		$input = "\\color{Rhodamine}{Rhodamine}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "#EF559F", $mathMLtexVC );
+	}
+
 	private function generateMML( $input, $chem = false ) {
 		$texVC = new TexVC();
 		$resultT = $texVC->check( $input, [

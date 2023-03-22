@@ -73,11 +73,6 @@ class Literal extends TexNode {
 		if ( $ret ) {
 			return $ret;
 		}
-		// Sieve for Colors
-		$ret = $bm->checkAndParseColor( $input, $this, $arguments, $operatorContent );
-		if ( $ret ) {
-			return $ret;
-		}
 
 		// Sieve for Makros
 		$ret = BaseMethods::checkAndParse( $input, $arguments, $operatorContent, $this );
