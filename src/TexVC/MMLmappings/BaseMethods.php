@@ -42,7 +42,10 @@ class BaseMethods {
 					if ( $resFct == null ) {
 						$resFct = BaseMappings::getCustomByKey( $input );
 						if ( $resFct == null ) {
-							$resFct = BaseMappings::getMhChemByKey( $input );
+							$resFct = BaseMappings::getSpecialByKey( $input );
+							if ( $resFct == null ) {
+								$resFct = BaseMappings::getMhChemByKey( $input );
+							}
 						}
 					}
 				}
@@ -117,7 +120,9 @@ class BaseMethods {
 			case ">":
 				$mmlMo = new MMLmo();
 				return $mmlMo->encapsulate( "&gt;" );
-
+			case "\\":
+				$mmlMtext = new MMLmtext();
+				return $mmlMtext->encapsulate( "&#xA0;" );
 		}
 		return $input;
 	}

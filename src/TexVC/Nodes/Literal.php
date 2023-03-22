@@ -94,6 +94,7 @@ class Literal extends TexNode {
 			// No mi, if literal is from HBox
 			return $input;
 		}
+
 		// If falling through all sieves just create an MI element
 		$mi = new MMLmi( "", $arguments );
 		return $mi->encapsulateRaw( $input ); // $this->arg
