@@ -95,6 +95,20 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "&#xA7;", $mathMLtexVC, );
 	}
 
+	public function testDerivatives1() {
+		$input = "b_{f''}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mo>&#x2033;", $mathMLtexVC );
+		$this->assertStringContainsString( "msup", $mathMLtexVC, );
+	}
+
+	public function testDerivatives2() {
+		$input = "f''''(x)";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mo>&#x2057;", $mathMLtexVC );
+		$this->assertStringContainsString( "msup", $mathMLtexVC, );
+	}
+
 	private function generateMML( $input, $chem = false ) {
 		$texVC = new TexVC();
 		$resultT = $texVC->check( $input, [
