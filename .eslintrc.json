@@ -10,5 +10,8 @@
 	},
 	"parserOptions": {
 		"ecmaVersion": 9
+	},
+	"rules": {
+		"es-x/no-hashbang": "warn"
 	}
 }
