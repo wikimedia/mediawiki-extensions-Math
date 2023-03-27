@@ -80,7 +80,7 @@
 	"math-tracking-category-error-desc": "Le pagine in questa categoria hanno errori nell'uso dei tag math.",
 	"math-tracking-category-mhchem-deprecation": "Pagine che utilizzano un formato obsoleto del tag chem",
 	"math-tracking-category-mhchem-deprecation-desc": "Le pagine di questa categoria utilizzano un formato obsoleto dei tag chem",
-	"math-tracking-category-texvc-deprecation": "Pagine che usano un formato dei tag math deprecato",
+	"math-tracking-category-texvc-deprecation": "Pagine che utilizzano un formato dei tag math deprecato",
 	"math-tracking-category-texvc-deprecation-desc": "Le pagine in questa categoria usano un formato dei tag math deprecato",
 	"math-tracking-category-render-error": "Pagine con errori di rendering delle formule matematiche",
 	"math-tracking-category-render-error-desc": "Le pagine di questa categoria presentano errori di rendering nei tag math",
