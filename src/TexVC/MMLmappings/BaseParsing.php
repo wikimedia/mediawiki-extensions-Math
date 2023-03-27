@@ -735,8 +735,15 @@ class BaseParsing {
 	}
 
 	public static function limits( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
+		$argsOp = [ "form" => "prefix" ];
+		if ( $operatorContent != null && array_key_exists( "styleargs", $operatorContent ) ) {
+			if ( $operatorContent["styleargs"]["displaystyle"] === "false" ) {
+				$argsOp = [ "movablelimits" => "true" ];
+			}
+		}
 		$mrow = new MMLmrow( TexClass::ORD, [] );
-		$opParsed = $operatorContent["limits"] ? $operatorContent["limits"]->renderMML( [ "form" => "prefix" ] ) : "";
+		$opParsed = ( $operatorContent != null && $operatorContent["limits"] )
+					? $operatorContent["limits"]->renderMML( $argsOp ) : "";
 
 		if ( $node instanceof DQ ) {
 			$munder = new MMLmunder();

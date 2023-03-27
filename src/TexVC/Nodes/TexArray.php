@@ -215,11 +215,13 @@ class TexArray extends TexNode {
 			// For cases with "displaystyle{someargs} otherargs"
 			if ( $styleArguments ) {
 				$mmlStyle = new MMLmstyle( "", $styleArguments );
+				$state["styleargs"] = $styleArguments;
 				$fullRenderedArray .= $mmlStyle->getStart();
 				if ( $next instanceof Curly ) {
 					$fullRenderedArray .= $this->createMMLwithContext( $currentColor, $next, $state, $arguments );
 					$fullRenderedArray .= $mmlStyle->getEnd();
 					$mmlStyle = null;
+					unset( $state["styleargs"] );
 					$i++;
 				}
 			} else {
@@ -248,6 +250,8 @@ class TexArray extends TexNode {
 			if ( array_key_exists( "colorDefinitions", $state )
 				&& is_array( $state["colorDefinitions"] )
 				&& array_key_exists( $currentColor, $state["colorDefinitions"] ?? [] )
+				&& is_array( $state["colorDefinitions"][$currentColor] )
+				&& array_key_exists( "hex", $state["colorDefinitions"][$currentColor] )
 			   ) {
 				$displayedColor = $state["colorDefinitions"][$currentColor]["hex"];
 
