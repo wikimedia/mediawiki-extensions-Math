@@ -666,7 +666,6 @@ class BaseParsing {
 
 	public static function mathFont( $node, $passedArgs, $operatorContent, $name, $mathvariant = null ) {
 		$mrow = new MMLmrow( TexClass::ORD, [] );
-		$mi = new MMLmi();
 		$args = MMLParsingUtil::getFontArgs( $name, $mathvariant, $passedArgs );
 
 		if ( $node instanceof Fun1nb ) {

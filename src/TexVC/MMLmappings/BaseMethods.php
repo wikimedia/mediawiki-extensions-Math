@@ -38,14 +38,11 @@ class BaseMethods {
 				// probably refactored later
 				$resFct = AMSMappings::getEnvironmentByKey( $input );
 				if ( $resFct == null ) {
-					$resFct = BaseMappings::getcancelByKey( $input );
+					$resFct = BaseMappings::getCustomByKey( $input );
 					if ( $resFct == null ) {
-						$resFct = BaseMappings::getCustomByKey( $input );
+						$resFct = BaseMappings::getSpecialByKey( $input );
 						if ( $resFct == null ) {
-							$resFct = BaseMappings::getSpecialByKey( $input );
-							if ( $resFct == null ) {
-								$resFct = BaseMappings::getMhChemByKey( $input );
-							}
+							$resFct = BaseMappings::getCancelByKey( $input );
 						}
 					}
 				}
