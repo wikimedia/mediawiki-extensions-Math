@@ -22,12 +22,14 @@ use MediaWiki\Extension\Math\TexVC\Nodes\TexNode;
  */
 class BaseMethods {
 
-	public static function checkAndParse( $input, $passedArgs, $operatorContent, TexNode $node ) {
+	public static function checkAndParse( $input, $passedArgs, $operatorContent, TexNode $node, $prepareInput = true ) {
 		if ( !is_string( $input ) ) {
 			// just discard these elements, sometimes empty TexArray
 			return null;
 		}
-		$input = MMLutil::inputPreparation( $input );
+		if ( $prepareInput ) {
+			$input = MMLutil::inputPreparation( $input );
+		}
 
 		// Checking for a named parsing function
 		$resFct = BaseMappings::getMacroByKey( $input );
@@ -71,8 +73,11 @@ class BaseMethods {
 		}
 	}
 
-	public function checkAndParseOperator( $input, $node, $passedArgs, $operatorContent, $state ) {
-		$input = MMLutil::inputPreparation( $input );
+	public function checkAndParseOperator( $input, $node, $passedArgs, $operatorContent,
+										   $state, $prepareInput = true ) {
+		if ( $prepareInput ) {
+			$input = MMLutil::inputPreparation( $input );
+		}
 		$resOperator = BaseMappings::getOperatorByKey( $input );
 		if ( $resOperator == null ) {
 
@@ -146,8 +151,10 @@ class BaseMethods {
 		return str_replace( "texClass", "data-mjx-texclass", $text );
 	}
 
-	public function checkAndParseIdentifier( $input, $node, $passedArgs, $operatorContent ) {
-		$input = MMLutil::inputPreparation( $input );
+	public function checkAndParseIdentifier( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
+		if ( $prepareInput ) {
+			$input = MMLutil::inputPreparation( $input );
+		}
 		$resIdentifier = BaseMappings::getIdentifierByKey( $input );
 		if ( $resIdentifier == null ) {
 			$resIdentifier = AMSMappings::getIdentifierByKey( $input );
@@ -210,9 +217,11 @@ class BaseMethods {
 		return $mo->encapsulateRaw( $resDelimiter[0] );
 	}
 
-	public function checkAndParseMathCharacter( $input, $node, $passedArgs, $operatorContent ) {
-		$inputP = MMLutil::inputPreparation( $input );
-		$resChar = BaseMappings::getCharacterByKey( $inputP );
+	public function checkAndParseMathCharacter( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
+		if ( $prepareInput ) {
+			$input = MMLutil::inputPreparation( $input );
+		}
+		$resChar = BaseMappings::getCharacterByKey( $input );
 		if ( $resChar == null ) {
 			return null;
 		}
@@ -225,13 +234,15 @@ class BaseMethods {
 		return $mi->encapsulateRaw( $enc );
 	}
 
-	public function checkAndParseColor( $input, $node, $passedArgs, $operatorContent ) {
+	public function checkAndParseColor( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
 		// tbd usually this encapsulates the succeeding box element
 		if ( $operatorContent == null ) {
 			return null;
 		}
 
-		$input = MMLutil::inputPreparation( $input );
+		if ( $prepareInput ) {
+			$input = MMLutil::inputPreparation( $input );
+		}
 		if ( !( $input === 'color' || $input === 'pagecolor' ) ) {
 			return null;
 		}

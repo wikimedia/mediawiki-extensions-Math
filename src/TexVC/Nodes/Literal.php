@@ -50,21 +50,24 @@ class Literal extends TexNode {
 			$mi = new MMLmi();
 			return $mi->encapsulateRaw( $operatorContent );
 		}
+
+		$inputP = MMLutil::inputPreparation( $input );
+
 		// Sieve for Operators
 		$bm = new BaseMethods();
-		$ret = $bm->checkAndParseOperator( $input, $this, $arguments, $operatorContent, $state );
+		$ret = $bm->checkAndParseOperator( $inputP, $this, $arguments, $operatorContent, $state, false );
 		if ( $ret ) {
 			return $ret;
 		}
 		// Sieve for mathchar07 chars
 		$bm = new BaseMethods();
-		$ret = $bm->checkAndParseMathCharacter( $input, $this, $arguments, $operatorContent );
+		$ret = $bm->checkAndParseMathCharacter( $inputP, $this, $arguments, $operatorContent, false );
 		if ( $ret ) {
 			return $ret;
 		}
 
 		// Sieve for Identifiers
-		$ret = $bm->checkAndParseIdentifier( $input, $this, $arguments, $operatorContent );
+		$ret = $bm->checkAndParseIdentifier( $inputP, $this, $arguments, $operatorContent, false );
 		if ( $ret ) {
 			return $ret;
 		}
@@ -75,7 +78,7 @@ class Literal extends TexNode {
 		}
 
 		// Sieve for Makros
-		$ret = BaseMethods::checkAndParse( $input, $arguments, $operatorContent, $this );
+		$ret = BaseMethods::checkAndParse( $inputP, $arguments, $operatorContent, $this, false );
 		if ( $ret ) {
 			return $ret;
 		}
