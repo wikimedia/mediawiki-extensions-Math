@@ -8,6 +8,7 @@ use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmerror;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmspace;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmtext;
 use MediaWiki\Extension\Math\TexVC\Nodes\TexNode;
@@ -123,8 +124,8 @@ class BaseMethods {
 				$mmlMo = new MMLmo();
 				return $mmlMo->encapsulate( "&gt;" );
 			case "\\":
-				$mmlMtext = new MMLmtext();
-				return $mmlMtext->encapsulate( "&#xA0;" );
+				$mspace = new MMLmspace( "", [ "linebreak" => "newline" ] );
+				return $mspace->getEmpty();
 		}
 		return $input;
 	}

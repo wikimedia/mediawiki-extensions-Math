@@ -553,7 +553,7 @@ class BaseMappings {
 		"(0, lengths_js_1.em)(MathSpace::thickmathspace)", '.5em', 'D' ],
 		"displaylines" => [ 'matrix', null, null, 'center', null, '.5em', 'D' ],
 		"cr" => 'Cr',
-		'\\' => 'crLaTeX',
+		"\\" => 'crLaTeX',
 		"newline" => [ 'crLaTeX', true ],
 		"hline" => [ 'hline', 'solid' ],
 		"hdashline" => [ 'hline', 'dashed' ],
