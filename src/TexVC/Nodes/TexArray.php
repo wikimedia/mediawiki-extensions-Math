@@ -157,7 +157,7 @@ class TexArray extends TexNode {
 	public function renderMML( $arguments = [], $state = [] ) {
 		// Everything here is for parsing displaystyle, probably refactored to TexVC grammar later
 		$fullRenderedArray = "";
-		$mmlStyle = null;
+		$mmlStyles = [];
 		$currentColor = null;
 
 		for ( $i = 0, $count = count( $this->args ); $i < $count; $i++ ) {
@@ -213,17 +213,23 @@ class TexArray extends TexNode {
 				continue;
 			}
 			$styleArguments = $this->checkForStyleArgs( $current );
-			// For cases with "displaystyle{someargs} otherargs"
 			if ( $styleArguments ) {
-				$mmlStyle = new MMLmstyle( "", $styleArguments );
 				$state["styleargs"] = $styleArguments;
-				$fullRenderedArray .= $mmlStyle->getStart();
 				if ( $next instanceof Curly ) {
+					// Wrap with style-tags when the next element is a Curly which determines start and end tag.
+					$mmlStyle = new MMLmstyle( "", $styleArguments );
+					$fullRenderedArray .= $mmlStyle->getStart();
 					$fullRenderedArray .= $this->createMMLwithContext( $currentColor, $next, $state, $arguments );
 					$fullRenderedArray .= $mmlStyle->getEnd();
 					$mmlStyle = null;
 					unset( $state["styleargs"] );
 					$i++;
+				} else {
+					// Start the style indicator in cases like \textstyle abc
+					$mmlStyle = new MMLmstyle( "", $styleArguments );
+					$fullRenderedArray .= $mmlStyle->getStart();
+					$mmlStyles[] = $mmlStyle->getEnd();
+
 				}
 			} else {
 				$fullRenderedArray .= $this->createMMLwithContext( $currentColor, $current, $state, $arguments );
@@ -239,8 +245,9 @@ class TexArray extends TexNode {
 				unset( $state["deriv"] );
 			}
 		}
-		if ( $mmlStyle ) {
-			$fullRenderedArray .= $mmlStyle->getEnd();
+
+		foreach ( array_reverse( $mmlStyles ) as $mmlStyleEnd ) {
+			$fullRenderedArray .= $mmlStyleEnd;
 		}
 
 		return $fullRenderedArray;
