@@ -224,6 +224,11 @@ class BaseParsing {
 		return $mrow->encapsulateRaw( $mfrac->encapsulateRaw( $inner ) );
 	}
 
+	public static function crLaTeX( $node, $passedArgs, $operatorContent, $name ) {
+		$mspace = new MMLmspace( "", [ "linebreak" => "newline" ] );
+		return $mspace->getEmpty();
+	}
+
 	public static function dots( $node, $passedArgs, $operatorContent, $name, $smth = null, $smth2 = null ) {
 		// lowerdots || centerdots seems aesthetical, just using lowerdots atm s
 		$mo = new MMLmo( "", $passedArgs );

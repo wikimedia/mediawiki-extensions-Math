@@ -180,6 +180,12 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( 2, $count );
 	}
 
+	public function testCrLaTex() {
+		$input = "\,e_{x}=\sum _{t=1}^{\infty }\ _{t}p_{x}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mspace linebreak=\"newline\"/>", $mathMLtexVC );
+	}
+
 	private function generateMML( $input, $chem = false ) {
 		$texVC = new TexVC();
 		$resultT = $texVC->check( $input, [
