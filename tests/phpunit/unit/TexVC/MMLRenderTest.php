@@ -186,6 +186,13 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "<mspace linebreak=\"newline\"/>", $mathMLtexVC );
 	}
 
+	public function testAttributeDuplicate() {
+		// This checks that there is some non-erronous output caused by double class attributes
+		$input  = "\\mu_{\\operatorname{\\inf}}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "&#x3BC;", $mathMLtexVC );
+	}
+
 	private function generateMML( $input, $chem = false ) {
 		$texVC = new TexVC();
 		$resultT = $texVC->check( $input, [

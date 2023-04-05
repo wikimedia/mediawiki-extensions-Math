@@ -529,6 +529,13 @@ class BaseParsing {
 
 		$args = count( $passedArgs ) >= 1 ? $passedArgs : [ "movablelimits" => "true" ];
 		$texClass = TexClass::OP;
+
+		// This comes from inf case, preventing 'double'-classtag
+		if ( isset( $args[Tag::CLASSTAG] ) ) {
+			$texClass = $args[Tag::CLASSTAG];
+			unset( $args[Tag::CLASSTAG] );
+		}
+
 		if ( $name == "min" || $name == "max" || $name === "gcd" ) {
 			$args["form" ] = "prefix";
 			$texClass = "";
