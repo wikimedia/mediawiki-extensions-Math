@@ -150,6 +150,36 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "#EF559F", $mathMLtexVC );
 	}
 
+	public function testStyle1() {
+		$input = "\\displaystyle \{U(\omega )\cdot \sigma _{H}(\omega )\} z";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mstyle displaystyle=\"true\" scriptlevel=\"0\">", $mathMLtexVC );
+		$this->assertStringContainsString( "<mi>z</mi>", $mathMLtexVC );
+		$this->assertStringContainsString( "</mstyle>", $mathMLtexVC, );
+	}
+
+	public function testStyle2() {
+		$input = "\\displaystyle abc \\textstyle def";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mstyle displaystyle=\"false\" scriptlevel=\"0\">", $mathMLtexVC );
+		$this->assertStringContainsString( "</mstyle>", $mathMLtexVC, );
+	}
+
+	public function testStyle3() {
+		$input = "\\scriptstyle{abc} def \\textstyle ghi";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mstyle displaystyle=\"false\" scriptlevel=\"1\">", $mathMLtexVC );
+		$this->assertStringContainsString( "</mstyle>", $mathMLtexVC, );
+	}
+
+	public function testStyle4() {
+		$input = "\\textstyle b > \\textstyle \\delta";
+		$mathMLtexVC = $this->generateMML( $input );
+		$count = 0;
+		str_replace( "<mstyle displaystyle", "", $mathMLtexVC, $count );
+		$this->assertEquals( 2, $count );
+	}
+
 	private function generateMML( $input, $chem = false ) {
 		$texVC = new TexVC();
 		$resultT = $texVC->check( $input, [
