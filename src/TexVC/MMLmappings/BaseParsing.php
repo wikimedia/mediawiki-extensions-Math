@@ -36,6 +36,7 @@ use MediaWiki\Extension\Math\TexVC\Nodes\Curly;
 use MediaWiki\Extension\Math\TexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\TexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\TexVC\Nodes\Fun1nb;
+use MediaWiki\Extension\Math\TexVC\Nodes\Fun2;
 use MediaWiki\Extension\Math\TexVC\Nodes\Fun2sq;
 use MediaWiki\Extension\Math\TexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\TexVC\Nodes\TexArray;
@@ -302,11 +303,8 @@ class BaseParsing {
 			$moL = new MMLmo( "", $styleAttr );
 			$output .= $mrowOpen->encapsulateRaw( $moL->encapsulateRaw( $left ) );
 		}
-		// when is mrow encapsulating and when not ?
-		//$output .= $frac->encapsulate(
-		// $mrow->encapsulate($node->getArg1()->renderMML()) .$mrow->encapsulate( $node->getArg2()->renderMML() ));
-		$output .= $frac->encapsulateRaw( $node->getArg1()->renderMML() . $node->getArg2()->renderMML() );
-
+		$output .= $frac->encapsulateRaw( $mrow->encapsulateRaw( $node->getArg1()->renderMML() ) .
+			$mrow->encapsulateRaw( $node->getArg2()->renderMML() ) );
 		if ( $right ) {
 			$mrowClose = new MMLmrow( TexClass::CLOSE );
 			$moR = new MMLmo( "", $styleAttr );
@@ -325,9 +323,19 @@ class BaseParsing {
 	public static function frac( $node, $passedArgs, $operatorContent, $name ) {
 		$mrow = new MMLmrow();
 		$mfrac = new MMLmfrac();
-		// if node is Fun1
-		$inner = $mrow->encapsulateRaw( $node->getArg1()->renderMML() ) .
-			$mrow->encapsulateRaw( $node->getArg2()->renderMML() );
+		if ( $node instanceof Fun2 ) {
+			$inner = $mrow->encapsulateRaw( $node->getArg1()->renderMML() ) .
+				$mrow->encapsulateRaw( $node->getArg2()->renderMML() );
+		} elseif ( $node instanceof DQ ) {
+			$inner = $mrow->encapsulateRaw( $node->getBase()->renderMML() ) .
+				$mrow->encapsulateRaw( $node->getDown()->renderMML() );
+		} else {
+			$inner = "";
+			foreach ( $node->getArgs() as $arg ) {
+				$rendered = is_string( $arg ) ? $arg : $arg->renderMML();
+				$inner .= $mrow->encapsulateRaw( $rendered );
+			}
+		}
 		return $mrow->encapsulateRaw( $mfrac->encapsulateRaw( $inner ) );
 	}
 
@@ -404,10 +412,17 @@ class BaseParsing {
 				$mmlRowInner = new MMLmrow( TexClass::REL );
 				$mover = new MMLmover();
 				$mmlRowArg2 = new MMLmrow( TexClass::OP );
-				$inner = $mover->encapsulateRaw( $mmlRowArg2->encapsulateRaw(
-						$node->getArg2()->renderMML() ) .
-					$mmlRow->encapsulateRaw( $node->getArg1()->renderMML() )
-				);
+				if ( $node instanceof DQ ) {
+					$inner = $mover->encapsulateRaw( $mmlRowArg2->encapsulateRaw(
+							$node->getBase()->renderMML() ) .
+						$mmlRow->encapsulateRaw( $node->getDown()->renderMML() )
+					);
+				} else {
+					$inner = $mover->encapsulateRaw( $mmlRowArg2->encapsulateRaw(
+							$node->getArg2()->renderMML() ) .
+						$mmlRow->encapsulateRaw( $node->getArg1()->renderMML() )
+					);
+				}
 				return $mmlRow->encapsulateRaw( $mmlRowInner->encapsulateRaw( $inner ) );
 			case "bmod":
 				$mo = new MMLmo( "", [ "lspace" => Sizes::THICKMATHSPACE, "rspace" => Sizes::THICKMATHSPACE ] );
@@ -562,12 +577,23 @@ class BaseParsing {
 			$attributes = [ "linethickness" => "0" ];
 
 		}
-		$mfrac = new MMLmfrac( "", $attributes ); // "movesupsub"=>"true" activate this also as attribute ?
+		$mfrac = new MMLmfrac( "", $attributes );
 
-		$mrow = new MMLmrow( "", [] ); // tbd remove mathjax specifics,
-		// tbd added a getArg2 mrow which seems correct, consider removiing in some cases ?
-		return $start . $mfrac->encapsulateRaw( $mrow->encapsulateRaw(
-			$node->getArg1()->renderMML() ) . $mrow->encapsulateRaw( $node->getArg2()->renderMML() ) ) . $tail;
+		$mrow = new MMLmrow( "", [] );
+		if ( $node instanceof Fun2 ) {
+			return $start . $mfrac->encapsulateRaw( $mrow->encapsulateRaw(
+						$node->getArg1()->renderMML() ) . $mrow->encapsulateRaw( $node->getArg2()->renderMML() ) )
+						. $tail;
+		}
+		$inner = "";
+		foreach ( $node->getArgs() as $arg ) {
+			if ( $arg === "\\over" ) {
+				continue;
+			}
+			$rendered = $arg instanceof TexNode ? $arg->renderMML() : $arg;
+			$inner .= $mrow->encapsulateRaw( $rendered );
+		}
+		return $start . $mfrac->encapsulateRaw( $inner ) . $tail;
 	}
 
 	public static function oint( $node, $passedArgs, $operatorContent,
@@ -600,8 +626,14 @@ class BaseParsing {
 	public static function overset( $node, $passedArgs, $operatorContent, $name, $id = null ) {
 		$mrow = new MMLmrow( TexClass::ORD, [] ); // tbd remove mathjax specifics
 		$mrow2 = new MMLmrow( "", [] );
-		$inrow = $mrow2->encapsulateRaw( $node->getArg2()->renderMML() );
 		$mover = new MMLmover();
+
+		if ( $node instanceof DQ ) {
+			return $mrow->encapsulateRaw( $mover->encapsulateRaw( $mrow2->encapsulateRaw(
+				$node->getDown()->renderMML() . $node->getDown()->renderMML() ) ) );
+		} else {
+			$inrow = $mrow2->encapsulateRaw( $node->getArg2()->renderMML() );
+		}
 		return $mrow->encapsulateRaw( $mover->encapsulateRaw( $inrow . $node->getArg1()->renderMML() ) );
 	}
 
@@ -871,12 +903,13 @@ class BaseParsing {
 				$mmlMrow = new MMLmrow();
 				$mstyle = new MMLmstyle( "", [ "displaystyle" => "false", "scriptlevel" => "0" ] );
 				$mtext = new MMLmtext();
-				return $mmlMrow->encapsulateRaw( $mstyle->encapsulateRaw(
-					$mtext->encapsulateRaw( $node->getArg() ) ) ); // renderMML for arg ?
+				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->renderMML() : $node->getArg();
+				return $mmlMrow->encapsulateRaw( $mstyle->encapsulateRaw( $mtext->encapsulateRaw( $inner ) ) );
 			case "text":
 				$mmlMrow = new MMLmrow();
 				$mtext = new MMLmtext();
-				return $mmlMrow->encapsulateRaw( $mtext->encapsulateRaw( $node->getArg() ) ); // renderMML for arg ?
+				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->renderMML() : $node->getArg();
+				return $mmlMrow->encapsulateRaw( $mtext->encapsulateRaw( $inner ) );
 			case "textbf":
 				// no break
 			case "textit":

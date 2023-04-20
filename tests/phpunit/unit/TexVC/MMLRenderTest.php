@@ -186,6 +186,27 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "<mspace linebreak=\"newline\"/>", $mathMLtexVC );
 	}
 
+	public function testGenfracDQ() {
+		$input = "\\binom{m}{k - j}_{\!\!q}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mi>q</mi>", $mathMLtexVC );
+		$this->assertStringContainsString( "msub", $mathMLtexVC );
+	}
+
+	public function testDQZeroArgs() {
+		$input = "nF^{_{}}/RT";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "msup", $mathMLtexVC );
+	}
+
+	public function testMatrixDQ() {
+		$input = "\\begin{pmatrix} S \\\\Se\\\\Te\\end{pmatrix}_2";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "mtable", $mathMLtexVC );
+		$this->assertStringContainsString( "msub", $mathMLtexVC );
+		$this->assertStringContainsString( "<mn>2</mn>", $mathMLtexVC );
+	}
+
 	public function testAttributeDuplicate() {
 		// This checks that there is some non-erronous output caused by double class attributes
 		$input  = "\\mu_{\\operatorname{\\inf}}";

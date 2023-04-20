@@ -4,7 +4,6 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
-use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseMethods;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmsub;
@@ -45,18 +44,14 @@ class DQ extends TexNode {
 			return BaseParsing::limits( $this, $arguments, $state, "" );
 		}
 
-		$res = BaseMethods::checkAndParse( $this->base->getArgs()[0], $arguments, null, $this );
-		if ( $res ) {
-			return $res;
-		} else {
+		$emptyMrow = "";
+		// In cases with empty curly preceding like: "{}_pF_q"
+		if ( $this->getBase() instanceof Curly && $this->getBase()->isEmpty() ) {
+			$mrow = new MMLmrow();
+			$emptyMrow = $mrow->getEmpty();
+		}
 
-			$emptyMrow = "";
-			// In cases with empty curly preceding like: "{}_pF_q"
-			if ( $this->getBase() instanceof Curly && $this->getBase()->isEmpty() ) {
-				$mrow = new MMLmrow();
-				$emptyMrow = $mrow->getEmpty();
-			}
-
+		if ( !$this->isEmpty() ) {
 			// Otherwise use default fallback
 			$mmlMrow = new MMLmrow();
 			$msub = new MMLmsub();
@@ -65,6 +60,8 @@ class DQ extends TexNode {
 				$this->base->renderMML( [], $state ) .
 				$mmlMrow->encapsulateRaw( $this->down->renderMML( [], $state ) ) );
 		}
+
+		return "";
 	}
 
 	public function extractIdentifiers( $args = null ) {
