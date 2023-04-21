@@ -165,6 +165,16 @@ class JsonToMathML extends Maintenance {
 					}
 				}
 				break;
+			case 4:
+				// Example file ExamplesNewCommandsMhchem.json
+				foreach ( $fileData as $entry ) {
+					$inputF[] = [
+						"description" => $entry["description"],
+						"tex" => $entry['tex'],
+						"type" => $entry['type'],
+					];
+				}
+				break;
 		}
 		return $inputF;
 	}
