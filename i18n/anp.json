@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Angpradesh"
+			"Angpradesh",
+			"IND-ANP"
 		]
 	},
-	"math_sample": "गणितीय सूत्र यहाँ डालॊ",
-	"math_tip": "गणितीय सूत्र (LaTeX)"
+	"math-wikibase-special-error-header": "त्रुटि"
 }
