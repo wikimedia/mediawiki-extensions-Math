@@ -381,6 +381,25 @@ class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 			'http://restbase.test.internal/api/testDomain/v1/media/math/render/svg/2uejd9dj3jd'
 		];
 
+		yield 'VirtualRestConfig case with full URL as domain' => [
+			$path,
+			true,
+			[
+				'MathUseInternalRestbasePath' => true,
+				'VirtualRestConfig' => [
+					'modules' => [
+						'restbase' => [
+							'url' => 'http://restbase.test.internal/api',  // Should work with trailing slash '/'
+							'domain' => 'https://testDomain:1234/' // domain name should be extracted from url
+						]
+					]
+				],
+				'MathFullRestbaseURL' => "https://myWiki.test/",
+				'VisualEditorFullRestbaseURL' => 'VisualEditor/api/rest_'  // This should be ignored
+			],
+			'http://restbase.test.internal/api/testDomain/v1/media/math/render/svg/2uejd9dj3jd'
+		];
+
 		yield 'VisualEditor case' => [
 			$path,
 			true,

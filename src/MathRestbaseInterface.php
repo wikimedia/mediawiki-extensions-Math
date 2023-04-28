@@ -219,8 +219,20 @@ class MathRestbaseInterface {
 			$wgVisualEditorFullRestbaseURL;
 		if ( $internal && $wgMathUseInternalRestbasePath && isset( $wgVirtualRestConfig['modules']['restbase'] ) ) {
 			$restBaseUrl = $wgVirtualRestConfig['modules']['restbase']['url'];
-			$restBaseDomain = $wgVirtualRestConfig['modules']['restbase']['domain'] ?? 'localhost';
 			$restBaseUrl = rtrim( $restBaseUrl, '/' );
+
+			$restBaseDomain = $wgVirtualRestConfig['modules']['restbase']['domain'] ?? 'localhost';
+
+			// Ensure the correct domain format: strip protocol, port,
+			// and trailing slash if present.  This lets us use
+			// $wgCanonicalServer as a default value, which is very convenient.
+			// XXX: This was copied from RestbaseVirtualRESTService. Use UrlUtils::parse instead?
+			$restBaseDomain = preg_replace(
+				'/^((https?:)?\/\/)?([^\/:]+?)(:\d+)?\/?$/',
+				'$3',
+				$restBaseDomain
+			);
+
 			return "$restBaseUrl/$restBaseDomain/v1/$path";
 		}
 		if ( $wgMathFullRestbaseURL ) {
