@@ -431,4 +431,86 @@ class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 		$actual = $rbi->getUrl( $path, $internal );
 		$this->assertSame( $expected, $actual );
 	}
+
+	public function testGetType() {
+		$tex = '\testing tex';
+		$type = 'test';
+		$interface = new MathRestbaseInterface( $tex, $type );
+
+		$this->assertEquals( $type, $interface->getType() );
+	}
+
+	public function testGetTex() {
+		$tex = '\tesing tex';
+		$interface = new MathRestbaseInterface( $tex );
+
+		$this->assertEquals( $tex, $interface->getTex() );
+	}
+
+	public function testEvaluateRestbaseCheckResponse() {
+		$response = [
+			'code' => 200,
+			'headers' => [
+				'x-resource-location' => 'deadbeef'
+			],
+			'body' => json_encode( [
+				'success' => true,
+				'checked' => 'who cares',
+				'identifiers' => [ 'identifier1', 'identifier2' ],
+				'warnings' => [ 'Warning 1', 'Warning 2' ]
+			] )
+		];
+
+		$rbi = new MathRestbaseInterface();
+		$result = $rbi->evaluateRestbaseCheckResponse( $response );
+
+		$this->assertTrue( $result );
+		$this->assertTrue( $rbi->getSuccess() );
+		$this->assertSame( 'who cares', $rbi->getCheckedTex() );
+		$this->assertSame( [ 'identifier1', 'identifier2' ], $rbi->getIdentifiers() );
+		$this->assertSame( [ 'Warning 1', 'Warning 2' ], $rbi->getWarnings() );
+		$this->assertNull( $rbi->getError() );
+	}
+
+	public function testEvaluateRestbaseCheckResponseWithErrorMessage() {
+		$errorResponse = [
+			'code' => 400,
+			'body' => json_encode( [
+				'detail' => [
+					'success' => false,
+					'message' => 'Invalid input'
+				]
+			] )
+		];
+
+		$rbi = new MathRestbaseInterface();
+		$result = $rbi->evaluateRestbaseCheckResponse( $errorResponse );
+
+		$this->assertFalse( $result );
+		$this->assertFalse( $rbi->getSuccess() );
+		$this->assertNull( $rbi->getCheckedTex() );
+		$this->assertNull( $rbi->getIdentifiers() );
+		$this->assertSame( [], $rbi->getWarnings() );
+		$this->assertNotNull( $rbi->getError() );
+	}
+
+	public function testEvaluateRestbaseCheckResponseWithFailure() {
+		$errorResponseWithoutDetail = [
+			'code' => 400,
+			'body' => json_encode( [
+				'message' => 'Invalid input'
+			] )
+		];
+
+		$rbi = new MathRestbaseInterface();
+		$result = $rbi->evaluateRestbaseCheckResponse( $errorResponseWithoutDetail );
+
+		$this->assertFalse( $result );
+		$this->assertFalse( $rbi->getSuccess() );
+		$this->assertNull( $rbi->getCheckedTex() );
+		$this->assertNull( $rbi->getIdentifiers() );
+		$this->assertSame( [], $rbi->getWarnings() );
+		$this->assertNotNull( $rbi->getError() );
+		$this->assertSame( 'Math extension cannot connect to Restbase.', $rbi->getError()->error->message );
+	}
 }
