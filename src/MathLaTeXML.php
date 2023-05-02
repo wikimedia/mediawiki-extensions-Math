@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Math;
 
-use Hooks;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 use StatusValue;
 
 /**
@@ -117,7 +117,7 @@ class MathLaTeXML extends MathMathML {
 					$this->setMathml( $jsonResult->result );
 					// Avoid PHP 7.1 warning from passing $this by reference
 					$renderer = $this;
-					Hooks::run( 'MathRenderingResultRetrieved',
+					MediaWikiServices::getInstance()->getHookContainer()->run( 'MathRenderingResultRetrieved',
 						[ &$renderer, &$jsonResult ]
 					); // Enables debugging of server results
 					return StatusValue::newGood();

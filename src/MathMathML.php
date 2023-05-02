@@ -8,7 +8,6 @@
 
 namespace MediaWiki\Extension\Math;
 
-use Hooks;
 use Html;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
@@ -548,7 +547,7 @@ class MathMathML extends MathRenderer {
 			}
 			// Avoid PHP 7.1 warning from passing $this by reference
 			$renderer = $this;
-			Hooks::run( 'MathRenderingResultRetrieved',
+			MediaWikiServices::getInstance()->getHookContainer()->run( 'MathRenderingResultRetrieved',
 				[ &$renderer, &$jsonResult ]
 			); // Enables debugging of server results
 			return StatusValue::newGood(); // FIXME: empty?
