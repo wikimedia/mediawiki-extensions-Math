@@ -17,16 +17,16 @@
 		"@wdio/spec-reporter": "7.16.13",
 		"api-testing": "1.6.0",
 		"commander": "^9.4.1",
-		"eslint-config-wikimedia": "0.24.0",
+		"eslint-config-wikimedia": "0.25.0",
 		"grunt": "1.6.1",
 		"grunt-banana-checker": "0.10.0",
 		"grunt-contrib-watch": "1.1.0",
 		"grunt-eslint": "24.0.1",
 		"grunt-stylelint": "0.18.0",
 		"mocha": "^7.1.1",
-		"stylelint-config-wikimedia": "0.14.0",
-		"wdio-mediawiki": "2.1.0",
 		"peggy": "1.0.0",
-		"phpeggy": "^1.0.1"
+		"phpeggy": "^1.0.1",
+		"stylelint-config-wikimedia": "0.14.0",
+		"wdio-mediawiki": "2.1.0"
 	}
 }
