@@ -29,6 +29,67 @@ class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( '/png/RESOURCE_LOCATION', $rbi->getFullPngUrl() );
 	}
 
+	public function testBatchEvaluate() {
+		$body = [
+			'success' => true,
+			'checked' => 'CHECKED',
+			'identifiers' => []
+		];
+
+		$response = [
+			'code' => 200,
+			'headers' => [],
+			'body' => json_encode( $body )
+		];
+
+		$responses = [
+			[ // for https://wikimedia.org/api/rest_v1/media/math/check/tex with input1
+				'headers' => [ 'x-resource-location' => 'deadbeef1' ],
+				'body' => json_encode( [ 'checked' => 'CHECKED1' ] + $body )
+			] + $response,
+
+			[ // for https://wikimedia.org/api/rest_v1/media/math/check/tex with input2
+				'headers' => [ 'x-resource-location' => 'deadbeef2' ],
+				'body' => json_encode( [ 'checked' => 'CHECKED2' ] + $body )
+			] + $response,
+
+			[ // for https://wikimedia.org/api/rest_v1/media/math/render/mml/deadbeef1
+				'body' => 'MML1'
+			] + $response,
+
+			[ // for https://wikimedia.org/api/rest_v1/media/math/render/mml/deadbeef2
+				'body' => 'MML2'
+			] + $response,
+		];
+
+		$httpClient = $this->createNoOpMock( MultiHttpClient::class, [ 'runMulti' ] );
+		$httpClient->method( 'runMulti' )->willReturnCallback(
+			static function ( array $requests ) use ( &$responses ) {
+				foreach ( $requests as &$req ) {
+					$resp = array_shift( $responses );
+					$req['response'] = $resp;
+				}
+				return $requests;
+			}
+		);
+
+		$this->installMockHttp( $httpClient );
+
+		// NOTE: Using fake response, the input is ignored.
+		$rbi1 = new MathRestbaseInterface( 'input1' );
+		$rbi2 = new MathRestbaseInterface( 'input2' );
+
+		MathRestbaseInterface::batchEvaluate( [ $rbi1, $rbi2 ] );
+
+		$this->assertTrue( $rbi1->getSuccess() );
+		$this->assertEquals( 'CHECKED1', $rbi1->getCheckedTex() );
+		$this->assertEquals( 'MML1', $rbi1->getMathML() );
+
+		$this->assertTrue( $rbi2->getSuccess() );
+		$this->assertEquals( 'CHECKED2', $rbi2->getCheckedTex() );
+		$this->assertEquals( 'MML2', $rbi2->getMathML() );
+	}
+
 	public function testFail() {
 		$this->setupBadMathRestBaseMockHttp();
 
