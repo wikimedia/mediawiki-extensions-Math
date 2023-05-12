@@ -13,7 +13,9 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MWException;
 use Psr\Log\LoggerInterface;
+use RestbaseVirtualRESTService;
 use stdClass;
+use VirtualRESTServiceClient;
 
 class MathRestbaseInterface {
 	/** @var string|false */
@@ -55,9 +57,9 @@ class MathRestbaseInterface {
 	 * Bundles several requests for fetching MathML.
 	 * Does not send requests, if the input TeX is invalid.
 	 * @param MathRestbaseInterface[] $rbis
-	 * @param \MultiHttpClient $multiHttpClient
+	 * @param VirtualRESTServiceClient $serviceClient
 	 */
-	private static function batchGetMathML( array $rbis, \MultiHttpClient $multiHttpClient ) {
+	private static function batchGetMathML( array $rbis, VirtualRESTServiceClient $serviceClient ) {
 		$requests = [];
 		$skips = [];
 		$i = 0;
@@ -70,7 +72,7 @@ class MathRestbaseInterface {
 			}
 			$i++;
 		}
-		$results = $multiHttpClient->runMulti( $requests );
+		$results = $serviceClient->runMulti( $requests );
 		$lenRbis = count( $rbis );
 		$j = 0;
 		for ( $i = 0; $i < $lenRbis; $i++ ) {
@@ -78,8 +80,7 @@ class MathRestbaseInterface {
 				/** @var MathRestbaseInterface $rbi */
 				$rbi = $rbis[$i];
 				try {
-					$response = $results[ $j ][ 'response' ];
-					$mml = $rbi->evaluateContentResponse( 'mml', $response, $requests[$j] );
+					$mml = $rbi->evaluateContentResponse( 'mml', $results[$j], $requests[$j] );
 					$rbi->mml = $mml;
 				} catch ( Exception $e ) {
 					// FIXME: Why is this silenced? Doesn't this leave invalid data behind?
@@ -114,8 +115,8 @@ class MathRestbaseInterface {
 
 	private function getContent( $type ) {
 		$request = $this->getContentRequest( $type );
-		$multiHttpClient = $this->getMultiHttpClient();
-		$response = $multiHttpClient->run( $request );
+		$serviceClient = $this->getServiceClient();
+		$response = $serviceClient->run( $request );
 		return $this->evaluateContentResponse( $type, $response, $request );
 	}
 
@@ -143,8 +144,8 @@ class MathRestbaseInterface {
 	 */
 	private function executeRestbaseCheckRequest( $request ) {
 		$res = null;
-		$multiHttpClient = $this->getMultiHttpClient();
-		$response = $multiHttpClient->run( $request );
+		$serviceClient = $this->getServiceClient();
+		$response = $serviceClient->run( $request );
 		if ( $response['code'] !== 200 ) {
 			$this->log()->info( 'Tex check failed', [
 				'post'  => $request['body'],
@@ -165,31 +166,39 @@ class MathRestbaseInterface {
 		$requests = [];
 		/** @var MathRestbaseInterface $first */
 		$first = $rbis[0];
-		$multiHttpClient = $first->getMultiHttpClient();
+		$serviceClient = $first->getServiceClient();
 		foreach ( $rbis as $rbi ) {
 			/** @var MathRestbaseInterface $rbi */
 			$requests[] = $rbi->getCheckRequest();
 		}
-		$results = $multiHttpClient->runMulti( $requests );
+		$results = $serviceClient->runMulti( $requests );
 		$i = 0;
-		foreach ( $results as $requestResponse ) {
+		foreach ( $results as $response ) {
 			/** @var MathRestbaseInterface $rbi */
 			$rbi = $rbis[$i++];
 			try {
-				$response = $requestResponse[ 'response' ];
 				$rbi->evaluateRestbaseCheckResponse( $response );
 			} catch ( Exception $e ) {
 			}
 		}
-		self::batchGetMathML( $rbis, $multiHttpClient );
+		self::batchGetMathML( $rbis, $serviceClient );
 	}
 
-	private function getMultiHttpClient() {
-		global $wgMathConcurrentReqs;
-		$multiHttpClient = MediaWikiServices::getInstance()->getHttpRequestFactory()->createMultiClient(
+	/**
+	 * @return VirtualRESTServiceClient
+	 */
+	private function getServiceClient() {
+		global $wgVirtualRestConfig, $wgMathConcurrentReqs;
+		$http = MediaWikiServices::getInstance()->getHttpRequestFactory()->createMultiClient(
 			[ 'maxConnsPerHost' => $wgMathConcurrentReqs ] );
-
-		return $multiHttpClient;
+		$serviceClient = new VirtualRESTServiceClient( $http );
+		if ( isset( $wgVirtualRestConfig['modules']['restbase'] ) ) {
+			$cfg = $wgVirtualRestConfig['modules']['restbase'];
+			$cfg['parsoidCompat'] = false;
+			$vrsObject = new RestbaseVirtualRESTService( $cfg );
+			$serviceClient->mount( '/mathoid/', $vrsObject );
+		}
+		return $serviceClient;
 	}
 
 	/**
@@ -218,10 +227,7 @@ class MathRestbaseInterface {
 		global $wgMathUseInternalRestbasePath, $wgVirtualRestConfig, $wgMathFullRestbaseURL,
 			$wgVisualEditorFullRestbaseURL;
 		if ( $internal && $wgMathUseInternalRestbasePath && isset( $wgVirtualRestConfig['modules']['restbase'] ) ) {
-			$restBaseUrl = $wgVirtualRestConfig['modules']['restbase']['url'];
-			$restBaseDomain = $wgVirtualRestConfig['modules']['restbase']['domain'] ?? 'localhost';
-			$restBaseUrl = rtrim( $restBaseUrl, '/' );
-			return "$restBaseUrl/$restBaseDomain/v1/$path";
+			return "/mathoid/local/v1/$path";
 		}
 		if ( $wgMathFullRestbaseURL ) {
 			return "{$wgMathFullRestbaseURL}v1/$path";
