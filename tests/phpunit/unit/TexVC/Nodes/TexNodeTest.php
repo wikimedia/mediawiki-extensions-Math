@@ -13,7 +13,7 @@ use RuntimeException;
  */
 class TexNodeTest extends MediaWikiUnitTestCase {
 
-	public function provideTexToRender() {
+	public static function provideTexToRender() {
 		return [
 			[ [], '' ],
 			[ [ '' ], '' ],
@@ -36,7 +36,7 @@ class TexNodeTest extends MediaWikiUnitTestCase {
 		throw new RuntimeException( 'Should not accept integers as arguments' );
 	}
 
-	public function provideTexWithoutCurlies() {
+	public static function provideTexWithoutCurlies() {
 		return [
 			[ 'a', '{a}' ],
 			[ new TexNode( 'a' ), '{a}' ],
@@ -74,7 +74,7 @@ class TexNodeTest extends MediaWikiUnitTestCase {
 			'Should contain a method stub for extracting subscripts' );
 	}
 
-	public function providNegativeMatches() {
+	public static function providNegativeMatches() {
 		return [
 			[ 'asd', 'sda' ],
 			[ [ 'asd', 'ert' ], 'sda' ],
@@ -89,7 +89,7 @@ class TexNodeTest extends MediaWikiUnitTestCase {
 		$this->assertFalse( TexNode::match( $target, $str ) );
 	}
 
-	public function providPositiveMatches() {
+	public static function providPositiveMatches() {
 		return [
 			[ '', '' ],
 			[ 'asd', 'asd' ],
@@ -108,7 +108,7 @@ class TexNodeTest extends MediaWikiUnitTestCase {
 		$this->assertSame( $str, TexNode::match( $target, $str ) );
 	}
 
-	public function provideTextContainingFunctions() {
+	public static function provideTextContainingFunctions() {
 		return [
 			[ '', '', false ],
 			[ '\\', '\\' ],

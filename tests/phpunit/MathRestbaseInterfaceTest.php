@@ -163,7 +163,7 @@ class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 		MathRestbaseInterface::throwContentError( 'mml', $input );
 	}
 
-	public function dataProviderForTestUrlUsedByCheckTeX() {
+	public static function dataProviderForTestUrlUsedByCheckTeX() {
 		$path = 'media/math/check/tex';
 
 		yield 'Math FullRestbaseURL default case' => [
@@ -241,7 +241,7 @@ class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 		$rbi->checkTeX();
 	}
 
-	public function dataProviderForTestUrlUsedByGetML() {
+	public static function dataProviderForTestUrlUsedByGetML() {
 		$path1 = 'media/math/check/tex';
 		$path2 = 'media/math/render/mml/deadbeef';
 
@@ -336,7 +336,7 @@ class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 		$rbi->getMathML();
 	}
 
-	public function dataProviderForTestGetUrl() {
+	public static function dataProviderForTestGetUrl() {
 		$path = 'media/math/render/svg/2uejd9dj3jd';
 
 		yield 'Math FullRestbaseURL default case' => [
