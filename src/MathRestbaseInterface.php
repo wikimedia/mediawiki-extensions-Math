@@ -215,35 +215,12 @@ class MathRestbaseInterface {
 	 * @throws MWException
 	 */
 	public function getUrl( $path, $internal = true ) {
-		global $wgMathUseInternalRestbasePath, $wgVirtualRestConfig, $wgMathFullRestbaseURL,
-			$wgVisualEditorFullRestbaseURL;
-		if ( $internal && $wgMathUseInternalRestbasePath && isset( $wgVirtualRestConfig['modules']['restbase'] ) ) {
-			$restBaseUrl = $wgVirtualRestConfig['modules']['restbase']['url'];
-			$restBaseUrl = rtrim( $restBaseUrl, '/' );
-
-			$restBaseDomain = $wgVirtualRestConfig['modules']['restbase']['domain'] ?? 'localhost';
-
-			// Ensure the correct domain format: strip protocol, port,
-			// and trailing slash if present.  This lets us use
-			// $wgCanonicalServer as a default value, which is very convenient.
-			// XXX: This was copied from RestbaseVirtualRESTService. Use UrlUtils::parse instead?
-			$restBaseDomain = preg_replace(
-				'/^((https?:)?\/\/)?([^\/:]+?)(:\d+)?\/?$/',
-				'$3',
-				$restBaseDomain
-			);
-
-			return "$restBaseUrl/$restBaseDomain/v1/$path";
-		}
-		if ( $wgMathFullRestbaseURL ) {
+		global $wgMathInternalRestbaseURL, $wgMathFullRestbaseURL;
+		if ( $internal ) {
+			return "{$wgMathInternalRestbaseURL}v1/$path";
+		} else {
 			return "{$wgMathFullRestbaseURL}v1/$path";
 		}
-		if ( $wgVisualEditorFullRestbaseURL ) {
-			return "{$wgVisualEditorFullRestbaseURL}v1/$path";
-		}
-		$msg = 'Math extension can not find Restbase URL. Please specify $wgMathFullRestbaseURL.';
-		$this->setErrorMessage( $msg );
-		throw new MWException( $msg );
 	}
 
 	/**

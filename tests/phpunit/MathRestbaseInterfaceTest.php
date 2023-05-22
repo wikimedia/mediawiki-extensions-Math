@@ -163,63 +163,19 @@ class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 		MathRestbaseInterface::throwContentError( 'mml', $input );
 	}
 
-	public static function dataProviderForTestUrlUsedByCheckTeX() {
+	public function testUrlUsedByCheckTeX() {
 		$path = 'media/math/check/tex';
-
-		yield 'Math FullRestbaseURL default case' => [
-			[],
-			[
-				'url' => "https://wikimedia.org/api/rest_v1/$path",
-				'method' => 'POST',
-				'body' => [ 'type' => 'tex', 'q' => '\sin\newcommand' ]
-			],
+		$config = [
+			'MathFullRestbaseURL' => 'https://myWiki.test/',
+			'MathInternalRestbaseURL' => 'http://restbase.test.internal/api/myWiki/'
 		];
 
-		yield 'Math FullRestbaseURL case' => [
-			[
-				'MathFullRestbaseURL' => 'https://myWiki.test/'
-			],
-			[
-				'url' => "https://myWiki.test/v1/$path",
-				'method' => 'POST',
-				'body' => [ 'type' => 'tex', 'q' => '\sin\newcommand' ]
-			],
+		$expected = [
+			'url' => "http://restbase.test.internal/api/myWiki/v1/$path",
+			'method' => 'POST',
+			'body' => [ 'type' => 'tex', 'q' => '\sin\newcommand' ]
 		];
 
-		yield 'Internal Restbase URL case' => [
-			[
-				'MathUseInternalRestbasePath' => true,
-				'VirtualRestConfig' => [
-					'modules' => [
-						'restbase' => [ 'url' => 'http://restbase.test.internal/api/' ]
-					]
-				],
-				'MathFullRestbaseURL' => 'https://myWiki.test/'
-			],
-			[
-				'url' => "http://restbase.test.internal/api/localhost/v1/$path",
-				'method' => 'POST',
-				'body' => [ 'type' => 'tex', 'q' => '\sin\newcommand' ]
-			],
-		];
-
-		yield 'VisualEditor case' => [
-			[
-				'MathFullRestbaseURL' => null,
-				'VisualEditorFullRestbaseURL' => "https://VisualEditor/api/rest_v1/"
-			],
-			[
-				'url' => "https://VisualEditor/api/rest_v1/v1/$path",
-				'method' => 'POST',
-				'body' => [ 'type' => 'tex', 'q' => '\sin\newcommand' ]
-			],
-		];
-	}
-
-	/**
-	 * @dataProvider dataProviderForTestUrlUsedByCheckTeX
-	 */
-	public function testUrlUsedByCheckTeX( array $config, array $expected ) {
 		$response = [
 			'headers' => [
 				'x-resource-location' => 'deadbeef'
@@ -241,77 +197,26 @@ class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 		$rbi->checkTeX();
 	}
 
-	public static function dataProviderForTestUrlUsedByGetML() {
+	public function testUrlUsedByGetML() {
 		$path1 = 'media/math/check/tex';
 		$path2 = 'media/math/render/mml/deadbeef';
 
-		yield 'Math FullRestbaseURL default case' => [
-			[],
+		$config = [
+			'MathFullRestbaseURL' => 'https://myWiki.test/',
+			'MathInternalRestbaseURL' => 'http://restbase.test.internal/api/myWiki/'
+		];
+
+		$expectedList = [
 			[
-				[ 'url' => "https://wikimedia.org/api/rest_v1/$path1", 'method' => 'POST' ],
-				[ 'url' => "https://wikimedia.org/api/rest_v1/$path2", 'method' => 'GET' ],
+				'url' => "http://restbase.test.internal/api/myWiki/v1/$path1",
+				'method' => 'POST'
+			],
+			[
+				'url' => "http://restbase.test.internal/api/myWiki/v1/$path2",
+				'method' => 'GET'
 			],
 		];
 
-		yield 'Math FullRestbaseURL case' => [
-			[
-				'MathFullRestbaseURL' => 'https://myWiki.test/'
-			],
-			[
-				[
-					'url' => "https://myWiki.test/v1/$path1",
-					'method' => 'POST'
-				],
-				[
-					'url' => "https://myWiki.test/v1/$path2",
-					'method' => 'GET'
-				],
-			],
-		];
-
-		yield 'Internal Restbase URL case' => [
-			[
-				'MathUseInternalRestbasePath' => true,
-				'VirtualRestConfig' => [
-					'modules' => [
-						'restbase' => [ 'url' => 'http://restbase.test.internal/api/' ]
-					]
-				],
-			],
-			[
-				[
-					'url' => "http://restbase.test.internal/api/localhost/v1/$path1",
-					'method' => 'POST'
-				],
-				[
-					'url' => "http://restbase.test.internal/api/localhost/v1/$path2",
-					'method' => 'GET'
-				],
-			],
-		];
-
-		yield 'VisualEditor case' => [
-			[
-				'MathFullRestbaseURL' => null,
-				'VisualEditorFullRestbaseURL' => 'https://visual-editor.org/api/rest_v1/'
-			],
-			[
-				[
-					'url' => "https://visual-editor.org/api/rest_v1/v1/$path1",
-					'method' => 'POST'
-				],
-				[
-					'url' => "https://visual-editor.org/api/rest_v1/v1/$path2",
-					'method' => 'GET'
-				],
-			],
-		];
-	}
-
-	/**
-	 * @dataProvider dataProviderForTestUrlUsedByGetML
-	 */
-	public function testUrlUsedByGetML( array $config, array $expectedList ) {
 		$response1 = [
 			'headers' => [
 				'x-resource-location' => 'deadbeef'
@@ -338,79 +243,24 @@ class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 
 	public static function dataProviderForTestGetUrl() {
 		$path = 'media/math/render/svg/2uejd9dj3jd';
-
-		yield 'Math FullRestbaseURL default case' => [
-			$path, false, [], 'https://wikimedia.org/api/rest_v1/media/math/render/svg/2uejd9dj3jd'
+		$config = [
+			'MathFullRestbaseURL' => 'https://myWiki.test/',
+			'MathInternalRestbaseURL' => 'http://restbase.test.internal/api/myWiki/'
 		];
 
-		yield 'Math FullRestbaseURL case' => [ $path, false, [
-			'MathFullRestbaseURL' => "https://myWiki.test/",
-			'VisualEditorFullRestbaseURL' => 'VisualEditor/api/rest_'  // This should be ignored
-		], 'https://myWiki.test/v1/media/math/render/svg/2uejd9dj3jd' ];
+		yield 'External restbase URL case' => [
+			$path,
+			false,
+			$config,
+			'https://myWiki.test/v1/media/math/render/svg/2uejd9dj3jd'
+		];
 
-		yield 'VirtualRestConfig case' => [
+		yield 'Internal restbase URL case' => [
 			$path,
 			true,
-			[
-				'MathUseInternalRestbasePath' => true,
-				'VirtualRestConfig' => [
-					'modules' => [ 'restbase' => [ 'url' => 'http://restbase.test.internal/api/' ] ]
-				],
-				'MathFullRestbaseURL' => "https://myWiki.test/",
-				'VisualEditorFullRestbaseURL' => 'VisualEditor/api/rest_'  // This should be ignored
-			],
-			'http://restbase.test.internal/api/localhost/v1/media/math/render/svg/2uejd9dj3jd'
+			$config,
+			'http://restbase.test.internal/api/myWiki/v1/media/math/render/svg/2uejd9dj3jd'
 		];
-
-		yield 'VirtualRestConfig case with Domain' => [
-			$path,
-			true,
-			[
-				'MathUseInternalRestbasePath' => true,
-				'VirtualRestConfig' => [
-					'modules' => [
-						'restbase' => [
-							'url' => 'http://restbase.test.internal/api',  // Should work with trailing slash '/'
-							'domain' => 'testDomain'
-						]
-					]
-				],
-				'MathFullRestbaseURL' => "https://myWiki.test/",
-				'VisualEditorFullRestbaseURL' => 'VisualEditor/api/rest_'  // This should be ignored
-			],
-			'http://restbase.test.internal/api/testDomain/v1/media/math/render/svg/2uejd9dj3jd'
-		];
-
-		yield 'VirtualRestConfig case with full URL as domain' => [
-			$path,
-			true,
-			[
-				'MathUseInternalRestbasePath' => true,
-				'VirtualRestConfig' => [
-					'modules' => [
-						'restbase' => [
-							'url' => 'http://restbase.test.internal/api',  // Should work with trailing slash '/'
-							'domain' => 'https://testDomain:1234/' // domain name should be extracted from url
-						]
-					]
-				],
-				'MathFullRestbaseURL' => "https://myWiki.test/",
-				'VisualEditorFullRestbaseURL' => 'VisualEditor/api/rest_'  // This should be ignored
-			],
-			'http://restbase.test.internal/api/testDomain/v1/media/math/render/svg/2uejd9dj3jd'
-		];
-
-		yield 'VisualEditor case' => [
-			$path,
-			true,
-			[
-				'MathFullRestbaseURL' => null,
-				'VisualEditorFullRestbaseURL' => 'VisualEditor/api/rest_'
-			],
-			'VisualEditor/api/rest_v1/media/math/render/svg/2uejd9dj3jd'
-		];
-
-		yield 'Exception case' => [ $path, false, [ 'MathFullRestbaseURL' => "", ], '', true ];
 	}
 
 	/**
@@ -419,12 +269,8 @@ class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 	 * @param bool $internal
 	 * @param array $config
 	 * @param string $expected
-	 * @param bool $expectingException
 	 */
-	public function testGetUrl( $path, $internal, $config, $expected, $expectingException = false ) {
-		if ( $expectingException ) {
-			$this->expectException( MWException::class );
-		}
+	public function testGetUrl( $path, $internal, $config, $expected ) {
 		$this->overrideConfigValues( $config );
 		$input = '\\sin\\newcommand';
 		$rbi = new MathRestbaseInterface( $input );

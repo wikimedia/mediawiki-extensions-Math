@@ -34,6 +34,7 @@
 		"MathAlias": "Math.alias.php",
 		"MathAliasNoTranslate": "Math.alias.noTranslate.php"
 	},
+	"callback": "MediaWiki\\Extension\\Math\\Hooks::onConfig",
 	"HookHandlers": {
 		"ParserHooksHandler": {
 			"class": "MediaWiki\\Extension\\Math\\HookHandlers\\ParserHooksHandler",
@@ -127,6 +128,9 @@
 			"description": "Whether to allow to use of internal RESTBase path instead of $wgMathFullRestbaseURL and $wgVisualEditorFullRestbaseURL. Set false if you want to use external RESTBase in any case.",
 			"value": true,
 			"public": true
+		},
+		"MathInternalRestbaseURL": {
+			"value": null
 		},
 		"MathFullRestbaseURL": {
 			"value": "https://wikimedia.org/api/rest_"
