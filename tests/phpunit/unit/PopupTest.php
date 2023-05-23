@@ -115,7 +115,7 @@ class PopupTest extends MathWikibaseConnectorTestFactory {
 	): Popup {
 		$languageFactoryMock = $languageFactoryMock ?: $this->createMock( LanguageFactory::class );
 		if ( !$languageNameUtilsMock ) {
-			$languageNameUtilsMock = self::createMock( LanguageNameUtils::class );
+			$languageNameUtilsMock = $this->createMock( LanguageNameUtils::class );
 			$languageNameUtilsMock->method( 'isValidCode' )->willReturn( true );
 		}
 		$mathWikibaseConnectorMock = $item ?
