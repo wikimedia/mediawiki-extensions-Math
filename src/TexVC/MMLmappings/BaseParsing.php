@@ -346,6 +346,13 @@ class BaseParsing {
 		return $mmlRow->encapsulateRaw( "HLINE TBD" );
 	}
 
+	public static function hskip( $node, $passedArgs, $operatorContent, $name,
+								  $smth1 = null, $smth2 = null, $smth3 = null, $smth4 = null ) {
+		// tbd hskip
+		$mmlRow = new MMLmrow();
+		return $mmlRow->encapsulateRaw( "hskip tbd" );
+	}
+
 	public static function handleOperatorName( $node, $passedArgs, $operatorContent, $name,
 											   $smth1 = null, $smth2 = null, $smth3 = null, $smth4 = null ) {
 		// \\operatorname{a}
