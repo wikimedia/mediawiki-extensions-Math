@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Math\HookHandlers;
 
 use FatalError;
+use MediaWiki\Extension\Math\Hooks\HookRunner;
 use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathMathML;
 use MediaWiki\Extension\Math\MathMathMLCli;
@@ -39,8 +40,8 @@ class ParserHooksHandler implements
 	/** @var UserOptionsLookup */
 	private $userOptionsLookup;
 
-	/** @var HookContainer */
-	private $hookContainer;
+	/** @var HookRunner */
+	private $hookRunner;
 
 	/**
 	 * @param RendererFactory $rendererFactory
@@ -54,7 +55,7 @@ class ParserHooksHandler implements
 	) {
 		$this->rendererFactory = $rendererFactory;
 		$this->userOptionsLookup = $userOptionsLookup;
-		$this->hookContainer = $hookContainer;
+		$this->hookRunner = new HookRunner( $hookContainer );
 	}
 
 	/**
@@ -138,9 +139,8 @@ class ParserHooksHandler implements
 			$renderer->addTrackingCategories( $parser );
 			return $renderer->getLastError();
 		}
-		// TODO: Convert to a new style hook system
-		$this->hookContainer->run( 'MathFormulaPostRender',
-			[ $parser, $renderer, &$renderedMath ]
+		$this->hookRunner->onMathFormulaPostRender(
+			$parser, $renderer, $renderedMath
 		); // Enables indexing of math formula
 
 		// Writes cache if rendering was successful
