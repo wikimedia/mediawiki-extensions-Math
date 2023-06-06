@@ -18,7 +18,7 @@ class LocalChecker extends BaseChecker {
 	 * @param string $type the input type
 	 */
 	public function __construct( $tex = '', string $type = 'tex' ) {
-		if ( !in_array( $type, self::VALID_TYPES ) ) {
+		if ( !in_array( $type, self::VALID_TYPES, true ) ) {
 			$this->error = $this->errorObjectToMessage(
 				(object)[ "error" => "Unsupported type passed to LocalChecker: " . $type ], "LocalCheck" );
 			return;

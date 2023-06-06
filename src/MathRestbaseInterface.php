@@ -74,7 +74,7 @@ class MathRestbaseInterface {
 		$lenRbis = count( $rbis );
 		$j = 0;
 		for ( $i = 0; $i < $lenRbis; $i++ ) {
-			if ( !in_array( $i, $skips ) ) {
+			if ( !in_array( $i, $skips, true ) ) {
 				/** @var MathRestbaseInterface $rbi */
 				$rbi = $rbis[$i];
 				try {

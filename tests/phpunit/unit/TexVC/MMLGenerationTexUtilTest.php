@@ -45,7 +45,7 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 	 * @dataProvider provideTestCases
 	 */
 	public function testTexVC( $title, $input ) {
-		if ( in_array( $input->ctr, self::$SKIPPEDINDICES ) ) {
+		if ( in_array( $input->ctr, self::$SKIPPEDINDICES, true ) ) {
 			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $title, $input->tex, $input->mmlLaTeXML,
 				$input->mmlMathoid, "skipped", "skipped" ], false, self::$GENERATEHTML );
 			$this->assertTrue( true );
@@ -215,7 +215,7 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 		$overAllCtr = 0;
 		$finalCases = [];
 		foreach ( $groups  as $category => $group ) {
-			if ( self::$APPLYCATEGORYFILTER && !in_array( $category, self::$FILTEREDCATEGORIES ) ) {
+			if ( self::$APPLYCATEGORYFILTER && !in_array( $category, self::$FILTEREDCATEGORIES, true ) ) {
 				continue;
 			}
 			$indexCtr = 0;

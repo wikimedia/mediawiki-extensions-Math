@@ -142,7 +142,7 @@ class Literal extends TexNode {
 		$s = trim( $this->arg );
 		if ( preg_match( $regexp, $s ) == 1 ) {
 			return [ $s ];
-		} elseif ( in_array( $s, $lit ) ) {
+		} elseif ( in_array( $s, $lit, true ) ) {
 			 return [ $s ];
 		} else {
 			return [];

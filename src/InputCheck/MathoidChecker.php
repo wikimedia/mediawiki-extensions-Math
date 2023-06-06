@@ -97,7 +97,7 @@ class MathoidChecker extends BaseChecker {
 		$req = $this->httpFactory->create( $url, $options, __METHOD__ );
 		$req->execute();
 		$statusCode = $req->getStatus();
-		if ( in_array( $statusCode, self::EXPECTED_RETURN_CODES ) ) {
+		if ( in_array( $statusCode, self::EXPECTED_RETURN_CODES, true ) ) {
 			return [ $statusCode, $req->getContent() ];
 		}
 		$e = new MWException( 'Mathoid check returned unexpected error code.' );

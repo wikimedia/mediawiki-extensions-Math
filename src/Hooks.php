@@ -103,7 +103,7 @@ class Hooks {
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$type = $updater->getDB()->getType();
-		if ( !in_array( $type, [ 'mysql', 'sqlite', 'postgres' ] ) ) {
+		if ( !in_array( $type, [ 'mysql', 'sqlite', 'postgres' ], true ) ) {
 			throw new Exception( "Math extension does not currently support $type database." );
 		}
 

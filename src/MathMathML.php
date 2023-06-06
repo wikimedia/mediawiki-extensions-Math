@@ -60,7 +60,7 @@ class MathMathML extends MathRenderer {
 		$this->host = $wgMathMathMLUrl;
 		if ( isset( $params['type'] ) ) {
 			$allowedTypes = [ 'pmml', 'ascii', 'chem' ];
-			if ( in_array( $params['type'], $allowedTypes ) ) {
+			if ( in_array( $params['type'], $allowedTypes, true ) ) {
 				$this->inputType = $params['type'];
 			}
 			if ( $params['type'] == 'pmml' ) {
@@ -141,8 +141,8 @@ class MathMathML extends MathRenderer {
 	public function render() {
 		global $wgMathFullRestbaseURL;
 		try {
-			if ( in_array( $this->inputType, $this->restbaseInputTypes ) &&
-				 in_array( $this->mode, $this->restbaseRenderingModes )
+			if ( in_array( $this->inputType, $this->restbaseInputTypes, true ) &&
+				 in_array( $this->mode, $this->restbaseRenderingModes, true )
 			) {
 				if ( !$this->rbi ) {
 					$this->rbi =
@@ -339,7 +339,7 @@ class MathMathML extends MathRenderer {
 			$name = $xmlObject->getRootElement();
 			$elementSplit = explode( ':', $name );
 			$localName = end( $elementSplit );
-			if ( in_array( $localName, $this->getAllowedRootElements() ) ) {
+			if ( in_array( $localName, $this->getAllowedRootElements(), true ) ) {
 				$out = true;
 			} else {
 				$this->logger->error( "Got wrong root element: $name" );

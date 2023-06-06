@@ -51,7 +51,7 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 	public function testTexVC( $title, $tc ) {
 		$texVC = new TexVC();
 
-		if ( in_array( $tc->ctr, self::$SKIPPEDINDICES ) ) {
+		if ( in_array( $tc->ctr, self::$SKIPPEDINDICES, true ) ) {
 			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr, $tc->tex,
 				"skipped", "skipped", "skipped" ], false, self::$GENERATEHTML );
 			$this->assertTrue( true );
