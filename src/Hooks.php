@@ -72,7 +72,7 @@ class Hooks {
 					$restBaseDomain
 				);
 
-				$internalRestbaseURL = "$restBaseUrl/$restBaseDomain/v1/";
+				$internalRestbaseURL = "$restBaseUrl/$restBaseDomain/";
 			} else {
 				// Default to using the external URL for internal calls as well.
 				$internalRestbaseURL = $fullRestbaseUrl;
