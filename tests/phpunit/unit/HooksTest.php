@@ -73,7 +73,7 @@ class HooksTest extends MediaWikiUnitTestCase {
 			] + $defaults,
 			[
 				'MathFullRestbaseURL' => 'https://wikimedia.org/api/rest_',
-				'MathInternalRestbaseURL' => 'https://restbase.internal/rest/mywiki.test/v1/',
+				'MathInternalRestbaseURL' => 'https://restbase.internal/rest/mywiki.test/',
 			]
 		];
 
@@ -86,7 +86,7 @@ class HooksTest extends MediaWikiUnitTestCase {
 			] + $defaults,
 			[
 				'MathFullRestbaseURL' => 'https://wikimedia.org/api/rest_',
-				'MathInternalRestbaseURL' => 'https://restbase.internal/rest/mywiki.test/v1/',
+				'MathInternalRestbaseURL' => 'https://restbase.internal/rest/mywiki.test/',
 			]
 		];
 
