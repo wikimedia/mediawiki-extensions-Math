@@ -8,6 +8,7 @@ use MediaWiki\Extension\Math\MathMathML;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWikiIntegrationTestCase;
 use MockHttpTrait;
+use RuntimeException;
 use WANObjectCache;
 
 class MathoidCheckerTest extends MediaWikiIntegrationTestCase {
@@ -74,7 +75,7 @@ class MathoidCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->setService( 'MainWANObjectCache', $fakeWAN );
 		$this->setFakeRequest( 401, false );
 		$checker = $this->getMathoidChecker();
-		$this->expectException( 'MWException' );
+		$this->expectException( RuntimeException::class );
 		$checker->getCheckResponse();
 	}
 

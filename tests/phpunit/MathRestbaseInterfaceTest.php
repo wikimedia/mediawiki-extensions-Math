@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Math\InvalidTeXException;
+use MediaWiki\Extension\Math\MathRestbaseException;
 use MediaWiki\Extension\Math\MathRestbaseInterface;
 use MediaWiki\Extension\Math\Tests\MathMockHttpTrait;
 
@@ -117,7 +119,7 @@ class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 
 		$input = '\\sin\\newcommand';
 		$rbi = new MathRestbaseInterface( $input );
-		$this->expectException( MWException::class );
+		$this->expectException( InvalidTeXException::class );
 		$this->expectExceptionMessage( 'TeX input is invalid.' );
 		$rbi->getMathML();
 	}
@@ -127,7 +129,7 @@ class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 
 		$input = '\\sin\\newcommand';
 		$rbi = new MathRestbaseInterface( $input );
-		$this->expectException( MWException::class );
+		$this->expectException( InvalidTeXException::class );
 		$this->expectExceptionMessage( 'TeX input is invalid.' );
 		$rbi->getFullSvgUrl();
 	}
@@ -139,7 +141,7 @@ class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 	public function testLateError() {
 		// phpcs:ignore Generic.Files.LineLength.TooLong
 		$input = '{"type":"https://mediawiki.org/wiki/HyperSwitch/errors/bad_request","title":"Bad Request","method":"POST","detail":["TeX parse error: Missing close brace"],"uri":"/complete"}';
-		$this->expectException( MWException::class );
+		$this->expectException( MathRestbaseException::class );
 		$this->expectExceptionMessage( 'Cannot get mml. TeX parse error: Missing close brace' );
 		MathRestbaseInterface::throwContentError( 'mml', $input );
 	}
@@ -151,14 +153,14 @@ class MathRestbaseInterfaceTest extends MediaWikiIntegrationTestCase {
 	public function testLateErrorString() {
 		// phpcs:ignore Generic.Files.LineLength.TooLong
 		$input = '{"type":"https://mediawiki.org/wiki/HyperSwitch/errors/bad_request","title":"Bad Request","method":"POST","detail": "TeX parse error: Missing close brace","uri":"/complete"}';
-		$this->expectException( MWException::class );
+		$this->expectException( MathRestbaseException::class );
 		$this->expectExceptionMessage( 'Cannot get mml. TeX parse error: Missing close brace' );
 		MathRestbaseInterface::throwContentError( 'mml', $input );
 	}
 
 	public function testLateErrorNoDetail() {
 		$input = '';
-		$this->expectException( MWException::class );
+		$this->expectException( MathRestbaseException::class );
 		$this->expectExceptionMessage( 'Cannot get mml. Server problem.' );
 		MathRestbaseInterface::throwContentError( 'mml', $input );
 	}

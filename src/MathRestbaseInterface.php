@@ -11,7 +11,6 @@ namespace MediaWiki\Extension\Math;
 use Exception;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
-use MWException;
 use Psr\Log\LoggerInterface;
 use stdClass;
 
@@ -103,7 +102,7 @@ class MathRestbaseInterface {
 
 	/**
 	 * @return string MathML code
-	 * @throws MWException
+	 * @throws MathRestbaseException
 	 */
 	public function getMathML() {
 		if ( !$this->mml ) {
@@ -112,6 +111,11 @@ class MathRestbaseInterface {
 		return $this->mml;
 	}
 
+	/**
+	 * @param string $type
+	 * @return string
+	 * @throws MathRestbaseException
+	 */
 	private function getContent( $type ) {
 		$request = $this->getContentRequest( $type );
 		$multiHttpClient = $this->getMultiHttpClient();
@@ -119,10 +123,13 @@ class MathRestbaseInterface {
 		return $this->evaluateContentResponse( $type, $response, $request );
 	}
 
+	/**
+	 * @throws InvalidTeXException
+	 */
 	private function calculateHash() {
 		if ( !$this->hash ) {
 			if ( !$this->checkTeX() ) {
-				throw new MWException( "TeX input is invalid." );
+				throw new InvalidTeXException( "TeX input is invalid." );
 			}
 		}
 	}
@@ -212,7 +219,6 @@ class MathRestbaseInterface {
 	 * @param string $path
 	 * @param bool|true $internal
 	 * @return string
-	 * @throws MWException
 	 */
 	public function getUrl( $path, $internal = true ) {
 		global $wgMathInternalRestbaseURL, $wgMathFullRestbaseURL;
@@ -230,6 +236,10 @@ class MathRestbaseInterface {
 		return $this->logger;
 	}
 
+	/**
+	 * @return string
+	 * @throws MathRestbaseException
+	 */
 	public function getSvg() {
 		return $this->getContent( 'svg' );
 	}
@@ -270,7 +280,7 @@ class MathRestbaseInterface {
 	/**
 	 * Gets a publicly accessible link to the generated SVG image.
 	 * @return string
-	 * @throws MWException
+	 * @throws InvalidTeXException
 	 */
 	public function getFullSvgUrl() {
 		$this->calculateHash();
@@ -280,7 +290,7 @@ class MathRestbaseInterface {
 	/**
 	 * Gets a publicly accessible link to the generated SVG image.
 	 * @return string
-	 * @throws MWException
+	 * @throws InvalidTeXException
 	 */
 	public function getFullPngUrl() {
 		$this->calculateHash();
@@ -345,7 +355,6 @@ class MathRestbaseInterface {
 
 	/**
 	 * @return array
-	 * @throws MWException
 	 */
 	public function getCheckRequest() {
 		return [
@@ -396,7 +405,7 @@ class MathRestbaseInterface {
 	/**
 	 * @param string $type
 	 * @return array
-	 * @throws MWException
+	 * @throws InvalidTeXException
 	 */
 	private function getContentRequest( $type ) {
 		$this->calculateHash();
@@ -418,7 +427,7 @@ class MathRestbaseInterface {
 	 * @param array $response
 	 * @param array $request
 	 * @return string
-	 * @throws MWException
+	 * @throws MathRestbaseException
 	 */
 	private function evaluateContentResponse( $type, array $response, array $request ) {
 		if ( $response['code'] === 200 ) {
@@ -441,7 +450,7 @@ class MathRestbaseInterface {
 	/**
 	 * @param string $type
 	 * @param string $body
-	 * @throws MWException
+	 * @throws MathRestbaseException
 	 * @return never
 	 */
 	public static function throwContentError( $type, $body ) {
@@ -454,6 +463,6 @@ class MathRestbaseInterface {
 				$detail = $json->detail;
 			}
 		}
-		throw new MWException( "Cannot get $type. $detail" );
+		throw new MathRestbaseException( "Cannot get $type. $detail" );
 	}
 }

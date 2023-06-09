@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Math\HookHandlers;
 
-use FatalError;
 use MediaWiki\Extension\Math\Hooks\HookRunner;
 use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathMathML;
@@ -15,7 +14,6 @@ use MediaWiki\Hook\ParserOptionsRegisterHook;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\User\UserOptionsLookup;
-use MWException;
 use Parser;
 use ParserOptions;
 
@@ -115,8 +113,6 @@ class ParserHooksHandler implements
 	 * @param MathRenderer $renderer
 	 * @param Parser $parser
 	 * @return string
-	 * @throws FatalError
-	 * @throws MWException
 	 */
 	private function mathPostTagHook( MathRenderer $renderer, Parser $parser ) {
 		$checkResult = $renderer->checkTeX();
