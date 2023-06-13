@@ -8,7 +8,8 @@
 			"Indoril",
 			"Macofe",
 			"NikosLikomitros",
-			"Nikosgranturismogt"
+			"Nikosgranturismogt",
+			"Gpbiza"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Χημικός τύπος",
@@ -26,6 +27,8 @@
 	"math-visualeditor-symbol-group-chem-formulae": "Χημικοί τύποι",
 	"math-visualeditor-symbol-group-chem-greek": "Ελληνικοί χαρακτήρες",
 	"math-visualeditor-symbol-group-chem-isotopes": "Ισότοπα",
+	"math-visualeditor-symbol-group-chem-oxidation": "Καταστάσεις οξείδωσης",
+	"math-visualeditor-symbol-group-math-bounds": "Όρια",
 	"math-visualeditor-symbol-group-math-greek": "Ελληνικό αλφάβητο",
 	"math-visualeditor-symbol-group-math-hebrew": "Εβραϊκό αλφάβητο",
 	"math-visualeditor-symbol-group-math-logic": "Λογική",
@@ -37,7 +40,6 @@
 	"math_unknown_error": "άγνωστο σφάλμα",
 	"math_unknown_function": "άγνωστη συνάρτηση \"$1\"",
 	"mw_math_mathml": "MathML με SVG ή μετάπτωση σε PNG (συνιστάται για σύγχρονους browsers και εργαλεία πρόσβασης)",
-	"mw_math_png": "Εικόνες PNG",
 	"mw_math_source": "Πηγή LaTeX (για text browsers)",
 	"prefs-math": "Απόδοση μαθηματικών",
 	"mathstatus": "Μαθηματικά στατιστικά",
