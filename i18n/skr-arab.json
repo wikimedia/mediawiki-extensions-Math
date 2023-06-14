@@ -28,5 +28,10 @@
 	"prefs-math": "ریاضی",
 	"mathstatus": "ریاضی دی صورت حال",
 	"datatypes-type-math": "ریاضیاتی اظہار",
-	"wikibase-listdatatypes-math-head": "ریاضیاتی اظہار"
+	"wikibase-listdatatypes-math-head": "ریاضیاتی اظہار",
+	"math-wikibase-formula": "کلیہ",
+	"math-wikibase-formula-name": "ناں",
+	"math-wikibase-formula-type": "قسم",
+	"math-wikibase-formula-description": "تفصیل",
+	"math-wikibase-special-error-header": "نقص"
 }
