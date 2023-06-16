@@ -10,6 +10,10 @@
 		<exclude name="MediaWiki.Usage.ExtendClassUsage.FunctionConfigUsage" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
 	</rule>
+	<rule ref="Generic.Files.LineLength.TooLong">
+		<exclude-pattern>/src/TexVC/Mhchem/MhchemPatterns.php</exclude-pattern>
+		<exclude-pattern>/src/TexVC/Mhchem/MhchemStateMachines.php</exclude-pattern>
+	</rule>
     <exclude-pattern>/src/TexVC/Parser.php</exclude-pattern>
 	<file>.</file>
 	<arg name="extensions" value="php" />
