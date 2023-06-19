@@ -13,6 +13,8 @@ class LocalChecker extends BaseChecker {
 	private ?Message $error = null;
 	private ?TexArray $parseTree = null;
 
+	private ?string $mathMl = null;
+
 	/**
 	 * @param string $tex the TeX input string to be checked
 	 * @param string $type the input type
@@ -54,5 +56,10 @@ class LocalChecker extends BaseChecker {
 
 	public function getParseTree(): ?TexArray {
 		return $this->parseTree;
+	}
+
+	public function getPresentationMathMLFragment(): string {
+		$this->mathMl ??= $this->parseTree->renderMML();
+		return $this->mathMl;
 	}
 }

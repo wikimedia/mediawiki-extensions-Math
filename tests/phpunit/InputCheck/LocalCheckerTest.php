@@ -94,4 +94,16 @@ class LocalCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->assertInstanceOf( TexArray::class, $parseTree );
 		$this->assertSame( 0, $parseTree->getLength() );
 	}
+
+	public function testGetMML() {
+		$checker = new LocalChecker( 'e^{i \pi} + 1 = 0' );
+		$mml = $checker->getPresentationMathMLFragment();
+		$this->assertStringContainsString( '<mn>0</mn>', $mml );
+	}
+
+	public function testGetMMLEmpty() {
+		$checker = new LocalChecker( '' );
+		$mml = $checker->getPresentationMathMLFragment();
+		$this->assertSame( '', $mml );
+	}
 }
