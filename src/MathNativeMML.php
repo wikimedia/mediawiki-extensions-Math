@@ -45,7 +45,7 @@ class MathNativeMML extends MathMathML {
 		}
 		$root = new MMLmath( "", $attributes );
 
-		$this->setMathml( $root->encapsulateRaw( $presentation ) );
+		$this->setMathml( $root->encapsulateRaw( $presentation ?? '' ) );
 		return StatusValue::newGood();
 	}
 
