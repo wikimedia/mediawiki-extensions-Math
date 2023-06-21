@@ -9,7 +9,9 @@
 			"Mienski",
 			"Vlad5250",
 			"Yury Tarasievich",
-			"No Sleep till Krupki"
+			"No Sleep till Krupki",
+			"Plaga med",
+			"Tomato Cream"
 		]
 	},
 	"math-desc": "Выводзіць матэматычныя формулы, запісаныя паміж тэгамі <code>&lt;math&gt;</code> і <code>&lt;/math&gt;</code>",
@@ -20,7 +22,7 @@
 	"math-visualeditor-mwlatexdialog-card-options": "Налады",
 	"math-visualeditor-mwlatexinspector-display": "Выгляд",
 	"math-visualeditor-mwlatexinspector-display-block": "Абзац",
-	"math-visualeditor-mwlatexinspector-display-default": "Па змаўчанні",
+	"math-visualeditor-mwlatexinspector-display-default": "Прадвызначана",
 	"math-visualeditor-mwlatexinspector-display-inline": "Унутры радка",
 	"math-visualeditor-mwlatexinspector-id": "Ідэнтыфікатар спасылкі (неабавязковы)",
 	"math-visualeditor-mwmathdialog-title": "Матэматычную формулу",
