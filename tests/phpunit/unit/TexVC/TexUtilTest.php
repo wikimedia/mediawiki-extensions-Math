@@ -61,6 +61,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'mhchem_macro_2pc',
 			'mhchem_macro_2pu',
 			'mhchem_required',
+			'mhchemtexified_required',
 			'mhchem_single_macro',
 			'nullary_macro',
 			'nullary_macro_in_mbox',

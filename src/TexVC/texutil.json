@@ -1386,16 +1386,32 @@
 	"\\log": {
 		"latex_function_names": true
 	},
+	"\\longLeftrightharpoons": {
+		"mhchemtexified_required": true,
+		"nullary_macro": true
+	},
+	"\\longRightleftharpoons": {
+		"mhchemtexified_required": true,
+		"nullary_macro": true
+	},
 	"\\longleftarrow": {
 		"nullary_macro": true
 	},
 	"\\longleftrightarrow": {
 		"nullary_macro": true
 	},
+	"\\longleftrightarrows": {
+		"mhchemtexified_required": true,
+		"nullary_macro": true
+	},
 	"\\longmapsto": {
 		"nullary_macro": true
 	},
 	"\\longrightarrow": {
+		"nullary_macro": true
+	},
+	"\\longrightleftharpoons": {
+		"mhchemtexified_required": true,
 		"nullary_macro": true
 	},
 	"\\looparrowleft": {
@@ -2318,6 +2334,10 @@
 	},
 	"\\trianglerighteq": {
 		"ams_required": true,
+		"nullary_macro": true
+	},
+	"\\tripledash": {
+		"mhchemtexified_required": true,
 		"nullary_macro": true
 	},
 	"\\twoheadleftarrow": {

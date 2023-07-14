@@ -27,8 +27,8 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 	private static $SIMILARITYTRESH = 0.7;
 	private static $SKIPXMLVALIDATION = true;
 	private static $APPLYFILTER = false;
-	private static $APPLYCATEGORYFILTER = false;
-	private static $FILTEREDCATEGORIES = [ "fun_ar1" ];
+	private static $APPLYCATEGORYFILTER = true;
+	private static $SKIPPEDCATEGORIES = [ "mhchemtexified_required" ];
 	private static $FILTERSTART = 15;
 	private static $FILTERLENGTH = 1;
 
@@ -39,7 +39,7 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 	/** @var bool export the updated TexUtil-Tex to "./ExportedTexUtilKeys.json" */
 	private static $EXPORT_KEYS = false;
 
-	private static $SKIPPEDINDICES = [ 15,33, 90, 383,554 ];
+	private static $SKIPPEDINDICES = [ 15, 33, 90, 383, 554 ];
 
 	/**
 	 * @dataProvider provideTestCases
@@ -215,7 +215,7 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 		$overAllCtr = 0;
 		$finalCases = [];
 		foreach ( $groups  as $category => $group ) {
-			if ( self::$APPLYCATEGORYFILTER && !in_array( $category, self::$FILTEREDCATEGORIES, true ) ) {
+			if ( self::$APPLYCATEGORYFILTER && !in_array( $category, self::$SKIPPEDCATEGORIES, true ) ) {
 				continue;
 			}
 			$indexCtr = 0;

@@ -73,7 +73,7 @@ class TexVC {
 			];
 
 			if ( $options['report_required'] ) {
-				$pkgs = [ 'ams', 'cancel', 'color', 'euro', 'teubner', 'mhchem', 'mathoid' ];
+				$pkgs = [ 'ams', 'cancel', 'color', 'euro', 'teubner', 'mhchem', 'mathoid', 'mhchemtexified' ];
 
 				foreach ( $pkgs as $pkg ) {
 					$pkg .= '_required';
@@ -89,6 +89,16 @@ class TexVC {
 					return [
 						'status' => 'C',
 						'details' => 'mhchem package required.'
+					];
+				}
+			}
+			if ( !$options['usemhchemtexified'] ) {
+				if ( $result['mhchemtexified_required'] ??
+					$input->containsFunc( $this->tu->getBaseElements()['mhchemtexified_required'] )
+				) {
+					return [
+						'status' => 'C',
+						'details' => 'virtual mhchemtexified package required.'
 					];
 				}
 			}
