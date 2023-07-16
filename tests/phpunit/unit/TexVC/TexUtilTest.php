@@ -107,7 +107,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		}
 
 		// Loading local json file
-		$file = file_get_contents( __DIR__ . '/texutil.json' );
+		$file = TexUtil::getJsonFile();
 		$fileP = str_replace( [ "\n", "\t", " " ], "", $file );
 
 		$encP = json_encode( $out );

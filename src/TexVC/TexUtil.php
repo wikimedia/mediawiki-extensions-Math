@@ -102,8 +102,15 @@ class TexUtil {
 	 * @return array
 	 */
 	private function getJSON() {
-		$file = file_get_contents( __DIR__ . '/texutil.json' );
+		$file = self::getJsonFile();
 		$json = json_decode( $file, true );
 		return $json;
+	}
+
+	/**
+	 * @return false|string
+	 */
+	public static function getJsonFile() {
+		return file_get_contents( __DIR__ . '/texutil.json' );
 	}
 }
