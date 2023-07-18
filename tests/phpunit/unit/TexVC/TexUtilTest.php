@@ -47,6 +47,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'fun_ar1opt',
 			'fun_ar2',
 			'fun_ar2nb',
+			'fun_ar4',
 			'fun_infix',
 			'fun_mhchem',
 			'hline_function',
@@ -114,6 +115,9 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		$encP = json_encode( $out );
 		$hashOutput = $this->getHash( $encP );
 		$hashFile = $this->getHash( $fileP );
+		// uncomment the following lines to spot differences in your IDE
+		// $this->assertEquals( str_replace( "\t", "    ", $file ), json_encode($out,
+		// JSON_PRETTY_PRINT) . "\n" );
 		$this->assertEquals( $hashFile, $hashOutput );
 	}
 
