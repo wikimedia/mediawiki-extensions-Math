@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Math\Tests\TexVC;
 
+use InvalidArgumentException;
 use MediaWiki\Extension\Math\TexVC\TexUtil;
 use MediaWikiUnitTestCase;
 
@@ -22,6 +23,14 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		// Testing other functions
 		$this->assertTrue( $tu->mhchem_macro_2pc( "\\color" ) );
 		$this->assertFalse( $tu->mhchem_macro_2pc( "not listed" ) );
+	}
+
+	public function testInvalidCall() {
+		TexUtil::removeInstance();
+		$tu = TexUtil::getInstance();
+		// Testing all functions
+		$this->expectException( InvalidArgumentException::class );
+		$tu->__call( '\\notlisted', [] );
 	}
 
 	/**
