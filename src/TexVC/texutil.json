@@ -1353,6 +1353,10 @@
 	"\\ll": {
 		"nullary_macro": true
 	},
+	"\\llap": {
+		"fun_ar1": true,
+		"mhchemtexified_required": true
+	},
 	"\\llcorner": {
 		"ams_required": true,
 		"other_delimiters1": true
@@ -1425,6 +1429,10 @@
 	"\\lor": {
 		"nullary_macro": true
 	},
+	"\\lower": {
+		"fun_ar2": true,
+		"mhchemtexified_required": true
+	},
 	"\\lozenge": {
 		"ams_required": true,
 		"nullary_macro": true
@@ -1470,6 +1478,10 @@
 	"\\mathcal": {
 		"fun_ar1": true,
 		"is_letter_mod": true
+	},
+	"\\mathchoice": {
+		"fun_ar4": true,
+		"mhchemtexified_required": true
 	},
 	"\\mathclose": {
 		"fun_ar1": true,
@@ -1537,6 +1549,10 @@
 	"\\min": {
 		"latex_function_names": true
 	},
+	"\\mkern": {
+		"fun_ar1": true,
+		"mhchemtexified_required": true
+	},
 	"\\mod": {
 		"ams_required": true,
 		"nullary_macro": true
@@ -1546,6 +1562,10 @@
 	},
 	"\\mp": {
 		"nullary_macro": true
+	},
+	"\\mskip": {
+		"fun_ar1": true,
+		"mhchemtexified_required": true
 	},
 	"\\mu": {
 		"is_literal": true,
@@ -1931,6 +1951,10 @@
 		"ams_required": true,
 		"nullary_macro": true
 	},
+	"\\raise": {
+		"fun_ar2": true,
+		"mhchemtexified_required": true
+	},
 	"\\rang": {
 		"other_delimiters2": "\\rangle"
 	},
@@ -2004,6 +2028,10 @@
 	"\\risingdotseq": {
 		"ams_required": true,
 		"nullary_macro": true
+	},
+	"\\rlap": {
+		"fun_ar1": true,
+		"mhchemtexified_required": true
 	},
 	"\\rm": {
 		"declh_function": true
@@ -2086,6 +2114,10 @@
 	"\\smallsmile": {
 		"ams_required": true,
 		"nullary_macro": true
+	},
+	"\\smash": {
+		"fun_ar1opt": true,
+		"mhchemtexified_required": true
 	},
 	"\\smile": {
 		"nullary_macro": true
