@@ -2,6 +2,8 @@
 namespace MediaWiki\Extension\Math\TexVC\MMLmappings\Util;
 
 use IntlChar;
+use MediaWiki\Extension\Math\TexVC\Nodes\Curly;
+use MediaWiki\Extension\Math\TexVC\Nodes\Literal;
 
 /**
  * Utility Methods for parsing Tex to MathML
@@ -70,6 +72,47 @@ class MMLutil {
 	 */
 	public static function size2em( string $size ): string {
 		return preg_replace( "/(\.\d\d\d).+/", '$1', $size ) . "em";
+	}
+
+	/**
+	 * Assumes the input curly contains an TexArray of literals, squashes the TexArray characters to a string.
+	 * @param Curly $node curly containing a TexArray of literals
+	 * @return ?string squashed string in example "2mu", "-3mu" etc. Null if no TexArray inside curly.
+	 */
+	public static function squashLitsToUnit( Curly $node ): ?string {
+		$unit = "";
+		foreach ( $node->getArg()->getArgs() as $literal ) {
+			if ( !$literal instanceof Literal ) {
+				continue;
+			}
+			$unit .= $literal->getArg();
+		}
+
+		return $unit;
+	}
+
+	/**
+	 * Convert a length dimension to em format
+	 * currently supports "mu: math unit and forwards em"
+	 * @param string $dimen input for length dimension  like "-2mu" or "3 em"
+	 * @return string|null converted string i.e. "0.333em"  or null if error
+	 */
+	public static function dimen2em( string $dimen ): ?string {
+		$matches = [];
+		$matched = preg_match( '/([+-]?)(\d*\.*\d+)\s*(mu|em)/', $dimen, $matches );
+
+		if ( !$matched ) {
+			return null;
+		}
+		if ( $matches[3] == "mu" ) {
+			$ret = self::size2em( strval( intval( $matches[2] ) / 18 ) );
+		} elseif ( $matches[3] == "em" ) {
+			$ret = $matches[2] . "em";
+		} else {
+			return null;
+		}
+
+		return ( $matches[1] == "-" ? "-" : "" ) . $ret;
 	}
 
 	/**

@@ -346,11 +346,25 @@ class BaseParsing {
 		return $mmlRow->encapsulateRaw( "HLINE TBD" );
 	}
 
-	public static function hskip( $node, $passedArgs, $operatorContent, $name,
-								  $smth1 = null, $smth2 = null, $smth3 = null, $smth4 = null ) {
-		// tbd hskip
-		$mmlRow = new MMLmrow();
-		return $mmlRow->encapsulateRaw( "hskip tbd" );
+	public static function hskip( $node, $passedArgs, $operatorContent, $name ) {
+		if ( $node->getArg() instanceof Curly ) {
+			$unit = MMLutil::squashLitsToUnit( $node->getArg() );
+			if ( !$unit ) {
+				return null;
+			}
+			$em = MMLutil::dimen2em( $unit );
+		} else {
+			// Prevent parsing in unmapped cases
+			return null;
+		}
+		if ( $name == "mskip" || $name == "mkern" ) {
+			$args = [ "width" => $em ];
+		} else {
+			return null;
+		}
+
+		$mspace = new MMLmspace( "", $args );
+		return $mspace->encapsulateRaw( "" );
 	}
 
 	public static function handleOperatorName( $node, $passedArgs, $operatorContent, $name,
