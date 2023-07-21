@@ -92,6 +92,42 @@ class MMLutil {
 	}
 
 	/**
+	 * em or other dimensional unit gets multiplied by pre-operator.
+	 * @param string $size input size i.e-123em
+	 * @param string $operator "plus (+) or minus (-)
+	 * @return string|void ++ => + , -- => +, -+ => -
+	 */
+	public static function addPreOperator( string $size, string $operator ) {
+		$emtr = trim( $size );
+
+		$ok = preg_match( "/^(\+|\-)$/", $operator );
+		if ( !$ok ) {
+			return;
+		}
+		switch ( $emtr[0] ) {
+			case "-":
+				if ( $operator == "+" ) {
+					return $emtr;
+				} elseif ( $operator == "-" ) {
+					$emtr[0] = "+";
+					return $emtr;
+				}
+				break;
+			case "+":
+				if ( $operator == "+" ) {
+					return $emtr;
+				} elseif ( $operator == "-" ) {
+					$emtr[0] = "-";
+					return $emtr;
+				}
+				break;
+			default:
+				return $operator . $emtr;
+		}
+		return $emtr;
+	}
+
+	/**
 	 * Convert a length dimension to em format
 	 * currently supports "mu: math unit and forwards em"
 	 * @param string $dimen input for length dimension  like "-2mu" or "3 em"

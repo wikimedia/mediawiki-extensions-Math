@@ -35,6 +35,7 @@ use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmunderover;
 use MediaWiki\Extension\Math\TexVC\Nodes\Curly;
 use MediaWiki\Extension\Math\TexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\TexVC\Nodes\FQ;
+use MediaWiki\Extension\Math\TexVC\Nodes\Fun1;
 use MediaWiki\Extension\Math\TexVC\Nodes\Fun1nb;
 use MediaWiki\Extension\Math\TexVC\Nodes\Fun2;
 use MediaWiki\Extension\Math\TexVC\Nodes\Fun2sq;
@@ -374,6 +375,22 @@ class BaseParsing {
 		return $node->getArg()->renderMML( $passedArgs );
 	}
 
+	public static function lap( $node, $passedArgs, $operatorContent, $name ) {
+		if ( !$node instanceof Fun1 ) {
+			return null;
+		}
+		if ( $name == "rlap" ) {
+			$args = [ "width" => "0" ];
+		} elseif ( $name == "llap" ) {
+			$args = [ "width" => "0", "lspace" => "-1width" ];
+		} else {
+			return null;
+		}
+		$mrow = new MMLmrow();
+		$mpAdded = new MMLmpadded( "", $args );
+		return $mrow->encapsulateRaw( $mpAdded->encapsulateRaw( $node->getArg()->renderMML() ) );
+	}
+
 	public static function macro( $node, $passedArgs, $operatorContent, $name, $macro, $argcount = null, $def = null ) {
 		// Parse the Macro
 		switch ( $name ) {
@@ -673,6 +690,42 @@ class BaseParsing {
 		$mphantom = new MMLmphantom();
 		return $mrow->encapsulateRaw( $mrow->encapsulateRaw(
 			$mpadded->encapsulateRaw( $mphantom->encapsulateRaw( $node->getArg()->renderMML() ) ) ) );
+	}
+
+	public static function raiseLower( $node, $passedArgs, $operatorContent, $name ) {
+		if ( !$node instanceof Fun2 ) {
+			return null;
+		}
+
+		$arg1 = $node->getArg1();
+		if ( $arg1 instanceof Curly ) {
+			$unit = MMLutil::squashLitsToUnit( $arg1 );
+			if ( !$unit ) {
+				return null;
+			}
+			$em = MMLutil::dimen2em( $unit );
+			if ( !$em ) {
+				return null;
+			}
+		} else {
+			return null;
+		}
+
+		if ( $name == "raise" ) {
+			$args = [ "height" => MMLutil::addPreOperator( $em, "+" ),
+				"depth" => MMLutil::addPreOperator( $em, "-" ),
+				"voffset" => MMLutil::addPreOperator( $em, "+" ) ];
+		} elseif ( $name == "lower" ) {
+			$args = [ "height" => MMLutil::addPreOperator( $em, "-" ),
+				"depth" => MMLutil::addPreOperator( $em, "+" ),
+				"voffset" => MMLutil::addPreOperator( $em, "-" ) ];
+		} else {
+			// incorrect name, should not happen, prevent erroneous mappings from getting rendered.
+			return null;
+		}
+		$mrow = new MMLmrow();
+		$mpAdded = new MMLmpadded( "", $args );
+		return $mrow->encapsulateRaw( $mpAdded->encapsulateRaw( $node->getArg2()->renderMML() ) );
 	}
 
 	public static function underset( $node, $passedArgs, $operatorContent, $name, $smh = null ) {
