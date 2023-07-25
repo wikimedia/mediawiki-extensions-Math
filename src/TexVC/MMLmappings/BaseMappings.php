@@ -755,7 +755,7 @@ class BaseMappings {
 		],
 		"tripledash" => [
 			'macro',
-			'\\vphantom{-}\\raise2mu{\\kern2mu\\tiny\\text{-}\\kern1mu\\text{-}\\kern1mu\\text{-}\\kern2mu}'
+			'\\vphantom{-}\\raise{2mu}\\\kern{2mu}\\tiny\\text{-}\\kern{1mu}\\text{-}\\kern{1mu}\\text{-}\\kern{2mu}}'
 		],
 		"xleftrightarrow" => [ 'xArrow', 0x2194, 6, 6 ],
 		"xrightleftharpoons" => [ 'xArrow', 0x21CC, 5, 7 ],

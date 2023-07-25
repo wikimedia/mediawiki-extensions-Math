@@ -46,6 +46,9 @@ class BaseMethods {
 						$resFct = BaseMappings::getSpecialByKey( $input );
 						if ( $resFct == null ) {
 							$resFct = BaseMappings::getCancelByKey( $input );
+								if ( $resFct == null ) {
+									$resFct = BaseMappings::getMhChemByKey( $input );
+								}
 						}
 					}
 				}

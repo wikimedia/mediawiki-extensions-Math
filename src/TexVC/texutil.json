@@ -1215,6 +1215,10 @@
 	"\\ker": {
 		"latex_function_names": true
 	},
+	"\\kern": {
+		"fun_ar1": true,
+		"mhchemtexified_required": true
+	},
 	"\\koppa": {
 		"nullary_macro_in_mbox": true,
 		"teubner_required": true
