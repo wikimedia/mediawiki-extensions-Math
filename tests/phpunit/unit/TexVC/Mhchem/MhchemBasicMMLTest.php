@@ -84,4 +84,52 @@ final class MhchemBasicMMLTest extends MediaWikiUnitTestCase {
 			$checkRes["input"]->renderMML() );
 	}
 
+	public function testSmash1() {
+		$input = "\\smash[t]{2}";
+		$texVC = new TexVC();
+		$warnings = [];
+		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
+			$warnings, true );
+		$this->assertStringContainsString( '<mpadded height="0">', $checkRes["input"]->renderMML() );
+	}
+
+	public function testSmash2() {
+		$input = "\\smash[b]{x}";
+		$texVC = new TexVC();
+		$warnings = [];
+		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
+			$warnings, true );
+		$this->assertStringContainsString( '<mpadded depth="0">', $checkRes["input"]->renderMML() );
+	}
+
+	public function testSmash3() {
+		$input = "\\smash[bt]{2}";
+		$texVC = new TexVC();
+		$warnings = [];
+		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
+			$warnings, true );
+		$this->assertStringContainsString( '<mpadded height="0" depth="0">',
+			$checkRes["input"]->renderMML() );
+	}
+
+	public function testSmash4() {
+		$input = "\\smash[tb]{2}";
+		$texVC = new TexVC();
+		$warnings = [];
+		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
+			$warnings, true );
+		$this->assertStringContainsString( '<mpadded height="0" depth="0">',
+			$checkRes["input"]->renderMML() );
+	}
+
+	public function testSmash5() {
+		$input = "\\smash{2}";
+		$texVC = new TexVC();
+		$warnings = [];
+		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
+			$warnings, true );
+		$ar = $checkRes["input"]->renderMML();
+		$this->assertStringContainsString( '<mpadded height="0" depth="0"', $ar );
+	}
+
 }
