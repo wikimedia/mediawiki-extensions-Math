@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Math\MathNativeMML;
+use Wikimedia\Rdbms\LBFactory;
 
 /**
  * Test the native MathML output format.
@@ -15,7 +16,13 @@ class MathNativeMMLTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
+		$db = $this->createMock( IDatabase::class );
+		$db->method( 'selectRow' )->willReturn( false );
+		$lbFactory = $this->createMock( LBFactory::class );
+		$lbFactory->method( 'getReplicaDatabase' )->willReturn( $db );
+		$this->setService( 'DBLoadBalancerFactory', $lbFactory );
 		$this->setMwGlobals( 'wgMathValidModes', [ 'native' ] );
+		$this->clearHooks();
 	}
 
 	public function testSin() {

@@ -9,6 +9,7 @@ use User;
 
 /**
  * @covers \MediaWiki\Extension\Math\HookHandlers\PreferencesHooksHandler
+ * @group Database
  */
 class PreferencesIntegrationTest extends MediaWikiIntegrationTestCase {
 
