@@ -55,6 +55,12 @@
 			"services": [
 				"Math.Config"
 			]
+		},
+		"main": {
+			"class": "MediaWiki\\Extension\\Math\\Hooks"
+		},
+		"schema": {
+			"class": "MediaWiki\\Extension\\Math\\HookHandlers\\SchemaHooksHandler"
 		}
 	},
 	"Hooks": {
@@ -63,11 +69,11 @@
 		"ParserOptionsRegister": "ParserHooksHandler",
 		"GetPreferences": "PreferencesHooksHandler",
 		"UserGetDefaultOptions": "PreferencesHooksHandler",
-		"LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\Math\\Hooks::onLoadExtensionSchemaUpdates",
+		"LoadExtensionSchemaUpdates": "schema",
 		"WikibaseClientDataTypes": "MediaWiki\\Extension\\Math\\WikibaseHook::onWikibaseClientDataTypes",
 		"WikibaseRepoDataTypes": "MediaWiki\\Extension\\Math\\WikibaseHook::onWikibaseRepoDataTypes",
-		"SpecialPage_initList": "MediaWiki\\Extension\\Math\\Hooks::onSpecialPageInitList",
-		"MaintenanceRefreshLinksInit": "MediaWiki\\Extension\\Math\\Hooks::onMaintenanceRefreshLinksInit",
+		"SpecialPage_initList": "main",
+		"MaintenanceRefreshLinksInit": "main",
 		"ResourceLoaderGetConfigVars": "ResourceLoaderConfigHandler"
 	},
 	"config": {

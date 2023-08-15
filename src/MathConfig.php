@@ -100,7 +100,7 @@ class MathConfig {
 	 * @return string[]
 	 */
 	public function getValidRenderingModes(): array {
-		// NOTE: this method is copy-pasted into Hooks::onLoadExtensionSchemaUpdates
+		// NOTE: this method is copy-pasted into HookHandlers\SchemaHooksHandler::onLoadExtensionSchemaUpdates
 		// since we can't inject services in there.
 
 		$modes = array_map(

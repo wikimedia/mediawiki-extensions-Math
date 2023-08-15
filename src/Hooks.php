@@ -8,16 +8,21 @@
 
 namespace MediaWiki\Extension\Math;
 
+// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 use ConfigException;
-use DatabaseUpdater;
-use Exception;
 use ExtensionRegistry;
 use Maintenance;
+use MediaWiki\Hook\MaintenanceRefreshLinksInitHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Settings\SettingsBuilder;
+use MediaWiki\SpecialPage\Hook\SpecialPage_initListHook;
 use RequestContext;
 
-class Hooks {
+class Hooks implements
+	SpecialPage_initListHook,
+	MaintenanceRefreshLinksInitHook
+{
 
 	/**
 	 * Extension registration callback, used to apply dynamic defaults for configuration variables.
@@ -87,7 +92,7 @@ class Hooks {
 	 *
 	 * @param Maintenance $maint
 	 */
-	public static function onMaintenanceRefreshLinksInit( $maint ) {
+	public function onMaintenanceRefreshLinksInit( $maint ) {
 		$user = RequestContext::getMain()->getUser();
 
 		// Don't parse LaTeX to improve performance
@@ -96,39 +101,11 @@ class Hooks {
 	}
 
 	/**
-	 * LoadExtensionSchemaUpdates handler; set up math table on install/upgrade.
-	 *
-	 * @param DatabaseUpdater $updater
-	 * @throws Exception
-	 */
-	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
-		$type = $updater->getDB()->getType();
-		if ( !in_array( $type, [ 'mysql', 'sqlite', 'postgres' ], true ) ) {
-			throw new Exception( "Math extension does not currently support $type database." );
-		}
-
-		foreach ( [ 'mathoid', 'mathlatexml' ] as $mode ) {
-			$updater->addExtensionTable(
-				$mode,
-				__DIR__ . "/../sql/$type/$mode.sql"
-			);
-		}
-
-		if ( $type === 'mysql' ) {
-			$updater->addExtensionField(
-				'mathoid',
-				'math_png',
-				__DIR__ . '/../sql/' . $type . '/patch-mathoid.add_png.sql'
-			);
-		}
-	}
-
-	/**
 	 * Remove Special:MathWikibase if the Wikibase client extension isn't loaded
 	 *
 	 * @param array &$list
 	 */
-	public static function onSpecialPageInitList( &$list ) {
+	public function onSpecialPage_initList( &$list ) {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'WikibaseClient' ) ) {
 			unset( $list['MathWikibase'] );
 		}
