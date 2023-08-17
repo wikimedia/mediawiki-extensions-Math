@@ -30,23 +30,17 @@ class Hooks implements
 	public static function onConfig( array $extInfo, SettingsBuilder $settings ) {
 		$config = $settings->getConfig();
 
+		// Documentation of MathRestbaseInterface::getUrl() should be updated when this is changed.
+
 		$fullRestbaseUrl = $config->get( 'MathFullRestbaseURL' );
 		$internalRestbaseURL = $config->get( 'MathInternalRestbaseURL' );
 		$useInternalRestbasePath = $config->get( 'MathUseInternalRestbasePath' );
 		$virtualRestConfig = $config->get( 'VirtualRestConfig' );
 
 		if ( !$fullRestbaseUrl ) {
-			if ( $config->has( 'VisualEditorFullRestbaseURL' ) ) {
-				$settings->warning( "MathFullRestbaseURL is falling back to using VisualEditorFullRestbaseURL. " .
-					"Please configure the Mathoid API URL explicitly." );
-
-				$fullRestbaseUrl = $config->get( 'VisualEditorFullRestbaseURL' );
-				$settings->overrideConfigValue( 'MathFullRestbaseURL', $fullRestbaseUrl );
-			} else {
-				throw new ConfigException(
-					'Math extension can not find Restbase URL. Please specify $wgMathFullRestbaseURL.'
-				);
-			}
+			throw new ConfigException(
+				'Math extension can not find Restbase URL. Please specify $wgMathFullRestbaseURL.'
+			);
 		}
 
 		if ( !$useInternalRestbasePath ) {

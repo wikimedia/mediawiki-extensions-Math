@@ -205,16 +205,13 @@ class MathRestbaseInterface {
 	 * Case A: <code>$internal = false</code>, which means one needs a URL that is accessible from
 	 * outside:
 	 *
-	 * --> If <code>$wgMathFullRestbaseURL</code> is configured use it, otherwise fall back try to
-	 * <code>$wgVisualEditorFullRestbaseURL</code>. (Note, that this is not be worse than failing
-	 * immediately.)
+	 * --> Use <code>$wgMathFullRestbaseURL</code>. It must always be configured.
 	 *
-	 * Case B: <code> $internal= true</code>, which means one needs to access content from Restbase
+	 * Case B: <code>$internal = true</code>, which means one needs to access content from Restbase
 	 * which does not need to be accessible from outside:
 	 *
-	 * --> Use the mount point when it is available and <code> $wgMathUseInternalRestbasePath=
-	 * true</code>. If not, use <code>$wgMathFullRestbaseURL</code> with fallback to
-	 * <code>wgVisualEditorFullRestbaseURL</code>
+	 * --> Use the mount point when it is available and <code>$wgMathUseInternalRestbasePath =
+	 * true</code>. If not, use <code>$wgMathFullRestbaseURL</code>.
 	 *
 	 * @param string $path
 	 * @param bool|true $internal
