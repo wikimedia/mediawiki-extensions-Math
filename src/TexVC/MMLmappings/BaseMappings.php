@@ -20,7 +20,7 @@ class BaseMappings {
 	private const SPECIAL = [
 		'{' => 'open',
 		'}' => 'close',
-		'~' => [ 'tilde',true ],
+		'~' => [ 'tilde', true ],
 		'^' => 'superscript',
 		'_' => 'subscript',
 		' ' => 'space',
@@ -236,7 +236,7 @@ class BaseMappings {
 		"Longrightarrow" => '\u27F9',
 		"Longleftrightarrow" => '\u27FA',
 		"longleftrightarrow" => '\u27F7',
-		"longmapsto" => [ '\u27FC',[ "stretchy" => "false" ] ], // added stretchy for test
+		"longmapsto" => [ '\u27FC', [ "stretchy" => "false" ] ], // added stretchy for test
 		"ldots" => '\u2026',
 		"cdots" => '\u22EF',
 		// "cdots" => '\u2026', // fallback
@@ -766,7 +766,7 @@ class BaseMappings {
 	];
 	// These are some mappings which are created customly for this
 	private const CUSTOM = [
-		"boldsymbol" => [ 'boldsymbol','' ], // see boldsymbolConfiguration.js
+		"boldsymbol" => [ 'boldsymbol', '' ], // see boldsymbolConfiguration.js
 		"oint" => [ 'oint', '\u222E', [ "texClass" => TexClass::OP ] ],
 		"oiint" => [ 'oint', '\u222F', [ "texClass" => TexClass::OP ] ],
 		"oiiint" => [ 'oint', '\u2230', [ "texClass" => TexClass::OP ] ],

@@ -71,7 +71,7 @@ class Fun4Test extends MediaWikiUnitTestCase {
 			new Literal( 'b' ),
 			new Literal( 'c' ),
 			new Literal( 'd' ) );
-		$this->assertEquals( [ 'a','b','c','d' ], $f->extractIdentifiers(),
+		$this->assertEquals( [ 'a', 'b', 'c', 'd' ], $f->extractIdentifiers(),
 			'Should extract identifiers' );
 	}
 }

@@ -82,7 +82,7 @@ class MMLutil {
 		if ( str_starts_with( $input, "\\" ) && strlen( $input ) >= 2 ) {
 			$input = substr( $input, 1 );
 			// These are edge cases where input can be a Literal OR an Operator
-			$edgeCases = [ "S", "P", ";",",","!","'",">" ];
+			$edgeCases = [ "S", "P", ";", ",", "!", "'", ">" ];
 			if ( in_array( $input, $edgeCases, true ) ) {
 				$input = "\\" . $input;
 			}

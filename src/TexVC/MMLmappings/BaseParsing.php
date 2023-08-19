@@ -194,7 +194,7 @@ class BaseParsing {
 	public static function cancelTo( $node, $passedArgs, $operatorContent, $name, $notation = null ) {
 		$mrow = new MMLmrow();
 		$msup = new MMLmsup();
-		$mpAdded = new MMLmpadded( "", [ "depth" => "-.1em" ,"height" => "+.1em" ,"voffset" => ".1em" ] );
+		$mpAdded = new MMLmpadded( "", [ "depth" => "-.1em" , "height" => "+.1em" , "voffset" => ".1em" ] );
 
 		$menclose = new MMLmenclose( "", [ "notation" => $notation ] );
 		$inner = $menclose->encapsulateRaw(
@@ -213,7 +213,7 @@ class BaseParsing {
 		$mrow = new MMLmrow();
 		$mfrac = new MMLmfrac();
 		$mstyle = new MMLmstyle( "",  [ "displaystyle" => "false", "scriptlevel" => "0" ] );
-		$mpAdded = new MMLmpadded( "", [ "depth" => "3pt","height" => "8.6pt","width" => "0" ] );
+		$mpAdded = new MMLmpadded( "", [ "depth" => "3pt", "height" => "8.6pt", "width" => "0" ] );
 		// See TexUtilMMLTest testcase 81
 		// (mml3 might be erronous here, but this element seems to be rendered correctly)
 		$whatIsThis = $mrow->getStart() . $mpAdded->getStart() . $mpAdded->getEnd() . $mrow->getEnd();
@@ -260,7 +260,7 @@ class BaseParsing {
 		$fract = null;
 		$styleAttr = [];
 		$displayStyle = "false";
-		if ( in_array( $thick, [ 'thin', 'medium' ,'thick', '0' ], true ) ) {
+		if ( in_array( $thick, [ 'thin', 'medium' , 'thick', '0' ], true ) ) {
 			$attrs = array_merge( $attrs, [ "linethickness" => $thick ] );
 		}
 		if ( $style !== '' ) {
@@ -499,7 +499,7 @@ class BaseParsing {
 		if ( $columnInfo ) {
 			// TBD this is just simple check, create a parsing function for hlines when there are more cases
 			if ( str_contains( $columnInfo, "|" ) ) {
-				$mencloseArgs = [ "data-padding" => "0","notation" => "left right" ];
+				$mencloseArgs = [ "data-padding" => "0", "notation" => "left right" ];
 				// it seems this is creted when left and right is solely coming from columninfo
 				$tableArgs = array_merge( $tableArgs, [ "columnlines" => "solid" ] );
 			}
@@ -515,7 +515,7 @@ class BaseParsing {
 				$mmlMoOpen = $mmlMoOpen->encapsulateRaw( $open );
 			}
 
-			$closeAtts = [ "fence" => "true","stretchy" => "true","symmetric" => "true" ];
+			$closeAtts = [ "fence" => "true", "stretchy" => "true", "symmetric" => "true" ];
 			$mmlMoClose = $bm->checkAndParseDelimiter( $close, $node, $closeAtts,
 				null, true, TexClass::CLOSE );
 			if ( $mmlMoOpen == null ) {
@@ -571,7 +571,7 @@ class BaseParsing {
 			$mrowAll = new MMLmrow( TexClass::ORD );
 			$mrowOpen = new MMLmrow( TexClass::OPEN );
 			$mrowClose = new MMLmrow( TexClass::CLOSE );
-			$mo = new MMLmo( "", [ "maxsize" => "1.2em","minsize" => "1.2em" ] );
+			$mo = new MMLmo( "", [ "maxsize" => "1.2em", "minsize" => "1.2em" ] );
 			$start = $mrowAll->getStart() . $mrowOpen->encapsulateRaw( $mo->encapsulate( "(" ) );
 			$tail = $mrowClose->encapsulateRaw( $mo->encapsulate( ")" ) ) . $mrowAll->getEnd();
 			$attributes = [ "linethickness" => "0" ];

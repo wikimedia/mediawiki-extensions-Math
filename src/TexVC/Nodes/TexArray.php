@@ -119,7 +119,7 @@ class TexArray extends TexNode {
 		if ( !( $currentNode instanceof Literal
 			&& ( $tu->nullary_macro( trim( $currentNode->getArg() ) )
 			|| trim( $currentNode->getArg() ) == "\\lim" ) ) ) {
-			return [ null,false ];
+			return [ null, false ];
 		}
 
 		// Check whether the next node is a possible limits construct
@@ -127,7 +127,7 @@ class TexArray extends TexNode {
 			&& $nextNode->getBase() instanceof Literal
 			&& $nextNode->containsFunc( "\\limits" )
 			) ) {
-			return [ null,false ];
+			return [ null, false ];
 
 		}
 		return [ $currentNode, true ];

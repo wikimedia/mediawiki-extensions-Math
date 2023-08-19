@@ -140,7 +140,7 @@ class MMLComparator {
 			}
 		}
 
-		return [ $overallSize,$overallAttrs ];
+		return [ $overallSize, $overallAttrs ];
 	}
 
 	private function compareArrays( $base, $comp ): array {

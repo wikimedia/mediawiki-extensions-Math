@@ -44,8 +44,8 @@ class MathMathMLTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testChangeRootElemts() {
 		$mml = new MathMathML( '<mo>sin</mo>', [ 'type' => 'invalid' ] );
-		$mml->setAllowedRootElements( [ 'a','b' ] );
-		$this->assertSame( [ 'a','b' ], $mml->getAllowedRootElements() );
+		$mml->setAllowedRootElements( [ 'a', 'b' ] );
+		$this->assertSame( [ 'a', 'b' ], $mml->getAllowedRootElements() );
 	}
 
 	/**

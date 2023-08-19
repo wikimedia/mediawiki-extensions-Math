@@ -125,7 +125,7 @@ class AMSMappings {
 		"boxdot" => '\u22A1',
 		"circledcirc" => '\u229A',
 		"boxplus" => '\u229E',
-		"centerdot" => [ '\u22C5',[ "variantForm" => "True" ] ], // actually: "variantForm" => "True"
+		"centerdot" => [ '\u22C5', [ "variantForm" => "True" ] ], // actually: "variantForm" => "True"
 		"divideontimes" => '\u22C7',
 		"intercal" => '\u22BA',
 		"leqq" => '\u2266',
