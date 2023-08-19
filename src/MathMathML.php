@@ -12,12 +12,12 @@ use Html;
 use MediaWiki\Extension\Math\Hooks\HookRunner;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use Psr\Log\LoggerInterface;
 use SpecialPage;
 use StatusValue;
 use stdClass;
 use Throwable;
-use Title;
 use Xml;
 use XmlTypeCheck;
 

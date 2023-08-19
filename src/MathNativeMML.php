@@ -11,9 +11,9 @@ namespace MediaWiki\Extension\Math;
 use MediaWiki\Extension\Math\InputCheck\LocalChecker;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmath;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use SpecialPage;
 use StatusValue;
-use Title;
 
 /**
  * Converts LaTeX to MathML using PHP
