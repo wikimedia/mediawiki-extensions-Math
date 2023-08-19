@@ -6,6 +6,7 @@ use MediaWiki\Extension\Math\Tests\MathMockHttpTrait;
 use Wikibase\DataModel\Entity\NumericPropertyId;
 use Wikibase\DataModel\Snak\PropertyValueSnak;
 use Wikimedia\Purtle\NTriplesRdfWriter;
+use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\LBFactory;
 
 /**

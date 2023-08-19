@@ -5,6 +5,7 @@ use DataValues\StringValue;
 use MediaWiki\Extension\Math\MathFormatter;
 use MediaWiki\Extension\Math\Tests\MathMockHttpTrait;
 use Wikibase\Lib\Formatters\SnakFormatter;
+use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\LBFactory;
 
 /**

@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Math\MathNativeMML;
+use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\LBFactory;
 
 /**
