@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Math\Tests;
 
+use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use RequestContext;
-use Title;
 use User;
 
 /**

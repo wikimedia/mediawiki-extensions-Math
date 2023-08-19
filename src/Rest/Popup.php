@@ -9,8 +9,8 @@ use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
+use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
-use Title;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class Popup extends SimpleHandler {
