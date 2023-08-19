@@ -10,6 +10,7 @@ use MediaWiki\Rest\HttpException;
 use MediaWiki\Rest\RequestData;
 use MediaWiki\Tests\Rest\Handler\HandlerTestTrait;
 use MediaWiki\Title\Title;
+use MediaWiki\Title\TitleFactory;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\Lib\Store\EntityRevision;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -125,7 +126,7 @@ class PopupTest extends MathWikibaseConnectorTestFactory {
 		$titleMock = $this->createMock( Title::class );
 		$titleMock->method( 'getLocalURL' )->willReturn( 'special/Q1' );
 		$titleMock->method( 'getFullURL' )->willReturn( 'special/Q1' );
-		$titleFactoryMock = $this->createMock( \TitleFactory::class );
+		$titleFactoryMock = $this->createMock( TitleFactory::class );
 		$titleFactoryMock->expects( $this->once() )
 			->method( 'newFromText' )
 			->willReturn( $titleMock );
