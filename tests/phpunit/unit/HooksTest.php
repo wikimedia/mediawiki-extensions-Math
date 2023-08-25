@@ -39,17 +39,6 @@ class HooksTest extends MediaWikiUnitTestCase {
 			]
 		];
 
-		yield 'use VisualEditorFullRestbaseURL' => [
-			[
-				'MathFullRestbaseURL' => null,
-				'VisualEditorFullRestbaseURL' => 'https://wikimedia.org/api/rest_',
-			] + $defaults,
-			[
-				'MathFullRestbaseURL' => 'https://wikimedia.org/api/rest_',
-				'MathInternalRestbaseURL' => 'https://wikimedia.org/api/rest_',
-			]
-		];
-
 		yield 'explicit MathInternalRestbaseURL' => [
 			[
 				'MathInternalRestbaseURL' => 'https://localhost:12345/rest/',
