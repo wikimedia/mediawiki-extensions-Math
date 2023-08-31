@@ -55,7 +55,7 @@
 	"math-visualeditor-symbol-group-math-symbols": "Simbol èn ajegan",
 	"math-visualeditor-symbol-group-math-typefaces": "Roman hurup",
 	"math-visualeditor-symbol-group-math-unsorted": "Kaga' disortir",
-	"math_failure": "Gagal milah",
+	"math_failure": "Gagal nguyurin",
 	"math_invalidjson": "$1 waroan pengladèn – JSON nyang kaga' aci.",
 	"math_invalidresponse": "$1: Waroan kaga' aci (\"$3\") deri pengladèn \"$2\":",
 	"math_invalidxml": "MathML atawa SVG – XML nyang kaga' aci.",
