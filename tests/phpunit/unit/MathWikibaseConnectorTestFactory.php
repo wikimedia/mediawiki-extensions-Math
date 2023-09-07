@@ -121,7 +121,7 @@ class MathWikibaseConnectorTestFactory extends MediaWikiUnitTestCase {
 		$repoConnector = $this->createMock( RepoLinker::class );
 		$repoConnector->method( 'getEntityUrl' )
 			->willReturnCallback( static function ( ItemId $itemId ) {
-				return self::EXAMPLE_URL . 'wiki/Special:EntityPage/' . $itemId->serialize();
+				return self::EXAMPLE_URL . 'wiki/Special:EntityPage/' . $itemId->getSerialization();
 			} );
 
 		$mathFormatter = $this->createMock( MathFormatter::class );
