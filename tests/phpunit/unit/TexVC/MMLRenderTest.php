@@ -14,6 +14,13 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\TexVC\TexVC
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
+
+	public function testLesserThan() {
+		$input = "<, \\nless,";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertTrue( str_contains( $mathMLtexVC, " <mo>&lt;</mo>" ) );
+	}
+
 	public function testSidesetError() {
 		$input = "\\sideset{_1^2}{_3^4}";
 		$mathMLtexVC = $this->generateMML( $input );

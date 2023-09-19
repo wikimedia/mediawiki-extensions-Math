@@ -122,10 +122,10 @@ class BaseMethods {
 				return $mmlMo->encapsulate( $input );
 			case "<":
 				$mmlMo = new MMLmo();
-				return $mmlMo->encapsulate( "&lt;" );
+				return $mmlMo->encapsulateRaw( "&lt;" );
 			case ">":
 				$mmlMo = new MMLmo();
-				return $mmlMo->encapsulate( "&gt;" );
+				return $mmlMo->encapsulateRaw( "&gt;" );
 			case "\\":
 				$mspace = new MMLmspace( "", [ "linebreak" => "newline" ] );
 				return $mspace->getEmpty();
