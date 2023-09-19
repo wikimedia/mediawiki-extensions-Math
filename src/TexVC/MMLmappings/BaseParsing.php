@@ -943,6 +943,37 @@ class BaseParsing {
 		return $mstyle->encapsulateRaw( $mspace->encapsulate() );
 	}
 
+	public static function smash( $node, $passedArgs, $operatorContent, $name ) {
+		$mpArgs = [];
+		$inner = "";
+		if ( $node instanceof Fun2sq ) {
+			$arg1 = $node->getArg1();
+			$arg1i = "";
+			if ( $arg1 instanceof Curly ) {
+				$arg1i = $arg1->getArg()->render();
+			}
+
+			if ( str_contains( $arg1i, "{b}" ) ) {
+				$mpArgs = [ "depth" => "0" ];
+			}
+			if ( str_contains( $arg1i, "{t}" ) ) {
+				$mpArgs = [ "height" => "0" ];
+			}
+			if ( str_contains( $arg1i, "{tb}" ) || str_contains( $arg1i, "{bt}" ) ) {
+				$mpArgs = [ "height" => "0", "depth" => "0" ];
+			}
+
+			$inner = $node->getArg2()->renderMML() ?? "";
+		} elseif ( $node instanceof Fun1 ) {
+			// Implicitly assume "tb" as default mode
+			$mpArgs = [ "height" => "0", "depth" => "0" ];
+			$inner = $node->getArg()->renderMML() ?? "";
+		}
+		$mrow = new MMLmrow();
+		$mpAdded = new MMLmpadded( "", $mpArgs );
+		return $mrow->encapsulateRaw( $mpAdded->encapsulateRaw( $inner ) );
+	}
+
 	public static function texAtom( $node, $passedArgs, $operatorContent, $name, $texClass = null ) {
 		switch ( $name ) {
 			case "mathclose":

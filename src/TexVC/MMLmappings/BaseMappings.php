@@ -531,7 +531,7 @@ class BaseMappings {
 		"phantom" => 'phantom',
 		"vphantom" => [ 'phantom', 1, 0 ],
 		"hphantom" => [ 'phantom', 0, 1 ],
-		"smash" => 'Smash',
+		"smash" => 'smash',
 		"acute" => [ 'accent', '00B4' ],
 		"grave" => [ 'accent', '0060' ],
 		"ddot" => [ 'accent', '00A8' ],
