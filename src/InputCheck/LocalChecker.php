@@ -91,9 +91,17 @@ class LocalChecker extends BaseChecker {
 	}
 
 	public function runCheck(): array {
-		$options = $this->type === 'chem' ? [ "usemhchem" => true ] : null;
+		if ( $this->type === "chem" ) {
+			$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
+			$texifyMhchem = true;
+		} else {
+			$options = [];
+			$texifyMhchem = false;
+		}
+
 		try {
-			$result = ( new TexVC() )->check( $this->inputTeX, $options );
+			$warnings = [];
+			$result = ( new TexVC() )->check( $this->inputTeX, $options, $warnings, $texifyMhchem );
 		} catch ( Exception $e ) { // @codeCoverageIgnoreStart
 			// This is impossible since errors are thrown only if the option debug would be set.
 			$this->error = Message::newFromKey( 'math_failure' );

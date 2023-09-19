@@ -83,7 +83,7 @@ class RendererFactory {
 			}
 		}
 		if ( isset( $params['chem'] ) ) {
-			$mode = MathConfig::MODE_MATHML;
+			$mode = ( $mode == MathConfig::MODE_NATIVE_MML ) ? MathConfig::MODE_NATIVE_MML : MathConfig::MODE_MATHML;
 			$params['type'] = 'chem';
 		}
 		switch ( $mode ) {
