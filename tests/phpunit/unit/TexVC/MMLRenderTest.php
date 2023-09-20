@@ -15,16 +15,22 @@ use MediaWikiUnitTestCase;
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
 
+	public function testPilcrow() {
+		$input = "\P";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mo>&#xB6;</mo>\n</math>",  $mathMLtexVC );
+	}
+
 	public function testLesserThan() {
 		$input = "<, \\nless,";
 		$mathMLtexVC = $this->generateMML( $input );
-		$this->assertTrue( str_contains( $mathMLtexVC, " <mo>&lt;</mo>" ) );
+		$this->assertStringContainsString( "<mo>&lt;</mo>", $mathMLtexVC );
 	}
 
 	public function testSidesetError() {
 		$input = "\\sideset{_1^2}{_3^4}";
 		$mathMLtexVC = $this->generateMML( $input );
-		$this->assertTrue( str_contains( $mathMLtexVC, "merror" ) );
+		$this->assertStringContainsString( "merror", $mathMLtexVC );
 	}
 
 	public function testSidesetSum() {
