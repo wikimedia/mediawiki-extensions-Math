@@ -652,13 +652,11 @@ class BaseParsing {
 		// This is a custom mapping not in js.
 		$mmlText = new MMLmtext( "", $attributes );
 		$mrow = new MMLmrow();
-		$mStyle = new MMLmstyle( "", [ "mathsize" => "2.07em" ] );
-
 		switch ( $name ) {
 			case "oint":
+				$mStyle = new MMLmstyle( "", [ "displaystyle" => "true" ] );
 				$mo = new MMLmo();
-				return $mrow->encapsulateRaw( $mStyle->encapsulateRaw(
-					$mo->encapsulateRaw( MMLutil::uc2xNotation( $uc ) ) ) );
+				return $mStyle->encapsulateRaw( $mo->encapsulateRaw( MMLutil::uc2xNotation( $uc ) ) );
 			case "\\P":
 				$mo = new MMLmo();
 				return $mo->encapsulateRaw( MMLutil::uc2xNotation( $uc ) );
@@ -666,6 +664,7 @@ class BaseParsing {
 			case "oiiint":
 			case "ointctrclockwise":
 			case "varointclockwise":
+				$mStyle = new MMLmstyle( "", [ "mathsize" => "2.07em" ] );
 				$mSpace = new MMLmspace( "", [ "width" => Sizes::THINMATHSPACE ] );
 				return $mrow->encapsulateRaw( $mStyle->encapsulateRaw(
 					$mmlText->encapsulateRaw( MMLutil::uc2xNotation( $uc ) )
