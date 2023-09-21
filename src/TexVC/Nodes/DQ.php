@@ -7,6 +7,7 @@ namespace MediaWiki\Extension\Math\TexVC\Nodes;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmsub;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmunder;
 
 class DQ extends TexNode {
 	/** @var TexNode */
@@ -52,10 +53,15 @@ class DQ extends TexNode {
 		}
 
 		if ( !$this->isEmpty() ) {
+			if ( $this->getBase()->containsFunc( "\underbrace" ) ) {
+				$outer = new MMLmunder();
+
+			} else {
+				$outer = new MMLmsub();
+			}
 			// Otherwise use default fallback
 			$mmlMrow = new MMLmrow();
-			$msub = new MMLmsub();
-			return $msub->encapsulateRaw(
+			return $outer->encapsulateRaw(
 				 $emptyMrow .
 				$this->base->renderMML( [], $state ) .
 				$mmlMrow->encapsulateRaw( $this->down->renderMML( [], $state ) ) );

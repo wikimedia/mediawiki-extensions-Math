@@ -14,6 +14,12 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\TexVC\TexVC
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
+	public function testUnderbrace() {
+		$input = "\underbrace{ a+b+\cdots+z }_{26}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<munder>",  $mathMLtexVC );
+		$this->assertStringNotContainsString( "<msub>",  $mathMLtexVC );
+	}
 
 	public function testPilcrow() {
 		$input = "\P";
