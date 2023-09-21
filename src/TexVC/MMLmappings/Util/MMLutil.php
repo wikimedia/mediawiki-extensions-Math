@@ -95,14 +95,14 @@ class MMLutil {
 	 * em or other dimensional unit gets multiplied by pre-operator.
 	 * @param string $size input size i.e-123em
 	 * @param string $operator "plus (+) or minus (-)
-	 * @return string|void ++ => + , -- => +, -+ => -
+	 * @return string ++ => + , -- => +, -+ => -
 	 */
-	public static function addPreOperator( string $size, string $operator ) {
+	public static function addPreOperator( string $size, string $operator ): string {
 		$emtr = trim( $size );
 
-		$ok = preg_match( "/^(\+|\-)$/", $operator );
+		$ok = preg_match( "/^([+\-])$/", $operator );
 		if ( !$ok ) {
-			return;
+			return '';
 		}
 		switch ( $emtr[0] ) {
 			case "-":
