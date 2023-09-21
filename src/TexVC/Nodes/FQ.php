@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\Math\TexVC\Nodes;
 
 use MediaWiki\Extension\Math\TexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmsubsup;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmunderover;
 
@@ -84,10 +85,18 @@ class FQ extends TexNode {
 			$emptyMrow = $mrow->getEmpty();
 		}
 		// This seems to be the common case
-		return $melement->encapsulateRaw(
+		$inner = $melement->encapsulateRaw(
 			$emptyMrow .
 			$this->getBase()->renderMML( [], $state ) .
 			$mrow->encapsulateRaw( $this->getDown()->renderMML( [], $state ) ) .
 			$mrow->encapsulateRaw( $this->getUp()->renderMML( [], $state ) ) );
+
+		if ( $melement instanceof MMLmunderover ) {
+			$args = $state['styleargs'] ?? [ "displaystyle" => "true", "scriptlevel" => 0 ];
+			$style = new MMLmstyle( "", $args );
+			return $style->encapsulateRaw( $inner );
+		}
+
+		return $inner;
 	}
 }
