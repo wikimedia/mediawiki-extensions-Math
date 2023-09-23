@@ -442,7 +442,9 @@ class MathMathML extends MathRenderer {
 		} else {
 			$class .= 'inline';
 		}
-		if ( !$fallback ) {
+		if ( $fallback ) {
+			$class .= ' mw-invert';
+		} else {
 			$class .= ' mwe-math-mathml-a11y';
 		}
 		return $class;
