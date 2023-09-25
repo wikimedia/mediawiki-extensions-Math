@@ -15,6 +15,13 @@ use MediaWikiUnitTestCase;
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
 
+	public function testNotOperatorname() {
+		$input = "\\not\operatorname{R}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mpadded width=\"0\">", $mathMLtexVC );
+		$this->assertStringContainsString( "<mtext>&#x29F8;</mtext>", $mathMLtexVC );
+	}
+
 	public function testUnder() {
 		$input = "\\underbrace{ a+b+\\cdots+z }_{26}";
 		$mathMLtexVC = $this->generateMML( $input );

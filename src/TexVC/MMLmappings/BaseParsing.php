@@ -372,11 +372,14 @@ class BaseParsing {
 		return $mspace->encapsulateRaw( "" );
 	}
 
-	public static function handleOperatorName( $node, $passedArgs, $operatorContent, $name,
-											   $smth1 = null, $smth2 = null, $smth3 = null, $smth4 = null ) {
-		// \\operatorname{a}
+	public static function handleOperatorName( $node, $passedArgs, $operatorContent, $name ) {
+		// In example "\\operatorname{a}"
+		$mmlNot = "";
+		if ( isset( $operatorContent['not'] ) && $operatorContent['not'] == true ) {
+			$mmlNot = MMLParsingUtil::createNot();
+		}
 		$passedArgs = array_merge( $passedArgs, [ Tag::CLASSTAG => TexClass::OP, "mathvariant" => Variants::NORMAL ] );
-		return $node->getArg()->renderMML( $passedArgs );
+		return $mmlNot . $node->getArg()->renderMML( $passedArgs );
 	}
 
 	public static function lap( $node, $passedArgs, $operatorContent, $name ) {
@@ -1062,12 +1065,10 @@ class BaseParsing {
 	public static function not( $node, $passedArgs, $operatorContent, $name, $smth = null,
 								$smth1 = null, $smth2 = null ) {
 		// This is only tested for \not statement without follow-up parameters
-		$mmlMrow = new MMLmrow( TexClass::REL );
 		if ( $node instanceof Literal ) {
-			$mpadded = new MMLmpadded( "", [ "width" => "0" ] );
-			$mtext = new MMLmtext();
-			return $mmlMrow->encapsulateRaw( $mpadded->encapsulateRaw( $mtext->encapsulateRaw( "&#x29F8;" ) ) );
+			return MMLParsingUtil::createNot();
 		} else {
+			$mmlMrow = new MMLmrow( TexClass::REL );
 			$mmlMrow->encapsulate( "TBD Not" );
 		}
 	}
