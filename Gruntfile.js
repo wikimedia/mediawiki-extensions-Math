@@ -29,10 +29,7 @@ module.exports = function ( grunt ) {
 				cache: true,
 				fix: grunt.option( 'fix' )
 			},
-			all: [
-				'**/*.{js,json}',
-				'!{vendor,node_modules,modules/ve-math/tools/node_modules,tests/phpunit/unit/TexVC}/**'
-			]
+			all: [ '.' ]
 		}
 	} );
 

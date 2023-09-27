@@ -1,3 +1,2 @@
-/tests/phpunit/unit/TexVC/TexUtilMMLLookup.json
-/tests/phpunit/unit/TexVC/tex-2-mml.json
-/tests/phpunit/unit/TexVC/ParserTest135.json
+/vendor/
+/tests/phpunit/unit/TexVC/

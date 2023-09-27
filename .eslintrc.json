@@ -1,17 +1,9 @@
 {
 	"root": true,
 	"extends": [
-		"wikimedia/server",
-		"wikimedia/language/es2018"
+		"wikimedia/server"
 	],
 	"env": {
-		"mocha": true,
-		"es6": true
-	},
-	"parserOptions": {
-		"ecmaVersion": 9
-	},
-	"rules": {
-		"es-x/no-hashbang": "warn"
+		"mocha": true
 	}
 }
