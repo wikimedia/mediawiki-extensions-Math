@@ -9,6 +9,7 @@ use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmsubsup;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmunderover;
+use MediaWiki\Extension\Math\TexVC\TexUtil;
 
 class FQ extends TexNode {
 
@@ -73,7 +74,10 @@ class FQ extends TexNode {
 		// tbd check for more such cases like TexUtilTest 317
 		$base = $this->getBase();
 		if ( $base instanceof Literal ) {
-			if ( trim( $this->getBase()->getArgs()[0] ) === "\\sum" ) {
+			$litArg = trim( $this->getBase()->getArgs()[0] );
+			$tu = TexUtil::getInstance();
+			// "sum", "bigcap", "bigcup", "prod" ... all are nullary macros.
+			if ( $tu->nullary_macro( $litArg ) ) {
 				$melement = new MMLmunderover();
 			}
 		}

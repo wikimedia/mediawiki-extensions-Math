@@ -14,6 +14,17 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\TexVC\TexVC
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
+	public function testBigcup() {
+		$input = "\bigcup_{i=_1}^n E_i";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "munderover", $mathMLtexVC );
+	}
+
+	public function testBigcap() {
+		$input = "\bigcap_{i=_1}^n E_i";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "munderover", $mathMLtexVC );
+	}
 
 	public function testNotOperatorname() {
 		$input = "\\not\operatorname{R}";
