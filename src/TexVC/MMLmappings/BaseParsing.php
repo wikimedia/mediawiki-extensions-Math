@@ -24,7 +24,6 @@ use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmspace;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmsqrt;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmsub;
-use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmsubsup;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmsup;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmtable;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmtd;
@@ -1051,9 +1050,9 @@ class BaseParsing {
 				return $mmlMrow->encapsulateRaw( $mtext->encapsulateRaw( $inner ) );
 		}
 
-		$msubsup = new MMLmsubsup( "tbd HBox" );
+		$merror = new MMLmerror();
 		// $node->getArg1()->renderMML() . $node->getArg2()->renderMML()
-		return $msubsup->encapsulate( "undefined hbox" );
+		return $merror->encapsulateRaw( "undefined hbox" );
 	}
 
 	public static function setStyle( $node, $passedArgs, $operatorContent, $name,
@@ -1068,8 +1067,8 @@ class BaseParsing {
 		if ( $node instanceof Literal ) {
 			return MMLParsingUtil::createNot();
 		} else {
-			$mmlMrow = new MMLmrow( TexClass::REL );
-			$mmlMrow->encapsulate( "TBD Not" );
+			$mError = new MMLmerror();
+			return $mError->encapsulateRaw( "TBD implement not" );
 		}
 	}
 
@@ -1087,8 +1086,8 @@ class BaseParsing {
 			}
 			return $mmlMover->encapsulateRaw( $inner );
 		}
-		$mmr = new MMLmrow();
-		return $mmr->encapsulate( "no implemented vbox" );
+		$mError = new MMLmerror();
+		return $mError->encapsulateRaw( "no implemented vbox" );
 	}
 
 	public static function sqrt( $node, $passedArgs, $operatorContent, $name ) {
