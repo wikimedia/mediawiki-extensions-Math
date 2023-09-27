@@ -127,7 +127,9 @@ class BaseMethods {
 				$mmlMo = new MMLmo();
 				return $mmlMo->encapsulateRaw( "&gt;" );
 			case "\\":
-				$mspace = new MMLmspace( "", [ "linebreak" => "newline" ] );
+				 // instead of carriage return, force whitespace here:
+				 // see: https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Math/+/961213
+				$mspace = new MMLmspace( "", [ "width" => "0.5em" ] );
 				return $mspace->getEmpty();
 		}
 		return $input;

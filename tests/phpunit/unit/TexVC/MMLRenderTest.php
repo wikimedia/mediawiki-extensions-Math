@@ -230,10 +230,17 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( 2, $count );
 	}
 
-	public function testCrLaTex() {
+	public function testSpaceText() {
+		$input = "\\text{if}~n\ \\text{is even} ";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mspace", $mathMLtexVC );
+	}
+
+	public function testSpaceOther() {
+		// It is expected to render CR as whitespace
 		$input = "\,e_{x}=\sum _{t=1}^{\infty }\ _{t}p_{x}";
 		$mathMLtexVC = $this->generateMML( $input );
-		$this->assertStringContainsString( "<mspace linebreak=\"newline\"/>", $mathMLtexVC );
+		$this->assertStringContainsString( "<mspace", $mathMLtexVC );
 	}
 
 	public function testGenfracDQ() {
