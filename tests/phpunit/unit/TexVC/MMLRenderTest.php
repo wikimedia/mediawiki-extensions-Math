@@ -26,6 +26,13 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "munderover", $mathMLtexVC );
 	}
 
+	public function testScriptAlignment() {
+		$input = "\log_{10} f";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringNotContainsString( "<mo></mo>", $mathMLtexVC );
+		$this->assertStringContainsString( "<msub>", $mathMLtexVC );
+	}
+
 	public function testNotOperatorname() {
 		$input = "\\not\operatorname{R}";
 		$mathMLtexVC = $this->generateMML( $input );

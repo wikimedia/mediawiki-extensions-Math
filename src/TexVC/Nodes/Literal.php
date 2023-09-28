@@ -30,6 +30,11 @@ class Literal extends TexNode {
 	}
 
 	public function renderMML( $arguments = [], $state = [] ) {
+		if ( $this->arg === " " ) {
+			// Fixes https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Math/+/961711
+			// And they creation of empty mo elements.
+			return "";
+		}
 		if ( is_numeric( $this->arg ) ) {
 			$mn = new MMLmn( "", $arguments );
 			return $mn->encapsulateRaw( $this->arg );
