@@ -117,7 +117,7 @@ class LocalCheckerTest extends MediaWikiIntegrationTestCase {
 	public function testRunChecks() {
 		$fakeContent = [
 			'status' => '+',
-			'mathml' => '<mi>sin</mi><mo></mo><msup><mi>x</mi><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></msup>',
+			'mathml' => '<mi>sin</mi><msup><mi>x</mi><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></msup>',
 			'output' => '\\sin x^{2}'
 		];
 		$checker = new LocalChecker( WANObjectCache::newEmpty(), '\sin x^2', 'tex' );
