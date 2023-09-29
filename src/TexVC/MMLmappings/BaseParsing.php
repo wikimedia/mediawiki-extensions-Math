@@ -1120,8 +1120,8 @@ class BaseParsing {
 	}
 
 	public static function tilde( $node, $passedArgs, $operatorContent, $name ) {
-		$mText = new MMLmtext( "", $passedArgs );
-		return $mText->encapsulate( "&#xA0;" );
+		$mspace = new MMLmspace( "", [ "width" => "0.5em" ] );
+		return $mspace->getEmpty();
 	}
 
 	public static function xArrow( $node, $passedArgs, $operatorContent, $name, $chr = null, $l = null, $r = null ) {
