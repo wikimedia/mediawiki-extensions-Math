@@ -27,9 +27,9 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 	private static $SIMILARITYTRESH = 0.7;
 	private static $SKIPXMLVALIDATION = true;
 	private static $APPLYFILTER = false;
-	private static $APPLYCATEGORYFILTER = true;
+	private static $APPLYCATEGORYFILTER = false;
 	private static $SKIPPEDCATEGORIES = [ "mhchemtexified_required" ];
-	private static $FILTERSTART = 15;
+	private static $FILTERSTART = 38;
 	private static $FILTERLENGTH = 1;
 
 	private static $GENERATEHTML = false;
@@ -53,25 +53,30 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 		}
 
 		$texVC = new TexVC();
-		$useMHChem = self::getMHChem( $title );
+		$useMHChem = self::getMHChem( $title ) || $input->type === "chem";
 
 		// Fetching the result from TexVC
 		$resultT = $texVC->check( $input->tex, [
 			'debug' => false,
 			'usemathrm' => false,
 			'oldtexvc' => false,
-			'usemhchem' => $useMHChem
+			'usemhchem' => $useMHChem,
+			'usemhchemtexified' => true
 		] );
-		$mathMLtexVC = MMLTestUtil::getMMLwrapped( $resultT["input"] ) ?? "<math> error texvc </math>";
+
+		$mathMLtexVC = isset( $resultT["input"] ) ? MMLTestUtil::getMMLwrapped( $resultT["input"] ) :
+			"<math> error texvc </math>";
 
 		$mmlComparator = new MMLComparator();
-		$usedMMLRef = $input->mmlMathoid;
+		$usedMMLRef = $input->mmlMathoid ?? $input->mmlLaTeXML ?? "<math><merror> error no ref </merror></math>";
+
 		if ( !$usedMMLRef ) {
 			$usedMMLRef = $input->mmlLaTeXML;
 		}
 		$compRes = $mmlComparator->compareMathML( $usedMMLRef, $mathMLtexVC );
-		MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $title, $input->tex, $input->mmlLaTeXML,
-			$input->mmlMathoid, $mathMLtexVC, $compRes['similarityF'] ], false, self::$GENERATEHTML );
+		MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $title, $input->tex, $input->mmlLaTeXML ??
+			"no ref", $input->mmlMathoid ?? "no ref", $mathMLtexVC, $compRes['similarityF'] ],
+			false, self::$GENERATEHTML );
 
 		// Comparing the result either to MathML result from Mathoid
 		if ( !self::$SKIPXMLVALIDATION ) {
@@ -108,6 +113,7 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 		'mhchem_macro_2pc',
 		'mhchem_macro_2pu',
 		'mhchem_single_macro',
+		"mhchemtexified_required",
 		'nullary_macro',
 		'nullary_macro_in_mbox',
 		'other_delimiters1',
@@ -161,7 +167,21 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 		"\\pagecolor" => "\\pagecolor{red} e^{i \\pi}",
 		"\\hline" => "\n\\begin{array}{|c||c|} a & b  \\\\\n\\hline\n1&2 \n\\end{array}\n",
 		"\\nolimits" => " \mathop{\\rm cos}\\nolimits^2",
-	   // "\\limits" =>" \mathop{\\rm cos}\\limits^2",
+		"\\llap" => "\\llap{40}",
+		"\\rlap" => "\\rlap{120}",
+		"\\smash" => "\\smash[t]{2}",
+		"\\lower" => "\\lower{1em}{-}",
+		"\\raise" => "\\raise{1em}{-}",
+		"\\mkern" => "\\mkern{3mu}",
+		"\\kern" => "\\kern{1.5mu}",
+		"\\mskip" => "\\mskip{2mu}",
+		"\\longLeftrightharpoons" => "\\longLeftrightharpoons{}",
+		"\\longRightleftharpoons" => "\\longRightleftharpoons{}",
+		"\\longleftrightarrows" => "\\longleftrightarrows{}",
+		"\\longrightleftharpoons" => "\\longleftrightarrows{}",
+		"\\tripledash" => "\\tripledash",
+		"\\mathchoice" => "\\mathchoice{a}{b}{c}{d}",
+		// "\\limits" =>" \mathop{\\rm cos}\\limits^2",
 		"\\limits" => "\\lim\\limits_{x \\to 2}",
 		"\\displaystyle"  => "\\frac{\\displaystyle \\sum_{k=1}^N k^2}{a}",
 		"\\scriptscriptstyle" => "\\frac ab + \\scriptscriptstyle{\\frac cd + \\frac ef} + \\frac gh",
@@ -215,7 +235,7 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 		$overAllCtr = 0;
 		$finalCases = [];
 		foreach ( $groups  as $category => $group ) {
-			if ( self::$APPLYCATEGORYFILTER && !in_array( $category, self::$SKIPPEDCATEGORIES, true ) ) {
+			if ( self::$APPLYCATEGORYFILTER && in_array( $category, self::$SKIPPEDCATEGORIES, true ) ) {
 				continue;
 			}
 			$indexCtr = 0;
@@ -226,6 +246,10 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 				} else {
 					$type = str_starts_with( $case, "ce" ) ? "chem" : "tex";
 					$finalCase = (object)[ "tex" => $case , "type" => $type, "ctr" => null ];
+				}
+
+				if ( $category === "mhchemtexified_required" ) {
+					$finalCase->type = "chem";
 				}
 				$finalCase->ctr = $overAllCtr;
 
