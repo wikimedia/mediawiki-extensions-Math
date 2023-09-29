@@ -234,6 +234,7 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$input = "\\text{if}~n\ \\text{is even} ";
 		$mathMLtexVC = $this->generateMML( $input );
 		$this->assertStringContainsString( "<mspace", $mathMLtexVC );
+		$this->assertStringNotContainsString( "&#xA0;", $mathMLtexVC );
 	}
 
 	public function testSpaceOther() {
