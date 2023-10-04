@@ -490,13 +490,12 @@ class BaseParsing {
 				return $mstyle->encapsulateRaw( $mspace->getEmpty() ) . $mo->encapsulateRaw( "&#x27FA;" ) .
 					$mstyle->encapsulateRaw( $mspace->getEmpty() );
 			case "tripledash":
-				print( "abc" );
 				$texvc = new TexVC();
 				$warnings = [];
 				$macro = "\\vphantom{-}\\raise{2mu}";
 				$checkRes = $texvc->check( $macro, [ "usemhchem" => true, "usemhchemtexified" => true ],
 					$warnings, true );
-				print( "res" );
+				return $checkRes["input"]->renderMML();
 
 		}
 
