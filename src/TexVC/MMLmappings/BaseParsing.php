@@ -42,7 +42,6 @@ use MediaWiki\Extension\Math\TexVC\Nodes\Fun4;
 use MediaWiki\Extension\Math\TexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\TexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\TexVC\Nodes\TexNode;
-use MediaWiki\Extension\Math\TexVC\TexVC;
 
 /**
  * Parsing functions for specific recognized mappings.
@@ -491,13 +490,9 @@ class BaseParsing {
 				return $mstyle->encapsulateRaw( $mspace->getEmpty() ) . $mo->encapsulateRaw( "&#x27FA;" ) .
 					$mstyle->encapsulateRaw( $mspace->getEmpty() );
 			case "tripledash":
-				$texvc = new TexVC();
-				$warnings = [];
-				$macro = "\\vphantom{-}\\raise{2mu}";
-				$checkRes = $texvc->check( $macro, [ "usemhchem" => true, "usemhchemtexified" => true ],
-					$warnings, true );
-				return $checkRes["input"]->renderMML();
-
+				// Using emdash for rendering here.
+				$mo = new MMLmo();
+				return $mo->encapsulateRaw( "&#x2014;" );
 		}
 
 		// Removed all token based parsing, since macro resolution for the supported macros can be hardcoded in php

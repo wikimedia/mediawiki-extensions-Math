@@ -15,6 +15,17 @@ use MediaWikiUnitTestCase;
  */
 final class MhchemBasicMMLTest extends MediaWikiUnitTestCase {
 
+	public function testTripleDash() {
+		$input = "\\tripledash \\frac{a}{b}";
+		$texVC = new TexVC();
+		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
+		$warnings = [];
+		$res = $texVC->check( $input, $options, $warnings, true );
+		$end = $res['input']->renderMML();
+		$this->assertStringContainsString( '<mo>&#x2014;</mo>',
+			$res['input']->renderMML() );
+	}
+
 	public function testMathchoiceDisplaystyle() {
 		$input = "\\displaystyle{\\mathchoice{a}{b}{c}{d}}";
 		$texVC = new TexVC();
