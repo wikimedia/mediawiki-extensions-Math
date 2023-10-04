@@ -38,6 +38,7 @@ use MediaWiki\Extension\Math\TexVC\Nodes\Fun1;
 use MediaWiki\Extension\Math\TexVC\Nodes\Fun1nb;
 use MediaWiki\Extension\Math\TexVC\Nodes\Fun2;
 use MediaWiki\Extension\Math\TexVC\Nodes\Fun2sq;
+use MediaWiki\Extension\Math\TexVC\Nodes\Fun4;
 use MediaWiki\Extension\Math\TexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\TexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\TexVC\Nodes\TexNode;
@@ -806,6 +807,44 @@ class BaseParsing {
 			return $mrow->encapsulateRaw( $node->getArg()->renderMML( $args ) );
 		}
 		return $mrow->encapsulateRaw( $mrow->encapsulateRaw( $node->getArg()->renderMML( $args ) ) );
+	}
+
+	public static function mathChoice( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
+		if ( !$node instanceof Fun4 ) {
+			$merror = new MMLmerror();
+			return $merror->encapsulateRaw( "Wrong node type in mathChoice" );
+		}
+
+		/**
+		 * Parametrization for mathchoice:
+		 * \mathchoice
+		 * {<material for display style>}
+		 * {<material for text style>}
+		 * {<material for script style>}
+		 * {<material for scriptscript style>}
+		 */
+
+		if ( isset( $operatorContent["styleargs"] ) ) {
+			$styleArgs = $operatorContent["styleargs"];
+			$displayStyle = $styleArgs["displaystyle"] ?? "true";
+			$scriptLevel = $styleArgs["scriptlevel"] ?? "0";
+
+			if ( $displayStyle == "true" && $scriptLevel == "0" ) {
+				// This is displaystyle
+				return $node->getArg1()->renderMML( $passedArgs, $operatorContent );
+			} elseif ( $displayStyle == "false" && $scriptLevel == "0" ) {
+				// This is textstyle
+				return $node->getArg2()->renderMML( $passedArgs, $operatorContent );
+			} elseif ( $displayStyle == "false" && $scriptLevel == "1" ) {
+				// This is scriptstyle
+				return $node->getArg3()->renderMML( $passedArgs, $operatorContent );
+			} elseif ( $displayStyle == "false" && $scriptLevel == "2" ) {
+				// This is scriptscriptstyle
+				return $node->getArg4()->renderMML( $passedArgs, $operatorContent );
+			}
+		}
+		// By default render displaystyle
+		return $node->getArg1()->renderMML( $passedArgs, $operatorContent );
 	}
 
 	public static function makeBig( $node, $passedArgs, $operatorContent, $name, $texClass = null, $size = null ) {

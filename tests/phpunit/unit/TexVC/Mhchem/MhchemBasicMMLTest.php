@@ -14,6 +14,47 @@ use MediaWikiUnitTestCase;
  *
  */
 final class MhchemBasicMMLTest extends MediaWikiUnitTestCase {
+
+	public function testMathchoiceDisplaystyle() {
+		$input = "\\displaystyle{\\mathchoice{a}{b}{c}{d}}";
+		$texVC = new TexVC();
+		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
+		$warnings = [];
+		$res = $texVC->check( $input, $options, $warnings, true );
+		$this->assertStringContainsString( '<mstyle displaystyle="true" scriptlevel="0"><mi>a</mi></mstyle>',
+			$res['input']->renderMML() );
+	}
+
+	public function testMathchoiceTextstyle() {
+		$input = "\\textstyle{\\mathchoice{a}{b}{c}{d}}";
+		$texVC = new TexVC();
+		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
+		$warnings = [];
+		$res = $texVC->check( $input, $options, $warnings, true );
+		$this->assertStringContainsString( '<mstyle displaystyle="false" scriptlevel="0"><mi>b</mi></mstyle>',
+			$res['input']->renderMML() );
+	}
+
+	public function testMathchoiceScriptstyle() {
+		$input = "\\scriptstyle{\\mathchoice{a}{b}{c}{d}}";
+		$texVC = new TexVC();
+		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
+		$warnings = [];
+		$res = $texVC->check( $input, $options, $warnings, true );
+		$this->assertStringContainsString( '<mstyle displaystyle="false" scriptlevel="1"><mi>c</mi></mstyle>',
+			$res['input']->renderMML() );
+	}
+
+	public function testMathchoiceScriptScriptstyle() {
+		$input = "\\scriptscriptstyle{\\mathchoice{a}{b}{c}{d}}";
+		$texVC = new TexVC();
+		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
+		$warnings = [];
+		$res = $texVC->check( $input, $options, $warnings, true );
+		$this->assertStringContainsString( '<mstyle displaystyle="false" scriptlevel="2"><mi>d</mi></mstyle>',
+			$res['input']->renderMML() );
+	}
+
 	public function testMskip() {
 		$input = "\\ce{Cr^{+3}(aq)}";
 		$texVC = new TexVC();

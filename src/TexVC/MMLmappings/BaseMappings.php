@@ -590,7 +590,7 @@ class BaseMappings {
 		"label" => 'HandleLabel',
 		"ref" => 'HandleRef',
 		"nonumber" => 'HandleNoTag',
-		"mathchoice" => 'MathChoice',
+		"mathchoice" => 'mathChoice',
 		"mmlToken" => 'MmlToken'
 	];
 
