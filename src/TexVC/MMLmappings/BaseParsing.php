@@ -42,6 +42,7 @@ use MediaWiki\Extension\Math\TexVC\Nodes\Fun4;
 use MediaWiki\Extension\Math\TexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\TexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\TexVC\Nodes\TexNode;
+use MediaWiki\Extension\Math\TexVC\TexVC;
 
 /**
  * Parsing functions for specific recognized mappings.
@@ -493,6 +494,33 @@ class BaseParsing {
 				// Using emdash for rendering here.
 				$mo = new MMLmo();
 				return $mo->encapsulateRaw( "&#x2014;" );
+			case "longLeftrightharpoons":
+			case "longRightleftharpoons":
+				$texvc = new TexVC();
+				$warnings = [];
+				$checkRes = $texvc->check( $macro, [ "usemhchem" => true, "usemhchemtexified" => true ],
+					$warnings, true );
+				return $checkRes["input"]->renderMML();
+			case "longleftrightarrows":
+				// The tex-cmds used in makro are not supported, just use a hardcoded mml macro here.
+				$mtext = new MMLmtext();
+				$mrowRel = new MMLmrow( TexClass::REL );
+				$mrowOrd = new MMLmrow( TexClass::ORD );
+				$mrowOp = new MMLmrow( TexClass::OP );
+				$mover = new MMLmover();
+				$mpadded = new MMLmpadded( "", [ "height" => "0", "depth" => "0" ] );
+				$mo = new MMLmo( "", [ "stretchy" => "false" ] );
+				$mspace = new MMLmspace( "", [ "width" => "0px","height" => ".25em",
+					"depth" => "0px","mathbackground" => "black" ] );
+				return $mtext->encapsulateRaw( "&#xA0;" ) .
+						$mrowRel->encapsulateRaw( $mover->encapsulateRaw(
+						  $mrowOp->encapsulateRaw(
+							$mrowOrd->encapsulateRaw( $mpadded->encapsulateRaw(
+								$mo->encapsulateRaw( "&#x27F5;" ) ) ) .
+						  $mspace->getEmpty() ) .
+						  $mrowOrd->encapsulateRaw(
+							  $mo->encapsulateRaw( "&#x27F6;" )
+						  ) ) );
 		}
 
 		// Removed all token based parsing, since macro resolution for the supported macros can be hardcoded in php

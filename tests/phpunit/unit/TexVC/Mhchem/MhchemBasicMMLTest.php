@@ -15,13 +15,49 @@ use MediaWikiUnitTestCase;
  */
 final class MhchemBasicMMLTest extends MediaWikiUnitTestCase {
 
+	public function testHarpoonsLeftRight() {
+		$input = "A \\longLeftrightharpoons L";
+		$texVC = new TexVC();
+		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
+		$warnings = [];
+		$res = $texVC->check( $input, $options, $warnings, true );
+		$mml = $res['input']->renderMML();
+		$this->assertStringContainsString( '<mpadded height="0" depth="0">', $mml );
+		$this->assertStringContainsString( '<mspace ', $mml );
+	}
+
+	public function testHarpoonsRightLeft() {
+		$input = "A \\longRightleftharpoons R";
+		$texVC = new TexVC();
+		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
+		$warnings = [];
+		$res = $texVC->check( $input, $options, $warnings, true );
+		$mml = $res['input']->renderMML();
+		$this->assertStringContainsString( '<mo>&#x2212;</mo>', $mml );
+		$this->assertStringContainsString( '&#x21C0;', $mml );
+		$this->assertStringContainsString( '<mpadded height="0" depth="0">', $mml );
+		$this->assertStringContainsString( '<mspace ', $mml );
+	}
+
+	public function testArrowsLeftRight() {
+		$input = "A \\longleftrightarrows C";
+		$texVC = new TexVC();
+		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
+		$warnings = [];
+		$res = $texVC->check( $input, $options, $warnings, true );
+		$mml = $res['input']->renderMML();
+		$this->assertStringContainsString( '<mo stretchy="false">&#x27F5;</mo>', $mml );
+		$this->assertStringContainsString( '<mo stretchy="false">&#x27F6;</mo>', $mml );
+		$this->assertStringContainsString( '<mpadded height="0" depth="0">', $mml );
+		$this->assertStringContainsString( '<mspace ', $mml );
+	}
+
 	public function testTripleDash() {
 		$input = "\\tripledash \\frac{a}{b}";
 		$texVC = new TexVC();
 		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
 		$warnings = [];
 		$res = $texVC->check( $input, $options, $warnings, true );
-		$end = $res['input']->renderMML();
 		$this->assertStringContainsString( '<mo>&#x2014;</mo>',
 			$res['input']->renderMML() );
 	}
