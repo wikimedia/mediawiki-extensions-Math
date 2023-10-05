@@ -14,6 +14,27 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\TexVC\TexVC
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
+
+	public function testAtop() {
+		$input = "{ a \atop b }";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mfrac linethickness=\"0\">", $mathMLtexVC );
+	}
+
+	public function testChoose() {
+		$input = "{ a \choose b }";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mfrac linethickness=\"0\">", $mathMLtexVC );
+		$this->assertStringContainsString( ")", $mathMLtexVC );
+		$this->assertStringContainsString( "(", $mathMLtexVC );
+	}
+
+	public function testOver() {
+		$input = "{a \over b }";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mfrac>", $mathMLtexVC );
+	}
+
 	public function testBigcup() {
 		$input = "\bigcup_{i=_1}^n E_i";
 		$mathMLtexVC = $this->generateMML( $input );
