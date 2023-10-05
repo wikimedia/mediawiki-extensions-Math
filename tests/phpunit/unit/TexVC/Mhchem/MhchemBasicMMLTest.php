@@ -15,6 +15,39 @@ use MediaWikiUnitTestCase;
  */
 final class MhchemBasicMMLTest extends MediaWikiUnitTestCase {
 
+	public static function provideTestCasesLetters() {
+		return [
+			[ "Alpha" , "A" ],
+			[ "Beta" , "B" ] ,
+			[ "Chi" , "X" ],
+			[ "Epsilon" , "E" ],
+			[ "Eta" , "H" ],
+			[ "Iota" , "I" ],
+			[ "Kappa" , "K" ],
+			[ "Mu" , "M" ],
+			[ "Nu" , "N" ],
+			[ "Omicron" , "O" ],
+			[ "Rho" , "P" ],
+			[ "Tau" , "T" ],
+			[ "Zeta" , "Z" ]
+		];
+	}
+
+	/**
+	 * @dataProvider provideTestCasesLetters
+	 */
+	public function testmhchemLetters( $case, $result ) {
+		$input = "\ce{\\" . $case . " \ca }";
+		$texVC = new TexVC();
+		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
+		$warnings = [];
+		$res = $texVC->check( $input, $options, $warnings, true );
+		$mml = $res['input']->renderMML();
+		$this->assertStringContainsString( '<mi', $mml );
+		$this->assertStringContainsString( $result . '</mi>', $mml );
+		$this->assertStringContainsString( '<mo>&#x223C;</mo>', $mml );
+	}
+
 	public function testHarpoonsLeftRight() {
 		$input = "A \\longLeftrightharpoons L";
 		$texVC = new TexVC();

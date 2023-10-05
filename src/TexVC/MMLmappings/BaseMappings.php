@@ -774,6 +774,20 @@ class BaseMappings {
 		"varointclockwise" => [ 'oint', '\u2232', [ "texClass" => TexClass::OP ] ],
 		"\\P" => [ 'oint', '\u00B6', [ "texClass" => TexClass::OP ] ],
 		'textvisiblespace' => [ 'Insert', '\u2423' ], // From TextCompMappings.js (only makro it seems)
+		"Alpha" => [ 'customLetters', "A" ],
+		"Beta" => [ 'customLetters', "B" ],
+		"Chi" => [ 'customLetters', "X" ],
+		"Epsilon" => [ 'customLetters', "E" ],
+		"Eta" => [ 'customLetters', "H" ],
+		"Iota" => [ 'customLetters', "I" ],
+		"Kappa" => [ 'customLetters', "K" ],
+		"Mu" => [ 'customLetters', "M" ],
+		"Nu" => [ 'customLetters', "N" ],
+		"Omicron" => [ 'customLetters', "O" ],
+		"Rho" => [ 'customLetters', "P" ],
+		"Tau" => [ 'customLetters', "T" ],
+		"Zeta" => [ 'customLetters', "Z" ],
+		"ca" => [ "customLetters", "&#x223C;", true ]
 	];
 
 	private const ALL = [

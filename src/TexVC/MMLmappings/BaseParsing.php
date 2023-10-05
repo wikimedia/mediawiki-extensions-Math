@@ -211,6 +211,18 @@ class BaseParsing {
 		return "tbd chemCustom";
 	}
 
+	public static function customLetters( $node, $passedArgs, $operatorContent, $name, $char, $isOperator = false ) {
+		$mrow = new MMLmrow();
+
+		if ( $isOperator ) {
+			$mo = new MMLmo();
+			return $mrow->encapsulateRaw( $mo->encapsulateRaw( $char ) );
+		}
+
+		$mi = new MMLmi( "", [ "mathvariant" => "normal" ] );
+		return $mrow->encapsulateRaw( $mi->encapsulateRaw( $char ) );
+	}
+
 	public static function cFrac( $node, $passedArgs, $operatorContent, $name ) {
 		$mrow = new MMLmrow();
 		$mfrac = new MMLmfrac();
