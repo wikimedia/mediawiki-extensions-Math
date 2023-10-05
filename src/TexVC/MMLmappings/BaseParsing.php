@@ -663,12 +663,13 @@ class BaseParsing {
 		}
 		$inner = "";
 		foreach ( $node->getArgs() as $arg ) {
-			if ( $arg === "\\over" ) {
+			if ( is_string( $arg ) && str_contains( $arg, $name ) ) {
 				continue;
 			}
 			$rendered = $arg instanceof TexNode ? $arg->renderMML() : $arg;
 			$inner .= $mrow->encapsulateRaw( $rendered );
 		}
+
 		return $start . $mfrac->encapsulateRaw( $inner ) . $tail;
 	}
 
