@@ -79,6 +79,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'other_delimiters2',
 			'right_function',
 			'teubner_required',
+			'stix_required',
 		];
 
 		// Reading data from TexUtil.

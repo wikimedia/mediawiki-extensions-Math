@@ -2406,6 +2406,12 @@
         "mmlLaTeXML": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" id=\"p1.1.m1.1\" class=\"ltx_Math\" alttext=\"{\\displaystyle{\\displaystyle\\int}}\" display=\"inline\">\n  <semantics id=\"p1.1.m1.1a\">\n    <mstyle displaystyle=\"true\" id=\"p1.1.m1.1.1\" xref=\"p1.1.m1.1.1.cmml\">\n      <mo largeop=\"true\" symmetric=\"true\" id=\"p1.1.m1.1.1a\" xref=\"p1.1.m1.1.1.cmml\">\u222b<\/mo>\n    <\/mstyle>\n    <annotation-xml encoding=\"MathML-Content\" id=\"p1.1.m1.1b\">\n      <int id=\"p1.1.m1.1.1.cmml\" xref=\"p1.1.m1.1.1\"\/>\n    <\/annotation-xml>\n    <annotation encoding=\"application\/x-tex\" id=\"p1.1.m1.1c\">{\\displaystyle{\\displaystyle\\int}}<\/annotation>\n  <\/semantics>\n<\/math>"
     },
     {
+        "tex": "\\intBar",
+        "type": "tex",
+        "mmlMathoid": "",
+        "mmlLaTeXML": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" id=\"p1.1.m1.1\" class=\"ltx_Math\" alttext=\"{\\displaystyle{\\displaystyle\\intBar}}\" display=\"inline\">\n  <semantics id=\"p1.1.m1.1a\">\n    <merror class=\"ltx_ERROR undefined undefined\" id=\"p1.1.m1.1.1\" xref=\"p1.1.m1.1.1b.cmml\">\n      <mtext id=\"p1.1.m1.1.1a\" xref=\"p1.1.m1.1.1b.cmml\">\\intBar<\/mtext>\n    <\/merror>\n    <annotation-xml encoding=\"MathML-Content\" id=\"p1.1.m1.1b\">\n      <ci id=\"p1.1.m1.1.1b.cmml\" xref=\"p1.1.m1.1.1\">\n        <merror class=\"ltx_ERROR undefined undefined\" id=\"p1.1.m1.1.1.cmml\" xref=\"p1.1.m1.1.1\">\n          <mtext id=\"p1.1.m1.1.1a.cmml\" xref=\"p1.1.m1.1.1\">\\intBar<\/mtext>\n        <\/merror>\n      <\/ci>\n    <\/annotation-xml>\n    <annotation encoding=\"application\/x-tex\" id=\"p1.1.m1.1c\">{\\displaystyle{\\displaystyle\\intBar}}<\/annotation>\n  <\/semantics>\n<\/math>"
+    },
+    {
         "tex": "\\intbar",
         "type": "tex",
         "mmlMathoid": "",
@@ -3448,12 +3454,6 @@
         "type": "tex",
         "mmlMathoid": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" display=\"block\" alttext=\"{\\displaystyle \\star }\">\n  <semantics>\n    <mrow class=\"MJX-TeXAtom-ORD\">\n      <mstyle displaystyle=\"true\" scriptlevel=\"0\">\n        <mo>&#x22C6;<!-- \u22c6 --><\/mo>\n      <\/mstyle>\n    <\/mrow>\n    <annotation encoding=\"application\/x-tex\">{\\displaystyle \\star }<\/annotation>\n  <\/semantics>\n<\/math>",
         "mmlLaTeXML": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" id=\"p1.1.m1.1\" class=\"ltx_Math\" alttext=\"{\\displaystyle{\\displaystyle\\star}}\" display=\"inline\">\n  <semantics id=\"p1.1.m1.1a\">\n    <mo id=\"p1.1.m1.1.1\" xref=\"p1.1.m1.1.1.cmml\">\u22c6<\/mo>\n    <annotation-xml encoding=\"MathML-Content\" id=\"p1.1.m1.1b\">\n      <ci id=\"p1.1.m1.1.1.cmml\" xref=\"p1.1.m1.1.1\">\u22c6<\/ci>\n    <\/annotation-xml>\n    <annotation encoding=\"application\/x-tex\" id=\"p1.1.m1.1c\">{\\displaystyle{\\displaystyle\\star}}<\/annotation>\n  <\/semantics>\n<\/math>"
-    },
-    {
-        "tex": "\\strokeint",
-        "type": "tex",
-        "mmlMathoid": "",
-        "mmlLaTeXML": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" id=\"p1.1.m1.1\" class=\"ltx_Math\" alttext=\"{\\displaystyle{\\displaystyle\\strokeint}}\" display=\"inline\">\n  <semantics id=\"p1.1.m1.1a\">\n    <merror class=\"ltx_ERROR undefined undefined\" id=\"p1.1.m1.1.1\" xref=\"p1.1.m1.1.1b.cmml\">\n      <mtext id=\"p1.1.m1.1.1a\" xref=\"p1.1.m1.1.1b.cmml\">\\strokeint<\/mtext>\n    <\/merror>\n    <annotation-xml encoding=\"MathML-Content\" id=\"p1.1.m1.1b\">\n      <ci id=\"p1.1.m1.1.1b.cmml\" xref=\"p1.1.m1.1.1\">\n        <merror class=\"ltx_ERROR undefined undefined\" id=\"p1.1.m1.1.1.cmml\" xref=\"p1.1.m1.1.1\">\n          <mtext id=\"p1.1.m1.1.1a.cmml\" xref=\"p1.1.m1.1.1\">\\strokeint<\/mtext>\n        <\/merror>\n      <\/ci>\n    <\/annotation-xml>\n    <annotation encoding=\"application\/x-tex\" id=\"p1.1.m1.1c\">{\\displaystyle{\\displaystyle\\strokeint}}<\/annotation>\n  <\/semantics>\n<\/math>"
     },
     {
         "tex": "\\subset",

@@ -1184,8 +1184,13 @@
 	"\\int": {
 		"nullary_macro": true
 	},
+	"\\intBar": {
+		"nullary_macro": true,
+		"stix_required": true
+	},
 	"\\intbar": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"stix_required": true
 	},
 	"\\intercal": {
 		"ams_required": true,
@@ -2174,9 +2179,6 @@
 	"\\stigma": {
 		"nullary_macro_in_mbox": true,
 		"teubner_required": true
-	},
-	"\\strokeint": {
-		"nullary_macro": true
 	},
 	"\\sub": {
 		"nullary_macro_aliase": "\\subset"
