@@ -15,6 +15,20 @@ use MediaWikiUnitTestCase;
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
 
+	public function testIntbar1() {
+		$input = "\intbar";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mo", $mathMLtexVC );
+		$this->assertStringContainsString( "&#x2A0D;", $mathMLtexVC );
+	}
+
+	public function testIntBar2() {
+		$input = "\intBar";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mo", $mathMLtexVC );
+		$this->assertStringContainsString( "&#x2A0E;", $mathMLtexVC );
+	}
+
 	public function testAtop() {
 		$input = "{ a \atop b }";
 		$mathMLtexVC = $this->generateMML( $input );

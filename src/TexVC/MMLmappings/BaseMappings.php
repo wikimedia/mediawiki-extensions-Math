@@ -116,6 +116,8 @@ class BaseMappings {
 		"bigcup" => [ '\u22C3', [ "texClass" => TexClass::OP,
 			"movesupsub" => true ] ],
 		"int" => [ '\u222B', [ "texClass" => TexClass::OP ] ],
+		"intbar" => [ '\u2A0D', [ "texClass" => TexClass::OP ] ],
+		"intBar" => [ '\u2A0E', [ "texClass" => TexClass::OP ] ],
 		"intop" => [ '\u222B', [ "texClass" => TexClass::OP,
 			"movesupsub" => true, "movablelimits" => true ] ],
 		"iint" => [ '\u222C', [ "texClass" => TexClass::OP ] ],
