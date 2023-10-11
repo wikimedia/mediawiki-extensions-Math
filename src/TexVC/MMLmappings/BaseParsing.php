@@ -486,12 +486,11 @@ class BaseParsing {
 			case "bmod":
 				$mo = new MMLmo( "", [ "lspace" => Sizes::THICKMATHSPACE, "rspace" => Sizes::THICKMATHSPACE ] );
 				$mmlRow = new MMLmrow( TexClass::ORD );
-				$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ] );
 				$mspace = new MMLmspace( "", [ "width" => "0.167em" ] );
 				$inner = $node->getArg() instanceof TexNode ?
 					$mmlRow->encapsulateRaw( $node->getArg()->renderMML() ) : "";
 				return $mmlRow->encapsulateRaw( $mo->encapsulate( "mod" ) .
-					$inner . $mmlRow->encapsulateRaw( $mstyle->encapsulateRaw( $mspace->getEmpty() ) ) );
+					$inner . $mmlRow->encapsulateRaw( $mspace->getEmpty() ) );
 			case "implies":
 				$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ] );
 				$mspace = new MMLmspace( "", [ "width" => "0.278em" ] );
@@ -1018,11 +1017,9 @@ class BaseParsing {
 	}
 
 	public static function spacer( $node, $passedArgs, $operatorContent, $name, $withIn = null, $smth2 = null ) {
-		// var node = parser.create('node', 'mspace', [], { width: (0, lengths_js_1.em)(space) });
-		$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ] );
 		$width  = MMLutil::round2em( $withIn );
 		$mspace = new MMLmspace( "", [ "width" => $width ] );
-		return $mstyle->encapsulateRaw( $mspace->encapsulate() );
+		return $mspace->encapsulate();
 	}
 
 	public static function smash( $node, $passedArgs, $operatorContent, $name ) {

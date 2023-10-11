@@ -14,6 +14,12 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\TexVC\TexVC
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
+	public function testSpacesNoMstyle() {
+		$input = "\bmod \, \!";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "mspace", $mathMLtexVC );
+		$this->assertStringNotContainsString( "mstyle", $mathMLtexVC );
+	}
 
 	public function testAlignLeft() {
 		$input = " \begin{align} f(x) & = (a+b)^2 \\ & = a^2+2ab+b^2 \\ \\end{align} ";
@@ -182,7 +188,6 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 	public function testRenderSpaceSemicolon() {
 		$input = "{\\;}";
 		$mathMLtexVC = $this->generateMML( $input );
-		$this->assertStringContainsString( "mstyle", $mathMLtexVC );
 		$this->assertStringContainsString( "mspace", $mathMLtexVC, );
 	}
 
