@@ -154,6 +154,31 @@ class TexArray extends TexNode {
 		return $ctr;
 	}
 
+	public function checkForNamedFctArgs( $currentNode, $nextNode ) {
+		// Check if current node is named function
+		$hasNamedFct = false;
+		if ( $currentNode instanceof TexArray && count( $currentNode->args ) == 2 ) {
+			$tu = TexUtil::getInstance();
+			$currentNodeContent = $currentNode->getArgs()[0];
+			if ( $currentNodeContent instanceof Literal &&
+				$tu->latex_function_names( $currentNodeContent->getArg() ) ) {
+				$hasNamedFct = true;
+			}
+		}
+
+		// Check if there is a valid argument as next parameter
+		$hasValidParameters = false;
+		if ( !$hasNamedFct ) {
+			return [ $hasNamedFct, $hasValidParameters ];
+		}
+
+		if ( $nextNode ) {
+			$hasValidParameters = true;
+		}
+
+		return [ $hasNamedFct, $hasValidParameters ];
+	}
+
 	public function renderMML( $arguments = [], $state = [] ) {
 		// Everything here is for parsing displaystyle, probably refactored to TexVC grammar later
 		$fullRenderedArray = "";
@@ -213,6 +238,12 @@ class TexArray extends TexNode {
 				continue;
 			}
 			$styleArguments = $this->checkForStyleArgs( $current );
+
+			$foundNamedFct = $this->checkForNamedFctArgs( $current, $next );
+			if ( $foundNamedFct[0] ) {
+				$state["foundNamedFct"] = $foundNamedFct;
+			}
+
 			if ( $styleArguments ) {
 				$state["styleargs"] = $styleArguments;
 				if ( $next instanceof Curly ) {
