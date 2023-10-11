@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Math\Tests\TexVC;
 
 use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Tag;
+use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLTestUtil;
 use MediaWiki\Extension\Math\TexVC\TexVC;
 use MediaWikiUnitTestCase;
@@ -14,6 +15,12 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\TexVC\TexVC
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
+
+	public function testBigl() {
+		$input = "\bigl(";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( TexClass::OPEN, $mathMLtexVC );
+	}
 
 	public function testAlignLeft() {
 		$input = " \begin{align} f(x) & = (a+b)^2 \\ & = a^2+2ab+b^2 \\ \\end{align} ";

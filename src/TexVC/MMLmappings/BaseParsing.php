@@ -892,10 +892,8 @@ class BaseParsing {
 		$sizeShortened = MMLutil::size2em( strval( $size ) );
 		$mrowOuter = new MMLmrow( TexClass::ORD, [] );
 		$mrow = new MMLmrow( $texClass, [] );
-		$passedArgs = array_merge( $passedArgs, [ "maxsize" => $sizeShortened, "minsize" => $sizeShortened ] );
 
 		$mo = new MMLmo( "", $passedArgs );
-
 		// Sieve arg if it is a delimiter (it seems args are not applied here
 		$bm = new BaseMethods();
 		$argcurrent = trim( $node->getArg() );
@@ -917,9 +915,18 @@ class BaseParsing {
 					$passedArgs, [ "stretchy" => "true", "symmetric" => "true" ] );
 				break;
 		}
+
+		if ( in_array( $name, [ "bigl","Bigl", "biggl", "Biggl" ] ) ) {
+			$passedArgs = [ Tag::CLASSTAG => TexClass::OPEN ];
+		}
+
+		if ( in_array( $name, [ "bigr","Bigr","biggr","Biggr" ] ) ) {
+			$passedArgs = [ Tag::CLASSTAG => TexClass::CLOSE ];
+		}
+
 		$ret = $bm->checkAndParseDelimiter( $node->getArg(), $node, $passedArgs, $operatorContent, true );
 		if ( $ret ) {
-			return $mrowOuter->encapsulateRaw( $mrow->encapsulateRaw( $ret ) );
+			return $ret;
 		}
 
 		$argPrep = MMLutil::inputPreparation( $node->getArg() );
