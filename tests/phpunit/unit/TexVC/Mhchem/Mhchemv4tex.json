@@ -195,7 +195,7 @@
         "type":"ce"
       },
       {
-        "tex": "CH4 + 2 $\\left( \\ce{O2 + 79/21 N2} \\right)$",
+        "tex": "CH4 + 2  \\begin{math} \\left( \\ce{O2 + 79/21 N2} \\right) \\end{math}",
         "texNew": "{\\mathrm{CH}{\\vphantom{A}}_{\\smash[t]{4}} {}+{} 2\\,\\left(  \\mathrm{O}{\\vphantom{A}}_{\\smash[t]{2}} {}+{} \\mathchoice{\\textstyle\\frac{79}{21}}{\\frac{79}{21}}{\\frac{79}{21}}{\\frac{79}{21}}\\,\\mathrm{N}{\\vphantom{A}}_{\\smash[t]{2}} \\right) }",
         "type": "ce"
       }
@@ -217,7 +217,7 @@
         "type":"ce"
       },
       {
-        "tex": "NaOH(aq,$\\infty$)",
+        "tex": "NaOH(aq,  \\begin{math} \\infty \\end{math})",
         "texNew": "{\\mathrm{NaOH}\\mskip2mu (\\mathrm{aq},\\infty )}",
         "type": "ce"
       }
@@ -275,12 +275,12 @@
     ],
   "(Italic) Math": [
     {
-      "tex": "NaOH(aq,$\\infty$)",
+      "tex": "NaOH(aq,  \\begin{math} \\infty$)",
       "texNew":  "{\\mathrm{NaOH}\\mskip2mu (\\mathrm{aq},\\infty )}",
       "type":"ce"
     },
     {
-      "tex": "Fe(CN)_{$\\frac{6}{2}$}",
+      "tex": "Fe(CN)_{  \\begin{math} \\frac{6}{2} \\end{math}}",
       "texNew":  "{\\mathrm{Fe}(\\mathrm{CN}){\\vphantom{A}}_{\\smash[t]{\\frac{6}{2} }}}",
       "type":"ce"
     },
@@ -502,22 +502,22 @@
   ],
   "Complex Examples": [
     {
-      "tex": "Zn^2+  <=>[+ 2OH-][+ 2H+]  $\\underset{\\text{amphoteres Hydroxid}}{\\ce{Zn(OH)2 v}}$  <=>[+ 2OH-][+ 2H+]  $\\underset{\\text{Hydroxozikat}}{\\ce{[Zn(OH)4]^2-}}$",
+      "tex": "Zn^2+  <=>[+ 2OH-][+ 2H+]   \\begin{math} \\underset{\\text{amphoteres Hydroxid}}{\\ce{Zn(OH)2 v}}\\end{math}  <=>[+ 2OH-][+ 2H+]   \\begin{math} \\underset{\\text{Hydroxozikat}}{\\ce{[Zn(OH)4]^2-}}\\end{math}",
       "texNew":  "{\\mathrm{Zn}{\\vphantom{A}}^{2+} {}\\mathrel{\\underset{\\lower6mu{ {}+{} 2\\,\\mathrm{H}{\\vphantom{A}}^{+}}}{\\overset{ {}+{} 2\\,\\mathrm{OH}{\\vphantom{A}}^{-}}{\\longrightleftharpoons}}}{} \\underset{\\text{amphoteres Hydroxid}}{\\ce{Zn(OH)2 v}}  {}\\mathrel{\\underset{\\lower6mu{ {}+{} 2\\,\\mathrm{H}{\\vphantom{A}}^{+}}}{\\overset{ {}+{} 2\\,\\mathrm{OH}{\\vphantom{A}}^{-}}{\\longrightleftharpoons}}}{} \\underset{\\text{Hydroxozikat}}{\\ce{[Zn(OH)4]^2-}} }",
       "type":"ce"
     },
     {
-      "tex": "$K = \\frac{[\\ce{Hg^2+}][\\ce{Hg}]}{[\\ce{Hg2^2+}]}$",
+      "tex": " \\begin{math} K = \\frac{[\\ce{Hg^2+}][\\ce{Hg}]}{[\\ce{Hg2^2+}]}\\end{math}",
       "texNew":  "{K = \\frac{[\\ce{Hg^2+}][\\ce{Hg}]}{[\\ce{Hg2^2+}]} }",
       "type":"ce"
     },
     {
-      "tex": "$K = \\ce{\\frac{[Hg^2+][Hg]}{[Hg2^2+]}}$",
+      "tex": " \\begin{math} K = \\ce{\\frac{[Hg^2+][Hg]}{[Hg2^2+]}}\\end{math}",
       "texNew":  "{K =  \\frac{[\\mathrm{Hg}{\\vphantom{A}}^{2+}][\\mathrm{Hg}]}{[\\mathrm{Hg}{\\vphantom{A}}_{\\smash[t]{2}}{\\vphantom{A}}^{2+}]}}",
       "type":"ce"
     },
     {
-      "tex": "Hg^2+ ->[I-]  $\\underset{\\mathrm{red}}{\\ce{HgI2}}$  ->[I-]  $\\underset{\\mathrm{red}}{\\ce{[Hg^{II}I4]^2-}}$",
+      "tex": "Hg^2+ ->[I-]   \\begin{math} \\underset{\\mathrm{red}}{\\ce{HgI2}}\\end{math}  ->[I-]   \\begin{math} \\underset{\\mathrm{red}}{\\ce{[Hg^{II}I4]^2-}}\\end{math}",
       "texNew": "{\\mathrm{Hg}{\\vphantom{A}}^{2+} {}\\mathrel{\\xrightarrow{\\mathrm{I}{\\vphantom{A}}^{-}}}{} \\underset{\\mathrm{red}}{\\ce{HgI2}}  {}\\mathrel{\\xrightarrow{\\mathrm{I}{\\vphantom{A}}^{-}}}{} \\underset{\\mathrm{red}}{\\ce{[Hg^{II}I4]^2-}} }",
       "type":"ce"
     }

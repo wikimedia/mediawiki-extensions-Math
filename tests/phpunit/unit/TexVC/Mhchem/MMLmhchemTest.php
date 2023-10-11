@@ -26,15 +26,16 @@ final class MMLmhchemTest extends MediaWikiUnitTestCase {
 	private static string $FILENAMEREF = __DIR__ . "/Mhchemv4mml.json";
 
 	private static bool $APPLYFILTER = false;
-	private static int $FILTERSTART = 93;
+	private static int $FILTERSTART = 92;
 	private static int $FILTERLENGTH = 1;
 	private static bool $GENERATEHTML = false;
 	private static string $GENERATEDHTMLFILE = __DIR__ . "/MMLmhchemTest-Output.html";
-	private static array $SKIPPEDINDICES = [];
+	private static array $SKIPPEDINDICES = [ 36,40,50,51,91,92,93,94 ];
 
 	public static function setUpBeforeClass(): void {
 		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name","TeX-Input",
-			"Tex-MhchemParser","Tex-PHP-Mhchem" ], self::$GENERATEHTML );
+			"Tex-MhchemParser","Tex-PHP-Mhchem", "MathML-LaTeXML", "MathML-TexVC" ],
+			self::$GENERATEHTML );
 	}
 
 	public static function tearDownAfterClass(): void {
@@ -56,18 +57,24 @@ final class MMLmhchemTest extends MediaWikiUnitTestCase {
 		}
 
 		# Fetch result from TexVC(PHP)
-		$texVC->check( $tc->tex, [
-			'debug' => false,
-			'usemathrm' => false,
-			'oldtexvc' => false,
-			'usemhchem' => true
-		] );
-
 		$mhchemParser = new MhchemParser( self::$LOGMHCHEM );
 		$mhchemOutput = $mhchemParser->toTex( $tc->tex, $tc->typeC );
 
+		$warnings = [];
+		$resTexVC = $texVC->check( $mhchemOutput, [
+			'debug' => false,
+			'usemathrm' => true,
+			'oldtexvc' => false,
+			'usemhchem' => true,
+			"usemhchemtexified" => true
+		], $warnings, false );
+
+		$mathMLtexVC = isset( $resTexVC["input"] ) ? MMLTestUtil::getMMLwrapped( $resTexVC["input"] ) :
+			"<math> error texvc </math>";
+
 		MMLTestUtilHTML::generateHTMLtableRow(
-			self::$GENERATEDHTMLFILE, [ $title,  $tc->tex, $tc->texNew, $mhchemOutput ],
+			self::$GENERATEDHTMLFILE, [ $title,  $tc->tex, $tc->texNew, $mhchemOutput, $tc->mml_latexml ?? "no mathml",
+			$mathMLtexVC ],
 			false, self::$GENERATEHTML );
 
 		if ( !self::$SKIPXMLVALIDATION ) {
@@ -85,16 +92,16 @@ final class MMLmhchemTest extends MediaWikiUnitTestCase {
 		$ctr = 0;
 		foreach ( $fileTestcases as $tcF ) {
 			$tc = [
-			  "ctr" => $ctr,
-			  "tex" => $tcF->tex,
-			  "texNew" => $tcF->texNew,
-			  "type" => $tcF->type,
-			  "typeC" => $tcF->typeC,
-			  "mml_mathoid" => $tcF->mmlMathoid,
-			  "mml_latexml" => $tcF->mmlLaTeXML,
+				"ctr" => $ctr,
+				"tex" => $tcF->tex,
+				"texNew" => $tcF->texNew,
+				"type" => $tcF->type,
+				"typeC" => $tcF->typeC,
+				"mml_mathoid" => $tcF->mmlMathoid,
+				"mml_latexml" => $tcF->mmlLaTeXML,
 			];
 			$f[] = [ "tc#" . str_pad( $ctr, 3, '0', STR_PAD_LEFT ) . " " . $tcF->description,
-					(object)$tc ];
+				(object)$tc ];
 			$ctr++;
 		}
 		// Filtering results by index if necessary

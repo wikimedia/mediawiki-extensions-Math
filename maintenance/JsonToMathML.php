@@ -203,9 +203,14 @@ class JsonToMathML extends Maintenance {
 	 * @return string MathML as string
 	 */
 	public function fetchMathML( string $tex, string $type, string $renderingMode ): string {
+		$params = [ "type" => $type ];
+		if ( $type == "chem" ) {
+			$params["chem"] = true;
+			$tex = "\\ce{ " . $tex . " }";
+		}
 		/** @var MathRenderer $renderer */
 		$renderer = MediaWikiServices::getInstance()->get( 'Math.RendererFactory' )
-			->getRenderer( $tex, [ "type" => $type ], $renderingMode );
+			->getRenderer( $tex, $params, $renderingMode );
 		$renderer->render();
 		$mml = $renderer->getMathml();
 		return $mml;
