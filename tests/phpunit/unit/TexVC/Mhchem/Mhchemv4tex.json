@@ -107,27 +107,27 @@
   "Nuclides, Isotopes": [
       {
         "tex": "^{227}_{90}Th+",
-        "texNew":  "{{\\vphantom{A}}^{\\hphantom{227}}_{\\hphantom{90}}\\mkern-1.5mu{\\vphantom{A}}^{\\smash[t]{\\vphantom{2}}\\llap{227}}_{\\vphantom{2}\\llap{\\smash[t]{90}}}\\mathrm{Th}{\\vphantom{A}}^{+}}",
+        "texNew":  "{{\\vphantom{A}}^{\\hphantom{227}}_{\\hphantom{90}}\\mkern{-1.5mu}{\\vphantom{A}}^{\\smash[t]{\\vphantom{2}}\\llap{227}}_{\\vphantom{2}\\llap{\\smash[t]{90}}}\\mathrm{Th}{\\vphantom{A}}^{+}}",
         "type":"ce"
       },
       {
         "tex": "^{0}_{-1}n^{-}",
-        "texNew":  "{{\\vphantom{A}}^{\\hphantom{0}}_{\\hphantom{-1}}\\mkern-1.5mu{\\vphantom{A}}^{\\smash[t]{\\vphantom{2}}\\llap{0}}_{\\vphantom{2}\\llap{\\smash[t]{-1}}}\\mathrm{n}{\\vphantom{A}}^{-}}",
+        "texNew":  "{{\\vphantom{A}}^{\\hphantom{0}}_{\\hphantom{-1}}\\mkern{-1.5mu}{\\vphantom{A}}^{\\smash[t]{\\vphantom{2}}\\llap{0}}_{\\vphantom{2}\\llap{\\smash[t]{-1}}}\\mathrm{n}{\\vphantom{A}}^{-}}",
         "type":"ce"
       },
       {
         "tex": "^0_-1n-",
-        "texNew":  "{{\\vphantom{A}}^{\\hphantom{0}}_{\\hphantom{-1}}\\mkern-1.5mu{\\vphantom{A}}^{\\smash[t]{\\vphantom{2}}\\llap{0}}_{\\vphantom{2}\\llap{\\smash[t]{-1}}}\\mathrm{n}{\\vphantom{A}}^{-}}",
+        "texNew":  "{{\\vphantom{A}}^{\\hphantom{0}}_{\\hphantom{-1}}\\mkern{-1.5mu}{\\vphantom{A}}^{\\smash[t]{\\vphantom{2}}\\llap{0}}_{\\vphantom{2}\\llap{\\smash[t]{-1}}}\\mathrm{n}{\\vphantom{A}}^{-}}",
         "type":"ce"
       },
       {
         "tex": "H{}^3HO",
-        "texNew":  "{\\mathrm{H}\\mkern2mu{\\vphantom{A}}^{\\hphantom{3}}_{\\hphantom{}}\\mkern-1.5mu{\\vphantom{A}}^{\\smash[t]{\\vphantom{2}}\\llap{3}}_{\\vphantom{2}\\llap{\\smash[t]{}}}\\mathrm{HO}}",
+        "texNew":  "{\\mathrm{H}\\mkern{2mu}{\\vphantom{A}}^{\\hphantom{3}}_{\\hphantom{}}\\mkern{-1.5mu}{\\vphantom{A}}^{\\smash[t]{\\vphantom{2}}\\llap{3}}_{\\vphantom{2}\\llap{\\smash[t]{}}}\\mathrm{HO}}",
         "type":"ce"
       },
       {
         "tex": "H^3HO",
-        "texNew": "{\\mathrm{H}\\mkern2mu{\\vphantom{A}}^{\\hphantom{3}}_{\\hphantom{}}\\mkern-1.5mu{\\vphantom{A}}^{\\smash[t]{\\vphantom{2}}\\llap{3}}_{\\vphantom{2}\\llap{\\smash[t]{}}}\\mathrm{HO}}",
+        "texNew": "{\\mathrm{H}\\mkern{2mu}{\\vphantom{A}}^{\\hphantom{3}}_{\\hphantom{}}\\mkern{-1.5mu}{\\vphantom{A}}^{\\smash[t]{\\vphantom{2}}\\llap{3}}_{\\vphantom{2}\\llap{\\smash[t]{}}}\\mathrm{HO}}",
         "type": "ce"
       }
     ],
@@ -203,34 +203,34 @@
     "States of Aggregation": [
       {
         "tex": "H2(aq)",
-        "texNew":  "{\\mathrm{H}{\\vphantom{A}}_{\\smash[t]{2}}\\mskip2mu (\\mathrm{aq})}",
+        "texNew":  "{\\mathrm{H}{\\vphantom{A}}_{\\smash[t]{2}}\\mskip{2mu} (\\mathrm{aq})}",
         "type":"ce"
       },
       {
         "tex": "CO3^2-_{(aq)}",
-        "texNew":  "{\\mathrm{CO}{\\vphantom{A}}_{\\smash[t]{3}}{\\vphantom{A}}^{2-}{\\vphantom{A}}_{\\smash[t]{\\mskip1mu (\\mathrm{aq})}}}",
+        "texNew":  "{\\mathrm{CO}{\\vphantom{A}}_{\\smash[t]{3}}{\\vphantom{A}}^{2-}{\\vphantom{A}}_{\\smash[t]{\\mskip{1mu} (\\mathrm{aq})}}}",
         "type":"ce"
       },
       {
         "tex": "CO3^2-{}_{(aq)}",
-        "texNew":  "{\\mathrm{CO}{\\vphantom{A}}_{\\smash[t]{3}}{\\vphantom{A}}^{2-}{\\vphantom{A}}_{\\smash[t]{\\mskip1mu (\\mathrm{aq})}}}",
+        "texNew":  "{\\mathrm{CO}{\\vphantom{A}}_{\\smash[t]{3}}{\\vphantom{A}}^{2-}{\\vphantom{A}}_{\\smash[t]{\\mskip{1mu} (\\mathrm{aq})}}}",
         "type":"ce"
       },
       {
         "tex": "NaOH(aq,  \\begin{math} \\infty \\end{math})",
-        "texNew": "{\\mathrm{NaOH}\\mskip2mu (\\mathrm{aq},\\infty )}",
+        "texNew": "{\\mathrm{NaOH}\\mskip{2mu} (\\mathrm{aq},\\infty )}",
         "type": "ce"
       }
     ],
     "Crystal Systems": [
       {
         "tex": "ZnS ($c$)",
-        "texNew":  "{\\mathrm{ZnS}\\mskip2mu (c )}",
+        "texNew":  "{\\mathrm{ZnS}\\mskip{2mu} (c )}",
         "type":"ce"
       },
       {
         "tex": "ZnS (\\ca$c$)",
-        "texNew": "{\\mathrm{ZnS}\\mskip2mu ({\\sim}c )}",
+        "texNew": "{\\mathrm{ZnS}\\mskip{2mu} ({\\sim}c )}",
         "type": "ce"
       }
     ],
@@ -269,14 +269,14 @@
       },
       {
         "tex": "^40_18Ar + \\gamma{} + \\nu_e",
-        "texNew":  "{{\\vphantom{A}}^{\\hphantom{40}}_{\\hphantom{18}}\\mkern-1.5mu{\\vphantom{A}}^{\\smash[t]{\\vphantom{2}}\\llap{40}}_{\\vphantom{2}\\llap{\\smash[t]{18}}}\\mathrm{Ar} {}+{} \\mathrm{\\gamma{}} {}+{} \\mathrm{\\nu}{\\vphantom{A}}_{\\smash[t]{e }}}",
+        "texNew":  "{{\\vphantom{A}}^{\\hphantom{40}}_{\\hphantom{18}}\\mkern{-1.5mu}{\\vphantom{A}}^{\\smash[t]{\\vphantom{2}}\\llap{40}}_{\\vphantom{2}\\llap{\\smash[t]{18}}}\\mathrm{Ar} {}+{} \\mathrm{\\gamma{}} {}+{} \\mathrm{\\nu}{\\vphantom{A}}_{\\smash[t]{e }}}",
         "type": "ce"
       }
     ],
   "(Italic) Math": [
     {
       "tex": "NaOH(aq,  \\begin{math} \\infty$)",
-      "texNew":  "{\\mathrm{NaOH}\\mskip2mu (\\mathrm{aq},\\infty )}",
+      "texNew":  "{\\mathrm{NaOH}\\mskip{2mu} (\\mathrm{aq},\\infty )}",
       "type":"ce"
     },
     {
@@ -347,12 +347,12 @@
     },
     {
       "tex": "A\\bond{~}B\\bond{~-}C",
-      "texNew":  "{\\mathrm{A}{\\tripledash}\\mathrm{B}{\\rlap{\\lower.1em{-}}\\raise.1em{\\tripledash}}\\mathrm{C}}",
+      "texNew":  "{\\mathrm{A}{\\tripledash}\\mathrm{B}{\\rlap{\\lower{.1em}{-}}\\raise{.1em}{\\tripledash}}\\mathrm{C}}",
       "type":"ce"
     },
     {
       "tex": "A\\bond{~--}B\\bond{~=}C\\bond{-~-}D",
-      "texNew":  "{\\mathrm{A}{\\rlap{\\lower.2em{-}}\\rlap{\\raise.2em{\\tripledash}}-}\\mathrm{B}{\\rlap{\\lower.2em{-}}\\rlap{\\raise.2em{\\tripledash}}-}\\mathrm{C}{\\rlap{\\lower.2em{-}}\\rlap{\\raise.2em{-}}\\tripledash}\\mathrm{D}}",
+      "texNew":  "{\\mathrm{A}{\\rlap{\\lower{.2em}{-}}\\rlap{\\raise{.2em}{\\tripledash}}-}\\mathrm{B}{\\rlap{\\lower{.2em}{-}}\\rlap{\\raise{.2em}{\\tripledash}}-}\\mathrm{C}{\\rlap{\\lower{.2em}{-}}\\rlap{\\raise{.2em}{-}}\\tripledash}\\mathrm{D}}",
       "type":"ce"
     },
     {
@@ -393,29 +393,29 @@
   "Unpaired Electrons, Radical Dots": [
     {
       "tex": "OCO^{.-}",
-      "texNew":  "{\\mathrm{OCO}{\\vphantom{A}}^{\\mkern1mu \\bullet\\mkern1mu -}}",
+      "texNew":  "{\\mathrm{OCO}{\\vphantom{A}}^{\\mkern{1mu} \\bullet\\mkern{1mu} -}}",
       "type":"ce"
     },
     {
       "tex": "NO^{(2.)-}",
-      "texNew":  "{\\mathrm{NO}{\\vphantom{A}}^{(2\\mkern1mu \\bullet\\mkern1mu )-}}",
+      "texNew":  "{\\mathrm{NO}{\\vphantom{A}}^{(2\\mkern{1mu} \\bullet\\mkern{1mu} )-}}",
       "type": "ce"
     }
   ],
   "Kröger-Vink Notation": [
     {
       "tex": "Li^x_{Li,1-2x}Mg^._{Li,x}$V$'_{Li,x}Cl^x_{Cl}",
-      "texNew":  "{\\mathrm{Li}{\\vphantom{A}}^{{\\times}}_{\\smash[t]{\\mathrm{Li}{,}\\mkern1mu 1-2x }}\\mathrm{Mg}{\\vphantom{A}}^{\\mkern1mu \\bullet\\mkern1mu }_{\\smash[t]{\\mathrm{Li}{,}\\mkern1mu x }}V {\\vphantom{A}}^{\\prime }_{\\smash[t]{\\mathrm{Li}{,}\\mkern1mu x }}\\mathrm{Cl}{\\vphantom{A}}^{{\\times}}_{\\smash[t]{\\mathrm{Cl}}}}",
+      "texNew":  "{\\mathrm{Li}{\\vphantom{A}}^{{\\times}}_{\\smash[t]{\\mathrm{Li}{,}\\mkern{1mu} 1-2x }}\\mathrm{Mg}{\\vphantom{A}}^{\\mkern{1mu} \\bullet\\mkern{1mu} }_{\\smash[t]{\\mathrm{Li}{,}\\mkern{1mu} x }}V {\\vphantom{A}}^{\\prime }_{\\smash[t]{\\mathrm{Li}{,}\\mkern{1mu} x }}\\mathrm{Cl}{\\vphantom{A}}^{{\\times}}_{\\smash[t]{\\mathrm{Cl}}}}",
       "type":"ce"
     },
     {
       "tex": "O''_{i,x}",
-      "texNew":  "{\\mathrm{O}{\\vphantom{A}}^{\\prime \\prime }_{\\smash[t]{\\mathrm{i}{,}\\mkern1mu x }}}",
+      "texNew":  "{\\mathrm{O}{\\vphantom{A}}^{\\prime \\prime }_{\\smash[t]{\\mathrm{i}{,}\\mkern{1mu} x }}}",
       "type":"ce"
     },
     {
       "tex": "M^{..}_i",
-      "texNew":  "{\\mathrm{M}{\\vphantom{A}}^{\\mkern1mu \\bullet\\mkern1mu \\mkern1mu \\bullet\\mkern1mu }_{\\smash[t]{\\mathrm{i}}}}",
+      "texNew":  "{\\mathrm{M}{\\vphantom{A}}^{\\mkern{1mu} \\bullet\\mkern{1mu} \\mkern{1mu} \\bullet\\mkern{1mu} }_{\\smash[t]{\\mathrm{i}}}}",
       "type":"ce"
     },
     {
@@ -425,7 +425,7 @@
     },
     {
       "tex": "V_{V,1}C_{C,0.8}$V$_{C,0.2}",
-      "texNew":  "{\\mathrm{V}{\\vphantom{A}}_{\\smash[t]{\\mathrm{V}{,}\\mkern1mu 1}}\\mathrm{C}{\\vphantom{A}}_{\\smash[t]{\\mathrm{C}{,}\\mkern1mu 0.8}}V {\\vphantom{A}}_{\\smash[t]{\\mathrm{C}{,}\\mkern1mu 0.2}}}",
+      "texNew":  "{\\mathrm{V}{\\vphantom{A}}_{\\smash[t]{\\mathrm{V}{,}\\mkern{1mu} 1}}\\mathrm{C}{\\vphantom{A}}_{\\smash[t]{\\mathrm{C}{,}\\mkern{1mu} 0.8}}V {\\vphantom{A}}_{\\smash[t]{\\mathrm{C}{,}\\mkern{1mu} 0.2}}}",
       "type":"ce"
     }
   ],
@@ -491,7 +491,7 @@
     },
     {
       "tex": "A, B, C; F",
-      "texNew":  "{\\mathrm{A}{,}\\mkern6mu \\mathrm{B}{,}\\mkern6mu \\mathrm{C}{;}\\mkern6mu \\mathrm{F}}",
+      "texNew":  "{\\mathrm{A}{,}\\mkern{6mu} \\mathrm{B}{,}\\mkern{6mu} \\mathrm{C}{;}\\mkern{6mu} \\mathrm{F}}",
       "type":"ce"
     },
     {
@@ -503,7 +503,7 @@
   "Complex Examples": [
     {
       "tex": "Zn^2+  <=>[+ 2OH-][+ 2H+]   \\begin{math} \\underset{\\text{amphoteres Hydroxid}}{\\ce{Zn(OH)2 v}}\\end{math}  <=>[+ 2OH-][+ 2H+]   \\begin{math} \\underset{\\text{Hydroxozikat}}{\\ce{[Zn(OH)4]^2-}}\\end{math}",
-      "texNew":  "{\\mathrm{Zn}{\\vphantom{A}}^{2+} {}\\mathrel{\\underset{\\lower6mu{ {}+{} 2\\,\\mathrm{H}{\\vphantom{A}}^{+}}}{\\overset{ {}+{} 2\\,\\mathrm{OH}{\\vphantom{A}}^{-}}{\\longrightleftharpoons}}}{} \\underset{\\text{amphoteres Hydroxid}}{\\ce{Zn(OH)2 v}}  {}\\mathrel{\\underset{\\lower6mu{ {}+{} 2\\,\\mathrm{H}{\\vphantom{A}}^{+}}}{\\overset{ {}+{} 2\\,\\mathrm{OH}{\\vphantom{A}}^{-}}{\\longrightleftharpoons}}}{} \\underset{\\text{Hydroxozikat}}{\\ce{[Zn(OH)4]^2-}} }",
+      "texNew":  "{\\mathrm{Zn}{\\vphantom{A}}^{2+} {}\\mathrel{\\underset{\\lower{6mu}{ {}+{} 2\\,\\mathrm{H}{\\vphantom{A}}^{+}}}{\\overset{ {}+{} 2\\,\\mathrm{OH}{\\vphantom{A}}^{-}}{\\longrightleftharpoons}}}{} \\underset{\\text{amphoteres Hydroxid}}{\\ce{Zn(OH)2 v}}  {}\\mathrel{\\underset{\\lower{6mu}{ {}+{} 2\\,\\mathrm{H}{\\vphantom{A}}^{+}}}{\\overset{ {}+{} 2\\,\\mathrm{OH}{\\vphantom{A}}^{-}}{\\longrightleftharpoons}}}{} \\underset{\\text{Hydroxozikat}}{\\ce{[Zn(OH)4]^2-}} }",
       "type":"ce"
     },
     {
@@ -535,12 +535,12 @@
     },
     {
       "tex":  "123 J s",
-      "texNew": "{123~\\mathrm{J}\\mkern3mu \\mathrm{s}}",
+      "texNew": "{123~\\mathrm{J}\\mkern{3mu} \\mathrm{s}}",
       "type":"pu"
     },
     {
       "tex":  "123 J*s",
-      "texNew": "{123~\\mathrm{J}\\mkern1mu{\\cdot}\\mkern1mu \\mathrm{s}}",
+      "texNew": "{123~\\mathrm{J}\\mkern{1mu}{\\cdot}\\mkern{1mu} \\mathrm{s}}",
       "type":"pu"
     },
     {
@@ -555,17 +555,17 @@
     },
     {
       "tex":  "123 kJ mol^-1",
-      "texNew": "{123~\\mathrm{kJ}\\mkern3mu \\mathrm{mol^{-1}}}",
+      "texNew": "{123~\\mathrm{kJ}\\mkern{3mu} \\mathrm{mol^{-1}}}",
       "type":"pu"
     },
     {
       "tex":  "123 kJ*mol-1",
-      "texNew": "{123~\\mathrm{kJ}\\mkern1mu{\\cdot}\\mkern1mu \\mathrm{mol^{-1}}}",
+      "texNew": "{123~\\mathrm{kJ}\\mkern{1mu}{\\cdot}\\mkern{1mu} \\mathrm{mol^{-1}}}",
       "type":"pu"
     },
     {
       "tex":  "123 kJ.mol-1",
-      "texNew": "{123~\\mathrm{kJ}\\mkern1mu{\\cdot}\\mkern1mu \\mathrm{mol^{-1}}}",
+      "texNew": "{123~\\mathrm{kJ}\\mkern{1mu}{\\cdot}\\mkern{1mu} \\mathrm{mol^{-1}}}",
       "type":"pu"
     },
     {
@@ -595,7 +595,7 @@
     },
     {
       "tex":  "12345",
-      "texNew": "{12\\mkern2mu 345}",
+      "texNew": "{12\\mkern{2mu} 345}",
       "type":"pu"
     },
     {
@@ -610,7 +610,7 @@
     },
     {
       "tex":  "8.00001 \\pm 0.00005 nm",
-      "texNew": "{8.000\\mkern2mu 01 {}\\pm{} 0.000\\mkern2mu 05~\\mathrm{nm}}",
+      "texNew": "{8.000\\mkern{2mu} 01 {}\\pm{} 0.000\\mkern{2mu} 05~\\mathrm{nm}}",
       "type":"pu"
     },
     {

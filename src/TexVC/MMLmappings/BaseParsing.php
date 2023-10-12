@@ -506,6 +506,7 @@ class BaseParsing {
 				// Using emdash for rendering here.
 				$mo = new MMLmo();
 				return $mo->encapsulateRaw( "&#x2014;" );
+			case "longrightleftharpoons":
 			case "longLeftrightharpoons":
 			case "longRightleftharpoons":
 				$texvc = new TexVC();

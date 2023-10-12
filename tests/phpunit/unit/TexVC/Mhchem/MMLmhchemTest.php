@@ -51,14 +51,14 @@ final class MMLmhchemTest extends MediaWikiUnitTestCase {
 
 		if ( in_array( $tc->ctr, self::$SKIPPEDINDICES ) ) {
 			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr, $tc->tex,
-				"skipped", "skipped", "skipped" ], false, self::$GENERATEHTML );
+				"skipped", "skipped", "skipped", "skipped" ], false, self::$GENERATEHTML );
 			$this->assertTrue( true );
 			return;
 		}
 
 		# Fetch result from TexVC(PHP)
 		$mhchemParser = new MhchemParser( self::$LOGMHCHEM );
-		$mhchemOutput = $mhchemParser->toTex( $tc->tex, $tc->typeC );
+		$mhchemOutput = $mhchemParser->toTex( $tc->tex, $tc->typeC, true );
 
 		$warnings = [];
 		$resTexVC = $texVC->check( $mhchemOutput, [
