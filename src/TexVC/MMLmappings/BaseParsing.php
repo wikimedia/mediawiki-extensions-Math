@@ -164,7 +164,9 @@ class BaseParsing {
 		// this goes for name =="aligned" ... tcs: 358 420 421
 		$mrow = new MMLmrow();
 		// tbd how are the table args composed ?
-		$tableArgs = [ "columnalign" => "right",
+
+		$direction = ( $name == "aligned" ) ? "left" : "right";
+		$tableArgs = [ "columnalign" => $direction,
 			"columnspacing" => "", "displaystyle" => "true", "rowspacing" => "3pt" ];
 		$mtable  = new MMLmtable( "", $tableArgs );
 		$mtr = new MMLmtr();

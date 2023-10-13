@@ -15,6 +15,13 @@ use MediaWikiUnitTestCase;
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
 
+	public function testAlignLeft() {
+		$input = " \begin{align} f(x) & = (a+b)^2 \\ & = a^2+2ab+b^2 \\ \\end{align} ";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "columnalign=\"left\"", $mathMLtexVC );
+		$this->assertStringContainsString( "mtable", $mathMLtexVC );
+	}
+
 	public function testLeftRightAttributes() {
 		$input = "\\left( \\right) \\left[ \\right]";
 		$mathMLtexVC = $this->generateMML( $input );
