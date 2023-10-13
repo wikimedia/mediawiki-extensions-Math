@@ -1204,7 +1204,7 @@ class MhchemStateMachines {
 				},
 				'output-0' => static function ( &$buffer ) {
 					$ret = [];
-					$buffer["text_"] = $buffer["text_"] ?? "";
+					$buffer["text_"] ??= "";
 					if ( strlen( $buffer["text_"] ) > 4 ) {
 						$a = strlen( $buffer["text_"] ) % 3;
 						if ( $a === 0 ) {
@@ -1226,7 +1226,7 @@ class MhchemStateMachines {
 				},
 				'output-o' => static function ( &$buffer ) {
 					$ret = [];
-					$buffer["text_"] = $buffer["text_"] ?? "";
+					$buffer["text_"] ??= "";
 					if ( strlen( $buffer["text_"] ) > 4 ) {
 						$a = strlen( $buffer["text_"] ) - 3;
 						for ( $i = 0; $i < $a; $i += 3 ) {
