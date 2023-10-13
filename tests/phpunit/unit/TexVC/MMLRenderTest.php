@@ -15,6 +15,13 @@ use MediaWikiUnitTestCase;
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
 
+	public function testLeftRightAttributes() {
+		$input = "\\left( \\right) \\left[ \\right]";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mo", $mathMLtexVC );
+		$this->assertStringNotContainsString( "stretchy", $mathMLtexVC );
+	}
+
 	public function testIntbar1() {
 		$input = "\intbar";
 		$mathMLtexVC = $this->generateMML( $input );

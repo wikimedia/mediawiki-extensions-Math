@@ -62,13 +62,13 @@ class Lr extends TexNode {
 		}
 
 		$bm = new BaseMethods();
-		$left = $bm->checkAndParseDelimiter( $this->left, $this, [], null, false,
+		$left = $bm->checkAndParseDelimiter( $this->left, $this, [], null, true,
 			TexClass::OPEN );
 		if ( !$left ) {
 			$moLeft = new MMLmo( TexClass::OPEN, [] );
 			$left = $moLeft->encapsulateRaw( $this->right );
 		}
-		$right = $bm->checkAndParseDelimiter( $this->right, $this, $rightAttrs, null, false,
+		$right = $bm->checkAndParseDelimiter( $this->right, $this, $rightAttrs, null, true,
 			TexClass::CLOSE );
 		if ( !$right ) {
 			$moRight = new MMLmo( TexClass::CLOSE, $rightAttrs );
