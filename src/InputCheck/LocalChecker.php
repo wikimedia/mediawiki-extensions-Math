@@ -17,12 +17,18 @@ class LocalChecker extends BaseChecker {
 	private string $type;
 	private WANObjectCache $cache;
 
+	private bool $purge = false;
+
 	private bool $isChecked = false;
 
 	public function __construct( WANObjectCache $cache, $tex = '', string $type = 'tex' ) {
 		$this->cache = $cache;
 		parent::__construct( $tex );
 		$this->type = $type;
+	}
+
+	public function setPurge( bool $purge ) {
+		$this->purge = $purge;
 	}
 
 	public function isValid(): bool {
@@ -45,8 +51,12 @@ class LocalChecker extends BaseChecker {
 			return;
 		}
 		try {
+			$cacheInputKey = $this->getInputCacheKey();
+			if ( $this->purge ) {
+				$this->cache->delete( $cacheInputKey, WANObjectCache::TTL_INDEFINITE );
+			}
 			$result = $this->cache->getWithSetCallback(
-				$this->getInputCacheKey(),
+				$cacheInputKey,
 				WANObjectCache::TTL_INDEFINITE,
 				[ $this, 'runCheck' ],
 				[ 'version' => self::VERSION ],

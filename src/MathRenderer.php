@@ -514,7 +514,7 @@ abstract class MathRenderer {
 
 	/**
 	 * Checks if there is an explicit user request to rerender the math-tag.
-	 * @return bool
+	 * @return bool purge state
 	 */
 	public function isPurge() {
 		if ( $this->purge ) {
