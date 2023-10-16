@@ -696,7 +696,9 @@ abstract class MathRenderer {
 		}
 
 		$checkerError = $checker->getError();
-		$this->lastError = $this->getError( $checkerError->getKey(), ...$checkerError->getParams() );
+		$this->lastError = $checkerError === null ?
+			$this->getError( 'math_unknown_error' ) :
+			$this->getError( $checkerError->getKey(), ...$checkerError->getParams() );
 		return false;
 	}
 
