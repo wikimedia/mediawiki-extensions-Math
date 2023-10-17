@@ -18,6 +18,9 @@
 		]
 	},
 	"math-desc": "Render mathematical formulas between <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> tags",
+	"popups-settings-option-math": "Math",
+	"popups-settings-option-math-description": "Explain mathematical formulae.",
+	"popups-settings-option-math-tooltip": "Explain mathematical formulae on hover.",
 	"math-visualeditor-mwchemdialog-title": "Chemical formula",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Quick edit",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formula",

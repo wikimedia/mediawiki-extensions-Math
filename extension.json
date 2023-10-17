@@ -27,7 +27,8 @@
 		"MediaWiki\\Extension\\Math\\WikiTexVC\\MMLmappings\\Util\\MMLComparator": "tests/phpunit/unit/WikiTexVC/MMLComparator.php"
 	},
 	"DefaultUserOptions": {
-		"math": "mathml"
+		"math": "mathml",
+		"math-popups": "1"
 	},
 	"ExtensionMessagesFiles": {
 		"MathAlias": "Math.alias.php",
@@ -216,8 +217,12 @@
 		"ext.math.popup": {
 			"es6": true,
 			"packageFiles": "ext.math.popup.js",
+			"messages": [
+				"popups-settings-option-math",
+				"popups-settings-option-math-description"
+			],
 			"dependencies": [
-				"mediawiki.api"
+				"mediawiki.ForeignApi"
 			]
 		},
 		"mw.widgets.MathWbEntitySelector": {

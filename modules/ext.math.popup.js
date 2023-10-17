@@ -42,12 +42,17 @@
 			}
 		}
 	);
-	module.exports = {
+
+	const mathDisabledByUser = mw.user.isNamed() && mw.user.options.get( 'math-popups' ) !== '1';
+	const selector = '.mwe-math-element[data-qid] img';
+	const mathAppliesToThisPage = document.querySelectorAll( selector ).length > 0;
+
+	module.exports = !mathAppliesToThisPage || mathDisabledByUser ? null : {
 		type: previewType,
-		selector: '.mwe-math-element[data-qid] img',
+		selector,
 		gateway: {
-			fetch: fetch,
-			fetchPreviewForTitle: fetchPreviewForTitle
+			fetch,
+			fetchPreviewForTitle
 		}
 	};
 }() );
