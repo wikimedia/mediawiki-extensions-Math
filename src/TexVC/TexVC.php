@@ -64,7 +64,7 @@ class TexVC {
 			if ( $texifyMhchem && isset( $options["usemhchem"] ) && $options["usemhchem"] ) {
 				// Parse the chemical equations to TeX with mhChemParser in PHP as preprocessor
 				$mhChemParser = new MHChemParser();
-				$input = $mhChemParser->toTex( $input, "ce", true );
+				$input = $mhChemParser->toTex( $input, "tex", true );
 			}
 
 			$options = ParserUtil::createOptions( $options );

@@ -15,6 +15,17 @@ use MediaWikiUnitTestCase;
  */
 final class MhchemBasicMMLTest extends MediaWikiUnitTestCase {
 
+	public function testGUIStyleNotation() {
+		$input = "{\displaystyle \ce{ C6H5-CHO }}";
+		$texVC = new TexVC();
+		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
+		$warnings = [];
+		$res = $texVC->check( $input, $options, $warnings, true );
+		$mml = $res['input']->renderMML();
+		$this->assertStringContainsString( '<mpadded', $mml );
+		$this->assertStringContainsString( '<mphantom', $mml );
+	}
+
 	public static function provideTestCasesLetters() {
 		return [
 			[ "Alpha" , "A" ],
@@ -206,7 +217,7 @@ final class MhchemBasicMMLTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testSmash1() {
-		$input = "\\smash[t]{2}";
+		$input = "\ce{\\smash[t]{2}}";
 		$texVC = new TexVC();
 		$warnings = [];
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
@@ -215,7 +226,7 @@ final class MhchemBasicMMLTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testSmash2() {
-		$input = "\\smash[b]{x}";
+		$input = "\ce{\\smash[b]{x}}";
 		$texVC = new TexVC();
 		$warnings = [];
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
@@ -224,7 +235,7 @@ final class MhchemBasicMMLTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testSmash3() {
-		$input = "\\smash[bt]{2}";
+		$input = "\ce{\\smash[bt]{2}}";
 		$texVC = new TexVC();
 		$warnings = [];
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
@@ -234,7 +245,7 @@ final class MhchemBasicMMLTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testSmash4() {
-		$input = "\\smash[tb]{2}";
+		$input = "\ce{\\smash[tb]{2}}";
 		$texVC = new TexVC();
 		$warnings = [];
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
@@ -244,7 +255,7 @@ final class MhchemBasicMMLTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testSmash5() {
-		$input = "\\smash{2}";
+		$input = "\ce{\\smash{2}}";
 		$texVC = new TexVC();
 		$warnings = [];
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],

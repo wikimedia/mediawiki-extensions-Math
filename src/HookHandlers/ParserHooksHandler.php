@@ -104,8 +104,7 @@ class ParserHooksHandler implements
 	 */
 	public function chemTagHook( ?string $content, array $attributes, Parser $parser ) {
 		$attributes['chem'] = true;
-		$content = $parser->getOptions()->getOption( 'math' ) == "native" ? $content : "\ce{" . $content . "}";
-		return $this->mathTagHook( $content, $attributes, $parser );
+		return $this->mathTagHook( '\ce{' . $content . '}', $attributes, $parser );
 	}
 
 	/**

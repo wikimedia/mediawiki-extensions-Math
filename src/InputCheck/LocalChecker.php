@@ -91,8 +91,8 @@ class LocalChecker extends BaseChecker {
 	}
 
 	public function runCheck(): array {
-		if ( $this->type === "chem" ) {
-			$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
+		if ( $this->type == 'chem' ) {
+			$options = [ 'usemhchem' => true, 'usemhchemtexified' => true ];
 			$texifyMhchem = true;
 		} else {
 			$options = [];
