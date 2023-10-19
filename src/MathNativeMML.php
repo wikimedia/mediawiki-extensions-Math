@@ -24,7 +24,6 @@ class MathNativeMML extends MathMathML {
 	public function __construct( $tex = '', $params = [] ) {
 		parent::__construct( $tex, $params );
 		$this->setMode( MathConfig::MODE_NATIVE_MML );
-		$this->setPurge();
 	}
 
 	protected function doRender(): StatusValue {
