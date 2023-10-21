@@ -177,7 +177,8 @@ class MathWikibaseConnectorTest extends MathWikibaseConnectorTestFactory {
 	/**
 	 * @dataProvider provideItemSetups
 	 */
-	public function testFetchMassEnergyEquivalenceHasPartsItem( Item $item ) {
+	public function testFetchMassEnergyEquivalenceHasPartsItem( bool $hasPart ) {
+		$item = $this->setupMassEnergyEquivalenceItem( $hasPart );
 		$wikibaseConnector = $this->getWikibaseConnectorWithExistingItems( new EntityRevision( $item ) );
 		$wikibaseInfo = $wikibaseConnector->fetchWikibaseFromId( 'Q1', 'en' );
 
@@ -205,7 +206,8 @@ class MathWikibaseConnectorTest extends MathWikibaseConnectorTestFactory {
 	/**
 	 * @dataProvider provideItemSetups
 	 */
-	public function testFetchMassEnergyWithStorageExceptionLogging( Item $item ) {
+	public function testFetchMassEnergyWithStorageExceptionLogging( bool $hasPart ) {
+		$item = $this->setupMassEnergyEquivalenceItem( $hasPart );
 		$wikibaseConnector = $this->getWikibaseConnectorWithExistingItems( new EntityRevision( $item ), true );
 
 		$this->expectError();
@@ -216,7 +218,8 @@ class MathWikibaseConnectorTest extends MathWikibaseConnectorTestFactory {
 	/**
 	 * @dataProvider provideItemSetups
 	 */
-	public function testFetchMassEnergyWithStorageException( Item $item ) {
+	public function testFetchMassEnergyWithStorageException( bool $hasPart ) {
+		$item = $this->setupMassEnergyEquivalenceItem( $hasPart );
 		$wikibaseConnector = $this->getWikibaseConnectorWithExistingItems(
 			new EntityRevision( $item ),
 			true,
@@ -237,10 +240,10 @@ class MathWikibaseConnectorTest extends MathWikibaseConnectorTestFactory {
 		}
 	}
 
-	public function provideItemSetups(): array {
+	public static function provideItemSetups(): array {
 		return [
-			[ $this->setupMassEnergyEquivalenceItem( true ) ],
-			[ $this->setupMassEnergyEquivalenceItem( false ) ],
+			[ true ],
+			[ false ],
 		];
 	}
 }
