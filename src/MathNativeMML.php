@@ -63,4 +63,11 @@ class MathNativeMML extends MathMathML {
 		return $this->getMathml();
 	}
 
+	public function readFromDatabase() {
+		return false;
+	}
+
+	public function writeCache() {
+		return true;
+	}
 }
