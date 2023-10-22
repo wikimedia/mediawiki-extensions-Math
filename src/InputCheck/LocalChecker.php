@@ -3,7 +3,10 @@
 namespace MediaWiki\Extension\Math\InputCheck;
 
 use Exception;
+use MediaWiki\Extension\Math\Hooks\HookRunner;
+use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\Extension\Math\TexVC\TexVC;
+use MediaWiki\HookContainer\HookContainer;
 use Message;
 use WANObjectCache;
 
@@ -20,6 +23,8 @@ class LocalChecker extends BaseChecker {
 	private bool $purge = false;
 
 	private bool $isChecked = false;
+	private ?MathRenderer $context = null;
+	private ?HookContainer $hookContainer = null;
 
 	public function __construct( WANObjectCache $cache, $tex = '', string $type = 'tex' ) {
 		$this->cache = $cache;
@@ -120,16 +125,33 @@ class LocalChecker extends BaseChecker {
 			// @codeCoverageIgnoreEnd
 		}
 		if ( $result['status'] === '+' ) {
-			return [
+			$result['mathml'] = $result['input']->renderMML();
+			$out = [
 				'status' => '+',
 				'output' => $result['output'],
-				'mathml' => $result['input']->renderMML()
+				'mathml' => $result['mathml']
 			];
 		} else {
-			return [
+			$out = [
 				'status' => $result['status'],
 				'error' => $result['error'],
 			];
 		}
+		if ( $this->context !== null && $this->hookContainer !== null ) {
+			$resultObject = (object)$result;
+			( new HookRunner( $this->hookContainer ) )->onMathRenderingResultRetrieved(
+				$this->context,
+				$resultObject
+			);
+		}
+		return $out;
+	}
+
+	public function setContext( ?MathRenderer $renderer ): void {
+		$this->context = $renderer;
+	}
+
+	public function setHookContainer( ?HookContainer $hookContainer ): void {
+		$this->hookContainer = $hookContainer;
 	}
 }
