@@ -16,10 +16,11 @@ use MediaWikiUnitTestCase;
  * @group Stub
  */
 class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
-	private $ACTIVE = true; # indicate whether this test is active
-	private $FILENAME = "en-wiki-formulae-good.json";
-	private $REF_FILENAME = "en-wiki-formulae-good-reference.json";
-	private $CHUNKSIZE = 1000;
+	/** indicate whether this test is active */
+	private const ACTIVE = true;
+	private const FILENAME = "en-wiki-formulae-good.json";
+	private const REF_FILENAME = "en-wiki-formulae-good-reference.json";
+	private const CHUNKSIZE = 1000;
 
 	/**
 	 * Reads the json file to an object
@@ -27,7 +28,7 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 	 * @throws InvalidArgumentException File with testcases does not exist.
 	 * @return array json with testcases
 	 */
-	private function getJSON( $filePath ): array {
+	private static function getJSON( $filePath ): array {
 		if ( !file_exists( $filePath ) ) {
 			throw new InvalidArgumentException( "No testfile found at specified path: " . $filePath );
 		}
@@ -36,13 +37,13 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 		return $json;
 	}
 
-	public function provideTestCases(): \Generator {
+	public static function provideTestCases(): \Generator {
 		$group = [];
 		$groupNo = 1;
-		$references = $this->getJSON( __DIR__ . '/' . $this->REF_FILENAME );
-		foreach ( $this->getJSON( __DIR__ . '/' . $this->FILENAME ) as $key => $elem ) {
+		$references = self::getJSON( __DIR__ . '/' . self::REF_FILENAME );
+		foreach ( self::getJSON( __DIR__ . '/' . self::FILENAME ) as $key => $elem ) {
 			$group[$key] = [ $elem , $references[ $key ] ];
-			if ( count( $group ) >= $this->CHUNKSIZE ) {
+			if ( count( $group ) >= self::CHUNKSIZE ) {
 				yield "Group $groupNo" => [ $group ];
 				$groupNo++;
 				$group = [];
@@ -57,7 +58,7 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 	 * @dataProvider provideTestCases
 	 */
 	public function testRunCases( $testcase ) {
-		if ( !$this->ACTIVE ) {
+		if ( !$this::ACTIVE ) {
 			$this->markTestSkipped( "All MediaWiki formulae en test not active and skipped. This is expected." );
 		}
 
