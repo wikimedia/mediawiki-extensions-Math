@@ -29,6 +29,8 @@ class MathNativeMML extends MathMathML {
 	protected function doRender(): StatusValue {
 		$checker = $this->getChecker();
 		$checker->setPurge( $this->isPurge() );
+		$checker->setContext( $this );
+		$checker->setHookContainer( MediaWikiServices::getInstance()->getHookContainer() );
 		$presentation = $checker->getPresentationMathMLFragment();
 		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$attributes = [ 'class' => 'mwe-math-element' ];
