@@ -8,7 +8,8 @@
 			"Trần Nguyễn Minh Huy",
 			"Vinhtantran",
 			"NguoiDungKhongDinhDanh",
-			"Nguyenphutrong2"
+			"Nguyenphutrong2",
+			"Phjtieudoc"
 		]
 	},
 	"math-desc": "Kết xuất các công thức nằm giữa thẻ <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
@@ -20,7 +21,7 @@
 	"math-visualeditor-mwlatexinspector-display": "Hiển thị",
 	"math-visualeditor-mwlatexinspector-display-block": "Khối",
 	"math-visualeditor-mwlatexinspector-display-default": "Mặc định",
-	"math-visualeditor-mwlatexinspector-display-inline": "Nội tuyến",
+	"math-visualeditor-mwlatexinspector-display-inline": "Đặt trên một hàng",
 	"math-visualeditor-mwlatexinspector-id": "ID liên kết (tùy chọn)",
 	"math-visualeditor-mwmathdialog-title": "Công thức toán",
 	"math-visualeditor-symbol-group-chem-addition": "Hợp chất cộng",
