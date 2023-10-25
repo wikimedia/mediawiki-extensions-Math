@@ -153,7 +153,7 @@ class MathRestbaseInterface {
 		$multiHttpClient = $this->getMultiHttpClient();
 		$response = $multiHttpClient->run( $request );
 		if ( $response['code'] !== 200 ) {
-			$this->log()->info( 'Tex check failed', [
+			$this->logger->info( 'Tex check failed', [
 				'post'  => $request['body'],
 				'error' => $response['error'],
 				'urlparams'   => $request['url']
@@ -227,13 +227,6 @@ class MathRestbaseInterface {
 	}
 
 	/**
-	 * @return \Psr\Log\LoggerInterface
-	 */
-	private function log() {
-		return $this->logger;
-	}
-
-	/**
 	 * @return string
 	 * @throws MathRestbaseException
 	 */
@@ -252,7 +245,7 @@ class MathRestbaseInterface {
 		$uniqueTeX = uniqid( 't=', true );
 		$testInterface = new MathRestbaseInterface( $uniqueTeX );
 		if ( !$testInterface->checkTeX() ) {
-			$this->log()->warning( 'Config check failed, since test expression was considered as invalid.',
+			$this->logger->warning( 'Config check failed, since test expression was considered as invalid.',
 				[ 'uniqueTeX' => $uniqueTeX ] );
 			return false;
 		}
@@ -265,10 +258,10 @@ class MathRestbaseInterface {
 				return true;
 			}
 
-			$this->log()->warning( 'Config check failed, due to an invalid response code.',
+			$this->logger->warning( 'Config check failed, due to an invalid response code.',
 				[ 'responseCode' => $status ] );
 		} catch ( Exception $e ) {
-			$this->log()->warning( 'Config check failed, due to an exception.', [ $e ] );
+			$this->logger->warning( 'Config check failed, due to an exception.', [ $e ] );
 		}
 
 		return false;
@@ -381,12 +374,14 @@ class MathRestbaseInterface {
 			}
 			return true;
 		} else {
-			if ( isset( $json->detail ) && isset( $json->detail->success ) ) {
+			if ( isset( $json->detail->success ) ) {
 				$this->success = $json->detail->success;
 				$this->error = $json->detail;
 			} else {
 				$this->success = false;
 				$this->setErrorMessage( 'Math extension cannot connect to Restbase.' );
+				$this->logger->error( 'Received invalid response from restbase.',
+					[ 'body' => $response['body'] ] );
 			}
 			return false;
 		}
@@ -435,7 +430,7 @@ class MathRestbaseInterface {
 		}
 		// Remove "convenience" duplicate keys put in place by MultiHttpClient
 		unset( $response[0], $response[1], $response[2], $response[3], $response[4] );
-		$this->log()->error( 'Restbase math server problem', [
+		$this->logger->error( 'Restbase math server problem', [
 			'urlparams' => $request['url'],
 			'response' => [ 'code' => $response['code'], 'body' => $response['body'] ],
 			'math_type' => $type,
