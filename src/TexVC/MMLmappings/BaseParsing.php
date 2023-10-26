@@ -784,13 +784,16 @@ class BaseParsing {
 	}
 
 	public static function underset( $node, $passedArgs, $operatorContent, $name, $smh = null ) {
-		$mrow = new MMLmrow( TexClass::ORD, [] ); // tbd remove mathjax specifics
-		$mrow2 = new MMLmrow( "", [] );
+		$mrow = new MMLmrow( TexClass::ORD, [] );
 		$inrow = $node->getArg2()->renderMML();
-		$munder = new MMLmunder();
+		$arg1 = $node->getArg1()->renderMML();
+		if ( $inrow && $arg1 ) {
+			$munder = new MMLmunder();
+			return $mrow->encapsulateRaw( $munder->encapsulateRaw( $inrow . $arg1 ) );
+		}
 
-		// Some cases encapsulate getArg1 in Mrow ??
-		return $mrow->encapsulateRaw( $munder->encapsulateRaw( $inrow . $node->getArg1()->renderMML() ) );
+		// If there are no two elements in munder, not render munder
+		return $mrow->encapsulateRaw( $inrow . $arg1 );
 	}
 
 	public static function underOver( $node, $passedArgs, $operatorContent,

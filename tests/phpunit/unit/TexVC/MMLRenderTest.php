@@ -15,6 +15,30 @@ use MediaWikiUnitTestCase;
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
 
+	public function testMsupNumChild1() {
+		$input = "\sum^{^N}_{k}";
+		$mathMLtexVC = str_replace( [ "\n", " " ], "", $this->generateMML( $input ) );
+		$this->assertStringContainsString( "<msup><mi/><mrow", $mathMLtexVC );
+	}
+
+	public function testMsupNumChild2() {
+		$input = "\sum^{a^N}_{k}";
+		$mathMLtexVC = str_replace( [ "\n", " " ], "", $this->generateMML( $input ) );
+		$this->assertStringNotContainsString( "<msup><mi/><mrow", $mathMLtexVC );
+	}
+
+	public function testUndersetNumChild() {
+		$input = "\underset{\mathrm{def}}{}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringNotContainsString( "munder", $mathMLtexVC );
+	}
+
+	public function testUndersetNumChild2() {
+		$input = "\underset{\mathrm{def}}{\mathrm{g}}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "munder", $mathMLtexVC );
+	}
+
 	public function testAlignLeft() {
 		$input = " \begin{align} f(x) & = (a+b)^2 \\ & = a^2+2ab+b^2 \\ \\end{align} ";
 		$mathMLtexVC = $this->generateMML( $input );
