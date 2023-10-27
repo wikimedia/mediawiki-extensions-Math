@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Math\Tests\TexVC;
 
 use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Tag;
+use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\Util\MMLTestUtil;
 use MediaWiki\Extension\Math\TexVC\TexVC;
 use MediaWikiUnitTestCase;
@@ -19,6 +20,12 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$mathMLtexVC = $this->generateMML( $input );
 		$this->assertStringContainsString( "mspace", $mathMLtexVC );
 		$this->assertStringNotContainsString( "mstyle", $mathMLtexVC );
+	}
+
+	public function testBigl() {
+		$input = "\bigl(";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( TexClass::OPEN, $mathMLtexVC );
 	}
 
 	public function testAlignLeft() {
