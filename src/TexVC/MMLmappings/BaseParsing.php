@@ -131,7 +131,7 @@ class BaseParsing {
 		$mrow = new MMLmrow();
 		// tbd how are the table args composed ?
 		$tableArgs = [ "columnalign" => "right",
-			"columnspacing" => "", "displaystyle" => "true", "rowspacing" => "3pt" ];
+			"columnspacing" => "0em", "displaystyle" => "true", "rowspacing" => "3pt" ];
 		$mtable  = new MMLmtable( "", $tableArgs );
 		$mtr = new MMLmtr();
 		$mtd = new MMLmtd();
@@ -167,7 +167,7 @@ class BaseParsing {
 
 		$direction = ( $name == "aligned" ) ? "left" : "right";
 		$tableArgs = [ "columnalign" => $direction,
-			"columnspacing" => "", "displaystyle" => "true", "rowspacing" => "3pt" ];
+			"columnspacing" => "0em", "displaystyle" => "true", "rowspacing" => "3pt" ];
 		$mtable  = new MMLmtable( "", $tableArgs );
 		$mtr = new MMLmtr();
 		$mtd = new MMLmtd();
