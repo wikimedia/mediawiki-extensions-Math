@@ -372,18 +372,18 @@ class MathRestbaseInterface {
 				$this->warnings = $json->warnings;
 			}
 			return true;
-		} else {
-			if ( isset( $json->detail->success ) ) {
-				$this->success = $json->detail->success;
-				$this->error = $json->detail;
-			} else {
-				$this->success = false;
-				$this->setErrorMessage( 'Math extension cannot connect to Restbase.' );
-				$this->logger->error( 'Received invalid response from restbase.',
-					[ 'body' => $response['body'] ] );
-			}
+		}
+		if ( isset( $json->detail->success ) ) {
+			$this->success = $json->detail->success;
+			$this->error = $json->detail;
 			return false;
 		}
+		$this->success = false;
+		$this->setErrorMessage( 'Math extension cannot connect to Restbase.' );
+		$this->logger->error( 'Received invalid response from restbase.', [
+			'body' => $response['body'],
+			'code' => $response['code'] ] );
+		return false;
 	}
 
 	/**
