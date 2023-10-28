@@ -357,13 +357,12 @@ class MathRestbaseInterface {
 		];
 	}
 
-	/**
-	 * @param array $response
-	 * @return bool
-	 */
-	public function evaluateRestbaseCheckResponse( $response ) {
+	public function evaluateRestbaseCheckResponse( array $response ): bool {
 		$json = json_decode( $response['body'] );
-		if ( $response['code'] === 200 ) {
+		if ( $response['code'] === 200 &&
+				isset( $json->success ) &&
+				isset( $json->checked ) &&
+				isset( $json->identifiers ) ) {
 			$headers = $response['headers'];
 			$this->hash = $headers['x-resource-location'];
 			$this->success = $json->success;
