@@ -51,7 +51,7 @@ class MathSource extends MathRenderer {
 				'span',
 				[
 					// the former class name was 'tex'
-					// for backwards compatibility we keep this classname
+					// for backwards compatibility we keep this classname T348938
 					'class' => $class . ' tex',
 					'dir' => 'ltr'
 				]
