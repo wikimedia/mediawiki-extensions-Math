@@ -28,9 +28,6 @@ class MathConfig {
 	/** @var string use input tex as formula rendering */
 	public const MODE_SOURCE = 'source';
 
-	/** @var string render formula into PNG images */
-	public const MODE_PNG = 'png';
-
 	/** @var string render formula into MathML */
 	public const MODE_MATHML = 'mathml';
 
@@ -58,10 +55,8 @@ class MathConfig {
 		self::MODE_NATIVE_MML => 8
 	];
 
-	/** @var ServiceOptions */
-	private $options;
-	/** @var ExtensionRegistry */
-	private $registry;
+	private ServiceOptions $options;
+	private ExtensionRegistry $registry;
 
 	/**
 	 * @param ServiceOptions $options

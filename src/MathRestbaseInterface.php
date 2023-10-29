@@ -21,8 +21,7 @@ class MathRestbaseInterface {
 	private $tex;
 	/** @var string */
 	private $type;
-	/** @var string|null */
-	private $checkedTex;
+	private ?string $checkedTex = null;
 	/** @var bool|null */
 	private $success;
 	/** @var array */
@@ -149,7 +148,6 @@ class MathRestbaseInterface {
 	 * @return array
 	 */
 	private function executeRestbaseCheckRequest( $request ) {
-		$res = null;
 		$multiHttpClient = $this->getMultiHttpClient();
 		$response = $multiHttpClient->run( $request );
 		if ( $response['code'] !== 200 ) {
@@ -277,58 +275,30 @@ class MathRestbaseInterface {
 		return $this->getUrl( "media/math/render/svg/{$this->hash}", false );
 	}
 
-	/**
-	 * Gets a publicly accessible link to the generated SVG image.
-	 * @return string
-	 * @throws InvalidTeXException
-	 */
-	public function getFullPngUrl() {
-		$this->calculateHash();
-		return $this->getUrl( "media/math/render/png/{$this->hash}", false );
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getCheckedTex() {
+	public function getCheckedTex(): ?string {
 		return $this->checkedTex;
 	}
 
-	/**
-	 * @return bool
-	 */
-	public function getSuccess() {
+	public function getSuccess(): bool {
 		if ( $this->success === null ) {
 			$this->checkTeX();
 		}
 		return $this->success;
 	}
 
-	/**
-	 * @return array
-	 */
-	public function getIdentifiers() {
+	public function getIdentifiers(): ?array {
 		return $this->identifiers;
 	}
 
-	/**
-	 * @return stdClass
-	 */
-	public function getError() {
+	public function getError(): ?stdClass {
 		return $this->error;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getTex() {
+	public function getTex(): string {
 		return $this->tex;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getType() {
+	public function getType(): string {
 		return $this->type;
 	}
 
@@ -336,17 +306,11 @@ class MathRestbaseInterface {
 		$this->error = (object)[ 'error' => (object)[ 'message' => $msg ] ];
 	}
 
-	/**
-	 * @return array
-	 */
-	public function getWarnings() {
+	public function getWarnings(): array {
 		return $this->warnings;
 	}
 
-	/**
-	 * @return array
-	 */
-	public function getCheckRequest() {
+	public function getCheckRequest(): array {
 		return [
 			'method' => 'POST',
 			'body'   => [
@@ -386,10 +350,7 @@ class MathRestbaseInterface {
 		return false;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getMathoidStyle() {
+	public function getMathoidStyle(): ?string {
 		return $this->mathoidStyle;
 	}
 

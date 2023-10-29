@@ -36,14 +36,12 @@ use StringUtils;
 abstract class MathRenderer {
 
 	// REPRESENTATIONS OF THE MATHEMATICAL CONTENT
-	/** @var string tex representation */
+	/** @var ?string tex representation */
 	protected $tex = '';
 	/** @var string MathML content and presentation */
 	protected $mathml = '';
 	/** @var string SVG layout only (no semantics) */
 	protected $svg = '';
-	/** @var string PNG  image only (no semantics) */
-	protected $png = '';
 	/** @var string the original user input string (which was used to calculate the inputhash) */
 	protected $userInputTex = '';
 	// FURTHER PROPERTIES OF THE MATHEMATICAL CONTENT
@@ -454,9 +452,9 @@ abstract class MathRenderer {
 	/**
 	 * Sets the TeX code
 	 *
-	 * @param string $tex
+	 * @param ?string $tex
 	 */
-	public function setTex( $tex ) {
+	public function setTex( ?string $tex ) {
 		if ( $this->tex != $tex ) {
 			$this->changed = true;
 			$this->tex = $tex;
@@ -672,17 +670,11 @@ abstract class MathRenderer {
 			->getRenderingModeName( $this->getMode() );
 	}
 
-	/**
-	 * @param string $inputType
-	 */
-	public function setInputType( $inputType ) {
+	public function setInputType( string $inputType ) {
 		$this->inputType = $inputType;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getInputType() {
+	public function getInputType(): string {
 		return $this->inputType;
 	}
 
@@ -700,13 +692,6 @@ abstract class MathRenderer {
 			$this->getError( 'math_unknown_error' ) :
 			$this->getError( $checkerError->getKey(), ...$checkerError->getParams() );
 		return false;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getPng() {
-		return $this->png;
 	}
 
 	protected function debug( $msg ) {

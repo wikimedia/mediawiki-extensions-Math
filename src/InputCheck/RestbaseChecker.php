@@ -44,9 +44,9 @@ class RestbaseChecker extends BaseChecker {
 	 * Some TeX checking programs may return
 	 * a modified tex string after having checked it.
 	 * You can get the altered tex string with this method
-	 * @return string A valid Tex string
+	 * @return ?string A valid Tex string
 	 */
-	public function getValidTex() {
+	public function getValidTex(): ?string {
 		return $this->restbaseInterface->getCheckedTex();
 	}
 
