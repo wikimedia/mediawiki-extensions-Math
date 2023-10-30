@@ -48,13 +48,10 @@ class MathMathML extends MathRenderer {
 	 */
 	private $svgPath = false;
 
-	/** @var string|false */
-	private $pngPath = false;
-
 	/** @var string|null */
 	private $mathoidStyle;
 
-	public function __construct( $tex = '', $params = [] ) {
+	public function __construct( string $tex = '', array $params = [] ) {
 		global $wgMathMathMLUrl;
 		parent::__construct( $tex, $params );
 		$this->setMode( MathConfig::MODE_MATHML );
@@ -155,7 +152,6 @@ class MathMathML extends MathRenderer {
 					$this->mathml = $rbi->getMathML();
 					$this->mathoidStyle = $rbi->getMathoidStyle();
 					$this->svgPath = $rbi->getFullSvgUrl();
-					$this->pngPath = $rbi->getFullPngUrl();
 					$this->warnings = $rbi->getWarnings();
 				} elseif ( $this->lastError === '' ) {
 					$this->doCheck();
@@ -500,7 +496,6 @@ class MathMathML extends MathRenderer {
 		if ( $this->getMathTableName() == 'mathoid' ) {
 			$out['math_input'] = $out['math_inputtex'];
 			unset( $out['math_inputtex'] );
-			$out['math_png'] = $this->png;
 		}
 		return $out;
 	}

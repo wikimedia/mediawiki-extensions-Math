@@ -134,7 +134,7 @@ class MathoidChecker extends BaseChecker {
 		return null;
 	}
 
-	public function getValidTex() {
+	public function getValidTex(): ?string {
 		[ $statusCode, $content ] = $this->getCheckResponse();
 		if ( $statusCode === 200 ) {
 			$json = json_decode( $content );

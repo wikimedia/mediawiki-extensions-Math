@@ -77,7 +77,6 @@ class WfTest extends Maintenance {
 				$output = $renderer->getLastError();
 			}
 			$rend[] = [ $renderer, $input ];
-			$output = preg_replace( '#src="(.*?)/(([a-f]|\d)*).png"#', 'src="\2.png"', $output );
 			$parserTests[] = [ (string)$input[1], $output ];
 			$i++;
 			echo '.';
