@@ -62,7 +62,7 @@
 	"math-visualeditor-symbol-group-math-symbols": "Symbolen en constanten",
 	"math-visualeditor-symbol-group-math-typefaces": "Lettertypen",
 	"math-visualeditor-symbol-group-math-unsorted": "Ongesorteerd",
-	"math_failure": "Fout bij het ontleden",
+	"math_failure": "Fout bij het parsen",
 	"math_invalidjson": "$1: het antwoord van de server is ongeldige JSON.",
 	"math_invalidresponse": "$1: Ongeldig antwoord (\"$3\") van server \"$2\":",
 	"math_invalidxml": "MathML of SVG is ongeldige XML.",
