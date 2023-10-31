@@ -46,14 +46,14 @@ class Literal extends TexNode {
 			$operatorContent = null;
 		} else {
 			$input = $foundOperatorContent[1][0];
-			$operatorContent = $foundOperatorContent[2][0];
+			$operatorContent = [ "foundOC" => $foundOperatorContent[2][0] ];
 		}
 
 		// This is rather a workaround:
 		// Sometimes literals from TexVC contain complete \\operatorname {asd} hinted as bug tex-2-mml.json
 		if ( str_contains( $input, "\\operatorname" ) ) {
 			$mi = new MMLmi();
-			return $mi->encapsulateRaw( $operatorContent );
+			return $mi->encapsulateRaw( $operatorContent["foundOC"] );
 		}
 
 		$inputP = MMLutil::inputPreparation( $input );
@@ -83,8 +83,11 @@ class Literal extends TexNode {
 		}
 
 		// Sieve for Makros
-		$ret = BaseMethods::checkAndParse( $inputP, $arguments, $operatorContent, $this, false );
+		$ret = BaseMethods::checkAndParse( $inputP, $arguments,
+			 array_merge( $operatorContent ?? [], $state ?? [] ),
+			 $this, false );
 		if ( $ret ) {
+
 			return $ret;
 		}
 

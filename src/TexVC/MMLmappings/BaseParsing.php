@@ -628,27 +628,25 @@ class BaseParsing {
 	}
 
 	public static function namedOp( $node, $passedArgs, $operatorContent, $name, $id = null ) {
-		if ( !$id ) {
-			$id = $name;
+		/* Determine wether the named function should have an added apply function. The operatorContent is defined
+		 as state in parsing of TexArray */
+		$applyFct = "";
+		if ( array_key_exists( "foundNamedFct", $operatorContent ) ) {
+			$hasNamedFct = $operatorContent['foundNamedFct'][0];
+			$hasValidParameters = $operatorContent["foundNamedFct"][1];
+			if ( $hasNamedFct && $hasValidParameters ) {
+				$applyFct = MMLParsingUtil::renderApplyFunction();
+			}
 		}
-
-		$args = count( $passedArgs ) >= 1 ? $passedArgs : [ "movablelimits" => "true" ];
-		$texClass = TexClass::OP;
-
-		// This comes from inf case, preventing 'double'-classtag
-		if ( isset( $args[Tag::CLASSTAG] ) ) {
-			$texClass = $args[Tag::CLASSTAG];
-			unset( $args[Tag::CLASSTAG] );
+		if ( $node instanceof Literal ) {
+			$mi = new MMLmi( "", $passedArgs );
+			return $mi->encapsulateRaw( $name ) . $applyFct;
 		}
-
-		if ( $name == "min" || $name == "max" || $name === "gcd" ) {
-			$args["form" ] = "prefix";
-			$texClass = "";
-		}
-
-		$id = str_replace( "&thinsp;", '&#x2006;', $id );
-		$mo = new MMLmo( $texClass, $args );
-		return $mo->encapsulateRaw( $id );
+		$mrow = new MMLmrow( TexClass::ORD, [] );
+		$msub = new MMLmsub( "", $passedArgs );
+		return $msub->encapsulateRaw( $node->getBase()->renderMML() .
+			$applyFct .
+			$mrow->encapsulateRaw( $node->getDown()->renderMML() ) );
 	}
 
 	public static function over( $node, $passedArgs, $operatorContent, $name, $id = null ) {
@@ -943,13 +941,24 @@ class BaseParsing {
 	}
 
 	public static function namedFn( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
+		// Determine wether the named function should have an added apply function. The state is defined in
+		// parsing of TexArray
+		$applyFct = "";
+		if ( array_key_exists( "foundNamedFct", $operatorContent ) ) {
+			$hasNamedFct = $operatorContent['foundNamedFct'][0];
+			$hasValidParameters = $operatorContent["foundNamedFct"][1];
+			if ( $hasNamedFct && $hasValidParameters ) {
+				$applyFct = MMLParsingUtil::renderApplyFunction();
+			}
+		}
 		if ( $node instanceof Literal ) {
 			$mi = new MMLmi();
-			return $mi->encapsulateRaw( $name );
+			return $mi->encapsulateRaw( $name ) . $applyFct;
 		}
 		$mrow = new MMLmrow( TexClass::ORD, [] ); // tbd remove mathjax specifics
 		$msub = new MMLmsub();
 		return $msub->encapsulateRaw( $node->getBase()->renderMML() .
+			$applyFct .
 			$mrow->encapsulateRaw( $node->getDown()->renderMML() ) );
 	}
 
@@ -1091,13 +1100,13 @@ class BaseParsing {
 			case "mbox":
 				$mo = new MMLmo();
 				$mmlMrow = new MMLmrow();
-				if ( $operatorContent != null ) {
-					$op = MMLutil::inputPreparation( $operatorContent );
+				if ( $operatorContent != null && array_key_exists( "foundOC", $operatorContent ) ) {
+					$op = MMLutil::inputPreparation( $operatorContent["foundOC"] );
 					$macro = BaseMappings::getNullaryMacro( $op );
 					if ( !$macro ) {
 						$macro = BaseMappings::getIdentifierByKey( $op );
 					}
-					$input = $macro[0] ?? $operatorContent;
+					$input = $macro[0] ?? $operatorContent["foundOC"];
 					return $mmlMrow->encapsulateRaw( $mo->encapsulateRaw( $input ) );
 				} else {
 					$mmlMrow = new MMLmrow();

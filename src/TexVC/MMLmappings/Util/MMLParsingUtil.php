@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Math\TexVC\MMLmappings\Util;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Tag;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\TexVC\MMLmappings\TexConstants\Variants;
+use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmpadded;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmtext;
@@ -15,6 +16,10 @@ use MediaWiki\Extension\Math\TexVC\MMLnodes\MMLmtext;
  * for multiple functions.
  */
 class MMLParsingUtil {
+	public static function renderApplyFunction() {
+		$mo = new MMLmo();
+		return $mo->encapsulateRaw( "&#x2061;" );
+	}
 
 	public static function getFontArgs( $name, $variant, $passedArgs ) {
 		$args = [];

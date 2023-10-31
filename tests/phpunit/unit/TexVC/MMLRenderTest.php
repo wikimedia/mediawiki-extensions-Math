@@ -15,6 +15,55 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\TexVC\TexVC
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
+
+	public function testApplyOperator1() {
+		$input = "\sup x";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mo>&#x2061;</mo>", $mathMLtexVC );
+	}
+
+	public function testApplyOperator2() {
+		$input = "\sup";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringNotContainsString( "<mo>&#x2061;</mo>", $mathMLtexVC );
+	}
+
+	public function testApplyOperator3() {
+		$input = "\sup \sin";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mo>&#x2061;</mo>", $mathMLtexVC );
+	}
+
+	public function testApplyFunction1() {
+		$input = "\sin x";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mo>&#x2061;</mo>", $mathMLtexVC );
+	}
+
+	public function testApplyFunction2() {
+		$input = "\sin";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringNotContainsString( "<mo>&#x2061;</mo>", $mathMLtexVC );
+	}
+
+	public function testApplyFunction3() {
+		$input = "\sin{x}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mo>&#x2061;</mo>", $mathMLtexVC );
+	}
+
+	public function testApplyFunction4() {
+		$input = "\sin \sin";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mo>&#x2061;</mo>", $mathMLtexVC );
+	}
+
+	public function testApplyFunction5() {
+		$input = "\cos(x)";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "<mo>&#x2061;</mo>", $mathMLtexVC );
+	}
+
 	public function testSpacesNoMstyle() {
 		$input = "\bmod \, \!";
 		$mathMLtexVC = $this->generateMML( $input );
