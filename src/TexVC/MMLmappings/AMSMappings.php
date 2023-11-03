@@ -30,8 +30,8 @@ class AMSMappings {
 		"notag" => 'HandleNoTag',
 		"eqref" => [ 'HandleRef', true ],
 		"substack" => [ 'macro', '\\begin{subarray}{c}#1\\end{subarray}', 1 ],
-		"injlim" => [ 'namedOp', 'inj&thinsp;lim' ],
-		"projlim" => [ 'namedOp', 'proj&thinsp;lim' ],
+		"injlim" => [ 'namedOp', 'inj lim' ],
+		"projlim" => [ 'namedOp', 'proj lim' ],
 		"varliminf" => [ 'macro', '\\mathop{\\underline{\\mmlToken{mi}{lim}}}' ],
 		"varlimsup" => [ 'macro', '\\mathop{\\overline{\\mmlToken{mi}{lim}}}' ],
 		// replaced underrightarrow here not supported

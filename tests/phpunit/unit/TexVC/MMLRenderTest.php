@@ -15,6 +15,15 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\TexVC\TexVC
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
+	public function testLimOperatorSpacing() {
+		$input = "\liminf v, \limsup w \injlim x \projlim y";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "lim inf", $mathMLtexVC );
+		$this->assertStringContainsString( "lim sup", $mathMLtexVC );
+		$this->assertStringContainsString( "inj lim", $mathMLtexVC );
+		$this->assertStringContainsString( "proj lim", $mathMLtexVC );
+	}
+
 	public function testTrimNull() {
 		$input = "\\bigl( \\begin{smallmatrix}a&b\\\\ c&d\\end{smallmatrix} \\bigr)";
 		$mathMLtexVC = $this->generateMML( $input );

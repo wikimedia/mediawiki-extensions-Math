@@ -638,9 +638,10 @@ class BaseParsing {
 				$applyFct = MMLParsingUtil::renderApplyFunction();
 			}
 		}
+
 		if ( $node instanceof Literal ) {
 			$mi = new MMLmi( "", $passedArgs );
-			return $mi->encapsulateRaw( $name ) . $applyFct;
+			return $mi->encapsulateRaw( $id ?? $name ) . $applyFct;
 		}
 		$mrow = new MMLmrow( TexClass::ORD, [] );
 		$msub = new MMLmsub( "", $passedArgs );
