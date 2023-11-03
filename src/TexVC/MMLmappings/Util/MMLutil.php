@@ -157,6 +157,9 @@ class MMLutil {
 	 * @return string prepared input string
 	 */
 	public static function inputPreparation( $input ): string {
+		if ( $input === null ) {
+			return "";
+		}
 		$input = trim( $input );
 		if ( str_starts_with( $input, "\\" ) && strlen( $input ) >= 2 ) {
 			$input = substr( $input, 1 );

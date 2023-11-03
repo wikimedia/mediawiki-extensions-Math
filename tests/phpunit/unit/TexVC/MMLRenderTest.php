@@ -15,6 +15,11 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\TexVC\TexVC
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
+	public function testTrimNull() {
+		$input = "\\bigl( \\begin{smallmatrix}a&b\\\\ c&d\\end{smallmatrix} \\bigr)";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "mtable", $mathMLtexVC );
+	}
 
 	public function testApplyOperator1() {
 		$input = "\sup x";

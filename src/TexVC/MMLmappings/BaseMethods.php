@@ -197,7 +197,11 @@ class BaseMethods {
 
 	public function checkAndParseDelimiter( $input, $node, $passedArgs,
 											$operatorContent, $noargs = false, $texClass = "" ) {
+		if ( $input === null ) {
+			return null;
+		}
 		$resDelimiter = BaseMappings::getDelimiterByKey( trim( $input ) );
+
 		if ( $resDelimiter == null ) {
 			$input = MMLutil::inputPreparation( $input );
 			$resDelimiter = AMSMappings::getSymbolDelimiterByKey( $input );
