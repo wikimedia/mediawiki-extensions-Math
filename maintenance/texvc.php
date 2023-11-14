@@ -30,6 +30,7 @@ class TexVcCli extends Maintenance {
 			"For valid input, it returns a normalized texvc string, " .
 			"otherwise the error code and detail are shown." );
 		$this->addArg( 'input', 'The tex input to be checked', true );
+		$this->addOption( 'chem', 'Set for chem input', false, false );
 		$this->requireExtension( 'Math' );
 	}
 
@@ -39,7 +40,8 @@ class TexVcCli extends Maintenance {
 	public function execute() {
 		$userInputTex = $this->getArg( 0 );
 		$texvc = new MediaWiki\Extension\Math\TexVC\TexVC();
-		$result = $texvc->check( $userInputTex );
+		$options = [ 'usemhchem' => $this->getOption( 'chem' ) ];
+		$result = $texvc->check( $userInputTex, $options );
 		if ( $result['status'] !== '+' ) {
 			$this->error( $result['status'] . $result['details'] );
 		}
