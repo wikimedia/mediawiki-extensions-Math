@@ -48,7 +48,7 @@ class MathMathMLCli extends MathMathML {
 	 */
 	private function initializeFromCliResponse( $res ) {
 		global $wgMathoidCli;
-		if ( !property_exists( $res, $this->getMd5() ) ) {
+		if ( !property_exists( $res, $this->getInputHash() ) ) {
 			$this->lastError =
 				$this->getError( 'math_mathoid_error', 'cli',
 					var_export( get_object_vars( $res ), true ) );
@@ -58,7 +58,7 @@ class MathMathMLCli extends MathMathML {
 			$this->lastError = $this->getError( 'math_empty_tex' );
 			return false;
 		}
-		$response = $res->{$this->getMd5()};
+		$response = $res->{$this->getInputHash()};
 		if ( !$response->success ) {
 			$this->lastError = $this->renderError( $response );
 			return false;
@@ -103,7 +103,7 @@ class MathMathMLCli extends MathMathML {
 			'query' => [
 				'q' => $this->getTex(),
 				'type' => $this->getInputType(),
-				'hash' => $this->getMd5(),
+				'hash' => $this->getInputHash(),
 			],
 		];
 	}
