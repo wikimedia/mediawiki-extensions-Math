@@ -5,7 +5,9 @@
 			"Metalhead64",
 			"Revolus",
 			"Umherirrender",
-			"Brettchenweber"
+			"Brettchenweber",
+			"Justman10000",
+			"McDutchie"
 		]
 	},
 	"math-desc": "Ergänzt das Tag <code>&lt;math&gt;</code> zum Darstellen mathematischer Formeln",
@@ -20,7 +22,7 @@
 	"math-visualeditor-mwlatexinspector-display-inline": "Inline",
 	"math-visualeditor-mwlatexinspector-id": "Linkkennung (optional)",
 	"math-visualeditor-mwmathdialog-title": "Math-Formel",
-	"math-visualeditor-symbol-group-chem-addition": "Zusatzverbindungen",
+	"math-visualeditor-symbol-group-chem-addition": "Additionsverbindungen",
 	"math-visualeditor-symbol-group-chem-aggregation": "Aggregatzustände",
 	"math-visualeditor-symbol-group-chem-arrows": "Reaktionspfeile",
 	"math-visualeditor-symbol-group-chem-brackets": "Runde Klammern, Klammern & geschweifte Klammern",
