@@ -15,6 +15,12 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\TexVC\TexVC
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
+	public function testGenfracStretching() {
+		$input = "\\tbinom{n}{k} \\dbinom{n}{k} \\binom{n}{k}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringNotContainsString( "maxsize", $mathMLtexVC );
+	}
+
 	public function testBracketSizes() {
 		$input = "\bigl( \Bigl( \biggl( \Biggl( ";
 		$texVC = new TexVC();

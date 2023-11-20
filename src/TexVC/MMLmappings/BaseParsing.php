@@ -292,10 +292,10 @@ class BaseParsing {
 
 				// tbd add props
 				$displayStyle = "true";
-				$styleAttr = [ "maxsize" => "2.047em", "minsize" => "2.047em" ];
+				$styleAttr = [ "minsize" => "2.047em" ];
 
 			} else {
-				$styleAttr = [ "maxsize" => "1.2em", "minsize" => "1.2em" ];
+				$styleAttr = [ "minsize" => "1.2em" ];
 			}
 
 			/* @phan-suppress-next-line SecurityCheck-DoubleEscaped */
