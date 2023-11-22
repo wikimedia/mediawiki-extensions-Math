@@ -55,8 +55,21 @@ class SpecialMathStatus extends SpecialPage {
 					break;
 				case MathConfig::MODE_LATEXML:
 					$this->runMathLaTeXMLTest( $modeName );
+					break;
+				case MathConfig::MODE_NATIVE_MML:
+					$this->runNativeTest( $modeName );
 			}
 		}
+	}
+
+	private function runNativeTest( $modeName ) {
+		$this->getOutput()->addWikiMsgArray( 'math-test-start', [ $modeName ] );
+		$renderer = $this->rendererFactory->getRenderer( "a+b", [], MathConfig::MODE_NATIVE_MML );
+		$this->assertTrue( $renderer->render(), "Rendering of a+b in $modeName" );
+		$real = str_replace( "\n", '', $renderer->getHtmlOutput() );
+		$expected = '<mo>+</mo>';
+		$this->assertContains( $expected, $real, "Checking the presence of '+' in the MathML output" );
+		$this->getOutput()->addWikiMsgArray( 'math-test-end', [ $modeName ] );
 	}
 
 	private function runMathMLTest( $modeName ) {
