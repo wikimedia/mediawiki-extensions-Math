@@ -8,7 +8,7 @@
 	},
 	"scripts": {
 		"test": [
-			"parallel-lint . --exclude vendor --exclude node_modules --exclude src/TexVC/Parser.php",
+			"parallel-lint . --exclude vendor --exclude node_modules --exclude src/WikiTexVC/Parser.php",
 			"@phpcs",
 			"minus-x check ."
 		],

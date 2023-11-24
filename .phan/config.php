@@ -19,7 +19,7 @@ $cfg['exclude_analysis_directory_list'] = array_merge(
 		'../../extensions/Wikibase/client',
 		'../../extensions/Wikibase/repo',
 		'../../extensions/Wikibase/lib',
-		'./src/TexVC/Parser.php',
+		'./src/WikiTexVC/Parser.php',
 	]
 );
 

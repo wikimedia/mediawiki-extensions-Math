@@ -19,8 +19,8 @@ const { program } = require( 'commander' );
 const peggy = require( 'peggy' );
 const phpeggy = require( 'phpeggy' );
 const fs = require( 'fs' );
-const DEFAULT_PATH_INPUT = './src/TexVC/parser.pegjs';
-const DEFAULT_PATH_OUTPUT = './src/TexVC/Parser.php';
+const DEFAULT_PATH_INPUT = './src/WikiTexVC/parser.pegjs';
+const DEFAULT_PATH_OUTPUT = './src/WikiTexVC/Parser.php';
 const PHP_INSERTION_LINE = 9; // indicates where the 'use_xyz' statements are inserted
 
 program
@@ -32,8 +32,8 @@ program
 	.option( '-d, --debug',
 		'debug logging activated', false )
 	.description( 'Generates Parser.php as output from parser.pegjs as input. ' +
-		'This is used for for updating the parser expression grammar in TexVC ' +
-		'which is located in src/TexVC' )
+		'This is used for for updating the parser expression grammar in WikiTexVC ' +
+		'which is located in src/WikiTexVC' )
 	.version( '0.1.0' );
 
 program.parse();
@@ -48,35 +48,35 @@ let parser = peggy.generate( parserPeg, {
 	plugins: [ phpeggy ],
 	cache: true,
 	phpeggy: {
-		parserNamespace: 'MediaWiki\\Extension\\Math\\TexVC'
+		parserNamespace: 'MediaWiki\\Extension\\Math\\WikiTexVC'
 	}
 } );
 
 const useStatements =
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Box;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Big;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\ChemFun2u;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\ChemWord;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Curly;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Declh;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Dollar;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\DQ;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\FQ;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Fun1;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Fun1nb;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Fun2;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Fun2nb;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Fun2sq;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Fun4;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Infix;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Literal;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Lr;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Matrix;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\Mhchem;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\UQ;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\Nodes\\TexArray;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\TexUtil;\n' +
-	'use MediaWiki\\Extension\\Math\\TexVC\\ParserUtil;';
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Box;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Big;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\ChemFun2u;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\ChemWord;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Curly;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Declh;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Dollar;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\DQ;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\FQ;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1nb;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun2;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun2nb;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun2sq;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun4;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Infix;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Lr;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Matrix;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Mhchem;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\UQ;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\TexArray;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\TexUtil;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\ParserUtil;';
 
 function addUseStatements( p, lineStart = PHP_INSERTION_LINE ) {
 	// Adding the specified use statements
