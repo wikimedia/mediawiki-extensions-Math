@@ -26,7 +26,7 @@ require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 /**
  * From a specified json file with (La)TeX formula as input,
  * create a json file with the Tex and corresponding MathML.
- * This is mostly used for generating Test-Content for the MathML features of TexVC(PHP).
+ * This is mostly used for generating Test-Content for the MathML features of WikiTexVC.
  *
  * The script fetches:
  * - Mathoid MathML (mode: 'mathml')

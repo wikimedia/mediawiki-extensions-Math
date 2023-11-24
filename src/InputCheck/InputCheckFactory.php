@@ -84,7 +84,7 @@ class InputCheckFactory {
 	/**
 	 * @param string $input input string to be checked
 	 * @param string $type type of input (only 'tex')
-	 * @return LocalChecker checker based on php implementation of TexVC within Math-extension
+	 * @return LocalChecker checker based on php implementation of WikiTexVC within Math-extension
 	 */
 	public function newLocalChecker( string $input, string $type ): LocalChecker {
 		return new LocalChecker(
@@ -96,7 +96,7 @@ class InputCheckFactory {
 
 	/**
 	 * Creates an instance of BaseChecker based on the configuration parameter for the texVC Service.
-	 * By default, this sets the checker to the local PHP variant of TexVC.
+	 * By default, this sets the checker to the local PHP variant of WikiTexVC.
 	 *
 	 * @param string $input input string which is checked
 	 * @param string $type input type, for some configurations this has to be 'tex'

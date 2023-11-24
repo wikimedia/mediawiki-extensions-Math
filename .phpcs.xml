@@ -11,10 +11,10 @@
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
 	</rule>
 	<rule ref="Generic.Files.LineLength.TooLong">
-		<exclude-pattern>/src/TexVC/Mhchem/MhchemPatterns.php</exclude-pattern>
-		<exclude-pattern>/src/TexVC/Mhchem/MhchemStateMachines.php</exclude-pattern>
+		<exclude-pattern>/src/WikiTexVC/Mhchem/MhchemPatterns.php</exclude-pattern>
+		<exclude-pattern>/src/WikiTexVC/Mhchem/MhchemStateMachines.php</exclude-pattern>
 	</rule>
-    <exclude-pattern>/src/TexVC/Parser.php</exclude-pattern>
+    <exclude-pattern>/src/WikiTexVC/Parser.php</exclude-pattern>
 	<file>.</file>
 	<arg name="extensions" value="php" />
 	<arg name="encoding" value="UTF-8" />

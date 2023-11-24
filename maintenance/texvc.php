@@ -22,7 +22,7 @@
 require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 
 // phpcs:disable MediaWiki.Files.ClassMatchesFilename.NotMatch
-class TexVcCli extends Maintenance {
+class WikiTexVcCli extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
@@ -39,7 +39,7 @@ class TexVcCli extends Maintenance {
 	 */
 	public function execute() {
 		$userInputTex = $this->getArg( 0 );
-		$texvc = new MediaWiki\Extension\Math\TexVC\TexVC();
+		$texvc = new MediaWiki\Extension\Math\WikiTexVC\TexVC();
 		$options = [ 'usemhchem' => $this->getOption( 'chem' ) ];
 		$result = $texvc->check( $userInputTex, $options );
 		if ( $result['status'] !== '+' ) {
@@ -50,6 +50,6 @@ class TexVcCli extends Maintenance {
 	}
 }
 
-$maintClass = TexVcCli::class;
+$maintClass = WikiTexVcCli::class;
 /** @noinspection PhpIncludeInspection */
 require_once RUN_MAINTENANCE_IF_MAIN;

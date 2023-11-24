@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\Math\InputCheck;
 use Exception;
 use MediaWiki\Extension\Math\Hooks\HookRunner;
 use MediaWiki\Extension\Math\MathRenderer;
-use MediaWiki\Extension\Math\TexVC\TexVC;
+use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 use MediaWiki\HookContainer\HookContainer;
 use Message;
 use WANObjectCache;
