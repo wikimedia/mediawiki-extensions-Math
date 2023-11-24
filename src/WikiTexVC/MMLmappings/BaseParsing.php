@@ -969,6 +969,9 @@ class BaseParsing {
 			if ( $operatorContent["styleargs"]["displaystyle"] === "false" ) {
 				$argsOp = [ "movablelimits" => "true" ];
 			}
+			if ( $node->containsFunc( "\\nolimits" ) ) {
+				$argsOp = [ "movablelimits" => "false" ];
+			}
 		}
 		$mrow = new MMLmrow( TexClass::ORD, [] );
 		$opParsed = ( $operatorContent != null && $operatorContent["limits"] )

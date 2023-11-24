@@ -15,6 +15,14 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
+
+	public function testNoLimits() {
+		$input = "\\displaystyle \int\\nolimits_0^\infty f(x) dx";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( 'movablelimits="false"', $mathMLtexVC );
+		$this->assertStringNotContainsString( "nolimits", $mathMLtexVC );
+	}
+
 	public function testGenfracStretching() {
 		$input = "\\tbinom{n}{k} \\dbinom{n}{k} \\binom{n}{k}";
 		$mathMLtexVC = $this->generateMML( $input );

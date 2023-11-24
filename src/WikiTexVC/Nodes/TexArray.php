@@ -125,7 +125,7 @@ class TexArray extends TexNode {
 		// Check whether the next node is a possible limits construct
 		if ( !( ( $nextNode instanceof DQ || $nextNode instanceof FQ )
 			&& $nextNode->getBase() instanceof Literal
-			&& $nextNode->containsFunc( "\\limits" )
+			&& ( $nextNode->containsFunc( "\\limits" ) || $nextNode->containsFunc( "\\nolimits" ) )
 			) ) {
 			return [ null, false ];
 
