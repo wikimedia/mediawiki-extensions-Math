@@ -922,7 +922,7 @@ class BaseParsing {
 		}
 
 		if ( in_array( $name, [ "bigr","Bigr","biggr","Biggr" ] ) ) {
-			$passedArgs = array_merge( [ Tag::CLASSTAG => TexClass::CLOSE ] );
+			$passedArgs = array_merge( $passedArgs, [ Tag::CLASSTAG => TexClass::CLOSE ] );
 		}
 
 		$ret = $bm->checkAndParseDelimiter( $node->getArg(), $node, $passedArgs, $operatorContent, true );

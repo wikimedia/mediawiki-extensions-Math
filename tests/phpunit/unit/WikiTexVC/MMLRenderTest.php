@@ -29,15 +29,18 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringNotContainsString( "maxsize", $mathMLtexVC );
 	}
 
-	public function testBracketSizes() {
+	public function testBracketSizesOpen() {
 		$input = "\bigl( \Bigl( \biggl( \Biggl( ";
-		$texVC = new TexVC();
-		$options = [ "usemhchem" => true, "usemhchemtexified" => true, "oldtexvc" => true ];
-		$warnings = [];
-		$res = $texVC->check( $input, $options, $warnings, true );
-		$mml = $res['input']->renderMML();
-		$this->assertStringContainsString( 'minsize', $mml );
-		$this->assertStringContainsString( 'maxsize', $mml );
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( 'minsize', $mathMLtexVC );
+		$this->assertStringContainsString( 'maxsize', $mathMLtexVC );
+	}
+
+	public function testBracketSizesClose() {
+		$input = "\bigr) \Bigr) \biggr) \Biggr) ";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( 'minsize', $mathMLtexVC );
+		$this->assertStringContainsString( 'maxsize', $mathMLtexVC );
 	}
 
 	public function testLimOperatorSpacing() {
