@@ -108,4 +108,27 @@ class MMLParsingUtil {
 		$mtext = new MMLmtext();
 		return $mmlMrow->encapsulateRaw( $mpadded->encapsulateRaw( $mtext->encapsulateRaw( "&#x29F8;" ) ) );
 	}
+
+	public static function mapToDoubleStruckUnicode( $inputString ) {
+		$map = [
+			'0' => '&#x1D7D8;', '1' => '&#x1D7D9;', '2' => '&#x1D7DA;', '3' => '&#x1D7DB;', '4' => '&#x1D7DC;',
+			'5' => '&#x1D7DD;', '6' => '&#x1D7DE;', '7' => '&#x1D7DF;', '8' => '&#x1D7E0;', '9' => '&#x1D7E1;',
+			'A' => '&#x1D538;', 'B' => '&#x1D539;', 'C' => '&#x2102;', 'D' => '&#x1D53B;', 'E' => '&#x1D53C;',
+			'F' => '&#x1D53D;', 'G' => '&#x1D53E;', 'H' => '&#x210D;', 'I' => '&#x1D540;', 'J' => '&#x1D541;',
+			'K' => '&#x1D542;', 'L' => '&#x1D543;', 'M' => '&#x1D544;', 'N' => '&#x2115;', 'O' => '&#x1D546;',
+			'P' => '&#x2119;', 'Q' => '&#x211A;', 'R' => '&#x211D;', 'S' => '&#x1D54A;', 'T' => '&#x1D54B;',
+			'U' => '&#x1D54C;', 'V' => '&#x1D54D;', 'W' => '&#x1D54E;', 'X' => '&#x1D54F;', 'Y' => '&#x1D550;',
+			'Z' => '&#x2124;', 'a' => '&#x1D552;', 'b' => '&#x1D553;', 'c' => '&#x1D554;', 'd' => '&#x1D555;',
+			'e' => '&#x1D556;', 'f' => '&#x1D557;', 'g' => '&#x1D558;', 'h' => '&#x1D559;', 'i' => '&#x1D55A;',
+			'j' => '&#x1D55B;', 'k' => '&#x1D55C;', 'l' => '&#x1D55D;', 'm' => '&#x1D55E;', 'n' => '&#x1D55F;',
+			'o' => '&#x1D560;', 'p' => '&#x1D561;', 'q' => '&#x1D562;', 'r' => '&#x1D563;', 's' => '&#x1D564;',
+			't' => '&#x1D565;', 'u' => '&#x1D566;', 'v' => '&#x1D567;', 'w' => '&#x1D568;', 'x' => '&#x1D569;',
+			'y' => '&#x1D56A;', 'z' => '&#x1D56B;'
+		];
+
+		// Replace each character in the input string with its double-struck Unicode equivalent
+		return preg_replace_callback( '/[A-Za-z0-9]/', static function ( $matches ) use ( $map ) {
+				return $map[$matches[0]] ?? $matches[0];
+		}, $inputString );
+	}
 }

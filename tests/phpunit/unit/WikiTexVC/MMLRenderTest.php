@@ -16,6 +16,15 @@ use MediaWikiUnitTestCase;
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
 
+	public function testDoubleStruckLiteralUnicode() {
+		$input = "\\mathbb{Q},  \\R, \\Complex, \\mathbb{4}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( '&#x211A;', $mathMLtexVC );
+		$this->assertStringContainsString( '&#x211D;', $mathMLtexVC );
+		$this->assertStringContainsString( '&#x2102;', $mathMLtexVC );
+		$this->assertStringContainsString( '&#x1D7DC;', $mathMLtexVC );
+	}
+
 	public function testNoLimits() {
 		$input = "\\displaystyle \int\\nolimits_0^\infty f(x) dx";
 		$mathMLtexVC = $this->generateMML( $input );

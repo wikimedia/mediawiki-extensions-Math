@@ -841,12 +841,16 @@ class BaseParsing {
 	public static function mathFont( $node, $passedArgs, $operatorContent, $name, $mathvariant = null ) {
 		$mrow = new MMLmrow( TexClass::ORD, [] );
 		$args = MMLParsingUtil::getFontArgs( $name, $mathvariant, $passedArgs );
-
+		$state = [];
+		if ( $mathvariant == Variants::DOUBLESTRUCK ) {
+			// Unicode fix for the operators
+			$state = [ "double-struck-literals" => true ];
+		}
 		if ( $node instanceof Fun1nb ) {
 			// Only one mrow from Fun1nb !?
-			return $mrow->encapsulateRaw( $node->getArg()->renderMML( $args ) );
+			return $mrow->encapsulateRaw( $node->getArg()->renderMML( $args, $state ) );
 		}
-		return $mrow->encapsulateRaw( $mrow->encapsulateRaw( $node->getArg()->renderMML( $args ) ) );
+		return $mrow->encapsulateRaw( $mrow->encapsulateRaw( $node->getArg()->renderMML( $args, $state ) ) );
 	}
 
 	public static function mathChoice( $node, $passedArgs, $operatorContent, $name, $smth = null ) {

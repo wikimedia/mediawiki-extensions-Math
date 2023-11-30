@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
@@ -29,6 +30,16 @@ class Literal extends TexNode {
 		array_push( $this->extendedLiterals,  '\\infty', '\\emptyset' );
 	}
 
+	public function changeInputDoubleStruckChars( $input, $state ) {
+		/** If it's definitely a literal, and it is double struck, map it to double-struck unicode
+		 * for correct rendering in Chrome, see https://phabricator.wikimedia.org/T352196
+		 */
+		if ( isset( $state["double-struck-literals"] ) ) {
+			return MMLParsingUtil::mapToDoubleStruckUnicode( $input );
+		}
+		return $input;
+	}
+
 	public function renderMML( $arguments = [], $state = [] ) {
 		if ( $this->arg === " " ) {
 			// Fixes https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Math/+/961711
@@ -37,7 +48,7 @@ class Literal extends TexNode {
 		}
 		if ( is_numeric( $this->arg ) ) {
 			$mn = new MMLmn( "", $arguments );
-			return $mn->encapsulateRaw( $this->arg );
+			return $mn->encapsulateRaw( $this->changeInputDoubleStruckChars( $this->arg, $state ) );
 		}
 		// is important to split and find chars within curly and differentiate, see tc 459
 		$foundOperatorContent = MMLutil::initalParseLiteralExpression( $this->arg );
@@ -103,7 +114,7 @@ class Literal extends TexNode {
 
 		// If falling through all sieves just create an MI element
 		$mi = new MMLmi( "", $arguments );
-		return $mi->encapsulateRaw( $input ); // $this->arg
+		return $mi->encapsulateRaw( $this->changeInputDoubleStruckChars( $input, $state ) ); // $this->arg
 	}
 
 	/**
