@@ -32,7 +32,7 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 	private static $FILTERLENGTH = 60;
 	private static $GENERATEHTML = false;
 	private static $GENERATEDHTMLFILE = __DIR__ . "/MMLFullCoverageTest-Output.html";
-	private static $SKIPPEDINDICES = [ 0, 380, 388 ];
+	private static $SKIPPEDINDICES = [];
 
 	private static $FILTERMML = true;
 
