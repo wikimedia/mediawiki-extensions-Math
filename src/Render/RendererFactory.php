@@ -10,7 +10,7 @@ use MediaWiki\Extension\Math\MathMathMLCli;
 use MediaWiki\Extension\Math\MathNativeMML;
 use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\Extension\Math\MathSource;
-use MediaWiki\User\UserOptionsLookup;
+use MediaWiki\User\Options\UserOptionsLookup;
 use Psr\Log\LoggerInterface;
 
 class RendererFactory {
