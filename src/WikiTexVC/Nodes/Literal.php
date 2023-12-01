@@ -30,12 +30,16 @@ class Literal extends TexNode {
 		array_push( $this->extendedLiterals,  '\\infty', '\\emptyset' );
 	}
 
-	public function changeInputDoubleStruckChars( $input, $state ) {
-		/** If it's definitely a literal, and it is double struck, map it to double-struck unicode
-		 * for correct rendering in Chrome, see https://phabricator.wikimedia.org/T352196
+	public function changeUnicodeFontInput( $input, $state ) {
+		/**
+		 * In some font modifications, it is required to explicitly use unicode
+		 * characters instead of (only) attributes in MathML to indicate the font.
+		 * This is mostly because of Chrome behaviour. I.e. see: https://phabricator.wikimedia.org/T352196
 		 */
 		if ( isset( $state["double-struck-literals"] ) ) {
 			return MMLParsingUtil::mapToDoubleStruckUnicode( $input );
+		} elseif ( isset( $state["calligraphic"] ) ) {
+			return MMLParsingUtil::mapToCaligraphicUnicode( $input );
 		}
 		return $input;
 	}
@@ -48,7 +52,7 @@ class Literal extends TexNode {
 		}
 		if ( is_numeric( $this->arg ) ) {
 			$mn = new MMLmn( "", $arguments );
-			return $mn->encapsulateRaw( $this->changeInputDoubleStruckChars( $this->arg, $state ) );
+			return $mn->encapsulateRaw( $this->changeUnicodeFontInput( $this->arg, $state ) );
 		}
 		// is important to split and find chars within curly and differentiate, see tc 459
 		$foundOperatorContent = MMLutil::initalParseLiteralExpression( $this->arg );
@@ -95,8 +99,8 @@ class Literal extends TexNode {
 
 		// Sieve for Makros
 		$ret = BaseMethods::checkAndParse( $inputP, $arguments,
-			 array_merge( $operatorContent ?? [], $state ?? [] ),
-			 $this, false );
+			array_merge( $operatorContent ?? [], $state ?? [] ),
+			$this, false );
 		if ( $ret ) {
 
 			return $ret;
@@ -114,7 +118,7 @@ class Literal extends TexNode {
 
 		// If falling through all sieves just create an MI element
 		$mi = new MMLmi( "", $arguments );
-		return $mi->encapsulateRaw( $this->changeInputDoubleStruckChars( $input, $state ) ); // $this->arg
+		return $mi->encapsulateRaw( $this->changeUnicodeFontInput( $input, $state ) ); // $this->arg
 	}
 
 	/**
@@ -162,7 +166,7 @@ class Literal extends TexNode {
 		if ( preg_match( $regexp, $s ) == 1 ) {
 			return [ $s ];
 		} elseif ( in_array( $s, $lit, true ) ) {
-			 return [ $s ];
+			return [ $s ];
 		} else {
 			return [];
 		}

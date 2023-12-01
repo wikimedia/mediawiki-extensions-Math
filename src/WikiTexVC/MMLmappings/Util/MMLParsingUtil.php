@@ -126,9 +126,33 @@ class MMLParsingUtil {
 			'y' => '&#x1D56A;', 'z' => '&#x1D56B;'
 		];
 
-		// Replace each character in the input string with its double-struck Unicode equivalent
-		return preg_replace_callback( '/[A-Za-z0-9]/', static function ( $matches ) use ( $map ) {
-				return $map[$matches[0]] ?? $matches[0];
+		return self::matchAlphanumeric( $inputString, $map );
+	}
+
+	public static function mapToCaligraphicUnicode( $inputString ) {
+		$map = [
+			'0' => '&#x1D7CE;', '1' => '&#x1D7CF;', '2' => '&#x1D7D0;', '3' => '&#x1D7D1;', '4' => '&#x1D7D2;',
+			'5' => '&#x1D7D3;', '6' => '&#x1D7D4;', '7' => '&#x1D7D5;', '8' => '&#x1D7D6;', '9' => '&#x1D7D7;',
+			'A' => '&#x1D49C;', 'B' => '&#x212C;', 'C' => '&#x1D49E;', 'D' => '&#x1D49F;', 'E' => '&#x2130;',
+			'F' => '&#x2131;', 'G' => '&#x1D4A2;', 'H' => '&#x210B;', 'I' => '&#x2110;', 'J' => '&#x1D4A5;',
+			'K' => '&#x1D4A6;', 'L' => '&#x2112;', 'M' => '&#x2133;', 'N' => '&#x1D4A9;', 'O' => '&#x1D4AA;',
+			'P' => '&#x1D4AB;', 'Q' => '&#x1D4AC;', 'R' => '&#x211B;', 'S' => '&#x1D4AE;', 'T' => '&#x1D4AF;',
+			'U' => '&#x1D4B0;', 'V' => '&#x1D4B1;', 'W' => '&#x1D4B2;', 'X' => '&#x1D4B3;', 'Y' => '&#x1D4B4;',
+			'Z' => '&#x1D4B5;', 'a' => '&#x1D4B6;', 'b' => '&#x1D4B7;', 'c' => '&#x1D4B8;', 'd' => '&#x1D4B9;',
+			'e' => '&#x212F;', 'f' => '&#x1D4BB;', 'g' => '&#x210A;', 'h' => '&#x1D4BD;', 'i' => '&#x1D4BE;',
+			'j' => '&#x1D4BF;', 'k' => '&#x1D4C0;', 'l' => '&#x1D4C1;', 'm' => '&#x1D4C2;', 'n' => '&#x1D4C3;',
+			'o' => '&#x2134;', 'p' => '&#x1D4C5;', 'q' => '&#x1D4C6;', 'r' => '&#x1D4C7;', 's' => '&#x1D4C8;',
+			't' => '&#x1D4C9;', 'u' => '&#x1D4CA;', 'v' => '&#x1D4CB;', 'w' => '&#x1D4CC;', 'x' => '&#x1D4CD;',
+			'y' => '&#x1D4CE;', 'z' => '&#x1D4CF;'
+		];
+
+		return self::matchAlphanumeric( $inputString, $map );
+	}
+
+	public static function matchAlphanumeric( $inputString, $map ) {
+		// Replace each character in the input string with its caligraphic Unicode equivalent
+		return preg_replace_callback( '/[A-Za-z0-9]/u', static function ( $matches ) use ( $map ) {
+			return $map[$matches[0]] ?? $matches[0];
 		}, $inputString );
 	}
 }

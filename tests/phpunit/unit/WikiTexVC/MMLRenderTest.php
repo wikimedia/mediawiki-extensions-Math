@@ -15,6 +15,14 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
+	public function testMathCalUnicode() {
+		$input = "\\mathcal{O},  \\mathcal{K}, \\mathcal{t}, \\mathcal{c}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( '&#x1D4AA;', $mathMLtexVC );
+		$this->assertStringContainsString( '&#x1D4A6;', $mathMLtexVC );
+		$this->assertStringContainsString( '&#x1D4C9;', $mathMLtexVC );
+		$this->assertStringContainsString( '&#x1D4B8;', $mathMLtexVC );
+	}
 
 	public function testDoubleStruckLiteralUnicode() {
 		$input = "\\mathbb{Q},  \\R, \\Complex, \\mathbb{4}";
