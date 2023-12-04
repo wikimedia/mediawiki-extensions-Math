@@ -437,6 +437,7 @@ class BaseMappings {
 		"nolimits" => [ 'limits', 0 ],
 		"overline" => [ 'underOver', '00AF' ],
 		"underline" => [ 'underOver', '_', null, true ],
+		"overarc" => [ 'underOver', '23DC', 1 ],
 		"overbrace" => [ 'underOver', '23DE', 1 ],
 		"underbrace" => [ 'underOver', '23DF', 1 ],
 		"overparen" => [ 'underOver', '23DC' ],

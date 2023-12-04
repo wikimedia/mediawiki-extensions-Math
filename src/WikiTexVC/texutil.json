@@ -1829,6 +1829,9 @@
 	"\\over": {
 		"fun_infix": true
 	},
+	"\\overarc": {
+		"fun_ar1nb": true
+	},
 	"\\overbrace": {
 		"fun_ar1nb": true
 	},
