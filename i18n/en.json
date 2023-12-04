@@ -19,7 +19,6 @@
 	},
 	"math-desc": "Render mathematical formulas between <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> tags",
 	"math-visualeditor-mwchemdialog-title": "Chemical formula",
-	"math-visualeditor-mwcheminspector-title": "Chemical formula",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Quick edit",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formula",
 	"math-visualeditor-mwlatexdialog-card-options": "Options",
