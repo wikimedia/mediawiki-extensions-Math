@@ -20,6 +20,38 @@ class MMLTestUtil {
 		return json_decode( $file );
 	}
 
+	public static function createJSONstartEnd( $start, $file ) {
+		if ( $start ) {
+			$generated = "[\n";
+		} else {
+			$generated = "\n]";
+		}
+		if ( file_put_contents( $file, $generated, FILE_APPEND ) !== false ) {
+			return true;
+		}
+		return false;
+	}
+
+	public static function appendToJSONFile( $dataArray, $file ) {
+		$jsonData = json_encode( $dataArray, JSON_PRETTY_PRINT ) . ",";
+
+		if ( file_put_contents( $file, $jsonData, FILE_APPEND ) !== false ) {
+			return true;
+		}
+		return false;
+	}
+
+	public static function deleteFile( $file ) {
+		if ( file_exists( $file ) ) {
+			if ( unlink( $file ) ) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		return null;
+	}
+
 	public static function prettifyXML( $xml, $replaceHeader = true ) {
 		$dom = new DOMDocument();
 		// Initial block (must before load xml string)

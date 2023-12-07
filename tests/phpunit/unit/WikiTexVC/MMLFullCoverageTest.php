@@ -32,6 +32,8 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 	private static $FILTERLENGTH = 60;
 	private static $GENERATEHTML = false;
 	private static $GENERATEDHTMLFILE = __DIR__ . "/MMLFullCoverageTest-Output.html";
+	private static $GENERATEEVAL = false;
+	private static $GENERATEDEVALFILE = __DIR__ . "/MMLFullCoverageEval.json";
 	private static $SKIPPEDINDICES = [];
 
 	private static $FILTERMML = true;
@@ -39,10 +41,17 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 	public static function setUpBeforeClass(): void {
 		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name","TeX-Input","MathML(LaTeXML)",
 			"MathML(Mathoid)", "MathML(WikiTexVC)", "F-Similarity" ], self::$GENERATEHTML );
+		if ( self::$GENERATEEVAL ) {
+			MMLTestUtil::deleteFile( self::$GENERATEDEVALFILE );
+			MMLTestUtil::createJSONstartEnd( true, self::$GENERATEDEVALFILE );
+		}
 	}
 
 	public static function tearDownAfterClass(): void {
 		MMLTestUtilHTML::generateHTMLEnd( self::$GENERATEDHTMLFILE, self::$GENERATEHTML );
+		if ( self::$GENERATEEVAL ) {
+			MMLTestUtil::createJSONstartEnd( false, self::$GENERATEDEVALFILE );
+		}
 	}
 
 	/**
@@ -68,6 +77,21 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 		$mathMLtexVC = MMLTestUtil::getMMLwrapped( $resultT["input"] );
 		$mmlComparator = new MMLComparator();
 		$compRes = $mmlComparator->compareMathML( $tc->mml_mathoid, $mathMLtexVC );
+
+		if ( self::$GENERATEEVAL ) {
+			$entry = [
+				"testname" => "FullCoverageTest",
+				"ctr" => $tc->ctr,
+				"tex" => $tc->tex,
+				"mml_latcompareMathMLexml" => $mml_latexml,
+				"mml_mathoid" => $tc->mml_mathoid,
+				"mml_wikitexvc" => $mathMLtexVC,
+				"tree_bracket_wikitexvc" => MMLComparator::functionObtainTreeInBrackets( $mathMLtexVC ),
+				"tree_bracket_latexml" => MMLComparator::functionObtainTreeInBrackets( $mml_latexml ),
+				"tree_bracket_mathoid" => MMLComparator::functionObtainTreeInBrackets( $tc->mml_mathoid )
+			];
+			MMLTestUtil::appendToJSONFile( $entry, self::$GENERATEDEVALFILE );
+		}
 
 		MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr,  $tc->tex, $mml_latexml,
 			$tc->mml_mathoid, $mathMLtexVC,  $compRes['similarityF'] ], false, self::$GENERATEHTML );

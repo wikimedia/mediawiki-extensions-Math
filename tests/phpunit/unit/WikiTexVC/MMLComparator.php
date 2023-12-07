@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util;
 
+use MediaWiki\Extension\Math\WikiTexVC\XMLNode;
+
 /**
  * Algorithm to make a simple, but customizable comparison of two MathML-Strings for automated testing.
  * It compares all element keys in the tree without order and calculates an F-score based on similarity.
@@ -29,7 +31,7 @@ class MMLComparator {
 	 * Keys containing one of the specific attribute get checked.
 	 */
 	private const CHECKEXPLICITLY = [
-	  "mstyle" => [ "mathcolor" ]
+		"mstyle" => [ "mathcolor" ]
 	];
 
 	/**
@@ -41,10 +43,16 @@ class MMLComparator {
 		"math" => [ "alttext", "display" ],
 		"mi"   => [ "class", "data-mjx-variant", "mathvariant", "data-mjx-texclass", "data-mjx-alternate" ],
 		"mo"   => [ "data-mjx-pseudoscript", "stretchy", "fence", "data-mjx-texclass", "texClass", "class",
-					"data-mjx-alternate", "form", "accent", "lspace", "rspace", "xref", "id" ],
+			"data-mjx-alternate", "form", "accent", "lspace", "rspace", "xref", "id" ],
 		"mtext" => [ "texClass", "class" ],
 		"mspace" => [ "width" ]
 	];
+
+	public static function functionObtainTreeInBrackets( $mml ) {
+		$xml = simplexml_load_string( $mml );
+		$nodes = self::xmlToNode( $xml );
+		return self::convertToBracketFormat( $nodes );
+	}
 
 	/**
 	 * Compares the base to the comparison MathML.
@@ -85,6 +93,72 @@ class MMLComparator {
 
 		$compRes['similarityF'] = $this->calculateFscore( $ctrSame, $overallRelevantSum, $overallRetrievedSum );
 		return $compRes;
+	}
+
+	public static function xmlToNode( $xml ) {
+		$node = new XMLNode( $xml->getName() );
+
+		foreach ( $xml->children() as $child ) {
+			$node->children[] = self::xmlToNode( $child );
+		}
+
+		return $node;
+	}
+
+	private function treeEditDistance( $root1, $root2 ) {
+		$n = count( $root1->children );
+		$m = count( $root2->children );
+
+		$dp = [];
+		for ( $i = 0; $i <= $n; $i++ ) {
+			$dp[$i] = [];
+			for ( $j = 0; $j <= $m; $j++ ) {
+				$dp[$i][$j] = 0;
+			}
+		}
+
+		for ( $i = 0; $i <= $n; $i++ ) {
+			for ( $j = 0; $j <= $m; $j++ ) {
+				if ( $i == 0 ) {
+					$dp[$i][$j] = $j;
+				} elseif ( $j == 0 ) {
+					$dp[$i][$j] = $i;
+				} elseif ( $root1->children[$i - 1]->value == $root2->children[$j - 1]->value ) {
+					$dp[$i][$j] = $dp[$i - 1][$j - 1];
+				} else {
+					$dp[$i][$j] = 1 + min(
+							$dp[$i][$j - 1], // Insert
+							$dp[$i - 1][$j], // Remove
+							$dp[$i - 1][$j - 1] // Replace
+						);
+				}
+			}
+		}
+
+		$ted = $dp[$n][$m];
+		$totalNodes = $n + $m; // Total nodes in both trees
+		if ( $totalNodes != 0 ) {
+			$normalizedTED = $ted / $totalNodes;
+		} else {
+			$normalizedTED = -1;
+		}
+
+		return [ "TED" => $ted, "normalizedTED" => $normalizedTED ];
+	}
+
+	public static function convertToBracketFormat( $root ) {
+		if ( empty( $root->children ) ) {
+			return "{" . $root->value . "}";
+		}
+
+		$result = $root->value . '{';
+
+		foreach ( $root->children as $child ) {
+			$result .= self::convertToBracketFormat( $child );
+		}
+
+		$result .= '}';
+		return $result;
 	}
 
 	private function compareMathMLKeyArrays( &$compRes, $mbase, $mcomp ) {
