@@ -8,7 +8,7 @@
  * Run it with: "$node maintenance/buildPHPparser.js <optional params>"
  *
  * Parameters can be defined over CLI parameters or by changing the
- * DEFAULT_PATH_XYZ constants in this file.
+ * defaultPathXYZ constants in this file.
  *
  * @author Johannes Stegmüller
  */
@@ -19,16 +19,23 @@ const { program } = require( 'commander' );
 const peggy = require( 'peggy' );
 const phpeggy = require( 'phpeggy' );
 const fs = require( 'fs' );
-const DEFAULT_PATH_INPUT = './src/WikiTexVC/parser.pegjs';
-const DEFAULT_PATH_OUTPUT = './src/WikiTexVC/Parser.php';
+const GENERATE_INTENT_PARSER = false;
+
+let defaultPathInput = './src/WikiTexVC/parser.pegjs';
+let defaultPathOutput = './src/WikiTexVC/Parser.php';
+if ( GENERATE_INTENT_PARSER ) {
+	defaultPathInput = './src/WikiTexVC/parserintent.pegjs';
+	defaultPathOutput = './src/WikiTexVC/ParserIntent.php';
+}
+
 const PHP_INSERTION_LINE = 9; // indicates where the 'use_xyz' statements are inserted
 
 program
 	.name( 'buildPHPparser' )
 	.option( '-i, --input <string>',
-		'path of input parser.pegjs file (*.pegjs)', DEFAULT_PATH_INPUT )
+		'path of input parser.pegjs file (*.pegjs)', defaultPathInput )
 	.option( '-o, --output <string>',
-		'path of generated output file (*.php)', DEFAULT_PATH_OUTPUT )
+		'path of generated output file (*.php)', defaultPathOutput )
 	.option( '-d, --debug',
 		'debug logging activated', false )
 	.description( 'Generates Parser.php as output from parser.pegjs as input. ' +
@@ -48,6 +55,7 @@ let parser = peggy.generate( parserPeg, {
 	plugins: [ phpeggy ],
 	cache: true,
 	phpeggy: {
+		parserClassName: GENERATE_INTENT_PARSER ? 'ParserIntent' : 'Parser',
 		parserNamespace: 'MediaWiki\\Extension\\Math\\WikiTexVC'
 	}
 } );
@@ -85,7 +93,9 @@ function addUseStatements( p, lineStart = PHP_INSERTION_LINE ) {
 	return splitParser.join( '\n' );
 }
 
-parser = addUseStatements( parser );
+if ( !GENERATE_INTENT_PARSER ) {
+	parser = addUseStatements( parser );
+}
 
 /**
  * Fixing phpeggy to denote regular expressions which

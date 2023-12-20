@@ -3,7 +3,9 @@ namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util;
 
 use IntlChar;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Curly;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 
 /**
  * Utility Methods for parsing Tex to MathML
@@ -209,6 +211,43 @@ class MMLutil {
 			return $mappingTable[$key];
 		}
 		return null;
+	}
+
+	/**
+	 * Assumes the input curly contains an TexArray of literals, squashes the TexArray characters to a string.
+	 * It checks for dollar escaping and removes a backslash, also renders DQ args with underscores
+	 * @param TexNode $node curly containing a TexArray of literals
+	 * @return ?string squashed string in example "2mu", "-3mu" etc. Null if no TexArray inside curly.
+	 */
+	public static function squashLitsToUnitIntent( TexNode $node ): ?string {
+		if ( !$node instanceof Curly ) {
+			return null;
+		}
+		$unit = "";
+		foreach ( $node->getArg()->getArgs() as $literal ) {
+			if ( $literal instanceof DQ ) {
+				$args = $literal->getArgs();
+				if ( !$args[0] instanceof Literal || !$args[1] instanceof Literal ) {
+					continue;
+				}
+				$arg = self::removeDollarEscaping( $args[0]->getArgs()[0] ) . "_"
+					. self::removeDollarEscaping( $args[1]->getArgs()[0] );
+			} else {
+				if ( !$literal instanceof Literal ) {
+					continue;
+				}
+				$arg = self::removeDollarEscaping( $literal->getArg() );
+			}
+			$unit .= $arg;
+		}
+		return $unit;
+	}
+
+	public static function removeDollarEscaping( $input ) {
+		if ( $input == "\\$" ) {
+			return "\$";
+		}
+		return $input;
 	}
 
 }

@@ -155,4 +155,106 @@ class MMLParsingUtil {
 			return $map[$matches[0]] ?? $matches[0];
 		}, $inputString );
 	}
+
+	public static function getIntentContent( ?string $input ) {
+		if ( !$input ) {
+			return null;
+		}
+		$matchesInt = [];
+		$matchInt = preg_match( "/intent=[\'\"](.*)[\'\"]/", $input, $matchesInt );
+		if ( $matchInt && count( $matchesInt ) >= 2 ) {
+			return $matchesInt[1];
+		}
+		return null;
+	}
+
+	public static function getIntentParams( ?string $intentContent ) {
+		if ( !$intentContent ) {
+			return null;
+		}
+		$matchesParams = [];
+		// tbd eventually not only alphanumerical chars valid in intent params
+		$matchParams = preg_match_all( "/\\\$([a-zA-Z]+)/", $intentContent, $matchesParams );
+		if ( $matchParams && count( $matchesParams ) >= 2 ) {
+			return $matchesParams[1];
+		}
+		return null;
+	}
+
+	public static function getIntentArgs( ?string $input ) {
+		if ( !$input ) {
+			return null;
+		}
+		$matchesArgs = [];
+		$matchArg = preg_match( "/arg\s*=\s*[\'\"](.*?)[\'\"]/", $input, $matchesArgs );
+		if ( $matchArg && count( $matchesArgs ) >= 2 ) {
+			return $matchesArgs[1];
+		}
+		return null;
+	}
+
+	/**
+	 * Converts a rendered MathML string to a XML tree and adds the attributes from input
+	 * to the top-level element.Valid attributes for adding are "arg" and "intent.
+	 * It overwrites pre-existing attributes in the top-level element.
+	 * TBD: currently contains a hacky way to remove xml header in the output string
+	 * example:" <msup intent="_($op,_of,$arg)">" intent attributes comes from input variables
+	 * @param string $renderedMML defines input MathML string
+	 * @param array $intentContentAtr defines attributes to add
+	 * @return string MML with added attributes
+	 */
+	public static function forgeIntentToTopElement( string $renderedMML, $intentContentAtr ) {
+		if ( empty( $intentContentAtr ) || empty( $renderedMML ) ) {
+			return $renderedMML;
+		}
+
+		return self::addAttributesToMML( $renderedMML, $intentContentAtr, "" );
+	}
+
+	/**
+	 * Add parameters from aattributes to the MML string
+	 * @param string $renderedMML defines input MathML string
+	 * @param array $intentContentAtr defines attributes to add
+	 * @param string $elementTag element tag when using foundNodes
+	 * @param bool $useFoundNodes use found nodes
+	 * @return string MML with added attributes
+	 */
+	public static function addAttributesToMML( $renderedMML, $intentContentAtr, $elementTag, $useFoundNodes = false ) {
+		$xml = simplexml_load_string( $renderedMML );
+		if ( !$xml ) {
+			return "";
+		}
+		if ( $useFoundNodes ) {
+			$foundNodes = $xml->xpath( $elementTag );
+			if ( !( isset( $foundNodes ) && count( $foundNodes ) >= 1 ) ) {
+				return $renderedMML;
+			}
+		}
+
+		if ( isset( $intentContentAtr["intent"] ) ) {
+			if ( isset( $xml["intent"] ) ) {
+				$xml["intent"] = $intentContentAtr["intent"];
+			} elseif ( $intentContentAtr["intent"] != null && is_string( $intentContentAtr["intent"] ) ) {
+				$xml->addAttribute( "intent", $intentContentAtr["intent"] );
+			}
+		}
+		if ( isset( $intentContentAtr["arg"] ) ) {
+			if ( isset( $xml["arg"] ) ) {
+				$xml["arg"] = $intentContentAtr["arg"];
+			} elseif ( $intentContentAtr["arg"] != null && is_string( $intentContentAtr["arg"] ) ) {
+				$xml->addAttribute( "arg", $intentContentAtr["arg"] );
+			}
+		}
+
+		$hackyXML = str_replace( "<?xml version=\"1.0\"?>", "", $xml->asXML() );
+		return str_replace( "\n", "", $hackyXML );
+	}
+
+	public static function forgeIntentToSpecificElement( string $renderedMML, $intentContentAtr, string $elementTag ) {
+		if ( empty( $intentContentAtr ) || empty( $renderedMML ) || empty( $elementTag ) ) {
+			return $renderedMML;
+		}
+		return self::addAttributesToMML( $elementTag, $intentContentAtr, $elementTag, true );
+	}
+
 }

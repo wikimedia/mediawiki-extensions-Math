@@ -40,6 +40,7 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2sq;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun4;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
@@ -1107,6 +1108,59 @@ class BaseParsing {
 				$mrow2 = new MMLmrow( $texClass, [] );
 				$inner = $node->getArg()->renderMML();
 				return $mrow->encapsulateRaw( $mrow2->encapsulateRaw( $inner ) );
+		}
+	}
+
+	public static function intent( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
+		if ( !$node instanceof Fun2 ) {
+			return null;
+		}
+		// if there is intent annotation add intent to root element
+		// match args in row of subargs, unless an element has explicit annotations
+		// nested annotations ?
+		$arg1 = $node->getArg1();
+		if ( !$node->getArg2() instanceof Curly ) {
+			return null;
+		}
+		// tbd refactor intent form and fiddle in mml or tree
+		$intentStr = MMLutil::squashLitsToUnitIntent( $node->getArg2() );
+		$intentContent = MMLParsingUtil::getIntentContent( $intentStr );
+		$intentParams = MMLParsingUtil::getIntentParams( $intentContent );
+		// Sometimes the intent has additioargs = {array[3]} nal args in the same string
+		$intentArg = MMLParsingUtil::getIntentArgs( $intentStr );
+		if ( !$intentContent && !$intentParams && isset( $intentArg ) ) {
+			// explicit args annotation parsing in literal
+			// return $arg1->renderMML([],["intent-params-expl"=>$intentArg]);
+			// alternative just add the arg here
+			return $arg1->renderMML( [ "arg" => $intentArg ] );
+		}
+		$intentContentAtr = [ "intent" => $intentContent ];
+		if ( isset( $intentArg ) ) {
+			$intentContentAtr["arg"] = $intentArg;
+		}
+		// tbd refine intent params and operator content merging (does it overwrite ??)
+		$intentParamsState = $intentParams ? [ "intent-params" => $intentParams ] : $operatorContent;
+		// Here are some edge cases, they might go into renderMML in the related element
+		if ( str_contains( $intentContent, "matrix" ) ||
+			( $arg1 instanceof Curly && $arg1->getArg()->getArgs()[0] instanceof Matrix ) ) {
+			$element = $arg1->getArg()->getArgs()[0];
+			$rendered = $element->renderMML( [], $intentParamsState );
+			$hackyXML = MMLParsingUtil::forgeIntentToSpecificElement( $rendered,
+				$intentContentAtr, "mtable" );
+			return $hackyXML;
+		} elseif ( $arg1 instanceof Curly && count( $arg1->getArg()->getArgs() ) >= 2 ) {
+			// Create a surrounding element which holds the intents
+			$mrow = new MMLmrow( "", $intentContentAtr );
+			return $mrow->encapsulateRaw( $arg1->renderMML( [], $intentParamsState ) );
+		} elseif ( $arg1 instanceof Curly && count( $arg1->getArg()->getArgs() ) >= 1 ) {
+			// Forge the intent attribute to the top-level element after MML rendering
+			$element = $arg1->getArg()->getArgs()[0];
+			$rendered = $element->renderMML( [], $intentParamsState );
+			$hackyXML = MMLParsingUtil::forgeIntentToTopElement( $rendered, $intentContentAtr );
+			return $hackyXML;
+		} else {
+			// This is the default case
+			return $arg1->renderMML( $intentContentAtr, $intentParamsState );
 		}
 	}
 

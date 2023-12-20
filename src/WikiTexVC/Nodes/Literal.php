@@ -45,11 +45,24 @@ class Literal extends TexNode {
 	}
 
 	public function renderMML( $arguments = [], $state = [] ) {
+		if ( isset( $state["intent-params"] ) ) {
+			foreach ( $state["intent-params"] as $intparam ) {
+				if ( $intparam == $this->arg ) {
+					$arguments["arg"] = $intparam;
+				}
+			}
+		}
+
+		if ( isset( $state["intent-params-expl"] ) ) {
+			$arguments["arg"] = $state["intent-params-expl"];
+		}
+
 		if ( $this->arg === " " ) {
 			// Fixes https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Math/+/961711
 			// And they creation of empty mo elements.
 			return "";
 		}
+
 		if ( is_numeric( $this->arg ) ) {
 			$mn = new MMLmn( "", $arguments );
 			return $mn->encapsulateRaw( $this->changeUnicodeFontInput( $this->arg, $state ) );

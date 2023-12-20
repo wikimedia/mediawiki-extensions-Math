@@ -61,6 +61,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'fun_mhchem',
 			'hline_function',
 			'ignore_identifier',
+			'intent_required',
 			'latex_function_names',
 			'left_function',
 			'mathoid_required',
@@ -99,7 +100,8 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'other_delimiters2',
 			'other_fun_ar1',
 			'is_literal',
-			'is_letter_mod'
+			'is_letter_mod',
+			"intent_required"
 		];
 
 		foreach ( $maps as $map ) {
@@ -120,14 +122,14 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 
 		// Loading local json file
 		$file = TexUtil::getJsonFile();
-		$fileP = str_replace( [ "\n", "\t", " " ], "", $file );
+		$fileP = str_replace( [ "\n", "\t", "\r", " " ], "", $file );
 
 		$encP = json_encode( $out );
 		$hashOutput = $this->getHash( $encP );
 		$hashFile = $this->getHash( $fileP );
 		// uncomment the following lines to spot differences in your IDE
-		// $this->assertEquals( str_replace( "\t", "    ", $file ), json_encode($out,
-		// JSON_PRETTY_PRINT) . "\n" );
+		//$this->assertEquals( str_replace( "\t", "    ", $file ), json_encode($out,
+		//        JSON_PRETTY_PRINT) . "\n" );
 		$this->assertEquals( $hashFile, $hashOutput );
 	}
 

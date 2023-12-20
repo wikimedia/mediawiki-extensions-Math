@@ -6,6 +6,9 @@ namespace MediaWiki\Extension\Math\WikiTexVC;
 
 use Exception;
 use MediaWiki\Extension\Math\WikiTexVC\Mhchem\MhchemParser;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use stdClass;
 
@@ -83,7 +86,8 @@ class TexVC {
 			];
 
 			if ( $options['report_required'] ) {
-				$pkgs = [ 'ams', 'cancel', 'color', 'euro', 'teubner', 'mhchem', 'mathoid', 'mhchemtexified' ];
+				$pkgs = [ 'ams', 'cancel', 'color', 'euro', 'teubner',
+						'mhchem', 'mathoid', 'mhchemtexified', "intent" ];
 
 				foreach ( $pkgs as $pkg ) {
 					$pkg .= '_required';
@@ -112,6 +116,26 @@ class TexVC {
 					];
 				}
 			}
+
+			if ( !$options['useintent'] ) {
+				if ( $result['intent_required'] ??
+					$input->containsFunc( $this->tu->getBaseElements()['intent_required'] )
+				) {
+					return [
+						'status' => 'C',
+						'details' => 'virtual intent package required.'
+					];
+				}
+			} else {
+				// Preliminary post-checks of correct intent-syntax
+				if ( $input->containsFunc( $this->tu->getBaseElements()['intent_required'] ) ) {
+					$intentCheck = $this->checkTreeIntents( $input );
+					if ( !$intentCheck || ( isset( $intentCheck["success"] ) && !$intentCheck["success"] ) ) {
+						return $intentCheck;
+					}
+				}
+			}
+
 			return $result;
 		} catch ( Exception $ex ) {
 			if ( $ex instanceof SyntaxError && !$options['oldtexvc']
@@ -135,6 +159,62 @@ class TexVC {
 			}
 		}
 		return $this->handleTexError( $ex, $options );
+	}
+
+	private function checkTreeIntents( $inputTree ) {
+		if ( is_string( $inputTree ) ) {
+			return true;
+		}
+		if ( !$inputTree ) {
+			return true;
+		}
+		foreach ( $inputTree->getArgs() as $value ) {
+			if ( $value instanceof Fun2 && $value->getFname() === "\\intent" ) {
+				$intentStr = MMLutil::squashLitsToUnitIntent( $value->getArg2() );
+				$intentContent = MMLParsingUtil::getIntentContent( $intentStr );
+				$intentArg = MMLParsingUtil::getIntentArgs( $intentStr );
+				$argch = self::checkIntentArg( $intentArg );
+				if ( !$argch ) {
+					$retval = [];
+					$retval["success"] = false;
+					$retval["info"] = "malformatted intent argument";
+					return $retval;
+				}
+				// do check on arg1
+				$ret = !$intentContent ? true : self::checkIntent( $intentContent );
+				if ( !$ret || ( isset( $ret["success"] ) && $ret["success"] == false ) ) {
+					return $ret;
+				}
+				return $this->checkTreeIntents( $value->getArg1() );
+			} else {
+				return self::checkTreeIntents( $value );
+			}
+		}
+		return true;
+	}
+
+	public static function checkIntentArg( $input ) {
+		if ( !$input ) {
+			return true;
+		}
+		$matchesArgs = [];
+		// arg has roughly the same specs like NCName in parserintent.pegjs
+		$matchArg = preg_match( "/[a-zA-Z0-9._-]*/", $input, $matchesArgs );
+		if ( $matchArg ) {
+			return true;
+		}
+		return false;
+	}
+
+	public function checkIntent( $input ) {
+		// Very early intent syntax checker
+		try{
+			$parserIntent = new ParserIntent();
+			$parserIntent->parse( $input );
+			return true;
+		}catch ( Exception $exception ) {
+			return $this->handleTexError( $exception, null );
+		}
 	}
 
 	private function handleTexError( Exception $e, $options = null ) {

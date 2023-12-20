@@ -1192,6 +1192,10 @@
 		"nullary_macro": true,
 		"stix_required": true
 	},
+	"\\intent": {
+		"fun_ar2": true,
+		"intent_required": true
+	},
 	"\\intercal": {
 		"ams_required": true,
 		"is_literal": true,

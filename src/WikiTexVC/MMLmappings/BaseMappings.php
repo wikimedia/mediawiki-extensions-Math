@@ -594,7 +594,8 @@ class BaseMappings {
 		"ref" => 'HandleRef',
 		"nonumber" => 'HandleNoTag',
 		"mathchoice" => 'mathChoice',
-		"mmlToken" => 'MmlToken'
+		"mmlToken" => 'MmlToken',
+		"intent" => 'intent'
 	];
 
 	private const NULLARYMACROS = [

@@ -36,6 +36,7 @@ class ParserUtil {
 			'usemathrm' => false,
 			'usemhchem' => false,
 			'usemhchemtexified' => false,
+			'useintent' => false,
 			'oldtexvc' => false,
 			'oldmhchem' => false,
 			'debug' => false,
