@@ -241,7 +241,6 @@
 				"ve-math/ve.ce.MWLatexNode.js",
 				"ve-math/ve.ui.MWLatexInspector.js",
 				"ve-math/ve.ui.MWLatexContextItem.js",
-				"ve-math/ve.ui.MWLatexPage.js",
 				"ve-math/ve.ui.MWLatexDialog.js",
 				"ve-math/ve.dm.MWChemNode.js",
 				"ve-math/ve.ce.MWChemNode.js",
@@ -261,8 +260,7 @@
 				"ve-math/ve.ui.MWLatexDialog.css",
 				"ve-math/ve.ce.MWLatexNode.css",
 				"ve-math/ve.ui.MWLatexInspector.css",
-				"ve-math/ve.ui.MWLatexContextItem.css",
-				"ve-math/ve.ui.MWLatexPage.css"
+				"ve-math/ve.ui.MWLatexContextItem.css"
 			],
 			"dependencies": [
 				"ext.visualEditor.mwcore",

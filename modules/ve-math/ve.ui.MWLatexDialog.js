@@ -131,34 +131,54 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 	} );
 
 	// Layout for the symbol picker
-	this.bookletLayout = new OO.ui.BookletLayout( {
-		classes: [ 've-ui-mwLatexDialog-symbols' ],
-		menuPosition: 'before',
-		outlined: true,
-		continuous: true
+	this.bookletLayout = new ve.ui.SymbolListBookletLayout( {
+		classes: [ 've-ui-mwLatexDialog-symbols' ]
 	} );
 	this.pages = [];
 	this.symbolsPromise = mw.loader.using( this.constructor.static.symbolsModule ).done( function ( require ) {
+		// eslint-disable-next-line security/detect-non-literal-require
 		const symbols = require( dialog.constructor.static.symbolsModule );
+		const symbolData = {};
 		for ( const category in symbols ) {
-			dialog.pages.push(
-				new ve.ui.MWLatexPage(
-					// eslint-disable-next-line mediawiki/msg-doc
-					ve.msg( category ),
-					{
-						// eslint-disable-next-line mediawiki/msg-doc
-						label: ve.msg( category ),
-						symbols: symbols[ category ]
-					}
-				)
-			);
+			const symbolList = symbols[ category ].filter( function ( symbol ) {
+				if ( symbol.notWorking || symbol.duplicate ) {
+					return false;
+				}
+				const tex = symbol.tex || symbol.insert;
+				const classes = [ 've-ui-mwLatexDialog-symbol' ];
+				classes.push(
+					've-ui-mwLatexSymbol-' + tex.replace( /[^\w]/g, function ( c ) {
+						return '_' + c.charCodeAt( 0 ) + '_';
+					} )
+				);
+				if ( symbol.width ) {
+					// The following classes are used here:
+					// * ve-ui-mwLatexDialog-symbol-wide
+					// * ve-ui-mwLatexDialog-symbol-wider
+					// * ve-ui-mwLatexDialog-symbol-widest
+					classes.push( 've-ui-mwLatexDialog-symbol-' + symbol.width );
+				}
+				if ( symbol.contain ) {
+					classes.push( 've-ui-mwLatexDialog-symbol-contain' );
+				}
+				if ( symbol.largeLayout ) {
+					classes.push( 've-ui-mwLatexDialog-symbol-largeLayout' );
+				}
+				symbol.label = '';
+				symbol.classes = classes;
+
+				return true;
+			} );
+			symbolData[ category ] = {
+				// eslint-disable-next-line mediawiki/msg-doc
+				label: ve.msg( category ),
+				symbols: symbolList
+			};
 		}
-		dialog.bookletLayout.addPages( dialog.pages );
-		dialog.bookletLayout.$element.on(
-			'click',
-			'.ve-ui-mwLatexPage-symbol',
-			dialog.onListClick.bind( dialog )
-		);
+		dialog.bookletLayout.setSymbolData( symbolData );
+		dialog.bookletLayout.connect( dialog, {
+			choose: 'onSymbolChoose'
+		} );
 
 		// Append everything
 		formulaPanel.$element.append(
@@ -303,17 +323,16 @@ ve.ui.MWLatexDialog.prototype.onWindowManagerResize = function () {
 };
 
 /**
- * Handle the click event on the list
+ * Handle a symbol being chosen from the list
  *
- * @param {jQuery.Event} e Mouse click event
+ * @param {Object} symbol
  */
-ve.ui.MWLatexDialog.prototype.onListClick = function ( e ) {
+ve.ui.MWLatexDialog.prototype.onSymbolChoose = function ( symbol ) {
 	if ( this.isReadOnly() ) {
 		return;
 	}
 
-	const symbol = $( e.target ).data( 'symbol' ),
-		encapsulate = symbol.encapsulate;
+	const encapsulate = symbol.encapsulate;
 
 	if ( encapsulate ) {
 		const range = this.input.getRange();

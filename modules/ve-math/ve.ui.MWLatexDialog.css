@@ -55,6 +55,36 @@
 	display: inline-block;
 }
 
-.ve-ui-mwLatexDialog-symbols .oo-ui-outlineOptionWidget {
-	padding-left: 0.75em;
+.ve-ui-mwLatexDialog-symbol {
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.ve-ui-mwLatexDialog-symbol-wide {
+	/* 2(symbol width) + margin */
+	width: 3.7em;
+}
+
+.ve-ui-mwLatexDialog-symbol-wider {
+	/* 2.5(symbol width) + 1.5(margin) */
+	width: 4.65em;
+}
+
+.ve-ui-mwLatexDialog-symbol-widest {
+	/* 3(symbol width) + 2(margin) */
+	width: 5.6em;
+}
+
+.ve-ui-mwLatexDialog-symbol-contain {
+	background-size: contain;
+}
+
+.ve-ui-mwLatexDialog-symbol-largeLayout {
+	height: 3.7em;
+	width: 4.65em;
+}
+
+.ve-ui-mwLatexDialog-symbol-largeLayout.ve-ui-mwLatexDialog-symbol-wide {
+	/* 5(symbol width) + 4(margin) */
+	width: 9.4em;
 }
