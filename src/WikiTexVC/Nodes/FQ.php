@@ -92,8 +92,8 @@ class FQ extends TexNode {
 		$inner = $melement->encapsulateRaw(
 			$emptyMrow .
 			$this->getBase()->renderMML( [], $state ) .
-			$mrow->encapsulateRaw( $this->getDown()->renderMML( [], $state ) ) .
-			$mrow->encapsulateRaw( $this->getUp()->renderMML( [], $state ) ) );
+			$mrow->encapsulateRaw( $this->getDown()->renderMML( $arguments, $state ) ) .
+			$mrow->encapsulateRaw( $this->getUp()->renderMML( $arguments, $state ) ) );
 
 		if ( $melement instanceof MMLmunderover ) {
 			$args = $state['styleargs'] ?? [ "displaystyle" => "true", "scriptlevel" => 0 ];
