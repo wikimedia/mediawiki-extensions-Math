@@ -77,7 +77,7 @@ class FQ extends TexNode {
 			$litArg = trim( $this->getBase()->getArgs()[0] );
 			$tu = TexUtil::getInstance();
 			// "sum", "bigcap", "bigcup", "prod" ... all are nullary macros.
-			if ( $tu->nullary_macro( $litArg ) ) {
+			if ( $tu->nullary_macro( $litArg ) && !$tu->is_literal( $litArg ) ) {
 				$melement = new MMLmunderover();
 			}
 		}
