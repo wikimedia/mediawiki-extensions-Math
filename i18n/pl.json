@@ -19,7 +19,6 @@
 	},
 	"math-desc": "Renderowanie formuł matematycznych między znacznikami <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwchemdialog-title": "Wzór chemiczny",
-	"math-visualeditor-mwcheminspector-title": "Wzór chemiczny",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Szybka edycja",
 	"math-visualeditor-mwlatexdialog-card-formula": "Wzór",
 	"math-visualeditor-mwlatexdialog-card-options": "Opcje",

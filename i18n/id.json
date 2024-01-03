@@ -15,7 +15,6 @@
 	},
 	"math-desc": "Menghasilkan rumus matematika di antara tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwchemdialog-title": "Rumus kimia",
-	"math-visualeditor-mwcheminspector-title": "Rumus kimia",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Suntingan cepat",
 	"math-visualeditor-mwlatexdialog-card-formula": "Rumus",
 	"math-visualeditor-mwlatexdialog-card-options": "Opsi",

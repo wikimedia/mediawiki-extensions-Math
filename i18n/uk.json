@@ -18,7 +18,6 @@
 	},
 	"math-desc": "Відображає математичні формули у тегах <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwchemdialog-title": "Хімічна формула",
-	"math-visualeditor-mwcheminspector-title": "Хімічна формула",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Швидке редагування",
 	"math-visualeditor-mwlatexdialog-card-formula": "Формула",
 	"math-visualeditor-mwlatexdialog-card-options": "Параметри",

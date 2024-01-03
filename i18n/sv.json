@@ -17,7 +17,6 @@
 	},
 	"math-desc": "Rendera matematiska formler mellan <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-taggar",
 	"math-visualeditor-mwchemdialog-title": "Kemisk formel",
-	"math-visualeditor-mwcheminspector-title": "Kemisk formel",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Snabbredigering",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formel",
 	"math-visualeditor-mwlatexdialog-card-options": "Alternativ",

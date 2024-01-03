@@ -6,7 +6,6 @@
 	},
 	"math-desc": "Inderprete le formule matemateche 'mbrà le tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwchemdialog-title": "Formula chimiche",
-	"math-visualeditor-mwcheminspector-title": "Formula chimiche",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Cangiamende veloce",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formule",
 	"math-visualeditor-mwlatexdialog-card-options": "Opziune",

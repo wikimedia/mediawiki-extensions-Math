@@ -15,7 +15,6 @@
 	},
 	"math-desc": "Faz a composição gráfica ''(rendering)'' das fórmulas matemáticas entre os elementos <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwchemdialog-title": "Fórmula química",
-	"math-visualeditor-mwcheminspector-title": "Fórmula química",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Edição rápida",
 	"math-visualeditor-mwlatexdialog-card-formula": "Fórmula",
 	"math-visualeditor-mwlatexdialog-card-options": "Opções",

@@ -13,7 +13,6 @@
 	},
 	"math-desc": "Esegue il rendering di formule matematiche tra i tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwchemdialog-title": "Formula chimica",
-	"math-visualeditor-mwcheminspector-title": "Formula chimica",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Modifica rapida",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formula",
 	"math-visualeditor-mwlatexdialog-card-options": "Opzioni",

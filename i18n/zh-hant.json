@@ -20,7 +20,6 @@
 	},
 	"math-desc": "在 <code>&lt;math&gt;</code>...<code>&lt;/math&gt;</code> 標籤之間呈現數學公式",
 	"math-visualeditor-mwchemdialog-title": "化學式",
-	"math-visualeditor-mwcheminspector-title": "化學式",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "快速編輯",
 	"math-visualeditor-mwlatexdialog-card-formula": "公式",
 	"math-visualeditor-mwlatexdialog-card-options": "選項",

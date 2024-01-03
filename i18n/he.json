@@ -13,7 +13,6 @@
 	},
 	"math-desc": "הצגת נוסחאות מתמטיות בין תגי <bdi><code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code></bdi>",
 	"math-visualeditor-mwchemdialog-title": "נוסחה כימית",
-	"math-visualeditor-mwcheminspector-title": "נוסחה כימית",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "עריכה מהירה",
 	"math-visualeditor-mwlatexdialog-card-formula": "נוסחה",
 	"math-visualeditor-mwlatexdialog-card-options": "אפשרויות",

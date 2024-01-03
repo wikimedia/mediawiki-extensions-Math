@@ -20,7 +20,6 @@
 	},
 	"math-desc": "Representa fórmulas matemáticas entre las etiquetas <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwchemdialog-title": "Fórmula química",
-	"math-visualeditor-mwcheminspector-title": "Fórmula química",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Edición rápida",
 	"math-visualeditor-mwlatexdialog-card-formula": "Fórmula",
 	"math-visualeditor-mwlatexdialog-card-options": "Opciones",

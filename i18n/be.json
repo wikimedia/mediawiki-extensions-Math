@@ -17,7 +17,6 @@
 	},
 	"math-desc": "Выводзіць матэматычныя формулы, запісаныя паміж тэгамі <code>&lt;math&gt;</code> і <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwchemdialog-title": "Хімічную формулу",
-	"math-visualeditor-mwcheminspector-title": "Хімічную формулу",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Хуткая праўка",
 	"math-visualeditor-mwlatexdialog-card-formula": "Формула",
 	"math-visualeditor-mwlatexdialog-card-options": "Налады",

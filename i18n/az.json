@@ -10,7 +10,6 @@
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> teqləri arasındakı riyazi formulları renderləyir",
 	"math-visualeditor-mwchemdialog-title": "Kimyəvi formul",
-	"math-visualeditor-mwcheminspector-title": "Kimyəvi formul",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Cəld redaktə",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formul",
 	"math-visualeditor-mwlatexdialog-card-options": "Seçimlər",

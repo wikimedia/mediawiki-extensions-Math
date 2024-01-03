@@ -16,7 +16,6 @@
 	},
 	"math-desc": "Esittää matemaattiset kaavat tunnisteiden <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> välillä",
 	"math-visualeditor-mwchemdialog-title": "Kemiallinen kaava",
-	"math-visualeditor-mwcheminspector-title": "Kemiallinen kaava",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Pikamuokkaus",
 	"math-visualeditor-mwlatexdialog-card-formula": "Kaava",
 	"math-visualeditor-mwlatexdialog-card-options": "Valinnat",

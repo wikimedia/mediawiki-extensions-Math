@@ -23,7 +23,6 @@
 	},
 	"math-desc": "Restitue les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwchemdialog-title": "Formule chimique",
-	"math-visualeditor-mwcheminspector-title": "Formule chimique",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Modification rapide",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formule",
 	"math-visualeditor-mwlatexdialog-card-options": "Options",

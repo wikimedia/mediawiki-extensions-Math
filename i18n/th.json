@@ -10,7 +10,6 @@
 	},
 	"math-desc": "เรนเดอร์สูตรคณิตศาสตร์ระหว่างป้ายกำกับ <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwchemdialog-title": "สูตรเคมี",
-	"math-visualeditor-mwcheminspector-title": "สูตรเคมี",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "แก้ไขรวดเร็ว",
 	"math-visualeditor-mwlatexdialog-card-formula": "สูตร",
 	"math-visualeditor-mwlatexdialog-card-options": "ตัวเลือก",

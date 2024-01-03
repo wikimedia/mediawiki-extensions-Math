@@ -13,7 +13,6 @@
 	},
 	"math-desc": "Fremstill matematiske formler inne i taggparet <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
 	"math-visualeditor-mwchemdialog-title": "Kjemisk formel",
-	"math-visualeditor-mwcheminspector-title": "Kjemisk formel",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Hurtigredigering",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formel",
 	"math-visualeditor-mwlatexdialog-card-options": "Alternativer",
