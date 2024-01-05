@@ -30,7 +30,7 @@ class TexNode {
 		if ( $parsed ) {
 			return $parsed;
 		}
-		$name = strtoupper( get_class() );
+		$name = strtoupper( self::class );
 
 		return BaseMethods::generateMMLError( "Not implemented $name for $input" );
 	}
