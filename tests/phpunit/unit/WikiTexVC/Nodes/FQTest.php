@@ -46,8 +46,23 @@ class FQTest extends MediaWikiUnitTestCase {
 		$this->assertNotEmpty( $fq->getDown() );
 	}
 
-	public function testRenderEmptyDq() {
+	public function testRenderEmptyFq() {
 		$fq = new FQ( new Curly( new TexArray() ), new Literal( 'b' ), new Literal( 'c' ) );
 		$this->assertStringContainsString( ( new MMLmrow() )->getEmpty(), $fq->renderMML() );
+	}
+
+	public function testLatin() {
+		$fq = new FQ( new Literal( 'a' ), new Literal( 'b' ), new Literal( 'c' ) );
+		$this->assertStringContainsString( 'msubsup', $fq->renderMML() );
+	}
+
+	public function testSum() {
+		$fq = new FQ( new Literal( '\sum' ), new Literal( 'b' ), new Literal( 'c' ) );
+		$this->assertStringContainsString( 'munderover', $fq->renderMML() );
+	}
+
+	public function testGreek() {
+		$fq = new FQ( new Literal( '\\alpha' ), new Literal( 'b' ), new Literal( 'c' ) );
+		$this->assertStringContainsString( 'msubsup', $fq->renderMML() );
 	}
 }
