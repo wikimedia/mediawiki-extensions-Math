@@ -11,15 +11,15 @@
 
 namespace MediaWiki\Extension\Math;
 
-use DeferredUpdates;
+use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\Math\InputCheck\BaseChecker;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\Sanitizer;
 use Message;
 use Parser;
 use Psr\Log\LoggerInterface;
 use RequestContext;
-use Sanitizer;
 use stdClass;
 use StringUtils;
 

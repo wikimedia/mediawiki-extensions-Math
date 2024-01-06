@@ -1,8 +1,8 @@
 <?php
 namespace MediaWiki\Extension\Math\WikiTexVC\MMLnodes;
 
-use Html;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
+use MediaWiki\Html\Html;
 
 class MMLbase {
 	private string $name;

@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Math;
 
 use MediaWiki\Extension\Math\Render\RendererFactory;
-use SpecialPage;
+use MediaWiki\SpecialPage\SpecialPage;
 
 /**
  * Description of SpecialMathShowSVG

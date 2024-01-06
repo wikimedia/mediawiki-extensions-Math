@@ -5,8 +5,8 @@ namespace MediaWiki\Extension\Math;
 use ExtensionRegistry;
 use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\SpecialPage\SpecialPage;
 use Psr\Log\LoggerInterface;
-use SpecialPage;
 
 /**
  * MediaWiki math extension

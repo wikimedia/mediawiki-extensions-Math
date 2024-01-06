@@ -8,13 +8,13 @@
 
 namespace MediaWiki\Extension\Math;
 
-use Html;
 use MediaWiki\Extension\Math\Hooks\HookRunner;
+use MediaWiki\Html\Html;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use Psr\Log\LoggerInterface;
-use SpecialPage;
 use StatusValue;
 use stdClass;
 use Throwable;

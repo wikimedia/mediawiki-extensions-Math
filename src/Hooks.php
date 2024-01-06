@@ -10,9 +10,9 @@ namespace MediaWiki\Extension\Math;
 
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
-use ConfigException;
 use ExtensionRegistry;
 use Maintenance;
+use MediaWiki\Config\ConfigException;
 use MediaWiki\Hook\MaintenanceRefreshLinksInitHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Settings\SettingsBuilder;

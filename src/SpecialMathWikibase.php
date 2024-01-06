@@ -4,16 +4,16 @@ namespace MediaWiki\Extension\Math;
 
 use Exception;
 use ExtensionRegistry;
-use Html;
 use InvalidArgumentException;
 use MediaWiki\Extension\Math\Widget\WikibaseEntitySelector;
+use MediaWiki\Html\Html;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
+use MediaWiki\SpecialPage\SpecialPage;
 use Message;
 use OOUI\ButtonInputWidget;
 use OOUI\FormLayout;
-use OutputPage;
-use SpecialPage;
 
 class SpecialMathWikibase extends SpecialPage {
 	/**
