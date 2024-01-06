@@ -55,7 +55,6 @@ class DQ extends TexNode {
 		if ( !$this->isEmpty() ) {
 			if ( $this->getBase()->containsFunc( "\underbrace" ) ) {
 				$outer = new MMLmunder();
-
 			} else {
 				$outer = new MMLmsub();
 			}
@@ -63,8 +62,8 @@ class DQ extends TexNode {
 			$mmlMrow = new MMLmrow();
 			return $outer->encapsulateRaw(
 				 $emptyMrow .
-				$this->base->renderMML( [], $state ) .
-				$mmlMrow->encapsulateRaw( $this->down->renderMML( [], $state ) ) );
+				$this->base->renderMML( $arguments, $state ) .
+				$mmlMrow->encapsulateRaw( $this->down->renderMML( $arguments, $state ) ) );
 		}
 
 		return "";

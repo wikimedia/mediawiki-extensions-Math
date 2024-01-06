@@ -3,8 +3,12 @@
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 
 use ArgumentCountError;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Curly;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWikiUnitTestCase;
 use RuntimeException;
 use TypeError;
@@ -98,4 +102,36 @@ class Fun1Test extends MediaWikiUnitTestCase {
 			'Should not extract subscripts for empty mods.' );
 	}
 
+	public function testMathRmLiteral() {
+		$f = new Fun1( '\\mathrm', new Literal( 'b' ) );
+		$this->assertStringContainsString( 'mathvariant="normal"', $f->renderMML() );
+	}
+
+	public function testMathRmCurly() {
+		$f = new Fun1( '\\mathrm', new Curly( new TexArray(
+			new Literal( 'a' ),
+			new Literal( 'b' ),
+		) ) );
+		$rendering = $f->renderMML();
+		preg_match_all( '/mathvariant="normal"/', $rendering, $matches );
+		$this->assertCount( 2, $matches[0] );
+	}
+
+	public function testMathRmDq() {
+		$f = new Fun1( '\\mathrm', new Curly( new TexArray(
+			new DQ( new Literal( 'a' ), new Literal( 'b' ) )
+		) ) );
+		$rendering = $f->renderMML();
+		preg_match_all( '/mathvariant="normal"/', $rendering, $matches );
+		$this->assertCount( 2, $matches[0] );
+	}
+
+	public function testMathRmFq() {
+		$f = new Fun1( '\\mathrm', new Curly( new TexArray(
+			new FQ( new Literal( 'a' ), new Literal( 'b' ), new Literal( 'c' ) )
+		) ) );
+		$rendering = $f->renderMML();
+		preg_match_all( '/mathvariant="normal"/', $rendering, $matches );
+		$this->assertCount( 2, $matches[0] );
+	}
 }
