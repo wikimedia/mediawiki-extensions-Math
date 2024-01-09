@@ -50,6 +50,9 @@ class MathTestInputForm extends OOUIHTMLForm {
 			if ( isset( $control[ 'options' ] ) ) {
 				$options = [];
 				foreach ( $control['options'] as $value ) {
+					// Messages that can be used here:
+					// * math-form-type-tex
+					// * math-form-type-chem
 					$txt = wfMessage( $optionLabelPrefix[$key] . $value )->parseAsBlock();
 					$options[$txt] = $value;
 				}

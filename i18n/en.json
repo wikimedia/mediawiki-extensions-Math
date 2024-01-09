@@ -71,7 +71,7 @@
 	"math-form-tex-help": "Test with your own TeX input. See [[wp:MATH]] for more help.",
 	"math-form-type-label": "Type of the input",
 	"math-form-type-tex": "tex (normal input)",
-	"math-form-type-chem": "chem (input with chemistry support; e.g. \\ce{H20} for water)",
+	"math-form-type-chem": "chem (input with chemistry support; e.g. <code dir=\"ltr\">\\ce{H20}</code> for water)",
 	"math-form-display-label": "Math display mode",
 	"math_failure": "Failed to parse",
 	"math_invalidjson": "$1 server response is invalid JSON.",
