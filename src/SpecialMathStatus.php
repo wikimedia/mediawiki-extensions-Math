@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Math;
 
 use ExtensionRegistry;
 use MediaWiki\Extension\Math\Render\RendererFactory;
+use MediaWiki\Extension\Math\Widget\MathTestInputForm;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\SpecialPage\SpecialPage;
 use Psr\Log\LoggerInterface;
@@ -45,21 +46,29 @@ class SpecialMathStatus extends SpecialPage {
 
 		$out = $this->getOutput();
 		$enabledMathModes = $this->mathConfig->getValidRenderingModeNames();
-		$out->addWikiMsg( 'math-status-introduction', count( $enabledMathModes ) );
+		$req = $this->getRequest();
+		$tex = $req->getText( 'wptex' );
 
-		foreach ( $enabledMathModes as $modeNr => $modeName ) {
-			$out->wrapWikiMsg( '=== $1 ===', $modeName );
-			switch ( $modeNr ) {
-				case MathConfig::MODE_MATHML:
-					$this->runMathMLTest( $modeName );
-					break;
-				case MathConfig::MODE_LATEXML:
-					$this->runMathLaTeXMLTest( $modeName );
-					break;
-				case MathConfig::MODE_NATIVE_MML:
-					$this->runNativeTest( $modeName );
+		if ( $tex === '' ) {
+			$out->addWikiMsg( 'math-status-introduction', count( $enabledMathModes ) );
+
+			foreach ( $enabledMathModes as $modeNr => $modeName ) {
+				$out->wrapWikiMsg( '=== $1 ===', $modeName );
+				switch ( $modeNr ) {
+					case MathConfig::MODE_MATHML:
+						$this->runMathMLTest( $modeName );
+						break;
+					case MathConfig::MODE_LATEXML:
+						$this->runMathLaTeXMLTest( $modeName );
+						break;
+					case MathConfig::MODE_NATIVE_MML:
+						$this->runNativeTest( $modeName );
+				}
 			}
 		}
+
+		$form = new MathTestInputForm( $this, $enabledMathModes, $this->rendererFactory );
+		$form->show();
 	}
 
 	private function runNativeTest( $modeName ) {
