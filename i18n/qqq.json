@@ -68,7 +68,7 @@
 	"math-visualeditor-symbol-group-math-typefaces": "Label for the typefaces group of math symbols",
 	"math-visualeditor-symbol-group-math-unsorted": "Label for the unsorted group of math symbols",
 	"math-form-tex-label": "Label for text field in a form, where a user should specify tex input.",
-	"math-form-tex-help": "Help text for text field in a form, where a user should specify tex input.",
+	"math-form-tex-help": "Help text for text field in a form, where a user should specify TeX input.\n\n\"WP:MATH\" is a link to a help page about math formulas. This name is taken from the English Wikipedia. This page doesn't necessarily exist in the wiki, and doesn't necessarily have this title.",
 	"math-form-type-label": "Label for radio button group in a form, where a user should select the input type.",
 	"math-form-type-tex": "Label for normal tex input type.",
 	"math-form-type-chem": "Label for chemical input type.",
