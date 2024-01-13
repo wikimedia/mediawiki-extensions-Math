@@ -215,7 +215,6 @@
 			"styles": "ext.math.css"
 		},
 		"ext.math.popup": {
-			"es6": true,
 			"packageFiles": "ext.math.popup.js",
 			"messages": [
 				"popups-settings-option-math",
