@@ -24,6 +24,9 @@
 		]
 	},
 	"math-desc": "Matematiksel formüller arasında <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> etiketleri oluşturur",
+	"popups-settings-option-math": "Matematik",
+	"popups-settings-option-math-description": "Matematiksel formülleri açıklayın.",
+	"popups-settings-option-math-tooltip": "Fareyle üzerine gelindiğinde matematiksel formülleri açıklayın.",
 	"math-visualeditor-mwchemdialog-title": "Kimyasal formül",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Hızlı düzenleme",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formül",
@@ -77,7 +80,7 @@
 	"math-form-tex-help": "Kendi TeX girdinizle deneyin. Daha fazla yardım için [[wp:MATH]] konusuna bakın.",
 	"math-form-type-label": "Girdi türü",
 	"math-form-type-tex": "tex (normal girdi)",
-	"math-form-type-chem": "chem (kimya destekli girdi; ör. su için \\ce{H20})",
+	"math-form-type-chem": "chem (kimya destekli girdi; ör. su için <code dir=\"ltr\">\\ce{H20}</code>)",
 	"math-form-display-label": "Matematik görüntüleme kipi",
 	"math_failure": "Ayrıştırılamadı",
 	"math_invalidjson": "$1 sunucu yanıtı geçersiz JSON.",

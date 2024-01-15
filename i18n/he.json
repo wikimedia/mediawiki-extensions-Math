@@ -12,6 +12,9 @@
 		]
 	},
 	"math-desc": "הצגת נוסחאות מתמטיות בין תגי <bdi><code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code></bdi>",
+	"popups-settings-option-math": "מתמטיקה",
+	"popups-settings-option-math-description": "הסבר נוסחאות מתמטיות.",
+	"popups-settings-option-math-tooltip": "הסבר נוסחאות מתמטיות בעת ריחוף.",
 	"math-visualeditor-mwchemdialog-title": "נוסחה כימית",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "עריכה מהירה",
 	"math-visualeditor-mwlatexdialog-card-formula": "נוסחה",

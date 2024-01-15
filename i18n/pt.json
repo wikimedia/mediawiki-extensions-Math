@@ -14,6 +14,9 @@
 		]
 	},
 	"math-desc": "Faz a composição gráfica ''(rendering)'' das fórmulas matemáticas entre os elementos <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"popups-settings-option-math": "Matemática",
+	"popups-settings-option-math-description": "Explicar fórmulas matemáticas.",
+	"popups-settings-option-math-tooltip": "Explicar fórmulas matemáticas quando sobrevoadas com o rato.",
 	"math-visualeditor-mwchemdialog-title": "Fórmula química",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Edição rápida",
 	"math-visualeditor-mwlatexdialog-card-formula": "Fórmula",
@@ -67,7 +70,7 @@
 	"math-form-tex-help": "Testar com uma entrada TeX sua. Consulte [[wp:MATH]] para obter mais ajuda.",
 	"math-form-type-label": "Tipo da entrada",
 	"math-form-type-tex": "tex (entrada normal)",
-	"math-form-type-chem": "chem (entrada com suporte de Química; por exemplo, \\ce{H20} para água)",
+	"math-form-type-chem": "chem (entrada com suporte de Química; por exemplo, <code dir=\"ltr\">\\ce{H20}</code> para água)",
 	"math-form-display-label": "Modo de apresentação matemática",
 	"math_failure": "Falhou a verificação gramatical",
 	"math_invalidjson": "A resposta do servidor $1 não é JSON válido.",

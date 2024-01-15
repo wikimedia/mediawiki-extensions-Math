@@ -13,7 +13,7 @@
 	"math-desc": "Ergänzt das Tag <code>&lt;math&gt;</code> zum Darstellen mathematischer Formeln",
 	"popups-settings-option-math": "Mathematik",
 	"popups-settings-option-math-description": "Erklären mathematischer Formeln.",
-	"popups-settings-option-math-tooltip": "Erklären mathematischer Formeln beim Verweilen.",
+	"popups-settings-option-math-tooltip": "Erklären mathematischer Formeln beim Darüberfahren mit der Maus.",
 	"math-visualeditor-mwchemdialog-title": "Chemische Formel",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Schnelle Bearbeitung",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formel",

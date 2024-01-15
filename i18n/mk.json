@@ -6,6 +6,9 @@
 		]
 	},
 	"math-desc": "Испис на математички формули помеѓу ознаките <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"popups-settings-option-math": "Математика",
+	"popups-settings-option-math-description": "Објаснување на математички формули.",
+	"popups-settings-option-math-tooltip": "Објаснување на математички формули кога стрелката е на нив.",
 	"math-visualeditor-mwchemdialog-title": "Хемиска формула",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Брзо уредување",
 	"math-visualeditor-mwlatexdialog-card-formula": "Формула",
@@ -59,7 +62,7 @@
 	"math-form-tex-help": "Проба со ваш TeX-внос. Помош ќе најдете на [[wp:MATH]].",
 	"math-form-type-label": "Внесете го саканото",
 	"math-form-type-tex": "tex (нормален внос)",
-	"math-form-type-chem": "chem (внос за хемиски формули; на пр. \\ce{H20} за вода)",
+	"math-form-type-chem": "chem (внос за хемиски формули; на пр. <code dir=\"ltr\">\\ce{H20}</code> за вода)",
 	"math-form-display-label": "Режим на математички приказ",
 	"math_failure": "Не можев да расчленам",
 	"math_invalidjson": "$1-опслужувачот за $1 е неважечки JSON.",
