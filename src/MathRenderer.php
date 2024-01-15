@@ -11,7 +11,6 @@
 
 namespace MediaWiki\Extension\Math;
 
-use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\Math\InputCheck\BaseChecker;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
@@ -20,14 +19,14 @@ use Message;
 use Parser;
 use Psr\Log\LoggerInterface;
 use RequestContext;
-use stdClass;
 use StringUtils;
+use WANObjectCache;
 
 /**
  * Abstract base class with static methods for rendering the <math> tags using
  * different technologies. These static methods create a new instance of the
  * extending classes and render the math tags based on the mode setting of the user.
- * Furthermore this class handles the caching of the rendered output.
+ * Furthermore, this class handles the caching of the rendered output.
  *
  * @author Tomasz Wegrzanowski
  * @author Brion Vibber
@@ -58,13 +57,11 @@ abstract class MathRenderer {
 	/** @var bool has the mathematical content changed */
 	protected $changed = false;
 	/** @var bool is there a database entry for the mathematical content */
-	protected $storedInDatabase = null;
+	protected $storedInCache = null;
 	/** @var bool is there a request to purge the existing mathematical content */
 	protected $purge = false;
 	/** @var string with last occurred error */
 	protected $lastError = '';
-	/** @var string md5 value from userInputTex */
-	protected $md5 = '';
 	/** @var string binary packed inputhash */
 	protected $inputHash = '';
 	/** @var string rendering mode */
@@ -78,13 +75,17 @@ abstract class MathRenderer {
 	/** @var LoggerInterface */
 	private $logger;
 
+	private WANObjectCache $cache;
+
 	/**
 	 * Constructs a base MathRenderer
 	 *
 	 * @param string $tex (optional) LaTeX markup
 	 * @param array $params (optional) HTML attributes
+	 * @param WANObjectCache|null $cache (optional)
 	 */
-	public function __construct( $tex = '', $params = [] ) {
+	public function __construct( string $tex = '', $params = [], $cache = null ) {
+		$this->cache = $cache ?? MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$this->params = $params;
 		if ( isset( $params['id'] ) ) {
 			$this->id = $params['id'];
@@ -117,18 +118,6 @@ abstract class MathRenderer {
 		$this->userInputTex = $tex;
 		$this->tex = $tex;
 		$this->logger = LoggerFactory::getInstance( 'Math' );
-	}
-
-	/**
-	 * @param string $md5
-	 * @return self the MathRenderer generated from md5
-	 */
-	public static function newFromMd5( $md5 ) {
-		// @phan-suppress-next-line PhanTypeInstantiateAbstractStatic
-		$instance = new static();
-		$instance->setMd5( $md5 );
-		$instance->readFromDatabase();
-		return $instance;
 	}
 
 	/**
@@ -181,44 +170,15 @@ abstract class MathRenderer {
 	 *
 	 * @return string hash
 	 */
-	public function getMd5() {
-		if ( !$this->md5 ) {
-			$this->md5 = md5( $this->userInputTex );
-		}
-		return $this->md5;
-	}
-
-	/**
-	 * Set the input hash (if user input tex is not available)
-	 * @param string $md5
-	 */
-	public function setMd5( $md5 ) {
-		$this->md5 = $md5;
-	}
-
-	/**
-	 * Return hash of input
-	 *
-	 * @return string hash
-	 */
-	public function getInputHash() {
-		// TODO: What happens if $tex is empty?
+	public function getInputHash(): string {
 		if ( !$this->inputHash ) {
-			$dbr = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->getReplicaDatabase();
-			return $dbr->encodeBlob( pack( "H32", $this->getMd5() ) ); # Binary packed, not hex
+			$this->inputHash = hash( 'md5', // xxh128 might be better when dropping php 7 support
+				$this->mode .
+				$this->userInputTex .
+				implode( $this->params )
+			);
 		}
 		return $this->inputHash;
-	}
-
-	/**
-	 * Decode binary packed hash from the database to md5 of input_tex
-	 * @param string $hash (binary)
-	 * @return string md5
-	 */
-	private static function dbHash2md5( $hash ) {
-		$dbr = wfGetDB( DB_REPLICA );
-		$xhash = unpack( 'H32md5', $dbr->decodeBlob( $hash ) . "                " );
-		return $xhash['md5'];
 	}
 
 	/**
@@ -226,19 +186,15 @@ abstract class MathRenderer {
 	 *
 	 * @return bool true if read successfully, false otherwise
 	 */
-	public function readFromDatabase() {
-		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->getReplicaDatabase();
-		$rpage = $dbr->selectRow( $this->getMathTableName(),
-			$this->dbInArray(),
-			[ 'math_inputhash' => $this->getInputHash() ],
-			__METHOD__ );
+	public function readFromCache(): bool {
+		$rpage = $this->cache->get( $this->getCacheKey() );
 		if ( $rpage !== false ) {
-			$this->initializeFromDatabaseRow( $rpage );
-			$this->storedInDatabase = true;
+			$this->initializeFromCache( $rpage );
+			$this->storedInCache = true;
 			return true;
 		} else {
 			# Missing from the database and/or the render cache
-			$this->storedInDatabase = false;
+			$this->storedInCache = false;
 			return false;
 		}
 	}
@@ -258,82 +214,38 @@ abstract class MathRenderer {
 
 	/**
 	 * Reads the values from the database but does not overwrite set values with empty values
-	 * @param stdClass $rpage (a database row)
+	 * @param array $rpage (a database row)
 	 */
-	protected function initializeFromDatabaseRow( $rpage ) {
-		$this->inputHash = $rpage->math_inputhash; // MUST NOT BE NULL
-		$this->md5 = self::dbHash2md5( $this->inputHash );
-		if ( !empty( $rpage->math_mathml ) ) {
-			$this->mathml = $rpage->math_mathml;
+	public function initializeFromCache( $rpage ) {
+		$this->inputHash = $rpage['math_inputhash']; // MUST NOT BE NULL
+		if ( isset( $rpage['math_mathml'] ) ) {
+			$this->mathml = $rpage['math_mathml'];
 		}
-		if ( !empty( $rpage->math_inputtex ) ) {
-			// in the current database the field is probably not set.
-			$this->userInputTex = $rpage->math_inputtex;
+		if ( isset( $rpage['math_inputtex'] ) ) {
+			$this->userInputTex = $rpage['math_inputtex'];
 		}
-		if ( !empty( $rpage->math_tex ) ) {
-			$this->tex = $rpage->math_tex;
+		if ( isset( $rpage['math_tex'] ) ) {
+			$this->tex = $rpage['math_tex'];
 		}
-		if ( !empty( $rpage->math_svg ) ) {
-			$this->svg = $rpage->math_svg;
+		if ( isset( $rpage['math_svg'] ) ) {
+			$this->svg = $rpage['math_svg'];
 		}
 		$this->changed = false;
 	}
 
 	/**
-	 * Writes rendering entry to database.
+	 * Writes rendering entry to cache.
 	 *
 	 * WARNING: Use writeCache() instead of this method to be sure that all
 	 * renderer specific (such as squid caching) are taken into account.
 	 * This function stores the values that are currently present in the class
-	 * to the database even if they are empty.
+	 * to the cache even if they are empty.
 	 *
 	 * This function can be seen as protected function.
-	 * @param \Wikimedia\Rdbms\IDatabase|null $dbw
 	 */
-	public function writeToDatabase( $dbw = null ) {
-		# Now save it back to the DB:
-		if ( MediaWikiServices::getInstance()->getReadOnlyMode()->isReadOnly() ) {
-			return;
-		}
+	public function writeToCache() {
 		$outArray = $this->dbOutArray();
-		$mathTableName = $this->getMathTableName();
-		$fname = __METHOD__;
-		if ( $this->isInDatabase() ) {
-			$this->debug( 'Update database entry' );
-			$inputHash = $this->getInputHash();
-			DeferredUpdates::addCallableUpdate( function () use (
-				$dbw, $outArray, $inputHash, $mathTableName, $fname
-			) {
-				$dbw = $dbw ?: wfGetDB( DB_PRIMARY );
-
-				$dbw->update( $mathTableName, $outArray,
-					[ 'math_inputhash' => $inputHash ], $fname );
-				$this->logger->debug(
-					'Row updated after db transaction was idle: ' .
-					var_export( $outArray, true ) . " to database" );
-			} );
-		} else {
-			$this->storedInDatabase = true;
-			$this->debug( 'Store new entry in database' );
-			DeferredUpdates::addCallableUpdate( function () use (
-				$dbw, $outArray, $mathTableName, $fname
-			) {
-				$dbw = $dbw ?: wfGetDB( DB_PRIMARY );
-
-				$dbw->insert( $mathTableName, $outArray, $fname, [ 'IGNORE' ] );
-				LoggerFactory::getInstance( 'Math' )->debug(
-					'Row inserted after db transaction was idle {out}.',
-					[
-						'out' => var_export( $outArray, true ),
-					]
-				);
-				if ( $dbw->affectedRows() == 0 ) {
-					// That's the price for the delayed update.
-					$this->logger->warning(
-						'Entry could not be written. Might be changed in between.' );
-				}
-			} );
-		}
+		$this->cache->set( $this->getCacheKey(), $outArray );
 	}
 
 	/**
@@ -346,7 +258,8 @@ abstract class MathRenderer {
 			'math_mathml' => $this->mathml,
 			'math_inputtex' => $this->userInputTex,
 			'math_tex' => $this->tex,
-			'math_svg' => $this->svg
+			'math_svg' => $this->svg,
+			'math_mode' => $this->mode
 		];
 		return $out;
 	}
@@ -409,7 +322,7 @@ abstract class MathRenderer {
 		$this->debug( 'Writing of cache requested' );
 		if ( $this->isChanged() ) {
 			$this->debug( 'Change detected. Perform writing' );
-			$this->writeToDatabase();
+			$this->writeToCache();
 			return true;
 		} else {
 			$this->debug( "Nothing was changed. Don't write to database" );
@@ -591,7 +504,7 @@ abstract class MathRenderer {
 			return true;
 		} else {
 			if ( $texCheckDisabled === MathConfig::NEW && $this->mode != MathConfig::MODE_SOURCE ) {
-				if ( $this->readFromDatabase() ) {
+				if ( $this->readFromCache() ) {
 					$this->debug( 'Skip TeX check' );
 					$this->texSecure = true;
 					return true;
@@ -603,10 +516,10 @@ abstract class MathRenderer {
 	}
 
 	public function isInDatabase() {
-		if ( $this->storedInDatabase === null ) {
-			$this->readFromDatabase();
+		if ( $this->storedInCache === null ) {
+			$this->readFromCache();
 		}
-		return $this->storedInDatabase;
+		return $this->storedInCache;
 	}
 
 	/**
@@ -696,5 +609,12 @@ abstract class MathRenderer {
 
 	protected function debug( $msg ) {
 		$this->logger->debug( "$msg for \"{tex}\".", [ 'tex' => $this->userInputTex ] );
+	}
+
+	private function getCacheKey() {
+			return $this->cache->makeGlobalKey(
+				self::class,
+				$this->getInputHash()
+			);
 	}
 }

@@ -51,9 +51,9 @@ class MathMathML extends MathRenderer {
 	/** @var string|null */
 	private $mathoidStyle;
 
-	public function __construct( string $tex = '', array $params = [] ) {
+	public function __construct( string $tex = '', array $params = [], $cache = null ) {
 		global $wgMathMathMLUrl;
-		parent::__construct( $tex, $params );
+		parent::__construct( $tex, $params, $cache );
 		$this->setMode( MathConfig::MODE_MATHML );
 		$this->host = $wgMathMathMLUrl;
 		if ( isset( $params['type'] ) ) {
@@ -354,7 +354,7 @@ class MathMathML extends MathRenderer {
 			return $this->svgPath;
 		}
 		return SpecialPage::getTitleFor( 'MathShowImage' )->getLocalURL( [
-				'hash' => $this->getMd5(),
+				'hash' => $this->getInputHash(),
 				'mode' => $this->getMode(),
 				'noRender' => $noRender
 			]
@@ -493,7 +493,7 @@ class MathMathML extends MathRenderer {
 
 	protected function dbOutArray() {
 		$out = parent::dbOutArray();
-		if ( $this->getMathTableName() == 'mathoid' ) {
+		if ( $this->getMathTableName() === 'mathoid' ) {
 			$out['math_input'] = $out['math_inputtex'];
 			unset( $out['math_inputtex'] );
 		}
@@ -502,20 +502,20 @@ class MathMathML extends MathRenderer {
 
 	protected function dbInArray() {
 		$out = parent::dbInArray();
-		if ( $this->getMathTableName() == 'mathoid' ) {
+		if ( $this->getMathTableName() === 'mathoid' ) {
 			$out = array_diff( $out, [ 'math_inputtex' ] );
 			$out[] = 'math_input';
 		}
 		return $out;
 	}
 
-	protected function initializeFromDatabaseRow( $rpage ) {
+	public function initializeFromCache( $rpage ) {
 		// mathoid allows different input formats
 		// therefore the column name math_inputtex was changed to math_input
-		if ( $this->getMathTableName() == 'mathoid' && !empty( $rpage->math_input ) ) {
-			$this->userInputTex = $rpage->math_input;
+		if ( $this->getMathTableName() === 'mathoid' && isset( $rpage['math_input'] ) ) {
+			$this->userInputTex = $rpage['math_input'];
 		}
-		parent::initializeFromDatabaseRow( $rpage );
+		parent::initializeFromCache( $rpage );
 	}
 
 	/**
