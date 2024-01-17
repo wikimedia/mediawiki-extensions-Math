@@ -569,8 +569,9 @@ class BaseMappings {
 		"hfill" => 'HFill',
 		"hfil" => 'HFill',
 		"hfilll" => 'HFill',
-		"bmod" => [ 'macro', '\\mmlToken{mo}[lspace="thickmathspace"' .
-			' rspace="thickmathspace"]{mod}' ],
+		"bmod" => [ 'macro', '\\mmlToken{mo}[lspace="0.2777777777777778em"' .
+			// "0.2777777777777778em" is equivlent to thickmathspace T320910
+			' rspace="0.2777777777777778em"]{mod}' ],
 		"pmod" => [ 'macro', '\\pod{\\mmlToken{mi}{mod}\\kern 6mu #1}', 1 ],
 		"mod" => [ 'macro', '\\mathchoice{\\kern18mu}{\\kern12mu}' .
 			'{\\kern12mu}{\\kern12mu}\\mmlToken{mi}{mod}\\,\\,#1',
@@ -620,8 +621,7 @@ class BaseMappings {
 	private const ENVIRONMENT = [
 		"array" => [ 'AlignedArray' ],
 		"equation" => [ 'Equation', null, true ],
-		"eqnarray" => [ 'EqnArray', null, true, true, 'rcl',
-				"ParseUtil_js_1.default.cols(0, lengths_js_1.MATHSPACE.thickmathspace)", '.5em' ]
+		"eqnarray" => [ 'EqnArray', null, true, true, 'rcl', null, '.5em' ]
 	];
 
 	// Mathtools environment actually from Mathtools mappings tbd refactor

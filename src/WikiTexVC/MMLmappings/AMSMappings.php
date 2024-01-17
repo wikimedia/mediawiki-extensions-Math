@@ -301,8 +301,7 @@ class AMSMappings {
 
 	private const AMSMATHENVIRONMENT = [
 		'equation*' => [ 'Equation', null, false ],
-		'eqnarray*' => [ 'EqnArray', null, false, true, 'rcl',
-			"ParseUtil_js_1.default.cols(0, lengths_js_1.MATHSPACE.thickmathspace)", '.5em' ],
+		'eqnarray*' => [ 'EqnArray', null, false, true, 'rcl', null, '.5em' ],
 		'align' => [ 'EqnArray', null, true, true, 'rl', 'ParseUtil_js_1.default.cols(0, 2)' ],
 		'align*' => [ 'EqnArray', null, false, true, 'rl', "ParseUtil_js_1.default.cols(0, 2)" ],
 		"multline" => [ 'Multline', null, true ],
