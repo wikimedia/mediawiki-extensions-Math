@@ -7,6 +7,9 @@
 		]
 	},
 	"math-desc": "Izris matematičnih formul med oznakama <code>&lt;math&gt;</code> in <code>&lt;/math&gt;</code>",
+	"popups-settings-option-math": "Matematika",
+	"popups-settings-option-math-description": "Razlaga matematičnih formul.",
+	"popups-settings-option-math-tooltip": "Razlaga matematičnih formul pri lebdenju.",
 	"math-visualeditor-mwchemdialog-title": "Kemijska formula",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Hitro urejanje",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formula",
