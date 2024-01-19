@@ -5,9 +5,6 @@
 			"Ed g2s"
 		]
 	},
-	"popups-settings-option-math": "Math",
-	"popups-settings-option-math-description": "Explain mathematical formulae.",
-	"popups-settings-option-math-tooltip": "Explain mathematical formulae on hover.",
 	"math-visualeditor-mwmathdialog-title": "Maths formula",
 	"math-status-introduction": "This page displays information about the enabled maths rendering {{PLURAL:$1|mode|modes}}.\n\nThe following rendering {{PLURAL:$1|mode is|modes are}} enabled:",
 	"math-tracking-category-render-error": "Pages with maths render errors",
