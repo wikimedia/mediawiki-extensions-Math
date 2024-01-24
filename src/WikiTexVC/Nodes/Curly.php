@@ -4,6 +4,8 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
+
 class Curly extends TexNode {
 
 	/** @var TexArray */
@@ -26,9 +28,11 @@ class Curly extends TexNode {
 	}
 
 	public function renderMML( $arguments = [], $state = [] ) {
-		// J4T set17
-		//$mmlRow = new MMLmrow();
-		//return $mmlRow->encapsulate(parent::renderMML($arguments));
+		if ( count( $this->arg->getArgs() ) > 1 ) {
+			$mmlRow = new MMLmrow();
+			return $mmlRow->encapsulateRaw( parent::renderMML( $arguments, $state ) );
+		}
+
 		return parent::renderMML( $arguments, $state );
 	}
 
