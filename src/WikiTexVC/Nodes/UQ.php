@@ -8,6 +8,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmover;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsup;
+use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 class UQ extends TexNode {
 
@@ -46,8 +47,9 @@ class UQ extends TexNode {
 		$base = $this->getBase();
 		$up = $this->getUp();
 
-		// Sometimes 'overbrace' or similar seems to determine the wrapping element here.
-		if ( $base instanceof Fun1nb && str_starts_with( $base->getArgs()[0], "\\o" ) ) {
+		$tu = TexUtil::getInstance();
+
+		if ( $base instanceof Fun1 && $tu->over_operator( $base->getFname() ) ) {
 			$mmlBase = new MMLmover();
 		}
 

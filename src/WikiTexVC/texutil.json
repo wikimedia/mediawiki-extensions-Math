@@ -1834,27 +1834,33 @@
 		"fun_infix": true
 	},
 	"\\overarc": {
-		"fun_ar1nb": true
+		"fun_ar1nb": true,
+		"over_operator": true
 	},
 	"\\overbrace": {
-		"fun_ar1nb": true
+		"fun_ar1nb": true,
+		"over_operator": true
 	},
 	"\\overleftarrow": {
 		"fun_ar1": true,
-		"is_letter_mod": true
+		"is_letter_mod": true,
+		"over_operator": true
 	},
 	"\\overleftrightarrow": {
 		"ams_required": true,
 		"fun_ar1": true,
-		"is_letter_mod": true
+		"is_letter_mod": true,
+		"over_operator": true
 	},
 	"\\overline": {
 		"fun_ar1": true,
-		"is_letter_mod": true
+		"is_letter_mod": true,
+		"over_operator": true
 	},
 	"\\overrightarrow": {
 		"fun_ar1": true,
-		"is_letter_mod": true
+		"is_letter_mod": true,
+		"over_operator": true
 	},
 	"\\overset": {
 		"ams_required": true,

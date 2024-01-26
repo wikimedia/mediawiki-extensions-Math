@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 
 use ArgumentCountError;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1nb;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\UQ;
@@ -47,5 +48,17 @@ class UQTest extends MediaWikiUnitTestCase {
 	public function testEmptyBaseUQ() {
 		$uq = new UQ( new TexNode(), new Literal( 'b' ) );
 		$this->assertEquals( '^{b}', $uq->render(), 'Should create an empty base uq' );
+	}
+
+	public function testOperatorname() {
+		$uq = new UQ( new Fun1nb( '\\operatorname', new Literal( 'a' ) ), new Literal( 'b' ) );
+		$this->assertStringContainsString( '<msup', $uq->renderMML(),
+			'Operator superscript should be rendered after the operator.' );
+	}
+
+	public function testOverOperator() {
+		$uq = new UQ( new Fun1nb( '\\overarc', new Literal( 'a' ) ), new Literal( 'b' ) );
+		$this->assertStringContainsString( '<mover', $uq->renderMML(),
+			'Over_operators be rendered over the operator.' );
 	}
 }
