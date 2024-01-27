@@ -71,21 +71,13 @@ class BaseParsing {
 			$entity = $accent;
 		}
 
-		if ( $node->getArg() instanceof Curly && $node->getArg()->getArg() instanceof TexArray
-			&& count( $node->getArg()->getArg()->getArgs() ) > 1 ) {
-			$mrow = new MMLmrow();
-			$renderedArg = $mrow->encapsulateRaw( $node->getArg()->renderMML() );
-		} else {
-			$renderedArg = $node->getArg()->renderMML();
-		}
-
 		$mrow = new MMLmrow();
 		$mo = new MMLmo( "", $attrs ); // $passedArgs
 		$mover = new MMLmover();
 		$ret = $mrow->encapsulateRaw(
 			$mrow->encapsulateRaw(
 				$mover->encapsulateRaw(
-					$renderedArg .
+					$node->getArg()->renderMML( $passedArgs ) .
 					$mo->encapsulateRaw( $entity )
 				)
 			)
