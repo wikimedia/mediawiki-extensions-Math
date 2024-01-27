@@ -41,7 +41,6 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2sq;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun4;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 
@@ -808,26 +807,15 @@ class BaseParsing {
 		if ( $node instanceof DQ ) {
 			$mrowI = new MMLmrow();
 			return $movun->encapsulateRaw(
-				$node->getBase()->renderMML() .
-				$mrowI->encapsulateRaw( $node->getDown()->renderMML() )
+				$node->getBase()->renderMML( $passedArgs ) .
+				$mrowI->encapsulateRaw( $node->getDown()->renderMML( $passedArgs ) )
 			);
 		}
 
-		// TBD: Export this check to utility function it seems to be used multiple times
-		$renderedArg = "";
-		$check = method_exists( $node, "getArg" ); // this was to prevent crash if DQ, might be refactored
-		if ( $check ) {
-			if ( $node->getArg() instanceof Curly && $node->getArg()->getArg() instanceof TexArray
-				&& count( $node->getArg()->getArg()->getArgs() ) > 1 ) {
-				$mrowI = new MMLmrow();
-				$renderedArg = $mrowI->encapsulateRaw( $node->getArg()->renderMML() );
-			} else {
-				$renderedArg = $node->getArg()->renderMML();
-			}
-		}
 		$inner = $nonHex ? $operatorId : MMLutil::number2xNotation( $operatorId );
 		return $mrow->encapsulateRaw( $movun->encapsulateRaw(
-			$renderedArg . $mo->encapsulateRaw( $inner )
+			$node->getArg()->renderMML( $passedArgs ) .
+			$mo->encapsulateRaw( $inner )
 		) );
 	}
 
