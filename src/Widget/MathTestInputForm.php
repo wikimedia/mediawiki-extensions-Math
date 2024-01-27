@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Math\Widget;
 
+use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\Extension\Math\SpecialMathStatus;
 use OOUIHTMLForm;
@@ -74,8 +75,13 @@ class MathTestInputForm extends OOUIHTMLForm {
 				$options['display'] = $formData['display'];
 			}
 			$renderer = $this->rendererFactory->getRenderer( $formData['tex'], $options, $mode );
-			$renderer->render();
-			$out->addHTML( $renderer->getHtmlOutput() );
+			if ( ( $mode === MathConfig::MODE_SOURCE || $renderer->checkTeX() )
+				&& $renderer->render() ) {
+				$html = $renderer->getHtmlOutput();
+			} else {
+				$html = $renderer->getLastError();
+			}
+			$out->addHTML( $html );
 			$out->addWikiMsgArray( 'math-test-end', [ $modeName ] );
 
 		}
