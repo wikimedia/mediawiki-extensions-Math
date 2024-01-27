@@ -11,6 +11,10 @@ use Message;
  *
  * @copyright 2002-2015 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz,
  * and other MediaWiki contributors
+ *
+ * @note The restbase checker does not support purging the cache as it just represents
+ * the state of the restbase interface.
+ *
  * @license GPL-2.0-or-later
  * @author Moritz Schubotz
  */

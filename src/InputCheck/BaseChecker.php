@@ -20,12 +20,15 @@ abstract class BaseChecker {
 	protected ?string $validTeX = null;
 	/** @var bool */
 	protected $isValid = false;
+	protected bool $purge = false;
 
 	/**
 	 * @param string $tex the TeX InputString to be checked
+	 * @param bool $purge if true, the cache will be purged
 	 */
-	public function __construct( $tex = '' ) {
+	public function __construct( $tex = '', bool $purge = false ) {
 		$this->inputTeX = $tex;
+		$this->purge = $purge;
 		$this->isValid = false;
 	}
 
@@ -51,6 +54,10 @@ abstract class BaseChecker {
 	 */
 	public function getValidTex(): ?string {
 		return $this->validTeX;
+	}
+
+	public function setPurge( bool $purge ) {
+		$this->purge = $purge;
 	}
 
 	/**

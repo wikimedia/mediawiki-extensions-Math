@@ -28,7 +28,6 @@ class MathNativeMML extends MathMathML {
 
 	protected function doRender(): StatusValue {
 		$checker = $this->getChecker();
-		$checker->setPurge( $this->isPurge() );
 		$checker->setContext( $this );
 		$checker->setHookContainer( MediaWikiServices::getInstance()->getHookContainer() );
 		$presentation = $checker->getPresentationMathMLFragment();
@@ -54,7 +53,7 @@ class MathNativeMML extends MathMathML {
 
 	protected function getChecker(): LocalChecker {
 		$this->checker ??= Math::getCheckerFactory()
-			->newLocalChecker( $this->tex, $this->getInputType() );
+			->newLocalChecker( $this->tex, $this->getInputType(), $this->isPurge() );
 		return $this->checker;
 	}
 
