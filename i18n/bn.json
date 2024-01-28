@@ -9,6 +9,7 @@
 			"আফতাবুজ্জামান"
 		]
 	},
+	"popups-settings-option-math": "গণিত",
 	"math-visualeditor-mwchemdialog-title": "রাসায়নিক সূত্র",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "দ্রুত সম্পাদনা",
 	"math-visualeditor-mwlatexdialog-card-formula": "সূত্র",
@@ -55,6 +56,8 @@
 	"math-visualeditor-symbol-group-math-symbols": "চিহ্ন ও ধ্রুবক",
 	"math-visualeditor-symbol-group-math-typefaces": "মুদ্রাক্ষর",
 	"math-visualeditor-symbol-group-math-unsorted": "অবাছাই",
+	"math-form-type-label": "ইনপুটের ধরন",
+	"math-form-type-tex": "টেক্স (সাধারণ ইনপুট)",
 	"math-form-display-label": "গণিত প্রদর্শন মোড",
 	"math_failure": "পার্স করতে ব্যর্থ",
 	"math_invalidjson": "$1 সার্ভারের প্রতিক্রিয়া বৈধ JSON নয়।",

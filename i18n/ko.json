@@ -20,6 +20,7 @@
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> 태그 사이에 수학 수식을 렌더합니다",
+	"popups-settings-option-math-tooltip": "마우스 커서를 올리면 수학 공식을 설명합니다.",
 	"math-visualeditor-mwchemdialog-title": "화학식",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "빠른 편집",
 	"math-visualeditor-mwlatexdialog-card-formula": "공식",

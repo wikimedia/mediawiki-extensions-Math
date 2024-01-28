@@ -12,6 +12,7 @@
 			"Martinwiss",
 			"Mjälten",
 			"Nghtwlkr",
+			"Sabelöga",
 			"Sannab",
 			"WikiPhoenix"
 		]
@@ -66,7 +67,7 @@
 	"math-visualeditor-symbol-group-math-symbols": "Symboler och konstanter",
 	"math-visualeditor-symbol-group-math-typefaces": "Typsnitt",
 	"math-visualeditor-symbol-group-math-unsorted": "Osorterade",
-	"math-form-tex-label": "Anpassad TeX-ingång",
+	"math-form-tex-label": "Anpassad TeX-inmatning",
 	"math_failure": "Misslyckades med att tolka",
 	"math_invalidjson": "$1 serversvaret är ogiltig JSON.",
 	"math_invalidresponse": "$1: Ogiltigt svar (\"$3\") från server \"$2\":",

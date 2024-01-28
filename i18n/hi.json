@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abijeet Patro",
 			"Jayprakash12345",
 			"Kaustubh",
 			"NehalDaveND",
@@ -15,6 +16,7 @@
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> टैगों के बीच गणितीय सूत्र रेंडर करें",
+	"popups-settings-option-math": "गणित",
 	"math-visualeditor-mwchemdialog-title": "रासायनिक सूत्र",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "शीघ्र संपादित करें",
 	"math-visualeditor-mwlatexdialog-card-formula": "सूत्र",

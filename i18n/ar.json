@@ -5,6 +5,7 @@
 			"Alshamiri1",
 			"Ciphers",
 			"FShbib",
+			"Lolekek",
 			"Macofe",
 			"Maroen1990",
 			"Meno25",
@@ -20,6 +21,8 @@
 		]
 	},
 	"math-desc": "حوِّل الصيغ الرياضية بين وسمي <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"popups-settings-option-math-description": "شرح الصيغ الرياضية.",
+	"popups-settings-option-math-tooltip": "شرح الصيغ الرياضية عند التحليق فوقها.",
 	"math-visualeditor-mwchemdialog-title": "معادلة كيميائية",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "تعديل سريع",
 	"math-visualeditor-mwlatexdialog-card-formula": "صيغة",

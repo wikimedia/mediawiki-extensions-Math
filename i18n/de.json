@@ -64,7 +64,7 @@
 	"math-visualeditor-symbol-group-math-typefaces": "Schriftarten",
 	"math-visualeditor-symbol-group-math-unsorted": "Unsortiert",
 	"math-form-tex-label": "Benutzerdefinierte TeX-Eingabe",
-	"math-form-tex-help": "Teste mit deiner eigenen TeX-Eingabe. Weitere Hilfe findest du unter auf der [[{{int:math-helppage}}|Hilfeseite]].",
+	"math-form-tex-help": "Teste mit deiner eigenen TeX-Eingabe. Weitere Informationen findest du auf der [[{{int:math-helppage}}|Hilfeseite]].",
 	"math-form-type-label": "Art der Eingabe",
 	"math-form-type-tex": "tex (normale Eingabe)",
 	"math-form-type-chem": "chem (Eingabe mit Chemieunterstützung; z. B. <code dir=\"ltr\">\\ce{H20}</code> für Wasser)",
