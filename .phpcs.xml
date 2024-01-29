@@ -14,7 +14,7 @@
 		<exclude-pattern>/src/WikiTexVC/Mhchem/MhchemPatterns.php</exclude-pattern>
 		<exclude-pattern>/src/WikiTexVC/Mhchem/MhchemStateMachines.php</exclude-pattern>
 	</rule>
-    <exclude-pattern>/src/WikiTexVC/Parser.php</exclude-pattern>
+	<exclude-pattern>/src/WikiTexVC/Parser.php</exclude-pattern>
 	<exclude-pattern>/src/WikiTexVC/ParserIntent.php</exclude-pattern>
 
 	<file>.</file>
