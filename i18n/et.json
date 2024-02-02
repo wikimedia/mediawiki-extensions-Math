@@ -8,6 +8,9 @@
 		]
 	},
 	"math-desc": "Viimistleb siltide <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> vahel olevad matemaatilised valemid.",
+	"popups-settings-option-math": "Matemaatika",
+	"popups-settings-option-math-description": "Selgita matemaatilisi valemeid.",
+	"popups-settings-option-math-tooltip": "Näita matemaatilise valemi selgitust kursoriga ülelibistamisel",
 	"math-visualeditor-mwchemdialog-title": "Keemiline valem",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Kiirmuudatus",
 	"math-visualeditor-mwlatexdialog-card-formula": "Valem",
