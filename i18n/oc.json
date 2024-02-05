@@ -5,11 +5,14 @@
 			"Fitoschido",
 			"Guilhelma",
 			"Macofe",
-			"Townie"
+			"Townie",
+			"Lhanars"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Formula quimica",
+	"math-visualeditor-mwlatexcontextitem-quickedit": "Modificacion rapida",
 	"math-visualeditor-mwmathdialog-title": "formula matematica",
+	"math-visualeditor-symbol-group-math-accents": "Accents e diacritics",
 	"math_failure": "Error matas",
 	"math_syntax_error": "error de sintaxi",
 	"math-test-contains-diff": "La cadena renviada $1 conten pas la cadena esperada $2.",
@@ -17,7 +20,6 @@
 	"math_unknown_error": "error indeterminada",
 	"math_unknown_function": "foncion desconeguda « $1 »",
 	"mw_math_mathml": "MathML amb SVG o PNG en secors (recomandat pels navigadors modèrnes e las aisinas d’accessibilitat)",
-	"mw_math_png": "Imatges PNG",
 	"mw_math_source": "Font LaTeX (pels navigadors en mòde tèxte)",
 	"prefs-math": "Rendut de las matas",
 	"mathstatus": "Estat matematic"
