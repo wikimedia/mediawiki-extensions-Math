@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Andriy.v",
 			"Andriykopanytsia",
 			"Base",
 			"DDPAT",
@@ -17,6 +18,7 @@
 		]
 	},
 	"math-desc": "Відображає математичні формули у тегах <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
+	"popups-settings-option-math-tooltip": "Пояснювати математичні формули при наведенні",
 	"math-visualeditor-mwchemdialog-title": "Хімічна формула",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Швидке редагування",
 	"math-visualeditor-mwlatexdialog-card-formula": "Формула",

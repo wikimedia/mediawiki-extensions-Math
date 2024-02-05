@@ -15,6 +15,7 @@
 			"Mark85296341",
 			"PhiLiP",
 			"Simon Shek",
+			"Winston Sung",
 			"烈羽"
 		]
 	},
@@ -68,6 +69,9 @@
 	"math-visualeditor-symbol-group-math-symbols": "符號與常數",
 	"math-visualeditor-symbol-group-math-typefaces": "字體",
 	"math-visualeditor-symbol-group-math-unsorted": "未整理",
+	"math-form-tex-label": "自訂TeX輸入",
+	"math-form-type-label": "輸入類型",
+	"math-helppage": "Help:顯示數學公式",
 	"math_failure": "解析失敗",
 	"math_invalidjson": "$1 伺服器回應無效的 JSON。",
 	"math_invalidresponse": "$1：從伺服器 \"$2\" 收到無效的回應 (\"$3\")。",
