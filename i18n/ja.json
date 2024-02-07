@@ -30,6 +30,7 @@
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> タグで囲まれた数式をレンダリング",
+	"popups-settings-option-math-tooltip": "カーソルを合わせたときに数式の説明を表示する。",
 	"math-visualeditor-mwchemdialog-title": "化学式",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "簡易編集",
 	"math-visualeditor-mwlatexdialog-card-formula": "数式",
