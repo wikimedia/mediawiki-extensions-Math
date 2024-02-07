@@ -6,8 +6,9 @@ use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\Extension\Math\Widget\MathTestInputForm;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Registration\ExtensionRegistry;
-use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\SpecialPage\UnlistedSpecialPage;
 use Psr\Log\LoggerInterface;
+use UserNotLoggedIn;
 
 /**
  * MediaWiki math extension
@@ -17,7 +18,7 @@ use Psr\Log\LoggerInterface;
  * @license GPL-2.0-or-later
  * @author Moritz Schubotz
  */
-class SpecialMathStatus extends SpecialPage {
+class SpecialMathStatus extends UnlistedSpecialPage {
 	/** @var LoggerInterface */
 	private $logger;
 
@@ -31,7 +32,7 @@ class SpecialMathStatus extends SpecialPage {
 		MathConfig $mathConfig,
 		RendererFactory $rendererFactory
 	) {
-		parent::__construct( 'MathStatus', 'purge' );
+		parent::__construct( 'MathStatus' );
 
 		$this->mathConfig = $mathConfig;
 		$this->rendererFactory = $rendererFactory;
@@ -43,6 +44,14 @@ class SpecialMathStatus extends SpecialPage {
 	 */
 	public function execute( $query ) {
 		$this->setHeaders();
+
+		if ( !( $this->getUser()->isNamed() ) ) {
+			// This page is primarily of interest to developers.
+			// This action is comparable to previewing or parsing a small snippet of wikitext.
+			// If using RESTBase instead of native MML, this page makes HTTP requests to it.
+			// Optimization: Avoid uncached math parsing for logged-out users.
+			throw new UserNotLoggedIn();
+		}
 
 		$out = $this->getOutput();
 		$enabledMathModes = $this->mathConfig->getValidRenderingModeNames();
