@@ -20,20 +20,14 @@ class LocalChecker extends BaseChecker {
 	private string $type;
 	private WANObjectCache $cache;
 
-	private bool $purge = false;
-
 	private bool $isChecked = false;
 	private ?MathRenderer $context = null;
 	private ?HookContainer $hookContainer = null;
 
-	public function __construct( WANObjectCache $cache, $tex = '', string $type = 'tex' ) {
+	public function __construct( WANObjectCache $cache, $tex = '', string $type = 'tex', bool $purge = false ) {
 		$this->cache = $cache;
-		parent::__construct( $tex );
+		parent::__construct( $tex, $purge );
 		$this->type = $type;
-	}
-
-	public function setPurge( bool $purge ) {
-		$this->purge = $purge;
 	}
 
 	public function isValid(): bool {
