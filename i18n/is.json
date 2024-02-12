@@ -45,7 +45,7 @@
 	"math_syntax_error": "málfræðivilla",
 	"math-test-fail": "Próf ''$1'' <span style=\"color:red\">mistókst</span>.",
 	"math-test-success": "Próf ''$1'' <span style=\"color:green\">tókst</span>.",
-	"math-tracking-category-error": "Síður með stærðfræðivillum",
+	"math-tracking-category-error": "Síður með stærðfræðivillur",
 	"math-tracking-category-mhchem-deprecation": "Síður sem nota úrelda framsetningu chem-merkisins",
 	"math-tracking-category-texvc-deprecation": "Síður sem nota úrelda framsetningu math-merkisins",
 	"math-tracking-category-render-error": "Síður með stærðfræðibirtingarvillur",
