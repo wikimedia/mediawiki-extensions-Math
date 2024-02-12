@@ -62,7 +62,7 @@ class DQ extends TexNode {
 			$mmlMrow = new MMLmrow();
 			return $outer->encapsulateRaw(
 				 $emptyMrow .
-				$this->base->renderMML( $arguments, $state ) .
+				$this->base->renderMML( $arguments, [ 'styleargs' => $state['styleargs'] ?? [] ] ) .
 				$mmlMrow->encapsulateRaw( $this->down->renderMML( $arguments, $state ) ) );
 		}
 
