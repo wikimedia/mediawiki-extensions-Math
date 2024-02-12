@@ -435,7 +435,7 @@ class BaseMappings {
 		"tanh" => 'namedFn',
 		"limits" => [ 'limits', 1 ],
 		"nolimits" => [ 'limits', 0 ],
-		"overline" => [ 'underOver', '00AF' ],
+		"overline" => [ 'underOver', '203E' ],
 		"underline" => [ 'underOver', '_', null, true ],
 		"overarc" => [ 'underOver', '23DC', 1 ],
 		"overbrace" => [ 'underOver', '23DE', 1 ],
