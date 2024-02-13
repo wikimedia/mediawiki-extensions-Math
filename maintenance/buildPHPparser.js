@@ -107,7 +107,7 @@ const regexp = /\\x(\d\d)/g;
 if ( options.debug ) {
 	const matches = parser.match( regexp );
 	for ( const match of matches ) {
-		console.log( `Found ${match}.` );
+		console.log( `Found ${ match }.` );
 	}
 }
 const newParse = parser.replace( regexp, '\\x{00$1}' );

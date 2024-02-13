@@ -38,7 +38,7 @@ ve.dm.MWLatexNode.static.tagName = 'img';
  */
 ve.dm.MWLatexNode.static.getHashObjectForRendering = function ( dataElement ) {
 	// Parent method
-	var hashObject = ve.dm.MWLatexNode.super.static.getHashObjectForRendering.call( this, dataElement );
+	const hashObject = ve.dm.MWLatexNode.super.static.getHashObjectForRendering.call( this, dataElement );
 
 	// The id does not affect the rendering.
 	if ( hashObject.mw.attrs ) {
