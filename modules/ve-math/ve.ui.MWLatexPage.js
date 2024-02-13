@@ -21,15 +21,15 @@ ve.ui.MWLatexPage = function VeUiMWLatexPage( name, config ) {
 
 	this.label = config.label;
 
-	var symbols = config.symbols;
-	var $symbols = $( '<div>' ).addClass( 've-ui-specialCharacterPage-characters' );
-	var symbolsNode = $symbols[ 0 ];
+	const symbols = config.symbols;
+	const $symbols = $( '<div>' ).addClass( 've-ui-specialCharacterPage-characters' );
+	const symbolsNode = $symbols[ 0 ];
 
 	// Avoiding jQuery wrappers as advised in ve.ui.SpecialCharacterPage
 	symbols.forEach( function ( symbol ) {
 		if ( !symbol.notWorking && !symbol.duplicate ) {
-			var tex = symbol.tex || symbol.insert;
-			var classes = [ 've-ui-mwLatexPage-symbol' ];
+			const tex = symbol.tex || symbol.insert;
+			const classes = [ 've-ui-mwLatexPage-symbol' ];
 			classes.push(
 				've-ui-mwLatexSymbol-' + tex.replace( /[^\w]/g, function ( c ) {
 					return '_' + c.charCodeAt( 0 ) + '_';
@@ -44,7 +44,7 @@ ve.ui.MWLatexPage = function VeUiMWLatexPage( name, config ) {
 			if ( symbol.largeLayout ) {
 				classes.push( 've-ui-mwLatexPage-symbol-largeLayout' );
 			}
-			var symbolNode = document.createElement( 'div' );
+			const symbolNode = document.createElement( 'div' );
 			classes.forEach( function ( className ) {
 				// The following classes are used here:
 				// * ve-ui-mwLatexPage-symbol
