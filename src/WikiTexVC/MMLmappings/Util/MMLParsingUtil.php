@@ -204,7 +204,7 @@ class MMLParsingUtil {
 	 * @return string MML with added attributes
 	 */
 	public static function forgeIntentToTopElement( string $renderedMML, $intentContentAtr ) {
-		if ( empty( $intentContentAtr ) || empty( $renderedMML ) ) {
+		if ( !$intentContentAtr || !$renderedMML ) {
 			return $renderedMML;
 		}
 
@@ -251,7 +251,7 @@ class MMLParsingUtil {
 	}
 
 	public static function forgeIntentToSpecificElement( string $renderedMML, $intentContentAtr, string $elementTag ) {
-		if ( empty( $intentContentAtr ) || empty( $renderedMML ) || empty( $elementTag ) ) {
+		if ( !$intentContentAtr || !$renderedMML || !$elementTag ) {
 			return $renderedMML;
 		}
 		return self::addAttributesToMML( $elementTag, $intentContentAtr, $elementTag, true );
