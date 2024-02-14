@@ -12,7 +12,7 @@
 
 namespace MediaWiki\Extension\Math;
 
-use Exception;
+use LogicException;
 use MediaWiki\Html\Html;
 
 /**
@@ -61,11 +61,11 @@ class MathSource extends MathRenderer {
 	}
 
 	/**
-	 * @throws Exception always
+	 * @throws LogicException always
 	 * @return never
 	 */
 	protected function getMathTableName() {
-		throw new Exception( 'in math source mode no database caching should happen' );
+		throw new LogicException( 'in math source mode no database caching should happen' );
 	}
 
 	/**
