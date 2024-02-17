@@ -65,7 +65,6 @@ const useStatements =
 	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Big;\n' +
 	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\ChemFun2u;\n' +
 	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\ChemWord;\n' +
-	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Curly;\n' +
 	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Declh;\n' +
 	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Dollar;\n' +
 	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\DQ;\n' +

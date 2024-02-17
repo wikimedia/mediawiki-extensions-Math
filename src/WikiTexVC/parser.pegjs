@@ -143,7 +143,7 @@ lit
   / b:BIG SQ_CLOSE              { return new Big($b,  "]"); }
   / l:left e:expr r:right       {return new Lr($l, $r, ParserUtil::lst2arr($e)); }
   / name:FUN_AR1opt e:expr_nosqc SQ_CLOSE l:lit /* must be before FUN_AR1 */
-    { return new Fun2sq($name, new Curly(ParserUtil::lst2arr($e)), $l); }
+    { return new Fun2sq($name, ParserUtil::lst2arr($e, true), $l); }
   / name:FUN_AR1 l:lit          { return new Fun1($name, $l); }
   / name:FUN_AR1nb l:lit        {return new Fun1nb($name, $l); }
   / name:FUN_MHCHEM l:chem_lit  { return new Mhchem($name, $l); }
@@ -152,7 +152,7 @@ lit
   / name:FUN_AR2nb l1:lit l2:lit { return new Fun2nb($name, $l1, $l2); }
   / BOX
   / CURLY_OPEN e:expr CURLY_CLOSE
-    { return new Curly(ParserUtil::lst2arr($e)); }
+    { return ParserUtil::lst2arr($e, true); }
   / CURLY_OPEN e1:ne_expr name:FUN_INFIX e2:ne_expr CURLY_CLOSE
     { return new Infix($name, ParserUtil::lst2arr($e1), ParserUtil::lst2arr($e2)); }
   / BEGIN_MATRIX   m:(array/matrix) END_MATRIX
@@ -222,7 +222,7 @@ line
 
 column_spec
   = CURLY_OPEN cs:(one_col+ { return $this->text(); }) CURLY_CLOSE
-    { return new Curly(new TexArray(new Literal($cs))); }
+    { return TexArray::newCurly(new Literal($cs)); }
 
 one_col
   = [lrc] _
@@ -237,7 +237,7 @@ one_col
 
 alignat_spec
   = CURLY_OPEN num:([0-9]+ { return $this->text(); }) _ CURLY_CLOSE
-    { return new Curly(new TexArray(new Literal($num))); }
+    { return TexArray::newCurly(new Literal($num)); }
 
 opt_pos
   = "[" _ [tcb] _ "]" _
@@ -249,7 +249,7 @@ opt_pos
 
 
 chem_lit
-  = CURLY_OPEN e:chem_sentence CURLY_CLOSE               { return new Curly(ParserUtil::lst2arr($e)); }
+  = CURLY_OPEN e:chem_sentence CURLY_CLOSE               { return ParserUtil::lst2arr($e, true); }
 
 chem_sentence =
     _ p:chem_phrase " " s:chem_sentence                  { return new TexArray($p,new TexArray(new Literal(" "),$s)); } /
@@ -275,14 +275,14 @@ chem_char =
 
 chem_char_nl =
     m:chem_script                                        { return $m;} /
-    CURLY_OPEN c:chem_text CURLY_CLOSE                   { return new Curly(new TexArray($c)); } /
+    CURLY_OPEN c:chem_text CURLY_CLOSE                   { return TexArray::newCurly($c); } /
     BEGIN_MATH c:expr END_MATH                           { return new Dollar(ParserUtil::lst2arr($c)); }/
     name:CHEM_BONDI l:chem_bond                           { return new Fun1($name, $l); } /
     m:chem_macro                                         { return $m; } /
     c:CHEM_NONLETTER                                     { return new Literal($c); }
 
 chem_bond
- = CURLY_OPEN e:CHEM_BOND_TYPE CURLY_CLOSE               { return new Curly(new TexArray(new Literal($e))); }
+ = CURLY_OPEN e:CHEM_BOND_TYPE CURLY_CLOSE               { return TexArray::newCurly(new Literal($e)); }
 
 chem_script =
     a:CHEM_SUPERSUB b:CHEM_SCRIPT_FOLLOW                 { return new ChemWord(new Literal($a), new Literal($b)); } /

@@ -2,9 +2,9 @@
 namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util;
 
 use IntlChar;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\Curly;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 
 /**
@@ -78,12 +78,12 @@ class MMLutil {
 
 	/**
 	 * Assumes the input curly contains an TexArray of literals, squashes the TexArray characters to a string.
-	 * @param Curly $node curly containing a TexArray of literals
+	 * @param TexArray $node TexArray of literals
 	 * @return ?string squashed string in example "2mu", "-3mu" etc. Null if no TexArray inside curly.
 	 */
-	public static function squashLitsToUnit( Curly $node ): ?string {
+	public static function squashLitsToUnit( TexArray $node ): ?string {
 		$unit = "";
-		foreach ( $node->getArg()->getArgs() as $literal ) {
+		foreach ( $node->getArgs() as $literal ) {
 			if ( !$literal instanceof Literal ) {
 				continue;
 			}
@@ -220,11 +220,11 @@ class MMLutil {
 	 * @return ?string squashed string in example "2mu", "-3mu" etc. Null if no TexArray inside curly.
 	 */
 	public static function squashLitsToUnitIntent( TexNode $node ): ?string {
-		if ( !$node instanceof Curly ) {
+		if ( !$node->isCurly() ) {
 			return null;
 		}
 		$unit = "";
-		foreach ( $node->getArg()->getArgs() as $literal ) {
+		foreach ( $node->getArgs() as $literal ) {
 			if ( $literal instanceof DQ ) {
 				$args = $literal->getArgs();
 				if ( !$args[0] instanceof Literal || !$args[1] instanceof Literal ) {
