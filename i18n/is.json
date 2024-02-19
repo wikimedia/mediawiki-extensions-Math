@@ -42,7 +42,7 @@
 	"math_failure": "Þáttun mistókst",
 	"math_invalidresponse": "$1: Ógilt svar (\"$3\") frá vefþjóninum \"$2\":",
 	"math_invalidxml": "MathML eða SVG inniheldur ógilt XML.",
-	"math_syntax_error": "málfræðivilla",
+	"math_syntax_error": "málskipanarvilla",
 	"math-test-fail": "Próf ''$1'' <span style=\"color:red\">mistókst</span>.",
 	"math-test-success": "Próf ''$1'' <span style=\"color:green\">tókst</span>.",
 	"math-tracking-category-error": "Síður með stærðfræðivillur",
