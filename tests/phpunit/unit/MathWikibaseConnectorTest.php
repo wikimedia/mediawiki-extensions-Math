@@ -6,6 +6,7 @@ use DataValues\StringValue;
 use MediaWiki\Config\ConfigException;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Logger\LoggerFactory;
+use Psr\Log\LoggerInterface;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
 use Wikibase\DataModel\Entity\EntityIdParsingException;
 use Wikibase\DataModel\Entity\Item;
@@ -208,11 +209,18 @@ class MathWikibaseConnectorTest extends MathWikibaseConnectorTestFactory {
 	 * @dataProvider provideItemSetups
 	 */
 	public function testFetchMassEnergyWithStorageExceptionLogging( bool $hasPart ) {
-		$item = $this->setupMassEnergyEquivalenceItem( $hasPart );
-		$wikibaseConnector = $this->getWikibaseConnectorWithExistingItems( new EntityRevision( $item ), true );
+		$logger = $this->createMock( LoggerInterface::class );
+		$logger->expects( $this->once() )
+			->method( 'warning' )
+			->with( 'Cannot fetch URL for EntityId Q3. Reason: Test Exception' );
 
-		$this->expectError();
-		$this->expectErrorMessage( 'LOG[warning]: Cannot fetch URL for EntityId Q3. Reason: Test Exception' );
+		$item = $this->setupMassEnergyEquivalenceItem( $hasPart );
+		$wikibaseConnector = $this->getWikibaseConnectorWithExistingItems(
+			new EntityRevision( $item ),
+			true,
+			$logger
+		);
+
 		$wikibaseConnector->fetchWikibaseFromId( 'Q1', 'en' );
 	}
 
