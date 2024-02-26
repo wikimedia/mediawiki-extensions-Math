@@ -54,6 +54,7 @@
 	"math-visualeditor-symbol-group-math-symbols": "สัญลักษณ์และค่าคงที่",
 	"math-visualeditor-symbol-group-math-typefaces": "แบบตัวพิมพ์",
 	"math-visualeditor-symbol-group-math-unsorted": "ไม่ได้เรียงลำดับ",
+	"math-form-display-label": "โหมดการแสดงผลทางคณิตศาสตร์",
 	"math_failure": "ไม่สามารถแยกวิเคราะห์ได้",
 	"math_invalidjson": "การตอบสนองเซิร์ฟเวอร์ $1 เป็น JSON ที่ไม่ถูกต้อง",
 	"math_invalidresponse": "$1: การตอบสนองที่ไม่ถูกต้อง (\"$3\") จากเซิร์ฟเวอร์ \"$2\":",
