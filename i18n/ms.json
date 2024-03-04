@@ -7,10 +7,12 @@
 			"Jeluang Terluang",
 			"Kurniasan",
 			"Macofe",
-			"Tofeiku"
+			"Tofeiku",
+			"Hakimi97"
 		]
 	},
 	"math-desc": "Mengolah rumus-rumus matematik antara teg-teg <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"math-visualeditor-mwlatexcontextitem-quickedit": "Sunting pantas",
 	"math-visualeditor-mwlatexinspector-display": "Paparan",
 	"math-visualeditor-mwlatexinspector-display-block": "Sekat",
 	"math-visualeditor-mwlatexinspector-display-default": "Asali",
@@ -26,7 +28,6 @@
 	"math_unknown_function": "fungsi '$1' yang tidak dikenali",
 	"mw_math_latexml": "LaTeXML (percubaan; menggunakan MathML)",
 	"mw_math_mathml": "MathML dengan sandaran SVG atau PNG (disyorkan untuk pelayar dan alat-alat aksesibiliti moden)",
-	"mw_math_png": "Imej PNG",
 	"mw_math_source": "Sumber LaTeX (untuk pelayar teks)",
 	"prefs-math": "Matematik",
 	"mathstatus": "Status Math"
