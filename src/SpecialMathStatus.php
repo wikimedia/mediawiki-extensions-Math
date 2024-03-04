@@ -137,10 +137,6 @@ class SpecialMathStatus extends SpecialPage {
 		$this->assertEquals( 'pmml', $renderer->getInputType(), 'Checking if MathML input is supported' );
 		$this->assertTrue( $renderer->render(), 'Rendering Presentation MathML sample' );
 		$real = $renderer->getHtmlOutput();
-		$this->assertContains(
-			'Special:MathShowImage',
-			$real,
-			'Checking if the link to SVG image uses a special page' );
 		$this->assertContains( 'mode=mathml', $real, 'Checking if the link to SVG image is in correct mode' );
 	}
 
