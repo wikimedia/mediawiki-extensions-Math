@@ -27,7 +27,7 @@ class Literal extends TexNode {
 		$this->arg = $arg;
 		$this->literals = array_keys( TexUtil::getInstance()->getBaseElements()['is_literal'] );
 		$this->extendedLiterals = $this->literals;
-		array_push( $this->extendedLiterals,  '\\infty', '\\emptyset' );
+		array_push( $this->extendedLiterals, '\\infty', '\\emptyset' );
 	}
 
 	public function changeUnicodeFontInput( $input, $state ) {

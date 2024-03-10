@@ -30,7 +30,7 @@ class ParserTest extends MediaWikiUnitTestCase {
 				'in' => 'a^2+b^{2}',
 			],
 			[
-				'in' => 'l_a^2+l_b^2=l_c^2' ,
+				'in' => 'l_a^2+l_b^2=l_c^2',
 			]
 		];
 	}

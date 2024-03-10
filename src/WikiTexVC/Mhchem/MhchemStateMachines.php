@@ -417,7 +417,7 @@ class MhchemStateMachines {
 							$ret[] = [ "type_" => "tinySkip" ];
 							$buffer["b"] = $tmp;
 						} else {
-							$ret = $this->stateMachines["ce"]["actions"]["output"]( $buffer,null,null );
+							$ret = $this->stateMachines["ce"]["actions"]["output"]( $buffer, null, null );
 						}
 
 						/** @phan-suppress-next-line PhanParamTooFew */
@@ -432,7 +432,7 @@ class MhchemStateMachines {
 					'charge or bond' => function ( &$buffer, $m ) {
 						if ( MhchemUtil::issetJS( $buffer['beginsWithBond'] ?? null ) ) {
 							$ret = [];
-							$im = $this->stateMachines["ce"]["actions"]["output"]( $buffer,null,null );
+							$im = $this->stateMachines["ce"]["actions"]["output"]( $buffer, null, null );
 							MhchemUtil::concatArray( $ret, $im );
 
 							/** @phan-suppress-next-line PhanParamTooMany */
@@ -460,7 +460,7 @@ class MhchemStateMachines {
 						}
 						$ret = [];
 						if ( $hyphenFollows ) {
-							$im = $this->stateMachines["ce"]["actions"]["output"]( $buffer,null,null );
+							$im = $this->stateMachines["ce"]["actions"]["output"]( $buffer, null, null );
 							MhchemUtil::concatArray( $ret, $im );
 							$ret[] = [ "type_" => 'hyphen' ];
 						} else {
@@ -468,10 +468,10 @@ class MhchemStateMachines {
 							if ( $isAfterD && isset( $c1["remainder"] ) && $c1["remainder"] === '' ) {
 								/** @phan-suppress-next-line PhanParamTooFew */
 								MhchemUtil::concatArray( $ret, $this->genericActions['d=']( $buffer, $m ) );
-								$im = $this->stateMachines["ce"]["actions"]["output"]( $buffer,null,null );
+								$im = $this->stateMachines["ce"]["actions"]["output"]( $buffer, null, null );
 								MhchemUtil::concatArray( $ret, $im );
 							} else {
-								$im = $this->stateMachines["ce"]["actions"]["output"]( $buffer,null,null );
+								$im = $this->stateMachines["ce"]["actions"]["output"]( $buffer, null, null );
 								MhchemUtil::concatArray( $ret, $im );
 								/** @phan-suppress-next-line PhanParamTooMany */
 								MhchemUtil::concatArray( $ret, $this->genericActions['bond']( $buffer, $m, "-" ) );
@@ -1021,7 +1021,7 @@ class MhchemStateMachines {
 					'0|a' => [ "action_" => [] ]
 				],
 				'pm-operator' => [
-					'0|a' => [ "action_" => [ [ "type_" => 'operator',"option" => '\\pm' ] ], "nextState" => '0' ]
+					'0|a' => [ "action_" => [ [ "type_" => 'operator', "option" => '\\pm' ] ], "nextState" => '0' ]
 				],
 				'operator' => [
 					'0|a' => [ "action_" => 'copy', "nextState" => '0' ]
@@ -1087,7 +1087,7 @@ class MhchemStateMachines {
 			},
 			'operator' => static function ( $_buffer, $m, $p1 ) {
 				return [ "type_" => 'operator', "kind_" => $p1 ?? $m ];
-			} ,
+			},
 			'space' => static function () { return [ "type_" => 'pu-space-1' ];
 			},
 			'output' => function ( &$buffer ) {

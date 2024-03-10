@@ -27,7 +27,7 @@ class OperatorDictionary {
 		'+' => [ " exports.MO.BIN4" ],
 		'+=' => [ " exports.MO.BIN4" ],
 		',' => [ " [0, 3], MmlNode_js_1.TEXCLASS.PUNCT\"]," .
-			"{ linebreakstyle=> [\" 'after'\"], separator=> [\" true }]",true ],
+			"{ linebreakstyle=> [\" 'after'\"], separator=> [\" true }]", true ],
 		'-' => [ " exports.MO.BIN4" ],
 		'-=' => [ " exports.MO.BIN4" ],
 		'->' => [ " exports.MO.BIN5" ],
@@ -38,7 +38,7 @@ class OperatorDictionary {
 		'=>' => [ " [1, 2], MmlNode_js_1.TEXCLASS.REL\"], null]" ],
 		'=>=' => [ " exports.MO.BIN4" ],
 		';' => [ " [0, 3], MmlNode_js_1.TEXCLASS.PUNCT]," .
-			"{ linebreakstyle=> ['after'], separator=> [ true }]",true ],
+			"{ linebreakstyle=> ['after'], separator=> [ true }]", true ],
 		'<' => [ " exports.MO.REL", true ],
 		'<=' => [ " exports.MO.BIN5" ],
 		'<>' => [ " OPDEF(1, 1)" ],

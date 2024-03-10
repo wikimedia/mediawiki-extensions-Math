@@ -216,7 +216,7 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 	}
 
 	public static function setUpBeforeClass(): void {
-		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name","TeX-Input","MathML(LaTeXML)",
+		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name", "TeX-Input", "MathML(LaTeXML)",
 			"MathML(Mathoid)", "MathML(WikiTexVC)", "F-Similarity" ], self::$GENERATEHTML );
 	}
 
@@ -250,7 +250,7 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 					$finalCase = $refAssociative[$case];
 				} else {
 					$type = str_starts_with( $case, "ce" ) ? "chem" : "tex";
-					$finalCase = (object)[ "tex" => $case , "type" => $type, "ctr" => null ];
+					$finalCase = (object)[ "tex" => $case, "type" => $type, "ctr" => null ];
 				}
 
 				if ( $category === "mhchemtexified_required" ) {

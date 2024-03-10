@@ -495,12 +495,12 @@ class AllTest extends MediaWikiUnitTestCase {
 		$DELIMITERS = array_merge( $DELIMITERS1, $DELIMITERS2, [ '\\darr', '\\uarr' ] );
 
 		$input = implode( '', array_map( static function ( $b ) use ( $DELIMITERS ) {
-			return implode( '', array_map( static function ( $d )  use ( $DELIMITERS, $b )  {
+			return implode( '', array_map( static function ( $d ) use ( $DELIMITERS, $b )  {
 				return '\\' . $b . $d;
 			}, $DELIMITERS ) );
 		}, $BIGS ) );
 		$output = implode( '', array_map( static function ( $b ) use ( $DELIMITERS ) {
-			return implode( '', array_map( static function ( $d )  use ( $DELIMITERS, $b )  {
+			return implode( '', array_map( static function ( $d ) use ( $DELIMITERS, $b )  {
 				if ( $d === '\\darr' ) {
 					$d = '\\downarrow';
 				}
@@ -562,13 +562,13 @@ class AllTest extends MediaWikiUnitTestCase {
 				'oldtexvc' => $tc['oldtexvc'] ?? false
 			] );
 			$this->assertEquals( '+', $result['status'], $message );
-			$this->assertEquals( $result['output'],  $tc['output'], $message );
+			$this->assertEquals( $result['output'], $tc['output'], $message );
 		}
 		if ( !array_key_exists( 'skipReparse', $tc ) || !$tc['skipReparse'] ) {
 			// verify that the output doesn't change if we feed it
 			// through again.
 			$message = 'should parse its own output';
-			$result1 = $this->texVC->check( $tc['output'],  [ 'debug' => true ] );
+			$result1 = $this->texVC->check( $tc['output'], [ 'debug' => true ] );
 			$result2 = $this->texVC->check( $result1['output'], [ 'debug' => true ] );
 			$this->assertEquals( '+', $result2['status'], $message );
 			$this->assertEquals( $result2['output'], $result1['output'], $message );

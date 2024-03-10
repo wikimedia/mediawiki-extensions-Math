@@ -28,19 +28,19 @@ final class MhchemBasicMMLTest extends MediaWikiUnitTestCase {
 
 	public static function provideTestCasesLetters() {
 		return [
-			[ "Alpha" , "A" ],
-			[ "Beta" , "B" ] ,
-			[ "Chi" , "X" ],
-			[ "Epsilon" , "E" ],
-			[ "Eta" , "H" ],
-			[ "Iota" , "I" ],
-			[ "Kappa" , "K" ],
-			[ "Mu" , "M" ],
-			[ "Nu" , "N" ],
-			[ "Omicron" , "O" ],
-			[ "Rho" , "P" ],
-			[ "Tau" , "T" ],
-			[ "Zeta" , "Z" ]
+			[ "Alpha", "A" ],
+			[ "Beta", "B" ],
+			[ "Chi", "X" ],
+			[ "Epsilon", "E" ],
+			[ "Eta", "H" ],
+			[ "Iota", "I" ],
+			[ "Kappa", "K" ],
+			[ "Mu", "M" ],
+			[ "Nu", "N" ],
+			[ "Omicron", "O" ],
+			[ "Rho", "P" ],
+			[ "Tau", "T" ],
+			[ "Zeta", "Z" ]
 		];
 	}
 

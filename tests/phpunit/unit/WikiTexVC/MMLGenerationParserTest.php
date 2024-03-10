@@ -38,7 +38,7 @@ final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
 	}
 
 	public static function setUpBeforeClass(): void {
-		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name","Tex-Input",
+		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name", "Tex-Input",
 			"MathML(LaTeXML)", "MathML(Mathoid)", "MathML(WikiTexVC)", "F-Similarity" ], self::$GENERATEHTML );
 	}
 
@@ -69,7 +69,7 @@ final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
 		if ( self::$SELECTEDFILE == 0 ) {
 			// File 0 has no refs, is just for checking basics.
 			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr,
-				$tc->input,$tc->mmlLaTeXML ?? "tbd" ,"tbd",
+				$tc->input, $tc->mmlLaTeXML ?? "tbd", "tbd",
 				$mathMLtexVC, -0.0 ], false, self::$GENERATEHTML );
 			$this->assertTrue( true );
 			return;
@@ -77,7 +77,7 @@ final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
 		$mmlComparator = new MMLComparator();
 		$compRes = $mmlComparator->compareMathML( $tc->mmlMathoid, $mathMLtexVC );
 		MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr,
-			$tc->input,$tc->mmlLaTeXML ?? "tbd" ,$tc->mmlMathoid ?? "tbd",
+			$tc->input, $tc->mmlLaTeXML ?? "tbd", $tc->mmlMathoid ?? "tbd",
 			$mathMLtexVC, $compRes['similarityF'] ], false, self::$GENERATEHTML );
 
 		if ( !self::$SKIPXMLVALIDATION ) {

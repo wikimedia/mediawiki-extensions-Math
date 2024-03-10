@@ -190,7 +190,7 @@ class BaseParsing {
 	public static function cancelTo( $node, $passedArgs, $operatorContent, $name, $notation = null ) {
 		$mrow = new MMLmrow();
 		$msup = new MMLmsup();
-		$mpAdded = new MMLmpadded( "", [ "depth" => "-.1em" , "height" => "+.1em" , "voffset" => ".1em" ] );
+		$mpAdded = new MMLmpadded( "", [ "depth" => "-.1em", "height" => "+.1em", "voffset" => ".1em" ] );
 
 		$menclose = new MMLmenclose( "", [ "notation" => $notation ] );
 		$inner = $menclose->encapsulateRaw(
@@ -220,7 +220,7 @@ class BaseParsing {
 	public static function cFrac( $node, $passedArgs, $operatorContent, $name ) {
 		$mrow = new MMLmrow();
 		$mfrac = new MMLmfrac();
-		$mstyle = new MMLmstyle( "",  [ "displaystyle" => "false", "scriptlevel" => "0" ] );
+		$mstyle = new MMLmstyle( "", [ "displaystyle" => "false", "scriptlevel" => "0" ] );
 		$mpAdded = new MMLmpadded( "", [ "depth" => "3pt", "height" => "8.6pt", "width" => "0" ] );
 		// See TexUtilMMLTest testcase 81
 		// (mml3 might be erronous here, but this element seems to be rendered correctly)
@@ -268,7 +268,7 @@ class BaseParsing {
 		$fract = null;
 		$styleAttr = [];
 		$displayStyle = "false";
-		if ( in_array( $thick, [ 'thin', 'medium' , 'thick', '0' ], true ) ) {
+		if ( in_array( $thick, [ 'thin', 'medium', 'thick', '0' ], true ) ) {
 			$attrs = array_merge( $attrs, [ "linethickness" => $thick ] );
 		}
 		if ( $style !== '' ) {
@@ -297,7 +297,7 @@ class BaseParsing {
 			//    scriptlevel: styleDigit - 1 });
 			// tbd add props
 			/* @phan-suppress-next-line SecurityCheck-DoubleEscaped */
-			$frac = new MMLmfrac( '',  $attrs );
+			$frac = new MMLmfrac( '', $attrs );
 			$styleAttr = [ "maxsize" => "1.2em", "minsize" => "1.2em" ];
 
 		}
@@ -516,8 +516,8 @@ class BaseParsing {
 				$mover = new MMLmover();
 				$mpadded = new MMLmpadded( "", [ "height" => "0", "depth" => "0" ] );
 				$mo = new MMLmo( "", [ "stretchy" => "false" ] );
-				$mspace = new MMLmspace( "", [ "width" => "0px","height" => ".25em",
-					"depth" => "0px","mathbackground" => "black" ] );
+				$mspace = new MMLmspace( "", [ "width" => "0px", "height" => ".25em",
+					"depth" => "0px", "mathbackground" => "black" ] );
 				return $mtext->encapsulateRaw( "&#xA0;" ) .
 					$mrowRel->encapsulateRaw( $mover->encapsulateRaw(
 						$mrowOp->encapsulateRaw(
@@ -586,7 +586,7 @@ class BaseParsing {
 				$tableArgs = array_merge( $tableArgs, [ "columnlines" => "solid" ] );
 			}
 		}
-		$mtable = new MMLmtable( "",  $tableArgs );
+		$mtable = new MMLmtable( "", $tableArgs );
 		if ( $cases || ( $open != null && $close != null ) ) {
 			$bm = new BaseMethods();
 			$mmlMoOpen = $bm->checkAndParseDelimiter( $open, $node, [], [],
@@ -908,11 +908,11 @@ class BaseParsing {
 				break;
 		}
 
-		if ( in_array( $name, [ "bigl","Bigl", "biggl", "Biggl" ] ) ) {
+		if ( in_array( $name, [ "bigl", "Bigl", "biggl", "Biggl" ] ) ) {
 			$passedArgs = array_merge( $passedArgs, [ Tag::CLASSTAG => TexClass::OPEN ] );
 		}
 
-		if ( in_array( $name, [ "bigr","Bigr","biggr","Biggr" ] ) ) {
+		if ( in_array( $name, [ "bigr", "Bigr", "biggr", "Biggr" ] ) ) {
 			$passedArgs = array_merge( $passedArgs, [ Tag::CLASSTAG => TexClass::CLOSE ] );
 		}
 

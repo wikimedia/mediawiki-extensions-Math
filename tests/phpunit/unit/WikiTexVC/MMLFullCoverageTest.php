@@ -39,7 +39,7 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 	private static $FILTERMML = true;
 
 	public static function setUpBeforeClass(): void {
-		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name","TeX-Input","MathML(LaTeXML)",
+		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name", "TeX-Input", "MathML(LaTeXML)",
 			"MathML(Mathoid)", "MathML(WikiTexVC)", "F-Similarity" ], self::$GENERATEHTML );
 		if ( self::$GENERATEEVAL ) {
 			MMLTestUtil::deleteFile( self::$GENERATEDEVALFILE );
@@ -93,8 +93,8 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 			MMLTestUtil::appendToJSONFile( $entry, self::$GENERATEDEVALFILE );
 		}
 
-		MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr,  $tc->tex, $mml_latexml,
-			$tc->mml_mathoid, $mathMLtexVC,  $compRes['similarityF'] ], false, self::$GENERATEHTML );
+		MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr, $tc->tex, $mml_latexml,
+			$tc->mml_mathoid, $mathMLtexVC, $compRes['similarityF'] ], false, self::$GENERATEHTML );
 
 		if ( !self::$SKIPXMLVALIDATION ) {
 			if ( !$tc->mml_mathoid ) {

@@ -101,7 +101,7 @@ class BaseMappings {
 	];
 
 	private const MATHCHAR0MO = [
-		"-" => '\u2212',  // added this additionally for running all tc
+		"-" => '\u2212', // added this additionally for running all tc
 		"surd" => '\u221A',
 		"coprod" => [ '\u2210', [ "texClass" => TexClass::OP,
 			"movesupsub" => true ] ],
@@ -731,8 +731,8 @@ class BaseMappings {
 	// This is from cancelConfiguration.js
 	private const CANCEL = [
 		"cancel" => [ 'cancel', Notation::UPDIAGONALSTRIKE ],
-		"bcancel" => [ 'cancel',  Notation::DOWNDIAGONALSTRIKE ],
-		"xcancel" => [ 'cancel',  Notation::UPDIAGONALSTRIKE . ' ' .
+		"bcancel" => [ 'cancel', Notation::DOWNDIAGONALSTRIKE ],
+		"xcancel" => [ 'cancel', Notation::UPDIAGONALSTRIKE . ' ' .
 			Notation::DOWNDIAGONALSTRIKE ],
 		"cancelto" => [ 'cancelTo', Notation::UPDIAGONALSTRIKE . " " . Notation::UPDIAGONALARROW .
 			" " . Notation::NORTHEASTARROW ]

@@ -42,7 +42,7 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 		$groupNo = 1;
 		$references = self::getJSON( __DIR__ . '/' . self::REF_FILENAME );
 		foreach ( self::getJSON( __DIR__ . '/' . self::FILENAME ) as $key => $elem ) {
-			$group[$key] = [ $elem , $references[ $key ] ];
+			$group[$key] = [ $elem, $references[ $key ] ];
 			if ( count( $group ) >= self::CHUNKSIZE ) {
 				yield "Group $groupNo" => [ $group ];
 				$groupNo++;
@@ -92,7 +92,7 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 					' at line ' . $ex->grammarLine . ' column ' .
 					$ex->grammarColumn . ' offset ' . $ex->grammarOffset;
 
-				$this->assertTrue( false,  $message );
+				$this->assertTrue( false, $message );
 			}
 		}
 	}

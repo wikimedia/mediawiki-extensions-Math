@@ -208,11 +208,11 @@ class TexVC {
 
 	public function checkIntent( $input ) {
 		// Very early intent syntax checker
-		try{
+		try {
 			$parserIntent = new ParserIntent();
 			$parserIntent->parse( $input );
 			return true;
-		}catch ( Exception $exception ) {
+		} catch ( Exception $exception ) {
 			return $this->handleTexError( $exception, null );
 		}
 	}

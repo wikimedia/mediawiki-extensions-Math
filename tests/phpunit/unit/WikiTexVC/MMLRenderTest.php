@@ -237,8 +237,8 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 	public function testUnder() {
 		$input = "\\underbrace{ a+b+\\cdots+z }_{26}";
 		$mathMLtexVC = $this->generateMML( $input );
-		$this->assertStringContainsString( "<munder>",  $mathMLtexVC );
-		$this->assertStringNotContainsString( "<msub>",  $mathMLtexVC );
+		$this->assertStringContainsString( "<munder>", $mathMLtexVC );
+		$this->assertStringNotContainsString( "<msub>", $mathMLtexVC );
 	}
 
 	public function testSumDisplaystyle() {
@@ -256,7 +256,7 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 	public function testPilcrow() {
 		$input = "\P";
 		$mathMLtexVC = $this->generateMML( $input );
-		$this->assertStringContainsString( "<mo>&#xB6;</mo>\n</math>",  $mathMLtexVC );
+		$this->assertStringContainsString( "<mo>&#xB6;</mo>\n</math>", $mathMLtexVC );
 	}
 
 	public function testLesserThan() {

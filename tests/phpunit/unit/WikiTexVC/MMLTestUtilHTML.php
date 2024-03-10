@@ -44,8 +44,11 @@ class MMLTestUtilHTML {
 		fclose( $file ); // tbd only open close once for all tests
 	}
 
-	public static function generateHTMLstart( $filePath, $headrows = [ "name","Tex-Input",
-															"MathML(MathJax3)","MathML(WikiTexVC)" ], $active = true ) {
+	public static function generateHTMLstart(
+		$filePath,
+		$headrows = [ "name", "Tex-Input", "MathML(MathJax3)", "MathML(WikiTexVC)" ],
+		$active = true
+	) {
 		if ( !$active ) {
 			return;
 		}

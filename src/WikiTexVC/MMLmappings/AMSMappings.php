@@ -343,10 +343,10 @@ class AMSMappings {
 	];
 
 	private const AMSMATHDELIMITERS = [
-		'lvert' => [ '\u007C',  [ "texClass" => TexClass::OPEN ] ],
-		'rvert' => [ '\u007C',  [ "texClass" => TexClass::CLOSE ] ],
-		'lVert' => [ '\u2016',  [ "texClass" => TexClass::OPEN ] ],
-		'rVert' => [ '\u2016',  [ "texClass" => TexClass::CLOSE ] ]
+		'lvert' => [ '\u007C', [ "texClass" => TexClass::OPEN ] ],
+		'rvert' => [ '\u007C', [ "texClass" => TexClass::CLOSE ] ],
+		'lVert' => [ '\u2016', [ "texClass" => TexClass::OPEN ] ],
+		'rVert' => [ '\u2016', [ "texClass" => TexClass::CLOSE ] ]
 	];
 	private const ALL = [
 		"amsmathchar0mo" => self::AMSMATHCHAR0MO,

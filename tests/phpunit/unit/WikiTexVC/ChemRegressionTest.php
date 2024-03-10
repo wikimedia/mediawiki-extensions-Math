@@ -90,7 +90,7 @@ class ChemRegressionTest extends MediaWikiUnitTestCase {
 						' at line ' . $ex->grammarLine . ' column ' .
 						$ex->grammarColumn . ' offset ' . $ex->grammarOffset;
 
-					$this->assertTrue( false,  $message );
+					$this->assertTrue( false, $message );
 				}
 			}
 		}

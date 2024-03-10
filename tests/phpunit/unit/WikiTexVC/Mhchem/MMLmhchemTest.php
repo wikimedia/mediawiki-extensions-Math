@@ -32,7 +32,7 @@ final class MMLmhchemTest extends MediaWikiUnitTestCase {
 	private static string $GENERATEDHTMLFILE = __DIR__ . "/MMLmhchemTest-Output.html";
 	private static string $GENERATEDWIKIFILE = __DIR__ . "/chemtest.wiki";
 
-	private static array $SKIPPEDINDICES = [ 36,40,50,51,91,92,93,94 ];
+	private static array $SKIPPEDINDICES = [ 36, 40, 50, 51, 91, 92, 93, 94 ];
 
 	public static function writeWikifileHeader( $filename ) {
 		unlink( $filename );
@@ -56,8 +56,8 @@ final class MMLmhchemTest extends MediaWikiUnitTestCase {
 	}
 
 	public static function setUpBeforeClass(): void {
-		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name","TeX-Input",
-			"Tex-MhchemParser","Tex-PHP-Mhchem", "MathML-LaTeXML", "MathML-WikiTexVC" ],
+		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name", "TeX-Input",
+			"Tex-MhchemParser", "Tex-PHP-Mhchem", "MathML-LaTeXML", "MathML-WikiTexVC" ],
 			self::$GENERATEFILES );
 
 		if ( self::$GENERATEFILES ) {
@@ -83,7 +83,7 @@ final class MMLmhchemTest extends MediaWikiUnitTestCase {
 			return;
 		}
 		if ( self::$GENERATEFILES ) {
-			self::writeWikifileRow( self::$GENERATEDWIKIFILE,  $tc->tex );
+			self::writeWikifileRow( self::$GENERATEDWIKIFILE, $tc->tex );
 		}
 
 		# Fetch result from WikiTexVC(PHP)
@@ -102,7 +102,7 @@ final class MMLmhchemTest extends MediaWikiUnitTestCase {
 			"<math> error texvc </math>";
 
 		MMLTestUtilHTML::generateHTMLtableRow(
-			self::$GENERATEDHTMLFILE, [ $title,  $tc->tex, $tc->texNew, $mhchemOutput, $tc->mml_latexml ?? "no mathml",
+			self::$GENERATEDHTMLFILE, [ $title, $tc->tex, $tc->texNew, $mhchemOutput, $tc->mml_latexml ?? "no mathml",
 			$mathMLtexVC ],
 			false, self::$GENERATEFILES );
 
