@@ -335,11 +335,11 @@ class MathWikibaseConnector {
 			$entityRevision = $this->entityRevisionLookup->getEntityRevision( $entityId );
 			$innerEntity = $entityRevision->getEntity();
 			if ( $innerEntity instanceof Item ) {
-					$globalID = $this->site->getGlobalId();
-					if ( $innerEntity->hasLinkToSite( $globalID ) ) {
-						$siteLink = $innerEntity->getSiteLink( $globalID );
-						return $this->site->getPageUrl( $siteLink->getPageName() );
-					}
+				$globalID = $this->site->getGlobalId();
+				if ( $innerEntity->hasLinkToSite( $globalID ) ) {
+					$siteLink = $innerEntity->getSiteLink( $globalID );
+					return $this->site->getPageUrl( $siteLink->getPageName() );
+				}
 			}
 		} catch ( StorageException $e ) {
 			$this->logger->warning(

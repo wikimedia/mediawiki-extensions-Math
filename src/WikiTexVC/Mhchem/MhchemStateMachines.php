@@ -62,7 +62,7 @@ class MhchemStateMachines {
 					// 2a. Normalize actions into array:  'text=' ==> [{type_:'text='}]
 					$p = $d2;
 					if ( is_string( $p["action_"] ) ) {
-					   $p["action_"] = [ $p["action_"] ];
+						$p["action_"] = [ $p["action_"] ];
 					}
 					$p["action_"] = array_merge( [], $p["action_"] );
 
@@ -821,11 +821,11 @@ class MhchemStateMachines {
 				"actions" => [
 					'state of aggregation' => function ( $_buffer, $m ) {
 						return [ "type_" => 'state of aggregation subscript',
-								"p1" => $this->mhchemParser->go( $m, 'o' ) ];
+							"p1" => $this->mhchemParser->go( $m, 'o' ) ];
 					},
 					'color-output' => function ( $_buffer, $m ) {
 						return [ "type_" => 'color', "color1" => $m[0] ?? null,
-								"color2" => $this->mhchemParser->go( $m[1] ?? null, 'pq' ) ];
+							"color2" => $this->mhchemParser->go( $m[1] ?? null, 'pq' ) ];
 					}
 				]
 			],
@@ -941,7 +941,8 @@ class MhchemStateMachines {
 							return $ret;
 						}
 						return null;
-					} ]
+					}
+				]
 			],
 			'tex-math tight' => [
 				"transitions" => static::mhchemCreateTransitions( [
@@ -1013,84 +1014,85 @@ class MhchemStateMachines {
 					],
 					'(-)(9)^(-9)' => [
 						'0' => [ "action_" => 'number^', "nextState" => 'a' ]
-				],
-				'(-)(9.,9)(e)(99)' => [
-					'0' => [ "action_" => 'enumber', "nextState" => 'a' ]
-				],
-				'space' => [
-					'0|a' => [ "action_" => [] ]
-				],
-				'pm-operator' => [
-					'0|a' => [ "action_" => [ [ "type_" => 'operator', "option" => '\\pm' ] ], "nextState" => '0' ]
-				],
-				'operator' => [
-					'0|a' => [ "action_" => 'copy', "nextState" => '0' ]
-				],
-				'//' => [
-					'd' => [ "action_" => 'o=', "nextState" => '/' ]
-				],
-				'/' => [
-					'd' => [ "action_" => 'o=', "nextState" => '/' ]
-				],
-				'{...}|else' => [
-					'0|d' => [ "action_" => 'd=', "nextState" => 'd' ],
-					'a' => [ "action_" => [ 'space', 'd=' ], "nextState" => 'd' ],
-					'/|q' => [ "action_" => 'q=', "nextState" => 'q' ]
-				]
-			] ),
-			"actions" => [
-				'enumber' => function ( $_buffer, $m ) {
-					$ret = [];
-					if ( MU::issetJS( $m[0] ?? null ) && ( $m[0] === "+-" || $m[0] === "+/-" ) ) {
-						$ret[] = "\\pm ";
-					} elseif ( MU::issetJS( $m[0] ?? null ) ) {
-						$ret[] = $m[0];
-					}
-					if ( MU::issetJS( $m[1] ?? null ) ) {
-						MhchemUtil::concatArray( $ret, $this->mhchemParser->go( $m[1], 'pu-9,9' ) );
+					],
+					'(-)(9.,9)(e)(99)' => [
+						'0' => [ "action_" => 'enumber', "nextState" => 'a' ]
+					],
+					'space' => [
+						'0|a' => [ "action_" => [] ]
+					],
+					'pm-operator' => [
+						'0|a' => [ "action_" => [ [ "type_" => 'operator', "option" => '\\pm' ] ], "nextState" => '0' ]
+					],
+					'operator' => [
+						'0|a' => [ "action_" => 'copy', "nextState" => '0' ]
+					],
+					'//' => [
+						'd' => [ "action_" => 'o=', "nextState" => '/' ]
+					],
+					'/' => [
+						'd' => [ "action_" => 'o=', "nextState" => '/' ]
+					],
+					'{...}|else' => [
+						'0|d' => [ "action_" => 'd=', "nextState" => 'd' ],
+						'a' => [ "action_" => [ 'space', 'd=' ], "nextState" => 'd' ],
+						'/|q' => [ "action_" => 'q=', "nextState" => 'q' ]
+					]
+				] ),
+				"actions" => [
+					'enumber' => function ( $_buffer, $m ) {
+						$ret = [];
+						if ( MU::issetJS( $m[0] ?? null ) && ( $m[0] === "+-" || $m[0] === "+/-" ) ) {
+							$ret[] = "\\pm ";
+						} elseif ( MU::issetJS( $m[0] ?? null ) ) {
+							$ret[] = $m[0];
+						}
+						if ( MU::issetJS( $m[1] ?? null ) ) {
+							MhchemUtil::concatArray( $ret, $this->mhchemParser->go( $m[1], 'pu-9,9' ) );
 
-						if ( MU::issetJS( ( $m[2] ?? null ) ) ) {
-							if ( preg_match( "/[,.]/", $m[2] ) ) {
-								MhchemUtil::concatArray( $ret,
-									$this->mhchemParser->go( $m[2], 'pu-9,9' ) );
-							} else {
-								$ret[] = $m[2];
+							if ( MU::issetJS( ( $m[2] ?? null ) ) ) {
+								if ( preg_match( "/[,.]/", $m[2] ) ) {
+									MhchemUtil::concatArray( $ret,
+										$this->mhchemParser->go( $m[2], 'pu-9,9' ) );
+								} else {
+									$ret[] = $m[2];
+								}
+							}
+
+							if ( MU::issetJS( $m[3] ?? null ) || MU::issetJS( $m[4] ?? null ) ) {
+								if ( $m[3] === "e" || $m[4] === "*" ) {
+									$ret[] = [ "type_" => 'cdot' ];
+								} else {
+									$ret[] = [ "type_" => 'times' ];
+								}
 							}
 						}
 
-						if ( MU::issetJS( $m[3] ?? null ) || MU::issetJS( $m[4] ?? null ) ) {
-							if ( $m[3] === "e" || $m[4] === "*" ) {
-								$ret[] = [ "type_" => 'cdot' ];
-							} else {
-								$ret[] = [ "type_" => 'times' ];
-							}
+						if ( MU::issetJS( $m[5] ?? null ) ) {
+							$ret[] = "10^{" . $m[5] . "}";
 						}
-					}
 
-					if ( MU::issetJS( $m[5] ?? null ) ) {
-						$ret[] = "10^{" . $m[5] . "}";
-					}
-
-					return $ret;
-				},
-			'number^' => function ( $_buffer, $m ) {
-				$ret = [];
-				if ( isset( $m[0] ) && ( $m[0] === "+-" || $m[0] === "+/-" ) ) {
-					$ret[] = "\\pm ";
-				} elseif ( isset( $m[0] ) ) {
-					$ret[] = $m[0];
-				}
-				MhchemUtil::concatArray( $ret,
-					$this->mhchemParser->go( $m[1] ?? null, 'pu-9,9' ) );
-				$ret[] = "^{" . ( $m[2] ?? "" ) . "}";
-				return $ret;
-			},
-			'operator' => static function ( $_buffer, $m, $p1 ) {
-				return [ "type_" => 'operator', "kind_" => $p1 ?? $m ];
-			},
-			'space' => static function () { return [ "type_" => 'pu-space-1' ];
-			},
-			'output' => function ( &$buffer ) {
+						return $ret;
+					},
+					'number^' => function ( $_buffer, $m ) {
+						$ret = [];
+						if ( isset( $m[0] ) && ( $m[0] === "+-" || $m[0] === "+/-" ) ) {
+							$ret[] = "\\pm ";
+						} elseif ( isset( $m[0] ) ) {
+							$ret[] = $m[0];
+						}
+						MhchemUtil::concatArray( $ret,
+							$this->mhchemParser->go( $m[1] ?? null, 'pu-9,9' ) );
+						$ret[] = "^{" . ( $m[2] ?? "" ) . "}";
+						return $ret;
+					},
+					'operator' => static function ( $_buffer, $m, $p1 ) {
+						return [ "type_" => 'operator', "kind_" => $p1 ?? $m ];
+					},
+					'space' => static function () {
+						return [ "type_" => 'pu-space-1' ];
+					},
+					'output' => function ( &$buffer ) {
 						$md = $this->mhchemParser->getPatterns()->match( '{(...)}', $buffer["d"] ?? "" );
 						if ( $md && $md["remainder"] === '' ) {
 							$buffer["d"] = $md["match_"];
@@ -1105,7 +1107,6 @@ class MhchemStateMachines {
 								"{}^{\\circ}C", $buffer["d"] );
 							$buffer["d"] = preg_replace( '/\x{00B0}F|\^oF|\^{o}F/u',
 								"{}^{\\circ}C", $buffer["d"] );
-
 						}
 						if ( isset( $buffer["q"] ) ) {
 							$buffer["q"] = preg_replace( "/\x{00B0}C|\^oC|\^{o}C/u",
@@ -1135,7 +1136,7 @@ class MhchemStateMachines {
 							unset( $buffer[$key] );
 						}
 						return $ret;
-			}
+					}
 				],
 			],
 			'pu-2' => [
@@ -1195,54 +1196,56 @@ class MhchemStateMachines {
 						'0' => [ "action_" => [ 'output-0', 'comma' ], "nextState" => 'o' ]
 					],
 					'.' => [
-					'0' => [ "action_" => [ 'output-0', 'copy' ], "nextState" => 'o' ]
-					 ],
+						'0' => [ "action_" => [ 'output-0', 'copy' ], "nextState" => 'o' ]
+					],
 					'else' => [ '*' => [ "action_" => 'text=' ] ]
 				] ),
-			"actions" => [
-				'comma' => static function () { return [ "type_" => 'commaDecimal' ];
-				},
-				'output-0' => static function ( &$buffer ) {
-					$ret = [];
-					$buffer["text_"] ??= "";
-					if ( strlen( $buffer["text_"] ) > 4 ) {
-						$a = strlen( $buffer["text_"] ) % 3;
-						if ( $a === 0 ) {
-							$a = 3;
+				"actions" => [
+					'comma' => static function () {
+						return [ "type_" => 'commaDecimal' ];
+					},
+					'output-0' => static function ( &$buffer ) {
+						$ret = [];
+						$buffer["text_"] ??= "";
+						if ( strlen( $buffer["text_"] ) > 4 ) {
+							$a = strlen( $buffer["text_"] ) % 3;
+							if ( $a === 0 ) {
+								$a = 3;
+							}
+							for ( $i = strlen( $buffer["text_"] ) - 3; $i > 0; $i -= 3 ) {
+								$ret[] = substr( $buffer["text_"], $i, 3 );
+								$ret[] = [ "type_" => '1000 separator' ];
+							}
+							$ret[] = substr( $buffer["text_"], 0, $a );
+							$ret = array_reverse( $ret );
+						} else {
+							$ret[] = $buffer["text_"];
 						}
-						for ( $i = strlen( $buffer["text_"] ) - 3; $i > 0; $i -= 3 ) {
-							$ret[] = substr( $buffer["text_"], $i, 3 );
-							$ret[] = [ "type_" => '1000 separator' ];
+						foreach ( $buffer as $key => $value ) {
+							unset( $buffer[$key] );
 						}
-						$ret[] = substr( $buffer["text_"], 0, $a );
-						$ret = array_reverse( $ret );
-					} else {
-						$ret[] = $buffer["text_"];
-					}
-					foreach ( $buffer as $key => $value ) {
-						unset( $buffer[$key] );
-					}
-					return $ret;
-				},
-				'output-o' => static function ( &$buffer ) {
-					$ret = [];
-					$buffer["text_"] ??= "";
-					if ( strlen( $buffer["text_"] ) > 4 ) {
-						$a = strlen( $buffer["text_"] ) - 3;
-						for ( $i = 0; $i < $a; $i += 3 ) {
-							$ret[] = substr( $buffer["text_"], $i, 3 );
-							$ret[] = [ "type_" => '1000 separator' ];
+						return $ret;
+					},
+					'output-o' => static function ( &$buffer ) {
+						$ret = [];
+						$buffer["text_"] ??= "";
+						if ( strlen( $buffer["text_"] ) > 4 ) {
+							$a = strlen( $buffer["text_"] ) - 3;
+							for ( $i = 0; $i < $a; $i += 3 ) {
+								$ret[] = substr( $buffer["text_"], $i, 3 );
+								$ret[] = [ "type_" => '1000 separator' ];
+							}
+							$ret[] = substr( $buffer["text_"], $i );
+						} else {
+							$ret[] = $buffer["text_"];
 						}
-						$ret[] = substr( $buffer["text_"], $i );
-					} else {
-						$ret[] = $buffer["text_"];
+						foreach ( $buffer as $key => $value ) {
+							unset( $buffer[$key] );
+						}
+						return $ret;
 					}
-					foreach ( $buffer as $key => $value ) {
-						unset( $buffer[$key] );
-					}
-					return $ret;
-				}
-			] ]
+				]
+			]
 
 		];
 	}

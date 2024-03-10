@@ -29,31 +29,34 @@ class AllTest extends MediaWikiUnitTestCase {
 			'\\llcorner\\lrcorner\\rangle\\rbrace\\rceil\\rfloor\\rightleftharpoons' .
 			'\\twoheadleftarrow\\twoheadrightarrow\\ulcorner\\uparrow\\Uparrow' .
 			'\\updownarrow\\Updownarrow\\urcorner\\Vert\\vert\\lbrack\\rbrack';
-		$DELIMITERS2 = array_map( static function ( $f ) { return '\\' . $f;
+		$DELIMITERS2 = array_map( static function ( $f ) {
+			return '\\' . $f;
 		}, explode( '\\', $delim2 ) );
 		array_shift( $DELIMITERS2 );
 
 		$delim3 = '\\darr\\dArr\\Darr\\lang\\rang\\uarr\\uArr\\Uarr';
-		$DELIMITERS3 = array_map( static function ( $f ) { return '\\' . $f;
+		$DELIMITERS3 = array_map( static function ( $f ) {
+			return '\\' . $f;
 		}, explode( '\\', $delim3 ) );
 		array_shift( $DELIMITERS3 );
 
 		return [
-				'Box functions' =>
-				[ [
-						"input" =>
+			'Box functions' => [
+				[
+					"input" =>
 						"\\text {-0-9a-zA-Z+*,=():/;?.!'` \u{0080}-\u{00FF}} " .
 						"\\mbox {-0-9a-zA-Z+*,=():/;?.!'` \u{0080}-\u{00FF}} " .
 						"\\hbox {-0-9a-zA-Z+*,=():/;?.!'` \u{0080}-\u{00FF}} " .
 						"\\vbox {-0-9a-zA-Z+*,=():/;?.!'` \u{0080}-\u{00FF}} ",
-						"output" =>
+					"output" =>
 						"{\\text{-0-9a-zA-Z+*,=():/;?.!'` \u{0080}-\u{00FF}}}" .
 						"{\\mbox{-0-9a-zA-Z+*,=():/;?.!'` \u{0080}-\u{00FF}}}" .
 						"{\\hbox{-0-9a-zA-Z+*,=():/;?.!'` \u{0080}-\u{00FF}}}" .
 						"{\\vbox{-0-9a-zA-Z+*,=():/;?.!'` \u{0080}-\u{00FF}}}"
-				] ],
-				'Box functions (2)' =>
-				[ [
+				]
+			],
+			'Box functions (2)' => [
+				[
 					'input' => '{\\text{ABC}}{\\mbox{ABC}}{\\hbox{ABC}}{\\vbox{ABC}}',
 					'skipOcaml' => true /* extra braces in ocaml version */
 				]
@@ -185,7 +188,7 @@ class AllTest extends MediaWikiUnitTestCase {
 						'\\mbox{\\varstigma} '
 				]
 			],
-				'Literals (2\')' => [
+			'Literals (2\')' => [
 				[
 					/* We can parse what we emit (but the ocaml version can't) */
 					'input' =>
@@ -263,7 +266,8 @@ class AllTest extends MediaWikiUnitTestCase {
 						'\\mathrm {T} \\vartheta \\mbox{\\coppa} \\wp \\mathrm {Z} '
 				]
 			],
-			'Big' => [ self::bigs( $DELIMITERS1, $DELIMITERS2 ),
+			'Big' => [
+				self::bigs( $DELIMITERS1, $DELIMITERS2 ),
 			],
 			'Delimiters (1)' => [
 				[
@@ -425,14 +429,15 @@ class AllTest extends MediaWikiUnitTestCase {
 			'DECLh' => [ [
 				'input' => '{abc \\rm def \\it ghi \\cal jkl \\bf mno}',
 				'output' => '{abc{\\rm {def{\\it {ghi{\\cal {jkl{\\bf {mno}}}}}}}}}'
-			]
+				]
 			],
 			'litsq_zq' => [ [
 				'input' => ']^2',
 				'output' => ']^{2}'
-			]
+				]
 			],
-			'Matrices' => [ self::matrices(),
+			'Matrices' => [
+				self::matrices(),
 			],
 			'Matrices (2)' => [
 				[
@@ -531,7 +536,7 @@ class AllTest extends MediaWikiUnitTestCase {
 
 	private static function matrices() {
 		$ENV = [ 'matrix', 'pmatrix', 'bmatrix', 'Bmatrix', 'vmatrix', 'Vmatrix',
-				'array', 'align', 'alignat', 'smallmatrix', 'cases' ];
+			'array', 'align', 'alignat', 'smallmatrix', 'cases' ];
 
 		$input = implode( '', array_map( static function ( $env ) {
 			return '\\begin{' . $env . '}' . AllTest::argi( $env ) . ' a & b \\\\\\hline c & d \\end{' . $env . '}';

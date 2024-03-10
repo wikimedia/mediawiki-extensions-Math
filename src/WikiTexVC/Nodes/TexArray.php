@@ -34,12 +34,12 @@ class TexArray extends TexNode {
 			switch ( $name ) {
 				case "\\displaystyle":
 					return [ "displaystyle" => "true", "scriptlevel" => "0" ];
-				 case "\\scriptstyle":
-					 return [ "displaystyle" => "false", "scriptlevel" => "1" ];
-				 case "\\scriptscriptstyle":
-					 return [ "displaystyle" => "false", "scriptlevel" => "2" ];
-				 case "\\textstyle":
-					 return [ "displaystyle" => "false", "scriptlevel" => "0" ];
+				case "\\scriptstyle":
+					return [ "displaystyle" => "false", "scriptlevel" => "1" ];
+				case "\\scriptscriptstyle":
+					return [ "displaystyle" => "false", "scriptlevel" => "2" ];
+				case "\\textstyle":
+					return [ "displaystyle" => "false", "scriptlevel" => "0" ];
 			}
 		}
 		return null;
