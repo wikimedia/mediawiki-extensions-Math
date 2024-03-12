@@ -70,7 +70,7 @@ class AllTest extends MediaWikiUnitTestCase {
 						'\\sin \\sinh \\sup \\tan \\tanh '
 				]
 			],
-			'Mediawiki functions' => [
+			'MediaWiki functions' => [
 				[
 					'input' => '\\arccot\\arcsec\\arccsc\\sgn\\sen',
 					'output' =>
