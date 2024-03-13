@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Amire80",
 			"Constructeur",
 			"Djiboun",
@@ -22,6 +23,7 @@
 		]
 	},
 	"math-desc": "Restitue les formules mathématiques entre les balises <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"popups-settings-option-math-tooltip": "Expliquer les formules mathématiques au survol.",
 	"math-visualeditor-mwchemdialog-title": "Formule chimique",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Modification rapide",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formule",
