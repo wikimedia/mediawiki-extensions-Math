@@ -113,7 +113,7 @@ class MathConfig {
 	public function getValidRenderingModeKeys(): array {
 		$result = [];
 		foreach ( $this->getValidRenderingModes() as $mode ) {
-			$result[$mode] = 'mw_math_' . $mode;
+			$result[$mode] = 'mw-math-' . $mode;
 		}
 		return $result;
 	}
@@ -127,7 +127,7 @@ class MathConfig {
 	public function getValidRenderingModeNames(): array {
 		$result = [];
 		foreach ( $this->getValidRenderingModes() as $mode ) {
-			$result[$mode] = Message::newFromKey( 'mw_math_' . $mode );
+			$result[$mode] = Message::newFromKey( 'mw-math-' . $mode );
 		}
 		return $result;
 	}
@@ -139,7 +139,7 @@ class MathConfig {
 	 * @return Message
 	 */
 	public function getRenderingModeName( string $mode ): Message {
-		return Message::newFromKey( 'mw_math_' . $mode );
+		return Message::newFromKey( 'mw-math-' . $mode );
 	}
 
 	/**
