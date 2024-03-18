@@ -55,9 +55,9 @@
 	"math-tracking-category-error": "Sivut, joissa on matematiikkavirheitä",
 	"math_unknown_error": "Tuntematon virhe",
 	"math_unknown_function": "tuntematon funktio ”$1”",
-	"mw_math_latexml": "LaTeXML (kokeellinen; käyttää MathML:ää)",
-	"mw_math_mathml": "MathML, sekä SVG tai PNG varalla (suositeltu nykyaikaisille selaimille ja helppokäyttötyökaluille)",
-	"mw_math_source": "Näytä LaTeX-muodossa (tekstiselaimille)",
+	"mw-math-latexml": "LaTeXML (kokeellinen; käyttää MathML:ää)",
+	"mw-math-mathml": "MathML, sekä SVG tai PNG varalla (suositeltu nykyaikaisille selaimille ja helppokäyttötyökaluille)",
+	"mw-math-source": "Näytä LaTeX-muodossa (tekstiselaimille)",
 	"prefs-math": "Matematiikka",
 	"mathstatus": "Math-tila"
 }

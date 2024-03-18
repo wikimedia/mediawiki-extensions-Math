@@ -75,9 +75,9 @@
 	"math-tracking-category-render-error-desc": "A kategóriában található lapokon feldolgozási hibák vannak &lt;math&gt; címkékben.",
 	"math_unknown_error": "ismeretlen hiba",
 	"math_unknown_function": "ismeretlen „$1” függvény",
-	"mw_math_latexml": "LaTeXML (kísérleti; MathML-t használ)",
-	"mw_math_mathml": "MathML SVG vagy PNG tartalékkal (modern böngészők és kisegítő eszközök számára ajánlott)",
-	"mw_math_source": "LaTeX-forrás (szöveges böngészőknek)",
+	"mw-math-latexml": "LaTeXML (kísérleti; MathML-t használ)",
+	"mw-math-mathml": "MathML SVG vagy PNG tartalékkal (modern böngészők és kisegítő eszközök számára ajánlott)",
+	"mw-math-source": "LaTeX-forrás (szöveges böngészőknek)",
 	"prefs-math": "Képletek",
 	"datatypes-type-math": "Matematikai kifejezés",
 	"wikibase-listdatatypes-math-head": "Matematikai kifejezés"

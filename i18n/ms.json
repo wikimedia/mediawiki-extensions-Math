@@ -26,9 +26,9 @@
 	"math_syntax_error": "ralat sintaks",
 	"math_unknown_error": "ralat yang tidak dikenali",
 	"math_unknown_function": "fungsi '$1' yang tidak dikenali",
-	"mw_math_latexml": "LaTeXML (percubaan; menggunakan MathML)",
-	"mw_math_mathml": "MathML dengan sandaran SVG atau PNG (disyorkan untuk pelayar dan alat-alat aksesibiliti moden)",
-	"mw_math_source": "Sumber LaTeX (untuk pelayar teks)",
+	"mw-math-latexml": "LaTeXML (percubaan; menggunakan MathML)",
+	"mw-math-mathml": "MathML dengan sandaran SVG atau PNG (disyorkan untuk pelayar dan alat-alat aksesibiliti moden)",
+	"mw-math-source": "Sumber LaTeX (untuk pelayar teks)",
 	"prefs-math": "Matematik",
 	"mathstatus": "Status Math"
 }

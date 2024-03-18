@@ -15,9 +15,9 @@
 	"math_syntax_error": "Syntaktiese fout in formule",
 	"math_unknown_error": "Onbekende fout in formule",
 	"math_unknown_function": "onbekende funksie \"$1\"",
-	"mw_math_latexml": "LaTeXML (experimenteel; gebruukt MathML)",
-	"mw_math_mathml": "MathML",
-	"mw_math_source": "Laot TeX-bronkode staon (veur tekstwebkiekers)",
+	"mw-math-latexml": "LaTeXML (experimenteel; gebruukt MathML)",
+	"mw-math-mathml": "MathML",
+	"mw-math-source": "Laot TeX-bronkode staon (veur tekstwebkiekers)",
 	"prefs-math": "Wiskündige formules",
 	"mathstatus": "Status formuleweadergåve"
 }
