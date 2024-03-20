@@ -66,19 +66,24 @@
 		background-position: center;
 		background-repeat: no-repeat;
 
+		@symbolSize: 1.8em;
+		@symbolMargin: 5px; // 3px margin, 1px border each side
+
 		&-wide {
-			/* 2(symbol width) + margin */
-			width: 3.7em;
+			// 2x width, 2 symbols + 1 margins
+			width: calc( ( 2 * @symbolSize ) + @symbolMargin );
 		}
 
 		&-wider {
-			/* 2.5(symbol width) + 1.5(margin) */
-			width: 4.65em;
+			// 2.5x width
+			// 2 "widers" + 1 margin = 5 symbols + 4 margins
+			// => 1 "wider" = 2.5 symbols + 1.5 margins
+			width: calc( ( 2.5 * @symbolSize ) + ( 1.5 * @symbolMargin ) );
 		}
 
 		&-widest {
-			/* 3(symbol width) + 2(margin) */
-			width: 5.6em;
+			// 3x width, 3 symbols + 2 margins
+			width: calc( ( 3 * @symbolSize ) + ( 2 * @symbolMargin ) );
 		}
 
 		&-contain {
@@ -86,12 +91,14 @@
 		}
 
 		&-largeLayout {
-			height: 3.7em;
-			width: 4.65em;
+			// 2.5x width
+			width: calc( ( 2.5 * @symbolSize ) + ( 1.5 * @symbolMargin ) );
+			// 2x height
+			height: calc( ( 2 * @symbolSize ) + @symbolMargin );
 
 			&.ve-ui-mwLatexDialog-symbol-wide {
-				/* 5(symbol width) + 4(margin) */
-				width: 9.4em;
+				// 5x width
+				width: calc( ( 5 * @symbolSize ) + ( 4 * @symbolMargin ) );
 			}
 		}
 	}
