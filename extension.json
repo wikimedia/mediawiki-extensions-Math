@@ -257,7 +257,7 @@
 				"mw.widgets.MathWbEntitySelector.js"
 			],
 			"styles": [
-				"ve-math/ve.ui.MWLatexDialog.css",
+				"ve-math/ve.ui.MWLatexDialog.less",
 				"ve-math/ve.ce.MWLatexNode.css",
 				"ve-math/ve.ui.MWLatexInspector.css",
 				"ve-math/ve.ui.MWLatexContextItem.css"
