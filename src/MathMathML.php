@@ -257,7 +257,8 @@ class MathMathML extends MathRenderer {
 	public function getPostData() {
 		$input = $this->getTex();
 		if ( $this->inputType == 'pmml' ||
-			 $this->getMode() == MathConfig::MODE_LATEXML && $this->getMathml() ) {
+			( $this->getMode() == MathConfig::MODE_LATEXML && $this->getMathml() )
+		) {
 			$out = 'type=mml&q=' . rawurlencode( $this->getMathml() );
 		} elseif ( $this->inputType == 'ascii' ) {
 			$out = 'type=asciimath&q=' . rawurlencode( $input );

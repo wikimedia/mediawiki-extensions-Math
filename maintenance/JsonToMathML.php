@@ -76,7 +76,7 @@ class JsonToMathML extends Maintenance {
 		foreach ( $inputTexF as $entry ) {
 			try {
 				$mmlMathoid = $this->fetchMathML( $entry['tex'], $entry['type'], 'mathml' );
-				if ( $this->getOption( "chem-fallback", 0 ) && !( $mmlMathoid ) || $mmlMathoid == "" ) {
+				if ( ( $this->getOption( "chem-fallback", 0 ) && !$mmlMathoid ) || $mmlMathoid == "" ) {
 					$mmlMathoid = $this->fetchMathML( $entry['tex'], "chem", 'mathml' );
 					if ( $mmlMathoid && $mmlMathoid != "" ) {
 						$entry['type'] = "chem";
