@@ -66,6 +66,8 @@
 	"math-visualeditor-symbol-group-math-unsorted": "Несврстано",
 	"math_failure": "Рашчлањивање није успело",
 	"math_syntax_error": "грешка у синтакси",
+	"math-test-fail": "Тест ''$1'' није успео.",
+	"math-test-success": "Тест ''$1'' успешан.",
 	"math-tracking-category-error": "Стране са математичким грешкама",
 	"math-tracking-category-mhchem-deprecation": "Странице које користе застарели формат хемијских ознака",
 	"math-tracking-category-mhchem-deprecation-desc": "Странице са застарелим форматом хемијских ознака",
@@ -87,7 +89,7 @@
 	"math-wikibase-formula-information": "Информације о математичкој формули",
 	"math-wikibase-formula-link-header": "Извор податка",
 	"math-wikibase-formula-elements-header": "Елементи формуле",
-	"math-wikibase-special-form-header": "Наведи име формуле:",
+	"math-wikibase-special-form-header": "Име формуле:",
 	"math-wikibase-special-form-placeholder": "Назив формуле",
 	"math-wikibase-special-form-button": "Затражи информацију",
 	"math-wikibase-special-error-header": "Грешка"

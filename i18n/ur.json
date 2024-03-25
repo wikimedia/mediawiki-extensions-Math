@@ -7,6 +7,7 @@
 		]
 	},
 	"math-desc": "<code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> ٹیگوں کے درمیان میں ریاضیاتی فارمولوں کو دکھاتا ہے",
+	"popups-settings-option-math-tooltip": "ریاضی فارمولوں پر کرسر لے جانے سے ان کی تشریح دکھائیں۔",
 	"math-visualeditor-mwchemdialog-title": "کیمیائی فارمولا",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "فوری ترمیم",
 	"math-visualeditor-mwlatexdialog-card-formula": "فارمولا",
@@ -46,8 +47,8 @@
 	"math-visualeditor-symbol-group-math-unsorted": "غیر مرتب",
 	"math_failure": "تجزیہ نہیں کر پایا",
 	"math_syntax_error": "نحوی نقص",
-	"math-test-fail": "«$1» کا تجربہ <span style=\"color:red\">ناکام رہا</span>۔",
-	"math-test-success": "«$1» کا تجربہ <span style=\"color:green\">کامیاب رہا</span>۔",
+	"math-test-fail": "«$1» کا تجربہ ''ناکام رہا''۔",
+	"math-test-success": "«$1» کا تجربہ ''کامیاب رہا''۔",
 	"math-tracking-category-error": "ریاضی کی اغلاط پر مشتمل صفحات",
 	"math-tracking-category-error-desc": "اس زمرہ میں موجود صفحات میں math ٹیگ کو غلط استعمال کیا گیا ہے۔",
 	"math-tracking-category-mhchem-deprecation": "کیمیائی علامتوں کے متروک فارمیٹ استعمال کرنے والے صفحات",
