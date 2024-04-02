@@ -12,13 +12,13 @@ module.exports = function ( grunt ) {
 		banana: conf.MessagesDirs,
 		stylelint: {
 			all: [
-				'**/*.css',
+				'**/*.{css,less}',
 				'!{vendor,node_modules,modules/ve-math/tools/node_modules}/**'
 			]
 		},
 		watch: {
 			files: [
-				'.{stylelintrc,.eslintrc}.json',
+				'.{stylelintrc,eslintrc}.json',
 				'<%= eslint.all %>',
 				'<%= stylelint.all %>'
 			],
