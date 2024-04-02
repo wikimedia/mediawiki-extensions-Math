@@ -1,2 +1,8 @@
 /vendor/
+/docs/
 /tests/phpunit/unit/WikiTexVC/
+
+# Language files written automatically by TranslateWiki
+/**/i18n/**/*.json
+!/**/i18n/**/en.json
+!/**/i18n/**/qqq.json
