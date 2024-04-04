@@ -74,7 +74,7 @@
 	"math-form-tex-help": "Test with your own TeX input. See [[{{int:math-helppage}}|the help page for math formulae]] for more help.",
 	"math-form-type-label": "Type of the input",
 	"math-form-type-tex": "tex (normal input)",
-	"math-form-type-chem": "chem (input with chemistry support; e.g. <code dir=\"ltr\">\\ce{H20}</code> for water)",
+	"math-form-type-chem": "chem (input with chemistry support; e.g. <code dir=\"ltr\">\\ce{H2O}</code> for water)",
 	"math-form-display-label": "Math display mode",
 	"math-helppage": "Help:Displaying a formula",
 	"math_failure": "Failed to parse",
