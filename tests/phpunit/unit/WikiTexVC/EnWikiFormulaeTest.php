@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC;
 
-use InvalidArgumentException;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 use MediaWikiUnitTestCase;
 
@@ -13,37 +12,45 @@ use MediaWikiUnitTestCase;
  * File download of the json-input can be done by running:
  * $ cd maintenance && ./downloadMoreTexVCtests.sh
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Parser
+ *
  * @group Stub
  */
 class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
-	/** indicate whether this test is active */
-	private const ACTIVE = true;
-	private const FILENAME = "en-wiki-formulae-good.json";
-	private const REF_FILENAME = "en-wiki-formulae-good-reference.json";
-	private const CHUNKSIZE = 1000;
+	private const FILEPATH = __DIR__ . '/en-wiki-formulae-good.json';
+	private const REF_FILEPATH = __DIR__ . '/en-wiki-formulae-good-reference.json';
+	private const CHUNK_SIZE = 1000;
 
-	/**
-	 * Reads the json file to an object
-	 * @param string $filePath file to be read
-	 * @throws InvalidArgumentException File with testcases does not exist.
-	 * @return array json with testcases
-	 */
-	private static function getJSON( $filePath ): array {
-		if ( !file_exists( $filePath ) ) {
-			throw new InvalidArgumentException( "No testfile found at specified path: " . $filePath );
+	public static function setUpBeforeClass(): void {
+		self::checkFiles();
+		parent::setUpBeforeClass();
+	}
+
+	private static function checkFiles() {
+		if ( !file_exists( self::FILEPATH ) || !file_exists( self::REF_FILEPATH ) ) {
+			self::markTestSkipped( 'Missing test files. Required: ' .
+				self::FILEPATH . ' and ' .
+				self::REF_FILEPATH );
 		}
+	}
+
+		/**
+		 * Reads the json file to an object
+		 * @param string $filePath file to be read
+		 * @return array json with testcases
+		 */
+	private static function getJSON( $filePath ): array {
+		self::checkFiles();
 		$file = file_get_contents( $filePath );
-		$json = json_decode( $file, true );
-		return $json;
+		return json_decode( $file, true );
 	}
 
 	public static function provideTestCases(): \Generator {
 		$group = [];
 		$groupNo = 1;
-		$references = self::getJSON( __DIR__ . '/' . self::REF_FILENAME );
-		foreach ( self::getJSON( __DIR__ . '/' . self::FILENAME ) as $key => $elem ) {
+		$references = self::getJSON( self::REF_FILEPATH );
+		foreach ( self::getJSON( self::FILEPATH ) as $key => $elem ) {
 			$group[$key] = [ $elem, $references[ $key ] ];
-			if ( count( $group ) >= self::CHUNKSIZE ) {
+			if ( count( $group ) >= self::CHUNK_SIZE ) {
 				yield "Group $groupNo" => [ $group ];
 				$groupNo++;
 				$group = [];
@@ -58,10 +65,6 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 	 * @dataProvider provideTestCases
 	 */
 	public function testRunCases( $testcase ) {
-		if ( !$this::ACTIVE ) {
-			$this->markTestSkipped( "All MediaWiki formulae en test not active and skipped. This is expected." );
-		}
-
 		$texVC = new TexVC();
 
 		foreach ( $testcase as $hash => [ $tex, $ref ] ) {

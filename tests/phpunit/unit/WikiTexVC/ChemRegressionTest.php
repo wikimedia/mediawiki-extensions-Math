@@ -2,20 +2,27 @@
 
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC;
 
-use InvalidArgumentException;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 use MediaWikiUnitTestCase;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Parser
+ *
  * @group Stub
  */
 class ChemRegressionTest extends MediaWikiUnitTestCase {
 	private $texVC;
-	private $ACTIVE = true; # indicate whether this test is active
-	private $FILENAME = "chem-regression.json";
-	private $CHUNKSIZE = 100;
+	private const CHUNK_SIZE = 100;
+
+	private const FILEPATH = __DIR__ . '/chem-regression.json';
+
+	public static function setUpBeforeClass(): void {
+		if ( !file_exists( self::FILEPATH ) ) {
+			self::markTestSkipped( 'No test file found at specified path: ' . self::FILEPATH );
+		}
+		parent::setUpBeforeClass();
+	}
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -24,17 +31,11 @@ class ChemRegressionTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * Reads the json file to an object
-	 * @throws InvalidArgumentException File with testcases does not exists.
 	 * @return array json with testcases
 	 */
-	private function getJSON() {
-		$filePath = __DIR__ . '/' . $this->FILENAME;
-		if ( !file_exists( $filePath ) ) {
-			throw new InvalidArgumentException( "No testfile found at specified path: " . $filePath );
-		}
-		$file = file_get_contents( $filePath );
-		$json = json_decode( $file, true );
-		return $json;
+	private function getJSON(): array {
+		$file = file_get_contents( self::FILEPATH );
+		return json_decode( $file, true );
 	}
 
 	private function mkgroups( $arr, $n ) {
@@ -60,13 +61,8 @@ class ChemRegressionTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testAllChemRegression() {
-		if ( !$this->ACTIVE ) {
-			$this->markTestSkipped( "Chem-Regression test not active and skipped. Can be activated in test-flag." );
-			return;
-		}
-
 		$texVC = new TexVC();
-		$groups = $this->mkgroups( $this->getJSON(), $this->CHUNKSIZE );
+		$groups = $this->mkgroups( $this->getJSON(), self::CHUNK_SIZE );
 		foreach ( $groups as  $group ) {
 			foreach ( $group as $testcase ) {
 				$testHash = $testcase["inputhash"];
