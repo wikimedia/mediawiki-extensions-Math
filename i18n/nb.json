@@ -68,7 +68,7 @@
 	"math-form-tex-help": "Test med dine egne TeX-inndata. Se [[{{int:math-helppage}}|hjelpesiden for matteformler]] for mer hjelp.",
 	"math-form-type-label": "Inndatatype",
 	"math-form-type-tex": "tex (normale inndata)",
-	"math-form-type-chem": "chem (inndata med kjemisk støtte; f.eks. <code dir=\"ltr\">\\ce{H20}</code> for vann)",
+	"math-form-type-chem": "chem (inndata med kjemisk støtte; f.eks. <code dir=\"ltr\">\\ce{H2O}</code> for vann)",
 	"math-form-display-label": "Mattevisningsmodus",
 	"math-helppage": "Help:Formelvisning",
 	"math_failure": "Feil i matematikken",

@@ -70,7 +70,7 @@
 	"math-form-tex-help": "Testar com uma entrada TeX sua. Consulte [[{{int:math-helppage}}|a página de ajuda para fórmulas matemáticas]] para obter mais ajuda.",
 	"math-form-type-label": "Tipo da entrada",
 	"math-form-type-tex": "tex (entrada normal)",
-	"math-form-type-chem": "chem (entrada com suporte de Química; por exemplo, <code dir=\"ltr\">\\ce{H20}</code> para água)",
+	"math-form-type-chem": "chem (entrada com suporte de Química; por exemplo, <code dir=\"ltr\">\\ce{H2O}</code> para água)",
 	"math-form-display-label": "Modo de apresentação matemática",
 	"math-helppage": "Help:Apresentação de uma fórmula",
 	"math_failure": "Falhou a verificação gramatical",

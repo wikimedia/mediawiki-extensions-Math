@@ -76,7 +76,7 @@
 	"math-form-tex-help": "使用您自己的 TeX 輸入來進行測試。請參閱[[{{int:math-helppage}}|數學公式說明頁面]]來取得更多協助。",
 	"math-form-type-label": "輸入類型",
 	"math-form-type-tex": "tex（正常輸入）",
-	"math-form-type-chem": "chem（支援化學的輸入，例如：<code dir=\"ltr\">\\ce{H20}</code> 代表水）",
+	"math-form-type-chem": "chem（支援化學的輸入，例如：<code dir=\"ltr\">\\ce{H2O}</code> 代表水）",
 	"math-form-display-label": "數學顯示模式",
 	"math-helppage": "Help:顯示數學公式",
 	"math_failure": "解析失敗",

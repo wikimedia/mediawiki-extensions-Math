@@ -64,7 +64,7 @@
 	"math-form-tex-help": "Katseta enda TeX-sisendit. Loe lisateavet [[{{int:math-helppage}}|matemaatiliste valemite abileheküljelt]].",
 	"math-form-type-label": "Sisendi tüüp",
 	"math-form-type-tex": "tex (harilik sisend)",
-	"math-form-type-chem": "chem (keemia toega sisend; nt <code dir=\"ltr\">\\ce{H20}</code> vee jaoks)",
+	"math-form-type-chem": "chem (keemia toega sisend; nt <code dir=\"ltr\">\\ce{H2O}</code> vee jaoks)",
 	"math-form-display-label": "Matemaatilise valemi kuvarežiim",
 	"math_failure": "Liigendamine ebaõnnestus",
 	"math_invalidjson": "$1-serveri vastus on vigane JSON.",

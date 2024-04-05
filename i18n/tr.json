@@ -80,7 +80,7 @@
 	"math-form-tex-help": "Kendi TeX girdinizle deneyin. Daha fazla yardım için [[{{int:math-helppage}}|matematik formülleri yardımı]] konusuna bakın.",
 	"math-form-type-label": "Girdi türü",
 	"math-form-type-tex": "tex (normal girdi)",
-	"math-form-type-chem": "chem (kimya destekli girdi; ör. su için <code dir=\"ltr\">\\ce{H20}</code>)",
+	"math-form-type-chem": "chem (kimya destekli girdi; ör. su için <code dir=\"ltr\">\\ce{H2O}</code>)",
 	"math-form-display-label": "Matematik görüntüleme kipi",
 	"math-helppage": "Help:Formül gösterimi",
 	"math_failure": "Ayrıştırılamadı",

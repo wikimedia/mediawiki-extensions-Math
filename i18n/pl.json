@@ -74,7 +74,7 @@
 	"math-form-tex-help": "Przetestuj na własnych danych wejściowych w składni TeX. Odwiedź [[{{int:math-helppage}}|stronę pomocy dotyczącą wzorów matematycznych]], aby dowiedzieć się więcej.",
 	"math-form-type-label": "Typ wejścia",
 	"math-form-type-tex": "tex (standardowa składnia)",
-	"math-form-type-chem": "chem (składnia ze wsparciem dla oznaczeń chemicznych, np. <code dir=\"ltr\">\\ce{H20}</code> dla wody)",
+	"math-form-type-chem": "chem (składnia ze wsparciem dla oznaczeń chemicznych, np. <code dir=\"ltr\">\\ce{H2O}</code> dla wody)",
 	"math-form-display-label": "Tryb wyświetlania wzorów matematycznych",
 	"math-helppage": "Help:Wyświetlanie wzorów matematycznych",
 	"math_failure": "Parser nie mógł rozpoznać",

@@ -68,7 +68,7 @@
 	"math-form-tex-help": "בדיקה עם קלט TeX משלך. ר' את [[{{int:math-helppage}}|דף העזרה]] לעזרה נוספת.",
 	"math-form-type-label": "סוג הקלט",
 	"math-form-type-tex": "tex (קלט רגיל)",
-	"math-form-type-chem": "chem (קלט עם תמיכה בכימיה; למשל <code dir=\"ltr\">\\ce{H20}</code> למים)",
+	"math-form-type-chem": "chem (קלט עם תמיכה בכימיה; למשל <code dir=\"ltr\">\\ce{H2O}</code> למים)",
 	"math-form-display-label": "מצב תצוגת נוסחה",
 	"math-helppage": "Help:נוסחאות",
 	"math_failure": "הפענוח נכשל",

@@ -62,7 +62,7 @@
 	"math-form-tex-help": "Essaya con tu proprie entrata TeX. Vide [[{{int:math-helppage}}|le pagina de adjuta pro le formulas mathematic]] pro ulterior assistentia.",
 	"math-form-type-label": "Typo del entrata",
 	"math-form-type-tex": "tex (entrata normal)",
-	"math-form-type-chem": "chem (entrata con supporto de chimia; p.ex. <code dir=\"ltr\">\\ce{H20}</code> pro aqua)",
+	"math-form-type-chem": "chem (entrata con supporto de chimia; p.ex. <code dir=\"ltr\">\\ce{H2O}</code> pro aqua)",
 	"math-form-display-label": "Modo de presentation mathematic",
 	"math-helppage": "Help:Monstrar un formula",
 	"math_failure": "Error durante le analyse del syntaxe",

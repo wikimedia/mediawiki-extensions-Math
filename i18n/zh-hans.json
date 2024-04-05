@@ -80,7 +80,7 @@
 	"math-form-tex-help": "使用您自己的TeX输入来测试。参阅[[{{int:math-helppage}}|数学公式的帮助页面]]以获取更多帮助。",
 	"math-form-type-label": "输入类型",
 	"math-form-type-tex": "tex（正常输入）",
-	"math-form-type-chem": "chem（支持化学的输入，例如：<code dir=\"ltr\">\\ce{H20}</code>表示水）",
+	"math-form-type-chem": "chem（支持化学的输入，例如：<code dir=\"ltr\">\\ce{H2O}</code>表示水）",
 	"math-form-display-label": "数学显示模式",
 	"math-helppage": "Help:显示数学公式",
 	"math_failure": "解析失败",

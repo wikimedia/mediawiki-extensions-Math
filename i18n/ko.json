@@ -67,7 +67,7 @@
 	"math-form-tex-help": "자체적인 TeX 입력을 가지고 테스트합니다. 더 많은 도움말을 보려면 [[{{int:math-helppage}}|수식 도움말 문서]]를 참고하십시오.",
 	"math-form-type-label": "입력 유형",
 	"math-form-type-tex": "tex (일반 입력)",
-	"math-form-type-chem": "chem (화학 지원이 있는 입력. 예: 물의 경우 <code dir=\"ltr\">\\ce{H20}</code>)",
+	"math-form-type-chem": "chem (화학 지원이 있는 입력. 예: 물의 경우 <code dir=\"ltr\">\\ce{H2O}</code>)",
 	"math-form-display-label": "수식 표시 방식",
 	"math_failure": "구문 분석 실패",
 	"math_invalidjson": "$1 서버 응답은 잘못된 JSON입니다.",

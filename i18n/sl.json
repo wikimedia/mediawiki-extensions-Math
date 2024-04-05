@@ -63,7 +63,7 @@
 	"math-form-tex-help": "Preizkusite z lastnim vnosom TeX. Za več pomoči glejte [[{{int:math-helppage}}|stran pomoči za matematične formule]].",
 	"math-form-type-label": "Vrsta vnosa",
 	"math-form-type-tex": "tex (običajni vnos)",
-	"math-form-type-chem": "chem (vnos s podporo za kemijo; npr. <code dir=\"ltr\">\\ce{H20}</code> za vodo)",
+	"math-form-type-chem": "chem (vnos s podporo za kemijo; npr. <code dir=\"ltr\">\\ce{H2O}</code> za vodo)",
 	"math-form-display-label": "Način prikaza matematike",
 	"math-helppage": "Help:Prikaz formule",
 	"math_failure": "Napaka pri razčlembi",
