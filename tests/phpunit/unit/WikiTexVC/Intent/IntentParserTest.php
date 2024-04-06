@@ -14,7 +14,6 @@ use MediaWikiUnitTestCase;
  * The output of this test is finally used to create a speech comparison with the mentioned program.
  *
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
- * @stub
  */
 final class IntentParserTest extends MediaWikiUnitTestCase {
 	private static $FILENAMEINTENTTESTS = __DIR__ . "/intent_mathml_testing_extracted.json";
