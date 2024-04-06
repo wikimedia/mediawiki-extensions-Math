@@ -100,7 +100,10 @@ if ( options.debug ) {
 		console.log( `Found ${match}.` );
 	}
 }
-const newParse = parser.replace( regexp, '\\x{00$1}' );
+parser = parser
+	.replace( regexp, '\\x{00$1}' )
+	// declare properties for the parser that were created dynamically before PHP 8.2
+	.replace( /class Parser \{/, 'class Parser {\n    private $tu;\n    private $options;' );
 
-fs.writeFileSync( options.output, newParse );
+fs.writeFileSync( options.output, parser );
 console.log( 'Generated output file at: ' + options.output );
