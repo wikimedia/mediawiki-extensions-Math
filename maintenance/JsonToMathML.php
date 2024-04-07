@@ -51,7 +51,7 @@ class JsonToMathML extends Maintenance {
 			true );
 		$this->addArg( 'output-path', "Path (with filename) of the output json file created by this script.",
 			true );
-		$this->addOption( 'inputformat', 'Custom parsing how to format the input-json ( see formatInput function)',
+		$this->addOption( 'inputformat', 'Custom parsing how to format the input-json (see formatInput function)',
 			false, true, 'i' );
 		$this->addOption( 'chem-fallback', 'If the json read does not define input-type (tex or chem), check ' .
 			'expressions as Tex and then as chem', false, true, 'c' );

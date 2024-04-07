@@ -22,7 +22,7 @@ use MediaWikiUnitTestCase;
  * "php extensions/Math/maintenance/JsonToMathML.php
  * /var/www/html/extensions/Math/tests/phpunit/unit/WikiTexVC/ExportedTexUtilKeys.json
  * /var/www/html/extensions/Math/TexUtil-Ref.json -i 2"
- * 3. If generated correctly shift the TexUtil-Ref file in it's usual folder
+ * 3. If generated correctly shift the TexUtil-Ref file in its usual folder
  * WIP: This currently just generates MathML with WikiTexVC, but does not do
  * a comparison.
  *
