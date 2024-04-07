@@ -30,6 +30,9 @@
 		"MathAlias": "Math.alias.php",
 		"MathAliasNoTranslate": "Math.alias.noTranslate.php"
 	},
+	"ExtensionFunctions": [
+		"MediaWiki\\Extension\\Math\\Hooks::onExtensionFunctions"
+	],
 	"HookHandlers": {
 		"ParserHooksHandler": {
 			"class": "MediaWiki\\Extension\\Math\\HookHandlers\\ParserHooksHandler",
@@ -350,18 +353,6 @@
 	],
 	"ServiceWiringFiles": [
 		"ServiceWiring.php"
-	],
-	"RestRoutes": [
-		{
-			"path": "/math/v0/popup/html/{qid}",
-			"method": "GET",
-			"class": "MediaWiki\\Extension\\Math\\Rest\\Popup",
-			"services": [
-				"Math.WikibaseConnector",
-				"LanguageFactory",
-				"TitleFactory"
-			]
-		}
 	],
 	"manifest_version": 2
 }
