@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Math\Tests;
 
 use DataValues\StringValue;
+use ExtensionRegistry;
 use Language;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathFormatter;
@@ -49,6 +50,13 @@ class MathWikibaseConnectorTestFactory extends MediaWikiUnitTestCase {
 				'm'
 			]
 		];
+
+	public static function setUpBeforeClass(): void {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'WikibaseClient' ) ) {
+			self::markTestSkipped( 'WikibaseClient is not installed. Skipping tests.' );
+		}
+		parent::setUpBeforeClass();
+	}
 
 	public function getWikibaseConnectorWithExistingItems(
 		EntityRevision $entityRevision,
