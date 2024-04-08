@@ -20,7 +20,6 @@ use MediaWikiUnitTestCase;
  * for the specified tests, not how the MathML looks like.
  *
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
- * @group stub
  */
 final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 	private static $SIMILARITYTRESH = 0.7;

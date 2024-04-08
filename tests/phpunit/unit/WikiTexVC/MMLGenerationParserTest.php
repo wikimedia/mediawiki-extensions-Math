@@ -12,7 +12,6 @@ use Psr\Log\InvalidArgumentException;
  * WIP: This tests is for running the specified testfiles in development.
  * Categories can be selected within 'provideTestCases' functions.
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
- * @group stub
  */
 final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
 	private static $SIMILARITYTRESH = 0.7;
