@@ -116,6 +116,5 @@
 	"math-wikibase-special-form-button": "Vyžádat informace",
 	"math-wikibase-special-error-header": "Chyba",
 	"math-wikibase-special-error-invalid-argument": "Uvedené ID položky Wikibase neexistuje.",
-	"math-wikibase-special-error-unknown": "Při načítání dat z Wikibase došlo k neznámé chybě.",
-	"math-wikibase-special-error-no-wikibase": "Pro užití této speciální stránky je potřeba rozšíření Wikibase."
+	"math-wikibase-special-error-unknown": "Při načítání dat z Wikibase došlo k neznámé chybě."
 }

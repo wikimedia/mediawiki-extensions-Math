@@ -115,6 +115,5 @@
 	"math-wikibase-special-form-button": "Informatie opvragen",
 	"math-wikibase-special-error-header": "Fout",
 	"math-wikibase-special-error-invalid-argument": "Uw opgegeven Wikibase-item-ID bestaat niet.",
-	"math-wikibase-special-error-unknown": "Er is een onbekende fout opgetreden bij het ophalen van gegevens van Wikibase.",
-	"math-wikibase-special-error-no-wikibase": "Om deze speciale pagina te kunnen gebruiken is de uitbreiding Wikibase vereist."
+	"math-wikibase-special-error-unknown": "Er is een onbekende fout opgetreden bij het ophalen van gegevens van Wikibase."
 }

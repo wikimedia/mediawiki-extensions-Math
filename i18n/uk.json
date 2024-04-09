@@ -116,6 +116,5 @@
 	"math-wikibase-special-form-button": "Запит на інформацію",
 	"math-wikibase-special-error-header": "Помилка",
 	"math-wikibase-special-error-invalid-argument": "Вказаний вами ID елемента Вікібази не існує.",
-	"math-wikibase-special-error-unknown": "Сталася невідома помилка під час отримання даних з Вікібази.",
-	"math-wikibase-special-error-no-wikibase": "Для використання цієї спеціальної сторінки необхідне розширення Вікібази."
+	"math-wikibase-special-error-unknown": "Сталася невідома помилка під час отримання даних з Вікібази."
 }

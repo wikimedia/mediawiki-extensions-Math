@@ -116,6 +116,5 @@
 	"math-wikibase-special-form-button": "정보 요청",
 	"math-wikibase-special-error-header": "오류",
 	"math-wikibase-special-error-invalid-argument": "당신이 입력한 위키베이스 항목 ID가 존재하지 않습니다.",
-	"math-wikibase-special-error-unknown": "위키베이스에서 데이터를 가져오는 중 알 수 없는 오류가 발생했습니다.",
-	"math-wikibase-special-error-no-wikibase": "이 특수 문서를 이용하려면 Wikibase 확장 기능이 필요합니다."
+	"math-wikibase-special-error-unknown": "위키베이스에서 데이터를 가져오는 중 알 수 없는 오류가 발생했습니다."
 }

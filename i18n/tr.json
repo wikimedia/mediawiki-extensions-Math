@@ -130,6 +130,5 @@
 	"math-wikibase-special-form-button": "Bilgi İste",
 	"math-wikibase-special-error-header": "Hata",
 	"math-wikibase-special-error-invalid-argument": "Belirlediğiniz Wikibase öğe kimliği yok.",
-	"math-wikibase-special-error-unknown": "Wikibase'den veri alınırken bilinmeyen bir hata oluştu.",
-	"math-wikibase-special-error-no-wikibase": "Bu özel sayfayı kullanmak için Wikibase uzantısı gereklidir."
+	"math-wikibase-special-error-unknown": "Wikibase'den veri alınırken bilinmeyen bir hata oluştu."
 }
