@@ -20,6 +20,7 @@
 	"math-visualeditor-mwlatexinspector-display-default": "Výchozí",
 	"math-visualeditor-mwlatexinspector-display-inline": "V řádce",
 	"math-visualeditor-mwlatexinspector-id": "ID odkazu (nepovinné)",
+	"math-visualeditor-mwlatexinspector-qid": "ID Wikibáze (s prefixem Q)",
 	"math-visualeditor-mwmathdialog-title": "Matematický vzorec",
 	"math-visualeditor-symbol-group-chem-addition": "Adiční sloučeniny",
 	"math-visualeditor-symbol-group-chem-aggregation": "Skupenské stavy",
@@ -105,6 +106,5 @@
 	"math-wikibase-special-form-button": "Vyžádat informace",
 	"math-wikibase-special-error-header": "Chyba",
 	"math-wikibase-special-error-invalid-argument": "Uvedené ID položky Wikibase neexistuje.",
-	"math-wikibase-special-error-unknown": "Při načítání dat z Wikibase došlo k neznámé chybě.",
-	"math-wikibase-special-error-no-wikibase": "Pro užití této speciální stránky je potřeba rozšíření Wikibase."
+	"math-wikibase-special-error-unknown": "Při načítání dat z Wikibase došlo k neznámé chybě."
 }
