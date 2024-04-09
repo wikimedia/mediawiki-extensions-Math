@@ -11,7 +11,6 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Box;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Big;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\ChemFun2u;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\ChemWord;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\Curly;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Declh;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Dollar;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
@@ -462,14 +461,14 @@ class Parser {
     private function peg_f26($b, $r) { return new Big($b, $r); }
     private function peg_f27($b) { return new Big($b,  "]"); }
     private function peg_f28($l, $e, $r) {return new Lr($l, $r, ParserUtil::lst2arr($e)); }
-    private function peg_f29($name, $e, $l) { return new Fun2sq($name, new Curly(ParserUtil::lst2arr($e)), $l); }
+    private function peg_f29($name, $e, $l) { return new Fun2sq($name, ParserUtil::lst2arr($e, true), $l); }
     private function peg_f30($name, $l) { return new Fun1($name, $l); }
     private function peg_f31($name, $l) {return new Fun1nb($name, $l); }
     private function peg_f32($name, $l) { return new Mhchem($name, $l); }
     private function peg_f33($name, $l1, $l2) { return new Fun2($name, $l1, $l2); }
     private function peg_f34($name, $l1, $l2, $l3, $l4) { return new Fun4($name, $l1, $l2, $l3, $l4); }
     private function peg_f35($name, $l1, $l2) { return new Fun2nb($name, $l1, $l2); }
-    private function peg_f36($e) { return new Curly(ParserUtil::lst2arr($e)); }
+    private function peg_f36($e) { return ParserUtil::lst2arr($e, true); }
     private function peg_f37($e1, $name, $e2) { return new Infix($name, ParserUtil::lst2arr($e1), ParserUtil::lst2arr($e2)); }
     private function peg_f38($m) { return new Matrix("matrix", ParserUtil::lst2arr($m)); }
     private function peg_f39($m) { return new Matrix("pmatrix", ParserUtil::lst2arr($m)); }
@@ -504,8 +503,8 @@ class Parser {
     private function peg_f57($e, $l) { return $l; }
     private function peg_f58($e, $tail) { return new TexArray($e, $tail); }
     private function peg_f59() { return $this->text(); }
-    private function peg_f60($cs) { return new Curly(new TexArray(new Literal($cs))); }
-    private function peg_f61($num) { return new Curly(new TexArray(new Literal($num))); }
+    private function peg_f60($cs) { return TexArray::newCurly(new Literal($cs)); }
+    private function peg_f61($num) { return TexArray::newCurly(new Literal($num)); }
     private function peg_f62($p, $s) { return new TexArray($p,new TexArray(new Literal(" "),$s)); }
     private function peg_f63($p) { return new TexArray($p,new TexArray()); }
     private function peg_f64($m) { return new Literal($m); }
@@ -516,9 +515,9 @@ class Parser {
     private function peg_f69() { return new Literal(""); }
     private function peg_f70($m) { return $m;}
     private function peg_f71($c) { return new Literal($c); }
-    private function peg_f72($c) { return new Curly(new TexArray($c)); }
+    private function peg_f72($c) { return TexArray::newCurly($c); }
     private function peg_f73($c) { return new Dollar(ParserUtil::lst2arr($c)); }
-    private function peg_f74($e) { return new Curly(new TexArray(new Literal($e))); }
+    private function peg_f74($e) { return TexArray::newCurly(new Literal($e)); }
     private function peg_f75($a, $b) { return new ChemWord(new Literal($a), new Literal($b)); }
     private function peg_f76($a, $b) { return new ChemWord(new Literal($a), $b); }
     private function peg_f77($a, $b) { return new ChemWord(new Literal($a), new Dollar(ParserUtil::lst2arr($b))); }

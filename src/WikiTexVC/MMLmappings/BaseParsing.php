@@ -31,7 +31,6 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtr;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunder;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunderover;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\Curly;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
@@ -41,6 +40,7 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2sq;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun4;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 
@@ -136,7 +136,7 @@ class BaseParsing {
 			foreach ( $tableRow->getArgs() as $tableCell ) {
 				$renderedInner .= $mtd->getStart();
 				foreach ( $tableCell->getArgs() as $cellItem ) {
-					if ( !$discarded && $cellItem instanceof Curly ) {
+					if ( !$discarded && $cellItem->isCurly() ) {
 						$discarded = true;
 						// Just discard the number of rows atm, it is in the first Curly
 					} else {
@@ -357,7 +357,7 @@ class BaseParsing {
 	}
 
 	public static function hskip( $node, $passedArgs, $operatorContent, $name ) {
-		if ( $node->getArg() instanceof Curly ) {
+		if ( $node->getArg()->isCurly() ) {
 			$unit = MMLutil::squashLitsToUnit( $node->getArg() );
 			if ( !$unit ) {
 				return null;
@@ -556,7 +556,7 @@ class BaseParsing {
 						$addHlines = true;
 					}
 				}
-				if ( count( $arg->getArgs() ) >= 1 && $arg->getArgs()[0] instanceof Curly ) {
+				if ( count( $arg->getArgs() ) >= 1 && $arg->getArgs()[0]->isCurly() ) {
 					// Discarding the column information Curly at the moment
 					// $usedArg->getArgs()[0] = null;
 					$columnInfo = $usedArg->getArgs()[0]->render();
@@ -743,7 +743,8 @@ class BaseParsing {
 		}
 
 		$arg1 = $node->getArg1();
-		if ( $arg1 instanceof Curly ) {
+		// the second check is to avoid a false positive for PhanTypeMismatchArgumentSuperType
+		if ( $arg1->isCurly() && $arg1 instanceof TexArray ) {
 			$unit = MMLutil::squashLitsToUnit( $arg1 );
 			if ( !$unit ) {
 				return null;
@@ -1043,8 +1044,8 @@ class BaseParsing {
 		if ( $node instanceof Fun2sq ) {
 			$arg1 = $node->getArg1();
 			$arg1i = "";
-			if ( $arg1 instanceof Curly ) {
-				$arg1i = $arg1->getArg()->render();
+			if ( $arg1->isCurly() ) {
+				$arg1i = $arg1->render();
 			}
 
 			if ( str_contains( $arg1i, "{b}" ) ) {
@@ -1099,11 +1100,12 @@ class BaseParsing {
 		// match args in row of subargs, unless an element has explicit annotations
 		// nested annotations ?
 		$arg1 = $node->getArg1();
-		if ( !$node->getArg2() instanceof Curly ) {
+		$arg2 = $node->getArg2();
+		if ( !$arg2->isCurly() ) {
 			return null;
 		}
 		// tbd refactor intent form and fiddle in mml or tree
-		$intentStr = MMLutil::squashLitsToUnitIntent( $node->getArg2() );
+		$intentStr = MMLutil::squashLitsToUnitIntent( $arg2 );
 		$intentContent = MMLParsingUtil::getIntentContent( $intentStr );
 		$intentParams = MMLParsingUtil::getIntentParams( $intentContent );
 		// Sometimes the intent has additioargs = {array[3]} nal args in the same string
@@ -1122,19 +1124,19 @@ class BaseParsing {
 		$intentParamsState = $intentParams ? [ "intent-params" => $intentParams ] : $operatorContent;
 		// Here are some edge cases, they might go into renderMML in the related element
 		if ( str_contains( $intentContent, "matrix" ) ||
-			( $arg1 instanceof Curly && $arg1->getArg()->getArgs()[0] instanceof Matrix ) ) {
-			$element = $arg1->getArg()->getArgs()[0];
+			( $arg1->isCurly() && $arg1->getArgs()[0] instanceof Matrix ) ) {
+			$element = $arg1->getArgs()[0];
 			$rendered = $element->renderMML( [], $intentParamsState );
 			$hackyXML = MMLParsingUtil::forgeIntentToSpecificElement( $rendered,
 				$intentContentAtr, "mtable" );
 			return $hackyXML;
-		} elseif ( $arg1 instanceof Curly && count( $arg1->getArg()->getArgs() ) >= 2 ) {
+		} elseif ( $arg1->isCurly() && count( $arg1->getArgs() ) >= 2 ) {
 			// Create a surrounding element which holds the intents
 			$mrow = new MMLmrow( "", $intentContentAtr );
 			return $mrow->encapsulateRaw( $arg1->renderMML( [], $intentParamsState ) );
-		} elseif ( $arg1 instanceof Curly && count( $arg1->getArg()->getArgs() ) >= 1 ) {
+		} elseif ( $arg1->isCurly() && count( $arg1->getArgs() ) >= 1 ) {
 			// Forge the intent attribute to the top-level element after MML rendering
-			$element = $arg1->getArg()->getArgs()[0];
+			$element = $arg1->getArgs()[0];
 			$rendered = $element->renderMML( [], $intentParamsState );
 			$hackyXML = MMLParsingUtil::forgeIntentToTopElement( $rendered, $intentContentAtr );
 			return $hackyXML;
@@ -1185,7 +1187,7 @@ class BaseParsing {
 				$mmlMrow = new MMLmrow();
 				$mtext = new MMLmtext( "", MMLParsingUtil::getFontArgs( $name, null, null ) );
 
-				$inner = $node->getArg() instanceof Curly ? $node->getArg()->getArg()->renderMML(
+				$inner = $node->getArg()->isCurly() ? $node->getArg()->renderMML(
 					[], [ "inHBox" => true ] )
 					: $node->getArg()->renderMML( [ "fromHBox" => true ] );
 				return $mmlMrow->encapsulateRaw( $mtext->encapsulateRaw( $inner ) );

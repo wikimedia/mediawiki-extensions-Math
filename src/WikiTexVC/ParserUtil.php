@@ -10,10 +10,11 @@ class ParserUtil {
 
 	/**
 	 * @param TexArray|null $l
+	 * @param bool $curly
 	 * @return TexArray
 	 */
-	public static function lst2arr( $l ) {
-		$arr = new TexArray();
+	public static function lst2arr( $l, $curly = false ) {
+		$arr = $curly ? TexArray::newCurly() : new TexArray();
 
 		while ( $l !== null ) {
 			$first = $l->first();

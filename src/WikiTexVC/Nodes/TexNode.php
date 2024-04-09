@@ -204,4 +204,9 @@ class TexNode {
 
 		return false;
 	}
+
+	public function isCurly(): bool {
+		return false;
+	}
+
 }

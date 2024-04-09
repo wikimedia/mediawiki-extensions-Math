@@ -9,11 +9,19 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMappings;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsup;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 class TexArray extends TexNode {
+	protected bool $curly = false;
+
+	public static function newCurly( ...$args ) {
+		$node = new self( ...$args );
+		$node->curly = true;
+		return $node;
+	}
 
 	public function __construct( ...$args ) {
 		$nargs = [];
@@ -246,10 +254,10 @@ class TexArray extends TexNode {
 
 			if ( $styleArguments ) {
 				$state["styleargs"] = $styleArguments;
-				if ( $next instanceof Curly ) {
+				$mmlStyle = new MMLmstyle( "", $styleArguments );
+				$fullRenderedArray .= $mmlStyle->getStart();
+				if ( $next->isCurly() ) {
 					// Wrap with style-tags when the next element is a Curly which determines start and end tag.
-					$mmlStyle = new MMLmstyle( "", $styleArguments );
-					$fullRenderedArray .= $mmlStyle->getStart();
 					$fullRenderedArray .= $this->createMMLwithContext( $currentColor, $next, $state, $arguments );
 					$fullRenderedArray .= $mmlStyle->getEnd();
 					$mmlStyle = null;
@@ -257,8 +265,6 @@ class TexArray extends TexNode {
 					$i++;
 				} else {
 					// Start the style indicator in cases like \textstyle abc
-					$mmlStyle = new MMLmstyle( "", $styleArguments );
-					$fullRenderedArray .= $mmlStyle->getStart();
 					$mmlStyles[] = $mmlStyle->getEnd();
 
 				}
@@ -279,6 +285,10 @@ class TexArray extends TexNode {
 
 		foreach ( array_reverse( $mmlStyles ) as $mmlStyleEnd ) {
 			$fullRenderedArray .= $mmlStyleEnd;
+		}
+		if ( $this->curly && count( $this->getArgs() ) > 1 ) {
+			$mmlRow = new MMLmrow();
+			return $mmlRow->encapsulateRaw( $fullRenderedArray );
 		}
 
 		return $fullRenderedArray;
@@ -340,7 +350,7 @@ class TexArray extends TexNode {
 		if ( isset( $this->args[0] ) && count( $this->args ) == 1 ) {
 			return $this->args[0]->inCurlies();
 		} else {
-			return '{' . $this->render() . '}';
+			return '{' . parent::render() . '}';
 		}
 	}
 
@@ -453,6 +463,17 @@ class TexArray extends TexNode {
 				throw new InvalidArgumentException( 'Wrong input type specified in input elements.' );
 			}
 		}
+	}
+
+	public function render() {
+		if ( $this->curly ) {
+			return $this->inCurlies();
+		}
+		return parent::render();
+	}
+
+	public function isCurly(): bool {
+		return $this->curly;
 	}
 
 }
