@@ -10,7 +10,7 @@
 	"math_failure": "Ангылашынамады",
 	"math_syntax_error": "синтаксис халат",
 	"math_unknown_error": "билинмеген халат",
-	"math_unknown_function": "билинмеген функция",
+	"math_unknown_function": "билинмеген функция \"$1\"",
 	"mw_math_mathml": "SVG (MathML браузерни плагини бла джандырыргъа боллукъду)",
 	"mw_math_source": "Тюрлендирмей TeX болуб къой (текст браузерле ючюн)",
 	"prefs-math": "Математика белгиле"
