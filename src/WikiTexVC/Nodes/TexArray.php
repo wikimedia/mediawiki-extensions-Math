@@ -256,7 +256,7 @@ class TexArray extends TexNode {
 				$state["styleargs"] = $styleArguments;
 				$mmlStyle = new MMLmstyle( "", $styleArguments );
 				$fullRenderedArray .= $mmlStyle->getStart();
-				if ( $next->isCurly() ) {
+				if ( $next instanceof TexNode && $next->isCurly() ) {
 					// Wrap with style-tags when the next element is a Curly which determines start and end tag.
 					$fullRenderedArray .= $this->createMMLwithContext( $currentColor, $next, $state, $arguments );
 					$fullRenderedArray .= $mmlStyle->getEnd();
