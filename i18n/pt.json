@@ -10,7 +10,8 @@
 			"Mansil",
 			"Mansil alfalb",
 			"Ti4goc",
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"B3rnas"
 		]
 	},
 	"math-desc": "Faz a composição gráfica ''(rendering)'' das fórmulas matemáticas entre os elementos <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -82,9 +83,9 @@
 	"math_syntax_error": "erro de sintaxe",
 	"math_timeout": "Limite de tempo excedido por $1 no servidor \"$2\".",
 	"math-test-end": "Os testes do servidor estão terminados para o modo de composição: \"''$1''\".",
-	"math-test-fail": "''Falhou'' o teste: ''$1''.",
+	"math-test-fail": "O teste '' $1 '' falhou.",
 	"math-test-start": "Execução dos testes do servidor para o modo de composição: \"''$1''\".",
-	"math-test-success": "''Passou'' o teste: ''$1''.",
+	"math-test-success": "O teste '' $1 '' foi bem-sucedido.",
 	"math-test-contains-diff": "O texto devolvido $1 não contém o texto esperado $2.",
 	"math-test-equals-diff": "O texto devolvido $1 é diferente do texto esperado $2.",
 	"math-tracking-category-error": "Páginas com erros de formatação matemática",
@@ -120,6 +121,5 @@
 	"math-wikibase-special-form-button": "Pedir informação",
 	"math-wikibase-special-error-header": "Erro",
 	"math-wikibase-special-error-invalid-argument": "O identificador de elemento Wikibase especificado não existe.",
-	"math-wikibase-special-error-unknown": "Ocorreu um erro desconhecido ao obter dados da wiki Wikibase.",
-	"math-wikibase-special-error-no-wikibase": "A extensão Wikibase é necessária para usar esta página especial."
+	"math-wikibase-special-error-unknown": "Ocorreu um erro desconhecido ao obter dados da wiki Wikibase."
 }
