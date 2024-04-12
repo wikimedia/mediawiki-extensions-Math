@@ -945,13 +945,14 @@ class BaseParsing {
 	}
 
 	public static function limits( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
-		$argsOp = [ "form" => "prefix" ];
-		if ( $operatorContent != null && array_key_exists( "styleargs", $operatorContent ) ) {
-			if ( $operatorContent["styleargs"]["displaystyle"] === "false" ) {
-				$argsOp = [ "movablelimits" => "true" ];
+		$argsOp = [ 'form' => 'prefix' ];
+		if ( isset( $operatorContent['styleargs'] ) ) {
+			$displaystyle = $operatorContent['styleargs']['displaystyle'] ?? 'true';
+			if ( $displaystyle === 'false' ) {
+				$argsOp['movablelimits'] = 'true';
 			}
-			if ( $node->containsFunc( "\\nolimits" ) ) {
-				$argsOp = [ "movablelimits" => "false" ];
+			if ( $node->containsFunc( '\\nolimits' ) ) {
+				$argsOp['movablelimits'] = 'false';
 			}
 		}
 		$mrow = new MMLmrow( TexClass::ORD, [] );
