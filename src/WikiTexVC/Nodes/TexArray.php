@@ -15,7 +15,10 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsup;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
-class TexArray extends TexNode implements \IteratorAggregate {
+/**
+ *
+ */
+class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	protected bool $curly = false;
 
 	public static function newCurly( ...$args ) {
@@ -168,7 +171,7 @@ class TexArray extends TexNode implements \IteratorAggregate {
 		$hasNamedFct = false;
 		if ( $currentNode instanceof TexArray && count( $currentNode->args ) == 2 ) {
 			$tu = TexUtil::getInstance();
-			$currentNodeContent = $currentNode->getArgs()[0];
+			$currentNodeContent = $currentNode[0];
 			if ( $currentNodeContent instanceof Literal &&
 				$tu->latex_function_names( $currentNodeContent->getArg() ) ) {
 				$hasNamedFct = true;
@@ -287,7 +290,7 @@ class TexArray extends TexNode implements \IteratorAggregate {
 		foreach ( array_reverse( $mmlStyles ) as $mmlStyleEnd ) {
 			$fullRenderedArray .= $mmlStyleEnd;
 		}
-		if ( $this->curly && count( $this->getArgs() ) > 1 ) {
+		if ( $this->curly && $this->getLength() > 1 ) {
 			$mmlRow = new MMLmrow();
 			return $mmlRow->encapsulateRaw( $fullRenderedArray );
 		}
@@ -421,6 +424,7 @@ class TexArray extends TexNode implements \IteratorAggregate {
 		self::checkInput( $elements );
 
 		array_push( $this->args, ...$elements );
+		return $this;
 	}
 
 	public function pop() {
@@ -488,5 +492,31 @@ class TexArray extends TexNode implements \IteratorAggregate {
 	 */
 	public function getIterator(): Generator {
 		yield from $this->args;
+	}
+
+	/**
+	 * @return TexNode[]
+	 */
+	public function getArgs(): array {
+		return parent::getArgs();
+	}
+
+	public function offsetExists( $offset ): bool {
+		return isset( $this->args[$offset] );
+	}
+
+	public function offsetGet( $offset ): ?TexNode {
+		return $this->args[$offset] ?? null;
+	}
+
+	public function offsetSet( $offset, $value ): void {
+		if ( !( $value instanceof TexNode ) ) {
+			throw new InvalidArgumentException( 'TexArray elements must be of type TexNode.' );
+		}
+		$this->args[$offset] = $value;
+	}
+
+	public function offsetUnset( $offset ): void {
+		unset( $this->args[$offset] );
 	}
 }

@@ -37,11 +37,10 @@ class MatrixTest extends MediaWikiUnitTestCase {
 		throw new TypeError( 'Nested arguments have to be type of TexArray' );
 	}
 
-	public function testInstanceOfTexNode() {
-		// this was an instance of TexNode validation didnt verify in php, for review: is this workaround sufficient ?
-		$this->assertEquals( 'MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\TexNode',
+	public function testInstanceOfTexArray() {
+		$this->assertEquals( 'MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\TexArray',
 			get_parent_class( $this->sampleMatrix ),
-			'Should create an instance of TexNode' );
+			'Should create an instance of TexArray' );
 	}
 
 	public function testGetters() {
@@ -61,5 +60,44 @@ class MatrixTest extends MediaWikiUnitTestCase {
 	public function testExtractIdentifiers() {
 		$this->assertEquals( [ 'a' ], $this->sampleMatrix->extractIdentifiers(),
 			'Should extract identifiers' );
+	}
+
+	public function testCreateFromMatrix() {
+		$matrix = new Matrix( 'align',
+			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
+		$newMatrix = new Matrix( 'align', $matrix );
+		$this->assertEquals( $matrix, $newMatrix,
+			'Should create a matrix from a matrix' );
+	}
+
+	public function testContainsTop() {
+		$matrix = new Matrix( 'top',
+			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
+		$this->assertTrue( $matrix->containsFunc( '\\begin{top}' ),
+			'Should create top attribute' );
+	}
+
+	public function testContainsArgs() {
+		$matrix = new Matrix( 'top',
+			new TexArray( new TexArray( new Literal( '\\sin' ) ) ) );
+		$this->assertTrue( $matrix->containsFunc( '\\sin' ),
+			'Should contain inner elements' );
+	}
+
+	public function testRenderMML() {
+		$matrix = new Matrix( 'matrix',
+			new TexArray( new TexArray( new Literal( '\\sin' ) ) ) );
+		$this->assertStringContainsString( 'mtable', $matrix->renderMML(),
+			'Should render a matrix' );
+	}
+
+	public function testTop() {
+		$this->sampleMatrix->setTop( 'abc' );
+		$this->assertEquals( 'abc', $this->sampleMatrix->getTop() );
+	}
+
+	public function testColSpec() {
+		$this->sampleMatrix->setColumnSpecs( TexArray::newCurly( new Literal( '2' ) ) );
+		$this->assertEquals( '{2}', $this->sampleMatrix->getColumnSpecs()->render() );
 	}
 }

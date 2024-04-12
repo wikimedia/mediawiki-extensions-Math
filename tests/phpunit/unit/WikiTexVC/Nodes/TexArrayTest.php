@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 
+use InvalidArgumentException;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
@@ -88,5 +89,35 @@ class TexArrayTest extends MediaWikiUnitTestCase {
 				$item,
 				'Should iterate over the elements' );
 		}
+	}
+
+	public function testOffsetExists() {
+		$ta = new TexArray( new Literal( 'a' ), new Literal( 'b' ) );
+		$this->assertTrue( isset( $ta[0] ) );
+		$this->assertFalse( isset( $ta[2] ) );
+	}
+
+	public function testOffsetGet() {
+		$ta = new TexArray( new Literal( 'a' ), new Literal( 'b' ) );
+		$this->assertEquals( 'a', $ta[0]->render() );
+		$this->assertNull( $ta[100] );
+	}
+
+	public function testOffsetUnset() {
+		$ta = new TexArray( new Literal( 'a' ), new Literal( 'b' ) );
+		unset( $ta[0] );
+		$this->assertNull( $ta[0] );
+	}
+
+	public function testOffsetSet() {
+		$ta = new TexArray();
+		$ta[0] = new Literal( 'a' );
+		$this->assertEquals( 'a', $ta[0]->render() );
+	}
+
+	public function testOffsetSetInvalid() {
+		$this->expectException( InvalidArgumentException::class );
+		$ta = new TexArray();
+		$ta[0] = 'a';
 	}
 }

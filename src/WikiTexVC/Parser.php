@@ -442,14 +442,14 @@ class Parser {
     private function peg_f23($f) {
          $parser = new Parser();
          $ast = $parser->parse($this->tu->nullary_macro_aliase($f), $this->options);
-         assert($ast instanceof TexArray && count($ast->getArgs()) === 1);
+         assert($ast instanceof TexArray && $ast->getLength() === 1);
          return $ast->first();
        }
     private function peg_f24($f) { return $this->tu->deprecated_nullary_macro_aliase($f); }
     private function peg_f25($f) {
          $parser = new Parser();
          $ast = $parser->parse($this->tu->deprecated_nullary_macro_aliase($f), $this->options);
-         assert($ast instanceof TexArray && count($ast->getArgs()) === 1);
+         assert($ast instanceof TexArray && $ast->getLength() === 1);
          if ($this->options['oldtexvc']){
            return $ast->first();
          } else {
@@ -469,38 +469,36 @@ class Parser {
     private function peg_f35($name, $l1, $l2) { return new Fun2nb($name, $l1, $l2); }
     private function peg_f36($e) { return $e->setCurly(); }
     private function peg_f37($e1, $name, $e2) { return new Infix($name, $e1, $e2); }
-    private function peg_f38($m) { return new Matrix("matrix", ParserUtil::lst2arr($m)); }
-    private function peg_f39($m) { return new Matrix("pmatrix", ParserUtil::lst2arr($m)); }
-    private function peg_f40($m) { return new Matrix("bmatrix", ParserUtil::lst2arr($m)); }
-    private function peg_f41($m) { return new Matrix("Bmatrix", ParserUtil::lst2arr($m)); }
-    private function peg_f42($m) { return new Matrix("vmatrix", ParserUtil::lst2arr($m)); }
-    private function peg_f43($m) { return new Matrix("Vmatrix", ParserUtil::lst2arr($m)); }
-    private function peg_f44($m) { return new Matrix("array", ParserUtil::lst2arr($m)); }
-    private function peg_f45($m) { return new Matrix("aligned", ParserUtil::lst2arr($m)); }
-    private function peg_f46($m) { return new Matrix("alignedat", ParserUtil::lst2arr($m)); }
-    private function peg_f47($m) { return new Matrix("smallmatrix", ParserUtil::lst2arr($m)); }
-    private function peg_f48($m) { return new Matrix("cases", ParserUtil::lst2arr($m)); }
+    private function peg_f38($m) { return $m->setTop( 'matrix' ); }
+    private function peg_f39($m) { return $m->setTop( 'pmatrix' ); }
+    private function peg_f40($m) { return $m->setTop( 'bmatrix' ); }
+    private function peg_f41($m) { return $m->setTop( 'Bmatrix' ); }
+    private function peg_f42($m) { return $m->setTop( 'vmatrix' ); }
+    private function peg_f43($m) { return $m->setTop( 'Vmatrix' ); }
+    private function peg_f44($m) { return $m->setTop( 'array' ); }
+    private function peg_f45($m) { return $m->setTop( 'aligned' ); }
+    private function peg_f46($m) { return $m->setTop( 'alignedat' ); }
+    private function peg_f47($m) { return $m->setTop( 'smallmatrix' ); }
+    private function peg_f48($m) { return $m->setTop( 'cases' ); }
     private function peg_f49() { throw new SyntaxError("Illegal TeX function", [], $this->text(), $this->offset(),
                                 $this->line(), $this->column()); }
     private function peg_f50($f) { return !$this->tu->getAllFunctionsAt($f); }
     private function peg_f51($f) { throw new SyntaxError("Illegal TeX function", [], $f, $this->offset(), $this->line(), $this->column()); }
-    private function peg_f52($cs, $m) {
-            if ($m->getLength() ) {
-                $m->first()->first()->unshift($cs);
-                return $m;
-            }
-            return new TexArray(new TexArray($cs));
-        }
-    private function peg_f53($as, $m) { $m->first()->first()->unshift($as); return $m; }
+    private function peg_f52($cs, $m) { return $m->setColumnSpecs( $cs ); }
+    private function peg_f53($as, $m) { return $m->setColumnSpecs( $as ); }
     private function peg_f54($l, $m) { return $m; }
-    private function peg_f55($l, $tail) { return new TexArray( ParserUtil::lst2arr($l), $tail ); }
+    private function peg_f55($l, $tail) { if ($tail === null) { return new Matrix( 'matrix', new TexArray( $l ) ); }
+         return new Matrix( 'matrix', $tail->unshift($l) ); }
     private function peg_f56($f, $l) {
             if ($l->first() === null ) {
                 $l->push(new TexArray());
             }
             $l->first()->unshift(new Literal($f . " ")); return $l;}
     private function peg_f57($e, $l) { return $l; }
-    private function peg_f58($e, $tail) { return new TexArray($e, $tail); }
+    private function peg_f58($e, $tail) {
+        if ($tail === null) { return new TexArray( $e )  ; }
+        return $tail->unshift($e);
+        }
     private function peg_f59() { return $this->text(); }
     private function peg_f60($cs) { return TexArray::newCurly(new Literal($cs)); }
     private function peg_f61($num) { return TexArray::newCurly(new Literal($num)); }

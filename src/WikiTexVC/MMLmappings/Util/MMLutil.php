@@ -83,7 +83,7 @@ class MMLutil {
 	 */
 	public static function squashLitsToUnit( TexArray $node ): ?string {
 		$unit = "";
-		foreach ( $node->getArgs() as $literal ) {
+		foreach ( $node as $literal ) {
 			if ( !$literal instanceof Literal ) {
 				continue;
 			}

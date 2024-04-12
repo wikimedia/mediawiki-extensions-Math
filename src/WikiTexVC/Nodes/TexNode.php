@@ -75,7 +75,7 @@ class TexNode {
 		return true;
 	}
 
-	public function getLength(): ?int {
+	public function getLength(): int {
 		if ( isset( $this->args[0] ) ) {
 			return count( $this->args );
 		} else {

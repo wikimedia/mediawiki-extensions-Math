@@ -122,14 +122,14 @@ lit
    {
      $parser = new Parser();
      $ast = $parser->parse($this->tu->nullary_macro_aliase($f), $this->options);
-     assert($ast instanceof TexArray && count($ast->getArgs()) === 1);
+     assert($ast instanceof TexArray && $ast->getLength() === 1);
      return $ast->first();
    }
   / f:generic_func &{ return $this->tu->deprecated_nullary_macro_aliase($f); } _ // from Texutil.find(...)
    {
      $parser = new Parser();
      $ast = $parser->parse($this->tu->deprecated_nullary_macro_aliase($f), $this->options);
-     assert($ast instanceof TexArray && count($ast->getArgs()) === 1);
+     assert($ast instanceof TexArray && $ast->getLength() === 1);
      if ($this->options['oldtexvc']){
        return $ast->first();
      } else {
@@ -155,31 +155,31 @@ lit
   / CURLY_OPEN e1:ne_expr name:FUN_INFIX e2:ne_expr CURLY_CLOSE
     { return new Infix($name, $e1, $e2); }
   / BEGIN_MATRIX   m:(array/matrix) END_MATRIX
-    { return new Matrix("matrix", ParserUtil::lst2arr($m)); }
+    { return $m->setTop( 'matrix' ); }
   / BEGIN_PMATRIX  m:(array/matrix) END_PMATRIX
-    { return new Matrix("pmatrix", ParserUtil::lst2arr($m)); }
+    { return $m->setTop( 'pmatrix' ); }
   / BEGIN_BMATRIX  m:(array/matrix) END_BMATRIX
-    { return new Matrix("bmatrix", ParserUtil::lst2arr($m)); }
+    { return $m->setTop( 'bmatrix' ); }
   / BEGIN_BBMATRIX m:(array/matrix) END_BBMATRIX
-    { return new Matrix("Bmatrix", ParserUtil::lst2arr($m)); }
+    { return $m->setTop( 'Bmatrix' ); }
   / BEGIN_VMATRIX  m:(array/matrix) END_VMATRIX
-    { return new Matrix("vmatrix", ParserUtil::lst2arr($m)); }
+    { return $m->setTop( 'vmatrix' ); }
   / BEGIN_VVMATRIX m:(array/matrix) END_VVMATRIX
-    { return new Matrix("Vmatrix", ParserUtil::lst2arr($m)); }
+    { return $m->setTop( 'Vmatrix' ); }
   / BEGIN_ARRAY    opt_pos m:array END_ARRAY
-    { return new Matrix("array", ParserUtil::lst2arr($m)); }
+    { return $m->setTop( 'array' ); }
   / BEGIN_ALIGN    opt_pos m:matrix END_ALIGN
-    { return new Matrix("aligned", ParserUtil::lst2arr($m)); }
+    { return $m->setTop( 'aligned' ); }
   / BEGIN_ALIGNED  opt_pos m:matrix END_ALIGNED // parse what we emit
-    { return new Matrix("aligned", ParserUtil::lst2arr($m)); }
+    { return $m->setTop( 'aligned' ); }
   / BEGIN_ALIGNAT  m:alignat END_ALIGNAT
-    { return new Matrix("alignedat", ParserUtil::lst2arr($m)); }
+    { return $m->setTop( 'alignedat' ); }
   / BEGIN_ALIGNEDAT m:alignat END_ALIGNEDAT // parse what we emit
-    { return new Matrix("alignedat", ParserUtil::lst2arr($m)); }
+    { return $m->setTop( 'alignedat' ); }
   / BEGIN_SMALLMATRIX m:(array/matrix) END_SMALLMATRIX
-    { return new Matrix("smallmatrix", ParserUtil::lst2arr($m)); }
+    { return $m->setTop( 'smallmatrix' ); }
   / BEGIN_CASES    m:matrix END_CASES
-    { return new Matrix("cases", ParserUtil::lst2arr($m)); }
+    { return $m->setTop( 'cases' ); }
   / "\\begin{" alpha+ "}" /* better error messages for unknown environments */
     { throw new SyntaxError("Illegal TeX function", [], $this->text(), $this->offset(),
                             $this->line(), $this->column()); }
@@ -190,23 +190,18 @@ lit
 // "array" requires mandatory column specification
 array
   = cs:column_spec m:matrix
-    {
-        if ($m->getLength() ) {
-            $m->first()->first()->unshift($cs);
-            return $m;
-        }
-        return new TexArray(new TexArray($cs));
-    }
+    { return $m->setColumnSpecs( $cs ); }
 
 // "alignat" requires mandatory # of columns
 alignat
   = as:alignat_spec m:matrix
-    { $m->first()->first()->unshift($as); return $m; }
+    { return $m->setColumnSpecs( $as ); }
 
 // "matrix" does not require column specification
 matrix
   = l:line_start tail:( NEXT_ROW m:matrix { return $m; } )?
-    { return new TexArray( ParserUtil::lst2arr($l), $tail ); }
+    { if ($tail === null) { return new Matrix( 'matrix', new TexArray( $l ) ); }
+     return new Matrix( 'matrix', $tail->unshift($l) ); }
 line_start
   = f:HLINE l:line_start
     {
@@ -217,7 +212,10 @@ line_start
   / line
 line
   = e:expr tail:( NEXT_CELL l:line { return $l; } )?
-    { return new TexArray($e, $tail); }
+    {
+    if ($tail === null) { return new TexArray( $e )  ; }
+    return $tail->unshift($e);
+    }
 
 column_spec
   = CURLY_OPEN cs:(one_col+ { return $this->text(); }) CURLY_CLOSE

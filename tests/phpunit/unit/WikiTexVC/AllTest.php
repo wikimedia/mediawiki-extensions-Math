@@ -567,7 +567,7 @@ class AllTest extends MediaWikiUnitTestCase {
 				'oldtexvc' => $tc['oldtexvc'] ?? false
 			] );
 			$this->assertEquals( '+', $result['status'], $message );
-			$this->assertEquals( $result['output'], $tc['output'], $message );
+			$this->assertEquals( $tc['output'], $result['output'], $message );
 		}
 		if ( !array_key_exists( 'skipReparse', $tc ) || !$tc['skipReparse'] ) {
 			// verify that the output doesn't change if we feed it
