@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"An13sa",
+			"Atzerritik",
 			"Bengoa",
 			"Macofe",
 			"Mikel Ibaiba",
@@ -58,7 +59,7 @@
 	"mw-math-latexml": "LaTeXML (esperimentala, MathML erabiltzen du)",
 	"mw-math-mathml": "MathML posible bada (proba fasean)",
 	"mw-math-source": "LaTeX kodea (testu nabigatzaileentzako)",
-	"prefs-math": "Formulak",
+	"prefs-math": "Matematika",
 	"mathstatus": "Matematikaren egoera",
 	"mathwikibase": "Formula matematikoaren informazioa",
 	"datatypes-type-math": "Adierazpen matematikoa",
