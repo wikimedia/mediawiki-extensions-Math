@@ -175,8 +175,7 @@ class MathWikibaseInfo {
 		$labelAlign = $lang->isRTL() ? 'left' : 'right';
 		$labelAlignOpposite = !$lang->isRTL() ? 'left' : 'right';
 
-		$output = Html::openElement( "table", [ "style" => "padding: 5px" ] );
-		$output .= Html::openElement( "tbody" );
+		$output = '';
 
 		foreach ( $this->hasParts as $part ) {
 			$output .= Html::openElement( "tr" );
@@ -193,7 +192,7 @@ class MathWikibaseInfo {
 					$part->getLabel()
 				);
 			} else {
-				$output .= $part->getLabel();
+				$output .= htmlspecialchars( $part->getLabel() );
 			}
 
 			$output .= Html::closeElement( "td" );
@@ -221,10 +220,9 @@ class MathWikibaseInfo {
 			$output .= Html::closeElement( "tr" );
 		}
 
-		$output .= Html::closeElement( "tbody" );
-		$output .= Html::closeElement( "table" );
-
-		return $output;
+		return Html::rawElement( 'table', [ 'style' => 'padding: 5px' ],
+			Html::rawElement( 'tbody', [], $output )
+		);
 	}
 
 	/**
@@ -232,22 +230,20 @@ class MathWikibaseInfo {
 	 * @return string
 	 */
 	public function generateSmallTableOfParts() {
-		$output = Html::openElement( "table" );
-		$output .= Html::openElement( "tbody" );
+		$output = '';
 
 		foreach ( $this->hasParts as $part ) {
-			$output .= Html::openElement( "tr" );
-			$output .= Html::rawElement(
-				"td",
-				[ "style" => "text-align: center; padding-right: 5px;" ],
-				$part->getFormattedSymbol()
+			$output .= Html::rawElement( 'tr', [],
+				Html::rawElement( 'td',
+					[ 'style' => 'text-align: center; padding-right: 5px;' ],
+					$part->getFormattedSymbol()
+				) .
+				Html::element( 'td', [ 'style' => 'text-align:left;' ], $part->getLabel() )
 			);
-			$output .= Html::element( "td", [ "style" => "text-align:left;" ], $part->getLabel() );
-			$output .= Html::closeElement( "tr" );
 		}
 
-		$output .= Html::closeElement( "tbody" );
-		$output .= Html::closeElement( "table" );
-		return $output;
+		return Html::rawElement( 'table', [],
+			Html::rawElement( 'tbody', [], $output )
+		);
 	}
 }
