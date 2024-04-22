@@ -6,7 +6,8 @@
 			"Macofe",
 			"Mikel Ibaiba",
 			"Subi",
-			"Theklan"
+			"Theklan",
+			"Atzerritik"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Formula kimikoa",
@@ -58,9 +59,8 @@
 	"math_unknown_function": "\"$1\" funtzio ezezaguna",
 	"mw_math_latexml": "LaTeXML (esperimentala, MathML erabiltzen du)",
 	"mw_math_mathml": "MathML posible bada (proba fasean)",
-	"mw_math_png": "PNG irudiak",
 	"mw_math_source": "LaTeX kodea (testu nabigatzaileentzako)",
-	"prefs-math": "Formulak",
+	"prefs-math": "Matematika",
 	"mathstatus": "Matematikaren egoera",
 	"mathwikibase": "Formula matematikoaren informazioa",
 	"datatypes-type-math": "Adierazpen matematikoa",
