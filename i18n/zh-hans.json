@@ -19,6 +19,7 @@
 			"Yfdyh000",
 			"乌拉跨氪",
 			"予弦",
+			"沈澄心",
 			"神樂坂秀吉",
 			"铁桶"
 		]
@@ -92,9 +93,9 @@
 	"math_syntax_error": "语法错误",
 	"math_timeout": "$1自“$2”起超时。",
 	"math-test-end": "用于渲染模式“$1”的后端测试已完成。",
-	"math-test-fail": "测试“$1”''失败''。",
+	"math-test-fail": "测试“$1”失败。",
 	"math-test-start": "用于渲染模式“$1”的后端测试正在运行。",
-	"math-test-success": "测试“$1”''完成''。",
+	"math-test-success": "测试“$1”完成。",
 	"math-test-contains-diff": "返回的字符串$1不包含预期字符串$2。",
 	"math-test-equals-diff": "返回的字符串$1不同于预期字符串$2。",
 	"math-tracking-category-error": "有数学错误的页面",
