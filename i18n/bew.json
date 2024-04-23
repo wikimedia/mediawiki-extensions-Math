@@ -68,7 +68,7 @@
 	"math-test-start": "Penjajalan penjalanan bagèan belakang bakal mode pembikinan ''$1''.",
 	"math-test-success": "Penjajalan ''$1'' <span style=\"color:green\">berasil</span>.",
 	"math-test-contains-diff": "Rèncèng $1 nyang dibalikin kaga' ada rèncèng $2 nyang diancernya.",
-	"math-test-equals-diff": "Rèncèng nyang dibalikin $1 bèda ama rèncèng $2 nyang diancer.",
+	"math-test-equals-diff": "Rèncèng nyang dibalikin $1 béda ama rèncèng $2 nyang diancer.",
 	"math-tracking-category-error": "Halaman dengen kengabluan ètung-ètungan",
 	"math-tracking-category-error-desc": "Halaman di ni bangsaan ngelah kengabluan pemakéan tenger ètung-ètungan.",
 	"math-tracking-category-mhchem-deprecation": "Halaman nyang maké pèpèlan tenger kimia nyang angus",
@@ -102,6 +102,5 @@
 	"math-wikibase-special-form-button": "Pengabaran Rekès",
 	"math-wikibase-special-error-header": "Kengabluan",
 	"math-wikibase-special-error-invalid-argument": "ID barang Wikibase lu punya maksud kaga' nanggrak.",
-	"math-wikibase-special-error-unknown": "Kaga' tau dah ngapa ngablu pas ngambil data deri Wikibase.",
-	"math-wikibase-special-error-no-wikibase": "Ata-été Wikibase dibutuhin bakal maké ni halaman istimèwa."
+	"math-wikibase-special-error-unknown": "Kaga' tau dah ngapa ngablu pas ngambil data deri Wikibase."
 }
