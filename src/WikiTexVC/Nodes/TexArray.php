@@ -448,8 +448,9 @@ class TexArray extends TexNode {
 		}
 	}
 
-	public function unshift( ...$elements ) {
+	public function unshift( ...$elements ): TexArray {
 		array_unshift( $this->args, ...$elements );
+		return $this;
 	}
 
 	/**
@@ -474,6 +475,11 @@ class TexArray extends TexNode {
 
 	public function isCurly(): bool {
 		return $this->curly;
+	}
+
+	public function setCurly( $curly = true ): TexArray {
+		$this->curly = $curly;
+		return $this;
 	}
 
 }

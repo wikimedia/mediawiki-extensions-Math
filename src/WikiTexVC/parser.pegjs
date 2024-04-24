@@ -13,9 +13,8 @@ $this->options = ParserUtil::createOptions($options);
 start
   = _ t:tex_expr
     {
-        # assert.ok($t instanceof TexArray);
         assert($t instanceof TexArray);
-        return ParserUtil::lst2arr($t);
+        return $t;
     }
 
 // the PEG grammar doesn't automatically ignore whitespace when tokenizing.
@@ -34,7 +33,7 @@ tex_expr
   = e:expr EOF
     { return $e; }
   / e1:ne_expr name:FUN_INFIX e2:ne_expr EOF
-    { return new TexArray(new Infix($name, ParserUtil::lst2arr($e1), ParserUtil::lst2arr($e2))); }
+    { return new TexArray( new Infix($name, $e1, $e2)); }
 
 expr
   = ne_expr
@@ -43,11 +42,11 @@ expr
 
 ne_expr
   = h:lit_aq t:expr
-    { return new TexArray($h, $t); }
+    { return $t->unshift($h); }
   / h:litsq_aq t:expr
-    { return new TexArray($h, $t); }
+    { return $t->unshift($h); }
   / d:DECLh e:expr
-    { return new TexArray(new Declh($d->getFname(), ParserUtil::lst2arr($e))); }
+    { return new TexArray(new Declh($d->getFname(), $e)); }
 litsq_aq
   = litsq_fq
   / litsq_dq
@@ -141,7 +140,7 @@ lit
   / r:DELIMITER                 { return new Literal($r); }
   / b:BIG r:DELIMITER           { return new Big($b, $r); }
   / b:BIG SQ_CLOSE              { return new Big($b,  "]"); }
-  / l:left e:expr r:right       {return new Lr($l, $r, ParserUtil::lst2arr($e)); }
+  / l:left e:expr r:right       {return new Lr($l, $r, $e); }
   / name:FUN_AR1opt e:expr_nosqc SQ_CLOSE l:lit /* must be before FUN_AR1 */
     { return new Fun2sq($name, ParserUtil::lst2arr($e, true), $l); }
   / name:FUN_AR1 l:lit          { return new Fun1($name, $l); }
@@ -152,9 +151,9 @@ lit
   / name:FUN_AR2nb l1:lit l2:lit { return new Fun2nb($name, $l1, $l2); }
   / BOX
   / CURLY_OPEN e:expr CURLY_CLOSE
-    { return ParserUtil::lst2arr($e, true); }
+    { return $e->setCurly(); }
   / CURLY_OPEN e1:ne_expr name:FUN_INFIX e2:ne_expr CURLY_CLOSE
-    { return new Infix($name, ParserUtil::lst2arr($e1), ParserUtil::lst2arr($e2)); }
+    { return new Infix($name, $e1, $e2); }
   / BEGIN_MATRIX   m:(array/matrix) END_MATRIX
     { return new Matrix("matrix", ParserUtil::lst2arr($m)); }
   / BEGIN_PMATRIX  m:(array/matrix) END_PMATRIX
