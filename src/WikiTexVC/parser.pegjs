@@ -248,7 +248,7 @@ opt_pos
 
 
 chem_lit
-  = CURLY_OPEN e:chem_sentence CURLY_CLOSE               { return ParserUtil::lst2arr($e, true); }
+  = CURLY_OPEN e:chem_sentence CURLY_CLOSE               { return $e->setCurly(); }
 
 chem_sentence =
     _ p:chem_phrase " " s:chem_sentence                  { return new TexArray($p,new TexArray(new Literal(" "),$s)); } /
@@ -275,7 +275,7 @@ chem_char =
 chem_char_nl =
     m:chem_script                                        { return $m;} /
     CURLY_OPEN c:chem_text CURLY_CLOSE                   { return TexArray::newCurly($c); } /
-    BEGIN_MATH c:expr END_MATH                           { return new Dollar(ParserUtil::lst2arr($c)); }/
+    BEGIN_MATH c:expr END_MATH                           { return new Dollar($c); }/
     name:CHEM_BONDI l:chem_bond                           { return new Fun1($name, $l); } /
     m:chem_macro                                         { return $m; } /
     c:CHEM_NONLETTER                                     { return new Literal($c); }
@@ -286,7 +286,7 @@ chem_bond
 chem_script =
     a:CHEM_SUPERSUB b:CHEM_SCRIPT_FOLLOW                 { return new ChemWord(new Literal($a), new Literal($b)); } /
     a:CHEM_SUPERSUB b:chem_lit                           { return new ChemWord(new Literal($a), $b); } /
-    a:CHEM_SUPERSUB BEGIN_MATH b:expr END_MATH           { return new ChemWord(new Literal($a), new Dollar(ParserUtil::lst2arr($b))); }
+    a:CHEM_SUPERSUB BEGIN_MATH b:expr END_MATH           { return new ChemWord(new Literal($a), new Dollar($b)); }
 
 // TODO \color is a not documented feature of mhchem for MathJax, at the moment named colors are accepted
 chem_macro =
