@@ -427,7 +427,7 @@ class Parser {
     private function peg_f8($base, $upi) { return new UQ($base, $upi); }
     private function peg_f9($base, $downi) { return new DQ($base, $downi); }
     private function peg_f10() { return new Literal( "]"); }
-    private function peg_f11($l, $e) { return new TexArray($l, $e); }
+    private function peg_f11($l, $e) { return $e ->unshift( $l ); }
     private function peg_f12($l1, $l2) { return new FQ ($l1->getBase(), $l2, $l1->getUp()); }
     private function peg_f13($l1, $l2) { return new FQ(new TexArray(), $l1->getDown(), $l2); }
     private function peg_f14($l) { return new UQ(new TexArray(),$l); }
@@ -460,7 +460,7 @@ class Parser {
     private function peg_f26($b, $r) { return new Big($b, $r); }
     private function peg_f27($b) { return new Big($b,  "]"); }
     private function peg_f28($l, $e, $r) {return new Lr($l, $r, $e); }
-    private function peg_f29($name, $e, $l) { return new Fun2sq($name, ParserUtil::lst2arr($e, true), $l); }
+    private function peg_f29($name, $e, $l) { return new Fun2sq($name, $e->setCurly(), $l); }
     private function peg_f30($name, $l) { return new Fun1($name, $l); }
     private function peg_f31($name, $l) {return new Fun1nb($name, $l); }
     private function peg_f32($name, $l) { return new Mhchem($name, $l); }

@@ -68,7 +68,7 @@ litsq_zq
     { return new Literal( "]"); }
 expr_nosqc
   = l:lit_aq e:expr_nosqc
-    { return new TexArray($l, $e); }
+    { return $e ->unshift( $l ); }
   / "" /* */
     { return new TexArray(); }
 lit_aq
@@ -142,7 +142,7 @@ lit
   / b:BIG SQ_CLOSE              { return new Big($b,  "]"); }
   / l:left e:expr r:right       {return new Lr($l, $r, $e); }
   / name:FUN_AR1opt e:expr_nosqc SQ_CLOSE l:lit /* must be before FUN_AR1 */
-    { return new Fun2sq($name, ParserUtil::lst2arr($e, true), $l); }
+    { return new Fun2sq($name, $e->setCurly(), $l); }
   / name:FUN_AR1 l:lit          { return new Fun1($name, $l); }
   / name:FUN_AR1nb l:lit        {return new Fun1nb($name, $l); }
   / name:FUN_MHCHEM l:chem_lit  { return new Mhchem($name, $l); }
