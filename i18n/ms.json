@@ -30,5 +30,8 @@
 	"mw_math_mathml": "MathML dengan sandaran SVG atau PNG (disyorkan untuk pelayar dan alat-alat aksesibiliti moden)",
 	"mw_math_source": "Sumber LaTeX (untuk pelayar teks)",
 	"prefs-math": "Matematik",
-	"mathstatus": "Status Math"
+	"mathstatus": "Status Math",
+	"math-wikibase-header": "Maklumat Item Matematik",
+	"math-wikibase-special-form-header": "Nyatakan secara khusus nama formula:",
+	"math-wikibase-special-form-button": "Meminta Maklumat"
 }
