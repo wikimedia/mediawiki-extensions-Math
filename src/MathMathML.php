@@ -18,7 +18,6 @@ use Psr\Log\LoggerInterface;
 use StatusValue;
 use stdClass;
 use Throwable;
-use Xml;
 use XmlTypeCheck;
 
 /**
@@ -468,10 +467,7 @@ class MathMathML extends MathRenderer {
 			$titleObj = SpecialPage::getTitleFor( 'MathWikibase' );
 			$hyperlink = $titleObj->getLocalURL( [ 'qid' => $this->params['qid'] ] );
 		}
-		$output = Html::openElement( $element, $attribs );
-		if ( $hyperlink && $enableLinks ) {
-			$output .= Html::openElement( 'a', [ 'href' => $hyperlink, 'style' => 'color:inherit;' ] );
-		}
+		$output = '';
 		// MathML has to be wrapped into a div or span in order to be able to hide it.
 		// Remove displayStyle attributes set by the MathML converter
 		// (Beginning from Mathoid 0.2.5 block is the default layout.)
@@ -481,15 +477,19 @@ class MathMathML extends MathRenderer {
 		if ( $this->getMathStyle() == 'display' ) {
 			$mml = preg_replace( '/<math/', '<math display="block"', $mml );
 		}
-		$output .= Xml::tags( $element, [
+		$output .= Html::rawElement( $element, [
 			'class' => $this->getClassName(), 'style' => 'display: none;'
 		], $mml );
 		$output .= $this->getFallbackImage();
+
 		if ( $hyperlink && $enableLinks ) {
-			$output .= Html::closeElement( 'a' );
+			$output = Html::rawElement( 'a',
+				[ 'href' => $hyperlink, 'style' => 'color:inherit;' ],
+				$output
+			);
 		}
-		$output .= Html::closeElement( $element );
-		return $output;
+
+		return Html::rawElement( $element, $attribs, $output );
 	}
 
 	protected function dbOutArray() {
