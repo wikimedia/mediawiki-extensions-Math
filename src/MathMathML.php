@@ -439,7 +439,10 @@ class MathMathML extends MathRenderer {
 			$class .= 'inline';
 		}
 		if ( $fallback ) {
+			// Support 3rd party gadgets and extensions.
 			$class .= ' mw-invert';
+			// Support skins with night theme.
+			$class .= ' skin-invert';
 		} else {
 			$class .= ' mwe-math-mathml-a11y';
 		}
