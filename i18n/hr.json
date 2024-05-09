@@ -59,7 +59,7 @@
 	"math-visualeditor-symbol-group-math-typefaces": "Vrste pisma",
 	"math-visualeditor-symbol-group-math-unsorted": "Nerazvrstano",
 	"math_failure": "Obrada nije uspjela.",
-	"math-status-introduction": "Ova stranica prikazuje informacije o {{PLURAL:$1|načinu|načinima}}. izvedbe ispisa matematičkih formula.\n\nSljedeći {{PLURAL:$1|je način omogućen|su načini omogućeni}}:",
+	"math-status-introduction": "Ova stranica prikazuje informacije o {{PLURAL:$1|načinu|načinima}} izvedbe ispisa matematičkih formula.\n\nSljedeći {{PLURAL:$1|je način omogućen|su načini omogućeni}}:",
 	"math_syntax_error": "neispravna sintaksa",
 	"math-test-end": "''Backend'' testovi za načine prikaza ''$1'' su završeni.",
 	"math-test-fail": "Test ''$1'' ''neuspješan''.",
