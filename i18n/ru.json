@@ -26,7 +26,9 @@
 			"Translatobecomer",
 			"Vlad5250",
 			"Wikisaurus",
-			"Ядерный Трамвай"
+			"Ядерный Трамвай",
+			"Bashkorttan",
+			"Dirruw'o"
 		]
 	},
 	"math-desc": "Отображает математические формулы в тегах <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -40,6 +42,7 @@
 	"math-visualeditor-mwlatexinspector-display-default": "По умолчанию",
 	"math-visualeditor-mwlatexinspector-display-inline": "Линейное",
 	"math-visualeditor-mwlatexinspector-id": "ID ссылки (необязательно)",
+	"math-visualeditor-mwlatexinspector-qid": "Идентификатор в Викибазе (с префиксом Q)",
 	"math-visualeditor-mwmathdialog-title": "Математическая формула",
 	"math-visualeditor-symbol-group-chem-addition": "Дополнительные соединения",
 	"math-visualeditor-symbol-group-chem-aggregation": "Состояния агрегации",
@@ -125,6 +128,5 @@
 	"math-wikibase-special-form-button": "Информация о запросе",
 	"math-wikibase-special-error-header": "Ошибка",
 	"math-wikibase-special-error-invalid-argument": "Указанный вами ID элемента Wikibase не существует.",
-	"math-wikibase-special-error-unknown": "Произошла неизвестная ошибка при получении данных из Wikibase.",
-	"math-wikibase-special-error-no-wikibase": "Для использования этой служебной страницы требуется расширение Wikibase."
+	"math-wikibase-special-error-unknown": "Произошла неизвестная ошибка при получении данных из Wikibase."
 }
