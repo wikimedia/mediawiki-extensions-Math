@@ -32,6 +32,9 @@
 		]
 	},
 	"math-desc": "Отображает математические формулы в тегах <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"popups-settings-option-math": "Математика",
+	"popups-settings-option-math-description": "Объяснение математических формул.",
+	"popups-settings-option-math-tooltip": "Объяснение математических формул при наведении курсора.",
 	"math-visualeditor-mwchemdialog-title": "Химическая формула",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Быстрая правка",
 	"math-visualeditor-mwlatexdialog-card-formula": "Формула",
@@ -41,6 +44,7 @@
 	"math-visualeditor-mwlatexinspector-display-default": "По умолчанию",
 	"math-visualeditor-mwlatexinspector-display-inline": "Линейное",
 	"math-visualeditor-mwlatexinspector-id": "ID ссылки (необязательно)",
+	"math-visualeditor-mwlatexinspector-qid": "Идентификатор в Викибазе (с префиксом Q)",
 	"math-visualeditor-mwmathdialog-title": "Математическая формула",
 	"math-visualeditor-symbol-group-chem-addition": "Дополнительные соединения",
 	"math-visualeditor-symbol-group-chem-aggregation": "Состояния агрегации",
@@ -80,6 +84,7 @@
 	"math-visualeditor-symbol-group-math-symbols": "Символы и константы",
 	"math-visualeditor-symbol-group-math-typefaces": "Типы шрифта",
 	"math-visualeditor-symbol-group-math-unsorted": "Несортированное",
+	"math-form-type-label": "Тип исходных данных",
 	"math_failure": "Невозможно разобрать выражение",
 	"math_invalidjson": "Серверный ответ $1 — в неверном JSON-формате.",
 	"math_invalidresponse": "$1: Недопустимый ответ («$3») от сервера «$2»:",
@@ -126,6 +131,5 @@
 	"math-wikibase-special-form-button": "Информация о запросе",
 	"math-wikibase-special-error-header": "Ошибка",
 	"math-wikibase-special-error-invalid-argument": "Указанный вами ID элемента Wikibase не существует.",
-	"math-wikibase-special-error-unknown": "Произошла неизвестная ошибка при получении данных из Wikibase.",
-	"math-wikibase-special-error-no-wikibase": "Для использования этой служебной страницы требуется расширение Wikibase."
+	"math-wikibase-special-error-unknown": "Произошла неизвестная ошибка при получении данных из Wikibase."
 }
