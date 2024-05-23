@@ -77,9 +77,9 @@
 	"math_syntax_error": "синтаксична помилка",
 	"math_timeout": "$1 перевищив час очікування від «$2»",
 	"math-test-end": "Бекенд-тести для режиму візуалізації ''$1'' завершено.",
-	"math-test-fail": "Тест ''$1'' ''не вдався''.",
+	"math-test-fail": "Тест ''$1'' не вдався.",
 	"math-test-start": "Бекенд-тести для режиму візуалізації ''$1'' у процесі.",
-	"math-test-success": "Тест ''$1'' ''успішний''.",
+	"math-test-success": "Тест ''$1'' успішний.",
 	"math-test-contains-diff": "Виведений рядок $1 не містить очікуваного рядка $2.",
 	"math-test-equals-diff": "Виведений рядок $1 відрізняється від очікуваного рядка $2.",
 	"math-tracking-category-error": "Сторінки з математичними помилками",
@@ -116,6 +116,5 @@
 	"math-wikibase-special-form-button": "Запит на інформацію",
 	"math-wikibase-special-error-header": "Помилка",
 	"math-wikibase-special-error-invalid-argument": "Вказаний вами ID елемента Вікібази не існує.",
-	"math-wikibase-special-error-unknown": "Сталася невідома помилка під час отримання даних з Вікібази.",
-	"math-wikibase-special-error-no-wikibase": "Для використання цієї спеціальної сторінки необхідне розширення Вікібази."
+	"math-wikibase-special-error-unknown": "Сталася невідома помилка під час отримання даних з Вікібази."
 }
