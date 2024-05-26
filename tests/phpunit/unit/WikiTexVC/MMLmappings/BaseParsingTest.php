@@ -6,6 +6,8 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -30,6 +32,33 @@ class BaseParsingTest extends TestCase {
 		);
 		$result = BaseParsing::accent( $node, [ 'k' => 'v' ], null, 'widetilde', '007E' );
 		$this->assertStringContainsString( '<mi k="v"', $result );
+	}
+
+	public function testArray() {
+		$node = new Matrix( 'matrix',
+			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
+
+		$result = BaseParsing::array( $node, [], null, 'array', '007E' );
+		$this->assertStringContainsString( '<mi>a</mi>', $result );
+	}
+
+	public function testBoldSymbol() {
+		$node = new Fun1(
+			'\\boldsymbol',
+			( new Literal( 'a' ) )
+		);
+		$result = BaseParsing::boldsymbol( $node, [], null, 'boldsymbol' );
+		$this->assertStringContainsString( 'mathvariant="bold-italic"', $result );
+	}
+
+	public function testCancel() {
+		$node = new Fun1(
+			'\\cancel',
+			( new Literal( 'a' ) )
+		);
+		$result = BaseParsing::cancel( $node, [], null, 'cancel', 'something' );
+		$this->assertStringContainsString( '<menclose notation="something"><mi>a</mi></menclose>',
+			$result );
 	}
 
 	public function testUnderOver() {
