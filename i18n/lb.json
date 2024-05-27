@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Cheemesch Formel",
@@ -11,12 +12,19 @@
 	"math-visualeditor-mwlatexdialog-card-formula": "Formel",
 	"math-visualeditor-mwlatexdialog-card-options": "Optiounen",
 	"math-visualeditor-mwlatexinspector-display": "Ausgesinn",
+	"math-visualeditor-mwlatexinspector-display-block": "Block",
 	"math-visualeditor-mwlatexinspector-display-default": "Standard",
+	"math-visualeditor-mwlatexinspector-display-inline": "Inline",
+	"math-visualeditor-mwlatexinspector-qid": "Wikibase-ID (mat Q-Prefix)",
 	"math-visualeditor-mwmathdialog-title": "Mathematesch Formel",
+	"math-visualeditor-symbol-group-chem-aggregation": "Aggregatzoustänn",
+	"math-visualeditor-symbol-group-chem-arrows": "Reaktiounsfeiler",
+	"math-visualeditor-symbol-group-chem-charges": "Luedungen",
 	"math-visualeditor-symbol-group-chem-equations": "Cheemesch Gläichungen",
 	"math-visualeditor-symbol-group-chem-formulae": "Cheemesch Formelen",
 	"math-visualeditor-symbol-group-chem-greek": "Griichesch Buschtawen",
 	"math-visualeditor-symbol-group-chem-isotopes": "Isotopen",
+	"math-visualeditor-symbol-group-chem-oxidation": "Oxidatiounszoustänn",
 	"math-visualeditor-symbol-group-math-arrows": "Feiler",
 	"math-visualeditor-symbol-group-math-functions": "Standard numeresch Funktiounen",
 	"math-visualeditor-symbol-group-math-geometry": "Geometresch",
@@ -28,7 +36,11 @@
 	"math-visualeditor-symbol-group-math-parentheses": "Klameren",
 	"math-visualeditor-symbol-group-math-projections": "Projektiounen",
 	"math-visualeditor-symbol-group-math-relations": "Relatiounen",
+	"math-visualeditor-symbol-group-math-root": "Wuerzelen",
+	"math-visualeditor-symbol-group-math-spacing": "Ofstänn",
 	"math-visualeditor-symbol-group-math-special": "Spezial",
+	"math-visualeditor-symbol-group-math-symbols": "Symboler a Konstanten",
+	"math-visualeditor-symbol-group-math-typefaces": "Schrëftaarten",
 	"math-visualeditor-symbol-group-math-unsorted": "Net zortéiert",
 	"math_failure": "Parser-Feeler",
 	"math_invalidxml": "MathML oder SVG ass net valabelen XML.",
@@ -39,7 +51,6 @@
 	"math_unknown_error": "Onbekannte Feeler",
 	"math_unknown_function": "Onbekannte Funktioun '$1'",
 	"mw_math_mathml": "MathML mat SVG oder PNG wann et net geet (recommandéiert fir modern Browser an Toole fir en Accès ouni Barrière)",
-	"mw_math_png": "PNG-Biller",
 	"mw_math_source": "LaTeX-Quell (fir Textbrowser)",
 	"prefs-math": "Math/TeX",
 	"datatypes-type-math": "Mathemateschen Ausdrock",
@@ -50,6 +61,9 @@
 	"math-wikibase-formula-description": "Beschreiwung",
 	"math-wikibase-formula-link-header": "Source vun den Donnéeën",
 	"math-wikibase-formula-elements-header": "Elementer vun der Formel",
+	"math-wikibase-special-form-header": "Gitt den Numm vun der Formel un:",
 	"math-wikibase-special-form-placeholder": "Titel vun der Formel",
-	"math-wikibase-special-error-header": "Feeler"
+	"math-wikibase-special-form-button": "Informatiounen ufroen",
+	"math-wikibase-special-error-header": "Feeler",
+	"math-wikibase-special-error-invalid-argument": "Dir hutt eng Wikibase-Element-ID uginn, déi et net gëtt."
 }
