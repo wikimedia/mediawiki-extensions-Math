@@ -4,6 +4,7 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
+use Generator;
 use InvalidArgumentException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMappings;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
@@ -14,7 +15,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsup;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
-class TexArray extends TexNode {
+class TexArray extends TexNode implements \IteratorAggregate {
 	protected bool $curly = false;
 
 	public static function newCurly( ...$args ) {
@@ -427,7 +428,7 @@ class TexArray extends TexNode {
 	}
 
 	/**
-	 * @return TexNode|string|null first value
+	 * @return TexNode|null first value
 	 */
 	public function first() {
 		if ( isset( $this->args[0] ) ) {
@@ -438,7 +439,7 @@ class TexArray extends TexNode {
 	}
 
 	/**
-	 * @return TexNode|string|null second value
+	 * @return TexNode|null second value
 	 */
 	public function second() {
 		if ( isset( $this->args[1] ) ) {
@@ -482,4 +483,10 @@ class TexArray extends TexNode {
 		return $this;
 	}
 
+	/**
+	 * @return Generator<TexNode>
+	 */
+	public function getIterator(): Generator {
+		yield from $this->args;
+	}
 }

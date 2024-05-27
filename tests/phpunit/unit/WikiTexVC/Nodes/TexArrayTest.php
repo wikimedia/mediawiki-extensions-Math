@@ -79,4 +79,14 @@ class TexArrayTest extends MediaWikiUnitTestCase {
 		$n->unshift( 'test1', 'test2' );
 		$this->assertEquals( 3, $n->getLength(), 'Should unshift elements' );
 	}
+
+	public function testGenerator() {
+		$ta = new TexArray( new Literal( 'a' ), new Literal( 'b' ) );
+		foreach ( $ta as $item ) {
+			$this->assertInstanceOf(
+				'MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal',
+				$item,
+				'Should iterate over the elements' );
+		}
+	}
 }
