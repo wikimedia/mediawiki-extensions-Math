@@ -12,7 +12,7 @@
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration options
-	 * @cfg {mw.Api} [api] API object to use, creates a mw.ForeignApi instance if not specified
+	 * @param {mw.Api} [config.api] API object to use, creates a mw.ForeignApi instance if not specified
 	 */
 	mw.widgets.MathWbEntitySelector = function ( config ) {
 		config = config || {};
