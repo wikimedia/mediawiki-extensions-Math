@@ -49,7 +49,7 @@ class ParserIntegrationTests extends MediaWikiIntegrationTestCase {
 						return true;
 					}
 
-					public function getHtmlOutput() {
+					public function getHtmlOutput( bool $svg = true ): string {
 						return "<render>$this->mode:$this->tex</render>";
 					}
 

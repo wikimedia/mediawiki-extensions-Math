@@ -200,6 +200,14 @@ class MathMathMLTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringNotContainsString( "data-qid", $out );
 	}
 
+	public function testGetHtmlOutputNoSvg() {
+		$math = new MathMathML( "a+b" );
+		$out = $math->getHtmlOutput( false );
+		$this->assertStringNotContainsString( "<svg", $out );
+		$this->assertStringNotContainsString( "mwe-math-mathml-a11y", $out );
+		$this->assertStringContainsString( "mwe-math-mathml-", $out );
+	}
+
 	public function testEmpty() {
 		// TODO: Once render returns status, we won't need TestingAccessWrapper anymore.
 		$math = TestingAccessWrapper::newFromObject( new MathMathML( '' ) );

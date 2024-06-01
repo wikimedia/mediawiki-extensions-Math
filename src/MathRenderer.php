@@ -143,9 +143,10 @@ abstract class MathRenderer {
 	abstract public function render();
 
 	/**
+	 * @param bool $svg
 	 * @return string Html output that is embedded in the page
 	 */
-	abstract public function getHtmlOutput();
+	abstract public function getHtmlOutput( bool $svg = true ): string;
 
 	/**
 	 * texvc error messages

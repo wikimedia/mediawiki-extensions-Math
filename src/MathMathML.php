@@ -450,15 +450,18 @@ class MathMathML extends MathRenderer {
 	}
 
 	/**
+	 * @param bool $svg
 	 * @return string Html output that is embedded in the page
 	 */
-	public function getHtmlOutput() {
+	public function getHtmlOutput( bool $svg = true ): string {
 		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$enableLinks = $config->get( "MathEnableFormulaLinks" );
-		if ( $this->getMathStyle() == 'display' ) {
+		if ( $this->getMathStyle() === 'display' ) {
 			$element = 'div';
+			$mml_class = 'mwe-math-mathml-display';
 		} else {
 			$element = 'span';
+			$mml_class = 'mwe-math-mathml-inline';
 		}
 		$attribs = [ 'class' => 'mwe-math-element' ];
 		if ( $this->getID() !== '' ) {
@@ -480,10 +483,21 @@ class MathMathML extends MathRenderer {
 		if ( $this->getMathStyle() == 'display' ) {
 			$mml = preg_replace( '/<math/', '<math display="block"', $mml );
 		}
-		$output .= Html::rawElement( $element, [
-			'class' => $this->getClassName(), 'style' => 'display: none;'
-		], $mml );
-		$output .= $this->getFallbackImage();
+
+		if ( $svg ) {
+			$mml_attribs = [
+				'class' => $this->getClassName(),
+				'style' => 'display: none;'
+			];
+		} else {
+			$mml_attribs = [
+				'class' => $mml_class,
+			];
+		}
+		$output .= Html::rawElement( $element, $mml_attribs, $mml );
+		if ( $svg ) {
+			$output .= $this->getFallbackImage();
+		}
 
 		if ( $hyperlink && $enableLinks ) {
 			$output = Html::rawElement( 'a',
