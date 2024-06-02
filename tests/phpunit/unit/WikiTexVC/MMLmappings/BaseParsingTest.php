@@ -8,6 +8,7 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
+use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -115,4 +116,44 @@ class BaseParsingTest extends TestCase {
 		$result = BaseParsing::alignAt( $matrix, [], null, 'alignat', '002A' );
 		$this->assertStringContainsString( 'mtable', $result );
 	}
+
+	public function testHLineTop() {
+		$matrix = new Matrix( 'matrix',
+			new TexArray( new TexArray( new TexArray( new Literal( '\\hline ' ), new Literal( 'a'
+			) ) ) ) );
+		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$this->assertStringContainsString( 'top', $result );
+	}
+
+	public function testHLineBottom() {
+		$matrix = new Matrix( 'matrix',
+			new TexArray( new TexArray( new Literal( 'a' ) ),
+				new TexArray( new TexArray( new Literal( '\\hline ' ) ) ) ) );
+		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$this->assertStringContainsString( 'bottom', $result );
+		$this->assertStringContainsString( '<mi>a</mi>', $result );
+	}
+
+	public function testHLineLastLine() {
+		$matrix = new Matrix( 'matrix',
+			new TexArray( new TexArray( new Literal( 'a' ) ),
+				new TexArray( new TexArray( new Literal( '\\hline ' ), new Literal( 'a'
+				) ) ) ) );
+		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$this->assertStringContainsString( 'solid', $result );
+		$this->assertStringContainsString( '<mi>a</mi>', $result );
+	}
+
+	public function testComplicatedHline() {
+		$matrix = ( new TexVC() )->parse( '\\begin{array}{c}
+\\hline a\\\\
+\\hline 1\\\\
+2\\\\
+\\hline
+\\end{array}' )[0];
+		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$this->assertStringContainsString( 'solid none', $result );
+		$this->assertStringContainsString( 'top bottom', $result );
+	}
+
 }

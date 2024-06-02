@@ -524,13 +524,16 @@ class BaseParsing {
 	public static function matrix( Matrix $node, $passedArgs, $operatorContent,
 								   $name, $open = null, $close = null, $align = null, $spacing = null,
 								   $vspacing = null, $style = null, $cases = null, $numbered = null ) {
-		$resInner = "";
+		$resInner = '';
 		$mtr = new MMLmtr();
 		$mtd = new MMLmtd();
-		$addHlines = false;
+		$tableArgs = [ "columnspacing" => "1em", "rowspacing" => "4pt", 'rowlines' => '' ];
+		$mencloseArgs = [ 'notation' => '' ];
 		$columnInfo = $node->getColumnSpecs()->render();
+		$lineNumber = 0;
 		foreach ( $node as $row ) {
 			$resInner .= $mtr->getStart();
+			$solid = false;
 			foreach ( $row  as $cell ) {
 				$usedArg = clone $cell;
 				if ( $usedArg instanceof TexArray &&
@@ -539,27 +542,37 @@ class BaseParsing {
 					$usedArg[0]->getArg() === '\\hline '
 				) {
 					$usedArg->pop();
-					$addHlines = true;
+					if ( $lineNumber === 0 ) {
+						$mencloseArgs['notation'] .= 'top ';
+					} elseif ( $lineNumber === $node->getLength() - 1 &&
+						$usedArg->getLength() === 0
+					) {
+						$mencloseArgs['notation'] .= 'bottom ';
+						// remove the started row
+						$resInner = substr( $resInner, 0, -1 * strlen( $mtr->getStart() ) );
+						continue 2;
+					}
+					$solid = true;
 				}
 				$resInner .= $mtd->encapsulateRaw( $usedArg->renderMML( $passedArgs, [ 'inMatrix'
 					=> true ]
 				) );
 			}
+			if ( $lineNumber > 0 ) {
+				$tableArgs['rowlines'] .= $solid ? 'solid ' : 'none ';
+			}
 			$resInner .= $mtr->getEnd();
+			$lineNumber++;
+		}
+		if ( !str_contains( $tableArgs['rowlines'], 'solid' ) ) {
+			unset( $tableArgs['rowlines'] );
 		}
 		$mrow = new MMLmrow();
-		$tableArgs = [ "columnspacing" => "1em", "rowspacing" => "4pt" ];
-		$mencloseArgs = null;
-		if ( $addHlines ) {
-			// TBD this is just simple check, create a parsing function for hlines when there are more cases
-			// solid as first val: hline for header row
-			// none as second val: no hlines for follow up rows
-			$tableArgs = array_merge( $tableArgs, [ "rowlines" => "solid none" ] );
-		}
 		if ( $columnInfo ) {
 			// TBD this is just simple check, create a parsing function for hlines when there are more cases
 			if ( str_contains( $columnInfo, "|" ) ) {
-				$mencloseArgs = [ "data-padding" => "0", "notation" => "left right" ];
+
+				$mencloseArgs['notation'] .= "left right";
 				// it seems this is creted when left and right is solely coming from columninfo
 				$tableArgs = array_merge( $tableArgs, [ "columnlines" => "solid" ] );
 			}
@@ -587,14 +600,12 @@ class BaseParsing {
 		} else {
 			$resInner = $mtable->encapsulateRaw( $resInner );
 		}
-		if ( $mencloseArgs ) {
+		if ( $mencloseArgs['notation'] ) {
 			$menclose = new MMLmenclose( "", $mencloseArgs );
-			$matrix = $mrow->encapsulateRaw( $menclose->encapsulateRaw( $resInner ) );
+			return $mrow->encapsulateRaw( $menclose->encapsulateRaw( $resInner ) );
 
-		} else {
-			$matrix = $mrow->encapsulateRaw( $resInner );
 		}
-		return $matrix;
+		return $mrow->encapsulateRaw( $resInner );
 	}
 
 	public static function namedOp( $node, $passedArgs, $operatorContent, $name, $id = null ) {
