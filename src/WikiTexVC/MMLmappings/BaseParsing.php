@@ -118,7 +118,8 @@ class BaseParsing {
 		return $output;
 	}
 
-	public static function alignAt( $node, $passedArgs, $operatorContent, $name, $smth, $smth2 = null ) {
+	public static function alignAt( Matrix $node, $passedArgs, $operatorContent, $name, $smth,
+									$smth2 = null ) {
 		// Parsing is very similar to AmsEQArray, maybe extract function ... tcs: 178
 		$mrow = new MMLmrow();
 		// tbd how are the table args composed ?
@@ -129,23 +130,10 @@ class BaseParsing {
 		$mtd = new MMLmtd();
 		$renderedInner = "";
 
-		$tableElements = array_slice( $node->getArgs(), 1 )[0];
-		$discarded = false;
-		foreach ( $tableElements->getArgs() as $tableRow ) {
+		foreach ( $node as $tableRow ) {
 			$renderedInner .= $mtr->getStart();
 			foreach ( $tableRow->getArgs() as $tableCell ) {
-				$renderedInner .= $mtd->getStart();
-				foreach ( $tableCell->getArgs() as $cellItem ) {
-					if ( !$discarded && $cellItem->isCurly() ) {
-						$discarded = true;
-						// Just discard the number of rows atm, it is in the first Curly
-					} else {
-						$renderedInner .= $cellItem->renderMML(); // pass args here ?
-					}
-				}
-
-				$renderedInner .= $mtd->getEnd();
-
+				$renderedInner .= $mtd->getStart() . $tableCell->renderMML() . $mtd->getEnd();
 			}
 			$renderedInner .= $mtr->getEnd();
 		}
@@ -164,8 +152,7 @@ class BaseParsing {
 		$mtr = new MMLmtr();
 		$mtd = new MMLmtd();
 		$renderedInner = "";
-		$tableElements = array_slice( $node->getArgs(), 1 )[0];
-		foreach ( $tableElements->getArgs() as $tableRow ) {
+		foreach ( $node as $tableRow ) {
 			$renderedInner .= $mtr->getStart();
 			foreach ( $tableRow->getArgs() as $tableCell ) {
 				$renderedInner .= $mtd->encapsulateRaw( $tableCell->renderMML() ); // pass args here ?
@@ -534,34 +521,25 @@ class BaseParsing {
 		return $mmlMrow->encapsulate( "macro not resolved: " . $macro );
 	}
 
-	public static function matrix( $node, $passedArgs, $operatorContent,
+	public static function matrix( Matrix $node, $passedArgs, $operatorContent,
 								   $name, $open = null, $close = null, $align = null, $spacing = null,
 								   $vspacing = null, $style = null, $cases = null, $numbered = null ) {
 		$resInner = "";
 		$mtr = new MMLmtr();
 		$mtd = new MMLmtd();
 		$addHlines = false;
-		$columnInfo = [];
-		// tbd hline element is the first literal element within second texarray -> resolve
-		foreach ( $node->getMainarg()->getArgs() as $mainarg ) {
+		$columnInfo = $node->getColumnSpecs()->render();
+		foreach ( $node as $row ) {
 			$resInner .= $mtr->getStart();
-			foreach ( $mainarg->getArgs() as $arg ) {
-				$usedArg = clone $arg;
-				if ( count( $arg->getArgs() ) >= 1 && $arg->getArgs()[0] instanceof Literal ) {
-					// Discarding the column information Curly at the moment
-					if ( $arg->getArgs()[0]->getArg() == "\\hline " ) {
-						// discarding the hline
-						// $usedArg->args[0] = null; // this does no work tbd
-						$usedArg->pop();
-						$addHlines = true;
-					}
-				}
-				if ( count( $arg->getArgs() ) >= 1 && $arg->getArgs()[0]->isCurly() ) {
-					// Discarding the column information Curly at the moment
-					// $usedArg->getArgs()[0] = null;
-					$columnInfo = $usedArg->getArgs()[0]->render();
+			foreach ( $row  as $cell ) {
+				$usedArg = clone $cell;
+				if ( $usedArg instanceof TexArray &&
+					$usedArg->getLength() >= 1 &&
+					$usedArg[0] instanceof Literal &&
+					$usedArg[0]->getArg() === '\\hline '
+				) {
 					$usedArg->pop();
-
+					$addHlines = true;
 				}
 				$resInner .= $mtd->encapsulateRaw( $usedArg->renderMML( $passedArgs, [ 'inMatrix'
 					=> true ]
@@ -1123,7 +1101,7 @@ class BaseParsing {
 		// tbd refine intent params and operator content merging (does it overwrite ??)
 		$intentParamsState = $intentParams ? [ "intent-params" => $intentParams ] : $operatorContent;
 		// Here are some edge cases, they might go into renderMML in the related element
-		if ( str_contains( $intentContent, "matrix" ) ||
+		if ( str_contains( $intentContent ?? '', "matrix" ) ||
 			( $arg1->isCurly() && $arg1->getArgs()[0] instanceof Matrix ) ) {
 			$element = $arg1->getArgs()[0];
 			$rendered = $element->renderMML( [], $intentParamsState );

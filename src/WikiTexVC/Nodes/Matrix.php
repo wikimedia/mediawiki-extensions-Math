@@ -4,14 +4,15 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
+use Generator;
 use InvalidArgumentException;
 
-class Matrix extends TexNode {
+class Matrix extends TexArray {
 
 	/** @var string */
 	private $top;
-	/** @var TexArray */
-	private $mainarg;
+
+	private ?TexArray $columnSpecs = null;
 
 	/**
 	 * @param string $top
@@ -19,14 +20,18 @@ class Matrix extends TexNode {
 	 * @throws InvalidArgumentException if nested arguments are not of type TexArray
 	 */
 	public function __construct( string $top, TexArray $mainarg ) {
-		foreach ( $mainarg->args as $arg ) {
-			if ( !$arg instanceof TexArray ) {
+		foreach ( $mainarg->args as $row ) {
+			if ( !$row instanceof TexArray ) {
 				throw new InvalidArgumentException( 'Nested arguments have to be type of TexArray' );
 			}
 		}
-		parent::__construct( $top, $mainarg );
+		if ( $mainarg instanceof Matrix ) {
+			$this->args = $mainarg->args;
+			$this->curly = $mainarg->curly;
+		} else {
+			parent::__construct( ...$mainarg->args );
+		}
 		$this->top = $top;
-		$this->mainarg = $mainarg;
 	}
 
 	/**
@@ -36,11 +41,25 @@ class Matrix extends TexNode {
 		return $this->top;
 	}
 
+	public function setTop( string $top ): Matrix {
+		$this->top = $top;
+		return $this;
+	}
+
+	public function getColumnSpecs(): TexArray {
+		return $this->columnSpecs ?? new TexArray();
+	}
+
+	public function setColumnSpecs( TexArray $specs ): Matrix {
+		$this->columnSpecs = $specs;
+		return $this;
+	}
+
 	/**
 	 * @return TexArray
 	 */
 	public function getMainarg(): TexArray {
-		return $this->mainarg;
+		return $this;
 	}
 
 	public function containsFunc( $target, $args = null ) {
@@ -48,7 +67,7 @@ class Matrix extends TexNode {
 			$args = [
 				'\\begin{' . $this->top . '}',
 				'\\end{' . $this->top . '}',
-				$this->mainarg
+				...$this->args,
 			];
 		}
 		return parent::containsFunc( $target, $args );
@@ -59,7 +78,9 @@ class Matrix extends TexNode {
 	}
 
 	public function render() {
-		return '{\\begin{' . $this->top . '}' . $this->renderMatrix( $this->mainarg ) . '\\end{' . $this->top . '}}';
+		$colSpecs = $this->columnSpecs !== null ? $this->columnSpecs->render() : '';
+		return '{\\begin{' . $this->top . '}' . $colSpecs . $this->renderMatrix( $this ) . '\\end{' .
+			$this->top . '}}';
 	}
 
 	public function renderMML( $arguments = [], $state = [] ): string {
@@ -80,7 +101,7 @@ class Matrix extends TexNode {
 
 	public function extractIdentifiers( $args = null ) {
 		if ( $args == null ) {
-			$args = [ $this->mainarg ];
+			$args = $this->args;
 		}
 
 		$mapped = array_map( function ( $a ){
@@ -108,6 +129,14 @@ class Matrix extends TexNode {
 			$fld = [ $fld ];
 		}
 		return array_merge( $acc, $fld );
+	}
+
+	/**
+	 * @suppress PhanTypeMismatchReturn
+	 * @return Generator<TexArray>
+	 */
+	public function getIterator(): Generator {
+		return parent::getIterator();
 	}
 
 }

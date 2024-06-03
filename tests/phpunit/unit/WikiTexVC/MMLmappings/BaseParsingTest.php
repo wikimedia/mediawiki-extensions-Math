@@ -108,4 +108,11 @@ class BaseParsingTest extends TestCase {
 			[ 'k' => '"<script>alert("problem")</script>"' ], null, 'oXXX', '00AF' );
 		$this->assertStringContainsString( 'k="&quot;&lt;script&gt;alert(&quot;problem&quot;)', $result );
 	}
+
+	public function testAlignAt() {
+		$matrix = new Matrix( 'alignat',
+			new TexArray( new TexArray( new Literal( '\\sin' ) ) ) );
+		$result = BaseParsing::alignAt( $matrix, [], null, 'alignat', '002A' );
+		$this->assertStringContainsString( 'mtable', $result );
+	}
 }
