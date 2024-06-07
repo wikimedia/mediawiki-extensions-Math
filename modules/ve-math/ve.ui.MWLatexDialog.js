@@ -39,8 +39,6 @@ ve.ui.MWLatexDialog.static.symbolsModule = null;
  * @inheritdoc
  */
 ve.ui.MWLatexDialog.prototype.initialize = function () {
-	const dialog = this;
-
 	// Parent method
 	ve.ui.MWLatexDialog.super.prototype.initialize.call( this );
 
@@ -137,7 +135,7 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 	this.pages = [];
 	this.symbolsPromise = mw.loader.using( this.constructor.static.symbolsModule ).done( ( require ) => {
 		// eslint-disable-next-line security/detect-non-literal-require
-		const symbols = require( dialog.constructor.static.symbolsModule );
+		const symbols = require( this.constructor.static.symbolsModule );
 		const symbolData = {};
 		for ( const category in symbols ) {
 			const symbolList = symbols[ category ].filter( ( symbol ) => {
@@ -173,21 +171,21 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 				symbols: symbolList
 			};
 		}
-		dialog.bookletLayout.setSymbolData( symbolData );
-		dialog.bookletLayout.connect( dialog, {
+		this.bookletLayout.setSymbolData( symbolData );
+		this.bookletLayout.connect( this, {
 			choose: 'onSymbolChoose'
 		} );
 
 		// Append everything
 		formulaPanel.$element.append(
-			dialog.previewElement.$element,
+			this.previewElement.$element,
 			inputField.$element
 		);
-		dialog.menuLayout.setMenuPanel( dialog.bookletLayout );
-		dialog.menuLayout.setContentPanel( formulaPanel );
+		this.menuLayout.setMenuPanel( this.bookletLayout );
+		this.menuLayout.setContentPanel( formulaPanel );
 
 		formulaTabPanel.$element.append(
-			dialog.menuLayout.$element
+			this.menuLayout.$element
 		);
 		optionsTabPanel.$element.append(
 			displayField.$element,
@@ -195,9 +193,9 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 			qidField.$element
 		);
 
-		dialog.$body
+		this.$body
 			.addClass( 've-ui-mwLatexDialog-content' )
-			.append( dialog.indexLayout.$element );
+			.append( this.indexLayout.$element );
 	} );
 
 };
@@ -292,18 +290,17 @@ ve.ui.MWLatexDialog.prototype.getBodyHeight = function () {
  * Handle the window resize event
  */
 ve.ui.MWLatexDialog.prototype.onWindowManagerResize = function () {
-	const dialog = this;
 	this.input.loadingPromise.always( () => {
 		// Toggle short mode as necessary
 		// NB a change of mode triggers a transition...
-		dialog.menuLayout.$element.toggleClass(
-			've-ui-mwLatexDialog-menuLayout-short', dialog.menuLayout.$element.height() < 450
+		this.menuLayout.$element.toggleClass(
+			've-ui-mwLatexDialog-menuLayout-short', this.menuLayout.$element.height() < 450
 		);
 
 		// ...So wait for the possible menuLayout transition to finish
 		setTimeout( () => {
 			// Give the input the right number of rows to fit the space
-			const availableSpace = dialog.menuLayout.$content.height() - dialog.input.$element.position().top;
+			const availableSpace = this.menuLayout.$content.height() - this.input.$element.position().top;
 			// TODO: Compute this line height from the skin
 			const singleLineHeight = 21;
 			const border = 1;
@@ -311,10 +308,10 @@ ve.ui.MWLatexDialog.prototype.onWindowManagerResize = function () {
 			const borderAndPadding = 2 * ( border + padding );
 			const maxInputHeight = availableSpace - borderAndPadding;
 			const minRows = Math.floor( maxInputHeight / singleLineHeight );
-			dialog.input.loadingPromise.done( () => {
-				dialog.input.setMinRows( minRows );
+			this.input.loadingPromise.done( () => {
+				this.input.setMinRows( minRows );
 			} ).fail( () => {
-				dialog.input.$input.attr( 'rows', minRows );
+				this.input.$input.attr( 'rows', minRows );
 			} );
 		}, OO.ui.theme.getDialogTransitionDuration() );
 	} );

@@ -86,14 +86,13 @@
 	mw.widgets.MathWbEntitySelector.prototype.getLookupRequest = function () {
 		const api = this.getApi(),
 			query = this.getQueryValue(),
-			widget = this,
 			promiseAbortObject = {
 				abort: function () {
 					// Do nothing. This is just so OOUI doesn't break due to abort being undefined.
 					// see also mw.widgets.TitleWidget.prototype.getSuggestionsPromise
 				}
 			},
-			req = api.get( widget.getApiParams( query ) );
+			req = api.get( this.getApiParams( query ) );
 		promiseAbortObject.abort = req.abort.bind( req );
 		return req.promise( promiseAbortObject );
 	};
