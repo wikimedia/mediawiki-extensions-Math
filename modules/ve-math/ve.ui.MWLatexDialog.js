@@ -135,21 +135,19 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 		classes: [ 've-ui-mwLatexDialog-symbols' ]
 	} );
 	this.pages = [];
-	this.symbolsPromise = mw.loader.using( this.constructor.static.symbolsModule ).done( function ( require ) {
+	this.symbolsPromise = mw.loader.using( this.constructor.static.symbolsModule ).done( ( require ) => {
 		// eslint-disable-next-line security/detect-non-literal-require
 		const symbols = require( dialog.constructor.static.symbolsModule );
 		const symbolData = {};
 		for ( const category in symbols ) {
-			const symbolList = symbols[ category ].filter( function ( symbol ) {
+			const symbolList = symbols[ category ].filter( ( symbol ) => {
 				if ( symbol.notWorking || symbol.duplicate ) {
 					return false;
 				}
 				const tex = symbol.tex || symbol.insert;
 				const classes = [ 've-ui-mwLatexDialog-symbol' ];
 				classes.push(
-					've-ui-mwLatexSymbol-' + tex.replace( /[^\w]/g, function ( c ) {
-						return '_' + c.charCodeAt( 0 ) + '_';
-					} )
+					've-ui-mwLatexSymbol-' + tex.replace( /[^\w]/g, ( c ) => '_' + c.charCodeAt( 0 ) + '_' )
 				);
 				if ( symbol.width ) {
 					// The following classes are used here:
@@ -295,7 +293,7 @@ ve.ui.MWLatexDialog.prototype.getBodyHeight = function () {
  */
 ve.ui.MWLatexDialog.prototype.onWindowManagerResize = function () {
 	const dialog = this;
-	this.input.loadingPromise.always( function () {
+	this.input.loadingPromise.always( () => {
 		// Toggle short mode as necessary
 		// NB a change of mode triggers a transition...
 		dialog.menuLayout.$element.toggleClass(
@@ -303,7 +301,7 @@ ve.ui.MWLatexDialog.prototype.onWindowManagerResize = function () {
 		);
 
 		// ...So wait for the possible menuLayout transition to finish
-		setTimeout( function () {
+		setTimeout( () => {
 			// Give the input the right number of rows to fit the space
 			const availableSpace = dialog.menuLayout.$content.height() - dialog.input.$element.position().top;
 			// TODO: Compute this line height from the skin
@@ -313,9 +311,9 @@ ve.ui.MWLatexDialog.prototype.onWindowManagerResize = function () {
 			const borderAndPadding = 2 * ( border + padding );
 			const maxInputHeight = availableSpace - borderAndPadding;
 			const minRows = Math.floor( maxInputHeight / singleLineHeight );
-			dialog.input.loadingPromise.done( function () {
+			dialog.input.loadingPromise.done( () => {
 				dialog.input.setMinRows( minRows );
-			} ).fail( function () {
+			} ).fail( () => {
 				dialog.input.$input.attr( 'rows', minRows );
 			} );
 		}, OO.ui.theme.getDialogTransitionDuration() );

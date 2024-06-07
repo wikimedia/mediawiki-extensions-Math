@@ -18,7 +18,7 @@
 			return deferred.reject();
 		}
 		qidstr = qidstr.slice( 1 );
-		fetch( qidstr ).then( function ( body ) {
+		fetch( qidstr ).then( ( body ) => {
 			const model = {
 				title: body.title,
 				url: body.canonicalurl,
@@ -36,7 +36,7 @@
 	// popups require title attributes
 	[].forEach.call(
 		document.querySelectorAll( '.mwe-math-element[data-qid] img' ),
-		function ( node ) {
+		( node ) => {
 			if ( isValidId( node.parentNode.parentNode.dataset.qid ) ) {
 				node.dataset.title = 'math-unique-identifier';
 			}

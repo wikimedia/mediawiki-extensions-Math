@@ -59,9 +59,7 @@
 	 * @inheritdoc OO.ui.mixin.LookupElement
 	 */
 	mw.widgets.MathWbEntitySelector.prototype.getLookupMenuOptionsFromData = function ( response ) {
-		return response.map( function ( res ) {
-			return new OO.ui.MenuOptionWidget( { data: res.id, label: res.label, title: res.description } );
-		} );
+		return response.map( ( res ) => new OO.ui.MenuOptionWidget( { data: res.id, label: res.label, title: res.description } ) );
 	};
 
 	/**
