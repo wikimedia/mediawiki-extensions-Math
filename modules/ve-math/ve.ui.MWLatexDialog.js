@@ -205,7 +205,7 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
  */
 ve.ui.MWLatexDialog.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWLatexDialog.super.prototype.getSetupProcess.call( this, data )
-		.next( function () {
+		.next( () => {
 			const attributes = this.selectedNode && this.selectedNode.getAttribute( 'mw' ).attrs,
 				display = attributes && attributes.display || 'default',
 				id = attributes && attributes.id || '',
@@ -223,7 +223,7 @@ ve.ui.MWLatexDialog.prototype.getSetupProcess = function ( data ) {
 			this.displaySelect.on( 'choose', this.onChangeHandler );
 			this.idInput.on( 'change', this.onChangeHandler );
 			this.qidInput.on( 'change', this.onChangeHandler );
-		}, this );
+		} );
 };
 
 /**
@@ -232,15 +232,13 @@ ve.ui.MWLatexDialog.prototype.getSetupProcess = function ( data ) {
 ve.ui.MWLatexDialog.prototype.getReadyProcess = function ( data ) {
 	mw.hook( 've.ui.MwLatexDialogReadyProcess' ).fire();
 	return ve.ui.MWLatexDialog.super.prototype.getReadyProcess.call( this, data )
-		.next( function () {
-			return this.symbolsPromise;
-		}, this )
-		.next( function () {
+		.next( () => this.symbolsPromise )
+		.next( () => {
 			// Resize the input once the dialog has been appended
 			this.input.adjustSize( true ).focus().moveCursorToEnd();
 			this.getManager().connect( this, { resize: 'onWindowManagerResize' } );
 			this.onWindowManagerResize();
-		}, this );
+		} );
 };
 
 /**
@@ -248,7 +246,7 @@ ve.ui.MWLatexDialog.prototype.getReadyProcess = function ( data ) {
  */
 ve.ui.MWLatexDialog.prototype.getTeardownProcess = function ( data ) {
 	return ve.ui.MWLatexDialog.super.prototype.getTeardownProcess.call( this, data )
-		.first( function () {
+		.first( () => {
 			this.input.off( 'change', this.onChangeHandler );
 			this.displaySelect.off( 'choose', this.onChangeHandler );
 			this.idInput.off( 'change', this.onChangeHandler );
@@ -258,7 +256,7 @@ ve.ui.MWLatexDialog.prototype.getTeardownProcess = function ( data ) {
 			this.indexLayout.resetScroll();
 			this.menuLayout.resetScroll();
 			this.bookletLayout.resetScroll();
-		}, this );
+		} );
 };
 
 /**
