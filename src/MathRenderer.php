@@ -11,14 +11,14 @@
 
 namespace MediaWiki\Extension\Math;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Math\InputCheck\BaseChecker;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Message\Message;
+use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
-use Message;
-use Parser;
 use Psr\Log\LoggerInterface;
-use RequestContext;
 use StringUtils;
 use WANObjectCache;
 

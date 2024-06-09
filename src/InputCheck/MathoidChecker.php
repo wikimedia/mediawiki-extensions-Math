@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Math\InputCheck;
 
 use MediaWiki\Http\HttpRequestFactory;
-use Message;
+use MediaWiki\Message\Message;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
 use WANObjectCache;

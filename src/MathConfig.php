@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Math;
 
 use ExtensionRegistry;
 use MediaWiki\Config\ServiceOptions;
-use Message;
+use MediaWiki\Message\Message;
 use Wikibase\Client\WikibaseClient;
 
 class MathConfig {

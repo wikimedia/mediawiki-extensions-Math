@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\Math\InputCheck;
 
 use HashBagOStuff;
+use MediaWiki\Message\Message;
 use MediaWikiIntegrationTestCase;
-use Message;
 use WANObjectCache;
 
 /**

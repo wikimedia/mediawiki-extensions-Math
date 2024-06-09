@@ -13,11 +13,11 @@ namespace MediaWiki\Extension\Math;
 use ExtensionRegistry;
 use Maintenance;
 use MediaWiki\Config\ConfigException;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Hook\MaintenanceRefreshLinksInitHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Settings\SettingsBuilder;
 use MediaWiki\SpecialPage\Hook\SpecialPage_initListHook;
-use RequestContext;
 
 class Hooks implements
 	SpecialPage_initListHook,

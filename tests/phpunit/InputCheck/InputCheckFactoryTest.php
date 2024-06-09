@@ -9,9 +9,9 @@ use MediaWiki\Extension\Math\InputCheck\MathoidChecker;
 use MediaWiki\Extension\Math\InputCheck\RestbaseChecker;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\Message\Message;
 use MediaWiki\Tests\Unit\MockServiceDependenciesTrait;
 use MediaWikiIntegrationTestCase;
-use Message;
 use WANObjectCache;
 
 /**
