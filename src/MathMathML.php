@@ -457,10 +457,8 @@ class MathMathML extends MathRenderer {
 		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$enableLinks = $config->get( "MathEnableFormulaLinks" );
 		if ( $this->getMathStyle() === 'display' ) {
-			$element = 'div';
 			$mml_class = 'mwe-math-mathml-display';
 		} else {
-			$element = 'span';
 			$mml_class = 'mwe-math-mathml-inline';
 		}
 		$attribs = [ 'class' => 'mwe-math-element' ];
@@ -494,7 +492,7 @@ class MathMathML extends MathRenderer {
 				'class' => $mml_class,
 			];
 		}
-		$output .= Html::rawElement( $element, $mml_attribs, $mml );
+		$output .= Html::rawElement( 'span', $mml_attribs, $mml );
 		if ( $svg ) {
 			$output .= $this->getFallbackImage();
 		}
@@ -506,7 +504,7 @@ class MathMathML extends MathRenderer {
 			);
 		}
 
-		return Html::rawElement( $element, $attribs, $output );
+		return Html::rawElement( 'span', $attribs, $output );
 	}
 
 	protected function dbOutArray() {
