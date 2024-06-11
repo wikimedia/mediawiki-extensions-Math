@@ -108,6 +108,7 @@
 	"math_unknown_error": "bilinmeyen hata",
 	"math_unknown_function": "bilinmeyen işlev \"$1\"",
 	"mw-math-latexml": "LaTeXML (deneysel; MathML kullanır)",
+	"mw-math-mathjax": "İstemci tarafı MathJax işleme (sınırlı MathML desteğine sahip tarayıcılar için)",
 	"mw-math-mathml": "SVG (MathML, tarayıcı eklentisi aracılığıyla etkinleştirilebilir)",
 	"mw-math-native": "MathML (deneysel; resim yok)",
 	"mw-math-source": "LaTeX kaynağı (metin tarayıcıları için)",
