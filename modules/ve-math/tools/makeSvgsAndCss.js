@@ -143,6 +143,7 @@ function generateCSS( symbolsFile, cssFile, inputType ) {
 		}
 		if ( !symbolList.length && !count ) {
 			cssRules.sort();
+			// eslint-disable-next-line security/detect-non-literal-fs-filename
 			fs.writeFileSync(
 				cssFile,
 				'/*!\n' +
