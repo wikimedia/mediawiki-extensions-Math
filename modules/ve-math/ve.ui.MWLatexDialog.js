@@ -160,6 +160,10 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 				if ( symbol.largeLayout ) {
 					classes.push( 've-ui-mwLatexDialog-symbol-largeLayout' );
 				}
+
+				// T366737 - make sure the symbols appear in night mode
+				classes.push( 'skin-invert' );
+
 				symbol.label = '';
 				symbol.classes = classes;
 
