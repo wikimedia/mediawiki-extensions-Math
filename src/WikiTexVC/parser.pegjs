@@ -309,8 +309,6 @@ literal_uf_op =   [-+*=]
 delimiter_uf_op = [\/|]
 boxchars // match only valid UTF-16 sequences
  = [-0-9a-zA-Z+*,=():\/;?.!'` \[\]\[\u0080-\ud7ff\]\[\ue000-\uffff\]]
- / l:[\ud800-\udbff] h:[\udc00-\udfff] { return $this->text(); }
-//aboxchars = [-0-9a-zA-Z+*,=():\/;?.!'` ]
 
 BOX
  = b:generic_func &{ return $this->tu->box_functions($b); } _ "{" cs:boxchars+ "}" _
