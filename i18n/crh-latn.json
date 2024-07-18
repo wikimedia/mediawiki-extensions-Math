@@ -5,7 +5,7 @@
 			"Macofe"
 		]
 	},
-	"math_failure": "Ayırıştırılamadı",
+	"math_failure": "Ayırıştırılıp olamadı",
 	"math_syntax_error": "sintaksis hatası",
 	"math_unknown_error": "bilinmegen hata",
 	"math_unknown_function": "belgisiz funktsiya",
