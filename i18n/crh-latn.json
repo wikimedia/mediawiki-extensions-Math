@@ -5,12 +5,11 @@
 			"Macofe"
 		]
 	},
-	"math_failure": "Ayırıştırılamadı",
+	"math_failure": "Ayırıştırılıp olamadı",
 	"math_syntax_error": "sintaksis hatası",
 	"math_unknown_error": "bilinmegen hata",
-	"math_unknown_function": "belgisiz funktsiya",
+	"math_unknown_function": "bilinmegen “$1” funktsiyası",
 	"mw_math_mathml": "Mümkün olsa MathML (daa deñeme alında)",
-	"mw_math_png": "Daima PNG resim formatına çevir",
 	"mw_math_source": "Deñiştirmeden LaTeX olaraq taşla (metin temelli brauzerler içün)",
 	"prefs-math": "Riyaziy (matematik) işaretler"
 }
