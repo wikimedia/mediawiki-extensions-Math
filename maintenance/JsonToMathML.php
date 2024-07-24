@@ -19,7 +19,6 @@
  */
 
 use MediaWiki\Extension\Math\MathRenderer;
-use MediaWiki\MediaWikiServices;
 
 require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 
@@ -209,7 +208,7 @@ class JsonToMathML extends Maintenance {
 			$tex = "\\ce{ " . $tex . " }";
 		}
 		/** @var MathRenderer $renderer */
-		$renderer = MediaWikiServices::getInstance()->get( 'Math.RendererFactory' )
+		$renderer = $this->getServiceContainer()->get( 'Math.RendererFactory' )
 			->getRenderer( $tex, $params, $renderingMode );
 		$renderer->render();
 		$mml = $renderer->getMathml();
