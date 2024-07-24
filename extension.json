@@ -372,7 +372,12 @@
 				"Math.RendererFactory"
 			]
 		},
-		"MathWikibase": "MediaWiki\\Extension\\Math\\SpecialMathWikibase"
+		"MathWikibase": {
+			"class": "MediaWiki\\Extension\\Math\\SpecialMathWikibase",
+			"services": [
+				"Math.WikibaseConnector"
+			]
+		}
 	},
 	"TrackingCategories": [
 		"math-tracking-category-error",
