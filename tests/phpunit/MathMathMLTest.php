@@ -20,7 +20,7 @@ class MathMathMLTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-		$this->setMwGlobals( 'wgMathoidCli', false );
+		$this->overrideConfigValue( 'MathoidCli', false );
 	}
 
 	/**
@@ -56,9 +56,7 @@ class MathMathMLTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testMakeRequestInvalid() {
 		$url = 'http://example.com/invalid';
-		$this->setMwGlobals( [
-			'wgMathMathMLUrl' => $url,
-		] );
+		$this->overrideConfigValue( 'MathMathMLUrl', $url );
 		$this->installMockHttp(
 			$this->makeFakeHttpRequest( 'Method Not Allowed', 405 )
 		);
@@ -95,9 +93,7 @@ class MathMathMLTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testMakeRequestTimeout() {
 		$url = 'http://example.com/timeout';
-		$this->setMwGlobals( [
-			'wgMathMathMLUrl' => $url,
-		] );
+		$this->overrideConfigValue( 'MathMathMLUrl', $url );
 		$this->installMockHttp(
 			$this->makeFakeTimeoutRequest()
 		);
@@ -169,7 +165,7 @@ class MathMathMLTest extends MediaWikiIntegrationTestCase {
 
 	public function testWarning() {
 		$this->setupGoodMathRestBaseMockHttp();
-		$this->setMwGlobals( "wgMathDisableTexFilter", 'always' );
+		$this->overrideConfigValue( 'MathDisableTexFilter', 'always' );
 
 		$renderer = new MathMathML();
 		$rbi = $this->getMockBuilder( MathRestbaseInterface::class )

@@ -19,7 +19,7 @@ use Psr\Log\NullLogger;
 class ParserIntegrationTests extends MediaWikiIntegrationTestCase {
 
 	private function setupDummyRendering() {
-		$this->setMwGlobals( 'wgMathValidModes', [ MathConfig::MODE_SOURCE, MathConfig::MODE_LATEXML ] );
+		$this->overrideConfigValue( 'MathValidModes', [ MathConfig::MODE_SOURCE, MathConfig::MODE_LATEXML ] );
 		$this->mergeMwGlobalArrayValue( 'wgDefaultUserOptions', [ 'math' => MathConfig::MODE_SOURCE ] );
 		$this->setService( 'Math.RendererFactory', new class(
 			new ServiceOptions( RendererFactory::CONSTRUCTOR_OPTIONS, [
