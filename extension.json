@@ -60,7 +60,10 @@
 			]
 		},
 		"main": {
-			"class": "MediaWiki\\Extension\\Math\\Hooks"
+			"class": "MediaWiki\\Extension\\Math\\Hooks",
+			"services": [
+				"UserOptionsManager"
+			]
 		},
 		"schema": {
 			"class": "MediaWiki\\Extension\\Math\\HookHandlers\\SchemaHooksHandler"
