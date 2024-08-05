@@ -10,7 +10,8 @@
 			"Stryn",
 			"Valtlait",
 			"VezonThunder",
-			"Wix"
+			"Wix",
+			"Valtlai"
 		]
 	},
 	"math-desc": "Esittää matemaattiset kaavat tunnisteiden <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code> välillä",
@@ -20,11 +21,16 @@
 	"math-visualeditor-mwlatexdialog-card-formula": "Kaava",
 	"math-visualeditor-mwlatexdialog-card-options": "Valinnat",
 	"math-visualeditor-mwlatexinspector-display": "Näytä",
+	"math-visualeditor-mwlatexinspector-display-block": "Rivistö",
 	"math-visualeditor-mwlatexinspector-display-default": "Oletus",
+	"math-visualeditor-mwlatexinspector-display-inline": "Yksirivinen",
+	"math-visualeditor-mwlatexinspector-qid": "Wikibase-tunniste (Q-etuliitteen kanssa)",
 	"math-visualeditor-mwmathdialog-title": "Matemaattinen kaava",
+	"math-visualeditor-symbol-group-chem-addition": "Additioyhdisteet",
 	"math-visualeditor-symbol-group-chem-arrows": "Reaktionuolet",
 	"math-visualeditor-symbol-group-chem-brackets": "Kaari-, haka- ja aaltosulkeet",
 	"math-visualeditor-symbol-group-chem-charges": "Varaukset",
+	"math-visualeditor-symbol-group-chem-dots": "Parittomat elektronit & radikaalipisteet",
 	"math-visualeditor-symbol-group-chem-equations": "Kemialliset yhtälöt",
 	"math-visualeditor-symbol-group-chem-formulae": "Kemialliset kaavat",
 	"math-visualeditor-symbol-group-chem-greek": "Kreikkalaiset merkit",
@@ -57,8 +63,15 @@
 	"math_unknown_function": "tuntematon funktio ”$1”",
 	"mw_math_latexml": "LaTeXML (kokeellinen; käyttää MathML:ää)",
 	"mw_math_mathml": "MathML, sekä SVG tai PNG varalla (suositeltu nykyaikaisille selaimille ja helppokäyttötyökaluille)",
-	"mw_math_png": "PNG-kuvat",
 	"mw_math_source": "Näytä LaTeX-muodossa (tekstiselaimille)",
 	"prefs-math": "Matematiikka",
-	"mathstatus": "Math-tila"
+	"mathstatus": "Math-tila",
+	"datatypes-type-math": "Matemaattinen lauseke",
+	"wikibase-listdatatypes-math-head": "Matemaattinen lauseke",
+	"math-wikibase-formula": "Kaava",
+	"math-wikibase-formula-name": "Nimi",
+	"math-wikibase-formula-type": "Tyyppi",
+	"math-wikibase-formula-description": "Kuvaus",
+	"math-wikibase-formula-link-header": "Tietolähde",
+	"math-wikibase-special-error-header": "Virhe"
 }
