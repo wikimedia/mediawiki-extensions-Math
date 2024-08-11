@@ -9,7 +9,6 @@
 		<exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPublic" />
 		<exclude name="MediaWiki.Usage.ExtendClassUsage.FunctionConfigUsage" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
-		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeClassBrace.BraceNotOnOwnLine" />
 	</rule>
 	<rule ref="Generic.Files.LineLength.TooLong">
 		<exclude-pattern>/src/WikiTexVC/Mhchem/MhchemPatterns.php</exclude-pattern>
