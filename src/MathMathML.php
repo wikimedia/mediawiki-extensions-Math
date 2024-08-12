@@ -110,11 +110,7 @@ class MathMathML extends MathRenderer {
 	 * @return string[]
 	 */
 	public function getAllowedRootElements() {
-		if ( $this->allowedRootElements ) {
-			return $this->allowedRootElements;
-		} else {
-			return $this->defaultAllowedRootElements;
-		}
+		return $this->allowedRootElements ?: $this->defaultAllowedRootElements;
 	}
 
 	/**

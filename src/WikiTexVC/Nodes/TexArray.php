@@ -435,22 +435,14 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	 * @return TexNode|null first value
 	 */
 	public function first() {
-		if ( isset( $this->args[0] ) ) {
-			return $this->args[0];
-		} else {
-			return null;
-		}
+		return $this->args[0] ?? null;
 	}
 
 	/**
 	 * @return TexNode|null second value
 	 */
 	public function second() {
-		if ( isset( $this->args[1] ) ) {
-			return $this->args[1];
-		} else {
-			return null;
-		}
+		return $this->args[1] ?? null;
 	}
 
 	public function unshift( ...$elements ): TexArray {

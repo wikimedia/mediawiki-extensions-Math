@@ -818,18 +818,12 @@ class BaseMappings {
 	}
 
 	public static function getInstance() {
-		if ( self::$instance == null ) {
-			self::$instance = new BaseMappings();
-		}
-
+		self::$instance ??= new BaseMappings();
 		return self::$instance;
 	}
 
 	public static function getEntryFromList( $keylist, $key ) {
-		if ( isset( self::ALL[$keylist][$key] ) ) {
-			return self::ALL[$keylist][$key];
-		}
-		return null;
+		return self::ALL[$keylist][$key] ?? null;
 	}
 
 	public static function getOperatorByKey( $key ) {

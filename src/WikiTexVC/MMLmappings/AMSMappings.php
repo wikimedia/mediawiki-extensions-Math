@@ -366,18 +366,12 @@ class AMSMappings {
 	}
 
 	public static function getInstance() {
-		if ( self::$instance == null ) {
-			self::$instance = new AMSMappings();
-		}
-
+		self::$instance ??= new AMSMappings();
 		return self::$instance;
 	}
 
 	public static function getEntryFromList( $keylist, $key ) {
-		if ( isset( self::ALL[$keylist][$key] ) ) {
-			return self::ALL[$keylist][$key];
-		}
-		return null;
+		return self::ALL[$keylist][$key] ?? null;
 	}
 
 	public static function getOperatorByKey( $key ) {
