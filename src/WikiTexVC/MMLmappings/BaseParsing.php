@@ -186,10 +186,7 @@ class BaseParsing {
 	}
 
 	public static function chemCustom( $node, $passedArgs, $operatorContent, $name, $translation = null ) {
-		if ( $translation ) {
-			return $translation;
-		}
-		return "tbd chemCustom";
+		return $translation ?: 'tbd chemCustom';
 	}
 
 	public static function customLetters( $node, $passedArgs, $operatorContent, $name, $char, $isOperator = false ) {
