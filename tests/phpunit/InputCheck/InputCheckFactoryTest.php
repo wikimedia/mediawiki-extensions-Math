@@ -22,7 +22,9 @@ class InputCheckFactoryTest extends MediaWikiIntegrationTestCase {
 
 	use MockServiceDependenciesTrait;
 
+	/** @var HttpRequestFactory */
 	private $fakeHTTP;
+	/** @var WANObjectCache */
 	private $fakeWAN;
 
 	protected function setUp(): void {

@@ -9,7 +9,9 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Parser
  */
 class ParserTest extends MediaWikiUnitTestCase {
+	/** @var array */
 	private $testCases;
+	/** @var Parser */
 	private $parser;
 
 	protected function setUp(): void {

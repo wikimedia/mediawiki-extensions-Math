@@ -12,6 +12,7 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\WikiTexVC\ParserUtil
  */
 class AllTest extends MediaWikiUnitTestCase {
+	/** @var TexVC */
 	private $texVC;
 
 	protected function setUp(): void {

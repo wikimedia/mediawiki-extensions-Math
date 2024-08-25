@@ -13,7 +13,9 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\WikiTexVC\ParserUtil
  */
 class ApiTest extends MediaWikiUnitTestCase {
+	/** @var array */
 	private $testCases;
+	/** @var TexVC */
 	private $texVC;
 
 	protected function setUp(): void {

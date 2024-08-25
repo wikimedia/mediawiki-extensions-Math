@@ -29,21 +29,32 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
  */
 class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
+	/** @var float */
 	private static $SIMILARITYTRESH = 0.7;
+	/** @var bool */
 	private static $SKIPXMLVALIDATION = true;
+	/** @var bool */
 	private static $APPLYFILTER = false;
+	/** @var bool */
 	private static $APPLYCATEGORYFILTER = false;
+	/** @var string[] */
 	private static $SKIPPEDCATEGORIES = [ "mhchemtexified_required" ];
+	/** @var int */
 	private static $FILTERSTART = 38;
+	/** @var int */
 	private static $FILTERLENGTH = 1;
 
+	/** @var bool */
 	private static $GENERATEHTML = false;
+	/** @var string */
 	private static $GENERATEDHTMLFILE = __DIR__ . "/MMLGenerationTexUtilTest-Output.html";
+	/** @var string */
 	private static $MMLREFFILE = __DIR__ . "/TexUtil-Ref.json";
 
 	/** @var bool export the updated TexUtil-Tex to "./ExportedTexUtilKeys.json" */
 	private static $EXPORT_KEYS = false;
 
+	/** @var int[] */
 	private static $SKIPPEDINDICES = [ 434, 489 ];
 
 	/**

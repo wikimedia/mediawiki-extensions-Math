@@ -15,6 +15,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
  */
 class AMSMappings {
 
+	/** @var self|null */
 	private static $instance = null;
 	private const AMSMACROS = [
 		"mathring" => [ 'accent', '02DA' ],
