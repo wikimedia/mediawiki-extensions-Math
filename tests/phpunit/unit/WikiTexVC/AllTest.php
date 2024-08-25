@@ -12,11 +12,7 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\WikiTexVC\ParserUtil
  */
 class AllTest extends MediaWikiUnitTestCase {
-	private $testCases;
 	private $texVC;
-	private $DELIMITERS1;
-	private $DELIMITERS2;
-	private $DELIMITERS3;
 
 	protected function setUp(): void {
 		parent::setUp();
