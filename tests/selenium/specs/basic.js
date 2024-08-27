@@ -22,7 +22,7 @@ describe( 'Math', () => {
 		await MathPage.openTitle( pageName );
 
 		// check if the page displays the image
-		assert( await MathPage.img.isExisting() );
+		assert( await MathPage.mathml.isExisting() );
 
 	} );
 
