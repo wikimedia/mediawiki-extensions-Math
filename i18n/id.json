@@ -3,6 +3,7 @@
 		"authors": [
 			"ANukuma",
 			"Bennylin",
+			"Ezagren",
 			"Gombang",
 			"Hidayatsrf",
 			"IvanLanin",
@@ -14,6 +15,7 @@
 		]
 	},
 	"math-desc": "Menghasilkan rumus matematika di antara tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"popups-settings-option-math-tooltip": "Menjelaskan rumus matematika saat mengarahkan kursor.",
 	"math-visualeditor-mwchemdialog-title": "Rumus kimia",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Suntingan cepat",
 	"math-visualeditor-mwlatexdialog-card-formula": "Rumus",
