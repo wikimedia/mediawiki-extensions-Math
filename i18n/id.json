@@ -10,10 +10,12 @@
 			"Rachmat.Wahidi",
 			"Rachmat04",
 			"Veracious",
-			"William Surya Permana"
+			"William Surya Permana",
+			"Ezagren"
 		]
 	},
 	"math-desc": "Menghasilkan rumus matematika di antara tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"popups-settings-option-math-tooltip": "Menjelaskan rumus matematika saat mengarahkan kursor.",
 	"math-visualeditor-mwchemdialog-title": "Rumus kimia",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Suntingan cepat",
 	"math-visualeditor-mwlatexdialog-card-formula": "Rumus",
@@ -110,6 +112,5 @@
 	"math-wikibase-special-form-button": "Informasi Permintaan",
 	"math-wikibase-special-error-header": "Galat",
 	"math-wikibase-special-error-invalid-argument": "ID butir Wikibase yang Anda tentukan tidak ada.",
-	"math-wikibase-special-error-unknown": "Galat tak diketahui muncul saat mendapatkan data dari Wikibase.",
-	"math-wikibase-special-error-no-wikibase": "Ekstensi Wikibase diperlukan untuk menggunakan halaman istimewa ini."
+	"math-wikibase-special-error-unknown": "Galat tak diketahui muncul saat mendapatkan data dari Wikibase."
 }
