@@ -162,7 +162,7 @@ class MathConfig {
 	 * @param string $default rendering mode to use by default on unrecognized input
 	 * @return string one of the self::MODE_* constants.
 	 */
-	public static function normalizeRenderingMode( $mode, string $default = self::MODE_MATHML ): string {
+	public static function normalizeRenderingMode( $mode, string $default = self::MODE_NATIVE_MML ): string {
 		if ( is_int( $mode ) ) {
 			$userOptionToMode = array_flip( self::MODES_TO_USER_OPTIONS );
 			return $userOptionToMode[$mode] ?? $default;
