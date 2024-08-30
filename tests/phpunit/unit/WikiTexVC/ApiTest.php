@@ -13,140 +13,144 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\WikiTexVC\ParserUtil
  */
 class ApiTest extends MediaWikiUnitTestCase {
-	/** @var array */
-	private $testCases;
+
 	/** @var TexVC */
 	private $texVC;
 
 	protected function setUp(): void {
 		parent::setUp();
-		$this->testCases = [
-			(object)[
+		$this->texVC = new TexVC();
+	}
+
+	public function provideTestCases() {
+		$testCases = [
+			[
 				'in' => '\\newcommand{\\text{do evil things}}',
 				'status' => 'F',
 				'details' => '\\newcommand'
 			],
-			(object)[
+			[
 				'in' => '\\sin\\left(\\frac12x\\right)',
 				'output' => '\\sin \\left({\\frac {1}{2}}x\\right)'
 			],
-			(object)[
-			 'in' => '\\reals',
-			 'output' => '\mathbb {R} ',
-			 'ams_required' => true
-			 ],
-			(object)[
+			[
+				'in' => '\\reals',
+				'output' => '\mathbb {R} ',
+				'ams_required' => true
+			],
+			[
 				'in' => '\\lbrack',
 				'output' => '\\lbrack '
 			],
-			(object)[
+			[
 				'in' => '\\figureEightIntegral',
 				'status' => 'F',
 				'details' => '\\figureEightIntegral'
 			],
-			(object)[
+			[
 				'in' => '\diamondsuit '
 			],
-			(object)[
+			[
 				'in' => '\\sinh x'
 			],
-			(object)[
+			[
 				'in' => '\\begin{foo}\\end{foo}',
 				'status' => 'F',
 				'details' => '\\begin{foo}'
 			],
-			(object)[
+			[
 				'in' => '\\hasOwnProperty',
 				'status' => 'F',
 				'details' => '\\hasOwnProperty'
 			],
-			(object)[
+			[
 				'in' => '\\hline',
 				'status' => 'S'
 			],
-			(object)[
+			[
 				'in' => '\\begin{array}{c}\\hline a \\\\ \\hline\\hline b \\end{array}',
 				'output' => '{\\begin{array}{c}\\hline a\\\\\\hline \\hline b\\end{array}}'
 			],
-			(object)[
+			[
 				'in' => '\\Diamond ',
 				'ams_required' => true
 			],
-			(object)[
+			[
 				'in' => '{\\begin{matrix}a\\ b\\end{matrix}}',
 				'ams_required' => true
 			],
-			(object)[
+			[
 				'in' => '{\\cancel {x}}',
 				'cancel_required' => true
 			],
-			(object)[
+			[
 				'in' => '\\color {red}',
 				'color_required' => true
 			],
-			(object)[
+			[
 				'in' => '\\euro',
 				'output' => '\\mbox{\\euro} ',
 				'euro_required' => true
 			],
-			(object)[
+			[
 				'in' => '\\coppa',
 				'output' => '\\mbox{\\coppa} ',
 				'teubner_required' => true
 			],
-			(object)[
+			[
 				'in' => '{\\color [rgb]{1,0,0}{\\mbox{This text is red.}}}',
 				'color_required' => true
 			],
-			(object)[
+			[
 				'in' => '{\\color[rgb]{1.5,0,0}{\\mbox{This text is bright red.}}}',
 				'status' => 'S'
 			],
-			(object)[
+			[
 				'in' => '{\\color [RGB]{51,0,0}{\\mbox{This text is dim red.}}}',
 				'output' => '{\\color [rgb]{0.2,0,0}{\\mbox{This text is dim red.}}}',
 				'color_required' => true
 			],
-			(object)[
+			[
 				'in' => '{\\color[RGB]{256,0,0}{\\mbox{This text is bright red.}}}',
 				'status' => 'S'
 			],
-			(object)[
+			[
 				'in' => '\\ce{ H2O }',
 				'mhchem_required' => true,
 				'status' => 'C'
 			],
-			(object)[
+			[
 				'in' => '\\ce{[Zn(OH)4]^2-}',
 				'mhchem_required' => true,
 				'status' => 'C'
-			 ],
-
+			],
 		];
-
-		$this->texVC = new TexVC();
+		foreach ( $testCases as $case ) {
+			yield $case['in'] => [ $case ];
+		}
 	}
 
-	public function testDefinedCases() {
-		foreach ( $this->testCases as $case ) {
-			$result = $this->texVC->check( $case->in, [ 'report_required' => true ] );
-			$resultStatus = array_key_exists( 'status', $result ) ? $result['status'] : '';
-			$caseStatus = property_exists( $case, 'status' ) ? ( (object)$case )->status : '+';
-			$this->assertEquals( $caseStatus, $resultStatus, 'Status incorrect' );
-			if ( $resultStatus === '+' ) {
-				$this->assertEquals( $case->output ?? $case->in, $result['output'] ?? '', 'Output incorrect' );
-				foreach ( array_keys( $result ) as $f ) {
-					if ( preg_match( '/_required/', $f ) ) {
-						$this->assertEquals( property_exists( $case, $f ), $result[$f],
-							'A required field does not match in result ' . $f );
-					}
-					$this->assertCount( 0, $result['warnings'], 'No warnings expected here.' );
+	/**
+	 * @dataProvider provideTestCases
+	 */
+	public function testDefinedCases( array $case ) {
+		$result = $this->texVC->check( $case['in'], [ 'report_required' => true ] );
+		$resultStatus = $result['status'] ?? '';
+		$caseStatus = $case['status'] ?? '+';
+		$this->assertSame( $caseStatus, $resultStatus, 'Status incorrect' );
+		if ( $resultStatus === '+' ) {
+			$this->assertSame( $case['output'] ?? $case['in'], $result['output'] ?? '', 'Output incorrect' );
+			foreach ( array_keys( $result ) as $f ) {
+				if ( preg_match( '/_required/', $f ) ) {
+					$this->assertSame( array_key_exists( $f, $case ), $result[$f],
+						'A required field does not match in result ' . $f );
 				}
-			}
-			if ( $resultStatus === 'F' ) {
-				$this->assertEquals( $case->details, $result['details'] ?? '', 'Details incorrect' );
 				$this->assertCount( 0, $result['warnings'], 'No warnings expected here.' );
 			}
+		}
+		if ( $resultStatus === 'F' ) {
+			$this->assertSame( $case['details'], $result['details'] ?? '', 'Details incorrect' );
+			$this->assertCount( 0, $result['warnings'], 'No warnings expected here.' );
 		}
 	}
 
