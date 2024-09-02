@@ -12,6 +12,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
  */
 class OperatorDictionary {
 
+	/** @var self|null */
 	private static $instance = null;
 
 	private const INFIX = [ // Implemented elements have [something, true] for custom parsing

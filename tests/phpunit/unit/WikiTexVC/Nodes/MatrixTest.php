@@ -14,6 +14,7 @@ use TypeError;
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix
  */
 class MatrixTest extends MediaWikiUnitTestCase {
+	/** @var Matrix */
 	private $sampleMatrix;
 
 	protected function setUp(): void {

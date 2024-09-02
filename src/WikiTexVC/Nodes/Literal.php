@@ -19,7 +19,9 @@ class Literal extends TexNode {
 
 	/** @var string */
 	private $arg;
+	/** @var string[] */
 	private $literals;
+	/** @var string[] */
 	private $extendedLiterals;
 
 	public function __construct( string $arg ) {

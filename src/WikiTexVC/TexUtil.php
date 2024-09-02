@@ -7,8 +7,11 @@ namespace MediaWiki\Extension\Math\WikiTexVC;
 use InvalidArgumentException;
 
 class TexUtil {
+	/** @var self|null */
 	private static $instance = null;
+	/** @var array<string,true> */
 	private $allFunctions;
+	/** @var array[] */
 	private $baseElements;
 
 	/**

@@ -14,6 +14,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
  */
 class BaseMappings {
 
+	/** @var self|null */
 	private static $instance = null;
 
 	// Macro Map 'special'

@@ -14,18 +14,29 @@ use Psr\Log\InvalidArgumentException;
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
  */
 final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
+	/** @var float */
 	private static $SIMILARITYTRESH = 0.7;
+	/** @var bool */
 	private static $SKIPXMLVALIDATION = true;
 
+	/** @var string */
 	private static $SELECTEDCATEGORY1 = "texvctreebugs";
+	/** @var string */
 	private static $FILENAME1 = __DIR__ . "/tex-2-mml.json";
+	/** @var string */
 	private static $FILENAME2 = __DIR__ . "/ParserTest-Ref.json";
+	/** @var int */
 	private static $SELECTEDFILE = 0; // 0 , 1 ... for selecting file
+	/** @var bool */
 	private static $APPLYFILTER = false;
+	/** @var int */
 	private static $FILTERSTART = 0;
+	/** @var int */
 	private static $FILTERLENGTH = 50;
 
+	/** @var bool */
 	private static $GENERATEHTML = false;
+	/** @var string */
 	private static $GENERATEDHTMLFILE = __DIR__ . "/MMLGenerationParserTest-Output.html";
 
 	protected function setUp(): void {
