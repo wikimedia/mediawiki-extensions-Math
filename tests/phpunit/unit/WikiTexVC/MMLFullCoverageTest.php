@@ -75,7 +75,7 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 		if ( in_array( $tc->ctr, self::$SKIPPEDINDICES, true ) ) {
 			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr, $tc->tex,
 				"skipped", "skipped", "skipped" ], false, self::$GENERATEHTML );
-			$this->assertTrue( true );
+			$this->addToAssertionCount( 1 );
 			return;
 		}
 		# Fetch result from WikiTexVC(PHP)
@@ -113,12 +113,12 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 				$this->fail( "No Mathoid reference found for: " . $tc->tex );
 			}
 			if ( $compRes['similarityF'] >= self::$SIMILARITYTRESH ) {
-				$this->assertTrue( true );
+				$this->addToAssertionCount( 1 );
 			} else {
 				$this->assertXmlStringEqualsXmlString( $tc->mml_mathoid, $mathMLtexVC );
 			}
 		} else {
-			$this->assertTrue( true );
+			$this->addToAssertionCount( 1 );
 		}
 	}
 

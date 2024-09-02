@@ -69,7 +69,7 @@ final class IntentParserTest extends MediaWikiUnitTestCase {
 	public function testTexVC( $title, $tc ) {
 		$texVC = new TexVC();
 		if ( $tc->skipped == true || in_array( $tc->ctr, self::$SKIPPEDINDICES, true ) ) {
-			$this->assertTrue( true );
+			$this->addToAssertionCount( 1 );
 			return;
 		}
 		# Fetch result from TexVC(PHP)
@@ -82,7 +82,7 @@ final class IntentParserTest extends MediaWikiUnitTestCase {
 		] );
 		if ( !isset( $resultT["input"] ) ) {
 			if ( $tc->shouldfail ) {
-				$this->assertTrue( true );
+				$this->addToAssertionCount( 1 );
 				return;
 			}
 		}
@@ -97,7 +97,7 @@ final class IntentParserTest extends MediaWikiUnitTestCase {
 			"Name" => $tc->name,
 		];
 		self::writeToJSONFile( $writeObj, $tc->ctr != 86 ? true : false );
-		$this->assertTrue( true );
+		$this->addToAssertionCount( 1 );
 	}
 
 	public static function provideTestCases() {

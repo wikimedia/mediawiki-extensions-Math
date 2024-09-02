@@ -65,7 +65,7 @@ final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
 		if ( $tc->skipped ?? false ) {
 			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr, $tc->input,
 				"skipped", "skipped" ], false, self::$GENERATEHTML );
-			$this->assertTrue( true );
+			$this->addToAssertionCount( 1 );
 			return;
 		}
 		# Fetch result from WikiTexVC(PHP)
@@ -81,7 +81,7 @@ final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
 			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $tc->ctr,
 				$tc->input, $tc->mmlLaTeXML ?? "tbd", "tbd",
 				$mathMLtexVC, -0.0 ], false, self::$GENERATEHTML );
-			$this->assertTrue( true );
+			$this->addToAssertionCount( 1 );
 			return;
 		}
 		$mmlComparator = new MMLComparator();
@@ -95,12 +95,12 @@ final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
 				$this->fail( "No Mathoid reference found for: " . $tc->input );
 			}
 			if ( $compRes['similarityF'] >= self::$SIMILARITYTRESH ) {
-				$this->assertTrue( true );
+				$this->addToAssertionCount( 1 );
 			} else {
 				$this->assertXmlStringEqualsXmlString( $tc->mmlMathoid, $mathMLtexVC );
 			}
 		} else {
-			$this->assertTrue( true );
+			$this->addToAssertionCount( 1 );
 		}
 	}
 

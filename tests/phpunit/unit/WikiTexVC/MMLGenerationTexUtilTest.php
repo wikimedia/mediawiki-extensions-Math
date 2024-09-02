@@ -64,7 +64,7 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 		if ( in_array( $input->ctr, self::$SKIPPEDINDICES, true ) ) {
 			MMLTestUtilHTML::generateHTMLtableRow( self::$GENERATEDHTMLFILE, [ $title, $input->tex, $input->mmlLaTeXML,
 				$input->mmlMathoid, "skipped", "skipped" ], false, self::$GENERATEHTML );
-			$this->assertTrue( true );
+			$this->addToAssertionCount( 1 );
 			return;
 		}
 
@@ -97,12 +97,12 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 		// Comparing the result either to MathML result from Mathoid
 		if ( !self::$SKIPXMLVALIDATION ) {
 			if ( $compRes['similarityF'] >= self::$SIMILARITYTRESH ) {
-				$this->assertTrue( true );
+				$this->addToAssertionCount( 1 );
 			} else {
 				$this->assertXmlStringEqualsXmlString( $usedMMLRef, $mathMLtexVC );
 			}
 		} else {
-			$this->assertTrue( true );
+			$this->addToAssertionCount( 1 );
 		}
 	}
 
