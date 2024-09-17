@@ -171,9 +171,9 @@ class SpecialMathStatus extends SpecialPage {
 	 * http://www.w3.org/TR/REC-MathML/chap3_5.html#sec3.5.2
 	 */
 	public function testLaTeXMLLinebreak() {
-		global $wgMathDefaultLaTeXMLSetting;
+		$mathDefaultLaTeXMLSetting = $this->getConfig()->get( 'MathDefaultLaTeXMLSetting' );
 		$tex = '';
-		$testMax = ceil( $wgMathDefaultLaTeXMLSetting[ 'linelength' ] / 2 );
+		$testMax = ceil( $mathDefaultLaTeXMLSetting[ 'linelength' ] / 2 );
 		for ( $i = 0; $i < $testMax; $i++ ) {
 			$tex .= "$i+";
 		}
