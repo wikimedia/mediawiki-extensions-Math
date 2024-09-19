@@ -215,7 +215,7 @@ class MathMathML extends MathRenderer {
 		global $wgMathLaTeXMLTimeout;
 		$post = $this->getPostData();
 		$options = [ 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout ];
-		$req = MediaWikiServices::getInstance()->getHttpRequestFactory()->create( $this->host, $options );
+		$req = MediaWikiServices::getInstance()->getHttpRequestFactory()->create( $this->host, $options, __METHOD__ );
 		$status = $req->execute();
 		if ( $status->isGood() ) {
 			return StatusValue::newGood( $req->getContent() );
