@@ -181,7 +181,7 @@ class BaseMethods {
 		// tbd verify rule: Lowercase name ("operator" instead "Operator") seems to
 		// indicate additional italic mathvariant when bold already
 		if ( !ctype_upper( $name ) ) {
-			if ( isset( $passedArgs["mathvariant"] ) && $passedArgs["mathvariant"] ) {
+			if ( isset( $passedArgs["mathvariant"] ) && $passedArgs["mathvariant"] === 'bold' ) {
 				$passedArgs["mathvariant"] = $passedArgs["mathvariant"] . "-" . Variants::ITALIC;
 			}
 		}

@@ -43,6 +43,15 @@ class BaseParsingTest extends TestCase {
 		$this->assertStringContainsString( '<mi>a</mi>', $result );
 	}
 
+	public function testBoldGreek() {
+		$node = new Fun1(
+			'\\boldsymbol',
+			( new Literal( '\\alpha' ) )
+		);
+		$result = BaseParsing::boldsymbol( $node, [], null, 'boldsymbol' );
+		$this->assertStringContainsString( 'mathvariant="bold-italic"', $result );
+	}
+
 	public function testBoldSymbol() {
 		$node = new Fun1(
 			'\\boldsymbol',
