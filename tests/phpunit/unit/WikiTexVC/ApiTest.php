@@ -124,6 +124,20 @@ class ApiTest extends MediaWikiUnitTestCase {
 				'mhchem_required' => true,
 				'status' => 'C'
 			],
+			[
+				'in' => '{\\begin{aligned}a\\\\b\\end{aligned}}',
+				'ams_required' => true,
+			],
+			[
+				'in' => '{\\begin{aligned}a\\\\[6pt] b\\end{aligned}}',
+				'output' => '{\\begin{aligned}a\\\\b\\end{aligned}}',
+				'ams_required' => true,
+			],
+			[
+				'in' => '{\\begin{aligned}a\\\\[-3.4mm] b\\end{aligned}}',
+				'output' => '{\\begin{aligned}a\\\\b\\end{aligned}}',
+				'ams_required' => true,
+			],
 		];
 		foreach ( $testCases as $case ) {
 			yield $case['in'] => [ $case ];

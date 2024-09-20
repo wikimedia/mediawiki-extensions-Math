@@ -384,8 +384,33 @@ FUN_AR1opt
 NEXT_CELL
  = "&" _
 
+LATEX_LENGTH
+  = LATEX_SIGN? LATEX_NUMBER LATEX_UNIT
+
+LATEX_SIGN
+  = [+-]
+
+LATEX_NUMBER
+  = literal_mn+ "."? literal_mn*
+  / "." literal_mn+
+
+LATEX_UNIT
+  = "pt"
+  / "cm"
+  / "mm"
+  / "in"
+  / "em"
+  / "ex"
+  / "bp"
+  / "pc"
+  / "dd"
+  / "cc"
+  / "sp"
+  / "nd"
+  / "nc"
+
 NEXT_ROW
- = "\\\\" _
+ = "\\\\" ("[" LATEX_LENGTH "]")? _
 
 BEGIN
  = "\\begin" _
