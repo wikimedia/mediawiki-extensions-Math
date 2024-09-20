@@ -69,11 +69,18 @@ class AllTest extends MediaWikiUnitTestCase {
 			],
 			'MediaWiki functions' => [
 				[
-					'input' => '\\arccot\\arcsec\\arccsc\\sgn\\sen',
+					'input' => '\\arccot \\arcsec \\arccsc \\sgn \\sen ',
 					'output' =>
 						'\\operatorname {arccot} \\operatorname {arcsec} ' .
 						'\\operatorname {arccsc} \\operatorname {sgn} ' .
 						'\\operatorname {sen} '
+				]
+			],
+			'MediaWiki functions args' => [
+				[
+					'input' => '\\arccot(x)\\sen(x)\\sen{x}',
+					'output' =>
+						'\\operatorname {arccot} (x)\\operatorname {sen} (x)\\operatorname {sen} {x}'
 				]
 			],
 			'Literals (1)' => [
