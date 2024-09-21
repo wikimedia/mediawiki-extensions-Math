@@ -525,6 +525,9 @@ class BaseParsing {
 		$mtr = new MMLmtr();
 		$mtd = new MMLmtd();
 		$tableArgs = [ "columnspacing" => "1em", "rowspacing" => "4pt", 'rowlines' => '' ];
+		if ( $align ) {
+			$tableArgs['columnalign'] = $align;
+		}
 		$mencloseArgs = [ 'notation' => '' ];
 		$columnInfo = $node->getColumnSpecs()->render();
 		$lineNumber = 0;
