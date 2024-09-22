@@ -137,6 +137,16 @@ lit
             $this->line(), $this->column());
      }
    }
+   / f:generic_func &{ return $this->tu->mediawiki_function_names($f); } _
+         {
+             if(is_array($f)) {
+                 // This is an unexpected case, but covers the ambiguity of slice in javascript.
+                 $fProcessed = implode(array_slice($f, 1));
+             } else {
+                 $fProcessed = substr($f,1);
+             }
+             return new Fun1nb( '\\operatorname', new Literal( $fProcessed ) );
+         }
   / r:DELIMITER                 { return new Literal($r); }
   / b:BIG r:DELIMITER           { return new Big($b, $r); }
   / b:BIG SQ_CLOSE              { return new Big($b,  "]"); }
@@ -144,7 +154,7 @@ lit
   / name:FUN_AR1opt e:expr_nosqc SQ_CLOSE l:lit /* must be before FUN_AR1 */
     { return new Fun2sq($name, $e->setCurly(), $l); }
   / name:FUN_AR1 l:lit          { return new Fun1($name, $l); }
-  / name:FUN_AR1nb l:lit        {return new Fun1nb($name, $l); }
+  / name:FUN_AR1nb l:lit        { return new Fun1nb($name, $l); }
   / name:FUN_MHCHEM l:chem_lit  { return new Mhchem($name, $l); }
   / name:FUN_AR2 l1:lit l2:lit  { return new Fun2($name, $l1, $l2); }
   / name:FUN_AR4_MHCHEM_TEXIFIED l1:lit l2:lit l3:lit l4:lit  { return new Fun4($name, $l1, $l2, $l3, $l4); }
@@ -317,17 +327,6 @@ BOX
 LITERAL
  = c:( literal_id / literal_mn / literal_uf_lt / "-" / literal_uf_op ) _
    { return $c; }
- / f:generic_func &{ return $this->tu->mediawiki_function_names($f); } _
-   c:( "(" / "[" / "\\{" / "" { return " ";}) _
-    {
-        if(is_array($f)) {
-            // This is an unexpected case, but covers the ambiguity of slice in javascript.
-            $fProcessed = implode(array_slice($f, 1));
-        } else {
-            $fProcessed = substr($f,1);
-        }
-        return "\\operatorname {" . $fProcessed . "}" . $c;
-    }
  / f:generic_func &{ return $this->tu->nullary_macro($f); } _ // from Texutil.find(...)
    { return $f . " "; }
  / f:generic_func &{ return $this->options['usemathrm'] && $this->tu->nullary_macro_in_mbox($f); } _ // from Texutil.find(...)
