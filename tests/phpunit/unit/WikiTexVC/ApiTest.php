@@ -138,6 +138,11 @@ class ApiTest extends MediaWikiUnitTestCase {
 				'output' => '{\\begin{aligned}a\\\\b\\end{aligned}}',
 				'ams_required' => true,
 			],
+			[
+				'in' => '{\\begin{aligned}a\\\\[8mu] b\\end{aligned}}',
+				'output' => '{\\begin{aligned}a\\\\b\\end{aligned}}',
+				'ams_required' => true,
+			],
 		];
 		foreach ( $testCases as $case ) {
 			yield $case['in'] => [ $case ];

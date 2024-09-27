@@ -394,18 +394,21 @@ LATEX_NUMBER
   = literal_mn+ "."? literal_mn*
   / "." literal_mn+
 
+// from http://latexref.xyz/Units-of-length.html
 LATEX_UNIT
   = "pt"
+  / "pc"
+  / "in"
+  / "bp"
   / "cm"
   / "mm"
-  / "in"
-  / "em"
-  / "ex"
-  / "bp"
-  / "pc"
   / "dd"
   / "cc"
   / "sp"
+  / "em"
+  / "ex"
+  / "mu"
+
   / "nd"
   / "nc"
 
