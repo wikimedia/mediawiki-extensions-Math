@@ -881,20 +881,21 @@ class BaseParsing {
 		$argcurrent = trim( $node->getArg() );
 		switch ( $argcurrent ) {
 			case "\\|":
-				$passedArgs = array_merge( $passedArgs, [ "symmetric" => "true" ] );
+			case "|":
+				$passedArgs = array_merge( $passedArgs, [ "stretchy" => "true", "symmetric" => "true" ] );
 				break;
 			case "\\uparrow":
 			case "\\downarrow":
 			case "\\Uparrow":
 			case "\\Downarrow":
 			case "\\updownarrow":
-			case "\\Updownarrow":
-				$passedArgs = array_merge( [ "fence" => "true" ], $passedArgs, [ "symmetric" => "true" ] );
-				break;
-			case "\\backslash":
 			case "/":
-				$passedArgs = array_merge( [ "fence" => "true" ],
-					$passedArgs, [ "stretchy" => "true", "symmetric" => "true" ] );
+			case "\\backslash":
+			case "\\Updownarrow":
+				$passedArgs = array_merge(
+					[ "fence" => "true" ],
+					$passedArgs,
+					[ "stretchy" => "true", "symmetric" => "true" ] );
 				break;
 		}
 
