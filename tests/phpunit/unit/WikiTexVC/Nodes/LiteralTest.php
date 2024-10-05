@@ -94,4 +94,10 @@ class LiteralTest extends MediaWikiUnitTestCase {
 			'hboxes should not be wrapped in to mi elements.' );
 	}
 
+	public function testDoubleVerticalLine() {
+		$n = new Literal( '\\|' );
+		$this->assertStringContainsString( '&#x2016;</mo>', $n->renderMML(),
+			'double vertical line should render as special operator.' );
+	}
+
 }
