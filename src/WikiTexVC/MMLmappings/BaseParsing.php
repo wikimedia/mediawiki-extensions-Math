@@ -525,11 +525,28 @@ class BaseParsing {
 		$mtr = new MMLmtr();
 		$mtd = new MMLmtd();
 		$tableArgs = [ "columnspacing" => "1em", "rowspacing" => "4pt", 'rowlines' => '' ];
+		$columnInfo = trim( $node->getColumnSpecs()->render(), "{} \n\r\t\v\x00" );
 		if ( $align ) {
+			$tableArgs['columnalign'] = $align;
+		} elseif ( $columnInfo ) {
+			$align = '';
+			foreach ( str_split( $columnInfo ) as $chr ) {
+				switch ( $chr ) {
+					case 'r':
+						$align .= 'right ';
+						break;
+					case 'l':
+						$align .= 'left ';
+						break;
+					case 'c':
+						$align .= 'center ';
+						break;
+				}
+			}
 			$tableArgs['columnalign'] = $align;
 		}
 		$mencloseArgs = [ 'notation' => '' ];
-		$columnInfo = $node->getColumnSpecs()->render();
+
 		$lineNumber = 0;
 		foreach ( $node as $row ) {
 			$resInner .= $mtr->getStart();
@@ -576,6 +593,7 @@ class BaseParsing {
 				// it seems this is creted when left and right is solely coming from columninfo
 				$tableArgs = array_merge( $tableArgs, [ "columnlines" => "solid" ] );
 			}
+
 		}
 		$mtable = new MMLmtable( "", $tableArgs );
 		if ( $cases || ( $open != null && $close != null ) ) {

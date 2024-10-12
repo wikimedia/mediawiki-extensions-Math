@@ -165,4 +165,13 @@ class BaseParsingTest extends TestCase {
 		$this->assertStringContainsString( 'top bottom', $result );
 	}
 
+	public function testColumnSpecs() {
+		$matrix = ( new TexVC() )->parse( '\\begin{array}{lcr}
+z & = & a \\\\
+f(x,y,z) & = & x + y + z
+\\end{array}' )[0];
+		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$this->assertStringContainsString( 'left center right ', $result );
+	}
+
 }
