@@ -163,7 +163,9 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 	public function testAlignLeft() {
 		$input = " \begin{align} f(x) & = (a+b)^2 \\ & = a^2+2ab+b^2 \\ \\end{align} ";
 		$mathMLtexVC = $this->generateMML( $input );
-		$this->assertStringContainsString( "columnalign=\"left\"", $mathMLtexVC );
+		$this->assertStringContainsString( "columnalign=\"right left right", $mathMLtexVC );
+		$this->assertStringContainsString( "columnspacing=\"0em 2em 0em", $mathMLtexVC );
+		$this->assertStringContainsString( "rowspacing=\"3pt\"", $mathMLtexVC );
 		$this->assertStringContainsString( "mtable", $mathMLtexVC );
 	}
 

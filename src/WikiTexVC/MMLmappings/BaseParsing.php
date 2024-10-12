@@ -122,10 +122,7 @@ class BaseParsing {
 									$smth2 = null ) {
 		// Parsing is very similar to AmsEQArray, maybe extract function ... tcs: 178
 		$mrow = new MMLmrow();
-		// tbd how are the table args composed ?
-		$tableArgs = [ "columnalign" => "right",
-			"columnspacing" => "0em", "displaystyle" => "true", "rowspacing" => "3pt" ];
-		$mtable  = new MMLmtable( "", $tableArgs );
+		$mtable  = new MMLmtable( "" );
 		$mtr = new MMLmtr();
 		$mtd = new MMLmtd();
 		$renderedInner = "";
@@ -141,14 +138,8 @@ class BaseParsing {
 	}
 
 	public static function amsEqnArray( $node, $passedArgs, $operatorContent, $name, $smth, $smth2 = null ) {
-		// this goes for name =="aligned" ... tcs: 358 420 421
 		$mrow = new MMLmrow();
-		// tbd how are the table args composed ?
-
-		$direction = ( $name == "aligned" ) ? "left" : "right";
-		$tableArgs = [ "columnalign" => $direction,
-			"columnspacing" => "0em", "displaystyle" => "true", "rowspacing" => "3pt" ];
-		$mtable  = new MMLmtable( "", $tableArgs );
+		$mtable  = new MMLmtable( '' );
 		$mtr = new MMLmtr();
 		$mtd = new MMLmtd();
 		$renderedInner = "";
