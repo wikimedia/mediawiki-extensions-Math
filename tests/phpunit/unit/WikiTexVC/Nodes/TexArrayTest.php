@@ -120,4 +120,16 @@ class TexArrayTest extends MediaWikiUnitTestCase {
 		$ta = new TexArray();
 		$ta[0] = 'a';
 	}
+
+	public function testSquashLiterals() {
+		$ta = new TexArray( new Literal( 'a' ), new Literal( 'b' ) );
+		$res  = $ta->renderMML( [], [ 'squashLiterals' => true ] );
+		$this->assertEquals( '<mi>ab</mi>', $res );
+	}
+
+	public function testSquashLiteralsMacro() {
+		$ta = new TexArray( new Literal( 'a' ), new Literal( '\gamma' ) );
+		$res  = $ta->renderMML( [], [ 'squashLiterals' => true ] );
+		$this->assertEquals( '<mi>a</mi><mi>&#x03B3;</mi>', $res );
+	}
 }

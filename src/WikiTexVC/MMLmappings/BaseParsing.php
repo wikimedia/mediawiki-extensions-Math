@@ -370,7 +370,7 @@ class BaseParsing {
 			$mmlNot = MMLParsingUtil::createNot();
 		}
 		$passedArgs = array_merge( $passedArgs, [ Tag::CLASSTAG => TexClass::OP, "mathvariant" => Variants::NORMAL ] );
-		return $mmlNot . $node->getArg()->renderMML( $passedArgs ) . $applyFct;
+		return $mmlNot . $node->getArg()->renderMML( $passedArgs, [ 'squashLiterals' => true ] ) . $applyFct;
 	}
 
 	public static function lap( $node, $passedArgs, $operatorContent, $name ) {

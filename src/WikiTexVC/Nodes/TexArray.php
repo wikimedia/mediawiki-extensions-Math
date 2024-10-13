@@ -193,11 +193,31 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return [ $hasNamedFct, $hasValidParameters ];
 	}
 
+	private function squashLiterals() {
+		$tmp = '';
+		foreach ( $this->args as $arg ) {
+			if ( !( $arg instanceof Literal ) ) {
+				return;
+			}
+			// Don't squash if there is a macro in the literal
+			if ( preg_match( "/[\\\\]/", $arg->getArg() ) ) {
+				return;
+			}
+			$tmp .= $arg->getArg();
+		}
+		$this->args = [ new Literal( $tmp ) ];
+		$this->curly = false;
+	}
+
 	public function renderMML( $arguments = [], $state = [] ) {
 		// Everything here is for parsing displaystyle, probably refactored to WikiTexVC grammar later
 		$fullRenderedArray = "";
 		$mmlStyles = [];
 		$currentColor = null;
+
+		if ( array_key_exists( 'squashLiterals', $state ) ) {
+			$this->squashLiterals();
+		}
 
 		for ( $i = 0, $count = count( $this->args ); $i < $count; $i++ ) {
 			$current = $this->args[$i];
