@@ -476,13 +476,16 @@
 		"big_literals": true
 	},
 	"\\bigcap": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\bigcirc": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\bigcup": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\bigg": {
 		"big_literals": true
@@ -497,38 +500,48 @@
 		"big_literals": true
 	},
 	"\\bigodot": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\bigoplus": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\bigotimes": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\bigr": {
 		"big_literals": true
 	},
 	"\\bigsqcup": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\bigstar": {
 		"ams_required": true,
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\bigtriangledown": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\bigtriangleup": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\biguplus": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\bigvee": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\bigwedge": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\binom": {
 		"ams_required": true,
@@ -725,7 +738,8 @@
 		"teubner_required": true
 	},
 	"\\coprod": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\cos": {
 		"latex_function_names": true
@@ -1144,15 +1158,18 @@
 	},
 	"\\iiiint": {
 		"ams_required": true,
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\iiint": {
 		"ams_required": true,
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\iint": {
 		"ams_required": true,
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\image": {
 		"nullary_macro_aliase": "\\Im"
@@ -1182,14 +1199,17 @@
 		"nullary_macro": true
 	},
 	"\\int": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\intBar": {
 		"nullary_macro": true,
+		"operator": true,
 		"stix_required": true
 	},
 	"\\intbar": {
 		"nullary_macro": true,
+		"operator": true,
 		"stix_required": true
 	},
 	"\\intent": {
@@ -1199,7 +1219,8 @@
 	"\\intercal": {
 		"ams_required": true,
 		"is_literal": true,
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\iota": {
 		"is_literal": true,
@@ -1946,7 +1967,8 @@
 		"nullary_macro": true
 	},
 	"\\prod": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\projlim": {
 		"ams_required": true,
@@ -2248,7 +2270,8 @@
 		"nullary_macro": true
 	},
 	"\\sum": {
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\sup": {
 		"latex_function_names": true
