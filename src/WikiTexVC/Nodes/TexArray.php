@@ -176,6 +176,8 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 				$tu->latex_function_names( $currentNodeContent->getArg() ) ) {
 				$hasNamedFct = true;
 			}
+		} elseif ( $currentNode instanceof Fun1nb && $currentNode->getFname() === '\\operatorname' ) {
+			$hasNamedFct = true;
 		}
 
 		// Check if there is a valid argument as next parameter

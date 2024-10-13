@@ -165,6 +165,30 @@ class BaseParsingTest extends TestCase {
 		$this->assertStringContainsString( 'top bottom', $result );
 	}
 
+	public function testHandleOperatorName() {
+		$node = new Fun1(
+			'\\operatorname',
+			( new Literal( 'sn' ) )
+		);
+		$result = BaseParsing::handleOperatorName( $node, [], [
+			"foundNamedFct" => [ true, true ]
+		], 'operatorname' );
+		$this->assertStringContainsString( 'sn</mi>', $result );
+		$this->assertStringContainsString( '<mo>&#x2061;</mo>', $result );
+	}
+
+	public function testHandleOperatorLast() {
+		$node = new Fun1(
+			'\\operatorname',
+			( new Literal( 'sn' ) )
+		);
+		$result = BaseParsing::handleOperatorName( $node, [], [
+			"foundNamedFct" => [ true, false ]
+		], 'operatorname' );
+		$this->assertStringContainsString( 'sn</mi>', $result );
+		$this->assertStringNotContainsString( '<mo>&#x2061;</mo>', $result );
+	}
+
 	public function testColumnSpecs() {
 		$matrix = ( new TexVC() )->parse( '\\begin{array}{lcr}
 z & = & a \\\\
@@ -173,5 +197,4 @@ f(x,y,z) & = & x + y + z
 		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
 		$this->assertStringContainsString( 'left center right ', $result );
 	}
-
 }
