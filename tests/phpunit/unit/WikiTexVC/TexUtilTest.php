@@ -76,6 +76,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'mhchem_single_macro',
 			'nullary_macro',
 			'nullary_macro_in_mbox',
+			'operator',
 			'other_delimiters1',
 			'other_delimiters2',
 			'over_operator',

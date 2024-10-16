@@ -6,6 +6,12 @@ namespace MediaWiki\Extension\Math\WikiTexVC;
 
 use InvalidArgumentException;
 
+/**
+ * @method is_literal(string $litArg)
+ * @method latex_function_names(string $getArg)
+ * @method nullary_macro(string $litArg)
+ * @method operator(string $getArg)
+ */
 class TexUtil {
 	/** @var self|null */
 	private static $instance = null;
