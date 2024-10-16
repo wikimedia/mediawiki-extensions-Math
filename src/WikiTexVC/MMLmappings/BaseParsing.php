@@ -355,12 +355,13 @@ class BaseParsing {
 
 	public static function handleOperatorName( $node, $passedArgs, $operatorContent, $name ) {
 		// In example "\\operatorname{a}"
+		$applyFct = self::getApplyFct( $operatorContent );
 		$mmlNot = "";
-		if ( isset( $operatorContent['not'] ) && $operatorContent['not'] == true ) {
+		if ( isset( $operatorContent['not'] ) && $operatorContent['not'] ) {
 			$mmlNot = MMLParsingUtil::createNot();
 		}
 		$passedArgs = array_merge( $passedArgs, [ Tag::CLASSTAG => TexClass::OP, "mathvariant" => Variants::NORMAL ] );
-		return $mmlNot . $node->getArg()->renderMML( $passedArgs );
+		return $mmlNot . $node->getArg()->renderMML( $passedArgs ) . $applyFct;
 	}
 
 	public static function lap( $node, $passedArgs, $operatorContent, $name ) {
@@ -618,16 +619,9 @@ class BaseParsing {
 	}
 
 	public static function namedOp( $node, $passedArgs, $operatorContent, $name, $id = null ) {
-		/* Determine wether the named function should have an added apply function. The operatorContent is defined
+		/* Determine whether the named function should have an added apply function. The operatorContent is defined
 		 as state in parsing of TexArray */
-		$applyFct = "";
-		if ( array_key_exists( "foundNamedFct", $operatorContent ) ) {
-			$hasNamedFct = $operatorContent['foundNamedFct'][0];
-			$hasValidParameters = $operatorContent["foundNamedFct"][1];
-			if ( $hasNamedFct && $hasValidParameters ) {
-				$applyFct = MMLParsingUtil::renderApplyFunction();
-			}
-		}
+		$applyFct = self::getApplyFct( $operatorContent );
 
 		if ( $node instanceof Literal ) {
 			$mi = new MMLmi( "", $passedArgs );
@@ -935,14 +929,7 @@ class BaseParsing {
 	public static function namedFn( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
 		// Determine wether the named function should have an added apply function. The state is defined in
 		// parsing of TexArray
-		$applyFct = "";
-		if ( array_key_exists( "foundNamedFct", $operatorContent ) ) {
-			$hasNamedFct = $operatorContent['foundNamedFct'][0];
-			$hasValidParameters = $operatorContent["foundNamedFct"][1];
-			if ( $hasNamedFct && $hasValidParameters ) {
-				$applyFct = MMLParsingUtil::renderApplyFunction();
-			}
-		}
+		$applyFct = self::getApplyFct( $operatorContent );
 		if ( $node instanceof Literal ) {
 			$mi = new MMLmi();
 			return $mi->encapsulateRaw( $name ) . $applyFct;
@@ -1304,5 +1291,17 @@ class BaseParsing {
 				$mspace->encapsulate()
 			)
 		);
+	}
+
+	private static function getApplyFct( $operatorContent ): string {
+		$applyFct = "";
+		if ( array_key_exists( "foundNamedFct", $operatorContent ) ) {
+			$hasNamedFct = $operatorContent['foundNamedFct'][0];
+			$hasValidParameters = $operatorContent["foundNamedFct"][1];
+			if ( $hasNamedFct && $hasValidParameters ) {
+				$applyFct = MMLParsingUtil::renderApplyFunction();
+			}
+		}
+		return $applyFct;
 	}
 }
