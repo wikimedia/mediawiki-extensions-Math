@@ -12,7 +12,7 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Message\Message;
 use MediaWiki\Tests\Unit\MockServiceDependenciesTrait;
 use MediaWikiIntegrationTestCase;
-use WANObjectCache;
+use Wikimedia\ObjectCache\WANObjectCache;
 
 /**
  * @method InputCheckFactory newServiceInstance(string $serviceClass, array $parameterOverrides)

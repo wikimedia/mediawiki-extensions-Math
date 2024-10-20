@@ -18,7 +18,7 @@ use Psr\Log\LoggerInterface;
 use StatusValue;
 use stdClass;
 use Throwable;
-use XmlTypeCheck;
+use Wikimedia\Mime\XmlTypeCheck;
 
 /**
  * Converts LaTeX to MathML using the mathoid-server

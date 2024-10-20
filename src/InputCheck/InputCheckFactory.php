@@ -6,7 +6,7 @@ use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathRestbaseInterface;
 use MediaWiki\Http\HttpRequestFactory;
 use Psr\Log\LoggerInterface;
-use WANObjectCache;
+use Wikimedia\ObjectCache\WANObjectCache;
 
 class InputCheckFactory {
 

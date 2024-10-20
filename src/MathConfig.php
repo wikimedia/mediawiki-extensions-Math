@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Math;
 
-use ExtensionRegistry;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Message\Message;
+use MediaWiki\Registration\ExtensionRegistry;
 use Wikibase\Client\WikibaseClient;
 
 class MathConfig {

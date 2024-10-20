@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\Math;
 
-use ExtensionRegistry;
 use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\Extension\Math\Widget\MathTestInputForm;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\SpecialPage\SpecialPage;
 use Psr\Log\LoggerInterface;
 

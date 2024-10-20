@@ -20,7 +20,7 @@ use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
 use Psr\Log\LoggerInterface;
 use StringUtils;
-use WANObjectCache;
+use Wikimedia\ObjectCache\WANObjectCache;
 
 /**
  * Abstract base class with static methods for rendering the <math> tags using

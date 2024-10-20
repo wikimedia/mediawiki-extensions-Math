@@ -3,13 +3,13 @@
 namespace MediaWiki\Extension\Math\Tests;
 
 use DataValues\StringValue;
-use ExtensionRegistry;
-use Language;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathFormatter;
 use MediaWiki\Extension\Math\MathWikibaseConnector;
+use MediaWiki\Language\Language;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Site\Site;
 use MediaWikiUnitTestCase;
 use Psr\Log\LoggerInterface;

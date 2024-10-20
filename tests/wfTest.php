@@ -4,8 +4,10 @@
  */
 require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 
+use MediaWiki\Content\TextContent;
 use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathMathMLCli;
+use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Title\Title;

@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Math\Tests;
 
-use ExtensionRegistry;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathConfig;
+use MediaWiki\Registration\ExtensionRegistry;
 use PHPUnit\Framework\TestCase;
 
 /**

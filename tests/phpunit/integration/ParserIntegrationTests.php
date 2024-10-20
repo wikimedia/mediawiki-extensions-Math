@@ -7,8 +7,8 @@ use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\Page\PageReferenceValue;
+use MediaWiki\Parser\ParserOptions;
 use MediaWikiIntegrationTestCase;
-use ParserOptions;
 use Psr\Log\NullLogger;
 
 /**

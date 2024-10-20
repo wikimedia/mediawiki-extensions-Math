@@ -8,7 +8,7 @@ use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Message\Message;
-use WANObjectCache;
+use Wikimedia\ObjectCache\WANObjectCache;
 
 class LocalChecker extends BaseChecker {
 

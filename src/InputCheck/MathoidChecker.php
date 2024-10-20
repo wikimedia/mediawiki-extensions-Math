@@ -6,7 +6,7 @@ use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Message\Message;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
-use WANObjectCache;
+use Wikimedia\ObjectCache\WANObjectCache;
 
 class MathoidChecker extends BaseChecker {
 

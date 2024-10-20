@@ -14,8 +14,8 @@ use MediaWiki\Hook\ParserOptionsRegisterHook;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\ParserOptions;
 use MediaWiki\User\Options\UserOptionsLookup;
-use ParserOptions;
 
 /**
  * Hook handler for Parser hooks
