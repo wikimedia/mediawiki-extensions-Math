@@ -99,6 +99,52 @@ class MatrixTest extends MediaWikiUnitTestCase {
 
 	public function testColSpec() {
 		$this->sampleMatrix->setColumnSpecs( TexArray::newCurly( new Literal( '2' ) ) );
-		$this->assertEquals( '{2}', $this->sampleMatrix->getColumnSpecs()->render() );
+		$this->assertSame( '2', $this->sampleMatrix->getRenderedColumnSpecs() );
+	}
+
+	public function testAdvColSpec() {
+		$this->sampleMatrix->setColumnSpecs( TexArray::newCurly( new Literal( '{r|l}' ) ) );
+		$this->assertSame( 'r|l', $this->sampleMatrix->getRenderedColumnSpecs() );
+		$this->assertEquals( 'right left ', $this->sampleMatrix->getAlignInfo() );
+		$this->assertEquals( [ 1 => true ], $this->sampleMatrix->getBoarder() );
+	}
+
+	public function testGetLines() {
+		$real = $this->sampleMatrix->getLines();
+		$this->assertNotEmpty( $real );
+		$this->assertFalse( $real[0] );
+	}
+
+	public function testLinesBottom() {
+		$matrix = new Matrix( 'matrix',
+			new TexArray( new TexArray( new Literal( 'a' ) ),
+				new TexArray( new TexArray( new Literal( '\\hline ' ) ) ) ) );
+		$real = $matrix->getLines();
+		$this->assertNotEmpty( $real );
+		$this->assertFalse( $real[0] );
+		$this->assertTrue( $real[1] );
+		$this->assertCount( 2, $real );
+	}
+
+	public function testLinesTop() {
+		$matrix = new Matrix( 'matrix',
+			new TexArray( new TexArray( new TexArray( new Literal( '\\hline ' ), new Literal( 'a'
+			) ) ) ) );
+		$real = $matrix->getLines();
+		$this->assertNotEmpty( $real );
+		$this->assertTrue( $real[0] );
+		$this->assertCount( 1, $real );
+	}
+
+	public function testLinesLast() {
+		$matrix = new Matrix( 'matrix',
+			new TexArray( new TexArray( new Literal( 'a' ) ),
+				new TexArray( new TexArray( new Literal( '\\hline ' ), new Literal( 'a'
+				) ) ) ) );
+		$real = $matrix->getLines();
+		$this->assertNotEmpty( $real );
+		$this->assertFalse( $real[0] );
+		$this->assertTrue( $real[1] );
+		$this->assertCount( 2, $real );
 	}
 }

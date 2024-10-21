@@ -11,8 +11,14 @@ class Matrix extends TexArray {
 
 	/** @var string */
 	private $top;
+	private array $lines = [];
 
 	private ?TexArray $columnSpecs = null;
+
+	private ?string $renderedColumSpecs = null;
+	private ?array $boarder = null;
+
+	private ?string $alignInfo = null;
 
 	/**
 	 * @param string $top
@@ -24,6 +30,7 @@ class Matrix extends TexArray {
 			if ( !$row instanceof TexArray ) {
 				throw new InvalidArgumentException( 'Nested arguments have to be type of TexArray' );
 			}
+			$this->lines[] = $row->containsFunc( '\hline' );
 		}
 		if ( $mainarg instanceof Matrix ) {
 			$this->args = $mainarg->args;
@@ -32,6 +39,10 @@ class Matrix extends TexArray {
 			parent::__construct( ...$mainarg->args );
 		}
 		$this->top = $top;
+	}
+
+	public function getLines(): array {
+		return $this->lines;
 	}
 
 	/**
@@ -46,13 +57,30 @@ class Matrix extends TexArray {
 		return $this;
 	}
 
-	public function getColumnSpecs(): TexArray {
-		return $this->columnSpecs ?? new TexArray();
+	public function getRenderedColumnSpecs(): string {
+		if ( $this->renderedColumSpecs == null ) {
+			$this->renderColumnSpecs();
+		}
+		return $this->renderedColumSpecs;
 	}
 
 	public function setColumnSpecs( TexArray $specs ): Matrix {
 		$this->columnSpecs = $specs;
+		$this->renderedColumSpecs = null;
+		$this->alignInfo = null;
+		$this->boarder = null;
 		return $this;
+	}
+
+	public function hasColumnInfo(): bool {
+		return $this->getRenderedColumnSpecs() !== '';
+	}
+
+	public function getAlignInfo(): string {
+		if ( $this->alignInfo == null ) {
+			$this->renderColumnSpecs();
+		}
+		return $this->alignInfo;
 	}
 
 	/**
@@ -137,6 +165,44 @@ class Matrix extends TexArray {
 	 */
 	public function getIterator(): Generator {
 		return parent::getIterator();
+	}
+
+	/**
+	 * @return void
+	 */
+	public function renderColumnSpecs(): void {
+		$colSpecs = $this->columnSpecs ?? new TexArray();
+		$this->renderedColumSpecs = trim( $colSpecs->render(), "{} \n\r\t\v\x00" );
+		$align = '';
+		$colNo = 0;
+		$this->boarder = [];
+		foreach ( str_split( $this->renderedColumSpecs ) as $chr ) {
+			switch ( $chr ) {
+				case '|':
+					$this->boarder[$colNo] = true;
+					break;
+				case 'r':
+					$align .= 'right ';
+					$colNo++;
+					break;
+				case 'l':
+					$align .= 'left ';
+					$colNo++;
+					break;
+				case 'c':
+					$colNo++;
+					$align .= 'center ';
+					break;
+			}
+		}
+		$this->alignInfo = $align;
+	}
+
+	public function getBoarder(): array {
+		if ( $this->boarder == null ) {
+			$this->renderColumnSpecs();
+		}
+		return $this->boarder;
 	}
 
 }
