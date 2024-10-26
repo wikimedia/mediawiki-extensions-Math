@@ -17,7 +17,7 @@ class MathConfigTest extends TestCase {
 
 	private function newMathConfig(
 		array $configOverrides,
-		ExtensionRegistry $registry = null
+		?ExtensionRegistry $registry = null
 	): MathConfig {
 		return new MathConfig(
 			new ServiceOptions( MathConfig::CONSTRUCTOR_OPTIONS, $configOverrides + [

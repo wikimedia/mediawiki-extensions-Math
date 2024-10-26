@@ -43,7 +43,7 @@ class RenderTest extends MediaWikiUnitTestCase {
 	/**
 	 * @dataProvider provideTestCases
 	 */
-	public function testRendering( string $in, string $out = null ) {
+	public function testRendering( string $in, ?string $out = null ) {
 		$parser = new Parser();
 
 		$out ??= $in;

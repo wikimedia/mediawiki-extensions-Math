@@ -51,7 +51,7 @@ class MathWikibaseInfo {
 	 * @param EntityId $entityId
 	 * @param MathFormatter|null $mathFormatter to format math equations. Default format is HTML.
 	 */
-	public function __construct( EntityId $entityId, MathFormatter $mathFormatter = null ) {
+	public function __construct( EntityId $entityId, ?MathFormatter $mathFormatter = null ) {
 		$this->id = $entityId;
 		$this->mathFormatter = $mathFormatter ?: new MathFormatter( SnakFormatter::FORMAT_HTML );
 	}
