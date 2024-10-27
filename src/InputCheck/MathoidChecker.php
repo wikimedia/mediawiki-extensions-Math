@@ -24,7 +24,7 @@ class MathoidChecker extends BaseChecker {
 	private $type;
 	/** @var LoggerInterface */
 	private $logger;
-	/** @var int */
+	/** @var int|null */
 	private $statusCode;
 	/** @var string */
 	private $response;
@@ -52,7 +52,7 @@ class MathoidChecker extends BaseChecker {
 	 * @return array
 	 */
 	public function getCheckResponse(): array {
-		if ( !isset( $this->statusCode ) ) {
+		if ( $this->statusCode === null ) {
 			$cacheInputKey = $this->getCacheKey();
 			if ( $this->purge ) {
 				$this->cache->delete( $cacheInputKey, WANObjectCache::TTL_INDEFINITE );

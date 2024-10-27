@@ -226,7 +226,7 @@ class MMLParsingUtil {
 		}
 		if ( $useFoundNodes ) {
 			$foundNodes = $xml->xpath( $elementTag );
-			if ( !( isset( $foundNodes ) && count( $foundNodes ) >= 1 ) ) {
+			if ( !( $foundNodes !== null && count( $foundNodes ) >= 1 ) ) {
 				return $renderedMML;
 			}
 		}

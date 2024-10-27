@@ -1097,14 +1097,14 @@ class BaseParsing {
 		$intentParams = MMLParsingUtil::getIntentParams( $intentContent );
 		// Sometimes the intent has additioargs = {array[3]} nal args in the same string
 		$intentArg = MMLParsingUtil::getIntentArgs( $intentStr );
-		if ( !$intentContent && !$intentParams && isset( $intentArg ) ) {
+		if ( !$intentContent && !$intentParams && $intentArg !== null ) {
 			// explicit args annotation parsing in literal
 			// return $arg1->renderMML([],["intent-params-expl"=>$intentArg]);
 			// alternative just add the arg here
 			return $arg1->renderMML( [ "arg" => $intentArg ] );
 		}
 		$intentContentAtr = [ "intent" => $intentContent ];
-		if ( isset( $intentArg ) ) {
+		if ( $intentArg !== null ) {
 			$intentContentAtr["arg"] = $intentArg;
 		}
 		// tbd refine intent params and operator content merging (does it overwrite ??)
