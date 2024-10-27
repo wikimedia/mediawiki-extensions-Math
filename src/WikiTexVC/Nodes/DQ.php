@@ -60,7 +60,7 @@ class DQ extends TexNode {
 				$outer = new MMLmsub();
 				if ( ( $state['styleargs']['displaystle'] ?? 'true' ) === 'true' ) {
 					$tu = TexUtil::getInstance();
-					if ( $this->base instanceof Literal && $tu->operator( trim( $this->base->getArg() ) ) ) {
+					if ( $tu->operator( trim( $this->base->render() ) ) ) {
 						$outer = new MMLmunder();
 					}
 				}

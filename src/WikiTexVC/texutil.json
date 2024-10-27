@@ -212,7 +212,8 @@
 		"nullary_macro": true
 	},
 	"\\Pr": {
-		"latex_function_names": true
+		"latex_function_names": true,
+		"operator": true
 	},
 	"\\Psi": {
 		"is_literal": true,
@@ -827,7 +828,8 @@
 		"nullary_macro": true
 	},
 	"\\det": {
-		"latex_function_names": true
+		"latex_function_names": true,
+		"operator": true
 	},
 	"\\dfrac": {
 		"ams_required": true,
@@ -1016,7 +1018,8 @@
 		"nullary_macro": true
 	},
 	"\\gcd": {
-		"latex_function_names": true
+		"latex_function_names": true,
+		"operator": true
 	},
 	"\\ge": {
 		"nullary_macro_aliase": "\\geq"
@@ -1186,7 +1189,8 @@
 		"nullary_macro": true
 	},
 	"\\inf": {
-		"latex_function_names": true
+		"latex_function_names": true,
+		"operator": true
 	},
 	"\\infin": {
 		"nullary_macro_aliase": "\\infty"
@@ -1196,7 +1200,8 @@
 	},
 	"\\injlim": {
 		"ams_required": true,
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\int": {
 		"nullary_macro": true,
@@ -1376,13 +1381,15 @@
 		"latex_function_names": true
 	},
 	"\\liminf": {
-		"latex_function_names": true
+		"latex_function_names": true,
+		"operator": true
 	},
 	"\\limits": {
 		"nullary_macro": true
 	},
 	"\\limsup": {
-		"latex_function_names": true
+		"latex_function_names": true,
+		"operator": true
 	},
 	"\\ll": {
 		"nullary_macro": true
@@ -1563,7 +1570,8 @@
 		"is_letter_mod": true
 	},
 	"\\max": {
-		"latex_function_names": true
+		"latex_function_names": true,
+		"operator": true
 	},
 	"\\mbox": {
 		"box_functions": true
@@ -1581,7 +1589,8 @@
 		"nullary_macro": true
 	},
 	"\\min": {
-		"latex_function_names": true
+		"latex_function_names": true,
+		"operator": true
 	},
 	"\\mkern": {
 		"fun_ar1": true,
@@ -1972,7 +1981,8 @@
 	},
 	"\\projlim": {
 		"ams_required": true,
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\propto": {
 		"nullary_macro": true
@@ -2274,7 +2284,8 @@
 		"operator": true
 	},
 	"\\sup": {
-		"latex_function_names": true
+		"latex_function_names": true,
+		"operator": true
 	},
 	"\\supe": {
 		"nullary_macro_aliase": "\\supseteq"
@@ -2519,7 +2530,8 @@
 	},
 	"\\varinjlim": {
 		"ams_required": true,
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\varkappa": {
 		"ams_required": true,
@@ -2529,11 +2541,13 @@
 	},
 	"\\varliminf": {
 		"ams_required": true,
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\varlimsup": {
 		"ams_required": true,
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\varnothing": {
 		"ams_required": true,
@@ -2556,7 +2570,8 @@
 	},
 	"\\varprojlim": {
 		"ams_required": true,
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator": true
 	},
 	"\\varpropto": {
 		"ams_required": true,
