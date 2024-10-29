@@ -788,12 +788,19 @@ class BaseParsing {
 		$state = [];
 
 		// Unicode fixes for the operators
-		if ( $mathvariant == Variants::DOUBLESTRUCK ) {
-			$state = [ "double-struck-literals" => true ];
-		} elseif ( $mathvariant == Variants::CALLIGRAPHIC ) {
-			$state = [ "calligraphic" => true ];
-		} elseif ( $mathvariant == Variants::BOLDCALLIGRAPHIC ) {
-			$state = [ "bold-calligraphic" => true ];
+		switch ( $mathvariant ) {
+			case Variants::DOUBLESTRUCK:
+				$state = [ "double-struck-literals" => true ];
+				break;
+			case Variants::CALLIGRAPHIC:
+				$state = [ "calligraphic" => true ];
+				break;
+			case Variants::BOLDCALLIGRAPHIC:
+				$state = [ "bold-calligraphic" => true ];
+				break;
+			case Variants::FRAKTUR:
+				$state = [ "fraktur" => true ];
+				break;
 		}
 
 		if ( $node instanceof Fun1nb ) {
