@@ -34,7 +34,7 @@ class Literal extends TexNode {
 
 	public function changeUnicodeFontInput( $input, $state ) {
 		/**
-		 * In some font modifications, it is required to explicitly use unicode
+		 * In some font modifications, it is required to explicitly use Unicode
 		 * characters instead of (only) attributes in MathML to indicate the font.
 		 * This is mostly because of Chrome behaviour. I.e. see: https://phabricator.wikimedia.org/T352196
 		 */
@@ -42,6 +42,8 @@ class Literal extends TexNode {
 			return MMLParsingUtil::mapToDoubleStruckUnicode( $input );
 		} elseif ( isset( $state["calligraphic"] ) ) {
 			return MMLParsingUtil::mapToCaligraphicUnicode( $input );
+		} elseif ( isset( $state["fraktur"] ) ) {
+			return MMLParsingUtil::mapToFrakturUnicode( $input );
 		}
 		return $input;
 	}
