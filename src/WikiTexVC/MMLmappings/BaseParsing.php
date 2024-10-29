@@ -515,34 +515,18 @@ class BaseParsing {
 								   $vspacing = null, $style = null, $cases = null, $numbered = null ) {
 		$resInner = '';
 		$mtr = new MMLmtr();
-		$mtd = new MMLmtd();
-		$tableArgs = [ "columnspacing" => "1em", "rowspacing" => "4pt", 'rowlines' => '' ];
-		$columnInfo = trim( $node->getColumnSpecs()->render(), "{} \n\r\t\v\x00" );
+		$tableArgs = [ "columnspacing" => "1em", "rowspacing" => "4pt" ];
+		$boarder = $node->getBoarder();
 		if ( $align ) {
 			$tableArgs['columnalign'] = $align;
-		} elseif ( $columnInfo ) {
-			$align = '';
-			foreach ( str_split( $columnInfo ) as $chr ) {
-				switch ( $chr ) {
-					case 'r':
-						$align .= 'right ';
-						break;
-					case 'l':
-						$align .= 'left ';
-						break;
-					case 'c':
-						$align .= 'center ';
-						break;
-				}
-			}
-			$tableArgs['columnalign'] = $align;
+		} elseif ( $node->hasColumnInfo() ) {
+			$tableArgs['columnalign'] = $node->getAlignInfo();
 		}
-		$mencloseArgs = [ 'notation' => '' ];
-
-		$lineNumber = 0;
+		$rowNo = 0;
+		$lines = $node->getLines();
 		foreach ( $node as $row ) {
 			$resInner .= $mtr->getStart();
-			$solid = false;
+			$colNo = 0;
 			foreach ( $row  as $cell ) {
 				$usedArg = clone $cell;
 				if ( $usedArg instanceof TexArray &&
@@ -551,42 +535,34 @@ class BaseParsing {
 					$usedArg[0]->getArg() === '\\hline '
 				) {
 					$usedArg->pop();
-					if ( $lineNumber === 0 ) {
-						$mencloseArgs['notation'] .= 'top ';
-					} elseif ( $lineNumber === $node->getLength() - 1 &&
+					if ( $rowNo === $node->getLength() - 1 &&
 						$usedArg->getLength() === 0
 					) {
-						$mencloseArgs['notation'] .= 'bottom ';
 						// remove the started row
 						$resInner = substr( $resInner, 0, -1 * strlen( $mtr->getStart() ) );
 						continue 2;
 					}
-					$solid = true;
 				}
+				$mtdAttributes = [];
+				$texclass = $lines[$rowNo] ? TexClass::TOP : '';
+				$texclass .= $lines[$rowNo + 1] ?? false ? ' ' . TexClass::BOTTOM : '';
+				$texclass .= $boarder[$colNo] ?? false ? ' ' . TexClass::LEFT : '';
+				$texclass .= $boarder[$colNo + 1 ] ?? false ? ' ' . TexClass::RIGHT : '';
+				$texclass = trim( $texclass );
+				if ( $texclass ) {
+					$mtdAttributes['class'] = $texclass;
+				}
+				$mtd = new MMLmtd( '', $mtdAttributes );
+
 				$resInner .= $mtd->encapsulateRaw( $usedArg->renderMML( $passedArgs, [ 'inMatrix'
 					=> true ]
 				) );
-			}
-			if ( $lineNumber > 0 ) {
-				$tableArgs['rowlines'] .= $solid ? 'solid ' : 'none ';
+				$colNo++;
 			}
 			$resInner .= $mtr->getEnd();
-			$lineNumber++;
-		}
-		if ( !str_contains( $tableArgs['rowlines'], 'solid' ) ) {
-			unset( $tableArgs['rowlines'] );
+			$rowNo++;
 		}
 		$mrow = new MMLmrow();
-		if ( $columnInfo ) {
-			// TBD this is just simple check, create a parsing function for hlines when there are more cases
-			if ( str_contains( $columnInfo, "|" ) ) {
-
-				$mencloseArgs['notation'] .= "left right";
-				// it seems this is creted when left and right is solely coming from columninfo
-				$tableArgs = array_merge( $tableArgs, [ "columnlines" => "solid" ] );
-			}
-
-		}
 		$mtable = new MMLmtable( "", $tableArgs );
 		if ( $cases || ( $open != null && $close != null ) ) {
 			$bm = new BaseMethods();
@@ -607,15 +583,9 @@ class BaseParsing {
 				$mmlMoClose = $mmlMoClose->encapsulateRaw( $close );
 			}
 			$resInner = $mmlMoOpen . $mtable->encapsulateRaw( $resInner ) . $mmlMoClose;
-		} else {
-			$resInner = $mtable->encapsulateRaw( $resInner );
+			return $mrow->encapsulateRaw( $resInner );
 		}
-		if ( $mencloseArgs['notation'] ) {
-			$menclose = new MMLmenclose( "", $mencloseArgs );
-			return $mrow->encapsulateRaw( $menclose->encapsulateRaw( $resInner ) );
-
-		}
-		return $mrow->encapsulateRaw( $resInner );
+		return $mtable->encapsulateRaw( $resInner );
 	}
 
 	public static function namedOp( $node, $passedArgs, $operatorContent, $name, $id = null ) {

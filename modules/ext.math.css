@@ -62,3 +62,20 @@ div.mwe-math-element {
 	overflow-x: auto;
 	max-width: 100%;
 }
+
+/* Polyfill for MathML matrix elements with menclose https://github.com/w3c/mathml-core/issues/245 */
+mtd.mwe-math-matrix-top {
+	border-top: 0.06em solid;
+}
+
+mtd.mwe-math-matrix-bottom {
+	border-bottom: 0.06em solid;
+}
+
+mtd.mwe-math-matrix-left {
+	border-left: 0.06em solid;
+}
+
+mtd.mwe-math-matrix-right {
+	border-right: 0.06em solid;
+}
