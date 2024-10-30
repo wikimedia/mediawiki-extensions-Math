@@ -115,6 +115,5 @@
 	"math-wikibase-special-form-button": "Pobierz dane",
 	"math-wikibase-special-error-header": "Błąd",
 	"math-wikibase-special-error-invalid-argument": "Element WIkibase o podanym ID nie istnieje.",
-	"math-wikibase-special-error-unknown": "Podczas pobierania danych z Wikibase wystąpił nieznany błąd.",
-	"math-wikibase-special-error-no-wikibase": "Rozszerzenie Wikibase jest niezbędne, aby użyć tej strony specjalnej."
+	"math-wikibase-special-error-unknown": "Podczas pobierania danych z Wikibase wystąpił nieznany błąd."
 }
