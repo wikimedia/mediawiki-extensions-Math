@@ -240,6 +240,7 @@
 				"popups-settings-option-math-description"
 			],
 			"dependencies": [
+				"mediawiki.user",
 				"mediawiki.ForeignApi"
 			]
 		},
