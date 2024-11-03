@@ -67,7 +67,9 @@ class BaseParsingTest extends TestCase {
 			( new Literal( 'a' ) )
 		);
 		$result = BaseParsing::cancel( $node, [], null, 'cancel', 'something' );
-		$this->assertStringContainsString( '<menclose notation="something"><mi>a</mi></menclose>',
+		$this->assertStringContainsString( '<mi>a</mi><mrow class="menclose-something"/>',
+			$result );
+		$this->assertStringContainsString( '<menclose notation="something" class="menclose">',
 			$result );
 	}
 
