@@ -83,7 +83,6 @@
 	"math_unknown_function": "di-matukoy na function na \"$1\"",
 	"mw_math_latexml": "LaTeXML (eksperimento; gumagamit ng MathML)",
 	"mw_math_mathml": "MathML na may SVG o PNG fallback (inirerekomenda para sa mga modernong browser at mga kagamitang pantulong)",
-	"mw_math_png": "Larawang PNG",
 	"mw_math_source": "Pinagmulan ng LaTeX (para sa mga text browser)",
 	"prefs-math": "Math",
 	"mathstatus": "Estado ng math",
@@ -104,6 +103,5 @@
 	"math-wikibase-special-form-button": "Impormasyon ng hiling",
 	"math-wikibase-special-error-header": "Error",
 	"math-wikibase-special-error-invalid-argument": "Walang Wikibase item ID na kapareho ng tinukoy mo.",
-	"math-wikibase-special-error-unknown": "Nagka-error habang kinukuha ang data mula sa Wikibase.",
-	"math-wikibase-special-error-no-wikibase": "Kailangan ang Wikibase extension para magamit ang natatanging pahinang ito."
+	"math-wikibase-special-error-unknown": "Nagka-error habang kinukuha ang data mula sa Wikibase."
 }

@@ -16,7 +16,9 @@
 			"زكريا",
 			"محمد أحمد عبد الفتاح",
 			"FShbib",
-			"Alshamiri1"
+			"Alshamiri1",
+			"Lolekek",
+			"علاء"
 		]
 	},
 	"math-desc": "حوِّل الصيغ الرياضية بين وسمي <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -116,6 +118,5 @@
 	"math-wikibase-special-form-button": "طلب معلومات",
 	"math-wikibase-special-error-header": "خطأ",
 	"math-wikibase-special-error-invalid-argument": "معرف عنصر قاعدة الويكي المحدد غير موجود.",
-	"math-wikibase-special-error-unknown": "حدث خطأ غير معروف أثناء جلب البيانات من ويكي.",
-	"math-wikibase-special-error-no-wikibase": "ملحق قاعدة الويكي مطلوب من أجل استخدام هذه الصفحة الخاصة."
+	"math-wikibase-special-error-unknown": "حدث خطأ غير معروف أثناء جلب البيانات من ويكي."
 }
