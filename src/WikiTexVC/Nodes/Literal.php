@@ -118,8 +118,7 @@ class Literal extends TexNode {
 		$ret = BaseMethods::checkAndParse( $inputP, $arguments,
 			array_merge( $operatorContent ?? [], $state ?? [] ),
 			$this, false );
-		if ( $ret ) {
-
+		if ( $ret || $ret === '' ) {
 			return $ret;
 		}
 
