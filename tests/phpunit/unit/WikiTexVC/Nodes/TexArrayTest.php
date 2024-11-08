@@ -3,6 +3,8 @@
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1nb;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
@@ -132,4 +134,21 @@ class TexArrayTest extends MediaWikiUnitTestCase {
 		$res  = $ta->renderMML( [], [ 'squashLiterals' => true ] );
 		$this->assertEquals( '<mi>a</mi><mi>&#x03B3;</mi>', $res );
 	}
+
+	public function testSumInLimits() {
+		$ta = new TexArray();
+		$sum = new Literal( '\sum' );
+		$res  = $ta->checkForLimits( $sum, new DQ( new Literal( '\limits' ), new Literal( 'n' ) ) );
+		$this->assertTrue( $res[1] );
+		$this->assertEquals( $sum, $res[0] );
+	}
+
+	public function testCustomOpInLimits() {
+		$ta = new TexArray();
+		$custom = new Fun1nb( '\operatorname', new TexArray( new Literal( 'S' ) ) );
+		$res  = $ta->checkForLimits( $custom, new DQ( new Literal( '\limits' ), new Literal( 'n' ) ) );
+		$this->assertTrue( $res[1] );
+		$this->assertEquals( $custom, $res[0] );
+	}
+
 }
