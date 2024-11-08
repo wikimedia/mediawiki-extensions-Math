@@ -159,10 +159,14 @@ class BaseParsing {
 		return $mrow->encapsulateRaw( $node->getArg()->renderMML( $passedArgs ) );
 	}
 
-	public static function cancel( $node, $passedArgs, $operatorContent, $name, $notation = null, $smth2 = null ) {
-		$mrow = new MMLmrow();
-		$menclose = new MMLmenclose( "", [ "notation" => $notation ] );
-		return $mrow->encapsulateRaw( $menclose->encapsulateRaw( $node->getArg()->renderMML() ) );
+	public static function cancel( Fun1 $node, $passedArgs, $operatorContent, $name, $notation = '' ): string {
+		$outer = new MMLmenclose( '', [ 'notation' => $notation, 'class' => 'menclose' ] );
+		$bars = '';
+		foreach ( explode( ' ', $notation ) as $element ) {
+			$bars .= ( new MMLmrow( '', [ 'class' => 'menclose-' . $element ] ) )->getEmpty();
+		}
+
+		return $outer->encapsulateRaw( $node->getArg()->renderMML() . $bars );
 	}
 
 	public static function cancelTo( $node, $passedArgs, $operatorContent, $name, $notation = null ) {
