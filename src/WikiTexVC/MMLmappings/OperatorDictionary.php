@@ -16,6 +16,7 @@ class OperatorDictionary {
 	private static $instance = null;
 
 	private const INFIX = [ // Implemented elements have [something, true] for custom parsing
+		'!' => [ "1, 0, TEXCLASS.CLOSE, null" ], // exclamation mark
 		'!=' => [ " exports.MO.BIN4" ],
 		'#' => [ " exports.MO.ORD" ],
 		'$' => [ " exports.MO.ORD" ],
