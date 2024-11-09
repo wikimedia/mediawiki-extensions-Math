@@ -91,7 +91,7 @@ class BaseMethods {
 						return $this->parseOperatorDict( $node, $passedArgs, $operatorContent, $input, false );
 					}
 					// Atm just do simple parsing for elements in operator dictionary
-					$mmlMo = new MMLmo();
+					$mmlMo = new MMLmo( '', $passedArgs );
 					return $mmlMo->encapsulateRaw( $input );
 				}
 			}

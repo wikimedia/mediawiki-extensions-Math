@@ -106,4 +106,16 @@ class LiteralTest extends MediaWikiUnitTestCase {
 			'colon should render as special operator.' );
 	}
 
+	public function testRangle() {
+		$n = new Literal( '\\rangle' );
+		$this->assertStringContainsString( 'stretchy="false"', $n->renderMML(),
+			'colon should render as special operator.' );
+	}
+
+	public function testVert() {
+		$n = new Literal( '|' );
+		$this->assertStringContainsString( 'stretchy="false"', $n->renderMML(),
+			'| should render as special operator.' );
+	}
+
 }
