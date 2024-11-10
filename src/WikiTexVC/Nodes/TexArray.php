@@ -128,9 +128,16 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		$tu = TexUtil::getInstance();
 
 		// Check whether the current node is a possible preceding literal
-		if ( !( $currentNode instanceof Literal
-			&& ( $tu->nullary_macro( trim( $currentNode->getArg() ) )
-			|| trim( $currentNode->getArg() ) == "\\lim" ) ) ) {
+		if ( !(
+		// logically superfluous brackets were inserted to improve readability
+		( $currentNode instanceof Literal &&
+				// Check if the current node is a nullary macro such as \iint, \sum, \prod, etc.
+				( $tu->nullary_macro( trim( $currentNode->getArg() ) )
+				// or a limit operator
+				|| ( trim( $currentNode->getArg() ) == "\\lim" ) ) ) ||
+		// or the special case of \operatorname
+		( $currentNode instanceof Fun1nb && $currentNode->getFname() == "\\operatorname" )
+		) ) {
 			return [ null, false ];
 		}
 
