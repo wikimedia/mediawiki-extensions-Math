@@ -930,7 +930,7 @@ class BaseParsing {
 			}
 		}
 		$mrow = new MMLmrow( TexClass::ORD, [] );
-		$opParsed = ( $operatorContent != null && $operatorContent["limits"] )
+		$opParsed = ( $operatorContent["limits"] ?? false )
 			? $operatorContent["limits"]->renderMML( $argsOp ) : "";
 
 		if ( $node instanceof DQ ) {
@@ -940,6 +940,9 @@ class BaseParsing {
 			$munderOver = new MMLmunderover();
 			return $munderOver->encapsulateRaw( $opParsed . $mrow->encapsulateRaw( $node->getDown()->renderMML() )
 				. $mrow->encapsulateRaw( $node->getUp()->renderMML() ) );
+		} elseif ( $name === 'limits' || $name === 'nolimits' ) {
+			// Don't render limits
+			return '';
 		}
 	}
 
