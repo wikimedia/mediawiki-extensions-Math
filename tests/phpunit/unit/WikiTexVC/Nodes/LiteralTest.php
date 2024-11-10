@@ -100,4 +100,10 @@ class LiteralTest extends MediaWikiUnitTestCase {
 			'double vertical line should render as special operator.' );
 	}
 
+	public function testColon() {
+		$n = new Literal( ':' );
+		$this->assertStringContainsString( ':</mo>', $n->renderMML(),
+			'colon should render as special operator.' );
+	}
+
 }
