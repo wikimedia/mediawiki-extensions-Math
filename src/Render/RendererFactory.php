@@ -121,7 +121,7 @@ class RendererFactory {
 		return $renderer;
 	}
 
-	public function getFromHash( $inputHash ) {
+	public function getFromHash( $inputHash ): MathRenderer {
 		$key = $this->cache->makeGlobalKey(
 			MathRenderer::class,
 			$inputHash
