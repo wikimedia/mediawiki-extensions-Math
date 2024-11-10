@@ -35,7 +35,7 @@ class OperatorDictionary {
 		'->' => [ " exports.MO.BIN5" ],
 		'.' => [ " [0, 3], MmlNode_js_1.TEXCLASS.PUNCT\"], { separator=> [ true }]" ],
 		':' => [ " [1, 2], MmlNode_js_1.TEXCLASS.REL\"], null]" ],
-		'/' => [ " exports.MO.ORD11" ],
+		'/' => [ " exports.MO.ORD11", true ],
 		'//' => [ " OPDEF(1\"], 1)" ],
 		'/=' => [ " exports.MO.BIN4" ],
 		'=>' => [ " [1, 2], MmlNode_js_1.TEXCLASS.REL\"], null]" ],

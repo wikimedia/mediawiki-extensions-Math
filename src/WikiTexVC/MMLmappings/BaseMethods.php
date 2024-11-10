@@ -131,6 +131,9 @@ class BaseMethods {
 				 // see: https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Math/+/961213
 				$mspace = new MMLmspace( "", [ "width" => "0.5em" ] );
 				return $mspace->getEmpty();
+			case '/':
+				$mmlMo = new MMLmo( '', [ 'lspace' => '0', 'rspace' => '0' ] );
+				return $mmlMo->encapsulateRaw( $input );
 		}
 		return $input;
 	}
