@@ -124,4 +124,13 @@ class LiteralTest extends MediaWikiUnitTestCase {
 			'exclamation mark should render as special operator.' );
 	}
 
+	public function testDivide() {
+		$n = new Literal( '/' );
+		$real = $n->renderMML();
+		$this->assertStringContainsString( '/</mo>', $real,
+			'divide should render as special operator.' );
+		$this->assertStringContainsString( 'lspace="0" rspace="0"', $real,
+			'divide should have no spacing.' );
+	}
+
 }
