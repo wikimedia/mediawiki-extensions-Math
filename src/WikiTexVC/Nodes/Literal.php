@@ -92,7 +92,10 @@ class Literal extends TexNode {
 
 		// Sieve for Operators
 		$bm = new BaseMethods();
-		$ret = $bm->checkAndParseOperator( $inputP, $this, $arguments, $operatorContent, $state, false );
+		$noStretchArgs = $arguments;
+		// Delimiters and operators should not be stretchy by default when used as literals
+		$noStretchArgs['stretchy'] ??= 'false';
+		$ret = $bm->checkAndParseOperator( $inputP, $this, $noStretchArgs, $operatorContent, $state, false );
 		if ( $ret ) {
 			return $ret;
 		}
@@ -109,7 +112,7 @@ class Literal extends TexNode {
 			return $ret;
 		}
 		// Sieve for Delimiters
-		$ret = $bm->checkAndParseDelimiter( $input, $this, $arguments, $operatorContent );
+		$ret = $bm->checkAndParseDelimiter( $input, $this, $noStretchArgs, $operatorContent );
 		if ( $ret ) {
 			return $ret;
 		}
