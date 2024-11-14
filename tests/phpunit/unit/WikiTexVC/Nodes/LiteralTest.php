@@ -118,4 +118,10 @@ class LiteralTest extends MediaWikiUnitTestCase {
 			'| should render as special operator.' );
 	}
 
+	public function testExclamationMark() {
+		$n = new Literal( '!' );
+		$this->assertStringContainsString( '!</mo>', $n->renderMML(),
+			'exclamation mark should render as special operator.' );
+	}
+
 }
