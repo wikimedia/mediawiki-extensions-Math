@@ -329,7 +329,8 @@ class AMSMappings {
 		"Bmatrix" => [ 'array', null, '\\{', '\\}', 'c' ],
 		"vmatrix" => [ 'array', null, '\\vert', '\\vert', 'c' ],
 		"Vmatrix" => [ 'array', null, '\\Vert', '\\Vert', 'c' ],
-		"cases" => [ 'array', null, '\\{', '.', 'll', null, '.2em', 'T' ]
+		'cases' => [ 'matrix', '{', '', 'left left', null, '.1em', null,
+		true ],
 	];
 	private const AMSSYMBOLDELIMITERS = [
 		'ulcorner' => '\u231C',
@@ -394,7 +395,7 @@ class AMSMappings {
 	}
 
 	public static function getMacroByKey( $key ) {
-		$ret = MMLutil::getMappingByKey( $key, self::AMSMACROS );
+		$ret = MMLutil::getMappingByKey( $key, self::AMSMACROS, false, true );
 		if ( $ret != null ) {
 			return $ret;
 		}

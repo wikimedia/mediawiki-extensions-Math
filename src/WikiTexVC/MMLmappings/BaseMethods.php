@@ -28,9 +28,6 @@ class BaseMethods {
 			// just discard these elements, sometimes empty TexArray
 			return null;
 		}
-		if ( $prepareInput ) {
-			$input = MMLutil::inputPreparation( $input );
-		}
 
 		// Checking for a named parsing function
 		$resFct = BaseMappings::getMacroByKey( $input );
@@ -76,9 +73,6 @@ class BaseMethods {
 
 	public function checkAndParseOperator( $input, $node, $passedArgs, $operatorContent,
 										   $state, $prepareInput = true ) {
-		if ( $prepareInput ) {
-			$input = MMLutil::inputPreparation( $input );
-		}
 		$resOperator = BaseMappings::getOperatorByKey( $input );
 		if ( $resOperator == null ) {
 
@@ -158,9 +152,6 @@ class BaseMethods {
 	}
 
 	public function checkAndParseIdentifier( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
-		if ( $prepareInput ) {
-			$input = MMLutil::inputPreparation( $input );
-		}
 		$resIdentifier = BaseMappings::getIdentifierByKey( $input );
 		if ( $resIdentifier == null ) {
 			$resIdentifier = AMSMappings::getIdentifierByKey( $input );
@@ -206,7 +197,6 @@ class BaseMethods {
 		$resDelimiter = BaseMappings::getDelimiterByKey( trim( $input ) );
 
 		if ( $resDelimiter == null ) {
-			$input = MMLutil::inputPreparation( $input );
 			$resDelimiter = AMSMappings::getSymbolDelimiterByKey( $input );
 			if ( $resDelimiter == null ) {
 				$resDelimiter = AMSMappings::getMathDelimiterByKey( $input );
@@ -228,9 +218,6 @@ class BaseMethods {
 	}
 
 	public function checkAndParseMathCharacter( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
-		if ( $prepareInput ) {
-			$input = MMLutil::inputPreparation( $input );
-		}
 		$resChar = BaseMappings::getCharacterByKey( $input );
 		if ( $resChar == null ) {
 			return null;
@@ -250,9 +237,6 @@ class BaseMethods {
 			return null;
 		}
 
-		if ( $prepareInput ) {
-			$input = MMLutil::inputPreparation( $input );
-		}
 		if ( !( $input === 'color' || $input === 'pagecolor' ) ) {
 			return null;
 		}

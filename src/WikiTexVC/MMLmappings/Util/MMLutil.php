@@ -153,27 +153,6 @@ class MMLutil {
 		return ( $matches[1] == "-" ? "-" : "" ) . $ret;
 	}
 
-	/**
-	 * Some common steps of processing an input string before passing it as a key to the mappings.
-	 * @param string $input string to be processed
-	 * @return string prepared input string
-	 */
-	public static function inputPreparation( $input ): string {
-		if ( $input === null ) {
-			return "";
-		}
-		$input = trim( $input );
-		if ( str_starts_with( $input, "\\" ) && strlen( $input ) >= 2 ) {
-			$input = substr( $input, 1 );
-			// These are edge cases where input can be a Literal OR an Operator
-			$edgeCases = [ "S", "P", ";", ",", "!", "'", ">", "|" ];
-			if ( in_array( $input, $edgeCases, true ) ) {
-				$input = "\\" . $input;
-			}
-		}
-		return $input;
-	}
-
 	public static function createEntity( $code ): ?string {
 		return IntlChar::chr( intval( $code, 16 ) );
 	}
@@ -184,9 +163,20 @@ class MMLutil {
 	 * @param string $key key to find entry in table
 	 * @param array $mappingTable table which the value is found by key
 	 * @param bool $convertUc2X convert first value of the found entry in array to specific "&#x123;" notation
+	 * @param bool $addSlashes add a backslash to the key
 	 * @return mixed|string[]|null the found entry in the table
 	 */
-	public static function getMappingByKey( string $key, array $mappingTable, bool $convertUc2X = false ) {
+	public static function getMappingByKey(
+		string $key,
+		array $mappingTable,
+		bool $convertUc2X = false,
+		bool $addSlashes = false ) {
+		if ( $addSlashes ) {
+			if ( !str_starts_with( $key, "\\" ) ) {
+				return null;
+			}
+			$key = trim( substr( $key, 1 ) );
+		}
 		if ( isset( $mappingTable[$key] ) ) {
 			$found = $mappingTable[$key];
 			if ( is_string( $found ) ) {
@@ -206,7 +196,11 @@ class MMLutil {
 	 * @param array $mappingTable table which the value is found by key
 	 * @return mixed|string[]|null the found entry in the table
 	 */
-	public static function getMappingByKeySimple( string $key, array $mappingTable ) {
+	public static function getMappingByKeySimple( string $key, array $mappingTable, bool $addSlashes = false ) {
+		if ( $addSlashes && !str_starts_with( $key, "\\" ) ) {
+			return null;
+		}
+		$key = $addSlashes ? trim( substr( $key, 1 ) ) : $key;
 		if ( isset( $mappingTable[$key] ) ) {
 			return $mappingTable[$key];
 		}
