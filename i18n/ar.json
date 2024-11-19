@@ -22,6 +22,7 @@
 		]
 	},
 	"math-desc": "حوِّل الصيغ الرياضية بين وسمي <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
+	"popups-settings-option-math": "رياضيات",
 	"popups-settings-option-math-description": "شرح الصيغ الرياضية.",
 	"popups-settings-option-math-tooltip": "شرح الصيغ الرياضية عند التمرير عليها.",
 	"math-visualeditor-mwchemdialog-title": "معادلة كيميائية",
@@ -73,6 +74,9 @@
 	"math-visualeditor-symbol-group-math-symbols": "الرموز والثوابت",
 	"math-visualeditor-symbol-group-math-typefaces": "أشكال الكتابة",
 	"math-visualeditor-symbol-group-math-unsorted": "غير مرتب",
+	"math-form-tex-label": "إدخال TeX مخصص",
+	"math-form-type-label": "نوع المدخلات",
+	"math-form-display-label": "وضع عرض الرياضيات",
 	"math_failure": "خطأ رياضيات",
 	"math_invalidjson": "$1 استجابة الخادم هو JSON غير صحيح.",
 	"math_invalidresponse": "$1: رد غير صحيح (\"$3\") من الخادم \"$2\":",
