@@ -625,39 +625,6 @@ class BaseMappings {
 		"eqnarray" => [ 'EqnArray', null, true, true, 'rcl', null, '.5em' ]
 	];
 
-	// Mathtools environment actually from Mathtools mappings tbd refactor
-	private const ENVIRONMNENTMT = [
-		'dcases' => [ 'array', null, '\\{', '', 'll', null, '.2em', 'D' ],
-		'rcases' => [ 'array', null, '', '\\}', 'll', null, '.2em' ],
-		'drcases' => [ 'array', null, '', '\\}', 'll', null, '.2em', 'D' ],
-		'dcases*' => [ 'Cases', null, '{', '', 'D' ],
-		'rcases*' => [ 'Cases', null, '', '}' ],
-		'drcases*' => [ 'Cases', null, '', '}', 'D' ],
-		'cases*' => [ 'Cases', null, '{', '' ],
-		'matrix*' => [ 'MtMatrix', null, null, null ],
-		'pmatrix*' => [ 'MtMatrix', null, '(', ')' ],
-		'bmatrix*' => [ 'MtMatrix', null, '[', ']' ],
-		'Bmatrix*' => [ 'MtMatrix', null, '\\{', '\\}' ],
-		'vmatrix*' => [ 'MtMatrix', null, '\\vert', '\\vert' ],
-		'Vmatrix*' => [ 'MtMatrix', null, '\\Vert', '\\Vert' ],
-		'smallmatrix*' => [ 'MtSmallMatrix', null, null, null ],
-		'psmallmatrix' => [ 'MtSmallMatrix', null, '(', ')', 'c' ],
-		'psmallmatrix*' => [ 'MtSmallMatrix', null, '(', ')' ],
-		'bsmallmatrix' => [ 'MtSmallMatrix', null, '[', ']', 'c' ],
-		'bsmallmatrix*' => [ 'MtSmallMatrix', null, '[', ']' ],
-		'Bsmallmatrix' => [ 'MtSmallMatrix', null, '\\{', '\\}', 'c' ],
-		'Bsmallmatrix*' => [ 'MtSmallMatrix', null, '\\{', '\\}' ],
-		'vsmallmatrix' => [ 'MtSmallMatrix', null, '\\vert', '\\vert', 'c' ],
-		'vsmallmatrix*' => [ 'MtSmallMatrix', null, '\\vert', '\\vert' ],
-		'Vsmallmatrix' => [ 'MtSmallMatrix', null, '\\Vert', '\\Vert', 'c' ],
-		'Vsmallmatrix*' => [ 'MtSmallMatrix', null, '\\Vert', '\\Vert' ],
-		'crampedsubarray' => [ 'array', null, null, null, null, '0em', '0.1em', 'S\'', 1 ],
-		'multlined' => 'MtMultlined',
-		'spreadlines' => [ 'SpreadLines', true ],
-		'lgathered' => [ 'amsEqnArray', null, null, null, 'l', null, '.5em', 'D' ],
-		'rgathered' => [ 'amsEqnArray', null, null, null, 'r', null, '.5em', 'D' ],
-	];
-
 	private const COLORS = [
 		'Apricot' => '#FBB982',
 		'Aquamarine' => '#00B5BE',
@@ -803,7 +770,6 @@ class BaseMappings {
 		"mathchar0mi" => self::MATHCHAR0MI,
 		"mathchar0mo" => self::MATHCHAR0MO,
 		"environment" => self::ENVIRONMENT,
-		"environmentMT" => self::ENVIRONMNENTMT,
 		"colors" => self::COLORS,
 		"cancel" => self::CANCEL,
 		"mhchem" => self::MHCHEM,
@@ -837,10 +803,6 @@ class BaseMappings {
 
 	public static function getMacroByKey( $key ) {
 		return MMLutil::getMappingByKeySimple( $key, self::MACROS );
-	}
-
-	public static function getMTenvByKey( $key ) {
-		return MMLutil::getMappingByKeySimple( $key, self::ENVIRONMNENTMT );
 	}
 
 	public static function getSpecialByKey( $key ) {
