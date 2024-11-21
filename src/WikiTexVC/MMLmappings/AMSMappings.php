@@ -363,17 +363,13 @@ class AMSMappings {
 		// Just an empty private constructor, for singleton pattern
 	}
 
-	public static function removeInstance() {
-		self::$instance = null;
+	public static function getAll(): array {
+		return self::ALL;
 	}
 
 	public static function getInstance() {
 		self::$instance ??= new AMSMappings();
 		return self::$instance;
-	}
-
-	public static function getEntryFromList( $keylist, $key ) {
-		return self::ALL[$keylist][$key] ?? null;
 	}
 
 	public static function getOperatorByKey( $key ) {
