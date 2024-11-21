@@ -88,7 +88,7 @@ class Literal extends TexNode {
 			return $mi->encapsulateRaw( $operatorContent["foundOC"] );
 		}
 
-		$inputP = MMLutil::inputPreparation( $input );
+		$inputP = $input;
 
 		// Sieve for Operators
 		$bm = new BaseMethods();
