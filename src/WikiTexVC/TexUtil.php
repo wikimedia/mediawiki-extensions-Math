@@ -11,6 +11,8 @@ use InvalidArgumentException;
  * @method latex_function_names(string $getArg)
  * @method nullary_macro(string $litArg)
  * @method operator(string $getArg)
+ * @method cancel_required(string $getArg)
+ * @method callback(string $getArg)
  */
 class TexUtil {
 	/** @var self|null */
