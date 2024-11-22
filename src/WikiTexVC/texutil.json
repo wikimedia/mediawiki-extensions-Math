@@ -418,6 +418,10 @@
 		"nullary_macro": true
 	},
 	"\\bcancel": {
+		"callback": [
+			"cancel",
+			"downdiagonalstrike"
+		],
 		"cancel_required": true,
 		"fun_ar1": true,
 		"is_letter_mod": true
@@ -631,11 +635,19 @@
 		"declh_function": true
 	},
 	"\\cancel": {
+		"callback": [
+			"cancel",
+			"updiagonalstrike"
+		],
 		"cancel_required": true,
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
 	"\\cancelto": {
+		"callback": [
+			"cancelTo",
+			"updiagonalstrike downdiagonalstrike northeastarrow"
+		],
 		"cancel_required": true,
 		"fun_ar2": true
 	},
@@ -2676,6 +2688,10 @@
 		"nullary_macro": true
 	},
 	"\\xcancel": {
+		"callback": [
+			"cancel",
+			"updiagonalstrike downdiagonalstrike"
+		],
 		"cancel_required": true,
 		"fun_ar1": true,
 		"is_letter_mod": true

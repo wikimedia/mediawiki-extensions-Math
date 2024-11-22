@@ -49,6 +49,8 @@ class BaseMappingsTest extends TestCase {
 
 	public function testGetCancelByKey() {
 		$this->assertEquals( 'updiagonalstrike', BaseMappings::getCancelByKey( '\\cancel' )[1] );
+		$this->assertEquals( 'cancelTo', BaseMappings::getCancelByKey( '\\cancelto' )[0] );
+		$this->assertNull( BaseMappings::getCancelByKey( '\\notCancel' ) );
 	}
 
 	public function testGetOperatorByKey() {
