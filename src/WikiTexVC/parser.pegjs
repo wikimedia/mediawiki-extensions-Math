@@ -209,9 +209,9 @@ alignat
 
 // "matrix" does not require column specification
 matrix
-  = l:line_start tail:( NEXT_ROW m:matrix { return $m; } )?
+  = l:line_start tail:( r:NEXT_ROW m:matrix { return [$m,$r]; } )?
     { if ($tail === null) { return new Matrix( 'matrix', new TexArray( $l ) ); }
-     return new Matrix( 'matrix', $tail->unshift($l) ); }
+     return new Matrix( 'matrix', $tail[0]->unshift($l), $tail[1] ); }
 line_start
   = f:HLINE l:line_start
     {
@@ -385,7 +385,7 @@ NEXT_CELL
  = "&" _
 
 LATEX_LENGTH
-  = LATEX_SIGN? LATEX_NUMBER LATEX_UNIT
+  = s:LATEX_SIGN? n:LATEX_NUMBER u:LATEX_UNIT { return new LengthSpec($s, $n, $u); }
 
 LATEX_SIGN
   = [+-]
@@ -413,7 +413,7 @@ LATEX_UNIT
   / "nc"
 
 NEXT_ROW
- = "\\\\" ("[" LATEX_LENGTH "]")? _
+ = ("\\\\" s:("[" l:LATEX_LENGTH "]" { return $l; })?  _  {return $s; })
 
 BEGIN
  = "\\begin" _
