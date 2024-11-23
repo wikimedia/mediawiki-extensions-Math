@@ -130,17 +130,21 @@ class ApiTest extends MediaWikiUnitTestCase {
 			],
 			[
 				'in' => '{\\begin{aligned}a\\\\[6pt] b\\end{aligned}}',
-				'output' => '{\\begin{aligned}a\\\\b\\end{aligned}}',
+				'output' => '{\\begin{aligned}a\\\\[6pt]b\\end{aligned}}',
 				'ams_required' => true,
 			],
 			[
 				'in' => '{\\begin{aligned}a\\\\[-3.4mm] b\\end{aligned}}',
-				'output' => '{\\begin{aligned}a\\\\b\\end{aligned}}',
+				'output' => '{\\begin{aligned}a\\\\[-3.4mm]b\\end{aligned}}',
 				'ams_required' => true,
 			],
 			[
 				'in' => '{\\begin{aligned}a\\\\[8mu] b\\end{aligned}}',
-				'output' => '{\\begin{aligned}a\\\\b\\end{aligned}}',
+				'output' => '{\\begin{aligned}a\\\\[8mu]b\\end{aligned}}',
+				'ams_required' => true,
+			],
+			[
+				'in' => '{\\begin{aligned}a\\\\[-2.563pt]b\\\\c\\\\[2em]d\\end{aligned}}',
 				'ams_required' => true,
 			],
 		];

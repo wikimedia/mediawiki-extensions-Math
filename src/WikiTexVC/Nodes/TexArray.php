@@ -20,6 +20,7 @@ use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
  */
 class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	protected bool $curly = false;
+	private ?LengthSpec $rowSpecs = null;
 
 	public static function newCurly( ...$args ) {
 		$node = new self( ...$args );
@@ -539,5 +540,13 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 
 	public function offsetUnset( $offset ): void {
 		unset( $this->args[$offset] );
+	}
+
+	public function setRowSpecs( ?LengthSpec $r ) {
+		$this->rowSpecs = $r;
+	}
+
+	public function getRowSpecs(): ?LengthSpec {
+		return $this->rowSpecs;
 	}
 }
