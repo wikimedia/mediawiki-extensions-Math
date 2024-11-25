@@ -329,8 +329,8 @@ class AMSMappings {
 		"Bmatrix" => [ 'array', null, '\\{', '\\}', 'c' ],
 		"vmatrix" => [ 'array', null, '\\vert', '\\vert', 'c' ],
 		"Vmatrix" => [ 'array', null, '\\Vert', '\\Vert', 'c' ],
-		'cases' => [ 'matrix', '{', '', 'left left', null, '.1em', null,
-		true ],
+		'cases' => [ 'matrix', '{', '', 'left left', null, '.1em', null, true ],
+		'array' => [ 'matrix' ]
 	];
 	private const AMSSYMBOLDELIMITERS = [
 		'ulcorner' => '\u231C',
