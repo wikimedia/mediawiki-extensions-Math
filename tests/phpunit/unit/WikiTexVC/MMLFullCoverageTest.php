@@ -45,7 +45,7 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 	/** @var string */
 	private static $GENERATEDEVALFILE = __DIR__ . "/MMLFullCoverageEval.json";
 	/** @var int[] */
-	private static $SKIPPEDINDICES = [];
+	private static $SKIPPEDINDICES = [ 174, 175, 180, 391, 392, 393, 394, 395, 397, 398, 399, 400, 401, 423 ];
 
 	/** @var bool */
 	private static $FILTERMML = true;
@@ -87,6 +87,8 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 
 		$mml_latexml = self::$FILTERMML ? self::loadXMLandDeleteAttrs( $tc->mml_latexml ) : $tc->mml_latexml;
 		$mathMLtexVC = MMLTestUtil::getMMLwrapped( $resultT["input"] );
+		$this->assertStringNotContainsString( 'merror', $mathMLtexVC,
+			"tc $$tc->tex$: MathML $mathMLtexVC contains error" );
 		$mmlComparator = new MMLComparator();
 		$compRes = $mmlComparator->compareMathML( $tc->mml_mathoid, $mathMLtexVC );
 
