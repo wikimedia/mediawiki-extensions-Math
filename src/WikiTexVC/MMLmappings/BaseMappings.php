@@ -2,11 +2,11 @@
 namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Lengths\MathSpace;
-use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Notation;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
+use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 /**
  * Based on BaseMappings.js in MML3
@@ -694,15 +694,6 @@ class BaseMappings {
 		'YellowOrange' => '#FAA21A',
 	];
 
-	// This is from cancelConfiguration.js
-	private const CANCEL = [
-		"\\cancel" => [ 'cancel', Notation::UPDIAGONALSTRIKE ],
-		"\\bcancel" => [ 'cancel', Notation::DOWNDIAGONALSTRIKE ],
-		"\\xcancel" => [ 'cancel', Notation::UPDIAGONALSTRIKE . ' ' .
-			Notation::DOWNDIAGONALSTRIKE ],
-		"\\cancelto" => [ 'cancelTo', Notation::UPDIAGONALSTRIKE . " " . Notation::UPDIAGONALARROW .
-			" " . Notation::NORTHEASTARROW ]
-	];
 	// They are currently from mhchemConfiguration.js
 	private const MHCHEM = [
 		"ce" => [ 'machine', 'ce' ],
@@ -769,7 +760,6 @@ class BaseMappings {
 		"mathchar0mo" => self::MATHCHAR0MO,
 		"environment" => self::ENVIRONMENT,
 		"colors" => self::COLORS,
-		"cancel" => self::CANCEL,
 		"mhchem" => self::MHCHEM,
 		"custom" => self::CUSTOM
 	];
@@ -779,7 +769,14 @@ class BaseMappings {
 	}
 
 	public static function getAll(): array {
-		return self::ALL;
+		$cancelElements = TexUtil::getInstance()->getBaseElements()['cancel_required'];
+		$cancel = [];
+		foreach ( $cancelElements as $name => $value ) {
+			// PhanTypeVoidAssignment Cannot assign void return value
+			// @phan-suppress-next-line PhanCoalescingNeverUndefined
+			$cancel[$name] = TexUtil::getInstance()->callback( $name ) ?? null;
+		}
+		return self::ALL + [ 'cancel' => $cancel ];
 	}
 
 	public static function getInstance(): BaseMappings {
@@ -812,7 +809,10 @@ class BaseMappings {
 	}
 
 	public static function getCancelByKey( $key ) {
-		return MMLutil::getMappingByKeySimple( $key, self::CANCEL );
+		if ( !TexUtil::getInstance()->cancel_required( $key ) ) {
+			return null;
+		}
+		return TexUtil::getInstance()->callback( $key );
 	}
 
 	public static function getCharacterByKey( $key ) {

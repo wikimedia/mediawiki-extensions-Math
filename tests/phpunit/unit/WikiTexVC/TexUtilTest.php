@@ -45,6 +45,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'ams_required',
 			'big_literals',
 			'box_functions',
+			'callback',
 			'cancel_required',
 			'color_function',
 			'color_required',
@@ -124,14 +125,14 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 
 		// Loading local json file
 		$file = TexUtil::getJsonFile();
-		$fileP = str_replace( [ "\n", "\t", "\r", " " ], "", $file );
-
-		$encP = json_encode( $out );
+		// json_encode cannot generate tabs required by WMF convention https://github.com/php/php-src/issues/8864
+		$encP = json_encode( $out, JSON_PRETTY_PRINT );
+		$encP = preg_replace( '/\n\s+/', "\n", $encP ) . "\n";
+		$file = preg_replace( '/\n\s+/', "\n", $file );
 		$hashOutput = $this->getHash( $encP );
-		$hashFile = $this->getHash( $fileP );
+		$hashFile = $this->getHash( $file );
 		// uncomment the following lines to spot differences in your IDE
-		//$this->assertEquals( str_replace( "\t", "    ", $file ), json_encode($out,
-		//        JSON_PRETTY_PRINT) . "\n" );
+		// $this->assertEquals( $encP, $file );
 		$this->assertEquals( $hashFile, $hashOutput );
 	}
 
