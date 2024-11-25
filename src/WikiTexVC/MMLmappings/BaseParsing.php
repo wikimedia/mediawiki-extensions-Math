@@ -649,24 +649,24 @@ class BaseParsing {
 		$mmlText = new MMLmtext( "", $attributes );
 		$mrow = new MMLmrow();
 		switch ( trim( $name ) ) {
-			case "oint":
+			case "\\oint":
 				$mStyle = new MMLmstyle( "", [ "displaystyle" => "true" ] );
 				$mo = new MMLmo();
 				return $mStyle->encapsulateRaw( $mo->encapsulateRaw( MMLutil::uc2xNotation( $uc ) ) );
 			case "\\P":
 				$mo = new MMLmo();
 				return $mo->encapsulateRaw( MMLutil::uc2xNotation( $uc ) );
-			case "oiint":
-			case "oiiint":
-			case "ointctrclockwise":
-			case "varointclockwise":
+			case "\\oiint":
+			case "\\oiiint":
+			case "\\ointctrclockwise":
+			case "\\varointclockwise":
 				$mStyle = new MMLmstyle( "", [ "mathsize" => "2.07em" ] );
 				$mSpace = new MMLmspace( "", [ "width" => Sizes::THINMATHSPACE ] );
 				return $mrow->encapsulateRaw( $mStyle->encapsulateRaw(
 					$mmlText->encapsulateRaw( MMLutil::uc2xNotation( $uc ) )
 					. $mSpace->getEmpty() ) );
 			default:
-				return $mmlText->encapsulate( "not found in OintMethod" );
+				return ( new MMLmerror() )->encapsulate( "not found in OintMethod" );
 
 		}
 	}
