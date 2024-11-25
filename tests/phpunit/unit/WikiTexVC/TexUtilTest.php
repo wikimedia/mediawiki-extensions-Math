@@ -33,6 +33,18 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		$tu->__call( '\\notlisted', [] );
 	}
 
+	public function testUnicodeDefined() {
+		$tu = TexUtil::getInstance();
+		$sets = [ 'nullary_macro_in_mbox' ];
+		foreach ( $sets as $set ) {
+			$baseElements = $tu->getBaseElements();
+			foreach ( $baseElements[$set] as $key => $value ) {
+				$this->assertIsString( $tu->unicode_char( $key ),
+					"unicode_char should return a string for $key ($set)" );
+			}
+		}
+	}
+
 	/**
 	 * Testing a checksum for the parsed object against a checksum of the json file contents.
 	 * @return void
@@ -84,6 +96,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'right_function',
 			'teubner_required',
 			'stix_required',
+			'unicode_char',
 		];
 
 		// Reading data from TexUtil.

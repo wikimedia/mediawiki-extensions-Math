@@ -66,7 +66,6 @@ class BaseMappings {
 		"varpi" => '\u03D6',
 		"varrho" => '\u03F1',
 		"varsigma" => '\u03C2',
-		"varstigma" => "\u03DB",
 		"varphi" => '\u03C6',
 		 "S" => [ '\u00A7', [ "mathvariant" => Variants::NORMAL ] ],
 		"aleph" => [ '\u2135', [ "mathvariant" => Variants::NORMAL ] ],
@@ -598,25 +597,6 @@ class BaseMappings {
 		"intent" => 'intent'
 	];
 
-	private const NULLARYMACROS = [
-		"AA" => "\u00C5",
-		"Coppa" => "\u03D8",
-		"Digamma" => "\u03DC",
-		"Koppa" => "\u03DE",
-		"Sampi" => "\u03E0",
-		"Stigma" => "\u03DA",
-		"coppa" => "\u03D9",
-		"euro" => "\u20AC",
-		"geneuro" => "\u20AC",
-		"geneuronarrow" => "\u20AC",
-		"geneurowide" => "\u20AC",
-		"koppa" => "\u03DF",
-		"officialeuro" => "\u20AC",
-		"sampi" => "\u03E1",
-		"stigma" => "\u03DB",
-		"textvisiblespace" => "\u2423"
-	];
-
 	private const ENVIRONMENT = [
 		"array" => [ 'AlignedArray' ],
 		"equation" => [ 'Equation', null, true ],
@@ -837,7 +817,4 @@ class BaseMappings {
 		return MMLutil::getMappingByKey( $key, self::DELIMITER, true );
 	}
 
-	public static function getNullaryMacro( $key ) {
-		return MMLutil::getMappingByKey( $key, self::NULLARYMACROS, true );
-	}
 }
