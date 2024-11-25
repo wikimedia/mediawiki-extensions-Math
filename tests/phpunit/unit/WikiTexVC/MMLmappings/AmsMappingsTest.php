@@ -41,20 +41,20 @@ class AmsMappingsTest extends TestCase {
 	}
 
 	public function testGetOperatorByKey() {
-		$this->assertEquals( '&#x2A0C;', AMSMappings::getOperatorByKey( 'iiiint' )[0] );
+		$this->assertEquals( '&#x2A0C;', AMSMappings::getOperatorByKey( '\\iiiint' )[0] );
 	}
 
 	public function testGetMathDelimiterByKey() {
-		$this->assertEquals( '&#x007C;', AMSMappings::getMathDelimiterByKey( 'lvert' )[0] );
+		$this->assertEquals( '&#x007C;', AMSMappings::getMathDelimiterByKey( '\\lvert' )[0] );
 	}
 
 	public function testGetSymbolDelimiterByKey() {
-		$this->assertEquals( '&#x231C;', AMSMappings::getSymbolDelimiterByKey( 'ulcorner' )[0] );
+		$this->assertEquals( '&#x231C;', AMSMappings::getSymbolDelimiterByKey( '\\ulcorner' )[0] );
 	}
 
 	public function testGetMacroByKey() {
 		$this->assertEquals( 'Tilde', AMSMappings::getMacroByKey( '\\nobreakspace' )[0] );
-		$this->assertEquals( 'macro', AMSMappings::getMacroByKey( 'implies' )[0] );
+		$this->assertEquals( 'macro', AMSMappings::getMacroByKey( '\\implies' )[0] );
 	}
 
 	public function testGetInstance() {
@@ -62,7 +62,7 @@ class AmsMappingsTest extends TestCase {
 	}
 
 	public function testGetIdentifierByKey() {
-		$this->assertEquals( '&#x0393;', AMSMappings::getIdentifierByKey( 'varGamma' )[0] );
+		$this->assertEquals( '&#x0393;', AMSMappings::getIdentifierByKey( '\\varGamma' )[0] );
 	}
 
 	public function testGetEnvironmentByKey() {

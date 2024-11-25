@@ -375,19 +375,19 @@ class AMSMappings {
 	public static function getOperatorByKey( $key ) {
 		// &#x221A; to \\u.... this is only temporary probably entities.php will be refactored with \u vals again
 		$key = MMLutil::x2uNotation( $key );
-		return MMLutil::getMappingByKey( $key, self::AMSMATHCHAR0MO, true );
+		return MMLutil::getMappingByKey( $key, self::AMSMATHCHAR0MO, true, true );
 	}
 
 	public static function getIdentifierByKey( $key ) {
-		return MMLutil::getMappingByKey( $key, self::AMSMATHCHAR0MI, true );
+		return MMLutil::getMappingByKey( $key, self::AMSMATHCHAR0MI, true, true );
 	}
 
 	public static function getSymbolDelimiterByKey( $key ) {
-		return MMLutil::getMappingByKey( $key, self::AMSSYMBOLDELIMITERS, true );
+		return MMLutil::getMappingByKey( $key, self::AMSSYMBOLDELIMITERS, true, true );
 	}
 
 	public static function getMathDelimiterByKey( $key ) {
-		return MMLutil::getMappingByKey( $key, self::AMSMATHDELIMITERS, true );
+		return MMLutil::getMappingByKey( $key, self::AMSMATHDELIMITERS, true, true );
 	}
 
 	public static function getMacroByKey( $key ) {
@@ -395,7 +395,7 @@ class AMSMappings {
 		if ( $ret != null ) {
 			return $ret;
 		}
-		return MMLutil::getMappingByKey( $key, self::AMSSYMBOLMACROS );
+		return MMLutil::getMappingByKey( $key, self::AMSSYMBOLMACROS, true, true );
 	}
 
 	public static function getEnvironmentByKey( $key ) {
