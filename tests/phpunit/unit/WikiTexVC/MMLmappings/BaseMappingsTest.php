@@ -83,10 +83,6 @@ class BaseMappingsTest extends TestCase {
 		$this->assertInstanceOf( BaseMappings::class, BaseMappings::getInstance() );
 	}
 
-	public function testGetNullaryMacro() {
-		$this->assertEquals( '&#x00C5;', BaseMappings::getNullaryMacro( 'AA' )[0] );
-	}
-
 	public function testGetCharacterByKey() {
 		$this->assertEquals( '\u0393', BaseMappings::getCharacterByKey( '\\Gamma' ) );
 	}

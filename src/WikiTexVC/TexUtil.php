@@ -13,6 +13,8 @@ use InvalidArgumentException;
  * @method operator(string $getArg)
  * @method cancel_required(string $getArg)
  * @method callback(string $getArg)
+ * @method nullary_macro_in_mbox(string $getArg)
+ * @method unicode_char(string $getArg)
  */
 class TexUtil {
 	/** @var self|null */

@@ -42,6 +42,7 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
+use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 
 /**
@@ -1116,43 +1117,45 @@ class BaseParsing {
 	}
 
 	public static function hBox( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
-		switch ( $name ) {
-			case "mbox":
+		switch ( trim( $name ) ) {
+			case "\\mbox":
 				$mo = new MMLmo();
 				$mmlMrow = new MMLmrow();
-				if ( $operatorContent != null && array_key_exists( "foundOC", $operatorContent ) ) {
-					$op = $operatorContent["foundOC"];
-					$macro = BaseMappings::getNullaryMacro( $op );
-					if ( !$macro ) {
-						$macro = BaseMappings::getIdentifierByKey( $op );
-					}
-					$input = $macro[0] ?? $operatorContent["foundOC"];
+				if ( isset( $operatorContent['foundOC'] ) ) {
+					$op = $operatorContent['foundOC'];
+					$macro = TexUtil::getInstance()->nullary_macro_in_mbox( $op ) ?
+						/* tested in \MediaWiki\Extension\Math\Tests\WikiTexVC\TexUtilTest::testUnicodeDefined
+						@phan-suppress-next-line PhanTypeSuspiciousStringExpression - false positive */
+						[ '&#x' . TexUtil::getInstance()->unicode_char( $op ) . ';' ] :
+						BaseMappings::getIdentifierByKey( $op );
+					$input = $macro[0] ?? $op;
+					// @phan-suppress-next-line PhanTypeMismatchArgumentNullable - false positive see above
 					return $mmlMrow->encapsulateRaw( $mo->encapsulateRaw( $input ) );
 				} else {
 					$mmlMrow = new MMLmrow();
 					$mtext = new MMLmtext();
 					return $mmlMrow->encapsulateRaw( $mtext->encapsulateRaw( "\mbox" ) );
 				}
-			case "hbox":
+			case "\\hbox":
 				$mmlMrow = new MMLmrow();
 				$mstyle = new MMLmstyle( "", [ "displaystyle" => "false", "scriptlevel" => "0" ] );
 				$mtext = new MMLmtext();
 				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->renderMML() : $node->getArg();
 				return $mmlMrow->encapsulateRaw( $mstyle->encapsulateRaw( $mtext->encapsulateRaw( $inner ) ) );
-			case "text":
+			case "\\text":
 				$mmlMrow = new MMLmrow();
 				$mtext = new MMLmtext();
 				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->renderMML() : $node->getArg();
 				return $mmlMrow->encapsulateRaw( $mtext->encapsulateRaw( $inner ) );
-			case "textbf":
+			case "\\textbf":
 				// no break
-			case "textit":
+			case "\\textit":
 				// no break
-			case "textrm":
+			case "\\textrm":
 				// no break
-			case "textsf":
+			case "\\textsf":
 				// no break
-			case "texttt":
+			case "\\texttt":
 				$mmlMrow = new MMLmrow();
 				$mtext = new MMLmtext( "", MMLParsingUtil::getFontArgs( $name, null, null ) );
 
