@@ -598,7 +598,7 @@ class BaseParsing {
 
 		if ( $node instanceof Literal ) {
 			$mi = new MMLmi( "", $passedArgs );
-			return $mi->encapsulateRaw( $id ?? $name ) . $applyFct;
+			return $mi->encapsulateRaw( $id ?? ltrim( $name, '\\' ) ) . $applyFct;
 		}
 		$mrow = new MMLmrow( TexClass::ORD, [] );
 		$msub = new MMLmsub( "", $passedArgs );

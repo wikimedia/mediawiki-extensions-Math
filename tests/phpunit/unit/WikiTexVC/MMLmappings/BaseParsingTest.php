@@ -199,4 +199,10 @@ f(x,y,z) & = & x + y + z
 		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
 		$this->assertStringContainsString( 'left center right ', $result );
 	}
+
+	public function testNamedOperator() {
+		$node = new Literal( '\\gcd' );
+		$result = BaseParsing::namedOp( $node, [], [], '\\gcd' );
+		$this->assertStringContainsString( '>gcd</mi>', $result );
+	}
 }
