@@ -45,7 +45,7 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 	/** @var string */
 	private static $GENERATEDEVALFILE = __DIR__ . "/MMLFullCoverageEval.json";
 	/** @var int[] */
-	private static $SKIPPEDINDICES = [ 174, 175, 180 ];
+	private static $SKIPPEDINDICES = [];
 
 	/** @var bool */
 	private static $FILTERMML = true;
