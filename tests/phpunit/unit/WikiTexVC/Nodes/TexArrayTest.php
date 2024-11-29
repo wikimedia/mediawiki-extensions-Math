@@ -151,4 +151,9 @@ class TexArrayTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( $custom, $res[0] );
 	}
 
+	public function testRenderADeriv() {
+		$n = new TexArray( new Literal( 'A' ) );
+		$mml = $n->renderMML( [], [ 'deriv' => 1 ] );
+		$this->assertStringContainsString( '&#x2032;</mo>', $mml );
+	}
 }
