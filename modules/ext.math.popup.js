@@ -49,6 +49,8 @@
 	[].forEach.call(
 		document.querySelectorAll( selector ),
 		( node ) => {
+			// temporary hack to enable popup T380079
+			node.href = node.baseURI;
 			if ( typeof node.offsetWidth === 'undefined' ) {
 				node.offsetWidth = node.getBoundingClientRect().width || 1;
 			}
