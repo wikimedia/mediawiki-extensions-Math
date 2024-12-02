@@ -3,9 +3,6 @@
 	const previewType = 'math';
 	const selector = '.mwe-math-element[href*="qid"], .mwe-math-element[data-qid] img';
 	const api = new mw.Rest();
-	const isValidId = function ( qid ) {
-		return qid.match( /Q\d+/g ) === null;
-	};
 	const fetch = function ( qid ) {
 		return api.get( '/math/v0/popup/html/' + qid, {}, {
 			Accept: 'application/json; charset=utf-8',
@@ -29,7 +26,7 @@
 		if ( parent.dataset.qid ) {
 			qidstr = parent.dataset.qid;
 		}
-		if ( !qidstr || isValidId( qidstr ) ) {
+		if ( !qidstr || ( qidstr.match( /Q\d+/g ) === null ) ) {
 			return deferred.reject();
 		}
 		qidstr = qidstr.slice( 1 );
@@ -48,13 +45,15 @@
 		} );
 		return deferred.promise();
 	};
-	// popups require title attributes
+	// popups require offsetHeight and offsetWidth attributes
 	[].forEach.call(
 		document.querySelectorAll( selector ),
 		( node ) => {
-			const qidstr = getQidStr( node );
-			if ( qidstr && isValidId( qidstr ) ) {
-				node.dataset.title = 'math-unique-identifier';
+			if ( typeof node.offsetWidth === 'undefined' ) {
+				node.offsetWidth = node.getBoundingClientRect().width || 1;
+			}
+			if ( typeof node.offsetHeight === 'undefined' ) {
+				node.offsetHeight = node.getBoundingClientRect().height || 1;
 			}
 		}
 	);
