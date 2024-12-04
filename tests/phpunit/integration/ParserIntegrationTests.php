@@ -90,7 +90,7 @@ class ParserIntegrationTests extends MediaWikiIntegrationTestCase {
 		$parserOptions1->setOption( 'math', MathConfig::MODE_SOURCE );
 		$render = $parserOutputAccess->getCachedParserOutput( $page, $parserOptions1 );
 		$this->assertNotNull( $render );
-		$this->assertStringContainsString( "<render>source:TEST_FORMULA</render>", $render->getText() );
+		$this->assertStringContainsString( "<render>source:TEST_FORMULA</render>", $render->getRawText() );
 
 		// Now render with 'mathml' and make sure we didn't get the cached output
 		$parserOptions2 = ParserOptions::newCanonical( 'canonical' );
@@ -108,7 +108,7 @@ class ParserIntegrationTests extends MediaWikiIntegrationTestCase {
 		$this->assertNotNull( $cachedWithDummy1 );
 		$this->assertStringContainsString(
 			"<render>source:TEST_FORMULA</render>",
-			$cachedWithDummy1->getText()
+			$cachedWithDummy1->getRawText()
 		);
 
 		// Fetch from cache with mathml
@@ -116,7 +116,7 @@ class ParserIntegrationTests extends MediaWikiIntegrationTestCase {
 		$this->assertNotNull( $cachedWithDummy2 );
 		$this->assertStringContainsString(
 			"<render>mathml:TEST_FORMULA</render>",
-			$cachedWithDummy2->getText()
+			$cachedWithDummy2->getRawText()
 		);
 	}
 
@@ -131,7 +131,7 @@ class ParserIntegrationTests extends MediaWikiIntegrationTestCase {
 				PageReferenceValue::localReference( NS_MAIN, __METHOD__ ),
 				$po
 			)
-			->getText();
+			->getRawText();
 		$this->assertStringMatchesFormat( '%A<a%S><render>mathml:formula</render></a>%A', $res );
 	}
 }
