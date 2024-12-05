@@ -9,6 +9,8 @@
 			"SpeedyGonsales"
 		]
 	},
+	"popups-settings-option-math-description": "Objašnjenje matematičkih formula.",
+	"popups-settings-option-math-tooltip": "Objašnjenje matematičkih formula prilikom prelaska strelice miša.",
 	"math-visualeditor-mwchemdialog-title": "Kemijska formula",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Brzo uređivanje",
 	"math-visualeditor-mwlatexdialog-card-formula": "Formula",
@@ -74,7 +76,7 @@
 	"math-tracking-category-render-error-desc": "Stranice u ovoj kategoriji imaju pogreške u prikazu matematičkih oznaka",
 	"math_unknown_error": "nepoznata pogreška",
 	"math_unknown_function": "nepoznata funkcija \"$1\"",
-	"mw-math-mathml": "MathML sa SVG ili PNG za rezervu (preporučljivo za moderne preglednike i alate za pristupačnost)",
+	"mw-math-mathml": "SVG (MathML može biti omogućen dodatkom preglednika)",
 	"mw-math-source": "Izvor LaTeX (za tekstualne preglednike)",
 	"prefs-math": "Prikaz matematičkih formula",
 	"mathstatus": "Stanje izvedbe ispisa matematičkih formula",
