@@ -752,30 +752,28 @@ class BaseParsing {
 		return $mrow->encapsulateRaw( $inrow . $arg1 );
 	}
 
-	public static function underOver( $node, $passedArgs, $operatorContent,
+	public static function underOver( Fun1 $node, $passedArgs, $operatorContent,
 									  $name, $operatorId = null, $stack = null, $nonHex = false ) {
 		// tbd verify if stack interpreted correctly ?
 		$texClass = $stack ? TexClass::OP : TexClass::ORD; // ORD or ""
 
 		$mrow = new MMLmrow( $texClass );
-
-		if ( $name[0] === 'o' ) {
+		$fname = $node->getFname();
+		if ( str_starts_with( $fname, '\\over' ) ) {
 			$movun = new MMLmover();
-		} else {
+		} elseif ( str_starts_with( $fname, '\\under' ) ) {
 			$movun = new MMLmunder();
+		} else {
+			// incorrect name, should not happen, prevent erroneous mappings from getting rendered.
+			$merror = new MMLmerror();
+			return $merror->encapsulateRaw(
+				'underOver rendering requires macro to start with either \\under or \\over.' );
 		}
 
 		if ( $operatorId == 2015 ) { // eventually move such cases to mapping
 			$mo = new MMLmo( "", [ "accent" => "true" ] );
 		} else {
 			$mo = new MMLmo();
-		}
-		if ( $node instanceof DQ ) {
-			$mrowI = new MMLmrow();
-			return $movun->encapsulateRaw(
-				$node->getBase()->renderMML( $passedArgs ) .
-				$mrowI->encapsulateRaw( $node->getDown()->renderMML( $passedArgs ) )
-			);
 		}
 
 		$inner = $nonHex ? $operatorId : MMLutil::number2xNotation( $operatorId );
