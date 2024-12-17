@@ -79,6 +79,7 @@ const useStatements =
 	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Infix;\n' +
 	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal;\n' +
 	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Lr;\n' +
+	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\LengthSpec;\n' +
 	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Matrix;\n' +
 	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Mhchem;\n' +
 	'use MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\UQ;\n' +

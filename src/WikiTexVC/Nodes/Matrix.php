@@ -20,12 +20,7 @@ class Matrix extends TexArray {
 
 	private ?string $alignInfo = null;
 
-	/**
-	 * @param string $top
-	 * @param TexArray $mainarg
-	 * @throws InvalidArgumentException if nested arguments are not of type TexArray
-	 */
-	public function __construct( string $top, TexArray $mainarg ) {
+	public function __construct( string $top, TexArray $mainarg, $rowSpec = null ) {
 		foreach ( $mainarg->args as $row ) {
 			if ( !$row instanceof TexArray ) {
 				throw new InvalidArgumentException( 'Nested arguments have to be type of TexArray' );
@@ -39,6 +34,10 @@ class Matrix extends TexArray {
 			parent::__construct( ...$mainarg->args );
 		}
 		$this->top = $top;
+		if ( $rowSpec && count( $this->args ) ) {
+			// @phan-suppress-next-line PhanUndeclaredMethod
+			$this->first()->setRowSpecs( $rowSpec );
+		}
 	}
 
 	public function getLines(): array {
@@ -115,9 +114,16 @@ class Matrix extends TexArray {
 		return $this->parseToMML( $this->getTop(), $arguments, null );
 	}
 
-	private function renderMatrix( $matrix ) {
-		$mapped = array_map( [ self::class, 'renderLine' ], $matrix->args );
-		return implode( '\\\\', $mapped );
+	private function renderMatrix( Matrix $matrix ): string {
+		$renderedLines = '';
+		for ( $i = 0; $i < count( $matrix->args ); $i++ ) {
+			$renderedLines .= self::renderLine( $matrix->args[$i] );
+			if ( $i < count( $matrix->args ) - 1 ) {
+				// @phan-suppress-next-line PhanTypeMismatchArgumentSuperType
+				$renderedLines .= $matrix->renderRowSpec( $matrix->args[$i] );
+			}
+		}
+		return $renderedLines;
 	}
 
 	private static function renderLine( $l ) {
@@ -203,6 +209,14 @@ class Matrix extends TexArray {
 			$this->renderColumnSpecs();
 		}
 		return $this->boarder;
+	}
+
+	public function renderRowSpec( TexArray $row ): string {
+		$rowSpecs = '';
+		if ( $row->getRowSpecs() !== null ) {
+			$rowSpecs = $row->getRowSpecs()->render();
+		}
+		return '\\\\' . $rowSpecs;
 	}
 
 }

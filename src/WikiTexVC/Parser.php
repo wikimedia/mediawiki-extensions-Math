@@ -24,6 +24,7 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun4;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Infix;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Lr;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\LengthSpec;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Mhchem;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\UQ;
@@ -522,9 +523,9 @@ class Parser {
     private function peg_f53($f) { throw new SyntaxError("Illegal TeX function", [], $f, $this->offset(), $this->line(), $this->column()); }
     private function peg_f54($cs, $m) { return $m->setColumnSpecs( $cs ); }
     private function peg_f55($as, $m) { return $m->setColumnSpecs( $as ); }
-    private function peg_f56($l, $m) { return $m; }
+    private function peg_f56($l, $r, $m) { return [$m,$r]; }
     private function peg_f57($l, $tail) { if ($tail === null) { return new Matrix( 'matrix', new TexArray( $l ) ); }
-         return new Matrix( 'matrix', $tail->unshift($l) ); }
+         return new Matrix( 'matrix', $tail[0]->unshift($l), $tail[1] ); }
     private function peg_f58($f, $l) {
             if ($l->first() === null ) {
                 $l->push(new TexArray());
@@ -595,56 +596,59 @@ class Parser {
        }
     private function peg_f104($f) { return $this->tu->fun_ar1nb($f); }
     private function peg_f105($f) { return $this->tu->fun_ar1opt($f); }
-    private function peg_f106($f) { return $this->tu->big_literals($f); }
-    private function peg_f107($f) { return $this->tu->fun_ar1($f); }
-    private function peg_f108($f) { return $this->options['oldmhchem'] && $this->tu->fun_mhchem($f);}
-    private function peg_f109($f) { return $this->tu->other_fun_ar1($f); }
-    private function peg_f110($f) { if ($this->options['oldtexvc']) {
+    private function peg_f106($s, $n, $u) { return new LengthSpec($s, $n, $u); }
+    private function peg_f107($l) { return $l; }
+    private function peg_f108($s) {return $s; }
+    private function peg_f109($f) { return $this->tu->big_literals($f); }
+    private function peg_f110($f) { return $this->tu->fun_ar1($f); }
+    private function peg_f111($f) { return $this->options['oldmhchem'] && $this->tu->fun_mhchem($f);}
+    private function peg_f112($f) { return $this->tu->other_fun_ar1($f); }
+    private function peg_f113($f) { if ($this->options['oldtexvc']) {
             return $this->tu->other_fun_ar1($f);
          } else {
             throw new SyntaxError("Deprecation: \\Bbb and \\bold are not allowed in math mode.", [],
                 $this->text(), $this->offset(), $this->line(),$this->column());
          }
        }
-    private function peg_f111($f) { return $this->tu->fun_mhchem($f); }
-    private function peg_f112($f) { return $this->tu->fun_ar2($f); }
-    private function peg_f113($f) { return $this->tu->fun_ar4($f) && $this->tu->mhchemtexified_required($f); }
-    private function peg_f114($f) { return $this->tu->fun_infix($f); }
-    private function peg_f115($f) { return $this->tu->declh_function($f); }
-    private function peg_f116($f) { return new Declh($f, new TexArray()); }
-    private function peg_f117($f) { return $this->tu->fun_ar2nb($f); }
-    private function peg_f118($f) { return $this->tu->left_function($f); }
-    private function peg_f119($f) { return $this->tu->right_function($f); }
-    private function peg_f120($f) { return $this->tu->hline_function($f); }
-    private function peg_f121($f) { return $this->tu->color_function($f); }
-    private function peg_f122($f, $cs) { return $f . " " . $cs; }
-    private function peg_f123($f) { return $this->tu->definecolor_function($f); }
-    private function peg_f124($f, $name, $cs) { return "{named}" . $cs; }
-    private function peg_f125($f, $name, $cs) { return "{gray}" . $cs; }
-    private function peg_f126($f, $name, $cs) { return "{rgb}" . $cs; }
-    private function peg_f127($f, $name, $cs) { return "{cmyk}" . $cs; }
-    private function peg_f128($f, $name, $a) { return $f . " {" . join('',$name) . "}" . $a; }
-    private function peg_f129($cs) { return "[named]" . $cs; }
-    private function peg_f130($cs) { return "[gray]" . $cs; }
-    private function peg_f131($cs) { return "[rgb]" . $cs; }
-    private function peg_f132($cs) { return "[cmyk]" . $cs; }
-    private function peg_f133($name) { return "{" . join('', $name) . "}"; }
-    private function peg_f134($k) { $s = is_array($k) ? $k[0] : $k;
+    private function peg_f114($f) { return $this->tu->fun_mhchem($f); }
+    private function peg_f115($f) { return $this->tu->fun_ar2($f); }
+    private function peg_f116($f) { return $this->tu->fun_ar4($f) && $this->tu->mhchemtexified_required($f); }
+    private function peg_f117($f) { return $this->tu->fun_infix($f); }
+    private function peg_f118($f) { return $this->tu->declh_function($f); }
+    private function peg_f119($f) { return new Declh($f, new TexArray()); }
+    private function peg_f120($f) { return $this->tu->fun_ar2nb($f); }
+    private function peg_f121($f) { return $this->tu->left_function($f); }
+    private function peg_f122($f) { return $this->tu->right_function($f); }
+    private function peg_f123($f) { return $this->tu->hline_function($f); }
+    private function peg_f124($f) { return $this->tu->color_function($f); }
+    private function peg_f125($f, $cs) { return $f . " " . $cs; }
+    private function peg_f126($f) { return $this->tu->definecolor_function($f); }
+    private function peg_f127($f, $name, $cs) { return "{named}" . $cs; }
+    private function peg_f128($f, $name, $cs) { return "{gray}" . $cs; }
+    private function peg_f129($f, $name, $cs) { return "{rgb}" . $cs; }
+    private function peg_f130($f, $name, $cs) { return "{cmyk}" . $cs; }
+    private function peg_f131($f, $name, $a) { return $f . " {" . join('',$name) . "}" . $a; }
+    private function peg_f132($cs) { return "[named]" . $cs; }
+    private function peg_f133($cs) { return "[gray]" . $cs; }
+    private function peg_f134($cs) { return "[rgb]" . $cs; }
+    private function peg_f135($cs) { return "[cmyk]" . $cs; }
+    private function peg_f136($name) { return "{" . join('', $name) . "}"; }
+    private function peg_f137($k) { $s = is_array($k) ? $k[0] : $k;
           return "{" . $s . "}";}
-    private function peg_f135($r, $g, $b) { return "{" . $r . "," . $g . "," . $b . "}"; }
-    private function peg_f136($c, $m, $y, $k) { return "{" . $c . "," . $m . "," . $y . "," . $k . "}"; }
-    private function peg_f137($n) { return intval($n, 10) <= 255; }
-    private function peg_f138($n) { return $n / 255; }
-    private function peg_f139($n) { return $n; }
-    private function peg_f140($f) { return $this->tu->mhchem_single_macro($f); }
-    private function peg_f141($f) { return $this->tu->mhchem_bond($f); }
-    private function peg_f142($f) { return $this->tu->mhchem_macro_1p($f); }
-    private function peg_f143($f) { return $this->tu->mhchem_macro_2p($f); }
-    private function peg_f144($f) { return $this->tu->mhchem_macro_2pu($f); }
-    private function peg_f145($f) { return $this->tu->mhchem_macro_2pc($f); }
-    private function peg_f146() { return "{}"; }
-    private function peg_f147() { return false; }
-    private function peg_f148() { return $this->peg_currPos === $this->input_length; }
+    private function peg_f138($r, $g, $b) { return "{" . $r . "," . $g . "," . $b . "}"; }
+    private function peg_f139($c, $m, $y, $k) { return "{" . $c . "," . $m . "," . $y . "," . $k . "}"; }
+    private function peg_f140($n) { return intval($n, 10) <= 255; }
+    private function peg_f141($n) { return $n / 255; }
+    private function peg_f142($n) { return $n; }
+    private function peg_f143($f) { return $this->tu->mhchem_single_macro($f); }
+    private function peg_f144($f) { return $this->tu->mhchem_bond($f); }
+    private function peg_f145($f) { return $this->tu->mhchem_macro_1p($f); }
+    private function peg_f146($f) { return $this->tu->mhchem_macro_2p($f); }
+    private function peg_f147($f) { return $this->tu->mhchem_macro_2pu($f); }
+    private function peg_f148($f) { return $this->tu->mhchem_macro_2pc($f); }
+    private function peg_f149() { return "{}"; }
+    private function peg_f150() { return false; }
+    private function peg_f151() { return $this->peg_currPos === $this->input_length; }
 
     private function peg_parsestart() {
 
@@ -2459,7 +2463,7 @@ class Parser {
           $s4 = $this->peg_parsematrix();
           if ($s4 !== $this->peg_FAILED) {
             $this->peg_reportedPos = $s2;
-            $s3 = $this->peg_f56($s1, $s4);
+            $s3 = $this->peg_f56($s1, $s3, $s4);
             $s2 = $s3;
           } else {
             $this->peg_currPos = $s2;
@@ -4880,7 +4884,8 @@ class Parser {
         if ($s2 !== $this->peg_FAILED) {
           $s3 = $this->peg_parseLATEX_UNIT();
           if ($s3 !== $this->peg_FAILED) {
-            $s1 = array($s1, $s2, $s3);
+            $this->peg_reportedPos = $s0;
+            $s1 = $this->peg_f106($s1, $s2, $s3);
             $s0 = $s1;
           } else {
             $this->peg_currPos = $s0;
@@ -5233,7 +5238,8 @@ class Parser {
               }
             }
             if ($s5 !== $this->peg_FAILED) {
-              $s3 = array($s3, $s4, $s5);
+              $this->peg_reportedPos = $s2;
+              $s3 = $this->peg_f107($s4);
               $s2 = $s3;
             } else {
               $this->peg_currPos = $s2;
@@ -5253,7 +5259,8 @@ class Parser {
         if ($s2 !== $this->peg_FAILED) {
           $s3 = $this->peg_parse_();
           if ($s3 !== $this->peg_FAILED) {
-            $s1 = array($s1, $s2, $s3);
+            $this->peg_reportedPos = $s0;
+            $s1 = $this->peg_f108($s2);
             $s0 = $s1;
           } else {
             $this->peg_currPos = $s0;
@@ -6779,7 +6786,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f106($s1);
+        $s2 = $this->peg_f109($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -6823,7 +6830,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f107($s1);
+        $s2 = $this->peg_f110($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -6852,7 +6859,7 @@ class Parser {
         $s1 = $this->peg_parsegeneric_func();
         if ($s1 !== $this->peg_FAILED) {
           $this->peg_reportedPos = $this->peg_currPos;
-          $s2 = $this->peg_f108($s1);
+          $s2 = $this->peg_f111($s1);
           if ($s2) {
             $s2 = null;
           } else {
@@ -6881,7 +6888,7 @@ class Parser {
           $s1 = $this->peg_parsegeneric_func();
           if ($s1 !== $this->peg_FAILED) {
             $this->peg_reportedPos = $this->peg_currPos;
-            $s2 = $this->peg_f109($s1);
+            $s2 = $this->peg_f112($s1);
             if ($s2) {
               $s2 = null;
             } else {
@@ -6891,7 +6898,7 @@ class Parser {
               $s3 = $this->peg_parse_();
               if ($s3 !== $this->peg_FAILED) {
                 $this->peg_reportedPos = $s0;
-                $s1 = $this->peg_f110($s1);
+                $s1 = $this->peg_f113($s1);
                 $s0 = $s1;
               } else {
                 $this->peg_currPos = $s0;
@@ -6927,7 +6934,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f111($s1);
+        $s2 = $this->peg_f114($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -6971,7 +6978,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f112($s1);
+        $s2 = $this->peg_f115($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -7015,7 +7022,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f113($s1);
+        $s2 = $this->peg_f116($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -7059,7 +7066,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f114($s1);
+        $s2 = $this->peg_f117($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -7103,7 +7110,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f115($s1);
+        $s2 = $this->peg_f118($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -7113,7 +7120,7 @@ class Parser {
           $s3 = $this->peg_parse_();
           if ($s3 !== $this->peg_FAILED) {
             $this->peg_reportedPos = $s0;
-            $s1 = $this->peg_f116($s1);
+            $s1 = $this->peg_f119($s1);
             $s0 = $s1;
           } else {
             $this->peg_currPos = $s0;
@@ -7147,7 +7154,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f117($s1);
+        $s2 = $this->peg_f120($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -7191,7 +7198,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f118($s1);
+        $s2 = $this->peg_f121($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -7234,7 +7241,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f119($s1);
+        $s2 = $this->peg_f122($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -7277,7 +7284,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f120($s1);
+        $s2 = $this->peg_f123($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -7321,7 +7328,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f121($s1);
+        $s2 = $this->peg_f124($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -7333,7 +7340,7 @@ class Parser {
             $s4 = $this->peg_parseCOLOR_SPEC();
             if ($s4 !== $this->peg_FAILED) {
               $this->peg_reportedPos = $s0;
-              $s1 = $this->peg_f122($s1, $s4);
+              $s1 = $this->peg_f125($s1, $s4);
               $s0 = $s1;
             } else {
               $this->peg_currPos = $s0;
@@ -7371,7 +7378,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f123($s1);
+        $s2 = $this->peg_f126($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -7457,7 +7464,7 @@ class Parser {
                                     $s17 = $this->peg_parseCOLOR_SPEC_NAMED();
                                     if ($s17 !== $this->peg_FAILED) {
                                       $this->peg_reportedPos = $s12;
-                                      $s13 = $this->peg_f124($s1, $s6, $s17);
+                                      $s13 = $this->peg_f127($s1, $s6, $s17);
                                       $s12 = $s13;
                                     } else {
                                       $this->peg_currPos = $s12;
@@ -7508,7 +7515,7 @@ class Parser {
                                       $s17 = $this->peg_parseCOLOR_SPEC_GRAY();
                                       if ($s17 !== $this->peg_FAILED) {
                                         $this->peg_reportedPos = $s12;
-                                        $s13 = $this->peg_f125($s1, $s6, $s17);
+                                        $s13 = $this->peg_f128($s1, $s6, $s17);
                                         $s12 = $s13;
                                       } else {
                                         $this->peg_currPos = $s12;
@@ -7559,7 +7566,7 @@ class Parser {
                                         $s17 = $this->peg_parseCOLOR_SPEC_rgb();
                                         if ($s17 !== $this->peg_FAILED) {
                                           $this->peg_reportedPos = $s12;
-                                          $s13 = $this->peg_f126($s1, $s6, $s17);
+                                          $s13 = $this->peg_f129($s1, $s6, $s17);
                                           $s12 = $s13;
                                         } else {
                                           $this->peg_currPos = $s12;
@@ -7610,7 +7617,7 @@ class Parser {
                                           $s17 = $this->peg_parseCOLOR_SPEC_RGBI();
                                           if ($s17 !== $this->peg_FAILED) {
                                             $this->peg_reportedPos = $s12;
-                                            $s13 = $this->peg_f126($s1, $s6, $s17);
+                                            $s13 = $this->peg_f129($s1, $s6, $s17);
                                             $s12 = $s13;
                                           } else {
                                             $this->peg_currPos = $s12;
@@ -7661,7 +7668,7 @@ class Parser {
                                             $s17 = $this->peg_parseCOLOR_SPEC_CMYK();
                                             if ($s17 !== $this->peg_FAILED) {
                                               $this->peg_reportedPos = $s12;
-                                              $s13 = $this->peg_f127($s1, $s6, $s17);
+                                              $s13 = $this->peg_f130($s1, $s6, $s17);
                                               $s12 = $s13;
                                             } else {
                                               $this->peg_currPos = $s12;
@@ -7689,7 +7696,7 @@ class Parser {
                             }
                             if ($s12 !== $this->peg_FAILED) {
                               $this->peg_reportedPos = $s0;
-                              $s1 = $this->peg_f128($s1, $s6, $s12);
+                              $s1 = $this->peg_f131($s1, $s6, $s12);
                               $s0 = $s1;
                             } else {
                               $this->peg_currPos = $s0;
@@ -7797,7 +7804,7 @@ class Parser {
                     $s7 = $this->peg_parseCOLOR_SPEC_NAMED();
                     if ($s7 !== $this->peg_FAILED) {
                       $this->peg_reportedPos = $s0;
-                      $s1 = $this->peg_f129($s7);
+                      $s1 = $this->peg_f132($s7);
                       $s0 = $s1;
                     } else {
                       $this->peg_currPos = $s0;
@@ -7868,7 +7875,7 @@ class Parser {
                       $s7 = $this->peg_parseCOLOR_SPEC_GRAY();
                       if ($s7 !== $this->peg_FAILED) {
                         $this->peg_reportedPos = $s0;
-                        $s1 = $this->peg_f130($s7);
+                        $s1 = $this->peg_f133($s7);
                         $s0 = $s1;
                       } else {
                         $this->peg_currPos = $s0;
@@ -7939,7 +7946,7 @@ class Parser {
                         $s7 = $this->peg_parseCOLOR_SPEC_rgb();
                         if ($s7 !== $this->peg_FAILED) {
                           $this->peg_reportedPos = $s0;
-                          $s1 = $this->peg_f131($s7);
+                          $s1 = $this->peg_f134($s7);
                           $s0 = $s1;
                         } else {
                           $this->peg_currPos = $s0;
@@ -8010,7 +8017,7 @@ class Parser {
                           $s7 = $this->peg_parseCOLOR_SPEC_RGBI();
                           if ($s7 !== $this->peg_FAILED) {
                             $this->peg_reportedPos = $s0;
-                            $s1 = $this->peg_f131($s7);
+                            $s1 = $this->peg_f134($s7);
                             $s0 = $s1;
                           } else {
                             $this->peg_currPos = $s0;
@@ -8081,7 +8088,7 @@ class Parser {
                             $s7 = $this->peg_parseCOLOR_SPEC_CMYK();
                             if ($s7 !== $this->peg_FAILED) {
                               $this->peg_reportedPos = $s0;
-                              $s1 = $this->peg_f132($s7);
+                              $s1 = $this->peg_f135($s7);
                               $s0 = $s1;
                             } else {
                               $this->peg_currPos = $s0;
@@ -8171,7 +8178,7 @@ class Parser {
                 $s6 = $this->peg_parse_();
                 if ($s6 !== $this->peg_FAILED) {
                   $this->peg_reportedPos = $s0;
-                  $s1 = $this->peg_f133($s3);
+                  $s1 = $this->peg_f136($s3);
                   $s0 = $s1;
                 } else {
                   $this->peg_currPos = $s0;
@@ -8248,7 +8255,7 @@ class Parser {
             }
             if ($s4 !== $this->peg_FAILED) {
               $this->peg_reportedPos = $s0;
-              $s1 = $this->peg_f134($s3);
+              $s1 = $this->peg_f137($s3);
               $s0 = $s1;
             } else {
               $this->peg_currPos = $s0;
@@ -8338,7 +8345,7 @@ class Parser {
                           $s11 = $this->peg_parse_();
                           if ($s11 !== $this->peg_FAILED) {
                             $this->peg_reportedPos = $s0;
-                            $s1 = $this->peg_f135($s3, $s6, $s9);
+                            $s1 = $this->peg_f138($s3, $s6, $s9);
                             $s0 = $s1;
                           } else {
                             $this->peg_currPos = $s0;
@@ -8456,7 +8463,7 @@ class Parser {
                           $s11 = $this->peg_parse_();
                           if ($s11 !== $this->peg_FAILED) {
                             $this->peg_reportedPos = $s0;
-                            $s1 = $this->peg_f135($s3, $s6, $s9);
+                            $s1 = $this->peg_f138($s3, $s6, $s9);
                             $s0 = $s1;
                           } else {
                             $this->peg_currPos = $s0;
@@ -8588,7 +8595,7 @@ class Parser {
                                 $s14 = $this->peg_parse_();
                                 if ($s14 !== $this->peg_FAILED) {
                                   $this->peg_reportedPos = $s0;
-                                  $s1 = $this->peg_f136($s3, $s6, $s9, $s12);
+                                  $s1 = $this->peg_f139($s3, $s6, $s9, $s12);
                                   $s0 = $s1;
                                 } else {
                                   $this->peg_currPos = $s0;
@@ -8741,7 +8748,7 @@ class Parser {
       }
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f137($s1);
+        $s2 = $this->peg_f140($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -8751,7 +8758,7 @@ class Parser {
           $s3 = $this->peg_parse_();
           if ($s3 !== $this->peg_FAILED) {
             $this->peg_reportedPos = $s0;
-            $s1 = $this->peg_f138($s1);
+            $s1 = $this->peg_f141($s1);
             $s0 = $s1;
           } else {
             $this->peg_currPos = $s0;
@@ -8857,7 +8864,7 @@ class Parser {
         $s2 = $this->peg_parse_();
         if ($s2 !== $this->peg_FAILED) {
           $this->peg_reportedPos = $s0;
-          $s1 = $this->peg_f139($s1);
+          $s1 = $this->peg_f142($s1);
           $s0 = $s1;
         } else {
           $this->peg_currPos = $s0;
@@ -8913,7 +8920,7 @@ class Parser {
           $s2 = $this->peg_parse_();
           if ($s2 !== $this->peg_FAILED) {
             $this->peg_reportedPos = $s0;
-            $s1 = $this->peg_f139($s1);
+            $s1 = $this->peg_f142($s1);
             $s0 = $s1;
           } else {
             $this->peg_currPos = $s0;
@@ -8944,7 +8951,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f140($s1);
+        $s2 = $this->peg_f143($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -9016,7 +9023,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f141($s1);
+        $s2 = $this->peg_f144($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -9060,7 +9067,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f142($s1);
+        $s2 = $this->peg_f145($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -9104,7 +9111,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f143($s1);
+        $s2 = $this->peg_f146($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -9148,7 +9155,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f144($s1);
+        $s2 = $this->peg_f147($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -9192,7 +9199,7 @@ class Parser {
       $s1 = $this->peg_parsegeneric_func();
       if ($s1 !== $this->peg_FAILED) {
         $this->peg_reportedPos = $this->peg_currPos;
-        $s2 = $this->peg_f145($s1);
+        $s2 = $this->peg_f148($s1);
         if ($s2) {
           $s2 = null;
         } else {
@@ -9671,7 +9678,7 @@ class Parser {
                   $s2 = $this->peg_parseCURLY_CLOSE();
                   if ($s2 !== $this->peg_FAILED) {
                     $this->peg_reportedPos = $s0;
-                    $s1 = $this->peg_f146();
+                    $s1 = $this->peg_f149();
                     $s0 = $s1;
                   } else {
                     $this->peg_currPos = $s0;
@@ -9703,7 +9710,7 @@ class Parser {
       }
 
       $this->peg_reportedPos = $this->peg_currPos;
-      $s0 = $this->peg_f147();
+      $s0 = $this->peg_f150();
       if ($s0) {
         $s0 = null;
       } else {
@@ -9726,7 +9733,7 @@ class Parser {
       }
 
       $this->peg_reportedPos = $this->peg_currPos;
-      $s0 = $this->peg_f148();
+      $s0 = $this->peg_f151();
       if ($s0) {
         $s0 = null;
       } else {
