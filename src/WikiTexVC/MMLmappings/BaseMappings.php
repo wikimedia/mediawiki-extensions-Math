@@ -68,8 +68,7 @@ class BaseMappings {
 		"varsigma" => '\u03C2',
 		"varstigma" => "\u03DB",
 		"varphi" => '\u03C6',
-		// special case with \\ to distinguish from literal:
-		 "\\S" => [ '\u00A7', [ "mathvariant" => Variants::NORMAL ] ],
+		 "S" => [ '\u00A7', [ "mathvariant" => Variants::NORMAL ] ],
 		"aleph" => [ '\u2135', [ "mathvariant" => Variants::NORMAL ] ],
 		"hbar" => [ '\u210F', [ Tag::ALTERNATE => "1" ] ], // actually: "variantForm" => "True"
 		"imath" => '\u0131',
@@ -102,7 +101,6 @@ class BaseMappings {
 	];
 
 	private const MATHCHAR0MO = [
-		"-" => '\u2212', // added this additionally for running all tc
 		"surd" => '\u221A',
 		"coprod" => [ '\u2210', [ "texClass" => TexClass::OP,
 			"movesupsub" => true ] ],
@@ -477,11 +475,11 @@ class BaseMappings {
 		"lower" => 'raiseLower',
 		"moveleft" => 'MoveLeftRight',
 		"moveright" => 'MoveLeftRight',
-		'\\,' => [ 'spacer', MathSpace::THINMATHSPACE ],
-		"\\'" => [ 'spacer', MathSpace::MEDIUMMATHSPACE ],
-		'\\>' => [ 'spacer', MathSpace::MEDIUMMATHSPACE ],
-		'\\;' => [ 'spacer', MathSpace::THICKMATHSPACE ],
-		'\\!' => [ 'spacer', MathSpace::NEGATIVETHINMATHSPACE ],
+		',' => [ 'spacer', MathSpace::THINMATHSPACE ],
+		"'" => [ 'spacer', MathSpace::MEDIUMMATHSPACE ],
+		'>' => [ 'spacer', MathSpace::MEDIUMMATHSPACE ],
+		';' => [ 'spacer', MathSpace::THICKMATHSPACE ],
+		'!' => [ 'spacer', MathSpace::NEGATIVETHINMATHSPACE ],
 		"enspace" => [ 'spacer', 0.5 ],
 		"quad" => [ 'spacer', 1 ],
 		"qquad" => [ 'spacer', 2 ],
@@ -557,7 +555,7 @@ class BaseMappings {
 		"(0, lengths_js_1.em)(MathSpace::thickmathspace)", '.5em', 'D' ],
 		"displaylines" => [ 'matrix', null, null, 'center', null, '.5em', 'D' ],
 		"cr" => 'Cr',
-		"\\" => 'crLaTeX',
+		"" => 'crLaTeX',
 		"newline" => [ 'crLaTeX', true ],
 		"hline" => [ 'hline', 'solid' ],
 		"hdashline" => [ 'hline', 'dashed' ],
@@ -698,11 +696,11 @@ class BaseMappings {
 
 	// This is from cancelConfiguration.js
 	private const CANCEL = [
-		"cancel" => [ 'cancel', Notation::UPDIAGONALSTRIKE ],
-		"bcancel" => [ 'cancel', Notation::DOWNDIAGONALSTRIKE ],
-		"xcancel" => [ 'cancel', Notation::UPDIAGONALSTRIKE . ' ' .
+		"\\cancel" => [ 'cancel', Notation::UPDIAGONALSTRIKE ],
+		"\\bcancel" => [ 'cancel', Notation::DOWNDIAGONALSTRIKE ],
+		"\\xcancel" => [ 'cancel', Notation::UPDIAGONALSTRIKE . ' ' .
 			Notation::DOWNDIAGONALSTRIKE ],
-		"cancelto" => [ 'cancelTo', Notation::UPDIAGONALSTRIKE . " " . Notation::UPDIAGONALARROW .
+		"\\cancelto" => [ 'cancelTo', Notation::UPDIAGONALSTRIKE . " " . Notation::UPDIAGONALARROW .
 			" " . Notation::NORTHEASTARROW ]
 	];
 	// They are currently from mhchemConfiguration.js
@@ -744,7 +742,7 @@ class BaseMappings {
 		"oiiint" => [ 'oint', '\u2230', [ "texClass" => TexClass::OP ] ],
 		"ointctrclockwise" => [ 'oint', '\u2233', [ "texClass" => TexClass::OP ] ],
 		"varointclockwise" => [ 'oint', '\u2232', [ "texClass" => TexClass::OP ] ],
-		"\\P" => [ 'oint', '\u00B6', [ "texClass" => TexClass::OP ] ],
+		"P" => [ 'oint', '\u00B6', [ "texClass" => TexClass::OP ] ],
 		'textvisiblespace' => [ 'Insert', '\u2423' ], // From TextCompMappings.js (only makro it seems)
 		"Alpha" => [ 'customLetters', "A" ],
 		"Beta" => [ 'customLetters', "B" ],
@@ -794,15 +792,18 @@ class BaseMappings {
 	}
 
 	public static function getOperatorByKey( $key ) {
-		return MMLutil::getMappingByKey( $key, self::MATHCHAR0MO, true );
+		if ( $key === '-' ) {
+			return MMLutil::uc2xNotation( '\u2212' ); // added this additionally for running all tests
+		}
+		return MMLutil::getMappingByKey( $key, self::MATHCHAR0MO, true, true );
 	}
 
 	public static function getIdentifierByKey( $key ) {
-		return MMLutil::getMappingByKey( $key, self::MATHCHAR0MI, true );
+		return MMLutil::getMappingByKey( $key, self::MATHCHAR0MI, true, true );
 	}
 
 	public static function getMacroByKey( $key ) {
-		return MMLutil::getMappingByKeySimple( $key, self::MACROS );
+		return MMLutil::getMappingByKeySimple( $key, self::MACROS, true );
 	}
 
 	public static function getSpecialByKey( $key ) {
@@ -819,15 +820,15 @@ class BaseMappings {
 	}
 
 	public static function getCharacterByKey( $key ) {
-		return MMLutil::getMappingByKeySimple( $key, self::MATCHAR7 );
+		return MMLutil::getMappingByKeySimple( $key, self::MATCHAR7, true );
 	}
 
 	public static function getCustomByKey( $key ) {
-		return MMLutil::getMappingByKeySimple( $key, self::CUSTOM );
+		return MMLutil::getMappingByKeySimple( $key, self::CUSTOM, true );
 	}
 
 	public static function getMhChemByKey( $key ) {
-		return MMLutil::getMappingByKeySimple( $key, self::MHCHEM );
+		return MMLutil::getMappingByKeySimple( $key, self::MHCHEM, true );
 	}
 
 	public static function getColorByKey( $key ) {
