@@ -385,12 +385,18 @@ class BaseParsing {
 		return $mrow->encapsulateRaw( $mpAdded->encapsulateRaw( $node->getArg()->renderMML() ) );
 	}
 
-	public static function macro( $node, $passedArgs, $operatorContent, $name, $macro, $argcount = null, $def = null ) {
+	public static function macro( $node, $passedArgs, $operatorContent, $name,
+								  $macro = '', $argcount = null, $def = null ) {
 		// Parse the Macro
+		if ( $macro == "\\text{ }" ) {
+			$mtext = new MMLmtext();
+			return $mtext->encapsulateRaw( '&#160;' );
+		}
 		switch ( trim( $name ) ) {
 			case "\\mod":
 				$mmlRow = new MMLmrow();
 				$mo = new MMLmo( "", [ "lspace" => "2.5pt", "rspace" => "2.5pt" ] );
+				// @phan-suppress-next-line PhanUndeclaredMethod
 				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->renderMML() : "";
 				return $mmlRow->encapsulateRaw( $mo->encapsulate( "mod" ) . $inner );
 			case "\\pmod":
@@ -400,6 +406,7 @@ class BaseParsing {
 				$mspace2 = new MMLmspace( "", [ "width" => "0.333em" ] );
 				$mo = new MMLmo( "", [ "stretchy" => "false" ] );
 				$mi = new MMLmi();
+				// @phan-suppress-next-line PhanUndeclaredMethod
 				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->renderMML() : "";
 
 				return $mmlRow->encapsulateRaw( $mspace->encapsulate() .
@@ -451,7 +458,9 @@ class BaseParsing {
 					);
 				} else {
 					$inner = $mover->encapsulateRaw( $mmlRowArg2->encapsulateRaw(
-							$node->getArg2()->renderMML() ) .
+						// @phan-suppress-next-line PhanUndeclaredMethod
+						$node->getArg2()->renderMML() ) .
+						// @phan-suppress-next-line PhanUndeclaredMethod
 						$mmlRow->encapsulateRaw( $node->getArg1()->renderMML() )
 					);
 				}
@@ -460,7 +469,9 @@ class BaseParsing {
 				$mo = new MMLmo( "", [ "lspace" => Sizes::THICKMATHSPACE, "rspace" => Sizes::THICKMATHSPACE ] );
 				$mmlRow = new MMLmrow( TexClass::ORD );
 				$mspace = new MMLmspace( "", [ "width" => "0.167em" ] );
+				// @phan-suppress-next-line PhanUndeclaredMethod
 				$inner = $node->getArg() instanceof TexNode ?
+					// @phan-suppress-next-line PhanUndeclaredMethod
 					$mmlRow->encapsulateRaw( $node->getArg()->renderMML() ) : "";
 				return $mmlRow->encapsulateRaw( $mo->encapsulate( "mod" ) .
 					$inner . $mmlRow->encapsulateRaw( $mspace->getEmpty() ) );
@@ -508,6 +519,7 @@ class BaseParsing {
 						$mrowOrd->encapsulateRaw(
 							$mo->encapsulateRaw( "&#x27F6;" )
 						) ) );
+
 		}
 
 		// Removed all token based parsing, since macro resolution for the supported macros can be hardcoded in php

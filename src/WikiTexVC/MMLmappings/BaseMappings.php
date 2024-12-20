@@ -776,6 +776,9 @@ class BaseMappings {
 	}
 
 	public static function getMacroByKey( $key ) {
+		if ( $key === '\\ ' ) {
+			return self::MACROS[' '];
+		}
 		return MMLutil::getMappingByKeySimple( $key, self::MACROS, true );
 	}
 
