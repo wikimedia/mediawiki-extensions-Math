@@ -1,119 +1,109 @@
 <?php
 
-// Contents of MATHCHAR0MI
-const MATHCHAR0MI = [
-	"alpha" => '\u03B1',
-	"beta" => '\u03B2',
-	"gamma" => '\u03B3',
-	"delta" => '\u03B4',
-	"epsilon" => '\u03F5',
-	"zeta" => '\u03B6',
-	"eta" => '\u03B7',
-	"theta" => '\u03B8',
-	"iota" => '\u03B9',
-	"kappa" => '\u03BA',
-	"lambda" => '\u03BB',
-	"mu" => '\u03BC',
-	"nu" => '\u03BD',
-	"xi" => '\u03BE',
-	"omicron" => '\u03BF',
-	"pi" => '\u03C0',
-	"rho" => '\u03C1',
-	"sigma" => '\u03C3',
-	"tau" => '\u03C4',
-	"upsilon" => '\u03C5',
-	"phi" => '\u03D5',
-	"chi" => '\u03C7',
-	"psi" => '\u03C8',
-	"omega" => '\u03C9',
-	"varepsilon" => '\u03B5',
-	"vartheta" => '\u03D1',
-	"varpi" => '\u03D6',
-	"varrho" => '\u03F1',
-	"varsigma" => '\u03C2',
-	"varphi" => '\u03C6',
-	"S" => [ '\u00A7', [ "mathvariant" => "normal" ] ],
-	"aleph" => [ '\u2135', [ "mathvariant" => "normal" ] ],
-	"hbar" => [ '\u210F', [ "alternate" => "1" ] ],
-	"imath" => '\u0131',
-	"jmath" => '\u0237',
-	"ell" => '\u2113',
-	"wp" => [ '\u2118', [ "mathvariant" => "normal" ] ],
-	"Re" => [ '\u211C', [ "mathvariant" => "normal" ] ],
-	"Im" => [ '\u2111', [ "mathvariant" => "normal" ] ],
-	"partial" => [ '\u2202', [] ],
-	"infty" => [ '\u221E', [ "mathvariant" => "normal" ] ],
-	"prime" => [ '\u2032', [ "alternate" => "1" ] ],
-	"emptyset" => [ '\u2205', [ "mathvariant" => "normal" ] ],
-	"nabla" => [ '\u2207', [ "mathvariant" => "normal" ] ],
-	"top" => [ '\u22A4', [ "mathvariant" => "normal" ] ],
-	"bot" => [ '\u22A5', [ "mathvariant" => "normal" ] ],
-	"angle" => [ '\u2220', [ "mathvariant" => "normal" ] ],
-	"triangle" => [ '\u25B3', [ "mathvariant" => "normal" ] ],
-	"backslash" => [ '\u2216', [ "mathvariant" => "normal" ] ],
-	"forall" => [ '\u2200', [ "mathvariant" => "normal" ] ],
-	"exists" => [ '\u2203', [ "mathvariant" => "normal" ] ],
-	"neg" => [ '\u00AC', [ "mathvariant" => "normal" ] ],
-	"lnot" => [ '\u00AC', [ "mathvariant" => "normal" ] ],
-	"flat" => [ '\u266D', [ "mathvariant" => "normal" ] ],
-	"natural" => [ '\u266E', [ "mathvariant" => "normal" ] ],
-	"sharp" => [ '\u266F', [ "mathvariant" => "normal" ] ],
-	"clubsuit" => [ '\u2663', [ "mathvariant" => "normal" ] ],
-	"diamondsuit" => [ '\u2662', [ "mathvariant" => "normal" ] ],
-	"heartsuit" => [ '\u2661', [ "mathvariant" => "normal" ] ],
-	"spadesuit" => [ '\u2660', [ "mathvariant" => "normal" ] ]
-];
+require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 
-// Path to texutil.json
-$jsonFilePath = './src/WikiTexVC/texutil.json';
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 
-// Load texutil.json as an associative array
-$jsonContent = json_decode( file_get_contents( $jsonFilePath ), true );
+class UpdateTexutil extends Maintenance {
 
-if ( $jsonContent === null ) {
-	die( "Failed to decode texutil.json. Please check the file format.\n" );
-}
+	private const LEGACY_CONCEPTS = [
+		"digamma" => '\u03DD',
+		"varkappa" => '\u03F0',
+		"varGamma" => [ '\u0393', [ "mathvariant" => Variants::ITALIC ] ],
+		"varDelta" => [ '\u0394', [ "mathvariant" => Variants::ITALIC ] ],
+		"varTheta" => [ '\u0398', [ "mathvariant" => Variants::ITALIC ] ],
+		"varLambda" => [ '\u039B', [ "mathvariant" => Variants::ITALIC ] ],
+		"varXi" => [ '\u039E', [ "mathvariant" => Variants::ITALIC ] ],
+		"varPi" => [ '\u03A0', [ "mathvariant" => Variants::ITALIC ] ],
+		"varSigma" => [ '\u03A3', [ "mathvariant" => Variants::ITALIC ] ],
+		"varStigma" => [ '\u03DB', [ "mathvariant" => Variants::ITALIC ] ],
+		"varUpsilon" => [ '\u03A5', [ "mathvariant" => Variants::ITALIC ] ],
+		"varPhi" => [ '\u03A6', [ "mathvariant" => Variants::ITALIC ] ],
+		"varPsi" => [ '\u03A8', [ "mathvariant" => Variants::ITALIC ] ],
+		"varOmega" => [ '\u03A9', [ "mathvariant" => Variants::ITALIC ] ],
+		"beth" => '\u2136',
+		"gimel" => '\u2137',
+		"daleth" => '\u2138',
+		"backprime" => [ '\u2035', [ "variantForm" => "True" ] ], // actually: "variantForm" => "True"
+		"hslash" => '\u210F',
+		"varnothing" => [ '\u2205', [ "variantForm" => "True" ] ], // actually: "variantForm" => "True"
+		"blacktriangle" => '\u25B4',
+		"triangledown" => [ '\u25BD', [ "variantForm" => "True" ] ], // actually: "variantForm" => "True"
+		"blacktriangledown" => '\u25BE',
+		"square" => '\u25FB',
+		"Box" => '\u25FB',
+		"blacksquare" => '\u25FC',
+		"lozenge" => '\u25CA',
+		"Diamond" => '\u25CA',
+		"blacklozenge" => '\u29EB',
+		"circledS" => [ '\u24C8', [ "mathvariant" => Variants::NORMAL ] ],
+		"bigstar" => '\u2605',
+		"sphericalangle" => '\u2222',
+		"measuredangle" => '\u2221',
+		"nexists" => '\u2204',
+		"complement" => '\u2201',
+		"mho" => '\u2127',
+		"eth" => [ '\u00F0', [ "mathvariant" => Variants::NORMAL ] ],
+		"Finv" => '\u2132',
+		"diagup" => '\u2571',
+		"Game" => '\u2141',
+		"diagdown" => '\u2572',
+		"Bbbk" => [ '\u006B', [ "mathvariant" => Variants::DOUBLESTRUCK ] ],
+		"yen" => '\u00A5',
+		"circledR" => '\u00AE',
+		"checkmark" => '\u2713',
+		"maltese" => '\u2720'
+	];
 
-// Iterate over MATHCHAR0MI and update the jsonContent
-foreach ( MATHCHAR0MI as $key => $value ) {
-	$identifierEntry = [];
+	public function execute() {
+		$jsonFilePath = './src/WikiTexVC/texutil.json';
 
-	// Check how to handle the value type (string or array)
-	if ( is_string( $value ) ) {
-		$identifierEntry[] = $value; // Just the Unicode character
-	} elseif ( is_array( $value ) ) {
-		$identifierEntry[] = $value[0]; // Unicode character
-		if ( !empty( $value[1] ) ) {
-			// this converts PHP constants to JSON strings
-			$identifierEntry[] = $value[1]; // Additional attributes
+		$jsonContent = json_decode( file_get_contents( $jsonFilePath ), true );
+
+		if ( $jsonContent === null ) {
+			die( "Failed to decode texutil.json. Please check the file format.\n" );
 		}
-	}
 
-	// Check if the entry already exists in texutil.json
-	if ( isset( $jsonContent["\\$key"] ) ) {
-		// Preserve existing attributes and only add or update the identifier
-		$jsonContent["\\$key"]['identifier'] = $identifierEntry;
-	} else {
-		// Create a new entry if it doesn't exist
-		$jsonContent["\\$key"] = [
-			"identifier" => $identifierEntry
-		];
-	}
+		foreach ( self::LEGACY_CONCEPTS as $key => $value ) {
+			$identifierEntry = [];
 
-	// Sort the entry alphabetically
-	ksort( $jsonContent["\\$key"] );
+			// Check how to handle the value type (string or array)
+			if ( is_string( $value ) ) {
+				$identifierEntry[] = $value; // Just the Unicode character
+			} elseif ( is_array( $value ) ) {
+				$identifierEntry[] = $value[0]; // Unicode character
+				if ( !empty( $value[1] ) ) {
+					// this converts PHP constants to JSON strings
+					$identifierEntry[] = $value[1]; // Additional attributes
+				}
+			}
+
+			// Check if the entry already exists in texutil.json
+			if ( isset( $jsonContent["\\$key"] ) ) {
+				// Preserve existing attributes and only add or update the identifier
+				$jsonContent["\\$key"]['identifier'] = $identifierEntry;
+			} else {
+				// Create a new entry if it doesn't exist
+				$jsonContent["\\$key"] = [
+					"identifier" => $identifierEntry
+				];
+			}
+
+			// Sort the entry alphabetically
+			ksort( $jsonContent["\\$key"] );
+		}
+
+		$jsonString = json_encode( $jsonContent, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );
+
+		$jsonStringWithTabs = preg_replace_callback( '/^( +)/m', static function ( $matches ) {
+				// Convert spaces to tabs (assuming 4 spaces per tab level)
+				return str_repeat( "\t", strlen( $matches[1] ) / 4 );
+		}, $jsonString ) . "\n";
+
+		file_put_contents( $jsonFilePath, $jsonStringWithTabs );
+
+		echo "texutil.json successfully updated.\n";
+	}
 }
-
-// Convert the JSON content to a string with spaces for pretty-printing
-$jsonString = json_encode( $jsonContent, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );
-
-// Replace spaces with tabs for indentation cf. https://github.com/php/php-src/issues/8864
-$jsonStringWithTabs = preg_replace_callback( '/^( +)/m', static function ( $matches ) {
-	// Convert spaces to tabs (assuming 4 spaces per tab level)
-	return str_repeat( "\t", strlen( $matches[1] ) / 4 );
-}, $jsonString ) . "\n";
-
-// Save the modified JSON with tab-indented formatting
-file_put_contents( $jsonFilePath, $jsonStringWithTabs );
-
-echo "texutil.json successfully updated.\n";
+$maintClass = UpdateTexutil::class;
+require_once RUN_MAINTENANCE_IF_MAIN;

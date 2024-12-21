@@ -17,6 +17,12 @@
 	},
 	"\\Bbbk": {
 		"ams_required": true,
+		"identifier": [
+			"\\u006B",
+			{
+				"mathvariant": "double-struck"
+			}
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -44,6 +50,9 @@
 	},
 	"\\Box": {
 		"ams_required": true,
+		"identifier": [
+			"\\u25FB"
+		],
 		"nullary_macro": true
 	},
 	"\\Bumpeq": {
@@ -86,6 +95,9 @@
 	},
 	"\\Diamond": {
 		"ams_required": true,
+		"identifier": [
+			"\\u25CA"
+		],
 		"nullary_macro": true
 	},
 	"\\Digamma": {
@@ -109,11 +121,17 @@
 	},
 	"\\Finv": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2132"
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
 	"\\Game": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2141"
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -435,6 +453,12 @@
 	},
 	"\\backprime": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2035",
+			{
+				"variantForm": "True"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\backsim": {
@@ -515,6 +539,9 @@
 	},
 	"\\beth": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2136"
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -573,6 +600,9 @@
 	},
 	"\\bigstar": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2605"
+		],
 		"nullary_macro": true,
 		"operator": true
 	},
@@ -602,18 +632,30 @@
 	},
 	"\\blacklozenge": {
 		"ams_required": true,
+		"identifier": [
+			"\\u29EB"
+		],
 		"nullary_macro": true
 	},
 	"\\blacksquare": {
 		"ams_required": true,
+		"identifier": [
+			"\\u25FC"
+		],
 		"nullary_macro": true
 	},
 	"\\blacktriangle": {
 		"ams_required": true,
+		"identifier": [
+			"\\u25B4"
+		],
 		"nullary_macro": true
 	},
 	"\\blacktriangledown": {
 		"ams_required": true,
+		"identifier": [
+			"\\u25BE"
+		],
 		"nullary_macro": true
 	},
 	"\\blacktriangleleft": {
@@ -733,6 +775,9 @@
 	},
 	"\\checkmark": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2713"
+		],
 		"nullary_macro": true
 	},
 	"\\chi": {
@@ -764,6 +809,12 @@
 	},
 	"\\circledS": {
 		"ams_required": true,
+		"identifier": [
+			"\\u24C8",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\circledast": {
@@ -803,6 +854,9 @@
 	},
 	"\\complement": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2201"
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -868,6 +922,9 @@
 	},
 	"\\daleth": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2138"
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -916,10 +973,16 @@
 	},
 	"\\diagdown": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2572"
+		],
 		"nullary_macro": true
 	},
 	"\\diagup": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2571"
+		],
 		"nullary_macro": true
 	},
 	"\\diamond": {
@@ -939,6 +1002,9 @@
 	},
 	"\\digamma": {
 		"ams_required": true,
+		"identifier": [
+			"\\u03DD"
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -1078,6 +1144,12 @@
 	},
 	"\\eth": {
 		"ams_required": true,
+		"identifier": [
+			"\\u00F0",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -1187,6 +1259,9 @@
 	},
 	"\\gimel": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2137"
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -1290,6 +1365,9 @@
 	},
 	"\\hslash": {
 		"ams_required": true,
+		"identifier": [
+			"\\u210F"
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -1641,6 +1719,9 @@
 	},
 	"\\lozenge": {
 		"ams_required": true,
+		"identifier": [
+			"\\u25CA"
+		],
 		"nullary_macro": true
 	},
 	"\\lrArr": {
@@ -1743,10 +1824,16 @@
 	},
 	"\\measuredangle": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2221"
+		],
 		"nullary_macro": true
 	},
 	"\\mho": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2127"
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -1853,6 +1940,9 @@
 	},
 	"\\nexists": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2204"
+		],
 		"nullary_macro": true
 	},
 	"\\ngeq": {
@@ -2418,6 +2508,9 @@
 	},
 	"\\sphericalangle": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2222"
+		],
 		"nullary_macro": true
 	},
 	"\\sqcap": {
@@ -2446,6 +2539,9 @@
 	},
 	"\\square": {
 		"ams_required": true,
+		"identifier": [
+			"\\u25FB"
+		],
 		"nullary_macro": true
 	},
 	"\\stackrel": {
@@ -2655,6 +2751,12 @@
 	},
 	"\\triangledown": {
 		"ams_required": true,
+		"identifier": [
+			"\\u25BD",
+			{
+				"variantForm": "True"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\triangleleft": {
@@ -2747,33 +2849,93 @@
 		"nullary_macro": true
 	},
 	"\\varDelta": {
+		"identifier": [
+			"\\u0394",
+			{
+				"mathvariant": "italic"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\varGamma": {
+		"identifier": [
+			"\\u0393",
+			{
+				"mathvariant": "italic"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\varLambda": {
+		"identifier": [
+			"\\u039B",
+			{
+				"mathvariant": "italic"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\varOmega": {
+		"identifier": [
+			"\\u03A9",
+			{
+				"mathvariant": "italic"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\varPhi": {
+		"identifier": [
+			"\\u03A6",
+			{
+				"mathvariant": "italic"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\varPi": {
+		"identifier": [
+			"\\u03A0",
+			{
+				"mathvariant": "italic"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\varSigma": {
+		"identifier": [
+			"\\u03A3",
+			{
+				"mathvariant": "italic"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\varTheta": {
+		"identifier": [
+			"\\u0398",
+			{
+				"mathvariant": "italic"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\varUpsilon": {
+		"identifier": [
+			"\\u03A5",
+			{
+				"mathvariant": "italic"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\varXi": {
+		"identifier": [
+			"\\u039E",
+			{
+				"mathvariant": "italic"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\varcoppa": {
@@ -2794,6 +2956,9 @@
 	},
 	"\\varkappa": {
 		"ams_required": true,
+		"identifier": [
+			"\\u03F0"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -2810,6 +2975,12 @@
 	},
 	"\\varnothing": {
 		"ams_required": true,
+		"identifier": [
+			"\\u2205",
+			{
+				"variantForm": "True"
+			}
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
