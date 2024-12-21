@@ -2,7 +2,6 @@
 namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Lengths\MathSpace;
-use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
@@ -34,69 +33,6 @@ class BaseMappings {
 		'#' => 'hash',
 		'\u00A0' => 'space',
 		'\u2019' => 'prime'
-	];
-
-	private const MATHCHAR0MI = [
-		"alpha" => '\u03B1',
-		"beta" => '\u03B2',
-		"gamma" => '\u03B3',
-		"delta" => '\u03B4',
-		"epsilon" => '\u03F5',
-		"zeta" => '\u03B6',
-		"eta" => '\u03B7',
-		"theta" => '\u03B8',
-		"iota" => '\u03B9',
-		"kappa" => '\u03BA',
-		"lambda" => '\u03BB',
-		"mu" => '\u03BC',
-		"nu" => '\u03BD',
-		"xi" => '\u03BE',
-		"omicron" => '\u03BF',
-		"pi" => '\u03C0',
-		"rho" => '\u03C1',
-		"sigma" => '\u03C3',
-		"tau" => '\u03C4',
-		"upsilon" => '\u03C5',
-		"phi" => '\u03D5',
-		"chi" => '\u03C7',
-		"psi" => '\u03C8',
-		"omega" => '\u03C9',
-		"varepsilon" => '\u03B5',
-		"vartheta" => '\u03D1',
-		"varpi" => '\u03D6',
-		"varrho" => '\u03F1',
-		"varsigma" => '\u03C2',
-		"varphi" => '\u03C6',
-		 "S" => [ '\u00A7', [ "mathvariant" => Variants::NORMAL ] ],
-		"aleph" => [ '\u2135', [ "mathvariant" => Variants::NORMAL ] ],
-		"hbar" => [ '\u210F', [ Tag::ALTERNATE => "1" ] ], // actually: "variantForm" => "True"
-		"imath" => '\u0131',
-		"jmath" => '\u0237',
-		"ell" => '\u2113',
-		"wp" => [ '\u2118', [ "mathvariant" => Variants::NORMAL ] ],
-		"Re" => [ '\u211C', [ "mathvariant" => Variants::NORMAL ] ],
-		"Im" => [ '\u2111', [ "mathvariant" => Variants::NORMAL ] ],
-		"partial" => [ '\u2202', [] ], // "mathvariant" => Variants::ITALIC ] this leads to 'wrong' output
-		"infty" => [ '\u221E', [ "mathvariant" => Variants::NORMAL ] ],
-		"prime" => [ '\u2032', [ Tag::ALTERNATE => "1" ] ], // actually: "variantForm" => "True"
-		"emptyset" => [ '\u2205', [ "mathvariant" => Variants::NORMAL ] ],
-		"nabla" => [ '\u2207', [ "mathvariant" => Variants::NORMAL ] ],
-		"top" => [ '\u22A4', [ "mathvariant" => Variants::NORMAL ] ],
-		"bot" => [ '\u22A5', [ "mathvariant" => Variants::NORMAL ] ],
-		"angle" => [ '\u2220', [ "mathvariant" => Variants::NORMAL ] ],
-		"triangle" => [ '\u25B3', [ "mathvariant" => Variants::NORMAL ] ],
-		"backslash" => [ '\u2216', [ "mathvariant" => Variants::NORMAL ] ],
-		"forall" => [ '\u2200', [ "mathvariant" => Variants::NORMAL ] ],
-		"exists" => [ '\u2203', [ "mathvariant" => Variants::NORMAL ] ],
-		"neg" => [ '\u00AC', [ "mathvariant" => Variants::NORMAL ] ],
-		"lnot" => [ '\u00AC', [ "mathvariant" => Variants::NORMAL ] ],
-		"flat" => [ '\u266D', [ "mathvariant" => Variants::NORMAL ] ],
-		"natural" => [ '\u266E', [ "mathvariant" => Variants::NORMAL ] ],
-		"sharp" => [ '\u266F', [ "mathvariant" => Variants::NORMAL ] ],
-		"clubsuit" => [ '\u2663', [ "mathvariant" => Variants::NORMAL ] ],
-		"diamondsuit" => [ '\u2662', [ "mathvariant" => Variants::NORMAL ] ],
-		"heartsuit" => [ '\u2661', [ "mathvariant" => Variants::NORMAL ] ],
-		"spadesuit" => [ '\u2660', [ "mathvariant" => Variants::NORMAL ] ]
 	];
 
 	private const MATHCHAR0MO = [
@@ -736,7 +672,6 @@ class BaseMappings {
 		"macros" => self::MACROS,
 		"delimiter" => self::DELIMITER,
 		"mathchar7" => self::MATCHAR7,
-		"mathchar0mi" => self::MATHCHAR0MI,
 		"mathchar0mo" => self::MATHCHAR0MO,
 		"environment" => self::ENVIRONMENT,
 		"colors" => self::COLORS,
@@ -769,10 +704,6 @@ class BaseMappings {
 			return MMLutil::uc2xNotation( '\u2212' ); // added this additionally for running all tests
 		}
 		return MMLutil::getMappingByKey( $key, self::MATHCHAR0MO, true, true );
-	}
-
-	public static function getIdentifierByKey( $key ) {
-		return MMLutil::getMappingByKey( $key, self::MATHCHAR0MI, true, true );
 	}
 
 	public static function getMacroByKey( $key ) {

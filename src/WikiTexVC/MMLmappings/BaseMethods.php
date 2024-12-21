@@ -12,6 +12,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmspace;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
+use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 /**
  * This contains the basic parsing methods for tex elements, which get invoked
@@ -152,7 +153,8 @@ class BaseMethods {
 	}
 
 	public function checkAndParseIdentifier( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
-		$resIdentifier = BaseMappings::getIdentifierByKey( $input );
+		// @phan-suppress-next-line PhanTypeVoidAssignment
+		$resIdentifier = TexUtil::getInstance()->identifier( trim( $input ) );
 		if ( $resIdentifier == null ) {
 			$resIdentifier = AMSMappings::getIdentifierByKey( $input );
 		}
@@ -165,6 +167,7 @@ class BaseMethods {
 			return null;
 		}
 		try {
+			$resIdentifier[0] = MMLutil::uc2xNotation( $resIdentifier[0] );
 			return $this->parseIdentifier( $node, $passedArgs, $operatorContent, $input, ...$resIdentifier );
 		} catch ( ArgumentCountError $errArgcount ) {
 			return null;
