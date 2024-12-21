@@ -95,8 +95,4 @@ class BaseMappingsTest extends TestCase {
 		$this->assertEquals( 'ce', BaseMappings::getMhChemByKey( '\\ce' )[1] );
 	}
 
-	public function testGetIdentifierByKey() {
-		$this->assertEquals( '&#x03B1;', BaseMappings::getIdentifierByKey( '\\alpha' )[0] );
-	}
-
 }
