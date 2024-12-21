@@ -78,7 +78,7 @@ class SpecialMathStatus extends SpecialPage {
 			return;
 		}
 		$real = str_replace( "\n", '', $renderer->getHtmlOutput() );
-		$expected = '<mo>+</mo>';
+		$expected = '<mo stretchy="false">+</mo>';
 		$this->assertContains( $expected, $real, "Checking the presence of '+' in the MathML output" );
 		$this->getOutput()->addWikiMsgArray( 'math-test-end', [ $modeName ] );
 	}
