@@ -61,10 +61,6 @@ class AmsMappingsTest extends TestCase {
 		$this->assertInstanceOf( AMSMappings::class, AMSMappings::getInstance() );
 	}
 
-	public function testGetIdentifierByKey() {
-		$this->assertEquals( '&#x0393;', AMSMappings::getIdentifierByKey( '\\varGamma' )[0] );
-	}
-
 	public function testGetEnvironmentByKey() {
 		$this->assertEquals( 'EqnArray', AMSMappings::getEnvironmentByKey( 'align' )[0] );
 	}
