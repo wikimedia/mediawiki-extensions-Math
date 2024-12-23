@@ -117,7 +117,8 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'other_fun_ar1',
 			'is_literal',
 			'is_letter_mod',
-			"intent_required"
+			'intent_required',
+			'identifier'
 		];
 
 		foreach ( $maps as $map ) {

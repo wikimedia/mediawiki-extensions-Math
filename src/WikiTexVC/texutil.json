@@ -129,6 +129,12 @@
 		"nullary_macro_aliase": "\\Leftrightarrow"
 	},
 	"\\Im": {
+		"identifier": [
+			"\\u2111",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\Iota": {
@@ -234,6 +240,12 @@
 		"nullary_macro_aliase": "\\Rightarrow"
 	},
 	"\\Re": {
+		"identifier": [
+			"\\u211C",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\Reals": {
@@ -255,6 +267,12 @@
 		"nullary_macro": true
 	},
 	"\\S": {
+		"identifier": [
+			"\\u00A7",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -336,10 +354,19 @@
 		"nullary_macro_aliase": "\\aleph"
 	},
 	"\\aleph": {
+		"identifier": [
+			"\\u2135",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
 	"\\alpha": {
+		"identifier": [
+			"\\u03B1"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -355,6 +382,12 @@
 		"deprecated_nullary_macro_aliase": "\\angle"
 	},
 	"\\angle": {
+		"identifier": [
+			"\\u2220",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\approx": {
@@ -413,6 +446,12 @@
 		"nullary_macro": true
 	},
 	"\\backslash": {
+		"identifier": [
+			"\\u2216",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"other_delimiters1": true
 	},
 	"\\bar": {
@@ -467,6 +506,9 @@
 		"ams_required": true
 	},
 	"\\beta": {
+		"identifier": [
+			"\\u03B2"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -599,6 +641,12 @@
 		"mhchem_bond": true
 	},
 	"\\bot": {
+		"identifier": [
+			"\\u22A5",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\bowtie": {
@@ -688,6 +736,9 @@
 		"nullary_macro": true
 	},
 	"\\chi": {
+		"identifier": [
+			"\\u03C7"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -731,6 +782,12 @@
 		"nullary_macro_aliase": "\\clubsuit"
 	},
 	"\\clubsuit": {
+		"identifier": [
+			"\\u2663",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\cnums": {
@@ -842,6 +899,9 @@
 		"latex_function_names": true
 	},
 	"\\delta": {
+		"identifier": [
+			"\\u03B4"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -869,6 +929,12 @@
 		"nullary_macro_aliase": "\\diamondsuit"
 	},
 	"\\diamondsuit": {
+		"identifier": [
+			"\\u2662",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\digamma": {
@@ -953,6 +1019,9 @@
 		"nullary_macro": true
 	},
 	"\\ell": {
+		"identifier": [
+			"\\u2113"
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -964,9 +1033,18 @@
 		"nullary_macro_aliase": "\\emptyset"
 	},
 	"\\emptyset": {
+		"identifier": [
+			"\\u2205",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\epsilon": {
+		"identifier": [
+			"\\u03F5"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -991,6 +1069,9 @@
 		"nullary_macro": true
 	},
 	"\\eta": {
+		"identifier": [
+			"\\u03B7"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -1009,6 +1090,12 @@
 		"nullary_macro_aliase": "\\exists"
 	},
 	"\\exists": {
+		"identifier": [
+			"\\u2203",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\exp": {
@@ -1019,10 +1106,22 @@
 		"nullary_macro": true
 	},
 	"\\flat": {
+		"identifier": [
+			"\\u266D",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
 	"\\forall": {
+		"identifier": [
+			"\\u2200",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\frac": {
@@ -1033,6 +1132,9 @@
 		"nullary_macro": true
 	},
 	"\\gamma": {
+		"identifier": [
+			"\\u03B3"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -1147,6 +1249,12 @@
 		"is_letter_mod": true
 	},
 	"\\hbar": {
+		"identifier": [
+			"\\u210F",
+			{
+				"alternate": "1"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\hbox": {
@@ -1156,6 +1264,12 @@
 		"nullary_macro_aliase": "\\heartsuit"
 	},
 	"\\heartsuit": {
+		"identifier": [
+			"\\u2661",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\hline": {
@@ -1201,6 +1315,9 @@
 		"nullary_macro_aliase": "\\Im"
 	},
 	"\\imath": {
+		"identifier": [
+			"\\u0131"
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -1219,6 +1336,12 @@
 		"nullary_macro_aliase": "\\infty"
 	},
 	"\\infty": {
+		"identifier": [
+			"\\u221E",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\injlim": {
@@ -1251,6 +1374,9 @@
 		"operator": true
 	},
 	"\\iota": {
+		"identifier": [
+			"\\u03B9"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -1262,10 +1388,16 @@
 		"declh_function": true
 	},
 	"\\jmath": {
+		"identifier": [
+			"\\u0237"
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
 	"\\kappa": {
+		"identifier": [
+			"\\u03BA"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -1290,6 +1422,9 @@
 		"nullary_macro": true
 	},
 	"\\lambda": {
+		"identifier": [
+			"\\u03BB"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -1446,6 +1581,12 @@
 		"nullary_macro": true
 	},
 	"\\lnot": {
+		"identifier": [
+			"\\u00AC",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\lnsim": {
@@ -1635,6 +1776,9 @@
 		"mhchemtexified_required": true
 	},
 	"\\mu": {
+		"identifier": [
+			"\\u03BC"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -1664,12 +1808,24 @@
 		"nullary_macro": true
 	},
 	"\\nabla": {
+		"identifier": [
+			"\\u2207",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\natnums": {
 		"nullary_macro_aliase": "\\mathbb{N}"
 	},
 	"\\natural": {
+		"identifier": [
+			"\\u266E",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -1684,6 +1840,12 @@
 		"nullary_macro": true
 	},
 	"\\neg": {
+		"identifier": [
+			"\\u00AC",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\neq": {
@@ -1818,6 +1980,9 @@
 		"nullary_macro": true
 	},
 	"\\nu": {
+		"identifier": [
+			"\\u03BD"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -1857,11 +2022,17 @@
 		"nullary_macro": true
 	},
 	"\\omega": {
+		"identifier": [
+			"\\u03C9"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\omicron": {
+		"identifier": [
+			"\\u03BF"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "o"
 	},
@@ -1933,6 +2104,9 @@
 		"deprecated_nullary_macro_aliase": "\\partial"
 	},
 	"\\partial": {
+		"identifier": [
+			"\\u2202"
+		],
 		"nullary_macro": true
 	},
 	"\\perp": {
@@ -1943,11 +2117,17 @@
 		"ignore_identifier": true
 	},
 	"\\phi": {
+		"identifier": [
+			"\\u03D5"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\pi": {
+		"identifier": [
+			"\\u03C0"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -1998,6 +2178,12 @@
 		"nullary_macro": true
 	},
 	"\\prime": {
+		"identifier": [
+			"\\u2032",
+			{
+				"alternate": "1"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\prod": {
@@ -2013,6 +2199,9 @@
 		"nullary_macro": true
 	},
 	"\\psi": {
+		"identifier": [
+			"\\u03C8"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -2065,6 +2254,9 @@
 		"other_delimiters1": true
 	},
 	"\\rho": {
+		"identifier": [
+			"\\u03C1"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -2152,6 +2344,12 @@
 		"mediawiki_function_names": true
 	},
 	"\\sharp": {
+		"identifier": [
+			"\\u266F",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\shortmid": {
@@ -2167,6 +2365,9 @@
 		"fun_ar2nb": true
 	},
 	"\\sigma": {
+		"identifier": [
+			"\\u03C3"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -2207,6 +2408,12 @@
 		"nullary_macro_aliase": "\\spadesuit"
 	},
 	"\\spadesuit": {
+		"identifier": [
+			"\\u2660",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\sphericalangle": {
@@ -2348,6 +2555,9 @@
 		"latex_function_names": true
 	},
 	"\\tau": {
+		"identifier": [
+			"\\u03C4"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -2396,6 +2606,9 @@
 		"nullary_macro": true
 	},
 	"\\theta": {
+		"identifier": [
+			"\\u03B8"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -2422,10 +2635,22 @@
 		"nullary_macro": true
 	},
 	"\\top": {
+		"identifier": [
+			"\\u22A4",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
 	"\\triangle": {
+		"identifier": [
+			"\\u25B3",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"nullary_macro": true
 	},
 	"\\triangledown": {
@@ -2503,6 +2728,9 @@
 		"nullary_macro": true
 	},
 	"\\upsilon": {
+		"identifier": [
+			"\\u03C5"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -2552,6 +2780,9 @@
 		"nullary_macro_aliase": "\\mbox{\\coppa}"
 	},
 	"\\varepsilon": {
+		"identifier": [
+			"\\u03B5"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -2587,11 +2818,17 @@
 		"nullary_macro": true
 	},
 	"\\varphi": {
+		"identifier": [
+			"\\u03C6"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\varpi": {
+		"identifier": [
+			"\\u03D6"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -2606,11 +2843,17 @@
 		"nullary_macro": true
 	},
 	"\\varrho": {
+		"identifier": [
+			"\\u03F1"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\varsigma": {
+		"identifier": [
+			"\\u03C2"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -2637,6 +2880,9 @@
 		"nullary_macro": true
 	},
 	"\\vartheta": {
+		"identifier": [
+			"\\u03D1"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -2698,6 +2944,12 @@
 		"is_letter_mod": true
 	},
 	"\\wp": {
+		"identifier": [
+			"\\u2118",
+			{
+				"mathvariant": "normal"
+			}
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -2714,6 +2966,9 @@
 		"is_letter_mod": true
 	},
 	"\\xi": {
+		"identifier": [
+			"\\u03BE"
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -2730,6 +2985,9 @@
 		"is_letter_mod": true
 	},
 	"\\zeta": {
+		"identifier": [
+			"\\u03B6"
+		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true

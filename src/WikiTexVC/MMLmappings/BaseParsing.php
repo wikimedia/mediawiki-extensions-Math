@@ -1137,10 +1137,10 @@ class BaseParsing {
 						/* tested in \MediaWiki\Extension\Math\Tests\WikiTexVC\TexUtilTest::testUnicodeDefined
 						@phan-suppress-next-line PhanTypeSuspiciousStringExpression - false positive */
 						[ '&#x' . TexUtil::getInstance()->unicode_char( $op ) . ';' ] :
-						BaseMappings::getIdentifierByKey( $op );
+						TexUtil::getInstance()->identifier( $op );
 					$input = $macro[0] ?? $op;
 					// @phan-suppress-next-line PhanTypeMismatchArgumentNullable - false positive see above
-					return $mmlMrow->encapsulateRaw( $mo->encapsulateRaw( $input ) );
+					return $mmlMrow->encapsulateRaw( $mo->encapsulateRaw( MMLutil::uc2xNotation( $input ) ) );
 				} else {
 					$mmlMrow = new MMLmrow();
 					$mtext = new MMLmtext();
