@@ -70,6 +70,10 @@ class BaseMappingsTest extends TestCase {
 		$this->assertEquals( 'D', BaseMappings::getMacroByKey( '\\displaystyle' )[1] );
 	}
 
+	public function testGetSpaceMacroByKey() {
+		$this->assertEquals( '\\text{ }', BaseMappings::getMacroByKey( '\\ ' )[1] );
+	}
+
 	public function testGetSpecialByKey() {
 		$this->assertEquals( 'tilde', BaseMappings::getSpecialByKey( '~' )[1] );
 		$this->assertNull( BaseMappings::getSpecialByKey( '_' ) );

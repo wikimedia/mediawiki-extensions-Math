@@ -215,4 +215,10 @@ f(x,y,z) & = & x + y + z
 		$result = BaseParsing::namedOp( $node, [], [], '\\gcd' );
 		$this->assertStringContainsString( '>gcd</mi>', $result );
 	}
+
+	public function testSpace() {
+		$node = new Literal( '\\ ' );
+		$result = BaseParsing::macro( $node, [], [], '\\ ', '\\text{ }' );
+		$this->assertStringContainsString( '<mtext>&#160;</mtext>', $result );
+	}
 }
