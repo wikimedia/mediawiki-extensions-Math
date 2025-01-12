@@ -175,6 +175,26 @@ class MMLParsingUtil {
 		return $res;
 	}
 
+	public static function mapToBoldUnicode( $inputString ): string {
+		$res = '';
+		foreach ( mb_str_split( $inputString ) as $chr ) {
+			// see https://www.w3.org/TR/mathml-core/#bold-mappings
+			if ( $chr >= 'A' && $chr <= 'Z' ) {
+				$code = self::addToChr( $chr, '1D3BF' );
+				$res .= '&#x' . $code . ';';
+			} elseif ( $chr >= 'a' && $chr <= 'z' ) {
+				$code = self::addToChr( $chr, '1D3B9' );
+				$res .= '&#x' . $code . ';';
+			} elseif ( $chr >= '0' && $chr <= '9' ) {
+				$code = self::addToChr( $chr, '1D79E' );
+				$res .= '&#x' . $code . ';';
+			} else {
+				$res .= $chr;
+			}
+		}
+		return $res;
+	}
+
 	private static function addToChr( $chr, $base ): string {
 		return strtoupper( dechex( mb_ord( $chr ) + hexdec( $base ) ) );
 	}
