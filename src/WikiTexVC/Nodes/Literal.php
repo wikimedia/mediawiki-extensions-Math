@@ -36,7 +36,7 @@ class Literal extends TexNode {
 		/**
 		 * In some font modifications, it is required to explicitly use Unicode
 		 * characters instead of (only) attributes in MathML to indicate the font.
-		 * This is mostly because of Chrome behaviour. I.e. see: https://phabricator.wikimedia.org/T352196
+		 * This is mostly because of Chrome behaviour. See: https://phabricator.wikimedia.org/T352196
 		 */
 		if ( isset( $state["double-struck-literals"] ) ) {
 			return MMLParsingUtil::mapToDoubleStruckUnicode( $input );
@@ -44,6 +44,8 @@ class Literal extends TexNode {
 			return MMLParsingUtil::mapToCaligraphicUnicode( $input );
 		} elseif ( isset( $state["fraktur"] ) ) {
 			return MMLParsingUtil::mapToFrakturUnicode( $input );
+		} elseif ( isset( $state["bold"] ) ) {
+			return MMLParsingUtil::mapToBoldUnicode( $input );
 		}
 		return $input;
 	}
