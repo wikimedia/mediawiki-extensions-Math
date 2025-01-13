@@ -814,6 +814,9 @@ class BaseParsing {
 			case Variants::FRAKTUR:
 				$state = [ "fraktur" => true ];
 				break;
+			case Variants::BOLD:
+				$state = [ "bold" => true ];
+				break;
 		}
 
 		if ( $node instanceof Fun1nb ) {
@@ -960,9 +963,7 @@ class BaseParsing {
 	}
 
 	public static function setFont( $node, $passedArgs, $operatorContent, $name, $variant = null ) {
-		$mrow = new MMLmrow();
-		$args = MMLParsingUtil::getFontArgs( $name, $variant, $passedArgs );
-		return $mrow->encapsulateRaw( $mrow->encapsulateRaw( $node->getArg()->renderMML( $args ) ) );
+		return self::mathFont( $node, $passedArgs, $operatorContent, $name, $variant );
 	}
 
 	public static function sideset( $node, $passedArgs, $operatorContent, $name ) {

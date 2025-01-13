@@ -43,6 +43,14 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( '&#x1D7DC;', $mathMLtexVC );
 	}
 
+	public function testBoldUnicode() {
+		$input = "\\mathbf{4}, {\\bf Q} {\\bf a}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( '&#x1D41A;', $mathMLtexVC );
+		$this->assertStringContainsString( '&#x1D410;', $mathMLtexVC );
+		$this->assertStringContainsString( '&#x1D7D2;', $mathMLtexVC );
+	}
+
 	public function testNoLimits() {
 		$input = "\\displaystyle \int\\nolimits_0^\infty f(x) dx";
 		$mathMLtexVC = $this->generateMML( $input );
