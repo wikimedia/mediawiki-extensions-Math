@@ -28,7 +28,8 @@
 			"Wikisaurus",
 			"Ядерный Трамвай",
 			"Bashkorttan",
-			"Dirruw'o"
+			"Dirruw'o",
+			"Novichev"
 		]
 	},
 	"math-desc": "Отображает математические формулы в тегах <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
