@@ -153,11 +153,8 @@ class BaseMethods {
 	}
 
 	public function checkAndParseIdentifier( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
-		// @phan-suppress-next-line PhanTypeVoidAssignment
-		$resIdentifier = TexUtil::getInstance()->identifier( trim( $input ) );
-		if ( $resIdentifier == null ) {
-			$resIdentifier = AMSMappings::getIdentifierByKey( $input );
-		}
+		// @phan-suppress-next-line PhanCoalescingNeverUndefined
+		$resIdentifier = TexUtil::getInstance()->identifier( trim( $input ) ) ?? null;
 		// If the macro has been found, dynamically call the associated parsing function.
 		if ( is_string( $resIdentifier ) ) {
 			$resIdentifier = [ $resIdentifier ];
