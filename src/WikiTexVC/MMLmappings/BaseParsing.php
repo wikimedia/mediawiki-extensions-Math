@@ -956,7 +956,7 @@ class BaseParsing {
 			$munderOver = new MMLmunderover();
 			return $munderOver->encapsulateRaw( $opParsed . $mrow->encapsulateRaw( $node->getDown()->renderMML() )
 				. $mrow->encapsulateRaw( $node->getUp()->renderMML() ) );
-		} elseif ( $name === 'limits' || $name === 'nolimits' ) {
+		} elseif ( preg_match( '/\s*\\\\?(no)?limits\s*/', $name ) ) {
 			// Don't render limits
 			return '';
 		}
