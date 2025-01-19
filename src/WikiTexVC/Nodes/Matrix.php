@@ -147,6 +147,10 @@ class Matrix extends TexArray {
 		return self::flatDeep( $mapped );
 	}
 
+	/**
+	 * @param array|string $a
+	 * @return array|string
+	 */
 	private static function flatDeep( $a ) {
 		if ( !is_array( $a ) ) {
 			return $a;
@@ -156,6 +160,11 @@ class Matrix extends TexArray {
 		return $reduced;
 	}
 
+	/**
+	 * @param array $acc
+	 * @param array|string $val
+	 * @return array
+	 */
 	private static function reduceCallback( $acc, $val ) {
 		// Casting to array if output is string, this is required for array_merge function.
 		$fld = self::flatDeep( $val );

@@ -77,6 +77,11 @@ class MhchemPatterns {
 		}
 	}
 
+	/**
+	 * @param string $input
+	 * @param string|Reg $pattern
+	 * @return string|null
+	 */
 	private function matchObsGrInner( string $input, $pattern ) {
 		/**
 		 * In javascript this is checking if the incoming pattern is a string,
@@ -94,6 +99,12 @@ class MhchemPatterns {
 		return null;
 	}
 
+	/**
+	 * @param string $input
+	 * @param int $i
+	 * @param string $endChars
+	 * @return array|null
+	 */
 	private function findObserveGroupsInner( string $input, $i, $endChars ): ?array {
 		$braces = 0;
 		while ( $i < strlen( $input ) ) {

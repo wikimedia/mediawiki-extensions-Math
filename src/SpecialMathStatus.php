@@ -214,6 +214,11 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 		}
 	}
 
+	/**
+	 * @param array|string $expected
+	 * @param array|string $real
+	 * @param string $message
+	 */
 	private function assertEquals( $expected, $real, string $message = '' ): bool {
 		if ( is_array( $expected ) ) {
 			foreach ( $expected as $alternative ) {
