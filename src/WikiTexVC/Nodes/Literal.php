@@ -182,7 +182,7 @@ class Literal extends TexNode {
 		return $this->getLiteral( $this->literals, '/^([0-9a-zA-Z\'])$/' );
 	}
 
-	private function getLiteral( $lit, $regexp ) {
+	private function getLiteral( array $lit, string $regexp ): array {
 		$s = trim( $this->arg );
 		if ( preg_match( $regexp, $s ) == 1 ) {
 			return [ $s ];

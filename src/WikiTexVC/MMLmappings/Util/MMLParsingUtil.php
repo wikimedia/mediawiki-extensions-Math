@@ -175,7 +175,7 @@ class MMLParsingUtil {
 		return $res;
 	}
 
-	public static function mapToBoldUnicode( $inputString ): string {
+	public static function mapToBoldUnicode( string $inputString ): string {
 		$res = '';
 		foreach ( mb_str_split( $inputString ) as $chr ) {
 			// see https://www.w3.org/TR/mathml-core/#bold-mappings
@@ -195,7 +195,7 @@ class MMLParsingUtil {
 		return $res;
 	}
 
-	private static function addToChr( $chr, $base ): string {
+	private static function addToChr( string $chr, string $base ): string {
 		return strtoupper( dechex( mb_ord( $chr ) + hexdec( $base ) ) );
 	}
 

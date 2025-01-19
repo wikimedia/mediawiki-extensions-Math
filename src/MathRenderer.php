@@ -612,7 +612,7 @@ abstract class MathRenderer {
 		$this->logger->debug( "$msg for \"{tex}\".", [ 'tex' => $this->userInputTex ] );
 	}
 
-	private function getCacheKey() {
+	private function getCacheKey(): string {
 			return $this->cache->makeGlobalKey(
 				self::class,
 				$this->getInputHash()
