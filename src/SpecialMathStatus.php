@@ -200,10 +200,10 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 
 	private function assertTrue( $expression, $message = '' ) {
 		if ( $expression ) {
-			$this->getOutput()->addWikiMsgArray( 'math-test-success', $message );
+			$this->getOutput()->addWikiMsgArray( 'math-test-success', [ $message ] );
 			return true;
 		} else {
-			$this->getOutput()->addWikiMsgArray( 'math-test-fail', $message );
+			$this->getOutput()->addWikiMsgArray( 'math-test-fail', [ $message ] );
 			return false;
 		}
 	}
@@ -218,12 +218,12 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 		if ( is_array( $expected ) ) {
 			foreach ( $expected as $alternative ) {
 				if ( $alternative === $real ) {
-					$this->getOutput()->addWikiMsgArray( 'math-test-success', $message );
+					$this->getOutput()->addWikiMsgArray( 'math-test-success', [ $message ] );
 					return true;
 				}
 			}
 			// non of the alternatives matched
-			$this->getOutput()->addWikiMsgArray( 'math-test-fail', $message );
+			$this->getOutput()->addWikiMsgArray( 'math-test-fail', [ $message ] );
 			return false;
 		}
 		if ( !$this->assertTrue( $expected === $real, $message ) ) {
