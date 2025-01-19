@@ -126,7 +126,7 @@ class Matrix extends TexArray {
 		return $renderedLines;
 	}
 
-	private static function renderLine( $l ) {
+	private static function renderLine( TexNode $l ): string {
 		$mapped = array_map( static function ( $x ){
 			return $x->render();
 		}, $l->args );

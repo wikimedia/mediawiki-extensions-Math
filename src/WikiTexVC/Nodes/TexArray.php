@@ -328,7 +328,9 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return $fullRenderedArray;
 	}
 
-	private function createMMLwithContext( $currentColor, $currentNode, $state, $arguments ) {
+	private function createMMLwithContext(
+		?string $currentColor, TexNode $currentNode, array $state, array $arguments
+	): string {
 		if ( $currentColor ) {
 			if ( array_key_exists( "colorDefinitions", $state )
 				&& is_array( $state["colorDefinitions"] )

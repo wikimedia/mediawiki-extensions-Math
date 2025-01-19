@@ -58,15 +58,15 @@ class MhchemTexify {
 		return $res;
 	}
 
-	private function goInner( $input ): string {
+	private function goInner( array $input ): string {
 		return self::go( $input, false );
 	}
 
-	private function strReplaceFirst( $search, $replace, $subject ): string {
+	private function strReplaceFirst( string $search, string $replace, string $subject ): string {
 		return implode( $replace, explode( $search, $subject, 2 ) );
 	}
 
-	private function go2( $buf ): string {
+	private function go2( array $buf ): string {
 		switch ( $buf["type_"] ) {
 			case 'chemfive':
 				$res = "";
@@ -309,7 +309,7 @@ class MhchemTexify {
 		return $res;
 	}
 
-	private function getArrow( $a ): string {
+	private function getArrow( string $a ): string {
 		switch ( $a ) {
 			case "\u2192":
 			case "\u27F6":
@@ -333,7 +333,7 @@ class MhchemTexify {
 		}
 	}
 
-	private function getBond( $a ): string {
+	private function getBond( string $a ): string {
 		switch ( $a ) {
 			case "1":
 			case "-":
@@ -373,7 +373,7 @@ class MhchemTexify {
 		}
 	}
 
-	private function getOperator( $a ): string {
+	private function getOperator( string $a ): string {
 		switch ( $a ) {
 			case "+":
 				return " {}+{} ";

@@ -80,7 +80,7 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 		$form->show();
 	}
 
-	private function runNativeTest( $modeName ) {
+	private function runNativeTest( string $modeName ) {
 		$this->getOutput()->addWikiMsgArray( 'math-test-start', [ $modeName ] );
 		$renderer = $this->rendererFactory->getRenderer( "a+b", [], MathConfig::MODE_NATIVE_MML );
 		if ( !$this->assertTrue( $renderer->render(), "Rendering of a+b in $modeName" ) ) {
@@ -92,7 +92,7 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 		$this->getOutput()->addWikiMsgArray( 'math-test-end', [ $modeName ] );
 	}
 
-	private function runMathMLTest( $modeName ) {
+	private function runMathMLTest( string $modeName ) {
 		$this->getOutput()->addWikiMsgArray( 'math-test-start', [ $modeName ] );
 		$this->testSpecialCaseText();
 		$this->testMathMLIntegration();
@@ -100,7 +100,7 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 		$this->getOutput()->addWikiMsgArray( 'math-test-end', [ $modeName ] );
 	}
 
-	private function runMathLaTeXMLTest( $modeName ) {
+	private function runMathLaTeXMLTest( string $modeName ) {
 		$this->getOutput()->addWikiMsgArray( 'math-test-start', [ $modeName ] );
 		$this->testLaTeXMLIntegration();
 		$this->testLaTeXMLLinebreak();
@@ -198,7 +198,7 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 			  $renderer->getLastError() );
 	}
 
-	private function assertTrue( $expression, $message = '' ) {
+	private function assertTrue( bool $expression, string $message = '' ): bool {
 		if ( $expression ) {
 			$this->getOutput()->addWikiMsgArray( 'math-test-success', $message );
 			return true;
@@ -208,13 +208,13 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 		}
 	}
 
-	private function assertContains( $expected, $real, $message = '' ) {
+	private function assertContains( string $expected, string $real, string $message = '' ) {
 		if ( !$this->assertTrue( strpos( $real, $expected ) !== false, $message ) ) {
 			$this->printDiff( $expected, $real, 'math-test-contains-diff' );
 		}
 	}
 
-	private function assertEquals( $expected, $real, $message = '' ) {
+	private function assertEquals( $expected, $real, string $message = '' ): bool {
 		if ( is_array( $expected ) ) {
 			foreach ( $expected as $alternative ) {
 				if ( $alternative === $real ) {
@@ -233,7 +233,7 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 		return true;
 	}
 
-	private function printDiff( $expected, $real, $message = '' ) {
+	private function printDiff( string $expected, string $real, string $message = '' ) {
 		if ( ExtensionRegistry::getInstance()->isLoaded( "SyntaxHighlight" ) ) {
 			$expected = "<syntaxhighlight lang=\"xml\">$expected</syntaxhighlight>";
 			$real = "<syntaxhighlight lang=\"xml\">$real</syntaxhighlight>";
