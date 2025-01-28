@@ -291,6 +291,18 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "merror", $mathMLtexVC );
 	}
 
+	public function testEmptySidesetDQ() {
+		$input = "\\sideset{}{}a_b";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringNotContainsString( "merror", $mathMLtexVC );
+	}
+
+	public function testEmptySidesetUQ() {
+		$input = "\\sideset{}{}a^b";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringNotContainsString( "merror", $mathMLtexVC );
+	}
+
 	public function testSidesetSum() {
 		$input = "\\sideset{_1^2}{_3^4}\\sum";
 		$mathMLtexVC = $this->generateMML( $input );

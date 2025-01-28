@@ -42,6 +42,7 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\UQ;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 
@@ -984,14 +985,20 @@ class BaseParsing {
 				$in2 . "<mprescripts/>" . $in1 ) );
 		}
 
-		if ( $operatorContent["sideset"] instanceof FQ ) {
+		if ( $operatorContent["sideset"] instanceof FQ ||
+			 $operatorContent["sideset"] instanceof DQ ||
+			 $operatorContent["sideset"] instanceof UQ ) {
 			$mmlMultiscripts = new MMLmmultiscripts( "", [] );
 			$mmlMunderOver = new MMLmunderover();
 			$mstyle = new MMLmstyle( "", [ "displaystyle" => "true" ] );
 			$bm = new BaseMethods();
 			if ( count( $operatorContent["sideset"]->getBase()->getArgs() ) == 1 ) {
-				$opParsed = $bm->checkAndParseOperator( $operatorContent["sideset"]->getBase()->getArgs()[0],
+				$baseOperator = $operatorContent["sideset"]->getBase()->getArgs()[0];
+				$opParsed = $bm->checkAndParseOperator( $baseOperator,
 					null, [ "largeop" => "true", "movablelimits" => "false", "symmetric" => "true" ], [], null );
+				if ( $opParsed == null ) {
+					$opParsed = $operatorContent["sideset"]->getBase()->renderMML();
+				}
 			} else {
 				$merror = new MMLmerror();
 				$opParsed = $merror->encapsulateRaw( "Sideset operator parsing not implemented yet" );
@@ -1001,8 +1008,12 @@ class BaseParsing {
 			$in2 = $node->getArg2()->renderMML();
 
 			$mrowEnd = new MMLmrow( "", [] );
-			$end1 = $mrowEnd->encapsulateRaw( $operatorContent["sideset"]->getDown()->renderMML() );
-			$end2 = $mrowEnd->encapsulateRaw( $operatorContent["sideset"]->getUp()->renderMML() );
+			$down = $operatorContent["sideset"] instanceof UQ ? '<mrow />' :
+				$operatorContent["sideset"]->getDown()->renderMML();
+			$end1 = $mrowEnd->encapsulateRaw( $down );
+			$up = $operatorContent["sideset"] instanceof DQ ? '<mrow />' :
+				$operatorContent["sideset"]->getUp()->renderMML();
+			$end2 = $mrowEnd->encapsulateRaw( $up );
 
 			return $mmlMrow->encapsulateRaw( $mmlMunderOver->encapsulateRaw( $mstyle->encapsulateRaw(
 					$mmlMultiscripts->encapsulateRaw( $opParsed . $in2 . "<mprescripts/>" . $in1 ) )
