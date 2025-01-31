@@ -56,7 +56,7 @@ class SpecialMathWikibase extends SpecialPage {
 		);
 
 		// Get request
-		$requestId = $request->getText( self::PARAMETER, $par );
+		$requestId = $request->getText( self::PARAMETER, $par ?? '' );
 
 		// if there is no id requested, show the request form
 		if ( !$requestId ) {
