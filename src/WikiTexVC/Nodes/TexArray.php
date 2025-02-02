@@ -194,7 +194,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 			return [ $hasNamedFct, $hasValidParameters ];
 		}
 
-		if ( $nextNode ) {
+		if ( $nextNode && !( $nextNode instanceof Literal && $nextNode->getArg() === "'" ) ) {
 			$hasValidParameters = true;
 		}
 
@@ -378,6 +378,9 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 			}
 
 			$mml = $msup->encapsulateRaw( $mml . $moDeriv->encapsulateRaw( $derInfo ) );
+			if ( ( $state['foundNamedFct'][0] ?? false ) && !( $state['foundNamedFct'][1] ?? true ) ) {
+				$mml .= MMLParsingUtil::renderApplyFunction();
+			}
 		}
 		return $mml;
 	}

@@ -503,4 +503,26 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 
 		return MMLTestUtil::getMMLwrapped( $resultT["input"] ) ?? "<math> error texvc </math>";
 	}
+
+	public function testOperatorAccentPlain() {
+		// T384794
+		$input = "\\operatorname{a}'";
+		$mathMLtexVC = $this->generateMML( $input );
+		$posSupEnd = strpos( $mathMLtexVC, "</msup>" );
+		$posFunApply = strpos( $mathMLtexVC, "&#x2061;</mo>" );
+		$posAccent = strpos( $mathMLtexVC, "&#x2032;</mo>" );
+		$posA = strpos( $mathMLtexVC, "a</mi>" );
+		$this->assertGreaterThan( $posSupEnd, $posFunApply, "Function application should be last" );
+		$this->assertGreaterThan( $posAccent, $posSupEnd, "Accent needs to be within msup" );
+		$this->assertGreaterThan( $posA, $posAccent, "Accent should follow a" );
+	}
+
+	public function testOperatorAccentApplied() {
+		// T384794
+		$input = "\\operatorname{a}'x";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringContainsString( "mo", $mathMLtexVC );
+		$this->assertStringContainsString( "msup", $mathMLtexVC );
+		$this->assertStringContainsString( "x2061;", $mathMLtexVC );
+	}
 }
