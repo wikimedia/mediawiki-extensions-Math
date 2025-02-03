@@ -25,6 +25,12 @@ class TexNode {
 		$this->args = $args;
 	}
 
+	/**
+	 * @param string $input
+	 * @param array $passedArgs
+	 * @param mixed|null $operatorContent
+	 * @return string
+	 */
 	protected function parseToMML( $input, $passedArgs, $operatorContent ): string {
 		$parsed = BaseMethods::checkAndParse( $input, $passedArgs, $operatorContent, $this );
 		if ( $parsed ) {
