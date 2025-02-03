@@ -249,7 +249,7 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 		}
 	}
 
-	protected function getGroupName() {
+	protected function getGroupName(): string {
 		return 'other';
 	}
 }
