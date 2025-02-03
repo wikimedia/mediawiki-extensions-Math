@@ -608,7 +608,7 @@ abstract class MathRenderer {
 		return false;
 	}
 
-	protected function debug( $msg ) {
+	protected function debug( string $msg ) {
 		$this->logger->debug( "$msg for \"{tex}\".", [ 'tex' => $this->userInputTex ] );
 	}
 
