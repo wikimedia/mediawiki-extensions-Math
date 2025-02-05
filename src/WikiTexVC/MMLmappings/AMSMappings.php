@@ -283,29 +283,16 @@ class AMSMappings {
 		'cases' => [ 'matrix', '{', '', 'left left', null, '.1em', null, true ],
 		'array' => [ 'matrix' ]
 	];
-	private const AMSSYMBOLDELIMITERS = [
-		'ulcorner' => '\u231C',
-		'urcorner' => '\u231D',
-		'llcorner' => '\u231E',
-		'lrcorner' => '\u231F'
-	];
 
 	private const AMSSYMBOLMACROS = [
 		"implies" => [ 'macro', '\\;\\Longrightarrow\\;' ],
 		"impliedby" => [ 'macro', '\\;\\Longleftarrow\\;' ]
 	];
 
-	private const AMSMATHDELIMITERS = [
-		'lvert' => [ '\u007C', [ "texClass" => TexClass::OPEN ] ],
-		'rvert' => [ '\u007C', [ "texClass" => TexClass::CLOSE ] ],
-		'lVert' => [ '\u2016', [ "texClass" => TexClass::OPEN ] ],
-		'rVert' => [ '\u2016', [ "texClass" => TexClass::CLOSE ] ]
-	];
 	private const ALL = [
 		"amsmathchar0mo" => self::AMSMATHCHAR0MO,
 		"amsmacros" => self::AMSMACROS,
 		"amssymbolmacros" => self::AMSSYMBOLMACROS,
-		"amsdelimiters" => self::AMSSYMBOLDELIMITERS,
 		"amsmathenvironment" => self::AMSMATHENVIRONMENT
 	];
 
@@ -326,14 +313,6 @@ class AMSMappings {
 		// &#x221A; to \\u.... this is only temporary probably entities.php will be refactored with \u vals again
 		$key = MMLutil::x2uNotation( $key );
 		return MMLutil::getMappingByKey( $key, self::AMSMATHCHAR0MO, true, true );
-	}
-
-	public static function getSymbolDelimiterByKey( $key ) {
-		return MMLutil::getMappingByKey( $key, self::AMSSYMBOLDELIMITERS, true, true );
-	}
-
-	public static function getMathDelimiterByKey( $key ) {
-		return MMLutil::getMappingByKey( $key, self::AMSMATHDELIMITERS, true, true );
 	}
 
 	public static function getMacroByKey( $key ) {

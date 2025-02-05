@@ -16,6 +16,7 @@ use InvalidArgumentException;
  * @method nullary_macro_in_mbox(string $getArg)
  * @method unicode_char(string $getArg)
  * @method identifier(string $getArg)
+ * @method ams_delimiter(string $getArg)
  */
 class TexUtil {
 	/** @var self|null */
@@ -60,7 +61,7 @@ class TexUtil {
 		self::$instance = null;
 	}
 
-	public static function getInstance() {
+	public static function getInstance(): TexUtil {
 		if ( self::$instance == null ) {
 			self::$instance = new TexUtil();
 		}
@@ -98,16 +99,14 @@ class TexUtil {
 	 * @return false|mixed
 	 */
 	public function __call( $func, $params ) {
-		if ( array_key_exists( $func, $this->baseElements ) ) {
-			$currentFunction = $this->baseElements[$func];
-			if ( array_key_exists( $params[0], $currentFunction ) ) {
-				return $currentFunction[$params[0]];
-			} else {
-				return false;
-			}
-		} else {
+		if ( !array_key_exists( $func, $this->baseElements ) ) {
 			throw new InvalidArgumentException( "Function not defined in json " . $func );
 		}
+		$currentFunction = $this->baseElements[$func];
+		if ( array_key_exists( $params[0], $currentFunction ) ) {
+			return $currentFunction[$params[0]];
+		}
+		return false;
 	}
 
 	/**
