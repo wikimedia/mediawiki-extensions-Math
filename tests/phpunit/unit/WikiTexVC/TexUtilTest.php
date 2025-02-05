@@ -54,6 +54,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 
 		$out = [];
 		$sets = [
+			'ams_delimiter',
 			'ams_required',
 			'big_literals',
 			'box_functions',

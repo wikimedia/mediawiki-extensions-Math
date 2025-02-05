@@ -1496,6 +1496,7 @@
 		"nullary_macro_aliase": "\\Leftarrow"
 	},
 	"\\lVert": {
+		"ams_delimiter": "\\u2016",
 		"ams_required": true,
 		"nullary_macro": true
 	},
@@ -1636,6 +1637,7 @@
 		"mhchemtexified_required": true
 	},
 	"\\llcorner": {
+		"ams_delimiter": "\\u231E",
 		"ams_required": true,
 		"other_delimiters1": true
 	},
@@ -1731,6 +1733,7 @@
 		"nullary_macro_aliase": "\\leftrightarrow"
 	},
 	"\\lrcorner": {
+		"ams_delimiter": "\\u231F",
 		"ams_required": true,
 		"other_delimiters1": true
 	},
@@ -2306,6 +2309,7 @@
 		"nullary_macro_aliase": "\\Rightarrow"
 	},
 	"\\rVert": {
+		"ams_delimiter": "\\u2016",
 		"ams_required": true,
 		"nullary_macro": true
 	},
@@ -2796,6 +2800,7 @@
 		"other_delimiters2": "\\uparrow"
 	},
 	"\\ulcorner": {
+		"ams_delimiter": "\\u231C",
 		"ams_required": true,
 		"other_delimiters1": true
 	},
@@ -2841,6 +2846,7 @@
 		"nullary_macro": true
 	},
 	"\\urcorner": {
+		"ams_delimiter": "\\u231D",
 		"ams_required": true,
 		"other_delimiters1": true
 	},
