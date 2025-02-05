@@ -537,4 +537,19 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "msup", $mathMLtexVC );
 		$this->assertStringContainsString( "x2061;", $mathMLtexVC );
 	}
+
+	public function testAmsDelim1() {
+		$input = "\\ulcorner a \\urcorner";
+		$mml = $this->generateMML( $input );
+		$this->assertStringContainsString( "&#x231C;", $mml );
+		$this->assertStringContainsString( "&#x231D;", $mml );
+	}
+
+	public function testlVert() {
+		$input = "\\lVert a \\rVert";
+		$mml = $this->generateMML( $input );
+		$this->assertStringContainsString( "&#x2016;", $mml );
+		$this->assertStringNotContainsString( "OPEN", $mml );
+		$this->assertStringNotContainsString( "CLOSE", $mml );
+	}
 }
