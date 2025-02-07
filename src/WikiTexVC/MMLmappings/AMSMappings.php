@@ -284,15 +284,9 @@ class AMSMappings {
 		'array' => [ 'matrix' ]
 	];
 
-	private const AMSSYMBOLMACROS = [
-		"implies" => [ 'macro', '\\;\\Longrightarrow\\;' ],
-		"impliedby" => [ 'macro', '\\;\\Longleftarrow\\;' ]
-	];
-
 	private const ALL = [
 		"amsmathchar0mo" => self::AMSMATHCHAR0MO,
 		"amsmacros" => self::AMSMACROS,
-		"amssymbolmacros" => self::AMSSYMBOLMACROS,
 		"amsmathenvironment" => self::AMSMATHENVIRONMENT
 	];
 
@@ -316,11 +310,7 @@ class AMSMappings {
 	}
 
 	public static function getMacroByKey( $key ) {
-		$ret = MMLutil::getMappingByKey( $key, self::AMSMACROS, false, true );
-		if ( $ret != null ) {
-			return $ret;
-		}
-		return MMLutil::getMappingByKey( $key, self::AMSSYMBOLMACROS, true, true );
+		return MMLutil::getMappingByKey( $key, self::AMSMACROS, false, true );
 	}
 
 	public static function getEnvironmentByKey( $key ) {
