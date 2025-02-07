@@ -1,4 +1,48 @@
 {
+	"(": {
+		"delimiter": [
+			"(",
+			{
+				"stretchy": "false"
+			}
+		]
+	},
+	")": {
+		"delimiter": [
+			")",
+			{
+				"stretchy": "false"
+			}
+		]
+	},
+	".": {
+		"delimiter": [
+			""
+		]
+	},
+	"/": {
+		"delimiter": [
+			"/"
+		]
+	},
+	"<": {
+		"delimiter": [
+			"&#x27E8;"
+		]
+	},
+	">": {
+		"delimiter": [
+			"&#x27E9;"
+		]
+	},
+	"[": {
+		"delimiter": [
+			"[",
+			{
+				"stretchy": "false"
+			}
+		]
+	},
 	"\\AA": {
 		"nullary_macro_in_mbox": true,
 		"unicode_char": "00C5"
@@ -10,6 +54,11 @@
 	"\\And": {
 		"ams_required": true,
 		"nullary_macro": true
+	},
+	"\\Arrowvert": {
+		"delimiter": [
+			"&#x2016;"
+		]
 	},
 	"\\Bbb": {
 		"is_letter_mod": true,
@@ -109,6 +158,9 @@
 		"nullary_macro_aliase": "\\doteqdot"
 	},
 	"\\Downarrow": {
+		"delimiter": [
+			"&#x21D3;"
+		],
 		"other_delimiters1": true
 	},
 	"\\Epsilon": {
@@ -330,9 +382,15 @@
 		"other_delimiters2": "\\Uparrow"
 	},
 	"\\Uparrow": {
+		"delimiter": [
+			"&#x21D1;"
+		],
 		"other_delimiters1": true
 	},
 	"\\Updownarrow": {
+		"delimiter": [
+			"&#x21D5;"
+		],
 		"other_delimiters1": true
 	},
 	"\\Upsilon": {
@@ -344,6 +402,9 @@
 		"nullary_macro": true
 	},
 	"\\Vert": {
+		"delimiter": [
+			"&#x2016;"
+		],
 		"other_delimiters1": true
 	},
 	"\\Vvdash": {
@@ -360,6 +421,11 @@
 	"\\Zeta": {
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{Z}"
+	},
+	"\\\\": {
+		"delimiter": [
+			"\\"
+		]
 	},
 	"\\acute": {
 		"fun_ar1": true,
@@ -437,6 +503,11 @@
 	"\\arg": {
 		"latex_function_names": true
 	},
+	"\\arrowvert": {
+		"delimiter": [
+			"&#x23D0;"
+		]
+	},
 	"\\ast": {
 		"nullary_macro": true
 	},
@@ -470,6 +541,9 @@
 		"nullary_macro": true
 	},
 	"\\backslash": {
+		"delimiter": [
+			"\\"
+		],
 		"identifier": [
 			"\\u2216",
 			{
@@ -709,6 +783,11 @@
 	"\\boxtimes": {
 		"ams_required": true,
 		"nullary_macro": true
+	},
+	"\\bracevert": {
+		"delimiter": [
+			"&#x23AA;"
+		]
 	},
 	"\\breve": {
 		"fun_ar1": true,
@@ -1070,6 +1149,9 @@
 		"nullary_macro_aliase": "\\Cup"
 	},
 	"\\downarrow": {
+		"delimiter": [
+			"&#x2193;"
+		],
 		"other_delimiters1": true
 	},
 	"\\downdownarrows": {
@@ -1285,6 +1367,11 @@
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
+	"\\gt": {
+		"delimiter": [
+			"&#x27E9;"
+		]
+	},
 	"\\gtrapprox": {
 		"ams_required": true,
 		"nullary_macro": true
@@ -1496,8 +1583,10 @@
 		"nullary_macro_aliase": "\\Leftarrow"
 	},
 	"\\lVert": {
-		"ams_delimiter": "\\u2016",
 		"ams_required": true,
+		"delimiter": [
+			"&#x2016;"
+		],
 		"nullary_macro": true
 	},
 	"\\lambda": {
@@ -1515,18 +1604,30 @@
 		"other_delimiters2": "\\langle"
 	},
 	"\\langle": {
+		"delimiter": [
+			"&#x27E8;"
+		],
 		"other_delimiters1": true
 	},
 	"\\larr": {
 		"nullary_macro_aliase": "\\leftarrow"
 	},
 	"\\lbrace": {
+		"delimiter": [
+			"{"
+		],
 		"other_delimiters1": true
 	},
 	"\\lbrack": {
+		"delimiter": [
+			"["
+		],
 		"other_delimiters1": true
 	},
 	"\\lceil": {
+		"delimiter": [
+			"&#x2308;"
+		],
 		"other_delimiters1": true
 	},
 	"\\ldots": {
@@ -1610,10 +1711,18 @@
 		"nullary_macro": true
 	},
 	"\\lfloor": {
+		"delimiter": [
+			"&#x230A;"
+		],
 		"other_delimiters1": true
 	},
 	"\\lg": {
 		"latex_function_names": true
+	},
+	"\\lgroup": {
+		"delimiter": [
+			"&#x27EE;"
+		]
 	},
 	"\\lim": {
 		"latex_function_names": true
@@ -1637,13 +1746,20 @@
 		"mhchemtexified_required": true
 	},
 	"\\llcorner": {
-		"ams_delimiter": "\\u231E",
 		"ams_required": true,
+		"delimiter": [
+			"&#x231E;"
+		],
 		"other_delimiters1": true
 	},
 	"\\lll": {
 		"ams_required": true,
 		"nullary_macro": true
+	},
+	"\\lmoustache": {
+		"delimiter": [
+			"&#x23B0;"
+		]
 	},
 	"\\ln": {
 		"latex_function_names": true
@@ -1733,9 +1849,16 @@
 		"nullary_macro_aliase": "\\leftrightarrow"
 	},
 	"\\lrcorner": {
-		"ams_delimiter": "\\u231F",
 		"ams_required": true,
+		"delimiter": [
+			"&#x231F;"
+		],
 		"other_delimiters1": true
+	},
+	"\\lt": {
+		"delimiter": [
+			"&#x27E8;"
+		]
 	},
 	"\\ltimes": {
 		"ams_required": true,
@@ -2309,8 +2432,10 @@
 		"nullary_macro_aliase": "\\Rightarrow"
 	},
 	"\\rVert": {
-		"ams_delimiter": "\\u2016",
 		"ams_required": true,
+		"delimiter": [
+			"&#x2016;"
+		],
 		"nullary_macro": true
 	},
 	"\\raise": {
@@ -2321,18 +2446,30 @@
 		"other_delimiters2": "\\rangle"
 	},
 	"\\rangle": {
+		"delimiter": [
+			"&#x27E9;"
+		],
 		"other_delimiters1": true
 	},
 	"\\rarr": {
 		"nullary_macro_aliase": "\\rightarrow"
 	},
 	"\\rbrace": {
+		"delimiter": [
+			"}"
+		],
 		"other_delimiters1": true
 	},
 	"\\rbrack": {
+		"delimiter": [
+			"]"
+		],
 		"other_delimiters1": true
 	},
 	"\\rceil": {
+		"delimiter": [
+			"&#x2309;"
+		],
 		"other_delimiters1": true
 	},
 	"\\real": {
@@ -2345,7 +2482,15 @@
 		"nullary_macro_aliase": "\\upharpoonright"
 	},
 	"\\rfloor": {
+		"delimiter": [
+			"&#x230B;"
+		],
 		"other_delimiters1": true
+	},
+	"\\rgroup": {
+		"delimiter": [
+			"&#x27EF;"
+		]
 	},
 	"\\rho": {
 		"identifier": [
@@ -2400,6 +2545,11 @@
 	},
 	"\\rm": {
 		"declh_function": true
+	},
+	"\\rmoustache": {
+		"delimiter": [
+			"&#x23B1;"
+		]
 	},
 	"\\rtimes": {
 		"ams_required": true,
@@ -2800,8 +2950,10 @@
 		"other_delimiters2": "\\uparrow"
 	},
 	"\\ulcorner": {
-		"ams_delimiter": "\\u231C",
 		"ams_required": true,
+		"delimiter": [
+			"&#x231C;"
+		],
 		"other_delimiters1": true
 	},
 	"\\underbrace": {
@@ -2818,9 +2970,15 @@
 		"mhchem_macro_2p": true
 	},
 	"\\uparrow": {
+		"delimiter": [
+			"&#x2191;"
+		],
 		"other_delimiters1": true
 	},
 	"\\updownarrow": {
+		"delimiter": [
+			"&#x2195;"
+		],
 		"other_delimiters1": true
 	},
 	"\\upharpoonleft": {
@@ -2846,8 +3004,10 @@
 		"nullary_macro": true
 	},
 	"\\urcorner": {
-		"ams_delimiter": "\\u231D",
 		"ams_required": true,
+		"delimiter": [
+			"&#x231D;"
+		],
 		"other_delimiters1": true
 	},
 	"\\vDash": {
@@ -3097,6 +3257,9 @@
 		"nullary_macro": true
 	},
 	"\\vert": {
+		"delimiter": [
+			"|"
+		],
 		"other_delimiters1": true
 	},
 	"\\vline": {
@@ -3168,5 +3331,41 @@
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
+	},
+	"\\{": {
+		"delimiter": [
+			"{",
+			{
+				"fence": "false",
+				"stretchy": "false"
+			}
+		]
+	},
+	"\\|": {
+		"delimiter": [
+			"&#x2016;"
+		]
+	},
+	"\\}": {
+		"delimiter": [
+			"}",
+			{
+				"fence": "false",
+				"stretchy": "false"
+			}
+		]
+	},
+	"]": {
+		"delimiter": [
+			"]",
+			{
+				"stretchy": "false"
+			}
+		]
+	},
+	"|": {
+		"delimiter": [
+			"|"
+		]
 	}
 }

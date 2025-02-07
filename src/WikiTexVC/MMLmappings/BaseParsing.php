@@ -92,7 +92,7 @@ class BaseParsing {
 		$output = "";
 		$mrow = new MMLmrow();
 		if ( $open != null ) {
-			$resDelimiter = BaseMappings::getDelimiterByKey( trim( $open ) );
+			$resDelimiter = TexUtil::getInstance()->delimiter( trim( $open ) ) ?? false;
 			if ( $resDelimiter ) {
 				// $retDelim = $bm->checkAndParseDelimiter($open, $node,$passedArgs,true);
 				$moOpen = new MMLmo( TexClass::OPEN );
@@ -110,9 +110,8 @@ class BaseParsing {
 		}
 
 		if ( $close != null ) {
-			$resDelimiter = BaseMappings::getDelimiterByKey( trim( $close ) );
+			$resDelimiter = TexUtil::getInstance()->delimiter( trim( $close ) ) ?? false;
 			if ( $resDelimiter ) {
-				// $retDelim = $bm->checkAndParseDelimiter($open, $node,$passedArgs,true);
 				$moClose = new MMLmo( TexClass::CLOSE );
 				$output .= $moClose->encapsulateRaw( $resDelimiter[0] );
 			}

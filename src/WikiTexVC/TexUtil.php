@@ -16,7 +16,7 @@ use InvalidArgumentException;
  * @method nullary_macro_in_mbox(string $getArg)
  * @method unicode_char(string $getArg)
  * @method identifier(string $getArg)
- * @method ams_delimiter(string $getArg)
+ * @method delimiter(string $getArg)
  */
 class TexUtil {
 	/** @var self|null */
