@@ -77,7 +77,7 @@ class BaseMethods {
 		$resOperator = BaseMappings::getOperatorByKey( $input );
 		if ( $resOperator == null ) {
 
-			$resOperator = AMSMappings::getOperatorByKey( $input );
+			$resOperator = TexUtil::getInstance()->operator_rendering( trim( $input ) );
 			if ( $resOperator == null ) {
 				$resOperator = OperatorDictionary::getOperatorByKey( $input );
 				if ( $resOperator ) {
