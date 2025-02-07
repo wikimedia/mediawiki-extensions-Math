@@ -212,52 +212,6 @@ class BaseMappings {
 		'And' => '\u0026'
 	];
 
-	private const DELIMITER = [
-		'(' => [ '(', [ "stretchy" => "false" ] ], // added this additionally for running all tc
-		')' => [ ')', [ "stretchy" => "false" ] ], // added this additionally for running all tc
-		'[' => [ '[', [ "stretchy" => "false" ] ], // added this additionally for running all tc
-		']' => [ ']', [ "stretchy" => "false" ] ], // added this additionally for running all tc
-		'<' => '\u27E8',
-		'>' => '\u27E9',
-		'\\lt' => '\u27E8',
-		'\\gt' => '\u27E9',
-		'/' => '/',
-		'|' => [ '|', [ "texClass" => TexClass::ORD ] ],
-		'.' => '',
-		'\\\\' => '\\',
-		'\\lmoustache' => '\u23B0',
-		'\\rmoustache' => '\u23B1',
-		'\\lgroup' => '\u27EE',
-		'\\rgroup' => '\u27EF',
-		'\\arrowvert' => '\u23D0',
-		'\\Arrowvert' => '\u2016',
-		'\\bracevert' => '\u23AA',
-		'\\Vert' => [ '\u2016', [ "texClass" => TexClass::ORD ] ],
-		'\\|' => [ '\u2016', [ "texClass" => TexClass::ORD ] ],
-		'\\vert' => [ '|', [ "texClass" => TexClass::ORD ] ],
-		'\\uparrow' => '\u2191',
-		'\\downarrow' => '\u2193',
-		'\\updownarrow' => '\u2195',
-		'\\Uparrow' => '\u21D1',
-		'\\Downarrow' => '\u21D3',
-		'\\Updownarrow' => '\u21D5',
-		'\\backslash' => '\\',
-		"\\rangle" => '\u27E9',
-		'\\langle' => '\u27E8',
-		'\\rbrace' => '}',
-		'\\lbrace' => '{',
-		// added this attrs additionally for running all tc:
-		'\\}' => [ '}', [ "fence" => "false", "stretchy" => "false" ] ],
-		// added this attrs additionally for running all tc:
-		'\\{' => [ '{', [ "fence" => "false", "stretchy" => "false" ] ],
-		'\\rceil' => '\u2309',
-		'\\lceil' => '\u2308',
-		'\\rfloor' => '\u230B',
-		'\\lfloor' => '\u230A',
-		'\\lbrack' => '[',
-		'\\rbrack' => ']'
-	];
-
 	private const MACROS = [
 		"displaystyle" => [ 'setStyle', 'D', true, 0 ],
 		"textstyle" => [ 'setStyle', 'T', false, 0 ],
@@ -670,7 +624,6 @@ class BaseMappings {
 	private const ALL = [
 		"special" => self::SPECIAL,
 		"macros" => self::MACROS,
-		"delimiter" => self::DELIMITER,
 		"mathchar7" => self::MATCHAR7,
 		"mathchar0mo" => self::MATHCHAR0MO,
 		"environment" => self::ENVIRONMENT,
@@ -745,10 +698,6 @@ class BaseMappings {
 		// Cast to uppercase first letter since mapping is structured that way.
 		$key = ucfirst( $key );
 		return MMLutil::getMappingByKey( $key, self::COLORS );
-	}
-
-	public static function getDelimiterByKey( $key ) {
-		return MMLutil::getMappingByKey( $key, self::DELIMITER, true );
 	}
 
 }
