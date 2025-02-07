@@ -484,7 +484,8 @@ class BaseMappings {
 		"nonumber" => 'HandleNoTag',
 		"mathchoice" => 'mathChoice',
 		"mmlToken" => 'MmlToken',
-		"intent" => 'intent'
+		"intent" => 'intent',
+		"implies" => [ 'macro', '\\;\\Longrightarrow\\;' ],
 	];
 
 	private const ENVIRONMENT = [

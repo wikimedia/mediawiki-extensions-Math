@@ -46,7 +46,6 @@ class AmsMappingsTest extends TestCase {
 
 	public function testGetMacroByKey() {
 		$this->assertEquals( 'Tilde', AMSMappings::getMacroByKey( '\\nobreakspace' )[0] );
-		$this->assertEquals( 'macro', AMSMappings::getMacroByKey( '\\implies' )[0] );
 	}
 
 	public function testGetInstance() {
