@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Lengths\MathSpace;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Align;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
+use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 /**
  * Based on AMSMappings.js in MML3
@@ -53,42 +54,8 @@ class AMSMappings {
 		"xleftarrow" => [ 'xArrow', 0x2190, 10, 5 ]
 		];
 
-	private const AMSMATHENVIRONMENT = [
-		'equation*' => [ 'Equation', null, false ],
-		'eqnarray*' => [ 'EqnArray', null, false, true, 'rcl', null, '.5em' ],
-		'align' => [ 'EqnArray', null, true, true, 'rl', 'ParseUtil_js_1.default.cols(0, 2)' ],
-		'align*' => [ 'EqnArray', null, false, true, 'rl', "ParseUtil_js_1.default.cols(0, 2)" ],
-		"multline" => [ 'Multline', null, true ],
-		'multline*' => [ 'Multline', null, false ],
-		"split" => [ 'EqnArray', null, false, false, 'rl', "ParseUtil_js_1.default.cols(0)" ],
-		"gather" => [ 'EqnArray', null, true, true, 'c' ],
-		'gather*' => [ 'EqnArray', null, false, true, 'c' ],
-		"alignat" => [ 'alignAt', null, true, true ],
-		'alignat*' => [ 'alignAt', null, false, true ],
-		"alignedat" => [ 'alignAt', null, false, false ],
-		"aligned" => [ 'amsEqnArray', null, null, null, 'rl', "ParseUtil_js_1.default.cols(0, 2)", '.5em', 'D' ],
-		"gathered" => [ 'amsEqnArray', null, null, null, 'c', null, '.5em', 'D' ],
-		"xalignat" => [ 'XalignAt', null, true, true ],
-		'xalignat*' => [ 'XalignAt', null, false, true ],
-		"xxalignat" => [ 'XalignAt', null, false, false ],
-		"flalign" => [ 'FlalignArray', null, true, false, true, 'rlc', 'auto auto fit' ],
-		'flalign*' => [ 'FlalignArray', null, false, false, true, 'rlc', 'auto auto fit' ],
-		"subarray" => [ 'array', null, null, null, null, "ParseUtil_js_1.default.cols(0)", '0.1em', 'S', 1 ],
-		"smallmatrix" => [ 'array', null, null, null, 'c', "ParseUtil_js_1.default.cols(1 / 3)",
-			'.2em', 'S', 1 ],
-		"matrix" => [ 'array', null, null, null, 'c' ],
-		"pmatrix" => [ 'array', null, '(', ')', 'c' ],
-		"bmatrix" => [ 'array', null, '[', ']', 'c' ],
-		"Bmatrix" => [ 'array', null, '\\{', '\\}', 'c' ],
-		"vmatrix" => [ 'array', null, '\\vert', '\\vert', 'c' ],
-		"Vmatrix" => [ 'array', null, '\\Vert', '\\Vert', 'c' ],
-		'cases' => [ 'matrix', '{', '', 'left left', null, '.1em', null, true ],
-		'array' => [ 'matrix' ]
-	];
-
 	private const ALL = [
-		"amsmacros" => self::AMSMACROS,
-		"amsmathenvironment" => self::AMSMATHENVIRONMENT
+		"amsmacros" => self::AMSMACROS
 	];
 
 	private function __construct() {
@@ -109,6 +76,7 @@ class AMSMappings {
 	}
 
 	public static function getEnvironmentByKey( string $key ) {
-		return MMLutil::getMappingByKey( $key, self::AMSMATHENVIRONMENT );
+		$rendering = TexUtil::getInstance()->environment_rendering( trim( $key ) );
+		return $rendering !== false ? $rendering : null;
 	}
 }

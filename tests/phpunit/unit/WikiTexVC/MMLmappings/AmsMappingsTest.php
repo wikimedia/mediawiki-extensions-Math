@@ -49,7 +49,7 @@ class AmsMappingsTest extends TestCase {
 	}
 
 	public function testGetEnvironmentByKey() {
-		$this->assertEquals( 'EqnArray', AMSMappings::getEnvironmentByKey( 'align' )[0] );
+		$this->assertEquals( 'array', AMSMappings::getEnvironmentByKey( 'vmatrix' )[0] );
 	}
 
 }
