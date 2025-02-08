@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC;
 
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 use MediaWikiUnitTestCase;
 
@@ -64,6 +65,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'declh_function',
 			'definecolor_function',
 			'delimiter',
+			'environment_rendering',
 			'euro_required',
 			'fun_ar1',
 			'fun_ar1nb',
@@ -152,6 +154,22 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		// uncomment the following lines to spot differences in your IDE
 		// $this->assertEquals( $encP, $file );
 		$this->assertEquals( $hashFile, $hashOutput );
+	}
+
+	public function testMethodNamesExist() {
+		$tu = TexUtil::getInstance();
+		$sets = [
+			'environment_rendering',
+		];
+		foreach ( $sets as $set ) {
+			$functions = $tu->getBaseElements()[ $set ];
+			foreach ( $functions as $symbol => $function ) {
+					$methodName = is_array( $function ) ? $function[0] : $function;
+
+					$this->assertTrue( method_exists( BaseParsing::class, $methodName ),
+						'Method ' . $methodName . ' for symbol ' . $symbol . ' does not exist in BaseParsing' );
+			}
+		}
 	}
 
 	private function getHash( $input ) {

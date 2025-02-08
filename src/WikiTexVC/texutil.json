@@ -35,6 +35,24 @@
 			"&#x27E9;"
 		]
 	},
+	"Bmatrix": {
+		"environment_rendering": [
+			"array",
+			null,
+			"\\{",
+			"\\}",
+			"c"
+		]
+	},
+	"Vmatrix": {
+		"environment_rendering": [
+			"array",
+			null,
+			"\\Vert",
+			"\\Vert",
+			"c"
+		]
+	},
 	"[": {
 		"delimiter": [
 			"[",
@@ -4048,6 +4066,121 @@
 			{
 				"stretchy": "false"
 			}
+		]
+	},
+	"alignat": {
+		"environment_rendering": [
+			"alignAt",
+			null,
+			true,
+			true
+		]
+	},
+	"alignat*": {
+		"environment_rendering": [
+			"alignAt",
+			null,
+			false,
+			true
+		]
+	},
+	"aligned": {
+		"environment_rendering": [
+			"amsEqnArray",
+			null,
+			null,
+			null,
+			"rl",
+			"ParseUtil_js_1.default.cols(0, 2)",
+			".5em",
+			"D"
+		]
+	},
+	"alignedat": {
+		"environment_rendering": [
+			"alignAt",
+			null,
+			false,
+			false
+		]
+	},
+	"array": {
+		"environment_rendering": [
+			"matrix"
+		]
+	},
+	"bmatrix": {
+		"environment_rendering": [
+			"array",
+			null,
+			"[",
+			"]",
+			"c"
+		]
+	},
+	"cases": {
+		"environment_rendering": [
+			"matrix",
+			"{",
+			"",
+			"left left",
+			null,
+			".1em",
+			null,
+			true
+		]
+	},
+	"matrix": {
+		"environment_rendering": [
+			"array",
+			null,
+			null,
+			null,
+			"c"
+		]
+	},
+	"pmatrix": {
+		"environment_rendering": [
+			"array",
+			null,
+			"(",
+			")",
+			"c"
+		]
+	},
+	"smallmatrix": {
+		"environment_rendering": [
+			"array",
+			null,
+			null,
+			null,
+			"c",
+			"ParseUtil_js_1.default.cols(1 / 3)",
+			".2em",
+			"S",
+			1
+		]
+	},
+	"subarray": {
+		"environment_rendering": [
+			"array",
+			null,
+			null,
+			null,
+			null,
+			"ParseUtil_js_1.default.cols(0)",
+			"0.1em",
+			"S",
+			1
+		]
+	},
+	"vmatrix": {
+		"environment_rendering": [
+			"array",
+			null,
+			"\\vert",
+			"\\vert",
+			"c"
 		]
 	},
 	"|": {
