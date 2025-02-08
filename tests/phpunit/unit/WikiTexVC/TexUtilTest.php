@@ -80,6 +80,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'intent_required',
 			'latex_function_names',
 			'left_function',
+			'macro_rendering',
 			'mathoid_required',
 			'mediawiki_function_names',
 			'mhchem_bond',
@@ -160,6 +161,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		$tu = TexUtil::getInstance();
 		$sets = [
 			'environment_rendering',
+			'macro_rendering',
 		];
 		foreach ( $sets as $set ) {
 			$functions = $tu->getBaseElements()[ $set ];
