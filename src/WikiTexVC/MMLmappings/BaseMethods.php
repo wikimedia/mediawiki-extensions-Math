@@ -74,23 +74,20 @@ class BaseMethods {
 
 	public function checkAndParseOperator( $input, $node, $passedArgs, $operatorContent,
 										   $state, $prepareInput = true ) {
-		$resOperator = BaseMappings::getOperatorByKey( $input );
-		if ( $resOperator == null ) {
-
 			$resOperator = TexUtil::getInstance()->operator_rendering( trim( $input ) );
-			if ( $resOperator == null ) {
-				$resOperator = OperatorDictionary::getOperatorByKey( $input );
-				if ( $resOperator ) {
-					if ( isset( $resOperator[1] ) ) {
-						// custom parsing here
-						return $this->parseOperatorDict( $node, $passedArgs, $operatorContent, $input, false );
-					}
-					// Atm just do simple parsing for elements in operator dictionary
-					$mmlMo = new MMLmo( '', $passedArgs );
-					return $mmlMo->encapsulateRaw( $input );
+		if ( $resOperator == null ) {
+			$resOperator = OperatorDictionary::getOperatorByKey( $input );
+			if ( $resOperator ) {
+				if ( isset( $resOperator[1] ) ) {
+					// custom parsing here
+					return $this->parseOperatorDict( $node, $passedArgs, $operatorContent, $input, false );
 				}
+				// Atm just do simple parsing for elements in operator dictionary
+				$mmlMo = new MMLmo( '', $passedArgs );
+				return $mmlMo->encapsulateRaw( $input );
 			}
 		}
+
 		// If the macro has been found, dynamically call the associated parsing function.
 		if ( is_string( $resOperator ) ) {
 			$resOperator = [ $resOperator ];
