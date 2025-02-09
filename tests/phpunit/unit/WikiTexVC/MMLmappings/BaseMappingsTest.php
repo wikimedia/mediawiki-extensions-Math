@@ -21,10 +21,6 @@ class BaseMappingsTest extends TestCase {
 	public function provideTestCases(): array {
 		// the second argument is an array of known problems which should be removed in the future
 		return [
-			'macros' => [ 'macros', [ 'SetSize', 'Overunderset', 'Root', 'MoveRoot', 'LeftRight', 'MoveLeftRight',
-				'rule', 'Rule', 'Nonscript', 'BuildRel', 'FBox', 'FrameBox', 'Strut', 'Cr', 'HFill', 'BeginEnd',
-				'HandleLabel', 'HandleRef', 'HandleNoTag', 'MmlToken' ]
-			],
 			'cancel' => [ 'cancel' ],
 		];
 	}
@@ -44,23 +40,9 @@ class BaseMappingsTest extends TestCase {
 		}
 	}
 
-	public function testGetCancelByKey() {
-		$this->assertEquals( 'updiagonalstrike', BaseMappings::getCancelByKey( '\\cancel' )[1] );
-		$this->assertEquals( 'cancelTo', BaseMappings::getCancelByKey( '\\cancelto' )[0] );
-		$this->assertNull( BaseMappings::getCancelByKey( '\\notCancel' ) );
-	}
-
 	public function testGetOperatorByKey() {
 		$this->assertEquals( '&#x221A;', TexUtil::getInstance()->operator_rendering( '\\surd' )[0] );
 		$this->assertEquals( '&#x2212;', TexUtil::getInstance()->operator_rendering( '-' )[0] );
-	}
-
-	public function testGetMacroByKey() {
-		$this->assertEquals( 'D', BaseMappings::getMacroByKey( '\\displaystyle' )[1] );
-	}
-
-	public function testGetSpaceMacroByKey() {
-		$this->assertEquals( '\\text{ }', BaseMappings::getMacroByKey( '\\ ' )[1] );
 	}
 
 	public function testGetColorByKey() {
