@@ -33,16 +33,8 @@ class BaseMethods {
 		// Checking for a named parsing function
 		$resFct = BaseMappings::getMacroByKey( $input );
 		if ( $resFct == null ) {
-			$resFct = AMSMappings::getMacroByKey( $input );
-			if ( $resFct == null ) {
-				// Also check for mathtools environment, this is currently done to find some form of matrices,
-				// probably refactored later
-				$resFct = AMSMappings::getEnvironmentByKey( $input );
-				if ( $resFct == null ) {
-					$tu = TexUtil::getInstance();
-					$resFct = $tu->callback( trim( $input ) );
-				}
-			}
+			$tu = TexUtil::getInstance();
+			$resFct = $tu->callback( trim( $input ) );
 		}
 		if ( $resFct == null ) {
 			return null;

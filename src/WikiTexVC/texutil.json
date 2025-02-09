@@ -41,7 +41,7 @@
 		]
 	},
 	"Bmatrix": {
-		"environment_rendering": [
+		"callback": [
 			"array",
 			null,
 			"\\{",
@@ -50,7 +50,7 @@
 		]
 	},
 	"Vmatrix": {
-		"environment_rendering": [
+		"callback": [
 			"array",
 			null,
 			"\\Vert",
@@ -937,14 +937,14 @@
 	},
 	"\\binom": {
 		"ams_required": true,
-		"fun_ar2": true,
-		"macro_rendering": [
+		"callback": [
 			"genFrac",
 			"(",
 			")",
 			"0",
 			"0"
-		]
+		],
+		"fun_ar2": true
 	},
 	"\\blacklozenge": {
 		"ams_required": true,
@@ -1035,7 +1035,7 @@
 		]
 	},
 	"\\boxed": {
-		"macro_rendering": [
+		"callback": [
 			"macro",
 			"\\fbox{$\\displaystyle{#1}$}",
 			1
@@ -1160,10 +1160,10 @@
 	},
 	"\\cfrac": {
 		"ams_required": true,
-		"fun_ar2": true,
-		"macro_rendering": [
+		"callback": [
 			"cFrac"
-		]
+		],
+		"fun_ar2": true
 	},
 	"\\check": {
 		"fun_ar1": true,
@@ -1403,14 +1403,14 @@
 	},
 	"\\dbinom": {
 		"ams_required": true,
-		"fun_ar2": true,
-		"macro_rendering": [
+		"callback": [
 			"genFrac",
 			"(",
 			")",
 			"0",
 			"0"
-		]
+		],
+		"fun_ar2": true
 	},
 	"\\ddagger": {
 		"nullary_macro": true,
@@ -1419,13 +1419,13 @@
 		]
 	},
 	"\\ddddot": {
-		"macro_rendering": [
+		"callback": [
 			"accent",
 			"20DC"
 		]
 	},
 	"\\dddot": {
-		"macro_rendering": [
+		"callback": [
 			"accent",
 			"20DB"
 		]
@@ -1461,14 +1461,14 @@
 	},
 	"\\dfrac": {
 		"ams_required": true,
-		"fun_ar2": true,
-		"macro_rendering": [
+		"callback": [
 			"genFrac",
 			"",
 			"",
 			"",
 			"0"
-		]
+		],
+		"fun_ar2": true
 	},
 	"\\diagdown": {
 		"ams_required": true,
@@ -1773,14 +1773,14 @@
 		"nullary_macro": true
 	},
 	"\\frac": {
-		"fun_ar2": true,
-		"macro_rendering": [
+		"callback": [
 			"genFrac",
 			"",
 			"",
 			"",
 			""
 		],
+		"fun_ar2": true,
 		"mhchem_macro_2p": true
 	},
 	"\\frown": {
@@ -1823,7 +1823,7 @@
 		"unicode_char": "20AC"
 	},
 	"\\genfrac": {
-		"macro_rendering": [
+		"callback": [
 			"genFrac"
 		]
 	},
@@ -2103,7 +2103,7 @@
 	},
 	"\\injlim": {
 		"ams_required": true,
-		"macro_rendering": [
+		"callback": [
 			"namedOp",
 			"inj lim"
 		],
@@ -2713,7 +2713,7 @@
 		"is_letter_mod": true
 	},
 	"\\mathring": {
-		"macro_rendering": [
+		"callback": [
 			"accent",
 			"02DA"
 		]
@@ -2887,13 +2887,13 @@
 		"nullary_macro": true
 	},
 	"\\negmedspace": {
-		"macro_rendering": [
+		"callback": [
 			"spacer",
 			-0.2222222222222222
 		]
 	},
 	"\\negthickspace": {
-		"macro_rendering": [
+		"callback": [
 			"spacer",
 			-0.2777777777777778
 		]
@@ -3007,7 +3007,7 @@
 		]
 	},
 	"\\nobreakspace": {
-		"macro_rendering": [
+		"callback": [
 			"Tilde"
 		]
 	},
@@ -3268,11 +3268,11 @@
 	},
 	"\\operatorname": {
 		"ams_required": true,
-		"fun_ar1nb": true,
-		"ignore_identifier": true,
-		"macro_rendering": [
+		"callback": [
 			"handleOperatorName"
-		]
+		],
+		"fun_ar1nb": true,
+		"ignore_identifier": true
 	},
 	"\\oplus": {
 		"nullary_macro": true,
@@ -3487,7 +3487,7 @@
 	},
 	"\\projlim": {
 		"ams_required": true,
-		"macro_rendering": [
+		"callback": [
 			"namedOp",
 			"proj lim"
 		],
@@ -3757,10 +3757,10 @@
 	},
 	"\\sideset": {
 		"ams_required": true,
-		"fun_ar2nb": true,
-		"macro_rendering": [
+		"callback": [
 			"SideSet"
-		]
+		],
+		"fun_ar2nb": true
 	},
 	"\\sigma": {
 		"identifier": [
@@ -3959,7 +3959,7 @@
 		]
 	},
 	"\\substack": {
-		"macro_rendering": [
+		"callback": [
 			"macro",
 			"\\begin{subarray}{c}#1\\end{subarray}",
 			1
@@ -4097,14 +4097,14 @@
 	},
 	"\\tbinom": {
 		"ams_required": true,
-		"fun_ar2": true,
-		"macro_rendering": [
+		"callback": [
 			"genFrac",
 			"(",
 			")",
 			"0",
 			"1"
-		]
+		],
+		"fun_ar2": true
 	},
 	"\\text": {
 		"ams_required": true,
@@ -4139,14 +4139,14 @@
 	},
 	"\\tfrac": {
 		"ams_required": true,
-		"fun_ar2": true,
-		"macro_rendering": [
+		"callback": [
 			"genFrac",
 			"",
 			"",
 			"",
 			"1"
-		]
+		],
+		"fun_ar2": true
 	},
 	"\\therefore": {
 		"ams_required": true,
@@ -4491,7 +4491,7 @@
 	},
 	"\\varinjlim": {
 		"ams_required": true,
-		"macro_rendering": [
+		"callback": [
 			"macro",
 			"\\mathop{\\xrightarrow{\\mmlToken{mi}{lim}}}"
 		],
@@ -4509,7 +4509,7 @@
 	},
 	"\\varliminf": {
 		"ams_required": true,
-		"macro_rendering": [
+		"callback": [
 			"macro",
 			"\\mathop{\\underline{\\mmlToken{mi}{lim}}}"
 		],
@@ -4518,7 +4518,7 @@
 	},
 	"\\varlimsup": {
 		"ams_required": true,
-		"macro_rendering": [
+		"callback": [
 			"macro",
 			"\\mathop{\\overline{\\mmlToken{mi}{lim}}}"
 		],
@@ -4563,7 +4563,7 @@
 	},
 	"\\varprojlim": {
 		"ams_required": true,
-		"macro_rendering": [
+		"callback": [
 			"macro",
 			"\\mathop{\\xleftarrow{\\mmlToken{mi}{lim}}}"
 		],
@@ -4785,15 +4785,15 @@
 	},
 	"\\xleftarrow": {
 		"ams_required": true,
-		"fun_ar1nb": true,
-		"fun_ar1opt": true,
-		"is_letter_mod": true,
-		"macro_rendering": [
+		"callback": [
 			"xArrow",
 			8592,
 			10,
 			5
-		]
+		],
+		"fun_ar1nb": true,
+		"fun_ar1opt": true,
+		"is_letter_mod": true
 	},
 	"\\xleftrightarrow": {
 		"callback": [
@@ -4805,15 +4805,15 @@
 	},
 	"\\xrightarrow": {
 		"ams_required": true,
-		"fun_ar1nb": true,
-		"fun_ar1opt": true,
-		"is_letter_mod": true,
-		"macro_rendering": [
+		"callback": [
 			"xArrow",
 			8594,
 			5,
 			10
-		]
+		],
+		"fun_ar1nb": true,
+		"fun_ar1opt": true,
+		"is_letter_mod": true
 	},
 	"\\xrightleftharpoons": {
 		"callback": [
@@ -4863,7 +4863,7 @@
 		]
 	},
 	"alignat": {
-		"environment_rendering": [
+		"callback": [
 			"alignAt",
 			null,
 			true,
@@ -4871,7 +4871,7 @@
 		]
 	},
 	"alignat*": {
-		"environment_rendering": [
+		"callback": [
 			"alignAt",
 			null,
 			false,
@@ -4879,7 +4879,7 @@
 		]
 	},
 	"aligned": {
-		"environment_rendering": [
+		"callback": [
 			"amsEqnArray",
 			null,
 			null,
@@ -4891,7 +4891,7 @@
 		]
 	},
 	"alignedat": {
-		"environment_rendering": [
+		"callback": [
 			"alignAt",
 			null,
 			false,
@@ -4899,12 +4899,12 @@
 		]
 	},
 	"array": {
-		"environment_rendering": [
+		"callback": [
 			"matrix"
 		]
 	},
 	"bmatrix": {
-		"environment_rendering": [
+		"callback": [
 			"array",
 			null,
 			"[",
@@ -4913,7 +4913,7 @@
 		]
 	},
 	"cases": {
-		"environment_rendering": [
+		"callback": [
 			"matrix",
 			"{",
 			"",
@@ -4925,7 +4925,7 @@
 		]
 	},
 	"matrix": {
-		"environment_rendering": [
+		"callback": [
 			"array",
 			null,
 			null,
@@ -4934,7 +4934,7 @@
 		]
 	},
 	"pmatrix": {
-		"environment_rendering": [
+		"callback": [
 			"array",
 			null,
 			"(",
@@ -4943,7 +4943,7 @@
 		]
 	},
 	"smallmatrix": {
-		"environment_rendering": [
+		"callback": [
 			"array",
 			null,
 			null,
@@ -4956,7 +4956,7 @@
 		]
 	},
 	"subarray": {
-		"environment_rendering": [
+		"callback": [
 			"array",
 			null,
 			null,
@@ -4969,7 +4969,7 @@
 		]
 	},
 	"vmatrix": {
-		"environment_rendering": [
+		"callback": [
 			"array",
 			null,
 			"\\vert",
