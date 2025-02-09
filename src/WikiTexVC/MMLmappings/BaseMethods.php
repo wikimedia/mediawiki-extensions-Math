@@ -31,10 +31,11 @@ class BaseMethods {
 		}
 
 		// Checking for a named parsing function
-		$resFct = BaseMappings::getMacroByKey( $input );
-		if ( $resFct == null ) {
-			$tu = TexUtil::getInstance();
-			$resFct = $tu->callback( trim( $input ) );
+
+		if ( $input === '\\ ' ) {
+			$resFct = [ 'macro', '\\text{ }' ];
+		} else {
+			$resFct = TexUtil::getInstance()->callback( trim( $input ) );
 		}
 		if ( $resFct == null ) {
 			return null;
