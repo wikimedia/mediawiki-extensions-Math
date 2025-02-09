@@ -389,38 +389,11 @@ class BaseMappings {
 		'YellowOrange' => '#FAA21A',
 	];
 
-	// These are some mappings which are created customly for this
-	private const CUSTOM = [
-		"boldsymbol" => [ 'boldsymbol', '' ], // see boldsymbolConfiguration.js
-		"oint" => [ 'oint', '\u222E', [ "texClass" => TexClass::OP ] ],
-		"oiint" => [ 'oint', '\u222F', [ "texClass" => TexClass::OP ] ],
-		"oiiint" => [ 'oint', '\u2230', [ "texClass" => TexClass::OP ] ],
-		"ointctrclockwise" => [ 'oint', '\u2233', [ "texClass" => TexClass::OP ] ],
-		"varointclockwise" => [ 'oint', '\u2232', [ "texClass" => TexClass::OP ] ],
-		"P" => [ 'oint', '\u00B6', [ "texClass" => TexClass::OP ] ],
-		'textvisiblespace' => [ 'Insert', '\u2423' ], // From TextCompMappings.js (only makro it seems)
-		"Alpha" => [ 'customLetters', "A" ],
-		"Beta" => [ 'customLetters', "B" ],
-		"Chi" => [ 'customLetters', "X" ],
-		"Epsilon" => [ 'customLetters', "E" ],
-		"Eta" => [ 'customLetters', "H" ],
-		"Iota" => [ 'customLetters', "I" ],
-		"Kappa" => [ 'customLetters', "K" ],
-		"Mu" => [ 'customLetters', "M" ],
-		"Nu" => [ 'customLetters', "N" ],
-		"Omicron" => [ 'customLetters', "O" ],
-		"Rho" => [ 'customLetters', "P" ],
-		"Tau" => [ 'customLetters', "T" ],
-		"Zeta" => [ 'customLetters', "Z" ],
-		"ca" => [ "customLetters", "&#x223C;", true ]
-	];
-
 	private const ALL = [
 		"macros" => self::MACROS,
 		"mathchar7" => self::MATCHAR7,
 		"environment" => self::ENVIRONMENT,
 		"colors" => self::COLORS,
-		"custom" => self::CUSTOM
 	];
 
 	private function __construct() {
@@ -459,10 +432,6 @@ class BaseMappings {
 
 	public static function getCharacterByKey( string $key ) {
 		return MMLutil::getMappingByKeySimple( $key, self::MATCHAR7, true );
-	}
-
-	public static function getCustomByKey( string $key ) {
-		return MMLutil::getMappingByKeySimple( $key, self::CUSTOM, true );
 	}
 
 	public static function getColorByKey( string $key ) {

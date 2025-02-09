@@ -26,7 +26,6 @@ class BaseMappingsTest extends TestCase {
 				'HandleLabel', 'HandleRef', 'HandleNoTag', 'MmlToken' ]
 			],
 			'cancel' => [ 'cancel' ],
-			'custom' => [ 'custom', [ 'Insert' ] ]
 		];
 	}
 
@@ -54,10 +53,6 @@ class BaseMappingsTest extends TestCase {
 	public function testGetOperatorByKey() {
 		$this->assertEquals( '&#x221A;', TexUtil::getInstance()->operator_rendering( '\\surd' )[0] );
 		$this->assertEquals( '&#x2212;', TexUtil::getInstance()->operator_rendering( '-' )[0] );
-	}
-
-	public function testGetCustomByKey() {
-		$this->assertEquals( '\u222E', BaseMappings::getCustomByKey( '\\oint' )[1] );
 	}
 
 	public function testGetMacroByKey() {

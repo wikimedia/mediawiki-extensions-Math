@@ -39,11 +39,8 @@ class BaseMethods {
 				// probably refactored later
 				$resFct = AMSMappings::getEnvironmentByKey( $input );
 				if ( $resFct == null ) {
-					$resFct = BaseMappings::getCustomByKey( $input );
-					if ( $resFct == null ) {
-						$tu = TexUtil::getInstance();
-						$resFct = $tu->callback( trim( $input ) );
-					}
+					$tu = TexUtil::getInstance();
+					$resFct = $tu->callback( trim( $input ) );
 				}
 			}
 		}
