@@ -4890,5 +4890,10 @@
 		"delimiter": [
 			"|"
 		]
+	},
+	"~": {
+		"callback": [
+			"tilde"
+		]
 	}
 }
