@@ -2,39 +2,34 @@
 
 require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 
 class UpdateTexutil extends Maintenance {
 
 	private const LEGACY_CONCEPTS = [
-		"ce" => [ 'machine', 'ce' ],
-		"pu" => [ 'machine', 'pu' ],
-		"longrightleftharpoons" => [
-			'macro',
-			'\\stackrel{\\textstyle{-}\\!\\!{\\rightharpoonup}}{\\smash{{\\leftharpoondown}\\!\\!{-}}}'
-		],
-		"longRightleftharpoons" => [
-			'macro',
-			'\\stackrel{\\textstyle{-}\\!\\!{\\rightharpoonup}}{\\smash{\\leftharpoondown}}'
-		],
-		"longLeftrightharpoons" => [
-			'macro',
-			'\\stackrel{\\textstyle\\vphantom{{-}}{\\rightharpoonup}}{\\smash{{\\leftharpoondown}\\!\\!{-}}}'
-		],
-		"longleftrightarrows" => [
-			'macro',
-			'\\stackrel{\\longrightarrow}{\\smash{\\longleftarrow}\\Rule{0px}{.25em}{0px}}'
-		],
-		"tripledash" => [
-			'macro',
-			'\\vphantom{-}\\raise{2mu}\\\kern{2mu}\\tiny\\text{-}\\kern{1mu}\\text{-}\\kern{1mu}\\text{-}\\kern{2mu}}'
-		],
-		"xleftrightarrow" => [ 'xArrow', 0x2194, 6, 6 ],
-		"xrightleftharpoons" => [ 'xArrow', 0x21CC, 5, 7 ],
-		"xRightleftharpoons" => [ 'xArrow', 0x21CC, 5, 7 ],
-		"xLeftrightharpoons" => [ 'xArrow', 0x21CC, 5, 7 ],
-
-		"bond" => [ "chemCustom", "\\bond" ],
+		"boldsymbol" => [ 'boldsymbol', '' ], // see boldsymbolConfiguration.js
+		"oint" => [ 'oint', '\u222E', [ "texClass" => TexClass::OP ] ],
+		"oiint" => [ 'oint', '\u222F', [ "texClass" => TexClass::OP ] ],
+		"oiiint" => [ 'oint', '\u2230', [ "texClass" => TexClass::OP ] ],
+		"ointctrclockwise" => [ 'oint', '\u2233', [ "texClass" => TexClass::OP ] ],
+		"varointclockwise" => [ 'oint', '\u2232', [ "texClass" => TexClass::OP ] ],
+		"P" => [ 'oint', '\u00B6', [ "texClass" => TexClass::OP ] ],
+		'textvisiblespace' => [ 'Insert', '\u2423' ], // From TextCompMappings.js (only makro it seems)
+		"Alpha" => [ 'customLetters', "A" ],
+		"Beta" => [ 'customLetters', "B" ],
+		"Chi" => [ 'customLetters', "X" ],
+		"Epsilon" => [ 'customLetters', "E" ],
+		"Eta" => [ 'customLetters', "H" ],
+		"Iota" => [ 'customLetters', "I" ],
+		"Kappa" => [ 'customLetters', "K" ],
+		"Mu" => [ 'customLetters', "M" ],
+		"Nu" => [ 'customLetters', "N" ],
+		"Omicron" => [ 'customLetters', "O" ],
+		"Rho" => [ 'customLetters', "P" ],
+		"Tau" => [ 'customLetters', "T" ],
+		"Zeta" => [ 'customLetters', "Z" ],
+		"ca" => [ "customLetters", "&#x223C;", true ]
 	];
 
 	public function execute() {
@@ -57,8 +52,11 @@ class UpdateTexutil extends Maintenance {
 			//}
 			$value[0] = MMLutil::uc2xNotation( $value[0] );
 			// Remove the texClass from the array
-			// unset( $value[1]['texClass'] );
-
+			foreach ( $value as $k => $v ) {
+				if ( is_array( $v ) && isset( $v['texClass'] ) ) {
+					unset( $value[$k]['texClass'] );
+				}
+			}
 			// Check if the entry already exists in texutil.json
 			if ( isset( $jsonContent["$key"] ) ) {
 				// Preserve existing attributes and only add or update the identifier
