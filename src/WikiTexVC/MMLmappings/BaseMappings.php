@@ -408,37 +408,6 @@ class BaseMappings {
 		'YellowOrange' => '#FAA21A',
 	];
 
-	// They are currently from mhchemConfiguration.js
-	private const MHCHEM = [
-		"ce" => [ 'machine', 'ce' ],
-		"pu" => [ 'machine', 'pu' ],
-		"longrightleftharpoons" => [
-			'macro',
-			'\\stackrel{\\textstyle{-}\\!\\!{\\rightharpoonup}}{\\smash{{\\leftharpoondown}\\!\\!{-}}}'
-		],
-		"longRightleftharpoons" => [
-			'macro',
-			'\\stackrel{\\textstyle{-}\\!\\!{\\rightharpoonup}}{\\smash{\\leftharpoondown}}'
-		],
-		"longLeftrightharpoons" => [
-			'macro',
-			'\\stackrel{\\textstyle\\vphantom{{-}}{\\rightharpoonup}}{\\smash{{\\leftharpoondown}\\!\\!{-}}}'
-		],
-		"longleftrightarrows" => [
-			'macro',
-			'\\stackrel{\\longrightarrow}{\\smash{\\longleftarrow}\\Rule{0px}{.25em}{0px}}'
-		],
-		"tripledash" => [
-			'macro',
-			'\\vphantom{-}\\raise{2mu}\\\kern{2mu}\\tiny\\text{-}\\kern{1mu}\\text{-}\\kern{1mu}\\text{-}\\kern{2mu}}'
-		],
-		"xleftrightarrow" => [ 'xArrow', 0x2194, 6, 6 ],
-		"xrightleftharpoons" => [ 'xArrow', 0x21CC, 5, 7 ],
-		"xRightleftharpoons" => [ 'xArrow', 0x21CC, 5, 7 ],
-		"xLeftrightharpoons" => [ 'xArrow', 0x21CC, 5, 7 ],
-
-		"bond" => [ "chemCustom", "\\bond" ],
-	];
 	// These are some mappings which are created customly for this
 	private const CUSTOM = [
 		"boldsymbol" => [ 'boldsymbol', '' ], // see boldsymbolConfiguration.js
@@ -471,7 +440,6 @@ class BaseMappings {
 		"mathchar7" => self::MATCHAR7,
 		"environment" => self::ENVIRONMENT,
 		"colors" => self::COLORS,
-		"mhchem" => self::MHCHEM,
 		"custom" => self::CUSTOM
 	];
 
@@ -524,10 +492,6 @@ class BaseMappings {
 
 	public static function getCustomByKey( string $key ) {
 		return MMLutil::getMappingByKeySimple( $key, self::CUSTOM, true );
-	}
-
-	public static function getMhChemByKey( string $key ) {
-		return MMLutil::getMappingByKeySimple( $key, self::MHCHEM, true );
 	}
 
 	public static function getColorByKey( string $key ) {

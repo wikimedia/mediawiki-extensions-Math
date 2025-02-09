@@ -43,10 +43,8 @@ class BaseMethods {
 					if ( $resFct == null ) {
 						$resFct = BaseMappings::getSpecialByKey( $input );
 						if ( $resFct == null ) {
-							$resFct = BaseMappings::getCancelByKey( $input );
-							if ( $resFct == null ) {
-								$resFct = BaseMappings::getMhChemByKey( $input );
-							}
+							$tu = TexUtil::getInstance();
+							$resFct = $tu->callback( trim( $input ) );
 						}
 					}
 				}
