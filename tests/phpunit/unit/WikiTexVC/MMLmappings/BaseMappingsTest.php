@@ -26,7 +26,6 @@ class BaseMappingsTest extends TestCase {
 				'HandleLabel', 'HandleRef', 'HandleNoTag', 'MmlToken' ]
 			],
 			'cancel' => [ 'cancel' ],
-			'mhchem' => [ 'mhchem' ],
 			'custom' => [ 'custom', [ 'Insert' ] ],
 			'special' => [ 'special', [ 'open', 'close', 'superscript', 'subscript', 'space', 'prime', 'comment',
 				'entry', 'hash' ] ], // only tilde exists
@@ -86,10 +85,6 @@ class BaseMappingsTest extends TestCase {
 
 	public function testGetCharacterByKey() {
 		$this->assertEquals( '\u0393', BaseMappings::getCharacterByKey( '\\Gamma' ) );
-	}
-
-	public function testGetMhChemByKey() {
-		$this->assertEquals( 'ce', BaseMappings::getMhChemByKey( '\\ce' )[1] );
 	}
 
 }

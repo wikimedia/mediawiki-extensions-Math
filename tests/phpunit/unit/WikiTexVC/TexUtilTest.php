@@ -162,6 +162,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		$sets = [
 			'environment_rendering',
 			'macro_rendering',
+			'callback',
 		];
 		foreach ( $sets as $set ) {
 			$functions = $tu->getBaseElements()[ $set ];
