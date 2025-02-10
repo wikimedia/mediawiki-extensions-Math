@@ -61,7 +61,7 @@ class BaseMethods {
 										   $state, $prepareInput = true ) {
 			$resOperator = TexUtil::getInstance()->operator_rendering( trim( $input ) );
 		if ( $resOperator == null ) {
-			$resOperator = OperatorDictionary::getOperatorByKey( $input );
+			$resOperator = TexUtil::getInstance()->operator_infix( trim( $input ) );
 			if ( $resOperator ) {
 				if ( isset( $resOperator[1] ) ) {
 					// custom parsing here
