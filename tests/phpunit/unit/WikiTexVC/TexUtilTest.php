@@ -55,6 +55,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'box_functions',
 			'callback',
 			'cancel_required',
+			'color',
 			'color_function',
 			'color_required',
 			'declh_function',
@@ -78,6 +79,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'is_literal',
 			'latex_function_names',
 			'left_function',
+			'mathchar',
 			'mathoid_required',
 			'mediawiki_function_names',
 			'mhchem_bond',
@@ -162,6 +164,30 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 						'Method ' . $methodName . ' for symbol ' . $symbol . ' does not exist in BaseParsing' );
 			}
 		}
+	}
+
+	public function testDataType() {
+		$types = [
+			'mathchar' => 'string',
+			'color' => 'string',
+		];
+		$tu = TexUtil::getInstance();
+		$baseElements = $tu->getBaseElements();
+		foreach ( $types as $set => $type ) {
+			foreach ( $baseElements[$set] as $key => $value ) {
+				$this->assertEquals( $type, gettype( $tu->$set( $key ) ),
+					"$set should return a $type for $key" );
+			}
+		}
+	}
+
+	public function testGetOperatorByKey() {
+		$this->assertEquals( '&#x221A;', TexUtil::getInstance()->operator_rendering( '\\surd' )[0] );
+		$this->assertEquals( '&#x2212;', TexUtil::getInstance()->operator_rendering( '-' )[0] );
+	}
+
+	public function testGetColorByKey() {
+		$this->assertEquals( '#ED1B23', TexUtil::getInstance()->color( 'Red' ) );
 	}
 
 	private function getHash( $input ) {

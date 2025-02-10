@@ -17,6 +17,8 @@ use InvalidArgumentException;
  * @method false|mixed unicode_char(string $getArg)
  * @method false|mixed identifier(string $getArg)
  * @method false|mixed delimiter(string $getArg)
+ * @method false|string mathchar(string $getArg)
+ * @method false|string color(string $getArg)
  */
 class TexUtil {
 	/** @var self|null */

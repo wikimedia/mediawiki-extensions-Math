@@ -40,6 +40,27 @@
 			"&#x27E9;"
 		]
 	},
+	"Apricot": {
+		"color": "#FBB982"
+	},
+	"Aquamarine": {
+		"color": "#00B5BE"
+	},
+	"Bittersweet": {
+		"color": "#C04F17"
+	},
+	"Black": {
+		"color": "#221E1F"
+	},
+	"Blue": {
+		"color": "#2D2F92"
+	},
+	"BlueGreen": {
+		"color": "#00B3B8"
+	},
+	"BlueViolet": {
+		"color": "#473992"
+	},
 	"Bmatrix": {
 		"callback": [
 			"array",
@@ -49,6 +70,174 @@
 			"c"
 		]
 	},
+	"BrickRed": {
+		"color": "#B6321C"
+	},
+	"Brown": {
+		"color": "#792500"
+	},
+	"BurntOrange": {
+		"color": "#F7921D"
+	},
+	"CadetBlue": {
+		"color": "#74729A"
+	},
+	"CarnationPink": {
+		"color": "#F282B4"
+	},
+	"Cerulean": {
+		"color": "#00A2E3"
+	},
+	"CornflowerBlue": {
+		"color": "#41B0E4"
+	},
+	"Cyan": {
+		"color": "#00AEEF"
+	},
+	"Dandelion": {
+		"color": "#FDBC42"
+	},
+	"DarkOrchid": {
+		"color": "#A4538A"
+	},
+	"Emerald": {
+		"color": "#00A99D"
+	},
+	"ForestGreen": {
+		"color": "#009B55"
+	},
+	"Fuchsia": {
+		"color": "#8C368C"
+	},
+	"Goldenrod": {
+		"color": "#FFDF42"
+	},
+	"Gray": {
+		"color": "#949698"
+	},
+	"Green": {
+		"color": "#00A64F"
+	},
+	"GreenYellow": {
+		"color": "#DFE674"
+	},
+	"JungleGreen": {
+		"color": "#00A99A"
+	},
+	"Lavender": {
+		"color": "#F49EC4"
+	},
+	"LimeGreen": {
+		"color": "#8DC73E"
+	},
+	"Magenta": {
+		"color": "#EC008C"
+	},
+	"Mahogany": {
+		"color": "#A9341F"
+	},
+	"Maroon": {
+		"color": "#AF3235"
+	},
+	"Melon": {
+		"color": "#F89E7B"
+	},
+	"MidnightBlue": {
+		"color": "#006795"
+	},
+	"Mulberry": {
+		"color": "#A93C93"
+	},
+	"NavyBlue": {
+		"color": "#006EB8"
+	},
+	"OliveGreen": {
+		"color": "#3C8031"
+	},
+	"Orange": {
+		"color": "#F58137"
+	},
+	"OrangeRed": {
+		"color": "#ED135A"
+	},
+	"Orchid": {
+		"color": "#AF72B0"
+	},
+	"Peach": {
+		"color": "#F7965A"
+	},
+	"Periwinkle": {
+		"color": "#7977B8"
+	},
+	"PineGreen": {
+		"color": "#008B72"
+	},
+	"Plum": {
+		"color": "#92268F"
+	},
+	"ProcessBlue": {
+		"color": "#00B0F0"
+	},
+	"Purple": {
+		"color": "#99479B"
+	},
+	"RawSienna": {
+		"color": "#974006"
+	},
+	"Red": {
+		"color": "#ED1B23"
+	},
+	"RedOrange": {
+		"color": "#F26035"
+	},
+	"RedViolet": {
+		"color": "#A1246B"
+	},
+	"Rhodamine": {
+		"color": "#EF559F"
+	},
+	"RoyalBlue": {
+		"color": "#0071BC"
+	},
+	"RoyalPurple": {
+		"color": "#613F99"
+	},
+	"RubineRed": {
+		"color": "#ED017D"
+	},
+	"Salmon": {
+		"color": "#F69289"
+	},
+	"SeaGreen": {
+		"color": "#3FBC9D"
+	},
+	"Sepia": {
+		"color": "#671800"
+	},
+	"SkyBlue": {
+		"color": "#46C5DD"
+	},
+	"SpringGreen": {
+		"color": "#C6DC67"
+	},
+	"Tan": {
+		"color": "#DA9D76"
+	},
+	"TealBlue": {
+		"color": "#00AEB3"
+	},
+	"Thistle": {
+		"color": "#D883B7"
+	},
+	"Turquoise": {
+		"color": "#00B4CE"
+	},
+	"Violet": {
+		"color": "#58429B"
+	},
+	"VioletRed": {
+		"color": "#EF58A0"
+	},
 	"Vmatrix": {
 		"callback": [
 			"array",
@@ -57,6 +246,21 @@
 			"\\Vert",
 			"c"
 		]
+	},
+	"White": {
+		"color": "#FFFFFF"
+	},
+	"WildStrawberry": {
+		"color": "#EE2967"
+	},
+	"Yellow": {
+		"color": "#FFF200"
+	},
+	"YellowGreen": {
+		"color": "#98CC70"
+	},
+	"YellowOrange": {
+		"color": "#FAA21A"
 	},
 	"[": {
 		"delimiter": [
@@ -80,6 +284,18 @@
 			"spacer",
 			-0.16666666666666666
 		]
+	},
+	"\\#": {
+		"mathchar": "&#x0023;"
+	},
+	"\\$": {
+		"mathchar": "&#x0024;"
+	},
+	"\\%": {
+		"mathchar": "&#x0025;"
+	},
+	"\\&": {
+		"mathchar": "&#x0026;"
 	},
 	"\\'": {
 		"callback": [
@@ -119,6 +335,7 @@
 	},
 	"\\And": {
 		"ams_required": true,
+		"mathchar": "&#x0026;",
 		"nullary_macro": true
 	},
 	"\\Arrowvert": {
@@ -270,6 +487,7 @@
 	},
 	"\\Delta": {
 		"is_literal": true,
+		"mathchar": "&#x0394;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -331,6 +549,7 @@
 	},
 	"\\Gamma": {
 		"is_literal": true,
+		"mathchar": "&#x0393;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -383,6 +602,7 @@
 	},
 	"\\Lambda": {
 		"is_literal": true,
+		"mathchar": "&#x039B;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -460,6 +680,7 @@
 	},
 	"\\Omega": {
 		"is_literal": true,
+		"mathchar": "&#x03A9;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -482,11 +703,13 @@
 	},
 	"\\Phi": {
 		"is_literal": true,
+		"mathchar": "&#x03A6;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\Pi": {
 		"is_literal": true,
+		"mathchar": "&#x03A0;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -497,6 +720,7 @@
 	},
 	"\\Psi": {
 		"is_literal": true,
+		"mathchar": "&#x03A8;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -566,6 +790,7 @@
 	},
 	"\\Sigma": {
 		"is_literal": true,
+		"mathchar": "&#x03A3;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -604,6 +829,7 @@
 	},
 	"\\Theta": {
 		"is_literal": true,
+		"mathchar": "&#x0398;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -623,6 +849,7 @@
 		"other_delimiters1": true
 	},
 	"\\Upsilon": {
+		"mathchar": "&#x03A5;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -648,6 +875,7 @@
 	},
 	"\\Xi": {
 		"is_literal": true,
+		"mathchar": "&#x039E;",
 		"nullary_macro": true
 	},
 	"\\Z": {
@@ -668,6 +896,9 @@
 	},
 	"\\\\u00A0": {
 		"callback": "Tilde"
+	},
+	"\\_": {
+		"mathchar": "&#x005F;"
 	},
 	"\\above": {
 		"callback": "over"
@@ -4479,7 +4710,6 @@
 			3
 		]
 	},
-
 	"\\smallfrown": {
 		"ams_required": true,
 		"nullary_macro": true,
