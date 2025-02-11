@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Math\MathNativeMML;
+use MediaWiki\Extension\Math\MathWikibaseConnector;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\LBFactory;
 
@@ -42,8 +43,11 @@ class MathNativeMMLTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testLink() {
+		$db = $this->createMock( MathWikibaseConnector::class );
+		$db->method( 'getUrlFromSymbol' )->willReturn( [ 'E' => 'https://example.com/' ] );
+		$this->setService( 'Math.WikibaseConnector', $db );
 		$this->overrideConfigValue( 'MathEnableFormulaLinks', true );
-		$mml = new MathNativeMML( '\sin', [ 'qid' => 'Q1' ] );
+		$mml = new MathNativeMML( 'E=mc', [ 'qid' => 'Q1' ] );
 		$this->assertTrue( $mml->render() );
 		$this->assertStringContainsString( 'href', $mml->getMathml() );
 	}
