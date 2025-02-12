@@ -76,6 +76,12 @@ abstract class MathRenderer {
 	private $logger;
 
 	private WANObjectCache $cache;
+	private MathConfig $mathConfig;
+	private bool $rawError = false;
+
+	public function setRawError( bool $rawError ): void {
+		$this->rawError = $rawError;
+	}
 
 	/**
 	 * Constructs a base MathRenderer
@@ -83,9 +89,11 @@ abstract class MathRenderer {
 	 * @param string $tex (optional) LaTeX markup
 	 * @param array $params (optional) HTML attributes
 	 * @param WANObjectCache|null $cache (optional)
+	 * @param MathConfig|null $mathConfig (optional)
 	 */
-	public function __construct( string $tex = '', $params = [], $cache = null ) {
+	public function __construct( string $tex = '', $params = [], $cache = null, $mathConfig = null ) {
 		$this->cache = $cache ?? MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$this->mathConfig = $mathConfig ?? Math::getMathConfig();
 		$this->params = $params;
 		if ( isset( $params['id'] ) ) {
 			$this->id = $params['id'];
@@ -160,6 +168,9 @@ abstract class MathRenderer {
 	 * @return string HTML error string
 	 */
 	public function getError( $msg, ...$parameters ) {
+		if ( $this->rawError ) {
+			return 'Error: ' . $msg . ' param ' . implode( ',', $parameters );
+		}
 		$mf = wfMessage( 'math_failure' )->inContentLanguage()->escaped();
 		$errmsg = wfMessage( $msg, $parameters )->inContentLanguage()->escaped();
 		$source = htmlspecialchars( str_replace( "\n", ' ', $this->tex ) );
@@ -352,8 +363,8 @@ abstract class MathRenderer {
 	 * @param string $newMode element of the array $wgMathValidModes
 	 * @return bool
 	 */
-	public function setMode( $newMode ) {
-		if ( Math::getMathConfig()->isValidRenderingMode( $newMode ) ) {
+	public function setMode( string $newMode ): bool {
+		if ( $this->mathConfig->isValidRenderingMode( $newMode ) ) {
 			$this->mode = $newMode;
 			return true;
 		} else {

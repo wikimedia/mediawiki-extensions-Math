@@ -51,9 +51,9 @@ class MathMathML extends MathRenderer {
 	private $mathoidStyle;
 
 	/** @inheritDoc */
-	public function __construct( string $tex = '', array $params = [], $cache = null ) {
+	public function __construct( string $tex = '', array $params = [], $cache = null, $mathConfig = null ) {
 		global $wgMathMathMLUrl;
-		parent::__construct( $tex, $params, $cache );
+		parent::__construct( $tex, $params, $cache, $mathConfig );
 		$this->setMode( MathConfig::MODE_MATHML );
 		$this->host = $wgMathMathMLUrl;
 		if ( isset( $params['type'] ) ) {
@@ -573,4 +573,5 @@ class MathMathML extends MathRenderer {
 	protected function isEmpty() {
 		return $this->userInputTex === '';
 	}
+
 }
