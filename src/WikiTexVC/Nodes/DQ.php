@@ -46,11 +46,10 @@ class DQ extends TexNode {
 			return BaseParsing::limits( $this, $arguments, $state, "" );
 		}
 
-		$emptyMrow = "";
-		// In cases with empty curly preceding like: "{}_pF_q"
-		if ( $this->getBase()->isCurly() && $this->getBase()->isEmpty() ) {
-			$mrow = new MMLmrow();
-			$emptyMrow = $mrow->getEmpty();
+		$baseRendering = $this->base->renderMML( $arguments, [ 'styleargs' => $state['styleargs'] ?? [] ] );
+		// In cases with empty curly preceding like: "{}_pF_q" or _{1}
+		if ( trim( $baseRendering ) === "" ) {
+			$baseRendering = ( new MMLmrow() )->getEmpty();
 		}
 
 		if ( !$this->isEmpty() ) {
@@ -68,8 +67,7 @@ class DQ extends TexNode {
 			// Otherwise use default fallback
 			$mmlMrow = new MMLmrow();
 			return $outer->encapsulateRaw(
-				 $emptyMrow .
-				$this->base->renderMML( $arguments, [ 'styleargs' => $state['styleargs'] ?? [] ] ) .
+				$baseRendering .
 				$mmlMrow->encapsulateRaw( $this->down->renderMML( $arguments, $state ) ) );
 		}
 
