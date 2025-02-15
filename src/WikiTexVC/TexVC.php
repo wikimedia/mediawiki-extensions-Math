@@ -194,7 +194,7 @@ class TexVC {
 		return true;
 	}
 
-	public static function checkIntentArg( $input ) {
+	public static function checkIntentArg( ?string $input ): bool {
 		if ( !$input ) {
 			return true;
 		}
@@ -207,7 +207,7 @@ class TexVC {
 		return false;
 	}
 
-	public function checkIntent( $input ) {
+	public function checkIntent( string $input ) {
 		// Very early intent syntax checker
 		try {
 			$parserIntent = new ParserIntent();
