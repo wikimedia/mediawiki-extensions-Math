@@ -63,6 +63,7 @@ class SpecialMathShowImage extends SpecialPage {
 		}
 	}
 
+	/** @inheritDoc */
 	public function execute( $par ) {
 		$request = $this->getRequest();
 		$hash = $request->getText( 'hash', '' );
