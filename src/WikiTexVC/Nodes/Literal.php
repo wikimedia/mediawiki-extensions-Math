@@ -32,7 +32,7 @@ class Literal extends TexNode {
 		array_push( $this->extendedLiterals, '\\infty', '\\emptyset' );
 	}
 
-	public function changeUnicodeFontInput( $input, $state ) {
+	public function changeUnicodeFontInput( string $input, array $state ): string {
 		/**
 		 * In some font modifications, it is required to explicitly use Unicode
 		 * characters instead of (only) attributes in MathML to indicate the font.
@@ -149,7 +149,7 @@ class Literal extends TexNode {
 		return $this->arg;
 	}
 
-	public function setArg( $arg ) {
+	public function setArg( string $arg ) {
 		$this->arg = $arg;
 	}
 

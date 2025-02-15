@@ -966,16 +966,16 @@ class OperatorDictionary {
 		self::$instance = null;
 	}
 
-	public static function getInstance() {
+	public static function getInstance(): self {
 		self::$instance ??= new OperatorDictionary();
 		return self::$instance;
 	}
 
-	public static function getEntryFromList( $keylist, $key ) {
+	public static function getEntryFromList( string $keylist, string $key ) {
 		return self::ALL[$keylist][$key] ?? null;
 	}
 
-	public static function getOperatorByKey( $key ) {
+	public static function getOperatorByKey( string $key ) {
 		$key = MMLutil::uc2xNotation( $key );
 		return MMLutil::getMappingByKey( $key, self::INFIX );
 	}

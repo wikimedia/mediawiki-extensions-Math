@@ -41,7 +41,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		parent::__construct( ...$nargs );
 	}
 
-	public function checkForStyleArgs( $node ) {
+	public function checkForStyleArgs( TexNode $node ): ?array {
 		if ( $node instanceof Literal ) {
 			$name = trim( $node->getArg() );
 			switch ( $name ) {
@@ -111,7 +111,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return null;
 	}
 
-	public function checkForLimits( $currentNode, $nextNode ) {
+	public function checkForLimits( TexNode $currentNode, ?TexNode $nextNode ): array {
 		// Preceding 'lim' in example: "\\lim_{x \\to 2}"
 		if ( ( $currentNode instanceof DQ || $currentNode instanceof FQ )
 			&& $currentNode->containsFunc( "\\lim" ) ) {
@@ -153,14 +153,14 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return [ $currentNode, true ];
 	}
 
-	public function checkForNot( $currentNode ): bool {
+	public function checkForNot( TexNode $currentNode ): bool {
 		if ( $currentNode instanceof Literal && trim( $currentNode->getArg() ) == "\\not" ) {
 			return true;
 		}
 		return false;
 	}
 
-	public function checkForDerivatives( $iStart, $args ): int {
+	public function checkForDerivatives( int $iStart, array $args ): int {
 		$ctr = 0;
 		for ( $i = $iStart, $count = count( $this->args ); $i < $count; $i++ ) {
 			$followUp = $args[$i];
@@ -174,7 +174,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return $ctr;
 	}
 
-	public function checkForNamedFctArgs( $currentNode, $nextNode ) {
+	public function checkForNamedFctArgs( TexNode $currentNode, ?TexNode $nextNode ): array {
 		// Check if current node is named function
 		$hasNamedFct = false;
 		if ( $currentNode instanceof TexArray && count( $currentNode->args ) == 2 ) {
@@ -455,7 +455,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return [];
 	}
 
-	public function push( ...$elements ) {
+	public function push( ...$elements ): TexArray {
 		self::checkInput( $elements );
 
 		array_push( $this->args, ...$elements );
@@ -509,7 +509,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return $this->curly;
 	}
 
-	public function setCurly( $curly = true ): TexArray {
+	public function setCurly( bool $curly = true ): TexArray {
 		$this->curly = $curly;
 		return $this;
 	}

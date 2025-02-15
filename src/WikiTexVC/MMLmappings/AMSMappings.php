@@ -298,22 +298,22 @@ class AMSMappings {
 		return self::ALL;
 	}
 
-	public static function getInstance() {
+	public static function getInstance(): self {
 		self::$instance ??= new AMSMappings();
 		return self::$instance;
 	}
 
-	public static function getOperatorByKey( $key ) {
+	public static function getOperatorByKey( string $key ) {
 		// &#x221A; to \\u.... this is only temporary probably entities.php will be refactored with \u vals again
 		$key = MMLutil::x2uNotation( $key );
 		return MMLutil::getMappingByKey( $key, self::AMSMATHCHAR0MO, true, true );
 	}
 
-	public static function getMacroByKey( $key ) {
+	public static function getMacroByKey( string $key ) {
 		return MMLutil::getMappingByKey( $key, self::AMSMACROS, false, true );
 	}
 
-	public static function getEnvironmentByKey( $key ) {
+	public static function getEnvironmentByKey( string $key ) {
 		return MMLutil::getMappingByKey( $key, self::AMSMATHENVIRONMENT );
 	}
 }
