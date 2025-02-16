@@ -50,6 +50,7 @@ class MathMathML extends MathRenderer {
 	/** @var string|null */
 	private $mathoidStyle;
 
+	/** @inheritDoc */
 	public function __construct( string $tex = '', array $params = [], $cache = null ) {
 		global $wgMathMathMLUrl;
 		parent::__construct( $tex, $params, $cache );
@@ -522,6 +523,7 @@ class MathMathML extends MathRenderer {
 		return $out;
 	}
 
+	/** @inheritDoc */
 	public function initializeFromCache( $rpage ) {
 		// mathoid allows different input formats
 		// therefore the column name math_inputtex was changed to math_input
