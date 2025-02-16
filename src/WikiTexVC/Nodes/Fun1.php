@@ -39,14 +39,17 @@ class Fun1 extends TexNode {
 		return $this->arg;
 	}
 
+	/** @inheritDoc */
 	public function inCurlies() {
 		return $this->render();
 	}
 
+	/** @inheritDoc */
 	public function render() {
 		return '{' . $this->fname . ' ' . $this->arg->inCurlies() . '}';
 	}
 
+	/** @inheritDoc */
 	public function renderMML( $arguments = [], $state = [] ) {
 		return $this->parseToMML( $this->fname, $arguments, null );
 	}
@@ -66,6 +69,7 @@ class Fun1 extends TexNode {
 		return $ret;
 	}
 
+	/** @inheritDoc */
 	public function extractIdentifiers( $args = null ) {
 		if ( $args == null ) {
 			$args = [ $this->arg ];
@@ -86,10 +90,12 @@ class Fun1 extends TexNode {
 		return parent::extractIdentifiers( $args );
 	}
 
+	/** @inheritDoc */
 	public function extractSubscripts() {
 		return $this->getSubs( $this->arg->extractSubscripts() );
 	}
 
+	/** @inheritDoc */
 	public function getModIdent() {
 		return $this->getSubs( $this->arg->getModIdent() );
 	}
