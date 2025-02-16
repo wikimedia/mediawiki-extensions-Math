@@ -56,7 +56,7 @@ abstract class MathRenderer {
 	protected $texSecure = false;
 	/** @var bool has the mathematical content changed */
 	protected $changed = false;
-	/** @var bool is there a database entry for the mathematical content */
+	/** @var bool|null is there a database entry for the mathematical content */
 	protected $storedInCache = null;
 	/** @var bool is there a request to purge the existing mathematical content */
 	protected $purge = false;
@@ -191,11 +191,9 @@ abstract class MathRenderer {
 		$rpage = $this->cache->get( $this->getCacheKey() );
 		if ( $rpage !== false ) {
 			$this->initializeFromCache( $rpage );
-			$this->storedInCache = true;
 			return true;
 		} else {
 			# Missing from the database and/or the render cache
-			$this->storedInCache = false;
 			return false;
 		}
 	}
@@ -516,9 +514,9 @@ abstract class MathRenderer {
 		}
 	}
 
-	public function isInDatabase() {
+	public function isInDatabase(): bool {
 		if ( $this->storedInCache === null ) {
-			$this->readFromCache();
+			$this->storedInCache = $this->readFromCache();
 		}
 		return $this->storedInCache;
 	}
