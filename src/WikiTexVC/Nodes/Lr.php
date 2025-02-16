@@ -46,14 +46,17 @@ class Lr extends TexNode {
 		return $this->arg;
 	}
 
+	/** @inheritDoc */
 	public function inCurlies() {
 		return '{' . $this->render() . '}';
 	}
 
+	/** @inheritDoc */
 	public function render() {
 		return '\\left' . $this->left . $this->arg->render() . '\\right' . $this->right;
 	}
 
+	/** @inheritDoc */
 	public function renderMML( $arguments = [], $state = [] ) {
 		// TBD  set attributes for right AND left correctly
 		$rightAttrs = [];

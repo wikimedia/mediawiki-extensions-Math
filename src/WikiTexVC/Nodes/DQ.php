@@ -36,10 +36,12 @@ class DQ extends TexNode {
 		return $this->down;
 	}
 
+	/** @inheritDoc */
 	public function render() {
 		return $this->base->render() . '_' . $this->down->inCurlies();
 	}
 
+	/** @inheritDoc */
 	public function renderMML( $arguments = [], $state = [] ) {
 		if ( array_key_exists( "limits", $state ) ) {
 			// A specific DQ case with preceding limits, just invoke the limits parsing manually.
@@ -76,6 +78,7 @@ class DQ extends TexNode {
 		return "";
 	}
 
+	/** @inheritDoc */
 	public function extractIdentifiers( $args = null ) {
 		$d = $this->down->extractSubscripts();
 		$b = $this->base->extractIdentifiers();
@@ -97,6 +100,7 @@ class DQ extends TexNode {
 		return parent::extractIdentifiers();
 	}
 
+	/** @inheritDoc */
 	public function extractSubscripts() {
 		$d = array_merge( [], $this->down->extractSubscripts() );
 		$b = $this->base->extractSubscripts();
@@ -106,6 +110,7 @@ class DQ extends TexNode {
 		return parent::extractSubscripts();
 	}
 
+	/** @inheritDoc */
 	public function getModIdent() {
 		$d = $this->down->extractSubscripts();
 		$b = $this->base->getModIdent();

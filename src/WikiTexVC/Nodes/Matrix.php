@@ -89,6 +89,7 @@ class Matrix extends TexArray {
 		return $this;
 	}
 
+	/** @inheritDoc */
 	public function containsFunc( $target, $args = null ) {
 		if ( $args == null ) {
 			$args = [
@@ -100,16 +101,19 @@ class Matrix extends TexArray {
 		return parent::containsFunc( $target, $args );
 	}
 
+	/** @inheritDoc */
 	public function inCurlies() {
 		return $this->render();
 	}
 
+	/** @inheritDoc */
 	public function render() {
 		$colSpecs = $this->columnSpecs !== null ? $this->columnSpecs->render() : '';
 		return '{\\begin{' . $this->top . '}' . $colSpecs . $this->renderMatrix( $this ) . '\\end{' .
 			$this->top . '}}';
 	}
 
+	/** @inheritDoc */
 	public function renderMML( $arguments = [], $state = [] ): string {
 		return $this->parseToMML( $this->getTop(), $arguments, null );
 	}
@@ -133,6 +137,7 @@ class Matrix extends TexArray {
 		return implode( '&', $mapped );
 	}
 
+	/** @inheritDoc */
 	public function extractIdentifiers( $args = null ) {
 		if ( $args == null ) {
 			$args = $this->args;
