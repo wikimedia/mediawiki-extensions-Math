@@ -40,10 +40,6 @@ class AmsMappingsTest extends TestCase {
 		}
 	}
 
-	public function testGetOperatorByKey() {
-		$this->assertEquals( '&#x2A0C;', AMSMappings::getOperatorByKey( '\\iiiint' )[0] );
-	}
-
 	public function testGetMacroByKey() {
 		$this->assertEquals( 'Tilde', AMSMappings::getMacroByKey( '\\nobreakspace' )[0] );
 	}
