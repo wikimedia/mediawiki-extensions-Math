@@ -61,10 +61,10 @@ class TexNode {
 
 	/**
 	 * @param array $arguments
-	 * @param array $state
+	 * @param array &$state
 	 * @return string
 	 */
-	public function renderMML( $arguments = [], $state = [] ) {
+	public function renderMML( $arguments = [], &$state = [] ) {
 		return array_reduce( $this->args, function ( $out, $child ) use ( $arguments, $state ) {
 			return $out . $this->renderChildMML( $child, $arguments, $state );
 		}, '' );
@@ -73,10 +73,10 @@ class TexNode {
 	/**
 	 * @param self|string $child
 	 * @param array $arguments
-	 * @param array $state
+	 * @param array &$state
 	 * @return string
 	 */
-	public function renderChildMML( $child, $arguments, $state ) {
+	public function renderChildMML( $child, $arguments, &$state ) {
 		if ( $child instanceof TexNode ) {
 			return $child->renderMML( $arguments, $state );
 		}

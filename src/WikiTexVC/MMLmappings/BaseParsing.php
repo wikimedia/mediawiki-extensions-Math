@@ -366,7 +366,8 @@ class BaseParsing {
 			$mmlNot = MMLParsingUtil::createNot();
 		}
 		$passedArgs = array_merge( $passedArgs, [ Tag::CLASSTAG => TexClass::OP, "mathvariant" => Variants::NORMAL ] );
-		return $mmlNot . $node->getArg()->renderMML( $passedArgs, [ 'squashLiterals' => true ] ) . $applyFct;
+		$state = [ 'squashLiterals' => true ];
+		return $mmlNot . $node->getArg()->renderMML( $passedArgs, $state ) . $applyFct;
 	}
 
 	public static function lap( $node, $passedArgs, $operatorContent, $name ) {
@@ -571,9 +572,8 @@ class BaseParsing {
 				}
 				$mtd = new MMLmtd( '', $mtdAttributes );
 
-				$resInner .= $mtd->encapsulateRaw( $usedArg->renderMML( $passedArgs, [ 'inMatrix'
-					=> true ]
-				) );
+				$state = [ 'inMatrix'	=> true ];
+				$resInner .= $mtd->encapsulateRaw( $usedArg->renderMML( $passedArgs, $state ) );
 				$colNo++;
 			}
 			$resInner .= $mtr->getEnd();
@@ -1179,8 +1179,9 @@ class BaseParsing {
 				$mmlMrow = new MMLmrow();
 				$mtext = new MMLmtext( "", MMLParsingUtil::getFontArgs( $name, null, null ) );
 
+				$state = [ "inHBox" => true ];
 				$inner = $node->getArg()->isCurly() ? $node->getArg()->renderMML(
-					[], [ "inHBox" => true ] )
+					[], $state )
 					: $node->getArg()->renderMML( [ "fromHBox" => true ] );
 				return $mmlMrow->encapsulateRaw( $mtext->encapsulateRaw( $inner ) );
 		}

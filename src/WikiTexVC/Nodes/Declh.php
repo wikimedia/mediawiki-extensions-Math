@@ -42,7 +42,7 @@ class Declh extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], $state = [] ) {
+	public function renderMML( $arguments = [], &$state = [] ) {
 		return $this->parseToMML( $this->fname, $arguments, null );
 	}
 

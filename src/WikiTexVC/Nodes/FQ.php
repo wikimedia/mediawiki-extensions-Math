@@ -54,7 +54,7 @@ class FQ extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], $state = [] ) {
+	public function renderMML( $arguments = [], &$state = [] ) {
 		if ( array_key_exists( "limits", $state ) ) {
 			// A specific FQ case with preceding limits, just invoke the limits parsing manually.
 			return BaseParsing::limits( $this, $arguments, $state, "" );

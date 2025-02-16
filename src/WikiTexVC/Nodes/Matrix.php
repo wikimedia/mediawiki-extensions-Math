@@ -114,7 +114,7 @@ class Matrix extends TexArray {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], $state = [] ): string {
+	public function renderMML( $arguments = [], &$state = [] ): string {
 		return $this->parseToMML( $this->getTop(), $arguments, null );
 	}
 

@@ -40,7 +40,7 @@ class ChemWord extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], $state = [] ) {
+	public function renderMML( $arguments = [], &$state = [] ) {
 		$mmlMrow = new MMLmrow();
 		$mtextLeft = new MMLmtext( "", [ "mathcolor" => "red" ] );
 		$mtextRight = new MMLmtext();
