@@ -223,7 +223,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], $state = [] ) {
+	public function renderMML( $arguments = [], &$state = [] ) {
 		// Everything here is for parsing displaystyle, probably refactored to WikiTexVC grammar later
 		$fullRenderedArray = "";
 		$mmlStyles = [];
@@ -335,7 +335,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	}
 
 	private function createMMLwithContext(
-		?string $currentColor, TexNode $currentNode, array $state, array $arguments
+		?string $currentColor, TexNode $currentNode, array &$state, array $arguments
 	): string {
 		if ( $currentColor ) {
 			if ( array_key_exists( "colorDefinitions", $state )
@@ -362,11 +362,11 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	/**
 	 * If derivative was recognized, add the corresponding derivative math operator
 	 * to the mml and wrap with msup element.
-	 * @param array $state state indicator which indicates derivative
+	 * @param array &$state state indicator which indicates derivative
 	 * @param string $mml mathml input
 	 * @return string mml with additional mml-elements for derivatives
 	 */
-	public function addDerivativesContext( $state, string $mml ): string {
+	public function addDerivativesContext( array &$state, string $mml ): string {
 		if ( array_key_exists( "deriv", $state ) && $state["deriv"] > 0 ) {
 			$msup = new MMLmsup();
 			$moDeriv = new MMLmo();

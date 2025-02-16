@@ -43,7 +43,7 @@ class UQ extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], $state = [] ) {
+	public function renderMML( $arguments = [], &$state = [] ) {
 		$mrow = new MMLmrow();
 		$mmlBase = new MMLmsup();
 		$base = $this->getBase();

@@ -17,7 +17,7 @@ class Fun1nb extends Fun1 {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], $state = [] ): string {
+	public function renderMML( $arguments = [], &$state = [] ): string {
 		return $this->parseToMML( $this->fname, $arguments, $state );
 	}
 }
