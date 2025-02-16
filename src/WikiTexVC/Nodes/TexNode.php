@@ -48,6 +48,9 @@ class TexNode {
 		return $this->args;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function render() {
 		$out = '';
 		foreach ( $this->args as $child ) {
@@ -56,12 +59,23 @@ class TexNode {
 		return $out;
 	}
 
+	/**
+	 * @param array $arguments
+	 * @param array $state
+	 * @return string
+	 */
 	public function renderMML( $arguments = [], $state = [] ) {
 		return array_reduce( $this->args, function ( $out, $child ) use ( $arguments, $state ) {
 			return $out . $this->renderChildMML( $child, $arguments, $state );
 		}, '' );
 	}
 
+	/**
+	 * @param self|string $child
+	 * @param array $arguments
+	 * @param array $state
+	 * @return string
+	 */
 	public function renderChildMML( $child, $arguments, $state ) {
 		if ( $child instanceof TexNode ) {
 			return $child->renderMML( $arguments, $state );
@@ -69,6 +83,9 @@ class TexNode {
 		return $child;
 	}
 
+	/**
+	 * @return bool
+	 */
 	public function isEmpty() {
 		foreach ( $this->args ?? [] as $arg ) {
 			if ( $arg instanceof TexNode && !$arg->isEmpty() ) {
@@ -93,6 +110,10 @@ class TexNode {
 		return '{' . $this->render() . '}';
 	}
 
+	/**
+	 * @param self[]|string[]|null $args
+	 * @return string[]
+	 */
 	public function extractIdentifiers( $args = null ) {
 		$output = [];
 
@@ -107,6 +128,11 @@ class TexNode {
 		return $output;
 	}
 
+	/**
+	 * @param string|array $target
+	 * @param self[]|string[]|null $args
+	 * @return bool
+	 */
 	public function containsFunc( $target, $args = null ) {
 		foreach ( $args ?? $this->args as $value ) {
 			if ( $value instanceof self ) {
@@ -123,10 +149,16 @@ class TexNode {
 		return false;
 	}
 
+	/**
+	 * @return string|array
+	 */
 	public function extractSubscripts() {
 		return [];
 	}
 
+	/**
+	 * @return string|array
+	 */
 	public function getModIdent() {
 		return [];
 	}
