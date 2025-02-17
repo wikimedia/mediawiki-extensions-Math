@@ -50,6 +50,14 @@
 				const parsed = adaptor.parse( Mml3.XSLT, 'text/xml' );
 				processor.importStylesheet( parsed );
 				mml3.transform = ( node ) => {
+					// MathJax does not support a-tags but it supports href attributes in math elements
+					[].forEach.call( document.querySelectorAll( 'mi a, mo a, mtext a' ), ( aTag ) => {
+						const parentElement = aTag.parentElement;
+						if ( aTag.hasAttribute( 'href' ) ) {
+							parentElement.setAttribute( 'href', aTag.getAttribute( 'href' ) );
+						}
+						parentElement.textContent = aTag.textContent;
+					} );
 					const div = adaptor.node( 'div', {}, [ adaptor.clone( node ) ] );
 					const dom = adaptor.parse( adaptor.serializeXML( div ), 'text/xml' );
 					const mml = processor.transformToDocument( dom );
