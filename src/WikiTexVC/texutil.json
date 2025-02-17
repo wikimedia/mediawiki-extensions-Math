@@ -71,6 +71,10 @@
 		"unicode_char": "00C5"
 	},
 	"\\Alpha": {
+		"callback": [
+			"customLetters",
+			"A"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{A}"
 	},
@@ -99,6 +103,10 @@
 		"nullary_macro": true
 	},
 	"\\Beta": {
+		"callback": [
+			"customLetters",
+			"B"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{B}"
 	},
@@ -145,6 +153,10 @@
 		]
 	},
 	"\\Chi": {
+		"callback": [
+			"customLetters",
+			"X"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{X}"
 	},
@@ -199,10 +211,18 @@
 		"other_delimiters1": true
 	},
 	"\\Epsilon": {
+		"callback": [
+			"customLetters",
+			"E"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{E}"
 	},
 	"\\Eta": {
+		"callback": [
+			"customLetters",
+			"H"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{H}"
 	},
@@ -243,6 +263,10 @@
 		"nullary_macro": true
 	},
 	"\\Iota": {
+		"callback": [
+			"customLetters",
+			"I"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{I}"
 	},
@@ -252,6 +276,10 @@
 		]
 	},
 	"\\Kappa": {
+		"callback": [
+			"customLetters",
+			"K"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{K}"
 	},
@@ -316,6 +344,10 @@
 		]
 	},
 	"\\Mu": {
+		"callback": [
+			"customLetters",
+			"M"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{M}"
 	},
@@ -323,6 +355,10 @@
 		"nullary_macro_aliase": "\\mathbb{N}"
 	},
 	"\\Nu": {
+		"callback": [
+			"customLetters",
+			"N"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{N}"
 	},
@@ -335,10 +371,19 @@
 		"nullary_macro": true
 	},
 	"\\Omicron": {
+		"callback": [
+			"customLetters",
+			"O"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "O"
 	},
 	"\\P": {
+		"callback": [
+			"oint",
+			"\\u00B6",
+			[]
+		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
@@ -383,6 +428,10 @@
 		"nullary_macro_aliase": "\\mathbb{R}"
 	},
 	"\\Rho": {
+		"callback": [
+			"customLetters",
+			"P"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{P}"
 	},
@@ -446,6 +495,10 @@
 		]
 	},
 	"\\Tau": {
+		"callback": [
+			"customLetters",
+			"T"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{T}"
 	},
@@ -501,6 +554,10 @@
 		"nullary_macro_aliase": "\\mathbb{Z}"
 	},
 	"\\Zeta": {
+		"callback": [
+			"customLetters",
+			"Z"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{Z}"
 	},
@@ -941,6 +998,10 @@
 	},
 	"\\boldsymbol": {
 		"ams_required": true,
+		"callback": [
+			"boldsymbol",
+			""
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
@@ -1027,6 +1088,11 @@
 		]
 	},
 	"\\ca": {
+		"callback": [
+			"customLetters",
+			"&#x223C;",
+			true
+		],
 		"mhchem_single_macro": true
 	},
 	"\\cal": {
@@ -3142,17 +3208,37 @@
 		"unicode_char": "20AC"
 	},
 	"\\oiiint": {
+		"callback": [
+			"oint",
+			"\\u2230",
+			[]
+		],
 		"mathoid_required": true,
 		"nullary_macro": true
 	},
 	"\\oiint": {
+		"callback": [
+			"oint",
+			"\\u222F",
+			[]
+		],
 		"mathoid_required": true,
 		"nullary_macro": true
 	},
 	"\\oint": {
+		"callback": [
+			"oint",
+			"\\u222E",
+			[]
+		],
 		"nullary_macro": true
 	},
 	"\\ointctrclockwise": {
+		"callback": [
+			"oint",
+			"\\u2233",
+			[]
+		],
 		"mathoid_required": true,
 		"nullary_macro": true
 	},
@@ -4451,6 +4537,11 @@
 		"nullary_macro": true
 	},
 	"\\varointclockwise": {
+		"callback": [
+			"oint",
+			"\\u2232",
+			[]
+		],
 		"mathoid_required": true,
 		"nullary_macro": true
 	},
