@@ -1145,8 +1145,7 @@ class BaseParsing {
 				if ( isset( $operatorContent['foundOC'] ) ) {
 					$op = $operatorContent['foundOC'];
 					$macro = TexUtil::getInstance()->nullary_macro_in_mbox( $op ) ?
-						/* tested in \MediaWiki\Extension\Math\Tests\WikiTexVC\TexUtilTest::testUnicodeDefined
-						@phan-suppress-next-line PhanTypeSuspiciousStringExpression - false positive */
+						/* tested in \MediaWiki\Extension\Math\Tests\WikiTexVC\TexUtilTest::testUnicodeDefined */
 						[ '&#x' . TexUtil::getInstance()->unicode_char( $op ) . ';' ] :
 						TexUtil::getInstance()->identifier( $op );
 					$input = $macro[0] ?? $op;
