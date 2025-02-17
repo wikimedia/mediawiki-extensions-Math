@@ -66,6 +66,45 @@
 			}
 		]
 	},
+	"\\": {
+		"callback": "crLaTeX"
+	},
+	"\\ ": {
+		"callback": [
+			"macro",
+			"\\text{ }"
+		]
+	},
+	"\\!": {
+		"callback": [
+			"spacer",
+			-0.16666666666666666
+		]
+	},
+	"\\'": {
+		"callback": [
+			"spacer",
+			0.2222222222222222
+		]
+	},
+	"\\,": {
+		"callback": [
+			"spacer",
+			0.16666666666666666
+		]
+	},
+	"\\;": {
+		"callback": [
+			"spacer",
+			0.2777777777777778
+		]
+	},
+	"\\>": {
+		"callback": [
+			"spacer",
+			0.2222222222222222
+		]
+	},
 	"\\AA": {
 		"nullary_macro_in_mbox": true,
 		"unicode_char": "00C5"
@@ -88,6 +127,10 @@
 		]
 	},
 	"\\Bbb": {
+		"callback": [
+			"mathFont",
+			"double-struck"
+		],
 		"is_letter_mod": true,
 		"other_fun_ar1": "\\mathbb"
 	},
@@ -111,22 +154,66 @@
 		"nullary_macro_aliase": "\\mathrm{B}"
 	},
 	"\\Big": {
-		"big_literals": true
+		"big_literals": true,
+		"callback": [
+			"makeBig",
+			"ORD",
+			1.15
+		]
 	},
 	"\\Bigg": {
-		"big_literals": true
+		"big_literals": true,
+		"callback": [
+			"makeBig",
+			"ORD",
+			1.75
+		]
 	},
 	"\\Biggl": {
-		"big_literals": true
+		"big_literals": true,
+		"callback": [
+			"makeBig",
+			"OPEN",
+			1.75
+		]
+	},
+	"\\Biggm": {
+		"callback": [
+			"makeBig",
+			"REL",
+			1.75
+		]
 	},
 	"\\Biggr": {
-		"big_literals": true
+		"big_literals": true,
+		"callback": [
+			"makeBig",
+			"CLOSE",
+			1.75
+		]
 	},
 	"\\Bigl": {
-		"big_literals": true
+		"big_literals": true,
+		"callback": [
+			"makeBig",
+			"OPEN",
+			1.15
+		]
+	},
+	"\\Bigm": {
+		"callback": [
+			"makeBig",
+			"REL",
+			1.15
+		]
 	},
 	"\\Bigr": {
-		"big_literals": true
+		"big_literals": true,
+		"callback": [
+			"makeBig",
+			"CLOSE",
+			1.15
+		]
 	},
 	"\\Box": {
 		"ams_required": true,
@@ -288,6 +375,12 @@
 		"teubner_required": true,
 		"unicode_char": "03DE"
 	},
+	"\\LaTeX": {
+		"callback": [
+			"macro",
+			"L\\kern-.325em\\raise.21em{\\scriptstyle{A}}\\kern-.17em\\TeX"
+		]
+	},
 	"\\Lambda": {
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -398,6 +491,7 @@
 		"nullary_macro": true
 	},
 	"\\Pr": {
+		"callback": "namedOp",
 		"latex_function_names": true,
 		"operator": true
 	},
@@ -502,6 +596,12 @@
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{T}"
 	},
+	"\\TeX": {
+		"callback": [
+			"macro",
+			"T\\kern-.14em\\lower.5ex{E}\\kern-.115em X"
+		]
+	},
 	"\\Theta": {
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -566,7 +666,20 @@
 			"\\"
 		]
 	},
+	"\\\\u00A0": {
+		"callback": "Tilde"
+	},
+	"\\above": {
+		"callback": "over"
+	},
+	"\\abovewithdelims": {
+		"callback": "over"
+	},
 	"\\acute": {
+		"callback": [
+			"accent",
+			"00B4"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
@@ -631,6 +744,7 @@
 		]
 	},
 	"\\arccos": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\arccot": {
@@ -643,13 +757,19 @@
 		"mediawiki_function_names": true
 	},
 	"\\arcsin": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\arctan": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\arg": {
+		"callback": "namedFn",
 		"latex_function_names": true
+	},
+	"\\array": {
+		"callback": "matrix"
 	},
 	"\\arrowvert": {
 		"delimiter": [
@@ -669,7 +789,11 @@
 		]
 	},
 	"\\atop": {
+		"callback": "over",
 		"fun_infix": true
+	},
+	"\\atopwithdelims": {
+		"callback": "over"
 	},
 	"\\backepsilon": {
 		"ams_required": true,
@@ -716,6 +840,10 @@
 		"other_delimiters1": true
 	},
 	"\\bar": {
+		"callback": [
+			"accent",
+			"00AF"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
@@ -724,6 +852,12 @@
 		"nullary_macro": true,
 		"operator_rendering": [
 			"&#x22BC;"
+		]
+	},
+	"\\bbFont": {
+		"callback": [
+			"setFont",
+			"double-struck"
 		]
 	},
 	"\\bcancel": {
@@ -796,10 +930,19 @@
 		]
 	},
 	"\\bf": {
+		"callback": [
+			"setFont",
+			"bold"
+		],
 		"declh_function": true
 	},
 	"\\big": {
-		"big_literals": true
+		"big_literals": true,
+		"callback": [
+			"makeBig",
+			"ORD",
+			0.85
+		]
 	},
 	"\\bigcap": {
 		"nullary_macro": true,
@@ -829,16 +972,50 @@
 		]
 	},
 	"\\bigg": {
-		"big_literals": true
+		"big_literals": true,
+		"callback": [
+			"makeBig",
+			"ORD",
+			1.45
+		]
 	},
 	"\\biggl": {
-		"big_literals": true
+		"big_literals": true,
+		"callback": [
+			"makeBig",
+			"OPEN",
+			1.45
+		]
+	},
+	"\\biggm": {
+		"callback": [
+			"makeBig",
+			"REL",
+			1.45
+		]
 	},
 	"\\biggr": {
-		"big_literals": true
+		"big_literals": true,
+		"callback": [
+			"makeBig",
+			"CLOSE",
+			1.45
+		]
 	},
 	"\\bigl": {
-		"big_literals": true
+		"big_literals": true,
+		"callback": [
+			"makeBig",
+			"OPEN",
+			0.85
+		]
+	},
+	"\\bigm": {
+		"callback": [
+			"makeBig",
+			"REL",
+			0.85
+		]
 	},
 	"\\bigodot": {
 		"nullary_macro": true,
@@ -871,7 +1048,12 @@
 		]
 	},
 	"\\bigr": {
-		"big_literals": true
+		"big_literals": true,
+		"callback": [
+			"makeBig",
+			"CLOSE",
+			0.85
+		]
 	},
 	"\\bigsqcup": {
 		"nullary_macro": true,
@@ -989,6 +1171,10 @@
 		]
 	},
 	"\\bmod": {
+		"callback": [
+			"macro",
+			"\\mmlToken{mo}[lspace=\"0.2777777777777778em\" rspace=\"0.2777777777777778em\"]{mod}"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
@@ -1062,12 +1248,30 @@
 			"&#x22A0;"
 		]
 	},
+	"\\brace": {
+		"callback": [
+			"over",
+			"{",
+			"}"
+		]
+	},
 	"\\bracevert": {
 		"delimiter": [
 			"&#x23AA;"
 		]
 	},
+	"\\brack": {
+		"callback": [
+			"over",
+			"[",
+			"]"
+		]
+	},
 	"\\breve": {
+		"callback": [
+			"accent",
+			"02D8"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
@@ -1096,6 +1300,10 @@
 		"mhchem_single_macro": true
 	},
 	"\\cal": {
+		"callback": [
+			"setFont",
+			"-tex-calligraphic"
+		],
 		"declh_function": true
 	},
 	"\\cancel": {
@@ -1119,6 +1327,18 @@
 		"nullary_macro": true,
 		"operator_rendering": [
 			"&#x2229;"
+		]
+	},
+	"\\cases": {
+		"callback": [
+			"matrix",
+			"{",
+			"",
+			"left left",
+			null,
+			".1em",
+			null,
+			true
 		]
 	},
 	"\\cdot": {
@@ -1166,6 +1386,10 @@
 		"fun_ar2": true
 	},
 	"\\check": {
+		"callback": [
+			"accent",
+			"02C7"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
@@ -1185,6 +1409,11 @@
 		"nullary_macro": true
 	},
 	"\\choose": {
+		"callback": [
+			"over",
+			"(",
+			")"
+		],
 		"fun_infix": true
 	},
 	"\\circ": {
@@ -1303,18 +1532,23 @@
 		]
 	},
 	"\\cos": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\cosh": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\cot": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\coth": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\csc": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\cup": {
@@ -1431,6 +1665,10 @@
 		]
 	},
 	"\\ddot": {
+		"callback": [
+			"accent",
+			"00A8"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
@@ -1445,6 +1683,7 @@
 		"definecolor_function": true
 	},
 	"\\deg": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\delta": {
@@ -1456,6 +1695,7 @@
 		"nullary_macro": true
 	},
 	"\\det": {
+		"callback": "namedOp",
 		"latex_function_names": true,
 		"operator": true
 	},
@@ -1511,9 +1751,27 @@
 		"nullary_macro": true
 	},
 	"\\dim": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
+	"\\displaylines": {
+		"callback": [
+			"matrix",
+			null,
+			null,
+			"center",
+			null,
+			".5em",
+			"D"
+		]
+	},
 	"\\displaystyle": {
+		"callback": [
+			"setStyle",
+			"D",
+			true,
+			0
+		],
 		"nullary_macro": true
 	},
 	"\\div": {
@@ -1535,6 +1793,10 @@
 		]
 	},
 	"\\dot": {
+		"callback": [
+			"accent",
+			"02D9"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
@@ -1559,6 +1821,7 @@
 		]
 	},
 	"\\dots": {
+		"callback": "dots",
 		"nullary_macro": true
 	},
 	"\\dotsb": {
@@ -1650,6 +1913,10 @@
 		"nullary_macro": true
 	},
 	"\\emph": {
+		"callback": [
+			"mathFont",
+			"italic"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
@@ -1665,6 +1932,12 @@
 		],
 		"nullary_macro": true
 	},
+	"\\enspace": {
+		"callback": [
+			"spacer",
+			0.5
+		]
+	},
 	"\\epsilon": {
 		"identifier": [
 			"\\u03F5"
@@ -1672,6 +1945,30 @@
 		"is_literal": true,
 		"mhchem_single_macro": true,
 		"nullary_macro": true
+	},
+	"\\eqalign": {
+		"callback": [
+			"matrix",
+			null,
+			null,
+			"right left",
+			"(0, lengths_js_1.em)(MathSpace::thickmathspace)",
+			".5em",
+			"D"
+		]
+	},
+	"\\eqalignno": {
+		"callback": [
+			"matrix",
+			null,
+			null,
+			"right left",
+			"(0, lengths_js_1.em)(MathSpace::thickmathspace)",
+			".5em",
+			"D",
+			null,
+			"right"
+		]
 	},
 	"\\eqcirc": {
 		"ams_required": true,
@@ -1744,6 +2041,7 @@
 		"nullary_macro": true
 	},
 	"\\exp": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\fallingdotseq": {
@@ -1773,15 +2071,15 @@
 		"nullary_macro": true
 	},
 	"\\frac": {
-		"callback": [
-			"genFrac",
-			"",
-			"",
-			"",
-			""
-		],
+		"callback": "frac",
 		"fun_ar2": true,
 		"mhchem_macro_2p": true
+	},
+	"\\frak": {
+		"callback": [
+			"setFont",
+			"fraktur"
+		]
 	},
 	"\\frown": {
 		"nullary_macro": true,
@@ -1798,6 +2096,7 @@
 		"nullary_macro": true
 	},
 	"\\gcd": {
+		"callback": "namedOp",
 		"latex_function_names": true,
 		"operator": true
 	},
@@ -1909,6 +2208,10 @@
 		]
 	},
 	"\\grave": {
+		"callback": [
+			"accent",
+			"0060"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
@@ -1979,6 +2282,10 @@
 		"nullary_macro_aliase": "\\leftrightarrow"
 	},
 	"\\hat": {
+		"callback": [
+			"accent",
+			"005E"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
@@ -1992,7 +2299,17 @@
 		"nullary_macro": true
 	},
 	"\\hbox": {
-		"box_functions": true
+		"box_functions": true,
+		"callback": [
+			"hBox",
+			0
+		]
+	},
+	"\\hdashline": {
+		"callback": [
+			"hline",
+			"dashed"
+		]
 	},
 	"\\hearts": {
 		"nullary_macro_aliase": "\\heartsuit"
@@ -2007,9 +2324,14 @@
 		"nullary_macro": true
 	},
 	"\\hline": {
+		"callback": [
+			"hline",
+			"solid"
+		],
 		"hline_function": true
 	},
 	"\\hom": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\hookleftarrow": {
@@ -2025,8 +2347,16 @@
 		]
 	},
 	"\\hphantom": {
+		"callback": [
+			"phantom",
+			0,
+			1
+		],
 		"fun_ar1": true,
 		"ignore_identifier": true
+	},
+	"\\hskip": {
+		"callback": "hskip"
 	},
 	"\\hslash": {
 		"ams_required": true,
@@ -2036,7 +2366,14 @@
 		"is_literal": true,
 		"nullary_macro": true
 	},
+	"\\hspace": {
+		"callback": "hskip"
+	},
 	"\\iff": {
+		"callback": [
+			"macro",
+			"\\;\\Longleftrightarrow\\;"
+		],
 		"nullary_macro": true
 	},
 	"\\iiiint": {
@@ -2077,6 +2414,10 @@
 	},
 	"\\implies": {
 		"ams_required": true,
+		"callback": [
+			"macro",
+			"\\;\\Longrightarrow\\;"
+		],
 		"nullary_macro": true
 	},
 	"\\in": {
@@ -2086,6 +2427,7 @@
 		]
 	},
 	"\\inf": {
+		"callback": "namedOp",
 		"latex_function_names": true,
 		"operator": true
 	},
@@ -2137,6 +2479,7 @@
 		"stix_required": true
 	},
 	"\\intent": {
+		"callback": "intent",
 		"fun_ar2": true,
 		"intent_required": true
 	},
@@ -2170,6 +2513,10 @@
 		"nullary_macro_aliase": "\\in"
 	},
 	"\\it": {
+		"callback": [
+			"setFont",
+			"-tex-mathit"
+		],
 		"declh_function": true
 	},
 	"\\jmath": {
@@ -2188,9 +2535,11 @@
 		"nullary_macro": true
 	},
 	"\\ker": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\kern": {
+		"callback": "hskip",
 		"fun_ar1": true,
 		"mhchemtexified_required": true
 	},
@@ -2351,6 +2700,19 @@
 			"&#x2264;"
 		]
 	},
+	"\\leqalignno": {
+		"callback": [
+			"matrix",
+			null,
+			null,
+			"right left",
+			"(0, lengths_js_1.em)(MathSpace::thickmathspace)",
+			".5em",
+			"D",
+			null,
+			"left"
+		]
+	},
 	"\\leqq": {
 		"ams_required": true,
 		"nullary_macro": true,
@@ -2414,6 +2776,7 @@
 		"other_delimiters1": true
 	},
 	"\\lg": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\lgroup": {
@@ -2427,16 +2790,29 @@
 		]
 	},
 	"\\lim": {
+		"callback": "namedOp",
 		"latex_function_names": true
 	},
 	"\\liminf": {
+		"callback": [
+			"namedOp",
+			"lim inf"
+		],
 		"latex_function_names": true,
 		"operator": true
 	},
 	"\\limits": {
+		"callback": [
+			"limits",
+			1
+		],
 		"nullary_macro": true
 	},
 	"\\limsup": {
+		"callback": [
+			"namedOp",
+			"lim sup"
+		],
 		"latex_function_names": true,
 		"operator": true
 	},
@@ -2447,6 +2823,7 @@
 		]
 	},
 	"\\llap": {
+		"callback": "lap",
 		"fun_ar1": true,
 		"mhchemtexified_required": true
 	},
@@ -2475,6 +2852,7 @@
 		]
 	},
 	"\\ln": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\lnapprox": {
@@ -2515,6 +2893,7 @@
 		]
 	},
 	"\\log": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\longLeftrightharpoons": {
@@ -2597,6 +2976,7 @@
 		]
 	},
 	"\\lower": {
+		"callback": "raiseLower",
 		"fun_ar2": true,
 		"mhchemtexified_required": true
 	},
@@ -2656,6 +3036,10 @@
 	},
 	"\\mathbb": {
 		"ams_required": true,
+		"callback": [
+			"mathFont",
+			"double-struck"
+		],
 		"fun_ar1nb": true,
 		"is_letter_mod": true
 	},
@@ -2663,52 +3047,157 @@
 		"ams_required": true
 	},
 	"\\mathbf": {
+		"callback": [
+			"mathFont",
+			"bold"
+		],
 		"fun_ar1nb": true,
 		"is_letter_mod": true,
 		"mhchem_macro_1p": true
 	},
+	"\\mathbfcal": {
+		"callback": [
+			"mathFont",
+			"-tex-bold-calligraphic"
+		]
+	},
+	"\\mathbffrak": {
+		"callback": [
+			"mathFont",
+			"bold-fraktur"
+		]
+	},
+	"\\mathbfit": {
+		"callback": [
+			"mathFont",
+			"bold-italic"
+		]
+	},
+	"\\mathbfscr": {
+		"callback": [
+			"mathFont",
+			"bold-script"
+		]
+	},
+	"\\mathbfsf": {
+		"callback": [
+			"mathFont",
+			"bold-sans-serif"
+		]
+	},
+	"\\mathbfsfit": {
+		"callback": [
+			"mathFont",
+			"sans-serif-bold-italic"
+		]
+	},
+	"\\mathbfsfup": {
+		"callback": [
+			"mathFont",
+			"bold-sans-serif"
+		]
+	},
+	"\\mathbfup": {
+		"callback": [
+			"mathFont",
+			"bold"
+		]
+	},
 	"\\mathbin": {
+		"callback": [
+			"TeXAtom",
+			"BIN"
+		],
 		"fun_ar1nb": true,
 		"is_letter_mod": true
 	},
 	"\\mathcal": {
+		"callback": [
+			"mathFont",
+			"-tex-calligraphic"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
 	"\\mathchoice": {
+		"callback": "mathChoice",
 		"fun_ar4": true,
 		"mhchemtexified_required": true
 	},
 	"\\mathclose": {
+		"callback": [
+			"TeXAtom",
+			"CLOSE"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
 	"\\mathfrak": {
 		"ams_required": true,
+		"callback": [
+			"mathFont",
+			"fraktur"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
+	},
+	"\\mathinner": {
+		"callback": [
+			"TeXAtom",
+			"INNER"
+		]
 	},
 	"\\mathit": {
+		"callback": [
+			"mathFont",
+			"-tex-mathit"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
+	"\\mathnormal": {
+		"callback": [
+			"mathFont",
+			""
+		]
+	},
 	"\\mathop": {
+		"callback": [
+			"TeXAtom",
+			"OP"
+		],
 		"fun_ar1nb": true,
 		"is_letter_mod": true
 	},
 	"\\mathopen": {
+		"callback": [
+			"TeXAtom",
+			"OPEN"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
 	"\\mathord": {
+		"callback": [
+			"TeXAtom",
+			"ORD"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
 	"\\mathpunct": {
+		"callback": [
+			"TeXAtom",
+			"PUNCT"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
 	"\\mathrel": {
+		"callback": [
+			"TeXAtom",
+			"REL"
+		],
 		"fun_ar1nb": true,
 		"is_letter_mod": true
 	},
@@ -2719,23 +3208,73 @@
 		]
 	},
 	"\\mathrm": {
+		"callback": [
+			"mathFont",
+			"normal"
+		],
 		"fun_ar1nb": true,
 		"is_letter_mod": true
 	},
+	"\\mathscr": {
+		"callback": [
+			"mathFont",
+			"script"
+		]
+	},
 	"\\mathsf": {
+		"callback": [
+			"mathFont",
+			"sans-serif"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
+	},
+	"\\mathsfit": {
+		"callback": [
+			"mathFont",
+			"sans-serif-italic"
+		]
+	},
+	"\\mathsfup": {
+		"callback": [
+			"mathFont",
+			"sans-serif"
+		]
+	},
+	"\\mathstrut": {
+		"callback": [
+			"macro",
+			"\\vphantom{(}"
+		]
 	},
 	"\\mathtt": {
+		"callback": [
+			"mathFont",
+			"monospace"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
+	"\\mathup": {
+		"callback": [
+			"mathFont",
+			"normal"
+		]
+	},
+	"\\matrix": {
+		"callback": "matrix"
+	},
 	"\\max": {
+		"callback": "namedOp",
 		"latex_function_names": true,
 		"operator": true
 	},
 	"\\mbox": {
-		"box_functions": true
+		"box_functions": true,
+		"callback": [
+			"hBox",
+			0
+		]
 	},
 	"\\measuredangle": {
 		"ams_required": true,
@@ -2759,15 +3298,28 @@
 		]
 	},
 	"\\min": {
+		"callback": "namedOp",
 		"latex_function_names": true,
 		"operator": true
 	},
+	"\\mit": {
+		"callback": [
+			"setFont",
+			"italic"
+		]
+	},
 	"\\mkern": {
+		"callback": "hskip",
 		"fun_ar1": true,
 		"mhchemtexified_required": true
 	},
 	"\\mod": {
 		"ams_required": true,
+		"callback": [
+			"macro",
+			"\\mathchoice{\\kern18mu}{\\kern12mu}{\\kern12mu}{\\kern12mu}\\mmlToken{mi}{mod}\\,\\,#1",
+			1
+		],
 		"nullary_macro": true
 	},
 	"\\models": {
@@ -2783,8 +3335,12 @@
 		]
 	},
 	"\\mskip": {
+		"callback": "hskip",
 		"fun_ar1": true,
 		"mhchemtexified_required": true
+	},
+	"\\mspace": {
+		"callback": "hskip"
 	},
 	"\\mu": {
 		"identifier": [
@@ -2898,10 +3454,22 @@
 			-0.2777777777777778
 		]
 	},
+	"\\negthinspace": {
+		"callback": [
+			"spacer",
+			-0.16666666666666666
+		]
+	},
 	"\\neq": {
 		"nullary_macro": true,
 		"operator_rendering": [
 			"&#x2260;"
+		]
+	},
+	"\\newline": {
+		"callback": [
+			"crLaTeX",
+			true
 		]
 	},
 	"\\nexists": {
@@ -3012,9 +3580,14 @@
 		]
 	},
 	"\\nolimits": {
+		"callback": [
+			"limits",
+			0
+		],
 		"nullary_macro": true
 	},
 	"\\not": {
+		"callback": "not",
 		"nullary_macro": true
 	},
 	"\\notChar": {
@@ -3242,6 +3815,12 @@
 		"mathoid_required": true,
 		"nullary_macro": true
 	},
+	"\\oldstyle": {
+		"callback": [
+			"setFont",
+			"-tex-oldstyle"
+		]
+	},
 	"\\omega": {
 		"identifier": [
 			"\\u03C9"
@@ -3305,41 +3884,78 @@
 		]
 	},
 	"\\over": {
+		"callback": "over",
 		"fun_infix": true
 	},
 	"\\overarc": {
+		"callback": [
+			"underOver",
+			"23DC",
+			1
+		],
 		"fun_ar1nb": true,
 		"over_operator": true
 	},
 	"\\overbrace": {
+		"callback": [
+			"underOver",
+			"23DE",
+			1
+		],
 		"fun_ar1nb": true,
 		"over_operator": true
 	},
 	"\\overleftarrow": {
+		"callback": [
+			"underOver",
+			"2190"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true,
 		"over_operator": true
 	},
 	"\\overleftrightarrow": {
 		"ams_required": true,
+		"callback": [
+			"underOver",
+			"2194"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true,
 		"over_operator": true
 	},
 	"\\overline": {
+		"callback": [
+			"underOver",
+			"203E"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true,
 		"over_operator": true
 	},
+	"\\overparen": {
+		"callback": [
+			"underOver",
+			"23DC"
+		]
+	},
 	"\\overrightarrow": {
+		"callback": [
+			"underOver",
+			"2192"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true,
 		"over_operator": true
 	},
 	"\\overset": {
 		"ams_required": true,
+		"callback": "overset",
 		"fun_ar2": true,
 		"mhchem_macro_2p": true
+	},
+	"\\overwithdelims": {
+		"callback": "over"
 	},
 	"\\owns": {
 		"operator_rendering": [
@@ -3372,6 +3988,7 @@
 		]
 	},
 	"\\phantom": {
+		"callback": "phantom",
 		"fun_ar1": true,
 		"ignore_identifier": true
 	},
@@ -3409,8 +4026,34 @@
 			"&#x00B1;"
 		]
 	},
+	"\\pmatrix": {
+		"callback": [
+			"matrix",
+			"(",
+			")"
+		]
+	},
+	"\\pmb": {
+		"callback": [
+			"macro",
+			"\\rlap{#1}\\kern1px{#1}",
+			1
+		]
+	},
 	"\\pmod": {
+		"callback": [
+			"macro",
+			"\\pod{\\mmlToken{mi}{mod}\\kern 6mu #1}",
+			1
+		],
 		"fun_ar1": true
+	},
+	"\\pod": {
+		"callback": [
+			"macro",
+			"\\mathchoice{\\kern18mu}{\\kern8mu}{\\kern8mu}{\\kern8mu}(#1)",
+			1
+		]
 	},
 	"\\prec": {
 		"nullary_macro": true,
@@ -3515,9 +4158,17 @@
 		]
 	},
 	"\\qquad": {
+		"callback": [
+			"spacer",
+			2
+		],
 		"nullary_macro": true
 	},
 	"\\quad": {
+		"callback": [
+			"spacer",
+			1
+		],
 		"nullary_macro": true
 	},
 	"\\rArr": {
@@ -3531,6 +4182,7 @@
 		"nullary_macro": true
 	},
 	"\\raise": {
+		"callback": "raiseLower",
 		"fun_ar2": true,
 		"mhchemtexified_required": true
 	},
@@ -3670,10 +4322,15 @@
 		]
 	},
 	"\\rlap": {
+		"callback": "lap",
 		"fun_ar1": true,
 		"mhchemtexified_required": true
 	},
 	"\\rm": {
+		"callback": [
+			"setFont",
+			"normal"
+		],
 		"declh_function": true
 	},
 	"\\rmoustache": {
@@ -3693,10 +4350,28 @@
 		"teubner_required": true,
 		"unicode_char": "03E1"
 	},
+	"\\scr": {
+		"callback": [
+			"setFont",
+			"script"
+		]
+	},
 	"\\scriptscriptstyle": {
+		"callback": [
+			"setStyle",
+			"SS",
+			false,
+			2
+		],
 		"nullary_macro": true
 	},
 	"\\scriptstyle": {
+		"callback": [
+			"setStyle",
+			"S",
+			false,
+			1
+		],
 		"nullary_macro": true
 	},
 	"\\sdot": {
@@ -3709,6 +4384,7 @@
 		]
 	},
 	"\\sec": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\sect": {
@@ -3721,6 +4397,12 @@
 		"nullary_macro": true,
 		"operator_rendering": [
 			"&#x2216;"
+		]
+	},
+	"\\sf": {
+		"callback": [
+			"setFont",
+			"sans-serif"
 		]
 	},
 	"\\sgn": {
@@ -3783,11 +4465,21 @@
 		]
 	},
 	"\\sin": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\sinh": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
+	"\\skew": {
+		"callback": [
+			"macro",
+			"{{#2{#3\\mkern#1mu}\\mkern-#1mu}{}}",
+			3
+		]
+	},
+
 	"\\smallfrown": {
 		"ams_required": true,
 		"nullary_macro": true,
@@ -3827,6 +4519,7 @@
 		]
 	},
 	"\\smash": {
+		"callback": "smash",
 		"fun_ar1": true,
 		"fun_ar1opt": true,
 		"mhchemtexified_required": true
@@ -3836,6 +4529,9 @@
 		"operator_rendering": [
 			"&#x2323;"
 		]
+	},
+	"\\space": {
+		"callback": "Tilde"
 	},
 	"\\spades": {
 		"nullary_macro_aliase": "\\spadesuit"
@@ -3869,6 +4565,7 @@
 		]
 	},
 	"\\sqrt": {
+		"callback": "sqrt",
 		"fun_ar1": true,
 		"fun_ar1opt": true
 	},
@@ -3905,7 +4602,19 @@
 		],
 		"nullary_macro": true
 	},
+	"\\stackbin": {
+		"callback": [
+			"macro",
+			"\\mathbin{\\mathop{#2}\\limits^{#1}}",
+			2
+		]
+	},
 	"\\stackrel": {
+		"callback": [
+			"macro",
+			"\\mathrel{\\mathop{#2}\\limits^{#1}}",
+			2
+		],
 		"fun_ar2": true
 	},
 	"\\star": {
@@ -4030,6 +4739,7 @@
 		]
 	},
 	"\\sup": {
+		"callback": "namedOp",
 		"latex_function_names": true,
 		"operator": true
 	},
@@ -4081,10 +4791,138 @@
 			"&#x2199;"
 		]
 	},
+	"\\symbb": {
+		"callback": [
+			"mathFont",
+			"double-struck"
+		]
+	},
+	"\\symbf": {
+		"callback": [
+			"mathFont",
+			"bold"
+		]
+	},
+	"\\symbfcal": {
+		"callback": [
+			"mathFont",
+			"-tex-bold-calligraphic"
+		]
+	},
+	"\\symbffrak": {
+		"callback": [
+			"mathFont",
+			"bold-fraktur"
+		]
+	},
+	"\\symbfit": {
+		"callback": [
+			"mathFont",
+			"bold-italic"
+		]
+	},
+	"\\symbfscr": {
+		"callback": [
+			"mathFont",
+			"bold-script"
+		]
+	},
+	"\\symbfsf": {
+		"callback": [
+			"mathFont",
+			"bold-sans-serif"
+		]
+	},
+	"\\symbfsfit": {
+		"callback": [
+			"mathFont",
+			"sans-serif-bold-italic"
+		]
+	},
+	"\\symbfsfup": {
+		"callback": [
+			"mathFont",
+			"bold-sans-serif"
+		]
+	},
+	"\\symbfup": {
+		"callback": [
+			"mathFont",
+			"bold"
+		]
+	},
+	"\\symcal": {
+		"callback": [
+			"mathFont",
+			"-tex-calligraphic"
+		]
+	},
+	"\\symfrak": {
+		"callback": [
+			"mathFont",
+			"fraktur"
+		]
+	},
+	"\\symit": {
+		"callback": [
+			"mathFont",
+			"italic"
+		]
+	},
+	"\\symnormal": {
+		"callback": [
+			"mathFont",
+			""
+		]
+	},
+	"\\symrm": {
+		"callback": [
+			"mathFont",
+			"normal"
+		]
+	},
+	"\\symscr": {
+		"callback": [
+			"mathFont",
+			"script"
+		]
+	},
+	"\\symsf": {
+		"callback": [
+			"mathFont",
+			"sans-serif"
+		]
+	},
+	"\\symsfit": {
+		"callback": [
+			"mathFont",
+			"sans-serif-italic"
+		]
+	},
+	"\\symsfup": {
+		"callback": [
+			"mathFont",
+			"sans-serif"
+		]
+	},
+	"\\symtt": {
+		"callback": [
+			"mathFont",
+			"monospace"
+		]
+	},
+	"\\symup": {
+		"callback": [
+			"mathFont",
+			"normal"
+		]
+	},
 	"\\tan": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\tanh": {
+		"callback": "namedFn",
 		"latex_function_names": true
 	},
 	"\\tau": {
@@ -4108,30 +4946,74 @@
 	},
 	"\\text": {
 		"ams_required": true,
-		"box_functions": true
+		"box_functions": true,
+		"callback": "hBox"
 	},
 	"\\textbf": {
+		"callback": [
+			"hBox",
+			null,
+			"bold"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
 	"\\textit": {
+		"callback": [
+			"hBox",
+			null,
+			"italic"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
+	"\\textnormal": {
+		"callback": [
+			"hBox"
+		]
+	},
 	"\\textrm": {
+		"callback": [
+			"hBox",
+			null,
+			"normal"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
 	"\\textsf": {
+		"callback": [
+			"hBox",
+			null,
+			"sans-serif"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
 	"\\textstyle": {
+		"callback": [
+			"setStyle",
+			"T",
+			false,
+			0
+		],
 		"nullary_macro": true
 	},
 	"\\texttt": {
+		"callback": [
+			"hBox",
+			null,
+			"monospace"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
+	},
+	"\\textup": {
+		"callback": [
+			"hBox",
+			null,
+			"normal"
+		]
 	},
 	"\\textvisiblespace": {
 		"nullary_macro_in_mbox": true,
@@ -4186,7 +5068,17 @@
 			}
 		]
 	},
+	"\\thinspace": {
+		"callback": [
+			"spacer",
+			0.16666666666666666
+		]
+	},
 	"\\tilde": {
+		"callback": [
+			"accent",
+			"007E"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
@@ -4275,6 +5167,12 @@
 		"mhchemtexified_required": true,
 		"nullary_macro": true
 	},
+	"\\tt": {
+		"callback": [
+			"setFont",
+			"monospace"
+		]
+	},
 	"\\twoheadleftarrow": {
 		"ams_required": true,
 		"operator_rendering": [
@@ -4303,15 +5201,51 @@
 		"other_delimiters1": true
 	},
 	"\\underbrace": {
+		"callback": [
+			"underOver",
+			"23DF",
+			1
+		],
 		"fun_ar1nb": true,
 		"mhchem_macro_2pu": true
 	},
+	"\\underleftarrow": {
+		"callback": [
+			"underOver",
+			"2190"
+		]
+	},
+	"\\underleftrightarrow": {
+		"callback": [
+			"underOver",
+			"2194"
+		]
+	},
 	"\\underline": {
+		"callback": [
+			"underOver",
+			"_",
+			null,
+			true
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
+	"\\underparen": {
+		"callback": [
+			"underOver",
+			"23DD"
+		]
+	},
+	"\\underrightarrow": {
+		"callback": [
+			"underOver",
+			"2192"
+		]
+	},
 	"\\underset": {
 		"ams_required": true,
+		"callback": "underset",
 		"fun_ar2": true,
 		"mhchem_macro_2p": true
 	},
@@ -4674,7 +5608,17 @@
 		]
 	},
 	"\\vbox": {
-		"box_functions": true
+		"box_functions": true,
+		"callback": [
+			"vbox",
+			0
+		]
+	},
+	"\\vcenter": {
+		"callback": [
+			"TeXAtom",
+			"VCENTER"
+		]
 	},
 	"\\vdash": {
 		"nullary_macro": true,
@@ -4689,6 +5633,10 @@
 		]
 	},
 	"\\vec": {
+		"callback": [
+			"accent",
+			"2192"
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
@@ -4715,6 +5663,11 @@
 		"nullary_macro": true
 	},
 	"\\vphantom": {
+		"callback": [
+			"phantom",
+			1,
+			0
+		],
 		"fun_ar1": true,
 		"ignore_identifier": true
 	},
@@ -4728,10 +5681,20 @@
 		"nullary_macro_aliase": "\\wp"
 	},
 	"\\widehat": {
+		"callback": [
+			"accent",
+			"005E",
+			1
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
 	"\\widetilde": {
+		"callback": [
+			"accent",
+			"007E",
+			1
+		],
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
