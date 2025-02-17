@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Math\Tests\WikiTexVC\MMLmappings;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMappings;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
+use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -54,8 +55,8 @@ class BaseMappingsTest extends TestCase {
 	}
 
 	public function testGetOperatorByKey() {
-		$this->assertEquals( '&#x221A;', BaseMappings::getOperatorByKey( '\\surd' )[0] );
-		$this->assertEquals( '&#x2212;', BaseMappings::getOperatorByKey( '-' ) );
+		$this->assertEquals( '&#x221A;', TexUtil::getInstance()->operator_rendering( '\\surd' )[0] );
+		$this->assertEquals( '&#x2212;', TexUtil::getInstance()->operator_rendering( '-' )[0] );
 	}
 
 	public function testGetCustomByKey() {
