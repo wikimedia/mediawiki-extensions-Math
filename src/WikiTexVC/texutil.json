@@ -945,6 +945,10 @@
 		"is_letter_mod": true
 	},
 	"\\bond": {
+		"callback": [
+			"chemCustom",
+			"\\bond"
+		],
 		"mhchem_bond": true
 	},
 	"\\bot": {
@@ -1070,6 +1074,10 @@
 		]
 	},
 	"\\ce": {
+		"callback": [
+			"machine",
+			"ce"
+		],
 		"fun_mhchem": true,
 		"mhchem_macro_1p": true,
 		"mhchem_required": true
@@ -2444,10 +2452,18 @@
 		"latex_function_names": true
 	},
 	"\\longLeftrightharpoons": {
+		"callback": [
+			"macro",
+			"\\stackrel{\\textstyle\\vphantom{{-}}{\\rightharpoonup}}{\\smash{{\\leftharpoondown}\\!\\!{-}}}"
+		],
 		"mhchemtexified_required": true,
 		"nullary_macro": true
 	},
 	"\\longRightleftharpoons": {
+		"callback": [
+			"macro",
+			"\\stackrel{\\textstyle{-}\\!\\!{\\rightharpoonup}}{\\smash{\\leftharpoondown}}"
+		],
 		"mhchemtexified_required": true,
 		"nullary_macro": true
 	},
@@ -2464,6 +2480,10 @@
 		]
 	},
 	"\\longleftrightarrows": {
+		"callback": [
+			"macro",
+			"\\stackrel{\\longrightarrow}{\\smash{\\longleftarrow}\\Rule{0px}{.25em}{0px}}"
+		],
 		"mhchemtexified_required": true,
 		"nullary_macro": true
 	},
@@ -2483,6 +2503,10 @@
 		]
 	},
 	"\\longrightleftharpoons": {
+		"callback": [
+			"macro",
+			"\\stackrel{\\textstyle{-}\\!\\!{\\rightharpoonup}}{\\smash{{\\leftharpoondown}\\!\\!{-}}}"
+		],
 		"mhchemtexified_required": true,
 		"nullary_macro": true
 	},
@@ -3398,6 +3422,12 @@
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
+	"\\pu": {
+		"callback": [
+			"machine",
+			"pu"
+		]
+	},
 	"\\qquad": {
 		"nullary_macro": true
 	},
@@ -4152,6 +4182,10 @@
 		]
 	},
 	"\\tripledash": {
+		"callback": [
+			"macro",
+			"\\vphantom{-}\\raise{2mu}\\\\kern{2mu}\\tiny\\text{-}\\kern{1mu}\\text{-}\\kern{1mu}\\text{-}\\kern{2mu}}"
+		],
 		"mhchemtexified_required": true,
 		"nullary_macro": true
 	},
@@ -4626,6 +4660,22 @@
 			"&#x2240;"
 		]
 	},
+	"\\xLeftrightharpoons": {
+		"callback": [
+			"xArrow",
+			8652,
+			5,
+			7
+		]
+	},
+	"\\xRightleftharpoons": {
+		"callback": [
+			"xArrow",
+			8652,
+			5,
+			7
+		]
+	},
 	"\\xcancel": {
 		"callback": [
 			"cancel",
@@ -4654,6 +4704,14 @@
 			5
 		]
 	},
+	"\\xleftrightarrow": {
+		"callback": [
+			"xArrow",
+			8596,
+			6,
+			6
+		]
+	},
 	"\\xrightarrow": {
 		"ams_required": true,
 		"fun_ar1nb": true,
@@ -4664,6 +4722,14 @@
 			8594,
 			5,
 			10
+		]
+	},
+	"\\xrightleftharpoons": {
+		"callback": [
+			"xArrow",
+			8652,
+			5,
+			7
 		]
 	},
 	"\\zeta": {
