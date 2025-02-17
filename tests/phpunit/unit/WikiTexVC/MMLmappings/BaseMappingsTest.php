@@ -26,9 +26,7 @@ class BaseMappingsTest extends TestCase {
 				'HandleLabel', 'HandleRef', 'HandleNoTag', 'MmlToken' ]
 			],
 			'cancel' => [ 'cancel' ],
-			'custom' => [ 'custom', [ 'Insert' ] ],
-			'special' => [ 'special', [ 'open', 'close', 'superscript', 'subscript', 'space', 'prime', 'comment',
-				'entry', 'hash' ] ], // only tilde exists
+			'custom' => [ 'custom', [ 'Insert' ] ]
 		];
 	}
 
@@ -68,11 +66,6 @@ class BaseMappingsTest extends TestCase {
 
 	public function testGetSpaceMacroByKey() {
 		$this->assertEquals( '\\text{ }', BaseMappings::getMacroByKey( '\\ ' )[1] );
-	}
-
-	public function testGetSpecialByKey() {
-		$this->assertEquals( 'tilde', BaseMappings::getSpecialByKey( '~' )[1] );
-		$this->assertNull( BaseMappings::getSpecialByKey( '_' ) );
 	}
 
 	public function testGetColorByKey() {

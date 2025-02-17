@@ -41,11 +41,8 @@ class BaseMethods {
 				if ( $resFct == null ) {
 					$resFct = BaseMappings::getCustomByKey( $input );
 					if ( $resFct == null ) {
-						$resFct = BaseMappings::getSpecialByKey( $input );
-						if ( $resFct == null ) {
-							$tu = TexUtil::getInstance();
-							$resFct = $tu->callback( trim( $input ) );
-						}
+						$tu = TexUtil::getInstance();
+						$resFct = $tu->callback( trim( $input ) );
 					}
 				}
 			}
