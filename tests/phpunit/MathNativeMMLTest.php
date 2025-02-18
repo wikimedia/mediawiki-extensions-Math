@@ -52,6 +52,16 @@ class MathNativeMMLTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( 'href', $mml->getMathml() );
 	}
 
+	public function testEmptyLink() {
+		$db = $this->createMock( MathWikibaseConnector::class );
+		$db->method( 'getUrlFromSymbol' )->willReturn( [ 'E' => '' ] );
+		$this->setService( 'Math.WikibaseConnector', $db );
+		$this->overrideConfigValue( 'MathEnableFormulaLinks', true );
+		$mml = new MathNativeMML( 'E=mc', [ 'qid' => 'Q1' ] );
+		$this->assertTrue( $mml->render() );
+		$this->assertStringNotContainsString( 'href', $mml->getMathml() );
+	}
+
 	public function testId() {
 		$mml = new MathNativeMML( '\sin', [ 'id' => 'unique-id' ] );
 		$this->assertTrue( $mml->render() );
