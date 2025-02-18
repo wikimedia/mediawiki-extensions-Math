@@ -46,14 +46,9 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		}
 	}
 
-	/**
-	 * Testing a checksum for the parsed object against a checksum of the json file contents.
-	 * @return void
-	 */
-	public function testChecksum() {
+	public function testBaseElements() {
 		$tu = TexUtil::getInstance();
 
-		$out = [];
 		$sets = [
 			'ams_required',
 			'big_literals',
@@ -65,6 +60,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'declh_function',
 			'definecolor_function',
 			'delimiter',
+			'deprecated_nullary_macro_aliase',
 			'euro_required',
 			'fun_ar1',
 			'fun_ar1nb',
@@ -75,8 +71,11 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'fun_infix',
 			'fun_mhchem',
 			'hline_function',
+			'identifier',
 			'ignore_identifier',
 			'intent_required',
+			'is_letter_mod',
+			'is_literal',
 			'latex_function_names',
 			'left_function',
 			'mathoid_required',
@@ -87,50 +86,44 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'mhchem_macro_2pc',
 			'mhchem_macro_2pu',
 			'mhchem_required',
-			'mhchemtexified_required',
 			'mhchem_single_macro',
+			'mhchemtexified_required',
 			'nullary_macro',
+			'nullary_macro_aliase',
 			'nullary_macro_in_mbox',
 			'operator',
 			'operator_rendering',
 			'other_delimiters1',
 			'other_delimiters2',
+			'other_fun_ar1',
 			'over_operator',
 			'right_function',
-			'teubner_required',
 			'stix_required',
+			'teubner_required',
 			'unicode_char',
 		];
+		$baseElements = $tu->getBaseElements();
+		ksort( $baseElements );
+		$this->assertEquals( $sets, array_keys( $baseElements ) );
+	}
+
+	/**
+	 * Testing a checksum for the parsed object against a checksum of the json file contents.
+	 * @return void
+	 */
+	public function testChecksum() {
+		$tu = TexUtil::getInstance();
+
+		$out = [];
+		$baseElements = $tu->getBaseElements();
 
 		// Reading data from TexUtil.
-		foreach ( $sets as $set ) {
-			$baseElements = $tu->getBaseElements();
-			foreach ( $baseElements[$set] as $key => $value ) {
+		foreach ( $baseElements as $group => $set ) {
+			foreach ( $set as $key => $value ) {
 				if ( !array_key_exists( $key, $out ) ) {
 					$out[$key] = [];
 				}
-				$out[$key][$set] = $value;
-			}
-		}
-
-		$maps = [
-			'deprecated_nullary_macro_aliase',
-			'nullary_macro_aliase',
-			'other_delimiters2',
-			'other_fun_ar1',
-			'is_literal',
-			'is_letter_mod',
-			'intent_required',
-			'identifier'
-		];
-
-		foreach ( $maps as $map ) {
-			$baseElements = $tu->getBaseElements();
-			foreach ( $baseElements[$map] as $key => $value ) {
-				if ( !array_key_exists( $key, $out ) ) {
-					$out[$key] = [];
-				}
-				$out[$key][$map] = $value;
+				$out[$key][$group] = $value;
 			}
 		}
 
