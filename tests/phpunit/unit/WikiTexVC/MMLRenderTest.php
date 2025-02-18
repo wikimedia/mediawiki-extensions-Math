@@ -141,6 +141,13 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "<mo>&#x2061;</mo>", $mathMLtexVC );
 	}
 
+	public function testApplyFunction6() {
+		$input = "\sin \cos^2";
+		$mathMLtexVC = preg_replace( '/\s/', '', $this->generateMML( $input ) );
+		$this->assertStringContainsString( "<msup><mi>cos</mi><mrow", $mathMLtexVC );
+		$this->assertStringContainsString( "sin", $mathMLtexVC );
+	}
+
 	public function testSpacesNoMstyle() {
 		$input = "\bmod \, \!";
 		$mathMLtexVC = $this->generateMML( $input );
