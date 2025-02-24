@@ -63,7 +63,7 @@ class MathNativeMML extends MathMathML {
 	private function addLinksToMathML( string $qid, string $mathml ): string {
 		$services = MediaWikiServices::getInstance();
 		$connector = $services->getService( 'Math.WikibaseConnector' );
-		$language = $services->getContentLanguage()->getCode();
+		$language = $services->getContentLanguageCode()->toString();
 		$qmap = $connector->getUrlFromSymbol( $qid, $language );
 		$dom = new DOMDocument();
 		$dom->loadXML( $mathml );
