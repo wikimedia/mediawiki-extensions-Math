@@ -380,7 +380,7 @@ class MathWikibaseConnector {
 	/**
 	 * @param string $qid
 	 * @param string $langCode
-	 * @return array of form ['qid'] = url
+	 * @return array of form ['qid'] = {'url': str, 'title': str}
 	 */
 	public function getUrlFromSymbol( string $qid, string $langCode ): array {
 		$resultMap = [];
@@ -394,10 +394,12 @@ class MathWikibaseConnector {
 		}
 		$parts = $output->getParts();
 		foreach ( $parts as $part ) {
-			$resultMap[$part->getSymbol()->getValue()] =
-			$this->fetchPageUrl(
+			$partMap = [];
+			$partMap['url'] = $this->fetchPageUrl(
 				$this->idParser->parse(
 					$part->getId()->getSerialization() ) ) ?? '';
+			$partMap['title'] = $part->getLabel() ?? '';
+			$resultMap[$part->getSymbol()->getValue()] = $partMap;
 		}
 		return $resultMap;
 	}

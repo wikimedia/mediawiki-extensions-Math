@@ -275,9 +275,9 @@ class MathWikibaseConnectorTest extends MathWikibaseConnectorTestFactory {
 		$item = $this->setupMassEnergyEquivalenceItem( true );
 		$wikibaseConnector = $this->getWikibaseConnectorWithExistingItems( new EntityRevision( $item ) );
 		$output = $wikibaseConnector->getUrlFromSymbol( 'Q1', 'en' );
-		self::assertEqualsCanonicalizing( [ 0 => 'https://example.com/',
-		1 => 'https://example.com/',
-		2 => 'https://example.com/' ], $output );
+		self::assertEqualsCanonicalizing( [ 0 => [ 'url' => 'https://example.com/', 'title' => 'energy' ],
+		1 => [ 'url' => 'https://example.com/', 'title' => 'mass' ],
+		2 => [ 'url' => 'https://example.com/', 'title' => 'speed of light' ] ], $output );
 	}
 
 	public function testGetUrlFromSymbolWithPartHavingNullUrl() {
@@ -292,8 +292,8 @@ class MathWikibaseConnectorTest extends MathWikibaseConnectorTestFactory {
 		$reflection_property->setAccessible( true );
 		$reflection_property->setValue( $wikibaseConnector, $site_mock );
 		$output = $wikibaseConnector->getUrlFromSymbol( 'Q1', 'en' );
-		self::assertEqualsCanonicalizing( [ 0 => '',
-			1 => '',
-			2 => '' ], $output );
+		self::assertEqualsCanonicalizing( [ 0 => [ 'url' => '', 'title' => 'energy' ],
+			1 => [ 'url' => '', 'title' => 'mass' ],
+			2 => [ 'url' => '', 'title' => 'speed of light' ] ], $output );
 	}
 }

@@ -5,6 +5,9 @@
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
 	],
+	"env": {
+		"commonjs": true
+	},
 	"rules": {
 		"max-len": "off"
 	}
