@@ -44,7 +44,8 @@ class MathNativeMMLTest extends MediaWikiIntegrationTestCase {
 
 	public function testLink() {
 		$db = $this->createMock( MathWikibaseConnector::class );
-		$db->method( 'getUrlFromSymbol' )->willReturn( [ 'E' => 'https://example.com/' ] );
+		$db->method( 'getUrlFromSymbol' )->willReturn( [ 'E' =>
+			[ 'url' => 'https://example.com/', 'title' => 'Energy' ] ] );
 		$this->setService( 'Math.WikibaseConnector', $db );
 		$this->overrideConfigValue( 'MathEnableFormulaLinks', true );
 		$mml = new MathNativeMML( 'E=mc', [ 'qid' => 'Q1' ] );

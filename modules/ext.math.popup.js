@@ -1,5 +1,5 @@
 const previewType = 'math';
-const selector = '.mwe-math-element[href*="qid"], .mwe-math-element[data-qid] img';
+const selector = '.mwe-math-element[data-qid] img';
 const api = new mw.Rest();
 const fetch = function ( qid ) {
 	return api.get( '/math/v0/popup/html/' + qid, {}, {

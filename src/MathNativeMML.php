@@ -72,11 +72,12 @@ class MathNativeMML extends MathMathML {
 		$linkableElements = $xpath->query( '//mathml:mi | //mathml:mo | //mathml:mtext' );
 		foreach ( $linkableElements as $linkableElement ) {
 			$textValue = $linkableElement->nodeValue;
-			if ( empty( $qmap[$textValue] ) ) {
+			if ( empty( $qmap[$textValue]['url'] ) ) {
 				continue;
 			}
 			$a = $dom->createElement( 'a' );
-			$a->setAttribute( 'href', $qmap[$textValue] );
+			$a->setAttribute( 'href', $qmap[$textValue]['url'] );
+			$a->setAttribute( 'title', $qmap[$textValue]['title'] );
 			$a->nodeValue = $linkableElement->nodeValue;
 			$linkableElement->nodeValue = "";
 			$linkableElement->appendChild( $a );

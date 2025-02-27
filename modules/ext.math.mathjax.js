@@ -53,6 +53,7 @@ window.MathJax = {
 					const parentElement = aTag.parentElement;
 					if ( aTag.hasAttribute( 'href' ) ) {
 						parentElement.setAttribute( 'href', aTag.getAttribute( 'href' ) );
+						parentElement.setAttribute( 'title', aTag.getAttribute( 'title' ) );
 					}
 					parentElement.textContent = aTag.textContent;
 				} );
@@ -65,6 +66,17 @@ window.MathJax = {
 			const MML = window.MathJax.startup.document.inputJax[ 1 ];
 			MML.mmlFilters.items.pop(); // remove old filter
 			MML.mmlFilters.add( mml3.mmlFilter.bind( mml3 ) );
+			// Add title attribute for popups
+			window.MathJax.typesetPromise().then( () => {
+				[].forEach.call( document.querySelectorAll( 'a [title]' ), ( ( child ) => {
+					const parentAnchor = child.closest( 'a' );
+					const title = child.getAttribute( 'title' );
+					if ( parentAnchor && title ) {
+						parentAnchor.setAttribute( 'title', title );
+						child.removeAttribute( 'title' );
+					}
+				} ) );
+			} );
 		}
 	}
 };
