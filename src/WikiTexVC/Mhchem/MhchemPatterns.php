@@ -35,6 +35,18 @@ class MhchemPatterns {
 		return $this->patterns;
 	}
 
+	/**
+	 * @param string $input
+	 * @param string|Reg $begExcl
+	 * @param string|Reg $begIncl
+	 * @param mixed|null $endIncl
+	 * @param mixed|null $endExcl
+	 * @param string|Reg|null $beg2Excl
+	 * @param string|Reg|null $beg2Incl
+	 * @param mixed|null $end2Incl
+	 * @param mixed|null $end2Excl
+	 * @param bool|null $combine
+	 */
 	public function findObserveGroups( $input, $begExcl, $begIncl, $endIncl,
 								$endExcl = null, $beg2Excl = null, $beg2Incl = null,
 								$end2Incl = null, $end2Excl = null, $combine = null ): ?array {

@@ -13,6 +13,9 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
  * @author Johannes Stegmüller
  */
 class MMLTestUtil {
+	/**
+	 * @return mixed
+	 */
 	public static function getJSON( string $filePath ) {
 		if ( !file_exists( $filePath ) ) {
 			throw new InvalidArgumentException( "No testfile found at specified path: " . $filePath );

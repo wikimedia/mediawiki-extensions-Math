@@ -22,6 +22,10 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	protected bool $curly = false;
 	private ?LengthSpec $rowSpecs = null;
 
+	/**
+	 * @param TexNode|string ...$args
+	 * @return self
+	 */
 	public static function newCurly( ...$args ) {
 		$node = new self( ...$args );
 		$node->curly = true;
@@ -460,6 +464,9 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return [];
 	}
 
+	/**
+	 * @param TexNode|string ...$elements
+	 */
 	public function push( ...$elements ): TexArray {
 		self::checkInput( $elements );
 
@@ -485,6 +492,9 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return $this->args[1] ?? null;
 	}
 
+	/**
+	 * @param TexNode|string ...$elements
+	 */
 	public function unshift( ...$elements ): TexArray {
 		array_unshift( $this->args, ...$elements );
 		return $this;
