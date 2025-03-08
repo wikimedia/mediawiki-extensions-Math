@@ -207,6 +207,9 @@ class TexVC {
 		return false;
 	}
 
+	/**
+	 * @return true|array
+	 */
 	public function checkIntent( string $input ) {
 		// Very early intent syntax checker
 		try {
