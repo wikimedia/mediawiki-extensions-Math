@@ -107,3 +107,17 @@ mrow.menclose-downdiagonalstrike {
 	background-color: currentcolor;
 	clip-path: polygon( 0 0, 0.05em 0, 100% 100%, calc( 100% - 0.05em ) 100% );
 }
+
+/**
+ * Large formulae should be horizontally scrollable.
+ * Addresses issue in T201233 for MathML.
+ */
+.mwe-math-element,
+math {
+	overflow: scroll;
+	max-width: 100%;
+}
+
+.mwe-math-element {
+	display: inline-flex;
+}
