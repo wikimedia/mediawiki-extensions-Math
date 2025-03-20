@@ -32,6 +32,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return $node;
 	}
 
+	/** @inheritDoc */
 	public function __construct( ...$args ) {
 		$nargs = [];
 
@@ -543,14 +544,17 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return parent::getArgs();
 	}
 
+	/** @inheritDoc */
 	public function offsetExists( $offset ): bool {
 		return isset( $this->args[$offset] );
 	}
 
+	/** @inheritDoc */
 	public function offsetGet( $offset ): ?TexNode {
 		return $this->args[$offset] ?? null;
 	}
 
+	/** @inheritDoc */
 	public function offsetSet( $offset, $value ): void {
 		if ( !( $value instanceof TexNode ) ) {
 			throw new InvalidArgumentException( 'TexArray elements must be of type TexNode.' );
@@ -558,6 +562,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		$this->args[$offset] = $value;
 	}
 
+	/** @inheritDoc */
 	public function offsetUnset( $offset ): void {
 		unset( $this->args[$offset] );
 	}

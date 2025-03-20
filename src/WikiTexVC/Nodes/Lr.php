@@ -96,6 +96,7 @@ class Lr extends TexNode {
 		}
 	}
 
+	/** @inheritDoc */
 	public function containsFunc( $target, $args = null ) {
 		if ( $args == null ) {
 			$args = [ '\\left', '\\right', $this->arg ];
@@ -103,6 +104,7 @@ class Lr extends TexNode {
 		return parent::containsFunc( $target, $args );
 	}
 
+	/** @inheritDoc */
 	public function extractIdentifiers( $args = null ) {
 		if ( $args == null ) {
 			$args = [ $this->arg ];

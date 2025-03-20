@@ -20,7 +20,7 @@ class Matrix extends TexArray {
 
 	private ?string $alignInfo = null;
 
-	public function __construct( string $top, TexArray $mainarg, $rowSpec = null ) {
+	public function __construct( string $top, TexArray $mainarg, ?LengthSpec $rowSpec = null ) {
 		foreach ( $mainarg->args as $row ) {
 			if ( !$row instanceof TexArray ) {
 				throw new InvalidArgumentException( 'Nested arguments have to be type of TexArray' );

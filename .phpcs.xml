@@ -4,8 +4,7 @@
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
 	</rule>
 	<rule ref="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic">
-		<exclude-pattern>/src/WikiTexVC/</exclude-pattern>
-		<exclude-pattern>/tests/phpunit/unit/WikiTexVC/</exclude-pattern>
+		<exclude-pattern>/src/WikiTexVC/MMLmappings/</exclude-pattern>
 	</rule>
 	<rule ref="Generic.Files.LineLength.TooLong">
 		<exclude-pattern>/src/WikiTexVC/Mhchem/MhchemPatterns.php</exclude-pattern>
