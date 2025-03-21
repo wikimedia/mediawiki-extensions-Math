@@ -1,22 +1,20 @@
 <?php
 
-namespace MediaWiki\Extension\Math\Tests;
-
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\Page\PageReferenceValue;
 use MediaWiki\Parser\ParserOptions;
-use MediaWikiIntegrationTestCase;
 use Psr\Log\NullLogger;
+use Wikimedia\ObjectCache\WANObjectCache;
 
 /**
  * @group Database
  * @covers \MediaWiki\Extension\Math\HookHandlers\ParserHooksHandler
  * @coversDefaultClass \MediaWiki\Extension\Math\HookHandlers\ParserHooksHandler
  */
-class ParserIntegrationTests extends MediaWikiIntegrationTestCase {
+class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 
 	private function setupDummyRendering() {
 		$this->overrideConfigValue( 'MathValidModes', [ MathConfig::MODE_SOURCE, MathConfig::MODE_LATEXML ] );
@@ -27,13 +25,15 @@ class ParserIntegrationTests extends MediaWikiIntegrationTestCase {
 				'MathEnableExperimentalInputFormats' => false,
 				'MathValidModes' => [ MathConfig::MODE_SOURCE ],
 			] ),
+			$this->createNoOpMock( MathConfig::class ),
 			$this->getServiceContainer()->getUserOptionsLookup(),
-			new NullLogger()
+			new NullLogger(),
+			WANObjectCache::newEmpty(),
 		) extends RendererFactory {
 			public function getRenderer(
 				string $tex,
 				array $params = [],
-				string $mode = MathConfig::MODE_MATHML
+				string $mode = MathConfig::MODE_LATEXML
 			): MathRenderer {
 				return new class( $mode, $tex, $params ) extends MathRenderer {
 					public function __construct( $mode, $tex = '', $params = [] ) {
@@ -94,12 +94,12 @@ class ParserIntegrationTests extends MediaWikiIntegrationTestCase {
 
 		// Now render with 'mathml' and make sure we didn't get the cached output
 		$parserOptions2 = ParserOptions::newCanonical( 'canonical' );
-		$parserOptions2->setOption( 'math', MathConfig::MODE_MATHML );
+		$parserOptions2->setOption( 'math', MathConfig::MODE_LATEXML );
 		$this->assertNull( $parserOutputAccess->getCachedParserOutput( $page, $parserOptions2 ) );
 		$renderStatus = $parserOutputAccess->getParserOutput( $page, $parserOptions2 );
 		$this->assertStatusGood( $renderStatus );
 		$this->assertStringContainsString(
-			"<render>mathml:TEST_FORMULA</render>",
+			"<render>latexml:TEST_FORMULA</render>",
 			$renderStatus->getValue()->getText()
 		);
 
@@ -115,7 +115,7 @@ class ParserIntegrationTests extends MediaWikiIntegrationTestCase {
 		$cachedWithDummy2 = $parserOutputAccess->getCachedParserOutput( $page, $parserOptions2 );
 		$this->assertNotNull( $cachedWithDummy2 );
 		$this->assertStringContainsString(
-			"<render>mathml:TEST_FORMULA</render>",
+			"<render>latexml:TEST_FORMULA</render>",
 			$cachedWithDummy2->getRawText()
 		);
 	}
@@ -132,6 +132,6 @@ class ParserIntegrationTests extends MediaWikiIntegrationTestCase {
 				$po
 			)
 			->getRawText();
-		$this->assertStringMatchesFormat( '%A<a%S><render>mathml:formula</render></a>%A', $res );
+		$this->assertStringMatchesFormat( '%A<a%S><render>source:formula</render></a>%A', $res );
 	}
 }
