@@ -45,7 +45,7 @@ class Box extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], $state = [] ) {
+	public function renderMML( $arguments = [], &$state = [] ) {
 		$mrow = new MMLmrow();
 		$mtext = new MMLmtext();
 		$arg = $this->getArg();

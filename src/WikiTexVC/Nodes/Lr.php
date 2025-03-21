@@ -57,7 +57,7 @@ class Lr extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], $state = [] ) {
+	public function renderMML( $arguments = [], &$state = [] ) {
 		// TBD  set attributes for right AND left correctly
 		$rightAttrs = [];
 		if ( $this->right == "." ) {

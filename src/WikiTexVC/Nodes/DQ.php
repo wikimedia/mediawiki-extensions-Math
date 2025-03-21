@@ -42,16 +42,10 @@ class DQ extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], $state = [] ) {
+	public function renderMML( $arguments = [], &$state = [] ) {
 		if ( array_key_exists( "limits", $state ) ) {
 			// A specific DQ case with preceding limits, just invoke the limits parsing manually.
 			return BaseParsing::limits( $this, $arguments, $state, "" );
-		}
-
-		$baseRendering = $this->base->renderMML( $arguments, [ 'styleargs' => $state['styleargs'] ?? [] ] );
-		// In cases with empty curly preceding like: "{}_pF_q" or _{1}
-		if ( trim( $baseRendering ) === "" ) {
-			$baseRendering = ( new MMLmrow() )->getEmpty();
 		}
 
 		if ( !$this->isEmpty() ) {
@@ -68,6 +62,12 @@ class DQ extends TexNode {
 			}
 			// Otherwise use default fallback
 			$mmlMrow = new MMLmrow();
+			$inner_state = [ 'styleargs' => $state['styleargs'] ?? [] ];
+			$baseRendering = $this->base->renderMML( $arguments, $inner_state );
+			// In cases with empty curly preceding like: "{}_pF_q" or _{1}
+			if ( trim( $baseRendering ) === "" ) {
+				$baseRendering = ( new MMLmrow() )->getEmpty();
+			}
 			return $outer->encapsulateRaw(
 				$baseRendering .
 				$mmlMrow->encapsulateRaw( $this->down->renderMML( $arguments, $state ) ) );
