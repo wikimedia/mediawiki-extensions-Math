@@ -192,7 +192,7 @@ class BaseMethods {
 	}
 
 	public function checkAndParseMathCharacter( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
-		$resChar = BaseMappings::getCharacterByKey( $input );
+		$resChar = TexUtil::getInstance()->mathchar( trim( $input ) );
 		if ( $resChar == null ) {
 			return null;
 		}
@@ -214,15 +214,10 @@ class BaseMethods {
 		if ( !( $input === 'color' || $input === 'pagecolor' ) ) {
 			return null;
 		}
-
-		$resColor = BaseMappings::getColorByKey( $operatorContent );
+		$resColor = TexUtil::getInstance()->color( ucfirst( $operatorContent ) );
 		if ( $resColor == null ) {
 			return null;
 		}
-		if ( is_array( $resColor ) ) {
-			$resColor = $resColor[0]; // tbd refactor or correct mappings
-		}
-
 		if ( $input === 'color' ) {
 			$mstyle = new MMLmstyle( "", [ "mathcolor" => $resColor ] );
 			return $mstyle->encapsulate();

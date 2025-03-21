@@ -6,7 +6,6 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use Generator;
 use InvalidArgumentException;
-use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMappings;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
@@ -343,8 +342,8 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 				$displayedColor = $state["colorDefinitions"][$currentColor]["hex"];
 
 			} else {
-				$resColor = BaseMappings::getColorByKey( $currentColor );
-				$displayedColor = $resColor ? $resColor[0] : $currentColor;
+				$resColor = TexUtil::getInstance()->color( ucfirst( $currentColor ) );
+				$displayedColor = $resColor ?: $currentColor;
 			}
 			$mmlStyleColor = new MMLmstyle( "", [ "mathcolor" => $displayedColor ] );
 			$ret = $mmlStyleColor->encapsulateRaw( $currentNode->renderMML( $arguments, $state ) );
