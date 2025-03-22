@@ -54,7 +54,6 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 
 		$out = [];
 		$sets = [
-			'ams_delimiter',
 			'ams_required',
 			'big_literals',
 			'box_functions',
@@ -64,6 +63,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'color_required',
 			'declh_function',
 			'definecolor_function',
+			'delimiter',
 			'euro_required',
 			'fun_ar1',
 			'fun_ar1nb',
@@ -143,6 +143,8 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		// json_encode cannot generate tabs required by WMF convention https://github.com/php/php-src/issues/8864
 		$encP = json_encode( $out, JSON_PRETTY_PRINT );
 		$encP = preg_replace( '/\n\s+/', "\n", $encP ) . "\n";
+		// unescape slashes for comparison as escaping is not allowed in the json file
+		$encP = str_replace( '\/', '/', $encP );
 		$file = preg_replace( '/\n\s+/', "\n", $file );
 		$hashOutput = $this->getHash( $encP );
 		$hashFile = $this->getHash( $file );

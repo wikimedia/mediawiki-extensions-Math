@@ -195,25 +195,17 @@ class BaseMethods {
 			return null;
 		}
 		$input = trim( $input );
-		$resDelimiter = BaseMappings::getDelimiterByKey( $input );
 
-		if ( $resDelimiter == null ) {
-			$resDelimiter = TexUtil::getInstance()->ams_delimiter( $input ) ?? false;
-			if ( !is_string( $resDelimiter ) ) {
-				return null;
-			}
-			$resDelimiter = [ MMLutil::uc2xNotation( $resDelimiter ) ];
+		$resDelimiter = TexUtil::getInstance()->delimiter( $input ) ?? false;
+		if ( $resDelimiter === false || !is_string( $resDelimiter[0] ) ) {
+			return null;
 		}
-		if ( is_string( $resDelimiter ) ) {
-			$resDelimiter = [ $resDelimiter ];
-		} else {
-			if ( isset( $resDelimiter[1] ) && is_array( $resDelimiter[1] ) && !$noargs ) {
-				$passedArgs = array_merge( $resDelimiter[1], $passedArgs );
-			}
+
+		if ( isset( $resDelimiter[1] ) && is_array( $resDelimiter[1] ) && !$noargs ) {
+			$passedArgs = array_merge( $resDelimiter[1], $passedArgs );
 		}
 
 		$mo = new MMLmo( $texClass, $passedArgs );
-		// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
 		return $mo->encapsulateRaw( $resDelimiter[0] );
 	}
 

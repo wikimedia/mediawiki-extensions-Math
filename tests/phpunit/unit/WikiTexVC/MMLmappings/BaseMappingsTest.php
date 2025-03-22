@@ -62,10 +62,6 @@ class BaseMappingsTest extends TestCase {
 		$this->assertEquals( '\u222E', BaseMappings::getCustomByKey( '\\oint' )[1] );
 	}
 
-	public function testGetDelimiterByKey() {
-		$this->assertEquals( '(', BaseMappings::getDelimiterByKey( '(' )[0] );
-	}
-
 	public function testGetMacroByKey() {
 		$this->assertEquals( 'D', BaseMappings::getMacroByKey( '\\displaystyle' )[1] );
 	}
