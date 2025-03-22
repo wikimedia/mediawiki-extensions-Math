@@ -7,15 +7,16 @@ namespace MediaWiki\Extension\Math\WikiTexVC;
 use InvalidArgumentException;
 
 /**
- * @method is_literal(string $litArg)
- * @method latex_function_names(string $getArg)
- * @method nullary_macro(string $litArg)
- * @method operator(string $getArg)
- * @method cancel_required(string $getArg)
- * @method nullary_macro_in_mbox(string $getArg)
- * @method unicode_char(string $getArg)
- * @method identifier(string $getArg)
- * @method delimiter(string $getArg)
+ * @method false|mixed callback(string $getArg)
+ * @method false|mixed is_literal(string $litArg)
+ * @method false|mixed latex_function_names(string $getArg)
+ * @method false|mixed nullary_macro(string $litArg)
+ * @method false|mixed operator(string $getArg)
+ * @method false|mixed cancel_required(string $getArg)
+ * @method false|mixed nullary_macro_in_mbox(string $getArg)
+ * @method false|mixed unicode_char(string $getArg)
+ * @method false|mixed identifier(string $getArg)
+ * @method false|mixed delimiter(string $getArg)
  */
 class TexUtil {
 	/** @var self|null */
