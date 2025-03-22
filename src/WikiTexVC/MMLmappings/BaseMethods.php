@@ -194,16 +194,15 @@ class BaseMethods {
 		if ( $input === null ) {
 			return null;
 		}
-		$resDelimiter = BaseMappings::getDelimiterByKey( trim( $input ) );
+		$input = trim( $input );
+		$resDelimiter = BaseMappings::getDelimiterByKey( $input );
 
 		if ( $resDelimiter == null ) {
-			$resDelimiter = AMSMappings::getSymbolDelimiterByKey( $input );
-			if ( $resDelimiter == null ) {
-				$resDelimiter = AMSMappings::getMathDelimiterByKey( $input );
-				if ( $resDelimiter == null ) {
-					return null;
-				}
+			$resDelimiter = TexUtil::getInstance()->ams_delimiter( $input ) ?? false;
+			if ( !is_string( $resDelimiter ) ) {
+				return null;
 			}
+			$resDelimiter = [ MMLutil::uc2xNotation( $resDelimiter ) ];
 		}
 		if ( is_string( $resDelimiter ) ) {
 			$resDelimiter = [ $resDelimiter ];
@@ -214,6 +213,7 @@ class BaseMethods {
 		}
 
 		$mo = new MMLmo( $texClass, $passedArgs );
+		// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
 		return $mo->encapsulateRaw( $resDelimiter[0] );
 	}
 
