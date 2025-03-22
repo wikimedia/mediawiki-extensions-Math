@@ -217,6 +217,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		$this->curly = false;
 	}
 
+	/** @inheritDoc */
 	public function renderMML( $arguments = [], $state = [] ) {
 		// Everything here is for parsing displaystyle, probably refactored to WikiTexVC grammar later
 		$fullRenderedArray = "";
@@ -385,6 +386,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return $mml;
 	}
 
+	/** @inheritDoc */
 	public function inCurlies() {
 		if ( isset( $this->args[0] ) && count( $this->args ) == 1 ) {
 			return $this->args[0]->inCurlies();
@@ -393,6 +395,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		}
 	}
 
+	/** @inheritDoc */
 	public function extractSubscripts() {
 		$y = [];
 
@@ -405,6 +408,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return [];
 	}
 
+	/** @inheritDoc */
 	public function extractIdentifiers( $args = null ) {
 		if ( $args == null ) {
 			$args = $this->args;
@@ -442,6 +446,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return array_slice( $list, 0, count( $list ) - $offset );
 	}
 
+	/** @inheritDoc */
 	public function getModIdent() {
 		$y = [];
 

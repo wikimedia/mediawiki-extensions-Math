@@ -50,6 +50,7 @@ class Literal extends TexNode {
 		return $input;
 	}
 
+	/** @inheritDoc */
 	public function renderMML( $arguments = [], $state = [] ) {
 		if ( isset( $state["intent-params"] ) ) {
 			foreach ( $state["intent-params"] as $intparam ) {
@@ -167,14 +168,17 @@ class Literal extends TexNode {
 		return $this->extendedLiterals;
 	}
 
+	/** @inheritDoc */
 	public function extractIdentifiers( $args = null ) {
 		return $this->getLiteral( $this->literals, '/^([a-zA-Z\']|\\\\int)$/' );
 	}
 
+	/** @inheritDoc */
 	public function extractSubscripts() {
 		return $this->getLiteral( $this->extendedLiterals, '/^([0-9a-zA-Z+\',-])$/' );
 	}
 
+	/** @inheritDoc */
 	public function getModIdent() {
 		if ( $this->arg === '\\ ' ) {
 			return [ '\\ ' ];
