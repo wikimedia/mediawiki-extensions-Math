@@ -48,7 +48,7 @@ class MMLComparator {
 		"mspace" => [ "width" ]
 	];
 
-	public static function functionObtainTreeInBrackets( $mml ) {
+	public static function functionObtainTreeInBrackets( string $mml ): string {
 		$xml = simplexml_load_string( $mml );
 		$nodes = self::xmlToNode( $xml );
 		return self::convertToBracketFormat( $nodes );
@@ -95,7 +95,7 @@ class MMLComparator {
 		return $compRes;
 	}
 
-	public static function xmlToNode( $xml ) {
+	public static function xmlToNode( \SimpleXMLElement $xml ): XMLNode {
 		$node = new XMLNode( $xml->getName() );
 
 		foreach ( $xml->children() as $child ) {
@@ -146,7 +146,7 @@ class MMLComparator {
 		return [ "TED" => $ted, "normalizedTED" => $normalizedTED ];
 	}
 
-	public static function convertToBracketFormat( $root ) {
+	public static function convertToBracketFormat( \SimpleXMLElement $root ): string {
 		if ( empty( $root->children ) ) {
 			return "{" . $root->value . "}";
 		}

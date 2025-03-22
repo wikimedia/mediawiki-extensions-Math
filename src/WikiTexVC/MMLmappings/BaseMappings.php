@@ -653,21 +653,21 @@ class BaseMappings {
 		return self::$instance;
 	}
 
-	public static function getOperatorByKey( $key ) {
+	public static function getOperatorByKey( string $key ) {
 		if ( $key === '-' ) {
 			return MMLutil::uc2xNotation( '\u2212' ); // added this additionally for running all tests
 		}
 		return MMLutil::getMappingByKey( $key, self::MATHCHAR0MO, true, true );
 	}
 
-	public static function getMacroByKey( $key ) {
+	public static function getMacroByKey( string $key ) {
 		if ( $key === '\\ ' ) {
 			return self::MACROS[' '];
 		}
 		return MMLutil::getMappingByKeySimple( $key, self::MACROS, true );
 	}
 
-	public static function getSpecialByKey( $key ) {
+	public static function getSpecialByKey( string $key ) {
 		$ret = MMLutil::getMappingByKeySimple( $key, self::SPECIAL );
 		// Only activated elements get found in this mapping currently.
 		if ( is_array( $ret ) && count( $ret ) >= 2 && $ret[1] ) {
@@ -676,26 +676,26 @@ class BaseMappings {
 		return null;
 	}
 
-	public static function getCancelByKey( $key ) {
+	public static function getCancelByKey( string $key ) {
 		if ( !TexUtil::getInstance()->cancel_required( $key ) ) {
 			return null;
 		}
 		return TexUtil::getInstance()->callback( $key );
 	}
 
-	public static function getCharacterByKey( $key ) {
+	public static function getCharacterByKey( string $key ) {
 		return MMLutil::getMappingByKeySimple( $key, self::MATCHAR7, true );
 	}
 
-	public static function getCustomByKey( $key ) {
+	public static function getCustomByKey( string $key ) {
 		return MMLutil::getMappingByKeySimple( $key, self::CUSTOM, true );
 	}
 
-	public static function getMhChemByKey( $key ) {
+	public static function getMhChemByKey( string $key ) {
 		return MMLutil::getMappingByKeySimple( $key, self::MHCHEM, true );
 	}
 
-	public static function getColorByKey( $key ) {
+	public static function getColorByKey( string $key ) {
 		// Cast to uppercase first letter since mapping is structured that way.
 		$key = ucfirst( $key );
 		return MMLutil::getMappingByKey( $key, self::COLORS );

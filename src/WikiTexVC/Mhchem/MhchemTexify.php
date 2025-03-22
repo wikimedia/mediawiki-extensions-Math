@@ -34,7 +34,7 @@ class MhchemTexify {
 		$this->optimizeForTexVC = $optimizeForTexVC;
 	}
 
-	public function go( $input, $addOuterBraces ): string {
+	public function go( $input, bool $addOuterBraces ): string {
 		if ( !MhchemUtil::issetJS( $input ) ) {
 			return "";
 		}

@@ -262,7 +262,7 @@ class BaseMethods {
 		}
 	}
 
-	public static function generateMMLError( $msg ): string {
+	public static function generateMMLError( string $msg ): string {
 		return ( new MMLmerror() )->encapsulateRaw(
 			( new MMLmtext() )->encapsulate( $msg )
 		);

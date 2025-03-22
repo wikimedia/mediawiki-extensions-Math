@@ -51,7 +51,7 @@ class Fun1 extends TexNode {
 		return $this->parseToMML( $this->fname, $arguments, null );
 	}
 
-	public function createMover( $inner, $moArgs = [] ): string {
+	public function createMover( string $inner, array $moArgs = [] ): string {
 		$mrow = new MMLmrow();
 		$mo = new MMLmo( "", $moArgs );
 		$mover = new MMLmover();
