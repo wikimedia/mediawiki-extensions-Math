@@ -457,7 +457,7 @@ abstract class MathRenderer {
 		$this->purge = $purge;
 	}
 
-	public function getLastError() {
+	public function getLastError(): string {
 		return $this->lastError;
 	}
 
