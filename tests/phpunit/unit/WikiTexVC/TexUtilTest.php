@@ -65,7 +65,6 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'declh_function',
 			'definecolor_function',
 			'delimiter',
-			'environment_rendering',
 			'euro_required',
 			'fun_ar1',
 			'fun_ar1nb',
@@ -80,7 +79,6 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'intent_required',
 			'latex_function_names',
 			'left_function',
-			'macro_rendering',
 			'mathoid_required',
 			'mediawiki_function_names',
 			'mhchem_bond',
@@ -160,8 +158,6 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 	public function testMethodNamesExist() {
 		$tu = TexUtil::getInstance();
 		$sets = [
-			'environment_rendering',
-			'macro_rendering',
 			'callback',
 		];
 		foreach ( $sets as $set ) {
