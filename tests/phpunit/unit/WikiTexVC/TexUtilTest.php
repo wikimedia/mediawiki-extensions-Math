@@ -91,6 +91,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'nullary_macro',
 			'nullary_macro_in_mbox',
 			'operator',
+			'operator_rendering',
 			'other_delimiters1',
 			'other_delimiters2',
 			'over_operator',
