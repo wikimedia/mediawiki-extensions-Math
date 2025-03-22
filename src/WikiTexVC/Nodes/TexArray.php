@@ -102,10 +102,10 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		if ( !( $currentNode instanceof Fun2nb && $currentNode->getFname() == "\\sideset" ) ) {
 			return null;
 		}
-		if ( $nextNode instanceof Literal ) {
-			return $nextNode;
-		}
-		if ( $nextNode instanceof FQ ) {
+		if ( $nextNode instanceof Literal ||
+			$nextNode instanceof DQ ||
+			$nextNode instanceof UQ ||
+			$nextNode instanceof FQ ) {
 			return $nextNode;
 		}
 		return null;
