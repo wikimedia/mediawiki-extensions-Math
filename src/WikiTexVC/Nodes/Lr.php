@@ -84,7 +84,7 @@ class Lr extends TexNode {
 		);
 	}
 
-	private function mmlTranslate( $input ) {
+	private function mmlTranslate( string $input ): string {
 		switch ( trim( $input ) ) {
 			case "\\vert":
 				return "|";

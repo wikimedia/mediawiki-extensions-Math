@@ -94,7 +94,7 @@ class Fun1 extends TexNode {
 		return $this->getSubs( $this->arg->getModIdent() );
 	}
 
-	private function getSubs( $subs ) {
+	private function getSubs( array $subs ): array {
 		$letterMods = array_keys( $this->tu->getBaseElements()['is_letter_mod'] );
 
 		if ( isset( $subs[0] ) && in_array( $this->fname, $letterMods, true ) ) {

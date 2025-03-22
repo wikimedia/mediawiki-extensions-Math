@@ -213,7 +213,7 @@ class TexVC {
 		}
 	}
 
-	private function handleTexError( Exception $e, $options = null ) {
+	private function handleTexError( Exception $e, ?array $options = null ): array {
 		if ( $options && $options['debug'] ) {
 			throw $e;
 		}

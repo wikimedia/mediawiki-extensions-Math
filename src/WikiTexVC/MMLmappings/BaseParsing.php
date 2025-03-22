@@ -1289,7 +1289,7 @@ class BaseParsing {
 		);
 	}
 
-	private static function getApplyFct( $operatorContent ): string {
+	private static function getApplyFct( array $operatorContent ): string {
 		$applyFct = "";
 		if ( array_key_exists( "foundNamedFct", $operatorContent ) ) {
 			$hasNamedFct = $operatorContent['foundNamedFct'][0];
