@@ -142,7 +142,7 @@ SVG;
 		return $result;
 	}
 
-	protected function getGroupName() {
+	protected function getGroupName(): string {
 		return 'other';
 	}
 }
