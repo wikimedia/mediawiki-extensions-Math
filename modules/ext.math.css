@@ -107,3 +107,27 @@ mrow.menclose-downdiagonalstrike {
 	background-color: currentcolor;
 	clip-path: polygon( 0 0, 0.05em 0, 100% 100%, calc( 100% - 0.05em ) 100% );
 }
+
+/**
+ * Large formulae should be horizontally scrollable.
+ * Addresses issue in T201233 for MathML.
+ * Note this also applies to the math element when "MathML (experimental; no images)" preference enabled
+ */
+.mwe-math-element {
+	overflow-x: auto;
+	max-width: 100%;
+}
+
+/**
+ * Without display: inline-flex the span.mwe-math-element will be treated as an inline element
+ * and scrollbar will not show.
+ *
+ * We use inline-block rather than inline-flex as this respects the layout of surrounding elements with non-default
+ * font sizes (inline-flex impacts line-height)
+ * We specify span, as math tag should already render as block by default.
+ */
+span.mwe-math-element {
+	display: inline-block;
+	/* vertical-align is necessary to avoid adding vertical spacing between: https://phabricator.wikimedia.org/F58920813 */
+	vertical-align: middle;
+}
