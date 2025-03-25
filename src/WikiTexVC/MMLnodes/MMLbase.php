@@ -16,6 +16,10 @@ class MMLbase {
 		}
 	}
 
+	/**
+	 * Get name (mi, mo, ...) from current element
+	 * @return string
+	 */
 	public function getName(): string {
 		return $this->name;
 	}
