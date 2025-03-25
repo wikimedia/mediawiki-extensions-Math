@@ -55,7 +55,7 @@ class BaseTest extends MediaWikiUnitTestCase {
 	public function testName() {
 		$this->assertEquals(
 			'test',
-			( new MMLbase( 'test' ) )->name()
+			( new MMLbase( 'test' ) )->getName()
 		);
 	}
 }

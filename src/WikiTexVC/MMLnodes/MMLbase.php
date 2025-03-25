@@ -16,7 +16,7 @@ class MMLbase {
 		}
 	}
 
-	public function name(): string {
+	public function getName(): string {
 		return $this->name;
 	}
 
