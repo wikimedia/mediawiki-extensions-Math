@@ -8,6 +8,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\MMLnodes;
  * description: "The menclose element renders its content inside the enclosing notation specified
  * by its notation attribute."
  * category:  General Layout Schemata
+ * @deprecated is not part of MathML core specification: T389712
  */
 class MMLmenclose extends MMLbase {
 
