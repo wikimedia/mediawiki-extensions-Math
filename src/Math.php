@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Math;
 
 use MediaWiki\Extension\Math\InputCheck\InputCheckFactory;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\VisitorFactory;
 use MediaWiki\MediaWikiServices;
 use Psr\Container\ContainerInterface;
 
@@ -28,5 +29,10 @@ final class Math {
 	public static function getCheckerFactory( ?ContainerInterface $services = null ): InputCheckFactory {
 		return ( $services ?: MediaWikiServices::getInstance() )
 			->get( 'Math.CheckerFactory' );
+	}
+
+	public static function getVisitorFactory( ?ContainerInterface $services = null ): VisitorFactory {
+		return ( $services ?: MediaWikiServices::getInstance() )
+			->get( 'Math.MathMLTreeVisitor' );
 	}
 }
