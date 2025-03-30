@@ -4,6 +4,8 @@ namespace MediaWiki\Extension\Math\Tests\WikiTexVC\MMLnodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLDomVisitor;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\VisitorFactory;
 use MediaWikiUnitTestCase;
 
 /**
@@ -56,6 +58,34 @@ class BaseTest extends MediaWikiUnitTestCase {
 		$this->assertEquals(
 			'test',
 			( new MMLbase( 'test' ) )->getName()
+		);
+	}
+
+	public function testgetAttributes() {
+		$mbase = new MMLbase( 'test', 'texClass1', [ 'mathvariant' => 'bold' ] );
+		$this->assertEquals(
+			[ 'mathvariant' => 'bold', 'data-mjx-texclass' => 'texClass1' ],
+			$mbase->getAttributes()
+		);
+	}
+
+	public function testAccept() {
+		$visitor = new MMLDomVisitor();
+		$mbase = new MMLbase( 'test', 'texClass1', [ 'mathvariant' => 'bold' ] );
+		$mbase->accept( $visitor );
+		$this->assertEquals(
+			'<test mathvariant="bold" data-mjx-texclass="texClass1"></test>',
+			$visitor->getHTML()
+		);
+	}
+
+	public function testString() {
+		$mbase = new MMLbase( 'test', 'texClass1', [ 'mathvariant' => 'bold' ] );
+		$visitorFactory = new VisitorFactory();
+		$mbase->setVisitorFactory( $visitorFactory );
+		$this->assertEquals(
+			'<test mathvariant="bold" data-mjx-texclass="texClass1"></test>',
+			(string)$mbase
 		);
 	}
 }
