@@ -12,7 +12,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\MMLnodes;
  */
 class MMLmenclose extends MMLbase {
 
-	public function __construct( string $texclass = "", array $attributes = [] ) {
-		parent::__construct( "menclose", $texclass, $attributes );
+	public function __construct( string $texclass = "", array $attributes = [], MMLbase ...$children ) {
+		parent::__construct( "menclose", $texclass, $attributes, $children );
 	}
 }
