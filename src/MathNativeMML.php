@@ -139,6 +139,7 @@ class MathNativeMML extends MathMathML {
 		return false;
 	}
 
+	/** @inheritDoc */
 	public function writeCache() {
 		return true;
 	}

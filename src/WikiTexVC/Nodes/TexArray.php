@@ -509,6 +509,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		}
 	}
 
+	/** @inheritDoc */
 	public function render() {
 		if ( $this->curly ) {
 			return $this->inCurlies();
