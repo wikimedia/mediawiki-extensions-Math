@@ -107,6 +107,9 @@ class MathNativeMML extends MathMathML {
 		}
 		if ( $this->getMathStyle() == 'display' ) {
 			$attributes['display'] = 'block';
+			$attributes['class'] .= ' mwe-math-element-block';
+		} else {
+			$attributes['class'] .= ' mwe-math-element-inline';
 		}
 		$root = new MMLmath( "", $attributes );
 		$mathElement = $root->encapsulateRaw( $presentation ?? '' );
