@@ -10,13 +10,32 @@ class MMLbase {
 	private array $attributes;
 	/** @var VisitorFactory */
 	protected $visitorFactory = null;
+	/** @var MMLbase[] */
+	protected array $children = [];
 
-	public function __construct( string $name, string $texclass = '', array $attributes = [] ) {
+	/**
+	 * Constructor for MML element node
+	 *
+	 * @param string $name The element tag name (e.g., 'msubsup', 'msqrt')
+	 * @param string $texclass TeX class name
+	 * @param array $attributes Associative array of element attributes
+	 * @param mixed ...$children MMLbase child elements (null values are allowed for placeholder values)
+	 */
+	public function __construct( string $name, string $texclass = '', array $attributes = [], ...$children ) {
 		$this->name = $name;
 		$this->attributes = $attributes;
+		$this->children = $children;
 		if ( $texclass !== '' ) {
 			$this->attributes[ TAG::CLASSTAG ] = $texclass;
 		}
+	}
+
+	/**
+	 *  Get name children from current element
+	 * @return MMLbase[]
+	 */
+	public function getChildren(): array {
+		return $this->children;
 	}
 
 	/**

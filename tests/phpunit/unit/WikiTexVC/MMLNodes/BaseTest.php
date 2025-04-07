@@ -88,4 +88,13 @@ class BaseTest extends MediaWikiUnitTestCase {
 			(string)$mbase
 		);
 	}
+
+	public function testChildren() {
+		$mbase1 = new MMLbase( 'test1', 'texClass1', [ 'mathvariant' => 'bold' ] );
+		$mbase2 = new MMLbase( 'test2', 'texClass2', [ 'mathvariant' => 'bold' ] );
+		$mbase3 = new MMLbase( 'test3', 'texClass3', [ 'mathvariant' => 'bold' ] );
+		$base = new MMLbase( 'test4', 'texClass4', [ 'mathvariant' => 'bold' ],
+			$mbase1, $mbase2, $mbase3 );
+		$this->assertEquals( [ $mbase1, $mbase2, $mbase3 ], $base->getChildren() );
+	}
 }
