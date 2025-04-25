@@ -3,6 +3,7 @@
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLDomVisitor;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 
 /**
@@ -54,5 +55,43 @@ class MMLDomVisitorTest extends MediaWikiUnitTestCase {
 			'<mi>&lt;&gt;&amp;"</mi>',
 			$visitor->getHTML()
 		);
+	}
+
+	public function testNestedStructure() {
+		$visitor = new MMLDomVisitor();
+		$mi = new MMLmi( '', [], 'x' );
+		$mo = new MMLmo( '', [], '+' );
+		$mn = new MMLmn( '', [], '5' );
+		$mrow = new MMLmrow( '', [], $mi, $mo, $mn );
+
+		$expected = <<<XML
+		<mrow>
+		  <mi>x</mi>
+		  <mo>+</mo>
+		  <mn>5</mn>
+		</mrow>
+		XML;
+		$visitor->visit( $mrow );
+		$this->assertXmlStringEqualsXmlString( $expected, $visitor->getHTML() );
+	}
+
+	public function testDeepNesting() {
+		$visitor = new MMLDomVisitor();
+		$inner = new MMLmrow(
+			'', [], new MMLmi( '', [], 'x' ),
+			new MMLmo( '', [], '=' )
+		);
+		$outer = new MMLmrow( '', [], $inner, new MMLmn( '', [], '5' ) );
+		$visitor->visit( $outer );
+		$expected = <<<XML
+		<mrow>
+			<mrow>
+				<mi>x</mi>
+				<mo>=</mo>
+			</mrow>
+			<mn>5</mn>
+		</mrow>
+		XML;
+		$this->assertXmlStringEqualsXmlString( $expected, $visitor->getHTML() );
 	}
 }

@@ -3,27 +3,41 @@ namespace MediaWiki\Extension\Math\WikiTexVC\MMLnodes;
 
 use DOMDocument;
 use DOMElement;
+use DOMNode;
 
 class MMLDomVisitor implements MMLVisitor {
 	private DOMDocument $dom;
+	/** @var DOMNode[] */
+	private array $elementStack = [];
 
 	public function __construct() {
 		$this->dom = new DOMDocument( '1.0', 'UTF-8' );
 		$this->dom->formatOutput = true;
 		$this->dom->preserveWhiteSpace = false;
+		$this->elementStack[] = $this->dom;
 	}
 
 	/**
-	 * Visit an MMLbase node and process it
+	 * Visit an MMLbase node and process it.
 	 * @param MMLbase $node Node to visit
 	 * @throws \DOMException
 	 */
 	public function visit( MMLbase $node ): void {
 		$element = $this->createElement( $node );
-		$this->dom->appendChild( $element );
-		if ( $node instanceof MMLLeaf ) {
-			$element->appendChild( $this->dom->createTextNode( $node->getText() ) );
+		end( $this->elementStack )->appendChild( $element );
+		if ( $node instanceof MMLleaf ) {
+			$textNode = $this->dom->createTextNode( $node->getText() );
+			$element->appendChild( $textNode );
+			return;
 		}
+		$this->elementStack[] = $element;
+		foreach ( $node->getChildren() as $child ) {
+			if ( $child !== null ) {
+				// implicitly calls visit
+				$child->accept( $this );
+			}
+		}
+		array_pop( $this->elementStack );
 	}
 
 	/**
