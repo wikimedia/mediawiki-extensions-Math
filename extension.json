@@ -22,6 +22,7 @@
 		"DummyPropertyDataTypeLookup": "tests/phpunit/DummyPropertyDataTypeLookup.php",
 		"MediaWiki\\Extension\\Math\\Tests\\MathWikibaseConnectorTestFactory": "tests/phpunit/unit/MathWikibaseConnectorTestFactory.php",
 		"MediaWiki\\Extension\\Math\\Tests\\MathMockHttpTrait": "tests/phpunit/MathMockHttpTrait.php",
+		"MediaWiki\\Extension\\Math\\Tests\\WikiTexVC\\MathServiceContainerTrait": "tests/phpunit/unit/WikiTexVC/MathServiceContainerTrait.php",
 		"MediaWiki\\Extension\\Math\\WikiTexVC\\MMLmappings\\Util\\MMLTestUtilHTML": "tests/phpunit/unit/WikiTexVC/MMLTestUtilHTML.php",
 		"MediaWiki\\Extension\\Math\\WikiTexVC\\MMLmappings\\Util\\MMLTestUtil": "tests/phpunit/unit/WikiTexVC/MMLTestUtil.php",
 		"MediaWiki\\Extension\\Math\\WikiTexVC\\MMLmappings\\Util\\MMLComparator": "tests/phpunit/unit/WikiTexVC/MMLComparator.php"

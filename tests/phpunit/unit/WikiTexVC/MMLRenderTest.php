@@ -15,6 +15,7 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
  */
 class MMLRenderTest extends MediaWikiUnitTestCase {
+	use MathServiceContainerTrait;
 
 	public function testMathFRakUnicode() {
 		$input = "\\mathfrak{O},  \\mathfrak{K}, \\mathfrak{t}, \\mathfrak{C}";
@@ -558,5 +559,10 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "&#x2016;", $mml );
 		$this->assertStringNotContainsString( "OPEN", $mml );
 		$this->assertStringNotContainsString( "CLOSE", $mml );
+	}
+
+	protected function setUp(): void {
+		parent::setUp();
+		$this->setUpMathServiceContainer();
 	}
 }
