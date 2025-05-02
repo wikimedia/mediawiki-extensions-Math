@@ -526,8 +526,8 @@ class BaseParsing {
 		}
 
 		// Removed all token based parsing, since macro resolution for the supported macros can be hardcoded in php
-		$mmlMrow = new MMLmrow();
-		return $mmlMrow->encapsulate( "macro not resolved: " . $macro );
+		return (string)( new MMLmerror( "", [], (
+			new MMLmtext( "", [], "macro not resolved: " . $macro ) ) ) );
 	}
 
 	public static function matrix( Matrix $node, $passedArgs, $operatorContent,
@@ -683,7 +683,8 @@ class BaseParsing {
 					$mmlText->encapsulateRaw( MMLutil::uc2xNotation( $uc ) )
 					. $mSpace->getEmpty() ) );
 			default:
-				return ( new MMLmerror() )->encapsulate( "not found in OintMethod" );
+				return (string)( new MMLmerror( "", [], (
+					new MMLmtext( "", [], "not found in OintMethod" ) ) ) );
 
 		}
 	}
