@@ -105,16 +105,6 @@ class MMLbase {
 	}
 
 	/**
-	 * Encapsulating the input with start and end element
-	 *
-	 * @param string $input
-	 * @return string <tag> input </tag>
-	 */
-	public function encapsulate( string $input = '' ): string {
-		return HTML::element( $this->name, $this->attributes, $input );
-	}
-
-	/**
 	 * Getting the start element
 	 * @return string
 	 */

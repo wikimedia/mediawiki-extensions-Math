@@ -27,14 +27,6 @@ class BaseTest extends MediaWikiUnitTestCase {
 		);
 	}
 
-	public function testEncapsulate() {
-		$this->assertEquals(
-			'<test>&lt;script>alert(document.cookies);&lt;/script></test>',
-			( new MMLbase( 'test' ) )
-				->encapsulate( '<script>alert(document.cookies);</script>' )
-		);
-	}
-
 	public function testEncapsulateRaw() {
 		$this->assertEquals(
 			'<test><script>alert(document.cookies);</script></test>',
