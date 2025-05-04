@@ -52,6 +52,13 @@ class FQTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( ( new MMLmrow() )->getEmpty(), $result );
 	}
 
+	public function testRenderEmptyFqNoCurly() {
+		$fq = new FQ( new TexArray(), new Literal( 'b' ), new Literal( 'c' ) );
+		$result = $fq->renderMML();
+		$this->assertStringContainsString( 'msubsup', $result );
+		$this->assertStringContainsString( ( new MMLmrow() )->getEmpty(), $result );
+	}
+
 	public function testLatin() {
 		$fq = new FQ( new Literal( 'a' ), new Literal( 'b' ), new Literal( 'c' ) );
 		$this->assertStringContainsString( 'msubsup', $fq->renderMML() );

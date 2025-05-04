@@ -60,14 +60,13 @@ class FQ extends TexNode {
 			return BaseParsing::limits( $this, $arguments, $state, "" );
 		}
 		$base = $this->getBase();
-
-		if ( $base->getLength() == 0 && !$base->isCurly() ) {
-			// this happens when FQ is located in Sideset (is this a common parsing way?)
+		if ( isset( $state['sideset'] ) &&
+			$base->getLength() == 0 && !$base->isCurly() ) {
+			// this happens when FQ is located in sideset Testcase 132
 			$mrow = new MMLmrow();
 			return $mrow->encapsulateRaw( $this->getDown()->renderMML( [], $state ) ) .
 				$mrow->encapsulateRaw( $this->getUp()->renderMML( [], $state ) );
 		}
-
 		$melement = new MMLmsubsup();
 		// tbd check for more such cases like TexUtilTest 317
 		if ( $base instanceof Literal ) {
@@ -86,7 +85,7 @@ class FQ extends TexNode {
 		$mrow = new MMLmrow();
 		$emptyMrow = "";
 		// In cases with empty curly preceding like: "{}_1^2\!\Omega_3^4"
-		if ( $base->isCurly() && $base->isEmpty() ) {
+		if ( $base->isEmpty() ) {
 			$emptyMrow = $mrow->getEmpty();
 		}
 		// This seems to be the common case
