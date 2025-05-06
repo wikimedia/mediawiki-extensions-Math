@@ -39,14 +39,6 @@ final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
 	/** @var string */
 	private static $GENERATEDHTMLFILE = __DIR__ . "/MMLGenerationParserTest-Output.html";
 
-	protected function setUp(): void {
-		parent::setUp();
-	}
-
-	protected function tearDown(): void {
-		parent::tearDown();
-	}
-
 	public static function setUpBeforeClass(): void {
 		MMLTestUtilHTML::generateHTMLstart( self::$GENERATEDHTMLFILE, [ "name", "Tex-Input",
 			"MathML(LaTeXML)", "MathML(Mathoid)", "MathML(WikiTexVC)", "F-Similarity" ], self::$GENERATEHTML );
