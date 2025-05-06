@@ -2,11 +2,10 @@
 namespace MediaWiki\Extension\Math\WikiTexVC;
 
 use InvalidArgumentException;
-use MediaWiki\Extension\Math\Tests\WikiTexVC\MathServiceContainerTrait;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLComparator;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLTestUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLTestUtilHTML;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 
 /**
  * This is a test which checks the WikiTexVC (LaTeX to MathML) converter capabilities
@@ -22,8 +21,7 @@ use MediaWikiUnitTestCase;
  *
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
  */
-final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
-	use MathServiceContainerTrait;
+final class MMLFullCoverageTest extends MediaWikiIntegrationTestCase {
 
 	/** @var float */
 	private static $SIMILARITYTRESH = 0.7;
@@ -177,10 +175,5 @@ final class MMLFullCoverageTest extends MediaWikiUnitTestCase {
 			$f = array_slice( $f, self::$FILTERSTART, self::$FILTERLENGTH );
 		}
 		return $f;
-	}
-
-	protected function setUp(): void {
-		parent::setUp();
-		$this->setUpMathServiceContainer();
 	}
 }

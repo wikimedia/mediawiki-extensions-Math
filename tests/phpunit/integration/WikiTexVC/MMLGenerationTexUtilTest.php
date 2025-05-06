@@ -7,7 +7,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLTestUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLTestUtilHTML;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 
 /**
  * This test is checking the MathML generation from LaTeX by WikiTexVC.
@@ -28,9 +28,7 @@ use MediaWikiUnitTestCase;
  *
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
  */
-class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
-	use MathServiceContainerTrait;
-
+class MMLGenerationTexUtilTest extends MediaWikiIntegrationTestCase {
 	/** @var float */
 	private static $SIMILARITYTRESH = 0.7;
 	/** @var bool */
@@ -342,8 +340,4 @@ class MMLGenerationTexUtilTest extends MediaWikiUnitTestCase {
 		return $groups;
 	}
 
-	protected function setUp(): void {
-		parent::setUp();
-		$this->setUpMathServiceContainer();
-	}
 }

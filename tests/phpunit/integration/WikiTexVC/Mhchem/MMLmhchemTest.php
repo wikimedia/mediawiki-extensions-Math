@@ -2,11 +2,10 @@
 namespace MediaWiki\Extension\Math\WikiTexVC\Mhchem;
 
 use Exception;
-use MediaWiki\Extension\Math\Tests\WikiTexVC\MathServiceContainerTrait;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLTestUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLTestUtilHTML;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 
 /**
  * This test checks the functionality MHCHem module within MediaWiki environment
@@ -21,8 +20,7 @@ use MediaWikiUnitTestCase;
  *
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
  */
-final class MMLmhchemTest extends MediaWikiUnitTestCase {
-	use MathServiceContainerTrait;
+final class MMLmhchemTest extends MediaWikiIntegrationTestCase {
 
 	private static bool $LOGMHCHEM = false;
 	private static bool $SKIPXMLVALIDATION = false;
@@ -143,8 +141,4 @@ final class MMLmhchemTest extends MediaWikiUnitTestCase {
 		return $f;
 	}
 
-	protected function setUp(): void {
-		parent::setUp();
-		$this->setUpMathServiceContainer();
-	}
 }

@@ -2,9 +2,8 @@
 
 namespace MediaWiki\Extension\Math\WikiTexVC\Mhchem;
 
-use MediaWiki\Extension\Math\Tests\WikiTexVC\MathServiceContainerTrait;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 
 /**
  * Some simple tests for testing MML output of TeXVC for
@@ -14,8 +13,7 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
  *
  */
-final class MhchemBasicMMLTest extends MediaWikiUnitTestCase {
-	use MathServiceContainerTrait;
+final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 
 	public function testGUIStyleNotation() {
 		$input = "{\displaystyle \ce{ C6H5-CHO }}";
@@ -264,10 +262,5 @@ final class MhchemBasicMMLTest extends MediaWikiUnitTestCase {
 			$warnings, true );
 		$ar = $checkRes["input"]->renderMML();
 		$this->assertStringContainsString( '<mpadded height="0" depth="0"', $ar );
-	}
-
-	protected function setUp(): void {
-		parent::setUp();
-		$this->setUpMathServiceContainer();
 	}
 }

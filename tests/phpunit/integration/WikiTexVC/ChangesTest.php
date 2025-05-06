@@ -6,10 +6,10 @@ use MediaWiki\Config\HashConfig;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathNativeMML;
-use MediaWiki\Extension\Math\Tests\WikiTexVC\MathServiceContainerTrait;
 use MediaWiki\HookContainer\HookContainer;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\Math\MathNativeMML
@@ -19,8 +19,7 @@ use MediaWikiUnitTestCase;
  * @covers \MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil
  * @covers \MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil
  */
-final class ChangesTest extends MediaWikiUnitTestCase {
-	use MathServiceContainerTrait;
+final class ChangesTest extends MediaWikiIntegrationTestCase {
 
 	private MathConfig $mathConfig;
 	private HookContainer $hookContainer;
@@ -60,7 +59,7 @@ final class ChangesTest extends MediaWikiUnitTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-		$this->setUpMathServiceContainer();
+		MediaWikiServices::allowGlobalInstanceAfterUnitTests();
 		$this->mathConfig = $this->getMathConfig();
 		$this->hookContainer = $this->createHookContainer();
 		$this->mainConfig = new HashConfig();

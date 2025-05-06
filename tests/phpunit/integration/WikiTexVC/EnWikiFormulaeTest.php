@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC;
 
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 
 /**
  * Currently WIP functionalities of en-wiki-formulae.js testsuite.
@@ -15,8 +15,7 @@ use MediaWikiUnitTestCase;
  *
  * @group Stub
  */
-class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
-	use MathServiceContainerTrait;
+class EnWikiFormulaeTest extends MediaWikiIntegrationTestCase {
 
 	private const FILEPATH = __DIR__ . '/en-wiki-formulae-good.json';
 	private const REF_FILEPATH = __DIR__ . '/en-wiki-formulae-good-reference.json';
@@ -104,10 +103,5 @@ class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 				$this->assertTrue( false, $message );
 			}
 		}
-	}
-
-	protected function setUp(): void {
-		parent::setUp();
-		$this->setUpMathServiceContainer();
 	}
 }

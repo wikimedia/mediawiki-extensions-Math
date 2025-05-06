@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\MMLmappings;
 
-use MediaWiki\Extension\Math\Tests\WikiTexVC\MathServiceContainerTrait;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
@@ -16,7 +15,6 @@ use PHPUnit\Framework\TestCase;
  * @covers \MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing
  */
 class BaseParsingTest extends TestCase {
-	use MathServiceContainerTrait;
 
 	public function testAccent() {
 		$node = new Fun1(
@@ -228,10 +226,5 @@ f(x,y,z) & = & x + y + z
 		$node = new Literal( '\\limits ' );
 		$result = BaseParsing::limits( $node, [], [], '\\limits' );
 		$this->assertSame( '', $result, 'Misplaced limits should be ignored' );
-	}
-
-	protected function setUp(): void {
-		parent::setUp();
-		$this->setUpMathServiceContainer();
 	}
 }

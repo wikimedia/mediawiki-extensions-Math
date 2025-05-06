@@ -6,7 +6,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLTestUtil;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 
 /**
  * These are some specific testcases by MML-Rendering by WikiTexVC.
@@ -14,8 +14,7 @@ use MediaWikiUnitTestCase;
  * Mathoid or LaTeXML do not generate suitable results for reference.
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
  */
-class MMLRenderTest extends MediaWikiUnitTestCase {
-	use MathServiceContainerTrait;
+class MMLRenderTest extends MediaWikiIntegrationTestCase {
 
 	public function testMathFRakUnicode() {
 		$input = "\\mathfrak{O},  \\mathfrak{K}, \\mathfrak{t}, \\mathfrak{C}";
@@ -559,10 +558,5 @@ class MMLRenderTest extends MediaWikiUnitTestCase {
 		$this->assertStringContainsString( "&#x2016;", $mml );
 		$this->assertStringNotContainsString( "OPEN", $mml );
 		$this->assertStringNotContainsString( "CLOSE", $mml );
-	}
-
-	protected function setUp(): void {
-		parent::setUp();
-		$this->setUpMathServiceContainer();
 	}
 }
