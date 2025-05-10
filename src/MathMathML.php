@@ -455,12 +455,15 @@ class MathMathML extends MathRenderer {
 	public function getHtmlOutput( bool $svg = true ): string {
 		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$enableLinks = $config->get( "MathEnableFormulaLinks" );
+		$className = 'mwe-math-element';
 		if ( $this->getMathStyle() === 'display' ) {
 			$mml_class = 'mwe-math-mathml-display';
+			$className .= ' mwe-math-element-block';
 		} else {
 			$mml_class = 'mwe-math-mathml-inline';
+			$className .= ' mwe-math-element-inline';
 		}
-		$attribs = [ 'class' => 'mwe-math-element' ];
+		$attribs = [ 'class' => $className ];
 		if ( $this->getID() !== '' ) {
 			$attribs['id'] = $this->getID();
 		}
