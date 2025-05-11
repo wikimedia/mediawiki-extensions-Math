@@ -9,12 +9,12 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
-use PHPUnit\Framework\TestCase;
+use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing
  */
-class BaseParsingTest extends TestCase {
+class BaseParsingTest extends MediaWikiIntegrationTestCase {
 
 	public function testAccent() {
 		$node = new Fun1(

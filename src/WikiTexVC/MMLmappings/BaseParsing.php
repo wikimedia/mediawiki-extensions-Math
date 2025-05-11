@@ -270,13 +270,11 @@ class BaseParsing {
 				$styleAttr = [ "minsize" => "1.2em" ];
 			}
 
-			/* @phan-suppress-next-line SecurityCheck-DoubleEscaped */
 			$frac = new MMLmfrac( '', $attrs );
 		} else {
 			// NodeUtil_js_1.default.setProperties(frac, { displaystyle: false,
 			//    scriptlevel: styleDigit - 1 });
 			// tbd add props
-			/* @phan-suppress-next-line SecurityCheck-DoubleEscaped */
 			$frac = new MMLmfrac( '', $attrs );
 			$styleAttr = [ "maxsize" => "1.2em", "minsize" => "1.2em" ];
 

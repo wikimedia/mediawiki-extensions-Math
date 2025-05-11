@@ -57,6 +57,16 @@ class MMLDomVisitorTest extends MediaWikiUnitTestCase {
 		);
 	}
 
+	public function testEscapedUnicode() {
+		$visitor = new MMLDomVisitor();
+		$mi = new MMLmi( '', [], '&#x03B3;' );
+		$mi->accept( $visitor );
+		$this->assertEquals(
+			'<mi>&#x03B3;</mi>',
+			$visitor->getHTML()
+		);
+	}
+
 	public function testNestedStructure() {
 		$visitor = new MMLDomVisitor();
 		$mi = new MMLmi( '', [], 'x' );

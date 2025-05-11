@@ -10,14 +10,14 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 use RuntimeException;
 use TypeError;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ
  */
-class DQTest extends MediaWikiUnitTestCase {
+class DQTest extends MediaWikiIntegrationTestCase {
 
 	public function testEmptyDQ() {
 		$this->expectException( ArgumentCountError::class );
