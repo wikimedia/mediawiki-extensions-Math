@@ -1008,9 +1008,9 @@ class BaseParsing {
 				$merror = new MMLmerror();
 				$opParsed = $merror->encapsulateRaw( "Sideset operator parsing not implemented yet" );
 			}
-
-			$in1 = $node->getArg1()->renderMML();
-			$in2 = $node->getArg2()->renderMML();
+			$state = [ 'sideset' => true ];
+			$in1 = $node->getArg1()->renderMML( [], $state );
+			$in2 = $node->getArg2()->renderMML( [], $state );
 
 			$mrowEnd = new MMLmrow( "", [] );
 			$down = $operatorContent["sideset"] instanceof UQ ? '<mrow />' :
