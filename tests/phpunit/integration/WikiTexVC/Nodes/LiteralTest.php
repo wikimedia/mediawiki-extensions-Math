@@ -5,13 +5,13 @@ namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 use ArgumentCountError;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 use TypeError;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal
  */
-class LiteralTest extends MediaWikiUnitTestCase {
+class LiteralTest extends MediaWikiIntegrationTestCase {
 
 	public function testBaseclass() {
 		$this->expectException( ArgumentCountError::class );

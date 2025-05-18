@@ -7,13 +7,13 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 use TypeError;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ
  */
-class FQTest extends MediaWikiUnitTestCase {
+class FQTest extends MediaWikiIntegrationTestCase {
 
 	public function testEmptyFQ() {
 		$this->expectException( ArgumentCountError::class );

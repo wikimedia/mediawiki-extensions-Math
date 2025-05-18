@@ -68,8 +68,7 @@ class BaseMethods {
 					return $this->parseOperatorDict( $node, $passedArgs, $operatorContent, $input, false );
 				}
 				// Atm just do simple parsing for elements in operator dictionary
-				$mmlMo = new MMLmo( '', $passedArgs );
-				return $mmlMo->encapsulateRaw( $input );
+				return (string)new MMLmo( '', $passedArgs, $input );
 			}
 		}
 
@@ -97,19 +96,15 @@ class BaseMethods {
 				// this maybe just a default case, this is not rendered when it is the last in row
 				return (string)( new MMLmo( "", [], $input ) );
 			case "<":
-				$mmlMo = new MMLmo();
-				return $mmlMo->encapsulateRaw( "&lt;" );
+				return (string)( new MMLmo( "", [], "<" ) );
 			case ">":
-				$mmlMo = new MMLmo();
-				return $mmlMo->encapsulateRaw( "&gt;" );
+				return (string)( new MMLmo( "", [], ">" ) );
 			case "\\":
 				 // instead of carriage return, force whitespace here:
 				 // see: https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Math/+/961213
-				$mspace = new MMLmspace( "", [ "width" => "0.5em" ] );
-				return $mspace->getEmpty();
+				return (string)new MMLmspace( "", [ "width" => "0.5em" ] );
 			case '/':
-				$mmlMo = new MMLmo( '', [ 'lspace' => '0', 'rspace' => '0' ] );
-				return $mmlMo->encapsulateRaw( $input );
+				return (string)new MMLmo( '', [ 'lspace' => '0', 'rspace' => '0' ], $input );
 		}
 		return $input;
 	}
@@ -117,20 +112,17 @@ class BaseMethods {
 	public function parseOperator( $node, $passedArgs, $operatorContent, $name, $state, $uc = null, $attrs = [] ) {
 		// if($name == "equiv" || $name == "dotplus" || $name == "mp"  || $name == "pm"){
 		$attrs = array_merge( $passedArgs, $attrs ); // this is rather a workaround
-		$mo = new MMLmo( "", $attrs );
-
-		if ( $state != null && array_key_exists( "not", $state ) && $state["not"] ) {
-			$text = $mo->encapsulateRaw( $uc . "&#x338;" );
-		} else {
-			$text = $mo->encapsulateRaw( $uc );
+		if ( array_key_exists( "largeop", $attrs ) && $attrs['largeop'] == "" ) {
+			unset( $attrs['largeop'] );
+		}
+		if ( array_key_exists( "movesupsub", $attrs ) && $attrs['movesupsub'] == "1" ) {
+			unset( $attrs['movesupsub'] );
 		}
 
-		// Some attributes are nnot used which come from the mapping, tbd refactor this
-		$text = str_replace( " largeop=\"\"", "", $text );
-		$text = str_replace( "variantForm=\"True\"", "data-mjx-alternate=\"1\"", $text );
-		$text = str_replace( "variantForm=\"1\"", "data-mjx-alternate=\"1\"", $text );
-		$text = str_replace( " movesupsub=\"1\"", "", $text );
-		return str_replace( "texClass", "data-mjx-texclass", $text );
+		if ( $state != null && array_key_exists( "not", $state ) && $state["not"] ) {
+			return (string)new MMLmo( "", $attrs, $uc . "&#x338;" );
+		}
+		return (string)new MMLmo( "", $attrs, $uc );
 	}
 
 	public function checkAndParseIdentifier( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
@@ -162,12 +154,13 @@ class BaseMethods {
 		}
 
 		$args = array_merge( $passedArgs, $attrs );
-		$mi = new MMLmi( "", $args );
-		$text = $mi->encapsulateRaw( $uc );
-		// TODO refactor just for test
-		$text = str_replace( "variantForm=\"True\"", "data-mjx-alternate=\"1\"", $text );
-		$text = str_replace( "variantForm=\"1\"", "data-mjx-alternate=\"1\"", $text );
-		return str_replace( "texClass", "data-mjx-texclass", $text );
+
+		if ( array_key_exists( "texClass", $args ) ) {
+			$args["data-mjx-texclass"] = $args["texClass"];
+			unset( $args["texClass"] );
+		}
+
+		return (string)new MMLmi( "", $args, $uc );
 	}
 
 	public function checkAndParseDelimiter( $input, $node, $passedArgs,
@@ -186,8 +179,7 @@ class BaseMethods {
 			$passedArgs = array_merge( $resDelimiter[1], $passedArgs );
 		}
 
-		$mo = new MMLmo( $texClass, $passedArgs );
-		return $mo->encapsulateRaw( $resDelimiter[0] );
+		return (string)new MMLmo( $texClass, $passedArgs, $resDelimiter[0] );
 	}
 
 	public function checkAndParseMathCharacter( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
@@ -195,13 +187,7 @@ class BaseMethods {
 		if ( $resChar == null ) {
 			return null;
 		}
-
-		// Maybe move this to the mapping
-		$args = [ "mathvariant" => "normal" ];
-
-		$mi = new MMLmi( "", $args );
-		$enc = MMLutil::uc2xNotation( $resChar );
-		return $mi->encapsulateRaw( $enc );
+		return (string)new MMLmi( "", [ "mathvariant" => "normal" ], $resChar );
 	}
 
 	public function checkAndParseColor( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
@@ -222,11 +208,10 @@ class BaseMethods {
 		} else {
 			// Input is 'pagecolor'
 			$mrow = new MMLmrow();
-			$mi = new MMLmi();
 			// Mj3 does this, probably not necessary
 			$innerRow = "";
 			foreach ( str_split( $operatorContent ) as $char ) {
-				$innerRow .= $mi->encapsulateRaw( $char );
+				$innerRow .= new MMLmi( "", [], $char );
 			}
 			if ( $innerRow !== "" ) {
 				return ( new MMLmtext( "", [ "mathcolor" => $resColor ], "\\pagecolor" ) ) .

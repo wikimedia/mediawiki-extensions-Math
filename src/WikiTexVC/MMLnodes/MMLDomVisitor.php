@@ -45,7 +45,11 @@ class MMLDomVisitor implements MMLVisitor {
 	 * @return string
 	 */
 	public function getHTML(): string {
-		return trim( $this->dom->saveHTML() );
+		// DOM converts escaped Unicode chars like &#x338; to &amp;#x338;. This will revert the change.
+		return preg_replace( '/&amp;#x([0-9A-Fa-f]+);/',
+			'&#x$1;',
+			$this->dom->saveHTML( $this->dom->documentElement )
+		);
 	}
 
 	/**
@@ -57,7 +61,7 @@ class MMLDomVisitor implements MMLVisitor {
 	private function createElement( MMLbase $node ): DOMElement {
 		$element = $this->dom->createElement( $node->getName() );
 		foreach ( $node->getAttributes() as $name => $value ) {
-			$element->setAttribute( $name, htmlspecialchars( $value, ENT_QUOTES ) );
+			$element->setAttribute( strtolower( $name ), $value );
 		}
 		return $element;
 	}

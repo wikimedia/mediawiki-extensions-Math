@@ -6,13 +6,13 @@ use ArgumentCountError;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Lr;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 use TypeError;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Lr
  */
-class LrTest extends MediaWikiUnitTestCase {
+class LrTest extends MediaWikiIntegrationTestCase {
 
 	public function testEmptyLr() {
 		$this->expectException( ArgumentCountError::class );

@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLComparator;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLTestUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLTestUtilHTML;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 use Psr\Log\InvalidArgumentException;
 
 /**
@@ -13,7 +13,7 @@ use Psr\Log\InvalidArgumentException;
  * Categories can be selected within 'provideTestCases' functions.
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
  */
-final class MMLGenerationParserTest extends MediaWikiUnitTestCase {
+final class MMLGenerationParserTest extends MediaWikiIntegrationTestCase {
 	/** @var float */
 	private static $SIMILARITYTRESH = 0.7;
 	/** @var bool */

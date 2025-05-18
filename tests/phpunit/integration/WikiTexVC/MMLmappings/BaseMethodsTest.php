@@ -2,12 +2,12 @@
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\MMLmappings;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
-use PHPUnit\Framework\TestCase;
+use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods
  */
-class BaseMethodsTest extends TestCase {
+class BaseMethodsTest extends MediaWikiIntegrationTestCase {
 	public function testCheckAndParseOperatorWithU() {
 		$bm = new BaseMethods();
 		$this->assertNull( $bm->checkAndParseOperator( '\u3009', null, [], [], [] ) );

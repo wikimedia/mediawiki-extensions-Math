@@ -8,12 +8,12 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1nb;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray
  */
-class TexArrayTest extends MediaWikiUnitTestCase {
+class TexArrayTest extends MediaWikiIntegrationTestCase {
 
 	public function testIsTexNode() {
 		$this->assertTrue( new TexArray() instanceof TexNode,
