@@ -23,7 +23,7 @@ class MMLParsingUtil {
 
 	public static function getFontArgs( string $name, ?string $variant, ?array $passedArgs ): array {
 		$args = [];
-		switch ( $name ) {
+		switch ( trim( $name, " \n\r\t\v\0\\" ) ) {
 			case "cal":
 			case "mathcal":
 				$args = [ Tag::MJXVARIANT => "-tex-calligraphic", "mathvariant" => Variants::SCRIPT ];

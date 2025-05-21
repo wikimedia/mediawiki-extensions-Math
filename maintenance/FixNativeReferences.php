@@ -25,6 +25,8 @@ require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 
 class FixNativeReferences extends Maintenance {
 
+	private const REFERENCE_PATH = __DIR__ . '/../tests/phpunit/integration/WikiTexVC/data/reference.json';
+
 	public function __construct() {
 		parent::__construct();
 		$this->addDescription( 'Update reference rendering for regression tests.
@@ -35,7 +37,7 @@ class FixNativeReferences extends Maintenance {
 	 * @throws \MediaWiki\Maintenance\MaintenanceFatalError
 	 */
 	public function execute() {
-		$file = file_get_contents( __DIR__ . "/../tests/phpunit/unit/WikiTexVC/data/reference.json" );
+		$file = file_get_contents( self::REFERENCE_PATH );
 		$json = json_decode( $file, true );
 		$success = true;
 		$allEntries = [];
@@ -45,7 +47,7 @@ class FixNativeReferences extends Maintenance {
 		}
 
 		$jsonData = json_encode( $allEntries, JSON_PRETTY_PRINT );
-		file_put_contents( __DIR__ . "/../tests/phpunit/unit/WikiTexVC/data/reference.json", $jsonData );
+		file_put_contents( self::REFERENCE_PATH, $jsonData );
 		if ( !$success ) {
 			$this->fatalError( "Some entries were skipped. Please investigate.\n" );
 		}

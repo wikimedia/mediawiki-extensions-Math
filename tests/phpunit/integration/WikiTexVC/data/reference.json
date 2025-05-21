@@ -1205,7 +1205,7 @@
     {
         "input": "\\mathit{0123456789} \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn mathvariant=\"-tex-mathit\">0<\/mn><mn mathvariant=\"-tex-mathit\">1<\/mn><mn mathvariant=\"-tex-mathit\">2<\/mn><mn mathvariant=\"-tex-mathit\">3<\/mn><mn mathvariant=\"-tex-mathit\">4<\/mn><mn mathvariant=\"-tex-mathit\">5<\/mn><mn mathvariant=\"-tex-mathit\">6<\/mn><mn mathvariant=\"-tex-mathit\">7<\/mn><mn mathvariant=\"-tex-mathit\">8<\/mn><mn mathvariant=\"-tex-mathit\">9<\/mn><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">0<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">1<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">2<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">3<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">4<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">5<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">6<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">7<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">8<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">9<\/mn><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\mathit{\\Alpha\\Beta\\Gamma\\Delta\\Epsilon\\Zeta\\Eta\\Theta} \\!",
@@ -1300,17 +1300,17 @@
     {
         "input": "\\mathcal{ABCDEFGHI} \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"-tex-calligraphic\">&#x1D49C;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x212C;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D49E;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D49F;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x2130;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x2131;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D4A2;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x210B;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x2110;<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D49C;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x212C;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D49E;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D49F;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x2130;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x2131;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4A2;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x210B;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x2110;<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\mathcal{JKLMNOPQR} \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"-tex-calligraphic\">&#x1D4A5;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D4A6;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x2112;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x2133;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D4A9;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D4AA;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D4AB;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D4AC;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x211B;<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4A5;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4A6;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x2112;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x2133;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4A9;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4AA;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4AB;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4AC;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x211B;<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\mathcal{STUVWXYZ} \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"-tex-calligraphic\">&#x1D4AE;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D4AF;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D4B0;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D4B1;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D4B2;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D4B3;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D4B4;<\/mi><mi mathvariant=\"-tex-calligraphic\">&#x1D4B5;<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4AE;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4AF;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4B0;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4B1;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4B2;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4B3;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4B4;<\/mi><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x1D4B5;<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\mathfrak{ABCDEFGHI} \\!",
@@ -1789,7 +1789,7 @@
     {
         "input": "\\mathit{ab}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"-tex-mathit\">a<\/mi><mi mathvariant=\"-tex-mathit\">b<\/mi><\/mrow><\/mrow><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">a<\/mi><mi data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">b<\/mi><\/mrow><\/mrow><\/mrow><\/math>"
     },
     {
         "input": "a\\!b",
@@ -2312,7 +2312,7 @@
     {
         "input": "\\tilde \\mathcal{M}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mover><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"-tex-calligraphic\">&#x2133;<\/mi><\/mrow><\/mrow><mo>~<\/mo><\/mover><\/mrow><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mover><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi data-mjx-variant=\"-tex-calligraphic\" mathvariant=\"script\">&#x2133;<\/mi><\/mrow><\/mrow><mo>~<\/mo><\/mover><\/mrow><\/mrow><\/math>"
     },
     {
         "input": "",

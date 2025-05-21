@@ -1179,14 +1179,15 @@ class BaseParsing {
 			case "\\textsf":
 				// no break
 			case "\\texttt":
-				$mmlMrow = new MMLmrow();
-				$mtext = new MMLmtext( "", MMLParsingUtil::getFontArgs( $name, null, null ) );
-
-				$state = [ "inHBox" => true ];
+				$state = [ "inHBox" => true, 'squashLiterals' => true ];
 				$inner = $node->getArg()->isCurly() ? $node->getArg()->renderMML(
 					[], $state )
-					: $node->getArg()->renderMML( [ "fromHBox" => true ] );
-				return $mmlMrow->encapsulateRaw( $mtext->encapsulateRaw( $inner ) );
+				: $node->getArg()->renderMML( [ "fromHBox" => true ] );
+				$mtext = new MMLmtext( "",
+					 MMLParsingUtil::getFontArgs( $name, null, null ),
+					$inner ?? '' );
+				return (string)$mtext;
+
 		}
 
 		$merror = new MMLmerror();
