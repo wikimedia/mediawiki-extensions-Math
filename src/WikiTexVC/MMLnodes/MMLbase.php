@@ -113,16 +113,6 @@ class MMLbase {
 	}
 
 	/**
-	 * Gets an empty element with the specified name.
-	 * Example: "<mrow/>"
-	 * @return string
-	 */
-	public function getEmpty(): string {
-		return substr( $this->getStart(), 0, -1 )
-			. '/>';
-	}
-
-	/**
 	 * Getting the end element
 	 * @return string
 	 */

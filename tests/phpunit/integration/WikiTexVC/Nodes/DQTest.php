@@ -55,12 +55,12 @@ class DQTest extends MediaWikiIntegrationTestCase {
 
 	public function testRenderEmptyDq() {
 		$dq = new DQ( TexArray::newCurly(), new Literal( 'b' ) );
-		$this->assertStringContainsString( ( new MMLmrow() )->getEmpty(), $dq->renderMML() );
+		$this->assertStringContainsString( (string)( new MMLmrow() ), $dq->renderMML() );
 	}
 
 	public function testRenderEmptyDisplaystyle() {
 		$dq = new DQ( new Literal( '\\displaystyle' ), new Literal( 'b' ) );
-		$this->assertStringContainsString( ( new MMLmrow() )->getEmpty(), $dq->renderMML() );
+		$this->assertStringContainsString( (string)( new MMLmrow() ), $dq->renderMML() );
 	}
 
 	public function testBigSum() {

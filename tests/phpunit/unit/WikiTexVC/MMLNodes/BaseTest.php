@@ -13,13 +13,6 @@ use MediaWikiUnitTestCase;
  */
 class BaseTest extends MediaWikiUnitTestCase {
 
-	public function testEmpty() {
-		$this->assertEquals(
-			'<test/>',
-			( new MMLbase( 'test' ) )->getEmpty()
-		);
-	}
-
 	public function testEnd() {
 		$this->assertEquals(
 			'</test>',

@@ -66,7 +66,7 @@ class DQ extends TexNode {
 			$baseRendering = $this->base->renderMML( $arguments, $inner_state );
 			// In cases with empty curly preceding like: "{}_pF_q" or _{1}
 			if ( trim( $baseRendering ) === "" ) {
-				$baseRendering = ( new MMLmrow() )->getEmpty();
+				$baseRendering = (string)( new MMLmrow() );
 			}
 			return $outer->encapsulateRaw(
 				$baseRendering .

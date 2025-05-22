@@ -161,7 +161,7 @@ class BaseParsing {
 		$outer = new MMLmenclose( '', [ 'notation' => $notation, 'class' => 'menclose' ] );
 		$bars = '';
 		foreach ( explode( ' ', $notation ) as $element ) {
-			$bars .= ( new MMLmrow( '', [ 'class' => 'menclose-' . $element ] ) )->getEmpty();
+			$bars .= ( new MMLmrow( '', [ 'class' => 'menclose-' . $element ] ) );
 		}
 
 		return $outer->encapsulateRaw( $node->getArg()->renderMML() . $bars );
@@ -209,8 +209,7 @@ class BaseParsing {
 	}
 
 	public static function crLaTeX( $node, $passedArgs, $operatorContent, $name ) {
-		$mspace = new MMLmspace( "", [ "linebreak" => "newline" ] );
-		return $mspace->getEmpty();
+		return (string)( new MMLmspace( "", [ "linebreak" => "newline" ] ) );
 	}
 
 	public static function dots( $node, $passedArgs, $operatorContent, $name, $smth = null, $smth2 = null ) {
@@ -460,17 +459,17 @@ class BaseParsing {
 						"",
 						[ "lspace" => Sizes::THICKMATHSPACE, "rspace" => Sizes::THICKMATHSPACE ],
 						"mod" ) ) .
-					$inner . $mmlRow->encapsulateRaw( $mspace->getEmpty() ) );
+					$inner . $mmlRow->encapsulateRaw( (string)$mspace ) );
 			case "\\implies":
 				$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ] );
 				$mspace = new MMLmspace( "", [ "width" => "0.278em" ] );
-				return $mstyle->encapsulateRaw( $mspace->getEmpty() ) . ( new MMLmo( "", [], "&#x27F9;" ) ) .
-					$mstyle->encapsulateRaw( $mspace->getEmpty() );
+				return $mstyle->encapsulateRaw( (string)$mspace ) . ( new MMLmo( "", [], "&#x27F9;" ) ) .
+					$mstyle->encapsulateRaw( (string)$mspace );
 			case "\\iff":
 				$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ] );
 				$mspace = new MMLmspace( "", [ "width" => "0.278em" ] );
-				return $mstyle->encapsulateRaw( $mspace->getEmpty() ) . ( new MMLmo( "", [], "&#x27FA;" ) ) .
-					$mstyle->encapsulateRaw( $mspace->getEmpty() );
+				return $mstyle->encapsulateRaw( (string)$mspace ) . ( new MMLmo( "", [], "&#x27FA;" ) ) .
+					$mstyle->encapsulateRaw( (string)$mspace );
 			case "\\tripledash":
 				// Using emdash for rendering here.
 				return (string)( new MMLmo( "", [], "&#x2014;" ) );
@@ -496,7 +495,7 @@ class BaseParsing {
 						$mrowOp->encapsulateRaw(
 							$mrowOrd->encapsulateRaw( $mpadded->encapsulateRaw(
 								( new MMLmo( "", [ "stretchy" => "false" ], "&#x27F5;" ) ) ) ) .
-							$mspace->getEmpty() ) .
+							$mspace ) .
 						$mrowOrd->encapsulateRaw(
 							( new MMLmo( "", [ "stretchy" => "false" ], "&#x27F6;" ) )
 						) ) );
@@ -650,10 +649,9 @@ class BaseParsing {
 			case "\\ointctrclockwise":
 			case "\\varointclockwise":
 				$mStyle = new MMLmstyle( "", [ "mathsize" => "2.07em" ] );
-				$mSpace = new MMLmspace( "", [ "width" => Sizes::THINMATHSPACE ] );
 				return $mrow->encapsulateRaw( $mStyle->encapsulateRaw(
 					( new MMLmtext( "", $attributes, MMLutil::uc2xNotation( $uc ) ) )
-					. $mSpace->getEmpty() ) );
+					. ( new MMLmspace( "", [ "width" => Sizes::THINMATHSPACE ] ) ) ) );
 			default:
 				return (string)( new MMLmerror( "", [], (
 					new MMLmtext( "", [], "not found in OintMethod" ) ) ) );
@@ -1215,7 +1213,7 @@ class BaseParsing {
 			// In case of an empty curly add an mrow
 			$arg2Rendered = $node->getArg2()->renderMML( $passedArgs );
 			if ( trim( $arg2Rendered ) === "" ) {
-				$arg2Rendered = $mrow->getEmpty();
+				$arg2Rendered = (string)$mrow;
 			}
 			return $mrow->encapsulateRaw(
 				$mroot->encapsulateRaw(
@@ -1236,8 +1234,7 @@ class BaseParsing {
 	}
 
 	public static function tilde( $node, $passedArgs, $operatorContent, $name ) {
-		$mspace = new MMLmspace( "", [ "width" => "0.5em" ] );
-		return $mspace->getEmpty();
+		return (string)( new MMLmspace( "", [ "width" => "0.5em" ] ) );
 	}
 
 	public static function xArrow( $node, $passedArgs, $operatorContent, $name, $chr = null, $l = null, $r = null ) {

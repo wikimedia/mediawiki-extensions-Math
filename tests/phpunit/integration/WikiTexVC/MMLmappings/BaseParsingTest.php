@@ -67,7 +67,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			( new Literal( 'a' ) )
 		);
 		$result = BaseParsing::cancel( $node, [], null, 'cancel', 'something' );
-		$this->assertStringContainsString( '<mi>a</mi><mrow class="menclose-something"/>',
+		$this->assertStringContainsString( '<mi>a</mi><mrow class="menclose-something"></mrow>',
 			$result );
 		$this->assertStringContainsString( '<menclose notation="something" class="menclose">',
 			$result );

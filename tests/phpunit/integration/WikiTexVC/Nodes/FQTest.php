@@ -49,14 +49,14 @@ class FQTest extends MediaWikiIntegrationTestCase {
 		$fq = new FQ( TexArray::newCurly(), new Literal( 'b' ), new Literal( 'c' ) );
 		$result = $fq->renderMML();
 		$this->assertStringContainsString( 'msubsup', $result );
-		$this->assertStringContainsString( ( new MMLmrow() )->getEmpty(), $result );
+		$this->assertStringContainsString( (string)( new MMLmrow() ), $result );
 	}
 
 	public function testRenderEmptyFqNoCurly() {
 		$fq = new FQ( new TexArray(), new Literal( 'b' ), new Literal( 'c' ) );
 		$result = $fq->renderMML();
 		$this->assertStringContainsString( 'msubsup', $result );
-		$this->assertStringContainsString( ( new MMLmrow() )->getEmpty(), $result );
+		$this->assertStringContainsString( (string)( new MMLmrow() ), $result );
 	}
 
 	public function testLatin() {
