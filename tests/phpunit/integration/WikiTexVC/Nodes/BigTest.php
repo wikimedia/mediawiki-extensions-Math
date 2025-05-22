@@ -5,14 +5,14 @@ namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 use ArgumentCountError;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Big;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 use RuntimeException;
 use TypeError;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Big
  */
-class BigTest extends MediaWikiUnitTestCase {
+class BigTest extends MediaWikiIntegrationTestCase {
 
 	public function testEmptyBig() {
 		$this->expectException( ArgumentCountError::class );

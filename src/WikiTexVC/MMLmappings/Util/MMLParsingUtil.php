@@ -17,8 +17,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
  */
 class MMLParsingUtil {
 	public static function renderApplyFunction() {
-		$mo = new MMLmo();
-		return $mo->encapsulateRaw( "&#x2061;" );
+		return (string)( new MMLmo( "", [], "&#x2061;" ) );
 	}
 
 	public static function getFontArgs( string $name, ?string $variant, ?array $passedArgs ): array {
@@ -105,8 +104,7 @@ class MMLParsingUtil {
 	public static function createNot() {
 		$mmlMrow = new MMLmrow( TexClass::REL );
 		$mpadded = new MMLmpadded( "", [ "width" => "0" ] );
-		$mtext = new MMLmtext();
-		return $mmlMrow->encapsulateRaw( $mpadded->encapsulateRaw( $mtext->encapsulateRaw( "&#x29F8;" ) ) );
+		return $mmlMrow->encapsulateRaw( $mpadded->encapsulateRaw( (string)( new MMLmtext( "", [], "&#x29F8;" ) ) ) );
 	}
 
 	public static function mapToDoubleStruckUnicode( string $inputString ): string {

@@ -7,13 +7,13 @@ use InvalidArgumentException;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 use TypeError;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix
  */
-class MatrixTest extends MediaWikiUnitTestCase {
+class MatrixTest extends MediaWikiIntegrationTestCase {
 	/** @var Matrix */
 	private $sampleMatrix;
 

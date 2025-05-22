@@ -7,14 +7,14 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1nb;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\UQ;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 use RuntimeException;
 use TypeError;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\UQ
  */
-class UQTest extends MediaWikiUnitTestCase {
+class UQTest extends MediaWikiIntegrationTestCase {
 
 	public function testEmptyUQ() {
 		$this->expectException( ArgumentCountError::class );

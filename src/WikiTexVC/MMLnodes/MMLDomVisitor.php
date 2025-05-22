@@ -46,8 +46,8 @@ class MMLDomVisitor implements MMLVisitor {
 	 */
 	public function getHTML(): string {
 		// DOM converts escaped Unicode chars like &#x338; to &amp;#x338;. This will revert the change.
-		return preg_replace( '/&amp;#x([0-9A-Fa-f]+);/',
-			'&#x$1;',
+		return preg_replace( '/&amp;#(x[0-9A-Fa-f]+|\d+);/',
+			'&#$1;',
 			$this->dom->saveHTML( $this->dom->documentElement )
 		);
 	}
