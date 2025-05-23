@@ -60,6 +60,7 @@
 	"math-visualeditor-symbol-group-math-typefaces": "Шрифтан тайпа",
 	"math-visualeditor-symbol-group-math-unsorted": "ДӀасакъаьстонза",
 	"math-form-tex-label": "Къовсам TeX дӀайаздар",
+	"math-form-tex-help": "Хьайн TeX дӀайаздарца хьажа. [[{{int:math-helppage}}|Математикин формулийн гӀоьнан агӀоне]] хьажа кхин а гӀо лаха.",
 	"math-form-type-label": "Йуьхьанцара хаамийн тайпа",
 	"math-form-type-tex": "tex (нормалан дӀайаздар)",
 	"math-form-type-chem": "химин гӀоьнца чудалар; масала (<code dir=\"ltr\">\\ce{H2O}</code> хина)",
