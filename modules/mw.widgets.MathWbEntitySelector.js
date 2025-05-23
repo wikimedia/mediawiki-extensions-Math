@@ -10,6 +10,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  * @param {mw.Api} [config.api] API object to use, creates a mw.ForeignApi instance if not specified
+ * @param {string} [config.paramType] Type of entity to search for, for example, 'item' or 'property'. Defaults to item.
  */
 mw.widgets.MathWbEntitySelector = function ( config ) {
 	config = config || {};
@@ -19,6 +20,7 @@ mw.widgets.MathWbEntitySelector = function ( config ) {
 			mw.config.get( 'wgMathEntitySelectorUrl' ),
 			{ anonymous: true } );
 	}
+	this.paramType = config.paramType || 'item';
 	OO.ui.TextInputWidget.call( this, config );
 	OO.ui.mixin.LookupElement.call( this, config );
 	this.$element.addClass( 'mw-widget-MathWbEntitySelector' );
@@ -33,6 +35,15 @@ OO.mixinClass( mw.widgets.MathWbEntitySelector, OO.ui.mixin.LookupElement );
  */
 mw.widgets.MathWbEntitySelector.prototype.getApi = function () {
 	return this.api;
+};
+
+/**
+ * Get the parameter type for the entity selector
+ *
+ * @return {string} type
+ */
+mw.widgets.MathWbEntitySelector.prototype.getParamType = function () {
+	return this.paramType;
 };
 
 /**
@@ -70,6 +81,7 @@ mw.widgets.MathWbEntitySelector.prototype.getApiParams = function ( query ) {
 	return {
 		action: 'wbsearchentities',
 		search: query,
+		type: this.getParamType(),
 		format: 'json',
 		errorformat: 'plaintext',
 		language: mw.config.get( 'wgContentLanguage' ),
