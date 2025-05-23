@@ -32,9 +32,17 @@ class MMLDomVisitor implements MMLVisitor {
 		}
 		$this->elementStack[] = $element;
 		foreach ( $node->getChildren() as $child ) {
-			if ( $child !== null ) {
-				// implicitly calls visit
+			if ( $child === null || $child === '' ) {
+				continue;
+			}
+
+			if ( $child instanceof MMLbase ) {
 				$child->accept( $this );
+			} else {
+				// Parse string as XML fragment
+				$fragment = $this->dom->createDocumentFragment();
+				$fragment->appendXML( $child );  // Parse raw XML
+				end( $this->elementStack )->appendChild( $fragment );
 			}
 		}
 		array_pop( $this->elementStack );

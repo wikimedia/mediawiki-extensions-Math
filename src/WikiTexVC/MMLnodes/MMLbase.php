@@ -10,7 +10,7 @@ class MMLbase {
 	private array $attributes;
 	/** @var VisitorFactory */
 	protected $visitorFactory = null;
-	/** @var MMLbase[] */
+	/** @var array<MMLbase|string> */
 	protected array $children = [];
 
 	/**
@@ -19,7 +19,7 @@ class MMLbase {
 	 * @param string $name The element tag name (e.g., 'msubsup', 'msqrt')
 	 * @param string $texclass TeX class name
 	 * @param array $attributes Associative array of element attributes
-	 * @param mixed ...$children MMLbase child elements (null values are allowed for placeholder values)
+	 * @param MMLbase|string|null ...$children MMLbase child elements (null values are allowed for placeholder values)
 	 */
 	public function __construct( string $name, string $texclass = '', array $attributes = [], ...$children ) {
 		$this->name = $name;

@@ -13,6 +13,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 class MMLmtable extends MMLbase {
 
 	/** defaults to  mtable args as generated from MathJax for align(ed) environment
+	 * @inheritDoc
 	 */
 	public function __construct(
 		string $texclass = TexClass::ORD,
@@ -22,7 +23,7 @@ class MMLmtable extends MMLbase {
 			'displaystyle' => 'true',
 			'rowspacing' => '3pt'
 		],
-		MMLmtr ...$rows ) {
+		...$rows ) {
 		parent::__construct( "mtable", $texclass, $attributes, ...$rows );
 	}
 }

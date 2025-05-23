@@ -1,10 +1,14 @@
 <?php
 
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLDomVisitor;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmover;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 
 /**
  * Test the results of MathFormatter
@@ -103,5 +107,115 @@ class MMLDomVisitorTest extends MediaWikiUnitTestCase {
 		</mrow>
 		XML;
 		$this->assertXmlStringEqualsXmlString( $expected, $visitor->getHTML() );
+	}
+
+	public function testBasicStringChild() {
+		$visitor = new MMLDomVisitor();
+		$mrow = new MMLbase( 'mrow', '', [], '<mo>&#x27F9;</mo>' );
+
+		$mrow->accept( $visitor );
+		$output = $visitor->getHTML();
+
+		$expected = '<mrow><mo>&#x27F9;</mo></mrow>';
+		$this->assertXmlStringEqualsXmlString( $expected, $output );
+	}
+
+	public function testMixedChildren() {
+		$visitor = new MMLDomVisitor();
+		$mrow = new MMLmrow( '', [],
+			new MMLmo( '', [], '+' ),
+			'<mo>&#x27F9;</mo>',
+			new MMLmn( '', [], '2' )
+		);
+
+		$mrow->accept( $visitor );
+		$output = $visitor->getHTML();
+
+		$expected = <<<XML
+		<mrow>
+			<mo>+</mo>
+			<mo>&#x27F9;</mo>
+			<mn>2</mn>
+		</mrow>
+		XML;
+		$this->assertXmlStringEqualsXmlString( $expected, $output );
+	}
+
+	public function testNestedXmlString() {
+		$visitor = new MMLDomVisitor();
+		$mrow = new MMLbase( 'mrow', '', [],
+			'<msup><mi>x</mi><mn>2</mn></msup>'
+		);
+
+		$mrow->accept( $visitor );
+		$output = $visitor->getHTML();
+
+		$expected = '<mrow><msup><mi>x</mi><mn>2</mn></msup></mrow>';
+		$this->assertXmlStringEqualsXmlString( $expected, $output );
+	}
+
+	public function testTextAndXmlCombination() {
+		$visitor = new MMLDomVisitor();
+		$node = new MMLmrow( '', [],
+			new MMLmtext( '', [], 'Solve: ' ),
+			'<mrow><mi>x</mi><mo>+</mo><mn>5</mn></mrow>'
+		);
+
+		$node->accept( $visitor );
+		$output = $visitor->getHTML();
+
+		$expected = <<<XML
+		<mrow>
+		<mtext>Solve: </mtext>
+			<mrow>
+				<mi>x</mi>
+				<mo>+</mo>
+				<mn>5</mn>
+			</mrow>
+		</mrow>
+		XML;
+		$this->assertXmlStringEqualsXmlString( $expected, $output );
+	}
+
+	public function testEmptyStringChild() {
+		$visitor = new MMLDomVisitor();
+		$mrow = new MMLmrow( '', [], '' );
+
+		$mrow->accept( $visitor );
+		$output = $visitor->getHTML();
+
+		$this->assertSame( '<mrow></mrow>', trim( $output ) );
+	}
+
+	public function testEncapsulateRawVsToStringEquivalence() {
+		$texclass = "tex";
+		$attrs = [ 'accent' => 'true' ];
+		$entity = '&#x27F9;';
+
+		// encapsulateRaw
+		$mrow = new MMLmrow( $texclass );
+		$mover = new MMLmover( "", $attrs );
+		$dummyNode = new class extends TexNode {
+			public function renderMML( $arguments = [], &$state = [] ) {
+				return '<mi>x</mi>';
+			}
+		};
+		$encapsulatedOutput = $mrow->encapsulateRaw(
+			$mover->encapsulateRaw(
+				$dummyNode->renderMML() . // Renders <mi>x</mi>
+				( new MMLmo( "", $attrs, $entity ) )->encapsulateRaw( $entity )
+			)
+		);
+
+		// MMLbase tree
+		$mi = new MMLmi( "", [], 'x' );
+		$mo = new MMLmo( "", $attrs, $entity );
+		$moverTree = MMLmover::newSubtree( $mi, $mo, "", $attrs );
+		$mrowTree = new MMLmrow( $texclass, [], $moverTree );
+		$visitor = new MMLDomVisitor();
+		$mrowTree->accept( $visitor );
+		$visitorOutput = $visitor->getHTML();
+
+		$this->assertXmlStringEqualsXmlString( $encapsulatedOutput, $visitorOutput );
 	}
 }
