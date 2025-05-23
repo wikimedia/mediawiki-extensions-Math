@@ -7,6 +7,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
@@ -50,8 +51,20 @@ class Literal extends TexNode {
 		return $input;
 	}
 
+	public function toMMLTree( array $arguments = [], array &$state = [] ): ?MMLbase {
+		if ( is_numeric( $this->arg ) ) {
+			return new MMLmn( "", $arguments, $this->changeUnicodeFontInput( $this->arg, $state ) );
+		}
+		return null;
+	}
+
 	/** @inheritDoc */
 	public function renderMML( $arguments = [], &$state = [] ) {
+		if ( $this->arg === " " ) {
+			// Fixes https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Math/+/961711
+			// And they creation of empty mo elements.
+			return "";
+		}
 		if ( isset( $state["intent-params"] ) ) {
 			foreach ( $state["intent-params"] as $intparam ) {
 				if ( $intparam == $this->arg ) {
@@ -64,16 +77,11 @@ class Literal extends TexNode {
 			$arguments["arg"] = $state["intent-params-expl"];
 		}
 
-		if ( $this->arg === " " ) {
-			// Fixes https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Math/+/961711
-			// And they creation of empty mo elements.
-			return "";
+		$mmlTree = $this->toMMLTree( $arguments, $state );
+		if ( $mmlTree !== null ) {
+			return (string)$mmlTree;
 		}
 
-		if ( is_numeric( $this->arg ) ) {
-			$mn = new MMLmn( "", $arguments );
-			return $mn->encapsulateRaw( $this->changeUnicodeFontInput( $this->arg, $state ) );
-		}
 		// is important to split and find chars within curly and differentiate, see tc 459
 		$foundOperatorContent = MMLutil::initalParseLiteralExpression( $this->arg );
 		if ( !$foundOperatorContent ) {
@@ -122,8 +130,8 @@ class Literal extends TexNode {
 
 		// Sieve for Makros
 		$ret = BaseMethods::checkAndParse( $inputP, $arguments,
-			array_merge( $operatorContent ?? [], $state ?? [] ),
-			$this, false );
+		array_merge( $operatorContent ?? [], $state ?? [] ),
+		$this, false );
 		if ( $ret || $ret === '' ) {
 			return $ret;
 		}
