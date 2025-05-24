@@ -150,4 +150,15 @@ class LiteralTest extends MediaWikiIntegrationTestCase {
 		$tree = $n->toMMLTree();
 		$this->assertNull( $tree );
 	}
+
+	public function testOperatorConent() {
+		$n = new Literal( '\\operatorname{asdf}' );
+		$content = $n->getArgFromCurlies();
+		$this->assertEquals( 'asdf', $content );
+	}
+
+	public function testOperatorConentNull() {
+		$n = new Literal( '\\operatorname{asdf' );
+		$this->assertNull( $n->getArgFromCurlies() );
+	}
 }
