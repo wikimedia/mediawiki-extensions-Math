@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 
 use ArgumentCountError;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLleaf;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 use MediaWikiIntegrationTestCase;
@@ -135,4 +136,18 @@ class LiteralTest extends MediaWikiIntegrationTestCase {
 			'divide should have no spacing.' );
 	}
 
+	public function testToTreeNumber() {
+		$n = new Literal( '5' );
+		$tree = $n->toMMLTree();
+		$this->assertNotNull( $tree );
+		$this->assertEquals( 'mn', $tree->getName() );
+		$this->assertInstanceOf( MMLleaf::class, $tree );
+		$this->assertSame( '5', $tree->getText() );
+	}
+
+	public function testToTreeNoNumber() {
+		$n = new Literal( 'x' );
+		$tree = $n->toMMLTree();
+		$this->assertNull( $tree );
+	}
 }
