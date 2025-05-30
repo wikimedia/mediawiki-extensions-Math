@@ -35,14 +35,38 @@ class MMLDomVisitor implements MMLVisitor {
 			if ( $child === null || $child === '' ) {
 				continue;
 			}
-
 			if ( $child instanceof MMLbase ) {
 				$child->accept( $this );
 			} else {
-				// Parse string as XML fragment
-				$fragment = $this->dom->createDocumentFragment();
-				$fragment->appendXML( $child );  // Parse raw XML
-				end( $this->elementStack )->appendChild( $fragment );
+				// use LIBXML_PARSEHUGE if the XML is too big
+				if ( strlen( $child ) >= 1792 ) { // smallest XML with depth 256: len(<x></x>)*256
+					$tempDoc = new DOMDocument( '1.0', 'UTF-8' );
+					$tempDoc->loadXML(
+						'<root>' . preg_replace(
+							'/&(#(?:x[0-9A-Fa-f]+|\d+);)/',
+							'&amp;$1',
+							$child . '</root>'
+					), LIBXML_PARSEHUGE | LIBXML_COMPACT | LIBXML_NOEMPTYTAG );
+					// Import nodes into main document
+					$fragment = $this->dom->createDocumentFragment();
+					foreach ( $tempDoc->documentElement->childNodes as $childNode ) {
+						$importedNode = $this->dom->importNode( $childNode, true );
+						$fragment->appendChild( $importedNode );
+					}
+				} else {
+					// Parse string as XML fragment
+					$fragment = $this->dom->createDocumentFragment();
+					// appendXML automatically converts escaped unicode to unicode
+					$fragment->appendXML( preg_replace(
+						'/&(#(?:x[0-9A-Fa-f]+|\d+);)/',
+						'&amp;$1',
+						$child
+					) );
+				}
+				// Only append if fragment has content
+				if ( $fragment->hasChildNodes() ) {
+					end( $this->elementStack )->appendChild( $fragment );
+				}
 			}
 		}
 		array_pop( $this->elementStack );

@@ -40,7 +40,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
 
 		$result = BaseParsing::array( $node, [], null, 'array', '007E' );
-		$this->assertStringContainsString( '<mi>a</mi>', $result );
+		$this->assertStringContainsString( '<mi>a</mi>', implode( $result ) );
 	}
 
 	public function testBoldGreek() {
