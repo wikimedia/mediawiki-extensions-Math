@@ -6,7 +6,6 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
-use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
@@ -17,6 +16,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 class Literal extends TexNode {
+	private const CURLY_PATTERN = '/(?<start>[\\a-zA-Z\s]+)\{(?<arg>[^}]+)}/';
 
 	/** @var string */
 	private $arg;
@@ -31,6 +31,34 @@ class Literal extends TexNode {
 		$this->literals = array_keys( TexUtil::getInstance()->getBaseElements()['is_literal'] );
 		$this->extendedLiterals = $this->literals;
 		array_push( $this->extendedLiterals, '\\infty', '\\emptyset' );
+	}
+
+	/**
+	 * Gets the arg of the literal or the part that is before
+	 * a curly bracket if the expression contains one and matches
+	 * {@link self::CURLY_PATTERN}.
+	 *
+	 * @return string
+	 */
+	private function getStart(): string {
+		if ( preg_match( self::CURLY_PATTERN, $this->arg, $matches ) ) {
+			return $matches['start'];
+		}
+		return $this->arg;
+	}
+
+	/**
+	 * If the arg matches {@link self::CURLY_PATTERN}, return the
+	 * inner content of the curlies.
+	 * For example, for if the arg was a{b} this function returns b.
+	 *
+	 * @return string|null
+	 */
+	public function getArgFromCurlies(): ?string {
+		if ( preg_match( self::CURLY_PATTERN, $this->arg, $matches ) ) {
+			return $matches['arg'];
+		}
+		return null;
 	}
 
 	public function changeUnicodeFontInput( string $input, array &$state ): string {
@@ -83,13 +111,10 @@ class Literal extends TexNode {
 		}
 
 		// is important to split and find chars within curly and differentiate, see tc 459
-		$foundOperatorContent = MMLutil::initalParseLiteralExpression( $this->arg );
-		if ( !$foundOperatorContent ) {
-			$input = $this->arg;
-			$operatorContent = null;
-		} else {
-			$input = $foundOperatorContent[1][0];
-			$operatorContent = [ "foundOC" => $foundOperatorContent[2][0] ];
+		$input = $this->getStart();
+		$operatorContent = $this->getArgFromCurlies();
+		if ( $operatorContent !== null ) {
+			$operatorContent = [ 'foundOC' => $operatorContent ];
 		}
 
 		// This is rather a workaround:

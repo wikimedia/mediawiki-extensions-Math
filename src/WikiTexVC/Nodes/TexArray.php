@@ -7,7 +7,6 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 use Generator;
 use InvalidArgumentException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
-use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
@@ -72,13 +71,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		if ( $node instanceof Literal ) {
 			$name = trim( $node->getArg() );
 			if ( str_contains( $name, "\\color" ) ) {
-				$foundOperatorContent = MMLutil::initalParseLiteralExpression( $node->getArg() );
-				if ( !$foundOperatorContent ) {
-					// discarding color elements which not specify color
-					return [ true, null ];
-				} else {
-					return [ true, $foundOperatorContent[2][0] ];
-				}
+				return [ true, $node->getArgFromCurlies() ];
 			} elseif ( str_contains( $name, "\\pagecolor" ) ) {
 				return [ true, null ];
 			}
