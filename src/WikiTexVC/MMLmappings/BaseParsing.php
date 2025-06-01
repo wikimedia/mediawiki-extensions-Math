@@ -571,8 +571,8 @@ class BaseParsing {
 			$closeAtts = [ "fence" => "true", "stretchy" => "true", "symmetric" => "true" ];
 			$mmlMoClose = $bm->checkAndParseDelimiter( $close, $node, $closeAtts,
 				null, true, TexClass::CLOSE );
-			if ( $mmlMoOpen == null ) {
-				$mmlMoClose = (string)( new MMLmo( TexClass::CLOSE, $closeAtts, $close ) );
+			if ( $mmlMoClose == null ) {
+				$mmlMoClose = (string)( new MMLmo( TexClass::CLOSE, $closeAtts, $close ?? '' ) );
 			}
 			$resInner = $mmlMoOpen . $mtable->encapsulateRaw( $resInner ) . $mmlMoClose;
 			return $mrow->encapsulateRaw( $resInner );
