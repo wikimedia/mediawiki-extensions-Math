@@ -218,4 +218,27 @@ class MMLDomVisitorTest extends MediaWikiUnitTestCase {
 
 		$this->assertXmlStringEqualsXmlString( $encapsulatedOutput, $visitorOutput );
 	}
+
+	public function testHugeXmlDepthHandling() {
+		$deepNesting = str_repeat( '<sub>', 500 ) . '&#x338;' . str_repeat( '</sub>', 500 );
+		$mrow = new MMLbase( 'math', '', [], $deepNesting );
+		$visitor = new MMLDomVisitor();
+		$mrow->accept( $visitor );
+		$output = $visitor->getHTML();
+
+		$this->assertStringContainsString( '<sub><sub>', $output, 'Should contain nested tags' );
+		$this->assertStringContainsString( '&#x338', $output, 'Should contain inner content' );
+		$this->assertStringEndsWith( '</math>', $output, 'Should have proper closing' );
+
+		$firstPos = strpos( $output, '<sub>' );
+		$lastPos = strrpos( $output, '</sub>' );
+		$inner = substr( $output, $firstPos, $lastPos - $firstPos );
+		$nestingCount = substr_count( $inner, '<sub>' );
+
+		$this->assertGreaterThan(
+			256,
+			$nestingCount,
+			'Should handle more than default 256 nesting levels'
+		);
+	}
 }
