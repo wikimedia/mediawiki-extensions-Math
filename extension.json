@@ -240,7 +240,10 @@
 			]
 		},
 		"ext.math.styles": {
-			"styles": "ext.math.css"
+			"styles": [
+				"ext.math.css",
+				"ext.math.less"
+			]
 		},
 		"ext.math.popup": {
 			"packageFiles": "ext.math.popup.js",

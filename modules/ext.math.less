@@ -1,0 +1,12 @@
+@import 'mediawiki.skin.defaults.less';
+
+/* [[phab:T201233]] */
+@media ( max-width: @max-width-breakpoint-tablet ) {
+	.mwe-math-element-block,
+	dd .mwe-math-element-inline {
+		overflow-x: auto;
+		display: inline-block;
+		vertical-align: middle;
+		width: 100%;
+	}
+}
