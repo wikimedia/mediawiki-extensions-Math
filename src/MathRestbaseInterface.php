@@ -191,9 +191,9 @@ class MathRestbaseInterface {
 	}
 
 	private function getMultiHttpClient(): MultiHttpClient {
-		global $wgMathConcurrentReqs;
+		global $wgMathHTTPProxy, $wgMathConcurrentReqs;
 		$multiHttpClient = MediaWikiServices::getInstance()->getHttpRequestFactory()->createMultiClient(
-			[ 'maxConnsPerHost' => $wgMathConcurrentReqs ] );
+			[ 'maxConnsPerHost' => $wgMathConcurrentReqs, 'proxy' => $wgMathHTTPProxy ] );
 
 		return $multiHttpClient;
 	}

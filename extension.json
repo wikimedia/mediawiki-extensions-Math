@@ -151,6 +151,10 @@
 		"MathFullRestbaseURL": {
 			"value": "https://wikimedia.org/api/rest_"
 		},
+		"MathHTTPProxy": {
+			"description": "The HTTP proxy used for contacting RESTBase.",
+			"value": null
+		},
 		"MathConcurrentReqs": {
 			"value": 50
 		},
