@@ -48,9 +48,17 @@ class BaseMethods {
 			// Passing resolved function as param without first id
 			if ( count( $resFct ) > 1 ) {
 				$shifted = array_shift( $resFct );
-				return (string)BaseParsing::{$shifted}( $node, $passedArgs, $operatorContent, $input, ...$resFct );
+				$parsed = BaseParsing::{$shifted}( $node, $passedArgs, $operatorContent, $input, ...$resFct );
+				if ( is_array( $parsed ) ) {
+					return implode( $parsed );
+				}
+				return (string)$parsed;
 			} else {
-				return (string)BaseParsing::{$resFct[0]}( $node, $passedArgs, $operatorContent, $input );
+				$parsed = BaseParsing::{$resFct[0]}( $node, $passedArgs, $operatorContent, $input );
+				if ( is_array( $parsed ) ) {
+					return implode( $parsed );
+				}
+				return (string)$parsed;
 			}
 		} catch ( \Exception $exception ) {
 			return null;

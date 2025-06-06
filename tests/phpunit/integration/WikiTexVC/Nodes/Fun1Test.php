@@ -8,14 +8,14 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 use RuntimeException;
 use TypeError;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1
  */
-class Fun1Test extends MediaWikiUnitTestCase {
+class Fun1Test extends MediaWikiIntegrationTestCase {
 
 	public function testEmptyFun1() {
 		$this->expectException( ArgumentCountError::class );

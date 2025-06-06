@@ -6,14 +6,14 @@ use ArgumentCountError;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Declh;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
-use MediaWikiUnitTestCase;
+use MediaWikiIntegrationTestCase;
 use RuntimeException;
 use TypeError;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Declh
  */
-class DeclhTest extends MediaWikiUnitTestCase {
+class DeclhTest extends MediaWikiIntegrationTestCase {
 
 	public function testEmptyDeclh() {
 		$this->expectException( ArgumentCountError::class );

@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmpadded;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
@@ -16,8 +17,8 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
  * for multiple functions.
  */
 class MMLParsingUtil {
-	public static function renderApplyFunction() {
-		return (string)( new MMLmo( "", [], "&#x2061;" ) );
+	public static function renderApplyFunction(): MMLbase {
+		return new MMLmo( "", [], "&#x2061;" );
 	}
 
 	public static function getFontArgs( string $name, ?string $variant, ?array $passedArgs ): array {
@@ -99,12 +100,11 @@ class MMLParsingUtil {
 
 	/**
 	 * Creates a negation block in MathML, usually preceding the negated statement
-	 * @return string negation block as MathML
+	 * @return MMLbase negation block as MathML
 	 */
-	public static function createNot() {
-		$mmlMrow = new MMLmrow( TexClass::REL );
-		$mpadded = new MMLmpadded( "", [ "width" => "0" ] );
-		return $mmlMrow->encapsulateRaw( $mpadded->encapsulateRaw( (string)( new MMLmtext( "", [], "&#x29F8;" ) ) ) );
+	public static function createNot(): MMLbase {
+		return new MMLmrow( TexClass::REL, [],
+			new MMLmpadded( "", [ "width" => "0" ], new MMLmtext( "", [], "&#x29F8;" ) ) );
 	}
 
 	public static function mapToDoubleStruckUnicode( string $inputString ): string {

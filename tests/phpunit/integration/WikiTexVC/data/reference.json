@@ -639,7 +639,7 @@
     {
         "input": "\\sideset{_1^2}{_3^4}\\prod_a^b",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"OP\"><munderover><mstyle displaystyle=\"true\"><mmultiscripts><mo largeop=\"true\" movablelimits=\"false\" symmetric=\"true\">&#x220F;<\/mo><mrow data-mjx-texclass=\"ORD\"><mn>3<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>4<\/mn><\/mrow><mprescripts\/><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/mmultiscripts><\/mstyle><mrow><mi>a<\/mi><\/mrow><mrow><mi>b<\/mi><\/mrow><\/munderover><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"OP\"><munderover><mstyle displaystyle=\"true\"><mmultiscripts><mo largeop=\"true\" movablelimits=\"false\" symmetric=\"true\">&#x220F;<\/mo><mrow data-mjx-texclass=\"ORD\"><mn>3<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>4<\/mn><\/mrow><mprescripts><\/mprescripts><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/mmultiscripts><\/mstyle><mrow><mi>a<\/mi><\/mrow><mrow><mi>b<\/mi><\/mrow><\/munderover><\/mrow><\/math>"
     },
     {
         "input": "{}_1^2\\!\\Omega_3^4",

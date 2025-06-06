@@ -128,7 +128,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 		);
 		$result = BaseParsing::underover( $node,
 			[ 'k' => '"<script>alert("problem")</script>"' ], null, '', '00AF' );
-		$this->assertStringContainsString( 'k="&quot;&lt;script&gt;alert(&quot;problem&quot;)', $result );
+		$this->assertStringContainsString( 'k=\'"&lt;script&gt;alert("problem")', $result );
 	}
 
 	public function testAlignAt() {
@@ -185,8 +185,8 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 		$result = BaseParsing::handleOperatorName( $node, [], [
 			"foundNamedFct" => [ true, true ]
 		], 'operatorname' );
-		$this->assertStringContainsString( 'sn</mi>', $result );
-		$this->assertStringContainsString( '<mo>&#x2061;</mo>', $result );
+		$this->assertStringContainsString( 'sn</mi>', implode( $result ) );
+		$this->assertStringContainsString( '<mo>&#x2061;</mo>', implode( $result ) );
 	}
 
 	public function testHandleOperatorLast() {
@@ -197,8 +197,8 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 		$result = BaseParsing::handleOperatorName( $node, [], [
 			"foundNamedFct" => [ true, false ]
 		], 'operatorname' );
-		$this->assertStringContainsString( 'sn</mi>', $result );
-		$this->assertStringNotContainsString( '<mo>&#x2061;</mo>', $result );
+		$this->assertStringContainsString( 'sn</mi>', implode( $result ) );
+		$this->assertStringNotContainsString( '<mo>&#x2061;</mo>', implode( $result ) );
 	}
 
 	public function testColumnSpecs() {
@@ -213,7 +213,7 @@ f(x,y,z) & = & x + y + z
 	public function testNamedOperator() {
 		$node = new Literal( '\\gcd' );
 		$result = BaseParsing::namedOp( $node, [], [], '\\gcd' );
-		$this->assertStringContainsString( '>gcd</mi>', $result );
+		$this->assertStringContainsString( '>gcd</mi>', implode( $result ) );
 	}
 
 	public function testSpace() {
@@ -225,6 +225,6 @@ f(x,y,z) & = & x + y + z
 	public function testIgnoreMisplacedLimit() {
 		$node = new Literal( '\\limits ' );
 		$result = BaseParsing::limits( $node, [], [], '\\limits' );
-		$this->assertSame( '', $result, 'Misplaced limits should be ignored' );
+		$this->assertSame( '', (string)$result, 'Misplaced limits should be ignored' );
 	}
 }
