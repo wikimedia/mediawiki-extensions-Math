@@ -3214,7 +3214,7 @@
 		]
 	},
 	"\\llap": {
-		"callback": "lap",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::lap",
 		"fun_ar1": true,
 		"mhchemtexified_required": true
 	},
@@ -4713,7 +4713,7 @@
 		]
 	},
 	"\\rlap": {
-		"callback": "lap",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::lap",
 		"fun_ar1": true,
 		"mhchemtexified_required": true
 	},

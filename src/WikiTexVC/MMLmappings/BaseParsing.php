@@ -330,21 +330,6 @@ class BaseParsing {
 		return [ $mmlNot, $node->getArg()->renderMML( $passedArgs, $state ), $applyFct ];
 	}
 
-	public static function lap( $node, $passedArgs, $operatorContent, $name ): ?MMLbase {
-		if ( !$node instanceof Fun1 ) {
-			return null;
-		}
-		if ( trim( $name ) === "\\rlap" ) {
-			$args = [ "width" => "0" ];
-		} elseif ( trim( $name ) === "\\llap" ) {
-			$args = [ "width" => "0", "lspace" => "-1width" ];
-		} else {
-			return null;
-		}
-		return new MMLmrow( TexClass::ORD, [],
-			new MMLmpadded( "", $args, $node->getArg()->renderMML() ) );
-	}
-
 	public static function macro( $node, $passedArgs, $operatorContent, $name,
 								  $macro = '', $argcount = null, $def = null ) {
 		// Parse the Macro

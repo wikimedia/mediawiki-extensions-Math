@@ -2,6 +2,7 @@
 namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings;
 
 use ArgumentCountError;
+use LogicException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmerror;
@@ -24,7 +25,7 @@ use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
  */
 class BaseMethods {
 
-	public static function checkAndParse( $input, $passedArgs, $operatorContent, TexNode $node, $prepareInput = true ) {
+	public static function checkAndParse( $input, $passedArgs, $operatorContent, TexNode $node ) {
 		if ( !is_string( $input ) ) {
 			// just discard these elements, sometimes empty TexArray
 			return null;
@@ -43,6 +44,9 @@ class BaseMethods {
 		// If the function has been found, dynamically call the associated parsing function.
 		if ( is_string( $resFct ) ) {
 			$resFct = [ $resFct ];
+		}
+		if ( str_contains( $resFct[0], '::', ) ) {
+			throw new LogicException( "Callback to $resFct[0] should be treated in the respective class." );
 		}
 		try {
 			// Passing resolved function as param without first id

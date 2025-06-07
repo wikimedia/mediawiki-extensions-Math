@@ -155,8 +155,8 @@ class Literal extends TexNode {
 
 		// Sieve for Makros
 		$ret = BaseMethods::checkAndParse( $inputP, $arguments,
-		array_merge( $operatorContent ?? [], $state ?? [] ),
-		$this, false );
+			array_merge( $operatorContent ?? [], $state ?? [] ),
+			$this );
 		if ( $ret || $ret === '' ) {
 			return $ret;
 		}

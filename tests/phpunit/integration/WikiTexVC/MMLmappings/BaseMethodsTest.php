@@ -1,7 +1,9 @@
 <?php
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\MMLmappings;
 
+use LogicException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 use MediaWikiIntegrationTestCase;
 
 /**
@@ -26,4 +28,11 @@ class BaseMethodsTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( '&gt;</mo>', $op );
 	}
 
+	public function testInvalidCall() {
+		$this->expectException( LogicException::class );
+		$this->expectExceptionMessage( 'Callback to MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1::lap' .
+		' should be treated in the respective class.' );
+		$bm = new BaseMethods();
+		$bm->checkAndParse( '\\llap', null, [], new TexNode() );
+	}
 }

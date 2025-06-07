@@ -3,6 +3,8 @@
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 
 use ArgumentCountError;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmpadded;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
@@ -132,5 +134,14 @@ class Fun1Test extends MediaWikiIntegrationTestCase {
 		$rendering = $f->renderMML();
 		preg_match_all( '/mathvariant="normal"/', $rendering, $matches );
 		$this->assertCount( 2, $matches[0] );
+	}
+
+	public function testLlap() {
+		$f = new Fun1( '\\llap', TexArray::newCurly( new Literal( '/' ) ) );
+		$rendering = $f->renderMML();
+		$this->assertInstanceOf( MMLmrow::class, $rendering );
+		$children = $rendering->getChildren();
+		$this->assertCount( 1, $children );
+		$this->assertInstanceOf( MMLmpadded::class, $children[0] );
 	}
 }

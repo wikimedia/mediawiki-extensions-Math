@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use InvalidArgumentException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 
 class TexNode {
 
@@ -62,7 +63,7 @@ class TexNode {
 	/**
 	 * @param array $arguments
 	 * @param array &$state
-	 * @return string
+	 * @return string|MMLbase
 	 */
 	public function renderMML( $arguments = [], &$state = [] ) {
 		return array_reduce( $this->args, function ( $out, $child ) use ( $arguments, $state ) {
@@ -74,7 +75,7 @@ class TexNode {
 	 * @param self|string $child
 	 * @param array $arguments
 	 * @param array &$state
-	 * @return string
+	 * @return string|MMLbase
 	 */
 	public function renderChildMML( $child, $arguments, &$state ) {
 		if ( $child instanceof TexNode ) {

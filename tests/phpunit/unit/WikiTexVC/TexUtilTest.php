@@ -159,10 +159,12 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		foreach ( $sets as $set ) {
 			$functions = $tu->getBaseElements()[ $set ];
 			foreach ( $functions as $symbol => $function ) {
-					$methodName = is_array( $function ) ? $function[0] : $function;
-
-					$this->assertTrue( method_exists( BaseParsing::class, $methodName ),
-						'Method ' . $methodName . ' for symbol ' . $symbol . ' does not exist in BaseParsing' );
+					$methodString = is_array( $function ) ? $function[0] : $function;
+					$methodParts = explode( '::', $methodString, 2 );
+					$methodName = array_pop( $methodParts );
+					$class = array_pop( $methodParts ) ?? BaseParsing::class;
+					$this->assertTrue( method_exists( $class, $methodName ),
+						'Method ' . $methodString . ' for symbol ' . $symbol . ' does not exist in BaseParsing' );
 			}
 		}
 	}
