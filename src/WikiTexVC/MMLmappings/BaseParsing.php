@@ -900,7 +900,7 @@ class BaseParsing {
 		return new MMLmspace( "", [ "width" => MMLutil::round2em( $withIn ) ] );
 	}
 
-	public static function smash( $node, $passedArgs, $operatorContent, $name ) {
+	public static function smash( $node, $passedArgs, $operatorContent, $name ): MMLbase {
 		$mpArgs = [];
 		$inner = "";
 		if ( $node instanceof Fun2sq ) {
@@ -926,31 +926,24 @@ class BaseParsing {
 			$mpArgs = [ "height" => "0", "depth" => "0" ];
 			$inner = $node->getArg()->renderMML() ?? "";
 		}
-		$mrow = new MMLmrow();
-		$mpAdded = new MMLmpadded( "", $mpArgs );
-		return $mrow->encapsulateRaw( $mpAdded->encapsulateRaw( $inner ) );
+		return new MMLmrow( TexClass::ORD, [], new MMLmpadded( "", $mpArgs, $inner ) );
 	}
 
-	public static function texAtom( $node, $passedArgs, $operatorContent, $name, $texClass = null ) {
+	public static function texAtom( $node, $passedArgs, $operatorContent, $name, $texClass = null ): MMLbase {
 		switch ( $name ) {
 			case "mathclose":
-				$mrow = new MMLmrow();
-				$mrow2 = new MMLmrow( $texClass, [] );
 				$inner = $node->getArg()->renderMML();
-				return $mrow->encapsulateRaw( $mrow2->encapsulateRaw( $inner ) );
+				return new MMLmrow( TexClass::ORD, [], new MMLmrow( $texClass, [], $inner ) );
 			case "mathbin":
 				// no break
 			case "mathop":
 				// no break
 			case "mathrel":
-				$mrow2 = new MMLmrow( $texClass, [] );
 				$inner = $node->getArg()->renderMML();
-				return $mrow2->encapsulateRaw( $inner );
+				return new MMLmrow( $texClass, [], $inner );
 			default:
-				$mrow = new MMLmrow( TexClass::ORD );
-				$mrow2 = new MMLmrow( $texClass, [] );
 				$inner = $node->getArg()->renderMML();
-				return $mrow->encapsulateRaw( $mrow2->encapsulateRaw( $inner ) );
+				return new MMLmrow( TexClass::ORD, [], new MMLmrow( $texClass, [], $inner ) );
 		}
 	}
 
@@ -994,8 +987,7 @@ class BaseParsing {
 			return $hackyXML;
 		} elseif ( $arg1->isCurly() && count( $arg1->getArgs() ) >= 2 ) {
 			// Create a surrounding element which holds the intents
-			$mrow = new MMLmrow( "", $intentContentAtr );
-			return $mrow->encapsulateRaw( $arg1->renderMML( [], $intentParamsState ) );
+			return new MMLmrow( "", $intentContentAtr, $arg1->renderMML( [], $intentParamsState ) );
 		} elseif ( $arg1->isCurly() && count( $arg1->getArgs() ) >= 1 ) {
 			// Forge the intent attribute to the top-level element after MML rendering
 			$element = $arg1->getArgs()[0];
@@ -1008,10 +1000,9 @@ class BaseParsing {
 		}
 	}
 
-	public static function hBox( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
+	public static function hBox( $node, $passedArgs, $operatorContent, $name, $smth = null ): MMLbase {
 		switch ( trim( $name ) ) {
 			case "\\mbox":
-				$mmlMrow = new MMLmrow();
 				if ( isset( $operatorContent['foundOC'] ) ) {
 					$op = $operatorContent['foundOC'];
 					$macro = TexUtil::getInstance()->nullary_macro_in_mbox( $op ) ?
@@ -1020,24 +1011,20 @@ class BaseParsing {
 						TexUtil::getInstance()->identifier( $op );
 					$input = $macro[0] ?? $op;
 					// @phan-suppress-next-line PhanTypeMismatchArgumentNullable - false positive see above
-					return $mmlMrow->encapsulateRaw( (string)( new MMLmo( "", [], MMLutil::uc2xNotation( $input ) ) ) );
+					return new MMLmrow( TexClass::ORD, [], new MMLmo( "", [], MMLutil::uc2xNotation( $input ) ) );
 				} else {
-					$mmlMrow = new MMLmrow();
-					return $mmlMrow->encapsulateRaw( (string)( new MMLmtext( "", [], "\mbox" ) ) );
+					return new MMLmrow( TexClass::ORD, [], new MMLmtext( "", [], "\mbox" ) );
 				}
 			case "\\hbox":
-				$mmlMrow = new MMLmrow();
-				$mstyle = new MMLmstyle( "", [ "displaystyle" => "false", "scriptlevel" => "0" ] );
 				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->renderMML() : $node->getArg();
-				return $mmlMrow->encapsulateRaw(
-					$mstyle->encapsulateRaw(
-						(string)( new MMLmtext( "", [], $inner ) )
+				return new MMLmrow( TexClass::ORD, [],
+					new MMLmstyle( "", [ "displaystyle" => "false", "scriptlevel" => "0" ],
+						new MMLmtext( "", [], $inner )
 					)
 				);
 			case "\\text":
-				$mmlMrow = new MMLmrow();
 				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->renderMML() : $node->getArg();
-				return $mmlMrow->encapsulateRaw( (string)( new MMLmtext( "", [], $inner ) ) );
+				return new MMLmrow( TexClass::ORD, [], new MMLmtext( "", [], $inner ) );
 			case "\\textbf":
 				// no break
 			case "\\textit":
@@ -1051,16 +1038,13 @@ class BaseParsing {
 				$inner = $node->getArg()->isCurly() ? $node->getArg()->renderMML(
 					[], $state )
 					: $node->getArg()->renderMML( [ "fromHBox" => true ] );
-				$mtext = new MMLmtext( "",
-					MMLParsingUtil::getFontArgs( $name, null, null ),
-					$inner ?? '' );
-				return (string)$mtext;
+				return new MMLmtext( "",
+				MMLParsingUtil::getFontArgs( $name, null, null ),
+				$inner ?? '' );
 
 		}
 
-		$merror = new MMLmerror();
-		// $node->getArg1()->renderMML() . $node->getArg2()->renderMML()
-		return $merror->encapsulateRaw( "undefined hbox" );
+		return new MMLmerror( "", [], new MMLmtext( "", [], "undefined hbox" ) );
 	}
 
 	public static function setStyle( $node, $passedArgs, $operatorContent, $name,
@@ -1070,102 +1054,85 @@ class BaseParsing {
 	}
 
 	public static function not( $node, $passedArgs, $operatorContent, $name, $smth = null,
-								$smth1 = null, $smth2 = null ) {
+								$smth1 = null, $smth2 = null ): MMLbase {
 		// This is only tested for \not statement without follow-up parameters
 		if ( $node instanceof Literal ) {
 			return MMLParsingUtil::createNot();
-		} else {
-			$mError = new MMLmerror();
-			return $mError->encapsulateRaw( "TBD implement not" );
 		}
+		return new MMLmerror( "", [], new MMLmtext( "", [], "TBD implement not" ) );
 	}
 
-	public static function vbox( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
+	public static function vbox( $node, $passedArgs, $operatorContent, $name, $smth = null ): MMLbase {
 		// This is only example functionality for vbox("ab").
 		// TBD: it should be discussed if vbox is supported since it
 		// does not seem to be supported by mathjax
 		if ( is_string( $node->getArg() ) ) {
-			$mmlMover = new MMLmover();
-			$mmlmrow = new MMLmrow();
 			$arr1 = str_split( $node->getArg() );
-			$inner = "";
+			$inner = [];
 			foreach ( $arr1 as $char ) {
-				$inner .= $mmlmrow->encapsulateRaw( $char );
+				$inner[] = new MMLmrow( TexClass::ORD, [], $char );
 			}
-			return $mmlMover->encapsulateRaw( $inner );
+			return MMLmover::newSubtree( $inner[0], $inner[1] );
 		}
-		$mError = new MMLmerror();
-		return $mError->encapsulateRaw( "no implemented vbox" );
+		return new MMLmerror( "", [], new MMLmtext( "", [], "no implemented vbox" ) );
 	}
 
 	public static function sqrt( $node, $passedArgs, $operatorContent, $name ) {
-		$mrow = new MMLmrow();
-
 		// There is an additional argument for the root
 		if ( $node instanceof Fun2sq ) {
-			$mroot = new MMLmroot();
-
 			// In case of an empty curly add an mrow
 			$arg2Rendered = $node->getArg2()->renderMML( $passedArgs );
 			if ( trim( $arg2Rendered ) === "" ) {
-				$arg2Rendered = (string)$mrow;
+				$arg2Rendered = new MMLmrow( TexClass::ORD, [] );
 			}
-			return $mrow->encapsulateRaw(
-				$mroot->encapsulateRaw(
-					$arg2Rendered .
-					$mrow->encapsulateRaw(
+			return new MMLmrow( TexClass::ORD, [],
+				MMLmroot::newSubtree(
+					$arg2Rendered,
+					new MMLmrow( TexClass::ORD, [],
 						$node->getArg1()->renderMML( $passedArgs )
 					)
 				)
 			);
 		}
-		$msqrt = new MMLmsqrt();
 		// Currently this is own implementation from Fun1.php
-		return $mrow->encapsulateRaw( // assuming that this is always encapsulated in mrow
-			$msqrt->encapsulateRaw(
+		return new MMLmrow( TexClass::ORD, [], // assuming that this is always encapsulated in mrow
+			new MMLmsqrt( "", [],
 				$node->getArg()->renderMML( $passedArgs )
 			)
 		);
 	}
 
-	public static function tilde( $node, $passedArgs, $operatorContent, $name ) {
-		return (string)( new MMLmspace( "", [ "width" => "0.5em" ] ) );
+	public static function tilde( $node, $passedArgs, $operatorContent, $name ): MMLbase {
+		return new MMLmspace( "", [ "width" => "0.5em" ] );
 	}
 
-	public static function xArrow( $node, $passedArgs, $operatorContent, $name, $chr = null, $l = null, $r = null ) {
+	public static function xArrow( $node, $passedArgs, $operatorContent, $name, $chr = null, $l = null,
+								   $r = null ): MMLbase {
 		$defWidth = "+" . MMLutil::round2em( ( $l + $r ) / 18 );
 		$defLspace = MMLutil::round2em( $l / 18 );
 
-		$mover = new MMLmover();
-		$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ] );
 		$char = IntlChar::chr( $chr );
 
 		$mpaddedArgs = [ "height" => "-.2em", "lspace" => $defLspace, "voffset" => "-.2em", "width" => $defWidth ];
-		$mpadded = new MMLmpadded( "", $mpaddedArgs );
 		$mspace = new MMLmspace( "", [ "depth" => ".25em" ] );
 		if ( $node instanceof Fun2sq ) {
-			$mmlMrow = new MMLmrow();
-			$mmlUnderOver = new MMLmunderover();
-			return $mmlMrow->encapsulateRaw( $mmlUnderOver->encapsulateRaw(
-				$mstyle->encapsulateRaw( (string)( new MMLmo( Texclass::REL, [], $char ) ) ) .
-				$mpadded->encapsulateRaw(
-					$mmlMrow->encapsulateRaw(
+			return new MMLmrow( TexClass::ORD, [], MMLmunderover::newSubtree(
+				new MMLmstyle( "", [ "scriptlevel" => "0" ], new MMLmo( Texclass::REL, [], $char ) ),
+				new MMLmpadded( "", $mpaddedArgs,
+					new MMLmrow( TexClass::ORD, [],
 						$node->getArg1()->renderMML()
-					) .
+					),
 					$mspace
-				) .
-				$mpadded->encapsulateRaw(
+				),
+				new MMLmpadded( "", $mpaddedArgs,
 					$node->getArg2()->renderMML()
 				)
 			) );
 
 		}
-		return $mover->encapsulateRaw(
-			$mstyle->encapsulateRaw( (string)( new MMLmo( Texclass::REL, [], $char ) ) ) .
-			$mpadded->encapsulateRaw(
-				$node->getArg()->renderMML() .
-				$mspace
-			)
+		return MMLmover::newSubtree(
+			new MMLmstyle( "", [ "scriptlevel" => "0" ], new MMLmo( Texclass::REL, [], $char ) ),
+			new MMLmpadded( "", $mpaddedArgs, $node->getArg()->renderMML(), $mspace )
 		);
 	}
 
