@@ -45,10 +45,10 @@ class ChemWord extends TexNode {
 		$mtextLeft = new MMLmtext( "", [ "mathcolor" => "red" ] );
 		$mtextRight = new MMLmtext();
 		// If right has empty literal content is resolved as dash
-		$right = $this->getRight()->getArgs()[0] == "" ? "-" : $this->getRight()->renderMML( [],
+		$right = $this->getRight()->getArgs()[0] == "" ? "-" : (string)$this->getRight()->renderMML( [],
 			$state );
 		return $mmlMrow->encapsulateRaw( $mmlMrow->encapsulateRaw(
-			$mtextLeft->encapsulateRaw( $this->getLeft()->renderMML( [], $state ) )
+			$mtextLeft->encapsulateRaw( (string)$this->getLeft()->renderMML( [], $state ) )
 			. $mtextRight->encapsulateRaw( $right ) ) );
 	}
 

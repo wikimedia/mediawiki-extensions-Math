@@ -177,6 +177,11 @@ class Literal extends TexNode {
 		$ret = BaseMethods::checkAndParse( $inputP, $arguments,
 			array_merge( $operatorContent ?? [], $state ?? [] ),
 			$this );
+		if ( is_array( $ret ) ) {
+			$ret = implode( $ret );
+		} elseif ( $ret instanceof MMLbase ) {
+			$ret = (string)$ret;
+		}
 		if ( $ret || $ret === '' ) {
 			return $ret;
 		}

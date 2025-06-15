@@ -63,14 +63,14 @@ class DQ extends TexNode {
 			// Otherwise use default fallback
 			$mmlMrow = new MMLmrow();
 			$inner_state = [ 'styleargs' => $state['styleargs'] ?? [] ];
-			$baseRendering = $this->base->renderMML( $arguments, $inner_state );
+			$baseRendering = (string)$this->base->renderMML( $arguments, $inner_state );
 			// In cases with empty curly preceding like: "{}_pF_q" or _{1}
 			if ( trim( $baseRendering ) === "" ) {
 				$baseRendering = (string)( new MMLmrow() );
 			}
 			return $outer->encapsulateRaw(
 				$baseRendering .
-				$mmlMrow->encapsulateRaw( $this->down->renderMML( $arguments, $state ) ) );
+				$mmlMrow->encapsulateRaw( (string)$this->down->renderMML( $arguments, $state ) ) );
 		}
 
 		return "";

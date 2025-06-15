@@ -64,8 +64,8 @@ class FQ extends TexNode {
 			$base->getLength() == 0 && !$base->isCurly() ) {
 			// this happens when FQ is located in sideset Testcase 132
 			$mrow = new MMLmrow();
-			return $mrow->encapsulateRaw( $this->getDown()->renderMML( [], $state ) ) .
-				$mrow->encapsulateRaw( $this->getUp()->renderMML( [], $state ) );
+			return $mrow->encapsulateRaw( (string)$this->getDown()->renderMML( [], $state ) ) .
+				$mrow->encapsulateRaw( (string)$this->getUp()->renderMML( [], $state ) );
 		}
 		$melement = new MMLmsubsup();
 		// tbd check for more such cases like TexUtilTest 317
@@ -92,8 +92,8 @@ class FQ extends TexNode {
 		$inner = $melement->encapsulateRaw(
 			$emptyMrow .
 			$base->renderMML( [], $state ) .
-			$mrow->encapsulateRaw( $this->getDown()->renderMML( $arguments, $state ) ) .
-			$mrow->encapsulateRaw( $this->getUp()->renderMML( $arguments, $state ) ) );
+			$mrow->encapsulateRaw( (string)$this->getDown()->renderMML( $arguments, $state ) ) .
+			$mrow->encapsulateRaw( (string)$this->getUp()->renderMML( $arguments, $state ) ) );
 
 		if ( $melement instanceof MMLmunderover ) {
 			$args = $state['styleargs'] ?? [ "displaystyle" => "true", "scriptlevel" => 0 ];

@@ -5,6 +5,7 @@ use ArgumentCountError;
 use LogicException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmerror;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
@@ -52,25 +53,16 @@ class BaseMethods {
 			// Passing resolved function as param without first id
 			if ( count( $resFct ) > 1 ) {
 				$shifted = array_shift( $resFct );
-				$parsed = BaseParsing::{$shifted}( $node, $passedArgs, $operatorContent, $input, ...$resFct );
-				if ( is_array( $parsed ) ) {
-					return implode( $parsed );
-				}
-				return (string)$parsed;
-			} else {
-				$parsed = BaseParsing::{$resFct[0]}( $node, $passedArgs, $operatorContent, $input );
-				if ( is_array( $parsed ) ) {
-					return implode( $parsed );
-				}
-				return (string)$parsed;
+				return BaseParsing::{$shifted}( $node, $passedArgs, $operatorContent, $input, ...$resFct );
 			}
+			return BaseParsing::{$resFct[0]}( $node, $passedArgs, $operatorContent, $input );
 		} catch ( \Exception $exception ) {
 			return null;
 		}
 	}
 
 	public function checkAndParseOperator( $input, $node, $passedArgs, $operatorContent,
-										   $state, $prepareInput = true ) {
+										   $state, $prepareInput = true ): ?MMLbase {
 			$resOperator = TexUtil::getInstance()->operator_rendering( trim( $input ) );
 		if ( $resOperator == null ) {
 			$resOperator = TexUtil::getInstance()->operator_infix( trim( $input ) );
@@ -80,7 +72,7 @@ class BaseMethods {
 					return $this->parseOperatorDict( $node, $passedArgs, $operatorContent, $input, false );
 				}
 				// Atm just do simple parsing for elements in operator dictionary
-				return (string)new MMLmo( '', $passedArgs, $input );
+				return new MMLmo( '', $passedArgs, $input );
 			}
 		}
 
@@ -92,36 +84,33 @@ class BaseMethods {
 		if ( $resOperator == null ) {
 			return null;
 		}
-		try {
-			return $this->parseOperator( $node, $passedArgs, $operatorContent, $input, $state, ...$resOperator );
-
-		} catch ( ArgumentCountError $errArgcount ) {
-			return null;
-		}
+		return $this->parseOperator( $node, $passedArgs, $operatorContent, $input, $state, ...$resOperator );
 	}
 
-	public function parseOperatorDict( $node, $passedArgs, $operatorContent, $input, $uc = null, $attrs = [] ) {
+	public function parseOperatorDict( $node, $passedArgs, $operatorContent, $input, $uc = null,
+									   $attrs = [] ): MMLbase {
 		// Some custom parsing from operatorDict
 		switch ( $input ) {
 			case ";":
 			case ",":
 				// this maybe just a default case, this is not rendered when it is the last in row
-				return (string)( new MMLmo( "", [], $input ) );
+				return new MMLmo( "", [], $input );
 			case "<":
-				return (string)( new MMLmo( "", [], "<" ) );
+				return new MMLmo( "", [], "<" );
 			case ">":
-				return (string)( new MMLmo( "", [], ">" ) );
+				return new MMLmo( "", [], ">" );
 			case "\\":
 				 // instead of carriage return, force whitespace here:
 				 // see: https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Math/+/961213
-				return (string)new MMLmspace( "", [ "width" => "0.5em" ] );
+				return new MMLmspace( "", [ "width" => "0.5em" ] );
 			case '/':
-				return (string)new MMLmo( '', [ 'lspace' => '0', 'rspace' => '0' ], $input );
+				return new MMLmo( '', [ 'lspace' => '0', 'rspace' => '0' ], $input );
 		}
-		return $input;
+		throw new LogicException( "$input is not a valid operator." );
 	}
 
-	public function parseOperator( $node, $passedArgs, $operatorContent, $name, $state, $uc = null, $attrs = [] ) {
+	public function parseOperator( $node, $passedArgs, $operatorContent, $name, $state, $uc = null,
+								   $attrs = [] ): MMLbase {
 		// if($name == "equiv" || $name == "dotplus" || $name == "mp"  || $name == "pm"){
 		$attrs = array_merge( $passedArgs, $attrs ); // this is rather a workaround
 		if ( array_key_exists( "largeop", $attrs ) && $attrs['largeop'] == "" ) {
@@ -132,12 +121,13 @@ class BaseMethods {
 		}
 
 		if ( $state != null && array_key_exists( "not", $state ) && $state["not"] ) {
-			return (string)new MMLmo( "", $attrs, $uc . "&#x338;" );
+			return new MMLmo( "", $attrs, $uc . "&#x338;" );
 		}
-		return (string)new MMLmo( "", $attrs, $uc );
+		return new MMLmo( "", $attrs, $uc );
 	}
 
-	public function checkAndParseIdentifier( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
+	public function checkAndParseIdentifier( $input, $node, $passedArgs, $operatorContent,
+											 $prepareInput = true ): ?MMLbase {
 		// @phan-suppress-next-line PhanCoalescingNeverUndefined
 		$resIdentifier = TexUtil::getInstance()->identifier( trim( $input ) ) ?? null;
 		// If the macro has been found, dynamically call the associated parsing function.
@@ -156,7 +146,7 @@ class BaseMethods {
 		}
 	}
 
-	public function parseIdentifier( $node, $passedArgs, $operatorContent, $name, $uc = null, $attrs = [] ) {
+	public function parseIdentifier( $node, $passedArgs, $operatorContent, $name, $uc = null, $attrs = [] ): MMLbase {
 		// tbd verify rule: Lowercase name ("operator" instead "Operator") seems to
 		// indicate additional italic mathvariant when bold already
 		if ( !ctype_upper( $name ) ) {
@@ -172,11 +162,11 @@ class BaseMethods {
 			unset( $args["texClass"] );
 		}
 
-		return (string)new MMLmi( "", $args, $uc );
+		return new MMLmi( "", $args, $uc );
 	}
 
 	public function checkAndParseDelimiter( $input, $node, $passedArgs,
-											$operatorContent, $noargs = false, $texClass = "" ) {
+											$operatorContent, $noargs = false, $texClass = "" ): ?MMLbase {
 		if ( $input === null ) {
 			return null;
 		}
@@ -191,15 +181,16 @@ class BaseMethods {
 			$passedArgs = array_merge( $resDelimiter[1], $passedArgs );
 		}
 
-		return (string)new MMLmo( $texClass, $passedArgs, $resDelimiter[0] );
+		return new MMLmo( $texClass, $passedArgs, $resDelimiter[0] );
 	}
 
-	public function checkAndParseMathCharacter( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
+	public function checkAndParseMathCharacter( $input, $node, $passedArgs, $operatorContent,
+												$prepareInput = true ): ?MMLbase {
 		$resChar = TexUtil::getInstance()->mathchar( trim( $input ) );
 		if ( $resChar == null ) {
 			return null;
 		}
-		return (string)new MMLmi( "", [ "mathvariant" => "normal" ], $resChar );
+		return new MMLmi( "", [ "mathvariant" => "normal" ], $resChar );
 	}
 
 	public function checkAndParseColor( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
@@ -234,9 +225,7 @@ class BaseMethods {
 		}
 	}
 
-	public static function generateMMLError( string $msg ): string {
-		return ( new MMLmerror() )->encapsulateRaw(
-			(string)( new MMLmtext( "", [], $msg ) )
-		);
+	public static function generateMMLError( string $msg ): MMLmerror {
+		return new MMLmerror( "", [], new MMLmtext( "", [], $msg ) );
 	}
 }

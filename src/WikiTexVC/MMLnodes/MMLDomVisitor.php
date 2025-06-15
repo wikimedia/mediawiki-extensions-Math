@@ -93,7 +93,7 @@ class MMLDomVisitor implements MMLVisitor {
 	private function createElement( MMLbase $node ): DOMElement {
 		$element = $this->dom->createElement( $node->getName() );
 		foreach ( $node->getAttributes() as $name => $value ) {
-			$element->setAttribute( strtolower( $name ), $value );
+			$element->setAttribute( strtolower( $name ), $value ?? "" );
 		}
 		return $element;
 	}

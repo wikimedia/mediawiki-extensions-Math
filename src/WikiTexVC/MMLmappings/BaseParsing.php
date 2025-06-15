@@ -837,6 +837,9 @@ class BaseParsing {
 		if ( $operatorContent["sideset"] instanceof Literal ) {
 			$bm = new BaseMethods();
 			$opParsed = $bm->checkAndParseOperator( $operatorContent["sideset"]->getArg(), null, [], [], null );
+			if ( $opParsed === null ) {
+				throw new \LogicException( "null is not a valid base for MMLmmultiscripts." );
+			}
 			$in1 = $node->getArg1()->renderMML();
 			$in2 = $node->getArg2()->renderMML();
 			return new MMLmrow( TexClass::OP, [],

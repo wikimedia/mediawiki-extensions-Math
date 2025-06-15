@@ -339,7 +339,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 				$displayedColor = $resColor ?: $currentColor;
 			}
 			$mmlStyleColor = new MMLmstyle( "", [ "mathcolor" => $displayedColor ] );
-			$ret = $mmlStyleColor->encapsulateRaw( $currentNode->renderMML( $arguments, $state ) );
+			$ret = $mmlStyleColor->encapsulateRaw( (string)$currentNode->renderMML( $arguments, $state ) );
 		} else {
 			$ret = (string)$currentNode->renderMML( $arguments, $state );
 		}

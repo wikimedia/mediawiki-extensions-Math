@@ -35,11 +35,14 @@ class TexNode {
 	protected function parseToMML( $input, $passedArgs, $operatorContent ): string {
 		$parsed = BaseMethods::checkAndParse( $input, $passedArgs, $operatorContent, $this );
 		if ( $parsed ) {
-			return $parsed;
+			if ( is_array( $parsed ) ) {
+				return implode( $parsed );
+			}
+			return (string)$parsed;
 		}
 		$name = strtoupper( self::class );
 
-		return BaseMethods::generateMMLError( "Not implemented $name for $input" );
+		return (string)BaseMethods::generateMMLError( "Not implemented $name for $input" );
 	}
 
 	/**

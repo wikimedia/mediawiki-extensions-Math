@@ -59,13 +59,13 @@ class UQ extends TexNode {
 		if ( $base instanceof TexArray && $base->getLength() == 0 ) {
 			$baseRendered = (string)( new MMLmi() );
 		} else {
-			$baseRendered = $base->renderMML( $arguments, $state );
+			$baseRendered = (string)$base->renderMML( $arguments, $state );
 		}
 		if ( $up instanceof TexArray && $up->getLength() == 0 ) {
 			$upRendered = (string)( new MMLmi() );
 		} else {
 			// up is inferring a new mrow if it has some content
-			$upRendered = $mrow->encapsulateRaw( $up->renderMML( $arguments, $state ) );
+			$upRendered = $mrow->encapsulateRaw( (string)$up->renderMML( $arguments, $state ) );
 		}
 
 		return $mmlBase->encapsulateRaw( $baseRendered . $upRendered );
