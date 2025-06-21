@@ -144,4 +144,17 @@ class Fun1Test extends MediaWikiIntegrationTestCase {
 		$this->assertCount( 1, $children );
 		$this->assertInstanceOf( MMLmpadded::class, $children[0] );
 	}
+
+	/**
+	 * Test that a bold lambda is rendered correctly in MathML.
+	 *
+	 * @see https://phabricator.wikimedia.org/T390259
+	 *
+	 * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1::renderMML
+	 */
+	public function testBoldLambda() {
+		$f = new Fun1( '\\mathbf', new Literal( '\\lambda' ) );
+		$this->assertStringContainsString( '&#x03BB;', $f->renderMML(),
+			'Should render bold lambda in MathML.' );
+	}
 }
