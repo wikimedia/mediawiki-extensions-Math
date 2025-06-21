@@ -21,19 +21,16 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Mhchem;
 class MhchemUtil {
 
 	/**
-	 * The input is used as boolean operator in a javascript-type if condition,
+	 * The input is used as a boolean operator in a javascript-type if condition,
 	 * example: "if(input)"
-	 * output has the same boolean results as an if-condition in javascript.
+	 * output has the same boolean results as an if-condition in JavaScript.
 	 * arrays as input have to be used like this "issetJS($arr["b"] ?? null);"
 	 * properties as input have to be used like this "issetJS($inst->prop ?? null);"
 	 * @param mixed|null $input input to be checked in a javascript-type if condition
 	 * @return bool indicator if input is populated
 	 */
 	public static function issetJS( $input ): bool {
-		if ( $input === 0 || $input == "" ) {
-			return false;
-		}
-		return true;
+		return !( $input === 0 || $input == "" );
 	}
 
 	/**
