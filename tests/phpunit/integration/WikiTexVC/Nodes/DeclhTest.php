@@ -88,6 +88,6 @@ class DeclhTest extends MediaWikiIntegrationTestCase {
 
 	public function testRenderMML() {
 		$f = new Declh( '\\bf', new TexArray( new Literal( 'a' ) ) );
-		$this->assertStringContainsString( 'mathvariant="bold"', $f->renderMML(), 'MathML should render bold' );
+		$this->assertStringContainsString( '𝐚', $f->renderMML(), 'MathML should render bold' );
 	}
 }

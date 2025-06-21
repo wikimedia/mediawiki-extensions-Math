@@ -5,7 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
-use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\MathVariant;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
@@ -61,20 +61,36 @@ class Literal extends TexNode {
 		return null;
 	}
 
-	public function changeUnicodeFontInput( string $input, array &$state ): string {
+	public function changeUnicodeFontInput( string $input, array &$state, array &$arguments ): string {
 		/**
 		 * In some font modifications, it is required to explicitly use Unicode
 		 * characters instead of (only) attributes in MathML to indicate the font.
 		 * This is mostly because of Chrome behaviour. See: https://phabricator.wikimedia.org/T352196
 		 */
 		if ( isset( $state["double-struck-literals"] ) ) {
-			return MMLParsingUtil::mapToDoubleStruckUnicode( $input );
+			MathVariant::removeMathVariantAttribute( $arguments );
+			return MathVariant::translate(
+				$input,
+				"double-struck"
+			);
 		} elseif ( isset( $state["calligraphic"] ) ) {
-			return MMLParsingUtil::mapToCaligraphicUnicode( $input );
+			MathVariant::removeMathVariantAttribute( $arguments );
+			return MathVariant::translate(
+				$input,
+				"script"
+			);
 		} elseif ( isset( $state["fraktur"] ) ) {
-			return MMLParsingUtil::mapToFrakturUnicode( $input );
+			MathVariant::removeMathVariantAttribute( $arguments );
+			return MathVariant::translate(
+				$input,
+				"fraktur"
+			);
 		} elseif ( isset( $state["bold"] ) ) {
-			return MMLParsingUtil::mapToBoldUnicode( $input );
+			MathVariant::removeMathVariantAttribute( $arguments );
+			return MathVariant::translate(
+				$input,
+				"bold"
+			);
 		}
 		return $input;
 	}
@@ -84,7 +100,8 @@ class Literal extends TexNode {
 			return null;
 		}
 		if ( is_numeric( $this->arg ) ) {
-			return new MMLmn( "", $arguments, $this->changeUnicodeFontInput( $this->arg, $state ) );
+			$content = $this->changeUnicodeFontInput( $this->arg, $state, $arguments );
+			return new MMLmn( "", $arguments, $content );
 		}
 		return null;
 	}
@@ -173,10 +190,10 @@ class Literal extends TexNode {
 			// No mi, if literal is from HBox
 			return $input;
 		}
+		// If falling through all sieves just creates an mi element
 
-		// If falling through all sieves just create an MI element
-		$mi = new MMLmi( "", $arguments );
-		return $mi->encapsulateRaw( $this->changeUnicodeFontInput( $input, $state ) ); // $this->arg
+		$content = $this->changeUnicodeFontInput( $input, $state, $arguments );
+		return (string)new MMLmi( "", $arguments, $content );
 	}
 
 	/**
