@@ -2335,5 +2335,11 @@
         "input": "\\AA",
         "params": [],
         "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo>&#x00C5;<\/mo><\/mrow><\/math>"
+    },
+    {
+        "input": "\\textbf{1}",
+        "params": [],
+        "bug": "T397120",
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mtext mathvariant=\"bold\">1<\/mtext><\/math>"
     }
 ]

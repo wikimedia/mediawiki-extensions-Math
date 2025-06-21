@@ -80,6 +80,9 @@ class Literal extends TexNode {
 	}
 
 	public function toMMLTree( array $arguments = [], array &$state = [] ): ?MMLbase {
+		if ( !( empty( $state['inHBox'] ) ) ) {
+			return null;
+		}
 		if ( is_numeric( $this->arg ) ) {
 			return new MMLmn( "", $arguments, $this->changeUnicodeFontInput( $this->arg, $state ) );
 		}
