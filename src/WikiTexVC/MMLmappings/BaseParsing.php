@@ -35,7 +35,6 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunderover;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1nb;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2sq;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun4;
@@ -670,31 +669,7 @@ class BaseParsing {
 		$args = MMLParsingUtil::getFontArgs( $name, $mathvariant, $passedArgs );
 		$state = [];
 
-		// Unicode fixes for the operators
-		switch ( $mathvariant ) {
-			case Variants::DOUBLESTRUCK:
-				$state = [ "double-struck-literals" => true ];
-				break;
-			case Variants::CALLIGRAPHIC:
-				$state = [ "calligraphic" => true ];
-				break;
-			case Variants::BOLDCALLIGRAPHIC:
-				$state = [ "bold-calligraphic" => true ];
-				break;
-			case Variants::FRAKTUR:
-				$state = [ "fraktur" => true ];
-				break;
-			case Variants::BOLD:
-				$state = [ "bold" => true ];
-				break;
-		}
-
-		if ( $node instanceof Fun1nb ) {
-			// Only one mrow from Fun1nb !?
 			return new MMLmrow( TexClass::ORD, [], $node->getArg()->renderMML( $args, $state ) );
-		}
-		return new MMLmrow( TexClass::ORD, [],
-			new MMLmrow( TexClass::ORD, [], $node->getArg()->renderMML( $args, $state ) ) );
 	}
 
 	public static function mathChoice( $node, $passedArgs, $operatorContent, $name, $smth = null ) {

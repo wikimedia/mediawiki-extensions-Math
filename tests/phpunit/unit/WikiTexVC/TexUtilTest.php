@@ -139,7 +139,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		// Loading local json file
 		$file = TexUtil::getJsonFile();
 		// json_encode cannot generate tabs required by WMF convention https://github.com/php/php-src/issues/8864
-		$encP = json_encode( $out, JSON_PRETTY_PRINT );
+		$encP = json_encode( $out, JSON_PRETTY_PRINT + JSON_UNESCAPED_UNICODE );
 		$encP = preg_replace( '/\n\s+/', "\n", $encP ) . "\n";
 		// unescape slashes for comparison as escaping is not allowed in the json file
 		$encP = str_replace( '\/', '/', $encP );

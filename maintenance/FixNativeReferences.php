@@ -46,7 +46,7 @@ class FixNativeReferences extends Maintenance {
 			$allEntries[] = $entry;
 		}
 
-		$jsonData = json_encode( $allEntries, JSON_PRETTY_PRINT );
+		$jsonData = json_encode( $allEntries, JSON_PRETTY_PRINT + JSON_UNESCAPED_UNICODE );
 		file_put_contents( self::REFERENCE_PATH, $jsonData );
 		if ( !$success ) {
 			$this->fatalError( "Some entries were skipped. Please investigate.\n" );

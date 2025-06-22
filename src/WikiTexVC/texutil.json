@@ -514,10 +514,7 @@
 	"\\Bbbk": {
 		"ams_required": true,
 		"identifier": [
-			"\\u006B",
-			{
-				"mathvariant": "double-struck"
-			}
+			"𝕜"
 		],
 		"is_literal": true,
 		"nullary_macro": true
@@ -5714,91 +5711,61 @@
 	},
 	"\\varDelta": {
 		"identifier": [
-			"\\u0394",
-			{
-				"mathvariant": "italic"
-			}
+			"𝞓"
 		],
 		"nullary_macro": true
 	},
 	"\\varGamma": {
 		"identifier": [
-			"\\u0393",
-			{
-				"mathvariant": "italic"
-			}
+			"𝛤"
 		],
 		"nullary_macro": true
 	},
 	"\\varLambda": {
 		"identifier": [
-			"\\u039B",
-			{
-				"mathvariant": "italic"
-			}
+			"𝛬"
 		],
 		"nullary_macro": true
 	},
 	"\\varOmega": {
 		"identifier": [
-			"\\u03A9",
-			{
-				"mathvariant": "italic"
-			}
+			"𝛺"
 		],
 		"nullary_macro": true
 	},
 	"\\varPhi": {
 		"identifier": [
-			"\\u03A6",
-			{
-				"mathvariant": "italic"
-			}
+			"𝛷"
 		],
 		"nullary_macro": true
 	},
 	"\\varPi": {
 		"identifier": [
-			"\\u03A0",
-			{
-				"mathvariant": "italic"
-			}
+			"𝛱"
 		],
 		"nullary_macro": true
 	},
 	"\\varSigma": {
 		"identifier": [
-			"\\u03A3",
-			{
-				"mathvariant": "italic"
-			}
+			"𝛴"
 		],
 		"nullary_macro": true
 	},
 	"\\varTheta": {
 		"identifier": [
-			"\\u0398",
-			{
-				"mathvariant": "italic"
-			}
+			"𝜣"
 		],
 		"nullary_macro": true
 	},
 	"\\varUpsilon": {
 		"identifier": [
-			"\\u03A5",
-			{
-				"mathvariant": "italic"
-			}
+			"𝜰"
 		],
 		"nullary_macro": true
 	},
 	"\\varXi": {
 		"identifier": [
-			"\\u039E",
-			{
-				"mathvariant": "italic"
-			}
+			"𝛯"
 		],
 		"nullary_macro": true
 	},
