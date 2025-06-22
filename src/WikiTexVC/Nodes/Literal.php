@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\MathVariant;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
@@ -78,7 +79,7 @@ class Literal extends TexNode {
 			return null;
 		}
 		if ( is_numeric( $this->arg ) ) {
-			if ( ( $arguments['mathvariant'] ?? '' ) === 'italic' ) {
+			if ( ( $arguments['mathvariant'] ?? '' ) === Variants::ITALIC ) {
 				// If the mathvariant italic does not exist for numbers
 				// https://github.com/w3c/mathml/issues/77#issuecomment-2993838911
 				$arguments['style'] = trim( ( $arguments['style'] ?? '' ) . ' font-style: italic' );

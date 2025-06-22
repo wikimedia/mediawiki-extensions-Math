@@ -150,8 +150,8 @@ class BaseMethods {
 		// tbd verify rule: Lowercase name ("operator" instead "Operator") seems to
 		// indicate additional italic mathvariant when bold already
 		if ( !ctype_upper( $name ) ) {
-			if ( isset( $passedArgs["mathvariant"] ) && $passedArgs["mathvariant"] === 'bold' ) {
-				$passedArgs["mathvariant"] = $passedArgs["mathvariant"] . "-" . Variants::ITALIC;
+			if ( isset( $passedArgs['mathvariant'] ) && $passedArgs['mathvariant'] === Variants::BOLD ) {
+				$passedArgs['mathvariant'] = $passedArgs['mathvariant'] . "-" . Variants::ITALIC;
 			}
 		}
 
@@ -190,7 +190,7 @@ class BaseMethods {
 		if ( $resChar == null ) {
 			return null;
 		}
-		return new MMLmi( "", [ "mathvariant" => "normal" ], $resChar );
+		return new MMLmi( '', [ 'mathvariant' => Variants::NORMAL ], $resChar );
 	}
 
 	public function checkAndParseColor( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {

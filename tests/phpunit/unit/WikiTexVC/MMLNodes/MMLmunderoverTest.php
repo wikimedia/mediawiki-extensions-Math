@@ -2,6 +2,7 @@
 
 namespace phpunit\unit\WikiTexVC\MMLNodes;
 
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
@@ -17,20 +18,20 @@ use MediaWikiUnitTestCase;
  */
 class MMLmunderoverTest extends MediaWikiUnitTestCase {
 	public function testConstructor() {
-		$munderover = new MMLmunderover( '', [ 'mathvariant' => 'bold' ] );
+		$munderover = new MMLmunderover( '', [ 'mathvariant' => Variants::BOLD ] );
 
 		$this->assertEquals( 'munderover', $munderover->getName() );
-		$this->assertEquals( [ 'mathvariant' => 'bold' ], $munderover->getAttributes() );
+		$this->assertEquals( [ 'mathvariant' => Variants::BOLD ], $munderover->getAttributes() );
 	}
 
 	public function testTreeConstructor() {
 		$mo = new MMLmo( '', [], '∑' );
 		$mi = new MMLmi( '', [], 'x' );
 		$mn = new MMLmn( '', [], '5' );
-		$munderover = MMLmunderover::newSubtree( $mo, $mi, $mn, '', [ 'mathvariant' => 'bold' ] );
+		$munderover = MMLmunderover::newSubtree( $mo, $mi, $mn, '', [ 'mathvariant' => Variants::BOLD ] );
 
 		$this->assertEquals( 'munderover', $munderover->getName() );
-		$this->assertEquals( [ 'mathvariant' => 'bold' ], $munderover->getAttributes() );
+		$this->assertEquals( [ 'mathvariant' => Variants::BOLD ], $munderover->getAttributes() );
 		$this->assertEquals( $munderover->getChildren(), [ $mo, $mi, $mn ] );
 	}
 }

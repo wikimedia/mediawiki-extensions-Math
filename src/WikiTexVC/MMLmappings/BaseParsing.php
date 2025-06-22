@@ -146,7 +146,7 @@ class BaseParsing {
 
 	public static function boldsymbol( $node, $passedArgs, $operatorContent, $name, $smth = null,
 									   $smth2 = null ): MMLbase {
-		$passedArgs = array_merge( [ "mathvariant" => Variants::BOLDITALIC ] );
+		$passedArgs = array_merge( [ 'mathvariant' => Variants::BOLDITALIC ] );
 		return new MMLmrow( TexClass::ORD, [], $node->getArg()->renderMML( $passedArgs ) );
 	}
 
@@ -176,7 +176,7 @@ class BaseParsing {
 		if ( $isOperator ) {
 			return new MMLmrow( TexClass::ORD, [], new MMLmo( "", [], $char ) );
 		}
-		return new MMLmrow( TexClass::ORD, [], new MMLmi( "", [ "mathvariant" => "normal" ], $char ) );
+		return new MMLmrow( TexClass::ORD, [], new MMLmi( "", [ 'mathvariant' => Variants::NORMAL ], $char ) );
 	}
 
 	public static function cFrac( $node, $passedArgs, $operatorContent, $name ): MMLbase {
@@ -325,7 +325,7 @@ class BaseParsing {
 		if ( isset( $operatorContent['not'] ) && $operatorContent['not'] ) {
 			$mmlNot = MMLParsingUtil::createNot();
 		}
-		$passedArgs = array_merge( $passedArgs, [ Tag::CLASSTAG => TexClass::OP, "mathvariant" => Variants::NORMAL ] );
+		$passedArgs = array_merge( $passedArgs, [ Tag::CLASSTAG => TexClass::OP, 'mathvariant' => Variants::NORMAL ] );
 		$state = [ 'squashLiterals' => true ];
 		return new MMLarray( $mmlNot, $node->getArg()->renderMML( $passedArgs, $state ), $applyFct );
 	}

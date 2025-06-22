@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLDomVisitor;
@@ -24,7 +25,7 @@ class MMLDomVisitorTest extends MediaWikiIntegrationTestCase {
 
 	public function testLeafNodeConversion() {
 		$visitor = new MMLDomVisitor();
-		$mi = new MMLmi( '', [ 'mathvariant' => 'bold' ], 'x' );
+		$mi = new MMLmi( '', [ 'mathvariant' => Variants::BOLD ], 'x' );
 		$visitor->visit( $mi );
 		$this->assertEquals(
 			'<mi mathvariant="bold">x</mi>',

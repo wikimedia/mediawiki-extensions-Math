@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings;
 
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 
 class MathVariant {
 	/** @var self|null */
@@ -65,7 +66,7 @@ class MathVariant {
 	 */
 	public static function removeMathVariantAttribute( array &$attributes ): string {
 		if ( isset( $attributes['mathvariant'] )
-			&& $attributes['mathvariant'] !== 'normal' ) {
+			&& $attributes['mathvariant'] !== Variants::NORMAL ) {
 			$variant = $attributes['mathvariant'];
 			unset( $attributes['mathvariant'] );
 			return $variant;

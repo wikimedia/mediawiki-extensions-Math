@@ -2,6 +2,7 @@
 
 namespace phpunit\unit\WikiTexVC\MMLNodes;
 
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmroot;
@@ -16,17 +17,17 @@ use MediaWikiUnitTestCase;
  */
 class MMLmrootTest extends MediaWikiUnitTestCase {
 	public function testConstructor() {
-		$mroot = new MMLmroot( '', [ 'mathvariant' => 'bold' ] );
+		$mroot = new MMLmroot( '', [ 'mathvariant' => Variants::BOLD ] );
 		$this->assertEquals( 'mroot', $mroot->getName() );
-		$this->assertEquals( [ 'mathvariant' => 'bold' ], $mroot->getAttributes() );
+		$this->assertEquals( [ 'mathvariant' => Variants::BOLD ], $mroot->getAttributes() );
 	}
 
 	public function testTreeConstructor() {
 		$mi = new MMLmi( '', [], 'x' );
 		$mn = new MMLmn( '', [], '5' );
-		$mroot = MMLmroot::newSubtree( $mi, $mn, '', [ 'mathvariant' => 'bold' ] );
+		$mroot = MMLmroot::newSubtree( $mi, $mn, '', [ 'mathvariant' => Variants::BOLD ] );
 		$this->assertEquals( 'mroot', $mroot->getName() );
-		$this->assertEquals( [ 'mathvariant' => 'bold' ], $mroot->getAttributes() );
+		$this->assertEquals( [ 'mathvariant' => Variants::BOLD ], $mroot->getAttributes() );
 		$this->assertEquals( $mroot->getChildren(), [ $mi, $mn ] );
 	}
 }

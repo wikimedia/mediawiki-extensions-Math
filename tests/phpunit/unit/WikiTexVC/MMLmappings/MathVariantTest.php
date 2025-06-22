@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\MathVariant;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,7 +15,7 @@ class MathVariantTest extends TestCase {
 
 	public function testRemoveMathVariantAttribute() {
 		$attributes = [
-			'mathvariant' => 'bold',
+			'mathvariant' => Variants::BOLD,
 			'class' => 'some-class',
 		];
 
@@ -27,13 +28,13 @@ class MathVariantTest extends TestCase {
 
 	public function testRemoveMathVariantAttributeNormal() {
 		$attributes = [
-			'mathvariant' => 'normal',
+			'mathvariant' => Variants::NORMAL,
 		];
 
 		MathVariant::removeMathVariantAttribute( $attributes );
 
 		$this->assertArrayHasKey( 'mathvariant', $attributes );
-		$this->assertEquals( 'normal', $attributes['mathvariant'] );
+		$this->assertEquals( Variants::NORMAL, $attributes['mathvariant'] );
 	}
 
 	public function testTranslateInvalid() {
