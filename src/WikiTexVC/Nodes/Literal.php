@@ -62,34 +62,12 @@ class Literal extends TexNode {
 	}
 
 	public function changeUnicodeFontInput( string $input, array &$state, array &$arguments ): string {
-		/**
-		 * In some font modifications, it is required to explicitly use Unicode
-		 * characters instead of (only) attributes in MathML to indicate the font.
-		 * This is mostly because of Chrome behaviour. See: https://phabricator.wikimedia.org/T352196
-		 */
-		if ( isset( $state["double-struck-literals"] ) ) {
-			MathVariant::removeMathVariantAttribute( $arguments );
+		$variant = MathVariant::removeMathVariantAttribute( $arguments );
+		if ( $variant !== 'normal' ) {
+			// If the variant is normal, we do not need to change the input.
 			return MathVariant::translate(
 				$input,
-				"double-struck"
-			);
-		} elseif ( isset( $state["calligraphic"] ) ) {
-			MathVariant::removeMathVariantAttribute( $arguments );
-			return MathVariant::translate(
-				$input,
-				"script"
-			);
-		} elseif ( isset( $state["fraktur"] ) ) {
-			MathVariant::removeMathVariantAttribute( $arguments );
-			return MathVariant::translate(
-				$input,
-				"fraktur"
-			);
-		} elseif ( isset( $state["bold"] ) ) {
-			MathVariant::removeMathVariantAttribute( $arguments );
-			return MathVariant::translate(
-				$input,
-				"bold"
+				$variant
 			);
 		}
 		return $input;
@@ -100,6 +78,11 @@ class Literal extends TexNode {
 			return null;
 		}
 		if ( is_numeric( $this->arg ) ) {
+			if ( ( $arguments['mathvariant'] ?? '' ) === 'italic' ) {
+				// If the mathvariant italic does not exist for numbers
+				// https://github.com/w3c/mathml/issues/77#issuecomment-2993838911
+				$arguments['style'] = trim( ( $arguments['style'] ?? '' ) . ' font-style: italic' );
+			}
 			$content = $this->changeUnicodeFontInput( $this->arg, $state, $arguments );
 			return new MMLmn( "", $arguments, $content );
 		}
@@ -191,13 +174,13 @@ class Literal extends TexNode {
 			return $this->createVlineElement();
 		}
 
+		$content = $this->changeUnicodeFontInput( $input, $state, $arguments );
 		if ( !( empty( $state['inHBox'] ) ) ) {
 			// No mi, if literal is from HBox
-			return $input;
+			return $content;
 		}
 		// If falling through all sieves just creates an mi element
 
-		$content = $this->changeUnicodeFontInput( $input, $state, $arguments );
 		return (string)new MMLmi( "", $arguments, $content );
 	}
 

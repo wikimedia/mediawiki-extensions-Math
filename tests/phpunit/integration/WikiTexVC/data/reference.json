@@ -1205,7 +1205,7 @@
     {
         "input": "\\mathit{0123456789} \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">0<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">1<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">2<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">3<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">4<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">5<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">6<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">7<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">8<\/mn><mn data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">9<\/mn><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">0<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">1<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">2<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">3<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">4<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">5<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">6<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">7<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">8<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">9<\/mn><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\mathit{\\Alpha\\Beta\\Gamma\\Delta\\Epsilon\\Zeta\\Eta\\Theta} \\!",
@@ -1255,32 +1255,32 @@
     {
         "input": "\\mathsf{ABCDEFGHI} \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"sans-serif\">A<\/mi><mi mathvariant=\"sans-serif\">B<\/mi><mi mathvariant=\"sans-serif\">C<\/mi><mi mathvariant=\"sans-serif\">D<\/mi><mi mathvariant=\"sans-serif\">E<\/mi><mi mathvariant=\"sans-serif\">F<\/mi><mi mathvariant=\"sans-serif\">G<\/mi><mi mathvariant=\"sans-serif\">H<\/mi><mi mathvariant=\"sans-serif\">I<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>\ud835\udda0<\/mi><mi>\ud835\udda1<\/mi><mi>\ud835\udda2<\/mi><mi>\ud835\udda3<\/mi><mi>\ud835\udda4<\/mi><mi>\ud835\udda5<\/mi><mi>\ud835\udda6<\/mi><mi>\ud835\udda7<\/mi><mi>\ud835\udda8<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\mathsf{JKLMNOPQR} \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"sans-serif\">J<\/mi><mi mathvariant=\"sans-serif\">K<\/mi><mi mathvariant=\"sans-serif\">L<\/mi><mi mathvariant=\"sans-serif\">M<\/mi><mi mathvariant=\"sans-serif\">N<\/mi><mi mathvariant=\"sans-serif\">O<\/mi><mi mathvariant=\"sans-serif\">P<\/mi><mi mathvariant=\"sans-serif\">Q<\/mi><mi mathvariant=\"sans-serif\">R<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>\ud835\udda9<\/mi><mi>\ud835\uddaa<\/mi><mi>\ud835\uddab<\/mi><mi>\ud835\uddac<\/mi><mi>\ud835\uddad<\/mi><mi>\ud835\uddae<\/mi><mi>\ud835\uddaf<\/mi><mi>\ud835\uddb0<\/mi><mi>\ud835\uddb1<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\mathsf{STUVWXYZ} \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"sans-serif\">S<\/mi><mi mathvariant=\"sans-serif\">T<\/mi><mi mathvariant=\"sans-serif\">U<\/mi><mi mathvariant=\"sans-serif\">V<\/mi><mi mathvariant=\"sans-serif\">W<\/mi><mi mathvariant=\"sans-serif\">X<\/mi><mi mathvariant=\"sans-serif\">Y<\/mi><mi mathvariant=\"sans-serif\">Z<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>\ud835\uddb2<\/mi><mi>\ud835\uddb3<\/mi><mi>\ud835\uddb4<\/mi><mi>\ud835\uddb5<\/mi><mi>\ud835\uddb6<\/mi><mi>\ud835\uddb7<\/mi><mi>\ud835\uddb8<\/mi><mi>\ud835\uddb9<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\mathsf{abcdefghijklm} \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"sans-serif\">a<\/mi><mi mathvariant=\"sans-serif\">b<\/mi><mi mathvariant=\"sans-serif\">c<\/mi><mi mathvariant=\"sans-serif\">d<\/mi><mi mathvariant=\"sans-serif\">e<\/mi><mi mathvariant=\"sans-serif\">f<\/mi><mi mathvariant=\"sans-serif\">g<\/mi><mi mathvariant=\"sans-serif\">h<\/mi><mi mathvariant=\"sans-serif\">i<\/mi><mi mathvariant=\"sans-serif\">j<\/mi><mi mathvariant=\"sans-serif\">k<\/mi><mi mathvariant=\"sans-serif\">l<\/mi><mi mathvariant=\"sans-serif\">m<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>\ud835\uddba<\/mi><mi>\ud835\uddbb<\/mi><mi>\ud835\uddbc<\/mi><mi>\ud835\uddbd<\/mi><mi>\ud835\uddbe<\/mi><mi>\ud835\uddbf<\/mi><mi>\ud835\uddc0<\/mi><mi>\ud835\uddc1<\/mi><mi>\ud835\uddc2<\/mi><mi>\ud835\uddc3<\/mi><mi>\ud835\uddc4<\/mi><mi>\ud835\uddc5<\/mi><mi>\ud835\uddc6<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\mathsf{nopqrstuvwxyz} \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"sans-serif\">n<\/mi><mi mathvariant=\"sans-serif\">o<\/mi><mi mathvariant=\"sans-serif\">p<\/mi><mi mathvariant=\"sans-serif\">q<\/mi><mi mathvariant=\"sans-serif\">r<\/mi><mi mathvariant=\"sans-serif\">s<\/mi><mi mathvariant=\"sans-serif\">t<\/mi><mi mathvariant=\"sans-serif\">u<\/mi><mi mathvariant=\"sans-serif\">v<\/mi><mi mathvariant=\"sans-serif\">w<\/mi><mi mathvariant=\"sans-serif\">x<\/mi><mi mathvariant=\"sans-serif\">y<\/mi><mi mathvariant=\"sans-serif\">z<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>\ud835\uddc7<\/mi><mi>\ud835\uddc8<\/mi><mi>\ud835\uddc9<\/mi><mi>\ud835\uddca<\/mi><mi>\ud835\uddcb<\/mi><mi>\ud835\uddcc<\/mi><mi>\ud835\uddcd<\/mi><mi>\ud835\uddce<\/mi><mi>\ud835\uddcf<\/mi><mi>\ud835\uddd0<\/mi><mi>\ud835\uddd1<\/mi><mi>\ud835\uddd2<\/mi><mi>\ud835\uddd3<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\mathsf{0123456789} \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn mathvariant=\"sans-serif\">0<\/mn><mn mathvariant=\"sans-serif\">1<\/mn><mn mathvariant=\"sans-serif\">2<\/mn><mn mathvariant=\"sans-serif\">3<\/mn><mn mathvariant=\"sans-serif\">4<\/mn><mn mathvariant=\"sans-serif\">5<\/mn><mn mathvariant=\"sans-serif\">6<\/mn><mn mathvariant=\"sans-serif\">7<\/mn><mn mathvariant=\"sans-serif\">8<\/mn><mn mathvariant=\"sans-serif\">9<\/mn><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>\ud835\udfe2<\/mn><mn>\ud835\udfe3<\/mn><mn>\ud835\udfe4<\/mn><mn>\ud835\udfe5<\/mn><mn>\ud835\udfe6<\/mn><mn>\ud835\udfe7<\/mn><mn>\ud835\udfe8<\/mn><mn>\ud835\udfe9<\/mn><mn>\ud835\udfea<\/mn><mn>\ud835\udfeb<\/mn><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\mathsf{\\Alpha \\Beta \\Gamma \\Delta \\Epsilon \\Zeta \\Eta \\Theta} \\!",
@@ -1789,7 +1789,7 @@
     {
         "input": "\\mathit{ab}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">a<\/mi><mi data-mjx-variant=\"-tex-mathit\" mathvariant=\"italic\">b<\/mi><\/mrow><\/mrow><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi data-mjx-variant=\"-tex-mathit\">\ud835\udc4e<\/mi><mi data-mjx-variant=\"-tex-mathit\">\ud835\udc4f<\/mi><\/mrow><\/mrow><\/mrow><\/math>"
     },
     {
         "input": "a\\!b",
@@ -2007,12 +2007,12 @@
     {
         "input": "\\det(\\mathsf{A}-\\lambda\\mathsf{I}) = 0",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>det<\/mi><mo>&#x2061;<\/mo><mo stretchy=\"false\">(<\/mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"sans-serif\">A<\/mi><\/mrow><\/mrow><mo stretchy=\"false\">&#x2212;<\/mo><mi>&#x03BB;<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"sans-serif\">I<\/mi><\/mrow><\/mrow><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>det<\/mi><mo>&#x2061;<\/mo><mo stretchy=\"false\">(<\/mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>\ud835\udda0<\/mi><\/mrow><\/mrow><mo stretchy=\"false\">&#x2212;<\/mo><mi>&#x03BB;<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>\ud835\udda8<\/mi><\/mrow><\/mrow><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><\/math>"
     },
     {
         "input": "\\det(\\mathsf{A}-\\lambda\\mathsf{I}) = 0",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>det<\/mi><mo>&#x2061;<\/mo><mo stretchy=\"false\">(<\/mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"sans-serif\">A<\/mi><\/mrow><\/mrow><mo stretchy=\"false\">&#x2212;<\/mo><mi>&#x03BB;<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"sans-serif\">I<\/mi><\/mrow><\/mrow><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>det<\/mi><mo>&#x2061;<\/mo><mo stretchy=\"false\">(<\/mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>\ud835\udda0<\/mi><\/mrow><\/mrow><mo stretchy=\"false\">&#x2212;<\/mo><mi>&#x03BB;<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>\ud835\udda8<\/mi><\/mrow><\/mrow><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><\/math>"
     },
     {
         "input": "\\sum_{i=0}^{n-1} i",

@@ -63,11 +63,14 @@ class MathVariant {
 	 * if it is set to 'normal', which is the only allowed value in MathML core.
 	 * @see https://www.w3.org/TR/mathml-core/#dfn-mathvariant
 	 */
-	public static function removeMathVariantAttribute( array &$attributes ): void {
+	public static function removeMathVariantAttribute( array &$attributes ): string {
 		if ( isset( $attributes['mathvariant'] )
 			&& $attributes['mathvariant'] !== 'normal' ) {
+			$variant = $attributes['mathvariant'];
 			unset( $attributes['mathvariant'] );
+			return $variant;
 		}
+		return 'normal';
 	}
 
 }

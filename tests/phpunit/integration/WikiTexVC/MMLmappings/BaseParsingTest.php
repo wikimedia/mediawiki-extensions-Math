@@ -58,7 +58,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			( new Literal( 'a' ) )
 		);
 		$result = BaseParsing::boldsymbol( $node, [], null, 'boldsymbol' );
-		$this->assertStringContainsString( 'mathvariant="bold-italic"', $result );
+		$this->assertStringContainsString( '𝒂', $result );
 	}
 
 	public function testCancel() {
