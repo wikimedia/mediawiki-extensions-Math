@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLDomVisitor;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
@@ -19,7 +20,7 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
  *
  * @license GPL-2.0-or-later
  */
-class MMLDomVisitorTest extends MediaWikiUnitTestCase {
+class MMLDomVisitorTest extends MediaWikiIntegrationTestCase {
 
 	public function testLeafNodeConversion() {
 		$visitor = new MMLDomVisitor();
@@ -240,5 +241,48 @@ class MMLDomVisitorTest extends MediaWikiUnitTestCase {
 			$nestingCount,
 			'Should handle more than default 256 nesting levels'
 		);
+	}
+
+	public function testMMLarrayAsRoot() {
+		$mrow = new MMLbase( 'mrow', '', [], 'Hello' );
+		$array = new MMLarray( $mrow, '<mi>World</mi>' );
+		$html = (string)$array;
+		$this->assertStringContainsString( '<mrow>Hello</mrow>', $html );
+		$this->assertStringContainsString( '<mi>World</mi>', $html );
+	}
+
+	public function testMMLarrayAsChild() {
+		$array = new MMLarray( new MMLbase( 'mrow', '', [], 'Inner' ) );
+		$parent = new MMLbase( 'mroot', '', [], $array );
+		$html = (string)$parent;
+		$this->assertStringContainsString( '<mroot><mrow>Inner</mrow></mroot>', $html );
+	}
+
+	public function testEmptyMMLarray() {
+		$array = new MMLarray();
+		$html = (string)$array;
+		$this->assertSame( '', $html );
+	}
+
+	public function testMixedChildrenInArray() {
+		$array = new MMLarray(
+			new MMLmi( '', [], 'x' ),
+			'<mn>3</mn>',
+			null
+		);
+		$html = (string)$array;
+		$this->assertStringContainsString( '<mi>x</mi>', $html );
+		$this->assertStringContainsString( '<mn>3</mn>', $html );
+	}
+
+	public function testArrayRoot() {
+		$array = new MMLarray(
+			new MMLmi( '', [], 'x' ),
+			'<mn>3</mn>',
+			null
+		);
+		$visitor = new MMLDomVisitor();
+		$this->expectException( InvalidArgumentException::class );
+		$visitor->visit( $array );
 	}
 }

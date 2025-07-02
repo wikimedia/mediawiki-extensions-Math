@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\MMLnodes;
 use DOMDocument;
 use DOMElement;
 use DOMNode;
+use InvalidArgumentException;
 
 class MMLDomVisitor implements MMLVisitor {
 	private DOMDocument $dom;
@@ -23,6 +24,13 @@ class MMLDomVisitor implements MMLVisitor {
 	 * @throws \DOMException
 	 */
 	public function visit( MMLbase $node ): void {
+		if ( $node instanceof MMLarray ) {
+			if ( end( $this->elementStack ) === $this->dom ) {
+				throw new InvalidArgumentException( 'MMLarray cannot be a root element' );
+			}
+			$this->handleChildren( $node );
+			return;
+		}
 		$element = $this->createElement( $node );
 		end( $this->elementStack )->appendChild( $element );
 		if ( $node instanceof MMLleaf ) {
@@ -31,6 +39,16 @@ class MMLDomVisitor implements MMLVisitor {
 			return;
 		}
 		$this->elementStack[] = $element;
+		$this->handleChildren( $node );
+		array_pop( $this->elementStack );
+	}
+
+	/**
+	 * Add child elements of MMLbase to DOM
+	 * @param MMLbase $node
+	 * @return void
+	 */
+	private function handleChildren( MMLbase $node ): void {
 		foreach ( $node->getChildren() as $child ) {
 			if ( $child === null || $child === '' ) {
 				continue;
@@ -50,8 +68,7 @@ class MMLDomVisitor implements MMLVisitor {
 					// Import nodes into main document
 					$fragment = $this->dom->createDocumentFragment();
 					foreach ( $tempDoc->documentElement->childNodes as $childNode ) {
-						$importedNode = $this->dom->importNode( $childNode, true );
-						$fragment->appendChild( $importedNode );
+						$fragment->appendChild( $this->dom->importNode( $childNode, true ) );
 					}
 				} else {
 					// Parse string as XML fragment
@@ -69,13 +86,8 @@ class MMLDomVisitor implements MMLVisitor {
 				}
 			}
 		}
-		array_pop( $this->elementStack );
 	}
 
-	/**
-	 * Get HTML from current node
-	 * @return string
-	 */
 	public function getHTML(): string {
 		// DOM converts escaped Unicode chars like &#x338; to &amp;#x338;. This will revert the change.
 		return preg_replace( '/&amp;#(x[0-9A-Fa-f]+|\d+);/',

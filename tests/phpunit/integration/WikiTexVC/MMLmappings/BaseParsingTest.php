@@ -40,7 +40,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
 
 		$result = BaseParsing::array( $node, [], null, 'array', '007E' );
-		$this->assertStringContainsString( '<mi>a</mi>', implode( $result ) );
+		$this->assertStringContainsString( '<mi>a</mi>', (string)$result );
 	}
 
 	public function testBoldGreek() {
@@ -185,8 +185,8 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 		$result = BaseParsing::handleOperatorName( $node, [], [
 			"foundNamedFct" => [ true, true ]
 		], 'operatorname' );
-		$this->assertStringContainsString( 'sn</mi>', implode( $result ) );
-		$this->assertStringContainsString( '<mo>&#x2061;</mo>', implode( $result ) );
+		$this->assertStringContainsString( 'sn</mi>', (string)$result );
+		$this->assertStringContainsString( '<mo>&#x2061;</mo>', (string)$result );
 	}
 
 	public function testHandleOperatorLast() {
@@ -197,8 +197,8 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 		$result = BaseParsing::handleOperatorName( $node, [], [
 			"foundNamedFct" => [ true, false ]
 		], 'operatorname' );
-		$this->assertStringContainsString( 'sn</mi>', implode( $result ) );
-		$this->assertStringNotContainsString( '<mo>&#x2061;</mo>', implode( $result ) );
+		$this->assertStringContainsString( 'sn</mi>', (string)$result );
+		$this->assertStringNotContainsString( '<mo>&#x2061;</mo>', (string)$result );
 	}
 
 	public function testColumnSpecs() {
@@ -213,7 +213,7 @@ f(x,y,z) & = & x + y + z
 	public function testNamedOperator() {
 		$node = new Literal( '\\gcd' );
 		$result = BaseParsing::namedOp( $node, [], [], '\\gcd' );
-		$this->assertStringContainsString( '>gcd</mi>', implode( $result ) );
+		$this->assertStringContainsString( '>gcd</mi>', (string)$result );
 	}
 
 	public function testSpace() {

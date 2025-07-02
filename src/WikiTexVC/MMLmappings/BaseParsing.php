@@ -9,6 +9,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmenclose;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmerror;
@@ -84,7 +85,7 @@ class BaseParsing {
 
 	public static function array( $node, $passedArgs, $operatorContent, $name, $begin = null, $open = null,
 								  $close = null, $align = null, $spacing = null,
-								  $vspacing = null, $style = null, $raggedHeight = null ) {
+								  $vspacing = null, $style = null, $raggedHeight = null ): MMLbase {
 		$output = [];
 		if ( $open != null ) {
 			$resDelimiter = TexUtil::getInstance()->delimiter( trim( $open ) ) ?? false;
@@ -109,7 +110,7 @@ class BaseParsing {
 				$output[] = new MMLmo( TexClass::CLOSE, [], $resDelimiter[0] );
 			}
 		}
-		return $output;
+		return new MMLarray( ...$output );
 	}
 
 	public static function alignAt( Matrix $node, $passedArgs, $operatorContent, $name, $smth,
@@ -317,7 +318,7 @@ class BaseParsing {
 		return new MMLmspace( "", $args );
 	}
 
-	public static function handleOperatorName( $node, $passedArgs, $operatorContent, $name ): array {
+	public static function handleOperatorName( $node, $passedArgs, $operatorContent, $name ): MMLbase {
 		// In example "\\operatorname{a}"
 		$applyFct = self::getApplyFct( $operatorContent );
 		$mmlNot = "";
@@ -326,7 +327,7 @@ class BaseParsing {
 		}
 		$passedArgs = array_merge( $passedArgs, [ Tag::CLASSTAG => TexClass::OP, "mathvariant" => Variants::NORMAL ] );
 		$state = [ 'squashLiterals' => true ];
-		return [ $mmlNot, $node->getArg()->renderMML( $passedArgs, $state ), $applyFct ];
+		return new MMLarray( $mmlNot, $node->getArg()->renderMML( $passedArgs, $state ), $applyFct );
 	}
 
 	public static function macro( $node, $passedArgs, $operatorContent, $name,
@@ -403,11 +404,11 @@ class BaseParsing {
 			case "\\implies":
 				$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ],
 					new MMLmspace( "", [ "width" => "0.278em" ] ) );
-				return [ $mstyle, ( new MMLmo( "", [], "&#x27F9;" ) ), $mstyle ];
+				return new MMLarray( $mstyle, ( new MMLmo( "", [], "&#x27F9;" ) ), $mstyle );
 			case "\\iff":
 				$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ],
 					new MMLmspace( "", [ "width" => "0.278em" ] ) );
-				return [ $mstyle, ( new MMLmo( "", [], "&#x27FA;" ) ), $mstyle ];
+				return new MMLarray( $mstyle, ( new MMLmo( "", [], "&#x27FA;" ) ), $mstyle );
 			case "\\tripledash":
 				// Using emdash for rendering here.
 				return new MMLmo( "", [], "&#x2014;" );
@@ -430,7 +431,9 @@ class BaseParsing {
 							"mathbackground" => "black" ] ) ),
 					new MMLmrow( TexClass::ORD, [],
 						new MMLmo( "", [ "stretchy" => "false" ], "&#x27F6;" ) ) );
-				return [ new MMLmtext( "", [], "&#xA0;" ), new MMLmrow( TexClass::REL, [], $mover ) ];
+				return new MMLarray(
+					new MMLmtext( "", [], "&#xA0;" ),
+					new MMLmrow( TexClass::REL, [], $mover ) );
 		}
 
 		// Removed all token based parsing, since macro resolution for the supported macros can be hardcoded in php
@@ -501,13 +504,13 @@ class BaseParsing {
 		return $mtable;
 	}
 
-	public static function namedOp( $node, $passedArgs, $operatorContent, $name, $id = null ) {
+	public static function namedOp( $node, $passedArgs, $operatorContent, $name, $id = null ): MMLbase {
 		/* Determine whether the named function should have an added apply function. The operatorContent is defined
 		 as state in parsing of TexArray */
 		$applyFct = self::getApplyFct( $operatorContent );
 
 		if ( $node instanceof Literal ) {
-			return [ new MMLmi( "", $passedArgs, $id ?? ltrim( $name, '\\' ) ), $applyFct ];
+			return new MMLarray( new MMLmi( "", $passedArgs, $id ?? ltrim( $name, '\\' ) ), $applyFct );
 		}
 		return MMLmsub::newSubtree( $node->getBase()->renderMML() . $applyFct,
 			new MMLmrow( TexClass::ORD, [], $node->getDown()->renderMML() ), "", $passedArgs );
@@ -709,7 +712,8 @@ class BaseParsing {
 		return $node->getArg1()->renderMML( $passedArgs, $operatorContent );
 	}
 
-	public static function makeBig( $node, $passedArgs, $operatorContent, $name, $texClass = null, $size = null ) {
+	public static function makeBig( $node, $passedArgs, $operatorContent, $name, $texClass = null,
+									$size = null ): ?MMLbase {
 		// Create the em format and shorten commas
 		$size *= Misc::P_HEIGHT;
 		$sizeShortened = MMLutil::size2em( strval( $size ) );
@@ -761,12 +765,12 @@ class BaseParsing {
 		return new MMLmrow( "", [], $node->getArg()->renderMML() );
 	}
 
-	public static function namedFn( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
+	public static function namedFn( $node, $passedArgs, $operatorContent, $name, $smth = null ): MMLbase {
 		// Determine wether the named function should have an added apply function. The state is defined in
 		// parsing of TexArray
 		$applyFct = self::getApplyFct( $operatorContent );
 		if ( $node instanceof Literal ) {
-			return [ new MMLmi( "", [], ltrim( $name, '\\' ) ), $applyFct ];
+			return new MMLarray( new MMLmi( "", [], ltrim( $name, '\\' ) ), $applyFct );
 		}
 		return MMLmsub::newSubtree( $node->getBase()->renderMML() . $applyFct,
 			new MMLmrow( TexClass::ORD, [], $node->getDown()->renderMML() ) );
@@ -1040,7 +1044,7 @@ class BaseParsing {
 		return new MMLmerror( "", [], new MMLmtext( "", [], "no implemented vbox" ) );
 	}
 
-	public static function sqrt( $node, $passedArgs, $operatorContent, $name ) {
+	public static function sqrt( $node, $passedArgs, $operatorContent, $name ): MMLbase {
 		// There is an additional argument for the root
 		if ( $node instanceof Fun2sq ) {
 			// In case of an empty curly add an mrow
