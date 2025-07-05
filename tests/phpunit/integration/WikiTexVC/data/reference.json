@@ -178,12 +178,19 @@
         "params": [],
         "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi alternate=\"1\">&#x2032;<\/mi><mo>,<\/mo><mi variantform=\"True\">&#x2035;<\/mi><mo>,<\/mo><msup><mi>f<\/mi><mrow data-mjx-texclass=\"ORD\"><mi alternate=\"1\">&#x2032;<\/mi><\/mrow><\/msup><mo>,<\/mo><msup><mi>f<\/mi><mo>&#x2032;<\/mo><\/msup><mo>,<\/mo><msup><mi>f<\/mi><mo>&#x2033;<\/mo><\/msup><mo>,<\/mo><msup><mi>f<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">(<\/mo><mn>3<\/mn><mo stretchy=\"false\">)<\/mo><\/mrow><\/mrow><\/msup><mspace width=\"-0.167em\"><\/mspace><mo>,<\/mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mover><mi>y<\/mi><mo>˙<\/mo><\/mover><\/mrow><\/mrow><mo>,<\/mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mover><mi>y<\/mi><mo>¨<\/mo><\/mover><\/mrow><\/mrow><\/math>",
         "skipped": false,
-        "comment": "f' and f' not recognized by texVC as uq"
+        "comment": "f' and f' not recognized by texVC as uq",
+        "core-validation": {
+            "Invalid attribute alternate for element mi\n": 2,
+            "Invalid attribute variantform for element mi\n": 1
+        }
     },
     {
         "input": "\\infty, \\aleph, \\complement, \\backepsilon, \\eth, \\Finv, \\hbar \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi mathvariant=\"normal\">&#x221E;<\/mi><mo>,<\/mo><mi mathvariant=\"normal\">&#x2135;<\/mi><mo>,<\/mo><mi>&#x2201;<\/mi><mo>,<\/mo><mo stretchy=\"false\">&#x220D;<\/mo><mo>,<\/mo><mi mathvariant=\"normal\">&#x00F0;<\/mi><mo>,<\/mo><mi>&#x2132;<\/mi><mo>,<\/mo><mi alternate=\"1\">&#x210F;<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi mathvariant=\"normal\">&#x221E;<\/mi><mo>,<\/mo><mi mathvariant=\"normal\">&#x2135;<\/mi><mo>,<\/mo><mi>&#x2201;<\/mi><mo>,<\/mo><mo stretchy=\"false\">&#x220D;<\/mo><mo>,<\/mo><mi mathvariant=\"normal\">&#x00F0;<\/mi><mo>,<\/mo><mi>&#x2132;<\/mi><mo>,<\/mo><mi alternate=\"1\">&#x210F;<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute alternate for element mi\n": 1
+        }
     },
     {
         "input": "\\Im, \\imath, \\jmath, \\Bbbk, \\ell, \\mho, \\wp, \\Re, \\circledS \\!",
@@ -212,7 +219,10 @@
         "params": [],
         "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2223;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2224;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2223;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2224;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
         "skipped": false,
-        "comment": "These are ams mappings, import AmsMappings.js for parsing these"
+        "comment": "These are ams mappings, import AmsMappings.js for parsing these",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 2
+        }
     },
     {
         "input": "\\sqrt[3]{x^3+y^3 \\over 2} \\!",
@@ -264,7 +274,11 @@
     {
         "input": "\\{ \\}, \\O \\empty \\emptyset, \\varnothing \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo fence=\"false\" stretchy=\"false\">{<\/mo><mo fence=\"false\" stretchy=\"false\">}<\/mo><mo>,<\/mo><mi mathvariant=\"normal\">&#x2205;<\/mi><mi mathvariant=\"normal\">&#x2205;<\/mi><mi mathvariant=\"normal\">&#x2205;<\/mi><mo>,<\/mo><mi variantform=\"True\">&#x2205;<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo fence=\"false\" stretchy=\"false\">{<\/mo><mo fence=\"false\" stretchy=\"false\">}<\/mo><mo>,<\/mo><mi mathvariant=\"normal\">&#x2205;<\/mi><mi mathvariant=\"normal\">&#x2205;<\/mi><mi mathvariant=\"normal\">&#x2205;<\/mi><mo>,<\/mo><mi variantform=\"True\">&#x2205;<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute fence for element mo\n": 2,
+            "Invalid attribute variantform for element mi\n": 1
+        }
     },
     {
         "input": "\\in, \\notin \\not\\in, \\ni, \\not\\ni \\!",
@@ -284,7 +298,10 @@
     {
         "input": "\\setminus, \\smallsetminus, \\times \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2216;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"True\">&#x2216;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x00D7;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2216;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"True\">&#x2216;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x00D7;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 1
+        }
     },
     {
         "input": "\\subset, \\Subset, \\sqsubset \\!",
@@ -299,22 +316,34 @@
     {
         "input": "\\subseteq, \\nsubseteq, \\subsetneq, \\varsubsetneq, \\sqsubseteq \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2286;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2288;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x228A;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x228A;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2291;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2286;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2288;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x228A;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x228A;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2291;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 1
+        }
     },
     {
         "input": "\\supseteq, \\nsupseteq, \\supsetneq, \\varsupsetneq, \\sqsupseteq \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2287;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2289;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x228B;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x228B;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2292;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2287;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2289;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x228B;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x228B;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2292;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 1
+        }
     },
     {
         "input": "\\subseteqq, \\nsubseteqq, \\subsetneqq, \\varsubsetneqq \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2AC5;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2288;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2ACB;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2ACB;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2AC5;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2288;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2ACB;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2ACB;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 2
+        }
     },
     {
         "input": "\\supseteqq, \\nsupseteqq, \\supsetneqq, \\varsupsetneqq \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2AC6;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2289;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2ACC;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2ACC;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2AC6;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2289;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2ACC;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2ACC;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 2
+        }
     },
     {
         "input": "=, \\ne, \\neq, \\equiv, \\not\\equiv \\!",
@@ -329,12 +358,18 @@
     {
         "input": "\\sim, \\nsim, \\backsim, \\thicksim, \\simeq, \\backsimeq, \\eqsim, \\cong, \\ncong \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x223C;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2241;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x223D;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"True\">&#x223C;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2243;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x22CD;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2242;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2245;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2246;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x223C;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2241;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x223D;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"True\">&#x223C;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2243;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x22CD;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2242;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2245;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2246;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 1
+        }
     },
     {
         "input": "\\approx, \\thickapprox, \\approxeq, \\asymp, \\propto, \\varpropto \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2248;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"True\">&#x2248;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x224A;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x224D;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x221D;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x221D;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2248;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"True\">&#x2248;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x224A;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x224D;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x221D;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x221D;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 2
+        }
     },
     {
         "input": "<, \\nless, \\ll, \\not\\ll, \\lll, \\not\\lll, \\lessdot \\!",
@@ -349,12 +384,18 @@
     {
         "input": "\\le \\leq, \\lneq, \\leqq, \\nleqq, \\lneqq, \\lvertneqq \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2264;<\/mo><mo stretchy=\"false\">&#x2264;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2A87;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2266;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2270;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2268;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2268;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2264;<\/mo><mo stretchy=\"false\">&#x2264;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2A87;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2266;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2270;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2268;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2268;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 2
+        }
     },
     {
         "input": "\\ge \\geq, \\gneq, \\geqq, \\ngeqq, \\gneqq, \\gvertneqq \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2265;<\/mo><mo stretchy=\"false\">&#x2265;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2A88;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2267;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2271;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2269;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2269;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2265;<\/mo><mo stretchy=\"false\">&#x2265;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2A88;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2267;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2271;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2269;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2269;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 2
+        }
     },
     {
         "input": "\\lessgtr \\lesseqgtr \\lesseqqgtr \\gtrless \\gtreqless \\gtreqqless \\!",
@@ -364,12 +405,18 @@
     {
         "input": "\\leqslant, \\nleqslant, \\eqslantless \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2A7D;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2A87;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2A95;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2A7D;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2A87;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2A95;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 1
+        }
     },
     {
         "input": "\\geqslant, \\ngeqslant, \\eqslantgtr \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2A7E;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2A88;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2A96;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2A7E;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2A88;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2A96;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 1
+        }
     },
     {
         "input": "\\lesssim, \\lnsim, \\lessapprox, \\lnapprox \\!",
@@ -384,12 +431,18 @@
     {
         "input": "\\prec, \\nprec, \\preceq, \\npreceq, \\precneqq \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x227A;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2280;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2AAF;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x22E0;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2AB5;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x227A;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2280;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2AAF;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x22E0;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2AB5;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 1
+        }
     },
     {
         "input": "\\succ, \\nsucc, \\succeq, \\nsucceq, \\succneqq \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x227B;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2281;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2AB0;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x22E1;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2AB6;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x227B;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2281;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2AB0;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x22E1;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2AB6;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 1
+        }
     },
     {
         "input": "\\preccurlyeq, \\curlyeqprec \\,",
@@ -414,7 +467,10 @@
     {
         "input": "\\parallel, \\nparallel, \\shortparallel, \\nshortparallel \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2225;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2226;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2225;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2226;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2225;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x2226;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2225;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x2226;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 2
+        }
     },
     {
         "input": "\\perp, \\angle, \\sphericalangle, \\measuredangle, 45^\\circ \\!",
@@ -434,7 +490,11 @@
     {
         "input": "\\vartriangle, \\triangledown\\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\" variantform=\"1\">&#x25B3;<\/mo><mo>,<\/mo><mi variantform=\"True\">&#x25BD;<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\" variantform=\"1\">&#x25B3;<\/mo><mo>,<\/mo><mi variantform=\"True\">&#x25BD;<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 1,
+            "Invalid attribute variantform for element mi\n": 1
+        }
     },
     {
         "input": "\\blacktriangle, \\blacktriangledown, \\blacktriangleleft, \\blacktriangleright \\!",
@@ -474,7 +534,10 @@
     {
         "input": "\\vdash \\dashv, \\vDash, \\Vdash, \\models \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x22A2;<\/mo><mo stretchy=\"false\">&#x22A3;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x22A8;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x22A9;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x22A8;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x22A2;<\/mo><mo stretchy=\"false\">&#x22A3;<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">&#x22A8;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x22A9;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x22A8;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 1
+        }
     },
     {
         "input": "\\Vvdash \\nvdash \\nVdash \\nvDash \\nVDash \\!",
@@ -514,7 +577,10 @@
     {
         "input": "\\rightarrow \\to, \\nrightarrow, \\longrightarrow\\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2192;<\/mo><mo stretchy=\"false\" accent=\"false\">&#x2192;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x219B;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x27F6;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo stretchy=\"false\">&#x2192;<\/mo><mo stretchy=\"false\" accent=\"false\">&#x2192;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x219B;<\/mo><mo>,<\/mo><mo stretchy=\"false\">&#x27F6;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute accent for element mo\n": 1
+        }
     },
     {
         "input": "\\leftarrow \\gets, \\nleftarrow, \\longleftarrow\\!",
@@ -579,7 +645,10 @@
     {
         "input": "\\diagup \\diagdown \\centerdot \\ltimes \\rtimes \\leftthreetimes \\rightthreetimes \\!",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>&#x2571;<\/mi><mi>&#x2572;<\/mi><mo stretchy=\"false\" variantform=\"True\">&#x22C5;<\/mo><mo stretchy=\"false\">&#x22C9;<\/mo><mo stretchy=\"false\">&#x22CA;<\/mo><mo stretchy=\"false\">&#x22CB;<\/mo><mo stretchy=\"false\">&#x22CC;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>&#x2571;<\/mi><mi>&#x2572;<\/mi><mo stretchy=\"false\" variantform=\"True\">&#x22C5;<\/mo><mo stretchy=\"false\">&#x22C9;<\/mo><mo stretchy=\"false\">&#x22CA;<\/mo><mo stretchy=\"false\">&#x22CB;<\/mo><mo stretchy=\"false\">&#x22CC;<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "core-validation": {
+            "Invalid attribute variantform for element mo\n": 1
+        }
     },
     {
         "input": "\\eqcirc \\circeq \\triangleq \\bumpeq \\Bumpeq \\doteqdot \\risingdotseq \\fallingdotseq \\!",
@@ -674,7 +743,10 @@
     {
         "input": "x^\\prime, y^{\\prime\\prime}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><msup><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mi alternate=\"1\">&#x2032;<\/mi><\/mrow><\/msup><mo>,<\/mo><msup><mi>y<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi alternate=\"1\">&#x2032;<\/mi><mi alternate=\"1\">&#x2032;<\/mi><\/mrow><\/mrow><\/msup><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><msup><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mi alternate=\"1\">&#x2032;<\/mi><\/mrow><\/msup><mo>,<\/mo><msup><mi>y<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi alternate=\"1\">&#x2032;<\/mi><mi alternate=\"1\">&#x2032;<\/mi><\/mrow><\/mrow><\/msup><\/math>",
+        "core-validation": {
+            "Invalid attribute alternate for element mi\n": 3
+        }
     },
     {
         "input": "\\dot{x}, \\ddot{x}",
@@ -704,7 +776,10 @@
     {
         "input": " A \\xleftarrow{n+\\mu-1} B \\xrightarrow[T]{n\\pm i-1} C",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>A<\/mi><mover><mstyle scriptlevel=\"0\"><mo data-mjx-texclass=\"REL\">←<\/mo><\/mstyle><mpadded height=\"-.2em\" lspace=\"0.556em\" voffset=\"-.2em\" width=\"+0.833em\"><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><mo stretchy=\"false\">+<\/mo><mi>&#x03BC;<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mn>1<\/mn><\/mrow><mspace depth=\".25em\"><\/mspace><\/mpadded><\/mover><mi>B<\/mi><mrow data-mjx-texclass=\"ORD\"><munderover><mstyle scriptlevel=\"0\"><mo data-mjx-texclass=\"REL\">→<\/mo><\/mstyle><mpadded height=\"-.2em\" lspace=\"0.278em\" voffset=\"-.2em\" width=\"+0.833em\"><mrow data-mjx-texclass=\"ORD\"><mi>T<\/mi><\/mrow><mspace depth=\".25em\"><\/mspace><\/mpadded><mpadded height=\"-.2em\" lspace=\"0.278em\" voffset=\"-.2em\" width=\"+0.833em\"><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><mo stretchy=\"false\">&#x00B1;<\/mo><mi>i<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mn>1<\/mn><\/mrow><\/mpadded><\/munderover><\/mrow><mi>C<\/mi><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>A<\/mi><mover><mstyle scriptlevel=\"0\"><mo data-mjx-texclass=\"REL\">←<\/mo><\/mstyle><mpadded height=\"-.2em\" lspace=\"0.556em\" voffset=\"-.2em\" width=\"+0.833em\"><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><mo stretchy=\"false\">+<\/mo><mi>&#x03BC;<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mn>1<\/mn><\/mrow><mspace depth=\".25em\"><\/mspace><\/mpadded><\/mover><mi>B<\/mi><mrow data-mjx-texclass=\"ORD\"><munderover><mstyle scriptlevel=\"0\"><mo data-mjx-texclass=\"REL\">→<\/mo><\/mstyle><mpadded height=\"-.2em\" lspace=\"0.278em\" voffset=\"-.2em\" width=\"+0.833em\"><mrow data-mjx-texclass=\"ORD\"><mi>T<\/mi><\/mrow><mspace depth=\".25em\"><\/mspace><\/mpadded><mpadded height=\"-.2em\" lspace=\"0.278em\" voffset=\"-.2em\" width=\"+0.833em\"><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><mo stretchy=\"false\">&#x00B1;<\/mo><mi>i<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mn>1<\/mn><\/mrow><\/mpadded><\/munderover><\/mrow><mi>C<\/mi><\/math>",
+        "core-validation": {
+            "Invalid attribute width for element mpadded\n": 3
+        }
     },
     {
         "input": "\\overbrace{ 1+2+\\cdots+100 }^{5050}",
@@ -764,12 +839,20 @@
     {
         "input": "\\lim_{n \\to \\infty}x_n",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><munder><mi form=\"prefix\">lim<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><mo stretchy=\"false\" accent=\"false\">&#x2192;<\/mo><mi mathvariant=\"normal\">&#x221E;<\/mi><\/mrow><\/mrow><\/munder><msub><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><\/mrow><\/msub><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><munder><mi form=\"prefix\">lim<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><mo stretchy=\"false\" accent=\"false\">&#x2192;<\/mo><mi mathvariant=\"normal\">&#x221E;<\/mi><\/mrow><\/mrow><\/munder><msub><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><\/mrow><\/msub><\/math>",
+        "core-validation": {
+            "Invalid attribute form for element mi\n": 1,
+            "Invalid attribute accent for element mo\n": 1
+        }
     },
     {
         "input": "\\textstyle \\lim_{n \\to \\infty}x_n",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><munder><mi form=\"prefix\" movablelimits=\"true\">lim<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><mo stretchy=\"false\" accent=\"false\">&#x2192;<\/mo><mi mathvariant=\"normal\">&#x221E;<\/mi><\/mrow><\/mrow><\/munder><msub><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><\/mrow><\/msub><\/mstyle><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><munder><mi form=\"prefix\" movablelimits=\"true\">lim<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><mo stretchy=\"false\" accent=\"false\">&#x2192;<\/mo><mi mathvariant=\"normal\">&#x221E;<\/mi><\/mrow><\/mrow><\/munder><msub><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><\/mrow><\/msub><\/mstyle><\/math>",
+        "core-validation": {
+            "Invalid attribute form for element mi\n": 1,
+            "Invalid attribute accent for element mo\n": 1
+        }
     },
     {
         "input": "\\int\\limits_{1}^{3}\\frac{e^3\/x}{x^2}\\, dx",
@@ -850,7 +933,10 @@
     {
         "input": "\\cfrac{x}{1 + \\cfrac{\\cancel{y}}{\\cancel{y}}} = \\cfrac{x}{2}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mpadded depth=\"3pt\" height=\"8.6pt\" width=\"0\"><\/mpadded><\/mrow><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mi>x<\/mi><\/mrow><\/mstyle><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mpadded depth=\"3pt\" height=\"8.6pt\" width=\"0\"><\/mpadded><\/mrow><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><mo stretchy=\"false\">+<\/mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mpadded depth=\"3pt\" height=\"8.6pt\" width=\"0\"><\/mpadded><\/mrow><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><menclose notation=\"updiagonalstrike\" class=\"menclose\"><mi>y<\/mi><mrow class=\"menclose-updiagonalstrike\"><\/mrow><\/menclose><\/mrow><\/mstyle><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mpadded depth=\"3pt\" height=\"8.6pt\" width=\"0\"><\/mpadded><\/mrow><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><menclose notation=\"updiagonalstrike\" class=\"menclose\"><mi>y<\/mi><mrow class=\"menclose-updiagonalstrike\"><\/mrow><\/menclose><\/mrow><\/mstyle><\/mrow><\/mfrac><\/mrow><\/mrow><\/mrow><\/mstyle><\/mrow><\/mfrac><\/mrow><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mpadded depth=\"3pt\" height=\"8.6pt\" width=\"0\"><\/mpadded><\/mrow><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mi>x<\/mi><\/mrow><\/mstyle><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mpadded depth=\"3pt\" height=\"8.6pt\" width=\"0\"><\/mpadded><\/mrow><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/mstyle><\/mrow><\/mfrac><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mpadded depth=\"3pt\" height=\"8.6pt\" width=\"0\"><\/mpadded><\/mrow><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mi>x<\/mi><\/mrow><\/mstyle><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mpadded depth=\"3pt\" height=\"8.6pt\" width=\"0\"><\/mpadded><\/mrow><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><mo stretchy=\"false\">+<\/mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mpadded depth=\"3pt\" height=\"8.6pt\" width=\"0\"><\/mpadded><\/mrow><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><menclose notation=\"updiagonalstrike\" class=\"menclose\"><mi>y<\/mi><mrow class=\"menclose-updiagonalstrike\"><\/mrow><\/menclose><\/mrow><\/mstyle><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mpadded depth=\"3pt\" height=\"8.6pt\" width=\"0\"><\/mpadded><\/mrow><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><menclose notation=\"updiagonalstrike\" class=\"menclose\"><mi>y<\/mi><mrow class=\"menclose-updiagonalstrike\"><\/mrow><\/menclose><\/mrow><\/mstyle><\/mrow><\/mfrac><\/mrow><\/mrow><\/mrow><\/mstyle><\/mrow><\/mfrac><\/mrow><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mpadded depth=\"3pt\" height=\"8.6pt\" width=\"0\"><\/mpadded><\/mrow><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mi>x<\/mi><\/mrow><\/mstyle><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mpadded depth=\"3pt\" height=\"8.6pt\" width=\"0\"><\/mpadded><\/mrow><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/mstyle><\/mrow><\/mfrac><\/mrow><\/math>",
+        "core-validation": {
+            "Did not expect element menclose there\n": 2
+        }
     },
     {
         "input": "\\binom{n}{k}",
@@ -870,62 +956,106 @@
     {
         "input": "\\begin{matrix} x & y \\\\ z & v\n\\end{matrix}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\"><\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mi>x<\/mi><\/mtd><mtd><mi>y<\/mi><\/mtd><\/mtr><mtr><mtd><mi>z<\/mi><\/mtd><mtd><mi>v<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"><\/mo><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\"><\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mi>x<\/mi><\/mtd><mtd><mi>y<\/mi><\/mtd><\/mtr><mtr><mtd><mi>z<\/mi><\/mtd><mtd><mi>v<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"><\/mo><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1,
+            "Invalid attribute fence for element mo\n": 1
+        }
     },
     {
         "input": "\\begin{vmatrix} x & y \\\\ z & v\n\\end{vmatrix}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">|<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mi>x<\/mi><\/mtd><mtd><mi>y<\/mi><\/mtd><\/mtr><mtr><mtd><mi>z<\/mi><\/mtd><mtd><mi>v<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\">|<\/mo><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">|<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mi>x<\/mi><\/mtd><mtd><mi>y<\/mi><\/mtd><\/mtr><mtr><mtd><mi>z<\/mi><\/mtd><mtd><mi>v<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\">|<\/mo><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1,
+            "Invalid attribute fence for element mo\n": 1
+        }
     },
     {
         "input": "\\begin{Vmatrix} x & y \\\\ z & v\n\\end{Vmatrix}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">&#x2016;<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mi>x<\/mi><\/mtd><mtd><mi>y<\/mi><\/mtd><\/mtr><mtr><mtd><mi>z<\/mi><\/mtd><mtd><mi>v<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\">&#x2016;<\/mo><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">&#x2016;<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mi>x<\/mi><\/mtd><mtd><mi>y<\/mi><\/mtd><\/mtr><mtr><mtd><mi>z<\/mi><\/mtd><mtd><mi>v<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\">&#x2016;<\/mo><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1,
+            "Invalid attribute fence for element mo\n": 1
+        }
     },
     {
         "input": "\\begin{bmatrix} 0 & \\cdots & 0 \\\\ \\vdots\n& \\ddots & \\vdots \\\\ 0 & \\cdots &\n0\\end{bmatrix} ",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">[<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mn>0<\/mn><\/mtd><mtd><mo stretchy=\"false\">&#x22EF;<\/mo><\/mtd><mtd><mn>0<\/mn><\/mtd><\/mtr><mtr><mtd><mo stretchy=\"false\">&#x22EE;<\/mo><\/mtd><mtd><mo stretchy=\"false\">&#x22F1;<\/mo><\/mtd><mtd><mo stretchy=\"false\">&#x22EE;<\/mo><\/mtd><\/mtr><mtr><mtd><mn>0<\/mn><\/mtd><mtd><mo stretchy=\"false\">&#x22EF;<\/mo><\/mtd><mtd><mn>0<\/mn><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\">]<\/mo><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">[<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mn>0<\/mn><\/mtd><mtd><mo stretchy=\"false\">&#x22EF;<\/mo><\/mtd><mtd><mn>0<\/mn><\/mtd><\/mtr><mtr><mtd><mo stretchy=\"false\">&#x22EE;<\/mo><\/mtd><mtd><mo stretchy=\"false\">&#x22F1;<\/mo><\/mtd><mtd><mo stretchy=\"false\">&#x22EE;<\/mo><\/mtd><\/mtr><mtr><mtd><mn>0<\/mn><\/mtd><mtd><mo stretchy=\"false\">&#x22EF;<\/mo><\/mtd><mtd><mn>0<\/mn><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\">]<\/mo><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1,
+            "Invalid attribute fence for element mo\n": 1
+        }
     },
     {
         "input": "\\begin{Bmatrix} x & y \\\\ z & v\n\\end{Bmatrix}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">{<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mi>x<\/mi><\/mtd><mtd><mi>y<\/mi><\/mtd><\/mtr><mtr><mtd><mi>z<\/mi><\/mtd><mtd><mi>v<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\">}<\/mo><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">{<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mi>x<\/mi><\/mtd><mtd><mi>y<\/mi><\/mtd><\/mtr><mtr><mtd><mi>z<\/mi><\/mtd><mtd><mi>v<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\">}<\/mo><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1,
+            "Invalid attribute fence for element mo\n": 1
+        }
     },
     {
         "input": "\\begin{pmatrix} x & y \\\\ z & v\n\\end{pmatrix}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">(<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mi>x<\/mi><\/mtd><mtd><mi>y<\/mi><\/mtd><\/mtr><mtr><mtd><mi>z<\/mi><\/mtd><mtd><mi>v<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\">)<\/mo><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">(<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mi>x<\/mi><\/mtd><mtd><mi>y<\/mi><\/mtd><\/mtr><mtr><mtd><mi>z<\/mi><\/mtd><mtd><mi>v<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\">)<\/mo><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1,
+            "Invalid attribute fence for element mo\n": 1
+        }
     },
     {
         "input": "\n\\bigl( \\begin{smallmatrix}\na&b\\\\ c&d\n\\end{smallmatrix} \\bigr)\n",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo maxsize=\"1.2em\" minsize=\"1.2em\" data-mjx-texclass=\"OPEN\">(<\/mo><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\"><\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mi>a<\/mi><\/mtd><mtd><mi>b<\/mi><\/mtd><\/mtr><mtr><mtd><mi>c<\/mi><\/mtd><mtd><mi>d<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"><\/mo><\/mrow><mo maxsize=\"1.2em\" minsize=\"1.2em\" data-mjx-texclass=\"CLOSE\">)<\/mo><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo maxsize=\"1.2em\" minsize=\"1.2em\" data-mjx-texclass=\"OPEN\">(<\/mo><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\"><\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mi>a<\/mi><\/mtd><mtd><mi>b<\/mi><\/mtd><\/mtr><mtr><mtd><mi>c<\/mi><\/mtd><mtd><mi>d<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"><\/mo><\/mrow><mo maxsize=\"1.2em\" minsize=\"1.2em\" data-mjx-texclass=\"CLOSE\">)<\/mo><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1,
+            "Invalid attribute fence for element mo\n": 1
+        }
     },
     {
         "input": "f(n) =\n\\begin{cases}\nn\/2, & \\text{if }n\\text{ is even} \\\\\n3n+1, & \\text{if }n\\text{ is odd}\n\\end{cases} ",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>n<\/mi><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">{<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\" columnalign=\"left left\"><mtr><mtd><mi>n<\/mi><mo lspace=\"0\" rspace=\"0\">\/<\/mo><mn>2<\/mn><mo>,<\/mo><\/mtd><mtd><mrow data-mjx-texclass=\"ORD\"><mtext>if&#xA0;<\/mtext><\/mrow><mi>n<\/mi><mrow data-mjx-texclass=\"ORD\"><mtext>&#xA0;is even<\/mtext><\/mrow><\/mtd><\/mtr><mtr><mtd><mn>3<\/mn><mi>n<\/mi><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mo>,<\/mo><\/mtd><mtd><mrow data-mjx-texclass=\"ORD\"><mtext>if&#xA0;<\/mtext><\/mrow><mi>n<\/mi><mrow data-mjx-texclass=\"ORD\"><mtext>&#xA0;is odd<\/mtext><\/mrow><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"><\/mo><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>n<\/mi><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">{<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\" columnalign=\"left left\"><mtr><mtd><mi>n<\/mi><mo lspace=\"0\" rspace=\"0\">\/<\/mo><mn>2<\/mn><mo>,<\/mo><\/mtd><mtd><mrow data-mjx-texclass=\"ORD\"><mtext>if&#xA0;<\/mtext><\/mrow><mi>n<\/mi><mrow data-mjx-texclass=\"ORD\"><mtext>&#xA0;is even<\/mtext><\/mrow><\/mtd><\/mtr><mtr><mtd><mn>3<\/mn><mi>n<\/mi><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mo>,<\/mo><\/mtd><mtd><mrow data-mjx-texclass=\"ORD\"><mtext>if&#xA0;<\/mtext><\/mrow><mi>n<\/mi><mrow data-mjx-texclass=\"ORD\"><mtext>&#xA0;is odd<\/mtext><\/mrow><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"><\/mo><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1,
+            "Invalid attribute fence for element mo\n": 1
+        }
     },
     {
         "input": "\n\\begin{align}\nf(x) & = (a+b)^2 \\\\\n& = a^2+2ab+b^2 \\\\\n\\end{align}\n",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mtable columnalign=\"right left right left right left right left right left right left\" columnspacing=\"0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em\" displaystyle=\"true\" rowspacing=\"3pt\"><mtr><mtd><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mo stretchy=\"false\">(<\/mo><mi>a<\/mi><mo stretchy=\"false\">+<\/mo><mi>b<\/mi><msup><mo stretchy=\"false\">)<\/mo><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><\/mtd><\/mtr><mtr><mtd><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><msup><mi>a<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><mo stretchy=\"false\">+<\/mo><mn>2<\/mn><mi>a<\/mi><mi>b<\/mi><mo stretchy=\"false\">+<\/mo><msup><mi>b<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><\/mtd><\/mtr><mtr><mtd><\/mtd><\/mtr><\/mtable><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mtable columnalign=\"right left right left right left right left right left right left\" columnspacing=\"0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em\" displaystyle=\"true\" rowspacing=\"3pt\"><mtr><mtd><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mo stretchy=\"false\">(<\/mo><mi>a<\/mi><mo stretchy=\"false\">+<\/mo><mi>b<\/mi><msup><mo stretchy=\"false\">)<\/mo><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><\/mtd><\/mtr><mtr><mtd><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><msup><mi>a<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><mo stretchy=\"false\">+<\/mo><mn>2<\/mn><mi>a<\/mi><mi>b<\/mi><mo stretchy=\"false\">+<\/mo><msup><mi>b<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><\/mtd><\/mtr><mtr><mtd><\/mtd><\/mtr><\/mtable><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnalign for element mtable\n": 1
+        }
     },
     {
         "input": "\n\\begin{alignat}{2}\nf(x) & = (a-b)^2 \\\\\n& = a^2-2ab+b^2 \\\\\n\\end{alignat}\n",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mtable columnalign=\"right left right left right left right left right left right left\" columnspacing=\"0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em\" displaystyle=\"true\" rowspacing=\"3pt\"><mtr><mtd><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mo stretchy=\"false\">(<\/mo><mi>a<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mi>b<\/mi><msup><mo stretchy=\"false\">)<\/mo><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><\/mtd><\/mtr><mtr><mtd><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><msup><mi>a<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><mo stretchy=\"false\">&#x2212;<\/mo><mn>2<\/mn><mi>a<\/mi><mi>b<\/mi><mo stretchy=\"false\">+<\/mo><msup><mi>b<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><\/mtd><\/mtr><mtr><mtd><\/mtd><\/mtr><\/mtable><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mtable columnalign=\"right left right left right left right left right left right left\" columnspacing=\"0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em\" displaystyle=\"true\" rowspacing=\"3pt\"><mtr><mtd><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mo stretchy=\"false\">(<\/mo><mi>a<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mi>b<\/mi><msup><mo stretchy=\"false\">)<\/mo><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><\/mtd><\/mtr><mtr><mtd><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><msup><mi>a<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><mo stretchy=\"false\">&#x2212;<\/mo><mn>2<\/mn><mi>a<\/mi><mi>b<\/mi><mo stretchy=\"false\">+<\/mo><msup><mi>b<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><\/mtd><\/mtr><mtr><mtd><\/mtd><\/mtr><\/mtable><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnalign for element mtable\n": 1
+        }
     },
     {
         "input": "\\begin{array}{lcl}\nz & = & a \\\\\nf(x,y,z) & = & x + y + z\n\\end{array}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mtable columnspacing=\"1em\" rowspacing=\"4pt\" columnalign=\"left center left \"><mtr><mtd><mi>z<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><\/mtd><mtd><mi>a<\/mi><\/mtd><\/mtr><mtr><mtd><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo>,<\/mo><mi>y<\/mi><mo>,<\/mo><mi>z<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><\/mtd><mtd><mi>x<\/mi><mo stretchy=\"false\">+<\/mo><mi>y<\/mi><mo stretchy=\"false\">+<\/mo><mi>z<\/mi><\/mtd><\/mtr><\/mtable><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mtable columnspacing=\"1em\" rowspacing=\"4pt\" columnalign=\"left center left \"><mtr><mtd><mi>z<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><\/mtd><mtd><mi>a<\/mi><\/mtd><\/mtr><mtr><mtd><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo>,<\/mo><mi>y<\/mi><mo>,<\/mo><mi>z<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><\/mtd><mtd><mi>x<\/mi><mo stretchy=\"false\">+<\/mo><mi>y<\/mi><mo stretchy=\"false\">+<\/mo><mi>z<\/mi><\/mtd><\/mtr><\/mtable><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1
+        }
     },
     {
         "input": "\\begin{array}{lcr}\nz & = & a \\\\\nf(x,y,z) & = & x + y + z\n\\end{array}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mtable columnspacing=\"1em\" rowspacing=\"4pt\" columnalign=\"left center right \"><mtr><mtd><mi>z<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><\/mtd><mtd><mi>a<\/mi><\/mtd><\/mtr><mtr><mtd><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo>,<\/mo><mi>y<\/mi><mo>,<\/mo><mi>z<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><\/mtd><mtd><mi>x<\/mi><mo stretchy=\"false\">+<\/mo><mi>y<\/mi><mo stretchy=\"false\">+<\/mo><mi>z<\/mi><\/mtd><\/mtr><\/mtable><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mtable columnspacing=\"1em\" rowspacing=\"4pt\" columnalign=\"left center right \"><mtr><mtd><mi>z<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><\/mtd><mtd><mi>a<\/mi><\/mtd><\/mtr><mtr><mtd><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo>,<\/mo><mi>y<\/mi><mo>,<\/mo><mi>z<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><\/mtd><mtd><mi>x<\/mi><mo stretchy=\"false\">+<\/mo><mi>y<\/mi><mo stretchy=\"false\">+<\/mo><mi>z<\/mi><\/mtd><\/mtr><\/mtable><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1
+        }
     },
     {
         "input": "f(x) \\,\\!",
@@ -960,12 +1090,19 @@
     {
         "input": "\\begin{cases} 3x + 5y + z \\\\ 7x - 2y + 4z \\\\ -6x + 3y + 2z \\end{cases}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">{<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\" columnalign=\"left left\"><mtr><mtd><mn>3<\/mn><mi>x<\/mi><mo stretchy=\"false\">+<\/mo><mn>5<\/mn><mi>y<\/mi><mo stretchy=\"false\">+<\/mo><mi>z<\/mi><\/mtd><\/mtr><mtr><mtd><mn>7<\/mn><mi>x<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mn>2<\/mn><mi>y<\/mi><mo stretchy=\"false\">+<\/mo><mn>4<\/mn><mi>z<\/mi><\/mtd><\/mtr><mtr><mtd><mo stretchy=\"false\">&#x2212;<\/mo><mn>6<\/mn><mi>x<\/mi><mo stretchy=\"false\">+<\/mo><mn>3<\/mn><mi>y<\/mi><mo stretchy=\"false\">+<\/mo><mn>2<\/mn><mi>z<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"><\/mo><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">{<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\" columnalign=\"left left\"><mtr><mtd><mn>3<\/mn><mi>x<\/mi><mo stretchy=\"false\">+<\/mo><mn>5<\/mn><mi>y<\/mi><mo stretchy=\"false\">+<\/mo><mi>z<\/mi><\/mtd><\/mtr><mtr><mtd><mn>7<\/mn><mi>x<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mn>2<\/mn><mi>y<\/mi><mo stretchy=\"false\">+<\/mo><mn>4<\/mn><mi>z<\/mi><\/mtd><\/mtr><mtr><mtd><mo stretchy=\"false\">&#x2212;<\/mo><mn>6<\/mn><mi>x<\/mi><mo stretchy=\"false\">+<\/mo><mn>3<\/mn><mi>y<\/mi><mo stretchy=\"false\">+<\/mo><mn>2<\/mn><mi>z<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"><\/mo><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1,
+            "Invalid attribute fence for element mo\n": 1
+        }
     },
     {
         "input": "\n\\begin{array}{|c|c||c|} a & b & S \\\\\n\\hline\n0&0&1\\\\\n0&1&1\\\\\n1&0&1\\\\\n1&1&0\\\\\n\\end{array}\n",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mtable columnspacing=\"1em\" rowspacing=\"4pt\" columnalign=\"center center center \"><mtr><mtd class=\"mwe-math-matrix-bottom mwe-math-matrix-left mwe-math-matrix-right\"><mi>a<\/mi><\/mtd><mtd class=\"mwe-math-matrix-bottom mwe-math-matrix-left mwe-math-matrix-right\"><mi>b<\/mi><\/mtd><mtd class=\"mwe-math-matrix-bottom mwe-math-matrix-left mwe-math-matrix-right\"><mi>S<\/mi><\/mtd><\/mtr><mtr><mtd class=\"mwe-math-matrix-top mwe-math-matrix-left mwe-math-matrix-right\"><mn>0<\/mn><\/mtd><mtd class=\"mwe-math-matrix-top mwe-math-matrix-left mwe-math-matrix-right\"><mn>0<\/mn><\/mtd><mtd class=\"mwe-math-matrix-top mwe-math-matrix-left mwe-math-matrix-right\"><mn>1<\/mn><\/mtd><\/mtr><mtr><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>0<\/mn><\/mtd><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>1<\/mn><\/mtd><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>1<\/mn><\/mtd><\/mtr><mtr><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>1<\/mn><\/mtd><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>0<\/mn><\/mtd><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>1<\/mn><\/mtd><\/mtr><mtr><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>1<\/mn><\/mtd><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>1<\/mn><\/mtd><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>0<\/mn><\/mtd><\/mtr><mtr><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><\/mtd><\/mtr><\/mtable><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mtable columnspacing=\"1em\" rowspacing=\"4pt\" columnalign=\"center center center \"><mtr><mtd class=\"mwe-math-matrix-bottom mwe-math-matrix-left mwe-math-matrix-right\"><mi>a<\/mi><\/mtd><mtd class=\"mwe-math-matrix-bottom mwe-math-matrix-left mwe-math-matrix-right\"><mi>b<\/mi><\/mtd><mtd class=\"mwe-math-matrix-bottom mwe-math-matrix-left mwe-math-matrix-right\"><mi>S<\/mi><\/mtd><\/mtr><mtr><mtd class=\"mwe-math-matrix-top mwe-math-matrix-left mwe-math-matrix-right\"><mn>0<\/mn><\/mtd><mtd class=\"mwe-math-matrix-top mwe-math-matrix-left mwe-math-matrix-right\"><mn>0<\/mn><\/mtd><mtd class=\"mwe-math-matrix-top mwe-math-matrix-left mwe-math-matrix-right\"><mn>1<\/mn><\/mtd><\/mtr><mtr><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>0<\/mn><\/mtd><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>1<\/mn><\/mtd><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>1<\/mn><\/mtd><\/mtr><mtr><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>1<\/mn><\/mtd><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>0<\/mn><\/mtd><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>1<\/mn><\/mtd><\/mtr><mtr><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>1<\/mn><\/mtd><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>1<\/mn><\/mtd><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><mn>0<\/mn><\/mtd><\/mtr><mtr><mtd class=\"mwe-math-matrix-left mwe-math-matrix-right\"><\/mtd><\/mtr><\/mtable><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1
+        }
     },
     {
         "input": "( \\frac{1}{2} )",
@@ -1030,7 +1167,10 @@
     {
         "input": "\\left . \\frac{A}{B} \\right \\} \\to X",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"INNER\"><mo data-mjx-texclass=\"OPEN\"><\/mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mi>A<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi>B<\/mi><\/mrow><\/mfrac><\/mrow><mo data-mjx-texclass=\"CLOSE\">}<\/mo><\/mrow><mo stretchy=\"false\" accent=\"false\">&#x2192;<\/mo><mi>X<\/mi><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"INNER\"><mo data-mjx-texclass=\"OPEN\"><\/mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mi>A<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi>B<\/mi><\/mrow><\/mfrac><\/mrow><mo data-mjx-texclass=\"CLOSE\">}<\/mo><\/mrow><mo stretchy=\"false\" accent=\"false\">&#x2192;<\/mo><mi>X<\/mi><\/math>",
+        "core-validation": {
+            "Invalid attribute accent for element mo\n": 1
+        }
     },
     {
         "input": "\\big( \\Big( \\bigg( \\Bigg( \\dots \\Bigg] \\bigg] \\Big] \\big]",
@@ -1055,17 +1195,26 @@
     {
         "input": "\\big\\uparrow \\Big\\uparrow \\bigg\\uparrow \\Bigg\\uparrow \\dots \\Bigg\\Downarrow \\bigg\\Downarrow \\Big\\Downarrow \\big\\Downarrow",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo fence=\"true\" maxsize=\"1.2em\" minsize=\"1.2em\" stretchy=\"true\" symmetric=\"true\">&#x2191;<\/mo><mo fence=\"true\" maxsize=\"1.623em\" minsize=\"1.623em\" stretchy=\"true\" symmetric=\"true\">&#x2191;<\/mo><mo fence=\"true\" maxsize=\"2.047em\" minsize=\"2.047em\" stretchy=\"true\" symmetric=\"true\">&#x2191;<\/mo><mo fence=\"true\" maxsize=\"2.470em\" minsize=\"2.470em\" stretchy=\"true\" symmetric=\"true\">&#x2191;<\/mo><mo>&#x2026;<\/mo><mo fence=\"true\" maxsize=\"2.470em\" minsize=\"2.470em\" stretchy=\"true\" symmetric=\"true\">&#x21D3;<\/mo><mo fence=\"true\" maxsize=\"2.047em\" minsize=\"2.047em\" stretchy=\"true\" symmetric=\"true\">&#x21D3;<\/mo><mo fence=\"true\" maxsize=\"1.623em\" minsize=\"1.623em\" stretchy=\"true\" symmetric=\"true\">&#x21D3;<\/mo><mo fence=\"true\" maxsize=\"1.2em\" minsize=\"1.2em\" stretchy=\"true\" symmetric=\"true\">&#x21D3;<\/mo><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo fence=\"true\" maxsize=\"1.2em\" minsize=\"1.2em\" stretchy=\"true\" symmetric=\"true\">&#x2191;<\/mo><mo fence=\"true\" maxsize=\"1.623em\" minsize=\"1.623em\" stretchy=\"true\" symmetric=\"true\">&#x2191;<\/mo><mo fence=\"true\" maxsize=\"2.047em\" minsize=\"2.047em\" stretchy=\"true\" symmetric=\"true\">&#x2191;<\/mo><mo fence=\"true\" maxsize=\"2.470em\" minsize=\"2.470em\" stretchy=\"true\" symmetric=\"true\">&#x2191;<\/mo><mo>&#x2026;<\/mo><mo fence=\"true\" maxsize=\"2.470em\" minsize=\"2.470em\" stretchy=\"true\" symmetric=\"true\">&#x21D3;<\/mo><mo fence=\"true\" maxsize=\"2.047em\" minsize=\"2.047em\" stretchy=\"true\" symmetric=\"true\">&#x21D3;<\/mo><mo fence=\"true\" maxsize=\"1.623em\" minsize=\"1.623em\" stretchy=\"true\" symmetric=\"true\">&#x21D3;<\/mo><mo fence=\"true\" maxsize=\"1.2em\" minsize=\"1.2em\" stretchy=\"true\" symmetric=\"true\">&#x21D3;<\/mo><\/math>",
+        "core-validation": {
+            "Invalid attribute fence for element mo\n": 8
+        }
     },
     {
         "input": "\\big\\updownarrow \\Big\\updownarrow \\bigg\\updownarrow \\Bigg\\updownarrow \\dots \\Bigg\\Updownarrow \\bigg\\Updownarrow \\Big\\Updownarrow \\big\\Updownarrow",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo fence=\"true\" maxsize=\"1.2em\" minsize=\"1.2em\" stretchy=\"true\" symmetric=\"true\">&#x2195;<\/mo><mo fence=\"true\" maxsize=\"1.623em\" minsize=\"1.623em\" stretchy=\"true\" symmetric=\"true\">&#x2195;<\/mo><mo fence=\"true\" maxsize=\"2.047em\" minsize=\"2.047em\" stretchy=\"true\" symmetric=\"true\">&#x2195;<\/mo><mo fence=\"true\" maxsize=\"2.470em\" minsize=\"2.470em\" stretchy=\"true\" symmetric=\"true\">&#x2195;<\/mo><mo>&#x2026;<\/mo><mo fence=\"true\" maxsize=\"2.470em\" minsize=\"2.470em\" stretchy=\"true\" symmetric=\"true\">&#x21D5;<\/mo><mo fence=\"true\" maxsize=\"2.047em\" minsize=\"2.047em\" stretchy=\"true\" symmetric=\"true\">&#x21D5;<\/mo><mo fence=\"true\" maxsize=\"1.623em\" minsize=\"1.623em\" stretchy=\"true\" symmetric=\"true\">&#x21D5;<\/mo><mo fence=\"true\" maxsize=\"1.2em\" minsize=\"1.2em\" stretchy=\"true\" symmetric=\"true\">&#x21D5;<\/mo><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo fence=\"true\" maxsize=\"1.2em\" minsize=\"1.2em\" stretchy=\"true\" symmetric=\"true\">&#x2195;<\/mo><mo fence=\"true\" maxsize=\"1.623em\" minsize=\"1.623em\" stretchy=\"true\" symmetric=\"true\">&#x2195;<\/mo><mo fence=\"true\" maxsize=\"2.047em\" minsize=\"2.047em\" stretchy=\"true\" symmetric=\"true\">&#x2195;<\/mo><mo fence=\"true\" maxsize=\"2.470em\" minsize=\"2.470em\" stretchy=\"true\" symmetric=\"true\">&#x2195;<\/mo><mo>&#x2026;<\/mo><mo fence=\"true\" maxsize=\"2.470em\" minsize=\"2.470em\" stretchy=\"true\" symmetric=\"true\">&#x21D5;<\/mo><mo fence=\"true\" maxsize=\"2.047em\" minsize=\"2.047em\" stretchy=\"true\" symmetric=\"true\">&#x21D5;<\/mo><mo fence=\"true\" maxsize=\"1.623em\" minsize=\"1.623em\" stretchy=\"true\" symmetric=\"true\">&#x21D5;<\/mo><mo fence=\"true\" maxsize=\"1.2em\" minsize=\"1.2em\" stretchy=\"true\" symmetric=\"true\">&#x21D5;<\/mo><\/math>",
+        "core-validation": {
+            "Invalid attribute fence for element mo\n": 8
+        }
     },
     {
         "input": "\\big \/ \\Big \/ \\bigg \/ \\Bigg \/ \\dots \\Bigg\\backslash \\bigg\\backslash \\Big\\backslash \\big\\backslash",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo fence=\"true\" maxsize=\"1.2em\" minsize=\"1.2em\" stretchy=\"true\" symmetric=\"true\">\/<\/mo><mo fence=\"true\" maxsize=\"1.623em\" minsize=\"1.623em\" stretchy=\"true\" symmetric=\"true\">\/<\/mo><mo fence=\"true\" maxsize=\"2.047em\" minsize=\"2.047em\" stretchy=\"true\" symmetric=\"true\">\/<\/mo><mo fence=\"true\" maxsize=\"2.470em\" minsize=\"2.470em\" stretchy=\"true\" symmetric=\"true\">\/<\/mo><mo>&#x2026;<\/mo><mo fence=\"true\" maxsize=\"2.470em\" minsize=\"2.470em\" stretchy=\"true\" symmetric=\"true\">\\<\/mo><mo fence=\"true\" maxsize=\"2.047em\" minsize=\"2.047em\" stretchy=\"true\" symmetric=\"true\">\\<\/mo><mo fence=\"true\" maxsize=\"1.623em\" minsize=\"1.623em\" stretchy=\"true\" symmetric=\"true\">\\<\/mo><mo fence=\"true\" maxsize=\"1.2em\" minsize=\"1.2em\" stretchy=\"true\" symmetric=\"true\">\\<\/mo><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mo fence=\"true\" maxsize=\"1.2em\" minsize=\"1.2em\" stretchy=\"true\" symmetric=\"true\">\/<\/mo><mo fence=\"true\" maxsize=\"1.623em\" minsize=\"1.623em\" stretchy=\"true\" symmetric=\"true\">\/<\/mo><mo fence=\"true\" maxsize=\"2.047em\" minsize=\"2.047em\" stretchy=\"true\" symmetric=\"true\">\/<\/mo><mo fence=\"true\" maxsize=\"2.470em\" minsize=\"2.470em\" stretchy=\"true\" symmetric=\"true\">\/<\/mo><mo>&#x2026;<\/mo><mo fence=\"true\" maxsize=\"2.470em\" minsize=\"2.470em\" stretchy=\"true\" symmetric=\"true\">\\<\/mo><mo fence=\"true\" maxsize=\"2.047em\" minsize=\"2.047em\" stretchy=\"true\" symmetric=\"true\">\\<\/mo><mo fence=\"true\" maxsize=\"1.623em\" minsize=\"1.623em\" stretchy=\"true\" symmetric=\"true\">\\<\/mo><mo fence=\"true\" maxsize=\"1.2em\" minsize=\"1.2em\" stretchy=\"true\" symmetric=\"true\">\\<\/mo><\/math>",
+        "core-validation": {
+            "Invalid attribute fence for element mo\n": 8
+        }
     },
     {
         "input": "x^2 + y^2 + z^2 = 1 \\,",
@@ -1823,7 +1972,10 @@
         "params": {
             "display": "block"
         },
-        "output": "<math class=\"mwe-math-element mwe-math-element-block\" display=\"block\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mtext>geometric series:<\/mtext><\/mrow><mspace width=\"1em\"><\/mspace><mrow data-mjx-texclass=\"ORD\"><mtable columnalign=\"right left right left right left right left right left right left\" columnspacing=\"0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em\" displaystyle=\"true\" rowspacing=\"3pt\"><mtr><mtd><mstyle displaystyle=\"true\" scriptlevel=\"0\"><munderover><mo stretchy=\"false\">&#x2211;<\/mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>i<\/mi><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><\/mrow><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">&#x221E;<\/mi><\/mrow><\/munderover><\/mstyle><msup><mn>2<\/mn><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">&#x2212;<\/mo><mi>i<\/mi><\/mrow><\/mrow><\/msup><mo stretchy=\"false\">=<\/mo><mn>2<\/mn><\/mtd><\/mtr><\/mtable><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-block\" display=\"block\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mtext>geometric series:<\/mtext><\/mrow><mspace width=\"1em\"><\/mspace><mrow data-mjx-texclass=\"ORD\"><mtable columnalign=\"right left right left right left right left right left right left\" columnspacing=\"0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em\" displaystyle=\"true\" rowspacing=\"3pt\"><mtr><mtd><mstyle displaystyle=\"true\" scriptlevel=\"0\"><munderover><mo stretchy=\"false\">&#x2211;<\/mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>i<\/mi><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><\/mrow><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">&#x221E;<\/mi><\/mrow><\/munderover><\/mstyle><msup><mn>2<\/mn><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">&#x2212;<\/mo><mi>i<\/mi><\/mrow><\/mrow><\/msup><mo stretchy=\"false\">=<\/mo><mn>2<\/mn><\/mtd><\/mtr><\/mtable><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnalign for element mtable\n": 1
+        }
     },
     {
         "input": "\\sum_{i=0}^\\infty 2^{-i}",
@@ -2057,12 +2209,18 @@
     {
         "input": "\\lim_{z\\rightarrow z_0} f(z)=f(z_0)",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><munder><mi form=\"prefix\">lim<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>z<\/mi><mo stretchy=\"false\">&#x2192;<\/mo><msub><mi>z<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><\/mrow><\/mrow><\/munder><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>z<\/mi><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><msub><mi>z<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><mo stretchy=\"false\">)<\/mo><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><munder><mi form=\"prefix\">lim<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>z<\/mi><mo stretchy=\"false\">&#x2192;<\/mo><msub><mi>z<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><\/mrow><\/mrow><\/munder><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>z<\/mi><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><msub><mi>z<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><mo stretchy=\"false\">)<\/mo><\/math>",
+        "core-validation": {
+            "Invalid attribute form for element mi\n": 1
+        }
     },
     {
         "input": "\\lim_{z\\rightarrow z_0} f(z)=f(z_0)",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><munder><mi form=\"prefix\">lim<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>z<\/mi><mo stretchy=\"false\">&#x2192;<\/mo><msub><mi>z<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><\/mrow><\/mrow><\/munder><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>z<\/mi><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><msub><mi>z<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><mo stretchy=\"false\">)<\/mo><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><munder><mi form=\"prefix\">lim<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>z<\/mi><mo stretchy=\"false\">&#x2192;<\/mo><msub><mi>z<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><\/mrow><\/mrow><\/munder><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>z<\/mi><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><msub><mi>z<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><mo stretchy=\"false\">)<\/mo><\/math>",
+        "core-validation": {
+            "Invalid attribute form for element mi\n": 1
+        }
     },
     {
         "input": "\\phi_n(\\kappa)\n= \\frac{1}{4\\pi^2\\kappa^2} \\int_0^\\infty \\frac{\\sin(\\kappa R)}{\\kappa R} \\frac{\\partial}{\\partial R} \\left[R^2\\frac{\\partial D_n(R)}{\\partial R}\\right]\\,dR",
@@ -2087,12 +2245,20 @@
     {
         "input": "f(x) = \\begin{cases}1 & -1 \\le x < 0 \\\\\n\\frac{1}{2} & x = 0 \\\\ 1 - x^2 & \\text{otherwise}\\end{cases}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">{<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\" columnalign=\"left left\"><mtr><mtd><mn>1<\/mn><\/mtd><mtd><mo stretchy=\"false\">&#x2212;<\/mo><mn>1<\/mn><mo stretchy=\"false\">&#x2264;<\/mo><mi>x<\/mi><mo>&lt;<\/mo><mn>0<\/mn><\/mtd><\/mtr><mtr><mtd><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/mfrac><\/mrow><\/mtd><mtd><mi>x<\/mi><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><\/mtd><\/mtr><mtr><mtd><mn>1<\/mn><mo stretchy=\"false\">&#x2212;<\/mo><msup><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><\/mtd><mtd><mrow data-mjx-texclass=\"ORD\"><mtext>otherwise<\/mtext><\/mrow><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"><\/mo><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">{<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\" columnalign=\"left left\"><mtr><mtd><mn>1<\/mn><\/mtd><mtd><mo stretchy=\"false\">&#x2212;<\/mo><mn>1<\/mn><mo stretchy=\"false\">&#x2264;<\/mo><mi>x<\/mi><mo>&lt;<\/mo><mn>0<\/mn><\/mtd><\/mtr><mtr><mtd><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/mfrac><\/mrow><\/mtd><mtd><mi>x<\/mi><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><\/mtd><\/mtr><mtr><mtd><mn>1<\/mn><mo stretchy=\"false\">&#x2212;<\/mo><msup><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><\/mtd><mtd><mrow data-mjx-texclass=\"ORD\"><mtext>otherwise<\/mtext><\/mrow><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"><\/mo><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1,
+            "Invalid attribute fence for element mo\n": 1
+        }
     },
     {
         "input": "\nf(x) =\n\\begin{cases}\n1 & -1 \\le x < 0 \\\\\n\\frac{1}{2} & x = 0 \\\\\n1 - x^2 & \\text{otherwise}\n\\end{cases}\n",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">{<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\" columnalign=\"left left\"><mtr><mtd><mn>1<\/mn><\/mtd><mtd><mo stretchy=\"false\">&#x2212;<\/mo><mn>1<\/mn><mo stretchy=\"false\">&#x2264;<\/mo><mi>x<\/mi><mo>&lt;<\/mo><mn>0<\/mn><\/mtd><\/mtr><mtr><mtd><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/mfrac><\/mrow><\/mtd><mtd><mi>x<\/mi><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><\/mtd><\/mtr><mtr><mtd><mn>1<\/mn><mo stretchy=\"false\">&#x2212;<\/mo><msup><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><\/mtd><mtd><mrow data-mjx-texclass=\"ORD\"><mtext>otherwise<\/mtext><\/mrow><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"><\/mo><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>f<\/mi><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">{<\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\" columnalign=\"left left\"><mtr><mtd><mn>1<\/mn><\/mtd><mtd><mo stretchy=\"false\">&#x2212;<\/mo><mn>1<\/mn><mo stretchy=\"false\">&#x2264;<\/mo><mi>x<\/mi><mo>&lt;<\/mo><mn>0<\/mn><\/mtd><\/mtr><mtr><mtd><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/mfrac><\/mrow><\/mtd><mtd><mi>x<\/mi><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><\/mtd><\/mtr><mtr><mtd><mn>1<\/mn><mo stretchy=\"false\">&#x2212;<\/mo><msup><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><\/mtd><mtd><mrow data-mjx-texclass=\"ORD\"><mtext>otherwise<\/mtext><\/mrow><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"><\/mo><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1,
+            "Invalid attribute fence for element mo\n": 1
+        }
     },
     {
         "input": "{}_pF_q(a_1,\\dots,a_p;c_1,\\dots,c_q;z) = \\sum_{n=0}^\\infty \\frac{(a_1)_n\\cdots(a_p)_n}{(c_1)_n\\cdots(c_q)_n}\\frac{z^n}{n!}",
@@ -2137,12 +2303,18 @@
     {
         "input": "\\begin{align}\nu & = \\tfrac{1}{\\sqrt{2}}(x+y) \\qquad & x &= \\tfrac{1}{\\sqrt{2}}(u+v)\\\\\nv & = \\tfrac{1}{\\sqrt{2}}(x-y) \\qquad & y &= \\tfrac{1}{\\sqrt{2}}(u-v)\n\\end{align}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mtable columnalign=\"right left right left right left right left right left right left\" columnspacing=\"0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em\" displaystyle=\"true\" rowspacing=\"3pt\"><mtr><mtd><mi>u<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">+<\/mo><mi>y<\/mi><mo stretchy=\"false\">)<\/mo><mspace width=\"2em\"><\/mspace><\/mtd><mtd><mi>x<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>u<\/mi><mo stretchy=\"false\">+<\/mo><mi>v<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><\/mtr><mtr><mtd><mi>v<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mi>y<\/mi><mo stretchy=\"false\">)<\/mo><mspace width=\"2em\"><\/mspace><\/mtd><mtd><mi>y<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>u<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mi>v<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><\/mtr><\/mtable><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mtable columnalign=\"right left right left right left right left right left right left\" columnspacing=\"0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em\" displaystyle=\"true\" rowspacing=\"3pt\"><mtr><mtd><mi>u<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">+<\/mo><mi>y<\/mi><mo stretchy=\"false\">)<\/mo><mspace width=\"2em\"><\/mspace><\/mtd><mtd><mi>x<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>u<\/mi><mo stretchy=\"false\">+<\/mo><mi>v<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><\/mtr><mtr><mtd><mi>v<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mi>y<\/mi><mo stretchy=\"false\">)<\/mo><mspace width=\"2em\"><\/mspace><\/mtd><mtd><mi>y<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>u<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mi>v<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><\/mtr><\/mtable><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnalign for element mtable\n": 1
+        }
     },
     {
         "input": "\\begin{align}\nu & = \\tfrac{1}{\\sqrt{2}}(x+y) \\qquad & x &= \\tfrac{1}{\\sqrt{2}}(u+v) \\\\\nv & = \\tfrac{1}{\\sqrt{2}}(x-y) \\qquad & y &= \\tfrac{1}{\\sqrt{2}}(u-v)\n\\end{align}",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mtable columnalign=\"right left right left right left right left right left right left\" columnspacing=\"0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em\" displaystyle=\"true\" rowspacing=\"3pt\"><mtr><mtd><mi>u<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">+<\/mo><mi>y<\/mi><mo stretchy=\"false\">)<\/mo><mspace width=\"2em\"><\/mspace><\/mtd><mtd><mi>x<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>u<\/mi><mo stretchy=\"false\">+<\/mo><mi>v<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><\/mtr><mtr><mtd><mi>v<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mi>y<\/mi><mo stretchy=\"false\">)<\/mo><mspace width=\"2em\"><\/mspace><\/mtd><mtd><mi>y<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>u<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mi>v<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><\/mtr><\/mtable><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"ORD\"><mtable columnalign=\"right left right left right left right left right left right left\" columnspacing=\"0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em\" displaystyle=\"true\" rowspacing=\"3pt\"><mtr><mtd><mi>u<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">+<\/mo><mi>y<\/mi><mo stretchy=\"false\">)<\/mo><mspace width=\"2em\"><\/mspace><\/mtd><mtd><mi>x<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>u<\/mi><mo stretchy=\"false\">+<\/mo><mi>v<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><\/mtr><mtr><mtd><mi>v<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>x<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mi>y<\/mi><mo stretchy=\"false\">)<\/mo><mspace width=\"2em\"><\/mspace><\/mtd><mtd><mi>y<\/mi><\/mtd><mtd><mo stretchy=\"false\">=<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">(<\/mo><mi>u<\/mi><mo stretchy=\"false\">&#x2212;<\/mo><mi>v<\/mi><mo stretchy=\"false\">)<\/mo><\/mtd><\/mtr><\/mtable><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnalign for element mtable\n": 1
+        }
     },
     {
         "input": " with a thumbnail- we don't render math in the parsertests by default, so math is not stripped and turns up as escaped &lt;math&gt; tags. [[Image:foobar.jpg|thumb|<math>2+2",
@@ -2329,7 +2501,11 @@
     {
         "input": "\\left(\\begin{smallmatrix}a & b\\\\ c & d\\end{smallmatrix}\\right)",
         "params": [],
-        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"INNER\"><mo data-mjx-texclass=\"OPEN\">(<\/mo><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\"><\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mi>a<\/mi><\/mtd><mtd><mi>b<\/mi><\/mtd><\/mtr><mtr><mtd><mi>c<\/mi><\/mtd><mtd><mi>d<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"><\/mo><\/mrow><mo data-mjx-texclass=\"CLOSE\">)<\/mo><\/mrow><\/math>"
+        "output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mrow data-mjx-texclass=\"INNER\"><mo data-mjx-texclass=\"OPEN\">(<\/mo><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\"><\/mo><mtable columnspacing=\"1em\" rowspacing=\"4pt\"><mtr><mtd><mi>a<\/mi><\/mtd><mtd><mi>b<\/mi><\/mtd><\/mtr><mtr><mtd><mi>c<\/mi><\/mtd><mtd><mi>d<\/mi><\/mtd><\/mtr><\/mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"><\/mo><\/mrow><mo data-mjx-texclass=\"CLOSE\">)<\/mo><\/mrow><\/math>",
+        "core-validation": {
+            "Invalid attribute columnspacing for element mtable\n": 1,
+            "Invalid attribute fence for element mo\n": 1
+        }
     },
     {
         "input": "\\AA",

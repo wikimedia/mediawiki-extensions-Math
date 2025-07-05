@@ -26,6 +26,7 @@ require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 class FixNativeReferences extends Maintenance {
 
 	private const REFERENCE_PATH = __DIR__ . '/../tests/phpunit/integration/WikiTexVC/data/reference.json';
+	private const RNG_PATH = __DIR__ . '/../tests/phpunit/integration/WikiTexVC/mathml4-core.rng';
 
 	public function __construct() {
 		parent::__construct();
@@ -42,7 +43,8 @@ class FixNativeReferences extends Maintenance {
 		$success = true;
 		$allEntries = [];
 		foreach ( $json as $entry ) {
-			$success = $success && MathNativeMML::renderReferenceEntry( $entry );
+			$success = $success &&
+				MathNativeMML::renderReferenceEntry( $entry, null, null, null, self::RNG_PATH );
 			$allEntries[] = $entry;
 		}
 
