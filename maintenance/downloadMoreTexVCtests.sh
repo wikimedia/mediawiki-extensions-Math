@@ -20,3 +20,8 @@ curl $URL -o $FILEPATH
 FILEPATH=../tests/phpunit/integration/WikiTexVC/en-wiki-formulae-good-reference.json
 URL=https://zenodo.org/records/14209690/files/normalized.json
 curl $URL -o $FILEPATH
+
+# Download relaxng into the test folder
+FILEPATH=../tests/phpunit/integration/WikiTexVC/mathml4-core.rng
+URL=https://www.w3.org/Math/RelaxNG/mathml4/mathml4-core.rng
+curl $URL -o $FILEPATH
