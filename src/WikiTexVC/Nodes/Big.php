@@ -42,7 +42,7 @@ class Big extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], &$state = [] ): string {
+	public function toMMLTree( array $arguments = [], array &$state = [] ) {
 		return $this->parseToMML( $this->fname, $arguments, null );
 	}
 

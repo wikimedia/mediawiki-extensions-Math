@@ -4,6 +4,7 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
 
@@ -45,9 +46,7 @@ class Box extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], &$state = [] ) {
-		$mrow = new MMLmrow();
-		$mtext = new MMLmtext();
+	public function toMMLTree( array $arguments = [], array &$state = [] ) {
 		$arg = $this->getArg();
 
 		if ( strlen( $arg ) >= 1 ) {
@@ -59,9 +58,8 @@ class Box extends TexNode {
 				$arg = "&#xA0;" . ltrim( $arg, " " );
 			}
 		}
-
-		return $mrow->encapsulateRaw(
-			$mtext->encapsulateRaw( $arg )
+		return new MMLmrow( TexClass::ORD, [],
+			new MMLmtext( "", [], $arg )
 		);
 	}
 

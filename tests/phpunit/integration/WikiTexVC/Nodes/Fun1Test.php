@@ -138,7 +138,7 @@ class Fun1Test extends MediaWikiIntegrationTestCase {
 
 	public function testLlap() {
 		$f = new Fun1( '\\llap', TexArray::newCurly( new Literal( '/' ) ) );
-		$rendering = $f->renderMML();
+		$rendering = $f->toMMLTree();
 		$this->assertInstanceOf( MMLmrow::class, $rendering );
 		$children = $rendering->getChildren();
 		$this->assertCount( 1, $children );

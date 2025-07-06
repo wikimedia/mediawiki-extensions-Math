@@ -50,7 +50,7 @@ class Fun1 extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], &$state = [] ) {
+	public function toMMLTree( array $arguments = [], array &$state = [] ) {
 		$cb = TexUtil::getInstance()->callback( trim( $this->fname ) );
 		if ( is_string( $cb ) && preg_match( '#^' .
 				preg_quote( self::class ) .

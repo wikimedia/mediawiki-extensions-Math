@@ -4,6 +4,7 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
 
@@ -40,16 +41,12 @@ class ChemWord extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], &$state = [] ) {
-		$mmlMrow = new MMLmrow();
-		$mtextLeft = new MMLmtext( "", [ "mathcolor" => "red" ] );
-		$mtextRight = new MMLmtext();
+	public function toMMLTree( array $arguments = [], array &$state = [] ) {
 		// If right has empty literal content is resolved as dash
-		$right = $this->getRight()->getArgs()[0] == "" ? "-" : (string)$this->getRight()->renderMML( [],
-			$state );
-		return $mmlMrow->encapsulateRaw( $mmlMrow->encapsulateRaw(
-			$mtextLeft->encapsulateRaw( (string)$this->getLeft()->renderMML( [], $state ) )
-			. $mtextRight->encapsulateRaw( $right ) ) );
+		$right = $this->getRight()->getArgs()[0] == "" ? "-" : $this->getRight()->renderMML( [], $state );
+		return new MMLmrow( TexClass::ORD, [], new MMLmrow( TexClass::ORD, [],
+			new MMLmtext( "", [ "mathcolor" => "red" ], $this->getLeft()->renderMML( [], $state ) ),
+			new MMLmtext( "", [], $right ) ) );
 	}
 
 	/** @inheritDoc */

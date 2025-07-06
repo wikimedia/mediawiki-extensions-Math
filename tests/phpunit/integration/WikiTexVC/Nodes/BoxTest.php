@@ -5,14 +5,13 @@ namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 use ArgumentCountError;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Box;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
-use MediaWikiUnitTestCase;
 use RuntimeException;
 use TypeError;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Box
  */
-class BoxTest extends MediaWikiUnitTestCase {
+class BoxTest extends \MediaWikiIntegrationTestCase {
 
 	public function testEmptyBox() {
 		$this->expectException( ArgumentCountError::class );

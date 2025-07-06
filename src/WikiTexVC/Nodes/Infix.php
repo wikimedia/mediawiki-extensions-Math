@@ -54,7 +54,7 @@ class Infix extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], &$state = [] ) {
+	public function toMMLTree( array $arguments = [], array &$state = [] ) {
 		return $this->parseToMML( $this->op, $arguments, null );
 	}
 
