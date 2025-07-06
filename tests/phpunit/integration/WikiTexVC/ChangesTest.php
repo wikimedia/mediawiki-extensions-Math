@@ -28,11 +28,29 @@ final class ChangesTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @dataProvider provideTestCases
 	 */
-	public function testChanges( $tc ) {
-		$old = $tc['output'];
-		unset( $tc['output'] );
-		MathNativeMML::renderReferenceEntry( $tc, $this->mathConfig, $this->hookContainer, $this->mainConfig );
-		$this->assertEquals( $old, $tc['output'] );
+	public function testChanges( array $testCase ) {
+		$expectedOutput = $testCase['output'];
+		unset( $testCase['output'] );
+
+		$coreValidation = $testCase['core-validation'] ?? true;
+		unset( $testCase['core-validation'] );
+
+		$rngFilePath = __DIR__ . '/mathml4-core.rng';
+
+		MathNativeMML::renderReferenceEntry(
+			$testCase,
+			$this->mathConfig,
+			$this->hookContainer,
+			$this->mainConfig,
+			$rngFilePath
+		);
+
+		$this->assertEquals( $expectedOutput, $testCase['output'], 'Output differs' );
+
+		if ( $coreValidation !== true ) {
+			$this->assertArrayHasKey( 'core-validation', $testCase, 'Core validation unexpectedly successful' );
+			$this->assertArrayEquals( $coreValidation, $testCase['core-validation'], 'Core validation differs' );
+		}
 	}
 
 	public static function provideTestCases() {
