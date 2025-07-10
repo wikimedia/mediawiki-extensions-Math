@@ -6,8 +6,6 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\MathVariant;
-use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
-use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
@@ -74,28 +72,12 @@ class Literal extends TexNode {
 		return $input;
 	}
 
-	public function toMMLTree( array $arguments = [], array &$state = [] ): ?MMLbase {
-		if ( !( empty( $state['inHBox'] ) ) ) {
-			return null;
-		}
-		if ( is_numeric( $this->arg ) ) {
-			if ( ( $arguments['mathvariant'] ?? '' ) === Variants::ITALIC ) {
-				// If the mathvariant italic does not exist for numbers
-				// https://github.com/w3c/mathml/issues/77#issuecomment-2993838911
-				$arguments['style'] = trim( ( $arguments['style'] ?? '' ) . ' font-style: italic' );
-			}
-			$content = $this->changeUnicodeFontInput( $this->arg, $state, $arguments );
-			return new MMLmn( "", $arguments, $content );
-		}
-		return null;
-	}
-
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], &$state = [] ) {
+	public function toMMLTree( $arguments = [], &$state = [] ) {
 		if ( $this->arg === " " ) {
 			// Fixes https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Math/+/961711
 			// And they creation of empty mo elements.
-			return "";
+			return null;
 		}
 		if ( isset( $state["intent-params"] ) ) {
 			foreach ( $state["intent-params"] as $intparam ) {
@@ -109,9 +91,14 @@ class Literal extends TexNode {
 			$arguments["arg"] = $state["intent-params-expl"];
 		}
 
-		$mmlTree = $this->toMMLTree( $arguments, $state );
-		if ( $mmlTree !== null ) {
-			return (string)$mmlTree;
+		if ( is_numeric( $this->arg ) && empty( $state['inHBox'] ) ) {
+			if ( ( $arguments['mathvariant'] ?? '' ) === 'italic' ) {
+				// If the mathvariant italic does not exist for numbers
+				// https://github.com/w3c/mathml/issues/77#issuecomment-2993838911
+				$arguments['style'] = trim( ( $arguments['style'] ?? '' ) . ' font-style: italic' );
+			}
+			$content = $this->changeUnicodeFontInput( $this->arg, $state, $arguments );
+			return new MMLmn( "", $arguments, $content );
 		}
 
 		// is important to split and find chars within curly and differentiate, see tc 459
@@ -124,8 +111,7 @@ class Literal extends TexNode {
 		// This is rather a workaround:
 		// Sometimes literals from WikiTexVC contain complete \\operatorname {asd} hinted as bug tex-2-mml.json
 		if ( str_contains( $input, "\\operatorname" ) ) {
-			$mi = new MMLmi();
-			return $mi->encapsulateRaw( $operatorContent["foundOC"] );
+			return new MMLmi( "", [], $operatorContent["foundOC"] );
 		}
 
 		$inputP = $input;
@@ -161,12 +147,7 @@ class Literal extends TexNode {
 		$ret = BaseMethods::checkAndParse( $inputP, $arguments,
 			array_merge( $operatorContent ?? [], $state ?? [] ),
 			$this );
-		if ( is_array( $ret ) ) {
-			$ret = implode( $ret );
-		} elseif ( $ret instanceof MMLbase ) {
-			$ret = (string)$ret;
-		}
-		if ( $ret || $ret === '' ) {
+		if ( $ret ) {
 			return $ret;
 		}
 
@@ -182,7 +163,7 @@ class Literal extends TexNode {
 		}
 		// If falling through all sieves just creates an mi element
 
-		return (string)new MMLmi( "", $arguments, $content );
+		return new MMLmi( "", $arguments, $content );
 	}
 
 	/**

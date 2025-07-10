@@ -57,7 +57,7 @@ class Lr extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], &$state = [] ) {
+	public function toMMLTree( $arguments = [], &$state = [] ) {
 		// TBD  set attributes for right AND left correctly
 		$rightAttrs = [];
 		if ( $this->right == "." ) {
@@ -68,23 +68,17 @@ class Lr extends TexNode {
 		$left = $bm->checkAndParseDelimiter( $this->left, $this, [], null, true,
 			TexClass::OPEN );
 		if ( !$left ) {
-			$moLeft = new MMLmo( TexClass::OPEN, [] );
-			$left = $moLeft->encapsulateRaw( $this->right );
+			$left = new MMLmo( TexClass::OPEN, [], $this->right );
 		}
 		$right = $bm->checkAndParseDelimiter( $this->right, $this, $rightAttrs, null, true,
 			TexClass::CLOSE );
 		if ( !$right ) {
-			$moRight = new MMLmo( TexClass::CLOSE, $rightAttrs );
-			$right = $moRight->encapsulateRaw( $this->right );
+			$right = new MMLmo( TexClass::CLOSE, $rightAttrs, $this->right );
 		}
 		// Don't apply outer ' inside the LR structure
 		unset( $state['deriv'] );
 		$inner = $this->getArg()->renderMML( [], $state );
-		$mrow = new MMLmrow( TexClass::INNER );
-		return $mrow->encapsulateRaw(
-			$left . $inner .
-			$right
-		);
+		return new MMLmrow( TexClass::INNER, [], $left, $inner, $right );
 	}
 
 	private function mmlTranslate( string $input ): string {

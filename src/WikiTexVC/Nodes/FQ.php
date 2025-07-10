@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsubsup;
@@ -54,18 +55,17 @@ class FQ extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function renderMML( $arguments = [], &$state = [] ) {
+	public function toMMLTree( $arguments = [], &$state = [] ) {
 		if ( array_key_exists( "limits", $state ) ) {
 			// A specific FQ case with preceding limits, just invoke the limits parsing manually.
-			return (string)BaseParsing::limits( $this, $arguments, $state, "" );
+			return BaseParsing::limits( $this, $arguments, $state, "" );
 		}
 		$base = $this->getBase();
 		if ( isset( $state['sideset'] ) &&
 			$base->getLength() == 0 && !$base->isCurly() ) {
 			// this happens when FQ is located in sideset Testcase 132
-			$mrow = new MMLmrow();
-			return $mrow->encapsulateRaw( (string)$this->getDown()->renderMML( [], $state ) ) .
-				$mrow->encapsulateRaw( (string)$this->getUp()->renderMML( [], $state ) );
+			return new MMLmrow( TexClass::ORD, [], $this->getDown()->renderMML( [], $state ) ) .
+				new MMLmrow( TexClass::ORD, [], $this->getUp()->renderMML( [], $state ) );
 		}
 		$melement = new MMLmsubsup();
 		// tbd check for more such cases like TexUtilTest 317
@@ -82,23 +82,21 @@ class FQ extends TexNode {
 			}
 		}
 
-		$mrow = new MMLmrow();
 		$emptyMrow = "";
 		// In cases with empty curly preceding like: "{}_1^2\!\Omega_3^4"
 		if ( $base->isEmpty() ) {
-			$emptyMrow = (string)( new MMLmrow() );
+			$emptyMrow = new MMLmrow();
 		}
 		// This seems to be the common case
-		$inner = $melement->encapsulateRaw(
+		$inner = $melement::newSubtree(
 			$emptyMrow .
-			$base->renderMML( [], $state ) .
-			$mrow->encapsulateRaw( (string)$this->getDown()->renderMML( $arguments, $state ) ) .
-			$mrow->encapsulateRaw( (string)$this->getUp()->renderMML( $arguments, $state ) ) );
+			$base->renderMML( [], $state ),
+			new MMLmrow( TexClass::ORD, [], $this->getDown()->renderMML( $arguments, $state ) ),
+			new MMLmrow( TexClass::ORD, [], $this->getUp()->renderMML( $arguments, $state ) ) );
 
 		if ( $melement instanceof MMLmunderover ) {
 			$args = $state['styleargs'] ?? [ "displaystyle" => "true", "scriptlevel" => 0 ];
-			$style = new MMLmstyle( "", $args );
-			return $style->encapsulateRaw( $inner );
+			return new MMLmstyle( "", $args, $inner );
 		}
 
 		return $inner;
