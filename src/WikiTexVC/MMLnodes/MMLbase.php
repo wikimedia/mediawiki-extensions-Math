@@ -31,6 +31,17 @@ class MMLbase {
 	}
 
 	/**
+	 * Add child node to current children
+	 * @param MMLbase|string|null ...$node
+	 * @return void
+	 */
+	public function addChild( ...$node ): void {
+		foreach ( $node as $n ) {
+			$this->children[] = $n;
+		}
+	}
+
+	/**
 	 *  Get name children from current element
 	 * @return MMLbase[]
 	 */

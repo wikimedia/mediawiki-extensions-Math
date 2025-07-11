@@ -126,7 +126,7 @@ class BaseParsing {
 			}
 			$inner[] = new MMLmtr( "", [], ...$mtds );
 		}
-		$mtable->setChildren( ...$inner );
+		$mtable->addChild( ...$inner );
 		return new MMLmrow( TexClass::ORD, [], $mtable );
 	}
 
@@ -140,7 +140,7 @@ class BaseParsing {
 			}
 			$renderedInner[] = new MMLmtr( "", [], ...$mtrs );
 		}
-		$mtable->setChildren( ...$renderedInner );
+		$mtable->addChild( ...$renderedInner );
 		return new MMLmrow( TexClass::ORD, [], $mtable );
 	}
 
@@ -497,10 +497,10 @@ class BaseParsing {
 			if ( $mmlMoClose == null ) {
 				$mmlMoClose = ( new MMLmo( TexClass::CLOSE, $closeAtts, $close ?? '' ) );
 			}
-			$mtable->setChildren( ...$resInner );
+			$mtable->addChild( ...$resInner );
 			return new MMLmrow( TexClass::ORD, [], $mmlMoOpen, $mtable, $mmlMoClose );
 		}
-		$mtable->setChildren( ...$resInner );
+		$mtable->addChild( ...$resInner );
 		return $mtable;
 	}
 

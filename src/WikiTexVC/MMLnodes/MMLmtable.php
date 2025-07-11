@@ -26,13 +26,4 @@ class MMLmtable extends MMLbase {
 		...$rows ) {
 		parent::__construct( "mtable", $texclass, $attributes, ...$rows );
 	}
-
-	/**
-	 * Set child elements
-	 * @param MMLbase|string ...$rows
-	 * @return void
-	 */
-	public function setChildren( ...$rows ) {
-		$this->children = $rows;
-	}
 }
