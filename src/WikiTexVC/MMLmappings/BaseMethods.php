@@ -56,7 +56,7 @@ class BaseMethods {
 				return BaseParsing::{$shifted}( $node, $passedArgs, $operatorContent, $input, ...$resFct );
 			}
 			return BaseParsing::{$resFct[0]}( $node, $passedArgs, $operatorContent, $input );
-		} catch ( \Exception $exception ) {
+		} catch ( \Exception ) {
 			return null;
 		}
 	}
@@ -141,7 +141,7 @@ class BaseMethods {
 		try {
 			$resIdentifier[0] = MMLutil::uc2xNotation( $resIdentifier[0] );
 			return $this->parseIdentifier( $node, $passedArgs, $operatorContent, $input, ...$resIdentifier );
-		} catch ( ArgumentCountError $errArgcount ) {
+		} catch ( ArgumentCountError ) {
 			return null;
 		}
 	}

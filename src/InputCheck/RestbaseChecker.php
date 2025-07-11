@@ -65,7 +65,7 @@ class RestbaseChecker extends BaseChecker {
 		}
 		try {
 			$host = $this->restbaseInterface->getUrl( '' );
-		} catch ( Exception $ignore ) {
+		} catch ( Exception ) {
 			$host = 'invalid';
 		}
 		return $this->errorObjectToMessage( $err, $host );

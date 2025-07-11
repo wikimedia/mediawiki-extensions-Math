@@ -223,6 +223,7 @@ class TexVC {
 
 	private function handleTexError( Exception $e, ?array $options = null ): array {
 		if ( $options && $options['debug'] ) {
+			// @phan-suppress-next-line PhanThrowTypeAbsent
 			throw $e;
 		}
 		$report = [ 'success' => false, 'warnings' => [] ];
@@ -272,7 +273,7 @@ class TexVC {
 				'line' => $e->grammarLine,
 				'column' => $e->grammarColumn
 			];
-		} catch ( Exception $err ) {
+		} catch ( Exception ) {
 			return [ 'offset' => 0, 'line' => 0, 'column' => 0 ];
 		}
 	}

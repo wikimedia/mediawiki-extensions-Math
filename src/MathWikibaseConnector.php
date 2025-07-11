@@ -146,7 +146,7 @@ class MathWikibaseConnector {
 	private function loadPropertyId( string $propertyId ): ?EntityId {
 		try {
 			return $this->idParser->parse( $propertyId );
-		} catch ( ConfigException $e ) {
+		} catch ( ConfigException ) {
 			return null;
 		}
 	}
@@ -185,9 +185,9 @@ class MathWikibaseConnector {
 		try {
 			$entityId = $this->idParser->parse( $qid ); // exception if the given ID is invalid
 			$entityRevision = $this->entityRevisionLookup->getEntityRevision( $entityId );
-		} catch ( EntityIdParsingException $e ) {
+		} catch ( EntityIdParsingException ) {
 			throw new InvalidArgumentException( "Invalid Wikibase ID." );
-		} catch ( RevisionedUnresolvedRedirectException | StorageException $e ) {
+		} catch ( RevisionedUnresolvedRedirectException | StorageException ) {
 			throw new InvalidArgumentException( "Non-existing Wikibase ID." );
 		}
 

@@ -60,7 +60,7 @@ class LocalChecker extends BaseChecker {
 				[ $this, 'runCheck' ],
 				[ 'version' => self::VERSION ],
 			);
-		} catch ( Exception $e ) { // @codeCoverageIgnoreStart
+		} catch ( Exception ) { // @codeCoverageIgnoreStart
 			// This is impossible since errors are thrown only if the option debug would be set.
 			$this->error = Message::newFromKey( 'math_failure' );
 			return;
@@ -111,7 +111,7 @@ class LocalChecker extends BaseChecker {
 		try {
 			$warnings = [];
 			$result = ( new TexVC() )->check( $this->inputTeX, $options, $warnings, $texifyMhchem );
-		} catch ( Exception $e ) { // @codeCoverageIgnoreStart
+		} catch ( Exception ) { // @codeCoverageIgnoreStart
 			// This is impossible since errors are thrown only if the option debug would be set.
 			$this->error = Message::newFromKey( 'math_failure' );
 
