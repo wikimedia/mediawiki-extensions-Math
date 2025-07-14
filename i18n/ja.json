@@ -107,13 +107,22 @@
 	"mw_math_source": "LaTeX ソース (テキストブラウザ向け)",
 	"prefs-math": "数式",
 	"mathstatus": "Math ステータス",
+	"mathwikibase": "数式情報",
 	"datatypes-type-math": "数式",
 	"wikibase-listdatatypes-math-head": "数式",
 	"wikibase-listdatatypes-math-body": "LaTeXで表現された方程式や公式など数式のリテラルデータ。",
 	"math-wikibase-header": "数学項目の情報",
+	"math-wikibase-formula": "数式",
+	"math-wikibase-formula-name": "名前",
 	"math-wikibase-formula-type": "種類",
 	"math-wikibase-formula-description": "説明",
+	"math-wikibase-formula-information": "数式情報",
 	"math-wikibase-formula-link-header": "情報源",
+	"math-wikibase-formula-elements-header": "数式の要素",
+	"math-wikibase-special-form-header": "数式の名前を指定してください:",
+	"math-wikibase-special-form-placeholder": "数式のタイトル",
+	"math-wikibase-special-form-button": "情報をリクエスト",
 	"math-wikibase-special-error-header": "エラー",
-	"math-wikibase-special-error-invalid-argument": "あなたが指定したウィキベースIDは存在しません。"
+	"math-wikibase-special-error-invalid-argument": "あなたが指定したウィキベースIDは存在しません。",
+	"math-wikibase-special-error-unknown": "ウィキベースからデータを取得中に不明なエラーが発生しました。"
 }
