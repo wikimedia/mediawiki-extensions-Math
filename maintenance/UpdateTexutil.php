@@ -1,6 +1,8 @@
 <?php
 
+// @codeCoverageIgnoreStart
 require_once __DIR__ . '/../../../maintenance/Maintenance.php';
+// @codeCoverageIgnoreEnd
 use MediaWiki\Maintenance\Maintenance;
 
 class UpdateTexutil extends Maintenance {
@@ -91,5 +93,7 @@ class UpdateTexutil extends Maintenance {
 		echo "texutil.json successfully updated.\n";
 	}
 }
+// @codeCoverageIgnoreStart
 $maintClass = UpdateTexutil::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

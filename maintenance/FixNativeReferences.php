@@ -21,7 +21,9 @@
 use MediaWiki\Extension\Math\MathNativeMML;
 use MediaWiki\Maintenance\Maintenance;
 
+// @codeCoverageIgnoreStart
 require_once __DIR__ . '/../../../maintenance/Maintenance.php';
+// @codeCoverageIgnoreEnd
 
 class FixNativeReferences extends Maintenance {
 
@@ -58,5 +60,7 @@ class FixNativeReferences extends Maintenance {
 
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = FixNativeReferences::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd
