@@ -74,4 +74,13 @@ class MathVariant {
 		return 'normal';
 	}
 
+	#
+
+	/**
+	 * @internal For use by tests only.
+	 */
+	public static function tearDown(): void {
+		self::$instance = null;
+	}
+
 }

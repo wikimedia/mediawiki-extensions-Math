@@ -76,4 +76,65 @@ class DQTest extends MediaWikiIntegrationTestCase {
 			$dq->renderMML( [], $state ) );
 	}
 
+	public function testIdentifiers() {
+		$dq = new DQ( new Literal( 'a' ), new Literal( 'b' ) );
+		$identifiers = $dq->extractIdentifiers();
+		$this->assertCount( 1, $identifiers );
+		$this->assertEquals( 'a_{b}', $identifiers[0] );
+	}
+
+	public function testExtractSubscriptsBasic() {
+		$dq = new DQ( new Literal( 'a' ), new Literal( 'b' ) );
+		$subscripts = $dq->extractSubscripts();
+		$this->assertCount( 1, $subscripts );
+		$this->assertEquals( 'a_{b}', $subscripts[0] );
+	}
+
+	public function testExtractSubscriptsEmptyBase() {
+		$dq = new DQ( new TexNode(), new Literal( 'b' ) );
+		$subscripts = $dq->extractSubscripts();
+		$this->assertArrayEquals( [], $subscripts );
+	}
+
+	public function testGetModIdentBasic() {
+		$dq = new DQ( new Literal( 'a' ), new Literal( 'b' ) );
+		$modIdent = $dq->getModIdent();
+		$this->assertCount( 1, $modIdent );
+		$this->assertEquals( 'a_{b}', $modIdent[0] );
+	}
+
+	public function testGetModIdentPrimeBase() {
+		$dq = new DQ( new Literal( '\'' ), new Literal( 'b' ) );
+		$modIdent = $dq->getModIdent();
+		$this->assertArrayEquals( [], $modIdent );
+	}
+
+	public function testExtractIdentifiersPrimeBase() {
+		$dq = new DQ( new Literal( '\'' ), new Literal( 'b' ) );
+		$identifiers = $dq->extractIdentifiers();
+		$this->assertContains( '\'', $identifiers );
+		$this->assertContains( 'b', $identifiers );
+	}
+
+	public function testExtractIdentifiersIntBase() {
+		$dq = new DQ( new Literal( '\\int' ), new Literal( 'b' ) );
+		$identifiers = $dq->extractIdentifiers();
+		$this->assertContains( '\\int', $identifiers );
+		$this->assertContains( 'b', $identifiers );
+	}
+
+	public function testToMMLTreeEmptyBranch() {
+		$dq = new DQ( new TexNode(), new TexNode() );
+		$this->assertNull( $dq->toMMLTree(), 'toMMLTree should return null for empty DQ' );
+	}
+
+	public function testToMMLTreeLimitsCase() {
+		$dq = new DQ( new Literal( 'a' ), new Literal( 'b' ) );
+		$state = [
+				'limits' => new Literal( 'c' ),
+		];
+		$result = $dq->toMMLTree( [], $state );
+		$this->assertNotNull( $result, 'toMMLTree should handle limits case and not return null' );
+		$this->assertInstanceOf( MMLmunder::class, $result, 'toMMLTree should return MMLmunder' );
+	}
 }

@@ -61,6 +61,7 @@ class MathVariantTest extends TestCase {
 	}
 
 	public function testGetInstance() {
+		MathVariant::tearDown();
 		$instance = MathVariant::getInstance();
 		$this->assertInstanceOf( MathVariant::class, $instance );
 	}

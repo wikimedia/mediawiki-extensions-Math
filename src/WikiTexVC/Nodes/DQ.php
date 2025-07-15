@@ -49,29 +49,29 @@ class DQ extends TexNode {
 			return BaseParsing::limits( $this, $arguments, $state, "" );
 		}
 
-		if ( !$this->isEmpty() ) {
-			if ( $this->getBase()->containsFunc( "\underbrace" ) ) {
-				$outer = new MMLmunder();
-			} else {
-				$outer = new MMLmsub();
-				if ( ( $state['styleargs']['displaystle'] ?? 'true' ) === 'true' ) {
-					$tu = TexUtil::getInstance();
-					if ( $tu->operator( trim( $this->base->render() ) ) ) {
-						$outer = new MMLmunder();
-					}
+		if ( $this->isEmpty() ) {
+			return null;
+		}
+		if ( $this->getBase()->containsFunc( "\underbrace" ) ) {
+			$outer = new MMLmunder();
+		} else {
+			$outer = new MMLmsub();
+			if ( ( $state['styleargs']['displaystle'] ?? 'true' ) === 'true' ) {
+				$tu = TexUtil::getInstance();
+				if ( $tu->operator( trim( $this->base->render() ) ) ) {
+					$outer = new MMLmunder();
 				}
 			}
-			// Otherwise use default fallback
-			$inner_state = [ 'styleargs' => $state['styleargs'] ?? [] ];
-			$baseRendering = $this->base->renderMML( $arguments, $inner_state );
-			// In cases with empty curly preceding like: "{}_pF_q" or _{1}
-			if ( $baseRendering == null || $baseRendering === " " ) {
-				$baseRendering = new MMLmrow();
-			}
-			return $outer::newSubtree( $baseRendering, new MMLmrow( TexClass::ORD, [], $this->down->renderMML(
-				$arguments, $state ) ) );
 		}
-		return null;
+		// Otherwise use default fallback
+		$inner_state = [ 'styleargs' => $state['styleargs'] ?? [] ];
+		$baseRendering = $this->base->renderMML( $arguments, $inner_state );
+		// In cases with empty curly preceding like: "{}_pF_q" or _{1}
+		if ( $baseRendering == null || $baseRendering === " " ) {
+			$baseRendering = new MMLmrow();
+		}
+		return $outer::newSubtree( $baseRendering, new MMLmrow( TexClass::ORD, [], $this->down->renderMML(
+			$arguments, $state ) ) );
 	}
 
 	/** @inheritDoc */
