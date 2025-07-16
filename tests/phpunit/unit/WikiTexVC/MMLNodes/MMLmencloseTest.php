@@ -6,7 +6,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmenclose;
 use MediaWikiUnitTestCase;
 
 /**
- * @covers \MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmspace
+ * @covers \MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmenclose
  *
  * @group Math
  *
