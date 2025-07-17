@@ -76,7 +76,7 @@ class BaseParsing {
 		return new MMLmrow( TexClass::ORD, [],
 			new MMLmrow( TexClass::ORD, [],
 				MMLmover::newSubtree(
-					$node->getArg()->renderMML( $passedArgs ),
+					$node->getArg()->toMMLtree( $passedArgs ),
 					( new MMLmo( "", $attrs, $entity ) )
 				)
 			)
@@ -101,7 +101,7 @@ class BaseParsing {
 				$open, $close, null, null, null, null, true );
 
 		} else {
-			$output[] = new MMLmrow( TexClass::ORD, [], $node->getMainarg()->renderMML() );
+			$output[] = new MMLmrow( TexClass::ORD, [], $node->getMainarg()->toMMLtree() );
 		}
 
 		if ( $close != null ) {
@@ -122,7 +122,7 @@ class BaseParsing {
 		foreach ( $node as $tableRow ) {
 			$mtds = [];
 			foreach ( $tableRow->getArgs() as $tableCell ) {
-				$mtds[] = new MMLmtd( "", [], $tableCell->renderMML() );
+				$mtds[] = new MMLmtd( "", [], $tableCell->toMMLtree() );
 			}
 			$inner[] = new MMLmtr( "", [], ...$mtds );
 		}
@@ -136,7 +136,7 @@ class BaseParsing {
 		foreach ( $node as $tableRow ) {
 			$mtrs = [];
 			foreach ( $tableRow->getArgs() as $tableCell ) {
-				$mtrs[] = new MMLmtd( "", [], $tableCell->renderMML() ); // pass args here ?
+				$mtrs[] = new MMLmtd( "", [], $tableCell->toMMLtree() ); // pass args here ?
 			}
 			$renderedInner[] = new MMLmtr( "", [], ...$mtrs );
 		}
@@ -147,7 +147,7 @@ class BaseParsing {
 	public static function boldsymbol( $node, $passedArgs, $operatorContent, $name, $smth = null,
 									   $smth2 = null ): MMLbase {
 		$passedArgs = array_merge( [ 'mathvariant' => Variants::BOLDITALIC ] );
-		return new MMLmrow( TexClass::ORD, [], $node->getArg()->renderMML( $passedArgs ) );
+		return new MMLmrow( TexClass::ORD, [], $node->getArg()->toMMLtree( $passedArgs ) );
 	}
 
 	public static function cancel( Fun1 $node, $passedArgs, $operatorContent, $name, $notation = '' ): MMLbase {
@@ -157,13 +157,13 @@ class BaseParsing {
 		}
 
 		return new MMLmenclose( '', [ 'notation' => $notation, 'class' => 'menclose' ],
-			$node->getArg()->renderMML(), ...$bars );
+			$node->getArg()->toMMLtree(), ...$bars );
 	}
 
 	public static function cancelTo( $node, $passedArgs, $operatorContent, $name, $notation = null ): MMLbase {
 		$mpAdded = new MMLmpadded( "", [ "depth" => "-.1em", "height" => "+.1em", "voffset" => ".1em" ],
-			$node->getArg1()->renderMML() );
-		$menclose = new MMLmenclose( "", [ "notation" => $notation ], $node->getArg2()->renderMML() );
+			$node->getArg1()->toMMLtree() );
+		$menclose = new MMLmenclose( "", [ "notation" => $notation ], $node->getArg2()->toMMLtree() );
 		return new MMLmrow( TexClass::ORD, [], MMLmsup::newSubtree( $menclose, $mpAdded ) );
 	}
 
@@ -181,9 +181,9 @@ class BaseParsing {
 
 	public static function cFrac( $node, $passedArgs, $operatorContent, $name ): MMLbase {
 		$mstyle1 = new MMLmstyle( "", [ "displaystyle" => "false", "scriptlevel" => "0" ],
-			new MMLmrow( TexClass::ORD, [], $node->getArg1()->renderMML() ) );
+			new MMLmrow( TexClass::ORD, [], $node->getArg1()->toMMLtree() ) );
 		$mstyle2 = new MMLmstyle( "", [ "displaystyle" => "false", "scriptlevel" => "0" ],
-			new MMLmrow( TexClass::ORD, [], $node->getArg2()->renderMML() ) );
+			new MMLmrow( TexClass::ORD, [], $node->getArg2()->toMMLtree() ) );
 		// See TexUtilMMLTest testcase 81
 		// (mml3 might be erronous here, but this element seems to be rendered correctly)
 		$whatIsThis = new MMLmrow( TexClass::ORD, [],
@@ -257,8 +257,8 @@ class BaseParsing {
 			$mrowOpen = new MMLmrow( TexClass::OPEN, [], new MMLmo( "", $styleAttr, $left ) );
 			$output[] = $mrowOpen;
 		}
-		$mrow1 = new MMLmrow( TexClass::ORD, [], $node->getArg1()->renderMML() );
-		$mrow2 = new MMLmrow( TexClass::ORD, [], $node->getArg2()->renderMML() );
+		$mrow1 = new MMLmrow( TexClass::ORD, [], $node->getArg1()->toMMLtree() );
+		$mrow2 = new MMLmrow( TexClass::ORD, [], $node->getArg2()->toMMLtree() );
 
 		$output[] = MMLmfrac::newSubtree( $mrow1, $mrow2, "", $attrs );
 		if ( $right ) {
@@ -275,15 +275,15 @@ class BaseParsing {
 
 	public static function frac( $node, $passedArgs, $operatorContent, $name ): MMLbase {
 		if ( $node instanceof Fun2 ) {
-			$inner = [ new MMLmrow( TexClass::ORD, [], $node->getArg1()->renderMML() ),
-				new MMLmrow( TexClass::ORD, [], $node->getArg2()->renderMML() ) ];
+			$inner = [ new MMLmrow( TexClass::ORD, [], $node->getArg1()->toMMLtree() ),
+				new MMLmrow( TexClass::ORD, [], $node->getArg2()->toMMLtree() ) ];
 		} elseif ( $node instanceof DQ ) {
-			$inner = [ new MMLmrow( TexClass::ORD, [], $node->getBase()->renderMML() ),
-				new MMLmrow( TexClass::ORD, [], $node->getDown()->renderMML() ) ];
+			$inner = [ new MMLmrow( TexClass::ORD, [], $node->getBase()->toMMLtree() ),
+				new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() ) ];
 		} else {
 			$inner = [];
 			foreach ( $node->getArgs() as $arg ) {
-				$rendered = is_string( $arg ) ? $arg : $arg->renderMML();
+				$rendered = is_string( $arg ) ? $arg : $arg->toMMLtree();
 				$inner[] = new MMLmrow( TexClass::ORD, [], $rendered );
 			}
 		}
@@ -327,7 +327,7 @@ class BaseParsing {
 		}
 		$passedArgs = array_merge( $passedArgs, [ Tag::CLASSTAG => TexClass::OP, 'mathvariant' => Variants::NORMAL ] );
 		$state = [ 'squashLiterals' => true ];
-		return new MMLarray( $mmlNot, $node->getArg()->renderMML( $passedArgs, $state ), $applyFct );
+		return new MMLarray( $mmlNot, $node->getArg()->toMMLtree( $passedArgs, $state ), $applyFct );
 	}
 
 	public static function macro( $node, $passedArgs, $operatorContent, $name,
@@ -339,13 +339,13 @@ class BaseParsing {
 		switch ( trim( $name ) ) {
 			case "\\mod":
 				// @phan-suppress-next-line PhanUndeclaredMethod
-				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->renderMML() : "";
+				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->toMMLtree() : "";
 				return new MMLmrow( TexClass::ORD, [],
 					 new MMLmo( "", [ "lspace" => "2.5pt", "rspace" => "2.5pt" ], "mod" ), $inner );
 			case "\\pmod":
 				// tbd indicate in mapping that this is composed within php
 				// @phan-suppress-next-line PhanUndeclaredMethod
-				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->renderMML() : "";
+				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->toMMLtree() : "";
 
 				return new MMLmrow( TexClass::ORD, [], ( new MMLmspace( "", [ "width" => "0.444em" ] ) ),
 					new MMLmo( "", [ "stretchy" => "false" ], "(" ),
@@ -380,15 +380,15 @@ class BaseParsing {
 				// hardcoded macro in php (there is also a dynamic mapping which is not not completely resolved atm)
 				if ( $node instanceof DQ ) {
 					$inner = MMLmover::newSubtree( new MMLmrow( TexClass::OP, [],
-							$node->getBase()->renderMML() ),
-						new MMLmrow( TexClass::ORD, [], $node->getDown()->renderMML() )
+							$node->getBase()->toMMLtree() ),
+						new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() )
 					);
 				} else {
 					$inner = MMLmover::newSubtree( new MMLmrow( TexClass::OP, [],
 						// @phan-suppress-next-line PhanUndeclaredMethod
-							$node->getArg2()->renderMML() ),
+							$node->getArg2()->toMMLtree() ),
 						// @phan-suppress-next-line PhanUndeclaredMethod
-						new MMLmrow( TexClass::ORD, [], $node->getArg1()->renderMML() )
+						new MMLmrow( TexClass::ORD, [], $node->getArg1()->toMMLtree() )
 					);
 				}
 				return new MMLmrow( TexClass::ORD, [], new MMLmrow( TexClass::REL, [], $inner ) );
@@ -397,7 +397,7 @@ class BaseParsing {
 				// @phan-suppress-next-line PhanUndeclaredMethod
 				$inner = $node->getArg() instanceof TexNode ?
 					// @phan-suppress-next-line PhanUndeclaredMethod
-					new MMLmrow( TexClass::ORD, [], $node->getArg()->renderMML() ) : "";
+					new MMLmrow( TexClass::ORD, [], $node->getArg()->toMMLtree() ) : "";
 				return new MMLmrow( TexClass::ORD, [],
 					new MMLmo( "", [ "lspace" => Sizes::THICKMATHSPACE, "rspace" => Sizes::THICKMATHSPACE ], "mod" ),
 					$inner, new MMLmrow( TexClass::ORD, [], $mspace ) );
@@ -419,7 +419,7 @@ class BaseParsing {
 				$warnings = [];
 				$checkRes = $texvc->check( $macro, [ "usemhchem" => true, "usemhchemtexified" => true ],
 					$warnings, true );
-				return $checkRes["input"]->renderMML();
+				return $checkRes["input"]->toMMLtree();
 			case "\\longleftrightarrows":
 				// The tex-cmds used in makro are not supported, just use a hardcoded mml macro here.
 				$mover = MMLmover::newSubtree(
@@ -476,7 +476,7 @@ class BaseParsing {
 					$mtdAttributes['class'] = $texclass;
 				}
 				$state = [ 'inMatrix'	=> true ];
-				$innerInnter[] = new MMLmtd( "", $mtdAttributes, $usedArg->renderMML( $passedArgs, $state ) );
+				$innerInnter[] = new MMLmtd( "", $mtdAttributes, $usedArg->toMMLtree( $passedArgs, $state ) );
 				$colNo++;
 			}
 			$resInner[] = new MMLmtr( "", [], ...$innerInnter );
@@ -512,8 +512,8 @@ class BaseParsing {
 		if ( $node instanceof Literal ) {
 			return new MMLarray( new MMLmi( "", $passedArgs, $id ?? ltrim( $name, '\\' ) ), $applyFct );
 		}
-		return MMLmsub::newSubtree( $node->getBase()->renderMML() . $applyFct,
-			new MMLmrow( TexClass::ORD, [], $node->getDown()->renderMML() ), "", $passedArgs );
+		return MMLmsub::newSubtree( $node->getBase()->toMMLtree() . $applyFct,
+			new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() ), "", $passedArgs );
 	}
 
 	public static function over( $node, $passedArgs, $operatorContent, $name, $id = null ): MMLbase {
@@ -530,8 +530,8 @@ class BaseParsing {
 			$attributes = [ "linethickness" => "0" ];
 		}
 		if ( $node instanceof Fun2 ) {
-			$mfrac = MMLmfrac::newSubtree( new MMLmrow( "", [], $node->getArg1()->renderMML() ),
-				new MMLmrow( "", [], $node->getArg2()->renderMML() ), "", $attributes );
+			$mfrac = MMLmfrac::newSubtree( new MMLmrow( "", [], $node->getArg1()->toMMLtree() ),
+				new MMLmrow( "", [], $node->getArg2()->toMMLtree() ), "", $attributes );
 			if ( $start === null ) {
 				return $mfrac;
 			}
@@ -542,7 +542,7 @@ class BaseParsing {
 			if ( is_string( $arg ) && str_contains( $arg, $name ) ) {
 				continue;
 			}
-			$rendered = $arg instanceof TexNode ? $arg->renderMML() : $arg;
+			$rendered = $arg instanceof TexNode ? $arg->toMMLtree() : $arg;
 			$inner[] = new MMLmrow( "", [], $rendered );
 		}
 		$mfrac = MMLmfrac::newSubtree( $inner[0], $inner[1], "", $attributes );
@@ -577,11 +577,11 @@ class BaseParsing {
 	public static function overset( $node, $passedArgs, $operatorContent, $name, $id = null ): MMLbase {
 		if ( $node instanceof DQ ) {
 			return new MMLmrow( TexClass::ORD, [], MMLmover::newSubtree( new MMLmrow( "", [],
-				$node->getDown()->renderMML() ), $node->getDown()->renderMML() ) );
+				$node->getDown()->toMMLtree() ), $node->getDown()->toMMLtree() ) );
 		}
 		return new MMLmrow( TexClass::ORD, [],
 			MMLmover::newSubtree( new MMLmrow( "", [],
-				$node->getArg2()->renderMML() ), $node->getArg1()->renderMML() ) );
+				$node->getArg2()->toMMLtree() ), $node->getArg1()->toMMLtree() ) );
 	}
 
 	public static function phantom( $node, $passedArgs, $operatorContent,
@@ -594,7 +594,7 @@ class BaseParsing {
 			$attrs = array_merge( $attrs, [ "depth" => "0", "height" => "0" ] );
 		}
 		return new MMLmrow( TexClass::ORD, [], new MMLmrow( TexClass::ORD, [],
-			new MMLmpadded( "", $attrs, new MMLmphantom( "", [], $node->getArg()->renderMML() ) ) ) );
+			new MMLmpadded( "", $attrs, new MMLmphantom( "", [], $node->getArg()->toMMLtree() ) ) ) );
 	}
 
 	public static function raiseLower( $node, $passedArgs, $operatorContent, $name ): ?MMLbase {
@@ -629,13 +629,14 @@ class BaseParsing {
 			// incorrect name, should not happen, prevent erroneous mappings from getting rendered.
 			return null;
 		}
-		return new MMLmrow( "", [], new MMLmpadded( "", $args, $node->getArg2()->renderMML() ) );
+		return new MMLmrow( "", [], new MMLmpadded( "", $args, $node->getArg2()->toMMLtree() ) );
 	}
 
 	public static function underset( $node, $passedArgs, $operatorContent, $name, $smh = null ): MMLbase {
-		$inrow = $node->getArg2()->renderMML();
-		$arg1 = $node->getArg1()->renderMML();
-		if ( $inrow && $arg1 ) {
+		$inrow = $node->getArg2()->toMMLtree();
+		$arg1 = $node->getArg1()->toMMLtree();
+		// MMLarray may be empty
+		if ( $inrow->hasChildren() && $arg1->hasChildren() ) {
 			return new MMLmrow( TexClass::ORD, [], MMLmunder::newSubtree( $inrow, $arg1 ) );
 		}
 
@@ -665,14 +666,14 @@ class BaseParsing {
 		} else {
 			$mo = new MMLmo( "", [], $inner );
 		}
-		return new MMLmrow( $texClass, [], $movun::newSubtree( $node->getArg()->renderMML( $passedArgs ), $mo ) );
+		return new MMLmrow( $texClass, [], $movun::newSubtree( $node->getArg()->toMMLtree( $passedArgs ), $mo ) );
 	}
 
 	public static function mathFont( $node, $passedArgs, $operatorContent, $name, $mathvariant = null ): MMLbase {
 		$args = MMLParsingUtil::getFontArgs( $name, $mathvariant, $passedArgs );
 		$state = [];
 
-			return new MMLmrow( TexClass::ORD, [], $node->getArg()->renderMML( $args, $state ) );
+			return new MMLmrow( TexClass::ORD, [], $node->getArg()->toMMLtree( $args, $state ) );
 	}
 
 	public static function mathChoice( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
@@ -696,20 +697,20 @@ class BaseParsing {
 
 			if ( $displayStyle == "true" && $scriptLevel == "0" ) {
 				// This is displaystyle
-				return $node->getArg1()->renderMML( $passedArgs, $operatorContent );
+				return $node->getArg1()->toMMLtree( $passedArgs, $operatorContent );
 			} elseif ( $displayStyle == "false" && $scriptLevel == "0" ) {
 				// This is textstyle
-				return $node->getArg2()->renderMML( $passedArgs, $operatorContent );
+				return $node->getArg2()->toMMLtree( $passedArgs, $operatorContent );
 			} elseif ( $displayStyle == "false" && $scriptLevel == "1" ) {
 				// This is scriptstyle
-				return $node->getArg3()->renderMML( $passedArgs, $operatorContent );
+				return $node->getArg3()->toMMLtree( $passedArgs, $operatorContent );
 			} elseif ( $displayStyle == "false" && $scriptLevel == "2" ) {
 				// This is scriptscriptstyle
-				return $node->getArg4()->renderMML( $passedArgs, $operatorContent );
+				return $node->getArg4()->toMMLtree( $passedArgs, $operatorContent );
 			}
 		}
 		// By default render displaystyle
-		return $node->getArg1()->renderMML( $passedArgs, $operatorContent );
+		return $node->getArg1()->toMMLtree( $passedArgs, $operatorContent );
 	}
 
 	public static function makeBig( $node, $passedArgs, $operatorContent, $name, $texClass = null,
@@ -762,7 +763,7 @@ class BaseParsing {
 	public static function machine( $node, $passedArgs, $operatorContent, $name, $type = null ): MMLbase {
 		// this could also be shifted to MhChem.php renderMML for ce
 		// For parsing chem (ce) or ??? (pu)
-		return new MMLmrow( "", [], $node->getArg()->renderMML() );
+		return new MMLmrow( "", [], $node->getArg()->toMMLtree() );
 	}
 
 	public static function namedFn( $node, $passedArgs, $operatorContent, $name, $smth = null ): MMLbase {
@@ -772,8 +773,8 @@ class BaseParsing {
 		if ( $node instanceof Literal ) {
 			return new MMLarray( new MMLmi( "", [], ltrim( $name, '\\' ) ), $applyFct );
 		}
-		return MMLmsub::newSubtree( $node->getBase()->renderMML() . $applyFct,
-			new MMLmrow( TexClass::ORD, [], $node->getDown()->renderMML() ) );
+		return MMLmsub::newSubtree( $node->getBase()->toMMLtree() . $applyFct,
+			new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() ) );
 	}
 
 	public static function limits( $node, $passedArgs, $operatorContent, $name, $smth = null ): ?MMLbase {
@@ -788,15 +789,15 @@ class BaseParsing {
 			}
 		}
 		$opParsed = ( $operatorContent["limits"] ?? false )
-			? $operatorContent["limits"]->renderMML( $argsOp ) : "";
+			? $operatorContent["limits"]->toMMLtree( $argsOp ) : "";
 
 		if ( $node instanceof DQ ) {
 			return MMLmunder::newSubtree( $opParsed,
-				new MMLmrow( TexClass::ORD, [], $node->getDown()->renderMML() ) );
+				new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() ) );
 		} elseif ( $node instanceof FQ ) {
 			$munderOver = MMLmunderover::newSubtree(
-				$opParsed, new MMLmrow( TexClass::ORD, [], $node->getDown()->renderMML() ),
-				new MMLmrow( TexClass::ORD, [], $node->getUp()->renderMML() ) );
+				$opParsed, new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() ),
+				new MMLmrow( TexClass::ORD, [], $node->getUp()->toMMLtree() ) );
 			return $munderOver;
 		}
 		// Don't render limits
@@ -819,8 +820,8 @@ class BaseParsing {
 			if ( $opParsed === null ) {
 				throw new \LogicException( "null is not a valid base for MMLmmultiscripts." );
 			}
-			$in1 = $node->getArg1()->renderMML();
-			$in2 = $node->getArg2()->renderMML();
+			$in1 = $node->getArg1()->toMMLtree();
+			$in2 = $node->getArg2()->toMMLtree();
 			return new MMLmrow( TexClass::OP, [],
 				MMLmmultiscripts::newSubtree( $opParsed, $in2, null, $in1, null,
 					"", [ Tag::ALIGN => "left" ]
@@ -836,21 +837,21 @@ class BaseParsing {
 				$opParsed = $bm->checkAndParseOperator( $baseOperator,
 					null, [ "largeop" => "true", "movablelimits" => "false", "symmetric" => "true" ], [], null );
 				if ( $opParsed == null ) {
-					$opParsed = $operatorContent["sideset"]->getBase()->renderMML();
+					$opParsed = $operatorContent["sideset"]->getBase()->toMMLtree() ?? "";
 				}
 			} else {
 				$opParsed = new MMLmerror( "", [],
 					new MMLmtext( "", [], "Sideset operator parsing not implemented yet" ) );
 			}
 			$state = [ 'sideset' => true ];
-			$in1 = $node->getArg1()->renderMML( [], $state );
-			$in2 = $node->getArg2()->renderMML( [], $state );
+			$in1 = $node->getArg1()->toMMLtree( [], $state );
+			$in2 = $node->getArg2()->toMMLtree( [], $state );
 
 			$down = $operatorContent["sideset"] instanceof UQ ? '<mrow />' :
-				$operatorContent["sideset"]->getDown()->renderMML();
+				$operatorContent["sideset"]->getDown()->toMMLtree();
 			$end1 = new MMLmrow( "", [], $down );
 			$up = $operatorContent["sideset"] instanceof DQ ? '<mrow />' :
-				$operatorContent["sideset"]->getUp()->renderMML();
+				$operatorContent["sideset"]->getUp()->toMMLtree();
 			$end2 = new MMLmrow( "", [], $up );
 
 			return new MMLmrow( TexClass::OP, [],
@@ -887,11 +888,11 @@ class BaseParsing {
 				$mpArgs = [ "height" => "0", "depth" => "0" ];
 			}
 
-			$inner = $node->getArg2()->renderMML() ?? "";
+			$inner = $node->getArg2()->toMMLtree() ?? "";
 		} elseif ( $node instanceof Fun1 ) {
 			// Implicitly assume "tb" as default mode
 			$mpArgs = [ "height" => "0", "depth" => "0" ];
-			$inner = $node->getArg()->renderMML() ?? "";
+			$inner = $node->getArg()->toMMLtree() ?? "";
 		}
 		return new MMLmrow( TexClass::ORD, [], new MMLmpadded( "", $mpArgs, $inner ) );
 	}
@@ -899,17 +900,17 @@ class BaseParsing {
 	public static function texAtom( $node, $passedArgs, $operatorContent, $name, $texClass = null ): MMLbase {
 		switch ( $name ) {
 			case "mathclose":
-				$inner = $node->getArg()->renderMML();
+				$inner = $node->getArg()->toMMLtree();
 				return new MMLmrow( TexClass::ORD, [], new MMLmrow( $texClass, [], $inner ) );
 			case "mathbin":
 				// no break
 			case "mathop":
 				// no break
 			case "mathrel":
-				$inner = $node->getArg()->renderMML();
+				$inner = $node->getArg()->toMMLtree();
 				return new MMLmrow( $texClass, [], $inner );
 			default:
-				$inner = $node->getArg()->renderMML();
+				$inner = $node->getArg()->toMMLtree();
 				return new MMLmrow( TexClass::ORD, [], new MMLmrow( $texClass, [], $inner ) );
 		}
 	}
@@ -936,7 +937,7 @@ class BaseParsing {
 			// explicit args annotation parsing in literal
 			// return $arg1->renderMML([],["intent-params-expl"=>$intentArg]);
 			// alternative just add the arg here
-			return $arg1->renderMML( [ "arg" => $intentArg ] );
+			return $arg1->toMMLtree( [ "arg" => $intentArg ] );
 		}
 		$intentContentAtr = [ "intent" => $intentContent ];
 		if ( $intentArg !== null ) {
@@ -948,22 +949,22 @@ class BaseParsing {
 		if ( str_contains( $intentContent ?? '', "matrix" ) ||
 			( $arg1->isCurly() && $arg1->getArgs()[0] instanceof Matrix ) ) {
 			$element = $arg1->getArgs()[0];
-			$rendered = $element->renderMML( [], $intentParamsState );
+			$rendered = $element->toMMLtree( [], $intentParamsState );
 			$hackyXML = MMLParsingUtil::forgeIntentToSpecificElement( $rendered,
 				$intentContentAtr, "mtable" );
 			return $hackyXML;
 		} elseif ( $arg1->isCurly() && count( $arg1->getArgs() ) >= 2 ) {
 			// Create a surrounding element which holds the intents
-			return new MMLmrow( "", $intentContentAtr, $arg1->renderMML( [], $intentParamsState ) );
+			return new MMLmrow( "", $intentContentAtr, $arg1->toMMLtree( [], $intentParamsState ) );
 		} elseif ( $arg1->isCurly() && count( $arg1->getArgs() ) >= 1 ) {
 			// Forge the intent attribute to the top-level element after MML rendering
 			$element = $arg1->getArgs()[0];
-			$rendered = $element->renderMML( [], $intentParamsState );
+			$rendered = $element->toMMLtree( [], $intentParamsState );
 			$hackyXML = MMLParsingUtil::forgeIntentToTopElement( $rendered, $intentContentAtr );
 			return $hackyXML;
 		} else {
 			// This is the default case
-			return $arg1->renderMML( $intentContentAtr, $intentParamsState );
+			return $arg1->toMMLtree( $intentContentAtr, $intentParamsState );
 		}
 	}
 
@@ -983,14 +984,14 @@ class BaseParsing {
 					return new MMLmrow( TexClass::ORD, [], new MMLmtext( "", [], "\mbox" ) );
 				}
 			case "\\hbox":
-				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->renderMML() : $node->getArg();
+				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->toMMLtree() : $node->getArg();
 				return new MMLmrow( TexClass::ORD, [],
 					new MMLmstyle( "", [ "displaystyle" => "false", "scriptlevel" => "0" ],
 						new MMLmtext( "", [], $inner )
 					)
 				);
 			case "\\text":
-				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->renderMML() : $node->getArg();
+				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->toMMLtree() : $node->getArg();
 				return new MMLmrow( TexClass::ORD, [], new MMLmtext( "", [], $inner ) );
 			case "\\textbf":
 				// no break
@@ -1002,9 +1003,9 @@ class BaseParsing {
 				// no break
 			case "\\texttt":
 				$state = [ "inHBox" => true, 'squashLiterals' => true ];
-				$inner = $node->getArg()->isCurly() ? $node->getArg()->renderMML(
+				$inner = $node->getArg()->isCurly() ? $node->getArg()->toMMLtree(
 					[], $state )
-					: $node->getArg()->renderMML( [ "fromHBox" => true ] );
+					: $node->getArg()->toMMLtree( [ "fromHBox" => true ] );
 				return new MMLmtext( "",
 				MMLParsingUtil::getFontArgs( $name, null, null ),
 				$inner ?? '' );
@@ -1048,15 +1049,15 @@ class BaseParsing {
 		// There is an additional argument for the root
 		if ( $node instanceof Fun2sq ) {
 			// In case of an empty curly add an mrow
-			$arg2Rendered = $node->getArg2()->renderMML( $passedArgs );
-			if ( trim( $arg2Rendered ) === "" ) {
+			$arg2Rendered = $node->getArg2()->toMMLtree( $passedArgs );
+			if ( trim( $arg2Rendered ) === "" || $arg2Rendered === null ) {
 				$arg2Rendered = new MMLmrow( TexClass::ORD, [] );
 			}
 			return new MMLmrow( TexClass::ORD, [],
 				MMLmroot::newSubtree(
 					$arg2Rendered,
 					new MMLmrow( TexClass::ORD, [],
-						$node->getArg1()->renderMML( $passedArgs )
+						$node->getArg1()->toMMLtree( $passedArgs )
 					)
 				)
 			);
@@ -1064,7 +1065,7 @@ class BaseParsing {
 		// Currently this is own implementation from Fun1.php
 		return new MMLmrow( TexClass::ORD, [], // assuming that this is always encapsulated in mrow
 			new MMLmsqrt( "", [],
-				$node->getArg()->renderMML( $passedArgs )
+				$node->getArg()->toMMLtree( $passedArgs )
 			)
 		);
 	}
@@ -1087,19 +1088,19 @@ class BaseParsing {
 				new MMLmstyle( "", [ "scriptlevel" => "0" ], new MMLmo( Texclass::REL, [], $char ) ),
 				new MMLmpadded( "", $mpaddedArgs,
 					new MMLmrow( TexClass::ORD, [],
-						$node->getArg1()->renderMML()
+						$node->getArg1()->toMMLtree()
 					),
 					$mspace
 				),
 				new MMLmpadded( "", $mpaddedArgs,
-					$node->getArg2()->renderMML()
+					$node->getArg2()->toMMLtree()
 				)
 			) );
 
 		}
 		return MMLmover::newSubtree(
 			new MMLmstyle( "", [ "scriptlevel" => "0" ], new MMLmo( Texclass::REL, [], $char ) ),
-			new MMLmpadded( "", $mpaddedArgs, $node->getArg()->renderMML(), $mspace )
+			new MMLmpadded( "", $mpaddedArgs, $node->getArg()->toMMLtree(), $mspace )
 		);
 	}
 

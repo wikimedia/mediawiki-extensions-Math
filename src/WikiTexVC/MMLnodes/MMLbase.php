@@ -50,6 +50,14 @@ class MMLbase {
 	}
 
 	/**
+	 * True if current object has child objects
+	 * @return bool
+	 */
+	public function hasChildren(): bool {
+		return count( $this->children ) !== 0;
+	}
+
+	/**
 	 * get current VisitorFactory or get from services: Math::getVisitorFactory()
 	 * @return VisitorFactory
 	 */

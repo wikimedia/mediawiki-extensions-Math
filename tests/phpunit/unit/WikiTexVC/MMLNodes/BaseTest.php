@@ -93,4 +93,16 @@ class BaseTest extends MediaWikiUnitTestCase {
 		$base->addChild( $mbase2, $mbase3 );
 		$this->assertEquals( [ $mbase1, $mbase2, $mbase3 ], $base->getChildren() );
 	}
+
+	public function testHasChildren() {
+		$mbase1 = new MMLbase( 'test1', 'texClass1', [] );
+		$base = new MMLbase( 'test2', 'texClass2', [] );
+		$base->addChild( $mbase1 );
+		$this->assertTrue( $base->hasChildren() );
+	}
+
+	public function testHasNoChildren() {
+		$base = new MMLbase( 'test', 'texClass', [] );
+		$this->assertFalse( $base->hasChildren() );
+	}
 }
