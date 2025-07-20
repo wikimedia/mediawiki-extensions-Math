@@ -177,6 +177,60 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( 'class="mwe-math-matrix-top mwe-math-matrix-bottom"', $result );
 	}
 
+	public function testMatrixIgnoreTrailingLine() {
+		$node = new Matrix( 'matrix', new TexArray(
+			new TexArray( new TexArray( new Literal( 'a' ) ) ),
+			new TexArray( new TexArray() )
+		) );
+		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$this->assertDoesNotMatchRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
+	}
+
+	public function testMatrixDontIgnoreTrailingLineWhenNonEmptyCell() {
+		$node = new Matrix( 'matrix', new TexArray(
+			new TexArray( new TexArray( new Literal( 'a' ) ) ),
+			new TexArray( new TexArray( new Literal( 'b' ) ) )
+		) );
+		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$this->assertMatchesRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
+	}
+
+	public function testMatrixDontIgnoreTrailingLineWhenTwoCells() {
+		$node = new Matrix( 'matrix', new TexArray(
+			new TexArray( new TexArray( new Literal( 'a' ) ) ),
+			new TexArray( new TexArray(), new TexArray() )
+		) );
+		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$this->assertMatchesRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
+	}
+
+	public function testMatrixHlineIgnoreTrailingLine() {
+		$node = new Matrix( 'matrix', new TexArray(
+			new TexArray( new TexArray( new Literal( 'a' ) ) ),
+			new TexArray( new TexArray( new Literal( '\\hline ' ) ) )
+		) );
+		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$this->assertDoesNotMatchRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
+	}
+
+	public function testMatrixHlineDontIgnoreTrailingLineWhenNonEmptyCell() {
+		$node = new Matrix( 'matrix', new TexArray(
+			new TexArray( new TexArray( new Literal( 'a' ) ) ),
+			new TexArray( new TexArray( new Literal( '\\hline ' ), new Literal( 'b' ) ) )
+		) );
+		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$this->assertMatchesRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
+	}
+
+	public function testMatrixHlineDontIgnoreTrailingLineWhenTwoCells() {
+		$node = new Matrix( 'matrix', new TexArray(
+			new TexArray( new TexArray( new Literal( 'a' ) ) ),
+			new TexArray( new TexArray( new Literal( '\\hline ' ) ), new TexArray() )
+		) );
+		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$this->assertMatchesRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
+	}
+
 	public function testHandleOperatorName() {
 		$node = new Fun1(
 			'\\operatorname',

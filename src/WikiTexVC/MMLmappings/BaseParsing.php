@@ -456,6 +456,7 @@ class BaseParsing {
 		foreach ( $node as $row ) {
 			$innerInnter = [];
 			$colNo = 0;
+			$isEmptyLine = true;
 			foreach ( $row  as $cell ) {
 				$usedArg = clone $cell;
 				if ( $usedArg instanceof TexArray &&
@@ -464,7 +465,6 @@ class BaseParsing {
 					$usedArg[0]->getArg() === '\\hline '
 				) {
 					$usedArg->pop();
-
 				}
 				$mtdAttributes = [];
 				$texclass = $lines[$rowNo] ? TexClass::TOP : '';
@@ -476,11 +476,16 @@ class BaseParsing {
 					$mtdAttributes['class'] = $texclass;
 				}
 				$state = [ 'inMatrix'	=> true ];
+				$isEmptyLine = $isEmptyLine && $usedArg->isEmpty();
 				$innerInnter[] = new MMLmtd( "", $mtdAttributes, $usedArg->toMMLtree( $passedArgs, $state ) );
 				$colNo++;
 			}
-			$resInner[] = new MMLmtr( "", [], ...$innerInnter );
 			$rowNo++;
+			// empty trailing lines with only one empty cell should not be rendered
+			if ( $rowNo === count( $lines ) && $colNo === 1 && $isEmptyLine ) {
+				break;
+			}
+			$resInner[] = new MMLmtr( "", [], ...$innerInnter );
 		}
 		$mtable = new MMLmtable( "", $tableArgs );
 		if ( $cases || ( $open != null && $close != null ) ) {
