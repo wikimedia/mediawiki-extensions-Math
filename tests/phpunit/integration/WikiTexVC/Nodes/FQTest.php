@@ -47,30 +47,30 @@ class FQTest extends MediaWikiIntegrationTestCase {
 
 	public function testRenderEmptyFq() {
 		$fq = new FQ( TexArray::newCurly(), new Literal( 'b' ), new Literal( 'c' ) );
-		$result = $fq->renderMML();
+		$result = $fq->toMMLTree();
 		$this->assertStringContainsString( 'msubsup', $result );
-		$this->assertStringContainsString( (string)( new MMLmrow() ), $result );
+		$this->assertStringContainsString( new MMLmrow(), $result );
 	}
 
 	public function testRenderEmptyFqNoCurly() {
 		$fq = new FQ( new TexArray(), new Literal( 'b' ), new Literal( 'c' ) );
-		$result = $fq->renderMML();
+		$result = $fq->toMMLTree();
 		$this->assertStringContainsString( 'msubsup', $result );
-		$this->assertStringContainsString( (string)( new MMLmrow() ), $result );
+		$this->assertStringContainsString( ( new MMLmrow() ), $result );
 	}
 
 	public function testLatin() {
 		$fq = new FQ( new Literal( 'a' ), new Literal( 'b' ), new Literal( 'c' ) );
-		$this->assertStringContainsString( 'msubsup', $fq->renderMML() );
+		$this->assertStringContainsString( 'msubsup', $fq->toMMLTree() );
 	}
 
 	public function testSum() {
 		$fq = new FQ( new Literal( '\sum' ), new Literal( 'b' ), new Literal( 'c' ) );
-		$this->assertStringContainsString( 'munderover', $fq->renderMML() );
+		$this->assertStringContainsString( 'munderover', $fq->toMMLTree() );
 	}
 
 	public function testGreek() {
 		$fq = new FQ( new Literal( '\\alpha' ), new Literal( 'b' ), new Literal( 'c' ) );
-		$this->assertStringContainsString( 'msubsup', $fq->renderMML() );
+		$this->assertStringContainsString( 'msubsup', $fq->toMMLTree() );
 	}
 }

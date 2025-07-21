@@ -55,6 +55,6 @@ class BigTest extends MediaWikiIntegrationTestCase {
 
 	public function testRenderMML() {
 		$big = new Big( '\\big', 'a' );
-		$this->assertStringContainsString( '</mrow>', $big->renderMML(), 'Should render to MathML' );
+		$this->assertStringContainsString( '</mrow>', $big->toMMLTree(), 'Should render to MathML' );
 	}
 }

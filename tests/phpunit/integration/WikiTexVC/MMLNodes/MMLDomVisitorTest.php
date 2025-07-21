@@ -198,13 +198,13 @@ class MMLDomVisitorTest extends MediaWikiIntegrationTestCase {
 		$mrow = new MMLmrow( $texclass );
 		$mover = new MMLmover( "", $attrs );
 		$dummyNode = new class extends TexNode {
-			public function renderMML( $arguments = [], &$state = [] ) {
-				return '<mi>x</mi>';
+			public function toMMLTree( $arguments = [], &$state = [] ) {
+				return new MMLmi( "", [], "x" );
 			}
 		};
 		$encapsulatedOutput = $mrow->encapsulateRaw(
 			$mover->encapsulateRaw(
-				$dummyNode->renderMML() . // Renders <mi>x</mi>
+				$dummyNode->toMMLTree() . // Renders <mi>x</mi>
 				( new MMLmo( "", $attrs, $entity ) )->encapsulateRaw( $entity )
 			)
 		);

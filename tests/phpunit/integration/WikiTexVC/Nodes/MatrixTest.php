@@ -88,7 +88,7 @@ class MatrixTest extends MediaWikiIntegrationTestCase {
 	public function testRenderMML() {
 		$matrix = new Matrix( 'matrix',
 			new TexArray( new TexArray( new Literal( '\\sin' ) ) ) );
-		$this->assertStringContainsString( 'mtable', $matrix->renderMML(),
+		$this->assertStringContainsString( 'mtable', $matrix->toMMLTree(),
 			'Should render a matrix' );
 	}
 

@@ -68,7 +68,7 @@ class Fun1 extends TexNode {
 		$ret = $mrow->encapsulateRaw(
 			$mrow->encapsulateRaw(
 				$mover->encapsulateRaw(
-					$this->args[1]->renderMML() .
+					$this->args[1]->toMMLTree() .
 					$mo->encapsulateRaw( $inner )
 				)
 			)
@@ -130,7 +130,7 @@ class Fun1 extends TexNode {
 			);
 		}
 		return new MMLmrow( TexClass::ORD, [],
-			new MMLmpadded( "", $args, $this->getArg()->renderMML() ) );
+			new MMLmpadded( "", $args, $this->getArg()->toMMLTree() ) );
 	}
 
 }

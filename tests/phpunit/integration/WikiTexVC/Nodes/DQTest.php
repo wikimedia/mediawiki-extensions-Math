@@ -55,17 +55,17 @@ class DQTest extends MediaWikiIntegrationTestCase {
 
 	public function testRenderEmptyDq() {
 		$dq = new DQ( TexArray::newCurly(), new Literal( 'b' ) );
-		$this->assertStringContainsString( (string)( new MMLmrow() ), $dq->renderMML() );
+		$this->assertStringContainsString( new MMLmrow(), $dq->toMMLTree() );
 	}
 
 	public function testRenderEmptyDisplaystyle() {
 		$dq = new DQ( new Literal( '\\displaystyle' ), new Literal( 'b' ) );
-		$this->assertStringContainsString( (string)( new MMLmrow() ), $dq->renderMML() );
+		$this->assertStringContainsString( new MMLmrow(), $dq->toMMLTree() );
 	}
 
 	public function testBigSum() {
 		$dq = new DQ( new Literal( '\\sum' ), new Literal( 'i' ) );
-		$this->assertStringContainsString( ( new MMLmunder() )->getStart(), $dq->renderMML() );
+		$this->assertStringContainsString( ( new MMLmunder() )->getStart(), $dq->toMMLTree() );
 	}
 
 	public function testSmallSum() {
@@ -73,7 +73,7 @@ class DQTest extends MediaWikiIntegrationTestCase {
 		$state = [ 'styleargs' => [ 'displaystle' => 'false' ] ];
 		$this->assertStringContainsString(
 			( new MMLmsub() )->getStart(),
-			$dq->renderMML( [], $state ) );
+			$dq->toMMLTree( [], $state ) );
 	}
 
 	public function testIdentifiers() {

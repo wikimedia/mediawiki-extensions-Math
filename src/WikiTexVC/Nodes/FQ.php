@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsubsup;
@@ -64,8 +65,8 @@ class FQ extends TexNode {
 		if ( isset( $state['sideset'] ) &&
 			$base->getLength() == 0 && !$base->isCurly() ) {
 			// this happens when FQ is located in sideset Testcase 132
-			return new MMLmrow( TexClass::ORD, [], $this->getDown()->renderMML( [], $state ) ) .
-				new MMLmrow( TexClass::ORD, [], $this->getUp()->renderMML( [], $state ) );
+			return new MMLarray( new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLTree( [], $state ) ),
+				new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( [], $state ) ) );
 		}
 		$melement = new MMLmsubsup();
 		// tbd check for more such cases like TexUtilTest 317
@@ -89,10 +90,10 @@ class FQ extends TexNode {
 		}
 		// This seems to be the common case
 		$inner = $melement::newSubtree(
-			$emptyMrow .
-			$base->renderMML( [], $state ),
-			new MMLmrow( TexClass::ORD, [], $this->getDown()->renderMML( $arguments, $state ) ),
-			new MMLmrow( TexClass::ORD, [], $this->getUp()->renderMML( $arguments, $state ) ) );
+			new MMLarray( $emptyMrow,
+			$base->toMMLTree( [], $state ) ),
+			new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLTree( $arguments, $state ) ),
+			new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( $arguments, $state ) ) );
 
 		if ( $melement instanceof MMLmunderover ) {
 			$args = $state['styleargs'] ?? [ "displaystyle" => "true", "scriptlevel" => 0 ];

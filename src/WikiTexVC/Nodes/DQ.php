@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsub;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunder;
@@ -65,12 +66,13 @@ class DQ extends TexNode {
 		}
 		// Otherwise use default fallback
 		$inner_state = [ 'styleargs' => $state['styleargs'] ?? [] ];
-		$baseRendering = $this->base->renderMML( $arguments, $inner_state );
+		$baseRendering = $this->base->toMMLTree( $arguments, $inner_state );
 		// In cases with empty curly preceding like: "{}_pF_q" or _{1}
-		if ( $baseRendering == null || $baseRendering === " " ) {
+		if ( $baseRendering == null || $baseRendering === " " ||
+			( $baseRendering instanceof MMLarray && !$baseRendering->hasChildren() ) ) {
 			$baseRendering = new MMLmrow();
 		}
-		return $outer::newSubtree( $baseRendering, new MMLmrow( TexClass::ORD, [], $this->down->renderMML(
+		return $outer::newSubtree( $baseRendering, new MMLmrow( TexClass::ORD, [], $this->down->toMMLTree(
 			$arguments, $state ) ) );
 	}
 

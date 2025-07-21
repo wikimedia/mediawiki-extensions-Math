@@ -43,9 +43,9 @@ class ChemWord extends TexNode {
 	/** @inheritDoc */
 	public function toMMLTree( array $arguments = [], array &$state = [] ) {
 		// If right has empty literal content is resolved as dash
-		$right = $this->getRight()->getArgs()[0] == "" ? "-" : $this->getRight()->renderMML( [], $state );
+		$right = $this->getRight()->getArgs()[0] == "" ? "-" : $this->getRight()->toMMLTree( [], $state );
 		return new MMLmrow( TexClass::ORD, [], new MMLmrow( TexClass::ORD, [],
-			new MMLmtext( "", [ "mathcolor" => "red" ], $this->getLeft()->renderMML( [], $state ) ),
+			new MMLmtext( "", [ "mathcolor" => "red" ], (string)$this->getLeft()->toMMLTree( [], $state ) ),
 			new MMLmtext( "", [], $right ) ) );
 	}
 

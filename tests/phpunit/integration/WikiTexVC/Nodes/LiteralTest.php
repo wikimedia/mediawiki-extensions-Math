@@ -78,57 +78,57 @@ class LiteralTest extends MediaWikiIntegrationTestCase {
 
 	public function testVLineNotInMatrix() {
 		$n = new Literal( '\\vline' );
-		$this->assertEquals( '<mi>\vline</mi>', $n->renderMML(),
+		$this->assertEquals( '<mi>\vline</mi>', $n->toMMLTree(),
 			'vline should fall through' );
 	}
 
 	public function testVLineInMatrix() {
 		$n = new Literal( '\\vline' );
 		$state = [ 'inMatrix' => true ];
-		$this->assertStringContainsString( '|</mo>', $n->renderMML( [], $state ),
+		$this->assertStringContainsString( '|</mo>', $n->toMMLTree( [], $state ),
 			'vline should render a vertical bar operator in matrix context.' );
 	}
 
 	public function testHBoxLiterals() {
 		$n = new Literal( 'in box' );
 		$state = [ 'inHBox' => true ];
-		$this->assertStringContainsString( 'in box', $n->renderMML( [], $state ),
+		$this->assertStringContainsString( 'in box', $n->toMMLTree( [], $state ),
 			'hboxes should not be wrapped in to mi elements.' );
 	}
 
 	public function testDoubleVerticalLine() {
 		$n = new Literal( '\\|' );
-		$this->assertStringContainsString( '&#x2016;</mo>', $n->renderMML(),
+		$this->assertStringContainsString( '&#x2016;</mo>', $n->toMMLTree(),
 			'double vertical line should render as special operator.' );
 	}
 
 	public function testColon() {
 		$n = new Literal( ':' );
-		$this->assertStringContainsString( ':</mo>', $n->renderMML(),
+		$this->assertStringContainsString( ':</mo>', $n->toMMLTree(),
 			'colon should render as special operator.' );
 	}
 
 	public function testRangle() {
 		$n = new Literal( '\\rangle' );
-		$this->assertStringContainsString( 'stretchy="false"', $n->renderMML(),
+		$this->assertStringContainsString( 'stretchy="false"', $n->toMMLTree(),
 			'colon should render as special operator.' );
 	}
 
 	public function testVert() {
 		$n = new Literal( '|' );
-		$this->assertStringContainsString( 'stretchy="false"', $n->renderMML(),
+		$this->assertStringContainsString( 'stretchy="false"', $n->toMMLTree(),
 			'| should render as special operator.' );
 	}
 
 	public function testExclamationMark() {
 		$n = new Literal( '!' );
-		$this->assertStringContainsString( '!</mo>', $n->renderMML(),
+		$this->assertStringContainsString( '!</mo>', $n->toMMLTree(),
 			'exclamation mark should render as special operator.' );
 	}
 
 	public function testDivide() {
 		$n = new Literal( '/' );
-		$real = $n->renderMML();
+		$real = $n->toMMLTree();
 		$this->assertStringContainsString( '/</mo>', $real,
 			'divide should render as special operator.' );
 		$this->assertStringContainsString( 'lspace="0" rspace="0"', $real,

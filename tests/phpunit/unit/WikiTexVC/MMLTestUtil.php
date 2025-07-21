@@ -55,7 +55,7 @@ class MMLTestUtil {
 
 	public static function getMMLwrapped( TexNode $input ): string {
 		$math = new MMLmath();
-		$mml = $math->encapsulateRaw( $input->renderMML() );
+		$mml = $math->encapsulateRaw( $input->toMMLTree() );
 		return self::prettifyXML( $mml );
 	}
 }

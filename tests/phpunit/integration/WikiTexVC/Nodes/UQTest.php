@@ -52,13 +52,13 @@ class UQTest extends MediaWikiIntegrationTestCase {
 
 	public function testOperatorname() {
 		$uq = new UQ( new Fun1nb( '\\operatorname', new Literal( 'a' ) ), new Literal( 'b' ) );
-		$this->assertStringContainsString( '<msup', $uq->renderMML(),
+		$this->assertStringContainsString( '<msup', $uq->toMMLTree(),
 			'Operator superscript should be rendered after the operator.' );
 	}
 
 	public function testOverOperator() {
 		$uq = new UQ( new Fun1nb( '\\overarc', new Literal( 'a' ) ), new Literal( 'b' ) );
-		$this->assertStringContainsString( '<mover', $uq->renderMML(),
+		$this->assertStringContainsString( '<mover', $uq->toMMLTree(),
 			'Over_operators be rendered over the operator.' );
 	}
 }

@@ -126,14 +126,14 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 	public function testSquashLiterals() {
 		$ta = new TexArray( new Literal( 'a' ), new Literal( 'b' ) );
 		$state = [ 'squashLiterals' => true ];
-		$res  = $ta->renderMML( [], $state );
+		$res  = $ta->toMMLTree( [], $state );
 		$this->assertEquals( '<mi>ab</mi>', $res );
 	}
 
 	public function testSquashLiteralsMacro() {
 		$ta = new TexArray( new Literal( 'a' ), new Literal( '\gamma' ) );
 		$state = [ 'squashLiterals' => true ];
-		$res  = $ta->renderMML( [], $state );
+		$res  = $ta->toMMLTree( [], $state );
 		$this->assertEquals( '<mi>a</mi><mi>&#x03B3;</mi>', $res );
 	}
 
@@ -156,7 +156,7 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 	public function testRenderADeriv() {
 		$n = new TexArray( new Literal( 'A' ) );
 		$state = [ 'deriv' => 1 ];
-		$mml = $n->renderMML( [], $state );
+		$mml = $n->toMMLTree( [], $state );
 		$this->assertStringContainsString( '&#x2032;</mo>', $mml );
 	}
 }

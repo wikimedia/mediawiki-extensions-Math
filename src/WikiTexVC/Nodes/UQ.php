@@ -59,13 +59,13 @@ class UQ extends TexNode {
 		if ( $base instanceof TexArray && $base->getLength() == 0 ) {
 			$baseRendered = new MMLmi();
 		} else {
-			$baseRendered = $base->renderMML( $arguments, $state );
+			$baseRendered = $base->toMMLTree( $arguments, $state ) ?? "";
 		}
 		if ( $up instanceof TexArray && $up->getLength() == 0 ) {
 			$upRendered = new MMLmi();
 		} else {
 			// up is inferring a new mrow if it has some content
-			$upRendered = new MMLmrow( TexClass::ORD, [], $up->renderMML( $arguments, $state ) );
+			$upRendered = new MMLmrow( TexClass::ORD, [], $up->toMMLTree( $arguments, $state ) );
 		}
 
 		return $mmlBase::newSubtree( $baseRendered, $upRendered );

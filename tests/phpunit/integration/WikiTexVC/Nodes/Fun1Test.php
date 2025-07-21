@@ -105,7 +105,7 @@ class Fun1Test extends MediaWikiIntegrationTestCase {
 
 	public function testMathRmLiteral() {
 		$f = new Fun1( '\\mathrm', new Literal( 'b' ) );
-		$this->assertStringContainsString( 'mathvariant="normal"', $f->renderMML() );
+		$this->assertStringContainsString( 'mathvariant="normal"', $f->toMMLTree() );
 	}
 
 	public function testMathRmCurly() {
@@ -113,7 +113,7 @@ class Fun1Test extends MediaWikiIntegrationTestCase {
 			new Literal( 'a' ),
 			new Literal( 'b' ),
 		) );
-		$rendering = $f->renderMML();
+		$rendering = $f->toMMLTree();
 		preg_match_all( '/mathvariant="normal"/', $rendering, $matches );
 		$this->assertCount( 2, $matches[0] );
 	}
@@ -122,7 +122,7 @@ class Fun1Test extends MediaWikiIntegrationTestCase {
 		$f = new Fun1( '\\mathrm', TexArray::newCurly(
 			new DQ( new Literal( 'a' ), new Literal( 'b' ) )
 		) );
-		$rendering = $f->renderMML();
+		$rendering = $f->toMMLTree();
 		preg_match_all( '/mathvariant="normal"/', $rendering, $matches );
 		$this->assertCount( 2, $matches[0] );
 	}
@@ -131,7 +131,7 @@ class Fun1Test extends MediaWikiIntegrationTestCase {
 		$f = new Fun1( '\\mathrm', TexArray::newCurly(
 			new FQ( new Literal( 'a' ), new Literal( 'b' ), new Literal( 'c' ) )
 		) );
-		$rendering = $f->renderMML();
+		$rendering = $f->toMMLTree();
 		preg_match_all( '/mathvariant="normal"/', $rendering, $matches );
 		$this->assertCount( 2, $matches[0] );
 	}
@@ -150,11 +150,11 @@ class Fun1Test extends MediaWikiIntegrationTestCase {
 	 *
 	 * @see https://phabricator.wikimedia.org/T390259
 	 *
-	 * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1::renderMML
+	 * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1::toMMLTree
 	 */
 	public function testBoldLambda() {
 		$f = new Fun1( '\\mathbf', new Literal( '\\lambda' ) );
-		$this->assertStringContainsString( '&#x03BB;', $f->renderMML(),
+		$this->assertStringContainsString( '&#x03BB;', $f->toMMLTree(),
 			'Should render bold lambda in MathML.' );
 	}
 }

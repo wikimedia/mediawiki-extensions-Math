@@ -54,16 +54,16 @@ class BoxTest extends \MediaWikiIntegrationTestCase {
 
 	public function testRenderMML() {
 		$box = new Box( '\\hbox', 'a' );
-		$this->assertStringContainsString( '</mtext>', $box->renderMML(), 'Render MathML as text.' );
+		$this->assertStringContainsString( '</mtext>', $box->toMMLTree(), 'Render MathML as text.' );
 	}
 
 	public function testTrailingSpaceBoxMML() {
 		$box = new Box( '\\hbox', 'a ' );
-		$this->assertStringContainsString( '&#xA0;', $box->renderMML(), 'Should have trailing rendered space' );
+		$this->assertStringContainsString( '&#xA0;', $box->toMMLTree(), 'Should have trailing rendered space' );
 	}
 
 	public function testPrecedingSpaceBoxMML() {
 		$box = new Box( '\\hbox', ' a' );
-		$this->assertStringContainsString( '&#xA0;', $box->renderMML(), 'Should have preceding rendered space' );
+		$this->assertStringContainsString( '&#xA0;', $box->toMMLTree(), 'Should have preceding rendered space' );
 	}
 }
