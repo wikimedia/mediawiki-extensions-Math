@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use InvalidArgumentException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmover;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmpadded;
@@ -61,19 +62,13 @@ class Fun1 extends TexNode {
 		return $this->parseToMML( $this->fname, $arguments, null );
 	}
 
-	public function createMover( string $inner, array $moArgs = [] ): string {
-		$mrow = new MMLmrow();
-		$mo = new MMLmo( "", $moArgs );
-		$mover = new MMLmover();
-		$ret = $mrow->encapsulateRaw(
-			$mrow->encapsulateRaw(
-				$mover->encapsulateRaw(
-					$this->args[1]->toMMLTree() .
-					$mo->encapsulateRaw( $inner )
-				)
+	public function createMover( string $inner, array $moArgs = [] ): MMLbase {
+		return new MMLmrow( TexClass::ORD, [],
+			new MMLmrow( TexClass::ORD, [],
+				( new MMLmover() )::newSubtree( $this->args[1]->toMMLTree(),
+					new MMLmo( "", $moArgs, $inner ) )
 			)
 		);
-		return $ret;
 	}
 
 	/** @inheritDoc */

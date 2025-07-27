@@ -122,8 +122,7 @@ class MathNativeMML extends MathMathML {
 		} else {
 			$attributes['class'] .= ' mwe-math-element-inline';
 		}
-		$root = new MMLmath( "", $attributes );
-		$mathElement = $root->encapsulateRaw( $presentation ?? '' );
+		$mathElement = (string)new MMLmath( "", $attributes, $presentation ?? '' );
 		if ( isset( $this->params['qid'] ) &&
 			preg_match( '/Q\d+/', $this->params['qid'] ) &&
 			$config->get( "MathEnableFormulaLinks" ) ) {

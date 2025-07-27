@@ -44,8 +44,8 @@ final class ChangesTest extends MediaWikiIntegrationTestCase {
 			$this->mainConfig,
 			$rngFilePath
 		);
-
-		$this->assertEquals( $expectedOutput, $testCase['output'], 'Output differs' );
+		// assertXmlStringEqualsXmlString ignores order of attributes
+		$this->assertXmlStringEqualsXmlString( $expectedOutput, $testCase['output'], 'Output differs' );
 
 		if ( $coreValidation !== true ) {
 			$this->assertArrayHasKey( 'core-validation', $testCase, 'Core validation unexpectedly successful' );

@@ -6,6 +6,8 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\MathVariant;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
@@ -221,15 +223,16 @@ class Literal extends TexNode {
 	}
 
 	/**
-	 * @return string
+	 * @return MMLbase
 	 */
-	public function createVlineElement(): string {
-		$mrow = new MMLmrow();
-		$mpAdded = new MMLmpadded( "", [ "depth" => "0", "height" => "0" ] );
-		$mStyle = new MMLmstyle( "", [ "mathsize" => "1.2em" ] );
-		$mo = new MMLmo( "", [ "fence" => "false", "stretchy" => "false" ] );
-		return $mrow->encapsulateRaw( $mpAdded->encapsulateRaw(
-			$mStyle->encapsulateRaw( $mo->encapsulateRaw( "|" ) ) ) );
+	public function createVlineElement(): MMLbase {
+		return new MMLmrow( TexClass::ORD, [],
+			new MMLmpadded( "", [ "depth" => "0", "height" => "0" ],
+				new MMLmstyle( "", [ "mathsize" => "1.2em" ],
+					new MMLmo( "", [ "fence" => "false", "stretchy" => "false" ], "|" )
+				)
+			)
+		);
 	}
 
 }

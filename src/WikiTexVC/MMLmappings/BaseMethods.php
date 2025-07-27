@@ -3,8 +3,10 @@ namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings;
 
 use ArgumentCountError;
 use LogicException;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmerror;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
@@ -193,7 +195,7 @@ class BaseMethods {
 		return new MMLmi( '', [ 'mathvariant' => Variants::NORMAL ], $resChar );
 	}
 
-	public function checkAndParseColor( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ) {
+	public function checkAndParseColor( $input, $node, $passedArgs, $operatorContent, $prepareInput = true ): ?MMLbase {
 		// tbd usually this encapsulates the succeeding box element
 		if ( $operatorContent == null ) {
 			return null;
@@ -207,22 +209,21 @@ class BaseMethods {
 			return null;
 		}
 		if ( $input === 'color' ) {
-			return (string)( new MMLmstyle( "", [ "mathcolor" => $resColor ] ) );
-		} else {
-			// Input is 'pagecolor'
-			$mrow = new MMLmrow();
-			// Mj3 does this, probably not necessary
-			$innerRow = "";
-			foreach ( str_split( $operatorContent ) as $char ) {
-				$innerRow .= new MMLmi( "", [], $char );
-			}
-			if ( $innerRow !== "" ) {
-				return ( new MMLmtext( "", [ "mathcolor" => $resColor ], "\\pagecolor" ) ) .
-					$mrow->encapsulateRaw( $innerRow );
-			} else {
-				return (string)( new MMLmtext( "", [ "mathcolor" => $resColor ], "\\pagecolor" ) );
-			}
+			return new MMLmstyle( "", [ "mathcolor" => $resColor ] );
 		}
+
+// Input is 'pagecolor'
+		// Mj3 does this, probably not necessary
+		$innerRow = [];
+		foreach ( str_split( $operatorContent ) as $char ) {
+			$innerRow[] = new MMLmi( "", [], $char );
+		}
+		if ( $innerRow !== [] ) {
+			return new MMLarray( ( new MMLmtext( "", [ "mathcolor" => $resColor ], "\\pagecolor" ) ),
+				new MMLmrow( TexClass::ORD, [], ...$innerRow ) );
+		}
+
+		return new MMLmtext( "", [ "mathcolor" => $resColor ], "\\pagecolor" );
 	}
 
 	public static function generateMMLError( string $msg ): MMLmerror {
