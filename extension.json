@@ -125,8 +125,8 @@
 			"value": 400
 		},
 		"MathTexVCService": {
-			"description": "Determine which TexVC variant is used, currently available: 'mathoid', 'restbase' (default) and 'local'.",
-			"value": "restbase"
+			"description": "Determine which TexVC variant is used, currently available: 'mathoid', 'restbase' and 'local' (default).",
+			"value": "local"
 		},
 		"MathSvgRenderer": {
 			"description": "Determine which SVG rendering service is used. Currently available 'mathoid', 'restbase'.",
