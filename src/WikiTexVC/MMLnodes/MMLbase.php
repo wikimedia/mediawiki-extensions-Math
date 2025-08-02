@@ -3,7 +3,6 @@ namespace MediaWiki\Extension\Math\WikiTexVC\MMLnodes;
 
 use MediaWiki\Extension\Math\Math;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
-use MediaWiki\Html\Html;
 
 class MMLbase {
 	private string $name;
@@ -111,32 +110,6 @@ class MMLbase {
 		$visitor = $this->getVisitorFactory()->createVisitor();
 		$visitor->visit( $this );
 		return $visitor->getHTML();
-	}
-
-	/**
-	 * Encapsulating the input structure with start and end element
-	 *
-	 * @param string $input The raw HTML contents of the element: *not* escaped!
-	 * @return string <tag> input </tag>
-	 */
-	public function encapsulateRaw( string $input ): string {
-		return HTML::rawElement( $this->name, $this->attributes, $input );
-	}
-
-	/**
-	 * Getting the start element
-	 * @return string
-	 */
-	public function getStart(): string {
-		return HTML::openElement( $this->name, $this->attributes );
-	}
-
-	/**
-	 * Getting the end element
-	 * @return string
-	 */
-	public function getEnd(): string {
-		return HTML::closeElement( $this->name );
 	}
 
 }

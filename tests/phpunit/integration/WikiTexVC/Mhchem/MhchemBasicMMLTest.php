@@ -21,7 +21,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
 		$warnings = [];
 		$res = $texVC->check( $input, $options, $warnings, true );
-		$mml = $res['input']->renderMML();
+		$mml = $res['input']->toMMLtree();
 		$this->assertStringContainsString( '<mpadded', $mml );
 		$this->assertStringContainsString( '<mphantom', $mml );
 	}
@@ -53,7 +53,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
 		$warnings = [];
 		$res = $texVC->check( $input, $options, $warnings, true );
-		$mml = $res['input']->renderMML();
+		$mml = $res['input']->toMMLtree();
 		$this->assertStringContainsString( '<mi', $mml );
 		$this->assertStringContainsString( $result . '</mi>', $mml );
 		$this->assertStringContainsString( '&#x223C;</mo>', $mml );
@@ -65,7 +65,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
 		$warnings = [];
 		$res = $texVC->check( $input, $options, $warnings, true );
-		$mml = $res['input']->renderMML();
+		$mml = $res['input']->toMMLtree();
 		$this->assertStringContainsString( '<mpadded height="0" depth="0">', $mml );
 		$this->assertStringContainsString( '<mspace ', $mml );
 	}
@@ -76,7 +76,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
 		$warnings = [];
 		$res = $texVC->check( $input, $options, $warnings, true );
-		$mml = $res['input']->renderMML();
+		$mml = $res['input']->toMMLtree();
 		$this->assertStringContainsString( '&#x2212;</mo>', $mml );
 		$this->assertStringContainsString( '&#x21C0;', $mml );
 		$this->assertStringContainsString( '<mpadded height="0" depth="0">', $mml );
@@ -89,7 +89,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
 		$warnings = [];
 		$res = $texVC->check( $input, $options, $warnings, true );
-		$mml = $res['input']->renderMML();
+		$mml = $res['input']->toMMLtree();
 		$this->assertStringContainsString( '<mo stretchy="false">&#x27F5;</mo>', $mml );
 		$this->assertStringContainsString( '<mo stretchy="false">&#x27F6;</mo>', $mml );
 		$this->assertStringContainsString( '<mpadded height="0" depth="0">', $mml );
@@ -103,7 +103,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$warnings = [];
 		$res = $texVC->check( $input, $options, $warnings, true );
 		$this->assertStringContainsString( '<mo>&#x2014;</mo>',
-			$res['input']->renderMML() );
+			$res['input']->toMMLtree() );
 	}
 
 	public function testMathchoiceDisplaystyle() {
@@ -113,7 +113,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$warnings = [];
 		$res = $texVC->check( $input, $options, $warnings, true );
 		$this->assertStringContainsString( '<mstyle displaystyle="true" scriptlevel="0"><mi>a</mi></mstyle>',
-			$res['input']->renderMML() );
+			$res['input']->toMMLtree() );
 	}
 
 	public function testMathchoiceTextstyle() {
@@ -123,7 +123,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$warnings = [];
 		$res = $texVC->check( $input, $options, $warnings, true );
 		$this->assertStringContainsString( '<mstyle displaystyle="false" scriptlevel="0"><mi>b</mi></mstyle>',
-			$res['input']->renderMML() );
+			$res['input']->toMMLtree() );
 	}
 
 	public function testMathchoiceScriptstyle() {
@@ -133,7 +133,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$warnings = [];
 		$res = $texVC->check( $input, $options, $warnings, true );
 		$this->assertStringContainsString( '<mstyle displaystyle="false" scriptlevel="1"><mi>c</mi></mstyle>',
-			$res['input']->renderMML() );
+			$res['input']->toMMLtree() );
 	}
 
 	public function testMathchoiceScriptScriptstyle() {
@@ -143,7 +143,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$warnings = [];
 		$res = $texVC->check( $input, $options, $warnings, true );
 		$this->assertStringContainsString( '<mstyle displaystyle="false" scriptlevel="2"><mi>d</mi></mstyle>',
-			$res['input']->renderMML() );
+			$res['input']->toMMLtree() );
 	}
 
 	public function testMskip() {
@@ -153,7 +153,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$warnings = [];
 		$checkRes = $texVC->check( $input, $options, $warnings, true );
 		$this->assertStringContainsString( '<mspace width="0.111em"></mspace>',
-			$checkRes["input"]->renderMML() );
+			$checkRes["input"]->toMMLtree() );
 	}
 
 	public function testMkern() {
@@ -163,7 +163,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$warnings = [];
 		$checkRes = $texVC->check( $input, $options, $warnings, true );
 		$this->assertStringContainsString( '<mspace width="0.333em"></mspace>',
-			$checkRes["input"]->renderMML() );
+			$checkRes["input"]->toMMLtree() );
 	}
 
 	public function testRaise() {
@@ -173,7 +173,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
 			$warnings, true );
 		$this->assertStringContainsString( '<mpadded height="+.2em" depth="-.2em" voffset="+.2em">',
-			$checkRes["input"]->renderMML() );
+			$checkRes["input"]->toMMLtree() );
 	}
 
 	public function testLower() {
@@ -183,7 +183,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
 			$warnings, true );
 		$this->assertStringContainsString( '<mpadded height="-1em" depth="+1em" voffset="-1em">',
-			$checkRes["input"]->renderMML() );
+			$checkRes["input"]->toMMLtree() );
 	}
 
 	public function testLower2() {
@@ -193,7 +193,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
 			$warnings, true );
 		$this->assertStringContainsString( '<mpadded height="+1em" depth="-1em" voffset="+1em">',
-			$checkRes["input"]->renderMML() );
+			$checkRes["input"]->toMMLtree() );
 	}
 
 	public function testLlap() {
@@ -203,7 +203,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
 			$warnings, true );
 		$this->assertStringContainsString( '<mpadded width="0" lspace="-1width"><mn>4</mn></mpadded>',
-			$checkRes["input"]->renderMML() );
+			$checkRes["input"]->toMMLtree() );
 	}
 
 	public function testRlap() {
@@ -213,7 +213,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
 			$warnings, true );
 		$this->assertStringContainsString( '&#x2212;</mo></mpadded>',
-			$checkRes["input"]->renderMML() );
+			$checkRes["input"]->toMMLtree() );
 	}
 
 	public function testSmash1() {
@@ -222,7 +222,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$warnings = [];
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
 			$warnings, true );
-		$this->assertStringContainsString( '<mpadded height="0">', $checkRes["input"]->renderMML() );
+		$this->assertStringContainsString( '<mpadded height="0">', $checkRes["input"]->toMMLtree() );
 	}
 
 	public function testSmash2() {
@@ -231,7 +231,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$warnings = [];
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
 			$warnings, true );
-		$this->assertStringContainsString( '<mpadded depth="0">', $checkRes["input"]->renderMML() );
+		$this->assertStringContainsString( '<mpadded depth="0">', $checkRes["input"]->toMMLtree() );
 	}
 
 	public function testSmash3() {
@@ -241,7 +241,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
 			$warnings, true );
 		$this->assertStringContainsString( '<mpadded height="0" depth="0">',
-			$checkRes["input"]->renderMML() );
+			$checkRes["input"]->toMMLtree() );
 	}
 
 	public function testSmash4() {
@@ -251,7 +251,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
 			$warnings, true );
 		$this->assertStringContainsString( '<mpadded height="0" depth="0">',
-			$checkRes["input"]->renderMML() );
+			$checkRes["input"]->toMMLtree() );
 	}
 
 	public function testSmash5() {
@@ -260,7 +260,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$warnings = [];
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
 			$warnings, true );
-		$ar = $checkRes["input"]->renderMML();
+		$ar = $checkRes["input"]->toMMLtree();
 		$this->assertStringContainsString( '<mpadded height="0" depth="0"', $ar );
 	}
 }

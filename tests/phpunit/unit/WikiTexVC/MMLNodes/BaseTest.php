@@ -14,30 +14,16 @@ use MediaWikiUnitTestCase;
  */
 class BaseTest extends MediaWikiUnitTestCase {
 
-	public function testEnd() {
-		$this->assertEquals(
-			'</test>',
-			( new MMLbase( 'test' ) )->getEnd()
-		);
-	}
-
-	public function testEncapsulateRaw() {
-		$this->assertEquals(
-			'<test><script>alert(document.cookies);</script></test>',
-			( new MMLbase( 'test' ) )
-				->encapsulateRaw( '<script>alert(document.cookies);</script>' )
-		);
-	}
-
 	public function testAttributes() {
-		$this->assertEquals(
+		$mbase = new MMLbase(
+			'test',
+			'texClass1',
+			[ TAG::CLASSTAG => 'texClass2', 'a' => 'b' ] );
+		$visitorFactory = new VisitorFactory();
+		$mbase->setVisitorFactory( $visitorFactory );
+		$this->assertStringContainsString(
 			'<test data-mjx-texclass="texClass1" a="b">',
-			( new MMLbase(
-				'test',
-				'texClass1',
-				[ TAG::CLASSTAG => 'texClass2', 'a' => 'b' ] ) )
-				->getStart()
-		);
+			$mbase );
 	}
 
 	public function testName() {

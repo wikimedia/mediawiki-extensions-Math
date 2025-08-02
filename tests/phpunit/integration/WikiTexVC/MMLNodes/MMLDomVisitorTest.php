@@ -7,10 +7,8 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLDomVisitor;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
-use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmover;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 
 /**
  * Test the results of MathFormatter
@@ -187,38 +185,6 @@ class MMLDomVisitorTest extends MediaWikiIntegrationTestCase {
 		$output = $visitor->getHTML();
 
 		$this->assertSame( '<mrow></mrow>', trim( $output ) );
-	}
-
-	public function testEncapsulateRawVsToStringEquivalence() {
-		$texclass = "tex";
-		$attrs = [ 'accent' => 'true' ];
-		$entity = '&#x27F9;';
-
-		// encapsulateRaw
-		$mrow = new MMLmrow( $texclass );
-		$mover = new MMLmover( "", $attrs );
-		$dummyNode = new class extends TexNode {
-			public function toMMLTree( $arguments = [], &$state = [] ) {
-				return new MMLmi( "", [], "x" );
-			}
-		};
-		$encapsulatedOutput = $mrow->encapsulateRaw(
-			$mover->encapsulateRaw(
-				$dummyNode->toMMLTree() . // Renders <mi>x</mi>
-				( new MMLmo( "", $attrs, $entity ) )->encapsulateRaw( $entity )
-			)
-		);
-
-		// MMLbase tree
-		$mi = new MMLmi( "", [], 'x' );
-		$mo = new MMLmo( "", $attrs, $entity );
-		$moverTree = MMLmover::newSubtree( $mi, $mo, "", $attrs );
-		$mrowTree = new MMLmrow( $texclass, [], $moverTree );
-		$visitor = new MMLDomVisitor();
-		$mrowTree->accept( $visitor );
-		$visitorOutput = $visitor->getHTML();
-
-		$this->assertXmlStringEqualsXmlString( $encapsulatedOutput, $visitorOutput );
 	}
 
 	public function testHugeXmlDepthHandling() {

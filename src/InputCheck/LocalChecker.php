@@ -119,7 +119,7 @@ class LocalChecker extends BaseChecker {
 			// @codeCoverageIgnoreEnd
 		}
 		if ( $result['status'] === '+' ) {
-			$result['mathml'] = $result['input']->renderMML();
+			$result['mathml'] = (string)$result['input']->toMMLtree();
 			$out = [
 				'status' => '+',
 				'output' => $result['output'],

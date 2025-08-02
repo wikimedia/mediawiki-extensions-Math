@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 
 use ArgumentCountError;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
-use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsub;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunder;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
@@ -65,14 +64,14 @@ class DQTest extends MediaWikiIntegrationTestCase {
 
 	public function testBigSum() {
 		$dq = new DQ( new Literal( '\\sum' ), new Literal( 'i' ) );
-		$this->assertStringContainsString( ( new MMLmunder() )->getStart(), $dq->toMMLTree() );
+		$this->assertStringContainsString( "<munder>", $dq->toMMLTree() );
 	}
 
 	public function testSmallSum() {
 		$dq = new DQ( new Literal( '\\sum' ), new Literal( 'i' ) );
 		$state = [ 'styleargs' => [ 'displaystle' => 'false' ] ];
 		$this->assertStringContainsString(
-			( new MMLmsub() )->getStart(),
+			"<msub>",
 			$dq->toMMLTree( [], $state ) );
 	}
 

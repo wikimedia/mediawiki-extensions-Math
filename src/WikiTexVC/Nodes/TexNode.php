@@ -87,15 +87,6 @@ class TexNode {
 	}
 
 	/**
-	 * @param array $arguments
-	 * @param array &$state
-	 * @return string
-	 */
-	public function renderMML( $arguments = [], &$state = [] ) {
-		return (string)$this->toMMLTree( $arguments, $state );
-	}
-
-	/**
 	 * @return bool
 	 */
 	public function isEmpty() {
