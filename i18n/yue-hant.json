@@ -21,5 +21,7 @@
 	"math_unknown_function": "唔知乜函數「$1」",
 	"mw-math-mathml": "可以嘅話用MathML（實驗中）",
 	"mw-math-source": "保留返用LaTeX（文字瀏覽器用）",
-	"prefs-math": "數"
+	"prefs-math": "數",
+	"mathwikibase": "數學公式資訊",
+	"math-wikibase-formula-information": "數學公式資訊"
 }
