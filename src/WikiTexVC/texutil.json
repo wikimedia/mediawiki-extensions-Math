@@ -1722,7 +1722,10 @@
 			"matrix",
 			"{",
 			"",
-			"left left",
+			[
+				"l",
+				"l"
+			],
 			null,
 			".1em",
 			null,
@@ -2147,7 +2150,7 @@
 			"matrix",
 			null,
 			null,
-			"center",
+			null,
 			null,
 			".5em",
 			"D"
@@ -2339,7 +2342,10 @@
 			"matrix",
 			null,
 			null,
-			"right left",
+			[
+				"r",
+				"l"
+			],
 			"(0, lengths_js_1.em)(MathSpace::thickmathspace)",
 			".5em",
 			"D"
@@ -2350,7 +2356,10 @@
 			"matrix",
 			null,
 			null,
-			"right left",
+			[
+				"r",
+				"l"
+			],
 			"(0, lengths_js_1.em)(MathSpace::thickmathspace)",
 			".5em",
 			"D",
@@ -3093,7 +3102,10 @@
 			"matrix",
 			null,
 			null,
-			"right left",
+			[
+				"r",
+				"l"
+			],
 			"(0, lengths_js_1.em)(MathSpace::thickmathspace)",
 			".5em",
 			"D",
@@ -6214,7 +6226,10 @@
 			null,
 			null,
 			null,
-			"rl",
+			[
+				"r",
+				"l"
+			],
 			"ParseUtil_js_1.default.cols(0, 2)",
 			".5em",
 			"D"
@@ -6247,7 +6262,10 @@
 			"matrix",
 			"{",
 			"",
-			"left left",
+			[
+				"l",
+				"l"
+			],
 			null,
 			".1em",
 			null,

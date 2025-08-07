@@ -18,7 +18,7 @@ class Matrix extends TexArray {
 	private ?string $renderedColumSpecs = null;
 	private ?array $boarder = null;
 
-	private ?string $alignInfo = null;
+	private ?array $alignInfo = null;
 
 	public function __construct( string $top, TexArray $mainarg, ?LengthSpec $rowSpec = null ) {
 		foreach ( $mainarg->args as $row ) {
@@ -71,11 +71,7 @@ class Matrix extends TexArray {
 		return $this;
 	}
 
-	public function hasColumnInfo(): bool {
-		return $this->getRenderedColumnSpecs() !== '';
-	}
-
-	public function getAlignInfo(): string {
+	public function getAlign(): ?array {
 		if ( $this->alignInfo == null ) {
 			$this->renderColumnSpecs();
 		}
@@ -198,29 +194,29 @@ class Matrix extends TexArray {
 	public function renderColumnSpecs(): void {
 		$colSpecs = $this->columnSpecs ?? new TexArray();
 		$this->renderedColumSpecs = trim( $colSpecs->render(), "{} \n\r\t\v\x00" );
-		$align = '';
 		$colNo = 0;
 		$this->boarder = [];
+		if ( $this->top === 'alignedat' && is_numeric( $this->renderedColumSpecs ) ) {
+			$this->alignInfo = $this->getRlSequence( (int)$this->renderedColumSpecs );
+			return;
+		}
+		if ( $this->top === 'aligned' ) {
+			$this->alignInfo = $this->getRlSequence();
+			return;
+		}
 		foreach ( str_split( $this->renderedColumSpecs ) as $chr ) {
-			switch ( $chr ) {
-				case '|':
-					$this->boarder[$colNo] = true;
-					break;
-				case 'r':
-					$align .= 'right ';
-					$colNo++;
-					break;
-				case 'l':
-					$align .= 'left ';
-					$colNo++;
-					break;
-				case 'c':
-					$colNo++;
-					$align .= 'center ';
-					break;
+			if ( $chr === '|' ) {
+				$this->boarder[$colNo] = true;
+			}
+			if ( in_array( $chr, [ 'r', 'l', 'c' ], true ) ) {
+				$this->alignInfo[$colNo] = $chr;
+				$colNo++;
 			}
 		}
-		$this->alignInfo = $align;
+	}
+
+	private function getRlSequence( int $length = 10 ): array {
+		return str_split( str_repeat( 'rl', (int)ceil( $length / 2 ) ) );
 	}
 
 	public function getBoarder(): array {

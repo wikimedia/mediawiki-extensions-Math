@@ -17,12 +17,7 @@ class MMLmtable extends MMLbase {
 	 */
 	public function __construct(
 		string $texclass = TexClass::ORD,
-		array $attributes = [
-			'columnalign' => 'right left right left right left right left right left right left',
-			'columnspacing' => '0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em',
-			'displaystyle' => 'true',
-			'rowspacing' => '3pt'
-		],
+		array $attributes = [],
 		...$rows ) {
 		parent::__construct( "mtable", $texclass, $attributes, ...$rows );
 	}

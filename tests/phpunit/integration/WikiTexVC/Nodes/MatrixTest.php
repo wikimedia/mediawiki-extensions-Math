@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 
 use ArgumentCountError;
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\LengthSpec;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
@@ -105,7 +106,7 @@ class MatrixTest extends MediaWikiIntegrationTestCase {
 	public function testAdvColSpec() {
 		$this->sampleMatrix->setColumnSpecs( TexArray::newCurly( new Literal( '{r|l}' ) ) );
 		$this->assertSame( 'r|l', $this->sampleMatrix->getRenderedColumnSpecs() );
-		$this->assertEquals( 'right left ', $this->sampleMatrix->getAlignInfo() );
+		$this->assertEquals( [ 'r', 'l' ], $this->sampleMatrix->getAlign() );
 		$this->assertEquals( [ 1 => true ], $this->sampleMatrix->getBoarder() );
 	}
 
@@ -147,4 +148,37 @@ class MatrixTest extends MediaWikiIntegrationTestCase {
 		$this->assertTrue( $real[1] );
 		$this->assertCount( 2, $real );
 	}
+
+	public function testAlignRendering() {
+		$matrix = new Matrix( 'aligned',
+			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
+		$this->assertStringContainsString( 'mwe-math-columnalign-r', $matrix->renderMML(),
+			'Should render align column specs' );
+	}
+
+	public function testAlignedAtRendering() {
+		$matrix = new Matrix( 'alignedat',
+			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
+		$matrix->setColumnSpecs( new TexArray( ( new Literal( '20' ) ) ) );
+		$this->assertCount( 20, $matrix->getAlign() );
+		$this->assertStringContainsString( 'mwe-math-columnalign-r', $matrix->renderMML(),
+			'Should render align column specs' );
+	}
+
+	public function testRenderRowSpec() {
+		$matrix = new Matrix( 'aligned',
+			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
+		$row = new TexArray( new Literal( 'b' ) );
+		$row->setRowSpecs( new LengthSpec( '-', [ [ '1', '2' ], '.', [ '3', '4' ] ], 'em' ) );
+		$this->assertEquals( '\\\\[-12.34em]', $matrix->renderRowSpec( $row ), 'Should render align column specs' );
+	}
+
+	public function testComplexRowSpec() {
+		$row = new TexArray( new Literal( 'b' ) );
+		$matrix = new Matrix( 'aligned',
+			new TexArray( $row, new TexArray( new Literal( '\\hline ' ), new Literal( 'a' ) ) ),
+			new LengthSpec( '-', [ [ '1', '2' ], '.', [ '3', '4' ] ], 'em' ) );
+		$this->assertStringContainsString( '\\\\[-12.34em]', $matrix->render(), 'Should render align column specs' );
+	}
+
 }

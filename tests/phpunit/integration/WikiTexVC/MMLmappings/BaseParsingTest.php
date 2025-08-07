@@ -134,7 +134,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 	public function testAlignAt() {
 		$matrix = new Matrix( 'alignat',
 			new TexArray( new TexArray( new Literal( '\\sin' ) ) ) );
-		$result = BaseParsing::alignAt( $matrix, [], null, 'alignat', '002A' );
+		$result = BaseParsing::alignAt( $matrix, [], null, 'alignat' );
 		$this->assertStringContainsString( 'mtable', $result );
 	}
 
@@ -161,7 +161,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 				new TexArray( new TexArray( new Literal( '\\hline ' ), new Literal( 'a'
 				) ) ) ) );
 		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
-		$this->assertStringContainsString( 'class="mwe-math-matrix-top"', $result );
+		$this->assertStringContainsString( 'class="mwe-math-matrix-top', $result );
 		$this->assertStringContainsString( '<mi>a</mi>', $result );
 	}
 
@@ -261,7 +261,8 @@ z & = & a \\\\
 f(x,y,z) & = & x + y + z
 \\end{array}' )[0];
 		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
-		$this->assertStringContainsString( 'left center right ', $result );
+		$this->assertStringContainsString( '<mtd class="mwe-math-columnalign-l"', $result );
+		$this->assertStringContainsString( '<mtd class="mwe-math-columnalign-r"', $result );
 	}
 
 	public function testNamedOperator() {

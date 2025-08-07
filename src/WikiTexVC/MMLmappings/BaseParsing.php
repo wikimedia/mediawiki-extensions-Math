@@ -113,16 +113,26 @@ class BaseParsing {
 		return new MMLarray( ...$output );
 	}
 
-	public static function alignAt( Matrix $node, $passedArgs, $operatorContent, $name, $smth,
+	public static function alignAt( Matrix $node, $passedArgs, $operatorContent, $name, $align = null,
 										   $smth2 = null ): MMLbase {
 		// Parsing is very similar to AmsEQArray, maybe extract function ... tcs: 178
-		$mtable  = new MMLmtable( "" );
+		$mtable  = new MMLmtable( '' );
 		$inner = [];
-
+		$align ??= $node->getAlign();
 		foreach ( $node as $tableRow ) {
 			$mtds = [];
+			$colNo = 0;
 			foreach ( $tableRow->getArgs() as $tableCell ) {
-				$mtds[] = new MMLmtd( "", [], $tableCell->toMMLtree() );
+				$class = '';
+				if ( in_array( $align[$colNo] ?? [], [ 'l', 'r' ] ) ) {
+					// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
+					$class .= ' mwe-math-columnalign-' . $align[$colNo];
+				}
+				$class = trim( $class );
+				$mtds[] = new MMLmtd( "",
+					$class ? [ 'class' => $class ] : [],
+					$tableCell->toMMLtree() );
+				$colNo++;
 			}
 			$inner[] = new MMLmtr( "", [], ...$mtds );
 		}
@@ -132,11 +142,21 @@ class BaseParsing {
 
 	public static function amsEqnArray( $node, $passedArgs, $operatorContent, $name, $smth, $smth2 = null ): MMLbase {
 		$mtable  = new MMLmtable( '' );
+		$cellAlign = $node->getAlign();
 		$renderedInner = [];
 		foreach ( $node as $tableRow ) {
 			$mtrs = [];
+			$colNo = 0;
 			foreach ( $tableRow->getArgs() as $tableCell ) {
-				$mtrs[] = new MMLmtd( "", [], $tableCell->toMMLtree() ); // pass args here ?
+				$class = '';
+				if ( in_array( $cellAlign[$colNo] ?? [], [ 'l', 'r' ] ) ) {
+					$class .= ' mwe-math-columnalign-' . $cellAlign[$colNo];
+				}
+				$class = trim( $class );
+				$mtrs[] = new MMLmtd( "",
+					$class ? [ 'class' => $class ] : [],
+					$tableCell->toMMLtree() );
+				$colNo++;
 			}
 			$renderedInner[] = new MMLmtr( "", [], ...$mtrs );
 		}
@@ -444,12 +464,10 @@ class BaseParsing {
 										  $name, $open = null, $close = null, $align = null, $spacing = null,
 										  $vspacing = null, $style = null, $cases = null, $numbered = null ): MMLbase {
 		$resInner = [];
-		$tableArgs = [ "columnspacing" => "1em", "rowspacing" => "4pt" ];
+		$tableArgs = [];
 		$boarder = $node->getBoarder();
-		if ( $align ) {
-			$tableArgs['columnalign'] = $align;
-		} elseif ( $node->hasColumnInfo() ) {
-			$tableArgs['columnalign'] = $node->getAlignInfo();
+		if ( !$align ) {
+			$align = $node->getAlign();
 		}
 		$rowNo = 0;
 		$lines = $node->getLines();
@@ -471,6 +489,10 @@ class BaseParsing {
 				$texclass .= $lines[$rowNo + 1] ?? false ? ' ' . TexClass::BOTTOM : '';
 				$texclass .= $boarder[$colNo] ?? false ? ' ' . TexClass::LEFT : '';
 				$texclass .= $boarder[$colNo + 1 ] ?? false ? ' ' . TexClass::RIGHT : '';
+				if ( in_array( $align[$colNo] ?? [], [ 'l', 'r' ] ) ) {
+					// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
+					$texclass .= ' mwe-math-columnalign-' . $align[$colNo];
+				}
 				$texclass = trim( $texclass );
 				if ( $texclass ) {
 					$mtdAttributes['class'] = $texclass;
@@ -487,7 +509,7 @@ class BaseParsing {
 			}
 			$resInner[] = new MMLmtr( "", [], ...$innerInnter );
 		}
-		$mtable = new MMLmtable( "", $tableArgs );
+		$mtable = new MMLmtable( '', $tableArgs );
 		if ( $cases || ( $open != null && $close != null ) ) {
 			$bm = new BaseMethods();
 			$mmlMoOpen = $bm->checkAndParseDelimiter( $open, $node, [], [],
