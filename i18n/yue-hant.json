@@ -9,7 +9,11 @@
 			"Winston Sung"
 		]
 	},
+	"popups-settings-option-math": "數學",
+	"popups-settings-option-math-description": "解釋數學公式。",
+	"popups-settings-option-math-tooltip": "滑鼠指標指埋去會解釋數學公式。",
 	"math-visualeditor-mwchemdialog-title": "化學式",
+	"math-visualeditor-mwlatexdialog-card-options": "選項",
 	"math-visualeditor-mwlatexinspector-display": "顯示",
 	"math-visualeditor-mwlatexinspector-display-block": "塊",
 	"math-visualeditor-mwlatexinspector-display-default": "預設",
@@ -19,7 +23,12 @@
 	"math_syntax_error": "語法錯誤",
 	"math_unknown_error": "唔知錯乜",
 	"math_unknown_function": "唔知乜函數「$1」",
-	"mw-math-mathml": "可以嘅話用MathML（實驗中）",
+	"mw-math-latexml": "LaTeXML（實驗緊；用MathML）",
+	"mw-math-mathjax": "客戶端MathJax呈現（畀有限度支援MathML嘅瀏覽器用）",
+	"mw-math-mathml": "SVG（MathML可以經瀏覽器插件去開）",
+	"mw-math-native": "MathML（實驗緊；冇圖）",
 	"mw-math-source": "保留返用LaTeX（文字瀏覽器用）",
-	"prefs-math": "數"
+	"prefs-math": "數",
+	"mathwikibase": "數學公式資訊",
+	"math-wikibase-formula-information": "數學公式資訊"
 }
