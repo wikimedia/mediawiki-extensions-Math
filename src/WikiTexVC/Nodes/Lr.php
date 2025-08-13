@@ -81,15 +81,6 @@ class Lr extends TexNode {
 		return new MMLmrow( TexClass::INNER, [], $left, $inner, $right );
 	}
 
-	private function mmlTranslate( string $input ): string {
-		switch ( trim( $input ) ) {
-			case "\\vert":
-				return "|";
-			default:
-				return $input;
-		}
-	}
-
 	/** @inheritDoc */
 	public function containsFunc( $target, $args = null ) {
 		if ( $args == null ) {

@@ -751,6 +751,7 @@ class BaseParsing {
 		$argcurrent = trim( $node->getArg() );
 		switch ( $argcurrent ) {
 			case "\\|":
+			case "\\vert":
 			case "|":
 				$passedArgs = array_merge( $passedArgs, [ "stretchy" => "true", "symmetric" => "true" ] );
 				break;
