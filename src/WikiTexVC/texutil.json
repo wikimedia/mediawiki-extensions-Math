@@ -551,13 +551,6 @@
 			1.75
 		]
 	},
-	"\\Biggm": {
-		"callback": [
-			"makeBig",
-			"REL",
-			1.75
-		]
-	},
 	"\\Biggr": {
 		"big_literals": true,
 		"callback": [
@@ -571,13 +564,6 @@
 		"callback": [
 			"makeBig",
 			"OPEN",
-			1.15
-		]
-	},
-	"\\Bigm": {
-		"callback": [
-			"makeBig",
-			"REL",
 			1.15
 		]
 	},
@@ -1372,13 +1358,6 @@
 		"callback": [
 			"makeBig",
 			"OPEN",
-			1.45
-		]
-	},
-	"\\biggm": {
-		"callback": [
-			"makeBig",
-			"REL",
 			1.45
 		]
 	},
