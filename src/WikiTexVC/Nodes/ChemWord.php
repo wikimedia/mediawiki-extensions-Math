@@ -46,7 +46,7 @@ class ChemWord extends TexNode {
 		$right = $this->getRight()->getArgs()[0] == "" ? "-" : $this->getRight()->toMMLTree( [], $state );
 		return new MMLmrow( TexClass::ORD, [], new MMLmrow( TexClass::ORD, [],
 			new MMLmtext( "", [ "mathcolor" => "red" ], (string)$this->getLeft()->toMMLTree( [], $state ) ),
-			new MMLmtext( "", [], $right ) ) );
+			new MMLmtext( "", [], (string)$right ) ) );
 	}
 
 	/** @inheritDoc */
