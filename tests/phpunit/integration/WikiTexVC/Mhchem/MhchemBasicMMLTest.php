@@ -96,171 +96,85 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( '<mspace ', $mml );
 	}
 
-	public function testTripleDash() {
-		$input = "\\tripledash \\frac{a}{b}";
+	public static function provideTexVCCheckData() {
+		return [
+			[
+				"\\tripledash \\frac{a}{b}",
+				'<mo>&#x2014;</mo>'
+			],
+			[
+				"\\displaystyle{\\mathchoice{a}{b}{c}{d}}",
+				'<mstyle displaystyle="true" scriptlevel="0"><mi>a</mi></mstyle>'
+			],
+			[
+				"\\textstyle{\\mathchoice{a}{b}{c}{d}}",
+				'<mstyle displaystyle="false" scriptlevel="0"><mi>b</mi></mstyle>'
+			],
+			[
+				"\\scriptstyle{\\mathchoice{a}{b}{c}{d}}",
+				'<mstyle displaystyle="false" scriptlevel="1"><mi>c</mi></mstyle>'
+			],
+			[
+				"\\scriptscriptstyle{\\mathchoice{a}{b}{c}{d}}",
+				'<mstyle displaystyle="false" scriptlevel="2"><mi>d</mi></mstyle>'
+			],
+			[
+				"\\ce{Cr^{+3}(aq)}",
+				'<mspace width="0.111em"></mspace>'
+			],
+			[
+				"\\ce{A, B}",
+				'<mspace width="0.333em"></mspace>'
+			],
+			[
+				"\\raise{.2em}{-}",
+				'<mpadded height="+.2em" depth="-.2em" voffset="+.2em">'
+			],
+			[
+				"\\lower{1em}{-}",
+				'<mpadded height="-1em" depth="+1em" voffset="-1em">'
+			],
+			[
+				"\\lower{-1em}{b}",
+				'<mpadded height="+1em" depth="-1em" voffset="+1em">'
+			],
+			[
+				"\\llap{4}",
+				'<mpadded width="0" lspace="-1width"><mn>4</mn></mpadded>'
+			],
+			[
+				"\\rlap{-}",
+				'&#x2212;</mo></mpadded>'
+			],
+			[
+				"\ce{\\smash[t]{2}}",
+				'<mpadded height="0">'
+			],
+			[
+				"\ce{\\smash[b]{x}}",
+				'<mpadded depth="0">'
+			],
+			[
+				"\ce{\\smash[bt]{2}}",
+				'<mpadded height="0" depth="0">'
+			],
+			[
+				"\ce{\\smash[tb]{2}}",
+				'<mpadded height="0" depth="0">'
+			],
+			[
+				"\ce{\\smash{2}}",
+				'<mpadded height="0" depth="0"'
+			],
+		];
+	}
+
+	/** @dataProvider provideTexVCCheckData */
+	public function testTexVCCheck( string $input, string $output ) {
 		$texVC = new TexVC();
 		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
 		$warnings = [];
 		$res = $texVC->check( $input, $options, $warnings, true );
-		$this->assertStringContainsString( '<mo>&#x2014;</mo>',
-			$res['input']->toMMLtree() );
-	}
-
-	public function testMathchoiceDisplaystyle() {
-		$input = "\\displaystyle{\\mathchoice{a}{b}{c}{d}}";
-		$texVC = new TexVC();
-		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
-		$warnings = [];
-		$res = $texVC->check( $input, $options, $warnings, true );
-		$this->assertStringContainsString( '<mstyle displaystyle="true" scriptlevel="0"><mi>a</mi></mstyle>',
-			$res['input']->toMMLtree() );
-	}
-
-	public function testMathchoiceTextstyle() {
-		$input = "\\textstyle{\\mathchoice{a}{b}{c}{d}}";
-		$texVC = new TexVC();
-		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
-		$warnings = [];
-		$res = $texVC->check( $input, $options, $warnings, true );
-		$this->assertStringContainsString( '<mstyle displaystyle="false" scriptlevel="0"><mi>b</mi></mstyle>',
-			$res['input']->toMMLtree() );
-	}
-
-	public function testMathchoiceScriptstyle() {
-		$input = "\\scriptstyle{\\mathchoice{a}{b}{c}{d}}";
-		$texVC = new TexVC();
-		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
-		$warnings = [];
-		$res = $texVC->check( $input, $options, $warnings, true );
-		$this->assertStringContainsString( '<mstyle displaystyle="false" scriptlevel="1"><mi>c</mi></mstyle>',
-			$res['input']->toMMLtree() );
-	}
-
-	public function testMathchoiceScriptScriptstyle() {
-		$input = "\\scriptscriptstyle{\\mathchoice{a}{b}{c}{d}}";
-		$texVC = new TexVC();
-		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
-		$warnings = [];
-		$res = $texVC->check( $input, $options, $warnings, true );
-		$this->assertStringContainsString( '<mstyle displaystyle="false" scriptlevel="2"><mi>d</mi></mstyle>',
-			$res['input']->toMMLtree() );
-	}
-
-	public function testMskip() {
-		$input = "\\ce{Cr^{+3}(aq)}";
-		$texVC = new TexVC();
-		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
-		$warnings = [];
-		$checkRes = $texVC->check( $input, $options, $warnings, true );
-		$this->assertStringContainsString( '<mspace width="0.111em"></mspace>',
-			$checkRes["input"]->toMMLtree() );
-	}
-
-	public function testMkern() {
-		$input = "\\ce{A, B}";
-		$texVC = new TexVC();
-		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
-		$warnings = [];
-		$checkRes = $texVC->check( $input, $options, $warnings, true );
-		$this->assertStringContainsString( '<mspace width="0.333em"></mspace>',
-			$checkRes["input"]->toMMLtree() );
-	}
-
-	public function testRaise() {
-		$input = "\\raise{.2em}{-}";
-		$texVC = new TexVC();
-		$warnings = [];
-		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
-			$warnings, true );
-		$this->assertStringContainsString( '<mpadded height="+.2em" depth="-.2em" voffset="+.2em">',
-			$checkRes["input"]->toMMLtree() );
-	}
-
-	public function testLower() {
-		$input = "\\lower{1em}{-}";
-		$texVC = new TexVC();
-		$warnings = [];
-		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
-			$warnings, true );
-		$this->assertStringContainsString( '<mpadded height="-1em" depth="+1em" voffset="-1em">',
-			$checkRes["input"]->toMMLtree() );
-	}
-
-	public function testLower2() {
-		$input = "\\lower{-1em}{b}";
-		$texVC = new TexVC();
-		$warnings = [];
-		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
-			$warnings, true );
-		$this->assertStringContainsString( '<mpadded height="+1em" depth="-1em" voffset="+1em">',
-			$checkRes["input"]->toMMLtree() );
-	}
-
-	public function testLlap() {
-		$input = "\\llap{4}";
-		$texVC = new TexVC();
-		$warnings = [];
-		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
-			$warnings, true );
-		$this->assertStringContainsString( '<mpadded width="0" lspace="-1width"><mn>4</mn></mpadded>',
-			$checkRes["input"]->toMMLtree() );
-	}
-
-	public function testRlap() {
-		$input = "\\rlap{-}";
-		$texVC = new TexVC();
-		$warnings = [];
-		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
-			$warnings, true );
-		$this->assertStringContainsString( '&#x2212;</mo></mpadded>',
-			$checkRes["input"]->toMMLtree() );
-	}
-
-	public function testSmash1() {
-		$input = "\ce{\\smash[t]{2}}";
-		$texVC = new TexVC();
-		$warnings = [];
-		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
-			$warnings, true );
-		$this->assertStringContainsString( '<mpadded height="0">', $checkRes["input"]->toMMLtree() );
-	}
-
-	public function testSmash2() {
-		$input = "\ce{\\smash[b]{x}}";
-		$texVC = new TexVC();
-		$warnings = [];
-		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
-			$warnings, true );
-		$this->assertStringContainsString( '<mpadded depth="0">', $checkRes["input"]->toMMLtree() );
-	}
-
-	public function testSmash3() {
-		$input = "\ce{\\smash[bt]{2}}";
-		$texVC = new TexVC();
-		$warnings = [];
-		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
-			$warnings, true );
-		$this->assertStringContainsString( '<mpadded height="0" depth="0">',
-			$checkRes["input"]->toMMLtree() );
-	}
-
-	public function testSmash4() {
-		$input = "\ce{\\smash[tb]{2}}";
-		$texVC = new TexVC();
-		$warnings = [];
-		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
-			$warnings, true );
-		$this->assertStringContainsString( '<mpadded height="0" depth="0">',
-			$checkRes["input"]->toMMLtree() );
-	}
-
-	public function testSmash5() {
-		$input = "\ce{\\smash{2}}";
-		$texVC = new TexVC();
-		$warnings = [];
-		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
-			$warnings, true );
-		$this->assertStringContainsString( '<mpadded height="0" depth="0"',
-			$checkRes["input"]->toMMLtree() );
+		$this->assertStringContainsString( $output, $res['input']->toMMLtree() );
 	}
 }
