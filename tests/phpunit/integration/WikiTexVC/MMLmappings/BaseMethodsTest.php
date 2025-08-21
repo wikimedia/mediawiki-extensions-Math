@@ -32,7 +32,6 @@ class BaseMethodsTest extends MediaWikiIntegrationTestCase {
 		$this->expectException( LogicException::class );
 		$this->expectExceptionMessage( 'Callback to MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1::lap' .
 		' should be treated in the respective class.' );
-		$bm = new BaseMethods();
-		$bm->checkAndParse( '\\llap', null, [], new TexNode() );
+		BaseMethods::checkAndParse( '\\llap', null, [], new TexNode() );
 	}
 }

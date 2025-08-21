@@ -260,7 +260,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$warnings = [];
 		$checkRes = $texVC->check( $input, [ "usemhchem" => true, "usemhchemtexified" => true ],
 			$warnings, true );
-		$ar = $checkRes["input"]->toMMLtree();
-		$this->assertStringContainsString( '<mpadded height="0" depth="0"', $ar );
+		$this->assertStringContainsString( '<mpadded height="0" depth="0"',
+			$checkRes["input"]->toMMLtree() );
 	}
 }

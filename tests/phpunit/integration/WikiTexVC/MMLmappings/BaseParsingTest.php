@@ -37,7 +37,8 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 
 	public function testArray() {
 		$node = new Matrix( 'matrix',
-			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
+			new TexArray( new TexArray( new Literal( 'a' ) ) )
+		);
 
 		$result = BaseParsing::array( $node, [], null, 'array', '007E' );
 		$this->assertStringContainsString( '<mi>a</mi>', (string)$result );
@@ -133,23 +134,34 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 
 	public function testAlignAt() {
 		$matrix = new Matrix( 'alignat',
-			new TexArray( new TexArray( new Literal( '\\sin' ) ) ) );
+			new TexArray( new TexArray( new Literal( '\\sin' ) ) )
+		);
 		$result = BaseParsing::alignAt( $matrix, [], null, 'alignat' );
 		$this->assertStringContainsString( 'mtable', $result );
 	}
 
 	public function testHLineTop() {
 		$matrix = new Matrix( 'matrix',
-			new TexArray( new TexArray( new TexArray( new Literal( '\\hline ' ), new Literal( 'a'
-			) ) ) ) );
+			new TexArray(
+				new TexArray(
+					new TexArray(
+						new Literal( '\\hline ' ),
+						new Literal( 'a' )
+					)
+				)
+			)
+		);
 		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
 		$this->assertStringContainsString( 'top', $result );
 	}
 
 	public function testHLineBottom() {
 		$matrix = new Matrix( 'matrix',
-			new TexArray( new TexArray( new Literal( 'a' ) ),
-				new TexArray( new TexArray( new Literal( '\\hline ' ) ) ) ) );
+			new TexArray(
+				new TexArray( new Literal( 'a' ) ),
+				new TexArray( new TexArray( new Literal( '\\hline ' ) ) )
+			)
+		);
 		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
 		$this->assertStringContainsString( 'bottom', $result );
 		$this->assertStringContainsString( '<mi>a</mi>', $result );
@@ -157,9 +169,14 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 
 	public function testHLineLastLine() {
 		$matrix = new Matrix( 'matrix',
-			new TexArray( new TexArray( new Literal( 'a' ) ),
-				new TexArray( new TexArray( new Literal( '\\hline ' ), new Literal( 'a'
-				) ) ) ) );
+			new TexArray(
+				new TexArray( new Literal( 'a' ) ),
+				new TexArray( new TexArray(
+					new Literal( '\\hline ' ),
+					new Literal( 'a' )
+				) )
+			)
+		);
 		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
 		$this->assertStringContainsString( 'class="mwe-math-matrix-top', $result );
 		$this->assertStringContainsString( '<mi>a</mi>', $result );

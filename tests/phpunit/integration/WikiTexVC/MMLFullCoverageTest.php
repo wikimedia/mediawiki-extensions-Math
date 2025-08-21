@@ -162,11 +162,11 @@ final class MMLFullCoverageTest extends MediaWikiIntegrationTestCase {
 		foreach ( $resMathoid as $index => $tcMathoid ) {
 			$tcLaTeXML = $resLaTeXML[$index];
 			$tc = [
-			  "ctr" => $index,
-			  "tex" => $tcMathoid->tex,
-			  "type" => $tcMathoid->type,
-			  "mml_mathoid" => $tcMathoid->mml,
-			  "mml_latexml" => $tcLaTeXML->mml,
+				"ctr" => $index,
+				"tex" => $tcMathoid->tex,
+				"type" => $tcMathoid->type,
+				"mml_mathoid" => $tcMathoid->mml,
+				"mml_latexml" => $tcLaTeXML->mml,
 			];
 			array_push( $f, [ "title N/A", (object)$tc ] );
 		}
