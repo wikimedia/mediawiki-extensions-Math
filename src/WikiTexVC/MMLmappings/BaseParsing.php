@@ -173,7 +173,7 @@ class BaseParsing {
 	public static function boldsymbol( $node, $passedArgs, $operatorContent, $name, $smth = null,
 		$smth2 = null
 	): MMLbase {
-		$passedArgs = array_merge( [ 'mathvariant' => Variants::BOLDITALIC ] );
+		$passedArgs = array_merge( $passedArgs, [ 'mathvariant' => Variants::BOLDITALIC ] );
 		return new MMLmrow( TexClass::ORD, [], $node->getArg()->toMMLtree( $passedArgs ) );
 	}
 
