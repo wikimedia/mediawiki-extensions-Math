@@ -1,6 +1,7 @@
 <?php
 namespace MediaWiki\Extension\Math\WikiTexVC\MMLnodes;
 
+use DOMException;
 use MediaWiki\Extension\Math\Math;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
 
@@ -32,7 +33,6 @@ class MMLbase {
 	/**
 	 * Add child node to current children
 	 * @param MMLbase|string|null ...$node
-	 * @return void
 	 */
 	public function addChild( ...$node ): void {
 		foreach ( $node as $n ) {
@@ -41,7 +41,7 @@ class MMLbase {
 	}
 
 	/**
-	 *  Get name children from current element
+	 * Get name children from the current element
 	 * @return MMLbase[]
 	 */
 	public function getChildren(): array {
@@ -49,7 +49,7 @@ class MMLbase {
 	}
 
 	/**
-	 * True if current object has child objects
+	 * True if the current object has child objects
 	 * @return bool
 	 */
 	public function hasChildren(): bool {
@@ -57,7 +57,7 @@ class MMLbase {
 	}
 
 	/**
-	 * get current VisitorFactory or get from services: Math::getVisitorFactory()
+	 * Get the current VisitorFactory or get from services: Math::getVisitorFactory()
 	 * @return VisitorFactory
 	 */
 	protected function getVisitorFactory() {
@@ -68,24 +68,22 @@ class MMLbase {
 	}
 
 	/**
-	 * Set VisitorFactory for current element
+	 * Set VisitorFactory for the current element
 	 * @param VisitorFactory $visitorFactory
-	 * @return void
 	 */
 	public function setVisitorFactory( VisitorFactory $visitorFactory ) {
 		$this->visitorFactory = $visitorFactory;
 	}
 
 	/**
-	 * Get name (mi, mo, ...) from current element
-	 * @return string
+	 * Get name (mi, mo, ...) from the current element
 	 */
 	public function getName(): string {
 		return $this->name;
 	}
 
 	/**
-	 * Get all attributes from current element
+	 * Get all attributes from the current element
 	 * @return array
 	 */
 	public function getAttributes() {
@@ -95,7 +93,6 @@ class MMLbase {
 	/**
 	 * Accept a visitor to process this node
 	 * @param MMLVisitor $visitor
-	 * @return void
 	 */
 	public function accept( MMLVisitor $visitor ) {
 		$visitor->visit( $this );
@@ -103,8 +100,7 @@ class MMLbase {
 
 	/**
 	 * Get string presentation of current element
-	 * @return string
-	 * @throws \DOMException
+	 * @throws DOMException
 	 */
 	public function __toString(): string {
 		$visitor = $this->getVisitorFactory()->createVisitor();
