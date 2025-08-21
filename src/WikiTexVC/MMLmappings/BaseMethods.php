@@ -2,6 +2,7 @@
 namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings;
 
 use ArgumentCountError;
+use Exception;
 use LogicException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
@@ -58,13 +59,14 @@ class BaseMethods {
 				return BaseParsing::{$shifted}( $node, $passedArgs, $operatorContent, $input, ...$resFct );
 			}
 			return BaseParsing::{$resFct[0]}( $node, $passedArgs, $operatorContent, $input );
-		} catch ( \Exception ) {
+		} catch ( Exception ) {
 			return null;
 		}
 	}
 
 	public function checkAndParseOperator( $input, $node, $passedArgs, $operatorContent,
-										   $state, $prepareInput = true ): ?MMLbase {
+		$state, $prepareInput = true
+	): ?MMLbase {
 			$resOperator = TexUtil::getInstance()->operator_rendering( trim( $input ) );
 		if ( $resOperator == null ) {
 			$resOperator = TexUtil::getInstance()->operator_infix( trim( $input ) );
@@ -90,7 +92,8 @@ class BaseMethods {
 	}
 
 	public function parseOperatorDict( $node, $passedArgs, $operatorContent, $input, $uc = null,
-									   $attrs = [] ): MMLbase {
+		$attrs = []
+	): MMLbase {
 		// Some custom parsing from operatorDict
 		switch ( $input ) {
 			case ";":
@@ -112,7 +115,8 @@ class BaseMethods {
 	}
 
 	public function parseOperator( $node, $passedArgs, $operatorContent, $name, $state, $uc = null,
-								   $attrs = [] ): MMLbase {
+		$attrs = []
+	): MMLbase {
 		// if($name == "equiv" || $name == "dotplus" || $name == "mp"  || $name == "pm"){
 		$attrs = array_merge( $passedArgs, $attrs ); // this is rather a workaround
 		if ( array_key_exists( "largeop", $attrs ) && $attrs['largeop'] == "" ) {
@@ -129,7 +133,8 @@ class BaseMethods {
 	}
 
 	public function checkAndParseIdentifier( $input, $node, $passedArgs, $operatorContent,
-											 $prepareInput = true ): ?MMLbase {
+		 $prepareInput = true
+	): ?MMLbase {
 		// @phan-suppress-next-line PhanCoalescingNeverUndefined
 		$resIdentifier = TexUtil::getInstance()->identifier( trim( $input ) ) ?? null;
 		// If the macro has been found, dynamically call the associated parsing function.
@@ -168,7 +173,8 @@ class BaseMethods {
 	}
 
 	public function checkAndParseDelimiter( $input, $node, $passedArgs,
-											$operatorContent, $noargs = false, $texClass = "" ): ?MMLbase {
+		$operatorContent, $noargs = false, $texClass = ""
+	): ?MMLbase {
 		if ( $input === null ) {
 			return null;
 		}
@@ -187,7 +193,8 @@ class BaseMethods {
 	}
 
 	public function checkAndParseMathCharacter( $input, $node, $passedArgs, $operatorContent,
-												$prepareInput = true ): ?MMLbase {
+		$prepareInput = true
+	): ?MMLbase {
 		$resChar = TexUtil::getInstance()->mathchar( trim( $input ) );
 		if ( $resChar == null ) {
 			return null;
@@ -212,7 +219,7 @@ class BaseMethods {
 			return new MMLmstyle( "", [ "mathcolor" => $resColor ] );
 		}
 
-// Input is 'pagecolor'
+		// Input is 'pagecolor'
 		// Mj3 does this, probably not necessary
 		$innerRow = [];
 		foreach ( str_split( $operatorContent ) as $char ) {

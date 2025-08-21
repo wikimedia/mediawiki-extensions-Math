@@ -34,7 +34,7 @@ class MhchemUtil {
 	}
 
 	/**
-	 * Checks if the incoming string is containing  a regex pattern.
+	 * Checks if the incoming string is containing a regex pattern.
 	 * @param string $input string to verify
 	 * @param string $subject subject to check, usually empty string
 	 * @return bool true if regex pattern, false if not
@@ -47,7 +47,7 @@ class MhchemUtil {
 		 * See: https://stackoverflow.com/questions/16039362/how-can-i-suppress-phpcs-warnings-using-comments
 		 */
 
-        // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
+		// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
 		return !( @preg_match( $input, $subject ) === false );
 	}
 

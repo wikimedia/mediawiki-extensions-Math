@@ -58,7 +58,7 @@ class MhchemStateMachines {
 			foreach ( $d1 as $d2 ) {
 				$stateArray = $d2["stateArray"] ?? [];
 
-				for ( $i = 0; $i < count( $stateArray ); $i++ ) {
+				foreach ( $stateArray as $val ) {
 					// 2a. Normalize actions into array:  'text=' ==> [{type_:'text='}]
 					$p = $d2;
 					if ( is_string( $p["action_"] ) ) {
@@ -74,14 +74,14 @@ class MhchemStateMachines {
 
 					// 2.b Multi-insert
 					$patternArray = preg_split( "/\|/", strval( $pattern ), -1, PREG_SPLIT_NO_EMPTY );
-					for ( $j = 0; $j < count( $patternArray ); $j++ ) {
-						if ( $stateArray[$i] === '*' ) {
+					foreach ( $patternArray as $val2 ) {
+						if ( $val === '*' ) {
 							// insert into all
 							foreach ( $transitions as $t => $dEmpty ) {
-								$transitions[$t][] = [ "pattern" => $patternArray[$j], "task" => $p ];
+								$transitions[$t][] = [ "pattern" => $val2, "task" => $p ];
 							}
 						} else {
-							$transitions[$stateArray[$i]][] = [ "pattern" => $patternArray[$j], "task" => $p ];
+							$transitions[$val][] = [ "pattern" => $val2, "task" => $p ];
 						}
 					}
 				}

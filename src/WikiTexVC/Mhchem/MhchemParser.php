@@ -64,8 +64,7 @@ class MhchemParser {
 	 */
 	public function toTex( $input, $type, bool $optimizeMhchemForTexVC = false ): string {
 		$parsed = $this->go( $input, $type );
-		$mhchemTexifiy = new MhchemTexify( $optimizeMhchemForTexVC );
-		return $mhchemTexifiy->go( $parsed, $type !== "tex" );
+		return ( new MhchemTexify( $optimizeMhchemForTexVC ) )->go( $parsed, $type !== "tex" );
 	}
 
 	/**
@@ -110,32 +109,36 @@ class MhchemParser {
 			$machine = $this->mhchemStateMachines->stateMachines[$stateMachine];
 			$t = $machine["transitions"][$state] ?? $machine["transitions"]['*'];
 
-			for ( $i = 0; $i < count( $t ); $i++ ) {
-				$matches = $this->mhchemPatterns->match( $t[$i]["pattern"], $input ?? "" );
+			foreach ( $t as $i => $value ) {
+				$matches = $this->mhchemPatterns->match( $value["pattern"], $input ?? "" );
 
 				if ( $matches ) {
 					if ( $this->logger ) {
-						$this->logger->debug( "\n Match at: " . $i . "\tPattern: " . $t[$i]["pattern"] .
-								"\t State-machine: " . $stateMachine );
+						$this->logger->debug( "\n Match at: " . $i . "\tPattern: " . $value["pattern"] .
+							"\t State-machine: " . $stateMachine );
 					}
 
 					// Execute actions
-					$task = $t[$i]["task"];
-					for ( $iA = 0; $iA < count( $task["action_"] ); $iA++ ) {
+					$task = $value["task"];
+					for ( $iA = 0, $iAMax = count( $task["action_"] ); $iA < $iAMax; $iA++ ) {
 						$this->debugIndex++;
 
 						$o = null;
 
 						// Find and execute action
 						if ( array_key_exists( $task["action_"][$iA]["type_"], $machine["actions"] ) ) {
-							$option = $task["action_"][$iA]["option"] ?? null; // tbd, setting null ok ?
+							// tbd, setting null ok ?
+							$option = $task["action_"][$iA]["option"] ?? null;
 							if ( $this->logger ) {
 								$this->logger->debug( "\n action: \t" . $task["action_"][$iA]["type_"] );
 							}
 							$o = $machine["actions"][$task["action_"][$iA]["type_"]]
 								( $buffer, $matches["match_"], $option );
-						} elseif ( array_key_exists( $task["action_"][$iA]["type_"],
-									$this->mhchemStateMachines->getGenericActions() ) ) {
+						} elseif ( array_key_exists(
+								$task["action_"][$iA]["type_"],
+								$this->mhchemStateMachines->getGenericActions()
+							)
+						) {
 							$option = $task["action_"][$iA]["option"] ?? null;
 							if ( $this->logger ) {
 								$this->logger->debug( "\n action: \t" . $task["action_"][$iA]["type_"] );

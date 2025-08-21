@@ -104,7 +104,8 @@ class MMLParsingUtil {
 	 */
 	public static function createNot(): MMLbase {
 		return new MMLmrow( TexClass::REL, [],
-			new MMLmpadded( "", [ "width" => "0" ], new MMLmtext( "", [], "&#x29F8;" ) ) );
+			new MMLmpadded( "", [ "width" => "0" ], new MMLmtext( "", [], "&#x29F8;" ) )
+		);
 	}
 
 	private static function addToChr( string $chr, string $base ): string {

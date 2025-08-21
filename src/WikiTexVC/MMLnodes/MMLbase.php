@@ -8,8 +8,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
 class MMLbase {
 	private string $name;
 	private array $attributes;
-	/** @var VisitorFactory */
-	protected $visitorFactory = null;
+	protected ?VisitorFactory $visitorFactory = null;
 	/** @var array<MMLbase|string> */
 	protected array $children = [];
 
@@ -76,7 +75,7 @@ class MMLbase {
 	}
 
 	/**
-	 * Get name (mi, mo, ...) from the current element
+	 * Get the name (mi, mo, ...) from the current element
 	 */
 	public function getName(): string {
 		return $this->name;
