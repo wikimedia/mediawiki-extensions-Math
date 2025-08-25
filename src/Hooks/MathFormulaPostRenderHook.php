@@ -11,6 +11,7 @@ use MediaWiki\Parser\Parser;
  *
  * @stable to implement
  * @ingroup Hooks
+ * @deprecated Use MathFormulaPostRenderRevision hook instead
  */
 interface MathFormulaPostRenderHook {
 	/**
@@ -19,5 +20,9 @@ interface MathFormulaPostRenderHook {
 	 * @param string &$renderedMath
 	 * @return bool|void True or no return value to continue or false to abort
 	 */
-	public function onMathFormulaPostRender( Parser $parser, MathRenderer $renderer, string &$renderedMath );
+	public function onMathFormulaPostRender(
+		Parser $parser,
+		MathRenderer $renderer,
+		string &$renderedMath
+	);
 }

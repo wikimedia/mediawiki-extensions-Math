@@ -140,9 +140,18 @@ class ParserHooksHandler implements
 			$renderer->addTrackingCategories( $parser );
 			return $renderer->getLastError();
 		}
+
+		// Enables indexing of math formula
 		$this->hookRunner->onMathFormulaPostRender(
-			$parser, $renderer, $renderedMath
-		); // Enables indexing of math formula
+			$parser,
+			$renderer,
+			$renderedMath
+		);
+		$this->hookRunner->onMathFormulaPostRenderRevision(
+			$parser->getRevisionRecordObject(),
+			$renderer,
+			$renderedMath
+		);
 
 		// Writes cache if rendering was successful
 		$renderer->writeCache();
