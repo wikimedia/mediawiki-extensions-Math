@@ -142,11 +142,6 @@ class ParserHooksHandler implements
 		}
 
 		// Enables indexing of math formula
-		$this->hookRunner->onMathFormulaPostRender(
-			$parser,
-			$renderer,
-			$renderedMath
-		);
 		$this->hookRunner->onMathFormulaPostRenderRevision(
 			$parser->getRevisionRecordObject(),
 			$renderer,

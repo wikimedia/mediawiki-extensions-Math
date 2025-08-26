@@ -84,12 +84,6 @@
 		"MaintenanceRefreshLinksInit": "main",
 		"ResourceLoaderGetConfigVars": "ResourceLoaderConfigHandler"
 	},
-	"DeprecatedHooks": {
-		"MathFormulaPostRender": {
-			"deprecatedVersion": "1.45",
-			"silent": true
-		}
-	},
 	"config": {
 		"MathDefaultLaTeXMLSetting": {
 			"value": {
