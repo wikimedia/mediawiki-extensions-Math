@@ -2480,12 +2480,18 @@
         "input": "\\textbf{1}",
         "params": [],
         "bug": "T397120",
-		"output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mtext mathvariant=\"bold\">1<\/mtext><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mtext mathvariant=\"bold\">1<\/mtext><\/math>"
     },
     {
         "input": "\\left\\{ a \\Bigg\\vert \\int \\right\\}",
         "params": [],
         "bug": "T401740",
         "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"INNER\"><mo data-mjx-texclass=\"OPEN\">{<\/mo><mi>a<\/mi><mo maxsize=\"2.470em\" minsize=\"2.470em\" stretchy=\"true\" symmetric=\"true\">|<\/mo><mo stretchy=\"false\">&#x222B;<\/mo><mo data-mjx-texclass=\"CLOSE\">}<\/mo><\/mrow><\/math>"
+    },
+    {
+        "input": "^x",
+        "params": [],
+        "bug": "T402883",
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msup><mi><\/mi><mrow data-mjx-texclass=\"ORD\"><mi>x<\/mi><\/mrow><\/msup><\/math>"
     }
 ]

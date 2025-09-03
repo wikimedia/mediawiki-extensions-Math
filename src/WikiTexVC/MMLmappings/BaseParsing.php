@@ -1118,7 +1118,7 @@ class BaseParsing {
 		$smth = null, $smth1 = null, $smth2 = null
 	) {
 		// Just discard setstyle since they are captured in TexArray now}
-		return " ";
+		return new MMLmrow();
 	}
 
 	public static function not( $node, $passedArgs, $operatorContent, $name, $smth = null,
