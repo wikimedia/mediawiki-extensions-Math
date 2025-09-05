@@ -578,7 +578,7 @@
 	"\\Box": {
 		"ams_required": true,
 		"identifier": [
-			"\\u25FB"
+			"◻"
 		],
 		"nullary_macro": true
 	},
@@ -639,7 +639,7 @@
 	"\\Diamond": {
 		"ams_required": true,
 		"identifier": [
-			"\\u25CA"
+			"◊"
 		],
 		"nullary_macro": true
 	},
@@ -679,7 +679,7 @@
 	"\\Finv": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2132"
+			"Ⅎ"
 		],
 		"is_literal": true,
 		"nullary_macro": true
@@ -687,7 +687,7 @@
 	"\\Game": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2141"
+			"⅁"
 		],
 		"is_literal": true,
 		"nullary_macro": true
@@ -708,7 +708,7 @@
 	},
 	"\\Im": {
 		"identifier": [
-			"\\u2111",
+			"ℑ",
 			{
 				"mathvariant": "normal"
 			}
@@ -892,7 +892,7 @@
 	},
 	"\\Re": {
 		"identifier": [
-			"\\u211C",
+			"ℜ",
 			{
 				"mathvariant": "normal"
 			}
@@ -932,7 +932,7 @@
 	},
 	"\\S": {
 		"identifier": [
-			"\\u00A7",
+			"§",
 			{
 				"mathvariant": "normal"
 			}
@@ -1087,7 +1087,7 @@
 	},
 	"\\aleph": {
 		"identifier": [
-			"\\u2135",
+			"ℵ",
 			{
 				"mathvariant": "normal"
 			}
@@ -1097,7 +1097,7 @@
 	},
 	"\\alpha": {
 		"identifier": [
-			"\\u03B1"
+			"α"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -1118,7 +1118,7 @@
 	},
 	"\\angle": {
 		"identifier": [
-			"\\u2220",
+			"∠",
 			{
 				"mathvariant": "normal"
 			}
@@ -1202,7 +1202,7 @@
 	"\\backprime": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2035",
+			"‵",
 			{
 				"variantForm": "True"
 			}
@@ -1228,7 +1228,7 @@
 			"\\"
 		],
 		"identifier": [
-			"\\u2216",
+			"∖",
 			{
 				"mathvariant": "normal"
 			}
@@ -1304,7 +1304,7 @@
 	},
 	"\\beta": {
 		"identifier": [
-			"\\u03B2"
+			"β"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -1313,7 +1313,7 @@
 	"\\beth": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2136"
+			"ℶ"
 		],
 		"is_literal": true,
 		"nullary_macro": true
@@ -1457,7 +1457,7 @@
 	"\\bigstar": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2605"
+			"★"
 		],
 		"nullary_macro": true,
 		"operator": true
@@ -1520,28 +1520,28 @@
 	"\\blacklozenge": {
 		"ams_required": true,
 		"identifier": [
-			"\\u29EB"
+			"⧫"
 		],
 		"nullary_macro": true
 	},
 	"\\blacksquare": {
 		"ams_required": true,
 		"identifier": [
-			"\\u25FC"
+			"◼"
 		],
 		"nullary_macro": true
 	},
 	"\\blacktriangle": {
 		"ams_required": true,
 		"identifier": [
-			"\\u25B4"
+			"▴"
 		],
 		"nullary_macro": true
 	},
 	"\\blacktriangledown": {
 		"ams_required": true,
 		"identifier": [
-			"\\u25BE"
+			"▾"
 		],
 		"nullary_macro": true
 	},
@@ -1589,7 +1589,7 @@
 	},
 	"\\bot": {
 		"identifier": [
-			"\\u22A5",
+			"⊥",
 			{
 				"mathvariant": "normal"
 			}
@@ -1788,13 +1788,13 @@
 	"\\checkmark": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2713"
+			"✓"
 		],
 		"nullary_macro": true
 	},
 	"\\chi": {
 		"identifier": [
-			"\\u03C7"
+			"χ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -1839,7 +1839,7 @@
 	"\\circledS": {
 		"ams_required": true,
 		"identifier": [
-			"\\u24C8",
+			"Ⓢ",
 			{
 				"mathvariant": "normal"
 			}
@@ -1872,7 +1872,7 @@
 	},
 	"\\clubsuit": {
 		"identifier": [
-			"\\u2663",
+			"♣",
 			{
 				"mathvariant": "normal"
 			}
@@ -1897,7 +1897,7 @@
 	"\\complement": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2201"
+			"∁"
 		],
 		"is_literal": true,
 		"nullary_macro": true
@@ -2003,7 +2003,7 @@
 	"\\daleth": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2138"
+			"ℸ"
 		],
 		"is_literal": true,
 		"nullary_macro": true
@@ -2080,7 +2080,7 @@
 	},
 	"\\delta": {
 		"identifier": [
-			"\\u03B4"
+			"δ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -2105,14 +2105,14 @@
 	"\\diagdown": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2572"
+			"╲"
 		],
 		"nullary_macro": true
 	},
 	"\\diagup": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2571"
+			"╱"
 		],
 		"nullary_macro": true
 	},
@@ -2127,7 +2127,7 @@
 	},
 	"\\diamondsuit": {
 		"identifier": [
-			"\\u2662",
+			"♢",
 			{
 				"mathvariant": "normal"
 			}
@@ -2137,7 +2137,7 @@
 	"\\digamma": {
 		"ams_required": true,
 		"identifier": [
-			"\\u03DD"
+			"ϝ"
 		],
 		"is_literal": true,
 		"nullary_macro": true
@@ -2299,7 +2299,7 @@
 	},
 	"\\ell": {
 		"identifier": [
-			"\\u2113"
+			"ℓ"
 		],
 		"is_literal": true,
 		"nullary_macro": true
@@ -2317,7 +2317,7 @@
 	},
 	"\\emptyset": {
 		"identifier": [
-			"\\u2205",
+			"∅",
 			{
 				"mathvariant": "normal"
 			}
@@ -2332,7 +2332,7 @@
 	},
 	"\\epsilon": {
 		"identifier": [
-			"\\u03F5"
+			"ϵ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -2404,7 +2404,7 @@
 	},
 	"\\eta": {
 		"identifier": [
-			"\\u03B7"
+			"η"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -2413,7 +2413,7 @@
 	"\\eth": {
 		"ams_required": true,
 		"identifier": [
-			"\\u00F0",
+			"ð",
 			{
 				"mathvariant": "normal"
 			}
@@ -2431,7 +2431,7 @@
 	},
 	"\\exists": {
 		"identifier": [
-			"\\u2203",
+			"∃",
 			{
 				"mathvariant": "normal"
 			}
@@ -2451,7 +2451,7 @@
 	},
 	"\\flat": {
 		"identifier": [
-			"\\u266D",
+			"♭",
 			{
 				"mathvariant": "normal"
 			}
@@ -2461,7 +2461,7 @@
 	},
 	"\\forall": {
 		"identifier": [
-			"\\u2200",
+			"∀",
 			{
 				"mathvariant": "normal"
 			}
@@ -2487,7 +2487,7 @@
 	},
 	"\\gamma": {
 		"identifier": [
-			"\\u03B3"
+			"γ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -2572,7 +2572,7 @@
 	"\\gimel": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2137"
+			"ℷ"
 		],
 		"is_literal": true,
 		"nullary_macro": true
@@ -2689,7 +2689,7 @@
 	},
 	"\\hbar": {
 		"identifier": [
-			"\\u210F",
+			"ℏ",
 			{
 				"alternate": "1"
 			}
@@ -2714,7 +2714,7 @@
 	},
 	"\\heartsuit": {
 		"identifier": [
-			"\\u2661",
+			"♡",
 			{
 				"mathvariant": "normal"
 			}
@@ -2759,7 +2759,7 @@
 	"\\hslash": {
 		"ams_required": true,
 		"identifier": [
-			"\\u210F"
+			"ℏ"
 		],
 		"is_literal": true,
 		"nullary_macro": true
@@ -2805,7 +2805,7 @@
 	},
 	"\\imath": {
 		"identifier": [
-			"\\u0131"
+			"ı"
 		],
 		"is_literal": true,
 		"nullary_macro": true
@@ -2834,7 +2834,7 @@
 	},
 	"\\infty": {
 		"identifier": [
-			"\\u221E",
+			"∞",
 			{
 				"mathvariant": "normal"
 			}
@@ -2901,7 +2901,7 @@
 	},
 	"\\iota": {
 		"identifier": [
-			"\\u03B9"
+			"ι"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -2919,14 +2919,14 @@
 	},
 	"\\jmath": {
 		"identifier": [
-			"\\u0237"
+			"ȷ"
 		],
 		"is_literal": true,
 		"nullary_macro": true
 	},
 	"\\kappa": {
 		"identifier": [
-			"\\u03BA"
+			"κ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -2958,7 +2958,7 @@
 	},
 	"\\lambda": {
 		"identifier": [
-			"\\u03BB"
+			"λ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -3279,7 +3279,7 @@
 	},
 	"\\lnot": {
 		"identifier": [
-			"\\u00AC",
+			"¬",
 			{
 				"mathvariant": "normal"
 			}
@@ -3384,7 +3384,7 @@
 	"\\lozenge": {
 		"ams_required": true,
 		"identifier": [
-			"\\u25CA"
+			"◊"
 		],
 		"nullary_macro": true
 	},
@@ -3680,14 +3680,14 @@
 	"\\measuredangle": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2221"
+			"∡"
 		],
 		"nullary_macro": true
 	},
 	"\\mho": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2127"
+			"℧"
 		],
 		"is_literal": true,
 		"nullary_macro": true
@@ -3745,7 +3745,7 @@
 	},
 	"\\mu": {
 		"identifier": [
-			"\\u03BC"
+			"μ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -3795,7 +3795,7 @@
 	},
 	"\\nabla": {
 		"identifier": [
-			"\\u2207",
+			"∇",
 			{
 				"mathvariant": "normal"
 			}
@@ -3807,7 +3807,7 @@
 	},
 	"\\natural": {
 		"identifier": [
-			"\\u266E",
+			"♮",
 			{
 				"mathvariant": "normal"
 			}
@@ -3836,7 +3836,7 @@
 	},
 	"\\neg": {
 		"identifier": [
-			"\\u00AC",
+			"¬",
 			{
 				"mathvariant": "normal"
 			}
@@ -3876,7 +3876,7 @@
 	"\\nexists": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2204"
+			"∄"
 		],
 		"nullary_macro": true
 	},
@@ -4141,7 +4141,7 @@
 	},
 	"\\nu": {
 		"identifier": [
-			"\\u03BD"
+			"ν"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -4224,7 +4224,7 @@
 	},
 	"\\omega": {
 		"identifier": [
-			"\\u03C9"
+			"ω"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -4232,7 +4232,7 @@
 	},
 	"\\omicron": {
 		"identifier": [
-			"\\u03BF"
+			"ο"
 		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "o"
@@ -4378,7 +4378,7 @@
 	},
 	"\\partial": {
 		"identifier": [
-			"\\u2202"
+			"∂"
 		],
 		"nullary_macro": true
 	},
@@ -4395,7 +4395,7 @@
 	},
 	"\\phi": {
 		"identifier": [
-			"\\u03D5"
+			"ϕ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -4403,7 +4403,7 @@
 	},
 	"\\pi": {
 		"identifier": [
-			"\\u03C0"
+			"π"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -4512,7 +4512,7 @@
 	},
 	"\\prime": {
 		"identifier": [
-			"\\u2032",
+			"′",
 			{
 				"alternate": "1"
 			}
@@ -4546,7 +4546,7 @@
 	},
 	"\\psi": {
 		"identifier": [
-			"\\u03C8"
+			"ψ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -4647,7 +4647,7 @@
 	},
 	"\\rho": {
 		"identifier": [
-			"\\u03C1"
+			"ρ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -4811,7 +4811,7 @@
 	},
 	"\\sharp": {
 		"identifier": [
-			"\\u266F",
+			"♯",
 			{
 				"mathvariant": "normal"
 			}
@@ -4847,7 +4847,7 @@
 	},
 	"\\sigma": {
 		"identifier": [
-			"\\u03C3"
+			"σ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -4938,7 +4938,7 @@
 	},
 	"\\spadesuit": {
 		"identifier": [
-			"\\u2660",
+			"♠",
 			{
 				"mathvariant": "normal"
 			}
@@ -4948,7 +4948,7 @@
 	"\\sphericalangle": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2222"
+			"∢"
 		],
 		"nullary_macro": true
 	},
@@ -4998,7 +4998,7 @@
 	"\\square": {
 		"ams_required": true,
 		"identifier": [
-			"\\u25FB"
+			"◻"
 		],
 		"nullary_macro": true
 	},
@@ -5327,7 +5327,7 @@
 	},
 	"\\tau": {
 		"identifier": [
-			"\\u03C4"
+			"τ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -5439,7 +5439,7 @@
 	},
 	"\\theta": {
 		"identifier": [
-			"\\u03B8"
+			"θ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -5499,7 +5499,7 @@
 	},
 	"\\top": {
 		"identifier": [
-			"\\u22A4",
+			"⊤",
 			{
 				"mathvariant": "normal"
 			}
@@ -5509,7 +5509,7 @@
 	},
 	"\\triangle": {
 		"identifier": [
-			"\\u25B3",
+			"△",
 			{
 				"mathvariant": "normal"
 			}
@@ -5519,7 +5519,7 @@
 	"\\triangledown": {
 		"ams_required": true,
 		"identifier": [
-			"\\u25BD",
+			"▽",
 			{
 				"variantForm": "True"
 			}
@@ -5693,7 +5693,7 @@
 	},
 	"\\upsilon": {
 		"identifier": [
-			"\\u03C5"
+			"υ"
 		],
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -5787,7 +5787,7 @@
 	},
 	"\\varepsilon": {
 		"identifier": [
-			"\\u03B5"
+			"ε"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -5805,7 +5805,7 @@
 	"\\varkappa": {
 		"ams_required": true,
 		"identifier": [
-			"\\u03F0"
+			"ϰ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -5832,7 +5832,7 @@
 	"\\varnothing": {
 		"ams_required": true,
 		"identifier": [
-			"\\u2205",
+			"∅",
 			{
 				"variantForm": "True"
 			}
@@ -5851,7 +5851,7 @@
 	},
 	"\\varphi": {
 		"identifier": [
-			"\\u03C6"
+			"φ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -5859,7 +5859,7 @@
 	},
 	"\\varpi": {
 		"identifier": [
-			"\\u03D6"
+			"ϖ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -5886,7 +5886,7 @@
 	},
 	"\\varrho": {
 		"identifier": [
-			"\\u03F1"
+			"ϱ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -5894,7 +5894,7 @@
 	},
 	"\\varsigma": {
 		"identifier": [
-			"\\u03C2"
+			"ς"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -5947,7 +5947,7 @@
 	},
 	"\\vartheta": {
 		"identifier": [
-			"\\u03D1"
+			"ϑ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -6070,7 +6070,7 @@
 	},
 	"\\wp": {
 		"identifier": [
-			"\\u2118",
+			"℘",
 			{
 				"mathvariant": "normal"
 			}
@@ -6111,7 +6111,7 @@
 	},
 	"\\xi": {
 		"identifier": [
-			"\\u03BE"
+			"ξ"
 		],
 		"is_literal": true,
 		"nullary_macro": true
@@ -6158,7 +6158,7 @@
 	},
 	"\\zeta": {
 		"identifier": [
-			"\\u03B6"
+			"ζ"
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,

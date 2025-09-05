@@ -17,14 +17,11 @@ class UpdateTexutil extends Maintenance {
 		}
 		$tu = TexUtil::getInstance();
 
-		foreach ( $tu->getBaseElements()['mathchar'] as $key => $value ) {
-			// Heuristic to match greek letters but not \\And
-			if ( !preg_match( "/\\\\[D-Z]/", $key ) ) {
+		foreach ( $tu->getBaseElements()['identifier'] as $key => $value ) {
+			if ( !preg_match( "/\\\\u([0-9A-F]+)/", $value[0], $chr ) ) {
 				continue;
 			}
-			unset( $jsonContent["$key"]['mathchar'] );
-			preg_match( "/&#x([0-9A-F]+);/", $value, $chr );
-			$jsonContent["$key"]['identifier'] = [ mb_chr( hexdec( ( $chr[1] ) ), 'UTF-8' ) ];
+			$jsonContent["$key"]['identifier'][0] = mb_chr( hexdec( ( $chr[1] ) ), 'UTF-8' );
 
 			// Sort the entry alphabetically
 			ksort( $jsonContent["$key"] );

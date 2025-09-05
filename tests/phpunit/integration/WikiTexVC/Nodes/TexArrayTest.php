@@ -134,7 +134,7 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 		$ta = new TexArray( new Literal( 'a' ), new Literal( '\gamma' ) );
 		$state = [ 'squashLiterals' => true ];
 		$res  = $ta->toMMLTree( [], $state );
-		$this->assertEquals( '<mi>a</mi><mi>&#x03B3;</mi>', $res );
+		$this->assertEquals( '<mi>a</mi><mi>γ</mi>', $res );
 	}
 
 	public function testSumInLimits() {
