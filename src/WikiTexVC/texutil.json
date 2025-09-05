@@ -629,8 +629,10 @@
 		"other_delimiters2": "\\Downarrow"
 	},
 	"\\Delta": {
+		"identifier": [
+			"Δ"
+		],
 		"is_literal": true,
-		"mathchar": "&#x0394;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -691,8 +693,10 @@
 		"nullary_macro": true
 	},
 	"\\Gamma": {
+		"identifier": [
+			"Γ"
+		],
 		"is_literal": true,
-		"mathchar": "&#x0393;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -744,8 +748,10 @@
 		]
 	},
 	"\\Lambda": {
+		"identifier": [
+			"Λ"
+		],
 		"is_literal": true,
-		"mathchar": "&#x039B;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -822,8 +828,10 @@
 		"nullary_macro_aliase": "\\emptyset"
 	},
 	"\\Omega": {
+		"identifier": [
+			"Ω"
+		],
 		"is_literal": true,
-		"mathchar": "&#x03A9;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -845,14 +853,18 @@
 		"nullary_macro": true
 	},
 	"\\Phi": {
+		"identifier": [
+			"Φ"
+		],
 		"is_literal": true,
-		"mathchar": "&#x03A6;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\Pi": {
+		"identifier": [
+			"Π"
+		],
 		"is_literal": true,
-		"mathchar": "&#x03A0;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -862,8 +874,10 @@
 		"operator": true
 	},
 	"\\Psi": {
+		"identifier": [
+			"Ψ"
+		],
 		"is_literal": true,
-		"mathchar": "&#x03A8;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -932,8 +946,10 @@
 		"unicode_char": "03E0"
 	},
 	"\\Sigma": {
+		"identifier": [
+			"Σ"
+		],
 		"is_literal": true,
-		"mathchar": "&#x03A3;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -971,8 +987,10 @@
 		]
 	},
 	"\\Theta": {
+		"identifier": [
+			"Θ"
+		],
 		"is_literal": true,
-		"mathchar": "&#x0398;",
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -992,7 +1010,9 @@
 		"other_delimiters1": true
 	},
 	"\\Upsilon": {
-		"mathchar": "&#x03A5;",
+		"identifier": [
+			"Υ"
+		],
 		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
@@ -1017,8 +1037,10 @@
 		]
 	},
 	"\\Xi": {
+		"identifier": [
+			"Ξ"
+		],
 		"is_literal": true,
-		"mathchar": "&#x039E;",
 		"nullary_macro": true
 	},
 	"\\Z": {
