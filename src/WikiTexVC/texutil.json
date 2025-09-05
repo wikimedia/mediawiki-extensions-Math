@@ -483,7 +483,7 @@
 	},
 	"\\AA": {
 		"nullary_macro_in_mbox": true,
-		"unicode_char": "00C5"
+		"unicode_char": "Å"
 	},
 	"\\Alpha": {
 		"callback": [
@@ -613,7 +613,7 @@
 	"\\Coppa": {
 		"nullary_macro_in_mbox": true,
 		"teubner_required": true,
-		"unicode_char": "03D8"
+		"unicode_char": "Ϙ"
 	},
 	"\\Cup": {
 		"ams_required": true,
@@ -646,7 +646,7 @@
 	"\\Digamma": {
 		"nullary_macro_in_mbox": true,
 		"teubner_required": true,
-		"unicode_char": "03DC"
+		"unicode_char": "Ϝ"
 	},
 	"\\Doteq": {
 		"nullary_macro_aliase": "\\doteqdot",
@@ -739,7 +739,7 @@
 	"\\Koppa": {
 		"nullary_macro_in_mbox": true,
 		"teubner_required": true,
-		"unicode_char": "03DE"
+		"unicode_char": "Ϟ"
 	},
 	"\\LaTeX": {
 		"callback": [
@@ -943,7 +943,7 @@
 	"\\Sampi": {
 		"nullary_macro_in_mbox": true,
 		"teubner_required": true,
-		"unicode_char": "03E0"
+		"unicode_char": "Ϡ"
 	},
 	"\\Sigma": {
 		"identifier": [
@@ -956,7 +956,7 @@
 	"\\Stigma": {
 		"nullary_macro_in_mbox": true,
 		"teubner_required": true,
-		"unicode_char": "03DA"
+		"unicode_char": "Ϛ"
 	},
 	"\\Subset": {
 		"ams_required": true,
@@ -1911,7 +1911,7 @@
 	"\\coppa": {
 		"nullary_macro_in_mbox": true,
 		"teubner_required": true,
-		"unicode_char": "03D9"
+		"unicode_char": "ϙ"
 	},
 	"\\coprod": {
 		"nullary_macro": true,
@@ -2424,7 +2424,7 @@
 	"\\euro": {
 		"euro_required": true,
 		"nullary_macro_in_mbox": true,
-		"unicode_char": "20AC"
+		"unicode_char": "€"
 	},
 	"\\exist": {
 		"nullary_macro_aliase": "\\exists"
@@ -2507,17 +2507,17 @@
 	"\\geneuro": {
 		"euro_required": true,
 		"nullary_macro_in_mbox": true,
-		"unicode_char": "20AC"
+		"unicode_char": "€"
 	},
 	"\\geneuronarrow": {
 		"euro_required": true,
 		"nullary_macro_in_mbox": true,
-		"unicode_char": "20AC"
+		"unicode_char": "€"
 	},
 	"\\geneurowide": {
 		"euro_required": true,
 		"nullary_macro_in_mbox": true,
-		"unicode_char": "20AC"
+		"unicode_char": "€"
 	},
 	"\\genfrac": {
 		"callback": [
@@ -2944,7 +2944,7 @@
 	"\\koppa": {
 		"nullary_macro_in_mbox": true,
 		"teubner_required": true,
-		"unicode_char": "03DF"
+		"unicode_char": "ϟ"
 	},
 	"\\lArr": {
 		"nullary_macro_aliase": "\\Leftarrow"
@@ -4179,7 +4179,7 @@
 	"\\officialeuro": {
 		"euro_required": true,
 		"nullary_macro_in_mbox": true,
-		"unicode_char": "20AC"
+		"unicode_char": "€"
 	},
 	"\\oiiint": {
 		"callback": [
@@ -4749,7 +4749,7 @@
 	"\\sampi": {
 		"nullary_macro_in_mbox": true,
 		"teubner_required": true,
-		"unicode_char": "03E1"
+		"unicode_char": "ϡ"
 	},
 	"\\scr": {
 		"callback": [
@@ -5026,7 +5026,7 @@
 	"\\stigma": {
 		"nullary_macro_in_mbox": true,
 		"teubner_required": true,
-		"unicode_char": "03DB"
+		"unicode_char": "ϛ"
 	},
 	"\\sub": {
 		"nullary_macro_aliase": "\\subset"
@@ -5417,7 +5417,7 @@
 	},
 	"\\textvisiblespace": {
 		"nullary_macro_in_mbox": true,
-		"unicode_char": "2423"
+		"unicode_char": "␣"
 	},
 	"\\tfrac": {
 		"ams_required": true,
@@ -5903,7 +5903,7 @@
 	"\\varstigma": {
 		"nullary_macro_in_mbox": true,
 		"teubner_required": true,
-		"unicode_char": "03DB"
+		"unicode_char": "ϛ"
 	},
 	"\\varsubsetneq": {
 		"ams_required": true,

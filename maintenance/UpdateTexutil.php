@@ -7,7 +7,7 @@ use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 use MediaWiki\Maintenance\Maintenance;
 
 class UpdateTexutil extends Maintenance {
-	private const GROUP = 'delimiter';
+	private const GROUP = 'unicode_char';
 
 	public function execute() {
 		$jsonFilePath = './src/WikiTexVC/texutil.json';
@@ -19,10 +19,7 @@ class UpdateTexutil extends Maintenance {
 		}
 		$tu = TexUtil::getInstance();
 		foreach ( $tu->getBaseElements()[self::GROUP] as $key => $value ) {
-			if ( !preg_match( "/&#x([0-9A-F]+);/", $value[0], $chr ) ) {
-				continue;
-			}
-			$jsonContent["$key"][self::GROUP][0] = mb_chr( hexdec( ( $chr[1] ) ), 'UTF-8' );
+			$jsonContent["$key"][self::GROUP] = mb_chr( hexdec( $value ), 'UTF-8' );
 
 			// Sort the entry alphabetically
 			ksort( $jsonContent["$key"] );

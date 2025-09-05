@@ -1074,10 +1074,9 @@ class BaseParsing {
 					$op = $operatorContent['foundOC'];
 					$macro = TexUtil::getInstance()->nullary_macro_in_mbox( $op ) ?
 						/* tested in \MediaWiki\Extension\Math\Tests\WikiTexVC\TexUtilTest::testUnicodeDefined */
-						[ '&#x' . TexUtil::getInstance()->unicode_char( $op ) . ';' ] :
+						[ TexUtil::getInstance()->unicode_char( $op ) ] :
 						TexUtil::getInstance()->identifier( $op );
 					$input = $macro[0] ?? $op;
-					// @phan-suppress-next-line PhanTypeMismatchArgumentNullable - false positive see above
 					return new MMLmrow( TexClass::ORD, [], new MMLmo( "", [], MMLutil::uc2xNotation( $input ) ) );
 				} else {
 					return new MMLmrow( TexClass::ORD, [], new MMLmtext( "", [], "\mbox" ) );
