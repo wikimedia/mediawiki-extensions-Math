@@ -4291,7 +4291,7 @@
 	"\\overarc": {
 		"callback": [
 			"underOver",
-			"23DC",
+			"⏜",
 			1
 		],
 		"fun_ar1nb": true,
@@ -4300,7 +4300,7 @@
 	"\\overbrace": {
 		"callback": [
 			"underOver",
-			"23DE",
+			"⏞",
 			1
 		],
 		"fun_ar1nb": true,
@@ -4309,7 +4309,7 @@
 	"\\overleftarrow": {
 		"callback": [
 			"underOver",
-			"2190"
+			"←"
 		],
 		"fun_ar1": true,
 		"is_letter_mod": true,
@@ -4319,7 +4319,7 @@
 		"ams_required": true,
 		"callback": [
 			"underOver",
-			"2194"
+			"↔"
 		],
 		"fun_ar1": true,
 		"is_letter_mod": true,
@@ -4328,7 +4328,7 @@
 	"\\overline": {
 		"callback": [
 			"underOver",
-			"203E"
+			"‾"
 		],
 		"fun_ar1": true,
 		"is_letter_mod": true,
@@ -4337,13 +4337,13 @@
 	"\\overparen": {
 		"callback": [
 			"underOver",
-			"23DC"
+			"⏜"
 		]
 	},
 	"\\overrightarrow": {
 		"callback": [
 			"underOver",
-			"2192"
+			"→"
 		],
 		"fun_ar1": true,
 		"is_letter_mod": true,
@@ -5603,7 +5603,7 @@
 	"\\underbrace": {
 		"callback": [
 			"underOver",
-			"23DF",
+			"⏟",
 			1
 		],
 		"fun_ar1nb": true,
@@ -5612,21 +5612,19 @@
 	"\\underleftarrow": {
 		"callback": [
 			"underOver",
-			"2190"
+			"←"
 		]
 	},
 	"\\underleftrightarrow": {
 		"callback": [
 			"underOver",
-			"2194"
+			"↔"
 		]
 	},
 	"\\underline": {
 		"callback": [
 			"underOver",
-			"_",
-			null,
-			true
+			"_"
 		],
 		"fun_ar1": true,
 		"is_letter_mod": true
@@ -5634,13 +5632,13 @@
 	"\\underparen": {
 		"callback": [
 			"underOver",
-			"23DD"
+			"⏝"
 		]
 	},
 	"\\underrightarrow": {
 		"callback": [
 			"underOver",
-			"2192"
+			"→"
 		]
 	},
 	"\\underset": {

@@ -732,8 +732,7 @@ class BaseParsing {
 	}
 
 	public static function underOver( Fun1 $node, $passedArgs, $operatorContent,
-		$name, $operatorId = null, $stack = null, $nonHex = false
-	): MMLbase {
+		$name, $operatorSymbol = null, $stack = null ): MMLbase {
 		// tbd verify if stack interpreted correctly ?
 		$texClass = $stack ? TexClass::OP : TexClass::ORD; // ORD or ""
 
@@ -749,11 +748,10 @@ class BaseParsing {
 			);
 		}
 
-		$inner = $nonHex ? $operatorId : MMLutil::number2xNotation( $operatorId );
-		if ( $operatorId == 2015 ) { // eventually move such cases to mapping
-			$mo = new MMLmo( "", [ "accent" => "true" ], $inner );
+		if ( $operatorSymbol === '―' ) { // eventually move such cases to mapping
+			$mo = new MMLmo( "", [ "accent" => "true" ], $operatorSymbol );
 		} else {
-			$mo = new MMLmo( "", [], $inner );
+			$mo = new MMLmo( "", [], $operatorSymbol );
 		}
 		return new MMLmrow( $texClass, [], $movun::newSubtree( $node->getArg()->toMMLtree( $passedArgs ), $mo ) );
 	}

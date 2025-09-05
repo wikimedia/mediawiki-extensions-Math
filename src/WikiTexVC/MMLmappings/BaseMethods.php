@@ -169,6 +169,9 @@ class BaseMethods {
 			unset( $args["texClass"] );
 		}
 
+		$state = [];
+		$uc = $node->changeUnicodeFontInput( $uc, $state, $args );
+
 		return new MMLmi( "", $args, $uc );
 	}
 

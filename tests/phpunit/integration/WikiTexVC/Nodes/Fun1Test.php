@@ -154,7 +154,7 @@ class Fun1Test extends MediaWikiIntegrationTestCase {
 	 */
 	public function testBoldLambda() {
 		$f = new Fun1( '\\mathbf', new Literal( '\\lambda' ) );
-		$this->assertStringContainsString( 'λ', $f->toMMLTree(),
+		$this->assertStringContainsString( '𝝀', $f->toMMLTree(),
 			'Should render bold lambda in MathML.' );
 	}
 }
