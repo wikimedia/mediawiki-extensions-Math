@@ -7,7 +7,7 @@ use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 use MediaWiki\Maintenance\Maintenance;
 
 class UpdateTexutil extends Maintenance {
-	private const GROUP = 'operator_rendering';
+	private const GROUP = 'delimiter';
 
 	public function execute() {
 		$jsonFilePath = './src/WikiTexVC/texutil.json';

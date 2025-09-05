@@ -98,7 +98,7 @@ class LiteralTest extends MediaWikiIntegrationTestCase {
 
 	public function testDoubleVerticalLine() {
 		$n = new Literal( '\\|' );
-		$this->assertStringContainsString( '&#x2016;</mo>', $n->toMMLTree(),
+		$this->assertStringContainsString( '‖</mo>', $n->toMMLTree(),
 			'double vertical line should render as special operator.' );
 	}
 

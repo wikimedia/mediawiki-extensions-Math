@@ -139,7 +139,7 @@
 	},
 	"<": {
 		"delimiter": [
-			"&#x27E8;"
+			"⟨"
 		],
 		"operator_infix": [
 			" exports.MO.REL",
@@ -178,7 +178,7 @@
 	},
 	">": {
 		"delimiter": [
-			"&#x27E9;"
+			"⟩"
 		],
 		"operator_infix": [
 			" exports.MO.REL",
@@ -500,7 +500,7 @@
 	},
 	"\\Arrowvert": {
 		"delimiter": [
-			"&#x2016;"
+			"‖"
 		]
 	},
 	"\\Bbb": {
@@ -656,7 +656,7 @@
 	},
 	"\\Downarrow": {
 		"delimiter": [
-			"&#x21D3;"
+			"⇓"
 		],
 		"other_delimiters1": true
 	},
@@ -999,13 +999,13 @@
 	},
 	"\\Uparrow": {
 		"delimiter": [
-			"&#x21D1;"
+			"⇑"
 		],
 		"other_delimiters1": true
 	},
 	"\\Updownarrow": {
 		"delimiter": [
-			"&#x21D5;"
+			"⇕"
 		],
 		"other_delimiters1": true
 	},
@@ -1025,7 +1025,7 @@
 	},
 	"\\Vert": {
 		"delimiter": [
-			"&#x2016;"
+			"‖"
 		],
 		"other_delimiters1": true
 	},
@@ -1169,7 +1169,7 @@
 	},
 	"\\arrowvert": {
 		"delimiter": [
-			"&#x23D0;"
+			"⏐"
 		]
 	},
 	"\\ast": {
@@ -1646,7 +1646,7 @@
 	},
 	"\\bracevert": {
 		"delimiter": [
-			"&#x23AA;"
+			"⎪"
 		]
 	},
 	"\\brack": {
@@ -2272,7 +2272,7 @@
 	},
 	"\\downarrow": {
 		"delimiter": [
-			"&#x2193;"
+			"↓"
 		],
 		"other_delimiters1": true
 	},
@@ -2615,7 +2615,7 @@
 	},
 	"\\gt": {
 		"delimiter": [
-			"&#x27E9;"
+			"⟩"
 		],
 		"operator_rendering": [
 			">"
@@ -2952,7 +2952,7 @@
 	"\\lVert": {
 		"ams_required": true,
 		"delimiter": [
-			"&#x2016;"
+			"‖"
 		],
 		"nullary_macro": true
 	},
@@ -2975,7 +2975,7 @@
 	},
 	"\\langle": {
 		"delimiter": [
-			"&#x27E8;"
+			"⟨"
 		],
 		"other_delimiters1": true
 	},
@@ -2996,7 +2996,7 @@
 	},
 	"\\lceil": {
 		"delimiter": [
-			"&#x2308;"
+			"⌈"
 		],
 		"other_delimiters1": true
 	},
@@ -3172,7 +3172,7 @@
 	},
 	"\\lfloor": {
 		"delimiter": [
-			"&#x230A;"
+			"⌊"
 		],
 		"other_delimiters1": true
 	},
@@ -3182,7 +3182,7 @@
 	},
 	"\\lgroup": {
 		"delimiter": [
-			"&#x27EE;"
+			"⟮"
 		]
 	},
 	"\\lhd": {
@@ -3231,7 +3231,7 @@
 	"\\llcorner": {
 		"ams_required": true,
 		"delimiter": [
-			"&#x231E;"
+			"⌞"
 		],
 		"other_delimiters1": true
 	},
@@ -3249,7 +3249,7 @@
 	},
 	"\\lmoustache": {
 		"delimiter": [
-			"&#x23B0;"
+			"⎰"
 		]
 	},
 	"\\ln": {
@@ -3397,13 +3397,13 @@
 	"\\lrcorner": {
 		"ams_required": true,
 		"delimiter": [
-			"&#x231F;"
+			"⌟"
 		],
 		"other_delimiters1": true
 	},
 	"\\lt": {
 		"delimiter": [
-			"&#x27E8;"
+			"⟨"
 		],
 		"operator_rendering": [
 			"<"
@@ -4578,7 +4578,7 @@
 	"\\rVert": {
 		"ams_required": true,
 		"delimiter": [
-			"&#x2016;"
+			"‖"
 		],
 		"nullary_macro": true
 	},
@@ -4592,7 +4592,7 @@
 	},
 	"\\rangle": {
 		"delimiter": [
-			"&#x27E9;"
+			"⟩"
 		],
 		"other_delimiters1": true
 	},
@@ -4613,7 +4613,7 @@
 	},
 	"\\rceil": {
 		"delimiter": [
-			"&#x2309;"
+			"⌉"
 		],
 		"other_delimiters1": true
 	},
@@ -4631,13 +4631,13 @@
 	},
 	"\\rfloor": {
 		"delimiter": [
-			"&#x230B;"
+			"⌋"
 		],
 		"other_delimiters1": true
 	},
 	"\\rgroup": {
 		"delimiter": [
-			"&#x27EF;"
+			"⟯"
 		]
 	},
 	"\\rhd": {
@@ -4736,7 +4736,7 @@
 	},
 	"\\rmoustache": {
 		"delimiter": [
-			"&#x23B1;"
+			"⎱"
 		]
 	},
 	"\\rtimes": {
@@ -5596,7 +5596,7 @@
 	"\\ulcorner": {
 		"ams_required": true,
 		"delimiter": [
-			"&#x231C;"
+			"⌜"
 		],
 		"other_delimiters1": true
 	},
@@ -5661,13 +5661,13 @@
 	},
 	"\\uparrow": {
 		"delimiter": [
-			"&#x2191;"
+			"↑"
 		],
 		"other_delimiters1": true
 	},
 	"\\updownarrow": {
 		"delimiter": [
-			"&#x2195;"
+			"↕"
 		],
 		"other_delimiters1": true
 	},
@@ -5708,7 +5708,7 @@
 	"\\urcorner": {
 		"ams_required": true,
 		"delimiter": [
-			"&#x231D;"
+			"⌝"
 		],
 		"other_delimiters1": true
 	},
@@ -6175,7 +6175,7 @@
 	},
 	"\\|": {
 		"delimiter": [
-			"&#x2016;"
+			"‖"
 		]
 	},
 	"\\}": {
