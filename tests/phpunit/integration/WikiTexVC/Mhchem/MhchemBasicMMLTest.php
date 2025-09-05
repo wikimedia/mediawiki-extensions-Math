@@ -41,7 +41,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 				[
 					'<mi',
 					$value[1] . '</mi>',
-					'&#x223C;</mo>'
+					'∼</mo>'
 				]
 			];
 		}
@@ -64,7 +64,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 			[
 				"A \\longRightleftharpoons R",
 				[
-					'&#x2212;</mo>',
+					'−</mo>',
 					'&#x21C0;',
 					'<mpadded height="0" depth="0">',
 					'<mspace ',
@@ -125,7 +125,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 			],
 			[
 				"\\rlap{-}",
-				[ '&#x2212;</mo></mpadded>' ]
+				[ '−</mo></mpadded>' ]
 			],
 			[
 				"\ce{\\smash[t]{2}}",

@@ -186,8 +186,8 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testGetOperatorByKey() {
-		$this->assertEquals( '&#x221A;', TexUtil::getInstance()->operator_rendering( '\\surd' )[0] );
-		$this->assertEquals( '&#x2212;', TexUtil::getInstance()->operator_rendering( '-' )[0] );
+		$this->assertEquals( '√', TexUtil::getInstance()->operator_rendering( '\\surd' )[0] );
+		$this->assertEquals( '−', TexUtil::getInstance()->operator_rendering( '-' )[0] );
 	}
 
 	public function testGetColorByKey() {

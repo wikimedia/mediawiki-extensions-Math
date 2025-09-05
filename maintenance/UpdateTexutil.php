@@ -7,6 +7,8 @@ use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 use MediaWiki\Maintenance\Maintenance;
 
 class UpdateTexutil extends Maintenance {
+	private const GROUP = 'operator_rendering';
+
 	public function execute() {
 		$jsonFilePath = './src/WikiTexVC/texutil.json';
 
@@ -16,12 +18,11 @@ class UpdateTexutil extends Maintenance {
 			die( "Failed to decode texutil.json. Please check the file format.\n" );
 		}
 		$tu = TexUtil::getInstance();
-
-		foreach ( $tu->getBaseElements()['identifier'] as $key => $value ) {
-			if ( !preg_match( "/\\\\u([0-9A-F]+)/", $value[0], $chr ) ) {
+		foreach ( $tu->getBaseElements()[self::GROUP] as $key => $value ) {
+			if ( !preg_match( "/&#x([0-9A-F]+);/", $value[0], $chr ) ) {
 				continue;
 			}
-			$jsonContent["$key"]['identifier'][0] = mb_chr( hexdec( ( $chr[1] ) ), 'UTF-8' );
+			$jsonContent["$key"][self::GROUP][0] = mb_chr( hexdec( ( $chr[1] ) ), 'UTF-8' );
 
 			// Sort the entry alphabetically
 			ksort( $jsonContent["$key"] );
