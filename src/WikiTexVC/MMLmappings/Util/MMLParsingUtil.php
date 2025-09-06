@@ -51,6 +51,15 @@ class MMLParsingUtil {
 				break;
 			case "textrm":
 				break;
+			case "mathrm":
+				// Bold always has precedence
+				$passedVariant = $passedArgs['mathvariant'] ?? '';
+				if ( str_contains( $passedVariant, 'bold' ) ) {
+					$args = [ 'mathvariant' => $passedVariant ];
+					break;
+				}
+				$args = [ 'mathvariant' => Variants::NORMAL ];
+				break;
 			case "emph":
 				// Toggle by passed args in emph
 				if ( isset( $passedArgs['mathvariant'] ) ) {

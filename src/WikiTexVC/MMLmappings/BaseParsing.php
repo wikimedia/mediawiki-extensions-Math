@@ -204,7 +204,8 @@ class BaseParsing {
 		if ( $isOperator ) {
 			return new MMLmrow( TexClass::ORD, [], new MMLmo( "", [], $char ) );
 		}
-		return new MMLmrow( TexClass::ORD, [], new MMLmi( "", [ 'mathvariant' => Variants::NORMAL ], $char ) );
+		$variant = $passedArgs['mathvariant'] ?? Variants::NORMAL;
+		return new MMLmrow( TexClass::ORD, [], new MMLmi( "", [ 'mathvariant' => $variant ], $char ) );
 	}
 
 	public static function cFrac( $node, $passedArgs, $operatorContent, $name ): MMLbase {

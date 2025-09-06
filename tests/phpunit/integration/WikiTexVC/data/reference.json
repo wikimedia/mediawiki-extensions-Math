@@ -1290,17 +1290,17 @@
     {
         "input": "\\boldsymbol{\\Alpha\\Beta\\Gamma\\Delta\\Epsilon\\Zeta\\Eta\\Theta} \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">A<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">B<\/mi><\/mrow><mi>𝜞<\/mi><mi>𝜟<\/mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">E<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">Z<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">H<\/mi><\/mrow><mi>𝜣<\/mi><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>𝑨<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi>𝑩<\/mi><\/mrow><mi>𝜞<\/mi><mi>𝜟<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>𝑬<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi>𝒁<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi>𝑯<\/mi><\/mrow><mi>𝜣<\/mi><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\boldsymbol{\\Iota\\Kappa\\Lambda\\Mu\\Nu\\Xi\\Pi\\Rho} \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">I<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">K<\/mi><\/mrow><mi>𝜦<\/mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">M<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">N<\/mi><\/mrow><mi>𝜩<\/mi><mi>𝜫<\/mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">P<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>𝑰<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi>𝑲<\/mi><\/mrow><mi>𝜦<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>𝑴<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi>𝑵<\/mi><\/mrow><mi>𝜩<\/mi><mi>𝜫<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>𝑷<\/mi><\/mrow><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\boldsymbol{\\Sigma\\Tau\\Upsilon\\Phi\\Chi\\Psi\\Omega} \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>𝜮<\/mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">T<\/mi><\/mrow><mi>𝜰<\/mi><mi>𝜱<\/mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">X<\/mi><\/mrow><mi>𝜳<\/mi><mi>𝜴<\/mi><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>𝜮<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>𝑻<\/mi><\/mrow><mi>𝜰<\/mi><mi>𝜱<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>𝑿<\/mi><\/mrow><mi>𝜳<\/mi><mi>𝜴<\/mi><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\boldsymbol{\\alpha\\beta\\gamma\\delta\\epsilon\\zeta\\eta\\theta} \\!",
