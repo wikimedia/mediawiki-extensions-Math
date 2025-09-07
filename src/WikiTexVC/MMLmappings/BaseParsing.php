@@ -1100,12 +1100,11 @@ class BaseParsing {
 				// no break
 			case "\\texttt":
 				$state = [ "inHBox" => true, 'squashLiterals' => true ];
+				$fontArgs = MMLParsingUtil::getFontArgs( $name, null, null );
 				$inner = $node->getArg()->isCurly() ? $node->getArg()->toMMLtree(
-					[], $state )
-					: $node->getArg()->toMMLtree( [ "fromHBox" => true ] );
-				return new MMLmtext( "",
-				MMLParsingUtil::getFontArgs( $name, null, null ),
-				$inner ?? '' );
+					$fontArgs, $state )
+					: $node->getArg()->toMMLtree( $fontArgs + [ "fromHBox" => true ] );
+				return new MMLmtext( "", $fontArgs, $inner ?? '' );
 
 		}
 

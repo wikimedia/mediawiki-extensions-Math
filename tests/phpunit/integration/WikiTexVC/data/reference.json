@@ -2480,7 +2480,7 @@
         "input": "\\textbf{1}",
         "params": [],
         "bug": "T397120",
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mtext mathvariant=\"bold\">1<\/mtext><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mtext mathvariant=\"bold\">𝟏<\/mtext><\/math>"
     },
     {
         "input": "\\left\\{ a \\Bigg\\vert \\int \\right\\}",
