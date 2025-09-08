@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"math_failure": "Kié-sak sṳt-phai",
+	"math_syntax_error": "ngî-fap chho-ngu",
+	"math_unknown_error": "Mò-tî chho-ngu",
+	"math_unknown_function": "Mò-tî chhṳ-su",
+	"prefs-math": "Sṳ-ho̍k kûng-sṳt"
+}
