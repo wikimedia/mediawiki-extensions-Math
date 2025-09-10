@@ -48,6 +48,17 @@ class MMLbase {
 	}
 
 	/**
+	 * True if the current object is empty (no children and not a leaf)
+	 * @return bool
+	 */
+	public function isEmpty(): bool {
+		if ( $this->hasChildren() || $this instanceof MMLleaf ) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
 	 * True if the current object has child objects
 	 * @return bool
 	 */

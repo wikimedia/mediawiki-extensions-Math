@@ -72,6 +72,7 @@ class BaseParsing {
 		if ( !$entity ) {
 			$entity = $accent;
 		}
+		$inner = $node->getArg()->toMMLtree( $passedArgs );
 
 		return new MMLmrow(
 			TexClass::ORD,
@@ -80,7 +81,7 @@ class BaseParsing {
 				TexClass::ORD,
 				[],
 				MMLmover::newSubtree(
-					$node->getArg()->toMMLtree( $passedArgs ),
+					!$inner->isEmpty() ? $inner : ( new MMLmrow() ),
 					( new MMLmo( "", $attrs, $entity ) )
 				)
 			)

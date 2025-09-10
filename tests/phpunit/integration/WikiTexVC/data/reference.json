@@ -2493,5 +2493,11 @@
         "params": [],
         "bug": "T402883",
         "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msup><mi><\/mi><mrow data-mjx-texclass=\"ORD\"><mi>x<\/mi><\/mrow><\/msup><\/math>"
+    },
+    {
+        "input": "\\hat{}",
+        "params": [],
+        "bug": "T387249",
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mover><mrow data-mjx-texclass=\"ORD\"><\/mrow><mo>^<\/mo><\/mover><\/mrow><\/mrow><\/math>"
     }
 ]
