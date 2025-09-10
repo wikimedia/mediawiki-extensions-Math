@@ -16,9 +16,6 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsup;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
-/**
- *
- */
 class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	protected bool $curly = false;
 	private ?LengthSpec $rowSpecs = null;

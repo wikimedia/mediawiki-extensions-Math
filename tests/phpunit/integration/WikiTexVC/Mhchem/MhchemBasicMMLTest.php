@@ -11,7 +11,6 @@ use MediaWikiIntegrationTestCase;
  * to WikiTexVC for parsing texified mhchem output.
  *
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
- *
  */
 final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 
