@@ -235,4 +235,8 @@ class Literal extends TexNode {
 		);
 	}
 
+	public function appendText( string $text ): void {
+		$this->arg .= $text;
+	}
+
 }

@@ -157,17 +157,22 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return false;
 	}
 
-	public function checkForDerivatives( int $iStart, array $args ): int {
+	public function checkForDerivatives( int $start, array $args ): int {
 		$ctr = 0;
-		for ( $i = $iStart, $count = count( $this->args ); $i < $count; $i++ ) {
-			$followUp = $args[$i];
-			if ( $followUp instanceof Literal && $followUp->getArg() === "'" ) {
+		$started = false;
+		foreach ( $args as $key => $arg ) {
+			if ( !$started ) {
+				if ( $key == $start ) {
+					$started = true;
+				}
+				continue;
+			}
+			if ( $arg instanceof Literal && $arg->getArg() === "'" ) {
 				$ctr++;
 			} else {
 				break;
 			}
 		}
-
 		return $ctr;
 	}
 
@@ -214,6 +219,22 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		$this->curly = false;
 	}
 
+	private function squashNumbers(): void {
+		$lastNumber = false;
+		foreach ( $this->args as $key => $arg ) {
+			if ( !( $arg instanceof Literal ) || !preg_match( "/[0-9.]/", $arg->getArg() ) ) {
+				$lastNumber = false;
+				continue;
+			}
+			if ( $lastNumber !== false ) {
+				$this->args[$lastNumber]->appendText( $arg->getArg() );
+				unset( $this->args[$key] );
+			} else {
+				$lastNumber = $key;
+			}
+		}
+	}
+
 	/** @inheritDoc */
 	public function toMMLTree( $arguments = [], &$state = [] ) {
 		// Everything here is for parsing displaystyle, probably refactored to WikiTexVC grammar later
@@ -223,15 +244,21 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		if ( array_key_exists( 'squashLiterals', $state ) ) {
 			$this->squashLiterals();
 		}
-		for ( $i = 0, $count = count( $this->args ); $i < $count; $i++ ) {
-			$current = $this->args[$i];
-			$next = $this->args[$i + 1] ?? null;
+		$this->squashNumbers();
+		$skip = 0;
+		foreach ( $this->args  as $key => $current ) {
+			if ( $skip > 0 ) {
+				$skip--;
+				continue;
+			}
+			$next = next( $this->args );
+			$next = $next === false ? null : $next;
 			// Check for sideset
 			$foundSideset = $this->checkForSideset( $current, $next );
 			if ( $foundSideset ) {
 				$state["sideset"] = $foundSideset;
 				// Skipping the succeeding Literal
-				$i++;
+				$skip++;
 			}
 
 			// Check for limits
@@ -251,10 +278,9 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 			}
 
 			// Check for derivatives
-			$foundDeriv = $this->checkForDerivatives( $i + 1, $this->args );
+			$foundDeriv = $this->checkForDerivatives( $key, $this->args );
 			if ( $foundDeriv > 0 ) {
-				// skip the next indices which are derivative characters
-				$i += $foundDeriv;
+				$skip += $foundDeriv;
 				$state["deriv"] = $foundDeriv;
 			}
 
@@ -287,7 +313,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 					$currentContainer = end( $mmlStyles );
 					$currentContainer->addChild( $content );
 					unset( $state["styleargs"] );
-					$i++;
+					$skip++;
 				}
 			} else {
 				// Start the style indicator in cases like \textstyle abc
@@ -308,11 +334,11 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 			$parent = end( $mmlStyles );
 			$parent->addChild( $container );
 		}
-
+		$output = $mmlStyles[0]->getChildren();
 		if ( $this->curly && $this->getLength() > 1 ) {
-			return new MMLmrow( TexClass::ORD, [], ...$mmlStyles[0]->getChildren() );
+			return new MMLmrow( TexClass::ORD, [], ...$output );
 		}
-		return new MMLarray( ...$mmlStyles[0]->getChildren() );
+		return new MMLarray( ...$output );
 	}
 
 	/**

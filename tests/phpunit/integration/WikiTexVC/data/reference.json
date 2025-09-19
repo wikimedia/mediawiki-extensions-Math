@@ -103,7 +103,7 @@
     {
         "input": "\\ln c, \\lg d = \\log e, \\log_{10} f \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mi>ln<\/mi><mo>&#x2061;<\/mo><mi>c<\/mi><mo>,<\/mo><mi>lg<\/mi><mo>&#x2061;<\/mo><mi>d<\/mi><mo stretchy=\"false\">=<\/mo><mi>log<\/mi><mo>&#x2061;<\/mo><mi>e<\/mi><mo>,<\/mo><msub><mi>log<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><mn>0<\/mn><\/mrow><\/mrow><\/msub><mi>f<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mi>ln<\/mi><mo>&#x2061;<\/mo><mi>c<\/mi><mo>,<\/mo><mi>lg<\/mi><mo>&#x2061;<\/mo><mi>d<\/mi><mo stretchy=\"false\">=<\/mo><mi>log<\/mi><mo>&#x2061;<\/mo><mi>e<\/mi><mo>,<\/mo><msub><mi>log<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>10<\/mn><\/mrow><\/msub><mi>f<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>",
         "skipped": false
     },
     {
@@ -683,7 +683,7 @@
     {
         "input": "10^{30} a^{2+2}",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mn>1<\/mn><msup><mn>0<\/mn><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>3<\/mn><mn>0<\/mn><\/mrow><\/mrow><\/msup><msup><mi>a<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><mo stretchy=\"false\">+<\/mo><mn>2<\/mn><\/mrow><\/mrow><\/msup><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mn>1<\/mn><msup><mn>0<\/mn><mrow data-mjx-texclass=\"ORD\"><mn>30<\/mn><\/mrow><\/msup><msup><mi>a<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><mo stretchy=\"false\">+<\/mo><mn>2<\/mn><\/mrow><\/mrow><\/msup><\/math>"
     },
     {
         "input": "a_{i,j} b_{f'}",
@@ -784,12 +784,12 @@
     {
         "input": "\\overbrace{ 1+2+\\cdots+100 }^{5050}",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mover><mrow data-mjx-texclass=\"OP\"><mover><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><mo stretchy=\"false\">+<\/mo><mn>2<\/mn><mo stretchy=\"false\">+<\/mo><mo stretchy=\"false\">⋯<\/mo><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>0<\/mn><mn>0<\/mn><\/mrow><mo>⏞<\/mo><\/mover><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>5<\/mn><mn>0<\/mn><mn>5<\/mn><mn>0<\/mn><\/mrow><\/mrow><\/mover><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mover><mrow data-mjx-texclass=\"OP\"><mover><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><mo stretchy=\"false\">+<\/mo><mn>2<\/mn><mo stretchy=\"false\">+<\/mo><mo stretchy=\"false\">⋯<\/mo><mo stretchy=\"false\">+<\/mo><mn>100<\/mn><\/mrow><mo>⏞<\/mo><\/mover><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>5050<\/mn><\/mrow><\/mover><\/math>"
     },
     {
         "input": "\\underbrace{ a+b+\\cdots+z }_{26}",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><munder><mrow data-mjx-texclass=\"OP\"><munder><mrow data-mjx-texclass=\"ORD\"><mi>a<\/mi><mo stretchy=\"false\">+<\/mo><mi>b<\/mi><mo stretchy=\"false\">+<\/mo><mo stretchy=\"false\">⋯<\/mo><mo stretchy=\"false\">+<\/mo><mi>z<\/mi><\/mrow><mo>⏟<\/mo><\/munder><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><mn>6<\/mn><\/mrow><\/mrow><\/munder><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><munder><mrow data-mjx-texclass=\"OP\"><munder><mrow data-mjx-texclass=\"ORD\"><mi>a<\/mi><mo stretchy=\"false\">+<\/mo><mi>b<\/mi><mo stretchy=\"false\">+<\/mo><mo stretchy=\"false\">⋯<\/mo><mo stretchy=\"false\">+<\/mo><mi>z<\/mi><\/mrow><mo>⏟<\/mo><\/munder><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>26<\/mn><\/mrow><\/munder><\/math>"
     },
     {
         "input": "\\sum_{k=1}^N k^2",
@@ -913,17 +913,17 @@
     {
         "input": "\\frac{2}{4}=0.5",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>4<\/mn><\/mrow><\/mfrac><\/mrow><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><mo stretchy=\"false\">.<\/mo><mn>5<\/mn><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>4<\/mn><\/mrow><\/mfrac><\/mrow><mo stretchy=\"false\">=<\/mo><mn>0.5<\/mn><\/math>"
     },
     {
         "input": "\\tfrac{2}{4} = 0.5",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>4<\/mn><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><mo stretchy=\"false\">.<\/mo><mn>5<\/mn><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>4<\/mn><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">=<\/mo><mn>0.5<\/mn><\/math>"
     },
     {
         "input": "\\dfrac{2}{4} = 0.5 \\qquad \\dfrac{2}{c + \\dfrac{2}{d + \\dfrac{2}{4}}} = a",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>4<\/mn><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><mo stretchy=\"false\">.<\/mo><mn>5<\/mn><mspace width=\"2em\"><\/mspace><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>c<\/mi><mo stretchy=\"false\">+<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>d<\/mi><mo stretchy=\"false\">+<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>4<\/mn><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">=<\/mo><mi>a<\/mi><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>4<\/mn><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">=<\/mo><mn>0.5<\/mn><mspace width=\"2em\"><\/mspace><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>c<\/mi><mo stretchy=\"false\">+<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>d<\/mi><mo stretchy=\"false\">+<\/mo><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>4<\/mn><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><\/mrow><\/mrow><\/mfrac><\/mrow><\/mstyle><\/mrow><mo stretchy=\"false\">=<\/mo><mi>a<\/mi><\/math>"
     },
     {
         "input": "\\cfrac{2}{c + \\cfrac{2}{d + \\cfrac{2}{4}}} = a",
@@ -1285,7 +1285,7 @@
     {
         "input": "\\mathbf{0123456789} \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>𝟎<\/mn><mn>𝟏<\/mn><mn>𝟐<\/mn><mn>𝟑<\/mn><mn>𝟒<\/mn><mn>𝟓<\/mn><mn>𝟔<\/mn><mn>𝟕<\/mn><mn>𝟖<\/mn><mn>𝟗<\/mn><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mn>𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗<\/mn><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\boldsymbol{\\Alpha\\Beta\\Gamma\\Delta\\Epsilon\\Zeta\\Eta\\Theta} \\!",
@@ -1330,7 +1330,7 @@
     {
         "input": "\\mathit{0123456789} \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">0<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">1<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">2<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">3<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">4<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">5<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">6<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">7<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">8<\/mn><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">9<\/mn><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mn data-mjx-variant=\"-tex-mathit\" style=\"font-style: italic\">0123456789<\/mn><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\mathit{\\Alpha\\Beta\\Gamma\\Delta\\Epsilon\\Zeta\\Eta\\Theta} \\!",
@@ -1375,7 +1375,7 @@
     {
         "input": "\\mathrm{0123456789} \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn mathvariant=\"normal\">0<\/mn><mn mathvariant=\"normal\">1<\/mn><mn mathvariant=\"normal\">2<\/mn><mn mathvariant=\"normal\">3<\/mn><mn mathvariant=\"normal\">4<\/mn><mn mathvariant=\"normal\">5<\/mn><mn mathvariant=\"normal\">6<\/mn><mn mathvariant=\"normal\">7<\/mn><mn mathvariant=\"normal\">8<\/mn><mn mathvariant=\"normal\">9<\/mn><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mn mathvariant=\"normal\">0123456789<\/mn><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\mathsf{ABCDEFGHI} \\!",
@@ -1405,7 +1405,7 @@
     {
         "input": "\\mathsf{0123456789} \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>𝟢<\/mn><mn>𝟣<\/mn><mn>𝟤<\/mn><mn>𝟥<\/mn><mn>𝟦<\/mn><mn>𝟧<\/mn><mn>𝟨<\/mn><mn>𝟩<\/mn><mn>𝟪<\/mn><mn>𝟫<\/mn><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mn>𝟢𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫<\/mn><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\mathsf{\\Alpha \\Beta \\Gamma \\Delta \\Epsilon \\Zeta \\Eta \\Theta} \\!",
@@ -1465,7 +1465,7 @@
     {
         "input": "\\mathfrak{0123456789} \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><mn>1<\/mn><mn>2<\/mn><mn>3<\/mn><mn>4<\/mn><mn>5<\/mn><mn>6<\/mn><mn>7<\/mn><mn>8<\/mn><mn>9<\/mn><\/mrow><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mn>0123456789<\/mn><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "x y z",
@@ -1924,12 +1924,12 @@
     {
         "input": "0+1+2+3+4+5+6+7+8+9+10+11+12+13+14+15+16+17+18+19+20+\\cdots",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mn>0<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mo stretchy=\"false\">+<\/mo><mn>2<\/mn><mo stretchy=\"false\">+<\/mo><mn>3<\/mn><mo stretchy=\"false\">+<\/mo><mn>4<\/mn><mo stretchy=\"false\">+<\/mo><mn>5<\/mn><mo stretchy=\"false\">+<\/mo><mn>6<\/mn><mo stretchy=\"false\">+<\/mo><mn>7<\/mn><mo stretchy=\"false\">+<\/mo><mn>8<\/mn><mo stretchy=\"false\">+<\/mo><mn>9<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>0<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>1<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>2<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>3<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>4<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>5<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>6<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>7<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>8<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>9<\/mn><mo stretchy=\"false\">+<\/mo><mn>2<\/mn><mn>0<\/mn><mo stretchy=\"false\">+<\/mo><mo stretchy=\"false\">⋯<\/mo><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mn>0<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mo stretchy=\"false\">+<\/mo><mn>2<\/mn><mo stretchy=\"false\">+<\/mo><mn>3<\/mn><mo stretchy=\"false\">+<\/mo><mn>4<\/mn><mo stretchy=\"false\">+<\/mo><mn>5<\/mn><mo stretchy=\"false\">+<\/mo><mn>6<\/mn><mo stretchy=\"false\">+<\/mo><mn>7<\/mn><mo stretchy=\"false\">+<\/mo><mn>8<\/mn><mo stretchy=\"false\">+<\/mo><mn>9<\/mn><mo stretchy=\"false\">+<\/mo><mn>10<\/mn><mo stretchy=\"false\">+<\/mo><mn>11<\/mn><mo stretchy=\"false\">+<\/mo><mn>12<\/mn><mo stretchy=\"false\">+<\/mo><mn>13<\/mn><mo stretchy=\"false\">+<\/mo><mn>14<\/mn><mo stretchy=\"false\">+<\/mo><mn>15<\/mn><mo stretchy=\"false\">+<\/mo><mn>16<\/mn><mo stretchy=\"false\">+<\/mo><mn>17<\/mn><mo stretchy=\"false\">+<\/mo><mn>18<\/mn><mo stretchy=\"false\">+<\/mo><mn>19<\/mn><mo stretchy=\"false\">+<\/mo><mn>20<\/mn><mo stretchy=\"false\">+<\/mo><mo stretchy=\"false\">⋯<\/mo><\/math>"
     },
     {
         "input": "{0+1+2+3+4+5+6+7+8+9+10+11+12+13+14+15+16+17+18+19+20+\\cdots}",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mo stretchy=\"false\">+<\/mo><mn>2<\/mn><mo stretchy=\"false\">+<\/mo><mn>3<\/mn><mo stretchy=\"false\">+<\/mo><mn>4<\/mn><mo stretchy=\"false\">+<\/mo><mn>5<\/mn><mo stretchy=\"false\">+<\/mo><mn>6<\/mn><mo stretchy=\"false\">+<\/mo><mn>7<\/mn><mo stretchy=\"false\">+<\/mo><mn>8<\/mn><mo stretchy=\"false\">+<\/mo><mn>9<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>0<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>1<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>2<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>3<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>4<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>5<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>6<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>7<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>8<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mn>9<\/mn><mo stretchy=\"false\">+<\/mo><mn>2<\/mn><mn>0<\/mn><mo stretchy=\"false\">+<\/mo><mo stretchy=\"false\">⋯<\/mo><\/mrow><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><mo stretchy=\"false\">+<\/mo><mn>1<\/mn><mo stretchy=\"false\">+<\/mo><mn>2<\/mn><mo stretchy=\"false\">+<\/mo><mn>3<\/mn><mo stretchy=\"false\">+<\/mo><mn>4<\/mn><mo stretchy=\"false\">+<\/mo><mn>5<\/mn><mo stretchy=\"false\">+<\/mo><mn>6<\/mn><mo stretchy=\"false\">+<\/mo><mn>7<\/mn><mo stretchy=\"false\">+<\/mo><mn>8<\/mn><mo stretchy=\"false\">+<\/mo><mn>9<\/mn><mo stretchy=\"false\">+<\/mo><mn>10<\/mn><mo stretchy=\"false\">+<\/mo><mn>11<\/mn><mo stretchy=\"false\">+<\/mo><mn>12<\/mn><mo stretchy=\"false\">+<\/mo><mn>13<\/mn><mo stretchy=\"false\">+<\/mo><mn>14<\/mn><mo stretchy=\"false\">+<\/mo><mn>15<\/mn><mo stretchy=\"false\">+<\/mo><mn>16<\/mn><mo stretchy=\"false\">+<\/mo><mn>17<\/mn><mo stretchy=\"false\">+<\/mo><mn>18<\/mn><mo stretchy=\"false\">+<\/mo><mn>19<\/mn><mo stretchy=\"false\">+<\/mo><mn>20<\/mn><mo stretchy=\"false\">+<\/mo><mo stretchy=\"false\">⋯<\/mo><\/mrow><\/math>"
     },
     {
         "input": "\\int_{-N}^{N} e^x\\, dx",
@@ -2208,12 +2208,12 @@
     {
         "input": "\\phi_n(\\kappa) = 0.033C_n^2\\kappa^{-11\/3},\\quad \\frac{1}{L_0}\\ll\\kappa\\ll\\frac{1}{l_0}",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msub><mi>ϕ<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><\/mrow><\/msub><mo stretchy=\"false\">(<\/mo><mi>κ<\/mi><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><mo stretchy=\"false\">.<\/mo><mn>0<\/mn><mn>3<\/mn><mn>3<\/mn><msubsup><mi>C<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msubsup><msup><mi>κ<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">−<\/mo><mn>1<\/mn><mn>1<\/mn><mo lspace=\"0\" rspace=\"0\">\/<\/mo><mn>3<\/mn><\/mrow><\/mrow><\/msup><mo>,<\/mo><mspace width=\"1em\"><\/mspace><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><msub><mi>L<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><\/mrow><\/mfrac><\/mrow><mo stretchy=\"false\">≪<\/mo><mi>κ<\/mi><mo stretchy=\"false\">≪<\/mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><msub><mi>l<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><\/mrow><\/mfrac><\/mrow><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msub><mi>ϕ<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><\/mrow><\/msub><mo stretchy=\"false\">(<\/mo><mi>κ<\/mi><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mn>0.033<\/mn><msubsup><mi>C<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msubsup><msup><mi>κ<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">−<\/mo><mn>11<\/mn><mo lspace=\"0\" rspace=\"0\">\/<\/mo><mn>3<\/mn><\/mrow><\/mrow><\/msup><mo>,<\/mo><mspace width=\"1em\"><\/mspace><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><msub><mi>L<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><\/mrow><\/mfrac><\/mrow><mo stretchy=\"false\">≪<\/mo><mi>κ<\/mi><mo stretchy=\"false\">≪<\/mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><msub><mi>l<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><\/mrow><\/mfrac><\/mrow><\/math>"
     },
     {
         "input": "\\phi_n(\\kappa) =\n0.033C_n^2\\kappa^{-11\/3},\\quad\n\\frac{1}{L_0}\\ll\\kappa\\ll\\frac{1}{l_0}",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msub><mi>ϕ<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><\/mrow><\/msub><mo stretchy=\"false\">(<\/mo><mi>κ<\/mi><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><mo stretchy=\"false\">.<\/mo><mn>0<\/mn><mn>3<\/mn><mn>3<\/mn><msubsup><mi>C<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msubsup><msup><mi>κ<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">−<\/mo><mn>1<\/mn><mn>1<\/mn><mo lspace=\"0\" rspace=\"0\">\/<\/mo><mn>3<\/mn><\/mrow><\/mrow><\/msup><mo>,<\/mo><mspace width=\"1em\"><\/mspace><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><msub><mi>L<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><\/mrow><\/mfrac><\/mrow><mo stretchy=\"false\">≪<\/mo><mi>κ<\/mi><mo stretchy=\"false\">≪<\/mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><msub><mi>l<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><\/mrow><\/mfrac><\/mrow><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msub><mi>ϕ<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><\/mrow><\/msub><mo stretchy=\"false\">(<\/mo><mi>κ<\/mi><mo stretchy=\"false\">)<\/mo><mo stretchy=\"false\">=<\/mo><mn>0.033<\/mn><msubsup><mi>C<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msubsup><msup><mi>κ<\/mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">−<\/mo><mn>11<\/mn><mo lspace=\"0\" rspace=\"0\">\/<\/mo><mn>3<\/mn><\/mrow><\/mrow><\/msup><mo>,<\/mo><mspace width=\"1em\"><\/mspace><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><msub><mi>L<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><\/mrow><\/mfrac><\/mrow><mo stretchy=\"false\">≪<\/mo><mi>κ<\/mi><mo stretchy=\"false\">≪<\/mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><mrow data-mjx-texclass=\"ORD\"><msub><mi>l<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>0<\/mn><\/mrow><\/msub><\/mrow><\/mfrac><\/mrow><\/math>"
     },
     {
         "input": "f(x) = \\begin{cases}1 & -1 \\le x < 0 \\\\\n\\frac{1}{2} & x = 0 \\\\ 1 - x^2 & \\text{otherwise}\\end{cases}",
@@ -2309,7 +2309,7 @@
     {
         "input": "\\euro 200",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mo>€<\/mo><\/mrow><mn>2<\/mn><mn>0<\/mn><mn>0<\/mn><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mo>€<\/mo><\/mrow><mn>200<\/mn><\/math>"
     },
     {
         "input": "\\geneuro",
