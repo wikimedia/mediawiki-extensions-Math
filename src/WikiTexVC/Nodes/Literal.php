@@ -92,8 +92,9 @@ class Literal extends TexNode {
 		if ( isset( $state["intent-params-expl"] ) ) {
 			$arguments["arg"] = $state["intent-params-expl"];
 		}
-
-		if ( is_numeric( $this->arg ) && empty( $state['inHBox'] ) ) {
+		// handle comma as decimal separator https://www.php.net/manual/en/function.is-numeric.php#88041
+		if ( ( is_numeric( $this->arg ) || is_numeric( str_replace( ',', '.', $this->arg ) ) )
+			&& empty( $state['inHBox'] ) ) {
 			if ( ( $arguments['mathvariant'] ?? '' ) === 'italic' ) {
 				// If the mathvariant italic does not exist for numbers
 				// https://github.com/w3c/mathml/issues/77#issuecomment-2993838911

@@ -222,7 +222,21 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	private function squashNumbers(): void {
 		$lastNumber = false;
 		foreach ( $this->args as $key => $arg ) {
-			if ( !( $arg instanceof Literal ) || !preg_match( "/[0-9.]/", $arg->getArg() ) ) {
+			// Handle the special case of comma as a decimal separator
+			// e.g., 3{,}14}
+			if (
+				$lastNumber !== false &&
+				$arg instanceof TexArray &&
+				$arg->isCurly() &&
+				!$arg->isEmpty() &&
+				$arg->args[0] instanceof Literal &&
+				trim( $arg->args[0]->getArg() ) === ","
+			) {
+				$this->args[$lastNumber]->appendText( ',' );
+				unset( $this->args[$key] );
+				continue;
+			}
+			if ( !( $arg instanceof Literal ) || !preg_match( "/^[0-9.]$/", $arg->getArg() ) ) {
 				$lastNumber = false;
 				continue;
 			}

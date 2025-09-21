@@ -2499,5 +2499,17 @@
         "params": [],
         "bug": "T387249",
         "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mover><mrow data-mjx-texclass=\"ORD\"><\/mrow><mo>^<\/mo><\/mover><\/mrow><\/mrow><\/math>"
+    },
+    {
+        "input": "0{,}99",
+        "params": [],
+        "bug": "T401623",
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mn>0,99<\/mn><\/math>"
+    },
+    {
+        "input": "0,99",
+        "params": [],
+        "bug": "T401623",
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mn>0<\/mn><mo>,<\/mo><mn>99<\/mn><\/math>"
     }
 ]
