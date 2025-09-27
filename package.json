@@ -27,6 +27,6 @@
 		"peggy": "1.0.0",
 		"phpeggy": "^1.0.1",
 		"stylelint-config-wikimedia": "0.18.0",
-		"wdio-mediawiki": "4.1.1"
+		"wdio-mediawiki": "5.1.0"
 	}
 }
