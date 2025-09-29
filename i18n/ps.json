@@ -13,7 +13,11 @@
 	"math-visualeditor-mwlatexinspector-display-block": "بنديز لگول",
 	"math-visualeditor-mwlatexinspector-display-default": "تلواليز",
 	"math-visualeditor-mwlatexinspector-display-inline": "پر ليکه",
+	"math-visualeditor-mwlatexinspector-id": "تړوني پېژند (اختياري)",
+	"math-visualeditor-mwlatexinspector-qid": "ويکي‌اډانې پېژند (له کيو مختاړي سره)",
 	"math-visualeditor-mwmathdialog-title": "ریاضیکي فورمول",
+	"math-visualeditor-symbol-group-chem-addition": "زياتي ترکيبات",
+	"math-visualeditor-symbol-group-chem-arrows": "غبرگون تيران",
 	"math-visualeditor-symbol-group-math-accents": "گړدودونه او ليکنښې",
 	"math-visualeditor-symbol-group-math-arrows": "غشي",
 	"math-visualeditor-symbol-group-math-bounds": "ټکونه",
@@ -33,6 +37,7 @@
 	"prefs-math": "شمېرپوهنه",
 	"mathstatus": "د شمېرپوهنې دريځ",
 	"datatypes-type-math": "شمېرپوهنيزې څرگندونې",
+	"math-wikibase-header": "د شمېرپوهنيزو توکو مالومات",
 	"math-wikibase-formula": "فورموله",
 	"math-wikibase-formula-name": "نوم",
 	"math-wikibase-formula-type": "ډول",
@@ -41,7 +46,9 @@
 	"math-wikibase-formula-information": "شمېرپوهنيزې فورمولې مالومات",
 	"math-wikibase-formula-link-header": "اومتوک سرچينه",
 	"math-wikibase-formula-elements-header": "د فورمولې عناصر",
+	"math-wikibase-special-form-header": "د فورمول نوم مشخص کړئ:",
 	"math-wikibase-special-form-placeholder": "فورمولې سرليک",
 	"math-wikibase-special-form-button": "مالوماتو غوښتنه",
-	"math-wikibase-special-error-header": "تېروتنه"
+	"math-wikibase-special-error-header": "تېروتنه",
+	"math-wikibase-special-error-invalid-argument": "ستاسو ځانگړی‌کړی ويکي‌اډانې توکي پېژند شتون نه لري."
 }
