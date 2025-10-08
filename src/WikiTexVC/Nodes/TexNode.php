@@ -11,16 +11,16 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 
 class TexNode {
 
-	/** @var list<TexNode|string> */
+	/** @var list<self|string> */
 	protected $args;
 
 	/**
 	 * Creates a TexNode
-	 * @param TexNode|string ...$args arguments for this node
+	 * @param self|string ...$args arguments for this node
 	 */
 	public function __construct( ...$args ) {
 		foreach ( $args as $arg ) {
-			if ( !( $arg instanceof TexNode || is_string( $arg ) ) ) {
+			if ( !( $arg instanceof self || is_string( $arg ) ) ) {
 				throw new InvalidArgumentException( 'Wrong input type specified in args.' );
 			}
 		}
@@ -44,7 +44,7 @@ class TexNode {
 	}
 
 	/**
-	 * @return TexNode[]|string[]
+	 * @return self[]|string[]
 	 */
 	public function getArgs(): array {
 		return $this->args;
@@ -91,7 +91,7 @@ class TexNode {
 	 */
 	public function isEmpty() {
 		foreach ( $this->args ?? [] as $arg ) {
-			if ( $arg instanceof TexNode && !$arg->isEmpty() ) {
+			if ( $arg instanceof self && !$arg->isEmpty() ) {
 				return false;
 			}
 			if ( is_string( $arg ) && $arg !== '' ) {
