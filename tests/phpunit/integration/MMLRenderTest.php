@@ -143,7 +143,7 @@ class MMLRenderTest extends MediaWikiIntegrationTestCase {
 
 	public function testApplyFunction6() {
 		$input = "\sin \cos^2";
-		$mathMLtexVC = preg_replace( '/\s/', '', $this->generateMML( $input ) );
+		$mathMLtexVC = preg_replace( '/\s+/', '', $this->generateMML( $input ) );
 		$this->assertStringContainsString( "<msup><mi>cos</mi><mrow", $mathMLtexVC );
 		$this->assertStringContainsString( "sin", $mathMLtexVC );
 	}

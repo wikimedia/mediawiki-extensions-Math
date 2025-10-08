@@ -44,7 +44,7 @@ class MhchemStateMachines {
 		// 1. Collect all states
 		foreach ( $o as $pattern => $d1 ) {
 			foreach ( $d1 as $state => $d2 ) {
-				$stateArray = preg_split( "/\|/", strval( $state ), -1, PREG_SPLIT_NO_EMPTY );
+				$stateArray = preg_split( "/\|+/", strval( $state ), -1, PREG_SPLIT_NO_EMPTY );
 				$o[$pattern][$state]["stateArray"] = $stateArray;
 				foreach ( $stateArray as $value ) {
 					$transitions[$value] = [];
@@ -72,7 +72,7 @@ class MhchemStateMachines {
 					}
 
 					// 2.b Multi-insert
-					$patternArray = preg_split( "/\|/", strval( $pattern ), -1, PREG_SPLIT_NO_EMPTY );
+					$patternArray = preg_split( "/\|+/", strval( $pattern ), -1, PREG_SPLIT_NO_EMPTY );
 					foreach ( $patternArray as $val2 ) {
 						if ( $val === '*' ) {
 							// insert into all

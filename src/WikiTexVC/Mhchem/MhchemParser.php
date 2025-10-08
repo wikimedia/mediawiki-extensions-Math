@@ -84,10 +84,9 @@ class MhchemParser {
 		$buffer['parenthesisLevel'] = 0;
 
 		if ( $input != null ) {
-			$input = preg_replace( "/\n/", "", $input );
+			$input = preg_replace( "/\n+/", "", $input );
 			$input = preg_replace( "/[\x{2212}\x{2013}\x{2014}\x{2010}]/u", "-", $input );
 			$input = preg_replace( "/[\x{2026}]/u", "...", $input );
-
 		}
 
 		// Looks through _mhchemParser.transitions, to execute a matching action
