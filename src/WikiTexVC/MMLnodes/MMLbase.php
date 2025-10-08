@@ -60,7 +60,6 @@ class MMLbase {
 
 	/**
 	 * True if the current object has child objects
-	 * @return bool
 	 */
 	public function hasChildren(): bool {
 		return count( $this->children ) !== 0;
@@ -79,7 +78,6 @@ class MMLbase {
 
 	/**
 	 * Set VisitorFactory for the current element
-	 * @param VisitorFactory $visitorFactory
 	 */
 	public function setVisitorFactory( VisitorFactory $visitorFactory ) {
 		$this->visitorFactory = $visitorFactory;

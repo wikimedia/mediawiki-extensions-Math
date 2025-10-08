@@ -80,7 +80,6 @@ class LocalChecker extends BaseChecker {
 
 	/**
 	 * Returns the string of the last error.
-	 * @return ?Message
 	 */
 	public function getError(): ?Message {
 		$this->run();

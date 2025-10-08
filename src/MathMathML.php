@@ -276,8 +276,6 @@ class MathMathML extends MathRenderer {
 
 	/**
 	 * Does the actual web request to convert TeX to MathML.
-	 *
-	 * @return StatusValue
 	 */
 	protected function doRender(): StatusValue {
 		if ( $this->isEmpty() ) {

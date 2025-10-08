@@ -20,23 +20,14 @@ class Fun2 extends TexNode {
 		$this->arg2 = $arg2;
 	}
 
-	/**
-	 * @return string
-	 */
 	public function getFname(): string {
 		return $this->fname;
 	}
 
-	/**
-	 * @return TexNode
-	 */
 	public function getArg1(): TexNode {
 		return $this->arg1;
 	}
 
-	/**
-	 * @return TexNode
-	 */
 	public function getArg2(): TexNode {
 		return $this->arg2;
 	}

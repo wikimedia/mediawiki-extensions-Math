@@ -44,9 +44,6 @@ class Matrix extends TexArray {
 		return $this->lines;
 	}
 
-	/**
-	 * @return string
-	 */
 	public function getTop(): string {
 		return $this->top;
 	}
@@ -78,9 +75,6 @@ class Matrix extends TexArray {
 		return $this->alignInfo;
 	}
 
-	/**
-	 * @return TexArray
-	 */
 	public function getMainarg(): TexArray {
 		return $this;
 	}

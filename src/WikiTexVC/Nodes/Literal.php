@@ -169,9 +169,6 @@ class Literal extends TexNode {
 		return new MMLmi( "", $arguments, $content );
 	}
 
-	/**
-	 * @return string
-	 */
 	public function getArg(): string {
 		return $this->arg;
 	}
@@ -220,9 +217,6 @@ class Literal extends TexNode {
 		return [];
 	}
 
-	/**
-	 * @return MMLbase
-	 */
 	public function createVlineElement(): MMLbase {
 		return new MMLmrow( TexClass::ORD, [],
 			new MMLmpadded( "", [ "depth" => "0", "height" => "0" ],

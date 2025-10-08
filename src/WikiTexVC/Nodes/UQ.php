@@ -24,16 +24,10 @@ class UQ extends TexNode {
 		$this->up = $up;
 	}
 
-	/**
-	 * @return TexNode
-	 */
 	public function getBase(): TexNode {
 		return $this->base;
 	}
 
-	/**
-	 * @return TexNode
-	 */
 	public function getUp(): TexNode {
 		return $this->up;
 	}

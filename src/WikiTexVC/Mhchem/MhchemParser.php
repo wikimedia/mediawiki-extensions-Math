@@ -27,15 +27,13 @@ use RuntimeException;
  * @license GPL-2.0-or-later
  */
 class MhchemParser {
-	/** @var MhchemPatterns */
+
 	private MhchemPatterns $mhchemPatterns;
 
-	/** @var MhchemStateMachines */
 	private MhchemStateMachines $mhchemStateMachines;
 
 	/** @var LoggerInterface */
 	private $logger;
-	/** @var int */
 	private int $debugIndex;
 
 	/**

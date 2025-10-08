@@ -369,10 +369,6 @@ class MathWikibaseConnector {
 			$snak->getPropertyId()->equals( $this->propertyIdSymbolRepresents );
 	}
 
-	/**
-	 * @param string $qID
-	 * @return string
-	 */
 	public function buildURL( string $qID ): string {
 		return $this->repoLinker->getEntityUrl( new ItemId( $qID ) );
 	}

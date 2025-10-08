@@ -56,7 +56,6 @@ class RestbaseChecker extends BaseChecker {
 
 	/**
 	 * Returns the string of the last error.
-	 * @return ?Message
 	 */
 	public function getError(): ?Message {
 		$err = $this->restbaseInterface->getError();

@@ -62,10 +62,6 @@ class MathConfig {
 	private ServiceOptions $options;
 	private ExtensionRegistry $registry;
 
-	/**
-	 * @param ServiceOptions $options
-	 * @param ExtensionRegistry $registry
-	 */
 	public function __construct(
 		ServiceOptions $options,
 		ExtensionRegistry $registry

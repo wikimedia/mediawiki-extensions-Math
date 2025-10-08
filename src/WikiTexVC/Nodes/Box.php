@@ -21,16 +21,10 @@ class Box extends TexNode {
 		$this->arg = $arg;
 	}
 
-	/**
-	 * @return string
-	 */
 	public function getFname(): string {
 		return $this->fname;
 	}
 
-	/**
-	 * @return string
-	 */
 	public function getArg(): string {
 		return $this->arg;
 	}

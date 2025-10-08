@@ -30,37 +30,22 @@ class Fun4 extends TexNode {
 		$this->arg4 = $arg4;
 	}
 
-	/**
-	 * @return string
-	 */
 	public function getFname(): string {
 		return $this->fname;
 	}
 
-	/**
-	 * @return TexNode
-	 */
 	public function getArg1(): TexNode {
 		return $this->arg1;
 	}
 
-	/**
-	 * @return TexNode
-	 */
 	public function getArg2(): TexNode {
 		return $this->arg2;
 	}
 
-	/**
-	 * @return TexNode
-	 */
 	public function getArg3(): TexNode {
 		return $this->arg3;
 	}
 
-	/**
-	 * @return TexNode
-	 */
 	public function getArg4(): TexNode {
 		return $this->arg4;
 	}

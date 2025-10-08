@@ -23,13 +23,11 @@ use RuntimeException;
  */
 class MhchemPatterns {
 
-	/** @var array */
 	private array $patterns;
 
 	/**
 	 * Matching patterns
 	 * either regexes or function that return null or {match_:"a", remainder:"bc"}
-	 * @return array
 	 */
 	public function getPatterns(): array {
 		return $this->patterns;

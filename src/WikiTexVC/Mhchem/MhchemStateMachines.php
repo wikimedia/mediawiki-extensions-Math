@@ -37,7 +37,6 @@ class MhchemStateMachines {
 	 */
 	private array $genericActions;
 
-	/** @var MhchemParser */
 	private MhchemParser $mhchemParser;
 
 	private static function mhchemCreateTransitions( array $o ): array {
@@ -91,9 +90,6 @@ class MhchemStateMachines {
 		return $transitions;
 	}
 
-	/**
-	 * @return array
-	 */
 	public function getGenericActions(): array {
 		return $this->genericActions;
 	}
