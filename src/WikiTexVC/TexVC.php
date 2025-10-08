@@ -60,6 +60,7 @@ class TexVC {
 	 * @throws Exception in case of a major problem with the check and activated debug option.
 	 */
 	public function check( $input, $options = [], &$warnings = [], bool $texifyMhchem = false ) {
+		$options = ParserUtil::createOptions( $options );
 		try {
 			if ( $texifyMhchem && isset( $options["usemhchem"] ) && $options["usemhchem"] ) {
 				// Parse the chemical equations to TeX with mhChemParser in PHP as preprocessor
@@ -67,7 +68,6 @@ class TexVC {
 				$input = $mhChemParser->toTex( $input, "tex", true );
 			}
 
-			$options = ParserUtil::createOptions( $options );
 			if ( is_string( $input ) ) {
 				$input = $this->parser->parse( $input, $options );
 			}
@@ -154,8 +154,8 @@ class TexVC {
 				$options['oldmhchem'] = true;
 				return $this->check( $input, $options, $warnings );
 			}
+			return $this->handleTexError( $ex, $options );
 		}
-		return $this->handleTexError( $ex, $options );
 	}
 
 	/**

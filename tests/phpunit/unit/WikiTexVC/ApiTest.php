@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC;
 
+use MediaWiki\Extension\Math\WikiTexVC\ParserUtil;
 use MediaWiki\Extension\Math\WikiTexVC\SyntaxError;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 use MediaWikiUnitTestCase;
@@ -277,6 +278,14 @@ class ApiTest extends MediaWikiUnitTestCase {
 	public function mhchemtexifiedTestFail() {
 		$result = $this->texVC->check( '\\longleftrightarrows' );
 		$this->assertEquals( 'C', $result['status'] );
+		$this->assertFalse( $result['success'] );
+	}
+
+	public function testError() {
+		$options = ParserUtil::createOptions( [] );
+		unset( $options['debug'] );
+		$result = $this->texVC->check( '\\frac', $options );
+		$this->assertEquals( 'S', $result['status'] );
 		$this->assertFalse( $result['success'] );
 	}
 }
