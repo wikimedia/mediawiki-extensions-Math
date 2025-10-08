@@ -148,8 +148,7 @@
 		},
 		"MathUseInternalRestbasePath": {
 			"description": "Whether to allow to use of internal RESTBase path instead of $wgMathFullRestbaseURL. Set false if you want to use external RESTBase in any case.",
-			"value": true,
-			"public": true
+			"value": true
 		},
 		"MathInternalRestbaseURL": {
 			"value": null
