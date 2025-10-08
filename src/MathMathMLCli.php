@@ -165,11 +165,7 @@ class MathMathMLCli extends MathMathML {
 
 	/** @inheritDoc */
 	public function render() {
-		if ( $this->getLastError() ) {
-			return false;
-		}
-
-		return true;
+		return !$this->getLastError();
 	}
 
 	protected function doCheck(): bool {

@@ -147,12 +147,9 @@ class MMLParsingUtil {
 	}
 
 	public static function getIntentArgs( ?string $input ): ?string {
-		if ( !$input ) {
-			return null;
-		}
-		$matchesArgs = [];
-		$matchArg = preg_match( "/arg\s*=\s*[\'\"](.*?)[\'\"]/", $input, $matchesArgs );
-		if ( $matchArg && count( $matchesArgs ) >= 2 ) {
+		if ( $input &&
+			preg_match( "/arg\s*=\s*[\'\"](.*?)[\'\"]/", $input, $matchesArgs )
+		) {
 			return $matchesArgs[1];
 		}
 		return null;

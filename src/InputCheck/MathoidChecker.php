@@ -110,10 +110,7 @@ class MathoidChecker extends BaseChecker {
 
 	public function isValid(): bool {
 		[ $statusCode ] = $this->getCheckResponse();
-		if ( $statusCode === 200 ) {
-			return true;
-		}
-		return false;
+		return $statusCode === 200;
 	}
 
 	public function getError(): ?Message {

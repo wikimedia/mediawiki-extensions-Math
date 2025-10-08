@@ -214,13 +214,10 @@ class Literal extends TexNode {
 
 	private function getLiteral( array $lit, string $regexp ): array {
 		$s = trim( $this->arg );
-		if ( preg_match( $regexp, $s ) == 1 ) {
+		if ( preg_match( $regexp, $s ) || in_array( $s, $lit, true ) ) {
 			return [ $s ];
-		} elseif ( in_array( $s, $lit, true ) ) {
-			return [ $s ];
-		} else {
-			return [];
 		}
+		return [];
 	}
 
 	/**

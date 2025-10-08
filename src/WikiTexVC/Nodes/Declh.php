@@ -53,10 +53,7 @@ class Declh extends TexNode {
 		}
 
 		$identifier = parent::extractIdentifiers( $args );
-		if ( isset( $identifier[0] ) ) {
-			return [ implode( '', $identifier ) ];
-		}
-		return $identifier;
+		return $identifier ? [ implode( '', $identifier ) ] : [];
 	}
 
 	/** @inheritDoc */

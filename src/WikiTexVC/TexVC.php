@@ -195,16 +195,8 @@ class TexVC {
 	}
 
 	public static function checkIntentArg( ?string $input ): bool {
-		if ( !$input ) {
-			return true;
-		}
-		$matchesArgs = [];
 		// arg has roughly the same specs like NCName in parserintent.pegjs
-		$matchArg = preg_match( "/[a-zA-Z0-9._-]*/", $input, $matchesArgs );
-		if ( $matchArg ) {
-			return true;
-		}
-		return false;
+		return !$input || preg_match( '/^[a-zA-Z0-9._-]+$/', $input );
 	}
 
 	/**
