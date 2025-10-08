@@ -44,13 +44,6 @@ class LiteralTest extends MediaWikiIntegrationTestCase {
 			'Should render within node base class' );
 	}
 
-	public function testNode() {
-		$lit = new Literal( 'hello world' );
-		$node = new TexNode( $lit );
-		$this->assertEquals( 'hello world', $node->render(),
-			'Should render within node base class' );
-	}
-
 	public function testExtractIdentifierModifications() {
 		$n = new Literal( 'a' );
 		$this->assertEquals( [ 'a' ], $n->getModIdent(),
