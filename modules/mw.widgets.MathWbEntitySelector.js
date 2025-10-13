@@ -4,16 +4,15 @@
  *
  * @class
  * @extends OO.ui.TextInputWidget
- * @mixin mw.widgets.TitleWidget
- * @mixin OO.ui.mixin.LookupElement
+ * @mixes mw.widgets.TitleWidget
+ * @mixes OO.ui.mixin.LookupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
  * @param {mw.Api} [config.api] API object to use, creates a mw.ForeignApi instance if not specified
  * @param {string} [config.paramType] Type of entity to search for, for example, 'item' or 'property'. Defaults to item.
  */
-mw.widgets.MathWbEntitySelector = function ( config ) {
-	config = config || {};
+mw.widgets.MathWbEntitySelector = function ( config = {} ) {
 	this.api = config.api;
 	if ( !this.api ) {
 		this.api = new mw.ForeignApi(
