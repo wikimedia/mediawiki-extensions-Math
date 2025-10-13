@@ -229,5 +229,14 @@ function generateCSS( symbolsFile, cssFile, inputType ) {
 	runNext();
 }
 
-generateCSS( '../mathSymbols.json', '../ve.ui.MWMathSymbols.css', 'tex' );
-generateCSS( '../chemSymbols.json', '../ve.ui.MWChemSymbols.css', 'chem' );
+const path = require( 'path' );
+generateCSS(
+	path.join( __dirname, '../mathSymbols.json' ),
+	path.join( __dirname, '../ve.ui.MWMathSymbols.css' ),
+	'tex'
+);
+generateCSS(
+	path.join( __dirname, '../chemSymbols.json' ),
+	path.join( __dirname, '../ve.ui.MWChemSymbols.css' ),
+	'chem'
+);
