@@ -15,7 +15,6 @@ function generateCSS( symbolsFile, cssFile, inputType ) {
 		cssPrefix = '.ve-ui-mwLatexSymbol-',
 		fs = require( 'fs' ),
 		http = require( 'http' ),
-		querystring = require( 'querystring' ),
 		mathoidMaxConnections = 20,
 		// If symbol.alignBaseline is true, a background-position property will be added to the
 		// CSS rule to shift the baseline of the SVG to be a certain proportion of the way up the
@@ -53,10 +52,10 @@ function generateCSS( symbolsFile, cssFile, inputType ) {
 	function makeRequest( symbol ) {
 		const
 			tex = symbol.tex || symbol.insert,
-			data = querystring.stringify( {
+			data = new URLSearchParams( {
 				q: inputType === 'chem' ? '\\ce{' + tex + '}' : tex,
 				type: inputType
-			} ),
+			} ).toString(),
 			// API call to mathoid
 			options = {
 				host: 'localhost',
