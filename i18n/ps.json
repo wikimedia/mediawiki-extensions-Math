@@ -29,6 +29,8 @@
 	"math-visualeditor-symbol-group-math-operators": "چلوونکي",
 	"math-visualeditor-symbol-group-math-parentheses": "ليندکيان",
 	"math-visualeditor-symbol-group-math-relations": "اړيکې",
+	"math-visualeditor-symbol-group-math-sets": "ټولگې",
+	"math-visualeditor-symbol-group-math-spacing": "واټن",
 	"math-visualeditor-symbol-group-math-special": "ځانگړی",
 	"math_unknown_error": "ناجوته ستونزه",
 	"math_unknown_function": "ناجوته کړنه \"$1\"",
