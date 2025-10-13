@@ -3,6 +3,68 @@
 
 /* eslint-disable no-use-before-define */
 
+const fs = require( 'fs' );
+const http = require( 'http' );
+
+/**
+ * Make an HTTP POST request and return the response body
+ *
+ * @param {Object} options Request options
+ * @param {string} data Request body data
+ * @return {Promise<string>} Promise resolving with the response body
+ */
+async function httpRequest( options, data ) {
+	return new Promise( ( resolve, reject ) => {
+		const req = http.request( options, ( res ) => {
+			let body = '';
+			res.setEncoding( 'utf8' );
+			res.on( 'data', ( chunk ) => {
+				body += chunk;
+			} );
+			res.on( 'end', () => resolve( body ) );
+		} );
+		req.on( 'error', reject );
+		req.setTimeout( 10000, () => {
+			req.destroy();
+			reject( new Error( 'Request timed out' ) );
+		} );
+		req.write( data );
+		req.end();
+	} );
+}
+
+/**
+ * Encode a string for use in a CSS url()
+ *
+ * @param {string} str String to encode
+ * @return {string}
+ */
+function encodeURIComponentForCSS( str ) {
+	return encodeURIComponent( str )
+		.replace( /[!'*()]/g, ( chr ) => '%' + chr.charCodeAt( 0 ).toString( 16 ) );
+}
+
+/**
+ * Make the className, replacing any non-alphanumerics with their character code
+ *
+ * The reverse of function would look like this, although we have no use for it yet:
+ *
+ *  return className.replace( /_([0-9]+)_/g, ( all, one ) => String.fromCharCode( +one ) } );
+ *
+ * @param {string} tex TeX input
+ * @return {string} Class name
+ */
+function texToClass( tex ) {
+	return tex.replace( /[^\w]/g, ( c ) => '_' + c.charCodeAt( 0 ) + '_' );
+}
+
+/**
+ * Generate CSS file with SVG data URIs for LaTeX symbols
+ *
+ * @param {string} symbolsFile Path to JSON file with symbol definitions
+ * @param {string} cssFile Path to CSS file to generate or update
+ * @param {string} inputType 'tex' or 'chem'
+ */
 function generateCSS( symbolsFile, cssFile, inputType ) {
 	let cssRules = []; // Whole CSS rules
 	const
@@ -13,8 +75,6 @@ function generateCSS( symbolsFile, cssFile, inputType ) {
 		currentRule = [],
 		symbolList = [], // Symbols whose CSS rules need to be added or adjusted
 		cssPrefix = '.ve-ui-mwLatexSymbol-',
-		fs = require( 'fs' ),
-		http = require( 'http' ),
 		mathoidMaxConnections = 20,
 		// If symbol.alignBaseline is true, a background-position property will be added to the
 		// CSS rule to shift the baseline of the SVG to be a certain proportion of the way up the
@@ -30,25 +90,11 @@ function generateCSS( symbolsFile, cssFile, inputType ) {
 		cssData = fs.readFileSync( cssFile ).toString();
 	} catch ( e ) {}
 
-	function encodeURIComponentForCSS( str ) {
-		return encodeURIComponent( str )
-			.replace( /[!'*()]/g, ( chr ) => '%' + chr.charCodeAt( 0 ).toString( 16 ) );
-	}
-
 	/**
-	 * Make the className, replacing any non-alphanumerics with their character code
+	 * Make a Mathoid request for a symbol and generate CSS
 	 *
-	 * The reverse of function would look like this, although we have no use for it yet:
-	 *
-	 *  return className.replace( /_([0-9]+)_/g, ( all, one ) => String.fromCharCode( +one ) } );
-	 *
-	 * @param {string} tex TeX input
-	 * @return {string} Class name
+	 * @param {Object} symbol Symbol definition from JSON file
 	 */
-	function texToClass( tex ) {
-		return tex.replace( /[^\w]/g, ( c ) => '_' + c.charCodeAt( 0 ) + '_' );
-	}
-
 	function makeRequest( symbol ) {
 		const
 			tex = symbol.tex || symbol.insert,
@@ -68,65 +114,53 @@ function generateCSS( symbolsFile, cssFile, inputType ) {
 				}
 			};
 		// Populate and make the API call
-		const request = http.request( options, ( res ) => {
-			let body = '';
-			res.setEncoding( 'utf8' );
+		httpRequest( options, data ).then( ( body ) => {
+			const
+				className = texToClass( tex ),
+				bodyData = JSON.parse( body ),
+				svg = bodyData.svg;
 
-			res.on( 'data', ( innerData ) => {
-				body += innerData;
-			} );
-
-			res.on( 'end', () => {
-				const
-					className = texToClass( tex ),
-					bodyData = JSON.parse( body ),
-					svg = bodyData.svg;
-
-				if ( Object.prototype.hasOwnProperty.call( generatedRules, className ) ) {
-					console.log( className + ' already generated' );
-					onEnd();
-					return;
-				}
-
-				generatedRules[ className ] = true;
-
-				if ( !svg ) {
-					console.log( tex + ' FAILED: ' + body );
-					onEnd();
-					return;
-				}
-
-				let cssRule = cssPrefix + className + ' {\n' +
-					'\tbackground-image: url( data:image/svg+xml,' + encodeURIComponentForCSS( svg ) + ' );\n';
-
-				if ( symbol.alignBaseline ) {
-					// Convert buttonHeight from em to ex, because SVG height is given in ex. (This is an
-					// approximation, since the em:ex ratio differs from font to font.)
-					const buttonHeight = symbol.largeLayout ? singleButtonHeight * 4 : singleButtonHeight * 1.9931;
-					// height and verticalAlign rely on the format of the SVG parameters
-					// HACK: Adjust these by a factor of 0.8 to match VE's default font size of 0.8em
-					const height = parseFloat( bodyData.mathoidStyle.match( /height:\s*([\d.]+)ex/ )[ 1 ] ) * 0.8;
-					const verticalAlign = -parseFloat( bodyData.mathoidStyle.match( /vertical-align:\s*([-\d.]+)ex/ )[ 1 ] ) * 0.8;
-					// CSS percentage positioning is based on the difference between the image and container sizes
-					const heightDifference = buttonHeight - height;
-					const offset = 100 * ( verticalAlign - height + ( baseline * buttonHeight ) ) / heightDifference;
-
-					cssRule += '\tbackground-position: 50% ' + offset + '%;\n' +
-						'}';
-					cssRules.push( cssRule );
-					console.log( tex + ' -> ' + className );
-				} else {
-					cssRule += '}';
-					cssRules.push( cssRule );
-					console.log( tex + ' -> ' + className );
-				}
+			if ( Object.prototype.hasOwnProperty.call( generatedRules, className ) ) {
+				console.log( className + ' already generated' );
 				onEnd();
+				return;
+			}
 
-			} );
+			generatedRules[ className ] = true;
+
+			if ( !svg ) {
+				console.log( tex + ' FAILED: ' + body );
+				onEnd();
+				return;
+			}
+
+			let cssRule = cssPrefix + className + ' {\n' +
+				'\tbackground-image: url( data:image/svg+xml,' + encodeURIComponentForCSS( svg ) + ' );\n';
+
+			if ( symbol.alignBaseline ) {
+				// Convert buttonHeight from em to ex, because SVG height is given in ex. (This is an
+				// approximation, since the em:ex ratio differs from font to font.)
+				const buttonHeight = symbol.largeLayout ? singleButtonHeight * 4 : singleButtonHeight * 1.9931;
+				// height and verticalAlign rely on the format of the SVG parameters
+				// HACK: Adjust these by a factor of 0.8 to match VE's default font size of 0.8em
+				const height = parseFloat( bodyData.mathoidStyle.match( /height:\s*([\d.]+)ex/ )[ 1 ] ) * 0.8;
+				const verticalAlign = -parseFloat( bodyData.mathoidStyle.match( /vertical-align:\s*([-\d.]+)ex/ )[ 1 ] ) * 0.8;
+				// CSS percentage positioning is based on the difference between the image and container sizes
+				const heightDifference = buttonHeight - height;
+				const offset = 100 * ( verticalAlign - height + ( baseline * buttonHeight ) ) / heightDifference;
+
+				cssRule += '\tbackground-position: 50% ' + offset + '%;\n' +
+					'}';
+				cssRules.push( cssRule );
+				console.log( tex + ' -> ' + className );
+			} else {
+				cssRule += '}';
+				cssRules.push( cssRule );
+				console.log( tex + ' -> ' + className );
+			}
+			onEnd();
+
 		} );
-		request.setTimeout( 10000 );
-		request.write( data );
-		request.end();
 		runNext();
 	}
 
