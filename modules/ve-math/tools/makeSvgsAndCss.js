@@ -160,16 +160,16 @@ function generateCSS( symbolsFile, cssFile, inputType ) {
 		let currentClassName;
 		const cssLines = cssData.split( '\n' );
 		for ( let i = 0; i < cssLines.length; i++ ) {
-			if ( cssLines[ i ].indexOf( cssPrefix ) === 0 ) {
+			if ( cssLines[ i ].startsWith( cssPrefix ) ) {
 				currentClassName = cssLines[ i ].slice( cssPrefix.length, -2 );
 				currentRule.push( cssLines[ i ] );
 				cssClasses[ currentClassName ] = false; // Default to false
 			} else if ( currentRule.length ) {
 				currentRule.push( cssLines[ i ] );
-				if ( cssLines[ i ].indexOf( '\tbackground-position' ) === 0 ) {
+				if ( cssLines[ i ].startsWith( '\tbackground-position' ) ) {
 					cssClasses[ currentClassName ] = true;
 				}
-				if ( cssLines[ i ].indexOf( '}' ) === 0 ) {
+				if ( cssLines[ i ].startsWith( '}' ) ) {
 					cssRules.push( currentRule.join( '\n' ) );
 					currentRule.splice( 0, currentRule.length );
 				}
