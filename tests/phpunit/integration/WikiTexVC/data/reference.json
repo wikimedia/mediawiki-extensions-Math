@@ -2511,5 +2511,11 @@
         "params": [],
         "bug": "T401623",
         "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mn>0<\/mn><mo>,<\/mo><mn>99<\/mn><\/math>"
+    },
+    {
+        "input": "\\textstyle\\sum_{i=0}^r \\binom{m}{i}",
+        "params": [],
+        "bug": "T401718",
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><msubsup><mo stretchy=\"false\">∑<\/mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>i<\/mi><mo stretchy=\"false\">=<\/mo><mn>0<\/mn><\/mrow><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi>r<\/mi><\/mrow><\/msubsup><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"OPEN\"><mo maxsize=\"1.2em\" minsize=\"1.2em\">(<\/mo><\/mrow><mfrac linethickness=\"0\"><mrow data-mjx-texclass=\"ORD\"><mi>m<\/mi><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi>i<\/mi><\/mrow><\/mfrac><mrow data-mjx-texclass=\"CLOSE\"><mo maxsize=\"1.2em\" minsize=\"1.2em\">)<\/mo><\/mrow><\/mrow><\/mstyle><\/mrow><\/mstyle><\/math>"
     }
 ]

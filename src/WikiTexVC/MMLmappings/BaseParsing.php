@@ -259,7 +259,7 @@ class BaseParsing {
 		if ( in_array( $thick, [ 'thin', 'medium', 'thick', '0' ], true ) ) {
 			$attrs = array_merge( $attrs, [ "linethickness" => $thick ] );
 		}
-		if ( $style !== '' ) {
+		if ( $style !== '' && !isset( $operatorContent['styleargs'] ) ) {
 			$styleDigit = intval( $style, 10 );
 			$styleAlpha = [ 'D', 'T', 'S', 'SS' ][$styleDigit];
 			if ( $styleAlpha == null ) {
