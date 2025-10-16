@@ -359,7 +359,15 @@ class BaseParsing {
 		}
 		$passedArgs = array_merge( $passedArgs, [ Tag::CLASSTAG => TexClass::OP, 'mathvariant' => Variants::NORMAL ] );
 		$state = [ 'squashLiterals' => true ];
-		return new MMLarray( $mmlNot, $node->getArg()->toMMLtree( $passedArgs, $state ), $applyFct );
+		$inner = $node->getArg()->toMMLtree( $passedArgs, $state );
+		if ( $inner instanceof MMLarray && count( $inner->getChildren() ) == 1 ) {
+			$mi = $inner->getChildren()[0];
+			// this check needs to be made explicit for phan
+			if ( $mi instanceof MMLmi ) {
+				$inner = new MMLmo( TexClass::OP, $mi->getAttributes(), $mi->getText() );
+			}
+		}
+		return new MMLarray( $mmlNot, $inner, $applyFct );
 	}
 
 	public static function macro( $node, $passedArgs, $operatorContent, $name,

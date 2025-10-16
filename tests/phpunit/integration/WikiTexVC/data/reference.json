@@ -124,12 +124,12 @@
     {
         "input": "\\operatorname{sh}\\,k, \\operatorname{ch}\\,l, \\operatorname{th}\\,m, \\operatorname{coth}\\,n \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">sh<\/mi><mo>&#x2061;<\/mo><mspace width=\"0.167em\"><\/mspace><mi>k<\/mi><mo>,<\/mo><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">ch<\/mi><mo>&#x2061;<\/mo><mspace width=\"0.167em\"><\/mspace><mi>l<\/mi><mo>,<\/mo><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">th<\/mi><mo>&#x2061;<\/mo><mspace width=\"0.167em\"><\/mspace><mi>m<\/mi><mo>,<\/mo><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">coth<\/mi><mo>&#x2061;<\/mo><mspace width=\"0.167em\"><\/mspace><mi>n<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">sh<\/mo><mo>&#x2061;<\/mo><mspace width=\"0.167em\"><\/mspace><mi>k<\/mi><mo>,<\/mo><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">ch<\/mo><mo>&#x2061;<\/mo><mspace width=\"0.167em\"><\/mspace><mi>l<\/mi><mo>,<\/mo><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">th<\/mo><mo>&#x2061;<\/mo><mspace width=\"0.167em\"><\/mspace><mi>m<\/mi><mo>,<\/mo><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">coth<\/mo><mo>&#x2061;<\/mo><mspace width=\"0.167em\"><\/mspace><mi>n<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\operatorname{argsh}\\,o, \\operatorname{argch}\\,p, \\operatorname{argth}\\,q \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">argsh<\/mi><mo>&#x2061;<\/mo><mspace width=\"0.167em\"><\/mspace><mi>o<\/mi><mo>,<\/mo><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">argch<\/mi><mo>&#x2061;<\/mo><mspace width=\"0.167em\"><\/mspace><mi>p<\/mi><mo>,<\/mo><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">argth<\/mi><mo>&#x2061;<\/mo><mspace width=\"0.167em\"><\/mspace><mi>q<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">argsh<\/mo><mo>&#x2061;<\/mo><mspace width=\"0.167em\"><\/mspace><mi>o<\/mi><mo>,<\/mo><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">argch<\/mo><mo>&#x2061;<\/mo><mspace width=\"0.167em\"><\/mspace><mi>p<\/mi><mo>,<\/mo><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">argth<\/mo><mo>&#x2061;<\/mo><mspace width=\"0.167em\"><\/mspace><mi>q<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\sgn r, \\left\\vert s \\right\\vert \\!",
@@ -164,12 +164,12 @@
     {
         "input": "dt, \\operatorname{d}\\!t, \\partial t, \\nabla\\psi\\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mi>d<\/mi><mi>t<\/mi><mo>,<\/mo><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">d<\/mi><mo>&#x2061;<\/mo><mspace width=\"-0.167em\"><\/mspace><mi>t<\/mi><mo>,<\/mo><mi>∂<\/mi><mi>t<\/mi><mo>,<\/mo><mi mathvariant=\"normal\">∇<\/mi><mi>ψ<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mi>d<\/mi><mi>t<\/mi><mo>,<\/mo><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">d<\/mo><mo>&#x2061;<\/mo><mspace width=\"-0.167em\"><\/mspace><mi>t<\/mi><mo>,<\/mo><mi>∂<\/mi><mi>t<\/mi><mo>,<\/mo><mi mathvariant=\"normal\">∇<\/mi><mi>ψ<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "dy\/dx, \\operatorname{d}\\!y\/\\operatorname{d}\\!x, {dy \\over dx}, {\\operatorname{d}\\!y\\over\\operatorname{d}\\!x}, {\\partial^2\\over\\partial x_1\\partial x_2}y \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mi>d<\/mi><mi>y<\/mi><mo lspace=\"0\" rspace=\"0\">\/<\/mo><mi>d<\/mi><mi>x<\/mi><mo>,<\/mo><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">d<\/mi><mo>&#x2061;<\/mo><mspace width=\"-0.167em\"><\/mspace><mi>y<\/mi><mo lspace=\"0\" rspace=\"0\">\/<\/mo><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">d<\/mi><mo>&#x2061;<\/mo><mspace width=\"-0.167em\"><\/mspace><mi>x<\/mi><mo>,<\/mo><mfrac><mrow><mi>d<\/mi><mi>y<\/mi><\/mrow><mrow><mi>d<\/mi><mi>x<\/mi><\/mrow><\/mfrac><mo>,<\/mo><mfrac><mrow><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">d<\/mi><mo>&#x2061;<\/mo><mspace width=\"-0.167em\"><\/mspace><mi>y<\/mi><\/mrow><mrow><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">d<\/mi><mo>&#x2061;<\/mo><mspace width=\"-0.167em\"><\/mspace><mi>x<\/mi><\/mrow><\/mfrac><mo>,<\/mo><mfrac><mrow><msup><mi>∂<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><\/mrow><mrow><mi>∂<\/mi><msub><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><\/msub><mi>∂<\/mi><msub><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msub><\/mrow><\/mfrac><mi>y<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mi>d<\/mi><mi>y<\/mi><mo lspace=\"0\" rspace=\"0\">\/<\/mo><mi>d<\/mi><mi>x<\/mi><mo>,<\/mo><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">d<\/mo><mo>&#x2061;<\/mo><mspace width=\"-0.167em\"><\/mspace><mi>y<\/mi><mo lspace=\"0\" rspace=\"0\">\/<\/mo><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">d<\/mo><mo>&#x2061;<\/mo><mspace width=\"-0.167em\"><\/mspace><mi>x<\/mi><mo>,<\/mo><mfrac><mrow><mi>d<\/mi><mi>y<\/mi><\/mrow><mrow><mi>d<\/mi><mi>x<\/mi><\/mrow><\/mfrac><mo>,<\/mo><mfrac><mrow><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">d<\/mo><mo>&#x2061;<\/mo><mspace width=\"-0.167em\"><\/mspace><mi>y<\/mi><\/mrow><mrow><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">d<\/mo><mo>&#x2061;<\/mo><mspace width=\"-0.167em\"><\/mspace><mi>x<\/mi><\/mrow><\/mfrac><mo>,<\/mo><mfrac><mrow><msup><mi>∂<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msup><\/mrow><mrow><mi>∂<\/mi><msub><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>1<\/mn><\/mrow><\/msub><mi>∂<\/mi><msub><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>2<\/mn><\/mrow><\/msub><\/mrow><\/mfrac><mi>y<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>",
         "skipped": false,
         "comment": "skipped too long and malformatted output"
     },
@@ -212,7 +212,7 @@
     {
         "input": "\\gcd(m, n), \\operatorname{lcm}(m, n)",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mi>gcd<\/mi><mo>&#x2061;<\/mo><mo stretchy=\"false\">(<\/mo><mi>m<\/mi><mo>,<\/mo><mi>n<\/mi><mo stretchy=\"false\">)<\/mo><mo>,<\/mo><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">lcm<\/mi><mo>&#x2061;<\/mo><mo stretchy=\"false\">(<\/mo><mi>m<\/mi><mo>,<\/mo><mi>n<\/mi><mo stretchy=\"false\">)<\/mo><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mi>gcd<\/mi><mo>&#x2061;<\/mo><mo stretchy=\"false\">(<\/mo><mi>m<\/mi><mo>,<\/mo><mi>n<\/mi><mo stretchy=\"false\">)<\/mo><mo>,<\/mo><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">lcm<\/mo><mo>&#x2061;<\/mo><mo stretchy=\"false\">(<\/mo><mi>m<\/mi><mo>,<\/mo><mi>n<\/mi><mo stretchy=\"false\">)<\/mo><\/math>"
     },
     {
         "input": "\\mid, \\nmid, \\shortmid, \\nshortmid \\!",
@@ -529,7 +529,7 @@
     {
         "input": "\\lnot \\neg, \\not\\operatorname{R}, \\bot, \\top \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mi mathvariant=\"normal\">¬<\/mi><mi mathvariant=\"normal\">¬<\/mi><mo>,<\/mo><mrow data-mjx-texclass=\"REL\"><mpadded width=\"0\"><mtext>&#x29F8;<\/mtext><\/mpadded><\/mrow><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">R<\/mi><mo>&#x2061;<\/mo><mo>,<\/mo><mi mathvariant=\"normal\">⊥<\/mi><mo>,<\/mo><mi mathvariant=\"normal\">⊤<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mi mathvariant=\"normal\">¬<\/mi><mi mathvariant=\"normal\">¬<\/mi><mo>,<\/mo><mrow data-mjx-texclass=\"REL\"><mpadded width=\"0\"><mtext>&#x29F8;<\/mtext><\/mpadded><\/mrow><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">R<\/mo><mo>&#x2061;<\/mo><mo>,<\/mo><mi mathvariant=\"normal\">⊥<\/mi><mo>,<\/mo><mi mathvariant=\"normal\">⊤<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\vdash \\dashv, \\vDash, \\Vdash, \\models \\!",
@@ -2439,7 +2439,7 @@
     {
         "input": "\\operatorname{sen}",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">sen<\/mi><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo data-mjx-texclass=\"OP\" mathvariant=\"normal\">sen<\/mo><\/math>"
     },
     {
         "input": "\\dot \\vec B",
