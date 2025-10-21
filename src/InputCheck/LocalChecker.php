@@ -127,7 +127,7 @@ class LocalChecker extends BaseChecker {
 		} else {
 			$out = [
 				'status' => $result['status'],
-				'error' => $result['error'],
+				'error' => $result['error'] ?? [ 'details' => $result['details'] ],
 			];
 		}
 		if ( $this->context !== null && $this->hookContainer !== null ) {
