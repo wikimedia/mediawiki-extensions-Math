@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\WikiTexVC;
 
 use Exception;
+use LogicException;
 use MediaWiki\Extension\Math\WikiTexVC\Mhchem\MhchemParser;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
@@ -58,6 +59,8 @@ class TexVC {
 	 *  E : Lexer exception raised
 	 *  F : TeX function not recognized
 	 *  S : Parsing error
+	 *  C : Content requires disabled package
+	 *  I : Intent syntax error
 	 *  - : Generic/Default failure code. Might be an invalid argument,
 	 *      output file already exist, a problem with an external
 	 *      command ...
@@ -72,73 +75,7 @@ class TexVC {
 	public function check( $input, $options = [], &$warnings = [], bool $texifyMhchem = false ) {
 		$options = ParserUtil::createOptions( $options );
 		try {
-			if ( $texifyMhchem && isset( $options['usemhchem'] ) && $options['usemhchem'] ) {
-				// Parse the chemical equations to TeX with mhChemParser in PHP as preprocessor
-				$mhChemParser = new MHChemParser();
-				$input = $mhChemParser->toTex( $input, 'tex', true );
-			}
-
-			if ( is_string( $input ) ) {
-				$input = $this->parser->parse( $input, $options );
-			}
-			$output = $input->render();
-
-			$result = [
-				'inputN' => $input,
-				'status' => '+',
-				'output' => $output,
-				'warnings' => $warnings,
-				'input' => $input,
-				'success' => true,
-			];
-
-			if ( $options['report_required'] ) {
-				foreach ( self::PKGS as $pkg ) {
-					$pkg .= '_required';
-					$tuRef = $this->tu->getBaseElements()[$pkg];
-					$result[$pkg] = $input->containsFunc( $tuRef );
-				}
-			}
-
-			if (
-				!$options['usemhchem'] &&
-				( $result['mhchem_required']
-					?? $input->containsFunc( $this->tu->getBaseElements()['mhchem_required'] ) )
-			) {
-				return [
-					'status' => 'C',
-					'details' => 'mhchem package required.'
-				];
-			}
-			if (
-				!$options['usemhchemtexified'] &&
-				( $result['mhchemtexified_required']
-					?? $input->containsFunc( $this->tu->getBaseElements()['mhchemtexified_required'] ) )
-			) {
-				return [
-					'status' => 'C',
-					'details' => 'virtual mhchemtexified package required.'
-				];
-			}
-
-			if ( !$options['useintent'] ) {
-				if ( $result['intent_required'] ??
-					$input->containsFunc( $this->tu->getBaseElements()['intent_required'] )
-				) {
-					return [
-						'status' => 'C',
-						'details' => 'virtual intent package required.'
-					];
-				}
-			} elseif ( $input->containsFunc( $this->tu->getBaseElements()['intent_required'] ) ) {
-				// Preliminary post-checks of correct intent-syntax
-				$intentCheck = $this->checkTreeIntents( $input );
-				if ( !$intentCheck || ( isset( $intentCheck['success'] ) && !$intentCheck['success'] ) ) {
-					return $intentCheck;
-				}
-			}
-
-			return $result;
+			$input = $this->preProcessInput( $texifyMhchem, $options, $input );
 		} catch ( Exception $ex ) {
 			if (
 				$ex instanceof SyntaxError &&
@@ -163,6 +100,18 @@ class TexVC {
 			}
 			return $this->handleTexError( $ex, $options );
 		}
+		$output = $input->render();
+
+		$result = [
+			'inputN' => $input,
+			'status' => '+',
+			'output' => $output,
+			'warnings' => $warnings,
+			'input' => $input,
+			'success' => true,
+		];
+
+		return $this->postProcess( $options, $input, $result );
 	}
 
 	/**
@@ -217,7 +166,7 @@ class TexVC {
 		}
 	}
 
-	private function handleTexError( Exception $e, ?array $options = null ): array {
+	public function handleTexError( Exception $e, ?array $options = null ): array {
 		if ( $options && $options['debug'] ) {
 			// @phan-suppress-next-line PhanThrowTypeAbsent
 			throw $e;
@@ -272,6 +221,72 @@ class TexVC {
 		} catch ( Exception ) {
 			return [ 'offset' => 0, 'line' => 0, 'column' => 0 ];
 		}
+	}
+
+	public function preProcessInput( bool $texifyMhchem, array $options, TexArray|string|stdClass $input ): TexArray {
+		if ( $texifyMhchem && ( $options['usemhchem'] ?? false ) ) {
+			// Parse the chemical equations to TeX with mhChemParser in PHP as preprocessor
+			$mhChemParser = new MHChemParser();
+			$input = $mhChemParser->toTex( $input, "tex", true );
+		}
+
+		if ( is_string( $input ) ) {
+			$input = $this->parser->parse( $input, $options );
+		}
+		if ( !$input instanceof TexArray ) {
+			throw new LogicException( 'Tex Array object expected' );
+		}
+		return $input;
+	}
+
+	public function postProcess( array $options, TexArray $input, array $result ): array {
+		if ( $options['report_required'] ) {
+			foreach ( self::PKGS as $pkg ) {
+				$pkg .= '_required';
+				$tuRef = $this->tu->getBaseElements()[$pkg];
+				$result[$pkg] = $input->containsFunc( $tuRef );
+			}
+		}
+
+		if (
+			!$options['usemhchem'] &&
+			( $result['mhchem_required']
+				?? $input->containsFunc( $this->tu->getBaseElements()['mhchem_required'] ) )
+		) {
+			return [
+				'status' => 'C',
+				'details' => 'mhchem package required.'
+			];
+		}
+		if (
+			!$options['usemhchemtexified'] &&
+			( $result['mhchemtexified_required']
+				?? $input->containsFunc( $this->tu->getBaseElements()['mhchemtexified_required'] ) )
+		) {
+			return [
+				'status' => 'C',
+				'details' => 'virtual mhchemtexified package required.'
+			];
+		}
+
+		if ( !$options['useintent'] ) {
+			if ( $result['intent_required'] ??
+				$input->containsFunc( $this->tu->getBaseElements()['intent_required'] )
+			) {
+				return [
+					'status' => 'C',
+					'details' => 'virtual intent package required.'
+				];
+			}
+		} elseif ( $input->containsFunc( $this->tu->getBaseElements()['intent_required'] ) ) {
+			// Preliminary post-checks of correct intent-syntax
+			$intentCheck = $this->checkTreeIntents( $input );
+			if ( !$intentCheck || ( isset( $intentCheck['success'] ) && !$intentCheck['success'] ) ) {
+				return $intentCheck + [ 'status' => 'I', 'details' => 'intent check failed.' ];
+			}
+		}
+
+		return $result;
 	}
 
 }
