@@ -16,16 +16,26 @@ use stdClass;
 /**
  * A TeX/LaTeX validator and MathML converter.
  * WikiTexVC takes user input and validates it while replacing
- * MediaWiki-specific functions.  The validator component is a PHP port of the JavaScript port of texvc,
+ * MediaWiki-specific functions. The validator component is a PHP port of the JavaScript port of texvc,
  * which was originally written in Ocaml for the Math extension.
  *
  * @author Johannes Stegmüller
  */
 class TexVC {
-	/** @var Parser */
-	private $parser;
-	/** @var TexUtil */
-	private $tu;
+	private Parser $parser;
+	private TexUtil $tu;
+
+	private const PKGS = [
+		'ams',
+		'cancel',
+		'color',
+		'euro',
+		'teubner',
+		'mhchem',
+		'mathoid',
+		'mhchemtexified',
+		'intent'
+	];
 
 	public function __construct() {
 		$this->parser = new Parser();
@@ -62,10 +72,10 @@ class TexVC {
 	public function check( $input, $options = [], &$warnings = [], bool $texifyMhchem = false ) {
 		$options = ParserUtil::createOptions( $options );
 		try {
-			if ( $texifyMhchem && isset( $options["usemhchem"] ) && $options["usemhchem"] ) {
+			if ( $texifyMhchem && isset( $options['usemhchem'] ) && $options['usemhchem'] ) {
 				// Parse the chemical equations to TeX with mhChemParser in PHP as preprocessor
 				$mhChemParser = new MHChemParser();
-				$input = $mhChemParser->toTex( $input, "tex", true );
+				$input = $mhChemParser->toTex( $input, 'tex', true );
 			}
 
 			if ( is_string( $input ) ) {
@@ -83,35 +93,32 @@ class TexVC {
 			];
 
 			if ( $options['report_required'] ) {
-				$pkgs = [ 'ams', 'cancel', 'color', 'euro', 'teubner',
-						'mhchem', 'mathoid', 'mhchemtexified', "intent" ];
-
-				foreach ( $pkgs as $pkg ) {
+				foreach ( self::PKGS as $pkg ) {
 					$pkg .= '_required';
 					$tuRef = $this->tu->getBaseElements()[$pkg];
 					$result[$pkg] = $input->containsFunc( $tuRef );
 				}
 			}
 
-			if ( !$options['usemhchem'] ) {
-				if ( $result['mhchem_required'] ??
-						$input->containsFunc( $this->tu->getBaseElements()['mhchem_required'] )
-				) {
-					return [
-						'status' => 'C',
-						'details' => 'mhchem package required.'
-					];
-				}
+			if (
+				!$options['usemhchem'] &&
+				( $result['mhchem_required']
+					?? $input->containsFunc( $this->tu->getBaseElements()['mhchem_required'] ) )
+			) {
+				return [
+					'status' => 'C',
+					'details' => 'mhchem package required.'
+				];
 			}
-			if ( !$options['usemhchemtexified'] ) {
-				if ( $result['mhchemtexified_required'] ??
-					$input->containsFunc( $this->tu->getBaseElements()['mhchemtexified_required'] )
-				) {
-					return [
-						'status' => 'C',
-						'details' => 'virtual mhchemtexified package required.'
-					];
-				}
+			if (
+				!$options['usemhchemtexified'] &&
+				( $result['mhchemtexified_required']
+					?? $input->containsFunc( $this->tu->getBaseElements()['mhchemtexified_required'] ) )
+			) {
+				return [
+					'status' => 'C',
+					'details' => 'virtual mhchemtexified package required.'
+				];
 			}
 
 			if ( !$options['useintent'] ) {
@@ -123,20 +130,20 @@ class TexVC {
 						'details' => 'virtual intent package required.'
 					];
 				}
-			} else {
+			} elseif ( $input->containsFunc( $this->tu->getBaseElements()['intent_required'] ) ) {
 				// Preliminary post-checks of correct intent-syntax
-				if ( $input->containsFunc( $this->tu->getBaseElements()['intent_required'] ) ) {
-					$intentCheck = $this->checkTreeIntents( $input );
-					if ( !$intentCheck || ( isset( $intentCheck["success"] ) && !$intentCheck["success"] ) ) {
-						return $intentCheck;
-					}
+				$intentCheck = $this->checkTreeIntents( $input );
+				if ( !$intentCheck || ( isset( $intentCheck['success'] ) && !$intentCheck['success'] ) ) {
+					return $intentCheck;
 				}
 			}
 
 			return $result;
 		} catch ( Exception $ex ) {
-			if ( $ex instanceof SyntaxError && !$options['oldtexvc']
-				&& str_starts_with( $ex->getMessage(), 'Deprecation' )
+			if (
+				$ex instanceof SyntaxError &&
+				!$options['oldtexvc'] &&
+				str_starts_with( $ex->getMessage(), 'Deprecation' )
 			) {
 				$warnings[] = [
 					'type' => 'texvc-deprecation',
@@ -163,10 +170,7 @@ class TexVC {
 	 * @return array|true
 	 */
 	private function checkTreeIntents( $inputTree ) {
-		if ( is_string( $inputTree ) ) {
-			return true;
-		}
-		if ( !$inputTree ) {
+		if ( is_string( $inputTree ) || !$inputTree ) {
 			return true;
 		}
 		foreach ( $inputTree->getArgs() as $value ) {
@@ -176,26 +180,26 @@ class TexVC {
 				$intentArg = MMLParsingUtil::getIntentArgs( $intentStr );
 				$argch = self::checkIntentArg( $intentArg );
 				if ( !$argch ) {
-					$retval = [];
-					$retval["success"] = false;
-					$retval["info"] = "malformatted intent argument";
-					return $retval;
+					return [
+						'success' => false,
+						'info' => 'malformatted intent argument',
+					];
 				}
 				// do check on arg1
-				$ret = !$intentContent ? true : self::checkIntent( $intentContent );
-				if ( !$ret || ( isset( $ret["success"] ) && $ret["success"] == false ) ) {
+				$ret = !$intentContent ? true : $this->checkIntent( $intentContent );
+				if ( !$ret || ( isset( $ret['success'] ) && $ret['success'] == false ) ) {
 					return $ret;
 				}
 				return $this->checkTreeIntents( $value->getArg1() );
-			} else {
-				return self::checkTreeIntents( $value );
 			}
+
+			return self::checkTreeIntents( $value );
 		}
 		return true;
 	}
 
 	public static function checkIntentArg( ?string $input ): bool {
-		// arg has roughly the same specs like NCName in parserintent.pegjs
+		// arg has roughly the same specs like the NCName in parserintent.pegjs
 		return !$input || preg_match( '/^[a-zA-Z0-9._-]+$/', $input );
 	}
 
@@ -223,20 +227,20 @@ class TexVC {
 			if ( $e->getMessage() === 'Illegal TeX function' ) {
 				$report['status'] = 'F';
 				$report['details'] = $e->found;
-				$report += $this->getLocationInfo( $e );
 			} else {
 				$report['status'] = 'S';
 				$report['details'] = $e->getMessage();
-				$report += $this->getLocationInfo( $e );
 			}
+
+			$report += $this->getLocationInfo( $e );
+
 			$report['error'] = [
 				'message' => $e->getMessage(),
 				'expected' => $e->expected,
 				'found' => $e->found,
 				'location' => [
-					/** This currently only has the start location, since end is not noted in SyntaxError in PHP
-					 * this issue is tracked in: https://phabricator.wikimedia.org/T321060
-					 */
+					// This currently only has the start location. The end is not noted in SyntaxError in PHP
+					// this issue is tracked in: https://phabricator.wikimedia.org/T321060
 					'offset' => $e->grammarOffset,
 					'line' => $e->grammarLine,
 					'column' => $e->grammarColumn
@@ -253,7 +257,7 @@ class TexVC {
 	}
 
 	/**
-	 * Gets the location information of an error object, or returns default error
+	 * Gets the location information of an error object, or returns the default error
 	 * location if no location information was specified.
 	 * @param SyntaxError $e error object
 	 * @return array information on the error.
