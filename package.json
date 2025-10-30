@@ -24,9 +24,10 @@
 		"grunt-eslint": "24.3.0",
 		"grunt-stylelint": "0.20.1",
 		"mocha": "^7.1.1",
-		"peggy": "1.0.0",
-		"phpeggy": "^1.0.1",
+		"peggy": "^5.0.6",
+		"phpeggy": "^3.0.0",
 		"stylelint-config-wikimedia": "0.18.0",
+		"typescript-eslint": "^8.46.2",
 		"wdio-mediawiki": "5.1.0"
 	}
 }
