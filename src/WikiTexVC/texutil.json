@@ -5182,7 +5182,10 @@
 	"\\surd": {
 		"nullary_macro": true,
 		"operator_rendering": [
-			"√"
+			"√",
+			{
+				"symmetric": "true"
+			}
 		]
 	},
 	"\\swarrow": {
@@ -5454,7 +5457,7 @@
 		"operator_rendering": [
 			"≈",
 			{
-				"variantForm": "True"
+				"variantForm": "true"
 			}
 		]
 	},
@@ -5464,7 +5467,7 @@
 		"operator_rendering": [
 			"∼",
 			{
-				"variantForm": "True"
+				"variantForm": "true"
 			}
 		]
 	},
@@ -5521,7 +5524,7 @@
 		"identifier": [
 			"▽",
 			{
-				"variantForm": "True"
+				"variantForm": "true"
 			}
 		],
 		"nullary_macro": true
@@ -5832,7 +5835,7 @@
 		"identifier": [
 			"∅",
 			{
-				"variantForm": "True"
+				"variantForm": "true"
 			}
 		],
 		"is_literal": true,

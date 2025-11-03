@@ -232,7 +232,7 @@
     {
         "input": "\\surd, \\sqrt{2}, \\sqrt[n]{}, \\sqrt[3]{x^3+y^3 \\over 2} \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\">√<\/mo><mo>,<\/mo><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><mo>,<\/mo><mrow data-mjx-texclass=\"ORD\"><mroot><mrow data-mjx-texclass=\"ORD\"><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><\/mrow><\/mroot><\/mrow><mo>,<\/mo><mrow data-mjx-texclass=\"ORD\"><mroot><mfrac><mrow><msup><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>3<\/mn><\/mrow><\/msup><mo stretchy=\"false\">+<\/mo><msup><mi>y<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>3<\/mn><\/mrow><\/msup><\/mrow><mrow><mn>2<\/mn><\/mrow><\/mfrac><mrow data-mjx-texclass=\"ORD\"><mn>3<\/mn><\/mrow><\/mroot><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\" symmetric=\"true\">√<\/mo><mo>,<\/mo><mrow data-mjx-texclass=\"ORD\"><msqrt><mn>2<\/mn><\/msqrt><\/mrow><mo>,<\/mo><mrow data-mjx-texclass=\"ORD\"><mroot><mrow data-mjx-texclass=\"ORD\"><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><\/mrow><\/mroot><\/mrow><mo>,<\/mo><mrow data-mjx-texclass=\"ORD\"><mroot><mfrac><mrow><msup><mi>x<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>3<\/mn><\/mrow><\/msup><mo stretchy=\"false\">+<\/mo><msup><mi>y<\/mi><mrow data-mjx-texclass=\"ORD\"><mn>3<\/mn><\/mrow><\/msup><\/mrow><mrow><mn>2<\/mn><\/mrow><\/mfrac><mrow data-mjx-texclass=\"ORD\"><mn>3<\/mn><\/mrow><\/mroot><\/mrow><mspace width=\"-0.167em\"><\/mspace><\/math>",
         "skipped": false,
         "comment": "skipping this testcase because mathjax output seems to be flawed with mrow element here, previous testcase is enough for validation of infix\/over"
     },
@@ -274,7 +274,7 @@
     {
         "input": "\\{ \\}, \\O \\empty \\emptyset, \\varnothing \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo fence=\"false\" stretchy=\"false\">{<\/mo><mo fence=\"false\" stretchy=\"false\">}<\/mo><mo>,<\/mo><mi mathvariant=\"normal\">∅<\/mi><mi mathvariant=\"normal\">∅<\/mi><mi mathvariant=\"normal\">∅<\/mi><mo>,<\/mo><mi variantform=\"True\">∅<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo fence=\"false\" stretchy=\"false\">{<\/mo><mo fence=\"false\" stretchy=\"false\">}<\/mo><mo>,<\/mo><mi mathvariant=\"normal\">∅<\/mi><mi mathvariant=\"normal\">∅<\/mi><mi mathvariant=\"normal\">∅<\/mi><mo>,<\/mo><mi variantform=\"true\">∅<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>",
         "core-validation": {
             "Invalid attribute fence for element mo\n": 2,
             "Invalid attribute variantform for element mi\n": 1
@@ -358,7 +358,7 @@
     {
         "input": "\\sim, \\nsim, \\backsim, \\thicksim, \\simeq, \\backsimeq, \\eqsim, \\cong, \\ncong \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\">∼<\/mo><mo>,<\/mo><mo stretchy=\"false\">≁<\/mo><mo>,<\/mo><mo stretchy=\"false\">∽<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"True\">∼<\/mo><mo>,<\/mo><mo stretchy=\"false\">≃<\/mo><mo>,<\/mo><mo stretchy=\"false\">⋍<\/mo><mo>,<\/mo><mo stretchy=\"false\">≂<\/mo><mo>,<\/mo><mo stretchy=\"false\">≅<\/mo><mo>,<\/mo><mo stretchy=\"false\">≆<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\">∼<\/mo><mo>,<\/mo><mo stretchy=\"false\">≁<\/mo><mo>,<\/mo><mo stretchy=\"false\">∽<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"true\">∼<\/mo><mo>,<\/mo><mo stretchy=\"false\">≃<\/mo><mo>,<\/mo><mo stretchy=\"false\">⋍<\/mo><mo>,<\/mo><mo stretchy=\"false\">≂<\/mo><mo>,<\/mo><mo stretchy=\"false\">≅<\/mo><mo>,<\/mo><mo stretchy=\"false\">≆<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
         "core-validation": {
             "Invalid attribute variantform for element mo\n": 1
         }
@@ -366,7 +366,7 @@
     {
         "input": "\\approx, \\thickapprox, \\approxeq, \\asymp, \\propto, \\varpropto \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\">≈<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"True\">≈<\/mo><mo>,<\/mo><mo stretchy=\"false\">≊<\/mo><mo>,<\/mo><mo stretchy=\"false\">≍<\/mo><mo>,<\/mo><mo stretchy=\"false\">∝<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">∝<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\">≈<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"true\">≈<\/mo><mo>,<\/mo><mo stretchy=\"false\">≊<\/mo><mo>,<\/mo><mo stretchy=\"false\">≍<\/mo><mo>,<\/mo><mo stretchy=\"false\">∝<\/mo><mo>,<\/mo><mo stretchy=\"false\" variantform=\"1\">∝<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>",
         "core-validation": {
             "Invalid attribute variantform for element mo\n": 2
         }
@@ -490,7 +490,7 @@
     {
         "input": "\\vartriangle, \\triangledown\\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\" variantform=\"1\">△<\/mo><mo>,<\/mo><mi variantform=\"True\">▽<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>",
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\" variantform=\"1\">△<\/mo><mo>,<\/mo><mi variantform=\"true\">▽<\/mi><mspace width=\"-0.167em\"><\/mspace><\/math>",
         "core-validation": {
             "Invalid attribute variantform for element mo\n": 1,
             "Invalid attribute variantform for element mi\n": 1
