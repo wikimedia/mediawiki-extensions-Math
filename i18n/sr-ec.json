@@ -67,7 +67,7 @@
 	"math-visualeditor-symbol-group-math-unsorted": "Несврстано",
 	"math_failure": "Рашчлањивање није успело",
 	"math_syntax_error": "грешка у синтакси",
-	"math-tracking-category-error": "Стране са математичким грешкама",
+	"math-tracking-category-error": "Странице са матиш грешкама",
 	"math-tracking-category-mhchem-deprecation": "Странице које користе застарели формат хемијских ознака",
 	"math-tracking-category-mhchem-deprecation-desc": "Странице са застарелим форматом хемијских ознака",
 	"math-tracking-category-texvc-deprecation-desc": "Странице са застарелим форматом математичких ознака",
