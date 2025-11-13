@@ -11,6 +11,9 @@ module.exports = function ( grunt ) {
 	grunt.initConfig( {
 		banana: conf.MessagesDirs,
 		stylelint: {
+			options: {
+				cache: true
+			},
 			all: [
 				'**/*.css',
 				'!{vendor,node_modules,modules/ve-math/tools/node_modules}/**'
