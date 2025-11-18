@@ -64,7 +64,7 @@
 	"math_unknown_function": "nepoznata funkcija \"$1\"",
 	"mw-math-mathml": "SVG (MathML se može omogućiti putem plugina u pregledniku)",
 	"mw-math-source": "LaTeX izvor (za tekstualne preglednike)",
-	"prefs-math": "Prikazivanje matematike",
+	"prefs-math": "Prikaz matematičkih formula",
 	"mathstatus": "Stanje prikaza matematičkih formula",
 	"mathwikibase": "Informacije o matematičkim formulama",
 	"datatypes-type-math": "Matematički izraz",
