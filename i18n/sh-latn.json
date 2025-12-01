@@ -4,7 +4,8 @@
 			"Kolega2357",
 			"OC Ripper",
 			"Vlad5250",
-			"Winston Sung"
+			"Winston Sung",
+			"Aca"
 		]
 	},
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Brzo uređivanje",
@@ -62,7 +63,7 @@
 	"math_unknown_function": "nepoznata funkcija \"$1\"",
 	"mw_math_mathml": "SVG (MathML se može omogućiti putem plugina u pregledniku)",
 	"mw_math_source": "LaTeX izvor (za tekstualne preglednike)",
-	"prefs-math": "Prikazivanje matematike",
+	"prefs-math": "Prikaz matematičkih formula",
 	"mathstatus": "Stanje prikaza matematičkih formula",
 	"mathwikibase": "Informacije o matematičkim formulama",
 	"datatypes-type-math": "Matematički izraz",
