@@ -145,7 +145,12 @@ class Literal extends TexNode {
 		if ( $ret ) {
 			return $ret;
 		}
-
+		$cb = TexUtil::getInstance()->callback( trim( $inputP ) );
+		if ( is_string( $cb ) && preg_match( '#^' .
+				preg_quote( self::class ) .
+				'::(?<method>\\w+)$#', $cb, $m ) ) {
+			return $this->{$m['method']}( $arguments, $state );
+		}
 		// Sieve for Makros
 		$ret = BaseMethods::checkAndParse( $inputP, $arguments,
 			array_merge( $operatorContent ?? [], $state ?? [] ),
@@ -231,4 +236,7 @@ class Literal extends TexNode {
 		$this->arg .= $text;
 	}
 
+	private function limits(): ?MMLbase {
+		return null;
+	}
 }

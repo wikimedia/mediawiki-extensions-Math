@@ -877,33 +877,6 @@ class BaseParsing {
 			new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() ) );
 	}
 
-	public static function limits( $node, $passedArgs, $operatorContent, $name, $smth = null ): ?MMLbase {
-		$argsOp = [ 'form' => 'prefix' ];
-		if ( isset( $operatorContent['styleargs'] ) ) {
-			$displaystyle = $operatorContent['styleargs']['displaystyle'] ?? 'true';
-			if ( $displaystyle === 'false' ) {
-				$argsOp['movablelimits'] = 'true';
-			}
-			if ( $node->containsFunc( '\\nolimits' ) ) {
-				$argsOp['movablelimits'] = 'false';
-			}
-		}
-		$opParsed = ( $operatorContent["limits"] ?? false )
-			? $operatorContent["limits"]->toMMLtree( $argsOp ) : "";
-
-		if ( $node instanceof DQ ) {
-			return MMLmunder::newSubtree( $opParsed,
-				new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() ) );
-		} elseif ( $node instanceof FQ ) {
-			$munderOver = MMLmunderover::newSubtree(
-				$opParsed, new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() ),
-				new MMLmrow( TexClass::ORD, [], $node->getUp()->toMMLtree() ) );
-			return $munderOver;
-		}
-		// Don't render limits
-		return null;
-	}
-
 	public static function setFont( $node, $passedArgs, $operatorContent, $name, $variant = null ): MMLbase {
 		return self::mathFont( $node, $passedArgs, $operatorContent, $name, $variant );
 	}

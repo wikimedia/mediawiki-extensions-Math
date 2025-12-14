@@ -296,7 +296,7 @@ f(x,y,z) & = & x + y + z
 
 	public function testIgnoreMisplacedLimit() {
 		$node = new Literal( '\\limits ' );
-		$result = BaseParsing::limits( $node, [], [], '\\limits' );
+		$result = $node->toMMLTree();
 		$this->assertSame( '', (string)$result, 'Misplaced limits should be ignored' );
 	}
 }

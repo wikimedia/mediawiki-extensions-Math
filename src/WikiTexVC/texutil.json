@@ -3203,10 +3203,7 @@
 		"operator": true
 	},
 	"\\limits": {
-		"callback": [
-			"limits",
-			1
-		],
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::limits",
 		"nullary_macro": true
 	},
 	"\\limsup": {
@@ -3981,10 +3978,7 @@
 		]
 	},
 	"\\nolimits": {
-		"callback": [
-			"limits",
-			0
-		],
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::limits",
 		"nullary_macro": true
 	},
 	"\\not": {

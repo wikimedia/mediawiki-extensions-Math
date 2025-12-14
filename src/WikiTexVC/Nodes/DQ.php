@@ -4,7 +4,6 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
-use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
@@ -39,9 +38,18 @@ class DQ extends TexNode {
 
 	/** @inheritDoc */
 	public function toMMLTree( $arguments = [], &$state = [] ) {
-		if ( array_key_exists( "limits", $state ) ) {
+		if ( array_key_exists( 'limits', $state ) ) {
 			// A specific DQ case with preceding limits, just invoke the limits parsing manually.
-			return BaseParsing::limits( $this, $arguments, $state, "" );
+			$argsOp = [ 'form' => 'prefix' ];
+			if ( ( $state['styleargs']['displaystyle'] ?? 'true' ) === 'false' ) {
+				$argsOp['movablelimits'] = 'true';
+			}
+			if ( $this->base->containsFunc( '\\nolimits' ) ) {
+				$argsOp['movablelimits'] = 'false';
+			}
+			$opParsed = $state['limits'] ? $state['limits']->toMMLtree( $argsOp ) : null;
+			return MMLmunder::newSubtree( $opParsed,
+				new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLtree() ) );
 		}
 
 		if ( $this->isEmpty() ) {

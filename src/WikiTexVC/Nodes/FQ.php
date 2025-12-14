@@ -4,7 +4,6 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
-use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
@@ -48,11 +47,22 @@ class FQ extends TexNode {
 
 	/** @inheritDoc */
 	public function toMMLTree( $arguments = [], &$state = [] ) {
-		if ( array_key_exists( "limits", $state ) ) {
+		if ( array_key_exists( 'limits', $state ) ) {
 			// A specific FQ case with preceding limits, just invoke the limits parsing manually.
-			return BaseParsing::limits( $this, $arguments, $state, "" );
+			$argsOp = [ 'form' => 'prefix' ];
+			if ( ( $state['styleargs']['displaystyle'] ?? 'true' ) === 'false' ) {
+				$argsOp['movablelimits'] = 'true';
+			}
+			if ( $this->base->containsFunc( '\\nolimits' ) ) {
+				$argsOp['movablelimits'] = 'false';
+			}
+			$base = $state['limits'];
+			$hasLimits = true;
+		} else {
+			$hasLimits = false;
+			$base = $this->getBase();
+			$argsOp = [];
 		}
-		$base = $this->getBase();
 		if ( isset( $state['sideset'] ) &&
 			$base->getLength() == 0 && !$base->isCurly() ) {
 			// this happens when FQ is located in sideset Testcase 132
@@ -60,16 +70,24 @@ class FQ extends TexNode {
 				new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( [], $state ) ) );
 		}
 		$melement = new MMLmsubsup();
-		// tbd check for more such cases like TexUtilTest 317
 		if ( $base instanceof Literal ) {
 			$litArg = trim( $base->getArgs()[0] );
 			$tu = TexUtil::getInstance();
-			// "sum", "bigcap", "bigcup", "prod" ... all are nullary macros.
-			if ( $tu->nullary_macro( $litArg ) &&
-				!$tu->is_literal( $litArg ) &&
+			// use munderover if operator rendering indicates so
+			$useMoveLimits = $tu->operator_rendering( $litArg )[1]['movesupsub'] ?? false;
+			if ( $this->getBase()->containsFunc( '\\limits' ) || ( (
+				$useMoveLimits &&
+				( $argsOp['movablelimits'] ?? 'true' ) === 'true' &&
 				// by default (inline-displaystyle large operators should be used)
 				( $state['styleargs']['displaystyle'] ?? 'true' ) === 'true'
+				) )
 			) {
+				if ( $this->getBase()->containsFunc( '\\limits' ) ) {
+					$argsOp['movablelimits'] = 'false';
+				}
+				if ( !$useMoveLimits ) {
+					unset( $argsOp['movablelimits'] );
+				}
 				$melement = new MMLmunderover();
 			}
 		}
@@ -82,11 +100,11 @@ class FQ extends TexNode {
 		// This seems to be the common case
 		$inner = $melement::newSubtree(
 			new MMLarray( $emptyMrow,
-			$base->toMMLTree( [], $state ) ),
+			$base->toMMLTree( $argsOp, $state ) ),
 			new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLTree( $arguments, $state ) ),
 			new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( $arguments, $state ) ) );
 
-		if ( $melement instanceof MMLmunderover ) {
+		if ( $melement instanceof MMLmunderover && !$hasLimits ) {
 			$args = $state['styleargs'] ?? [ "displaystyle" => "true", "scriptlevel" => 0 ];
 			return new MMLmstyle( "", $args, $inner );
 		}
