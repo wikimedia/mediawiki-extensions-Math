@@ -12,7 +12,8 @@
 			"Rachmat.Wahidi",
 			"Rachmat04",
 			"Veracious",
-			"William Surya Permana"
+			"William Surya Permana",
+			"Penyuwangi"
 		]
 	},
 	"math-desc": "Menghasilkan rumus matematika di antara tag <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
@@ -67,8 +68,8 @@
 	"math-visualeditor-symbol-group-math-typefaces": "Rupa huruf",
 	"math-visualeditor-symbol-group-math-unsorted": "Tak diurutkan",
 	"math_failure": "Gagal mengurai",
-	"math_invalidjson": "Respons peladen $1 merupakan JSON yang tak sah.",
-	"math_invalidresponse": "$1: Respons tak sah (\"$3\") dari peladen \"$2\":",
+	"math_invalidjson": "Tanggapan peladen $1 merupakan JSON yang tak sah.",
+	"math_invalidresponse": "$1: Tanggapan tak sah (\"$3\") dari peladen \"$2\":",
 	"math_invalidxml": "MathML atau SVG merupakan XML yang tak sah.",
 	"math_mathoid_error": "Galat konversi. Peladen (\"$1\") melaporkan: \"$2\"",
 	"math-status-introduction": "Halaman ini menampilkan informasi mengenai {{PLURAL:$1|mode}} penghasilan matematika yang diaktifkan.",
