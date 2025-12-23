@@ -100,7 +100,7 @@
 	"mathwikibase": "Informasi Rumus Matematika",
 	"datatypes-type-math": "Ekspresi matematika",
 	"wikibase-listdatatypes-math-head": "Ekspresi matematika",
-	"wikibase-listdatatypes-math-body": "Bidang data literal untuk ekspesi, rumus, persamaan matematika dan sejenisnya yang diungkapkan dalam variasi LaTeX.",
+	"wikibase-listdatatypes-math-body": "Bidang data harfiah untuk ekspresi, rumus, persamaan matematika dan sejenisnya yang diungkapkan dalam variasi LaTeX.",
 	"math-wikibase-header": "Informasi Butir Matematika",
 	"math-wikibase-formula": "Rumus",
 	"math-wikibase-formula-name": "Nama",
