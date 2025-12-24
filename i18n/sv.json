@@ -14,6 +14,7 @@
 			"Nghtwlkr",
 			"Sabelöga",
 			"Sannab",
+			"Stefan2255",
 			"WikiPhoenix"
 		]
 	},
@@ -77,9 +78,9 @@
 	"math_syntax_error": "syntaxfel",
 	"math_timeout": "$1 timeout från \"$2\"",
 	"math-test-end": "Backend-tester för renderingsläge \"$1\" avslutade.",
-	"math-test-fail": "Test ''$1'' ''misslyckades''.",
+	"math-test-fail": "Test ''$1'' misslyckades.",
 	"math-test-start": "Kör backend-tester för renderingsläge \"$1\".",
-	"math-test-success": "Test ''$1'' ''lyckades''.",
+	"math-test-success": "Test ''$1'' lyckades.",
 	"math-test-contains-diff": "Den returnerade strängen $1 innehåller inte den förväntade strängen $2.",
 	"math-test-equals-diff": "Den returnerade strängen $1 är inte den samma som den förväntade strängen $2.",
 	"math-tracking-category-error": "Sidor med matematikfel",
