@@ -66,10 +66,10 @@ class MathNativeMML extends MathMathML {
 	}
 
 	/**
-	 * Adds hyperlinks to MathML elements
+	 * Adds hyperlinks to MathML elements using <mrow> with href and title attributes
 	 * @param string $qid Identifier for symbol mapping
 	 * @param string $mathml Input MathML HTML content
-	 * @return string Modified MathML with either anchor tags or hrefs
+	 * @return string Modified MathML
 	 */
 	private function addLinksToMathML( string $qid, string $mathml ): string {
 		$services = MediaWikiServices::getInstance();
@@ -82,16 +82,17 @@ class MathNativeMML extends MathMathML {
 		$xpath->registerNamespace( 'mathml', 'http://www.w3.org/1998/Math/MathML' );
 		$linkableElements = $xpath->query( '//mathml:mi | //mathml:mo | //mathml:mtext' );
 		foreach ( $linkableElements as $linkableElement ) {
-			$textValue = $linkableElement->nodeValue;
+			$textValue = $linkableElement->textContent;
 			if ( empty( $qmap[$textValue]['url'] ) ) {
 				continue;
 			}
-			$a = $dom->createElement( 'a' );
-			$a->setAttribute( 'href', $qmap[$textValue]['url'] );
-			$a->setAttribute( 'title', $qmap[$textValue]['title'] );
-			$a->nodeValue = $linkableElement->nodeValue;
-			$linkableElement->nodeValue = "";
-			$linkableElement->appendChild( $a );
+			// Links will be migrated to anchor tags: T415005
+			$mrow = $dom->createElementNS( 'http://www.w3.org/1998/Math/MathML', 'mrow' );
+			$mrow->setAttribute( 'href', $qmap[$textValue]['url'] );
+			$mrow->setAttribute( 'title', $qmap[$textValue]['title'] );
+			$parent = $linkableElement->parentNode;
+			$parent->replaceChild( $mrow, $linkableElement );
+			$mrow->appendChild( $linkableElement );
 		}
 		return $dom->saveXML();
 	}

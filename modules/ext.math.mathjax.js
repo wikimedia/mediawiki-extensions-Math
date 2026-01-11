@@ -50,6 +50,27 @@ window.MathJax = {
 		]
 	},
 	startup: {
+		// MathJax creates anchor tags from MathML elements with href attributes.
+		// But it does not add the title attributes from these elements
+		// that we need for the extension Popups
+		ready() {
+			const { MML } = window.MathJax._.core.MmlTree.MML;
+			MML.a = MML.mrow;
+			const { ChtmlWrapper } = window.MathJax._.output.chtml.Wrapper;
+			ChtmlWrapper.prototype.handleHref = function ( parents ) {
+				if ( !this.node.attributes.hasExplicit( 'href' ) ) {
+					return parents;
+				}
+				const attrs = { href: this.node.attributes.get( 'href' ) };
+				if ( this.node.attributes.hasExplicit( 'title' ) ) {
+					attrs.title = this.node.attributes.get( 'title' );
+				}
+				return parents.map(
+					( parent ) => this.adaptor.append( parent, this.html( 'a', attrs ) )
+				);
+			};
+			window.MathJax.startup.defaultReady();
+		},
 		// See https://phabricator.wikimedia.org/T375932 and the suggested fix from
 		// https://github.com/mathjax/MathJax/issues/3292#issuecomment-3487698042
 		// Makes rendering of \matcal look similar to the browsers MathML rendering
@@ -71,7 +92,8 @@ window.MathJax = {
 					}
 				}
 			} );
-			return window.MathJax.startup.defaultPageReady();
+			return window.MathJax.startup.defaultPageReady().then( () => {
+			} );
 		}
 	}
 };
