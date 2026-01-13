@@ -78,7 +78,6 @@ class SpecialMathWikibase extends SpecialPage {
 	 */
 	private function showForm() {
 		$actionField = new \OOUI\ActionFieldLayout(
-			// @phan-suppress-next-line PhanTypeMismatchArgumentProbablyReal https://github.com/phan/phan/issues/5044
 			new WikibaseEntitySelector( [
 				'name' => self::PARAMETER,
 				'placeholder' => $this->getPlainText( 'math-wikibase-special-form-placeholder' ),
@@ -104,7 +103,6 @@ class SpecialMathWikibase extends SpecialPage {
 			'items' => [ $actionField ]
 		] );
 
-		// @phan-suppress-next-line PhanTypeMismatchArgumentProbablyReal https://github.com/phan/phan/issues/5044
 		$this->getOutput()->addHTML( $formLayout );
 	}
 
