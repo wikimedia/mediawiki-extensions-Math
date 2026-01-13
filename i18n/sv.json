@@ -15,7 +15,8 @@
 			"Sabelöga",
 			"Sannab",
 			"WikiPhoenix",
-			"Stefan2255"
+			"Stefan2255",
+			"Nirmos (Wikimedia)"
 		]
 	},
 	"math-desc": "Rendera matematiska formler mellan <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>-taggar",
@@ -97,7 +98,7 @@
 	"math-tracking-category-mhchem-deprecation": "Sidor som använder föråldrat format av chem-taggarna",
 	"math-tracking-category-mhchem-deprecation-desc": "Sidor i denna använder ett föråldrat format av chem-taggarna",
 	"math-tracking-category-texvc-deprecation": "Sidor som använder ett föråldrat format av matematik-taggarna",
-	"math-tracking-category-texvc-deprecation-desc": "Sidor i denna kategori använder ett föråldrat format av matemaktik-taggar",
+	"math-tracking-category-texvc-deprecation-desc": "Sidor i denna kategori använder ett föråldrat format av matematik-taggar",
 	"math-tracking-category-render-error": "Sidor med matematikvisningsfel",
 	"math-tracking-category-render-error-desc": "Sidor i denna kategori har visningsfel i matematiktaggarna",
 	"math_unknown_error": "okänt fel",
