@@ -2525,5 +2525,11 @@
         "params": [],
         "bug": "T382669",
         "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msubsup><mo form=\"prefix\" movablelimits=\"false\" stretchy=\"false\">∑<\/mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>n<\/mi><mo stretchy=\"false\">=<\/mo><mn>1<\/mn><\/mrow><\/mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">∞<\/mi><\/mrow><\/msubsup><mi>x<\/mi><\/math>"
+    },
+    {
+        "input": "\\sum\\nolimits^{x}",
+        "params": [],
+        "bug": "T414127",
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msup><mo form=\"prefix\" movablelimits=\"false\" stretchy=\"false\">∑<\/mo><mrow data-mjx-texclass=\"ORD\"><mi>x<\/mi><\/mrow><\/msup><\/math>"
     }
 ]

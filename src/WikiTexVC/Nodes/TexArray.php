@@ -140,7 +140,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		}
 
 		// Check whether the next node is a possible limits construct
-		if ( !( ( $nextNode instanceof DQ || $nextNode instanceof FQ )
+		if ( !( ( $nextNode instanceof DQ || $nextNode instanceof FQ || $nextNode instanceof UQ )
 			&& $nextNode->getBase() instanceof Literal
 			&& ( $nextNode->containsFunc( "\\limits" ) || $nextNode->containsFunc( "\\nolimits" ) )
 			) ) {

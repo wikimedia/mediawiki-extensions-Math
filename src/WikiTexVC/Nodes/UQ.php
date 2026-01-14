@@ -39,6 +39,19 @@ class UQ extends TexNode {
 
 	/** @inheritDoc */
 	public function toMMLTree( $arguments = [], &$state = [] ) {
+		if ( array_key_exists( 'limits', $state ) ) {
+			// A specific DQ case with preceding limits, just invoke the limits parsing manually.
+			$argsOp = [ 'form' => 'prefix' ];
+			if ( ( $state['styleargs']['displaystyle'] ?? 'true' ) === 'false' ) {
+				$argsOp['movablelimits'] = 'true';
+			}
+			if ( $this->base->containsFunc( '\\nolimits' ) ) {
+				$argsOp['movablelimits'] = 'false';
+			}
+			$opParsed = $state['limits'] ? $state['limits']->toMMLtree( $argsOp ) : null;
+			return MMLmsup::newSubtree( $opParsed,
+				new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLtree() ) );
+		}
 		$mmlBase = new MMLmsup();
 		$base = $this->getBase();
 		$up = $this->getUp();
