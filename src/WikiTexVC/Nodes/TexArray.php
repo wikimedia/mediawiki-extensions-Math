@@ -134,8 +134,17 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 				// or a limit operator
 				|| ( trim( $currentNode->getArg() ) == "\\lim" ) ) ) ||
 		// or the special case of \operatorname
-		( $currentNode instanceof Fun1nb && $currentNode->getFname() == "\\operatorname" )
-		) ) {
+		( $currentNode instanceof Fun1nb && $currentNode->getFname() == "\\operatorname" ) ||
+		// special case of latex_function_names
+		( $currentNode instanceof TexArray && $currentNode->getLength() === 2 &&
+			$currentNode->first() instanceof Literal &&
+			// the parser adds a space after the function name (regardless of the user input
+			$currentNode->second() instanceof Literal &&
+			// @phan-suppress-next-line PhanUndeclaredMethod
+			$currentNode->second()->getArg() === " " &&
+			// @phan-suppress-next-line PhanUndeclaredMethod
+			$tu->latex_function_names( $currentNode->first()->getArg() )
+		) ) ) {
 			return [ null, false ];
 		}
 

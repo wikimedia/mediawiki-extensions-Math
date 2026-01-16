@@ -2531,5 +2531,14 @@
         "params": [],
         "bug": "T414127",
         "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msup><mo form=\"prefix\" movablelimits=\"false\" stretchy=\"false\">∑<\/mo><mrow data-mjx-texclass=\"ORD\"><mi>x<\/mi><\/mrow><\/msup><\/math>"
+    },
+    {
+        "input": "\\det\\nolimits^{x}",
+        "params": [],
+        "bug": "T414127",
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msup><mi form=\"prefix\" movablelimits=\"false\">det<\/mi><mrow data-mjx-texclass=\"ORD\"><mi>x<\/mi><\/mrow><\/msup><\/math>",
+        "core-validation": {
+            "Invalid attribute form for element mi\n": 1
+        }
     }
 ]
