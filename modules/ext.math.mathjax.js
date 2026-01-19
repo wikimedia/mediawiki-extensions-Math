@@ -2,10 +2,20 @@ const extensionAssetsPath = mw.config.get( 'wgExtensionAssetsPath' );
 window.MathJax = {
 	loader: {
 		// see https://docs.mathjax.org/en/latest/input/mathml.html
-		load: [ '[mml]/mml3' ],
+		load: [
+			// allow MathML input
+			'input/mml',
+			// render only when visible
+			'ui/lazy',
+			// output as SVG to look like the mathoid output
+			'output/svg',
+			// somehow a bug?
+			'output/chtml'
+		],
 		// see https://docs.mathjax.org/en/latest/options/startup/loader.html
 		paths: {
-			mathjax: extensionAssetsPath + '/Math/modules/mathjax'
+			mathjax: extensionAssetsPath + '/Math/modules/mathjax',
+			fonts: extensionAssetsPath + '/Math/modules'
 		}
 	},
 	// helper function for https://phabricator.wikimedia.org/T375932
@@ -94,6 +104,7 @@ window.MathJax = {
 			} );
 			return window.MathJax.startup.defaultPageReady().then( () => {
 			} );
-		}
+		},
+		output: 'svg'
 	}
 };

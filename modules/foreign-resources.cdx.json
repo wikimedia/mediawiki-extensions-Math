@@ -2,13 +2,36 @@
 	"$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
 	"bomFormat": "CycloneDX",
 	"specVersion": "1.6",
-	"serialNumber": "urn:uuid:05482067-1a8b-46b0-a430-04b9046731e7",
+	"serialNumber": "urn:uuid:768112f1-0bf2-4d02-a6b6-cb770ae26923",
 	"version": 1,
 	"components": [
 		{
 			"type": "library",
 			"name": "mathjax",
-			"version": "4.0.0",
+			"version": "4.1.0",
+			"licenses": [
+				{
+					"license": {
+						"id": "Apache-2.0"
+					}
+				}
+			],
+			"authors": [
+				{
+					"name": "MathJax Consortium"
+				}
+			],
+			"externalReferences": [
+				{
+					"url": "https://www.mathjax.org",
+					"type": "website"
+				}
+			]
+		},
+		{
+			"type": "library",
+			"name": "mathjax-newcm-font",
+			"version": "4.1.0",
 			"licenses": [
 				{
 					"license": {

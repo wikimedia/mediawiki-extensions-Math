@@ -236,7 +236,7 @@
 			"group": "ext.math",
 			"scripts": [
 				"ext.math.mathjax.js",
-				"mathjax/tex-chtml.js"
+				"mathjax/startup.js"
 			]
 		},
 		"ext.math.styles": {
