@@ -78,7 +78,7 @@
 	"math-form-type-tex": "tex (normal inmatning)",
 	"math-form-type-chem": "kemi (inmatning med kemisstöd; t.ex. <code dir=\"ltr\">\\ce{H2O}</code> för vatten)",
 	"math-form-display-label": "Matematisk visningsläge",
-	"math-helppage": "Hjälp: Visa en formel",
+	"math-helppage": "Help:Visa en formel",
 	"math_failure": "Misslyckades med att tolka",
 	"math_invalidjson": "$1 serversvaret är ogiltig JSON.",
 	"math_invalidresponse": "$1: Ogiltigt svar (\"$3\") från server \"$2\":",
