@@ -348,7 +348,9 @@ BOX
    { return new Box($b, join('', $cs)); }
 
 LITERAL
- = c:( literal_id / literal_mn / literal_uf_lt / "-" / literal_uf_op ) _
+ = ":=" _
+   { return ":="; }
+ / c:( literal_id / literal_mn / literal_uf_lt / "-" / literal_uf_op ) _
    { return $c; }
  / f:generic_func &{ return $this->tu->nullary_macro($f); } _ // from Texutil.find(...)
    { return $f . " "; }

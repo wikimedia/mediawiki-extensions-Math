@@ -353,7 +353,7 @@
     {
         "input": "\\doteq, \\doteqdot, \\overset{\\underset{\\mathrm{def}}{}}{=}, := \\!",
         "params": [],
-        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\">≐<\/mo><mo>,<\/mo><mo stretchy=\"false\">≑<\/mo><mo>,<\/mo><mrow data-mjx-texclass=\"ORD\"><mover><mrow><mo stretchy=\"false\">=<\/mo><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d<\/mi><mi mathvariant=\"normal\">e<\/mi><mi mathvariant=\"normal\">f<\/mi><\/mrow><\/mrow><\/mrow><\/mover><\/mrow><mo>,<\/mo><mo stretchy=\"false\">:<\/mo><mo stretchy=\"false\">=<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
+        "output": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\">≐<\/mo><mo>,<\/mo><mo stretchy=\"false\">≑<\/mo><mo>,<\/mo><mrow data-mjx-texclass=\"ORD\"><mover><mrow><mo stretchy=\"false\">=<\/mo><\/mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d<\/mi><mi mathvariant=\"normal\">e<\/mi><mi mathvariant=\"normal\">f<\/mi><\/mrow><\/mrow><\/mrow><\/mover><\/mrow><mo>,<\/mo><mo stretchy=\"false\">:=<\/mo><mspace width=\"-0.167em\"><\/mspace><\/math>"
     },
     {
         "input": "\\sim, \\nsim, \\backsim, \\thicksim, \\simeq, \\backsimeq, \\eqsim, \\cong, \\ncong \\!",
