@@ -6,9 +6,7 @@ use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 use MediaWikiIntegrationTestCase;
 
 /**
- * Currently WIP functionalities of en-wiki-formulae.js testsuite.
- * All assertions are currently deactivated, cause high memory load on CI.
- * These tests can be run locally by enabling the ACTIVE flag.
+ * Tests TexVC against a large set of formulae from English Wikipedia.
  * File download of the json-input can be done by running:
  * $ cd maintenance && ./downloadMoreTexVCtests.sh
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Parser
@@ -35,9 +33,9 @@ class EnWikiFormulaeTest extends MediaWikiIntegrationTestCase {
 	}
 
 		/**
-		 * Reads the json file to an object
+		 * Reads the JSON file to an object
 		 * @param string $filePath file to be read
-		 * @return array json with testcases
+		 * @return array JSON with testcases
 		 */
 	private static function getJSON( $filePath ): array {
 		self::checkFiles();
