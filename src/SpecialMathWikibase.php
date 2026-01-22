@@ -13,6 +13,7 @@ use MediaWiki\Output\OutputPage;
 use MediaWiki\SpecialPage\SpecialPage;
 use OOUI\ButtonInputWidget;
 use OOUI\FormLayout;
+use Psr\Log\LoggerInterface;
 
 class SpecialMathWikibase extends SpecialPage {
 	/**
@@ -20,22 +21,13 @@ class SpecialMathWikibase extends SpecialPage {
 	 */
 	private const PARAMETER = "qid";
 
-	/**
-	 * @var MathWikibaseConnector Wikibase connection
-	 */
-	private MathWikibaseConnector $wikibase;
-
-	/**
-	 * @var \Psr\Log\LoggerInterface
-	 */
-	private $logger;
+	private readonly LoggerInterface $logger;
 
 	public function __construct(
-		MathWikibaseConnector $wikibase
+		private readonly MathWikibaseConnector $wikibase,
 	) {
 		parent::__construct( 'MathWikibase' );
 
-		$this->wikibase = $wikibase;
 		$this->logger = LoggerFactory::getInstance( 'Math' );
 	}
 

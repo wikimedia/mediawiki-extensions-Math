@@ -6,18 +6,12 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 class Infix extends TexNode {
 
-	/** @var string */
-	private $op;
-	/** @var TexArray */
-	private $arg1;
-	/** @var TexArray */
-	private $arg2;
-
-	public function __construct( string $op, TexArray $arg1, TexArray $arg2 ) {
+	public function __construct(
+		private readonly string $op,
+		private readonly TexArray $arg1,
+		private readonly TexArray $arg2,
+	) {
 		parent::__construct( $op, $arg1, $arg2 );
-		$this->op = $op;
-		$this->arg1 = $arg1;
-		$this->arg2 = $arg2;
 	}
 
 	public function getOp(): string {

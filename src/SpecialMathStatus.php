@@ -19,23 +19,14 @@ use Psr\Log\LoggerInterface;
  * @author Moritz Schubotz
  */
 class SpecialMathStatus extends UnlistedSpecialPage {
-	/** @var LoggerInterface */
-	private $logger;
-
-	/** @var MathConfig */
-	private $mathConfig;
-
-	/** @var RendererFactory */
-	private $rendererFactory;
+	private readonly LoggerInterface $logger;
 
 	public function __construct(
-		MathConfig $mathConfig,
-		RendererFactory $rendererFactory
+		private readonly MathConfig $mathConfig,
+		private readonly RendererFactory $rendererFactory,
 	) {
 		parent::__construct( 'MathStatus' );
 
-		$this->mathConfig = $mathConfig;
-		$this->rendererFactory = $rendererFactory;
 		$this->logger = LoggerFactory::getInstance( 'Math' );
 	}
 

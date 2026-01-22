@@ -19,16 +19,15 @@ use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 class Literal extends TexNode {
 	private const CURLY_PATTERN = '/(?<start>[\\a-zA-Z\s]+)\{(?<arg>[^}]+)}/';
 
-	/** @var string */
-	private $arg;
 	/** @var string[] */
 	private $literals;
 	/** @var string[] */
 	private $extendedLiterals;
 
-	public function __construct( string $arg ) {
+	public function __construct(
+		private string $arg,
+	) {
 		parent::__construct( $arg );
-		$this->arg = $arg;
 		$this->literals = array_keys( TexUtil::getInstance()->getBaseElements()['is_literal'] );
 		$this->extendedLiterals = $this->literals;
 		array_push( $this->extendedLiterals, '\\infty', '\\emptyset' );

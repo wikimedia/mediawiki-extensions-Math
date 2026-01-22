@@ -37,8 +37,6 @@ class MhchemStateMachines {
 	 */
 	private array $genericActions;
 
-	private MhchemParser $mhchemParser;
-
 	private static function mhchemCreateTransitions( array $o ): array {
 		$transitions = [];
 		// 1. Collect all states
@@ -98,8 +96,9 @@ class MhchemStateMachines {
 	 * Initialize arrays for genericActions and StateMachines with mhchemCreateTransitions.
 	 * @param-taint $mhchemParser none
 	 */
-	public function __construct( MhchemParser $mhchemParser ) {
-		$this->mhchemParser = $mhchemParser;
+	public function __construct(
+		private readonly MhchemParser $mhchemParser,
+	) {
 		$this->genericActions = [
 			'a=' => static function ( &$buffer, $m ) {
 				$buffer["a"] = ( $buffer["a"] ?? "" ) . $m;

@@ -9,13 +9,11 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
 
 class ChemWord extends TexNode {
-	public TexNode $left;
-	public TexNode $right;
-
-	public function __construct( TexNode $left, TexNode $right ) {
+	public function __construct(
+		private readonly TexNode $left,
+		private readonly TexNode $right,
+	) {
 		parent::__construct( $left, $right );
-		$this->left = $left;
-		$this->right = $right;
 	}
 
 	public function getLeft(): TexNode {

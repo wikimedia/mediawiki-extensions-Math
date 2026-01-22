@@ -12,15 +12,11 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunder;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 class DQ extends TexNode {
-	/** @var TexNode */
-	private $base;
-	/** @var TexNode */
-	private $down;
-
-	public function __construct( TexNode $base, TexNode $down ) {
+	public function __construct(
+		private readonly TexNode $base,
+		private readonly TexNode $down,
+	) {
 		parent::__construct( $base, $down );
-		$this->base = $base;
-		$this->down = $down;
 	}
 
 	public function getBase(): TexNode {

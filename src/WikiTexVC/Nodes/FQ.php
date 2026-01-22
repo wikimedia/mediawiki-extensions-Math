@@ -14,18 +14,12 @@ use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 class FQ extends TexNode {
 
-	/** @var TexNode */
-	private $base;
-	/** @var TexNode */
-	private $up;
-	/** @var TexNode */
-	private $down;
-
-	public function __construct( TexNode $base, TexNode $down, TexNode $up ) {
+	public function __construct(
+		private readonly TexNode $base,
+		private readonly TexNode $down,
+		private readonly TexNode $up,
+	) {
 		parent::__construct( $base, $down, $up );
-		$this->base = $base;
-		$this->up = $up;
-		$this->down = $down;
 	}
 
 	public function getBase(): TexNode {

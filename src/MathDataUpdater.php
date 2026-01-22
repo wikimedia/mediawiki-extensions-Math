@@ -19,15 +19,11 @@ class MathDataUpdater implements StatementDataUpdater {
 	private $hasMath = false;
 
 	/**
-	 * @var PropertyDataTypeMatcher
-	 */
-	private $propertyDataTypeMatcher;
-
-	/**
 	 * @inheritDoc
 	 */
-	public function __construct( PropertyDataTypeMatcher $propertyDataTypeMatcher ) {
-		$this->propertyDataTypeMatcher = $propertyDataTypeMatcher;
+	public function __construct(
+		private readonly PropertyDataTypeMatcher $propertyDataTypeMatcher,
+	) {
 	}
 
 	/**

@@ -6,28 +6,14 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 class Fun4 extends TexNode {
 
-	/** @var string */
-	protected $fname;
-	/** @var TexNode */
-	protected $arg1;
-	/** @var TexNode */
-	protected $arg2;
-	/** @var TexNode */
-	protected $arg3;
-	/** @var TexNode */
-	protected $arg4;
-
-	public function __construct( string $fname,
-								 TexNode $arg1,
-								 TexNode $arg2,
-								 TexNode $arg3,
-								 TexNode $arg4 ) {
+	public function __construct(
+		protected readonly string $fname,
+		protected readonly TexNode $arg1,
+		protected readonly TexNode $arg2,
+		protected readonly TexNode $arg3,
+		protected readonly TexNode $arg4,
+	) {
 		parent::__construct( $fname, $arg1, $arg2, $arg3, $arg4 );
-		$this->fname = $fname;
-		$this->arg1 = $arg1;
-		$this->arg2 = $arg2;
-		$this->arg3 = $arg3;
-		$this->arg4 = $arg4;
 	}
 
 	public function getFname(): string {

@@ -6,15 +6,11 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 class Declh extends TexNode {
 
-	/** @var string */
-	private $fname;
-	/** @var TexArray */
-	private $arg;
-
-	public function __construct( string $fname, TexArray $arg ) {
+	public function __construct(
+		private readonly string $fname,
+		private readonly TexArray $arg,
+	) {
 		parent::__construct( $fname, $arg );
-		$this->fname = $fname;
-		$this->arg = $arg;
 	}
 
 	public function getFname(): string {

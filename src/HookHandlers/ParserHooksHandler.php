@@ -43,27 +43,13 @@ class ParserHooksHandler implements
 	 */
 	private $mathLazyRenderBatchCompleted = [];
 
-	/** @var RendererFactory */
-	private $rendererFactory;
+	private readonly HookRunner $hookRunner;
 
-	/** @var UserOptionsLookup */
-	private $userOptionsLookup;
-
-	/** @var HookRunner */
-	private $hookRunner;
-
-	/**
-	 * @param RendererFactory $rendererFactory
-	 * @param UserOptionsLookup $userOptionsLookup
-	 * @param HookContainer $hookContainer
-	 */
 	public function __construct(
-		RendererFactory $rendererFactory,
-		UserOptionsLookup $userOptionsLookup,
-		HookContainer $hookContainer
+		private readonly RendererFactory $rendererFactory,
+		private readonly UserOptionsLookup $userOptionsLookup,
+		HookContainer $hookContainer,
 	) {
-		$this->rendererFactory = $rendererFactory;
-		$this->userOptionsLookup = $userOptionsLookup;
 		$this->hookRunner = new HookRunner( $hookContainer );
 	}
 

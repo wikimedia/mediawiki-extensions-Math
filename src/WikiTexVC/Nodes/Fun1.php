@@ -15,15 +15,11 @@ use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 class Fun1 extends TexNode {
 
-	/** @var string */
-	protected $fname;
-	/** @var TexNode */
-	protected $arg;
-
-	public function __construct( string $fname, TexNode $arg ) {
+	public function __construct(
+		protected readonly string $fname,
+		protected readonly TexNode $arg,
+	) {
 		parent::__construct( $fname, $arg );
-		$this->fname = $fname;
-		$this->arg = $arg;
 	}
 
 	public function getFname(): string {

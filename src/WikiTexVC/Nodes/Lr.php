@@ -11,18 +11,12 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 
 class Lr extends TexNode {
 
-	/** @var string */
-	private $left;
-	/** @var string */
-	private $right;
-	/** @var TexArray */
-	private $arg;
-
-	public function __construct( string $left, string $right, TexArray $arg ) {
+	public function __construct(
+		private readonly string $left,
+		private readonly string $right,
+		private readonly TexArray $arg,
+	) {
 		parent::__construct( $left, $right, $arg );
-		$this->left = $left;
-		$this->right = $right;
-		$this->arg = $arg;
 	}
 
 	public function getLeft(): string {

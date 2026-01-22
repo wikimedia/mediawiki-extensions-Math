@@ -6,15 +6,11 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 class Big extends TexNode {
 
-	/** @var string */
-	private $fname;
-	/** @var string */
-	private $arg;
-
-	public function __construct( string $fname, string $arg ) {
+	public function __construct(
+		private readonly string $fname,
+		private readonly string $arg,
+	) {
 		parent::__construct( $fname, $arg );
-		$this->fname = $fname;
-		$this->arg = $arg;
 	}
 
 	public function getFname(): string {
