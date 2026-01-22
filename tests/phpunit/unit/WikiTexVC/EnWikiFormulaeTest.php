@@ -13,7 +13,7 @@ use MediaWikiUnitTestCase;
  * $ cd maintenance && ./downloadMoreTexVCtests.sh
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Parser
  *
- * @group Stub
+ * @group Standalone
  */
 class EnWikiFormulaeTest extends MediaWikiUnitTestCase {
 	private const FILEPATH = __DIR__ . '/en-wiki-formulae-good.json';
