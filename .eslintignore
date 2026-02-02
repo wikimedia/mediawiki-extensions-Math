@@ -1,7 +1,5 @@
 /vendor/
 /docs/
-/tests/phpunit/unit/WikiTexVC/
-/tests/phpunit/integration/WikiTexVC/
 /modules/mathjax
 
 # Language files written automatically by TranslateWiki
