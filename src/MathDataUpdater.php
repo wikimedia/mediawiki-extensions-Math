@@ -46,6 +46,7 @@ class MathDataUpdater implements StatementDataUpdater {
 	public function updateParserOutput( ParserOutput $parserOutput ) {
 		if ( $this->hasMath ) {
 			$parserOutput->addModuleStyles( [ 'ext.math.styles' ] );
+			$parserOutput->addModules( [ 'ext.math.polyfills' ] );
 		}
 	}
 }

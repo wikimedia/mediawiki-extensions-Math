@@ -135,32 +135,6 @@ const fetchPreviewForTitle = function ( title, el ) {
 	}
 );
 
-// polyfill for href attributes (https://github.com/w3c/mathml-polyfills/blob/main/href/href.js)
-// functionality will be moved to skipFunctions T415006
-[].forEach.call(
-	document.querySelectorAll( '.mwe-math-element mrow[href]' ),
-	( el ) => {
-		el.style.cursor = 'pointer';
-		el.tabIndex = 0;
-		el.setAttribute( 'role', 'link' );
-		el.addEventListener( 'click', ( event ) => {
-			document.location = event.currentTarget.getAttribute( 'href' );
-		} );
-		el.addEventListener( 'keydown', ( event ) => {
-			if ( event.key === 'Enter' ) {
-				document.location = event.currentTarget.getAttribute( 'href' );
-			}
-		} );
-		el.addEventListener( 'mouseover', ( event ) => {
-			event.currentTarget.style.textDecoration = 'solid underline';
-		} );
-		el.addEventListener( 'mouseout', ( event ) => {
-			event.currentTarget.style.textDecoration = '';
-		} );
-		return el;
-	}
-);
-
 const mathDisabledByUser = mw.user.isNamed() && mw.user.options.get( 'math-popups' ) !== '1';
 const mathAppliesToThisPage = document.querySelectorAll( selector ).length > 0;
 

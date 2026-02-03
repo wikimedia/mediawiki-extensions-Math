@@ -83,6 +83,7 @@ class ParserHooksHandler implements
 		$renderer = $this->rendererFactory->getRenderer( $content ?? '', $attributes, $mode );
 
 		$parser->getOutput()->addModuleStyles( [ 'ext.math.styles' ] );
+		$parser->getOutput()->addModules( [ 'ext.math.polyfills' ] );
 		if ( array_key_exists( "qid", $attributes ) ) {
 			$parser->getOutput()->addModules( [ 'ext.math.popup' ] );
 		}

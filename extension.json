@@ -245,6 +245,10 @@
 				"ext.math.less"
 			]
 		},
+		"ext.math.polyfills": {
+			"scripts": "ext.math.polyfills.js",
+			"skipFunction": "ext.math.polyfills.skip.js"
+		},
 		"ext.math.popup": {
 			"packageFiles": "ext.math.popup.js",
 			"messages": [
