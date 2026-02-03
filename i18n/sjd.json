@@ -5,7 +5,16 @@
 		]
 	},
 	"math-visualeditor-mwchemdialog-title": "Химическэ формула",
+	"math-visualeditor-mwlatexdialog-card-formula": "Фо̄рмула",
+	"math-visualeditor-mwlatexinspector-display": "Вуэзхэллмушш",
+	"math-visualeditor-mwlatexinspector-display-block": "Бло̄һк",
 	"math-visualeditor-mwmathdialog-title": "Математическэ формула",
+	"math-visualeditor-symbol-group-chem-formulae": "Химическэ фо̄рмула",
+	"math-visualeditor-symbol-group-math-geometry": "Геометрия",
+	"math-visualeditor-symbol-group-math-operators": "Оператэр",
+	"math-visualeditor-symbol-group-math-root": "Вуаннтас",
+	"math-visualeditor-symbol-group-math-symbols": "Сӣмвэл я константа",
+	"math-visualeditor-symbol-group-math-typefaces": "Шрифт на̄ль",
 	"mw-math-mathml": "SVG (MathML вуайй браузэр гуэйкэ пла̄гинэнҍ ключчье)",
 	"prefs-math": "Фо̄рмулатҍ вуэзхэллмушш"
 }
