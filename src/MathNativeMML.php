@@ -43,7 +43,8 @@ class MathNativeMML extends MathMathML {
 		$mathConfig ??= Math::getMathConfig();
 		$hookContainer ??= MediaWikiServices::getInstance()->getHookContainer();
 		$config ??= MediaWikiServices::getInstance()->getMainConfig();
-		$renderer = new MathNativeMML( $entry['input'], $entry['params'], WANObjectCache::newEmpty(), $mathConfig );
+		$renderer = new MathNativeMML(
+			$entry['input'], $entry['params'] ?? [], WANObjectCache::newEmpty(), $mathConfig );
 		$renderer->setRawError( true );
 		$renderer->setHookContainer( $hookContainer );
 		$renderer->setMainConfig( $config );
