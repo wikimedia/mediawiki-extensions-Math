@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsubsup;
@@ -63,10 +64,11 @@ class FQ extends TexNode {
 			return new MMLarray( new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLTree( [], $state ) ),
 				new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( [], $state ) ) );
 		}
-		$melement = new MMLmsubsup();
+		$above = false;
+		$noStyle = false;
+		$tu = TexUtil::getInstance();
 		if ( $base instanceof Literal ) {
 			$litArg = trim( $base->getArgs()[0] );
-			$tu = TexUtil::getInstance();
 			// use munderover if operator rendering indicates so
 			$useMoveLimits = $tu->operator_rendering( $litArg )[1]['movesupsub'] ?? false;
 			if ( $this->getBase()->containsFunc( '\\limits' ) || ( (
@@ -82,8 +84,11 @@ class FQ extends TexNode {
 				if ( !$useMoveLimits ) {
 					unset( $argsOp['movablelimits'] );
 				}
-				$melement = new MMLmunderover();
+				$above = true;
 			}
+		} elseif ( $base instanceof Fun1 && $tu->over_operator( $base->getFname() ) ) {
+			$noStyle = true;
+			$above = true;
 		}
 
 		$emptyMrow = "";
@@ -92,17 +97,25 @@ class FQ extends TexNode {
 			$emptyMrow = new MMLmrow();
 		}
 		// This seems to be the common case
-		$inner = $melement::newSubtree(
+		$inner = $this->newMmlElement( $above,
 			new MMLarray( $emptyMrow,
 			$base->toMMLTree( $argsOp, $state ) ),
 			new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLTree( $arguments, $state ) ),
 			new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( $arguments, $state ) ) );
 
-		if ( $melement instanceof MMLmunderover && !$hasLimits ) {
+		if ( !$noStyle && $above && !$hasLimits ) {
 			$args = $state['styleargs'] ?? [ "displaystyle" => "true", "scriptlevel" => 0 ];
 			return new MMLmstyle( "", $args, $inner );
 		}
 
 		return $inner;
+	}
+
+	protected function newMmlElement( bool $above, MMLbase $base, MMLbase $down, MMLbase $up ): MMLbase {
+		if ( $above ) {
+			return MMLmunderover::newSubtree( $base, $down, $up );
+		} else {
+			return MMLmsubsup::newSubtree( $base, $down, $up );
+		}
 	}
 }
