@@ -16,4 +16,23 @@ class MMLarray extends MMLbase {
 	public function __toString(): string {
 		return implode( '', $this->children );
 	}
+
+	/**
+	 * An array behaves differently as it's not a real MathML element.
+	 * Is empty if all of its children are empty (null, empty string, or empty MMLbase element).
+	 */
+	public function isEmpty(): bool {
+		$empty = true;
+		foreach ( $this->children as $child ) {
+			if ( $child === null ||
+				( is_string( $child ) && trim( $child ) === '' ) ||
+				$child->isEmpty() ) {
+				continue;
+			} else {
+				$empty = false;
+				break;
+			}
+		}
+		return $empty;
+	}
 }

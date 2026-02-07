@@ -31,4 +31,9 @@ class MMLleafTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( 'test', $leaf->getName() );
 		$this->assertEquals( 'text', $leaf->getText() );
 	}
+
+	public function testIsEmpty() {
+		$leaf = $this->createLeafMock( 'test', 'tex-class', [ 'attr' => 'value' ], 'text' );
+		$this->assertFalse( $leaf->isEmpty() );
+	}
 }

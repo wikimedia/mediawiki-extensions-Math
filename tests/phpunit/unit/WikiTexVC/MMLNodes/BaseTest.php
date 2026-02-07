@@ -91,4 +91,11 @@ class BaseTest extends MediaWikiUnitTestCase {
 		$base = new MMLbase( 'test', 'texClass', [] );
 		$this->assertFalse( $base->hasChildren() );
 	}
+
+	public function testIsEmpty() {
+		$base = new MMLbase( 'test', 'texClass', [] );
+		$this->assertTrue( $base->isEmpty() );
+		$base->addChild( $base );
+		$this->assertFalse( $base->isEmpty(), "Elements with children are not empty." );
+	}
 }
