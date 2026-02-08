@@ -26,7 +26,7 @@ class MMLarray extends MMLbase {
 		foreach ( $this->children as $child ) {
 			if ( $child === null ||
 				( is_string( $child ) && trim( $child ) === '' ) ||
-				$child->isEmpty() ) {
+				( $child instanceof MMLbase && $child->isEmpty() ) ) {
 				continue;
 			} else {
 				$empty = false;

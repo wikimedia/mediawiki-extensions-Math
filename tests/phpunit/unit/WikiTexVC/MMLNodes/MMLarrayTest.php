@@ -17,4 +17,11 @@ class MMLarrayTest extends MediaWikiUnitTestCase {
 		$base->addChild( new MMLmi( 'test', [], '' ) );
 		$this->assertFalse( $base->isEmpty() );
 	}
+
+	public function testIsEmptyString() {
+		$base = new MMLarray( '', null, new MMLbase( 'test', 'texClass', [] ) );
+		$this->assertTrue( $base->isEmpty() );
+		$base->addChild( 'non-empty-string' );
+		$this->assertFalse( $base->isEmpty() );
+	}
 }
