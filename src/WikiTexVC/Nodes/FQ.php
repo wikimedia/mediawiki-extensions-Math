@@ -42,42 +42,48 @@ class FQ extends TexNode {
 
 	/** @inheritDoc */
 	public function toMMLTree( $arguments = [], &$state = [] ) {
-		if ( array_key_exists( 'limits', $state ) ) {
+		$tu = TexUtil::getInstance();
+
+		$hasLimits = array_key_exists( 'limits', $state );
+		$displaystyle = ( $state['styleargs']['displaystyle'] ?? 'true' ) === 'true';
+
+		if ( $hasLimits ) {
 			// A specific FQ case with preceding limits, just invoke the limits parsing manually.
 			$argsOp = [ 'form' => 'prefix' ];
-			if ( ( $state['styleargs']['displaystyle'] ?? 'true' ) === 'false' ) {
+
+			if ( !$displaystyle ) {
 				$argsOp['movablelimits'] = 'true';
 			}
 			if ( $this->base->containsFunc( '\\nolimits' ) ) {
 				$argsOp['movablelimits'] = 'false';
 			}
 			$base = $state['limits'];
-			$hasLimits = true;
 		} else {
-			$hasLimits = false;
 			$base = $this->getBase();
-			$argsOp = [];
+			$argsOp = $arguments;
 		}
+
 		if ( isset( $state['sideset'] ) &&
 			$base->getLength() == 0 && !$base->isCurly() ) {
 			// this happens when FQ is located in sideset Testcase 132
-			return new MMLarray( new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLTree( [], $state ) ),
-				new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( [], $state ) ) );
+			return new MMLarray(
+				new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLTree( [], $state ) ),
+				new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( [], $state ) )
+			);
 		}
+
 		$above = false;
 		$noStyle = false;
-		$tu = TexUtil::getInstance();
+
 		if ( $base instanceof Literal ) {
 			$litArg = trim( $base->getArgs()[0] );
 			// use munderover if operator rendering indicates so
 			$useMoveLimits = $tu->operator_rendering( $litArg )[1]['movesupsub'] ?? false;
-			if ( $this->getBase()->containsFunc( '\\limits' ) || ( (
-				$useMoveLimits &&
-				( $argsOp['movablelimits'] ?? 'true' ) === 'true' &&
-				// by default (inline-displaystyle large operators should be used)
-				( $state['styleargs']['displaystyle'] ?? 'true' ) === 'true'
-				) )
-			) {
+			if ( $this->getBase()->containsFunc( '\\limits' ) || (
+					$useMoveLimits &&
+					( $argsOp['movablelimits'] ?? 'true' ) === 'true' &&
+					$displaystyle
+				) ) {
 				if ( $this->getBase()->containsFunc( '\\limits' ) ) {
 					$argsOp['movablelimits'] = 'false';
 				}
@@ -89,6 +95,20 @@ class FQ extends TexNode {
 		} elseif ( $base instanceof Fun1 && $tu->over_operator( $base->getFname() ) ) {
 			$noStyle = true;
 			$above = true;
+		} elseif ( $this instanceof DQ && $this->getBase()->containsFunc( "\underbrace" ) ) {
+			$above = true;
+			$noStyle = true;
+		}
+
+		if ( $this instanceof DQ && $hasLimits ) {
+			$above = true;
+		}
+		if ( $this instanceof DQ && $this->isEmpty() ) {
+			return null;
+		}
+		if ( $this instanceof DQ && $displaystyle && $tu->operator( trim( $base->render() ) ) ) {
+			$above = true;
+			$noStyle = true;
 		}
 
 		$emptyMrow = "";
@@ -96,12 +116,13 @@ class FQ extends TexNode {
 		if ( $base->isEmpty() ) {
 			$emptyMrow = new MMLmrow();
 		}
-		// This seems to be the common case
-		$inner = $this->newMmlElement( $above,
-			new MMLarray( $emptyMrow,
-			$base->toMMLTree( $argsOp, $state ) ),
+
+		$inner = $this->newMmlElement(
+			$above,
+			new MMLarray( $emptyMrow, $base->toMMLTree( $argsOp, $state ) ),
 			new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLTree( $arguments, $state ) ),
-			new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( $arguments, $state ) ) );
+			new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( $arguments, $state ) )
+		);
 
 		if ( !$noStyle && $above && !$hasLimits ) {
 			$args = $state['styleargs'] ?? [ "displaystyle" => "true", "scriptlevel" => 0 ];

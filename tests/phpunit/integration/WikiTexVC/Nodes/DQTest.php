@@ -69,7 +69,7 @@ class DQTest extends MediaWikiIntegrationTestCase {
 
 	public function testSmallSum() {
 		$dq = new DQ( new Literal( '\\sum' ), new Literal( 'i' ) );
-		$state = [ 'styleargs' => [ 'displaystle' => 'false' ] ];
+		$state = [ 'styleargs' => [ 'displaystyle' => 'false' ] ];
 		$this->assertStringContainsString(
 			"<msub>",
 			$dq->toMMLTree( [], $state ) );
