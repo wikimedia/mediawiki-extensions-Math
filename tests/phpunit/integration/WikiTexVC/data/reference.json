@@ -2079,5 +2079,10 @@
 			"Invalid attribute form for element mi\n": 1,
 			"Invalid attribute accent for element mo\n": 2
 		}
+	},
+	{
+		"input": "\\operatorname{arg\\,max}",
+		"bug": "T390260",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">a</mi><mi mathvariant=\"normal\">r</mi><mi mathvariant=\"normal\">g</mi><mspace width=\"0.167em\"></mspace><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">a</mi><mi mathvariant=\"normal\">x</mi></mrow></math>"
 	}
 ]

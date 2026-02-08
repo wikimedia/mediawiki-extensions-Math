@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use Generator;
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
@@ -212,14 +213,16 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return [ $hasNamedFct, $hasValidParameters ];
 	}
 
-	private function squashLiterals() {
+	private function squashLiterals( array &$arguments ): void {
 		$tmp = '';
 		foreach ( $this->args as $arg ) {
 			if ( !( $arg instanceof Literal ) ) {
+				unset( $arguments[ Tag::CLASSTAG  ] );
 				return;
 			}
 			// Don't squash if there is a macro in the literal
 			if ( preg_match( "/[\\\\]/", $arg->getArg() ) ) {
+				unset( $arguments[ Tag::CLASSTAG  ] );
 				return;
 			}
 			$tmp .= $arg->getArg();
@@ -265,7 +268,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		$currentColor = null;
 
 		if ( array_key_exists( 'squashLiterals', $state ) ) {
-			$this->squashLiterals();
+			$this->squashLiterals( $arguments );
 		}
 		$this->squashNumbers();
 		$skip = 0;
