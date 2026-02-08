@@ -1691,7 +1691,9 @@
 			"&#x223C;",
 			true
 		],
-		"mhchem_single_macro": true
+		"mhchem_required": true,
+		"mhchem_single_macro": true,
+		"nullary_macro": true
 	},
 	"\\cal": {
 		"callback": [

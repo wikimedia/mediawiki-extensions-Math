@@ -48,9 +48,10 @@ class WikiTexVcCli extends Maintenance {
 		$result = $texvc->check( $userInputTex, $options );
 		if ( $result['status'] !== '+' ) {
 			$this->error( $result['status'] . $result['details'] );
+		} else {
+			$this->output( $result['output'] );
+			$this->output( "\n" );
 		}
-		$this->output( $result['output'] );
-		$this->output( "\n" );
 	}
 }
 
