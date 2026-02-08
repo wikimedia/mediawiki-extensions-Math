@@ -2782,7 +2782,6 @@
 	"\\iiiint": {
 		"ams_required": true,
 		"nullary_macro": true,
-		"operator": true,
 		"operator_rendering": [
 			"⨌"
 		]
@@ -2790,7 +2789,6 @@
 	"\\iiint": {
 		"ams_required": true,
 		"nullary_macro": true,
-		"operator": true,
 		"operator_rendering": [
 			"∭",
 			[]
@@ -2799,7 +2797,6 @@
 	"\\iint": {
 		"ams_required": true,
 		"nullary_macro": true,
-		"operator": true,
 		"operator_rendering": [
 			"∬",
 			[]
@@ -2857,7 +2854,6 @@
 	},
 	"\\int": {
 		"nullary_macro": true,
-		"operator": true,
 		"operator_rendering": [
 			"∫",
 			[]
@@ -2865,7 +2861,6 @@
 	},
 	"\\intBar": {
 		"nullary_macro": true,
-		"operator": true,
 		"operator_rendering": [
 			"⨎",
 			[]
@@ -2874,7 +2869,6 @@
 	},
 	"\\intbar": {
 		"nullary_macro": true,
-		"operator": true,
 		"operator_rendering": [
 			"⨍",
 			[]
