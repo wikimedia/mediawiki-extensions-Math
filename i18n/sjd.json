@@ -4,6 +4,7 @@
 			"Merrahtar"
 		]
 	},
+	"popups-settings-option-math-tooltip": "Оа̄нтшаһтӭ математическэ формулатҍ, куэссь курсэр сӣнэ э̄л тя̄һт.",
 	"math-visualeditor-mwchemdialog-title": "Химическэ формула",
 	"math-visualeditor-mwlatexdialog-card-formula": "Фо̄рмула",
 	"math-visualeditor-mwlatexinspector-display": "Вуэзхэллмушш",
@@ -15,6 +16,9 @@
 	"math-visualeditor-symbol-group-math-root": "Вуаннтас",
 	"math-visualeditor-symbol-group-math-symbols": "Сӣмвэл я константа",
 	"math-visualeditor-symbol-group-math-typefaces": "Шрифт на̄ль",
+	"mw-math-mathjax": "Оаннӭй гоарренҍ MathJax рисэвайймушш (ре̄ввьнлаһтма MathML туаррьемужэнҍ браузрэ гуэйкэ)",
 	"mw-math-mathml": "SVG (MathML вуайй браузэр гуэйкэ пла̄гинэнҍ ключчье)",
+	"mw-math-native": "MathML (экспериментальнэ; коа̄веха)",
+	"mw-math-source": "LaTeX-разметка (текст браузрэ гуэйкэ)",
 	"prefs-math": "Фо̄рмулатҍ вуэзхэллмушш"
 }
