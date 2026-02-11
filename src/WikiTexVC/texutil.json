@@ -4310,8 +4310,7 @@
 			"←"
 		],
 		"fun_ar1": true,
-		"is_letter_mod": true,
-		"over_operator": true
+		"is_letter_mod": true
 	},
 	"\\overleftrightarrow": {
 		"ams_required": true,
@@ -4320,8 +4319,7 @@
 			"↔"
 		],
 		"fun_ar1": true,
-		"is_letter_mod": true,
-		"over_operator": true
+		"is_letter_mod": true
 	},
 	"\\overline": {
 		"callback": [
@@ -4329,8 +4327,7 @@
 			"‾"
 		],
 		"fun_ar1": true,
-		"is_letter_mod": true,
-		"over_operator": true
+		"is_letter_mod": true
 	},
 	"\\overparen": {
 		"callback": [
@@ -4344,8 +4341,7 @@
 			"→"
 		],
 		"fun_ar1": true,
-		"is_letter_mod": true,
-		"over_operator": true
+		"is_letter_mod": true
 	},
 	"\\overset": {
 		"ams_required": true,

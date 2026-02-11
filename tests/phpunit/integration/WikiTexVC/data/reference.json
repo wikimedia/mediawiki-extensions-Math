@@ -2087,6 +2087,11 @@
 		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">a</mi><mi mathvariant=\"normal\">r</mi><mi mathvariant=\"normal\">g</mi><mspace width=\"0.167em\"></mspace><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">a</mi><mi mathvariant=\"normal\">x</mi></mrow></math>"
 	},
 	{
+		"input": "\\overline{A}^T",
+		"bug": "T382796",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msup><mrow data-mjx-texclass=\"ORD\"><mover><mi>A</mi><mo>‾</mo></mover></mrow><mrow data-mjx-texclass=\"ORD\"><mi>T</mi></mrow></msup></math>"
+	},
+	{
 		"input": "\\textstyle \\oint \\int",
 		"bug": "T414124",
 		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mo>&#x222E;</mo><mo stretchy=\"false\">∫</mo></mstyle></math>"
