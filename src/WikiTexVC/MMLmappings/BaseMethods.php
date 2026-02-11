@@ -96,14 +96,13 @@ class BaseMethods {
 	): MMLbase {
 		// Some custom parsing from operatorDict
 		switch ( $input ) {
+			// effectively, those operations are not tagged with stretchy=false
 			case ";":
 			case ",":
+			case "<":
+			case ">":
 				// this maybe just a default case, this is not rendered when it is the last in row
 				return new MMLmo( "", [], $input );
-			case "<":
-				return new MMLmo( "", [], "<" );
-			case ">":
-				return new MMLmo( "", [], ">" );
 			case "\\":
 				 // instead of carriage return, force whitespace here:
 				 // see: https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Math/+/961213

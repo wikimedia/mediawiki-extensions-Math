@@ -53,6 +53,9 @@
 	"*": {
 		"operator_infix": [
 			" exports.MO.BIN3"
+		],
+		"operator_rendering": [
+			"∗"
 		]
 	},
 	"**": {

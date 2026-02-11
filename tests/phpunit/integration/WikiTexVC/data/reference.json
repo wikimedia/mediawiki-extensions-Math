@@ -200,7 +200,8 @@
 	},
 	{
 		"input": "\\cdot, * \\ast, \\star, \\circ, \\bullet \\!",
-		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\">⋅</mo><mo>,</mo><mo stretchy=\"false\">*</mo><mo stretchy=\"false\">∗</mo><mo>,</mo><mo stretchy=\"false\">⋆</mo><mo>,</mo><mo stretchy=\"false\">∘</mo><mo>,</mo><mo stretchy=\"false\">∙</mo><mspace width=\"-0.167em\"></mspace></math>"
+		"bug": "T414130",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\">⋅</mo><mo>,</mo><mo stretchy=\"false\">∗</mo><mo stretchy=\"false\">∗</mo><mo>,</mo><mo stretchy=\"false\">⋆</mo><mo>,</mo><mo stretchy=\"false\">∘</mo><mo>,</mo><mo stretchy=\"false\">∙</mo><mspace width=\"-0.167em\"></mspace></math>"
 	},
 	{
 		"input": "\\boxplus, \\boxminus, \\boxtimes, \\boxdot \\!",
