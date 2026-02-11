@@ -741,7 +741,7 @@
 	},
 	{
 		"input": "\\oint_{(x,y)\\in C} x^3\\, dx + 4y^2\\, dy",
-		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msub><mstyle displaystyle=\"true\"><mo>&#x222E;</mo></mstyle><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">∈</mo><mi>C</mi></mrow></mrow></msub><msup><mi>x</mi><mrow data-mjx-texclass=\"ORD\"><mn>3</mn></mrow></msup><mspace width=\"0.167em\"></mspace><mi>d</mi><mi>x</mi><mo stretchy=\"false\">+</mo><mn>4</mn><msup><mi>y</mi><mrow data-mjx-texclass=\"ORD\"><mn>2</mn></mrow></msup><mspace width=\"0.167em\"></mspace><mi>d</mi><mi>y</mi></math>"
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msub><mo>&#x222E;</mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">∈</mo><mi>C</mi></mrow></mrow></msub><msup><mi>x</mi><mrow data-mjx-texclass=\"ORD\"><mn>3</mn></mrow></msup><mspace width=\"0.167em\"></mspace><mi>d</mi><mi>x</mi><mo stretchy=\"false\">+</mo><mn>4</mn><msup><mi>y</mi><mrow data-mjx-texclass=\"ORD\"><mn>2</mn></mrow></msup><mspace width=\"0.167em\"></mspace><mi>d</mi><mi>y</mi></math>"
 	},
 	{
 		"input": "\\bigcap_{i=_1}^n E_i",
@@ -1611,7 +1611,7 @@
 	},
 	{
 		"input": "\\oint",
-		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mstyle displaystyle=\"true\"><mo>&#x222E;</mo></mstyle></math>"
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo>&#x222E;</mo></math>"
 	},
 	{
 		"input": "\\iint\\limits_{S}\\!\\!\\!\\!\\!\\!\\!\\!\\!\\!\\!\\subset\\!\\supset \\mathbf D \\cdot \\mathrm{d}\\mathbf A",
@@ -1635,7 +1635,7 @@
 	},
 	{
 		"input": "( \\nabla \\times \\bold{F} ) \\cdot {\\rm d}\\bold{S} = \\oint_{\\partial S} \\bold{F} \\cdot {\\rm d}\\boldsymbol{\\ell} ",
-		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\">(</mo><mi mathvariant=\"normal\">∇</mi><mo stretchy=\"false\">×</mo><mrow data-mjx-texclass=\"ORD\"><mi>𝐅</mi></mrow><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">⋅</mo><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>𝐒</mi></mrow><mo stretchy=\"false\">=</mo><msub><mstyle displaystyle=\"true\"><mo>&#x222E;</mo></mstyle><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>∂</mi><mi>S</mi></mrow></mrow></msub><mrow data-mjx-texclass=\"ORD\"><mi>𝐅</mi></mrow><mo stretchy=\"false\">⋅</mo><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>ℓ</mi></mrow></math>"
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\">(</mo><mi mathvariant=\"normal\">∇</mi><mo stretchy=\"false\">×</mo><mrow data-mjx-texclass=\"ORD\"><mi>𝐅</mi></mrow><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">⋅</mo><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>𝐒</mi></mrow><mo stretchy=\"false\">=</mo><msub><mo>&#x222E;</mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>∂</mi><mi>S</mi></mrow></mrow></msub><mrow data-mjx-texclass=\"ORD\"><mi>𝐅</mi></mrow><mo stretchy=\"false\">⋅</mo><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>ℓ</mi></mrow></math>"
 	},
 	{
 		"input": "{\\scriptstyle S}",
@@ -1643,11 +1643,11 @@
 	},
 	{
 		"input": "( \\nabla \\times \\bold{F} ) \\cdot {\\rm d}\\bold{S} = \\oint_{\\partial S} \\bold{F} \\cdot {\\rm d}\\boldsymbol{\\ell} ",
-		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\">(</mo><mi mathvariant=\"normal\">∇</mi><mo stretchy=\"false\">×</mo><mrow data-mjx-texclass=\"ORD\"><mi>𝐅</mi></mrow><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">⋅</mo><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>𝐒</mi></mrow><mo stretchy=\"false\">=</mo><msub><mstyle displaystyle=\"true\"><mo>&#x222E;</mo></mstyle><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>∂</mi><mi>S</mi></mrow></mrow></msub><mrow data-mjx-texclass=\"ORD\"><mi>𝐅</mi></mrow><mo stretchy=\"false\">⋅</mo><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>ℓ</mi></mrow></math>"
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\">(</mo><mi mathvariant=\"normal\">∇</mi><mo stretchy=\"false\">×</mo><mrow data-mjx-texclass=\"ORD\"><mi>𝐅</mi></mrow><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">⋅</mo><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>𝐒</mi></mrow><mo stretchy=\"false\">=</mo><msub><mo>&#x222E;</mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>∂</mi><mi>S</mi></mrow></mrow></msub><mrow data-mjx-texclass=\"ORD\"><mi>𝐅</mi></mrow><mo stretchy=\"false\">⋅</mo><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>ℓ</mi></mrow></math>"
 	},
 	{
 		"input": "\\oint_C \\bold{B} \\cdot {\\rm d} \\boldsymbol{\\ell} = \\mu_0 ",
-		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msub><mstyle displaystyle=\"true\"><mo>&#x222E;</mo></mstyle><mrow data-mjx-texclass=\"ORD\"><mi>C</mi></mrow></msub><mrow data-mjx-texclass=\"ORD\"><mi>𝐁</mi></mrow><mo stretchy=\"false\">⋅</mo><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>ℓ</mi></mrow><mo stretchy=\"false\">=</mo><msub><mi>μ</mi><mrow data-mjx-texclass=\"ORD\"><mn>0</mn></mrow></msub></math>"
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msub><mo>&#x222E;</mo><mrow data-mjx-texclass=\"ORD\"><mi>C</mi></mrow></msub><mrow data-mjx-texclass=\"ORD\"><mi>𝐁</mi></mrow><mo stretchy=\"false\">⋅</mo><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>ℓ</mi></mrow><mo stretchy=\"false\">=</mo><msub><mi>μ</mi><mrow data-mjx-texclass=\"ORD\"><mn>0</mn></mrow></msub></math>"
 	},
 	{
 		"input": "{\\scriptstyle S}",
@@ -1659,7 +1659,7 @@
 	},
 	{
 		"input": "\\oint_{\\partial S} \\bold{B} \\cdot {\\rm d} \\boldsymbol{\\ell} = \\mu_0 ",
-		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msub><mstyle displaystyle=\"true\"><mo>&#x222E;</mo></mstyle><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>∂</mi><mi>S</mi></mrow></mrow></msub><mrow data-mjx-texclass=\"ORD\"><mi>𝐁</mi></mrow><mo stretchy=\"false\">⋅</mo><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>ℓ</mi></mrow><mo stretchy=\"false\">=</mo><msub><mi>μ</mi><mrow data-mjx-texclass=\"ORD\"><mn>0</mn></mrow></msub></math>"
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msub><mo>&#x222E;</mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>∂</mi><mi>S</mi></mrow></mrow></msub><mrow data-mjx-texclass=\"ORD\"><mi>𝐁</mi></mrow><mo stretchy=\"false\">⋅</mo><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>ℓ</mi></mrow><mo stretchy=\"false\">=</mo><msub><mi>μ</mi><mrow data-mjx-texclass=\"ORD\"><mn>0</mn></mrow></msub></math>"
 	},
 	{
 		"input": "{\\scriptstyle S}",
@@ -2085,5 +2085,10 @@
 		"input": "\\operatorname{arg\\,max}",
 		"bug": "T390260",
 		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">a</mi><mi mathvariant=\"normal\">r</mi><mi mathvariant=\"normal\">g</mi><mspace width=\"0.167em\"></mspace><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">a</mi><mi mathvariant=\"normal\">x</mi></mrow></math>"
+	},
+	{
+		"input": "\\textstyle \\oint \\int",
+		"bug": "T414124",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mo>&#x222E;</mo><mo stretchy=\"false\">∫</mo></mstyle></math>"
 	}
 ]

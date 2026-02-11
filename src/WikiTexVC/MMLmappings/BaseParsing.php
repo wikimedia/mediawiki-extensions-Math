@@ -628,8 +628,6 @@ class BaseParsing {
 		// This is a custom mapping not in js.
 		switch ( trim( $name ) ) {
 			case "\\oint":
-				return new MMLmstyle( "", [ "displaystyle" => "true" ],
-					new MMLmo( "", [], MMLutil::uc2xNotation( $uc ) ) );
 			case "\\P":
 				return new MMLmo( "", [], MMLutil::uc2xNotation( $uc ) );
 			case "\\oiint":
