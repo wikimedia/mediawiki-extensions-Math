@@ -4505,13 +4505,10 @@
 		]
 	},
 	"\\prime": {
-		"identifier": [
-			"′",
-			{
-				"alternate": "1"
-			}
-		],
-		"nullary_macro": true
+		"nullary_macro": true,
+		"operator_rendering": [
+			"′"
+		]
 	},
 	"\\prod": {
 		"nullary_macro": true,

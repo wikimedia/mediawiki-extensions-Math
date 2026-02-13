@@ -142,10 +142,9 @@
 	},
 	{
 		"input": "\\prime, \\backprime, f^\\prime, f', f'', f^{(3)} \\!, \\dot y, \\ddot y",
-		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mi alternate=\"1\">′</mi><mo>,</mo><mi variantform=\"True\">‵</mi><mo>,</mo><msup><mi>f</mi><mrow data-mjx-texclass=\"ORD\"><mi alternate=\"1\">′</mi></mrow></msup><mo>,</mo><msup><mi>f</mi><mo>&#x2032;</mo></msup><mo>,</mo><msup><mi>f</mi><mo>&#x2033;</mo></msup><mo>,</mo><msup><mi>f</mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">(</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow></mrow></msup><mspace width=\"-0.167em\"></mspace><mo>,</mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mover><mi>y</mi><mo>˙</mo></mover></mrow></mrow><mo>,</mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mover><mi>y</mi><mo>¨</mo></mover></mrow></mrow></math>",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mo stretchy=\"false\">′</mo><mo>,</mo><mi variantform=\"True\">‵</mi><mo>,</mo><msup><mi>f</mi><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">′</mo></mrow></msup><mo>,</mo><msup><mi>f</mi><mo>&#x2032;</mo></msup><mo>,</mo><msup><mi>f</mi><mo>&#x2033;</mo></msup><mo>,</mo><msup><mi>f</mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">(</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow></mrow></msup><mspace width=\"-0.167em\"></mspace><mo>,</mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mover><mi>y</mi><mo>˙</mo></mover></mrow></mrow><mo>,</mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mover><mi>y</mi><mo>¨</mo></mover></mrow></mrow></math>",
 		"comment": "f' and f' not recognized by texVC as uq",
 		"core-validation": {
-			"Invalid attribute alternate for element mi\n": 2,
 			"Invalid attribute variantform for element mi\n": 1
 		}
 	},
@@ -608,10 +607,7 @@
 	},
 	{
 		"input": "x^\\prime, y^{\\prime\\prime}",
-		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msup><mi>x</mi><mrow data-mjx-texclass=\"ORD\"><mi alternate=\"1\">′</mi></mrow></msup><mo>,</mo><msup><mi>y</mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi alternate=\"1\">′</mi><mi alternate=\"1\">′</mi></mrow></mrow></msup></math>",
-		"core-validation": {
-			"Invalid attribute alternate for element mi\n": 3
-		}
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msup><mi>x</mi><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">′</mo></mrow></msup><mo>,</mo><msup><mi>y</mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">′</mo><mo stretchy=\"false\">′</mo></mrow></mrow></msup></math>"
 	},
 	{
 		"input": "\\dot{x}, \\ddot{x}",
@@ -2095,5 +2091,10 @@
 		"input": "\\textstyle \\oint \\int",
 		"bug": "T414124",
 		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mo>&#x222E;</mo><mo stretchy=\"false\">∫</mo></mstyle></math>"
+	},
+	{
+		"input": "a^\\prime, a'",
+		"bug": "T417248",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msup><mi>a</mi><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">′</mo></mrow></msup><mo>,</mo><msup><mi>a</mi><mo>&#x2032;</mo></msup></math>"
 	}
 ]
