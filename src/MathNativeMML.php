@@ -48,7 +48,7 @@ class MathNativeMML extends MathMathML {
 		$renderer->setRawError( true );
 		$renderer->setHookContainer( $hookContainer );
 		$renderer->setMainConfig( $config );
-		$renderer->setChecker( new LocalChecker( WANObjectCache::newEmpty(), $entry['input'], 'tex' ) );
+		$renderer->setChecker( new LocalChecker( WANObjectCache::newEmpty(), $renderer->getTex(), 'tex' ) );
 		$result = $renderer->render();
 		$entry['output'] = $renderer->getMathml();
 		if ( !$result ) {
