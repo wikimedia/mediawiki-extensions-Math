@@ -47,24 +47,26 @@ class FQ extends TexNode {
 		$displaystyle = ( $state['styleargs']['displaystyle'] ?? 'true' ) === 'true';
 
 		if ( $hasLimits ) {
-			// A specific FQ case with preceding limits, just invoke the limits parsing manually.
 			$argsOp = [ 'form' => 'prefix' ];
-
 			if ( !$displaystyle ) {
 				$argsOp['movablelimits'] = 'true';
 			}
-			if ( $this->base->containsFunc( '\\nolimits' ) ) {
+			if ( $this->base->containsFunc( '\\limits' ) ) {
 				$argsOp['movablelimits'] = 'false';
 			}
+			if ( $this->base->containsFunc( '\\nolimits' ) ) {
+				$argsOp['movablelimits'] = 'false';
+				$hasLimits = false;
+			}
 			$base = $state['limits'];
+			unset( $state['limits'] );
 		} else {
 			$base = $this->getBase();
 			$argsOp = $arguments;
 		}
 
-		if ( isset( $state['sideset'] ) &&
-			$base->getLength() == 0 && !$base->isCurly() ) {
-			// this happens when FQ is located in sideset Testcase 132
+		// Special-case: sideset with empty (non-curly) base -> return array of under/over rows.
+		if ( isset( $state['sideset'] ) && $base->getLength() === 0 && !$base->isCurly() ) {
 			return new MMLarray(
 				new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLTree( [], $state ) ),
 				new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( [], $state ) )
@@ -73,16 +75,17 @@ class FQ extends TexNode {
 
 		$above = false;
 
+		// Determine whether to use munderover (above=true) vs mmlsubsup (above=false).
 		if ( $base instanceof Literal ) {
 			$litArg = trim( $base->getArgs()[0] );
-			// use munderover if operator rendering indicates so
 			$useMoveLimits = $tu->operator_rendering( $litArg )[1]['movesupsub'] ?? false;
-			if ( $this->getBase()->containsFunc( '\\limits' ) || (
-					$useMoveLimits &&
-					( $argsOp['movablelimits'] ?? 'true' ) === 'true' &&
-					$displaystyle
-				) ) {
-				if ( $this->getBase()->containsFunc( '\\limits' ) || ( $useMoveLimits && $displaystyle ) ) {
+
+			$containsLimits = $this->getBase()->containsFunc( '\\limits' );
+			$movablelimitsEnabled = ( $argsOp['movablelimits'] ?? 'true' ) === 'true';
+
+			if ( $containsLimits || ( $useMoveLimits && $movablelimitsEnabled && $displaystyle ) ) {
+				// replicate original mutation semantics
+				if ( $containsLimits || ( $useMoveLimits && $displaystyle ) ) {
 					$argsOp['movablelimits'] = 'false';
 				}
 				if ( !$useMoveLimits ) {
@@ -96,21 +99,19 @@ class FQ extends TexNode {
 			$above = true;
 		}
 
-		if ( $this instanceof DQ && $hasLimits ) {
-			$above = true;
-		}
-		if ( $this instanceof DQ && $this->isEmpty() ) {
-			return null;
-		}
-		if ( $this instanceof DQ && $displaystyle && $tu->operator( trim( $base->render() ) ) ) {
-			$above = true;
+		if ( $this instanceof DQ ) {
+			if ( $hasLimits ) {
+				$above = true;
+			}
+			if ( $this->isEmpty() ) {
+				return null;
+			}
+			if ( $displaystyle && $tu->operator( trim( $base->render() ) ) ) {
+				$above = true;
+			}
 		}
 
-		$emptyMrow = "";
-		// In cases with empty curly preceding like: "{}_1^2\!\Omega_3^4"
-		if ( $base->isEmpty() ) {
-			$emptyMrow = new MMLmrow();
-		}
+		$emptyMrow = $base->isEmpty() ? new MMLmrow() : "";
 
 		return $this->newMmlElement(
 			$above,
@@ -121,10 +122,8 @@ class FQ extends TexNode {
 	}
 
 	protected function newMmlElement( bool $above, MMLbase $base, MMLbase $down, MMLbase $up ): MMLbase {
-		if ( $above ) {
-			return MMLmunderover::newSubtree( $base, $down, $up );
-		} else {
-			return MMLmsubsup::newSubtree( $base, $down, $up );
-		}
+		return $above
+			? MMLmunderover::newSubtree( $base, $down, $up )
+			: MMLmsubsup::newSubtree( $base, $down, $up );
 	}
 }

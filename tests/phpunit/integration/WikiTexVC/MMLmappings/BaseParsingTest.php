@@ -285,7 +285,7 @@ f(x,y,z) & = & x + y + z
 	public function testNamedOperator() {
 		$node = new Literal( '\\gcd' );
 		$result = BaseParsing::namedOp( $node, [], [], '\\gcd' );
-		$this->assertStringContainsString( '>gcd</mi>', (string)$result );
+		$this->assertStringContainsString( '>gcd</mo>', (string)$result );
 	}
 
 	public function testSpace() {

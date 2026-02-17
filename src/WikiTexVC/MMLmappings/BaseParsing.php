@@ -578,7 +578,7 @@ class BaseParsing {
 		$applyFct = self::getApplyFct( $operatorContent );
 
 		if ( $node instanceof Literal ) {
-			return new MMLarray( new MMLmi( "", $passedArgs, $id ?? ltrim( $name, '\\' ) ), $applyFct );
+			return new MMLarray( new MMLmo( "", $passedArgs, $id ?? ltrim( $name, '\\' ) ), $applyFct );
 		}
 		return MMLmsub::newSubtree( $node->getBase()->toMMLtree() . $applyFct,
 			new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() ), "", $passedArgs );
