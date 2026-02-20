@@ -273,11 +273,11 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		$this->squashNumbers();
 		$skip = 0;
 		foreach ( $this->args  as $key => $current ) {
+			$next = next( $this->args );
 			if ( $skip > 0 ) {
 				$skip--;
 				continue;
 			}
-			$next = next( $this->args );
 			$next = $next === false ? null : $next;
 			// Check for sideset
 			$foundSideset = $this->checkForSideset( $current, $next );
@@ -351,8 +351,6 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 			unset( $state['foundNamedFct'] );
 			unset( $state['not'] );
 			unset( $state['limits'] );
-			unset( $state['deriv'] );
-
 		}
 
 		while ( count( $mmlStyles ) > 1 ) {
@@ -419,7 +417,10 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 			} else {
 				$derInfo = str_repeat( "&#x2032;", $state["deriv"] );
 			}
-			$ret = MMLmsup::newSubtree( $mml, new MMLmo( "", [], $derInfo ) );
+			unset( $state["deriv"] );
+			$ret = MMLmsup::newSubtree(
+				$mml->isEmpty() ? new MMLmrow() : $mml,
+				new MMLmo( "", [], $derInfo ) );
 			if ( ( $state['foundNamedFct'][0] ?? false ) && !( $state['foundNamedFct'][1] ?? true ) ) {
 				return new MMLarray( $ret, MMLParsingUtil::renderApplyFunction() );
 			}

@@ -2112,5 +2112,20 @@
 		"core-validation": {
 			"Invalid attribute accent for element mo\n": 1
 		}
+	},
+	{
+		"input": "'",
+		"bug": "T417440",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><msup><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"></mstyle></mrow><mo>&#x2032;</mo></msup></math>"
+	},
+	{
+		"input": "a' \\lim \\limits_{b} c",
+		"bug": "T417433",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><msup><mi>a</mi><mo>&#x2032;</mo></msup><munder><mo form=\"prefix\" movablelimits=\"false\">lim</mo><mrow data-mjx-texclass=\"ORD\"><mi>b</mi></mrow></munder><mi>c</mi></mstyle></mrow></math>"
+	},
+	{
+		"input": "\\vec e_i{}'",
+		"bug": "T417539",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><msub><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mover><mi>e</mi><mo>→</mo></mover></mrow></mrow><mrow data-mjx-texclass=\"ORD\"><mi>i</mi></mrow></msub><msup><mrow data-mjx-texclass=\"ORD\"></mrow><mo>&#x2032;</mo></msup></mstyle></mrow></math>"
 	}
 ]
