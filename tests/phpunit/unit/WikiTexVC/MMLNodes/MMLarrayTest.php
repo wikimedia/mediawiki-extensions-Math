@@ -24,4 +24,14 @@ class MMLarrayTest extends MediaWikiUnitTestCase {
 		$base->addChild( 'non-empty-string' );
 		$this->assertFalse( $base->isEmpty() );
 	}
+
+	public function testToStringWithStringsOnly() {
+		$base = new MMLarray( '', null, 'Hello', ' ', 'World' );
+		$this->assertSame( 'Hello World', (string)$base );
+	}
+
+	public function testToStringWithEmptyArray() {
+		$base = new MMLarray();
+		$this->assertSame( '', (string)$base );
+	}
 }

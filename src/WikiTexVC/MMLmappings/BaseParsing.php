@@ -1083,7 +1083,10 @@ class BaseParsing {
 				$fontArgs = MMLParsingUtil::getFontArgs( $name, null, null );
 				$inner = $node->getArg()->isCurly() ? $node->getArg()->toMMLtree(
 					$fontArgs, $state )
-					: $node->getArg()->toMMLtree( $fontArgs + [ "fromHBox" => true ] );
+					: $node->getArg()->toMMLtree( $fontArgs );
+				if ( $inner instanceof MMLbase ) {
+					$inner = $inner->getTextContent();
+				}
 				return new MMLmtext( "", $fontArgs, $inner ?? '' );
 
 		}

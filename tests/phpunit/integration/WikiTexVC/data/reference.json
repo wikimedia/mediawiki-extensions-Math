@@ -2127,5 +2127,10 @@
 		"input": "\\vec e_i{}'",
 		"bug": "T417539",
 		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><msub><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mover><mi>e</mi><mo>→</mo></mover></mrow></mrow><mrow data-mjx-texclass=\"ORD\"><mi>i</mi></mrow></msub><msup><mrow data-mjx-texclass=\"ORD\"></mrow><mo>&#x2032;</mo></msup></mstyle></mrow></math>"
+	},
+	{
+		"input": "\\textrm X, \\textrm{1 \\mod 2} ",
+		"bug": "T417869",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mtext>X</mtext><mo>,</mo><mtext>1mod2</mtext></mstyle></mrow></math>"
 	}
 ]

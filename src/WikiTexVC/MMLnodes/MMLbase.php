@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\MMLnodes;
 use DOMException;
 use MediaWiki\Extension\Math\Math;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
+use MediaWiki\Logger\LoggerFactory;
 
 class MMLbase {
 	private string $name;
@@ -114,6 +115,18 @@ class MMLbase {
 		$visitor = $this->getVisitorFactory()->createVisitor();
 		$visitor->visit( $this );
 		return $visitor->getHTML();
+	}
+
+	public function getTextContent(): string {
+		$visitor = $this->getVisitorFactory()->createVisitor();
+		try {
+			$visitor->visit( $this );
+		} catch ( DOMException $e ) {
+			LoggerFactory::getInstance( 'Math' )
+				->warning( 'Problem extracting text content:' . $e->getMessage(), [ $e ] );
+			return '';
+		}
+		return $visitor->getText();
 	}
 
 }

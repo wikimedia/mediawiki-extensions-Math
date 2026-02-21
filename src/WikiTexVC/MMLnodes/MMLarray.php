@@ -35,4 +35,16 @@ class MMLarray extends MMLbase {
 		}
 		return $empty;
 	}
+
+	public function getTextContent(): string {
+		$tmp = '';
+		foreach ( $this->getChildren() as $child ) {
+			if ( $child instanceof MMLbase ) {
+				$tmp .= $child->getTextContent();
+			} elseif ( is_string( $child ) ) {
+				$tmp .= $child;
+			}
+		}
+		return $tmp;
+	}
 }
