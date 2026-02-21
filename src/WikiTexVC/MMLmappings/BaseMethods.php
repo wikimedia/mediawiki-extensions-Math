@@ -124,10 +124,6 @@ class BaseMethods {
 		if ( array_key_exists( "movesupsub", $attrs ) && $attrs['movesupsub'] == "1" ) {
 			unset( $attrs['movesupsub'] );
 		}
-
-		if ( $state != null && array_key_exists( "not", $state ) && $state["not"] ) {
-			return new MMLmo( "", $attrs, $uc . "&#x338;" );
-		}
 		return new MMLmo( "", $attrs, $uc );
 	}
 

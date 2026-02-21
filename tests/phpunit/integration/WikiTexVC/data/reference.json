@@ -2132,5 +2132,10 @@
 		"input": "\\textrm X, \\textrm{1 \\mod 2} ",
 		"bug": "T417869",
 		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mtext>X</mtext><mo>,</mo><mtext>1mod2</mtext></mstyle></mrow></math>"
+	},
+	{
+		"input": "\\not =, {\\color{red}\\not =}",
+		"bug": "T417420",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mo stretchy=\"false\">=&#x338;</mo><mo>,</mo><mrow data-mjx-texclass=\"ORD\"><mstyle mathcolor=\"#ED1B23\"><mo stretchy=\"false\">=&#x338;</mo></mstyle></mrow></mstyle></mrow></math>"
 	}
 ]

@@ -375,6 +375,10 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	 */
 	private function createMMLwithContext( ?string $currentColor, TexNode $currentNode, array &$state,
 										   array $arguments ) {
+		$ret = $currentNode->toMMLTree( $arguments, $state );
+		$ret = $this->addNot( $state, $ret );
+		$ret = $this->addDerivativesContext( $state, $ret );
+
 		if ( $currentColor ) {
 			if ( array_key_exists( "colorDefinitions", $state )
 				&& is_array( $state["colorDefinitions"] )
@@ -388,12 +392,28 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 				$resColor = TexUtil::getInstance()->color( ucfirst( $currentColor ) );
 				$displayedColor = $resColor ?: $currentColor;
 			}
-			$ret = new MMLmstyle( "", [ "mathcolor" => $displayedColor ],
-				$currentNode->toMMLTree( $arguments, $state ) );
-		} else {
-			$ret = $currentNode->toMMLTree( $arguments, $state );
+			$ret = new MMLmstyle( "", [ "mathcolor" => $displayedColor ], $ret );
 		}
-		return $this->addDerivativesContext( $state, $ret );
+		return $ret;
+	}
+
+	/**
+	 * Applies the TeX \not overlay to the returned operator node.
+	 *
+	 * When the parser state contains the 'not' flag and the current result is an <mo> leaf,
+	 * this appends U+0338 (COMBINING LONG SOLIDUS OVERLAY) to the operator's text, producing
+	 * the MathML representation of "not" operators.
+	 *
+	 * Otherwise, returns the original node unchanged.
+	 */
+	public function addNot( array $state, MMLbase|string|null $ret ): MMLbase|string|null {
+		// $state['not'] is set when a preceding \not token was encountered.
+		if ( !( $state['not'] ?? false ) || !( $ret instanceof MMLmo ) ) {
+			return $ret;
+		}
+		unset( $state['not'] );
+
+		return $ret->setText( $ret->getText() . '&#x338;' );
 	}
 
 	/**
