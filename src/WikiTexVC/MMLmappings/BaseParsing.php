@@ -259,7 +259,7 @@ class BaseParsing {
 		if ( in_array( $thick, [ 'thin', 'medium', 'thick', '0' ], true ) ) {
 			$attrs = array_merge( $attrs, [ "linethickness" => $thick ] );
 		}
-		if ( $style !== '' && !isset( $operatorContent['styleargs'] ) ) {
+		if ( $style !== '' && !( ( $operatorContent['styleargs']['displaystyle'] ?? true ) === "false" ) ) {
 			$styleDigit = intval( $style, 10 );
 			$styleAlpha = [ 'D', 'T', 'S', 'SS' ][$styleDigit];
 			if ( $styleAlpha == null ) {
@@ -592,10 +592,11 @@ class BaseParsing {
 			$attributes = [ "linethickness" => "0" ];
 		} elseif ( trim( $name ) == "\\choose" ) {
 			$start = new MMLmrow( TexClass::OPEN, [],
-				new MMLmo( "", [ "maxsize" => "1.2em", "minsize" => "1.2em" ], "(" )
+				// T418144 2.047em was used by mathoid
+				new MMLmo( "", [ "maxsize" => "2.047em", "minsize" => "2.047em" ], "(" )
 			);
 			$tail = new MMLmrow( TexClass::CLOSE, [],
-				new MMLmo( "", [ "maxsize" => "1.2em", "minsize" => "1.2em" ], ")" )
+				new MMLmo( "", [ "maxsize" => "2.047em", "minsize" => "2.047em" ], ")" )
 			);
 			$attributes = [ "linethickness" => "0" ];
 		}
