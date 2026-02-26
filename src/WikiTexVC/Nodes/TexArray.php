@@ -11,6 +11,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
@@ -418,9 +419,12 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 				$derInfo = str_repeat( "&#x2032;", $state["deriv"] );
 			}
 			unset( $state["deriv"] );
-			$ret = MMLmsup::newSubtree(
-				$mml->isEmpty() ? new MMLmrow() : $mml,
-				new MMLmo( "", [], $derInfo ) );
+			if ( is_string( $mml ) ) {
+				$mml = new MMLmi( $mml );
+			} elseif ( $mml === null || $mml->isEmpty() ) {
+				$mml = new MMLmrow();
+			}
+			$ret = MMLmsup::newSubtree( $mml, new MMLmo( "", [], $derInfo ) );
 			if ( ( $state['foundNamedFct'][0] ?? false ) && !( $state['foundNamedFct'][1] ?? true ) ) {
 				return new MMLarray( $ret, MMLParsingUtil::renderApplyFunction() );
 			}

@@ -159,4 +159,18 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 		$mml = $n->toMMLTree( [], $state );
 		$this->assertStringContainsString( '&#x2032;</mo>', $mml );
 	}
+
+	public function testRenderNullDeriv() {
+		$n = new TexArray( new Literal( 'A' ) );
+		$state = [ 'deriv' => 1 ];
+		$mml = $n->addDerivativesContext( $state, null );
+		$this->assertStringContainsString( '&#x2032;</mo>', $mml );
+	}
+
+	public function testRenderStringDeriv() {
+		$n = new TexArray( new Literal( 'A' ) );
+		$state = [ 'deriv' => 1 ];
+		$mml = $n->addDerivativesContext( $state, "k" );
+		$this->assertStringContainsString( '&#x2032;</mo>', $mml );
+	}
 }
