@@ -2,6 +2,11 @@
 /docs/
 /modules/mathjax
 /modules/mathjax-newcm-font
+# Very large files from .gitignore
+wmf_texvc_inputs.json
+en-wiki-formulae.json
+en-wiki-formulae-good.json
+en-wiki-formulae-good-reference.json
 
 # Language files written automatically by TranslateWiki
 /**/i18n/**/*.json

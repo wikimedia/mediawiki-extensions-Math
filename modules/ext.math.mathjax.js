@@ -79,6 +79,21 @@ window.MathJax = {
 					( parent ) => this.adaptor.append( parent, this.html( 'a', attrs ) )
 				);
 			};
+			const { FindMathML } = window.MathJax._.input.mathml.FindMathML;
+			const { combineDefaults } = window.MathJax._.components.global;
+			// from https://github.com/mathjax/MathJax/issues/2770#issuecomment-920428602
+			class MyFindMathML extends FindMathML {
+				processMath( set ) {
+					const adaptor = this.adaptor;
+					for ( const node of set.values() ) {
+						if ( adaptor.hasClass( node, 'mathjax_ignore' ) ) {
+							set.delete( node );
+						}
+					}
+					return super.processMath( set );
+				}
+			}
+			combineDefaults( window.MathJax.config, 'mml', { FindMathML: new MyFindMathML() } );
 			window.MathJax.startup.defaultReady();
 		},
 		// See https://phabricator.wikimedia.org/T375932 and the suggested fix from
