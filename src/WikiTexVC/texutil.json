@@ -6215,7 +6215,7 @@
 	},
 	"aligned": {
 		"callback": [
-			"amsEqnArray",
+			"alignAt",
 			null,
 			null,
 			null,

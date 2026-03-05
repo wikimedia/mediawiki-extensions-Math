@@ -98,4 +98,15 @@ class BaseTest extends MediaWikiUnitTestCase {
 		$base->addChild( $base );
 		$this->assertFalse( $base->isEmpty(), "Elements with children are not empty." );
 	}
+
+	public function testChangeAttributes() {
+		$base = new MMLbase( 'test' );
+		$base->setAttribute( 'mathvariant', Variants::BOLD );
+		$visitorFactory = new VisitorFactory();
+		$base->setVisitorFactory( $visitorFactory );
+		$this->assertEquals(
+			'<test mathvariant="bold"></test>',
+			(string)$base
+		);
+	}
 }

@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use Generator;
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtable;
 
 class Matrix extends TexArray {
 
@@ -111,7 +112,13 @@ class Matrix extends TexArray {
 
 	/** @inheritDoc */
 	public function toMMLTree( $arguments = [], &$state = [] ) {
-		return $this->parseToMML( $this->getTop(), $arguments, null );
+		$mml = $this->parseToMML( $this->getTop(), $arguments, null );
+		// Bug T418073
+		$displayStyle = $state['styleArgs']['displaystyle'] ?? 'true';
+		if ( $mml instanceof MMLmtable && $displayStyle === 'true' ) {
+			$mml->setAttribute( 'displaystyle', $displayStyle );
+		}
+		return $mml;
 	}
 
 	private function renderMatrix( Matrix $matrix ): string {

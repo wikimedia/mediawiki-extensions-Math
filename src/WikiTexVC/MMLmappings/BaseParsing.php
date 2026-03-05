@@ -122,8 +122,7 @@ class BaseParsing {
 	public static function alignAt( Matrix $node, $passedArgs, $operatorContent, $name, $align = null,
 		$smth2 = null
 	): MMLbase {
-		// Parsing is very similar to AmsEQArray, maybe extract function ... tcs: 178
-		$mtable  = new MMLmtable( '' );
+		$mtable  = new MMLmtable( '', [ 'displaystyle' => 'true' ] );
 		$inner = [];
 		$align ??= $node->getAlign();
 		foreach ( $node as $tableRow ) {
@@ -144,31 +143,7 @@ class BaseParsing {
 			$inner[] = new MMLmtr( "", [], ...$mtds );
 		}
 		$mtable->addChild( ...$inner );
-		return new MMLmrow( TexClass::ORD, [], $mtable );
-	}
-
-	public static function amsEqnArray( $node, $passedArgs, $operatorContent, $name, $smth, $smth2 = null ): MMLbase {
-		$mtable  = new MMLmtable( '' );
-		$cellAlign = $node->getAlign();
-		$renderedInner = [];
-		foreach ( $node as $tableRow ) {
-			$mtrs = [];
-			$colNo = 0;
-			foreach ( $tableRow->getArgs() as $tableCell ) {
-				$class = '';
-				if ( in_array( $cellAlign[$colNo] ?? [], [ 'l', 'r' ] ) ) {
-					$class .= ' mwe-math-columnalign-' . $cellAlign[$colNo];
-				}
-				$class = trim( $class );
-				$mtrs[] = new MMLmtd( "",
-					$class ? [ 'class' => $class ] : [],
-					$tableCell->toMMLtree() );
-				$colNo++;
-			}
-			$renderedInner[] = new MMLmtr( "", [], ...$mtrs );
-		}
-		$mtable->addChild( ...$renderedInner );
-		return new MMLmrow( TexClass::ORD, [], $mtable );
+		return $mtable;
 	}
 
 	public static function boldsymbol( $node, $passedArgs, $operatorContent, $name, $smth = null,
@@ -505,7 +480,6 @@ class BaseParsing {
 		$vspacing = null, $style = null, $cases = null, $numbered = null
 	): MMLbase {
 		$resInner = [];
-		$tableArgs = [];
 		$boarder = $node->getBoarder();
 		if ( !$align ) {
 			$align = $node->getAlign();
@@ -550,7 +524,7 @@ class BaseParsing {
 			}
 			$resInner[] = new MMLmtr( "", [], ...$innerInnter );
 		}
-		$mtable = new MMLmtable( '', $tableArgs );
+		$mtable = new MMLmtable( '' );
 		if ( $cases || ( $open != null && $close != null ) ) {
 			$bm = new BaseMethods();
 			$mmlMoOpen = $bm->checkAndParseDelimiter( $open, $node, [], [],

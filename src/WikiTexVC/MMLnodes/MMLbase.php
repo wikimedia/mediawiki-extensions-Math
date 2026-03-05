@@ -129,4 +129,7 @@ class MMLbase {
 		return $visitor->getText();
 	}
 
+	public function setAttribute( string $key, string $value ): void {
+		$this->attributes[ $key ] = $value;
+	}
 }
