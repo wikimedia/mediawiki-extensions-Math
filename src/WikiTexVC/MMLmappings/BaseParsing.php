@@ -170,8 +170,8 @@ class BaseParsing {
 		return new MMLmrow( TexClass::ORD, [], MMLmsup::newSubtree( $menclose, $mpAdded ) );
 	}
 
-	public static function chemCustom( $node, $passedArgs, $operatorContent, $name, $translation = null ) {
-		return $translation ?: 'tbd chemCustom';
+	public static function chemCustom( $node, $passedArgs, $operatorContent, $name, $translation = null ): MMLmerror {
+		return MMLmerror::newFromText( $translation ?: 'tbd chemCustom' );
 	}
 
 	public static function customLetters( $node, $passedArgs, $operatorContent, $name, $char,
@@ -347,7 +347,7 @@ class BaseParsing {
 
 	public static function macro( $node, $passedArgs, $operatorContent, $name,
 		$macro = '', $argcount = null, $def = null
-	) {
+	): MMLbase {
 		// Parse the Macro
 		if ( $macro == "\\text{ }" ) {
 			return new MMLmtext( "", [], '&#160;' );
@@ -472,7 +472,7 @@ class BaseParsing {
 		}
 
 		// Removed all token based parsing, since macro resolution for the supported macros can be hardcoded in php
-		return new MMLmerror( "", [], new MMLmtext( "", [], "macro not resolved: " . $macro ) );
+		return MMLmerror::newFromText( "macro not resolved: $macro" );
 	}
 
 	public static function matrix( Matrix $node, $passedArgs, $operatorContent,
@@ -616,7 +616,7 @@ class BaseParsing {
 					)
 				);
 			default:
-				return new MMLmerror( "", [], new MMLmtext( "", [], "not found in OintMethod" ) );
+				return MMLmerror::newFromText( "not found in OintMethod" );
 		}
 	}
 
@@ -726,9 +726,8 @@ class BaseParsing {
 			$movun = new MMLmunder();
 		} else {
 			// incorrect name, should not happen, prevent erroneous mappings from getting rendered.
-			return new MMLmerror( "", [],
-				new MMLmtext( "", [], 'underOver rendering requires macro to start with either \\under or \\over.' )
-			);
+			return MMLmerror::newFromText(
+				'underOver rendering requires macro to start with either \\under or \\over.' );
 		}
 
 		if ( $operatorSymbol === '―' ) { // eventually move such cases to mapping
@@ -748,7 +747,7 @@ class BaseParsing {
 
 	public static function mathChoice( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
 		if ( !$node instanceof Fun4 ) {
-			return new MMLmerror( "", [], new MMLmtext( "", [], "Wrong node type in mathChoice" ) );
+			return MMLmerror::newFromText( "Wrong node type in mathChoice" );
 		}
 
 		/**
@@ -856,8 +855,7 @@ class BaseParsing {
 
 	public static function sideset( $node, $passedArgs, $operatorContent, $name ): MMLbase {
 		if ( !array_key_exists( "sideset", $operatorContent ) ) {
-			return new MMLmerror( "", [],
-				new MMLmerror( "", [], "Error parsing sideset expression, no succeeding operator found" ) );
+			return MMLmerror::newFromText( "Error parsing sideset expression, no succeeding operator found" );
 		}
 
 		if ( $operatorContent["sideset"] instanceof Literal ) {
@@ -887,8 +885,7 @@ class BaseParsing {
 					$opParsed = $operatorContent["sideset"]->getBase()->toMMLtree() ?? "";
 				}
 			} else {
-				$opParsed = new MMLmerror( "", [],
-					new MMLmtext( "", [], "Sideset operator parsing not implemented yet" ) );
+				$opParsed = MMLmerror::newFromText( "Sideset operator parsing not implemented yet" );
 			}
 			$state = [ 'sideset' => true ];
 			$in1 = $node->getArg1()->toMMLtree( [], $state );
@@ -913,9 +910,7 @@ class BaseParsing {
 			);
 		}
 
-		return new MMLmerror( "", [],
-			new MMLmtext( "", [], "Error parsing sideset expression, no valid succeeding operator found" )
-		);
+		return MMLmerror::newFromText( "Error parsing sideset expression, no valid succeeding operator found" );
 	}
 
 	public static function spacer( $node, $passedArgs, $operatorContent, $name, $withIn = null, $smth2 = null
@@ -1066,12 +1061,12 @@ class BaseParsing {
 
 		}
 
-		return new MMLmerror( "", [], new MMLmtext( "", [], "undefined hbox" ) );
+		return MMLmerror::newFromText( "undefined hbox" );
 	}
 
 	public static function setStyle( $node, $passedArgs, $operatorContent, $name,
 		$smth = null, $smth1 = null, $smth2 = null
-	) {
+	): MMLmrow {
 		// Just discard setstyle since they are captured in TexArray now}
 		return new MMLmrow();
 	}
@@ -1083,7 +1078,7 @@ class BaseParsing {
 		if ( $node instanceof Literal ) {
 			return MMLParsingUtil::createNot();
 		}
-		return new MMLmerror( "", [], new MMLmtext( "", [], "TBD implement not" ) );
+		return MMLmerror::newFromText( "TBD implement not" );
 	}
 
 	public static function vbox( $node, $passedArgs, $operatorContent, $name, $smth = null ): MMLbase {
@@ -1098,7 +1093,7 @@ class BaseParsing {
 			}
 			return MMLmover::newSubtree( $inner[0], $inner[1] );
 		}
-		return new MMLmerror( "", [], new MMLmtext( "", [], "no implemented vbox" ) );
+		return MMLmerror::newFromText( "no implemented vbox" );
 	}
 
 	public static function sqrt( $node, $passedArgs, $operatorContent, $name ): MMLbase {
