@@ -107,4 +107,11 @@ class MathNativeMMLTest extends MediaWikiIntegrationTestCase {
 		$this->assertTrue( $mml->render() );
 		$this->assertStringContainsString( 'block', $mml->getMathml() );
 	}
+
+	public function testGetHtmlNoMathJax() {
+		$math = new MathNativeMML( "a+b", [ 'class' => 'mathjax_ignore' ] );
+		$math->render();
+		$out = $math->getHtmlOutput( false );
+		$this->assertStringContainsString( 'mathjax_ignore', $out );
+	}
 }

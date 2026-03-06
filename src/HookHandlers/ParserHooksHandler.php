@@ -78,6 +78,9 @@ class ParserHooksHandler implements
 		$mode = $parser->getOptions()->getOption( 'math' );
 		if ( $mode === MathConfig::MODE_NATIVE_JAX ) {
 			$parser->getOutput()->addModules( [ 'ext.math.mathjax' ] );
+			if ( ( $attributes['forcemathmode'] ?? MathConfig::MODE_NATIVE_JAX ) !== MathConfig::MODE_NATIVE_JAX ) {
+				$attributes['class'] = 'mathjax_ignore';
+			}
 			$mode = MathConfig::MODE_NATIVE_MML;
 		}
 		$renderer = $this->rendererFactory->getRenderer( $content ?? '', $attributes, $mode );
