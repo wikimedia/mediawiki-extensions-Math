@@ -29,4 +29,8 @@ class LengthSpec extends TexNode {
 		return '[' . $this->sign . $this->number . $this->unit . ']';
 	}
 
+	public function getCssLength(): string {
+		return $this->sign . $this->number . $this->unit;
+	}
+
 }

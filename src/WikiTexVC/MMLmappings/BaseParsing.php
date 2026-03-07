@@ -128,6 +128,11 @@ class BaseParsing {
 		foreach ( $node as $tableRow ) {
 			$mtds = [];
 			$colNo = 0;
+			$attributes = [];
+			$rowSpecs = $tableRow->getRowSpecs();
+			if ( $rowSpecs ) {
+				$attributes['style'] = "padding-bottom: {$rowSpecs->getCssLength()};";
+			}
 			foreach ( $tableRow->getArgs() as $tableCell ) {
 				$class = '';
 				if ( in_array( $align[$colNo] ?? [], [ 'l', 'r' ] ) ) {
@@ -136,7 +141,7 @@ class BaseParsing {
 				}
 				$class = trim( $class );
 				$mtds[] = new MMLmtd( "",
-					$class ? [ 'class' => $class ] : [],
+					$attributes + ( $class ? [ 'class' => $class ] : [] ),
 					$tableCell->toMMLtree() );
 				$colNo++;
 			}
