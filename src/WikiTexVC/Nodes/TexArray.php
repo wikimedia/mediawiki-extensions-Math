@@ -113,7 +113,8 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	public function checkForLimits( TexNode $currentNode, ?TexNode $nextNode ): array {
 		// Preceding 'lim' in example: "\\lim_{x \\to 2}"
 		if ( ( $currentNode instanceof DQ || $currentNode instanceof FQ )
-			&& $currentNode->containsFunc( "\\lim" ) ) {
+			&& ( $currentNode->containsFunc( "\\lim" ) ||
+				$currentNode->containsFunc( '\\varinjlim' ) ) ) {
 
 			if ( $currentNode->getBase() instanceof TexArray ) {
 				return [ $currentNode->getBase()->getArgs()[0], false ];

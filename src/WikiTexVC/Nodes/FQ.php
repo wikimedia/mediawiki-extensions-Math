@@ -74,6 +74,7 @@ class FQ extends TexNode {
 		}
 
 		$above = false;
+		$movablelimitsEnabled = false;
 
 		// Determine whether to use munderover (above=true) vs mmlsubsup (above=false).
 		if ( $base instanceof Literal ) {
@@ -99,8 +100,13 @@ class FQ extends TexNode {
 			$above = true;
 		}
 
+		$baseMML = $base->toMMLTree( $argsOp, $state );
 		if ( $this instanceof DQ ) {
-			if ( $hasLimits ) {
+			// the movablelimits option is only available for mo elements
+			// for other elements such as mrow we need to msub instead of mover
+			// bug T417375
+			$moveMrow = !$displaystyle && $baseMML instanceof MMLmrow && $movablelimitsEnabled;
+			if ( $hasLimits && !$moveMrow ) {
 				$above = true;
 			}
 			if ( $this->isEmpty() ) {
@@ -115,7 +121,7 @@ class FQ extends TexNode {
 
 		return $this->newMmlElement(
 			$above,
-			new MMLarray( $emptyMrow, $base->toMMLTree( $argsOp, $state ) ),
+			new MMLarray( $emptyMrow, $baseMML ),
 			new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLTree( $arguments, $state ) ),
 			new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( $arguments, $state ) )
 		);

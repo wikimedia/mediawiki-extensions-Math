@@ -5791,8 +5791,7 @@
 			"macro",
 			"\\mathop{\\xrightarrow{\\mmlToken{mi}{lim}}}"
 		],
-		"nullary_macro": true,
-		"operator": true
+		"nullary_macro": true
 	},
 	"\\varkappa": {
 		"ams_required": true,
