@@ -287,7 +287,7 @@
 	},
 	{
 		"input": "\\doteq, \\doteqdot, \\overset{\\underset{\\mathrm{def}}{}}{=}, := \\!",
-		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mo stretchy=\"false\">≐</mo><mo>,</mo><mo stretchy=\"false\">≑</mo><mo>,</mo><mrow data-mjx-texclass=\"ORD\"><mover><mrow><mo stretchy=\"false\">=</mo></mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi><mi mathvariant=\"normal\">e</mi><mi mathvariant=\"normal\">f</mi></mrow></mrow></mrow></mover></mrow><mo>,</mo><mo stretchy=\"false\">:=</mo><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mo stretchy=\"false\">≐</mo><mo>,</mo><mo stretchy=\"false\">≑</mo><mo>,</mo><mrow data-mjx-texclass=\"ORD\"><mover><mrow><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">=</mo></mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi><mi mathvariant=\"normal\">e</mi><mi mathvariant=\"normal\">f</mi></mrow></mrow></mrow></mover></mrow><mo>,</mo><mo stretchy=\"false\">:=</mo><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
 	},
 	{
 		"input": "\\sim, \\nsim, \\backsim, \\thicksim, \\simeq, \\backsimeq, \\eqsim, \\cong, \\ncong \\!",
@@ -627,7 +627,7 @@
 	},
 	{
 		"input": "\\overset{\\frown} {AB}",
-		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mover><mrow><mrow data-mjx-texclass=\"ORD\"><mi>A</mi><mi>B</mi></mrow></mrow><mo stretchy=\"false\">⌢</mo></mover></mrow></mstyle></mrow></math>"
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mover><mrow><mrow data-mjx-texclass=\"ORD\"><mi>A</mi><mi>B</mi></mrow></mrow><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">⌢</mo></mover></mrow></mstyle></mrow></math>"
 	},
 	{
 		"input": " A \\xleftarrow{n+\\mu-1} B \\xrightarrow[T]{n\\pm i-1} C",
@@ -1690,7 +1690,7 @@
 	},
 	{
 		"input": "\\overset{\\frown}{AB}",
-		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mover><mrow><mrow data-mjx-texclass=\"ORD\"><mi>A</mi><mi>B</mi></mrow></mrow><mo stretchy=\"false\">⌢</mo></mover></mrow></mstyle></mrow></math>"
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mover><mrow><mrow data-mjx-texclass=\"ORD\"><mi>A</mi><mi>B</mi></mrow></mrow><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">⌢</mo></mover></mrow></mstyle></mrow></math>"
 	},
 	{
 		"input": "ax^2 + bx + c = 0",
@@ -2148,5 +2148,10 @@
 		"input": "{\\begin{aligned}{\\bar {X}}_{1}&=(X_{1,1}+\\cdots +X_{1,n_{1}})/n_{1}\\\\[60pt]{\\bar {X}}_{2}&=(X_{2,1}+\\cdots +X_{2,n_{2}})/n_{2}\\end{aligned}}",
 		"bug": "T380654",
 		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mtable displaystyle=\"true\"><mtr><mtd style=\"padding-bottom: 60pt;\" class=\"mwe-math-columnalign-r\"><msub><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mover><mi>X</mi><mo>¯</mo></mover></mrow></mrow><mrow data-mjx-texclass=\"ORD\"><mn>1</mn></mrow></msub></mtd><mtd style=\"padding-bottom: 60pt;\" class=\"mwe-math-columnalign-l\"><mo stretchy=\"false\">=</mo><mo stretchy=\"false\">(</mo><msub><mi>X</mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>1</mn><mo>,</mo><mn>1</mn></mrow></mrow></msub><mo stretchy=\"false\">+</mo><mo stretchy=\"false\">⋯</mo><mo stretchy=\"false\">+</mo><msub><mi>X</mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>1</mn><mo>,</mo><msub><mi>n</mi><mrow data-mjx-texclass=\"ORD\"><mn>1</mn></mrow></msub></mrow></mrow></msub><mo stretchy=\"false\">)</mo><mo lspace=\"0\" rspace=\"0\">/</mo><msub><mi>n</mi><mrow data-mjx-texclass=\"ORD\"><mn>1</mn></mrow></msub></mtd></mtr><mtr><mtd class=\"mwe-math-columnalign-r\"><msub><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mover><mi>X</mi><mo>¯</mo></mover></mrow></mrow><mrow data-mjx-texclass=\"ORD\"><mn>2</mn></mrow></msub></mtd><mtd class=\"mwe-math-columnalign-l\"><mo stretchy=\"false\">=</mo><mo stretchy=\"false\">(</mo><msub><mi>X</mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>2</mn><mo>,</mo><mn>1</mn></mrow></mrow></msub><mo stretchy=\"false\">+</mo><mo stretchy=\"false\">⋯</mo><mo stretchy=\"false\">+</mo><msub><mi>X</mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>2</mn><mo>,</mo><msub><mi>n</mi><mrow data-mjx-texclass=\"ORD\"><mn>2</mn></mrow></msub></mrow></mrow></msub><mo stretchy=\"false\">)</mo><mo lspace=\"0\" rspace=\"0\">/</mo><msub><mi>n</mi><mrow data-mjx-texclass=\"ORD\"><mn>2</mn></mrow></msub></mtd></mtr></mtable></mstyle></mrow></math>"
+	},
+	{
+		"input": "A {\\sqcup} B \\quad A \\sqcup B",
+		"bug": "T417592",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi>A</mi><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">⊔</mo><mi>B</mi><mspace width=\"1em\"></mspace><mi>A</mi><mo stretchy=\"false\">⊔</mo><mi>B</mi></mstyle></mrow></math>"
 	}
 ]

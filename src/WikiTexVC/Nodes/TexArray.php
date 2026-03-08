@@ -364,6 +364,11 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		if ( $this->curly && $this->getLength() > 1 ) {
 			return new MMLmrow( TexClass::ORD, [], ...$output );
 		}
+		// Bug: T417592
+		if ( $this->curly && $this->getLength() === 1 && ( $output[0] ?? null ) instanceof MMLmo ) {
+			$output[0]->setAttribute( 'lspace', '0' );
+			$output[0]->setAttribute( 'rspace', '0' );
+		}
 		return new MMLarray( ...$output );
 	}
 
