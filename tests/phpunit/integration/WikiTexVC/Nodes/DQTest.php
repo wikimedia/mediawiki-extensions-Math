@@ -124,7 +124,7 @@ class DQTest extends MediaWikiIntegrationTestCase {
 
 	public function testToMMLTreeEmptyBranch() {
 		$dq = new DQ( new TexNode(), new TexNode() );
-		$this->assertNull( $dq->toMMLTree(), 'toMMLTree should return null for empty DQ' );
+		$this->assertTrue( $dq->toMMLTree()->isEmpty(), 'toMMLTree should return empty MMLarray for empty DQ' );
 	}
 
 	public function testToMMLTreeLimitsCase() {

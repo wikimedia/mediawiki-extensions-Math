@@ -119,7 +119,7 @@ class FQTest extends MediaWikiIntegrationTestCase {
 
 	public function testEmptyDq() {
 		$fq = new DQ( new TexArray(), new TexArray() );
-		$this->assertNull( $fq->toMMLTree() );
+		$this->assertTrue( $fq->toMMLTree()->isEmpty() );
 	}
 
 	public function testDqSum() {

@@ -40,7 +40,7 @@ class FQ extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function toMMLTree( $arguments = [], &$state = [] ) {
+	public function toMMLTree( $arguments = [], &$state = [] ): MMLbase {
 		$tu = TexUtil::getInstance();
 
 		$hasLimits = array_key_exists( 'limits', $state );
@@ -104,14 +104,14 @@ class FQ extends TexNode {
 				$above = true;
 			}
 			if ( $this->isEmpty() ) {
-				return null;
+				return new MMLarray();
 			}
 			if ( $displaystyle && $tu->operator( trim( $base->render() ) ) ) {
 				$above = true;
 			}
 		}
 
-		$emptyMrow = $base->isEmpty() ? new MMLmrow() : "";
+		$emptyMrow = $base->isEmpty() ? new MMLmrow() : new MMLarray();
 
 		return $this->newMmlElement(
 			$above,
