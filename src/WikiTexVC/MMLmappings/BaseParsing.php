@@ -219,7 +219,7 @@ class BaseParsing {
 		// Actually this is in AMSMethods, consider refactoring  left, right, thick, style
 		$bm = new BaseMethods();
 		$ret = $bm->checkAndParseDelimiter( $name, $node, $passedArgs, $operatorContent, true );
-		if ( $ret ) {
+		if ( !$ret->isEmpty() ) {
 			// TBD
 			if ( $left == null ) {
 				$left = $ret;
@@ -534,14 +534,14 @@ class BaseParsing {
 			$bm = new BaseMethods();
 			$mmlMoOpen = $bm->checkAndParseDelimiter( $open, $node, [], [],
 				true, TexClass::OPEN );
-			if ( $mmlMoOpen == null ) {
+			if ( $mmlMoOpen->isEmpty() ) {
 				$mmlMoOpen = new MMLmo( TexClass::OPEN, [], $open ?? '' );
 			}
 
 			$closeAtts = [ "fence" => "true", "stretchy" => "true", "symmetric" => "true" ];
 			$mmlMoClose = $bm->checkAndParseDelimiter( $close, $node, $closeAtts,
 				null, true, TexClass::CLOSE );
-			if ( $mmlMoClose == null ) {
+			if ( $mmlMoClose->isEmpty() ) {
 				$mmlMoClose = ( new MMLmo( TexClass::CLOSE, $closeAtts, $close ?? '' ) );
 			}
 			$mtable->addChild( ...$resInner );
@@ -827,7 +827,7 @@ class BaseParsing {
 		}
 
 		$ret = $bm->checkAndParseDelimiter( $node->getArg(), $node, $passedArgs, $operatorContent, true );
-		if ( $ret ) {
+		if ( !$ret->isEmpty() ) {
 			return $ret;
 		}
 

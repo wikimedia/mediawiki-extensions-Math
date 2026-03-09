@@ -141,7 +141,7 @@ class Literal extends TexNode {
 		}
 		// Sieve for Delimiters
 		$ret = $bm->checkAndParseDelimiter( $input, $this, $noStretchArgs, $operatorContent );
-		if ( $ret ) {
+		if ( !$ret->isEmpty() ) {
 			return $ret;
 		}
 		$cb = TexUtil::getInstance()->callback( trim( $inputP ) );

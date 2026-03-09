@@ -171,16 +171,15 @@ class BaseMethods {
 	}
 
 	public function checkAndParseDelimiter( $input, $node, $passedArgs,
-		$operatorContent, $noargs = false, $texClass = ""
-	): ?MMLbase {
+		$operatorContent, $noargs = false, $texClass = "" ): MMLbase {
 		if ( $input === null ) {
-			return null;
+			return new MMLarray();
 		}
 		$input = trim( $input );
 
 		$resDelimiter = TexUtil::getInstance()->delimiter( $input ) ?? false;
 		if ( $resDelimiter === false || !is_string( $resDelimiter[0] ) ) {
-			return null;
+			return new MMLarray();
 		}
 
 		if ( isset( $resDelimiter[1] ) && is_array( $resDelimiter[1] ) && !$noargs ) {

@@ -52,12 +52,12 @@ class Lr extends TexNode {
 		$bm = new BaseMethods();
 		$left = $bm->checkAndParseDelimiter( $this->left, $this, [], null, true,
 			TexClass::OPEN );
-		if ( !$left ) {
+		if ( $left->isEmpty() ) {
 			$left = new MMLmo( TexClass::OPEN, [], $this->right );
 		}
 		$right = $bm->checkAndParseDelimiter( $this->right, $this, $rightAttrs, null, true,
 			TexClass::CLOSE );
-		if ( !$right ) {
+		if ( $right->isEmpty() ) {
 			$right = new MMLmo( TexClass::CLOSE, $rightAttrs, $this->right );
 		}
 		// Don't apply outer ' inside the LR structure
