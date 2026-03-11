@@ -136,7 +136,7 @@ class Literal extends TexNode {
 
 		// Sieve for Identifiers
 		$ret = $bm->checkAndParseIdentifier( $inputP, $this, $arguments, $operatorContent, false );
-		if ( $ret ) {
+		if ( !$ret->isEmpty() ) {
 			return $ret;
 		}
 		// Sieve for Delimiters

@@ -129,7 +129,7 @@ class BaseMethods {
 
 	public function checkAndParseIdentifier( $input, $node, $passedArgs, $operatorContent,
 		 $prepareInput = true
-	): ?MMLbase {
+	): MMLbase {
 		// @phan-suppress-next-line PhanCoalescingNeverUndefined
 		$resIdentifier = TexUtil::getInstance()->identifier( trim( $input ) ) ?? null;
 		// If the macro has been found, dynamically call the associated parsing function.
@@ -138,13 +138,13 @@ class BaseMethods {
 		}
 
 		if ( $resIdentifier == null ) {
-			return null;
+			return new MMLarray();
 		}
 		try {
 			$resIdentifier[0] = MMLutil::uc2xNotation( $resIdentifier[0] );
 			return $this->parseIdentifier( $node, $passedArgs, $operatorContent, $input, ...$resIdentifier );
 		} catch ( ArgumentCountError ) {
-			return null;
+			return new MMLarray();
 		}
 	}
 
