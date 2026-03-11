@@ -124,7 +124,7 @@ class Literal extends TexNode {
 		// Delimiters and operators should not be stretchy by default when used as literals
 		$noStretchArgs['stretchy'] ??= 'false';
 		$ret = $bm->checkAndParseOperator( $inputP, $this, $noStretchArgs, $operatorContent, $state, false );
-		if ( $ret ) {
+		if ( !$ret->isEmpty() ) {
 			return $ret;
 		}
 		// Sieve for mathchar07 chars

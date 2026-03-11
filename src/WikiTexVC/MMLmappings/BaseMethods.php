@@ -66,7 +66,7 @@ class BaseMethods {
 
 	public function checkAndParseOperator( $input, $node, $passedArgs, $operatorContent,
 		$state, $prepareInput = true
-	): ?MMLbase {
+	): MMLbase {
 			$resOperator = TexUtil::getInstance()->operator_rendering( trim( $input ) );
 		if ( $resOperator == null ) {
 			$resOperator = TexUtil::getInstance()->operator_infix( trim( $input ) );
@@ -86,7 +86,7 @@ class BaseMethods {
 		}
 
 		if ( $resOperator == null ) {
-			return null;
+			return new MMLarray();
 		}
 		return $this->parseOperator( $node, $passedArgs, $operatorContent, $input, $state, ...$resOperator );
 	}

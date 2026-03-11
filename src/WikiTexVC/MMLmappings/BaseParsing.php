@@ -866,7 +866,7 @@ class BaseParsing {
 		if ( $operatorContent["sideset"] instanceof Literal ) {
 			$bm = new BaseMethods();
 			$opParsed = $bm->checkAndParseOperator( $operatorContent["sideset"]->getArg(), null, [], [], null );
-			if ( $opParsed === null ) {
+			if ( $opParsed->isEmpty() ) {
 				throw new \LogicException( "null is not a valid base for MMLmmultiscripts." );
 			}
 			$in1 = $node->getArg1()->toMMLtree();
@@ -886,7 +886,7 @@ class BaseParsing {
 				$baseOperator = $operatorContent["sideset"]->getBase()->getArgs()[0];
 				$opParsed = $bm->checkAndParseOperator( $baseOperator,
 					null, [ "largeop" => "true", "movablelimits" => "false", "symmetric" => "true" ], [], null );
-				if ( $opParsed == null ) {
+				if ( $opParsed->isEmpty() ) {
 					$opParsed = $operatorContent["sideset"]->getBase()->toMMLtree() ?? "";
 				}
 			} else {
