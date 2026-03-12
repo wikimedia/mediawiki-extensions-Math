@@ -191,10 +191,10 @@ class BaseMethods {
 
 	public function checkAndParseMathCharacter( $input, $node, $passedArgs, $operatorContent,
 		$prepareInput = true
-	): ?MMLbase {
+	): MMLbase {
 		$resChar = TexUtil::getInstance()->mathchar( trim( $input ) );
 		if ( $resChar == null ) {
-			return null;
+			return new MMLarray();
 		}
 		return new MMLmi( '', [ 'mathvariant' => Variants::NORMAL ], $resChar );
 	}

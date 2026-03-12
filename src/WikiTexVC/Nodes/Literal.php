@@ -130,7 +130,7 @@ class Literal extends TexNode {
 		// Sieve for mathchar07 chars
 		$bm = new BaseMethods();
 		$ret = $bm->checkAndParseMathCharacter( $inputP, $this, $arguments, $operatorContent, false );
-		if ( $ret ) {
+		if ( !$ret->isEmpty() ) {
 			return $ret;
 		}
 
