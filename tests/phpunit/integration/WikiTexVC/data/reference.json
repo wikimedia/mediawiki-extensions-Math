@@ -825,7 +825,7 @@
 	},
 	{
 		"input": "\n\\bigl( \\begin{smallmatrix}\na&b\\\\ c&d\n\\end{smallmatrix} \\bigr)\n",
-		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mo maxsize=\"1.2em\" minsize=\"1.2em\" data-mjx-texclass=\"OPEN\">(</mo><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\"></mo><mtable><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"></mo></mrow><mo maxsize=\"1.2em\" minsize=\"1.2em\" data-mjx-texclass=\"CLOSE\">)</mo></mstyle></mrow></math>",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mo maxsize=\"1.2em\" minsize=\"1.2em\" data-mjx-texclass=\"OPEN\">(</mo><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\"></mo><mtable class=\"mwe-math-smallmatrix\"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"></mo></mrow><mo maxsize=\"1.2em\" minsize=\"1.2em\" data-mjx-texclass=\"CLOSE\">)</mo></mstyle></mrow></math>",
 		"core-validation": {
 			"Invalid attribute fence for element mo\n": 1
 		}
@@ -1996,7 +1996,7 @@
 	},
 	{
 		"input": "\\left(\\begin{smallmatrix}a & b\\\\ c & d\\end{smallmatrix}\\right)",
-		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"INNER\"><mo data-mjx-texclass=\"OPEN\">(</mo><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\"></mo><mtable><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"></mo></mrow><mo data-mjx-texclass=\"CLOSE\">)</mo></mrow></mstyle></mrow></math>",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"INNER\"><mo data-mjx-texclass=\"OPEN\">(</mo><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\"></mo><mtable class=\"mwe-math-smallmatrix\"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"></mo></mrow><mo data-mjx-texclass=\"CLOSE\">)</mo></mrow></mstyle></mrow></math>",
 		"core-validation": {
 			"Invalid attribute fence for element mo\n": 1
 		}

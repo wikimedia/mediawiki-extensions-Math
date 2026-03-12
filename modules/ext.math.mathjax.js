@@ -36,6 +36,21 @@ window.MathJax = {
 	mml: {
 		// allow links
 		allowHtmlInTokenNodes: true,
+		mmlFilters: [
+			// from https://github.com/mathjax/MathJax/issues/3540
+			( { data } ) => {
+				const mtables = data.querySelectorAll( 'mtable.mwe-math-smallmatrix' );
+				for ( const mtable of Array.from( mtables ) ) {
+					mtable.setAttribute( 'data-mjx-smallmatrix', 'true' );
+					mtable.setAttribute( 'rowspacing', '.2em' );
+					mtable.setAttribute( 'columnspacing', '0.333em' );
+					const mstyle = document.createElementNS( 'http://www.w3.org/1998/Math/MathML', 'mstyle' );
+					mstyle.setAttribute( 'scriptlevel', '1' );
+					mtable.replaceWith( mstyle );
+					mstyle.appendChild( mtable );
+				}
+			}
+		],
 		postFilters: [
 			( { data } ) => {
 				data.walkTree( ( node ) => {

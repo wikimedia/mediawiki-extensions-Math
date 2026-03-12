@@ -532,7 +532,10 @@ class BaseParsing {
 			}
 			$resInner[] = new MMLmtr( "", [], ...$innerInnter );
 		}
-		$mtable = new MMLmtable( '' );
+		$mtable = new MMLmtable( '',
+		$name === 'smallmatrix' ?
+		[ 'class' => 'mwe-math-smallmatrix' ] : []
+		);
 		if ( $cases || ( $open != null && $close != null ) ) {
 			$bm = new BaseMethods();
 			$mmlMoOpen = $bm->checkAndParseDelimiter( $open, $node, [], [],
