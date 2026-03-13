@@ -465,7 +465,6 @@ class MhchemStateMachines {
 							$ret = $this->stateMachines["ce"]["actions"]["output"]( $buffer, null, null );
 						}
 
-						/** @phan-suppress-next-line PhanParamTooFew */
 						$this->genericActions['o=']( $buffer, $m );
 						return $ret;
 					},
@@ -480,7 +479,6 @@ class MhchemStateMachines {
 							$im = $this->stateMachines["ce"]["actions"]["output"]( $buffer, null, null );
 							MhchemUtil::concatArray( $ret, $im );
 
-							/** @phan-suppress-next-line PhanParamTooMany */
 							MhchemUtil::concatArray( $ret, $this->genericActions['bond']( $buffer, $m, "-" ) );
 							return $ret;
 						} else {
@@ -511,14 +509,12 @@ class MhchemStateMachines {
 						} else {
 							$c1 = $this->mhchemParser->getPatterns()->match( 'digits', $buffer["d"] ?? "" );
 							if ( $isAfterD && isset( $c1["remainder"] ) && $c1["remainder"] === '' ) {
-								/** @phan-suppress-next-line PhanParamTooFew */
 								MhchemUtil::concatArray( $ret, $this->genericActions['d=']( $buffer, $m ) );
 								$im = $this->stateMachines["ce"]["actions"]["output"]( $buffer, null, null );
 								MhchemUtil::concatArray( $ret, $im );
 							} else {
 								$im = $this->stateMachines["ce"]["actions"]["output"]( $buffer, null, null );
 								MhchemUtil::concatArray( $ret, $im );
-								/** @phan-suppress-next-line PhanParamTooMany */
 								MhchemUtil::concatArray( $ret, $this->genericActions['bond']( $buffer, $m, "-" ) );
 							}
 						}

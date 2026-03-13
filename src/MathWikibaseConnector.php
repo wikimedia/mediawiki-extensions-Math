@@ -93,11 +93,16 @@ class MathWikibaseConnector {
 	/**
 	 * Returns the given PropertyId if available.
 	 * @param string $propertyId the string of the Wikibase property
-	 * @return EntityId|null the property object or null if unavailable
+	 * @return PropertyId|null the property object or null if unavailable
 	 */
-	private function loadPropertyId( string $propertyId ): ?EntityId {
+	private function loadPropertyId( string $propertyId ): ?PropertyId {
 		try {
-			return $this->entityIdParser->parse( $propertyId );
+			$pid = $this->entityIdParser->parse( $propertyId );
+			if ( $pid === null || $pid instanceof PropertyId ) {
+				return $pid;
+			} else {
+				throw new EntityIdParsingException( "Property $propertyId is not of type property" );
+			}
 		} catch ( ConfigException ) {
 			return null;
 		}

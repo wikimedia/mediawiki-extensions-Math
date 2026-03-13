@@ -95,7 +95,7 @@ class SpecialMathWikibase extends SpecialPage {
 			'items' => [ $actionField ]
 		] );
 
-		$this->getOutput()->addHTML( $formLayout );
+		$this->getOutput()->addHTML( (string)$formLayout );
 	}
 
 	/**

@@ -498,11 +498,14 @@ class BaseParsing {
 			foreach ( $row  as $cell ) {
 				$usedArg = clone $cell;
 				if ( $usedArg instanceof TexArray &&
-					$usedArg->getLength() >= 1 &&
-					$usedArg[0] instanceof Literal &&
-					$usedArg[0]->getArg() === '\\hline '
+					$usedArg->getLength() >= 1
 				) {
-					$usedArg->pop();
+					$firstArg = $usedArg[0];
+					if ( $firstArg instanceof Literal &&
+						$firstArg->getArg() === '\\hline '
+					) {
+						$usedArg->pop();
+					}
 				}
 				$mtdAttributes = [];
 				$texclass = $lines[$rowNo] ? TexClass::TOP : '';
