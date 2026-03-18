@@ -2153,5 +2153,10 @@
 		"input": "A {\\sqcup} B \\quad A \\sqcup B",
 		"bug": "T417592",
 		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi>A</mi><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">⊔</mo><mi>B</mi><mspace width=\"1em\"></mspace><mi>A</mi><mo stretchy=\"false\">⊔</mo><mi>B</mi></mstyle></mrow></math>"
+	},
+	{
+		"input": "a \\mathbin\\square b",
+		"bug": "T419767",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi>a</mi><mrow data-mjx-texclass=\"BIN\"><mi>◻</mi></mrow><mi>b</mi></mstyle></mrow></math>"
 	}
 ]

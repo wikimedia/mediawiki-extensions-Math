@@ -960,14 +960,13 @@ class BaseParsing {
 
 	public static function texAtom( $node, $passedArgs, $operatorContent, $name, $texClass = null ): MMLbase {
 		switch ( $name ) {
-			case "mathbin":
+			case '\mathbin':
 				// no break
-			case "mathop":
+			case '\mathop':
 				// no break
-			case "mathrel":
+			case '\mathrel':
 				$inner = $node->getArg()->toMMLtree();
 				return new MMLmrow( $texClass, [], $inner );
-			case "mathclose":
 			default:
 				$inner = $node->getArg()->toMMLtree();
 				return new MMLmrow( TexClass::ORD, [], new MMLmrow( $texClass, [], $inner ) );
