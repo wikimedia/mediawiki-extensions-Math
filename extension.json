@@ -41,6 +41,12 @@
 		"MediaWiki\\Extension\\Math\\Hooks::onExtensionFunctions"
 	],
 	"HookHandlers": {
+		"EditPageHooksHandler": {
+			"class": "MediaWiki\\Extension\\Math\\HookHandlers\\EditPageHooksHandler",
+			"services": [
+				"UserOptionsLookup"
+			]
+		},
 		"ParserHooksHandler": {
 			"class": "MediaWiki\\Extension\\Math\\HookHandlers\\ParserHooksHandler",
 			"services": [
@@ -72,6 +78,7 @@
 		}
 	},
 	"Hooks": {
+		"EditPage::showEditForm:initial": "EditPageHooksHandler",
 		"ParserFirstCallInit": "ParserHooksHandler",
 		"ParserAfterTidy": "ParserHooksHandler",
 		"ParserOptionsRegister": "ParserHooksHandler",
@@ -232,6 +239,15 @@
 	},
 	"ForeignResourcesDir": "modules",
 	"ResourceModules": {
+		"ext.math.editpage": {
+			"packageFiles": [
+				"ext.math.editpage.js"
+			],
+			"messages": [
+				"math-editpage-insert-inline",
+				"math-editpage-insert-block"
+			]
+		},
 		"ext.math.mathjax": {
 			"group": "ext.math",
 			"scripts": [
