@@ -72,7 +72,7 @@ class LocalChecker extends BaseChecker {
 			$this->mathMl = $result['mathml'];
 		} else {
 			$this->error = $this->errorObjectToMessage(
-				(object)[ "error" => (object)$result["error"] ],
+				(object)[ "error" => (object)( $result["error"] ?? [] ) ],
 				"LocalCheck" );
 		}
 		$this->isChecked = true;
