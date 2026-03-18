@@ -6,11 +6,10 @@ use MediaWiki\Exception\UserNotLoggedIn;
 use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\Extension\Math\Widget\MathTestInputForm;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\Message\Message;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\SpecialPage\UnlistedSpecialPage;
 use Psr\Log\LoggerInterface;
-use Wikimedia\Message\MessageParam;
-use Wikimedia\Message\MessageSpecifier;
 
 /**
  * MediaWiki math extension
@@ -56,16 +55,18 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 
 			foreach ( $enabledMathModes as $modeNr => $modeName ) {
 				$out->wrapWikiMsg( '=== $1 ===', $modeName );
+				$this->getOutput()->addWikiMsgArray( 'math-test-start', [ $modeName ] );
 				switch ( $modeNr ) {
 					case MathConfig::MODE_MATHML:
-						$this->runMathMLTest( $modeName );
+						$this->runMathMLTest();
 						break;
 					case MathConfig::MODE_LATEXML:
-						$this->runMathLaTeXMLTest( $modeName );
+						$this->runMathLaTeXMLTest();
 						break;
 					case MathConfig::MODE_NATIVE_MML:
 						$this->runNativeTest( $modeName );
 				}
+				$this->getOutput()->addWikiMsgArray( 'math-test-end', [ $modeName ] );
 			}
 		}
 
@@ -73,31 +74,25 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 		$form->show();
 	}
 
-	private function runNativeTest( MessageParam|MessageSpecifier|string|int|float $modeName ) {
-		$this->getOutput()->addWikiMsgArray( 'math-test-start', [ $modeName ] );
+	private function runNativeTest( Message $modeMessage ): void {
 		$renderer = $this->rendererFactory->getRenderer( "a+b", [], MathConfig::MODE_NATIVE_MML );
-		if ( !$this->assertTrue( $renderer->render(), "Rendering of a+b in $modeName" ) ) {
+		if ( !$this->assertTrue( $renderer->render(), 'Rendering of a+b in ' . $modeMessage->parse() ) ) {
 			return;
 		}
 		$real = str_replace( "\n", '', $renderer->getHtmlOutput() );
 		$expected = '<mo stretchy="false">+</mo>';
 		$this->assertContains( $expected, $real, "Checking the presence of '+' in the MathML output" );
-		$this->getOutput()->addWikiMsgArray( 'math-test-end', [ $modeName ] );
 	}
 
-	private function runMathMLTest( MessageParam|MessageSpecifier|string|int|float $modeName ) {
-		$this->getOutput()->addWikiMsgArray( 'math-test-start', [ $modeName ] );
+	private function runMathMLTest(): void {
 		$this->testSpecialCaseText();
 		$this->testMathMLIntegration();
 		$this->testPmmlInput();
-		$this->getOutput()->addWikiMsgArray( 'math-test-end', [ $modeName ] );
 	}
 
-	private function runMathLaTeXMLTest( MessageParam|MessageSpecifier|string|int|float $modeName ) {
-		$this->getOutput()->addWikiMsgArray( 'math-test-start', [ $modeName ] );
+	private function runMathLaTeXMLTest(): void {
 		$this->testLaTeXMLIntegration();
 		$this->testLaTeXMLLinebreak();
-		$this->getOutput()->addWikiMsgArray( 'math-test-end', [ $modeName ] );
 	}
 
 	public function testSpecialCaseText() {
