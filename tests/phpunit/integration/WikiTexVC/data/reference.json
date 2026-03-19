@@ -2155,6 +2155,11 @@
 		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi>A</mi><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">⊔</mo><mi>B</mi><mspace width=\"1em\"></mspace><mi>A</mi><mo stretchy=\"false\">⊔</mo><mi>B</mi></mstyle></mrow></math>"
 	},
 	{
+		"input": "\\sideset{^1}{_n}{\\mathrm N}_n",
+		"bug": "T406850",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"OP\"><munderover><mstyle displaystyle=\"true\"><mmultiscripts><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">N</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>n</mi></mrow><mrow data-mjx-texclass=\"ORD\"></mrow><mprescripts></mprescripts><mrow data-mjx-texclass=\"ORD\"></mrow><mrow data-mjx-texclass=\"ORD\"><mn>1</mn></mrow></mmultiscripts></mstyle><mrow><mi>n</mi></mrow><mrow><mrow></mrow></mrow></munderover></mrow></mstyle></mrow></math>"
+	},
+	{
 		"input": "a \\mathbin\\square b",
 		"bug": "T419767",
 		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi>a</mi><mrow data-mjx-texclass=\"BIN\"><mi>◻</mi></mrow><mi>b</mi></mstyle></mrow></math>"

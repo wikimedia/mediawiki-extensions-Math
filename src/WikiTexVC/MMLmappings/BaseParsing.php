@@ -890,9 +890,14 @@ class BaseParsing {
 			$bm = new BaseMethods();
 			if ( count( $operatorContent["sideset"]->getBase()->getArgs() ) == 1 ) {
 				$baseOperator = $operatorContent["sideset"]->getBase()->getArgs()[0];
-				$opParsed = $bm->checkAndParseOperator( $baseOperator,
-					null, [ "largeop" => "true", "movablelimits" => "false", "symmetric" => "true" ], [], null );
-				if ( $opParsed->isEmpty() ) {
+				if ( is_string( $baseOperator ) ) {
+					$opParsed = $bm->checkAndParseOperator( $baseOperator,
+						null, [ "largeop" => "true", "movablelimits" => "false", "symmetric" => "true" ], [], null );
+				} else {
+					// We know $baseOperator instanceof TexNode
+					$opParsed = $baseOperator->toMMLTree();
+				}
+				if ( $opParsed == null || $opParsed->isEmpty() ) {
 					$opParsed = $operatorContent["sideset"]->getBase()->toMMLtree() ?? "";
 				}
 			} else {
