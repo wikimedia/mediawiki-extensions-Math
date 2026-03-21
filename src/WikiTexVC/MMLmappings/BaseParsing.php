@@ -309,22 +309,22 @@ class BaseParsing {
 		return new MMLmrow( "tbd", [], new MMLmtext( "", [], "HLINE TBD" ) );
 	}
 
-	public static function hskip( $node, $passedArgs, $operatorContent, $name ): ?MMLbase {
+	public static function hskip( $node, $passedArgs, $operatorContent, $name ): MMLbase {
 		if ( $node->getArg()->isCurly() ) {
 			$unit = MMLutil::squashLitsToUnit( $node->getArg() );
 			if ( !$unit ) {
-				return null;
+				return new MMLarray();
 			}
 			$em = MMLutil::dimen2em( $unit );
 		} else {
 			// Prevent parsing in unmapped cases
-			return null;
+			return new MMLarray();
 		}
 		// Added kern j4t
 		if ( $name == "mskip" || $name == "mkern" || "kern" ) {
 			$args = [ "width" => $em ];
 		} else {
-			return null;
+			return new MMLarray();
 		}
 
 		return new MMLmspace( "", $args );
@@ -565,7 +565,7 @@ class BaseParsing {
 		if ( $node instanceof Literal ) {
 			return new MMLarray( new MMLmo( "", $passedArgs, $id ?? ltrim( $name, '\\' ) ), $applyFct );
 		}
-		return MMLmsub::newSubtree( $node->getBase()->toMMLtree() . $applyFct,
+		return MMLmsub::newSubtree( new MMLarray( $node->getBase()->toMMLtree(), $applyFct ),
 			new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() ), "", $passedArgs );
 	}
 
@@ -678,9 +678,9 @@ class BaseParsing {
 		);
 	}
 
-	public static function raiseLower( $node, $passedArgs, $operatorContent, $name ): ?MMLbase {
+	public static function raiseLower( $node, $passedArgs, $operatorContent, $name ): MMLbase {
 		if ( !$node instanceof Fun2 ) {
-			return null;
+			return new MMLarray();
 		}
 
 		$arg1 = $node->getArg1();
@@ -688,14 +688,14 @@ class BaseParsing {
 		if ( $arg1->isCurly() && $arg1 instanceof TexArray ) {
 			$unit = MMLutil::squashLitsToUnit( $arg1 );
 			if ( !$unit ) {
-				return null;
+				return new MMLarray();
 			}
 			$em = MMLutil::dimen2em( $unit );
 			if ( !$em ) {
-				return null;
+				return new MMLarray();
 			}
 		} else {
-			return null;
+			return new MMLarray();
 		}
 
 		if ( trim( $name ) === "\\raise" ) {
@@ -708,7 +708,7 @@ class BaseParsing {
 				"voffset" => MMLutil::addPreOperator( $em, "-" ) ];
 		} else {
 			// incorrect name, should not happen, prevent erroneous mappings from getting rendered.
-			return null;
+			return new MMLarray();
 		}
 		return new MMLmrow( "", [], new MMLmpadded( "", $args, $node->getArg2()->toMMLtree() ) );
 	}
@@ -795,7 +795,7 @@ class BaseParsing {
 
 	public static function makeBig( $node, $passedArgs, $operatorContent, $name, $texClass = null,
 		$size = null
-	): ?MMLbase {
+	): MMLbase {
 		// Create the em format and shorten commas
 		$size *= Misc::P_HEIGHT;
 		$sizeShortened = MMLutil::size2em( strval( $size ) );
@@ -856,7 +856,7 @@ class BaseParsing {
 		if ( $node instanceof Literal ) {
 			return new MMLarray( new MMLmi( "", [], ltrim( $name, '\\' ) ), $applyFct );
 		}
-		return MMLmsub::newSubtree( $node->getBase()->toMMLtree() . $applyFct,
+		return MMLmsub::newSubtree( new MMLarray( $node->getBase()->toMMLtree(), $applyFct ),
 			new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() ) );
 	}
 
@@ -1172,8 +1172,8 @@ class BaseParsing {
 		);
 	}
 
-	private static function getApplyFct( array $operatorContent ): ?MMLbase {
-		$applyFct = null;
+	private static function getApplyFct( array $operatorContent ): MMLbase {
+		$applyFct = new MMLarray();
 		if ( array_key_exists( "foundNamedFct", $operatorContent ) ) {
 			$hasNamedFct = $operatorContent['foundNamedFct'][0];
 			$hasValidParameters = $operatorContent["foundNamedFct"][1];
