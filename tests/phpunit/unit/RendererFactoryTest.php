@@ -50,7 +50,7 @@ class RendererFactoryTest extends MediawikiUnitTestCase {
 		);
 	}
 
-	public function determineModeDataProvider(): array {
+	public static function determineModeDataProvider(): array {
 		return [
 			[
 				[], [], MathConfig::MODE_SOURCE, MathConfig::MODE_SOURCE
