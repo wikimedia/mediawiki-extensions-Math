@@ -14,7 +14,7 @@ class SortTexutil extends Maintenance {
 		$jsonContent = json_decode( file_get_contents( $jsonFilePath ), true );
 
 		if ( $jsonContent === null ) {
-			die( "Failed to decode texutil.json. Please check the file format.\n" );
+			$this->fatalError( "Failed to decode texutil.json. Please check the file format.\n" );
 		}
 
 		foreach ( $jsonContent as $key => $value ) {
@@ -23,9 +23,11 @@ class SortTexutil extends Maintenance {
 		}
 		// Sort the entire file
 		ksort( $jsonContent );
-		file_put_contents( $jsonFilePath, FormatJson::encode( $jsonContent, "\t", FormatJson::ALL_OK )
-		. "\n" );
-		echo "texutil.json successfully sorted.\n";
+		file_put_contents(
+			$jsonFilePath,
+			FormatJson::encode( $jsonContent, "\t", FormatJson::ALL_OK ) . "\n"
+		);
+		$this->output( "texutil.json successfully sorted.\n" );
 	}
 
 }

@@ -57,6 +57,5 @@ class WikiTexVcCli extends Maintenance {
 
 // @codeCoverageIgnoreStart
 $maintClass = WikiTexVcCli::class;
-/** @noinspection PhpIncludeInspection */
 require_once RUN_MAINTENANCE_IF_MAIN;
 // @codeCoverageIgnoreEnd
