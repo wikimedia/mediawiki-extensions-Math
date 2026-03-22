@@ -12,8 +12,6 @@ use MediaWikiUnitTestCase;
  * @group Standalone
  */
 class ChemRegressionTest extends MediaWikiUnitTestCase {
-	/** @var TexVC */
-	private $texVC;
 	private const CHUNK_SIZE = 100;
 
 	private const FILEPATH = __DIR__ . '/chem-regression.json';
@@ -23,11 +21,6 @@ class ChemRegressionTest extends MediaWikiUnitTestCase {
 			self::markTestSkipped( 'No test file found at specified path: ' . self::FILEPATH );
 		}
 		parent::setUpBeforeClass();
-	}
-
-	protected function setUp(): void {
-		parent::setUp();
-		$this->texVC = new TexVC();
 	}
 
 	/**
