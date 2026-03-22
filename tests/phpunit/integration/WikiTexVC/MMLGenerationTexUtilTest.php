@@ -157,6 +157,7 @@ class MMLGenerationTexUtilTest extends MediaWikiIntegrationTestCase {
 		// it seems not supported for math, not in any other en_wiki test etc. probably make sense
 		// to drop or substitute with \\vert
 		"\\vline" => "\n\\begin{array}{|c||c|} a & b \\vline c  \\\\\n\\hline\n1&2 \n\\end{array}\n",
+		"\\ca" => "\\ca Fe"
 	];
 
 	/**
@@ -192,13 +193,7 @@ class MMLGenerationTexUtilTest extends MediaWikiIntegrationTestCase {
 			$indexCtr = 0;
 			foreach ( $group as $case ) {
 				$title = "set#" . $overAllCtr . ": " . $category . $indexCtr;
-				if ( $refAssociative[$case] ) {
-					$finalCase = $refAssociative[$case];
-				} else {
-					$type = str_starts_with( $case, "ce" ) ? "chem" : "tex";
-					$finalCase = (object)[ "tex" => $case, "type" => $type, "ctr" => null ];
-				}
-
+				$finalCase = $refAssociative[$case];
 				if ( $category === "mhchemtexified_required" ) {
 					$finalCase->type = "chem";
 				}
