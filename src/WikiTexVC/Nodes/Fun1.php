@@ -42,13 +42,10 @@ class Fun1 extends TexNode {
 
 	/** @inheritDoc */
 	public function toMMLTree( array $arguments = [], array &$state = [] ) {
-		$cb = TexUtil::getInstance()->callback( trim( $this->fname ) );
-		if ( is_string( $cb ) && preg_match( '#^' .
-				preg_quote( self::class ) .
-				'::(?<method>\\w+)$#', $cb, $m ) ) {
-			return $this->{$m['method']}( $arguments, $state );
+		$cb = $this->getLocalCallback( trim( $this->fname ), $arguments, [], $state );
+		if ( !$cb->isEmpty() ) {
+			return $cb;
 		}
-
 		return $this->parseToMML( $this->fname, $arguments, null );
 	}
 
@@ -103,7 +100,7 @@ class Fun1 extends TexNode {
 		return [];
 	}
 
-	private function lap(): MMLmrow {
+	protected function lap(): MMLmrow {
 		$name = $this->fname;
 		if ( trim( $name ) === "\\rlap" ) {
 			$args = [ "width" => "0" ];

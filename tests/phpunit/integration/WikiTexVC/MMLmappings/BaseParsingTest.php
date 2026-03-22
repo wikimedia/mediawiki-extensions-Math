@@ -298,12 +298,6 @@ f(x,y,z) & = & x + y + z
 		$this->assertStringContainsString( '<mtd class="mwe-math-columnalign-r"', $result );
 	}
 
-	public function testNamedOperator() {
-		$node = new Literal( '\\gcd' );
-		$result = BaseParsing::namedOp( $node, [], [], '\\gcd' );
-		$this->assertStringContainsString( '>gcd</mo>', (string)$result );
-	}
-
 	public function testSpace() {
 		$node = new Literal( '\\ ' );
 		$result = BaseParsing::macro( $node, [], [], '\\ ', '\\text{ }' );

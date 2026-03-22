@@ -25,7 +25,6 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmspace;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsqrt;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
-use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsub;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsup;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtable;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtd;
@@ -557,18 +556,6 @@ class BaseParsing {
 		return $mtable;
 	}
 
-	public static function namedOp( $node, $passedArgs, $operatorContent, $name, $id = null ): MMLbase {
-		/* Determine whether the named function should have an added apply function. The operatorContent is defined
-		 as state in parsing of TexArray */
-		$applyFct = self::getApplyFct( $operatorContent );
-
-		if ( $node instanceof Literal ) {
-			return new MMLarray( new MMLmo( "", $passedArgs, $id ?? ltrim( $name, '\\' ) ), $applyFct );
-		}
-		return MMLmsub::newSubtree( new MMLarray( $node->getBase()->toMMLtree(), $applyFct ),
-			new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() ), "", $passedArgs );
-	}
-
 	public static function over( $node, $passedArgs, $operatorContent, $name, $id = null ): MMLbase {
 		$attributes = [];
 		$start = null;
@@ -847,17 +834,6 @@ class BaseParsing {
 		// this could also be shifted to MhChem.php renderMML for ce
 		// For parsing chem (ce) or ??? (pu)
 		return new MMLmrow( "", [], $node->getArg()->toMMLtree() );
-	}
-
-	public static function namedFn( $node, $passedArgs, $operatorContent, $name, $smth = null ): MMLbase {
-		// Determine whether the named function should have an added apply function. The state is defined in
-		// parsing of TexArray
-		$applyFct = self::getApplyFct( $operatorContent );
-		if ( $node instanceof Literal ) {
-			return new MMLarray( new MMLmi( "", [], ltrim( $name, '\\' ) ), $applyFct );
-		}
-		return MMLmsub::newSubtree( new MMLarray( $node->getBase()->toMMLtree(), $applyFct ),
-			new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() ) );
 	}
 
 	public static function setFont( $node, $passedArgs, $operatorContent, $name, $variant = null ): MMLbase {
@@ -1172,7 +1148,7 @@ class BaseParsing {
 		);
 	}
 
-	private static function getApplyFct( array $operatorContent ): MMLbase {
+	public static function getApplyFct( array $operatorContent ): MMLbase {
 		$applyFct = new MMLarray();
 		if ( array_key_exists( "foundNamedFct", $operatorContent ) ) {
 			$hasNamedFct = $operatorContent['foundNamedFct'][0];

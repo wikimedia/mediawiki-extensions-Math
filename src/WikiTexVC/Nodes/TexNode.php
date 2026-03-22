@@ -8,6 +8,7 @@ use InvalidArgumentException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
+use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 class TexNode {
 
@@ -25,6 +26,24 @@ class TexNode {
 			}
 		}
 		$this->args = $args;
+	}
+
+	public function getLocalCallback( string $input, array $passedArgs,
+									 array $operatorContent, array &$state ): MMLbase {
+		$cb = TexUtil::getInstance()->callback( trim( $input ) );
+		if ( !$cb ) {
+			return new MMLarray();
+		}
+		if ( is_string( $cb ) ) {
+			$cb = [ $cb ];
+		}
+		if ( preg_match( '#^' .
+			preg_quote( static::class ) .
+			'::(?<method>\\w+)$#', $cb[0], $m ) ) {
+			return $this->{$m['method']}( $passedArgs, $operatorContent, $input, $cb, $state );
+		} else {
+			return new MMLarray();
+		}
 	}
 
 	/**

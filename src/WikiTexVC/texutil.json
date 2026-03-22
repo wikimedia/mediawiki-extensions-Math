@@ -877,7 +877,7 @@
 		"nullary_macro": true
 	},
 	"\\Pr": {
-		"callback": "namedOp",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedOp",
 		"latex_function_names": true,
 		"operator": true
 	},
@@ -1148,7 +1148,7 @@
 		]
 	},
 	"\\arccos": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\arccot": {
@@ -1161,15 +1161,15 @@
 		"mediawiki_function_names": true
 	},
 	"\\arcsin": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\arctan": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\arg": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\array": {
@@ -1934,23 +1934,23 @@
 		]
 	},
 	"\\cos": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\cosh": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\cot": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\coth": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\csc": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\cup": {
@@ -2085,7 +2085,7 @@
 		"definecolor_function": true
 	},
 	"\\deg": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\delta": {
@@ -2097,7 +2097,7 @@
 		"nullary_macro": true
 	},
 	"\\det": {
-		"callback": "namedOp",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedOp",
 		"latex_function_names": true,
 		"operator": true
 	},
@@ -2153,7 +2153,7 @@
 		"nullary_macro": true
 	},
 	"\\dim": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\displaylines": {
@@ -2449,7 +2449,7 @@
 		"nullary_macro": true
 	},
 	"\\exp": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\fallingdotseq": {
@@ -2504,7 +2504,7 @@
 		"nullary_macro": true
 	},
 	"\\gcd": {
-		"callback": "namedOp",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedOp",
 		"latex_function_names": true,
 		"operator": true
 	},
@@ -2739,7 +2739,7 @@
 		"hline_function": true
 	},
 	"\\hom": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\hookleftarrow": {
@@ -2832,7 +2832,7 @@
 		]
 	},
 	"\\inf": {
-		"callback": "namedOp",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedOp",
 		"latex_function_names": true,
 		"operator": true
 	},
@@ -2851,7 +2851,7 @@
 	"\\injlim": {
 		"ams_required": true,
 		"callback": [
-			"namedOp",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedOp",
 			"inj lim"
 		],
 		"nullary_macro": true,
@@ -2937,7 +2937,7 @@
 		"nullary_macro": true
 	},
 	"\\ker": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\kern": {
@@ -3181,7 +3181,7 @@
 		"other_delimiters1": true
 	},
 	"\\lg": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\lgroup": {
@@ -3195,12 +3195,12 @@
 		]
 	},
 	"\\lim": {
-		"callback": "namedOp",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedOp",
 		"latex_function_names": true
 	},
 	"\\liminf": {
 		"callback": [
-			"namedOp",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedOp",
 			"lim inf"
 		],
 		"latex_function_names": true,
@@ -3212,7 +3212,7 @@
 	},
 	"\\limsup": {
 		"callback": [
-			"namedOp",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedOp",
 			"lim sup"
 		],
 		"latex_function_names": true,
@@ -3254,7 +3254,7 @@
 		]
 	},
 	"\\ln": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\lnapprox": {
@@ -3295,7 +3295,7 @@
 		]
 	},
 	"\\log": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\longLeftrightharpoons": {
@@ -3667,7 +3667,7 @@
 		"callback": "matrix"
 	},
 	"\\max": {
-		"callback": "namedOp",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedOp",
 		"latex_function_names": true,
 		"operator": true
 	},
@@ -3700,7 +3700,7 @@
 		]
 	},
 	"\\min": {
-		"callback": "namedOp",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedOp",
 		"latex_function_names": true,
 		"operator": true
 	},
@@ -4523,7 +4523,7 @@
 	"\\projlim": {
 		"ams_required": true,
 		"callback": [
-			"namedOp",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedOp",
 			"proj lim"
 		],
 		"nullary_macro": true,
@@ -4776,7 +4776,7 @@
 		]
 	},
 	"\\sec": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\sect": {
@@ -4857,11 +4857,11 @@
 		]
 	},
 	"\\sin": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\sinh": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\skew": {
@@ -5130,7 +5130,7 @@
 		]
 	},
 	"\\sup": {
-		"callback": "namedOp",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedOp",
 		"latex_function_names": true,
 		"operator": true
 	},
@@ -5312,11 +5312,11 @@
 		]
 	},
 	"\\tan": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\tanh": {
-		"callback": "namedFn",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
 	"\\tau": {

@@ -5,8 +5,10 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\MathVariant;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
@@ -15,6 +17,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmpadded;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
+use RuntimeException;
 
 class Literal extends TexNode {
 	private const CURLY_PATTERN = '/(?<start>[\\a-zA-Z\s]+)\{(?<arg>[^}]+)}/';
@@ -144,15 +147,20 @@ class Literal extends TexNode {
 		if ( !$ret->isEmpty() ) {
 			return $ret;
 		}
-		$cb = TexUtil::getInstance()->callback( trim( $inputP ) );
-		if ( is_string( $cb ) && preg_match( '#^' .
-				preg_quote( self::class ) .
-				'::(?<method>\\w+)$#', $cb, $m ) ) {
-			return $this->{$m['method']}( $arguments, $state );
+
+		$operatorContent = array_merge( $operatorContent ?? [], $state ?? [] );
+		try {
+			$cb = $this->getLocalCallback( $inputP, $arguments, $operatorContent, $state );
+		} catch ( RuntimeException ) {
+			// ignore exception
+			return new MMLarray();
+		}
+		if ( !$cb->isEmpty() ) {
+			return $cb;
 		}
 		// Sieve for Makros
 		$ret = BaseMethods::checkAndParse( $inputP, $arguments,
-			array_merge( $operatorContent ?? [], $state ?? [] ),
+			$operatorContent,
 			$this );
 		if ( $ret ) {
 			return $ret;
@@ -235,7 +243,23 @@ class Literal extends TexNode {
 		$this->arg .= $text;
 	}
 
-	private function limits(): ?MMLbase {
-		return null;
+	protected function limits(): never {
+		throw new RuntimeException( 'limits should not be rendered explicitly' );
+	}
+
+	protected function namedFn( array $passedArgs, array $operatorContent,
+							  string $input, array $cb, array &$state ): MMLbase {
+		// Determine whether the named function should have an added apply function. The state is defined in
+		// parsing of TexArray
+		$applyFct = BaseParsing::getApplyFct( $operatorContent );
+		return new MMLarray( new MMLmi( "", $passedArgs, ltrim( $input, '\\' ) ), $applyFct );
+	}
+
+	protected function namedOp( array $passedArgs, array $operatorContent,
+							  string $input, array $cb, array &$state ): MMLbase {
+		/* Determine whether the named function should have an added apply function. The operatorContent is defined
+		 as state in parsing of TexArray */
+		$applyFct = BaseParsing::getApplyFct( $operatorContent );
+		return new MMLarray( new MMLmo( "", $passedArgs, $cb[1] ?? ltrim( $input, '\\' ) ), $applyFct );
 	}
 }
