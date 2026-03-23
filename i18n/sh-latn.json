@@ -52,7 +52,7 @@
 	"math-visualeditor-symbol-group-math-typefaces": "Oblici fonta",
 	"math-visualeditor-symbol-group-math-unsorted": "Nerazvrstani",
 	"math_failure": "Neuspjeh pri parsiranju",
-	"math_invalidjson": "$1-server za $1 je nevažeći JSON.",
+	"math_invalidjson": "Odgovor servera $1 je neispravan JSON.",
 	"math_invalidresponse": "$1: Neispravan odgovor (\"$3\") sa servera \"$2\":",
 	"math_invalidxml": "MathML i SVG su neispravan XML.",
 	"math_mathoid_error": "Greška u pretvaranju. Server (\"$1\") je izvještio sljedeće: \"$2\"",
