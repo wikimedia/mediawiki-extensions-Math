@@ -4,6 +4,8 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
+
 class Fun2 extends TexNode {
 
 	public function __construct(
@@ -37,7 +39,7 @@ class Fun2 extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function toMMLTree( array $arguments = [], array &$state = [] ) {
+	public function toMMLTree( array $arguments = [], array &$state = [] ): MMLbase {
 		return $this->parseToMML( $this->fname, $arguments, $state );
 	}
 

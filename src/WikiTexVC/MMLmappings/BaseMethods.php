@@ -26,10 +26,10 @@ use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
  */
 class BaseMethods {
 
-	public static function checkAndParse( $input, $passedArgs, $operatorContent, TexNode $node ) {
+	public static function checkAndParse( $input, $passedArgs, $operatorContent, TexNode $node ): MMLbase {
 		if ( !is_string( $input ) ) {
 			// just discard these elements, sometimes empty TexArray
-			return null;
+			return new MMLarray();
 		}
 
 		// Checking for a named parsing function
@@ -40,7 +40,7 @@ class BaseMethods {
 			$resFct = TexUtil::getInstance()->callback( trim( $input ) );
 		}
 		if ( $resFct == null ) {
-			return null;
+			return new MMLarray();
 		}
 		// If the function has been found, dynamically call the associated parsing function.
 		if ( is_string( $resFct ) ) {
@@ -57,7 +57,7 @@ class BaseMethods {
 			}
 			return BaseParsing::{$resFct[0]}( $node, $passedArgs, $operatorContent, $input );
 		} catch ( Exception ) {
-			return null;
+			return new MMLarray();
 		}
 	}
 

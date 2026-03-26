@@ -77,11 +77,11 @@ class Literal extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function toMMLTree( $arguments = [], &$state = [] ) {
+	public function toMMLTree( $arguments = [], &$state = [] ): MMLbase {
 		if ( $this->arg === " " ) {
 			// Fixes https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Math/+/961711
 			// And they creation of empty mo elements.
-			return null;
+			return new MMLarray();
 		}
 		if ( isset( $state["intent-params"] ) ) {
 			foreach ( $state["intent-params"] as $intparam ) {
@@ -162,7 +162,7 @@ class Literal extends TexNode {
 		$ret = BaseMethods::checkAndParse( $inputP, $arguments,
 			$operatorContent,
 			$this );
-		if ( $ret ) {
+		if ( !( $ret instanceof MMLarray ) || !$ret->isEmpty() ) {
 			return $ret;
 		}
 
@@ -174,7 +174,7 @@ class Literal extends TexNode {
 		$content = $this->changeUnicodeFontInput( $input, $state, $arguments );
 		if ( !( empty( $state['inHBox'] ) ) ) {
 			// No mi, if literal is from HBox
-			return $content;
+			return new MMLarray( $content );
 		}
 		// If falling through all sieves just creates an mi element
 

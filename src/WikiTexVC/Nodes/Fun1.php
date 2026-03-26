@@ -41,7 +41,7 @@ class Fun1 extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function toMMLTree( array $arguments = [], array &$state = [] ) {
+	public function toMMLTree( array $arguments = [], array &$state = [] ): MMLbase {
 		$cb = $this->getLocalCallback( trim( $this->fname ), $arguments, [], $state );
 		if ( !$cb->isEmpty() ) {
 			return $cb;

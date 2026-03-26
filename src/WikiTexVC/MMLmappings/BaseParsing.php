@@ -743,7 +743,7 @@ class BaseParsing {
 			return new MMLmrow( TexClass::ORD, [], $node->getArg()->toMMLtree( $args, $state ) );
 	}
 
-	public static function mathChoice( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
+	public static function mathChoice( $node, $passedArgs, $operatorContent, $name, $smth = null ): MMLbase {
 		if ( !$node instanceof Fun4 ) {
 			return MMLmerror::newFromText( "Wrong node type in mathChoice" );
 		}
@@ -873,8 +873,8 @@ class BaseParsing {
 					// We know $baseOperator instanceof TexNode
 					$opParsed = $baseOperator->toMMLTree();
 				}
-				if ( $opParsed == null || $opParsed->isEmpty() ) {
-					$opParsed = $operatorContent["sideset"]->getBase()->toMMLtree() ?? "";
+				if ( $opParsed->isEmpty() ) {
+					$opParsed = $operatorContent["sideset"]->getBase()->toMMLtree();
 				}
 			} else {
 				$opParsed = MMLmerror::newFromText( "Sideset operator parsing not implemented yet" );
@@ -930,11 +930,11 @@ class BaseParsing {
 				$mpArgs = [ "height" => "0", "depth" => "0" ];
 			}
 
-			$inner = $node->getArg2()->toMMLtree() ?? "";
+			$inner = $node->getArg2()->toMMLtree();
 		} elseif ( $node instanceof Fun1 ) {
 			// Implicitly assume "tb" as default mode
 			$mpArgs = [ "height" => "0", "depth" => "0" ];
-			$inner = $node->getArg()->toMMLtree() ?? "";
+			$inner = $node->getArg()->toMMLtree();
 		}
 		return new MMLmrow( TexClass::ORD, [], new MMLmpadded( "", $mpArgs, $inner ) );
 	}
@@ -954,9 +954,9 @@ class BaseParsing {
 		}
 	}
 
-	public static function intent( $node, $passedArgs, $operatorContent, $name, $smth = null ) {
+	public static function intent( $node, $passedArgs, $operatorContent, $name, $smth = null ): MMLbase {
 		if ( !$node instanceof Fun2 ) {
-			return null;
+			return new MMLarray();
 		}
 		// if there is intent annotation add intent to root element
 		// match args in row of subargs, unless an element has explicit annotations
@@ -964,7 +964,7 @@ class BaseParsing {
 		$arg1 = $node->getArg1();
 		$arg2 = $node->getArg2();
 		if ( !$arg2->isCurly() ) {
-			return null;
+			return new MMLarray();
 		}
 		// tbd refactor intent form and fiddle in mml or tree
 		$intentStr = MMLutil::squashLitsToUnitIntent( $arg2 );
@@ -989,9 +989,9 @@ class BaseParsing {
 			( $arg1->isCurly() && $arg1->getArgs()[0] instanceof Matrix ) ) {
 			$element = $arg1->getArgs()[0];
 			$rendered = $element->toMMLtree( [], $intentParamsState );
-			$hackyXML = MMLParsingUtil::forgeIntentToSpecificElement( $rendered,
+			$hackyXML = MMLParsingUtil::forgeIntentToSpecificElement( (string)$rendered,
 				$intentContentAtr, "mtable" );
-			return $hackyXML;
+			return new MMLarray( $hackyXML );
 		} elseif ( $arg1->isCurly() && count( $arg1->getArgs() ) >= 2 ) {
 			// Create a surrounding element which holds the intents
 			return new MMLmrow( "", $intentContentAtr, $arg1->toMMLtree( [], $intentParamsState ) );
@@ -999,8 +999,8 @@ class BaseParsing {
 			// Forge the intent attribute to the top-level element after MML rendering
 			$element = $arg1->getArgs()[0];
 			$rendered = $element->toMMLtree( [], $intentParamsState );
-			$hackyXML = MMLParsingUtil::forgeIntentToTopElement( $rendered, $intentContentAtr );
-			return $hackyXML;
+			$hackyXML = MMLParsingUtil::forgeIntentToTopElement( (string)$rendered, $intentContentAtr );
+			return new MMLarray( $hackyXML );
 		} else {
 			// This is the default case
 			return $arg1->toMMLtree( $intentContentAtr, $intentParamsState );
@@ -1092,7 +1092,7 @@ class BaseParsing {
 		if ( $node instanceof Fun2sq ) {
 			// In case of an empty curly add an mrow
 			$arg2Rendered = $node->getArg2()->toMMLtree( $passedArgs );
-			if ( trim( $arg2Rendered ) === "" || $arg2Rendered === null ) {
+			if ( $arg2Rendered->isEmpty() ) {
 				$arg2Rendered = new MMLmrow( TexClass::ORD, [] );
 			}
 			return new MMLmrow( TexClass::ORD, [],

@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 
@@ -42,7 +43,7 @@ class Lr extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function toMMLTree( $arguments = [], &$state = [] ) {
+	public function toMMLTree( $arguments = [], &$state = [] ): MMLbase {
 		// TBD  set attributes for right AND left correctly
 		$rightAttrs = [];
 		if ( $this->right == "." ) {

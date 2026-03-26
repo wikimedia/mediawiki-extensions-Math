@@ -50,11 +50,11 @@ class TexNode {
 	 * @param string $input
 	 * @param array $passedArgs
 	 * @param mixed|null $operatorContent
-	 * @return MMLbase|string|null
+	 * @return MMLbase
 	 */
-	protected function parseToMML( $input, $passedArgs, $operatorContent ) {
+	protected function parseToMML( $input, $passedArgs, $operatorContent ): MMLbase {
 		$parsed = BaseMethods::checkAndParse( $input, $passedArgs, $operatorContent, $this );
-		if ( $parsed ) {
+		if ( !$parsed->isEmpty() ) {
 			return $parsed;
 		}
 		$name = strtoupper( self::class );
@@ -83,9 +83,9 @@ class TexNode {
 	/**
 	 * @param array $arguments
 	 * @param array &$state
-	 * @return MMLbase|string|null
+	 * @return MMLbase
 	 */
-	public function toMMLTree( array $arguments = [], array &$state = [] ) {
+	public function toMMLTree( array $arguments = [], array &$state = [] ): MMLbase {
 		return new MMLarray( ...array_map(
 			fn ( $child ) => $this->processChildMML( $child, $arguments, $state ),
 			$this->args
@@ -96,13 +96,13 @@ class TexNode {
 	 * @param mixed $child
 	 * @param array $arguments
 	 * @param array &$state
-	 * @return MMLbase|null
+	 * @return MMLbase
 	 */
-	private function processChildMML( $child, array $arguments, array &$state ): ?MMLbase {
+	private function processChildMML( $child, array $arguments, array &$state ): MMLbase {
 		if ( $child instanceof self ) {
 			return $child->toMMLTree( $arguments, $state );
 		}
-		return null;
+		return new MMLarray();
 	}
 
 	/**

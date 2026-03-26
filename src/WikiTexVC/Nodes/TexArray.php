@@ -264,7 +264,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	}
 
 	/** @inheritDoc */
-	public function toMMLTree( $arguments = [], &$state = [] ) {
+	public function toMMLTree( $arguments = [], &$state = [] ): MMLbase {
 		// Everything here is for parsing displaystyle, probably refactored to WikiTexVC grammar later
 		$mmlStyles = [ new MMLmrow() ]; // need root node to hold child nodes
 		$currentColor = null;
