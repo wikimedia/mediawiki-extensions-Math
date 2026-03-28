@@ -2691,7 +2691,7 @@
 	"\\hat": {
 		"callback": [
 			"accent",
-			"005E"
+			"0302"
 		],
 		"fun_ar1": true,
 		"is_letter_mod": true

@@ -66,6 +66,16 @@ class BaseParsing {
 				$attrs = [ "stretchy" => "true" ];
 			}
 		}
+		if ( trim( $operatorContent ) === '\\vec' ) {
+			// T418686
+			$attrs['class'] = 'mwe-math-vec';
+			$attrs['stretchy'] = 'false';
+		}
+		if ( trim( $operatorContent ) === '\\hat' ) {
+			// T409152
+			$attrs['stretchy'] = 'false';
+		}
+
 		// Fetching entity from $accent key tbd
 		$entity = MMLutil::createEntity( $accent );
 		if ( !$entity ) {
@@ -73,17 +83,11 @@ class BaseParsing {
 		}
 		$inner = $node->getArg()->toMMLtree( $passedArgs );
 
-		return new MMLmrow(
-			TexClass::ORD,
-			[],
-			new MMLmrow(
-				TexClass::ORD,
-				[],
-				MMLmover::newSubtree(
-					!$inner->isEmpty() ? $inner : ( new MMLmrow() ),
-					( new MMLmo( "", $attrs, $entity ) )
-				)
-			)
+		return MMLmover::newSubtree(
+			!$inner->isEmpty() ? $inner : ( new MMLmrow() ),
+			new MMLmo( '', $attrs, $entity ),
+			'',
+			[ 'accent' => 'true' ]
 		);
 	}
 
