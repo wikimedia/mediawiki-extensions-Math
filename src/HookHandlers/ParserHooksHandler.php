@@ -90,7 +90,10 @@ class ParserHooksHandler implements
 		if ( array_key_exists( "qid", $attributes ) ) {
 			$parser->getOutput()->addModules( [ 'ext.math.popup' ] );
 		}
-		if ( $wgMathSvgRenderer === 'restbase' && $mode == MathConfig::MODE_MATHML ) {
+		if ( ( $wgMathSvgRenderer === 'restbase' && $mode == MathConfig::MODE_MATHML ) ||
+			$mode === MathConfig::MODE_NATIVE_JAX ||
+			$mode === MathConfig::MODE_NATIVE_MML
+		) {
 			$marker = Parser::MARKER_PREFIX .
 				'-postMath-' . sprintf( '%08X', $this->mathTagCounter++ ) .
 				Parser::MARKER_SUFFIX;
@@ -160,7 +163,7 @@ class ParserHooksHandler implements
 	 * @param string &$text
 	 */
 	public function onParserAfterTidy( $parser, &$text ) {
-		$this->renderBatch();
+		$this->renderBatch( $parser );
 
 		foreach ( $this->mathLazyRenderBatchCompleted as $key => $value ) {
 			$count = 0;
@@ -172,12 +175,16 @@ class ParserHooksHandler implements
 		}
 	}
 
-	private function renderBatch() {
-		$renderers = array_column( $this->mathLazyRenderBatch, 0 );
-		if ( MathMathMLCli::isMathoidCliConfigured() ) {
-			MathMathMLCli::batchEvaluate( $renderers );
-		} else {
-			MathMathML::batchEvaluate( $renderers );
+	private function renderBatch( Parser $parser ) {
+		$mode = $parser->getOptions()->getOption( 'math' );
+
+		if ( $mode === MathConfig::MODE_MATHML ) {
+			$renderers = array_column( $this->mathLazyRenderBatch, 0 );
+			if ( MathMathMLCli::isMathoidCliConfigured() ) {
+				MathMathMLCli::batchEvaluate( $renderers );
+			} else {
+				MathMathML::batchEvaluate( $renderers );
+			}
 		}
 		foreach ( $this->mathLazyRenderBatch as $key => [ $renderer, $renderParser ] ) {
 			$this->mathLazyRenderBatchCompleted[ $key ] = $this->mathPostTagHook( $renderer, $renderParser );
@@ -192,9 +199,10 @@ class ParserHooksHandler implements
 	public function onParserOptionsRegister( &$defaults, &$inCacheKey, &$lazyLoad ) {
 		$defaults['math'] = $this->userOptionsLookup->getDefaultOption( 'math' );
 		$inCacheKey['math'] = true;
-		$lazyLoad['math'] = function ( ParserOptions $options ) {
+		$lazyLoad['math'] = function ( ParserOptions $options )  {
 			return MathConfig::normalizeRenderingMode(
-				$this->userOptionsLookup->getOption( $options->getUserIdentity(), 'math' )
+				$this->userOptionsLookup->getOption( $options->getUserIdentity(), 'math' ) ??
+					MathConfig::MODE_NATIVE_MML
 			);
 		};
 	}

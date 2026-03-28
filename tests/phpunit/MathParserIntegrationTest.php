@@ -52,7 +52,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 
 					public function getHtmlOutput( bool $svg = true ): string {
 						if ( isset( $this->params[ 'class' ] ) ) {
-							$class = ( ' class="' . $this->params[ 'class' ] . '" ' );
+							$class = ( ' class="' . $this->params[ 'class' ] . '"' );
 						} else {
 							$class = '';
 						}
