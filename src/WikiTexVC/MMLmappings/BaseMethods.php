@@ -64,7 +64,7 @@ class BaseMethods {
 	public function checkAndParseOperator( $input, $node, $passedArgs, $operatorContent,
 		$state, $prepareInput = true
 	): MMLbase {
-			$resOperator = TexUtil::getInstance()->operator_rendering( trim( $input ) );
+		$resOperator = TexUtil::getInstance()->operator_rendering( trim( $input ) );
 		if ( $resOperator == null ) {
 			$resOperator = TexUtil::getInstance()->operator_infix( trim( $input ) );
 			if ( $resOperator ) {
@@ -121,7 +121,7 @@ class BaseMethods {
 		if ( array_key_exists( "movesupsub", $attrs ) && $attrs['movesupsub'] == "1" ) {
 			unset( $attrs['movesupsub'] );
 		}
-		return new MMLmo( "", $attrs, $uc );
+		return new MMLmo( trim( $name ) === '\\colon' ? 'PUNCT' : '', $attrs, $uc );
 	}
 
 	public function checkAndParseIdentifier( $input, $node, $passedArgs, $operatorContent,

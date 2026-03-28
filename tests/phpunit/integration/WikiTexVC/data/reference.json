@@ -2163,5 +2163,13 @@
 		"input": "a \\mathbin\\square b",
 		"bug": "T419767",
 		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi>a</mi><mrow data-mjx-texclass=\"BIN\"><mi>◻</mi></mrow><mi>b</mi></mstyle></mrow></math>"
+	},
+	{
+		"input": "\\gamma \\colon I \\to M ",
+		"bug": "T418627",
+		"output": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" class=\"mwe-math-element mwe-math-element-inline\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi>γ</mi><mo stretchy=\"false\" data-mjx-texclass=\"PUNCT\">:</mo><mi>I</mi><mo stretchy=\"false\" accent=\"false\">→</mo><mi>M</mi></mstyle></mrow></math>",
+		"core-validation": {
+			"Invalid attribute accent for element mo\n": 1
+		}
 	}
 ]
