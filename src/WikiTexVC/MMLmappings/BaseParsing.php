@@ -85,9 +85,7 @@ class BaseParsing {
 
 		return MMLmover::newSubtree(
 			!$inner->isEmpty() ? $inner : ( new MMLmrow() ),
-			new MMLmo( '', $attrs, $entity ),
-			'',
-			[ 'accent' => 'true' ]
+			new MMLmo( '', $attrs, $entity )
 		);
 	}
 
