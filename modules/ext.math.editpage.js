@@ -2,7 +2,7 @@
 mw.hook( 'ext.CodeMirror.ready' ).add( ( cm ) => {
 	const { Prec } = require( 'ext.CodeMirror.v6.lib' );
 	cm.keymap.registerKeyBindingHelp( 'insert', 'math-inline', {
-		key: 'Mod-m',
+		key: 'Mod-e',
 		run: () => {
 			cm.textSelection.encapsulateSelection( {
 				pre: '<math display="inline">',
@@ -15,7 +15,7 @@ mw.hook( 'ext.CodeMirror.ready' ).add( ( cm ) => {
 	}, cm.view );
 
 	cm.keymap.registerKeyBindingHelp( 'insert', 'math-block', {
-		key: 'Shift-Mod-m',
+		key: 'Shift-Mod-e',
 		run: () => {
 			cm.textSelection.encapsulateSelection( {
 				pre: '<math display="block">',
@@ -44,7 +44,7 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 						post: '</math>'
 					}
 				},
-				hotkey: 'm'
+				hotkey: 'e'
 			},
 			mathBlock: {
 				label: mw.msg( 'math-editpage-insert-block' ),
