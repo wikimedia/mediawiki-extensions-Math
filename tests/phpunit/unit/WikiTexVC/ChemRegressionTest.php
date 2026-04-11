@@ -16,11 +16,11 @@ class ChemRegressionTest extends MediaWikiUnitTestCase {
 
 	private const FILEPATH = __DIR__ . '/chem-regression.json';
 
-	public static function setUpBeforeClass(): void {
+	public function setUp(): void {
 		if ( !file_exists( self::FILEPATH ) ) {
 			self::markTestSkipped( 'No test file found at specified path: ' . self::FILEPATH );
 		}
-		parent::setUpBeforeClass();
+		parent::setUp();
 	}
 
 	/**

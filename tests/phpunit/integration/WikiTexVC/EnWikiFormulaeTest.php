@@ -19,9 +19,9 @@ class EnWikiFormulaeTest extends MediaWikiIntegrationTestCase {
 	private const REF_FILEPATH = __DIR__ . '/en-wiki-formulae-good-reference.json';
 	private const CHUNK_SIZE = 1000;
 
-	public static function setUpBeforeClass(): void {
+	public function setUp(): void {
 		self::checkFiles();
-		parent::setUpBeforeClass();
+		parent::setUp();
 	}
 
 	private static function checkFiles() {
