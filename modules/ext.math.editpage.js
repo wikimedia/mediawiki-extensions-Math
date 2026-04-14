@@ -1,6 +1,6 @@
 // CodeMirror keybinding for inserting <math> tags.
 mw.hook( 'ext.CodeMirror.ready' ).add( ( cm ) => {
-	const { Prec } = require( 'ext.CodeMirror.v6.lib' );
+	const { Prec } = require( 'ext.CodeMirror.lib' );
 	cm.keymap.registerKeyBindingHelp( 'insert', 'math-inline', {
 		key: 'Mod-e',
 		run: () => {
