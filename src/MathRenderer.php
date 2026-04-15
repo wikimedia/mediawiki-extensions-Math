@@ -19,10 +19,10 @@ use MediaWiki\Message\Message;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
 use Psr\Log\LoggerInterface;
-use StringUtils;
 use Wikimedia\Message\MessageParam;
 use Wikimedia\Message\MessageSpecifier as MsgSp;
 use Wikimedia\ObjectCache\WANObjectCache;
+use Wikimedia\StringUtils\StringUtils;
 
 /**
  * Abstract base class with static methods for rendering the <math> tags using

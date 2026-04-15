@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Math\Tests;
 
 use DataValues\StringValue;
 use MediaWiki\Config\ConfigException;
-use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Language\LanguageNameUtils;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Site\Site;
 use Psr\Log\LoggerInterface;
