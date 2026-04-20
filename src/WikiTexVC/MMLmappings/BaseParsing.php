@@ -991,9 +991,8 @@ class BaseParsing {
 			( $arg1->isCurly() && $arg1->getArgs()[0] instanceof Matrix ) ) {
 			$element = $arg1->getArgs()[0];
 			$rendered = $element->toMMLtree( [], $intentParamsState );
-			$hackyXML = MMLParsingUtil::forgeIntentToSpecificElement( (string)$rendered,
+			return MMLParsingUtil::forgeIntentToSpecificElement( $rendered,
 				$intentContentAtr, "mtable" );
-			return new MMLarray( $hackyXML );
 		} elseif ( $arg1->isCurly() && count( $arg1->getArgs() ) >= 2 ) {
 			// Create a surrounding element which holds the intents
 			return new MMLmrow( "", $intentContentAtr, $arg1->toMMLtree( [], $intentParamsState ) );
@@ -1001,8 +1000,7 @@ class BaseParsing {
 			// Forge the intent attribute to the top-level element after MML rendering
 			$element = $arg1->getArgs()[0];
 			$rendered = $element->toMMLtree( [], $intentParamsState );
-			$hackyXML = MMLParsingUtil::forgeIntentToTopElement( (string)$rendered, $intentContentAtr );
-			return new MMLarray( $hackyXML );
+			return MMLParsingUtil::forgeIntentToTopElement( $rendered, $intentContentAtr );
 		} else {
 			// This is the default case
 			return $arg1->toMMLtree( $intentContentAtr, $intentParamsState );
