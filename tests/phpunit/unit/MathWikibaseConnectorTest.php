@@ -103,7 +103,7 @@ class MathWikibaseConnectorTest extends MathWikibaseConnectorTestFactory {
 					if ( $id === '1' ) {
 						throw new EntityIdParsingException();
 					} else {
-						return null;
+						return new NumericPropertyId( $id );
 					}
 				} );
 
