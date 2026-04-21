@@ -5,7 +5,6 @@ namespace MediaWiki\Extension\Math;
 use DataValues\StringValue;
 use Exception;
 use InvalidArgumentException;
-use MediaWiki\Config\ConfigException;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Language\LanguageFactory;
 use MediaWiki\Language\LanguageNameUtils;
@@ -103,7 +102,7 @@ class MathWikibaseConnector {
 			} else {
 				throw new EntityIdParsingException( "Property $propertyId is not of type property" );
 			}
-		} catch ( ConfigException ) {
+		} catch ( EntityIdParsingException ) {
 			return null;
 		}
 	}
