@@ -98,7 +98,7 @@ class MathWikibaseConnector {
 	private function loadPropertyId( string $propertyId ): ?PropertyId {
 		try {
 			$pid = $this->entityIdParser->parse( $propertyId );
-			if ( $pid === null || $pid instanceof PropertyId ) {
+			if ( $pid instanceof PropertyId ) {
 				return $pid;
 			} else {
 				throw new EntityIdParsingException( "Property $propertyId is not of type property" );
@@ -148,7 +148,7 @@ class MathWikibaseConnector {
 			throw new InvalidArgumentException( "Non-existing Wikibase ID." );
 		}
 
-		if ( !$entityId || !$entityRevision ) {
+		if ( !$entityRevision ) {
 			throw new InvalidArgumentException( "Non-existing Wikibase ID." );
 		}
 
