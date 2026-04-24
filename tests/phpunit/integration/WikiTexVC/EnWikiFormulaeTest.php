@@ -17,56 +17,39 @@ class EnWikiFormulaeTest extends MediaWikiIntegrationTestCase {
 
 	private const FILEPATH = __DIR__ . '/en-wiki-formulae-good.json';
 	private const REF_FILEPATH = __DIR__ . '/en-wiki-formulae-good-reference.json';
-	private const CHUNK_SIZE = 1000;
 
 	public function setUp(): void {
-		self::checkFiles();
-		parent::setUp();
-	}
-
-	private static function checkFiles() {
 		if ( !file_exists( self::FILEPATH ) || !file_exists( self::REF_FILEPATH ) ) {
 			self::markTestSkipped( 'Missing test files. Required: ' .
 				self::FILEPATH . ' and ' .
 				self::REF_FILEPATH );
 		}
+		parent::setUp();
 	}
 
-		/**
-		 * Reads the JSON file to an object
-		 * @param string $filePath file to be read
-		 * @return array JSON with testcases
-		 */
+	/**
+	 * Reads the JSON file to an object
+	 * @param string $filePath file to be read
+	 * @return array JSON with testcases
+	 */
 	private static function getJSON( $filePath ): array {
-		self::checkFiles();
 		$file = file_get_contents( $filePath );
 		return json_decode( $file, true );
 	}
 
-	public static function provideTestCases(): \Generator {
+	private static function getTestCases(): array {
 		$group = [];
-		$groupNo = 1;
 		$references = self::getJSON( self::REF_FILEPATH );
 		foreach ( self::getJSON( self::FILEPATH ) as $key => $elem ) {
 			$group[$key] = [ $elem, $references[ $key ] ];
-			if ( count( $group ) >= self::CHUNK_SIZE ) {
-				yield "Group $groupNo" => [ $group ];
-				$groupNo++;
-				$group = [];
-			}
 		}
-		if ( count( $group ) > 0 ) {
-			yield "Group $groupNo" => [ $group ];
-		}
+		return $group;
 	}
 
-	/**
-	 * @dataProvider provideTestCases
-	 */
-	public function testRunCases( $testcase ) {
+	public function testRunCases() {
 		$texVC = new TexVC();
 
-		foreach ( $testcase as $hash => [ $tex, $ref ] ) {
+		foreach ( self::getTestCases() as $hash => [ $tex, $ref ] ) {
 			try {
 				$result = $texVC->check( $tex, [
 					"debug" => false,
