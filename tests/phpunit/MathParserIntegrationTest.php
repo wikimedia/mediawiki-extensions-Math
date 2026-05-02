@@ -96,7 +96,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 		$parserOptions1->setOption( 'math', MathConfig::MODE_SOURCE );
 		$render = $parserOutputAccess->getCachedParserOutput( $page, $parserOptions1 );
 		$this->assertNotNull( $render );
-		$this->assertStringContainsString( "<render>source:TEST_FORMULA</render>", $render->getRawText() );
+		$this->assertStringContainsString( "<render>source:TEST_FORMULA</render>", $render->getContentHolderText() );
 
 		// Now render with 'mathml' and make sure we didn't get the cached output
 		$parserOptions2 = ParserOptions::newCanonical( 'canonical' );
@@ -106,7 +106,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 		$this->assertStatusGood( $renderStatus );
 		$this->assertStringContainsString(
 			"<render>latexml:TEST_FORMULA</render>",
-			$renderStatus->getValue()->getRawText()
+			$renderStatus->getValue()->getContentHolderText()
 		);
 
 		// Fetch from cache with source
@@ -114,7 +114,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 		$this->assertNotNull( $cachedWithDummy1 );
 		$this->assertStringContainsString(
 			"<render>source:TEST_FORMULA</render>",
-			$cachedWithDummy1->getRawText()
+			$cachedWithDummy1->getContentHolderText()
 		);
 
 		// Fetch from cache with mathml
@@ -122,7 +122,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 		$this->assertNotNull( $cachedWithDummy2 );
 		$this->assertStringContainsString(
 			"<render>latexml:TEST_FORMULA</render>",
-			$cachedWithDummy2->getRawText()
+			$cachedWithDummy2->getContentHolderText()
 		);
 	}
 
@@ -137,7 +137,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 				PageReferenceValue::localReference( NS_MAIN, __METHOD__ ),
 				$po
 			)
-			->getRawText();
+			->getContentHolderText();
 		$this->assertStringMatchesFormat( '%A<a%S><render>source:formula</render></a>%A', $res );
 	}
 
@@ -152,7 +152,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 				PageReferenceValue::localReference( NS_MAIN, __METHOD__ ),
 				$po
 			)
-			->getRawText();
+			->getContentHolderText();
 		$this->assertStringContainsString( '<render>native:formula</render>', $res );
 	}
 
@@ -167,7 +167,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 				PageReferenceValue::localReference( NS_MAIN, __METHOD__ ),
 				$po
 			)
-			->getRawText();
+			->getContentHolderText();
 		$this->assertStringContainsString( '<render class="mathjax_ignore">native:formula</render>', $res );
 	}
 }

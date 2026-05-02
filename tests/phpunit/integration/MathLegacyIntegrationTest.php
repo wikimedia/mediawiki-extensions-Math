@@ -31,7 +31,7 @@ class MathLegacyIntegrationTest
 
 		$parser = $this->getServiceContainer()->getParserFactory()->getInstance();
 		$output = $parser->parse( $wt, $title, $parserOptions );
-		$html = $output->getRawText();
+		$html = $output->getContentHolderText();
 		$this->assertStringContainsString( 'source:TEST_FORMULA_1:modified', $html );
 		$this->assertStringContainsString( 'source:TEST_FORMULA_2:modified', $html );
 		$this->assertMathHookFiredAll( [
