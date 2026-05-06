@@ -17,7 +17,7 @@
 		"@wdio/spec-reporter": "9.23.2",
 		"api-testing": "1.7.3",
 		"commander": "^9.4.1",
-		"eslint-config-wikimedia": "0.32.3",
+		"eslint-config-wikimedia": "0.32.4",
 		"grunt": "1.6.2",
 		"grunt-banana-checker": "0.13.0",
 		"grunt-contrib-watch": "1.1.0",
