@@ -3,6 +3,7 @@
 use DataValues\NumberValue;
 use DataValues\StringValue;
 use MediaWiki\Extension\Math\MathValidator;
+use MediaWiki\Registration\ExtensionRegistry;
 
 /**
  * @covers \MediaWiki\Extension\Math\MathValidator
@@ -16,6 +17,16 @@ class MathValidatorTest extends MediaWikiIntegrationTestCase {
 
 	private const VADLID_TEX = "\sin x";
 	private const INVADLID_TEX = "\\notExists";
+
+	protected function setUp(): void {
+		parent::setUp();
+
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'WikibaseClient' ) &&
+			!ExtensionRegistry::getInstance()->isLoaded( 'WikibaseRepository' )
+		) {
+			$this->markTestSkipped( "Extension WikibaseClient or WikibaseRepository are required for this test" );
+		}
+	}
 
 	public function testNotStringValue() {
 		$validator = new MathValidator();
