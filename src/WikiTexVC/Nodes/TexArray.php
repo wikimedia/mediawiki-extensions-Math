@@ -11,7 +11,6 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
-use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
@@ -377,10 +376,10 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	 * @param TexNode $currentNode
 	 * @param array &$state
 	 * @param array $arguments
-	 * @return MMLbase|string|null
+	 * @return MMLbase
 	 */
 	private function createMMLwithContext( ?string $currentColor, TexNode $currentNode, array &$state,
-										   array $arguments ) {
+										   array $arguments ): MMLbase {
 		$ret = $currentNode->toMMLTree( $arguments, $state );
 		$ret = $this->addNot( $state, $ret );
 		$ret = $this->addDerivativesContext( $state, $ret );
@@ -412,7 +411,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	 *
 	 * Otherwise, returns the original node unchanged.
 	 */
-	public function addNot( array $state, MMLbase|string|null $ret ): MMLbase|string|null {
+	public function addNot( array $state, MMLbase $ret ): MMLbase {
 		// $state['not'] is set when a preceding \not token was encountered.
 		if ( !( $state['not'] ?? false ) || !( $ret instanceof MMLmo ) ) {
 			return $ret;
@@ -426,10 +425,10 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	 * If derivative was recognized, add the corresponding derivative math operator
 	 * to the mml and wrap with msup element.
 	 * @param array &$state state indicator which indicates derivative
-	 * @param mixed $mml mathml input
-	 * @return MMLbase|string|null mml with additional mml-elements for derivatives
+	 * @param MMLbase $mml mathml input
+	 * @return MMLbase mml with additional mml-elements for derivatives
 	 */
-	public function addDerivativesContext( array &$state, $mml ) {
+	public function addDerivativesContext( array &$state, MMLbase $mml ): MMLbase {
 		$ret = null;
 		if ( array_key_exists( "deriv", $state ) && $state["deriv"] > 0 ) {
 
@@ -445,9 +444,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 				$derInfo = str_repeat( "&#x2032;", $state["deriv"] );
 			}
 			unset( $state["deriv"] );
-			if ( is_string( $mml ) ) {
-				$mml = new MMLmi( $mml );
-			} elseif ( $mml === null || $mml->isEmpty() ) {
+			if ( $mml->isEmpty() ) {
 				$mml = new MMLmrow();
 			}
 			$ret = MMLmsup::newSubtree( $mml, new MMLmo( "", [], $derInfo ) );

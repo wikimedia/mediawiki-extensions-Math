@@ -3,14 +3,18 @@
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsup;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1nb;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 use MediaWikiIntegrationTestCase;
+use TypeError;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray
@@ -119,23 +123,20 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $nonMMLmo, $result, 'Should not modify non-MMLmo objects' );
 	}
 
-	public function testAddNotDoesNotProcessStringInput() {
+	public function testAddNotRejectsStringInput() {
+		$this->expectException( TypeError::class );
+
 		$state = [ 'not' => true ];
-		$input = '∈';
-
 		$ta = new TexArray();
-		$result = $ta->addNot( $state, $input );
-
-		$this->assertSame( $input, $result, 'Should not modify string input' );
+		$ta->addNot( $state, '∈' );
 	}
 
-	public function testAddNotDoesNotProcessNullInput() {
+	public function testAddNotRejectsNullInput() {
+		$this->expectException( TypeError::class );
+
 		$state = [ 'not' => true ];
-
 		$ta = new TexArray();
-		$result = $ta->addNot( $state, null );
-
-		$this->assertNull( $result, 'Should not modify null input' );
+		$ta->addNot( $state, null );
 	}
 
 	public function testUnshift() {
@@ -221,17 +222,23 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( '&#x2032;</mo>', $mml );
 	}
 
-	public function testRenderNullDeriv() {
+	public function testRenderEmptyPlaceholderDeriv() {
 		$n = new TexArray( new Literal( 'A' ) );
 		$state = [ 'deriv' => 1 ];
-		$mml = $n->addDerivativesContext( $state, null );
-		$this->assertStringContainsString( '&#x2032;</mo>', $mml );
+		$mml = $n->addDerivativesContext( $state, new MMLarray() );
+		$this->assertInstanceOf( MMLmsup::class, $mml );
+		$this->assertSame( 'msup', $mml->getName() );
+		$this->assertCount( 2, $mml->getChildren() );
+		$this->assertInstanceOf( MMLmrow::class, $mml->getChildren()[0] );
+		$this->assertInstanceOf( MMLmo::class, $mml->getChildren()[1] );
+		$this->assertSame( '&#x2032;', $mml->getChildren()[1]->getText() );
 	}
 
-	public function testRenderStringDeriv() {
+	public function testRenderStringDerivRejected() {
+		$this->expectException( TypeError::class );
+
 		$n = new TexArray( new Literal( 'A' ) );
 		$state = [ 'deriv' => 1 ];
-		$mml = $n->addDerivativesContext( $state, "k" );
-		$this->assertStringContainsString( '&#x2032;</mo>', $mml );
+		$n->addDerivativesContext( $state, "k" );
 	}
 }

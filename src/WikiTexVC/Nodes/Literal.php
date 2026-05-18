@@ -16,6 +16,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmpadded;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 use RuntimeException;
 
@@ -174,7 +175,7 @@ class Literal extends TexNode {
 		$content = $this->changeUnicodeFontInput( $input, $state, $arguments );
 		if ( !( empty( $state['inHBox'] ) ) ) {
 			// No mi, if literal is from HBox
-			return new MMLarray( $content );
+			return new MMLmtext( "", [], $content );
 		}
 		// If falling through all sieves just creates an mi element
 
