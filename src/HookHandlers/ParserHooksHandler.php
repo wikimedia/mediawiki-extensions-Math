@@ -176,6 +176,10 @@ class ParserHooksHandler implements
 	}
 
 	private function renderBatch( Parser $parser ) {
+		if ( !$this->mathLazyRenderBatch ) {
+			return;
+		}
+
 		$mode = $parser->getOptions()->getOption( 'math' );
 
 		if ( $mode === MathConfig::MODE_MATHML ) {
