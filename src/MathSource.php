@@ -2,7 +2,7 @@
 /**
  * MediaWiki math extension
  *
- * @copyright 2002-2012 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz and other MediaWiki
+ * @copyright 2002-2012 Tomasz Wegrzanowski, Brooke Vibber, Moritz Schubotz and other MediaWiki
  * contributors
  * @license GPL-2.0-or-later
  *
@@ -19,7 +19,7 @@ use MediaWiki\Html\Html;
  * Takes LaTeX fragments and outputs the source directly to the browser
  *
  * @author Tomasz Wegrzanowski
- * @author Brion Vibber
+ * @author Brooke Vibber
  * @author Moritz Schubotz
  * @ingroup Parser
  */

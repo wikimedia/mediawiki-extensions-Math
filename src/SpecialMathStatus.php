@@ -15,7 +15,7 @@ use Wikimedia\Message\MessageSpecifier;
 /**
  * MediaWiki math extension
  *
- * @copyright 2002-2015 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz,
+ * @copyright 2002-2015 Tomasz Wegrzanowski, Brooke Vibber, Moritz Schubotz,
  * and other MediaWiki contributors
  * @license GPL-2.0-or-later
  * @author Moritz Schubotz

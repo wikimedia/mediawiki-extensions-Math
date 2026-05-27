@@ -9,7 +9,7 @@ use MediaWiki\Message\Message;
 /**
  * MediaWiki math extension
  *
- * @copyright 2002-2015 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz,
+ * @copyright 2002-2015 Tomasz Wegrzanowski, Brooke Vibber, Moritz Schubotz,
  * and other MediaWiki contributors
  *
  * @note The restbase checker does not support purging the cache as it just represents

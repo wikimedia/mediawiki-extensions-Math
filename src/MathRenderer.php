@@ -2,7 +2,7 @@
 /**
  * MediaWiki math extension
  *
- * @copyright 2002-2012 Tomasz Wegrzanowski, Brion Vibber, Moritz Schubotz,
+ * @copyright 2002-2012 Tomasz Wegrzanowski, Brooke Vibber, Moritz Schubotz,
  * and other MediaWiki contributors
  * @license GPL-2.0-or-later
  *
@@ -31,7 +31,7 @@ use Wikimedia\StringUtils\StringUtils;
  * Furthermore, this class handles the caching of the rendered output.
  *
  * @author Tomasz Wegrzanowski
- * @author Brion Vibber
+ * @author Brooke Vibber
  * @author Moritz Schubotz
  */
 abstract class MathRenderer {
