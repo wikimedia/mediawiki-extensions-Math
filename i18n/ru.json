@@ -3,6 +3,7 @@
 		"authors": [
 			"Amire80",
 			"Bashkorttan",
+			"Daisy40",
 			"Diman Russkov",
 			"Dirruw'o",
 			"Frhdkazan",
@@ -92,6 +93,7 @@
 	"math_invalidresponse": "$1: Недопустимый ответ («$3») от сервера «$2»:",
 	"math_invalidxml": "MathML или SVG содержат недопустимый XML-код.",
 	"math_mathoid_error": "Ошибка преобразования. Сервер («$1») сообщил: «$2»",
+	"math_other_error": "Другая ошибка: $1",
 	"math-status-introduction": "Эта страница показывает информацию о {{PLURAL:$1|включённом режиме|включённых режимах}} показа математики.\n\n{{PLURAL:$1|Включён следующий режим показа математики|Включены следующие режимы показа математики}}:",
 	"math_syntax_error": "синтаксическая ошибка",
 	"math_timeout": "$1 превысило время ожидания от «$2»",
@@ -135,5 +137,7 @@
 	"math-wikibase-special-form-button": "Информация о запросе",
 	"math-wikibase-special-error-header": "Ошибка",
 	"math-wikibase-special-error-invalid-argument": "Указанный вами ID элемента Wikibase не существует.",
-	"math-wikibase-special-error-unknown": "Произошла неизвестная ошибка при получении данных из Wikibase."
+	"math-wikibase-special-error-unknown": "Произошла неизвестная ошибка при получении данных из Wikibase.",
+	"math-editpage-insert-inline": "Математическая формула (строчная)",
+	"math-editpage-insert-block": "Математическая формула (блочная)"
 }
