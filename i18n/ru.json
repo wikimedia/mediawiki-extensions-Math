@@ -30,7 +30,8 @@
 			"Wikisaurus",
 			"Ядерный Трамвай",
 			"Novichev",
-			"Shabe"
+			"Shabe",
+			"Daisy40"
 		]
 	},
 	"math-desc": "Отображает математические формулы в тегах <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
