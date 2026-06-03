@@ -37,9 +37,6 @@ class FixNativeReferences extends Maintenance {
 		 Changes should be investigated manually.' );
 	}
 
-	/**
-	 * @throws \MediaWiki\Maintenance\MaintenanceFatalError
-	 */
 	public function execute() {
 		$file = file_get_contents( self::REFERENCE_PATH );
 		$json = json_decode( $file, true );
