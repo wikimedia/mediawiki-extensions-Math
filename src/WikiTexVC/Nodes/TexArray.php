@@ -115,10 +115,11 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 			&& ( $currentNode->containsFunc( "\\lim" ) ||
 				$currentNode->containsFunc( '\\varinjlim' ) ) ) {
 
-			if ( $currentNode->getBase() instanceof TexArray ) {
-				return [ $currentNode->getBase()->getArgs()[0], false ];
+			$base = $currentNode->getBase();
+			if ( $base instanceof TexArray && !$base->isEmpty() ) {
+				return [ $base->getArgs()[0], false ];
 			} else {
-				return [ $currentNode->getBase(), false ];
+				return [ $base, false ];
 			}
 		}
 
