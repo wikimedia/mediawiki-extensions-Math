@@ -22,11 +22,11 @@
 		"grunt-banana-checker": "0.13.0",
 		"grunt-contrib-watch": "1.1.0",
 		"grunt-eslint": "24.3.0",
-		"grunt-stylelint": "0.20.1",
+		"grunt-stylelint": "0.21.0",
 		"mocha": "^7.1.1",
 		"peggy": "^5.0.6",
 		"phpeggy": "^3.0.0",
-		"stylelint-config-wikimedia": "0.18.0",
+		"stylelint-config-wikimedia": "0.19.2",
 		"typescript-eslint": "^8.46.2",
 		"wdio-mediawiki": "6.3.0"
 	}

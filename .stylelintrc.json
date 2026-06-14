@@ -4,6 +4,7 @@
 		"stylelint-config-wikimedia/mediawiki"
 	],
 	"rules": {
-		"selector-class-pattern": null
+		"selector-class-pattern": null,
+		"declaration-property-value-no-unknown": null
 	}
 }
