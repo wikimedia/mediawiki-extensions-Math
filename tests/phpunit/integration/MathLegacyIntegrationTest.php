@@ -25,7 +25,7 @@ class MathLegacyIntegrationTest
 
 		$wt = '<math>TEST_FORMULA_1</math> <math>TEST_FORMULA_2</math>';
 
-		$title = Title::newFromText( 'TestPage' );
+		$title = Title::makeTitle( NS_MAIN, 'TestPage' );
 		$parserOptions = ParserOptions::newCanonical( 'canonical' );
 		$parserOptions->setOption( 'math', MathConfig::MODE_SOURCE );
 
