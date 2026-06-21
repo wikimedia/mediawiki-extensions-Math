@@ -155,9 +155,10 @@ class MathMathMLCli extends MathMathML {
 			] );
 			throw new RuntimeException( "Failed to execute Mathoid cli '$mathoidCli[0]', reason: $errorMsg" );
 		}
-		$res = json_decode( $result->getStdout() );
+		$stdout = $result->getStdout();
+		$res = json_decode( $stdout );
 		if ( !$res ) {
-			throw new RuntimeException( "Mathoid cli response '$res' is no valid JSON file." );
+			throw new RuntimeException( "Mathoid cli response '$stdout' is no valid JSON file." );
 		}
 
 		return $res;
