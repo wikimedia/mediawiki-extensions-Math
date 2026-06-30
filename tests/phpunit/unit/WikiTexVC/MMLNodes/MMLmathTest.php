@@ -32,4 +32,14 @@ class MMLmathTest extends MediaWikiUnitTestCase {
 			$mmath->getAttributes() );
 		$this->assertEquals( $mmath->getChildren(), [ $mi, $mo, $mn ] );
 	}
+
+	public function testCreateFromString() {
+		$string = '<mo>sin</mo>';
+		$math = new MMLmath();
+		$content = $math->wrapRawFragment( $string );
+		$this->assertXmlStringEqualsXmlString(
+			'<math xmlns="http://www.w3.org/1998/Math/MathML"><mo>sin</mo></math>',
+			$content
+		);
+	}
 }

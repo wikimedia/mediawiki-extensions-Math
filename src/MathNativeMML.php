@@ -127,7 +127,7 @@ class MathNativeMML extends MathMathML {
 		if ( ( $this->params['class'] ?? '' ) === 'mathjax_ignore' ) {
 			$attributes['class'] .= ' mathjax_ignore';
 		}
-		$mathElement = (string)new MMLmath( "", $attributes, $presentation ?? '' );
+		$mathElement = ( new MMLmath( "", $attributes ) )->wrapRawFragment( $presentation ?? '' );
 		if ( isset( $this->params['qid'] ) &&
 			preg_match( '/^Q\d+$/', $this->params['qid'] ) &&
 			$config->get( "MathEnableFormulaLinks" ) ) {
