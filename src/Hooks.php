@@ -9,22 +9,13 @@
 namespace MediaWiki\Extension\Math;
 
 use MediaWiki\Config\ConfigException;
-use MediaWiki\Context\RequestContext;
-use MediaWiki\Hook\MaintenanceRefreshLinksInitHook;
-use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Settings\SettingsBuilder;
 use MediaWiki\SpecialPage\Hook\SpecialPage_initListHook;
-use MediaWiki\User\Options\UserOptionsManager;
 
 class Hooks implements
-	SpecialPage_initListHook,
-	MaintenanceRefreshLinksInitHook
+	SpecialPage_initListHook
 {
-	public function __construct(
-		private readonly UserOptionsManager $userOptionsManager,
-	) {
-	}
 
 	/**
 	 * Extension registration callback, used to apply dynamic defaults for configuration variables.
@@ -88,18 +79,6 @@ class Hooks implements
 			global $wgRestAPIAdditionalRouteFiles;
 			$wgRestAPIAdditionalRouteFiles[] = dirname( __DIR__ ) . '/popupRestRoutes.json';
 		}
-	}
-
-	/**
-	 * MaintenanceRefreshLinksInit handler; optimize settings for refreshLinks batch job.
-	 *
-	 * @param Maintenance $maint
-	 */
-	public function onMaintenanceRefreshLinksInit( $maint ) {
-		$user = RequestContext::getMain()->getUser();
-
-		// Don't parse LaTeX to improve performance
-		$this->userOptionsManager->setOption( $user, 'math', MathConfig::MODE_SOURCE );
 	}
 
 	/**

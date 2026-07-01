@@ -68,10 +68,7 @@
 			]
 		},
 		"main": {
-			"class": "MediaWiki\\Extension\\Math\\Hooks",
-			"services": [
-				"UserOptionsManager"
-			]
+			"class": "MediaWiki\\Extension\\Math\\Hooks"
 		},
 		"schema": {
 			"class": "MediaWiki\\Extension\\Math\\HookHandlers\\SchemaHooksHandler"
@@ -88,7 +85,6 @@
 		"WikibaseClientDataTypes": "MediaWiki\\Extension\\Math\\WikibaseHook::onWikibaseClientDataTypes",
 		"WikibaseRepoDataTypes": "MediaWiki\\Extension\\Math\\WikibaseHook::onWikibaseRepoDataTypes",
 		"SpecialPage_initList": "main",
-		"MaintenanceRefreshLinksInit": "main",
 		"ResourceLoaderGetConfigVars": "ResourceLoaderConfigHandler"
 	},
 	"config": {
