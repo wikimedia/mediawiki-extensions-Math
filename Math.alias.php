@@ -41,6 +41,11 @@ $specialPageAliases['mk'] = [
 	'MathStatus' => [ 'МатСтатус' ],
 ];
 
+/** Slovak (slovenčina) */
+$specialPageAliases['sk'] = [
+	'MathStatus' => [ 'StavMatematiky' ],
+];
+
 /** Serbian Cyrillic (српски (ћирилица)) */
 $specialPageAliases['sr-ec'] = [
 	'MathStatus' => [ 'СтањеПриказаМатематичкихФормула' ],
