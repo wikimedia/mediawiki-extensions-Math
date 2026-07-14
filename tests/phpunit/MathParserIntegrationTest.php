@@ -6,6 +6,7 @@ use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\Page\PageReferenceValue;
 use MediaWiki\Parser\ParserOptions;
+use MediaWiki\Request\FauxRequest;
 use Psr\Log\NullLogger;
 use Wikimedia\ObjectCache\WANObjectCache;
 
@@ -169,5 +170,26 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 			)
 			->getContentHolderText();
 		$this->assertStringContainsString( '<render class="mathjax_ignore">native:formula</render>', $res );
+	}
+
+	public function testMathModeUrlOverride() {
+		$this->setupDummyRendering();
+
+		$fauxRequest = new FauxRequest( [ 'mathmode' => MathConfig::MODE_LATEXML ] );
+		RequestContext::getMain()->setRequest( $fauxRequest );
+
+		$po = ParserOptions::newCanonical( 'canonical' );
+		$po->setOption( 'math', MathConfig::MODE_SOURCE );
+
+		$res = $this->getServiceContainer()
+			->getParser()
+			->parse(
+				'<math>formula</math>',
+				PageReferenceValue::localReference( NS_MAIN, __METHOD__ ),
+				$po
+			)
+			->getContentHolderText();
+
+		$this->assertStringContainsString( '<render>latexml:formula</render>', $res );
 	}
 }

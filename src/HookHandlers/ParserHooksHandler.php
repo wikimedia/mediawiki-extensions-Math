@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Math\HookHandlers;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Math\Hooks\HookRunner;
 use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathMathML;
@@ -75,7 +76,7 @@ class ParserHooksHandler implements
 	 */
 	public function mathTagHook( ?string $content, array $attributes, Parser $parser ) {
 		global $wgMathSvgRenderer;
-		$mode = $parser->getOptions()->getOption( 'math' );
+		$mode = $this->fetchMathMode( $parser->getOptions() );
 		if ( $mode === MathConfig::MODE_NATIVE_JAX ) {
 			$parser->getOutput()->addModules( [ 'ext.math.mathjax' ] );
 			if ( ( $attributes['forcemathmode'] ?? MathConfig::MODE_NATIVE_JAX ) !== MathConfig::MODE_NATIVE_JAX ) {
@@ -180,7 +181,7 @@ class ParserHooksHandler implements
 			return;
 		}
 
-		$mode = $parser->getOptions()->getOption( 'math' );
+		$mode = $this->fetchMathMode( $parser->getOptions() );
 
 		if ( $mode === MathConfig::MODE_MATHML ) {
 			$renderers = array_column( $this->mathLazyRenderBatch, 0 );
@@ -209,5 +210,10 @@ class ParserHooksHandler implements
 					MathConfig::MODE_NATIVE_MML
 			);
 		};
+	}
+
+	private function fetchMathMode( ParserOptions $options ): string {
+		return RequestContext::getMain()->getRequest()->getVal( 'mathmode',
+			$options->getOption( 'math' ) );
 	}
 }
