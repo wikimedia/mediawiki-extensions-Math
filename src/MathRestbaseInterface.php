@@ -202,16 +202,15 @@ class MathRestbaseInterface {
 	/**
 	 * The URL is generated according to the following logic:
 	 *
-	 * Case A: <code>$internal = false</code>, which means one needs a URL that is accessible from
+	 * Case A: `$internal = false`, which means you want a URL that is accessible from
 	 * outside:
 	 *
-	 * --> Use <code>$wgMathFullRestbaseURL</code>. It must always be configured.
+	 * --> Uses `$wgMathFullRestbaseURL` which must always be configured.
 	 *
-	 * Case B: <code>$internal = true</code>, which means one needs to access content from Restbase
-	 * which does not need to be accessible from outside:
+	 * Case B: `$internal = true`, which means you want to call RESTBase from inside
+	 * MediaWiki PHP code.
 	 *
-	 * --> Use the mount point when it is available and <code>$wgMathUseInternalRestbasePath =
-	 * true</code>. If not, use <code>$wgMathFullRestbaseURL</code>.
+	 * --> Uses `$wgMathInternalRestbaseURL` if set or `$wgMathFullRestbaseURL` otherwise.
 	 *
 	 * @param string $path
 	 * @param bool|true $internal

@@ -27,8 +27,6 @@ class Hooks implements
 
 		$fullRestbaseUrl = $config->get( 'MathFullRestbaseURL' );
 		$internalRestbaseURL = $config->get( 'MathInternalRestbaseURL' );
-		$useInternalRestbasePath = $config->get( 'MathUseInternalRestbasePath' );
-		$virtualRestConfig = $config->get( 'VirtualRestConfig' );
 
 		if ( !$fullRestbaseUrl ) {
 			throw new ConfigException(
@@ -36,41 +34,9 @@ class Hooks implements
 			);
 		}
 
-		if ( !$useInternalRestbasePath ) {
-			if ( $internalRestbaseURL ) {
-				$settings->warning( "The MathInternalRestbaseURL setting will be ignored " .
-					"because MathUseInternalRestbasePath is set to false." );
-			}
-
-			// Force the use of the external URL for internal calls as well.
+		if ( !$internalRestbaseURL ) {
+			// Default to using the external URL for internal calls as well.
 			$settings->overrideConfigValue( 'MathInternalRestbaseURL', $fullRestbaseUrl );
-		} elseif ( !$internalRestbaseURL ) {
-			if ( isset( $virtualRestConfig['modules']['restbase'] ) ) {
-				$settings->warning( "The MathInternalRestbaseURL is falling back to " .
-					"VirtualRestConfig. Please set MathInternalRestbaseURL explicitly." );
-
-				$restBaseUrl = $virtualRestConfig['modules']['restbase']['url'];
-				$restBaseUrl = rtrim( $restBaseUrl, '/' );
-
-				$restBaseDomain = $virtualRestConfig['modules']['restbase']['domain'] ?? 'localhost';
-
-				// Ensure the correct domain format: strip protocol, port,
-				// and trailing slash if present.  This lets us use
-				// $wgCanonicalServer as a default value, which is very convenient.
-				// XXX: This was copied from RestbaseVirtualRESTService. Use UrlUtils::parse instead?
-				$restBaseDomain = preg_replace(
-					'/^((https?:)?\/\/)?([^\/:]+?)(:\d+)?\/?$/',
-					'$3',
-					$restBaseDomain
-				);
-
-				$internalRestbaseURL = "$restBaseUrl/$restBaseDomain/";
-			} else {
-				// Default to using the external URL for internal calls as well.
-				$internalRestbaseURL = $fullRestbaseUrl;
-			}
-
-			$settings->overrideConfigValue( 'MathInternalRestbaseURL', $internalRestbaseURL );
 		}
 	}
 

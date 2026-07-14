@@ -149,14 +149,12 @@
 		"MathMathMLUrl": {
 			"value": "https://mathoid-beta.wmflabs.org"
 		},
-		"MathUseInternalRestbasePath": {
-			"description": "Whether to allow to use of internal RESTBase path instead of $wgMathFullRestbaseURL. Set false if you want to use external RESTBase in any case.",
-			"value": true
-		},
 		"MathInternalRestbaseURL": {
+			"description": "Optional override of $wgMathFullRestbaseURL for internal calls from MediaWiki PHP. Use this to bypass public reverse proxies, avoid firewall rate-limiting, or prevent unnecessary external network hops.",
 			"value": null
 		},
 		"MathFullRestbaseURL": {
+			"description": "This is used for external URLs to RESTBase from browsers, such as when embedding Mathoid SVGs by URL in HTML markup.",
 			"value": "https://wikimedia.org/api/rest_"
 		},
 		"MathHTTPProxy": {
