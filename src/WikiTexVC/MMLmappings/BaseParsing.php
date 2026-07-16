@@ -345,7 +345,7 @@ class BaseParsing {
 			$mi = $inner->getChildren()[0];
 			// this check needs to be made explicit for phan
 			if ( $mi instanceof MMLmi ) {
-				$inner = new MMLmo( TexClass::OP, $mi->getAttributes(), $mi->getText() );
+				$inner = $mi;
 			}
 		}
 		return new MMLarray( $mmlNot, $inner, $applyFct );
