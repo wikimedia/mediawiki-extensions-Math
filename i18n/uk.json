@@ -21,6 +21,7 @@
 		]
 	},
 	"math-desc": "Відображає математичні формули у тегах <code>&lt;math&gt;</code> … <code>&lt;/math&gt;</code>",
+	"popups-settings-option-math": "Математика",
 	"popups-settings-option-math-description": "Пояснення математичних формул.",
 	"popups-settings-option-math-tooltip": "Пояснювати математичні формули при наведенні",
 	"math-visualeditor-mwchemdialog-title": "Хімічна формула",
