@@ -29,9 +29,7 @@ window.MathJax = {
 			// render only when visible
 			'ui/lazy',
 			// output as SVG to look like the mathoid output
-			'output/svg',
-			// somehow a bug?
-			'output/chtml'
+			'output/svg'
 		],
 		// see https://docs.mathjax.org/en/latest/options/startup/loader.html
 		paths: {
@@ -87,19 +85,6 @@ window.MathJax = {
 		ready() {
 			const { MML } = window.MathJax._.core.MmlTree.MML;
 			MML.a = MML.mrow;
-			const { ChtmlWrapper } = window.MathJax._.output.chtml.Wrapper;
-			ChtmlWrapper.prototype.handleHref = function ( parents ) {
-				if ( !this.node.attributes.hasExplicit( 'href' ) ) {
-					return parents;
-				}
-				const attrs = { href: this.node.attributes.get( 'href' ) };
-				if ( this.node.attributes.hasExplicit( 'title' ) ) {
-					attrs.title = this.node.attributes.get( 'title' );
-				}
-				return parents.map(
-					( parent ) => this.adaptor.append( parent, this.html( 'a', attrs ) )
-				);
-			};
 			const { FindMathML } = window.MathJax._.input.mathml.FindMathML;
 			const { combineDefaults } = window.MathJax._.components.global;
 			// from https://github.com/mathjax/MathJax/issues/2770#issuecomment-920428602
