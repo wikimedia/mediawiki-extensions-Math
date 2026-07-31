@@ -1,4 +1,25 @@
 const extensionAssetsPath = mw.config.get( 'wgExtensionAssetsPath' );
+
+// helper function for https://phabricator.wikimedia.org/T375932
+function remapChars( v1, v2, base, map, font ) {
+	const c1 = v1.chars;
+	const c2 = v2.chars;
+	for ( let i = 0; i < 26; i++ ) {
+		const data1 = c1[ map[ i ] || base + i ] || [];
+		const data2 = c2[ 0x41 + i ];
+		if ( data1.length === 0 ) {
+			c1[ base + i ] = data1;
+		}
+		for ( const j of [ 0, 1, 2 ] ) {
+			data1[ j ] = data2[ j ];
+		}
+		data1[ 3 ] = Object.assign( {}, data2[ 3 ], {
+			f: font,
+			c: String.fromCharCode( 0x41 + i )
+		} );
+	}
+}
+
 window.MathJax = {
 	loader: {
 		// see https://docs.mathjax.org/en/latest/input/mathml.html
@@ -16,21 +37,6 @@ window.MathJax = {
 		paths: {
 			mathjax: extensionAssetsPath + '/Math/modules/mathjax',
 			fonts: extensionAssetsPath + '/Math/modules'
-		}
-	},
-	// helper function for https://phabricator.wikimedia.org/T375932
-	/* eslint-disable no-return-assign */
-	remapChars( v1, v2, base, map, font ) {
-		const c1 = v1.chars;
-		const c2 = v2.chars;
-		for ( let i = 0; i < 26; i++ ) {
-			const data1 = c1[ map[ i ] || base + i ] || [];
-			const data2 = c2[ 0x41 + i ];
-			if ( data1.length === 0 ) {
-				c1[ base + i ] = data1;
-			}
-			[ 0, 1, 2 ].forEach( ( j ) => data1[ j ] = data2[ j ] );
-			data1[ 3 ] = Object.assign( {}, data2[ 3 ], { f: font, c: String.fromCharCode( 0x41 + i ) } );
 		}
 	},
 	mml: {
@@ -127,8 +133,8 @@ window.MathJax = {
 						await this.fontLoadDynamicFile( this.constructor.dynamicFiles.calligraphic );
 						const variant = font.variant;
 						const map = { 1: 0x212C, 4: 0x2130, 5: 0x2131, 7: 0x210B, 8: 0x2110, 11: 0x2112, 12: 0x2133, 17: 0x211B };
-						window.MathJax.config.remapChars( variant.normal, variant[ '-tex-calligraphic' ], 0x1D49C, map, 'C' );
-						window.MathJax.config.remapChars( variant.normal, variant[ '-tex-bold-calligraphic' ], 0x1D4D0, {}, 'CB' );
+						remapChars( variant.normal, variant[ '-tex-calligraphic' ], 0x1D49C, map, 'C' );
+						remapChars( variant.normal, variant[ '-tex-bold-calligraphic' ], 0x1D4D0, {}, 'CB' );
 					}
 				}
 			} );
