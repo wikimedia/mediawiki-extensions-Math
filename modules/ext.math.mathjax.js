@@ -85,6 +85,22 @@ window.MathJax = {
 		ready() {
 			const { MML } = window.MathJax._.core.MmlTree.MML;
 			MML.a = MML.mrow;
+			const { SvgWrapper } = window.MathJax._.output.svg.Wrapper;
+			const handleHref = SvgWrapper.prototype.handleHref;
+			SvgWrapper.prototype.handleHref = function ( parents ) {
+				const attributes = this.node.attributes;
+				if ( !attributes.getExplicit( 'href' ) ) {
+					return parents;
+				}
+				const anchors = handleHref.call( this, parents );
+				const title = attributes.getExplicit( 'title' );
+				if ( title ) {
+					for ( const anchor of anchors ) {
+						this.adaptor.setAttribute( anchor, 'title', title );
+					}
+				}
+				return anchors;
+			};
 			const { FindMathML } = window.MathJax._.input.mathml.FindMathML;
 			const { combineDefaults } = window.MathJax._.components.global;
 			// from https://github.com/mathjax/MathJax/issues/2770#issuecomment-920428602
