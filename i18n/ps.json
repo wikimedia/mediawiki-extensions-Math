@@ -72,5 +72,7 @@
 	"math-wikibase-special-form-placeholder": "فورمولې سرليک",
 	"math-wikibase-special-form-button": "مالوماتو غوښتنه",
 	"math-wikibase-special-error-header": "تېروتنه",
-	"math-wikibase-special-error-invalid-argument": "ستاسو ځانگړی‌کړی ويکي‌اډانې توکي پېژند شتون نه لري."
+	"math-wikibase-special-error-invalid-argument": "ستاسو ځانگړی‌کړی ويکي‌اډانې توکي پېژند شتون نه لري.",
+	"math-editpage-insert-inline": "شمېرپوهنيزه فورمول (په‌ليکه)",
+	"math-editpage-insert-block": "شمېرپوهنيزه فورمول (څلورڅنډيز)"
 }
