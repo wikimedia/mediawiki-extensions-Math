@@ -69,7 +69,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::onParserOptionsRegister
+	 * @covers ::onParserOptionsDefaults
 	 */
 	public function testMathParserOption() {
 		$user = $this->getTestUser()->getUserIdentity();
@@ -175,12 +175,10 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 	public function testMathModeUrlOverride() {
 		$this->setupDummyRendering();
 
-		$fauxRequest = new FauxRequest( [ 'mathmode' => MathConfig::MODE_LATEXML ] );
+		// with default options we render as source
+		$fauxRequest = new FauxRequest();
 		RequestContext::getMain()->setRequest( $fauxRequest );
-
 		$po = ParserOptions::newCanonical( 'canonical' );
-		$po->setOption( 'math', MathConfig::MODE_SOURCE );
-
 		$res = $this->getServiceContainer()
 			->getParser()
 			->parse(
@@ -189,7 +187,20 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 				$po
 			)
 			->getContentHolderText();
+		$this->assertStringContainsString( '<render>source:formula</render>', $res );
 
+		// now we add a query parameter and render as LaTeX
+		$fauxRequest = new FauxRequest( [ 'mathmode' => MathConfig::MODE_LATEXML ] );
+		RequestContext::getMain()->setRequest( $fauxRequest );
+		$po = ParserOptions::newCanonical( 'canonical' );
+		$res = $this->getServiceContainer()
+			->getParser()
+			->parse(
+				'<math>formula</math>',
+				PageReferenceValue::localReference( NS_MAIN, __METHOD__ ),
+				$po
+			)
+			->getContentHolderText();
 		$this->assertStringContainsString( '<render>latexml:formula</render>', $res );
 	}
 }

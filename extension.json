@@ -78,7 +78,7 @@
 		"EditPage::showEditForm:initial": "EditPageHooksHandler",
 		"ParserFirstCallInit": "ParserHooksHandler",
 		"ParserAfterTidy": "ParserHooksHandler",
-		"ParserOptionsRegister": "ParserHooksHandler",
+		"ParserOptionsDefaults": "ParserHooksHandler",
 		"GetPreferences": "PreferencesHooksHandler",
 		"UserGetDefaultOptions": "PreferencesHooksHandler",
 		"LoadExtensionSchemaUpdates": "schema",

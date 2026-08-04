@@ -13,7 +13,7 @@ use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Parser\Hook\ParserAfterTidyHook;
 use MediaWiki\Parser\Hook\ParserFirstCallInitHook;
-use MediaWiki\Parser\Hook\ParserOptionsRegisterHook;
+use MediaWiki\Parser\Hook\ParserOptionsDefaultsHook;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\User\Options\UserOptionsLookup;
@@ -24,7 +24,7 @@ use MediaWiki\User\Options\UserOptionsLookup;
 class ParserHooksHandler implements
 	ParserFirstCallInitHook,
 	ParserAfterTidyHook,
-	ParserOptionsRegisterHook
+	ParserOptionsDefaultsHook
 {
 
 	/** @var int */
@@ -76,7 +76,7 @@ class ParserHooksHandler implements
 	 */
 	public function mathTagHook( ?string $content, array $attributes, Parser $parser ) {
 		global $wgMathSvgRenderer;
-		$mode = $this->fetchMathMode( $parser->getOptions() );
+		$mode = $parser->getOptions()->getOption( 'math' );
 		if ( $mode === MathConfig::MODE_NATIVE_JAX ) {
 			$parser->getOutput()->addModules( [ 'ext.math.mathjax' ] );
 			if ( ( $attributes['forcemathmode'] ?? MathConfig::MODE_NATIVE_JAX ) !== MathConfig::MODE_NATIVE_JAX ) {
@@ -181,7 +181,7 @@ class ParserHooksHandler implements
 			return;
 		}
 
-		$mode = $this->fetchMathMode( $parser->getOptions() );
+		$mode = $parser->getOptions()->getOption( 'math' );
 
 		if ( $mode === MathConfig::MODE_MATHML ) {
 			$renderers = array_column( $this->mathLazyRenderBatch, 0 );
@@ -201,19 +201,16 @@ class ParserHooksHandler implements
 	}
 
 	/** @inheritDoc */
-	public function onParserOptionsRegister( &$defaults, &$inCacheKey, &$lazyLoad ) {
+	public function onParserOptionsDefaults( &$defaults, &$inCacheKey, &$lazyLoad, &$postprocOpts ) {
 		$defaults['math'] = $this->userOptionsLookup->getDefaultOption( 'math' );
 		$inCacheKey['math'] = true;
 		$lazyLoad['math'] = function ( ParserOptions $options )  {
+			$mathmode = RequestContext::getMain()->getRequest()->getVal( 'mathmode' );
 			return MathConfig::normalizeRenderingMode(
+				$mathmode ??
 				$this->userOptionsLookup->getOption( $options->getUserIdentity(), 'math' ) ??
-					MathConfig::MODE_NATIVE_MML
+				MathConfig::MODE_NATIVE_MML
 			);
 		};
-	}
-
-	private function fetchMathMode( ParserOptions $options ): string {
-		return RequestContext::getMain()->getRequest()->getVal( 'mathmode',
-			$options->getOption( 'math' ) );
 	}
 }
