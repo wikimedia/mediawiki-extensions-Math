@@ -76,5 +76,7 @@
 	"math-wikibase-special-form-placeholder": "Titel vun der Formel",
 	"math-wikibase-special-form-button": "Informatiounen ufroen",
 	"math-wikibase-special-error-header": "Feeler",
-	"math-wikibase-special-error-invalid-argument": "Dir hutt eng Wikibase-Element-ID uginn, déi et net gëtt."
+	"math-wikibase-special-error-invalid-argument": "Dir hutt eng Wikibase-Element-ID uginn, déi et net gëtt.",
+	"math-editpage-insert-inline": "Mathematesch Formel (''inline'')",
+	"math-editpage-insert-block": "Mathematesch Formel (''block'')"
 }
