@@ -9,6 +9,7 @@
 			"Nguyenphutrong2",
 			"Nvdtn19",
 			"Phjtieudoc",
+			"ToitenAnh",
 			"Trần Nguyễn Minh Huy",
 			"Vinhtantran"
 		]
@@ -98,8 +99,8 @@
 	"math_unknown_error": "lỗi không xác định",
 	"math_unknown_function": "hàm không rõ “$1”",
 	"mw-math-latexml": "LaTeXML (thử nghiệm; sử dụng MathML)",
-	"mw-math-mathjax": "Kết xuất MathJax phía máy khách (dành cho trình duyệt có hỗ trợ MathML hạn chế)",
-	"mw-math-mathml": "SVG (MathML có thể được kích hoạt thông qua plugin trình duyệt)",
+	"mw-math-mathjax": "MathML với hình ảnh SVG (hiển thị phía máy khách bằng MathJax)",
+	"mw-math-mathml": "\nMathML với hình ảnh SVG (kết xuất phía máy chủ bằng MathJax)",
 	"mw-math-native": "MathML (thử nghiệm; không có hình ảnh)",
 	"mw-math-source": "Mã nguồn LaTeX (dành cho trình duyệt văn bản)",
 	"prefs-math": "Toán học",

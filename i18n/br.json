@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Adriendelucca",
+			"Ar choler",
 			"Fohanno",
 			"Fulup",
 			"Huñvreüs",
@@ -25,9 +26,9 @@
 	"math_unknown_error": "fazi dianav",
 	"math_unknown_function": "arc'hwel dianav \"$1\"",
 	"mw-math-latexml": "LaTeXML (arnodel; implijout a ra MathML)",
-	"mw-math-mathjax": "Rentadurezh MathJax en arval (evit ar merdeerioù gant skor MathML darnel)",
-	"mw-math-mathml": "SVG (gallout a ra MathML bezañ gweredekaet gant ur plugin merdeer)",
-	"mw-math-native": "MathML (arnodel; skeudenn ebet)",
+	"mw-math-mathjax": "MathML gant ur skeudenn SVG (kinnig MathJax eus tu an arval)",
+	"mw-math-mathml": "MathML gant ur skeudenn SVG (kinnig MathJax eus tu ar servijer)",
+	"mw-math-native": "MathML hepken",
 	"mw-math-source": "Leuskel ar c'hod LaTeX orin",
 	"prefs-math": "Tres jedoniel",
 	"math-wikibase-formula-link-header": "Mammenn ar roadennoù"
