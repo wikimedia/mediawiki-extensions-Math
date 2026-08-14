@@ -108,7 +108,7 @@ window.MathJax = {
 		// and the old image rendering.
 		// Note that \mathsrc (which is unsupported by texvc) would map to the
 		// same unicode chars and thus should not be activated.
-		pageReady() {
+		async pageReady() {
 			const font = window.MathJax.startup.document.outputJax.font;
 			Object.assign( font, {
 				fontLoadDynamicFile: font.loadDynamicFile,
@@ -123,7 +123,16 @@ window.MathJax = {
 					}
 				}
 			} );
-			return window.MathJax.startup.defaultPageReady().then( () => {
+			await window.MathJax.startup.defaultPageReady();
+
+			// Handle dynamically added <math> elements
+			//
+			// E.g. Live Preview (T434469), VisualEditor post-save (T419356),
+			// and DiscussionTools reply preview (T422077).
+			//
+			// https://docs.mathjax.org/en/latest/advanced/typeset.html#handling-new-content
+			mw.hook( 'wikipage.content' ).add( () => {
+				window.MathJax.typeset();
 			} );
 		},
 		output: 'svg'
