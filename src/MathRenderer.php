@@ -140,6 +140,7 @@ abstract class MathRenderer {
 	 * @return self appropriate renderer for mode
 	 */
 	public static function getRenderer( $tex, $params = [], $mode = MathConfig::MODE_MATHML ) {
+		wfDeprecated( __METHOD__, '1.47' );
 		return MediaWikiServices::getInstance()
 			->get( 'Math.RendererFactory' )
 			->getRenderer( $tex, $params, $mode );
