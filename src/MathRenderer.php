@@ -78,7 +78,7 @@ abstract class MathRenderer {
 	private $logger;
 
 	private WANObjectCache $cache;
-	private MathConfig $mathConfig;
+	protected MathConfig $mathConfig;
 	private bool $rawError = false;
 
 	public function setRawError( bool $rawError ): void {

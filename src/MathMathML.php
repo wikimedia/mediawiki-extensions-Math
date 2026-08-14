@@ -481,6 +481,8 @@ class MathMathML extends MathRenderer {
 		if ( $this->getMathStyle() == 'display' ) {
 			$mml = preg_replace( '/<math/', '<math display="block"', $mml );
 		}
+		// T434686: Client side MathJax must not affect mwe-math-mathml-a11y
+		$mml = preg_replace( '/<math/', '<math class="mathjax_ignore"', $mml );
 
 		if ( $svg ) {
 			$mml_attribs = [
@@ -491,9 +493,6 @@ class MathMathML extends MathRenderer {
 			$mml_attribs = [
 				'class' => $mml_class,
 			];
-		}
-		if ( ( $this->params['class'] ?? '' ) === 'mathjax_ignore' ) {
-			$mml_attribs['class'] .= ' mathjax_ignore';
 		}
 		$output .= Html::rawElement( 'span', $mml_attribs, $mml );
 		if ( $svg ) {

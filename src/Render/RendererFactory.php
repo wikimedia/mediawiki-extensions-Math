@@ -62,7 +62,14 @@ class RendererFactory {
 			}
 		}
 		if ( isset( $params['chem'] ) ) {
-			$mode = ( $mode == MathConfig::MODE_NATIVE_MML ) ? MathConfig::MODE_NATIVE_MML : MathConfig::MODE_MATHML;
+			$validModesForChem = [
+				MathConfig::MODE_NATIVE_MML,
+				MathConfig::MODE_NATIVE_JAX,
+				MathConfig::MODE_MATHML,
+			];
+			if ( !in_array( $mode, $validModesForChem, true ) ) {
+				$mode = MathConfig::MODE_MATHML;
+			}
 			$params['type'] = 'chem';
 		}
 		return [ $mode, $params ];
@@ -87,7 +94,11 @@ class RendererFactory {
 				$renderer = new MathSource( $tex, $params );
 				break;
 			case MathConfig::MODE_NATIVE_MML:
+			case MathConfig::MODE_NATIVE_JAX:
 				$renderer = new MathNativeMML( $tex, $params, $this->cache );
+				// ParserHooksHandler::mathTagHook uses $renderer->getMode() to
+				// learn result of determineMode() to load the MathJax module.
+				$renderer->setMode( $mode );
 				break;
 			case MathConfig::MODE_LATEXML:
 				$renderer = new MathLaTeXML( $tex, $params, $this->cache );
