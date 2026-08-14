@@ -131,22 +131,6 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * Static factory method for getting a renderer based on mode
-	 *
-	 * @deprecated since 3.0.0. Use Math.RendererFactory service instead.
-	 * @param string $tex LaTeX markup
-	 * @param array $params HTML attributes
-	 * @param string $mode indicating rendering mode
-	 * @return self appropriate renderer for mode
-	 */
-	public static function getRenderer( $tex, $params = [], $mode = MathConfig::MODE_MATHML ) {
-		wfDeprecated( __METHOD__, '1.47' );
-		return MediaWikiServices::getInstance()
-			->get( 'Math.RendererFactory' )
-			->getRenderer( $tex, $params, $mode );
-	}
-
-	/**
 	 * Performs the rendering
 	 *
 	 * @return bool if rendering was successful.
