@@ -66,7 +66,7 @@ class LocalChecker extends BaseChecker {
 			return;
 			// @codeCoverageIgnoreEnd
 		}
-		if ( $result['status'] === '+' ) {
+		if ( ( $result['status'] ?? null ) === '+' ) {
 			$this->isValid = true;
 			$this->validTeX = $result['output'];
 			$this->mathMl = $result['mathml'];
@@ -110,12 +110,15 @@ class LocalChecker extends BaseChecker {
 		try {
 			$warnings = [];
 			$result = ( new TexVC() )->check( $this->inputTeX, $options, $warnings, $texifyMhchem );
-		} catch ( Exception ) { // @codeCoverageIgnoreStart
-			// This is impossible since errors are thrown only if the option debug would be set.
-			$this->error = Message::newFromKey( 'math_failure' );
-
-			return [];
-			// @codeCoverageIgnoreEnd
+		} catch ( Exception $e ) {
+			// TexVC::check() only rethrows when the 'debug' option is set (which LocalChecker never
+			// sets), but that only covers exceptions raised while processing the input itself; an
+			// exception from post-processing the result can still escape uncaught (T434819). Return a
+			// well-formed failure result so this doesn't get cached without a 'status' key.
+			return [
+				'status' => '-',
+				'error' => [ 'details' => $e->getMessage() ],
+			];
 		}
 		if ( $result['status'] === '+' ) {
 			$result['mathml'] = (string)$result['input']->toMMLtree();

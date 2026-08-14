@@ -154,4 +154,22 @@ class LocalCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->assertNull( $checker->getPresentationMathMLFragment() );
 		$this->assertEquals( 'math_unknown_error', $checker->getError()->getKey() );
 	}
+
+	/**
+	 * A cached result missing the 'status' key entirely must not raise a PHP warning.
+	 * @see https://phabricator.wikimedia.org/T434819
+	 */
+	public function testResultWithoutStatusKey() {
+		$fakeWAN = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
+		$fakeContent = [ 'broken' => 'content' ];
+		$fakeWAN->set( self::SAMPLE_KEY,
+			$fakeContent,
+			WANObjectCache::TTL_INDEFINITE,
+			[ 'version' => LocalChecker::VERSION ] );
+		$checker = new LocalChecker( $fakeWAN, '\sin x^2', 'tex' );
+		$checker->run();
+		$this->assertFalse( $checker->isValid() );
+		$this->assertNull( $checker->getPresentationMathMLFragment() );
+		$this->assertEquals( 'math_unknown_error', $checker->getError()->getKey() );
+	}
 }
