@@ -76,20 +76,25 @@ class ParserHooksHandler implements
 	 */
 	public function mathTagHook( ?string $content, array $attributes, Parser $parser ) {
 		global $wgMathSvgRenderer;
-		$mode = $parser->getOptions()->getOption( 'math' );
-		if ( $mode === MathConfig::MODE_NATIVE_JAX ) {
-			$parser->getOutput()->addModules( [ 'ext.math.mathjax' ] );
-			if ( ( $attributes['forcemathmode'] ?? MathConfig::MODE_NATIVE_JAX ) !== MathConfig::MODE_NATIVE_JAX ) {
-				$attributes['class'] = 'mathjax_ignore';
-			}
-			$mode = MathConfig::MODE_NATIVE_MML;
-		}
-		$renderer = $this->rendererFactory->getRenderer( $content ?? '', $attributes, $mode );
+		// The default mode from ParserOptions considers site config, user preference,
+		// and request param. The actual $mode is decided by RendererFactory::determineMode
+		// via RendererFactory::getRenderer, which also considers the "forcemathmode" attribute
+		// and normalizes invalid modes.
+		//
+		// NOTE: On the server-side MODE_NATIVE_JAX is the same as MODE_NATIVE_MML, except:
+		// * MODE_NATIVE_JAX also loads the MathJax module
+		// * MODE_NATIVE_MML explicitly sets class=mathjax_ignore (T434686)
+		$defaultMode = $parser->getOptions()->getOption( 'math' );
+		$renderer = $this->rendererFactory->getRenderer( $content ?? '', $attributes, $defaultMode );
+		$mode = $renderer->getMode();
 
 		$parser->getOutput()->addModuleStyles( [ 'ext.math.styles' ] );
 		$parser->getOutput()->addModules( [ 'ext.math.polyfills' ] );
 		if ( array_key_exists( "qid", $attributes ) ) {
 			$parser->getOutput()->addModules( [ 'ext.math.popup' ] );
+		}
+		if ( $mode === MathConfig::MODE_NATIVE_JAX ) {
+			$parser->getOutput()->addModules( [ 'ext.math.mathjax' ] );
 		}
 		if ( ( $wgMathSvgRenderer === 'restbase' && $mode == MathConfig::MODE_MATHML ) ||
 			$mode === MathConfig::MODE_NATIVE_JAX ||

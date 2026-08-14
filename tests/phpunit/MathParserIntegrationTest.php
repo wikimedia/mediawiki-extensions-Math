@@ -19,7 +19,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 
 	private function setupDummyRendering() {
 		$this->overrideConfigValue( 'MathValidModes',
-			[ MathConfig::MODE_SOURCE, MathConfig::MODE_LATEXML, MathConfig::MODE_NATIVE_MML ] );
+			[ MathConfig::MODE_SOURCE, MathConfig::MODE_NATIVE_MML, MathConfig::MODE_NATIVE_JAX ] );
 		$this->mergeMwGlobalArrayValue( 'wgDefaultUserOptions', [ 'math' => MathConfig::MODE_SOURCE ] );
 		$this->setService( 'Math.RendererFactory', new class(
 			new ServiceOptions( RendererFactory::CONSTRUCTOR_OPTIONS, [
@@ -52,12 +52,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 					}
 
 					public function getHtmlOutput( bool $svg = true ): string {
-						if ( isset( $this->params[ 'class' ] ) ) {
-							$class = ( ' class="' . $this->params[ 'class' ] . '"' );
-						} else {
-							$class = '';
-						}
-						return "<render$class>$this->mode:$this->tex</render>";
+						return "<render>$this->mode:$this->tex</render>";
 					}
 
 					protected function getMathTableName() {
@@ -142,7 +137,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringMatchesFormat( '%A<a%S><render>source:formula</render></a>%A', $res );
 	}
 
-	public function testMathJaxMode() {
+	public function testGetHtmlMathJax() {
 		$this->setupDummyRendering();
 		$po = ParserOptions::newCanonical( 'canonical' );
 		$po->setOption( 'math', MathConfig::MODE_NATIVE_JAX );
@@ -154,13 +149,13 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 				$po
 			)
 			->getContentHolderText();
-		$this->assertStringContainsString( '<render>native:formula</render>', $res );
+		$this->assertStringContainsString( '<render>mathjax:formula</render>', $res );
 	}
 
-	public function testGetHtmlMathJaxIgnore() {
+	public function testGetHtmlNoMathJax() {
 		$this->setupDummyRendering();
 		$po = ParserOptions::newCanonical( 'canonical' );
-		$po->setOption( 'math', MathConfig::MODE_NATIVE_JAX );
+		$po->setOption( 'math', MathConfig::MODE_NATIVE_MML );
 		$res = $this->getServiceContainer()
 			->getParser()
 			->parse(
@@ -169,7 +164,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 				$po
 			)
 			->getContentHolderText();
-		$this->assertStringContainsString( '<render class="mathjax_ignore">native:formula</render>', $res );
+		$this->assertStringContainsString( '<render>native:formula</render>', $res );
 	}
 
 	public function testMathModeUrlOverride() {

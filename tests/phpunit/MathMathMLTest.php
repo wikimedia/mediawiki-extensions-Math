@@ -197,7 +197,8 @@ class MathMathMLTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testGetHtmlNoMathJax() {
-		$math = new MathMathML( "a+b", [ 'class' => 'mathjax_ignore' ] );
+		$math = new MathMathML( "a+b" );
+		$math->setMathml( '<math dummy>example</math>' );
 		$out = $math->getHtmlOutput( false );
 		$this->assertStringContainsString( 'mathjax_ignore', $out );
 	}

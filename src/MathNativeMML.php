@@ -124,7 +124,10 @@ class MathNativeMML extends MathMathML {
 		} else {
 			$attributes['class'] .= ' mwe-math-element-inline';
 		}
-		if ( ( $this->params['class'] ?? '' ) === 'mathjax_ignore' ) {
+		if (
+			$this->mode === MathConfig::MODE_NATIVE_MML &&
+			$this->mathConfig->isValidRenderingMode( MathConfig::MODE_NATIVE_JAX )
+		) {
 			$attributes['class'] .= ' mathjax_ignore';
 		}
 		$mathElement = ( new MMLmath( "", $attributes ) )->wrapRawFragment( $presentation ?? '' );

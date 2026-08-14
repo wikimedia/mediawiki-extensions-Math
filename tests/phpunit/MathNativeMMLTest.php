@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathNativeMML;
 use MediaWiki\Extension\Math\MathWikibaseConnector;
 use Wikimedia\Rdbms\IDatabase;
@@ -23,7 +24,7 @@ class MathNativeMMLTest extends MediaWikiIntegrationTestCase {
 		$lbFactory = $this->createMock( LBFactory::class );
 		$lbFactory->method( 'getReplicaDatabase' )->willReturn( $db );
 		$this->setService( 'DBLoadBalancerFactory', $lbFactory );
-		$this->overrideConfigValue( 'MathValidModes', [ 'native' ] );
+		$this->overrideConfigValue( 'MathValidModes', [ 'native', 'mathjax' ] );
 		$this->clearHooks();
 	}
 
@@ -109,9 +110,17 @@ class MathNativeMMLTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testGetHtmlNoMathJax() {
-		$math = new MathNativeMML( "a+b", [ 'class' => 'mathjax_ignore' ] );
+		$math = new MathNativeMML( "a+b" );
 		$math->render();
 		$out = $math->getHtmlOutput( false );
 		$this->assertStringContainsString( 'mathjax_ignore', $out );
+	}
+
+	public function testGetHtmlMathJax() {
+		$math = new MathNativeMML( "a+b" );
+		$math->setMode( MathConfig::MODE_NATIVE_JAX );
+		$math->render();
+		$out = $math->getHtmlOutput( false );
+		$this->assertStringNotContainsString( 'mathjax_ignore', $out );
 	}
 }
