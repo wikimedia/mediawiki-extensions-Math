@@ -12,6 +12,12 @@ use MediaWiki\Extension\Math\MathSource;
  */
 class MathSourceTest extends MediaWikiIntegrationTestCase {
 
+	protected function setUp(): void {
+		parent::setUp();
+		$this->overrideConfigValue( 'MathValidModes', [ MathConfig::MODE_SOURCE, MathConfig::MODE_NATIVE_MML ] );
+		$this->mergeMwGlobalArrayValue( 'wgDefaultUserOptions', [ 'math' => MathConfig::MODE_SOURCE ] );
+	}
+
 	/**
 	 * Checks the basic functionality
 	 * i.e. if the span element is generated right.
