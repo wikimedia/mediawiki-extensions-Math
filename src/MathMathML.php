@@ -343,17 +343,15 @@ class MathMathML extends MathRenderer {
 	}
 
 	/**
-	 * @param bool $noRender
 	 * @return Title|string
 	 */
-	private function getFallbackImageUrl( $noRender = false ) {
+	private function getFallbackImageUrl() {
 		if ( $this->svgPath ) {
 			return $this->svgPath;
 		}
 		return SpecialPage::getTitleFor( 'MathShowImage' )->getLocalURL( [
 				'hash' => $this->getInputHash(),
 				'mode' => $this->getMode(),
-				'noRender' => $noRender
 			]
 		);
 	}
@@ -389,16 +387,12 @@ class MathMathML extends MathRenderer {
 
 	/**
 	 * Gets img tag for math image
-	 * @param bool $noRender if true no rendering will be performed
-	 * if the image is not stored in the database
-	 * @param false|string $classOverride if classOverride
-	 * is false the class name will be calculated by getClassName
 	 * @return string XML the image html tag
 	 */
-	protected function getFallbackImage( $noRender = false, $classOverride = false ) {
+	protected function getFallbackImage() {
 		$attribs = [
-			'src' => $this->getFallbackImageUrl( $noRender ),
-			'class' => $classOverride === false ? $this->getClassName( true ) : $classOverride,
+			'src' => $this->getFallbackImageUrl(),
+			'class' => $this->getClassName( true ),
 		];
 		if ( !$this->mathoidStyle ) {
 			$this->correctSvgStyle( $this->mathoidStyle );
