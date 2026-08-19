@@ -263,7 +263,7 @@ class AllTest extends MediaWikiUnitTestCase {
 						'\\leftarrow \\Leftarrow \\Leftarrow \\leq ' .
 						'\\leftrightarrow \\Leftrightarrow \\Leftrightarrow ' .
 						'\\mathrm {M} \\mathbb {N} \\neq \\mathrm {N} \\emptyset ' .
-						'oO\\lor \\partial \\pm ' .
+						'o\\mathrm {O} \\lor \\partial \\pm ' .
 						'\\rightarrow \\Rightarrow \\Rightarrow \\Re \\mathbb {R} ' .
 						'\\mathbb {R} \\upharpoonright \\mathrm {P} \\cdot ' .
 						'\\S \\spadesuit \\subset \\subseteq \\supseteq ' .

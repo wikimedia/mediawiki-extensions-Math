@@ -2176,5 +2176,10 @@
 		"input": "K = \\operatorname{ker}(A)",
 		"bug": "T417327",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi>K</mi><mo stretchy=\"false\">=</mo><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">ker</mi><mo>&#x2061;</mo><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo></mstyle></mrow></math>"
+	},
+	{
+		"input": "\\Gamma \\Delta \\Theta \\Xi \\Omicron \\Pi \\Sigma \\Upsilon \\Phi \\Chi \\Psi \\Omega",
+		"bug": "T434428",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi mathvariant=\"normal\">Γ</mi><mi mathvariant=\"normal\">Δ</mi><mi mathvariant=\"normal\">Θ</mi><mi mathvariant=\"normal\">Ξ</mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">O</mi></mrow><mi mathvariant=\"normal\">Π</mi><mi mathvariant=\"normal\">Σ</mi><mi mathvariant=\"normal\">Υ</mi><mi mathvariant=\"normal\">Φ</mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">X</mi></mrow><mi mathvariant=\"normal\">Ψ</mi><mi mathvariant=\"normal\">Ω</mi></mstyle></mrow></math>"
 	}
 ]

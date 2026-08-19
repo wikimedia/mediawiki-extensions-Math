@@ -861,7 +861,7 @@
 			"O"
 		],
 		"mhchem_single_macro": true,
-		"nullary_macro_aliase": "O"
+		"nullary_macro_aliase": "\\mathrm{O}"
 	},
 	"\\P": {
 		"callback": [
