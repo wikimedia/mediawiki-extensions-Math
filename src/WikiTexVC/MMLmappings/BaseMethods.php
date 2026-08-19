@@ -154,7 +154,7 @@ class BaseMethods {
 			}
 		}
 
-		$args = array_merge( $passedArgs, $attrs );
+		$args = array_merge( $attrs, $passedArgs );
 
 		if ( array_key_exists( "texClass", $args ) ) {
 			$args["data-mjx-texclass"] = $args["texClass"];

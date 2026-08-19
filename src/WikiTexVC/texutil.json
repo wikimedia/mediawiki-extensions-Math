@@ -638,7 +638,10 @@
 	},
 	"\\Delta": {
 		"identifier": [
-			"Δ"
+			"Δ",
+			{
+				"mathvariant": "normal"
+			}
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -702,7 +705,10 @@
 	},
 	"\\Gamma": {
 		"identifier": [
-			"Γ"
+			"Γ",
+			{
+				"mathvariant": "normal"
+			}
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -757,7 +763,10 @@
 	},
 	"\\Lambda": {
 		"identifier": [
-			"Λ"
+			"Λ",
+			{
+				"mathvariant": "normal"
+			}
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -837,7 +846,10 @@
 	},
 	"\\Omega": {
 		"identifier": [
-			"Ω"
+			"Ω",
+			{
+				"mathvariant": "normal"
+			}
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -862,7 +874,10 @@
 	},
 	"\\Phi": {
 		"identifier": [
-			"Φ"
+			"Φ",
+			{
+				"mathvariant": "normal"
+			}
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -870,7 +885,10 @@
 	},
 	"\\Pi": {
 		"identifier": [
-			"Π"
+			"Π",
+			{
+				"mathvariant": "normal"
+			}
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -883,7 +901,10 @@
 	},
 	"\\Psi": {
 		"identifier": [
-			"Ψ"
+			"Ψ",
+			{
+				"mathvariant": "normal"
+			}
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -955,7 +976,10 @@
 	},
 	"\\Sigma": {
 		"identifier": [
-			"Σ"
+			"Σ",
+			{
+				"mathvariant": "normal"
+			}
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -996,7 +1020,10 @@
 	},
 	"\\Theta": {
 		"identifier": [
-			"Θ"
+			"Θ",
+			{
+				"mathvariant": "normal"
+			}
 		],
 		"is_literal": true,
 		"mhchem_single_macro": true,
@@ -1019,7 +1046,10 @@
 	},
 	"\\Upsilon": {
 		"identifier": [
-			"Υ"
+			"Υ",
+			{
+				"mathvariant": "normal"
+			}
 		],
 		"mhchem_single_macro": true,
 		"nullary_macro": true
@@ -1046,7 +1076,10 @@
 	},
 	"\\Xi": {
 		"identifier": [
-			"Ξ"
+			"Ξ",
+			{
+				"mathvariant": "normal"
+			}
 		],
 		"is_literal": true,
 		"nullary_macro": true
