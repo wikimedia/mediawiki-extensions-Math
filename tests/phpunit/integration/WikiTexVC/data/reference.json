@@ -583,7 +583,7 @@
 	},
 	{
 		"input": "{}_1^2\\!\\Omega_3^4",
-		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><msubsup><mrow data-mjx-texclass=\"ORD\"></mrow><mrow data-mjx-texclass=\"ORD\"><mn>1</mn></mrow><mrow data-mjx-texclass=\"ORD\"><mn>2</mn></mrow></msubsup><mspace width=\"-0.167em\"></mspace><msubsup><mi>Ω</mi><mrow data-mjx-texclass=\"ORD\"><mn>3</mn></mrow><mrow data-mjx-texclass=\"ORD\"><mn>4</mn></mrow></msubsup></mstyle></mrow></math>"
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><msubsup><mrow data-mjx-texclass=\"ORD\"></mrow><mrow data-mjx-texclass=\"ORD\"><mn>1</mn></mrow><mrow data-mjx-texclass=\"ORD\"><mn>2</mn></mrow></msubsup><mspace width=\"-0.167em\"></mspace><msubsup><mi mathvariant=\"normal\">Ω</mi><mrow data-mjx-texclass=\"ORD\"><mn>3</mn></mrow><mrow data-mjx-texclass=\"ORD\"><mn>4</mn></mrow></msubsup></mstyle></mrow></math>"
 	},
 	{
 		"input": "\\overset{\\alpha}{\\omega}",
@@ -986,15 +986,15 @@
 	},
 	{
 		"input": "\\Alpha \\Beta \\Gamma \\Delta \\Epsilon \\Zeta \\Eta \\Theta \\!",
-		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">A</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">B</mi></mrow><mi>Γ</mi><mi>Δ</mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">E</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">Z</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">H</mi></mrow><mi>Θ</mi><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">A</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">B</mi></mrow><mi mathvariant=\"normal\">Γ</mi><mi mathvariant=\"normal\">Δ</mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">E</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">Z</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">H</mi></mrow><mi mathvariant=\"normal\">Θ</mi><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
 	},
 	{
 		"input": "\\Iota \\Kappa \\Lambda \\Mu \\Nu \\Xi \\Pi \\Rho \\!",
-		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">I</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">K</mi></mrow><mi>Λ</mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">M</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">N</mi></mrow><mi>Ξ</mi><mi>Π</mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">P</mi></mrow><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">I</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">K</mi></mrow><mi mathvariant=\"normal\">Λ</mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">M</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">N</mi></mrow><mi mathvariant=\"normal\">Ξ</mi><mi mathvariant=\"normal\">Π</mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">P</mi></mrow><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
 	},
 	{
 		"input": "\\Sigma \\Tau \\Upsilon \\Phi \\Chi \\Psi \\Omega \\!",
-		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi>Σ</mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">T</mi></mrow><mi>Υ</mi><mi>Φ</mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">X</mi></mrow><mi>Ψ</mi><mi>Ω</mi><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi mathvariant=\"normal\">Σ</mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">T</mi></mrow><mi mathvariant=\"normal\">Υ</mi><mi mathvariant=\"normal\">Φ</mi><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">X</mi></mrow><mi mathvariant=\"normal\">Ψ</mi><mi mathvariant=\"normal\">Ω</mi><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
 	},
 	{
 		"input": "\\alpha \\beta \\gamma \\delta \\epsilon \\zeta \\eta \\theta \\!",
@@ -1670,7 +1670,7 @@
 	},
 	{
 		"input": "{\\scriptstyle \\partial \\Omega}",
-		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"1\"><mi>∂</mi><mi>Ω</mi></mstyle></mrow></mstyle></mrow></math>"
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"1\"><mi>∂</mi><mi mathvariant=\"normal\">Ω</mi></mstyle></mrow></mstyle></mrow></math>"
 	},
 	{
 		"input": "\\bold{T} \\cdot {\\rm d}^3\\boldsymbol{\\Sigma} = 0",
@@ -1682,7 +1682,7 @@
 	},
 	{
 		"input": "{\\scriptstyle \\partial \\Omega}",
-		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"1\"><mi>∂</mi><mi>Ω</mi></mstyle></mrow></mstyle></mrow></math>"
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"false\" scriptlevel=\"1\"><mi>∂</mi><mi mathvariant=\"normal\">Ω</mi></mstyle></mrow></mstyle></mrow></math>"
 	},
 	{
 		"input": "\\bold{T} \\cdot {\\rm d}^3\\boldsymbol{\\Sigma} = 0",

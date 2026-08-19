@@ -49,6 +49,9 @@ class MathNativeMML extends MathMathML {
 		$renderer->setHookContainer( $hookContainer );
 		$renderer->setMainConfig( $config );
 		$renderer->setChecker( new LocalChecker( WANObjectCache::newEmpty(), $renderer->getTex(), 'tex' ) );
+		// T434686: Fake mathjax mode to avoid adding class=mathjax_ignore to the output,
+		// which would break the test cases
+		$renderer->setMode( MathConfig::MODE_NATIVE_JAX );
 		$result = $renderer->render();
 		$entry['output'] = $renderer->getMathml();
 		if ( !$result ) {
