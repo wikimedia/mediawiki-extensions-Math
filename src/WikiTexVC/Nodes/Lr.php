@@ -62,8 +62,9 @@ class Lr extends TexNode {
 			$right = new MMLmo( TexClass::CLOSE, $rightAttrs, $this->right );
 		}
 		// Don't apply outer ' inside the LR structure
-		unset( $state['deriv'] );
-		$inner = $this->getArg()->toMMLTree( [], $state );
+		$innerState = $state;
+		unset( $innerState['deriv'] );
+		$inner = $this->getArg()->toMMLTree( [], $innerState );
 		return new MMLmrow( TexClass::INNER, [], $left, $inner, $right );
 	}
 

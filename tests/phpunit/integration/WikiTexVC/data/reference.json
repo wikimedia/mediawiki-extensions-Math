@@ -2165,6 +2165,11 @@
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi>a</mi><mrow data-mjx-texclass=\"BIN\"><mi>◻</mi></mrow><mi>b</mi></mstyle></mrow></math>"
 	},
 	{
+		"input": "\\left(a\\right)'",
+		"bug": "T434456",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><msup><mrow data-mjx-texclass=\"INNER\"><mo data-mjx-texclass=\"OPEN\">(</mo><mi>a</mi><mo data-mjx-texclass=\"CLOSE\">)</mo></mrow><mo>&#x2032;</mo></msup></mstyle></mrow></math>"
+	},
+	{
 		"input": "\\gamma \\colon I \\to M ",
 		"bug": "T418627",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi>γ</mi><mo stretchy=\"false\" data-mjx-texclass=\"PUNCT\">:</mo><mi>I</mi><mo stretchy=\"false\" accent=\"false\">→</mo><mi>M</mi></mstyle></mrow></math>",
