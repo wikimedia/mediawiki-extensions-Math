@@ -204,6 +204,7 @@ class Matrix extends TexArray {
 			return;
 		}
 		if ( $this->top === 'aligned' ) {
+			// TODO: this would need to guess the number of columns form the content
 			$this->alignInfo = $this->getRlSequence();
 			return;
 		}
@@ -218,8 +219,8 @@ class Matrix extends TexArray {
 		}
 	}
 
-	private function getRlSequence( int $length = 10 ): array {
-		return str_split( str_repeat( 'rl', (int)ceil( $length / 2 ) ) );
+	private function getRlSequence( int $length = 5 ): array {
+		return str_split( str_repeat( 'rl', $length ) );
 	}
 
 	public function getBoarder(): array {

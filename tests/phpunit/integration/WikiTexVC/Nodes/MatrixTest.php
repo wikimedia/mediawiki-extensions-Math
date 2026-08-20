@@ -160,7 +160,7 @@ class MatrixTest extends MediaWikiIntegrationTestCase {
 		$matrix = new Matrix( 'alignedat',
 			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
 		$matrix->setColumnSpecs( new TexArray( ( new Literal( '20' ) ) ) );
-		$this->assertCount( 20, $matrix->getAlign() );
+		$this->assertCount( 40, $matrix->getAlign() );
 		$this->assertStringContainsString( 'mwe-math-columnalign-r', $matrix->renderMML(),
 			'Should render align column specs' );
 	}
