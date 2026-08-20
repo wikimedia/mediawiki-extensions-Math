@@ -1279,7 +1279,8 @@
 	"\\bar": {
 		"callback": [
 			"accent",
-			"00AF"
+			"00AF",
+			false
 		],
 		"fun_ar1": true,
 		"is_letter_mod": true
@@ -2724,7 +2725,8 @@
 	"\\hat": {
 		"callback": [
 			"accent",
-			"0302"
+			"0302",
+			false
 		],
 		"fun_ar1": true,
 		"is_letter_mod": true
@@ -6028,7 +6030,8 @@
 	"\\vec": {
 		"callback": [
 			"accent",
-			"2192"
+			"2192",
+			false
 		],
 		"fun_ar1": true,
 		"is_letter_mod": true

@@ -52,28 +52,22 @@ use MediaWiki\Extension\Math\WikiTexVC\TexVC;
  */
 class BaseParsing {
 
-	public static function accent( $node, $passedArgs, $name, $operatorContent, $accent, $stretchy = null ): MMLbase {
+	public static function accent( $node, $passedArgs, $name, $operatorContent,
+								   string $accent, ?bool $stretchy = null ): MMLbase {
 		// Currently this is own implementation from Fun1.php
 		// TODO The first if-clause is mathjax specific (and not necessary by generic parsers)
 		// and will most probably removed (just for running all tc atm)
 		if ( $accent == "00B4" || $accent == "0060" ) {
 			$attrs = [ Tag::SCRIPTTAG => "true" ];
 		} else {
-			if ( $stretchy == null ) {
-				// $attrs = [ "stretchy" => "false" ]; // not mention explicit stretchy
+			if ( $stretchy === null ) {
 				$attrs = [];
 			} else {
-				$attrs = [ "stretchy" => "true" ];
+				$attrs = [ "stretchy" => $stretchy ? "true" : "false" ];
 			}
 		}
 		if ( trim( $operatorContent ) === '\\vec' ) {
-			// T418686
 			$attrs['class'] = 'mwe-math-vec';
-			$attrs['stretchy'] = 'false';
-		}
-		if ( trim( $operatorContent ) === '\\hat' ) {
-			// T409152
-			$attrs['stretchy'] = 'false';
 		}
 
 		// Fetching entity from $accent key tbd
