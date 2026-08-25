@@ -26,6 +26,9 @@ class MMLmunder extends MMLbase {
 									   string $texclass = "",
 									   array $attributes = [] ) {
 		$instance = new self( $texclass, $attributes );
+		if ( $underscript->isEmpty() ) {
+			$underscript = new MMLmrow( '' );
+		}
 		$instance->children = [ $base, $underscript ];
 		return $instance;
 	}

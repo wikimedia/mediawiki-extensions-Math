@@ -2199,5 +2199,10 @@
 		"input": "\\bar{DEF}",
 		"bug": "T435456",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mover><mrow data-mjx-texclass=\"ORD\"><mi>D</mi><mi>E</mi><mi>F</mi></mrow><mo stretchy=\"false\">¯</mo></mover></mstyle></mrow></math>"
+	},
+	{
+		"input": "\\overset{}{\\underset{}{ x=\\frac{-b\\pm\\sqrt{b^2-4ac} }{2a} } }",
+		"bug": "T435705",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mover><mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>x</mi><mo stretchy=\"false\">=</mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">−</mo><mi>b</mi><mo stretchy=\"false\">±</mo><mrow data-mjx-texclass=\"ORD\"><msqrt><mrow data-mjx-texclass=\"ORD\"><msup><mi>b</mi><mrow data-mjx-texclass=\"ORD\"><mn>2</mn></mrow></msup><mo stretchy=\"false\">−</mo><mn>4</mn><mi>a</mi><mi>c</mi></mrow></msqrt></mrow></mrow></mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>2</mn><mi>a</mi></mrow></mrow></mfrac></mrow></mrow></mrow></mrow><mrow></mrow></mover></mrow></mstyle></mrow></math>"
 	}
 ]
