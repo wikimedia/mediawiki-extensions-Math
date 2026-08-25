@@ -26,7 +26,11 @@ class MMLmover extends MMLbase {
 									   string $texclass = "",
 									   array $attributes = [] ) {
 		$instance = new self( $texclass, $attributes );
+		if ( $overscript->isEmpty() ) {
+			$overscript = new MMLmrow( '' );
+		}
 		$instance->children = [ $base, $overscript ];
+
 		return $instance;
 	}
 }
