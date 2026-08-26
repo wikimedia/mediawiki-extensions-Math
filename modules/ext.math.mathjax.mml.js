@@ -22,6 +22,59 @@ function transformSmallMatrices( data ) {
 }
 
 /**
+ * Restore menclose elements represented by Core-compatible mrows.
+ *
+ * The first child contains the semantic content. The notation is encoded in
+ * class names used by the native CSS polyfill.
+ *
+ * @param {Document|Element} data MathML DOM to transform
+ */
+function transformMenclose( data ) {
+	const mrows = Array.from( data.getElementsByTagName( 'mrow' ) ).filter( ( mrow ) => (
+		mrow.getAttribute( 'class' ) || ''
+	).split( /\s+/ ).includes( 'menclose' ) );
+
+	for ( const mrow of mrows.reverse() ) {
+		const content = Array.from( mrow.childNodes ).find( ( child ) => child.nodeType === 1 );
+		const notation = ( mrow.getAttribute( 'class' ) || '' ).split( /\s+/ )
+			.filter( ( className ) => className.startsWith( 'menclose-' ) )
+			.map( ( className ) => className.slice( 'menclose-'.length ) );
+		if ( !content || notation.length === 0 ) {
+			continue;
+		}
+
+		const menclose = mrow.ownerDocument.createElementNS( MATHML_NS, 'menclose' );
+		menclose.setAttribute( 'notation', notation.join( ' ' ) );
+		while ( content.firstChild ) {
+			menclose.appendChild( content.firstChild );
+		}
+		mrow.parentNode.replaceChild( menclose, mrow );
+	}
+}
+
+/**
+ * Restore the relative height used for cancelto annotations by MathJax.
+ *
+ * @param {Document|Element} data MathML DOM to transform
+ */
+function transformCancelTo( data ) {
+	const annotations = Array.from( data.getElementsByTagName( 'mpadded' ) ).filter( ( mpadded ) => (
+		mpadded.getAttribute( 'class' ) || ''
+	).split( /\s+/ ).includes( 'mwe-math-cancelto' ) );
+
+	for ( const annotation of annotations ) {
+		annotation.setAttribute( 'height', '+.1em' );
+		const className = ( annotation.getAttribute( 'class' ) || '' ).split( /\s+/ )
+			.filter( ( name ) => name && name !== 'mwe-math-cancelto' ).join( ' ' );
+		if ( className ) {
+			annotation.setAttribute( 'class', className );
+		} else {
+			annotation.removeAttribute( 'class' );
+		}
+	}
+}
+
+/**
  * Transform Core-compatible MathML before MathJax parses it.
  *
  * @param {Object} options MathJax filter options
@@ -30,9 +83,13 @@ function transformSmallMatrices( data ) {
 function mmlFilter( { data } ) {
 	// From https://github.com/mathjax/MathJax/issues/3540
 	transformSmallMatrices( data );
+	transformMenclose( data );
+	transformCancelTo( data );
 }
 
 module.exports = {
 	mmlFilter,
+	transformCancelTo,
+	transformMenclose,
 	transformSmallMatrices
 };

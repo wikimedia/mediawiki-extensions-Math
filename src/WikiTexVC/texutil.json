@@ -1750,7 +1750,7 @@
 	"\\cancelto": {
 		"callback": [
 			"cancelTo",
-			"updiagonalstrike downdiagonalstrike northeastarrow"
+			"northeastarrow"
 		],
 		"cancel_required": true,
 		"fun_ar2": true

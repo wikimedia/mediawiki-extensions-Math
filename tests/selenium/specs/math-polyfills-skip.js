@@ -18,10 +18,6 @@ const evaluateSkip = async ( source, support ) => browser.execute( ( sourceArg, 
 			}
 		};
 
-		if ( tag === 'menclose' && supportArg.menclose ) {
-			el.notation = '';
-		}
-
 		if ( ( tag === 'mtable' || tag === 'mtd' ) && supportArg.columnAlign ) {
 			el.columnalign = '';
 		}
@@ -55,10 +51,6 @@ const evaluateSkipInLoader = async ( source, support, moduleName ) => browser.ex
 					}
 				}
 			};
-
-			if ( tag === 'menclose' && supportArg.menclose ) {
-				el.notation = '';
-			}
 
 			if ( ( tag === 'mtable' || tag === 'mtd' ) && supportArg.columnAlign ) {
 				el.columnalign = '';
@@ -109,7 +101,6 @@ describe( 'Math polyfills skipFunction', () => {
 	it( 'returns true when all MathML features are supported', async () => {
 		const result = await evaluateSkip( skipSource, {
 			createElementNS: true,
-			menclose: true,
 			columnAlign: true,
 			href: true
 		} );
@@ -119,7 +110,6 @@ describe( 'Math polyfills skipFunction', () => {
 	it( 'returns false when a required feature is missing', async () => {
 		const result = await evaluateSkip( skipSource, {
 			createElementNS: true,
-			menclose: true,
 			columnAlign: false,
 			href: true
 		} );
@@ -128,7 +118,6 @@ describe( 'Math polyfills skipFunction', () => {
 
 	it( 'skips loading when the skipFunction returns true', async () => {
 		const result = await evaluateSkipInLoader( skipSource, {
-			menclose: true,
 			columnAlign: true,
 			href: true
 		}, 'ext.math.polyfills.skip-true-test' );
@@ -139,8 +128,7 @@ describe( 'Math polyfills skipFunction', () => {
 
 	it( 'loads when the skipFunction returns false', async () => {
 		const result = await evaluateSkipInLoader( skipSource, {
-			menclose: false,
-			columnAlign: true,
+			columnAlign: false,
 			href: true
 		}, 'ext.math.polyfills.skip-false-test' );
 		await expect( result.error ).toBeUndefined();

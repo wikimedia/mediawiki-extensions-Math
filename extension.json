@@ -229,8 +229,7 @@
 		],
 		"dependencies": [
 			"ext.math.mathjax",
-			"ext.math.visualEditor",
-			"test.VisualEditor"
+			"ext.math.visualEditor"
 		]
 	},
 	"ForeignResourcesDir": "modules",
