@@ -1,4 +1,5 @@
 const extensionAssetsPath = mw.config.get( 'wgExtensionAssetsPath' );
+const { mmlFilter } = require( './ext.math.mathjax.mml.js' );
 
 // helper function for https://phabricator.wikimedia.org/T375932
 function remapChars( v1, v2, base, map, font ) {
@@ -40,21 +41,7 @@ window.MathJax = {
 	mml: {
 		// allow links
 		allowHtmlInTokenNodes: true,
-		mmlFilters: [
-			// from https://github.com/mathjax/MathJax/issues/3540
-			( { data } ) => {
-				const mtables = data.querySelectorAll( 'mtable.mwe-math-smallmatrix' );
-				for ( const mtable of Array.from( mtables ) ) {
-					mtable.setAttribute( 'data-mjx-smallmatrix', 'true' );
-					mtable.setAttribute( 'rowspacing', '.2em' );
-					mtable.setAttribute( 'columnspacing', '0.333em' );
-					const mstyle = document.createElementNS( 'http://www.w3.org/1998/Math/MathML', 'mstyle' );
-					mstyle.setAttribute( 'scriptlevel', '1' );
-					mtable.replaceWith( mstyle );
-					mstyle.appendChild( mtable );
-				}
-			}
-		],
+		mmlFilters: [ mmlFilter ],
 		postFilters: [
 			( { data } ) => {
 				data.walkTree( ( node ) => {
@@ -154,3 +141,5 @@ window.MathJax = {
 		output: 'svg'
 	}
 };
+
+require( './mathjax/startup.js' );

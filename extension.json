@@ -221,12 +221,14 @@
 		]
 	},
 	"QUnitTestModule": {
-		"localBasePath": "modules/ve-math/tests",
-		"remoteExtPath": "Math/modules/tests",
+		"localBasePath": "",
+		"remoteExtPath": "Math",
 		"scripts": [
-			"ve.dm.Autocomplete.test.js"
+			"tests/qunit/mmlFilter.test.js",
+			"modules/ve-math/tests/ve.dm.Autocomplete.test.js"
 		],
 		"dependencies": [
+			"ext.math.mathjax",
 			"ext.math.visualEditor",
 			"test.VisualEditor"
 		]
@@ -244,8 +246,9 @@
 		},
 		"ext.math.mathjax": {
 			"group": "ext.math",
-			"scripts": [
+			"packageFiles": [
 				"ext.math.mathjax.js",
+				"ext.math.mathjax.mml.js",
 				"mathjax/startup.js"
 			]
 		},
