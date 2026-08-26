@@ -11,7 +11,6 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
-use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmenclose;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmerror;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmfrac;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
@@ -154,19 +153,26 @@ class BaseParsing {
 	}
 
 	public static function cancel( Fun1 $node, $passedArgs, $operatorContent, $name, $notation = '' ): MMLbase {
-		$bars = [];
-		foreach ( explode( ' ', $notation ) as $element ) {
-			$bars[] = ( new MMLmrow( '', [ 'class' => 'menclose-' . $element ] ) );
-		}
-
-		return new MMLmenclose( '', [ 'notation' => $notation, 'class' => 'menclose' ],
-			$node->getArg()->toMMLtree(), ...$bars );
+		return self::menclose( $node->getArg()->toMMLtree(), $notation );
 	}
 
-	public static function cancelTo( $node, $passedArgs, $operatorContent, $name, $notation = null ): MMLbase {
-		$mpAdded = new MMLmpadded( "", [ "depth" => "-.1em", "height" => "+.1em", "voffset" => ".1em" ],
+	private static function menclose( MMLbase $content, string $notation ): MMLbase {
+		$classes = [ 'menclose' ];
+		foreach ( explode( ' ', $notation ) as $element ) {
+			$classes[] = 'menclose-' . $element;
+		}
+
+		return new MMLmrow( '', [ 'class' => implode( ' ', $classes ) ],
+			new MMLmrow( '', [], $content ) );
+	}
+
+	public static function cancelTo( $node, $passedArgs, $operatorContent, $name, string $notation = '' ): MMLbase {
+		// Match MathJax's 0.1em upward adjustment for the cancelto annotation:
+		// https://github.com/mathjax/MathJax-src/blob/master/ts/input/tex/cancel/CancelConfiguration.ts
+		$mpAdded = new MMLmpadded( "", [ "depth" => "-.1em", "voffset" => ".1em",
+			"class" => "mwe-math-cancelto" ],
 			$node->getArg1()->toMMLtree() );
-		$menclose = new MMLmenclose( "", [ "notation" => $notation ], $node->getArg2()->toMMLtree() );
+		$menclose = self::menclose( $node->getArg2()->toMMLtree(), $notation );
 		return new MMLmrow( TexClass::ORD, [], MMLmsup::newSubtree( $menclose, $mpAdded ) );
 	}
 

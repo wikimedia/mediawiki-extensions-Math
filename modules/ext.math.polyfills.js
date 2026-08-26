@@ -5,11 +5,6 @@
 		return typeof document === 'object' && typeof document.createElementNS === 'function';
 	}
 
-	function supportsMencloseNotation() {
-		const el = document.createElementNS( ns, 'menclose' );
-		return 'notation' in el;
-	}
-
 	function supportsColumnAlign() {
 		const table = document.createElementNS( ns, 'mtable' );
 		const cell = document.createElementNS( ns, 'mtd' );
@@ -59,15 +54,11 @@
 		return;
 	}
 
-	const needsMenclose = !supportsMencloseNotation();
 	const needsColumnAlign = !supportsColumnAlign();
 	const needsHref = !supportsMathMLHref();
 
 	const root = document.documentElement;
 	if ( root && root.classList ) {
-		if ( needsMenclose ) {
-			root.classList.add( 'mw-math-polyfill-menclose' );
-		}
 		if ( needsColumnAlign ) {
 			root.classList.add( 'mw-math-polyfill-columnalign' );
 		}

@@ -3,9 +3,6 @@ if ( typeof document !== 'object' || typeof document.createElementNS !== 'functi
 	return false;
 }
 
-const menclose = document.createElementNS( ns, 'menclose' );
-const hasMenclose = 'notation' in menclose;
-
 const table = document.createElementNS( ns, 'mtable' );
 const cell = document.createElementNS( ns, 'mtd' );
 const hasColumnAlign = 'columnalign' in table || 'columnAlign' in table ||
@@ -18,4 +15,4 @@ if ( 'href' in href ) {
 	hasHref = typeof href.href === 'string' && href.href.includes( '#math-href' );
 }
 
-return hasMenclose && hasColumnAlign && hasHref;
+return hasColumnAlign && hasHref;
