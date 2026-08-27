@@ -36,6 +36,14 @@ QUnit.module( 'ext.math.mathjax.mml', () => {
 		'restores nested cancellation and a cancelto annotation': {
 			input: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow class="menclose menclose-updiagonalstrike"><mrow><mrow class="menclose menclose-downdiagonalstrike"><mrow><mi>x</mi></mrow></mrow><msup><mrow class="menclose menclose-northeastarrow"><mrow><mi>y</mi></mrow></mrow><mpadded class="mwe-math-cancelto" depth="-.1em" voffset=".1em"><mn>0</mn></mpadded></msup></mrow></mrow></math>',
 			expected: '<math xmlns="http://www.w3.org/1998/Math/MathML"><menclose notation="updiagonalstrike"><menclose notation="downdiagonalstrike"><mi>x</mi></menclose><msup><menclose notation="northeastarrow"><mi>y</mi></menclose><mpadded depth="-.1em" voffset=".1em" height="+.1em"><mn>0</mn></mpadded></msup></menclose></math>'
+		},
+		'restores MathJax table lines and the outer border': {
+			input: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mtable><mtr><mtd class="mwe-math-matrix-bottom mwe-math-matrix-left mwe-math-matrix-right"><mi>a</mi></mtd><mtd class="mwe-math-matrix-bottom mwe-math-matrix-left mwe-math-matrix-right"><mi>b</mi></mtd><mtd class="mwe-math-matrix-bottom mwe-math-matrix-left mwe-math-matrix-right"><mi>S</mi></mtd></mtr><mtr><mtd class="mwe-math-matrix-top mwe-math-matrix-left mwe-math-matrix-right"><mn>0</mn></mtd><mtd class="mwe-math-matrix-top mwe-math-matrix-left mwe-math-matrix-right"><mn>0</mn></mtd><mtd class="mwe-math-matrix-top mwe-math-matrix-left mwe-math-matrix-right"><mn>1</mn></mtd></mtr><mtr><mtd class="mwe-math-matrix-left mwe-math-matrix-right"><mn>0</mn></mtd><mtd class="mwe-math-matrix-left mwe-math-matrix-right"><mn>1</mn></mtd><mtd class="mwe-math-matrix-left mwe-math-matrix-right"><mn>1</mn></mtd></mtr></mtable></math>',
+			expected: '<math xmlns="http://www.w3.org/1998/Math/MathML"><menclose notation="left right" data-padding="0"><mtable rowlines="solid none" columnlines="solid solid" columnspacing="1em" rowspacing="4pt" framespacing=".5em .125em" data-frame-styles=""><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd><mtd><mi>S</mi></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr></mtable></menclose></math>'
+		},
+		'restores all four outer table borders': {
+			input: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mtable><mtr><mtd class="mwe-math-matrix-top mwe-math-matrix-left"><mi>a</mi></mtd><mtd class="mwe-math-matrix-top mwe-math-matrix-right"><mi>b</mi></mtd></mtr><mtr><mtd class="mwe-math-matrix-bottom mwe-math-matrix-left"><mi>c</mi></mtd><mtd class="mwe-math-matrix-bottom mwe-math-matrix-right"><mi>d</mi></mtd></mtr></mtable></math>',
+			expected: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mtable columnspacing="1em" rowspacing="4pt" framespacing=".5em .125em" frame="solid"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable></math>'
 		}
 	}, ( assert, testCase ) => {
 		const document = parseMathML( testCase.input );
@@ -88,6 +96,38 @@ QUnit.module( 'ext.math.mathjax.mml', () => {
 		assert.strictEqual( mtables.length, 2 );
 		for ( const mtable of mtables ) {
 			assert.strictEqual( mtable.parentNode.localName, 'mstyle' );
+		}
+	} );
+
+	QUnit.test( 'restores separated table lines and preserves unrelated classes', ( assert ) => {
+		const document = parseMathML( `<math xmlns="${ MATHML_NS }"><mtable><mtr><mtd class="mwe-math-columnalign-l"><mi>a</mi></mtd><mtd><mi>b</mi></mtd><mtd class="mwe-math-matrix-left"><mi>c</mi></mtd></mtr><mtr><mtd class="mwe-math-columnalign-l"><mi>d</mi></mtd><mtd><mi>e</mi></mtd><mtd class="mwe-math-matrix-left"><mi>f</mi></mtd></mtr><mtr><mtd class="mwe-math-matrix-top mwe-math-columnalign-l"><mi>g</mi></mtd><mtd class="mwe-math-matrix-top"><mi>h</mi></mtd><mtd class="mwe-math-matrix-top mwe-math-matrix-left"><mi>i</mi></mtd></mtr></mtable></math>` );
+		const mtable = document.getElementsByTagName( 'mtable' )[ 0 ];
+
+		mmlFilter( { data: document } );
+
+		assert.strictEqual( mtable.getAttribute( 'rowlines' ), 'none solid' );
+		assert.strictEqual( mtable.getAttribute( 'columnlines' ), 'none solid' );
+		assert.strictEqual( mtable.getAttribute( 'frame' ), null );
+		assert.strictEqual( mtable.getAttribute( 'data-frame-styles' ), '' );
+		assert.strictEqual( mtable.parentNode.localName, 'math' );
+		assert.strictEqual(
+			document.getElementsByTagName( 'mtd' )[ 0 ].getAttribute( 'class' ),
+			'mwe-math-columnalign-l'
+		);
+	} );
+
+	QUnit.test( 'transforms every bordered table only once', ( assert ) => {
+		const document = parseMathML( `<math xmlns="${ MATHML_NS }"><mrow><mtable><mtr><mtd class="mwe-math-matrix-left mwe-math-matrix-right"><mi>a</mi></mtd></mtr></mtable><mtable><mtr><mtd class="mwe-math-matrix-left mwe-math-matrix-right"><mi>b</mi></mtd></mtr></mtable></mrow></math>` );
+
+		mmlFilter( { data: document } );
+		mmlFilter( { data: document } );
+
+		const menclose = Array.from( document.getElementsByTagName( 'menclose' ) );
+		assert.strictEqual( menclose.length, 2 );
+		for ( const element of menclose ) {
+			assert.strictEqual( element.getAttribute( 'notation' ), 'left right' );
+			assert.strictEqual( element.getAttribute( 'data-padding' ), '0' );
+			assert.strictEqual( element.childNodes.length, 1 );
 		}
 	} );
 
