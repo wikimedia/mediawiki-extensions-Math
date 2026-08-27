@@ -429,14 +429,14 @@ class MMLRenderTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( "&#xA7;", $mathMLtexVC, );
 	}
 
-	public function testDerivatives1() {
+	public function testDoublePrime() {
 		$input = "b_{f''}";
 		$mathMLtexVC = $this->generateMML( $input );
 		$this->assertStringContainsString( "<mo>&#x2033;", $mathMLtexVC );
 		$this->assertStringContainsString( "msup", $mathMLtexVC, );
 	}
 
-	public function testDerivatives2() {
+	public function testQuadruplePrime() {
 		$input = "f''''(x)";
 		$mathMLtexVC = $this->generateMML( $input );
 		$this->assertStringContainsString( "<mo>&#x2057;", $mathMLtexVC );
@@ -564,6 +564,46 @@ class MMLRenderTest extends MediaWikiIntegrationTestCase {
 		$this->assertGreaterThan( $posSupEnd, $posFunApply, "Function application should be last" );
 		$this->assertGreaterThan( $posAccent, $posSupEnd, "Accent needs to be within msup" );
 		$this->assertGreaterThan( $posA, $posAccent, "Accent should follow a" );
+	}
+
+	/**
+	 * @dataProvider provideExplicitPrimeSuperscripts
+	 */
+	public function testExplicitPrimeSuperscriptMatchesApostrophes( string $explicit, string $apostrophes ) {
+		// T422149
+		$this->assertSame( $this->generateMML( $apostrophes ), $this->generateMML( $explicit ) );
+	}
+
+	public static function provideExplicitPrimeSuperscripts() {
+		return [
+			'single' => [ 'f^{\\prime}', "f'" ],
+			'without braces' => [ 'f^\\prime', "f'" ],
+			'double' => [ 'f^{\\prime\\prime}', "f''" ],
+			'triple' => [ 'f^{\\prime\\prime\\prime}', "f'''" ],
+			'quadruple' => [ 'f^{\\prime\\prime\\prime\\prime}', "f''''" ],
+			'five' => [ 'f^{\\prime\\prime\\prime\\prime\\prime}', "f'''''" ],
+			'with subscript' => [ 'f_i^{\\prime\\prime}', "f_i''" ],
+			'before subscript' => [ 'f^{\\prime\\prime}_i', "f_i''" ],
+			'followed by content' => [ 'f^{\\prime\\prime}+x', "f''+x" ],
+			'left-right single' => [ '\\left( f \\right)^{\\prime}', "\\left( f \\right)'" ],
+			'left-right double' => [ '\\left( f \\right)^{\\prime\\prime}', "\\left( f \\right)''" ],
+			'named function' => [ '\\sin^{\\prime} x', "\\sin' x" ],
+			'named function without braces' => [ '\\sin^\\prime x', "\\sin' x" ],
+			'named function double' => [ '\\sin^{\\prime\\prime} x', "\\sin'' x" ],
+			'operatorname' => [ '\\operatorname{f}^{\\prime} x', "\\operatorname{f}' x" ],
+		];
+	}
+
+	public function testNestedExplicitPrimeSuperscriptIsNormalized() {
+		$mathMLtexVC = $this->generateMML( 'a_{f^{\\prime\\prime}}' );
+		$this->assertSame( 1, substr_count( $mathMLtexVC, '&#x2033;</mo>' ) );
+		$this->assertStringNotContainsString( '&#x2032;</mo>', $mathMLtexVC );
+	}
+
+	public function testMixedExplicitPrimeSuperscriptIsNotNormalized() {
+		$mathMLtexVC = $this->generateMML( 'f^{\\prime x}' );
+		$this->assertSame( 1, substr_count( $mathMLtexVC, '&#x2032;</mo>' ) );
+		$this->assertStringContainsString( '<mi>x</mi>', $mathMLtexVC );
 	}
 
 	public function testOperatorAccentApplied() {

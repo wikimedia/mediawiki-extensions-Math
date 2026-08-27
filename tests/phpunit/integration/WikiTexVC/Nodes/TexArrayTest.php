@@ -9,10 +9,13 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsup;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1nb;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\UQ;
+use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 use MediaWikiIntegrationTestCase;
 use TypeError;
 
@@ -215,17 +218,17 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $custom, $res[0] );
 	}
 
-	public function testRenderADeriv() {
+	public function testRenderAPrime() {
 		$n = new TexArray( new Literal( 'A' ) );
-		$state = [ 'deriv' => 1 ];
+		$state = [ 'prime' => 1 ];
 		$mml = $n->toMMLTree( [], $state );
 		$this->assertStringContainsString( '&#x2032;</mo>', $mml );
 	}
 
-	public function testRenderEmptyPlaceholderDeriv() {
+	public function testRenderEmptyPlaceholderPrime() {
 		$n = new TexArray( new Literal( 'A' ) );
-		$state = [ 'deriv' => 1 ];
-		$mml = $n->addDerivativesContext( $state, new MMLarray() );
+		$state = [ 'prime' => 1 ];
+		$mml = $n->addPrimeContext( $state, new MMLarray() );
 		$this->assertInstanceOf( MMLmsup::class, $mml );
 		$this->assertSame( 'msup', $mml->getName() );
 		$this->assertCount( 2, $mml->getChildren() );
@@ -234,11 +237,64 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( '&#x2032;', $mml->getChildren()[1]->getText() );
 	}
 
-	public function testRenderStringDerivRejected() {
+	public function testNormalizeExplicitPrimeSuperscript() {
+		$n = new TexArray( new UQ( new Literal( 'f' ), new Literal( '\\prime' ) ) );
+		$this->assertSame( '<msup><mi>f</mi><mo>&#x2032;</mo></msup>', (string)$n->toMMLTree() );
+	}
+
+	public function testNormalizeExplicitPrimeOnNamedFunction() {
+		$n = ( new TexVC() )->parse( '\\sin^\\prime x' );
+		$this->assertSame(
+			'<msup><mi>sin</mi><mo>&#x2032;</mo></msup><mo>&#x2061;</mo><mi>x</mi>',
+			(string)$n->toMMLTree()
+		);
+	}
+
+	public function testNormalizeExplicitPrimesWithSubscript() {
+		$primes = new TexArray( new Literal( '\\prime' ), new Literal( '\\prime' ) );
+		$n = new TexArray( new FQ( new Literal( 'f' ), new Literal( 'i' ), $primes ) );
+		$this->assertSame(
+			'<msup><msub><mi>f</mi><mrow data-mjx-texclass="ORD"><mi>i</mi></mrow></msub>' .
+				'<mo>&#x2033;</mo></msup>',
+			(string)$n->toMMLTree()
+		);
+	}
+
+	/**
+	 * @dataProvider provideNonPrimeSuperscripts
+	 */
+	public function testDoNotNormalizeNonPrimeSuperscript( TexNode $superscript ) {
+		$n = new TexArray( new UQ( new Literal( 'f' ), $superscript ) );
+		$this->assertStringContainsString( '<msup><mi>f</mi>', (string)$n->toMMLTree() );
+	}
+
+	public static function provideNonPrimeSuperscripts() {
+		return [
+			'literal' => [ new Literal( 'x' ) ],
+			'mixed' => [ new TexArray( new Literal( '\\prime' ), new Literal( 'x' ) ) ],
+			'empty' => [ new TexArray() ],
+			'non-array' => [ new TexNode() ],
+		];
+	}
+
+	public function testRenderFollowingApostrophes() {
+		$n = new TexArray( new Literal( 'f' ), new Literal( "'" ), new Literal( "'" ) );
+		$this->assertSame( '<msup><mi>f</mi><mo>&#x2033;</mo></msup>', (string)$n->toMMLTree() );
+	}
+
+	public function testRenderPrimeOnNamedFunction() {
+		$n = new TexArray();
+		$state = [ 'prime' => 1, 'foundNamedFct' => [ true, false ] ];
+		$mml = $n->addPrimeContext( $state, new MMLmo( '', [], 'f' ) );
+		$this->assertInstanceOf( MMLarray::class, $mml );
+		$this->assertStringContainsString( '&#x2061;</mo>', (string)$mml );
+	}
+
+	public function testRenderStringPrimeRejected() {
 		$this->expectException( TypeError::class );
 
 		$n = new TexArray( new Literal( 'A' ) );
-		$state = [ 'deriv' => 1 ];
-		$n->addDerivativesContext( $state, "k" );
+		$state = [ 'prime' => 1 ];
+		$n->addPrimeContext( $state, "k" );
 	}
 }

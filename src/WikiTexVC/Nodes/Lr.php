@@ -61,9 +61,9 @@ class Lr extends TexNode {
 		if ( $right->isEmpty() ) {
 			$right = new MMLmo( TexClass::CLOSE, $rightAttrs, $this->right );
 		}
-		// Don't apply outer ' inside the LR structure
+		// Don't apply an outer prime inside the LR structure.
 		$innerState = $state;
-		unset( $innerState['deriv'] );
+		unset( $innerState['prime'] );
 		$inner = $this->getArg()->toMMLTree( [], $innerState );
 		return new MMLmrow( TexClass::INNER, [], $left, $inner, $right );
 	}

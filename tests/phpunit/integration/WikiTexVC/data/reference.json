@@ -142,8 +142,7 @@
 	},
 	{
 		"input": "\\prime, \\backprime, f^\\prime, f', f'', f^{(3)} \\!, \\dot y, \\ddot y",
-		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mo stretchy=\"false\">′</mo><mo>,</mo><mi variantform=\"True\">‵</mi><mo>,</mo><msup><mi>f</mi><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">′</mo></mrow></msup><mo>,</mo><msup><mi>f</mi><mo>&#x2032;</mo></msup><mo>,</mo><msup><mi>f</mi><mo>&#x2033;</mo></msup><mo>,</mo><msup><mi>f</mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">(</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow></mrow></msup><mspace width=\"-0.167em\"></mspace><mo>,</mo><mover><mi>y</mi><mo>˙</mo></mover><mo>,</mo><mover><mi>y</mi><mo>¨</mo></mover></mstyle></mrow></math>",
-		"comment": "f' and f' not recognized by texVC as uq",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mo stretchy=\"false\">′</mo><mo>,</mo><mi variantform=\"True\">‵</mi><mo>,</mo><msup><mi>f</mi><mo>&#x2032;</mo></msup><mo>,</mo><msup><mi>f</mi><mo>&#x2032;</mo></msup><mo>,</mo><msup><mi>f</mi><mo>&#x2033;</mo></msup><mo>,</mo><msup><mi>f</mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">(</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow></mrow></msup><mspace width=\"-0.167em\"></mspace><mo>,</mo><mover><mi>y</mi><mo>˙</mo></mover><mo>,</mo><mover><mi>y</mi><mo>¨</mo></mover></mstyle></mrow></math>",
 		"core-validation": {
 			"Invalid attribute variantform for element mi\n": 1
 		}
@@ -607,7 +606,7 @@
 	},
 	{
 		"input": "x^\\prime, y^{\\prime\\prime}",
-		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><msup><mi>x</mi><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">′</mo></mrow></msup><mo>,</mo><msup><mi>y</mi><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">′</mo><mo stretchy=\"false\">′</mo></mrow></mrow></msup></mstyle></mrow></math>"
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><msup><mi>x</mi><mo>&#x2032;</mo></msup><mo>,</mo><msup><mi>y</mi><mo>&#x2033;</mo></msup></mstyle></mrow></math>"
 	},
 	{
 		"input": "\\dot{x}, \\ddot{x}",
@@ -2086,7 +2085,7 @@
 	{
 		"input": "a^\\prime, a'",
 		"bug": "T417248",
-		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><msup><mi>a</mi><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">′</mo></mrow></msup><mo>,</mo><msup><mi>a</mi><mo>&#x2032;</mo></msup></mstyle></mrow></math>"
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><msup><mi>a</mi><mo>&#x2032;</mo></msup><mo>,</mo><msup><mi>a</mi><mo>&#x2032;</mo></msup></mstyle></mrow></math>"
 	},
 	{
 		"input": "\\begin{align}\n\\vartheta_1(z,q) &= \\sum_{n=-\\infty}^{\\infty} \\\\\n\\vartheta_2(z,q) &= \\sum\\limits_{n=-\\infty}^{\\infty}\n\\end{align}",
@@ -2206,6 +2205,11 @@
 		"input": "\\overset{}{\\underset{}{ x=\\frac{-b\\pm\\sqrt{b^2-4ac} }{2a} } }",
 		"bug": "T435705",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mover><mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>x</mi><mo stretchy=\"false\">=</mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\">−</mo><mi>b</mi><mo stretchy=\"false\">±</mo><mrow data-mjx-texclass=\"ORD\"><msqrt><mrow data-mjx-texclass=\"ORD\"><msup><mi>b</mi><mrow data-mjx-texclass=\"ORD\"><mn>2</mn></mrow></msup><mo stretchy=\"false\">−</mo><mn>4</mn><mi>a</mi><mi>c</mi></mrow></msqrt></mrow></mrow></mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mn>2</mn><mi>a</mi></mrow></mrow></mfrac></mrow></mrow></mrow></mrow><mrow></mrow></mover></mrow></mstyle></mrow></math>"
+	},
+	{
+		"input": "\\sin^\\prime x, \\sin' x",
+		"bug": "T422149",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><msup><mi>sin</mi><mo>&#x2032;</mo></msup><mo>&#x2061;</mo><mi>x</mi><mo>,</mo><msup><mi>sin</mi><mo>&#x2032;</mo></msup><mo>&#x2061;</mo><mi>x</mi></mstyle></mrow></math>"
 	},
 	{
 		"input": "\\begin{align} \\underline{ }\\underline{ }\\underline{ }\\\\[1mu] \\text{xy} \\end{align}",

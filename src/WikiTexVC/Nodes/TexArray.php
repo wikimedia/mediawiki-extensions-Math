@@ -169,7 +169,10 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return false;
 	}
 
-	public function checkForDerivatives( int $start, array $args ): int {
+	/**
+	 * Count consecutive apostrophe shorthand nodes following the current node.
+	 */
+	public function countFollowingPrimes( int $start, array $args ): int {
 		$ctr = 0;
 		$started = false;
 		foreach ( $args as $key => $arg ) {
@@ -186,6 +189,52 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 			}
 		}
 		return $ctr;
+	}
+
+	/**
+	 * Normalize a superscript made entirely from explicit \prime commands to
+	 * the base used by the apostrophe shorthand and the number of primes.
+	 *
+	 * @return array{TexNode,int}
+	 */
+	private function normalizePrimeSuperscript( TexNode $node ): array {
+		if ( !( $node instanceof FQ ) || $node instanceof DQ ) {
+			return [ $node, 0 ];
+		}
+
+		$primeCount = $this->countExplicitPrimes( $node->getUp() );
+		if ( $primeCount === 0 ) {
+			return [ $node, 0 ];
+		}
+
+		if ( $node instanceof UQ ) {
+			return [ $node->getBase(), $primeCount ];
+		}
+
+		return [ new DQ( $node->getBase(), $node->getDown() ), $primeCount ];
+	}
+
+	/**
+	 * Count \prime commands in a pure explicit-prime superscript.
+	 * Return zero if the superscript contains anything else.
+	 */
+	private function countExplicitPrimes( TexNode $node ): int {
+		if ( $node instanceof Literal ) {
+			return trim( $node->getArg() ) === '\\prime' ? 1 : 0;
+		}
+		if ( !( $node instanceof self ) || $node->isEmpty() ) {
+			return 0;
+		}
+
+		$count = 0;
+		foreach ( $node->getArgs() as $child ) {
+			$childCount = $this->countExplicitPrimes( $child );
+			if ( $childCount === 0 ) {
+				return 0;
+			}
+			$count += $childCount;
+		}
+		return $count;
 	}
 
 	public function checkForNamedFctArgs( TexNode $currentNode, ?TexNode $nextNode ): array {
@@ -266,7 +315,8 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	/** @inheritDoc */
 	public function toMMLTree( $arguments = [], &$state = [] ): MMLbase {
 		// Everything here is for parsing displaystyle, probably refactored to WikiTexVC grammar later
-		$mmlStyles = [ new MMLmrow() ]; // need root node to hold child nodes
+		// Root node holding the child nodes.
+		$mmlStyles = [ new MMLmrow() ];
 		$currentColor = null;
 
 		if ( array_key_exists( 'squashLiterals', $state ) ) {
@@ -281,6 +331,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 				continue;
 			}
 			$next = $next === false ? null : $next;
+			[ $current, $explicitPrimeCount ] = $this->normalizePrimeSuperscript( $current );
 			// Check for sideset
 			$foundSideset = $this->checkForSideset( $current, $next );
 			if ( $foundSideset ) {
@@ -305,11 +356,15 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 				continue;
 			}
 
-			// Check for derivatives
-			$foundDeriv = $this->checkForDerivatives( $key, $this->args );
-			if ( $foundDeriv > 0 ) {
-				$skip += $foundDeriv;
-				$state["deriv"] = $foundDeriv;
+			// Check for prime notation
+			$primeCount = $explicitPrimeCount ?: $this->countFollowingPrimes( $key, $this->args );
+			if ( $primeCount > 0 ) {
+				// Apostrophes are following nodes, while explicit primes were part of the
+				// superscript node that has already been replaced above.
+				if ( $explicitPrimeCount === 0 ) {
+					$skip += $primeCount;
+				}
+				$state['prime'] = $primeCount;
 			}
 
 			// Check if there is a new color definition and add it to state
@@ -327,7 +382,10 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 			}
 			$styleArguments = $this->checkForStyleArgs( $current );
 
-			$foundNamedFct = $this->checkForNamedFctArgs( $current, $next );
+			// An explicit prime intervenes between the named function and its argument,
+			// just like the apostrophe shorthand before it is normalized.
+			$namedFunctionNext = $explicitPrimeCount > 0 ? null : $next;
+			$foundNamedFct = $this->checkForNamedFctArgs( $current, $namedFunctionNext );
 			if ( $foundNamedFct[0] ) {
 				$state["foundNamedFct"] = $foundNamedFct;
 			}
@@ -383,7 +441,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 										   array $arguments ): MMLbase {
 		$ret = $currentNode->toMMLTree( $arguments, $state );
 		$ret = $this->addNot( $state, $ret );
-		$ret = $this->addDerivativesContext( $state, $ret );
+		$ret = $this->addPrimeContext( $state, $ret );
 
 		if ( $currentColor ) {
 			if ( array_key_exists( "colorDefinitions", $state )
@@ -423,37 +481,36 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	}
 
 	/**
-	 * If derivative was recognized, add the corresponding derivative math operator
-	 * to the mml and wrap with msup element.
-	 * @param array &$state state indicator which indicates derivative
+	 * If prime notation was recognized, add the corresponding prime operator
+	 * to the MathML and wrap it in an msup element.
+	 * @param array &$state state containing the number of primes
 	 * @param MMLbase $mml mathml input
-	 * @return MMLbase mml with additional mml-elements for derivatives
+	 * @return MMLbase MathML with the prime superscript
 	 */
-	public function addDerivativesContext( array &$state, MMLbase $mml ): MMLbase {
-		$ret = null;
-		if ( array_key_exists( "deriv", $state ) && $state["deriv"] > 0 ) {
-
-			if ( $state["deriv"] == 1 ) {
-				$derInfo = "&#x2032;";
-			} elseif ( $state["deriv"] == 2 ) {
-				$derInfo = "&#x2033;";
-			} elseif ( $state["deriv"] == 3 ) {
-				$derInfo = "&#x2034;";
-			} elseif ( $state["deriv"] == 4 ) {
-				$derInfo = "&#x2057;";
-			} else {
-				$derInfo = str_repeat( "&#x2032;", $state["deriv"] );
-			}
-			unset( $state["deriv"] );
-			if ( $mml->isEmpty() ) {
-				$mml = new MMLmrow();
-			}
-			$ret = MMLmsup::newSubtree( $mml, new MMLmo( "", [], $derInfo ) );
-			if ( ( $state['foundNamedFct'][0] ?? false ) && !( $state['foundNamedFct'][1] ?? true ) ) {
-				return new MMLarray( $ret, MMLParsingUtil::renderApplyFunction() );
-			}
+	public function addPrimeContext( array &$state, MMLbase $mml ): MMLbase {
+		$primeCount = $state['prime'] ?? 0;
+		if ( $primeCount <= 0 ) {
+			return $mml;
 		}
-		return $ret ?? $mml;
+
+		unset( $state['prime'] );
+		if ( $mml->isEmpty() ) {
+			$mml = new MMLmrow();
+		}
+		$ret = MMLmsup::newSubtree( $mml, new MMLmo( "", [], self::getPrimeContent( $primeCount ) ) );
+		if ( ( $state['foundNamedFct'][0] ?? false ) && !( $state['foundNamedFct'][1] ?? true ) ) {
+			return new MMLarray( $ret, MMLParsingUtil::renderApplyFunction() );
+		}
+		return $ret;
+	}
+
+	private static function getPrimeContent( int $primeCount ): string {
+		return match ( $primeCount ) {
+			2 => '&#x2033;',
+			3 => '&#x2034;',
+			4 => '&#x2057;',
+			default => str_repeat( '&#x2032;', $primeCount ),
+		};
 	}
 
 	/** @inheritDoc */

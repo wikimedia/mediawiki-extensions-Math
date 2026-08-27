@@ -63,9 +63,9 @@ class LrTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( ')</mo>', $mml );
 	}
 
-	public function testRenderADeriv() {
+	public function testOuterPrimeIsNotRenderedInside() {
 		$n = new Lr( '(', ')', new TexArray( new Literal( 'A' ) ) );
-		$state = [ 'deriv' => 1 ];
+		$state = [ 'prime' => 1 ];
 		$mml = $n->toMMLTree( [], $state );
 		$this->assertStringNotContainsString( '&#x2032;</mo>', $mml );
 	}
