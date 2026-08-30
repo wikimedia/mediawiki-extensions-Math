@@ -64,6 +64,39 @@ class MMLRenderTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringNotContainsString( "maxsize", $mathMLtexVC );
 	}
 
+	public function testBinomInheritsSurroundingStyle() {
+		// amsmath defines \binom as \genfrac()\z@{} and \dbinom as \genfrac(){0pt}0:
+		// https://archive.softwareheritage.org/swh:1:cnt:63c753577180436201384e6d5856e19b60994157;origin=https://github.com/latex3/latex2e;visit=swh:1:snp:b0ee00ac9658057bb387804cccae97bce8af59b5;anchor=swh:1:rev:cf95df5b80349c35628d021bf35418f5d844f2e5;path=/required/amsmath/amsmath.dtx;lines=630-641
+		$binom = $this->generateMML( "\\textstyle \\binom{n}{k}" );
+
+		$this->assertStringNotContainsString( 'displaystyle="true"', $binom );
+		$this->assertStringNotContainsString( 'minsize', $binom );
+	}
+
+	public function testDbinomUsesDisplayStyle() {
+		// amsmath defines \binom as \genfrac()\z@{} and \dbinom as \genfrac(){0pt}0:
+		// https://archive.softwareheritage.org/swh:1:cnt:63c753577180436201384e6d5856e19b60994157;origin=https://github.com/latex3/latex2e;visit=swh:1:snp:b0ee00ac9658057bb387804cccae97bce8af59b5;anchor=swh:1:rev:cf95df5b80349c35628d021bf35418f5d844f2e5;path=/required/amsmath/amsmath.dtx;lines=630-641
+		$dbinom = $this->generateMML( "\\textstyle \\dbinom{n}{k}" );
+
+		$this->assertStringContainsString(
+			'<mstyle displaystyle="true" scriptlevel="0">',
+			$dbinom
+		);
+		$this->assertSame( 2, substr_count( $dbinom, 'minsize="2.047em"' ) );
+	}
+
+	public function testContextualBinomialSizing() {
+		$mathMLtexVC = $this->generateMML( "\\frac{1}{\\binom{n}{k}}" );
+		$this->assertStringNotContainsString( '<mstyle', $mathMLtexVC );
+
+		$mathMLtexVC = $this->generateMML( "\\frac{1}{\\dbinom{n}{k}}" );
+		$this->assertSame( 1, substr_count( $mathMLtexVC, '<mstyle' ) );
+
+		$mathMLtexVC = $this->generateMML( "\\displaystyle \\frac n { {n+k} \\choose k}" );
+		$this->assertStringNotContainsString( 'minsize', $mathMLtexVC );
+		$this->assertStringNotContainsString( 'maxsize', $mathMLtexVC );
+	}
+
 	public function testBracketSizesOpen() {
 		$input = "\bigl( \Bigl( \biggl( \Biggl( ";
 		$mathMLtexVC = $this->generateMML( $input );

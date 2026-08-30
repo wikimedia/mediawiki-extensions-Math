@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Math\Tests\WikiTexVC\MMLmappings;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\LengthSpec;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
@@ -73,6 +74,38 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			$result );
 		$this->assertStringContainsString( '<menclose notation="something" class="menclose">',
 			$result );
+	}
+
+	public function testContextualGenFrac() {
+		$node = new Fun2( '\\binom', new Literal( 'n' ), new Literal( 'k' ) );
+		$result = BaseParsing::genFrac( $node, [], [], '\\binom', '(', ')', '0', '' );
+
+		$this->assertStringContainsString( '<mfrac linethickness="0">', $result );
+		$this->assertStringNotContainsString( '<mstyle', $result );
+		$this->assertStringNotContainsString( 'minsize', $result );
+		$this->assertStringNotContainsString( 'maxsize', $result );
+	}
+
+	public function testDbinomUsesDisplayStyle() {
+		// amsmath defines \binom as \genfrac()\z@{} and \dbinom as \genfrac(){0pt}0:
+		// https://archive.softwareheritage.org/swh:1:cnt:63c753577180436201384e6d5856e19b60994157;origin=https://github.com/latex3/latex2e;visit=swh:1:snp:b0ee00ac9658057bb387804cccae97bce8af59b5;anchor=swh:1:rev:cf95df5b80349c35628d021bf35418f5d844f2e5;path=/required/amsmath/amsmath.dtx;lines=630-641
+		$node = new Fun2( '\\dbinom', new Literal( 'n' ), new Literal( 'k' ) );
+		$operatorContent = [ 'styleargs' => [ 'displaystyle' => 'false' ] ];
+		$result = BaseParsing::genFrac( $node, [], $operatorContent, '\\dbinom', '(', ')', '0', '0' );
+
+		$this->assertStringContainsString( '<mstyle displaystyle="true" scriptlevel="0">', $result );
+		$this->assertSame( 2, substr_count( $result, 'minsize="2.047em"' ) );
+	}
+
+	public function testContextualChoose() {
+		$node = new Fun2( '\\choose', new Literal( 'n' ), new Literal( 'k' ) );
+		$result = BaseParsing::over( $node, [], [], '\\choose' );
+
+		$this->assertStringContainsString( '<mfrac linethickness="0">', $result );
+		$this->assertStringContainsString( '<mo>(</mo>', $result );
+		$this->assertStringContainsString( '<mo>)</mo>', $result );
+		$this->assertStringNotContainsString( 'minsize', $result );
+		$this->assertStringNotContainsString( 'maxsize', $result );
 	}
 
 	public function testUnderOver() {
