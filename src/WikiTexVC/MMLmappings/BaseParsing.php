@@ -234,7 +234,7 @@ class BaseParsing {
 		if ( in_array( $thick, [ 'thin', 'medium', 'thick', '0' ], true ) ) {
 			$attrs = array_merge( $attrs, [ "linethickness" => $thick ] );
 		}
-		if ( $style !== '' && !( ( $operatorContent['styleargs']['displaystyle'] ?? true ) === "false" ) ) {
+		if ( $style !== '' ) {
 			$styleDigit = intval( $style, 10 );
 			$styleAlpha = [ 'D', 'T', 'S', 'SS' ][$styleDigit];
 			if ( $styleAlpha == null ) {
@@ -252,11 +252,8 @@ class BaseParsing {
 				$styleAttr = [ "minsize" => "1.2em" ];
 			}
 		} else {
-			// NodeUtil_js_1.default.setProperties(frac, { displaystyle: false,
-			//    scriptlevel: styleDigit - 1 });
-			// tbd add props
-			$styleAttr = [ "maxsize" => "1.2em", "minsize" => "1.2em" ];
-
+			// Inherit delimiter size and script level when no explicit style was requested.
+			$styleAttr = [];
 		}
 		$output = [];
 		if ( $left ) {
@@ -559,12 +556,12 @@ class BaseParsing {
 		if ( trim( $name ) === "\\atop" ) {
 			$attributes = [ "linethickness" => "0" ];
 		} elseif ( trim( $name ) == "\\choose" ) {
+			// Let the operator dictionary stretch the parentheses to the contextual fraction height.
 			$start = new MMLmrow( TexClass::OPEN, [],
-				// T418144 2.047em was used by mathoid
-				new MMLmo( "", [ "maxsize" => "2.047em", "minsize" => "2.047em" ], "(" )
+				new MMLmo( "", [], "(" )
 			);
 			$tail = new MMLmrow( TexClass::CLOSE, [],
-				new MMLmo( "", [ "maxsize" => "2.047em", "minsize" => "2.047em" ], ")" )
+				new MMLmo( "", [], ")" )
 			);
 			$attributes = [ "linethickness" => "0" ];
 		}
