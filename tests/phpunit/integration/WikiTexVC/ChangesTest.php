@@ -5,14 +5,17 @@ use MediaWiki\Config\Config;
 use MediaWiki\Config\HashConfig;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathConfig;
-use MediaWiki\Extension\Math\MathNativeMML;
+use MediaWiki\Extension\Math\MathReferenceData;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWikiIntegrationTestCase;
 
 /**
+ * Verifies native MathML output against the stored regression references.
+ *
  * @covers \MediaWiki\Extension\Math\MathNativeMML
+ * @covers \MediaWiki\Extension\Math\MathReferenceData
  * @covers \MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods
  * @covers \MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods
  * @covers \MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing
@@ -28,38 +31,40 @@ final class ChangesTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @dataProvider provideTestCases
 	 */
-	public function testChanges( array $testCase ) {
-		$expectedOutput = $testCase['output'];
-		unset( $testCase['output'] );
-
-		$coreValidation = $testCase['core-validation'] ?? true;
-		unset( $testCase['core-validation'] );
-
-		$rngFilePath = __DIR__ . '/mathml4-core.rng';
-
-		MathNativeMML::renderReferenceEntry(
+	public function testChanges( string $hash, array $testCase ) {
+		$this->assertSame( $hash, hash( MathReferenceData::HASH_ALGORITHM, $testCase['input'] ) );
+		$expected = $testCase;
+		MathReferenceData::renderReferenceEntry(
 			$testCase,
 			$this->mathConfig,
 			$this->hookContainer,
-			$this->mainConfig,
-			$rngFilePath
+			$this->mainConfig
 		);
-		// assertXmlStringEqualsXmlString ignores order of attributes
-		$this->assertXmlStringEqualsXmlString( $expectedOutput, $testCase['output'], 'Output differs' );
-
-		if ( $coreValidation !== true ) {
-			$this->assertArrayHasKey( 'core-validation', $testCase, 'Core validation unexpectedly successful' );
-			$this->assertArrayEquals( $coreValidation, $testCase['core-validation'], 'Core validation differs' );
+		$expectedOutputs = $expected['outputs'] ?? [ $expected ];
+		$actualOutputs = $testCase['outputs'] ?? [ $testCase ];
+		foreach ( $expectedOutputs as $index => $expectedOutput ) {
+			$actualOutput = $actualOutputs[$index];
+			// assertXmlStringEqualsXmlString ignores order of attributes
+			$this->assertXmlStringEqualsXmlString(
+				$expectedOutput['output'], $actualOutput['output'], 'Output differs'
+			);
+			if ( array_key_exists( 'core-validation', $expectedOutput ) ) {
+				$this->assertArrayHasKey(
+					'core-validation', $actualOutput, 'Core validation unexpectedly successful'
+				);
+				$this->assertArrayEquals(
+					$expectedOutput['core-validation'], $actualOutput['core-validation'],
+					'Core validation differs'
+				);
+			}
 		}
 	}
 
 	public static function provideTestCases() {
 		$file = file_get_contents( __DIR__ . "/data/reference.json" );
 		$json = json_decode( $file, true );
-		$i = -1;
-		foreach ( $json as $entry ) {
-			$i++;
-			yield "Testcase $i: " . substr( $entry['input'], 0, 20 ) => [ $entry ];
+		foreach ( $json as $hash => $entry ) {
+			yield $hash . ': ' . substr( $entry['input'], 0, 20 ) => [ $hash, $entry ];
 		}
 	}
 

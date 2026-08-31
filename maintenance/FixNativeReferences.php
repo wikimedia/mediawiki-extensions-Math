@@ -18,7 +18,7 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\Extension\Math\MathNativeMML;
+use MediaWiki\Extension\Math\MathReferenceData;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\Maintenance\Maintenance;
 
@@ -26,10 +26,12 @@ use MediaWiki\Maintenance\Maintenance;
 require_once __DIR__ . '/../../../maintenance/Maintenance.php';
 // @codeCoverageIgnoreEnd
 
+/**
+ * Regenerates the native MathML regression references.
+ */
 class FixNativeReferences extends Maintenance {
 
 	private const REFERENCE_PATH = __DIR__ . '/../tests/phpunit/integration/WikiTexVC/data/reference.json';
-	private const RNG_PATH = __DIR__ . '/../tests/phpunit/integration/WikiTexVC/mathml4-core.rng';
 
 	public function __construct() {
 		parent::__construct();
@@ -40,12 +42,14 @@ class FixNativeReferences extends Maintenance {
 	public function execute() {
 		$file = file_get_contents( self::REFERENCE_PATH );
 		$json = json_decode( $file, true );
+		if ( array_is_list( $json ) ) {
+			$json = MathReferenceData::groupCases( $json );
+		}
 		$success = true;
 		$allEntries = [];
-		foreach ( $json as $entry ) {
-			$success = $success &&
-				MathNativeMML::renderReferenceEntry( $entry, null, null, null, self::RNG_PATH );
-			$allEntries[] = $entry;
+		foreach ( $json as $hash => $entry ) {
+			$success = MathReferenceData::renderReferenceEntry( $entry ) && $success;
+			$allEntries[$hash] = $entry;
 		}
 		file_put_contents( self::REFERENCE_PATH, FormatJson::encode( $allEntries, "\t", FormatJson::ALL_OK )
 			. "\n" );

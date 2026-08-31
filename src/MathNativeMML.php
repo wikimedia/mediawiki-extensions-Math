@@ -9,8 +9,6 @@
 namespace MediaWiki\Extension\Math;
 
 use DOMDocument;
-use DOMElement;
-use DOMNode;
 use DOMXPath;
 use MediaWiki\Config\Config;
 use MediaWiki\Extension\Math\InputCheck\LocalChecker;
@@ -18,7 +16,6 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmath;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\MediaWikiServices;
 use StatusValue;
-use Wikimedia\ObjectCache\WANObjectCache;
 
 /**
  * Converts LaTeX to MathML using PHP
@@ -32,41 +29,6 @@ class MathNativeMML extends MathMathML {
 	public function __construct( $tex = '', $params = [], $cache = null, $mathConfig = null ) {
 		parent::__construct( $tex, $params, $cache, $mathConfig );
 		$this->setMode( MathConfig::MODE_NATIVE_MML );
-	}
-
-	public static function renderReferenceEntry(
-		array &$entry,
-		?MathConfig $mathConfig = null,
-		?HookContainer $hookContainer = null,
-		?Config $config = null,
-		?string $rngFile = null ): bool {
-		$mathConfig ??= Math::getMathConfig();
-		$hookContainer ??= MediaWikiServices::getInstance()->getHookContainer();
-		$config ??= MediaWikiServices::getInstance()->getMainConfig();
-		$renderer = new MathNativeMML(
-			$entry['input'], $entry['params'] ?? [], WANObjectCache::newEmpty(), $mathConfig );
-		$renderer->setRawError( true );
-		$renderer->setHookContainer( $hookContainer );
-		$renderer->setMainConfig( $config );
-		$renderer->setChecker( new LocalChecker( WANObjectCache::newEmpty(), $renderer->getTex(), 'tex' ) );
-		// T434686: Fake mathjax mode to avoid adding class=mathjax_ignore to the output,
-		// which would break the test cases
-		$renderer->setMode( MathConfig::MODE_NATIVE_JAX );
-		$result = $renderer->render();
-		$entry['output'] = $renderer->getMathml();
-		if ( !$result ) {
-			$entry['skipped'] = true;
-			$entry['error'] = $renderer->getLastError();
-		}
-		if ( $rngFile !== null ) {
-			$validation = $renderer->validateSchema( $rngFile );
-			if ( $validation ) {
-				$entry['core-validation'] = $validation;
-			} else {
-				unset( $entry['core-validation'] );
-			}
-		}
-		return $result;
 	}
 
 	/**
@@ -168,48 +130,14 @@ class MathNativeMML extends MathMathML {
 		return true;
 	}
 
-	private function setHookContainer( HookContainer $hookContainer ) {
-		$this->hookContainer = $hookContainer;
-	}
-
-	private function setMainConfig( Config $config ) {
-		$this->mainConfig = $config;
-	}
-
-	private function setChecker( LocalChecker $checker ) {
-		$this->checker = $checker;
-	}
-
 	/**
-	 * Validates the schema of the current MathML document against a Relax NG schema file.
-	 *
-	 * @param string $relaxNGFile The path to the Relax NG (.rng) file used for validation.
-	 * @return array An array containing the validation errors.
+	 * Overrides the services used while generating regression references.
 	 */
-	private function validateSchema( string $relaxNGFile ): array {
-		$doc = new DOMDocument();
-		$doc->loadXML( $this->mathml );
-		$this->removeHtmlAttributes( $doc );
-
-		libxml_use_internal_errors( true );
-		libxml_clear_errors();
-
-		$doc->relaxNGValidate( $relaxNGFile );
-
-		return array_count_values( array_map( static fn ( $error ) => $error->message, libxml_get_errors() ) );
-	}
-
-	private function removeHtmlAttributes( DOMNode $n ): void {
-		$htmlAttributes = [ 'style', 'class' ];
-		if ( $n instanceof DOMElement && $n->hasAttributes() ) {
-			foreach ( $n->attributes as $attr ) {
-				if ( str_starts_with( $attr->name, 'data' ) || in_array( $attr->name, $htmlAttributes ) ) {
-					$n->removeAttribute( $attr->name );
-				}
-			}
-		}
-		foreach ( $n->childNodes as $child ) {
-			$this->removeHtmlAttributes( $child );
-		}
+	public function setReferenceServices(
+		HookContainer $hookContainer, Config $config, LocalChecker $checker
+	): void {
+		$this->hookContainer = $hookContainer;
+		$this->mainConfig = $config;
+		$this->checker = $checker;
 	}
 }
