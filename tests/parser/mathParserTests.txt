@@ -1,4 +1,7 @@
-!! Version 2
+!! options
+version=2
+parsoid-compatible=wt2html,wt2wt
+!! end
 
 !! test
 pre-save transform: comment containing math
@@ -9,3 +12,27 @@ pst
 !! html
 <!-- <math>data</math> -->
 !!end
+
+!! test
+Math on a line with a div stays in the paragraph (T429711)
+!! wikitext
+foo <math>x</math> <div>bar</div> baz
+!! html/php
+<p>foo <math class="mwe-math-element mwe-math-element-inline mathjax_ignore" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>x</mi></mstyle></mrow></math> </p><div>bar</div><p> baz</p>
+!! html/parsoid
+<p>foo <math class="mwe-math-element mwe-math-element-inline mathjax_ignore" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"x"}}' typeof="mw:Extension/math" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>x</mi></mstyle></mrow></math></p>
+<div>bar</div>
+<p>baz</p>
+!! end
+
+!! test
+Math on a line with a div stays in the paragraph (block version) (T429711)
+!! wikitext
+foo <math display="block">x</math> <div>bar</div> baz
+!! html/php
+<p>foo <math class="mwe-math-element mwe-math-element-block mathjax_ignore" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>x</mi></mstyle></mrow></math> </p><div>bar</div><p> baz</p>
+!! html/parsoid
+<p>foo <math class="mwe-math-element mwe-math-element-block mathjax_ignore" data-mw='{"name":"math","attrs":{"display":"block"},"body":{"extsrc":"x"}}' display="block" typeof="mw:Extension/math" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>x</mi></mstyle></mrow></math></p>
+<div>bar</div>
+<p>baz</p>
+!! end
