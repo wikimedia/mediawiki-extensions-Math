@@ -170,7 +170,6 @@ ve.ui.MWLatexDialog.prototype.initialize = function () {
 				return true;
 			} );
 			symbolData[ category ] = {
-				// eslint-disable-next-line mediawiki/msg-doc
 				label: ve.msg( category ),
 				symbols: symbolList
 			};
