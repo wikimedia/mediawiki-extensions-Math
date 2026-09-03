@@ -3,8 +3,10 @@
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\MMLNodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunder;
 use MediaWikiUnitTestCase;
 
@@ -29,5 +31,11 @@ class MMLmunderTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( 'munder', $mover->getName() );
 		$this->assertEquals( [ 'mathvariant' => Variants::BOLD ], $mover->getAttributes() );
 		$this->assertEquals( $mover->getChildren(), [ $mi, $mn ] );
+	}
+
+	public function testEmptyChildren() {
+		$munder = MMLmunder::newSubtree( new MMLarray(), new MMLarray() );
+		$this->assertInstanceOf( MMLmrow::class, $munder->getChildren()[0] );
+		$this->assertInstanceOf( MMLmrow::class, $munder->getChildren()[1] );
 	}
 }
