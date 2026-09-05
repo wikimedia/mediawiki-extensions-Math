@@ -66,10 +66,13 @@ window.MathJax = {
 		]
 	},
 	startup: {
-		// MathJax creates anchor tags from MathML elements with href attributes.
-		// But it does not add the title attributes from these elements
-		// that we need for the extension Popups
+		// Override MathML input or SVG output logic.
+		//
+		// This is called after the components (listed in MathJax.loader.load) are downloaded.
 		ready() {
+			// MathJax creates anchor tags from MathML elements with href attributes.
+			// But it does not add the title attributes from these elements
+			// that we need for the extension Popups
 			const { MML } = window.MathJax._.core.MmlTree.MML;
 			MML.a = MML.mrow;
 			const { SvgWrapper } = window.MathJax._.output.svg.Wrapper;
@@ -88,30 +91,48 @@ window.MathJax = {
 				}
 				return anchors;
 			};
+
+			// Implement MathJax.options.ignoreHtmlClass for MathML input (previously "ignoreClass")
+			// from https://github.com/mathjax/MathJax/issues/2770#issuecomment-920428602
 			const { FindMathML } = window.MathJax._.input.mathml.FindMathML;
 			const { combineDefaults } = window.MathJax._.components.global;
-			// from https://github.com/mathjax/MathJax/issues/2770#issuecomment-920428602
 			class MyFindMathML extends FindMathML {
 				processMath( set ) {
 					const adaptor = this.adaptor;
 					for ( const node of set.values() ) {
 						if ( adaptor.hasClass( node, 'mathjax_ignore' ) ) {
 							set.delete( node );
+						} else {
+							// T436026: Preserve original MathML for screen reader a11y
+							const a11ySpan = document.createElement( 'span' );
+							a11ySpan.className = 'mwe-math-mathml-a11y';
+							a11ySpan.style.cssText = 'display: none;';
+							const a11yMath = node.cloneNode( true );
+							a11yMath.classList.add( 'mathjax_ignore' );
+							a11ySpan.appendChild( a11yMath );
+							node.before( a11ySpan );
 						}
 					}
 					return super.processMath( set );
 				}
 			}
+
 			combineDefaults( window.MathJax.config, 'mml', { FindMathML: new MyFindMathML() } );
+
+			// This eventually calls window.MathJax.pageReady(), which we override below
 			window.MathJax.startup.defaultReady();
 		},
-		// See https://phabricator.wikimedia.org/T375932 and the suggested fix from
-		// https://github.com/mathjax/MathJax/issues/3292#issuecomment-3487698042
-		// Makes rendering of \matcal look similar to the browsers MathML rendering
-		// and the old image rendering.
-		// Note that \mathsrc (which is unsupported by texvc) would map to the
-		// same unicode chars and thus should not be activated.
+
+		// Override when and how we typeset.
+		//
+		// This is called after window.MathJax.ready().
 		async pageReady() {
+			// See https://phabricator.wikimedia.org/T375932 and the suggested fix from
+			// https://github.com/mathjax/MathJax/issues/3292#issuecomment-3487698042
+			// Makes rendering of \matcal look similar to the browsers MathML rendering
+			// and the old image rendering.
+			// Note that \mathsrc (which is unsupported by texvc) would map to the
+			// same unicode chars and thus should not be activated.
 			const font = window.MathJax.startup.document.outputJax.font;
 			Object.assign( font, {
 				fontLoadDynamicFile: font.loadDynamicFile,
@@ -126,6 +147,11 @@ window.MathJax = {
 					}
 				}
 			} );
+
+			// This uses FindMathML to find and replace all `<math>` with `<mjx-lazy>` placeholders.
+			// It then calls MathJax.typeset (via ui/lazy, using requestIdleCallback, so it happens after
+			// and outside the pageReady callstack), which will render them to SVG if/when they are
+			// visible in the viewport.
 			await window.MathJax.startup.defaultPageReady();
 
 			// Handle dynamically added <math> elements
@@ -135,6 +161,8 @@ window.MathJax = {
 			//
 			// https://docs.mathjax.org/en/latest/advanced/typeset.html#handling-new-content
 			mw.hook( 'wikipage.content' ).add( () => {
+				// Find and replace new <math> elements with `<mjx-lazy>` placeholders, and
+				// register them with ui/lazy to render to SVG if/when in the viewport.
 				window.MathJax.typeset();
 			} );
 		},
