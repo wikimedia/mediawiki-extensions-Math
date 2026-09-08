@@ -36,3 +36,15 @@ foo <math display="block">x</math> <div>bar</div> baz
 <div>bar</div>
 <p>baz</p>
 !! end
+
+!! test
+Math on a line with a div stays in the paragraph (blockquote version) (T429711)
+!! wikitext
+<blockquote>Prop <math>A</math> implies <math>B</math> too.</blockquote>
+!! html/php
+<blockquote><p>Prop <math class="mwe-math-element mwe-math-element-inline mathjax_ignore" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>A</mi></mstyle></mrow></math> implies <math class="mwe-math-element mwe-math-element-inline mathjax_ignore" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>B</mi></mstyle></mrow></math> too.</p></blockquote>
+!! html/parsoid
+<blockquote>
+<p>Prop <math class="mwe-math-element mwe-math-element-inline mathjax_ignore" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"A"}}' typeof="mw:Extension/math" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>A</mi></mstyle></mrow></math> implies <math class="mwe-math-element mwe-math-element-inline mathjax_ignore" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"B"}}' typeof="mw:Extension/math" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>B</mi></mstyle></mrow></math> too.</p>
+</blockquote>
+!! end
