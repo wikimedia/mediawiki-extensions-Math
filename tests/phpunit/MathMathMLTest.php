@@ -172,15 +172,17 @@ class MathMathMLTest extends MediaWikiIntegrationTestCase {
 	public function testGetHtmlOutputInlineMath() {
 		$math = new MathMathML( "a+b", [ 'display' => 'inline' ] );
 		$out = $math->getHtmlOutput();
-		$this->assertStringContainsString( 'mwe-math-mathml-inline', $out );
+		$this->assertStringContainsString( 'mwe-math-mathml-a11y', $out );
+		$this->assertStringContainsString( 'mwe-math-element-inline', $out );
 		$this->assertStringNotContainsString( 'mwe-math-element-block', $out );
 	}
 
 	public function testGetHtmlOutputDisplayMath() {
 		$math = new MathMathML( "a+b", [ 'display' => 'block' ] );
 		$out = $math->getHtmlOutput();
-		$this->assertStringContainsString( 'mwe-math-mathml-display', $out );
+		$this->assertStringContainsString( 'mwe-math-mathml-a11y', $out );
 		$this->assertStringContainsString( 'mwe-math-element-block', $out );
+		$this->assertStringNotContainsString( 'mwe-math-element-inline', $out );
 	}
 
 	public function testGetHtmlOutputSvgDisabled() {
