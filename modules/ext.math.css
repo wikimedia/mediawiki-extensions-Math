@@ -18,6 +18,8 @@
 }
 
 .mwe-math-mathml-a11y {
+	/* Reverse the `display: none` inline style */
+	display: inline !important; /* stylelint-disable-line declaration-no-important */
 	/* We try to hide the MathML formula in a way that still makes it accessible to accessibility tools. */
 	clip: rect( 1px, 1px, 1px, 1px );
 	overflow: hidden;

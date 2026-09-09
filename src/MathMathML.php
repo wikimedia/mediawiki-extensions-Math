@@ -418,24 +418,18 @@ class MathMathML extends MathRenderer {
 	 * @return string the class name
 	 */
 	private function getClassName( $fallback = false ) {
-		$class = 'mwe-math-';
 		if ( $fallback ) {
-			$class .= 'fallback-image-';
-		} else {
-			$class .= 'mathml-';
-		}
-		if ( $this->getMathStyle() == 'display' ) {
-			$class .= 'display';
-		} else {
-			$class .= 'inline';
-		}
-		if ( $fallback ) {
+			if ( $this->getMathStyle() == 'display' ) {
+				$class = 'mwe-math-fallback-image-display';
+			} else {
+				$class = 'mwe-math-fallback-image-inline';
+			}
 			// Support 3rd party gadgets and extensions.
 			$class .= ' mw-invert';
 			// Support skins with night theme.
 			$class .= ' skin-invert';
 		} else {
-			$class .= ' mwe-math-mathml-a11y';
+			$class = 'mwe-math-mathml-a11y';
 		}
 		return $class;
 	}
