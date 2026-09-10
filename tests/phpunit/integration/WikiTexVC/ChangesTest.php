@@ -48,6 +48,9 @@ final class ChangesTest extends MediaWikiIntegrationTestCase {
 			$this->assertXmlStringEqualsXmlString(
 				$expectedOutput['output'], $actualOutput['output'], 'Output differs'
 			);
+			$this->assertSame(
+				$expectedOutput['error'] ?? null, $actualOutput['error'] ?? null, 'Error differs'
+			);
 			if ( array_key_exists( 'core-validation', $expectedOutput ) ) {
 				$this->assertArrayHasKey(
 					'core-validation', $actualOutput, 'Core validation unexpectedly successful'

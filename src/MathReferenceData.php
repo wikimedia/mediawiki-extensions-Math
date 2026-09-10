@@ -131,18 +131,27 @@ final class MathReferenceData {
 			$entry['input'], $entry['params'] ?? [], WANObjectCache::newEmpty(), $mathConfig
 		);
 		$renderer->setRawError( true );
-		$renderer->setReferenceServices(
-			$hookContainer,
-			$config,
-			new LocalChecker( WANObjectCache::newEmpty(), $renderer->getTex(), 'tex' )
+		$checker = new LocalChecker(
+			WANObjectCache::newEmpty(), $renderer->getTex(), $renderer->getInputType()
 		);
+		$renderer->setReferenceServices( $hookContainer, $config, $checker );
 		// T434686: Fake mathjax mode to avoid adding class=mathjax_ignore to the output.
 		$renderer->setMode( MathConfig::MODE_NATIVE_JAX );
 		$result = $renderer->render();
 		$entry['output'] = $renderer->getMathml();
+		// A rejected input still renders an empty element, so record why.
+		$checkerError = $checker->getError();
+		if ( $checkerError !== null ) {
+			$entry['error'] = $renderer->getError(
+				$checkerError->getKey(), ...$checkerError->getParams()
+			);
+		} elseif ( $result ) {
+			unset( $entry['error'] );
+		} else {
+			$entry['error'] = $renderer->getLastError();
+		}
 		if ( !$result ) {
 			$entry['skipped'] = true;
-			$entry['error'] = $renderer->getLastError();
 		}
 		$validation = self::validateSchema( $renderer->getMathml(), self::RNG_PATH );
 		if ( $validation ) {

@@ -68,6 +68,10 @@
 		"input": "\\left ( \\frac{a}{b} \\right )",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"INNER\"><mo data-mjx-texclass=\"OPEN\">(</mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mi>a</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>b</mi></mrow></mfrac></mrow><mo data-mjx-texclass=\"CLOSE\">)</mo></mrow></mstyle></mrow></math>"
 	},
+	"06764c8b1ea139c8d63fd94bc55bfc57": {
+		"input": "\\vphantom{a}",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mpadded width=\"0\"><mphantom><mi>a</mi></mphantom></mpadded></mrow></mrow></mstyle></mrow></math>"
+	},
 	"06b27f9a1d16e364efd5bb2c9b2b4b76": {
 		"input": "\\geneuro",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mo>€</mo></mrow></mstyle></mrow></math>"
@@ -128,6 +132,17 @@
 		"input": "\\overset{\\frown} {AB}",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mover><mrow><mrow data-mjx-texclass=\"ORD\"><mi>A</mi><mi>B</mi></mrow></mrow><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">⌢</mo></mover></mrow></mstyle></mrow></math>"
 	},
+	"0e3915b86710402b9d35e8eabbdd0ad3": {
+		"input": "\\ce{\\ce{a}}",
+		"outputs": [
+			{
+				"params": {
+					"type": "chem"
+				},
+				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">a</mi></mrow></mstyle></mrow></math>"
+			}
+		]
+	},
 	"0edc02a151964e90bba67819bd761690": {
 		"input": "\\begin{alignat}{3}\n & f^+(x) &&{}={} \\max \\{f(x),0\\} &&{}={} \\begin{cases}\n               f(x), & \\text{if } f(x) > 0, \\\\[2pt]\n               0, & \\text{otherwise,}\n             \\end{cases}\\\\[4pt]\n & f^-(x) &&{}={} \\max \\{-f(x),0\\} &&{}={} \\begin{cases}\n               -f(x), & \\text{if } f(x) < 0, \\\\[2pt]\n               0, & \\text{otherwise.}\n             \\end{cases}\n\\end{alignat}",
 		"bug": "T434424",
@@ -158,6 +173,10 @@
 		"core-validation": {
 			"Invalid attribute fence for element mo\n": 1
 		}
+	},
+	"112644bbbacfe2761671c15878d5dce7": {
+		"input": "\\texttt{a}",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mtext mathvariant=\"monospace\">𝚊</mtext></mstyle></mrow></math>"
 	},
 	"112c10909ccde23858345d446e4194a9": {
 		"input": "\\bold{T} \\cdot {\\rm d}^3\\boldsymbol{\\Sigma} = 0",
@@ -231,6 +250,21 @@
 		"input": "\\coprod_{i=1}^N x_i",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><munderover><mo movablelimits=\"false\" stretchy=\"false\">∐</mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>i</mi><mo stretchy=\"false\">=</mo><mn>1</mn></mrow></mrow><mrow data-mjx-texclass=\"ORD\"><mi>N</mi></mrow></munderover><msub><mi>x</mi><mrow data-mjx-texclass=\"ORD\"><mi>i</mi></mrow></msub></mstyle></mrow></math>"
 	},
+	"19f0711f30b3d6261994913655ef94f0": {
+		"input": "\\kern{1.5mu}",
+		"outputs": [
+			{
+				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"></math>",
+				"error": "Error: math_other_error param virtual mhchemtexified package required."
+			},
+			{
+				"params": {
+					"type": "chem"
+				},
+				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mspace width=\"0.055em\"></mspace></mstyle></mrow></math>"
+			}
+		]
+	},
 	"1a8f6283ec5209a155dbdf387097ad8e": {
 		"input": "\\mathsf{STUVWXYZ} \\!",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>𝖲</mi><mi>𝖳</mi><mi>𝖴</mi><mi>𝖵</mi><mi>𝖶</mi><mi>𝖷</mi><mi>𝖸</mi><mi>𝖹</mi></mrow></mrow><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
@@ -285,6 +319,13 @@
 		"input": "\\mathbf{nopqrstuvwxyz} \\!",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>𝐧</mi><mi>𝐨</mi><mi>𝐩</mi><mi>𝐪</mi><mi>𝐫</mi><mi>𝐬</mi><mi>𝐭</mi><mi>𝐮</mi><mi>𝐯</mi><mi>𝐰</mi><mi>𝐱</mi><mi>𝐲</mi><mi>𝐳</mi></mrow></mrow><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
 	},
+	"1faaf283c87aa19c79ecb05ed251ccff": {
+		"input": "\\sideset{_1^2}{_3^4}\\sum",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"OP\"><mmultiscripts data-mjx-script-align=\"left\"><mo>∑</mo><msubsup><mrow data-mjx-texclass=\"ORD\"></mrow><mrow data-mjx-texclass=\"ORD\"><mn>3</mn></mrow><mrow data-mjx-texclass=\"ORD\"><mn>4</mn></mrow></msubsup><mprescripts></mprescripts><msubsup><mrow data-mjx-texclass=\"ORD\"></mrow><mrow data-mjx-texclass=\"ORD\"><mn>1</mn></mrow><mrow data-mjx-texclass=\"ORD\"><mn>2</mn></mrow></msubsup></mmultiscripts></mrow></mstyle></mrow></math>",
+		"core-validation": {
+			"Did not expect element mprescripts there\n": 1
+		}
+	},
 	"1fb6ff3edc72f426caac14ac4e3a4554": {
 		"input": "\\supseteqq, \\nsupseteqq, \\supsetneqq, \\varsupsetneqq \\!",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mo stretchy=\"false\">⫆</mo><mo>,</mo><mo stretchy=\"false\" variantform=\"1\">⊉</mo><mo>,</mo><mo stretchy=\"false\">⫌</mo><mo>,</mo><mo stretchy=\"false\" variantform=\"1\">⫌</mo><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>",
@@ -300,12 +341,31 @@
 		"input": "\\vartriangleleft \\ntriangleleft \\vartriangleright \\ntriangleright \\!",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mo stretchy=\"false\">⊲</mo><mo stretchy=\"false\">⋪</mo><mo stretchy=\"false\">⊳</mo><mo stretchy=\"false\">⋫</mo><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
 	},
+	"230f8feb11abad933507f6241aece86a": {
+		"input": "\\frac ab + \\scriptscriptstyle{\\frac cd + \\frac ef} + \\frac gh",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mi>a</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>b</mi></mrow></mfrac></mrow><mo stretchy=\"false\">+</mo><mstyle displaystyle=\"false\" scriptlevel=\"2\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mi>c</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>d</mi></mrow></mfrac></mrow><mo stretchy=\"false\">+</mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mi>e</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>f</mi></mrow></mfrac></mrow></mrow><mo stretchy=\"false\">+</mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mi>g</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>h</mi></mrow></mfrac></mrow></mstyle></mstyle></mrow></math>"
+	},
 	"24818b3f4d194425bafe54b84f2ac586": {
 		"input": "\\begin{vmatrix} x & y \\\\ z & v\n\\end{vmatrix}",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mo data-mjx-texclass=\"OPEN\">|</mo><mtable><mtr><mtd><mi>x</mi></mtd><mtd><mi>y</mi></mtd></mtr><mtr><mtd><mi>z</mi></mtd><mtd><mi>v</mi></mtd></mtr></mtable><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\">|</mo></mrow></mstyle></mrow></math>",
 		"core-validation": {
 			"Invalid attribute fence for element mo\n": 1
 		}
+	},
+	"24e5641bf9eb34e672bb7f94e58592dd": {
+		"input": "\\ce{a {b \\color{red} c} d}",
+		"outputs": [
+			{
+				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"></math>",
+				"error": "Error: math_syntax_error param "
+			},
+			{
+				"params": {
+					"type": "chem"
+				},
+				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">a</mi></mrow><mspace width=\"0.5em\"></mspace><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mtext>b&#xA0;</mtext></mrow><mstyle mathcolor=\"#ED1B23\"><mrow data-mjx-texclass=\"ORD\"><mtext>&#xA0;c</mtext></mrow></mstyle></mrow><mspace width=\"0.5em\"></mspace><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">d</mi></mrow></mrow></mstyle></mrow></math>"
+			}
+		]
 	},
 	"259bf5c87105bb02ca50410840ce94cc": {
 		"input": "f(x) \\,\\!",
@@ -489,6 +549,12 @@
 	"3cc49940b2ea1a26347097fa7d3ecbee": {
 		"input": "\\color{LimeGreen}\\text{LimeGreen}",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mstyle mathcolor=\"#8DC73E\"><mrow data-mjx-texclass=\"ORD\"><mtext>LimeGreen</mtext></mrow></mstyle></mstyle></mrow></math>"
+	},
+	"3d162d00da7b608cfa48b9a1493d142c": {
+		"input": "\\intent{a}{b}",
+		"bug": "T327098",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"></math>",
+		"error": "Error: math_other_error param virtual intent package required."
 	},
 	"3d6703a50494e9ee594698831c22d9c5": {
 		"input": "\\mathfrak{0123456789} \\!",
@@ -975,6 +1041,10 @@
 		"input": "\\color{OrangeRed}\\text{OrangeRed}",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mstyle mathcolor=\"#ED135A\"><mrow data-mjx-texclass=\"ORD\"><mtext>OrangeRed</mtext></mrow></mstyle></mstyle></mrow></math>"
 	},
+	"7a475cb8de61da57d461d8b65ad76407": {
+		"input": "\\textit{a}",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mtext mathvariant=\"italic\">𝑎</mtext></mstyle></mrow></math>"
+	},
 	"7b19c9132c6519720a37213ea214e85a": {
 		"input": "\\lim_{\\delta_\\tau \\to 0}",
 		"bug": "T417506",
@@ -1028,9 +1098,31 @@
 		"input": "\\overset{\\alpha}{\\omega}",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mover><mrow><mi>ω</mi></mrow><mi>α</mi></mover></mrow></mstyle></mrow></math>"
 	},
+	"817aab5d648ab6e3808b635dd636b422": {
+		"input": "\\ce{a}",
+		"outputs": [
+			{
+				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"></math>",
+				"error": "Error: math_other_error param mhchem package required."
+			},
+			{
+				"params": {
+					"type": "chem"
+				},
+				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">a</mi></mrow></mstyle></mrow></math>"
+			}
+		]
+	},
 	"81a68d60cffb55a72a3d06a4fa948c50": {
 		"input": "\\operatorname{argsh}\\,o, \\operatorname{argch}\\,p, \\operatorname{argth}\\,q \\!",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">argsh</mi><mo>&#x2061;</mo><mspace width=\"0.167em\"></mspace><mi>o</mi><mo>,</mo><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">argch</mi><mo>&#x2061;</mo><mspace width=\"0.167em\"></mspace><mi>p</mi><mo>,</mo><mi data-mjx-texclass=\"OP\" mathvariant=\"normal\">argth</mi><mo>&#x2061;</mo><mspace width=\"0.167em\"></mspace><mi>q</mi><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
+	},
+	"81a72d5dde154b44a4b057dd4785b301": {
+		"input": "\n\\begin{array}{|c||c|} a & b \\vline c  \\\\\n\\hline\n1&2 \n\\end{array}\n",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mtable displaystyle=\"true\"><mtr><mtd class=\"mwe-math-matrix-bottom mwe-math-matrix-left mwe-math-matrix-right\"><mi>a</mi></mtd><mtd class=\"mwe-math-matrix-bottom mwe-math-matrix-left mwe-math-matrix-right\"><mi>b</mi><mrow data-mjx-texclass=\"ORD\"><mpadded depth=\"0\" height=\"0\"><mstyle mathsize=\"1.2em\"><mo fence=\"false\" stretchy=\"false\">|</mo></mstyle></mpadded></mrow><mi>c</mi></mtd></mtr><mtr><mtd class=\"mwe-math-matrix-top mwe-math-matrix-left mwe-math-matrix-right\"><mn>1</mn></mtd><mtd class=\"mwe-math-matrix-top mwe-math-matrix-left mwe-math-matrix-right\"><mn>2</mn></mtd></mtr></mtable></mstyle></mrow></math>",
+		"core-validation": {
+			"Invalid attribute fence for element mo\n": 1
+		}
 	},
 	"81c154e289180f989c673aa8c111faad": {
 		"input": "\\boldsymbol{\\Sigma\\Tau\\Upsilon\\Phi\\Chi\\Psi\\Omega} \\!",
@@ -1047,6 +1139,17 @@
 	"83964d5213e1166e4e4dc6b6ecf98714": {
 		"input": "\\color{PineGreen}\\text{PineGreen}",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mstyle mathcolor=\"#008B72\"><mrow data-mjx-texclass=\"ORD\"><mtext>PineGreen</mtext></mrow></mstyle></mstyle></mrow></math>"
+	},
+	"8397e1dae3b1c9165be9653bf3105f52": {
+		"input": "\\ce{\\frac{a}{b}}",
+		"outputs": [
+			{
+				"params": {
+					"type": "chem"
+				},
+				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">a</mi></mrow></mrow><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">b</mi></mrow></mrow></mfrac></mrow></mstyle></mrow></math>"
+			}
+		]
 	},
 	"83af21a11e0e4b5161fa6c9b4d39913a": {
 		"input": "\\mathsf{\\Alpha \\Beta \\Gamma \\Delta \\Epsilon \\Zeta \\Eta \\Theta} \\!",
@@ -1105,9 +1208,17 @@
 		"bug": "T390260",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">a</mi><mi mathvariant=\"normal\">r</mi><mi mathvariant=\"normal\">g</mi><mspace width=\"0.167em\"></mspace><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">a</mi><mi mathvariant=\"normal\">x</mi></mrow></mstyle></mrow></math>"
 	},
+	"8c977deedd9959ed3551706d959a865c": {
+		"input": "\\Darr",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mo stretchy=\"false\">⇓</mo></mstyle></mrow></math>"
+	},
 	"8cc8f93f929a6918c7b5e5581147c687": {
 		"input": "x', y'', f', f''",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><msup><mi>x</mi><mo>&#x2032;</mo></msup><mo>,</mo><msup><mi>y</mi><mo>&#x2033;</mo></msup><mo>,</mo><msup><mi>f</mi><mo>&#x2032;</mo></msup><mo>,</mo><msup><mi>f</mi><mo>&#x2033;</mo></msup></mstyle></mrow></math>"
+	},
+	"8d355db9ceca60bba69aa535cadead3a": {
+		"input": " \\mathop{\\rm cos}\\nolimits^2",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"OP\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">c</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">s</mi></mrow></mrow><msup><mi></mi><mrow data-mjx-texclass=\"ORD\"><mn>2</mn></mrow></msup></mstyle></mrow></math>"
 	},
 	"8d5a953bb1517326888ebe7d6f9fa8f2": {
 		"input": "\n\\bigl( \\begin{smallmatrix}\na&b\\\\ c&d\n\\end{smallmatrix} \\bigr)\n",
@@ -1210,6 +1321,10 @@
 		"bug": "T434456",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><msup><mrow data-mjx-texclass=\"INNER\"><mo data-mjx-texclass=\"OPEN\">(</mo><mi>a</mi><mo data-mjx-texclass=\"CLOSE\">)</mo></mrow><mo>&#x2032;</mo></msup></mstyle></mrow></math>"
 	},
+	"9d888aca6a11b5c7b88319f0886affdd": {
+		"input": "\\varointclockwise",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mstyle mathsize=\"2.07em\"><mtext>&#x2232;</mtext><mspace width=\"0.16666666666667em\"></mspace></mstyle></mrow></mstyle></mrow></math>"
+	},
 	"9dd4e461268c8034f5c8564e155c67a6": {
 		"input": "x",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi>x</mi></mstyle></mrow></math>"
@@ -1230,6 +1345,10 @@
 	"a0aee1cd87cc40211268d17cf729bcc2": {
 		"input": "\\color{CadetBlue}\\text{CadetBlue}",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mstyle mathcolor=\"#74729A\"><mrow data-mjx-texclass=\"ORD\"><mtext>CadetBlue</mtext></mrow></mstyle></mstyle></mrow></math>"
+	},
+	"a1e678e71baed64f8d1b78171a2a1203": {
+		"input": "\\mathclose{a}",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"CLOSE\"><mi>a</mi></mrow></mrow></mstyle></mrow></math>"
 	},
 	"a20ce2b380084bd8d4183d78e62267f0": {
 		"input": "\\Sigma \\Tau \\Upsilon \\Phi \\Chi \\Psi \\Omega \\!",
@@ -1312,6 +1431,10 @@
 				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mstyle mathcolor=\"#FFF200\"><mrow data-mjx-texclass=\"ORD\"><mtext>Yellow</mtext></mrow></mstyle></mstyle></mrow></math>"
 			}
 		]
+	},
+	"a7f2be498f1852725e7aa073110a26b4": {
+		"input": "{ a \\atop b }",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mfrac linethickness=\"0\"><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></mfrac></mstyle></mrow></math>"
 	},
 	"a831646c1c64c1acfa518afc3bddb018": {
 		"input": "e^{i \\pi} + 1 = 0\\,\\!",
@@ -1443,7 +1566,8 @@
 	},
 	"b58f003142bb990dac03e9bd77c91600": {
 		"input": " with a thumbnail- we don't render math in the parsertests by default, so math is not stripped and turns up as escaped &lt;math&gt; tags. [[Image:foobar.jpg|thumb|<math>2+2",
-		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"></math>"
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"></math>",
+		"error": "Error: math_syntax_error param "
 	},
 	"b5ade5d5393fd7727bf77fa44ec8b564": {
 		"input": "a\\;b",
@@ -1464,6 +1588,10 @@
 		"core-validation": {
 			"Invalid attribute variantform for element mo\n": 1
 		}
+	},
+	"bae5f977c3cc0220585a7c8a7af7857b": {
+		"input": "\\definecolor{ultramarine}{RGB}{0,32,96} a {b \\color{ultramarine} c} d",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mi>a</mi><mrow data-mjx-texclass=\"ORD\"><mi>b</mi><mstyle mathcolor=\"#002060\"><mi>c</mi></mstyle></mrow><mi>d</mi></mstyle></mrow></math>"
 	},
 	"bb137e2c56797ad1e41bd80b4855866e": {
 		"input": " \\hat a \\ \\bar b \\ \\vec c",
@@ -1493,6 +1621,10 @@
 	"bda005f68d3436f92f148db482f8e766": {
 		"input": "\\left | \\frac{a}{b} \\right \\vert \\quad \\left \\Vert \\frac{c}{d} \\right \\|",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"INNER\"><mo data-mjx-texclass=\"OPEN\">|</mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mi>a</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>b</mi></mrow></mfrac></mrow><mo data-mjx-texclass=\"CLOSE\">|</mo></mrow><mspace width=\"1em\"></mspace><mrow data-mjx-texclass=\"INNER\"><mo data-mjx-texclass=\"OPEN\">‖</mo><mrow data-mjx-texclass=\"ORD\"><mfrac><mrow data-mjx-texclass=\"ORD\"><mi>c</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>d</mi></mrow></mfrac></mrow><mo data-mjx-texclass=\"CLOSE\">‖</mo></mrow></mstyle></mrow></math>"
+	},
+	"bdb4f876b6ef71058804cd5487694d49": {
+		"input": "\\hphantom{a}",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mpadded depth=\"0\" height=\"0\"><mphantom><mi>a</mi></mphantom></mpadded></mrow></mrow></mstyle></mrow></math>"
 	},
 	"be2f58e383cf21649a4febe0a112f985": {
 		"input": "\\boldsymbol{\\alpha\\beta\\gamma\\delta\\epsilon\\zeta\\eta\\theta} \\!",
@@ -1604,6 +1736,19 @@
 	"c691ee997fbf8801e9916843cfeb324b": {
 		"input": "\\mathrm{abcdefghijklm} \\!",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">a</mi><mi mathvariant=\"normal\">b</mi><mi mathvariant=\"normal\">c</mi><mi mathvariant=\"normal\">d</mi><mi mathvariant=\"normal\">e</mi><mi mathvariant=\"normal\">f</mi><mi mathvariant=\"normal\">g</mi><mi mathvariant=\"normal\">h</mi><mi mathvariant=\"normal\">i</mi><mi mathvariant=\"normal\">j</mi><mi mathvariant=\"normal\">k</mi><mi mathvariant=\"normal\">l</mi><mi mathvariant=\"normal\">m</mi></mrow></mrow><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
+	},
+	"c78164f66bdc83ee2a895ce3cbfc6001": {
+		"input": "\\ce{\\underbrace{a}}",
+		"outputs": [
+			{
+				"params": {
+					"type": "chem"
+				},
+				"bug": "T437162",
+				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"></math>",
+				"error": "Error: math_unknown_error param "
+			}
+		]
 	},
 	"c87a4617c10d10730974b8a69a5a7ffb": {
 		"input": "\\sideset{_1^2}{_3^4}\\prod_a^b",
@@ -1808,6 +1953,10 @@
 			}
 		]
 	},
+	"dc6d4c87aeba5b6993dcd4f0ae7dc631": {
+		"input": "\\textsf{a}",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mtext mathvariant=\"sans-serif\">𝖺</mtext></mstyle></mrow></math>"
+	},
 	"dd156ae5566ed6b72cc28f122b2b3832": {
 		"input": "\\mathbf{ABCDEFGHI} \\!",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>𝐀</mi><mi>𝐁</mi><mi>𝐂</mi><mi>𝐃</mi><mi>𝐄</mi><mi>𝐅</mi><mi>𝐆</mi><mi>𝐇</mi><mi>𝐈</mi></mrow></mrow><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
@@ -1830,6 +1979,17 @@
 	"de986b1f936a6085eda6ffbd4ecc6e89": {
 		"input": ">, \\ngtr, \\gg, \\not\\gg, \\ggg, \\not\\ggg, \\gtrdot \\!",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mo>&gt;</mo><mo>,</mo><mo stretchy=\"false\">≯</mo><mo>,</mo><mo stretchy=\"false\">≫</mo><mo>,</mo><mo stretchy=\"false\">≫&#x338;</mo><mo>,</mo><mo stretchy=\"false\">⋙</mo><mo>,</mo><mo stretchy=\"false\">⋙&#x338;</mo><mo>,</mo><mo stretchy=\"false\">⋗</mo><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
+	},
+	"df2af2e4459d040e8641d796aa13fe34": {
+		"input": "\\ce{\\bond{-}}",
+		"outputs": [
+			{
+				"params": {
+					"type": "chem"
+				},
+				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">−</mo></mstyle></mrow></math>"
+			}
+		]
 	},
 	"dfbb00a703bd1859f3b3224ea8673ce4": {
 		"input": "\\color{Aquamarine}\\text{Aquamarine}",
@@ -1978,9 +2138,27 @@
 		"input": "\\prod_{i=1}^N x_i",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><munderover><mo movablelimits=\"false\" stretchy=\"false\">∏</mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>i</mi><mo stretchy=\"false\">=</mo><mn>1</mn></mrow></mrow><mrow data-mjx-texclass=\"ORD\"><mi>N</mi></mrow></munderover><msub><mi>x</mi><mrow data-mjx-texclass=\"ORD\"><mi>i</mi></mrow></msub></mstyle></mrow></math>"
 	},
+	"eeeb4e14094a84e0bab841045bb72eb1": {
+		"input": "\\ce{\\kern{1.5mu}}",
+		"outputs": [
+			{
+				"params": {
+					"type": "chem"
+				},
+				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mspace width=\"0.055em\"></mspace></mstyle></mrow></math>"
+			}
+		]
+	},
 	"eff06a4a6b406f7022ca07c166c6c18b": {
 		"input": "\\mathfrak{STUVWXYZ} \\!",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi>𝔖</mi><mi>𝔗</mi><mi>𝔘</mi><mi>𝔙</mi><mi>𝔚</mi><mi>𝔛</mi><mi>𝔜</mi><mi>ℨ</mi></mrow></mrow><mspace width=\"-0.167em\"></mspace></mstyle></mrow></math>"
+	},
+	"f034309a1d1c9027b4887935313bd4da": {
+		"input": "\\left( \\right.",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"INNER\"><mo data-mjx-texclass=\"OPEN\">(</mo><mo fence=\"true\" stretchy=\"true\" symmetric=\"true\" data-mjx-texclass=\"CLOSE\"></mo></mrow></mstyle></mrow></math>",
+		"core-validation": {
+			"Invalid attribute fence for element mo\n": 1
+		}
 	},
 	"f0563b9f6bf43e00842f8d5e78f879d7": {
 		"input": "\\oplus, \\ominus, \\otimes, \\oslash, \\odot\\!",
@@ -2045,6 +2223,21 @@
 		"input": "\\bar{DEF}",
 		"bug": "T435456",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mover><mrow data-mjx-texclass=\"ORD\"><mi>D</mi><mi>E</mi><mi>F</mi></mrow><mo stretchy=\"false\">¯</mo></mover></mstyle></mrow></math>"
+	},
+	"f4f09ef714caccd90be81de132a75085": {
+		"input": "\\mathit{\\emph{a}} \\emph{b}",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">a</mi></mrow></mrow><mrow data-mjx-texclass=\"ORD\"><mi>𝑏</mi></mrow></mstyle></mrow></math>"
+	},
+	"f5b62706ebd9e9904d1166f05348bff9": {
+		"input": "\\ce{\\ca Fe}",
+		"outputs": [
+			{
+				"params": {
+					"type": "chem"
+				},
+				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"ORD\"><mo stretchy=\"false\" lspace=\"0\" rspace=\"0\">∼</mo><mrow data-mjx-texclass=\"ORD\"><mrow data-mjx-texclass=\"ORD\"><mi mathvariant=\"normal\">F</mi><mi mathvariant=\"normal\">e</mi></mrow></mrow></mrow></mstyle></mrow></math>"
+			}
+		]
 	},
 	"f5b961138f4a6b425a50f321248b36e3": {
 		"input": "\\ge \\geq, \\gneq, \\geqq, \\ngeqq, \\gneqq, \\gvertneqq \\!",
