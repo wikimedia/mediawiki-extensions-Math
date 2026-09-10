@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC;
 
-use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLComparator;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLTestUtil;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
@@ -24,6 +23,11 @@ class MMLGenerationTexUtilTest extends MediaWikiIntegrationTestCase {
 	private static $MMLREFFILE = __DIR__ . "/TexUtil-Ref.json";
 
 	/**
+	 * Asserts nothing about the MathML, so this only catches crashes.
+	 *
+	 * TODO: migrate the cases into data/reference.json and assert output like
+	 * ChangesTest does, then drop this test (T121100).
+	 *
 	 * @dataProvider provideTestCases
 	 */
 	public function testTexVC( $title, $input ) {
@@ -39,17 +43,10 @@ class MMLGenerationTexUtilTest extends MediaWikiIntegrationTestCase {
 			'usemhchemtexified' => true
 		] );
 
-		$mathMLtexVC = isset( $resultT["input"] ) ? MMLTestUtil::getMMLwrapped( $resultT["input"] ) :
-			"<math> error texvc </math>";
-
-		$mmlComparator = new MMLComparator();
-		$usedMMLRef = $input->mmlMathoid ?? $input->mmlLaTeXML ?? "<math><merror> error no ref </merror></math>";
-
-		if ( !$usedMMLRef ) {
-			$usedMMLRef = $input->mmlLaTeXML;
+		if ( isset( $resultT["input"] ) ) {
+			MMLTestUtil::getMMLwrapped( $resultT["input"] );
 		}
-		$mmlComparator->compareMathML( $usedMMLRef, $mathMLtexVC );
-		// Comparing the result either to MathML result from Mathoid
+
 		$this->addToAssertionCount( 1 );
 	}
 

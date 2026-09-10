@@ -25,8 +25,7 @@
 		"MediaWiki\\Extension\\Math\\Tests\\MathMockHttpTrait": "tests/phpunit/MathMockHttpTrait.php",
 		"MediaWiki\\Extension\\Math\\Tests\\HookIntegrationSetupTrait": "tests/phpunit/HookIntegrationSetupTrait.php",
 		"MediaWiki\\Extension\\Math\\WikiTexVC\\MMLmappings\\Util\\MMLTestUtilHTML": "tests/phpunit/unit/WikiTexVC/MMLTestUtilHTML.php",
-		"MediaWiki\\Extension\\Math\\WikiTexVC\\MMLmappings\\Util\\MMLTestUtil": "tests/phpunit/unit/WikiTexVC/MMLTestUtil.php",
-		"MediaWiki\\Extension\\Math\\WikiTexVC\\MMLmappings\\Util\\MMLComparator": "tests/phpunit/unit/WikiTexVC/MMLComparator.php"
+		"MediaWiki\\Extension\\Math\\WikiTexVC\\MMLmappings\\Util\\MMLTestUtil": "tests/phpunit/unit/WikiTexVC/MMLTestUtil.php"
 	},
 	"DefaultUserOptions": {
 		"math": "native",
