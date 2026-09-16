@@ -16,7 +16,7 @@ use ValueValidators\ValueValidator;
 class MathValidator implements ValueValidator {
 
 	/**
-	 * Validates a value with MediaWiki\Extension\Math\InputCheck\RestbaseChecker
+	 * Validates a value with MediaWiki\Extension\Math\InputCheck\LocalChecker
 	 *
 	 * @param StringValue $value The value to validate
 	 *

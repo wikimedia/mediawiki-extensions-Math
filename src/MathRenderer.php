@@ -294,7 +294,7 @@ abstract class MathRenderer {
 
 	protected function getChecker(): BaseChecker {
 		return Math::getCheckerFactory()
-			->newDefaultChecker( $this->tex, $this->getInputType(), $this->rbi, $this->isPurge() );
+			->newLocalChecker( $this->tex, $this->getInputType(), $this->isPurge() );
 	}
 
 	/**

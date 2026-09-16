@@ -18,13 +18,7 @@ use Wikibase\Lib\Formatters\SnakFormatter;
 return [
 	'Math.CheckerFactory' => static function ( MediaWikiServices $services ): InputCheckFactory {
 		return new InputCheckFactory(
-			new ServiceOptions(
-				InputCheckFactory::CONSTRUCTOR_OPTIONS,
-				$services->getMainConfig()
-			),
-			$services->getMainWANObjectCache(),
-			$services->getHttpRequestFactory(),
-			LoggerFactory::getInstance( 'Math' )
+			$services->getMainWANObjectCache()
 		);
 	},
 	'Math.Config' => static function ( MediaWikiServices $services ): MathConfig {

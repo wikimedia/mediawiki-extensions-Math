@@ -142,9 +142,6 @@
 		"MathLaTeXMLUrl": {
 			"value": "https://latexml.formulasearchengine.com/convert"
 		},
-		"MathMathMLTimeout": {
-			"value": 20
-		},
 		"MathMathMLUrl": {
 			"value": "https://mathoid-beta.wmflabs.org"
 		},
