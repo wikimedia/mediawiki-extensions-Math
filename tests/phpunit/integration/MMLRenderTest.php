@@ -370,6 +370,29 @@ class MMLRenderTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( "movablelimits", $mathMLtexVC );
 	}
 
+	public function testSidesetLiteral() {
+		$input = "\\sideset{_a^b}{_c^d}D";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringNotContainsString( "merror", $mathMLtexVC );
+		$this->assertStringContainsString( "mmultiscripts", $mathMLtexVC );
+		$this->assertStringContainsString( "<mi>D</mi>", $mathMLtexVC );
+	}
+
+	public function testSidesetMathop() {
+		$input = "\\sideset{_a^b}{_c^d}{\\mathop{D}}";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringNotContainsString( "merror", $mathMLtexVC );
+		$this->assertStringContainsString( "mmultiscripts", $mathMLtexVC );
+		$this->assertStringContainsString( "<mi>D</mi>", $mathMLtexVC );
+	}
+
+	public function testSidesetMathbf() {
+		$input = "\\sideset{_a}{_{t}^{-\\alpha}}{\\mathbf{D}}f(t)";
+		$mathMLtexVC = $this->generateMML( $input );
+		$this->assertStringNotContainsString( "merror", $mathMLtexVC );
+		$this->assertStringContainsString( "mmultiscripts", $mathMLtexVC );
+	}
+
 	public function testLimitsProd() {
 		$input = "\\prod\\limits_{j=1}^k A_{\\alpha_j}";
 		$mathMLtexVC = $this->generateMML( $input );

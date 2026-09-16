@@ -321,10 +321,7 @@
 	},
 	"1faaf283c87aa19c79ecb05ed251ccff": {
 		"input": "\\sideset{_1^2}{_3^4}\\sum",
-		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"OP\"><mmultiscripts data-mjx-script-align=\"left\"><mo>∑</mo><msubsup><mrow data-mjx-texclass=\"ORD\"></mrow><mrow data-mjx-texclass=\"ORD\"><mn>3</mn></mrow><mrow data-mjx-texclass=\"ORD\"><mn>4</mn></mrow></msubsup><mprescripts></mprescripts><msubsup><mrow data-mjx-texclass=\"ORD\"></mrow><mrow data-mjx-texclass=\"ORD\"><mn>1</mn></mrow><mrow data-mjx-texclass=\"ORD\"><mn>2</mn></mrow></msubsup></mmultiscripts></mrow></mstyle></mrow></math>",
-		"core-validation": {
-			"Did not expect element mprescripts there\n": 1
-		}
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"OP\"><mmultiscripts data-mjx-script-align=\"left\"><mo>∑</mo><mrow data-mjx-texclass=\"ORD\"><mn>3</mn></mrow><mrow data-mjx-texclass=\"ORD\"><mn>4</mn></mrow><mprescripts></mprescripts><mrow data-mjx-texclass=\"ORD\"><mn>1</mn></mrow><mrow data-mjx-texclass=\"ORD\"><mn>2</mn></mrow></mmultiscripts></mrow></mstyle></mrow></math>"
 	},
 	"1fb6ff3edc72f426caac14ac4e3a4554": {
 		"input": "\\supseteqq, \\nsupseteqq, \\supsetneqq, \\varsupsetneqq \\!",
@@ -1315,6 +1312,11 @@
 	"9a3832499964dac73e89d452e2cbe004": {
 		"input": "\\color{BlueGreen}\\text{BlueGreen}",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mstyle mathcolor=\"#00B3B8\"><mrow data-mjx-texclass=\"ORD\"><mtext>BlueGreen</mtext></mrow></mstyle></mstyle></mrow></math>"
+	},
+	"9ad6ef15ad0fb98876d37425b58421e5": {
+		"input": "\\sideset{_a^b}{_c^d}D",
+		"bug": "T437140",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow data-mjx-texclass=\"OP\"><mmultiscripts data-mjx-script-align=\"left\"><mi>D</mi><mrow data-mjx-texclass=\"ORD\"><mi>c</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>d</mi></mrow><mprescripts></mprescripts><mrow data-mjx-texclass=\"ORD\"><mi>a</mi></mrow><mrow data-mjx-texclass=\"ORD\"><mi>b</mi></mrow></mmultiscripts></mrow></mstyle></mrow></math>"
 	},
 	"9d07da818ca3c0890a89c2a96949c29c": {
 		"input": "\\left(a\\right)'",

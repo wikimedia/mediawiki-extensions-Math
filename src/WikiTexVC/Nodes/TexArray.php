@@ -103,7 +103,9 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		if ( $nextNode instanceof Literal ||
 			$nextNode instanceof DQ ||
 			$nextNode instanceof UQ ||
-			$nextNode instanceof FQ ) {
+			$nextNode instanceof FQ ||
+			$nextNode instanceof Fun1 ||
+			( $nextNode instanceof TexArray && $nextNode->isCurly() ) ) {
 			return $nextNode;
 		}
 		return null;

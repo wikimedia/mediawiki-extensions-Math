@@ -844,64 +844,55 @@ class BaseParsing {
 			return MMLmerror::newFromText( "Error parsing sideset expression, no succeeding operator found" );
 		}
 
-		if ( $operatorContent["sideset"] instanceof Literal ) {
-			$bm = new BaseMethods();
-			$opParsed = $bm->checkAndParseOperator( $operatorContent["sideset"]->getArg(), null, [], [], null );
-			if ( $opParsed->isEmpty() ) {
-				throw new \LogicException( "null is not a valid base for MMLmmultiscripts." );
-			}
-			$in1 = $node->getArg1()->toMMLtree();
-			$in2 = $node->getArg2()->toMMLtree();
-			return new MMLmrow( TexClass::OP, [],
-				MMLmmultiscripts::newSubtree( $opParsed, $in2, new MMLarray(), $in1, new MMLarray(),
-					"", [ Tag::ALIGN => "left" ]
-				)
-			);
-		}
+		$op = $operatorContent["sideset"];
+		$state = [ 'sideset' => true ];
+		$in1 = $node->getArg1()->toMMLtree( [], $state );
+		$in2 = $node->getArg2()->toMMLtree( [], $state );
 
-		if ( $operatorContent["sideset"] instanceof FQ ||
-			$operatorContent["sideset"] instanceof DQ ||
-			$operatorContent["sideset"] instanceof UQ ) {
+		if ( $op instanceof FQ || $op instanceof DQ || $op instanceof UQ ) {
 			$bm = new BaseMethods();
-			if ( count( $operatorContent["sideset"]->getBase()->getArgs() ) == 1 ) {
-				$baseOperator = $operatorContent["sideset"]->getBase()->getArgs()[0];
+			if ( count( $op->getBase()->getArgs() ) == 1 ) {
+				$baseOperator = $op->getBase()->getArgs()[0];
 				if ( is_string( $baseOperator ) ) {
 					$opParsed = $bm->checkAndParseOperator( $baseOperator,
 						null, [ "largeop" => "true", "movablelimits" => "false", "symmetric" => "true" ], [], null );
 				} else {
-					// We know $baseOperator instanceof TexNode
 					$opParsed = $baseOperator->toMMLTree();
 				}
 				if ( $opParsed->isEmpty() ) {
-					$opParsed = $operatorContent["sideset"]->getBase()->toMMLtree();
+					$opParsed = $op->getBase()->toMMLtree();
 				}
 			} else {
 				$opParsed = MMLmerror::newFromText( "Sideset operator parsing not implemented yet" );
 			}
-			$state = [ 'sideset' => true ];
-			$in1 = $node->getArg1()->toMMLtree( [], $state );
-			$in2 = $node->getArg2()->toMMLtree( [], $state );
-
-			$down = $operatorContent["sideset"] instanceof UQ ? new MMLmrow( "", [] ) :
-				$operatorContent["sideset"]->getDown()->toMMLtree();
-			$end1 = new MMLmrow( "", [], $down );
-			$up = $operatorContent["sideset"] instanceof DQ ? new MMLmrow( "", [] ) :
-				$operatorContent["sideset"]->getUp()->toMMLtree();
-			$end2 = new MMLmrow( "", [], $up );
-
+			$down = $op instanceof UQ ? new MMLmrow( "", [] ) : $op->getDown()->toMMLtree();
+			$up = $op instanceof DQ ? new MMLmrow( "", [] ) : $op->getUp()->toMMLtree();
 			return new MMLmrow(
 				TexClass::OP,
 				[],
 				MMLmunderover::newSubtree(
 					new MMLmstyle( "", [ "displaystyle" => "true" ],
 					MMLmmultiscripts::newSubtree( $opParsed, $in2, new MMLarray(), $in1 ) ),
-					$end1,
-					$end2
+					new MMLmrow( "", [], $down ),
+					new MMLmrow( "", [], $up )
 				)
 			);
 		}
 
-		return MMLmerror::newFromText( "Error parsing sideset expression, no valid succeeding operator found" );
+		if ( $op instanceof Literal ) {
+			$bm = new BaseMethods();
+			$opParsed = $bm->checkAndParseOperator( $op->getArg(), null, [], [], null );
+			if ( $opParsed->isEmpty() ) {
+				$opParsed = $op->toMMLtree();
+			}
+		} else {
+			$opParsed = $op->toMMLtree();
+		}
+		return new MMLmrow( TexClass::OP, [],
+			MMLmmultiscripts::newSubtree( $opParsed, $in2, new MMLarray(), $in1, new MMLarray(),
+				"", [ Tag::ALIGN => "left" ]
+			)
+		);
 	}
 
 	public static function spacer( $node, $passedArgs, $operatorContent, $name, $withIn = null, $smth2 = null
