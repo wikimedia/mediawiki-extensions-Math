@@ -508,16 +508,6 @@ class MathMathML extends MathRenderer {
 	}
 
 	/** @inheritDoc */
-	protected function dbInArray() {
-		$out = parent::dbInArray();
-		if ( $this->getMathTableName() === 'mathoid' ) {
-			$out = array_diff( $out, [ 'math_inputtex' ] );
-			$out[] = 'math_input';
-		}
-		return $out;
-	}
-
-	/** @inheritDoc */
 	public function initializeFromCache( $rpage ) {
 		// mathoid allows different input formats
 		// therefore the column name math_inputtex was changed to math_input

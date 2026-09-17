@@ -197,19 +197,6 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * @return array with the database column names
-	 */
-	protected function dbInArray() {
-		$in = [ 'math_inputhash',
-			'math_mathml',
-			'math_inputtex',
-			'math_tex',
-			'math_svg'
-		];
-		return $in;
-	}
-
-	/**
 	 * Reads the values from the database but does not overwrite set values with empty values
 	 * @param array $rpage (a database row)
 	 */
