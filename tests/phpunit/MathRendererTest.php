@@ -41,7 +41,6 @@ class MathRendererTest extends MediaWikiIntegrationTestCase {
 			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
 				'writeToCache',
 					'render',
-					'getMathTableName',
 					'getHtmlOutput'
 				] )->getMock();
 		$renderer->expects( $this->never() )->method( 'writeToCache' );
@@ -58,7 +57,6 @@ class MathRendererTest extends MediaWikiIntegrationTestCase {
 			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
 				'writeToCache',
 					'render',
-					'getMathTableName',
 					'getHtmlOutput'
 				] )->getMock();
 		$renderer->expects( $this->never() )->method( 'writeToCache' );
@@ -70,7 +68,6 @@ class MathRendererTest extends MediaWikiIntegrationTestCase {
 		$renderer =
 			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
 					'render',
-					'getMathTableName',
 					'getHtmlOutput'
 				] )->getMock();
 		/** @var MathRenderer $renderer */
@@ -85,7 +82,6 @@ class MathRendererTest extends MediaWikiIntegrationTestCase {
 		$renderer =
 			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
 					'render',
-					'getMathTableName',
 					'getHtmlOutput',
 				'readFromCache',
 					'setTex'
@@ -104,7 +100,6 @@ class MathRendererTest extends MediaWikiIntegrationTestCase {
 		$renderer =
 			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
 					'render',
-					'getMathTableName',
 					'getHtmlOutput',
 				'readFromCache',
 					'setTex'
@@ -123,9 +118,8 @@ class MathRendererTest extends MediaWikiIntegrationTestCase {
 		$renderer =
 			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
 					'render',
-					'getMathTableName',
 					'getHtmlOutput',
-				'readFromCache',
+					'readFromCache',
 					'setTex'
 				] )->setConstructorArgs( [ self::TEXVCCHECK_INPUT ] )->getMock();
 		$renderer->expects( $this->once() )->method( 'readFromCache' )
@@ -145,9 +139,8 @@ class MathRendererTest extends MediaWikiIntegrationTestCase {
 		$renderer =
 			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
 					'render',
-					'getMathTableName',
 					'getHtmlOutput',
-				'readFromCache',
+					'readFromCache',
 					'setTex'
 				] )->setConstructorArgs( [ self::TEXVCCHECK_INPUT ] )->getMock();
 		$renderer->expects( $this->once() )->method( 'readFromCache' )

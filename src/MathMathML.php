@@ -406,13 +406,6 @@ class MathMathML extends MathRenderer {
 	}
 
 	/**
-	 * @return string
-	 */
-	protected function getMathTableName() {
-		return 'mathoid';
-	}
-
-	/**
 	 * Calculates the default class name for a math element
 	 * @param bool $fallback
 	 * @return string the class name
@@ -500,10 +493,8 @@ class MathMathML extends MathRenderer {
 	/** @inheritDoc */
 	protected function dbOutArray() {
 		$out = parent::dbOutArray();
-		if ( $this->getMathTableName() === 'mathoid' ) {
-			$out['math_input'] = $out['math_inputtex'];
-			unset( $out['math_inputtex'] );
-		}
+		$out['math_input'] = $out['math_inputtex'];
+		unset( $out['math_inputtex'] );
 		return $out;
 	}
 
@@ -511,7 +502,7 @@ class MathMathML extends MathRenderer {
 	public function initializeFromCache( $rpage ) {
 		// mathoid allows different input formats
 		// therefore the column name math_inputtex was changed to math_input
-		if ( $this->getMathTableName() === 'mathoid' && isset( $rpage['math_input'] ) ) {
+		if ( isset( $rpage['math_input'] ) ) {
 			$this->userInputTex = $rpage['math_input'];
 		}
 		parent::initializeFromCache( $rpage );

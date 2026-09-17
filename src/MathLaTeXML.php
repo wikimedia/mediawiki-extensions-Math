@@ -153,10 +153,17 @@ class MathLaTeXML extends MathMathML {
 	}
 
 	/**
-	 * @return string
+	 * The math_input/math_inputtex swap in MathMathML is mathoid-specific;
+	 * skip it here to keep the cache key MathLaTeXML has always used.
+	 * @inheritDoc
 	 */
-	protected function getMathTableName() {
-		return 'mathlatexml';
+	protected function dbOutArray() {
+		return MathRenderer::dbOutArray();
+	}
+
+	/** @inheritDoc */
+	public function initializeFromCache( $rpage ) {
+		MathRenderer::initializeFromCache( $rpage );
 	}
 }
 

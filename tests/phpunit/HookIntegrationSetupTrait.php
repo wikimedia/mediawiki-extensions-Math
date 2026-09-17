@@ -91,13 +91,6 @@ trait HookIntegrationSetupTrait {
 					/**
 					 * @return string
 					 */
-					protected function getMathTableName() {
-						return 'whatever';
-					}
-
-					/**
-					 * @return string
-					 */
 					public function getMode(): string {
 						return $this->mode;
 					}

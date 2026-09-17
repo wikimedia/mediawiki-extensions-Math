@@ -54,10 +54,6 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 					public function getHtmlOutput( bool $svg = true ): string {
 						return "<render>$this->mode:$this->tex</render>";
 					}
-
-					protected function getMathTableName() {
-						return 'whatever';
-					}
 				};
 			}
 		} );

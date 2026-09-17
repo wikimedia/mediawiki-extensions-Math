@@ -50,16 +50,6 @@ class MathLaTeXMLCacheTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers \MediaWiki\Extension\Math\MathLaTeXML::getMathTableName
-	 */
-	public function testTableName() {
-		$fnGetMathTableName = self::getMethod( 'getMathTableName' );
-		$obj = new MathLaTeXML();
-		$tableName = $fnGetMathTableName->invokeArgs( $obj, [] );
-		$this->assertEquals( "mathlatexml", $tableName, "Wrong latexml table name" );
-	}
-
-	/**
 	 * Checks database access. Writes an entry and reads it back.
 	 * @covers \MediaWiki\Extension\Math\MathRenderer::writeToCache
 	 * @covers \MediaWiki\Extension\Math\MathRenderer::readFromCache

@@ -226,10 +226,4 @@ class MathMathMLTest extends MediaWikiIntegrationTestCase {
 		$renderStatus = $math->doRender();
 		$this->assertStatusError( 'math_empty_tex', $renderStatus );
 	}
-
-	public function testgetMathTableName() {
-		$math = TestingAccessWrapper::newFromObject( new MathMathML( '' ) );
-		$tableName = $math->getMathTableName();
-		$this->assertEquals( 'mathoid', $tableName );
-	}
 }

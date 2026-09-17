@@ -554,11 +554,6 @@ abstract class MathRenderer {
 		return trim( $this->svg );
 	}
 
-	/**
-	 * @return string
-	 */
-	abstract protected function getMathTableName();
-
 	protected function getModeName(): Message {
 		return MediaWikiServices::getInstance()
 			->get( 'Math.Config' )
