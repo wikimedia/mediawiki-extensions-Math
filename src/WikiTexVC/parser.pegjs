@@ -437,6 +437,9 @@ LATEX_UNIT
   / "nd"
   / "nc"
 
+  // not a real LaTeX unit, but common in user input and valid CSS as-is (T438415)
+  / "px"
+
 NEXT_ROW
  = ("\\\\" s:("[" l:LATEX_LENGTH "]" { return $l; })?  _  {return $s; })
 

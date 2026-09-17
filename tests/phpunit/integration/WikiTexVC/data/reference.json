@@ -2199,6 +2199,11 @@
 		"bug": "T417869",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mtext>X</mtext><mo>,</mo><mtext>1mod2</mtext></mstyle></mrow></math>"
 	},
+	"f1f3a1c0156c035acf92b75e01b37691": {
+		"input": "\\begin{aligned} a &= b \\\\[30px] c &= d \\end{aligned}",
+		"bug": "T438415",
+		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mtable displaystyle=\"true\"><mtr><mtd style=\"padding-bottom: 30px;\" class=\"mwe-math-columnalign-r\"><mi>a</mi></mtd><mtd style=\"padding-bottom: 30px;\" class=\"mwe-math-columnalign-l\"><mo stretchy=\"false\">=</mo><mi>b</mi></mtd></mtr><mtr><mtd class=\"mwe-math-columnalign-r\"><mi>c</mi></mtd><mtd class=\"mwe-math-columnalign-l\"><mo stretchy=\"false\">=</mo><mi>d</mi></mtd></mtr></mtable></mstyle></mrow></math>"
+	},
 	"f1f4d69c62b164210dbb31a1654e8f06": {
 		"input": "\\color{SkyBlue}\\text{SkyBlue}",
 		"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mstyle mathcolor=\"#46C5DD\"><mrow data-mjx-texclass=\"ORD\"><mtext>SkyBlue</mtext></mrow></mstyle></mstyle></mrow></math>"
