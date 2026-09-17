@@ -4,12 +4,8 @@ use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\Extension\Math\Tests\MathMockHttpTrait;
 
 /**
- * Test the database access and core functionality of MathRenderer.
- *
  * @covers \MediaWiki\Extension\Math\MathRenderer
- *
  * @group Math
- *
  * @license GPL-2.0-or-later
  */
 class MathRendererTest extends MediaWikiIntegrationTestCase {
@@ -21,8 +17,6 @@ class MathRendererTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * Checks the tex and hash functions
-	 * @covers \MediaWiki\Extension\Math\MathRenderer::getTex
-	 * @covers \MediaWiki\Extension\Math\MathRenderer::__construct
 	 */
 	public function testBasics() {
 		$renderer = $this->getMockForAbstractClass( MathRenderer::class, [ self::SOME_TEX ] );
@@ -33,34 +27,33 @@ class MathRendererTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * Test behavior of writeCache() when nothing was changed
-	 * @covers \MediaWiki\Extension\Math\MathRenderer::writeCache
+	 * Nothing was changed
 	 */
 	public function testWriteCacheSkip() {
 		$renderer =
 			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
-				'writeToCache',
+					'dbOutArray',
 					'render',
 					'getHtmlOutput'
 				] )->getMock();
-		$renderer->expects( $this->never() )->method( 'writeToCache' );
+		$renderer->expects( $this->never() )->method( 'dbOutArray' );
 		/** @var MathRenderer $renderer */
 		$renderer->writeCache();
 	}
 
 	/**
-	 * Test behavior of writeCache() when values were changed.
-	 * @covers \MediaWiki\Extension\Math\MathRenderer::writeCache
+	 * Value was changed
 	 */
 	public function testWriteCache() {
 		$renderer =
 			$this->getMockBuilder( MathRenderer::class )->onlyMethods( [
-				'writeToCache',
+					'dbOutArray',
 					'render',
 					'getHtmlOutput'
 				] )->getMock();
-		$renderer->expects( $this->never() )->method( 'writeToCache' );
+		$renderer->expects( $this->once() )->method( 'dbOutArray' );
 		/** @var MathRenderer $renderer */
+		$renderer->setPurge();
 		$renderer->writeCache();
 	}
 

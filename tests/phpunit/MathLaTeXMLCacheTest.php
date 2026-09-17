@@ -51,12 +51,11 @@ class MathLaTeXMLCacheTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * Checks database access. Writes an entry and reads it back.
-	 * @covers \MediaWiki\Extension\Math\MathRenderer::writeToCache
-	 * @covers \MediaWiki\Extension\Math\MathRenderer::readFromCache
+	 * @covers \MediaWiki\Extension\Math\MathRenderer
 	 */
 	public function testDBBasics() {
 		$this->setValues();
-		$this->renderer->writeToCache();
+		$this->renderer->writeCache();
 
 		$renderer2 = $this->renderer = new MathLaTeXML( self::SOME_TEX );
 		$renderer2->readFromCache();

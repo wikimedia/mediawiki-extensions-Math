@@ -44,12 +44,11 @@ class MathCacheTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * Checks database access. Writes an entry and reads it back.
-	 * @covers \MediaWiki\Extension\Math\MathRenderer::writeToCache
-	 * @covers \MediaWiki\Extension\Math\MathRenderer::readFromCache
+	 * @covers \MediaWiki\Extension\Math\MathRenderer
 	 */
 	public function testDBBasics() {
 		$this->setValues();
-		$this->renderer->writeToCache();
+		$this->renderer->writeCache();
 		$renderer2 = new MathMathML( self::SOME_TEX, [ 'display' => '' ] );
 		$this->assertTrue( $renderer2->readFromCache(), 'Reading from database failed' );
 		// comparing the class object does now work due to null values etc.

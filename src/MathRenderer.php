@@ -218,26 +218,11 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * Writes rendering entry to cache.
-	 *
-	 * WARNING: Use writeCache() instead of this method to be sure that all
-	 * renderer specific (such as squid caching) are taken into account.
-	 * This function stores the values that are currently present in the class
-	 * to the cache even if they are empty.
-	 *
-	 * This function can be seen as protected function.
-	 */
-	public function writeToCache() {
-		$outArray = $this->dbOutArray();
-		$this->cache->set( $this->getCacheKey(), $outArray );
-	}
-
-	/**
 	 * Gets an array that matches the variables of the class to the database columns
 	 * @return array
 	 */
 	protected function dbOutArray() {
-		$out = [
+		return [
 			'math_inputhash' => $this->getInputHash(),
 			'math_mathml' => $this->mathml,
 			'math_inputtex' => $this->userInputTex,
@@ -245,7 +230,6 @@ abstract class MathRenderer {
 			'math_svg' => $this->svg,
 			'math_mode' => $this->mode
 		];
-		return $out;
 	}
 
 	/**
@@ -306,7 +290,9 @@ abstract class MathRenderer {
 		$this->debug( 'Writing of cache requested' );
 		if ( $this->isChanged() ) {
 			$this->debug( 'Change detected. Perform writing' );
-			$this->writeToCache();
+			// Write rendering entry to cache
+			$outArray = $this->dbOutArray();
+			$this->cache->set( $this->getCacheKey(), $outArray );
 			return true;
 		} else {
 			$this->debug( "Nothing was changed. Don't write to database" );
