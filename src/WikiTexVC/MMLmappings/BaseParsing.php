@@ -493,6 +493,11 @@ class BaseParsing {
 			$innerInnter = [];
 			$colNo = 0;
 			$isEmptyLine = true;
+			$rowAttributes = [];
+			$rowSpecs = $row->getRowSpecs();
+			if ( $rowSpecs ) {
+				$rowAttributes['style'] = "padding-bottom: {$rowSpecs->getCssLength()};";
+			}
 			foreach ( $row  as $cell ) {
 				$usedArg = clone $cell;
 				if ( $usedArg instanceof TexArray &&
@@ -505,7 +510,7 @@ class BaseParsing {
 						$usedArg->pop();
 					}
 				}
-				$mtdAttributes = [];
+				$mtdAttributes = $rowAttributes;
 				$texclass = $lines[$rowNo] ? TexClass::TOP : '';
 				$texclass .= $lines[$rowNo + 1] ?? false ? ' ' . TexClass::BOTTOM : '';
 				$texclass .= $boarder[$colNo] ?? false ? ' ' . TexClass::LEFT : '';
