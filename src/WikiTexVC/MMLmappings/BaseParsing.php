@@ -119,9 +119,13 @@ class BaseParsing {
 		$mtable  = new MMLmtable( '', [ 'displaystyle' => 'true' ] );
 		$inner = [];
 		$align ??= $node->getAlign();
+		$rowNo = 0;
+		$rowCount = count( $node->getArgs() );
 		foreach ( $node as $tableRow ) {
+			$rowNo++;
 			$mtds = [];
 			$colNo = 0;
+			$isEmptyLine = true;
 			$attributes = [];
 			$rowSpecs = $tableRow->getRowSpecs();
 			if ( $rowSpecs ) {
@@ -134,10 +138,15 @@ class BaseParsing {
 					$class .= ' mwe-math-columnalign-' . $align[$colNo];
 				}
 				$class = trim( $class );
+				$isEmptyLine = $isEmptyLine && $tableCell->isEmpty();
 				$mtds[] = new MMLmtd( "",
 					$attributes + ( $class ? [ 'class' => $class ] : [] ),
 					$tableCell->toMMLtree() );
 				$colNo++;
+			}
+			// empty trailing lines with only one empty cell should not be rendered
+			if ( $rowNo === $rowCount && $colNo === 1 && $isEmptyLine ) {
+				continue;
 			}
 			$inner[] = new MMLmtr( "", [], ...$mtds );
 		}
