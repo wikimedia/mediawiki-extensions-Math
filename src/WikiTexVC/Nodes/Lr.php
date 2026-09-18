@@ -44,22 +44,16 @@ class Lr extends TexNode {
 
 	/** @inheritDoc */
 	public function toMMLTree( $arguments = [], &$state = [] ): MMLbase {
-		// TBD  set attributes for right AND left correctly
-		$rightAttrs = [];
-		if ( $this->right == "." ) {
-			$rightAttrs = [ "fence" => "true", "stretchy" => "true", "symmetric" => "true" ];
-		}
-
 		$bm = new BaseMethods();
-		$left = $bm->checkAndParseDelimiter( $this->left, $this, [], null, true,
+		$left = $bm->checkAndParseDelimiter( $this->left, $this, [], null, false,
 			TexClass::OPEN );
 		if ( $left->isEmpty() ) {
 			$left = new MMLmo( TexClass::OPEN, [], $this->right );
 		}
-		$right = $bm->checkAndParseDelimiter( $this->right, $this, $rightAttrs, null, true,
+		$right = $bm->checkAndParseDelimiter( $this->right, $this, [], null, false,
 			TexClass::CLOSE );
 		if ( $right->isEmpty() ) {
-			$right = new MMLmo( TexClass::CLOSE, $rightAttrs, $this->right );
+			$right = new MMLmo( TexClass::CLOSE, [], $this->right );
 		}
 		// Don't apply an outer prime inside the LR structure.
 		$innerState = $state;

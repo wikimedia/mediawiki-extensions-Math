@@ -36,18 +36,12 @@
 	},
 	"(": {
 		"delimiter": [
-			"(",
-			{
-				"stretchy": "false"
-			}
+			"("
 		]
 	},
 	")": {
 		"delimiter": [
-			")",
-			{
-				"stretchy": "false"
-			}
+			")"
 		]
 	},
 	"*": {
@@ -104,7 +98,11 @@
 	},
 	".": {
 		"delimiter": [
-			""
+			"",
+			{
+				"stretchy": "true",
+				"symmetric": "true"
+			}
 		],
 		"operator_infix": [
 			" [0, 3], MmlNode_js_1.TEXCLASS.PUNCT\"], { separator=> [ true }]"
@@ -112,7 +110,11 @@
 	},
 	"/": {
 		"delimiter": [
-			"/"
+			"/",
+			{
+				"stretchy": "true",
+				"symmetric": "true"
+			}
 		],
 		"operator_infix": [
 			" exports.MO.ORD11",
@@ -432,10 +434,7 @@
 	},
 	"[": {
 		"delimiter": [
-			"[",
-			{
-				"stretchy": "false"
-			}
+			"["
 		]
 	},
 	"\\": {
@@ -1266,7 +1265,11 @@
 	},
 	"\\backslash": {
 		"delimiter": [
-			"\\"
+			"\\",
+			{
+				"stretchy": "true",
+				"symmetric": "true"
+			}
 		],
 		"identifier": [
 			"∖",
@@ -6192,11 +6195,7 @@
 	},
 	"\\{": {
 		"delimiter": [
-			"{",
-			{
-				"fence": "false",
-				"stretchy": "false"
-			}
+			"{"
 		]
 	},
 	"\\|": {
@@ -6206,19 +6205,12 @@
 	},
 	"\\}": {
 		"delimiter": [
-			"}",
-			{
-				"fence": "false",
-				"stretchy": "false"
-			}
+			"}"
 		]
 	},
 	"]": {
 		"delimiter": [
-			"]",
-			{
-				"stretchy": "false"
-			}
+			"]"
 		]
 	},
 	"^": {
