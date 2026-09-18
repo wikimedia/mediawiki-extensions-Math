@@ -44,6 +44,10 @@ QUnit.module( 'ext.math.mathjax.mml', () => {
 		'restores all four outer table borders': {
 			input: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mtable><mtr><mtd class="mwe-math-matrix-top mwe-math-matrix-left"><mi>a</mi></mtd><mtd class="mwe-math-matrix-top mwe-math-matrix-right"><mi>b</mi></mtd></mtr><mtr><mtd class="mwe-math-matrix-bottom mwe-math-matrix-left"><mi>c</mi></mtd><mtd class="mwe-math-matrix-bottom mwe-math-matrix-right"><mi>d</mi></mtd></mtr></mtable></math>',
 			expected: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mtable columnspacing="1em" rowspacing="4pt" framespacing=".5em .125em" frame="solid"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable></math>'
+		},
+		'restores rowspacing from a `\\\\[20pt]` row-break, defaulting the other gap': {
+			input: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mtable><mtr><mtd style="padding-bottom: 20pt;"><mi>a</mi></mtd><mtd style="padding-bottom: 20pt;"><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr><mtr><mtd><mi>e</mi></mtd><mtd><mi>f</mi></mtd></mtr></mtable></math>',
+			expected: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mtable rowspacing="20pt 4pt"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr><mtr><mtd><mi>e</mi></mtd><mtd><mi>f</mi></mtd></mtr></mtable></math>'
 		}
 	}, ( assert, testCase ) => {
 		const document = parseMathML( testCase.input );
@@ -54,6 +58,17 @@ QUnit.module( 'ext.math.mathjax.mml', () => {
 			normalizeNode( document ),
 			normalizeNode( parseMathML( testCase.expected ) )
 		);
+	} );
+
+	QUnit.test( 'leave a multi-row matrix without any row-break spacing unchanged', ( assert ) => {
+		const document = parseMathML(
+			`<math xmlns="${ MATHML_NS }"><mtable><mtr><mtd><mi>a</mi></mtd></mtr><mtr><mtd><mi>b</mi></mtd></mtr></mtable></math>`
+		);
+		const mtable = document.getElementsByTagName( 'mtable' )[ 0 ];
+
+		mmlFilter( { data: document } );
+
+		assert.strictEqual( mtable.getAttribute( 'rowspacing' ), null );
 	} );
 
 	QUnit.test( 'leave regular matrices unchanged', ( assert ) => {

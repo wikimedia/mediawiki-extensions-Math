@@ -107,6 +107,47 @@ function transformMatrixBorders( data ) {
 }
 
 /**
+ * Restore rowspacing from the padding-bottom.
+ *
+ * @param {Document|Element} data MathML DOM to transform
+ */
+function transformRowSpacing( data ) {
+	const mtables = Array.from( data.getElementsByTagName( 'mtable' ) );
+
+	for ( const mtable of mtables ) {
+		const rows = Array.from( mtable.childNodes ).filter( ( child ) => child.localName === 'mtr' );
+		if ( rows.length < 2 ) {
+			continue;
+		}
+
+		const gaps = [];
+		let hasCustomGap = false;
+		for ( let i = 0; i < rows.length - 1; i++ ) {
+			const cells = Array.from( rows[ i ].childNodes ).filter( ( child ) => child.localName === 'mtd' );
+			const spacedCell = cells.find( ( cell ) => cell.style && cell.style.paddingBottom );
+			if ( spacedCell ) {
+				hasCustomGap = true;
+				gaps.push( spacedCell.style.paddingBottom );
+			} else {
+				// MathJax's own array default (T438441).
+				// swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1942-1949
+				gaps.push( '4pt' );
+			}
+			for ( const cell of cells ) {
+				cell.style.removeProperty( 'padding-bottom' );
+				if ( !cell.getAttribute( 'style' ) ) {
+					cell.removeAttribute( 'style' );
+				}
+			}
+		}
+
+		if ( hasCustomGap ) {
+			mtable.setAttribute( 'rowspacing', gaps.join( ' ' ) );
+		}
+	}
+}
+
+/**
  * Restore menclose elements represented by Core-compatible mrows.
  *
  * The first child contains the semantic content. The notation is encoded in
@@ -169,6 +210,7 @@ function mmlFilter( { data } ) {
 	// From https://github.com/mathjax/MathJax/issues/3540
 	transformSmallMatrices( data );
 	transformMatrixBorders( data );
+	transformRowSpacing( data );
 	transformMenclose( data );
 	transformCancelTo( data );
 }
