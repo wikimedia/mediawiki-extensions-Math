@@ -702,8 +702,7 @@ class BaseParsing {
 	public static function underset( $node, $passedArgs, $operatorContent, $name, $smh = null ): MMLbase {
 		$inrow = $node->getArg2()->toMMLtree();
 		$arg1 = $node->getArg1()->toMMLtree();
-		// MMLarray may be empty
-		if ( $inrow->hasChildren() && $arg1->hasChildren() ) {
+		if ( !$inrow->isEmpty() && !$arg1->isEmpty() ) {
 			return new MMLmrow( TexClass::ORD, [], MMLmunder::newSubtree( $inrow, $arg1 ) );
 		}
 
