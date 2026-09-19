@@ -221,6 +221,7 @@
 		"remoteExtPath": "Math",
 		"scripts": [
 			"tests/qunit/mmlFilter.test.js",
+			"tests/qunit/mathjaxSvgReference.test.js",
 			"modules/ve-math/tests/ve.dm.Autocomplete.test.js"
 		],
 		"dependencies": [
