@@ -39,6 +39,7 @@ class FixNativeReferences extends Maintenance {
 		 Changes should be investigated manually.' );
 		$this->addOption( 'skip-svg', 'Skip regenerating client-side SVG snapshots '
 			. '(runs npm run qunit in a real browser; slow, requires Firefox).' );
+		$this->addOption( 'add', 'Add a reference entry for this TeX input', false, true );
 	}
 
 	public function execute() {
@@ -47,6 +48,11 @@ class FixNativeReferences extends Maintenance {
 		if ( array_is_list( $json ) ) {
 			$json = MathReferenceData::groupCases( $json );
 		}
+		if ( $this->hasOption( 'add' ) ) {
+			$input = $this->getOption( 'add' );
+			$json[hash( MathReferenceData::HASH_ALGORITHM, $input )] ??= [ 'input' => $input ];
+			ksort( $json );
+		}
 		$success = true;
 		$allEntries = [];
 		foreach ( $json as $hash => $entry ) {
@@ -54,18 +60,26 @@ class FixNativeReferences extends Maintenance {
 			$allEntries[$hash] = $entry;
 		}
 
+		// The QUnit snapshot fetches this file, so it must already hold the new MathML.
+		$this->writeReferences( $allEntries );
 		if ( $this->hasOption( 'skip-svg' ) ) {
 			$this->output( "Skipping SVG reference update (--skip-svg).\n" );
 		} else {
 			$this->updateSvgReferences( $allEntries );
+			$this->writeReferences( $allEntries );
 		}
-
-		file_put_contents( self::REFERENCE_PATH, FormatJson::encode( $allEntries, "\t", FormatJson::ALL_OK )
-			. "\n" );
 		if ( !$success ) {
 			$this->fatalError( "Some entries were skipped. Please investigate.\n" );
 		}
 		$this->output( "Regression.json successfully updated.\n" );
+	}
+
+	/**
+	 * @param array<string,array> $allEntries
+	 */
+	private function writeReferences( array $allEntries ): void {
+		file_put_contents( self::REFERENCE_PATH, FormatJson::encode( $allEntries, "\t", FormatJson::ALL_OK )
+			. "\n" );
 	}
 
 	/**

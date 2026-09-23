@@ -341,4 +341,37 @@ f(x,y,z) & = & x + y + z
 		$result = $node->toMMLTree();
 		$this->assertSame( '', (string)$result, 'Misplaced limits should be ignored' );
 	}
+
+	public static function provideDots(): array {
+		return [
+			[ 'a+\\dots+b', '>&#x22EF;</mo>' ],
+			[ 'a\\wedge\\dots\\wedge b', '>&#x22EF;</mo>' ],
+			[ 'x_1<\\dots<x_n', '>&#x22EF;</mo>' ],
+			[ '\\dots\\not=', '>&#x22EF;</mo>' ],
+			[ '\\dots\\sum_i', '>&#x22EF;</mo>' ],
+			[ 'a\\ast\\dots\\ast b', '>&#x22EF;</mo>' ],
+			[ 'A\\supsetneq\\dots\\supsetneq B', '>&#x22EF;</mo>' ],
+			[ 'a\\triangleright\\dots\\triangleright b', '>&#x22EF;</mo>' ],
+			[ 'a\\uparrow\\dots\\uparrow b', '>&#x22EF;</mo>' ],
+			[ 'A\\xrightarrow{f}\\dots\\xrightarrow{g} B', '>&#x22EF;</mo>' ],
+			[ 'A\\xleftarrow[u]{f}\\dots\\xleftarrow[v]{g} B', '>&#x22EF;</mo>' ],
+			[ '\\dots\\frac{a}{b}', '>&#x2026;</mo>' ],
+			[ 'a_1,\\dots,a_n', '>&#x2026;</mo>' ],
+			[ 'f(\\dots)', '>&#x2026;</mo>' ],
+			[ 'a+\\dots', '>&#x2026;</mo>' ],
+			[ 'a_1,\\dots)', '&#x2026;</mo><mspace width="0.167em"' ],
+			[ '\\left(a_1,\\dots\\right)', '&#x2026;</mo><mspace width="0.167em"' ],
+			[ '\\{a_1,\\dots\\bigr\\}', '&#x2026;</mo><mspace width="0.167em"' ],
+			[ '\\dots\\int', '<mspace width="-0.167em"></mspace><mo>&#x22EF;' ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideDots
+	 * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray::checkForDots
+	 */
+	public function testDots( string $tex, string $expected ) {
+		$result = ( new TexVC() )->check( $tex )['input']->toMMLTree();
+		$this->assertStringContainsString( $expected, (string)$result );
+	}
 }

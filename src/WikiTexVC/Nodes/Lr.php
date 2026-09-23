@@ -58,6 +58,7 @@ class Lr extends TexNode {
 		// Don't apply an outer prime inside the LR structure.
 		$innerState = $state;
 		unset( $innerState['prime'] );
+		$innerState['beforeRight'] = true;
 		$inner = $this->getArg()->toMMLTree( [], $innerState );
 		return new MMLmrow( TexClass::INNER, [], $left, $inner, $right );
 	}

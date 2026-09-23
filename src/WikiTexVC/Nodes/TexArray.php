@@ -164,6 +164,33 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return [ $currentNode, true ];
 	}
 
+	/**
+	 * Classify the token after \dots, which is all amsmath's \mdots@@ looks at.
+	 * 'dotsb', 'dotsi' and 'dotso' are the amsmath variants. 'rightdelim' is \dotso
+	 * before a token accepted by \rightdelim@, which appends \,.
+	 * @see swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=1080-1253
+	 * @return string|null null if $currentNode is not \dots
+	 */
+	public function checkForDots( TexNode $currentNode, ?TexNode $nextNode, bool $beforeRight ): ?string {
+		if ( !( $currentNode instanceof Literal && trim( $currentNode->getArg() ) === '\\dots' ) ) {
+			return null;
+		}
+		if ( $nextNode === null ) {
+			return $beforeRight ? 'rightdelim' : 'dotso';
+		}
+		if ( $nextNode instanceof DQ || $nextNode instanceof FQ || $nextNode instanceof UQ ) {
+			$nextNode = $nextNode->getBase();
+		}
+		if ( $nextNode instanceof Literal ) {
+			$token = $nextNode->getArg();
+		} elseif ( $nextNode instanceof Big || $nextNode instanceof Fun1 || $nextNode instanceof Fun2 ) {
+			$token = $nextNode->getFname();
+		} else {
+			return 'dotso';
+		}
+		return TexUtil::getInstance()->dots_lookahead( trim( $token ) ) ?: 'dotso';
+	}
+
 	public function checkForNot( TexNode $currentNode ): bool {
 		if ( $currentNode instanceof Literal && trim( $currentNode->getArg() ) == "\\not" ) {
 			return true;
@@ -325,6 +352,9 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 			$this->squashLiterals( $arguments );
 		}
 		$this->squashNumbers();
+		// Only the last node of this array is followed by \right, not those of nested arrays.
+		$beforeRight = $state['beforeRight'] ?? false;
+		unset( $state['beforeRight'] );
 		$skip = 0;
 		foreach ( $this->args  as $key => $current ) {
 			$next = next( $this->args );
@@ -349,6 +379,11 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 				if ( $foundLimits[1] ) {
 					continue;
 				}
+			}
+
+			$foundDots = $this->checkForDots( $current, $next, $beforeRight );
+			if ( $foundDots ) {
+				$state['dots'] = $foundDots;
 			}
 
 			// Check for Not
@@ -413,6 +448,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 			unset( $state['foundNamedFct'] );
 			unset( $state['not'] );
 			unset( $state['limits'] );
+			unset( $state['dots'] );
 		}
 
 		while ( count( $mmlStyles ) > 1 ) {

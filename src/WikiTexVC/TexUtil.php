@@ -11,6 +11,7 @@ use InvalidArgumentException;
  * @method false|mixed cancel_required(string $getArg)
  * @method false|string color(string $getArg)
  * @method false|mixed delimiter(string $getArg)
+ * @method false|string dots_lookahead(string $getArg)
  * @method false|mixed identifier(string $getArg)
  * @method false|mixed is_literal(string $litArg)
  * @method false|mixed latex_function_names(string $getArg)

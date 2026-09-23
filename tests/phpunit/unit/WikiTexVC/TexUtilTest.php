@@ -62,6 +62,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'definecolor_function',
 			'delimiter',
 			'deprecated_nullary_macro_aliase',
+			'dots_lookahead',
 			'euro_required',
 			'fun_ar1',
 			'fun_ar1nb',
@@ -182,6 +183,14 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 				$this->assertEquals( $type, gettype( $tu->$set( $key ) ),
 					"$set should return a $type for $key" );
 			}
+		}
+	}
+
+	public function testDotsLookaheadValues() {
+		// The values BaseParsing::dots distinguishes; anything else silently renders as dotso.
+		$valid = [ 'dotsb', 'dotsi', 'rightdelim' ];
+		foreach ( TexUtil::getInstance()->getBaseElements()['dots_lookahead'] as $key => $value ) {
+			$this->assertContains( $value, $valid, "Invalid dots_lookahead for $key" );
 		}
 	}
 

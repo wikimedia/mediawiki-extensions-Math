@@ -219,8 +219,18 @@ class BaseParsing {
 	}
 
 	public static function dots( $node, $passedArgs, $operatorContent, $name, $smth = null, $smth2 = null ): MMLbase {
-		// lowerdots || centerdots seems aesthetical, just using lowerdots atm s
-		return new MMLmo( "", $passedArgs, "&#x2026;" );
+		switch ( $operatorContent['dots'] ?? 'dotso' ) {
+			case 'dotsb':
+				return new MMLmo( "", $passedArgs, "&#x22EF;" );
+			case 'dotsi':
+				return new MMLarray( ( new Literal( '\\!' ) )->toMMLTree(),
+					new MMLmo( "", $passedArgs, "&#x22EF;" ) );
+			case 'rightdelim':
+				return new MMLarray( new MMLmo( "", $passedArgs, "&#x2026;" ),
+					( new Literal( '\\,' ) )->toMMLTree() );
+			default:
+				return new MMLmo( "", $passedArgs, "&#x2026;" );
+		}
 	}
 
 	public static function genFrac( $node, $passedArgs, $operatorContent, $name,

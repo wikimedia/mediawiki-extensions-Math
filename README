@@ -31,3 +31,15 @@ from your MediaWiki home path.
 The math extension supports PSR-3 logging:
 Configuration can be dona via
 $wgDebugLogGroups['Math'] = [ 'level' => 'info', 'destination' => '/path/to/file.log' ];
+
+== Regression references ==
+tests/phpunit/integration/WikiTexVC/data/reference.json holds the expected
+native MathML and client-side SVG per input, keyed by the MD5 of the input.
+ChangesTest checks the MathML against it.
+
+To add a case, run this from the MediaWiki root (needs Firefox for the SVG):
+MW_SERVER=http://localhost MW_SCRIPT_PATH=/w php maintenance/run.php Math:FixNativeReferences --add 'a+\dots+b'
+MW_SERVER and MW_SCRIPT_PATH are examples; set them to your local wiki.
+Without --add it only regenerates the existing entries.
+It fills "output" and "svg". It also rewrites every other entry, so review
+the whole diff.

@@ -42,9 +42,11 @@
 	")": {
 		"delimiter": [
 			")"
-		]
+		],
+		"dots_lookahead": "rightdelim"
 	},
 	"*": {
+		"dots_lookahead": "dotsb",
 		"operator_infix": [
 			" exports.MO.BIN3"
 		],
@@ -63,6 +65,7 @@
 		]
 	},
 	"+": {
+		"dots_lookahead": "dotsb",
 		"operator_infix": [
 			" exports.MO.BIN4"
 		]
@@ -79,6 +82,7 @@
 		]
 	},
 	"-": {
+		"dots_lookahead": "dotsb",
 		"operator_infix": [
 			" exports.MO.BIN4"
 		],
@@ -132,6 +136,7 @@
 		]
 	},
 	":": {
+		"dots_lookahead": "dotsb",
 		"operator_infix": [
 			" [1, 2], MmlNode_js_1.TEXCLASS.REL\"], null]"
 		]
@@ -151,6 +156,7 @@
 		"delimiter": [
 			"⟨"
 		],
+		"dots_lookahead": "dotsb",
 		"operator_infix": [
 			" exports.MO.REL",
 			true
@@ -167,6 +173,7 @@
 		]
 	},
 	"=": {
+		"dots_lookahead": "dotsb",
 		"operator_infix": [
 			" exports.MO.REL"
 		]
@@ -190,6 +197,7 @@
 		"delimiter": [
 			"⟩"
 		],
+		"dots_lookahead": "dotsb",
 		"operator_infix": [
 			" exports.MO.REL",
 			true
@@ -564,7 +572,8 @@
 			"makeBig",
 			"CLOSE",
 			1.75
-		]
+		],
+		"dots_lookahead": "rightdelim"
 	},
 	"\\Bigl": {
 		"big_literals": true,
@@ -580,7 +589,8 @@
 			"makeBig",
 			"CLOSE",
 			1.15
-		]
+		],
+		"dots_lookahead": "rightdelim"
 	},
 	"\\Box": {
 		"ams_required": true,
@@ -775,12 +785,14 @@
 		"nullary_macro_aliase": "\\Leftarrow"
 	},
 	"\\Leftarrow": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⇐"
 		]
 	},
 	"\\Leftrightarrow": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⇔"
@@ -939,6 +951,7 @@
 		"nullary_macro_aliase": "\\mathrm{P}"
 	},
 	"\\Rightarrow": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⇒"
@@ -1166,6 +1179,7 @@
 		"nullary_macro": true
 	},
 	"\\approx": {
+		"dots_lookahead": "dotsb",
 		"mhchem_single_macro": true,
 		"nullary_macro": true,
 		"operator_rendering": [
@@ -1213,6 +1227,7 @@
 		]
 	},
 	"\\ast": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∗"
@@ -1386,6 +1401,7 @@
 		]
 	},
 	"\\bigcap": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator": true,
 		"operator_rendering": [
@@ -1403,6 +1419,7 @@
 		]
 	},
 	"\\bigcup": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator": true,
 		"operator_rendering": [
@@ -1434,7 +1451,8 @@
 			"makeBig",
 			"CLOSE",
 			1.45
-		]
+		],
+		"dots_lookahead": "rightdelim"
 	},
 	"\\bigl": {
 		"big_literals": true,
@@ -1452,6 +1470,7 @@
 		]
 	},
 	"\\bigodot": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator": true,
 		"operator_rendering": [
@@ -1462,6 +1481,7 @@
 		]
 	},
 	"\\bigoplus": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator": true,
 		"operator_rendering": [
@@ -1472,6 +1492,7 @@
 		]
 	},
 	"\\bigotimes": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator": true,
 		"operator_rendering": [
@@ -1487,9 +1508,11 @@
 			"makeBig",
 			"CLOSE",
 			0.85
-		]
+		],
+		"dots_lookahead": "rightdelim"
 	},
 	"\\bigsqcup": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator": true,
 		"operator_rendering": [
@@ -1522,6 +1545,7 @@
 		]
 	},
 	"\\biguplus": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator": true,
 		"operator_rendering": [
@@ -1532,6 +1556,7 @@
 		]
 	},
 	"\\bigvee": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator": true,
 		"operator_rendering": [
@@ -1542,6 +1567,7 @@
 		]
 	},
 	"\\bigwedge": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator": true,
 		"operator_rendering": [
@@ -1713,6 +1739,7 @@
 		"nullary_macro_aliase": "\\bullet"
 	},
 	"\\bullet": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∙"
@@ -1759,6 +1786,7 @@
 		"fun_ar2": true
 	},
 	"\\cap": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∩"
@@ -1780,6 +1808,7 @@
 		]
 	},
 	"\\cdot": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⋅"
@@ -1855,6 +1884,7 @@
 		"fun_infix": true
 	},
 	"\\circ": {
+		"dots_lookahead": "dotsb",
 		"mhchem_single_macro": true,
 		"nullary_macro": true,
 		"operator_rendering": [
@@ -1949,6 +1979,7 @@
 		"nullary_macro": true
 	},
 	"\\cong": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"≅"
@@ -1960,6 +1991,7 @@
 		"unicode_char": "ϙ"
 	},
 	"\\coprod": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator": true,
 		"operator_rendering": [
@@ -1990,6 +2022,7 @@
 		"latex_function_names": true
 	},
 	"\\cup": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∪"
@@ -2213,6 +2246,7 @@
 		"nullary_macro": true
 	},
 	"\\div": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"÷"
@@ -2443,6 +2477,7 @@
 		]
 	},
 	"\\equiv": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"≡"
@@ -2545,6 +2580,7 @@
 		"operator": true
 	},
 	"\\ge": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro_aliase": "\\geq",
 		"operator_rendering": [
 			"≥"
@@ -2571,6 +2607,7 @@
 		]
 	},
 	"\\geq": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"≥"
@@ -2597,6 +2634,7 @@
 		]
 	},
 	"\\gg": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"≫"
@@ -2819,6 +2857,7 @@
 			"macro",
 			"\\;\\Longleftrightarrow\\;"
 		],
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true
 	},
 	"\\iiiint": {
@@ -2830,6 +2869,7 @@
 	},
 	"\\iiint": {
 		"ams_required": true,
+		"dots_lookahead": "dotsi",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∭",
@@ -2838,6 +2878,7 @@
 	},
 	"\\iint": {
 		"ams_required": true,
+		"dots_lookahead": "dotsi",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∬",
@@ -2860,9 +2901,11 @@
 			"macro",
 			"\\;\\Longrightarrow\\;"
 		],
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true
 	},
 	"\\in": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∈"
@@ -2895,6 +2938,7 @@
 		"operator": true
 	},
 	"\\int": {
+		"dots_lookahead": "dotsi",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∫",
@@ -3006,6 +3050,7 @@
 		"nullary_macro": true
 	},
 	"\\land": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∧"
@@ -3054,6 +3099,7 @@
 		]
 	},
 	"\\le": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro_aliase": "\\leq",
 		"operator_rendering": [
 			"≤"
@@ -3068,6 +3114,7 @@
 		"left_function": true
 	},
 	"\\leftarrow": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"←"
@@ -3100,6 +3147,7 @@
 		]
 	},
 	"\\leftrightarrow": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"↔"
@@ -3134,6 +3182,7 @@
 		]
 	},
 	"\\leq": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"≤"
@@ -3256,6 +3305,7 @@
 		"operator": true
 	},
 	"\\ll": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"≪"
@@ -3409,6 +3459,7 @@
 		]
 	},
 	"\\lor": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∨"
@@ -3465,6 +3516,7 @@
 		]
 	},
 	"\\mapsto": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"↦",
@@ -3731,6 +3783,7 @@
 		"nullary_macro": true
 	},
 	"\\mid": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∣"
@@ -3768,6 +3821,7 @@
 		]
 	},
 	"\\mp": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∓"
@@ -3861,6 +3915,7 @@
 		]
 	},
 	"\\ne": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro_aliase": "\\neq",
 		"operator_rendering": [
 			"≠"
@@ -3900,6 +3955,7 @@
 		]
 	},
 	"\\neq": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"≠"
@@ -3953,6 +4009,7 @@
 		]
 	},
 	"\\ni": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∋"
@@ -4024,6 +4081,7 @@
 	},
 	"\\not": {
 		"callback": "not",
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true
 	},
 	"\\notChar": {
@@ -4203,6 +4261,7 @@
 		]
 	},
 	"\\odot": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⊙",
@@ -4240,6 +4299,7 @@
 			"\\u222E",
 			[]
 		],
+		"dots_lookahead": "dotsi",
 		"nullary_macro": true
 	},
 	"\\ointctrclockwise": {
@@ -4273,6 +4333,7 @@
 		"nullary_macro_aliase": "o"
 	},
 	"\\ominus": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⊖",
@@ -4290,6 +4351,7 @@
 		"ignore_identifier": true
 	},
 	"\\oplus": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⊕",
@@ -4311,6 +4373,7 @@
 		]
 	},
 	"\\otimes": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⊗",
@@ -4399,6 +4462,7 @@
 		"color_required": true
 	},
 	"\\parallel": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∥"
@@ -4414,6 +4478,7 @@
 		"nullary_macro": true
 	},
 	"\\perp": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⊥"
@@ -4452,6 +4517,7 @@
 		"nullary_macro_aliase": "\\pm"
 	},
 	"\\pm": {
+		"dots_lookahead": "dotsb",
 		"mhchem_single_macro": true,
 		"nullary_macro": true,
 		"operator_rendering": [
@@ -4488,6 +4554,7 @@
 		]
 	},
 	"\\prec": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"≺"
@@ -4508,6 +4575,7 @@
 		]
 	},
 	"\\preceq": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⪯"
@@ -4548,6 +4616,7 @@
 		]
 	},
 	"\\prod": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator": true,
 		"operator_rendering": [
@@ -4567,6 +4636,7 @@
 		"operator": true
 	},
 	"\\propto": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∝"
@@ -4622,6 +4692,7 @@
 		"delimiter": [
 			"⟩"
 		],
+		"dots_lookahead": "rightdelim",
 		"other_delimiters1": true
 	},
 	"\\rarr": {
@@ -4631,18 +4702,21 @@
 		"delimiter": [
 			"}"
 		],
+		"dots_lookahead": "rightdelim",
 		"other_delimiters1": true
 	},
 	"\\rbrack": {
 		"delimiter": [
 			"]"
 		],
+		"dots_lookahead": "rightdelim",
 		"other_delimiters1": true
 	},
 	"\\rceil": {
 		"delimiter": [
 			"⌉"
 		],
+		"dots_lookahead": "rightdelim",
 		"other_delimiters1": true
 	},
 	"\\real": {
@@ -4661,12 +4735,14 @@
 		"delimiter": [
 			"⌋"
 		],
+		"dots_lookahead": "rightdelim",
 		"other_delimiters1": true
 	},
 	"\\rgroup": {
 		"delimiter": [
 			"⟯"
-		]
+		],
+		"dots_lookahead": "rightdelim"
 	},
 	"\\rhd": {
 		"operator_rendering": [
@@ -4685,6 +4761,7 @@
 		"right_function": true
 	},
 	"\\rightarrow": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"→"
@@ -4765,7 +4842,8 @@
 	"\\rmoustache": {
 		"delimiter": [
 			"⎱"
-		]
+		],
+		"dots_lookahead": "rightdelim"
 	},
 	"\\rtimes": {
 		"ams_required": true,
@@ -4823,6 +4901,7 @@
 		"mediawiki_function_names": true
 	},
 	"\\setminus": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∖"
@@ -4882,12 +4961,14 @@
 		"nullary_macro": true
 	},
 	"\\sim": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∼"
 		]
 	},
 	"\\simeq": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"≃"
@@ -5063,12 +5144,14 @@
 		"nullary_macro_aliase": "\\subseteq"
 	},
 	"\\subset": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⊂"
 		]
 	},
 	"\\subseteq": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⊆"
@@ -5103,6 +5186,7 @@
 		]
 	},
 	"\\succ": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"≻"
@@ -5123,6 +5207,7 @@
 		]
 	},
 	"\\succeq": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⪰"
@@ -5157,6 +5242,7 @@
 		]
 	},
 	"\\sum": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator": true,
 		"operator_rendering": [
@@ -5175,12 +5261,14 @@
 		"nullary_macro_aliase": "\\supseteq"
 	},
 	"\\supset": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⊃"
 		]
 	},
 	"\\supseteq": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⊇"
@@ -5195,6 +5283,7 @@
 	},
 	"\\supsetneq": {
 		"ams_required": true,
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⊋"
@@ -5514,12 +5603,14 @@
 		"is_letter_mod": true
 	},
 	"\\times": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"×"
 		]
 	},
 	"\\to": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"→",
@@ -5578,6 +5669,7 @@
 		]
 	},
 	"\\triangleright": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"▹"
@@ -5692,6 +5784,7 @@
 		"delimiter": [
 			"↑"
 		],
+		"dots_lookahead": "dotsb",
 		"other_delimiters1": true
 	},
 	"\\updownarrow": {
@@ -6040,6 +6133,7 @@
 		"is_letter_mod": true
 	},
 	"\\vee": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∨"
@@ -6071,6 +6165,7 @@
 		"ignore_identifier": true
 	},
 	"\\wedge": {
+		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∧"
@@ -6153,6 +6248,7 @@
 			10,
 			5
 		],
+		"dots_lookahead": "dotsb",
 		"fun_ar1nb": true,
 		"fun_ar1opt": true,
 		"is_letter_mod": true
@@ -6173,6 +6269,7 @@
 			5,
 			10
 		],
+		"dots_lookahead": "dotsb",
 		"fun_ar1nb": true,
 		"fun_ar1opt": true,
 		"is_letter_mod": true
@@ -6206,12 +6303,14 @@
 	"\\}": {
 		"delimiter": [
 			"}"
-		]
+		],
+		"dots_lookahead": "rightdelim"
 	},
 	"]": {
 		"delimiter": [
 			"]"
-		]
+		],
+		"dots_lookahead": "rightdelim"
 	},
 	"^": {
 		"operator_infix": [
