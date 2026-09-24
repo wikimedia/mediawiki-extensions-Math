@@ -45,6 +45,10 @@ QUnit.module( 'ext.math.mathjax.mml', () => {
 			input: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mtable><mtr><mtd class="mwe-math-matrix-top mwe-math-matrix-left"><mi>a</mi></mtd><mtd class="mwe-math-matrix-top mwe-math-matrix-right"><mi>b</mi></mtd></mtr><mtr><mtd class="mwe-math-matrix-bottom mwe-math-matrix-left"><mi>c</mi></mtd><mtd class="mwe-math-matrix-bottom mwe-math-matrix-right"><mi>d</mi></mtd></mtr></mtable></math>',
 			expected: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mtable columnspacing="1em" rowspacing="4pt" framespacing=".5em .125em" frame="solid"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable></math>'
 		},
+		'restores attributes carried as data-mwe-*': {
+			input: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo></mo><mtable/><mo data-mwe-fence="true" stretchy="true"></mo></mrow></math>',
+			expected: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo></mo><mtable/><mo stretchy="true" fence="true"></mo></mrow></math>'
+		},
 		'restores rowspacing from a `\\\\[20pt]` row-break, defaulting the other gap': {
 			input: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mtable><mtr><mtd style="padding-bottom: 20pt;"><mi>a</mi></mtd><mtd style="padding-bottom: 20pt;"><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr><mtr><mtd><mi>e</mi></mtd><mtd><mi>f</mi></mtd></mtr></mtable></math>',
 			expected: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mtable rowspacing="20pt 4pt"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr><mtr><mtd><mi>e</mi></mtd><mtd><mi>f</mi></mtd></mtr></mtable></math>'

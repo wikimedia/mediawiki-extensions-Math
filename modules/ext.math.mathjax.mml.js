@@ -201,6 +201,22 @@ function transformCancelTo( data ) {
 }
 
 /**
+ * Restore non-Core attributes that the output carries as data-mwe-<name>.
+ *
+ * @param {Document|Element} data MathML DOM to transform
+ */
+function restoreAttributes( data ) {
+	for ( const element of Array.from( data.getElementsByTagName( '*' ) ) ) {
+		for ( const { name, value } of Array.from( element.attributes ) ) {
+			if ( name.startsWith( 'data-mwe-' ) ) {
+				element.removeAttribute( name );
+				element.setAttribute( name.slice( 'data-mwe-'.length ), value );
+			}
+		}
+	}
+}
+
+/**
  * Transform Core-compatible MathML before MathJax parses it.
  *
  * @param {Object} options MathJax filter options
@@ -213,6 +229,7 @@ function mmlFilter( { data } ) {
 	transformRowSpacing( data );
 	transformMenclose( data );
 	transformCancelTo( data );
+	restoreAttributes( data );
 }
 
 module.exports = {

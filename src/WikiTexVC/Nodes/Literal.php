@@ -242,7 +242,7 @@ class Literal extends TexNode {
 		return new MMLmrow( TexClass::ORD, [],
 			new MMLmpadded( "", [ "depth" => "0", "height" => "0" ],
 				new MMLmstyle( "", [ "mathsize" => "1.2em" ],
-					new MMLmo( "", [ "fence" => "false", "stretchy" => "false" ], "|" )
+					new MMLmo( "", [ "stretchy" => "false" ], "|" )
 				)
 			)
 		);

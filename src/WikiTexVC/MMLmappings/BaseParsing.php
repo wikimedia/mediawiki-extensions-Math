@@ -432,7 +432,8 @@ class BaseParsing {
 				$mmlMoOpen = new MMLmo( TexClass::OPEN, [], $open ?? '' );
 			}
 
-			$closeAtts = [ "fence" => "true", "stretchy" => "true", "symmetric" => "true" ];
+			// MathJax gives an empty closing fence the width of a null delimiter.
+			$closeAtts = [ "data-mwe-fence" => "true", "stretchy" => "true", "symmetric" => "true" ];
 			$mmlMoClose = $bm->checkAndParseDelimiter( $close, $node, $closeAtts,
 				null, true, TexClass::CLOSE );
 			if ( $mmlMoClose->isEmpty() ) {
@@ -683,8 +684,6 @@ class BaseParsing {
 			case "\\|":
 			case "\\vert":
 			case "|":
-				$passedArgs = array_merge( $passedArgs, [ "stretchy" => "true", "symmetric" => "true" ] );
-				break;
 			case "\\uparrow":
 			case "\\downarrow":
 			case "\\Uparrow":
@@ -693,10 +692,7 @@ class BaseParsing {
 			case "/":
 			case "\\backslash":
 			case "\\Updownarrow":
-				$passedArgs = array_merge(
-					[ "fence" => "true" ],
-					$passedArgs,
-					[ "stretchy" => "true", "symmetric" => "true" ] );
+				$passedArgs = array_merge( $passedArgs, [ "stretchy" => "true", "symmetric" => "true" ] );
 				break;
 		}
 
