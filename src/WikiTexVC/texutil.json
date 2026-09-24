@@ -1241,7 +1241,7 @@
 		"identifier": [
 			"‵",
 			{
-				"variantForm": "True"
+				"data-mjx-alternate": "1"
 			}
 		],
 		"nullary_macro": true
@@ -1813,7 +1813,7 @@
 		"operator_rendering": [
 			"⋅",
 			{
-				"variantForm": "True"
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -2725,7 +2725,7 @@
 		"operator_rendering": [
 			"≩",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -2748,7 +2748,7 @@
 		"identifier": [
 			"ℏ",
 			{
-				"alternate": "1"
+				"data-mjx-alternate": "1"
 			}
 		],
 		"nullary_macro": true
@@ -3474,7 +3474,7 @@
 		"operator_rendering": [
 			"≨",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -3940,7 +3940,7 @@
 		"operator_rendering": [
 			"≱",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -3950,7 +3950,7 @@
 		"operator_rendering": [
 			"⪈",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -3995,7 +3995,7 @@
 		"operator_rendering": [
 			"≰",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -4005,7 +4005,7 @@
 		"operator_rendering": [
 			"⪇",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -4068,7 +4068,7 @@
 		"operator_rendering": [
 			"⋠",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -4085,7 +4085,7 @@
 		"operator_rendering": [
 			"∤",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -4095,7 +4095,7 @@
 		"operator_rendering": [
 			"∦",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -4119,7 +4119,7 @@
 		"operator_rendering": [
 			"⊈",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -4136,7 +4136,7 @@
 		"operator_rendering": [
 			"⋡",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -4153,7 +4153,7 @@
 		"operator_rendering": [
 			"⊉",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -4866,7 +4866,7 @@
 		"operator_rendering": [
 			"∣",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -4876,7 +4876,7 @@
 		"operator_rendering": [
 			"∥",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -4923,7 +4923,7 @@
 		"operator_rendering": [
 			"⌢",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -4941,7 +4941,7 @@
 		"operator_rendering": [
 			"∖",
 			{
-				"variantForm": "True"
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -4951,7 +4951,7 @@
 		"operator_rendering": [
 			"⌣",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -5484,7 +5484,7 @@
 		"operator_rendering": [
 			"≈",
 			{
-				"variantForm": "true"
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -5494,7 +5494,7 @@
 		"operator_rendering": [
 			"∼",
 			{
-				"variantForm": "true"
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -5553,7 +5553,7 @@
 		"identifier": [
 			"▽",
 			{
-				"variantForm": "true"
+				"data-mjx-alternate": "1"
 			}
 		],
 		"nullary_macro": true
@@ -5747,7 +5747,7 @@
 		"operator_rendering": [
 			"⊨",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -5853,7 +5853,7 @@
 		"identifier": [
 			"∅",
 			{
-				"variantForm": "true"
+				"data-mjx-alternate": "1"
 			}
 		],
 		"is_literal": true,
@@ -5896,7 +5896,7 @@
 		"operator_rendering": [
 			"∝",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -5927,7 +5927,7 @@
 		"operator_rendering": [
 			"⊊",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -5937,7 +5937,7 @@
 		"operator_rendering": [
 			"⫋",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -5947,7 +5947,7 @@
 		"operator_rendering": [
 			"⊋",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -5957,7 +5957,7 @@
 		"operator_rendering": [
 			"⫌",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
@@ -5975,7 +5975,7 @@
 		"operator_rendering": [
 			"△",
 			{
-				"variantForm": true
+				"data-mjx-alternate": "1"
 			}
 		]
 	},
