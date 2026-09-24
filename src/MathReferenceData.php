@@ -215,7 +215,8 @@ final class MathReferenceData {
 	private static function removeHtmlAttributes( DOMNode $node ): void {
 		$htmlAttributes = [ 'style', 'class' ];
 		if ( $node instanceof DOMElement && $node->hasAttributes() ) {
-			foreach ( $node->attributes as $attr ) {
+			// Removing while iterating the live attribute map would skip the next one.
+			foreach ( iterator_to_array( $node->attributes ?? [] ) as $attr ) {
 				if ( str_starts_with( $attr->name, 'data' ) || in_array( $attr->name, $htmlAttributes ) ) {
 					$node->removeAttribute( $attr->name );
 				}
