@@ -42,16 +42,6 @@ class MMLutil {
 	}
 
 	/**
-	 * In a floating point digit as string, set input to precision of three digits
-	 * without rounding.
-	 * @param string $size input to be checked
-	 * @return string digits of precision three with em
-	 */
-	public static function size2em( string $size ): string {
-		return preg_replace( "/(\.\d\d\d).+/", '$1', $size ) . "em";
-	}
-
-	/**
 	 * Assumes the input curly contains an TexArray of literals, squashes the TexArray characters to a string.
 	 * @param TexArray $node TexArray of literals
 	 * @return ?string squashed string in example "2mu", "-3mu" etc. Null if no TexArray inside curly.
@@ -118,7 +108,7 @@ class MMLutil {
 			return null;
 		}
 		if ( $matches[3] == "mu" ) {
-			$ret = self::size2em( strval( intval( $matches[2] ) / 18 ) );
+			$ret = self::round2em( intval( $matches[2] ) / 18 );
 		} elseif ( $matches[3] == "em" ) {
 			$ret = $matches[2] . "em";
 		} else {

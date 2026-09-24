@@ -547,7 +547,7 @@
 		"callback": [
 			"makeBig",
 			"ORD",
-			1.15
+			"1.624em"
 		]
 	},
 	"\\Bigg": {
@@ -555,7 +555,7 @@
 		"callback": [
 			"makeBig",
 			"ORD",
-			1.75
+			"2.471em"
 		]
 	},
 	"\\Biggl": {
@@ -563,7 +563,7 @@
 		"callback": [
 			"makeBig",
 			"OPEN",
-			1.75
+			"2.471em"
 		]
 	},
 	"\\Biggr": {
@@ -571,7 +571,7 @@
 		"callback": [
 			"makeBig",
 			"CLOSE",
-			1.75
+			"2.471em"
 		],
 		"dots_lookahead": "rightdelim"
 	},
@@ -580,7 +580,7 @@
 		"callback": [
 			"makeBig",
 			"OPEN",
-			1.15
+			"1.624em"
 		]
 	},
 	"\\Bigr": {
@@ -588,7 +588,7 @@
 		"callback": [
 			"makeBig",
 			"CLOSE",
-			1.15
+			"1.624em"
 		],
 		"dots_lookahead": "rightdelim"
 	},
@@ -1397,7 +1397,7 @@
 		"callback": [
 			"makeBig",
 			"ORD",
-			0.85
+			"1.2em"
 		]
 	},
 	"\\bigcap": {
@@ -1434,7 +1434,7 @@
 		"callback": [
 			"makeBig",
 			"ORD",
-			1.45
+			"2.047em"
 		]
 	},
 	"\\biggl": {
@@ -1442,7 +1442,7 @@
 		"callback": [
 			"makeBig",
 			"OPEN",
-			1.45
+			"2.047em"
 		]
 	},
 	"\\biggr": {
@@ -1450,7 +1450,7 @@
 		"callback": [
 			"makeBig",
 			"CLOSE",
-			1.45
+			"2.047em"
 		],
 		"dots_lookahead": "rightdelim"
 	},
@@ -1459,14 +1459,14 @@
 		"callback": [
 			"makeBig",
 			"OPEN",
-			0.85
+			"1.2em"
 		]
 	},
 	"\\bigm": {
 		"callback": [
 			"makeBig",
 			"REL",
-			0.85
+			"1.2em"
 		]
 	},
 	"\\bigodot": {
@@ -1507,7 +1507,7 @@
 		"callback": [
 			"makeBig",
 			"CLOSE",
-			0.85
+			"1.2em"
 		],
 		"dots_lookahead": "rightdelim"
 	},

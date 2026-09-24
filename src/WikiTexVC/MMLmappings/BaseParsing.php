@@ -2,8 +2,6 @@
 namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings;
 
 use IntlChar;
-use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Misc;
-use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Sizes;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
@@ -267,14 +265,13 @@ class BaseParsing {
 			}
 
 			if ( $styleAlpha === 'D' ) {
-				// NodeUtil_js_1.default.setProperties(frac, { displaystyle: true, scriptlevel: 0 });
-
-				// tbd add props
+				// MathJax fences \genfrac with \bigg in display style and \big otherwise
+				// swh:1:cnt:191254e9b9aedba501b4f734fb8f0b6cd9217050;lines=377-378
 				$displayStyle = "true";
-				$styleAttr = [ "minsize" => "2.047em" ];
+				$styleAttr = [ "minsize" => TexUtil::getInstance()->callback( '\\bigg' )[2] ];
 
 			} else {
-				$styleAttr = [ "minsize" => "1.2em" ];
+				$styleAttr = [ "minsize" => TexUtil::getInstance()->callback( '\\big' )[2] ];
 			}
 		} else {
 			// Inherit delimiter size and script level when no explicit style was requested.
@@ -381,17 +378,19 @@ class BaseParsing {
 				return new MMLmrow( TexClass::ORD, [],
 					 new MMLmo( "", [ "lspace" => "2.5pt", "rspace" => "2.5pt" ], "mod" ), $inner );
 			case "\\pmod":
-				// tbd indicate in mapping that this is composed within php
+				// amsmath \pod and \pmod: \mkern8mu (inline) and \mkern6mu
+				// swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=2068-2070
+				// TODO: texutil.json maps this to an unused MathJax macro, see T439251
 				// @phan-suppress-next-line PhanUndeclaredMethod
 				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->toMMLtree() : new MMLarray();
 
 				return new MMLmrow(
 					TexClass::ORD,
 					[],
-					new MMLmspace( "", [ "width" => "0.444em" ] ),
+					new MMLmspace( "", [ "width" => MMLutil::round2em( 8 / 18 ) ] ),
 					new MMLmo( "", [ "stretchy" => "false" ], "(" ),
 					new MMLmi( "", [], "mod" ),
-					new MMLmspace( "", [ "width" => "0.333em" ] ),
+					new MMLmspace( "", [ "width" => MMLutil::round2em( 6 / 18 ) ] ),
 					$inner,
 					new MMLmo( "", [ "stretchy" => "false" ], ")" )
 				);
@@ -444,21 +443,29 @@ class BaseParsing {
 				}
 				return new MMLmrow( TexClass::ORD, [], new MMLmrow( TexClass::REL, [], $inner ) );
 			case "\\bmod":
-				$mspace = new MMLmspace( "", [ "width" => "0.167em" ] );
+				// amsmath \bmod: \mkern5mu on both sides
+				// swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=2065-2067
+				// FIXME: the trailing thin space has no known source
+				$mspace = new MMLmspace( "", [ "width" => MMLutil::round2em( 3 / 18 ) ] );
 				// @phan-suppress-next-line PhanUndeclaredMethod
 				$inner = $node->getArg() instanceof TexNode ?
 					// @phan-suppress-next-line PhanUndeclaredMethod
 					new MMLmrow( TexClass::ORD, [], $node->getArg()->toMMLtree() ) : new MMLarray();
+				$thick = MMLutil::round2em( 5 / 18 );
 				return new MMLmrow( TexClass::ORD, [],
-					new MMLmo( "", [ "lspace" => Sizes::THICKMATHSPACE, "rspace" => Sizes::THICKMATHSPACE ], "mod" ),
+					new MMLmo( "", [ "lspace" => $thick, "rspace" => $thick ], "mod" ),
 					$inner, new MMLmrow( TexClass::ORD, [], $mspace ) );
 			case "\\implies":
+				// amsmath \implies puts \; around the arrow; \thickmuskip is 5mu
+				// swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=907
+				// swh:1:cnt:72f94735bba07ecbc4214f3cc409de0e137ff1ee;lines=1576
 				$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ],
-					new MMLmspace( "", [ "width" => "0.278em" ] ) );
+					new MMLmspace( "", [ "width" => MMLutil::round2em( 5 / 18 ) ] ) );
 				return new MMLarray( $mstyle, ( new MMLmo( "", [], "&#x27F9;" ) ), $mstyle );
 			case "\\iff":
+				// amsmath \iff, like \implies: swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=1288
 				$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ],
-					new MMLmspace( "", [ "width" => "0.278em" ] ) );
+					new MMLmspace( "", [ "width" => MMLutil::round2em( 5 / 18 ) ] ) );
 				return new MMLarray( $mstyle, ( new MMLmo( "", [], "&#x27FA;" ) ), $mstyle );
 			case "\\tripledash":
 				// Using emdash for rendering here.
@@ -630,10 +637,11 @@ class BaseParsing {
 			case "\\oiiint":
 			case "\\ointctrclockwise":
 			case "\\varointclockwise":
+				// FIXME: the trailing thin space has no known source
 				return new MMLmrow( TexClass::ORD, [],
 					new MMLmstyle( "", [ "mathsize" => "2.07em" ],
 						new MMLmtext( "", $attributes, MMLutil::uc2xNotation( $uc ) ),
-						new MMLmspace( "", [ "width" => Sizes::THINMATHSPACE ] )
+						new MMLmspace( "", [ "width" => MMLutil::round2em( 3 / 18 ) ] )
 					)
 				);
 			default:
@@ -805,10 +813,10 @@ class BaseParsing {
 	public static function makeBig( $node, $passedArgs, $operatorContent, $name, $texClass = null,
 		$size = null
 	): MMLbase {
-		// Create the em format and shorten commas
-		$size *= Misc::P_HEIGHT;
-		$sizeShortened = MMLutil::size2em( strval( $size ) );
-		$passedArgs = array_merge( $passedArgs, [ "maxsize" => $sizeShortened, "minsize" => $sizeShortened ] );
+		// $size is the kernel height of \big..\Bigg (8.5pt..17.5pt) scaled by MathJax's 1.2/.85
+		// swh:1:cnt:72f94735bba07ecbc4214f3cc409de0e137ff1ee;lines=1534-1541
+		// swh:1:cnt:4fcf2badb30fa89a86be332c1481b0daaf21d367;lines=47
+		$passedArgs = array_merge( $passedArgs, [ "maxsize" => $size, "minsize" => $size ] );
 		// Sieve arg if it is a delimiter (it seems args are not applied here
 		$bm = new BaseMethods();
 		$argcurrent = trim( $node->getArg() );
