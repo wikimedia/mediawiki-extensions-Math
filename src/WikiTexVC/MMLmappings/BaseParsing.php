@@ -993,7 +993,9 @@ class BaseParsing {
 
 		$char = IntlChar::chr( $chr );
 
-		$mpaddedArgs = [ "height" => "-.2em", "lspace" => $defLspace, "voffset" => "-.2em", "width" => $defWidth ];
+		// Core has no relative width; Chrome reads "+0.833em" as 0.833em.
+		$mpaddedArgs = [ "height" => "-.2em", "lspace" => $defLspace, "voffset" => "-.2em",
+			"data-mwe-width" => $defWidth ];
 		$mspace = new MMLmspace( "", [ "depth" => ".25em" ] );
 		if ( $node instanceof Fun2sq ) {
 			return new MMLmrow( TexClass::ORD, [], MMLmunderover::newSubtree(
