@@ -618,11 +618,7 @@ class BaseParsing {
 				'underOver rendering requires macro to start with either \\under or \\over.' );
 		}
 
-		if ( $operatorSymbol === '―' ) { // eventually move such cases to mapping
-			$mo = new MMLmo( "", [ "accent" => "true" ], $operatorSymbol );
-		} else {
-			$mo = new MMLmo( "", [], $operatorSymbol );
-		}
+		$mo = new MMLmo( "", [], $operatorSymbol );
 		return new MMLmrow( $texClass, [], $movun::newSubtree( $node->getArg()->toMMLtree( $passedArgs ), $mo ) );
 	}
 

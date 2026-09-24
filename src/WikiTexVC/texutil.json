@@ -5523,10 +5523,7 @@
 		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
 		"operator_rendering": [
-			"→",
-			{
-				"accent": "false"
-			}
+			"→"
 		]
 	},
 	"\\top": {

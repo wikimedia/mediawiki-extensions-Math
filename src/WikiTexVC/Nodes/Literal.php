@@ -303,8 +303,10 @@ class Literal extends TexNode {
 	): MMLbase {
 		$lim = new MMLmi( "", [], "lim" );
 		$inner = match ( trim( $input ) ) {
-			'\varlimsup' => MMLmover::newSubtree( $lim, new MMLmo( "", [ "accent" => "true" ], "&#x2015;" ) ),
-			'\varliminf' => MMLmunder::newSubtree( $lim, new MMLmo( "", [ "accent" => "true" ], "&#x2015;" ) ),
+			'\varlimsup' => MMLmover::newSubtree( $lim, new MMLmo( "", [], "&#x2015;" ), "",
+				[ "accent" => "true" ] ),
+			'\varliminf' => MMLmunder::newSubtree( $lim, new MMLmo( "", [], "&#x2015;" ), "",
+				[ "accentunder" => "true" ] ),
 			'\varinjlim' => MMLmunder::newSubtree( $lim, new MMLmo( "", [], "&#x2192;" ) ),
 			'\varprojlim' => MMLmunder::newSubtree( $lim, new MMLmo( "", [], "&#x2190;" ) ),
 		};
