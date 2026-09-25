@@ -41,7 +41,6 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\UQ;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
-use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 
 /**
  * Parsing functions for specific recognized mappings.
@@ -362,27 +361,6 @@ class BaseParsing {
 			}
 		}
 		return new MMLarray( $mmlNot, $inner, $applyFct );
-	}
-
-	public static function macro( $node, $passedArgs, $operatorContent, $name,
-		$macro = '', $argcount = null, $def = null
-	): MMLbase {
-		// TODO: texutil.json still maps commands the grammar rejects to MathJax macros, see T439251
-		if ( $macro == "\\text{ }" ) {
-			return new MMLmtext( "", [], '&#160;' );
-		}
-		switch ( trim( $name ) ) {
-			case "\\longrightleftharpoons":
-			case "\\longLeftrightharpoons":
-			case "\\longRightleftharpoons":
-				$texvc = new TexVC();
-				$warnings = [];
-				$checkRes = $texvc->check( $macro, [ "usemhchem" => true, "usemhchemtexified" => true ],
-					$warnings, true );
-				return $checkRes["input"]->toMMLtree();
-		}
-
-		return MMLmerror::newFromText( "macro not resolved: $macro" );
 	}
 
 	public static function matrix( Matrix $node, $passedArgs, $operatorContent,

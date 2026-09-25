@@ -22,6 +22,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunder;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
+use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 use RuntimeException;
 
 class Literal extends TexNode {
@@ -87,6 +88,9 @@ class Literal extends TexNode {
 			// Fixes https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Math/+/961711
 			// And they creation of empty mo elements.
 			return new MMLarray();
+		}
+		if ( $this->arg === '\\ ' ) {
+			return new MMLmtext( "", [], '&#160;' );
 		}
 		if ( isset( $state["intent-params"] ) ) {
 			foreach ( $state["intent-params"] as $intparam ) {
@@ -340,5 +344,15 @@ class Literal extends TexNode {
 		return new MMLarray(
 			new MMLmtext( "", [], "&#xA0;" ),
 			new MMLmrow( TexClass::REL, [], $mover ) );
+	}
+
+	/** MathJax 3.2.2 mhchem: swh:1:cnt:951c2129885cc59578e24efb55f897008359a59e;lines=61-72 */
+	protected function longHarpoons( array $passedArgs, array $operatorContent,
+		string $input, array $cb, array &$state
+	): MMLbase {
+		$warnings = [];
+		$checkRes = ( new TexVC() )->check( $cb[1],
+			[ "usemhchem" => true, "usemhchemtexified" => true ], $warnings, true );
+		return $checkRes["input"]->toMMLtree();
 	}
 }

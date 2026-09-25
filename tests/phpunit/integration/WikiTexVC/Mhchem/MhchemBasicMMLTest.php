@@ -45,7 +45,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 			];
 		}
 
-		return $letters + [
+		return array_merge( $letters, [
 			[
 				"{\displaystyle \ce{ C6H5-CHO }}",
 				[
@@ -64,7 +64,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 				"A \\longRightleftharpoons R",
 				[
 					'−</mo>',
-					'&#x21C0;',
+					'⇀</mo>',
 					'<mpadded height="0" depth="0">',
 					'<mspace ',
 				]
@@ -146,7 +146,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 				"\ce{\\smash{2}}",
 				[ '<mpadded height="0" depth="0"' ]
 			],
-		];
+		] );
 	}
 
 	/** @dataProvider provideTexVCCheckData */

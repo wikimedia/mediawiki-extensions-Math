@@ -332,7 +332,7 @@ f(x,y,z) & = & x + y + z
 
 	public function testSpace() {
 		$node = new Literal( '\\ ' );
-		$result = BaseParsing::macro( $node, [], [], '\\ ', '\\text{ }' );
+		$result = $node->toMMLTree();
 		$this->assertStringContainsString( '<mtext>&#160;</mtext>', $result );
 	}
 

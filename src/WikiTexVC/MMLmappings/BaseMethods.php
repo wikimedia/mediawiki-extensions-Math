@@ -34,11 +34,7 @@ class BaseMethods {
 
 		// Checking for a named parsing function
 
-		if ( $input === '\\ ' ) {
-			$resFct = [ 'macro', '\\text{ }' ];
-		} else {
-			$resFct = TexUtil::getInstance()->callback( trim( $input ) );
-		}
+		$resFct = TexUtil::getInstance()->callback( trim( $input ) );
 		if ( $resFct == null ) {
 			return new MMLarray();
 		}

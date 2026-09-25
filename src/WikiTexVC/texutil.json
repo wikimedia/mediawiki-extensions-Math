@@ -448,12 +448,6 @@
 	"\\": {
 		"callback": "crLaTeX"
 	},
-	"\\ ": {
-		"callback": [
-			"macro",
-			"\\text{ }"
-		]
-	},
 	"\\!": {
 		"callback": [
 			"spacer",
@@ -764,12 +758,6 @@
 		"teubner_required": true,
 		"unicode_char": "Ϟ"
 	},
-	"\\LaTeX": {
-		"callback": [
-			"macro",
-			"L\\kern-.325em\\raise.21em{\\scriptstyle{A}}\\kern-.17em\\TeX"
-		]
-	},
 	"\\Lambda": {
 		"identifier": [
 			"Λ",
@@ -1023,12 +1011,6 @@
 		],
 		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{T}"
-	},
-	"\\TeX": {
-		"callback": [
-			"macro",
-			"T\\kern-.14em\\lower.5ex{E}\\kern-.115em X"
-		]
 	},
 	"\\Theta": {
 		"identifier": [
@@ -1675,13 +1657,6 @@
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⊡"
-		]
-	},
-	"\\boxed": {
-		"callback": [
-			"macro",
-			"\\fbox{$\\displaystyle{#1}$}",
-			1
 		]
 	},
 	"\\boxminus": {
@@ -3378,7 +3353,7 @@
 	},
 	"\\longLeftrightharpoons": {
 		"callback": [
-			"macro",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::longHarpoons",
 			"\\stackrel{\\textstyle\\vphantom{{-}}{\\rightharpoonup}}{\\smash{{\\leftharpoondown}\\!\\!{-}}}"
 		],
 		"mhchemtexified_required": true,
@@ -3386,7 +3361,7 @@
 	},
 	"\\longRightleftharpoons": {
 		"callback": [
-			"macro",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::longHarpoons",
 			"\\stackrel{\\textstyle{-}\\!\\!{\\rightharpoonup}}{\\smash{\\leftharpoondown}}"
 		],
 		"mhchemtexified_required": true,
@@ -3426,7 +3401,7 @@
 	},
 	"\\longrightleftharpoons": {
 		"callback": [
-			"macro",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::longHarpoons",
 			"\\stackrel{\\textstyle{-}\\!\\!{\\rightharpoonup}}{\\smash{{\\leftharpoondown}\\!\\!{-}}}"
 		],
 		"mhchemtexified_required": true,
@@ -3718,12 +3693,6 @@
 		"callback": [
 			"mathFont",
 			"sans-serif"
-		]
-	},
-	"\\mathstrut": {
-		"callback": [
-			"macro",
-			"\\vphantom{(}"
 		]
 	},
 	"\\mathtt": {
@@ -4515,23 +4484,9 @@
 			")"
 		]
 	},
-	"\\pmb": {
-		"callback": [
-			"macro",
-			"\\rlap{#1}\\kern1px{#1}",
-			1
-		]
-	},
 	"\\pmod": {
 		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::pmod",
 		"fun_ar1": true
-	},
-	"\\pod": {
-		"callback": [
-			"macro",
-			"\\mathchoice{\\kern18mu}{\\kern8mu}{\\kern8mu}{\\kern8mu}(#1)",
-			1
-		]
 	},
 	"\\prec": {
 		"dots_lookahead": "dotsb",
@@ -4962,13 +4917,6 @@
 		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedFn",
 		"latex_function_names": true
 	},
-	"\\skew": {
-		"callback": [
-			"macro",
-			"{{#2{#3\\mkern#1mu}\\mkern-#1mu}{}}",
-			3
-		]
-	},
 	"\\smallfrown": {
 		"ams_required": true,
 		"nullary_macro": true,
@@ -5091,13 +5039,6 @@
 		],
 		"nullary_macro": true
 	},
-	"\\stackbin": {
-		"callback": [
-			"macro",
-			"\\mathbin{\\mathop{#2}\\limits^{#1}}",
-			2
-		]
-	},
 	"\\stackrel": {
 		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun2::stackrel",
 		"fun_ar2": true
@@ -5152,13 +5093,6 @@
 		"nullary_macro": true,
 		"operator_rendering": [
 			"⫋"
-		]
-	},
-	"\\substack": {
-		"callback": [
-			"macro",
-			"\\begin{subarray}{c}#1\\end{subarray}",
-			1
 		]
 	},
 	"\\succ": {
