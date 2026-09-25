@@ -367,109 +367,11 @@ class BaseParsing {
 	public static function macro( $node, $passedArgs, $operatorContent, $name,
 		$macro = '', $argcount = null, $def = null
 	): MMLbase {
-		// Parse the Macro
+		// TODO: texutil.json still maps commands the grammar rejects to MathJax macros, see T439251
 		if ( $macro == "\\text{ }" ) {
 			return new MMLmtext( "", [], '&#160;' );
 		}
 		switch ( trim( $name ) ) {
-			case "\\mod":
-				// @phan-suppress-next-line PhanUndeclaredMethod
-				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->toMMLtree() : new MMLarray();
-				return new MMLmrow( TexClass::ORD, [],
-					 new MMLmo( "", [ "lspace" => "2.5pt", "rspace" => "2.5pt" ], "mod" ), $inner );
-			case "\\pmod":
-				// amsmath \pod and \pmod: \mkern8mu (inline) and \mkern6mu
-				// swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=2068-2070
-				// TODO: texutil.json maps this to an unused MathJax macro, see T439251
-				// @phan-suppress-next-line PhanUndeclaredMethod
-				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->toMMLtree() : new MMLarray();
-
-				return new MMLmrow(
-					TexClass::ORD,
-					[],
-					new MMLmspace( "", [ "width" => MMLutil::round2em( 8 / 18 ) ] ),
-					new MMLmo( "", [ "stretchy" => "false" ], "(" ),
-					new MMLmi( "", [], "mod" ),
-					new MMLmspace( "", [ "width" => MMLutil::round2em( 6 / 18 ) ] ),
-					$inner,
-					new MMLmo( "", [ "stretchy" => "false" ], ")" )
-				);
-			case "\\varlimsup":
-			case "\\varliminf":
-				// hardcoded macro in php (there is also a dynamic mapping which is not completely resolved atm)
-				if ( trim( $name ) === "\\varlimsup" ) {
-					$movu = MMLmover::newSubtree( (
-						new MMLmi( "", [], "lim" ) ),
-						new MMLmo( "", [ "accent" => "true" ], "&#x2015;" ) );
-				} else {
-					$movu = MMLmunder::newSubtree( (
-						new MMLmi( "", [], "lim" ) ),
-						new MMLmo( "", [ "accent" => "true" ], "&#x2015;" ) );
-				}
-				return new MMLmrow( TexClass::OP, [], $movu );
-
-			case "\\varinjlim":
-				return new MMLmrow(
-					TexClass::OP,
-					[],
-					MMLmunder::newSubtree(
-						new MMLmi( "", [], "lim" ),
-						new MMLmo( "", [], "&#x2192;" )
-					)
-				);
-			case "\\varprojlim":
-				return new MMLmrow(
-					TexClass::OP,
-					[],
-					MMLmunder::newSubtree(
-						new MMLmi( "", [], "lim" ),
-						new MMLmo( "", [], "&#x2190;" )
-					)
-				);
-			case "\\stackrel":
-				// hardcoded macro in php (there is also a dynamic mapping which is not not completely resolved atm)
-				if ( $node instanceof DQ ) {
-					$inner = MMLmover::newSubtree( new MMLmrow( TexClass::OP, [],
-							$node->getBase()->toMMLtree() ),
-						new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() )
-					);
-				} else {
-					$inner = MMLmover::newSubtree( new MMLmrow( TexClass::OP, [],
-						// @phan-suppress-next-line PhanUndeclaredMethod
-							$node->getArg2()->toMMLtree() ),
-						// @phan-suppress-next-line PhanUndeclaredMethod
-						new MMLmrow( TexClass::ORD, [], $node->getArg1()->toMMLtree() )
-					);
-				}
-				return new MMLmrow( TexClass::ORD, [], new MMLmrow( TexClass::REL, [], $inner ) );
-			case "\\bmod":
-				// amsmath \bmod: \mkern5mu on both sides
-				// swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=2065-2067
-				// FIXME: the trailing thin space has no known source
-				$mspace = new MMLmspace( "", [ "width" => MMLutil::round2em( 3 / 18 ) ] );
-				// @phan-suppress-next-line PhanUndeclaredMethod
-				$inner = $node->getArg() instanceof TexNode ?
-					// @phan-suppress-next-line PhanUndeclaredMethod
-					new MMLmrow( TexClass::ORD, [], $node->getArg()->toMMLtree() ) : new MMLarray();
-				$thick = MMLutil::round2em( 5 / 18 );
-				return new MMLmrow( TexClass::ORD, [],
-					new MMLmo( "", [ "lspace" => $thick, "rspace" => $thick ], "mod" ),
-					$inner, new MMLmrow( TexClass::ORD, [], $mspace ) );
-			case "\\implies":
-				// amsmath \implies puts \; around the arrow; \thickmuskip is 5mu
-				// swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=907
-				// swh:1:cnt:72f94735bba07ecbc4214f3cc409de0e137ff1ee;lines=1576
-				$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ],
-					new MMLmspace( "", [ "width" => MMLutil::round2em( 5 / 18 ) ] ) );
-				return new MMLarray( $mstyle, ( new MMLmo( "", [], "&#x27F9;" ) ), $mstyle );
-			case "\\iff":
-				// amsmath \iff, like \implies: swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=1288
-				$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ],
-					new MMLmspace( "", [ "width" => MMLutil::round2em( 5 / 18 ) ] ) );
-				return new MMLarray( $mstyle, ( new MMLmo( "", [], "&#x27FA;" ) ), $mstyle );
-			case "\\tripledash":
-				// Using emdash for rendering here.
-				return new MMLmo( "", [], "&#x2014;" );
 			case "\\longrightleftharpoons":
 			case "\\longLeftrightharpoons":
 			case "\\longRightleftharpoons":
@@ -478,29 +380,8 @@ class BaseParsing {
 				$checkRes = $texvc->check( $macro, [ "usemhchem" => true, "usemhchemtexified" => true ],
 					$warnings, true );
 				return $checkRes["input"]->toMMLtree();
-			case "\\longleftrightarrows":
-				// The tex-cmds used in makro are not supported, just use a hardcoded mml macro here.
-				$mover = MMLmover::newSubtree(
-					new MMLmrow( TexClass::OP, [],
-						new MMLmrow( TexClass::ORD, [],
-							new MMLmpadded( "", [ "height" => "0", "depth" => "0" ],
-								new MMLmo( "", [ "stretchy" => "false" ], "&#x27F5;" )
-							)
-						),
-						new MMLmspace( "", [ "width" => "0px", "height" => ".25em", "depth" => "0px",
-							"mathbackground" => "black" ]
-						)
-					),
-					new MMLmrow( TexClass::ORD, [],
-						new MMLmo( "", [ "stretchy" => "false" ], "&#x27F6;" )
-					)
-				);
-				return new MMLarray(
-					new MMLmtext( "", [], "&#xA0;" ),
-					new MMLmrow( TexClass::REL, [], $mover ) );
 		}
 
-		// Removed all token based parsing, since macro resolution for the supported macros can be hardcoded in php
 		return MMLmerror::newFromText( "macro not resolved: $macro" );
 	}
 

@@ -4,7 +4,10 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmover;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 
 class Fun2 extends TexNode {
 
@@ -40,6 +43,10 @@ class Fun2 extends TexNode {
 
 	/** @inheritDoc */
 	public function toMMLTree( array $arguments = [], array &$state = [] ): MMLbase {
+		$cb = $this->getLocalCallback( trim( $this->fname ), $arguments, [], $state );
+		if ( !$cb->isEmpty() ) {
+			return $cb;
+		}
 		return $this->parseToMML( $this->fname, $arguments, $state );
 	}
 
@@ -49,6 +56,17 @@ class Fun2 extends TexNode {
 			$args = [ $this->arg1, $this->arg2 ];
 		}
 		return parent::extractIdentifiers( $args );
+	}
+
+	/** MathJax \stackrel: swh:1:cnt:e9fc665797bcb6bdc58f25de1944c8c68d0fd764;lines=522 */
+	protected function stackrel( array $passedArgs, array $operatorContent,
+		string $input, array $cb, array &$state
+	): MMLbase {
+		$inner = MMLmover::newSubtree(
+			new MMLmrow( TexClass::OP, [], $this->arg2->toMMLTree() ),
+			new MMLmrow( TexClass::ORD, [], $this->arg1->toMMLTree() )
+		);
+		return new MMLmrow( TexClass::ORD, [], new MMLmrow( TexClass::REL, [], $inner ) );
 	}
 
 }

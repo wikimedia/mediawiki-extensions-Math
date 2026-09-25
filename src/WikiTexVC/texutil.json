@@ -1631,10 +1631,7 @@
 		]
 	},
 	"\\bmod": {
-		"callback": [
-			"macro",
-			"\\mmlToken{mo}[lspace=\"0.2777777777777778em\" rspace=\"0.2777777777777778em\"]{mod}"
-		],
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::bmod",
 		"fun_ar1": true,
 		"is_letter_mod": true
 	},
@@ -2853,10 +2850,7 @@
 		"callback": "hskip"
 	},
 	"\\iff": {
-		"callback": [
-			"macro",
-			"\\;\\Longleftrightarrow\\;"
-		],
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::spacedArrow",
 		"dots_lookahead": "dotsb",
 		"nullary_macro": true
 	},
@@ -2897,10 +2891,7 @@
 	},
 	"\\implies": {
 		"ams_required": true,
-		"callback": [
-			"macro",
-			"\\;\\Longrightarrow\\;"
-		],
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::spacedArrow",
 		"dots_lookahead": "dotsb",
 		"nullary_macro": true
 	},
@@ -3414,10 +3405,7 @@
 		]
 	},
 	"\\longleftrightarrows": {
-		"callback": [
-			"macro",
-			"\\stackrel{\\longrightarrow}{\\smash{\\longleftarrow}\\Rule{0px}{.25em}{0px}}"
-		],
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::longleftrightarrows",
 		"mhchemtexified_required": true,
 		"nullary_macro": true
 	},
@@ -3807,11 +3795,7 @@
 	},
 	"\\mod": {
 		"ams_required": true,
-		"callback": [
-			"macro",
-			"\\mathchoice{\\kern18mu}{\\kern12mu}{\\kern12mu}{\\kern12mu}\\mmlToken{mi}{mod}\\,\\,#1",
-			1
-		],
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::mod",
 		"nullary_macro": true
 	},
 	"\\models": {
@@ -4539,11 +4523,7 @@
 		]
 	},
 	"\\pmod": {
-		"callback": [
-			"macro",
-			"\\pod{\\mmlToken{mi}{mod}\\kern 6mu #1}",
-			1
-		],
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::pmod",
 		"fun_ar1": true
 	},
 	"\\pod": {
@@ -5119,11 +5099,7 @@
 		]
 	},
 	"\\stackrel": {
-		"callback": [
-			"macro",
-			"\\mathrel{\\mathop{#2}\\limits^{#1}}",
-			2
-		],
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun2::stackrel",
 		"fun_ar2": true
 	},
 	"\\star": {
@@ -5683,10 +5659,7 @@
 		]
 	},
 	"\\tripledash": {
-		"callback": [
-			"macro",
-			"\\vphantom{-}\\raise{2mu}\\\\kern{2mu}\\tiny\\text{-}\\kern{1mu}\\text{-}\\kern{1mu}\\text{-}\\kern{2mu}}"
-		],
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::tripledash",
 		"mhchemtexified_required": true,
 		"nullary_macro": true
 	},
@@ -5917,10 +5890,7 @@
 	},
 	"\\varinjlim": {
 		"ams_required": true,
-		"callback": [
-			"macro",
-			"\\mathop{\\xrightarrow{\\mmlToken{mi}{lim}}}"
-		],
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::varlim",
 		"nullary_macro": true
 	},
 	"\\varkappa": {
@@ -5934,19 +5904,13 @@
 	},
 	"\\varliminf": {
 		"ams_required": true,
-		"callback": [
-			"macro",
-			"\\mathop{\\underline{\\mmlToken{mi}{lim}}}"
-		],
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::varlim",
 		"nullary_macro": true,
 		"operator": true
 	},
 	"\\varlimsup": {
 		"ams_required": true,
-		"callback": [
-			"macro",
-			"\\mathop{\\overline{\\mmlToken{mi}{lim}}}"
-		],
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::varlim",
 		"nullary_macro": true,
 		"operator": true
 	},
@@ -5988,10 +5952,7 @@
 	},
 	"\\varprojlim": {
 		"ams_required": true,
-		"callback": [
-			"macro",
-			"\\mathop{\\xleftarrow{\\mmlToken{mi}{lim}}}"
-		],
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::varlim",
 		"nullary_macro": true,
 		"operator": true
 	},

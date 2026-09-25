@@ -6,11 +6,14 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use InvalidArgumentException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmover;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmpadded;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmspace;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 class Fun1 extends TexNode {
@@ -115,4 +118,34 @@ class Fun1 extends TexNode {
 			new MMLmpadded( "", $args, $this->getArg()->toMMLTree() ) );
 	}
 
+	/** MathJax \pmod and \pod: swh:1:cnt:e9fc665797bcb6bdc58f25de1944c8c68d0fd764;lines=699-709 */
+	protected function pmod( array $passedArgs, array $operatorContent,
+		string $input, array $cb, array &$state
+	): MMLbase {
+		// amsmath \pod and \pmod: \mkern8mu (inline) and \mkern6mu
+		// swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=2068-2070
+		return new MMLmrow( TexClass::ORD, [],
+			new MMLmspace( "", [ "width" => MMLutil::round2em( 8 / 18 ) ] ),
+			new MMLmo( "", [ "stretchy" => "false" ], "(" ),
+			new MMLmi( "", [], "mod" ),
+			new MMLmspace( "", [ "width" => MMLutil::round2em( 6 / 18 ) ] ),
+			$this->arg->toMMLTree(),
+			new MMLmo( "", [ "stretchy" => "false" ], ")" )
+		);
+	}
+
+	/** MathJax \bmod: swh:1:cnt:e9fc665797bcb6bdc58f25de1944c8c68d0fd764;lines=695-698 */
+	protected function bmod( array $passedArgs, array $operatorContent,
+		string $input, array $cb, array &$state
+	): MMLbase {
+		// amsmath \bmod: \mkern5mu on both sides
+		// swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=2065-2067
+		$thick = MMLutil::round2em( 5 / 18 );
+		// FIXME: the trailing thin space has no known source
+		$thin = new MMLmspace( "", [ "width" => MMLutil::round2em( 3 / 18 ) ] );
+		return new MMLmrow( TexClass::ORD, [],
+			new MMLmo( "", [ "lspace" => $thick, "rspace" => $thick ], "mod" ),
+			new MMLmrow( TexClass::ORD, [], $this->arg->toMMLTree() ),
+			new MMLmrow( TexClass::ORD, [], $thin ) );
+	}
 }

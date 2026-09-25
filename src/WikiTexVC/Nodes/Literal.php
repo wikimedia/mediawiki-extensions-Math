@@ -8,15 +8,19 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\MathVariant;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmover;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmpadded;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmspace;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunder;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 use RuntimeException;
 
@@ -262,5 +266,79 @@ class Literal extends TexNode {
 		 as state in parsing of TexArray */
 		$applyFct = BaseParsing::getApplyFct( $operatorContent );
 		return new MMLarray( new MMLmo( "", $passedArgs, $cb[1] ?? ltrim( $input, '\\' ) ), $applyFct );
+	}
+
+	/** MathJax \mod: swh:1:cnt:e9fc665797bcb6bdc58f25de1944c8c68d0fd764;lines=700-704 */
+	protected function mod( array $passedArgs, array $operatorContent,
+		string $input, array $cb, array &$state
+	): MMLbase {
+		return new MMLmrow( TexClass::ORD, [],
+			new MMLmo( "", [ "lspace" => "2.5pt", "rspace" => "2.5pt" ], "mod" ) );
+	}
+
+	/**
+	 * MathJax \implies: swh:1:cnt:32d2132763b2b01d0a77c2fb37dae43356a863aa;lines=525
+	 * MathJax \iff: swh:1:cnt:e9fc665797bcb6bdc58f25de1944c8c68d0fd764;lines=710
+	 */
+	protected function spacedArrow( array $passedArgs, array $operatorContent,
+		string $input, array $cb, array &$state
+	): MMLbase {
+		// amsmath \implies and \iff put \; around the arrow; \thickmuskip is 5mu
+		// swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=907
+		// swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=1288
+		// swh:1:cnt:72f94735bba07ecbc4214f3cc409de0e137ff1ee;lines=1576
+		$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ],
+			new MMLmspace( "", [ "width" => MMLutil::round2em( 5 / 18 ) ] ) );
+		$arrow = trim( $input ) === '\implies' ? "&#x27F9;" : "&#x27FA;";
+		return new MMLarray( $mstyle, new MMLmo( "", [], $arrow ), $mstyle );
+	}
+
+	/** MathJax \varliminf, \varlimsup, \varinjlim, \varprojlim: swh:1:cnt:32d2132763b2b01d0a77c2fb37dae43356a863aa;lines=70-79 */
+	protected function varlim( array $passedArgs, array $operatorContent,
+		string $input, array $cb, array &$state
+	): MMLbase {
+		$lim = new MMLmi( "", [], "lim" );
+		$inner = match ( trim( $input ) ) {
+			'\varlimsup' => MMLmover::newSubtree( $lim, new MMLmo( "", [ "accent" => "true" ], "&#x2015;" ) ),
+			'\varliminf' => MMLmunder::newSubtree( $lim, new MMLmo( "", [ "accent" => "true" ], "&#x2015;" ) ),
+			'\varinjlim' => MMLmunder::newSubtree( $lim, new MMLmo( "", [], "&#x2192;" ) ),
+			'\varprojlim' => MMLmunder::newSubtree( $lim, new MMLmo( "", [], "&#x2190;" ) ),
+		};
+		return new MMLmrow( TexClass::OP, [], $inner );
+	}
+
+	/** MathJax 3.2.2 mhchem: swh:1:cnt:951c2129885cc59578e24efb55f897008359a59e;lines=80-83 */
+	protected function tripledash( array $passedArgs, array $operatorContent,
+		string $input, array $cb, array &$state
+	): MMLbase {
+		// TODO: MathJax 4 uses the mhchem font glyph U+E410
+		// swh:1:cnt:05c966955868ca31932daf7e2f3646202e16c203;lines=137
+		return new MMLmo( "", [], "&#x2014;" );
+	}
+
+	/** MathJax 3.2.2 mhchem: swh:1:cnt:951c2129885cc59578e24efb55f897008359a59e;lines=73-76 */
+	protected function longleftrightarrows( array $passedArgs, array $operatorContent,
+		string $input, array $cb, array &$state
+	): MMLbase {
+		// TODO: MathJax 4 uses the mhchem font glyph U+E42B
+		// swh:1:cnt:05c966955868ca31932daf7e2f3646202e16c203;lines=147
+		$mover = MMLmover::newSubtree(
+			new MMLmrow( TexClass::OP, [],
+				new MMLmrow( TexClass::ORD, [],
+					new MMLmpadded( "", [ "height" => "0", "depth" => "0" ],
+						new MMLmo( "", [ "stretchy" => "false" ], "&#x27F5;" )
+					)
+				),
+				new MMLmspace( "", [ "width" => "0px", "height" => ".25em", "depth" => "0px",
+					"mathbackground" => "black" ]
+				)
+			),
+			new MMLmrow( TexClass::ORD, [],
+				new MMLmo( "", [ "stretchy" => "false" ], "&#x27F6;" )
+			)
+		);
+		return new MMLarray(
+			new MMLmtext( "", [], "&#xA0;" ),
+			new MMLmrow( TexClass::REL, [], $mover ) );
 	}
 }
