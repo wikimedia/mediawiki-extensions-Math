@@ -92,7 +92,7 @@
 	"math_unknown_error": "galat tak dikenal",
 	"math_unknown_function": "fungsi tak dikenal \"$1\"",
 	"mw-math-latexml": "LaTeXML (eksperimental; menggunakan MathML)",
-	"mw-math-mathml": "SVG (MathML dapat diaktifkan melalui plugin peramban)",
+	"mw-math-mathml": "MathML dengan gambar SVG (rendering MathJax sisi server)",
 	"mw-math-native": "MathML (eksperimental; tanpa gambar)",
 	"mw-math-source": "Sumber LaTeX (untuk peramban teks)",
 	"prefs-math": "Matematika",

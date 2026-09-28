@@ -3,11 +3,12 @@
 		"authors": [
 			"Kaszeba",
 			"Macofe",
+			"Orbitminis",
 			"Warszk"
 		]
 	},
 	"math_failure": "Parser nie rozmiôł rozpòznac",
-	"mw-math-mathml": "Wëskrzëniwôj jakno MathML jeżlë mòżlëwé (eksperimentalné)",
+	"mw-math-mathml": "MathML z òbrôzkã SVG (renderowanié MathJax pò starnie serwera)",
 	"mw-math-source": "Òstawi jakno LaTeX (dlô tekstowich przezérników)",
 	"prefs-math": "Matematika"
 }
