@@ -10,7 +10,9 @@ const REFERENCE_URL = mw.config.get( 'wgExtensionAssetsPath' ) +
 function normalizeSvg( svg ) {
 	return svg
 		.replace( /MJX-\d+-/g, 'MJX-' )
-		.replace( /vertical-align:\s*-?0(?:px|ex|em);/g, 'vertical-align: baseline;' );
+		.replace( /vertical-align:\s*-?0(?:px|ex|em);/g, 'vertical-align: baseline;' )
+		// A lone variation selector draws nothing, but MathJax still adds a fallback <text>.
+		.replace( /<text\b[^>]*>[︀-️]+<\/text>/g, '' );
 }
 
 // A character the math font has no vector glyph for falls back to a plain
