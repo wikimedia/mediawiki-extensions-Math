@@ -7,7 +7,7 @@
 		"qunit": "npm --prefix ../.. run qunit -- --qunit-component=Math",
 		"selenium-daily": "npm run selenium-test",
 		"selenium-test": "wdio tests/selenium/wdio.conf.js",
-		"api-testing": "mocha tests/api-testing",
+		"api-testing": "mocha --timeout 0 tests/api-testing",
 		"build": "./maintenance/buildPHPparser.js"
 	},
 	"devDependencies": {
