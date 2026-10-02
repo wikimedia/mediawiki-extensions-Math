@@ -57,7 +57,7 @@ class LocalChecker extends BaseChecker {
 			$result = $this->cache->getWithSetCallback(
 				$cacheInputKey,
 				WANObjectCache::TTL_INDEFINITE,
-				[ $this, 'runCheck' ],
+				$this->runCheck( ... ),
 				[ 'version' => self::VERSION ],
 			);
 		} catch ( Exception ) { // @codeCoverageIgnoreStart

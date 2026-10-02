@@ -32,7 +32,7 @@ class MathTestInputForm extends OOUIHTMLForm {
 		];
 		$this->addOptions( $formDescriptor );
 		parent::__construct( $formDescriptor, $specialPage->getContext() );
-		$this->setSubmitCallback( [ $this, 'processInput' ] );
+		$this->setSubmitCallback( $this->processInput( ... ) );
 	}
 
 	private function addOptions( array &$form ): void {

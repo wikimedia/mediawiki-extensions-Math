@@ -93,7 +93,7 @@ class MathConfig {
 		// since we can't inject services in there.
 
 		$modes = array_map(
-			[ __CLASS__, 'normalizeRenderingMode' ],
+			self::normalizeRenderingMode( ... ),
 			$this->options->get( 'MathValidModes' )
 		);
 		return array_unique( $modes );

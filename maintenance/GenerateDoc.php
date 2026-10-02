@@ -144,9 +144,9 @@ class GenerateDoc extends Maintenance {
 
 	public function execute() {
 		$this->writeFile( 'commands', implode( "\n",
-			array_map( [ $this, 'printMod' ], $this->letterMods ) ) );
+			array_map( $this->printMod( ... ), $this->letterMods ) ) );
 		$this->writeFile( 'literals', implode( "\n",
-			array_map( [ $this, 'printLiteral' ], $this->literals ) ) );
+			array_map( $this->printLiteral( ... ), $this->literals ) ) );
 		$this->writeFile( 'groups', implode( "\n\n",
 			array_map( function ( $set ) {
 				return "\\section{ Group \\texttt{" .

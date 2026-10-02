@@ -165,7 +165,7 @@ class Matrix extends TexArray {
 			return $a;
 		}
 
-		$reduced = array_reduce( $a, [ self::class, 'reduceCallback' ], [] );
+		$reduced = array_reduce( $a, self::reduceCallback( ... ), [] );
 		return $reduced;
 	}
 

@@ -60,10 +60,10 @@ class ParserHooksHandler implements
 	 * @param Parser $parser
 	 */
 	public function onParserFirstCallInit( $parser ) {
-		$parser->setHook( 'math', [ $this, 'mathTagHook' ] );
+		$parser->setHook( 'math', $this->mathTagHook( ... ) );
 		// @deprecated the ce tag is deprecated in favour of chem cf. T153606
-		$parser->setHook( 'ce', [ $this, 'chemTagHook' ] );
-		$parser->setHook( 'chem', [ $this, 'chemTagHook' ] );
+		$parser->setHook( 'ce', $this->chemTagHook( ... ) );
+		$parser->setHook( 'chem', $this->chemTagHook( ... ) );
 	}
 
 	/**

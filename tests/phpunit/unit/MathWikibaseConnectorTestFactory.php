@@ -92,7 +92,7 @@ class MathWikibaseConnectorTestFactory extends MediaWikiUnitTestCase {
 			->willReturn( true );
 		$fallbackLabelDescriptionLookupFactoryMock->method( 'newLabelDescriptionLookup' )
 			->with( $languageMock )
-			->willReturnCallback( [ $this, 'newLabelDescriptionLookup' ] );
+			->willReturnCallback( $this->newLabelDescriptionLookup( ... ) );
 
 		return self::getWikibaseConnector(
 			$languageFactoryMock,
