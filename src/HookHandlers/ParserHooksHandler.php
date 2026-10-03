@@ -74,7 +74,7 @@ class ParserHooksHandler implements
 	 * @param Parser $parser
 	 * @return array|string
 	 */
-	public function mathTagHook( ?string $content, array $attributes, Parser $parser ) {
+	private function mathTagHook( ?string $content, array $attributes, Parser $parser ) {
 		global $wgMathSvgRenderer;
 		// The default mode from ParserOptions considers site config, user preference,
 		// and request param. The actual $mode is decided by RendererFactory::determineMode
@@ -117,7 +117,7 @@ class ParserHooksHandler implements
 	 * @param Parser $parser
 	 * @return array|string
 	 */
-	public function chemTagHook( ?string $content, array $attributes, Parser $parser ) {
+	private function chemTagHook( ?string $content, array $attributes, Parser $parser ) {
 		$attributes['chem'] = true;
 		return $this->mathTagHook( '\ce{' . $content . '}', $attributes, $parser );
 	}

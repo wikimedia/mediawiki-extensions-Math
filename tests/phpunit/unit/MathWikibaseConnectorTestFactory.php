@@ -206,7 +206,7 @@ class MathWikibaseConnectorTestFactory extends MediaWikiUnitTestCase {
 		return $items[ 'Q1' ];
 	}
 
-	public function newLabelDescriptionLookup(): FallbackLabelDescriptionLookup {
+	private function newLabelDescriptionLookup(): FallbackLabelDescriptionLookup {
 		$lookup = $this->createMock( FallbackLabelDescriptionLookup::class );
 
 		$lookup->method( 'getLabel' )
