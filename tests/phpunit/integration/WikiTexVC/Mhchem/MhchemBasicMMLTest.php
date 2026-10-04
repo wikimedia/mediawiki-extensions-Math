@@ -154,9 +154,42 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 		$texVC = new TexVC();
 		$options = [ "usemhchem" => true ];
 		$warnings = [];
-		$res = $texVC->check( $input, $options, $warnings, true );
+		$res = $texVC->check( $input, $options, $warnings );
 		foreach ( $output as $value ) {
 			$this->assertStringContainsString( $value, $res['input']->toMMLtree() );
+		}
+	}
+
+	public static function provideNestedCe(): array {
+		return [
+			'ce in overbrace' => [ '\ce{\overbrace{\ce{H2O}}}', [ '<mi mathvariant="normal">H</mi>', '⏞' ] ],
+			'ce in arrow label' => [
+				'{\color{Blue}\ce{R^1-Sn(Alkyl)3}} + {\color{Red}\ce{R^2-X}} \ ' .
+					'\ce{->[{\color{Green}\ce{Pd^0}}\text{ (catalytic)}][\text{ligand set}]} \ ' .
+					'\overbrace{{\color{Blue}\ce{R^1}}\!-\!{\color{Red}\ce{R^2}}}^{coupled\ product}',
+				[ '<mi mathvariant="normal">P</mi><mi mathvariant="normal">d</mi>' ]
+			],
+			'ce with a space' => [ '\ce {H2O}', [ '<mi mathvariant="normal">H</mi>' ] ],
+			'ce with a space in overbrace' => [ '\ce{\overbrace{\ce {H2O}}}', [ '<mi mathvariant="normal">H</mi>' ] ],
+			'pu' => [ '\pu{123 kJ/mol}', [ '<mi mathvariant="normal">k</mi>' ] ],
+			'twenty levels' => [
+				str_repeat( '\ce{\overbrace{', 20 ) . 'H2O' . str_repeat( '}}', 20 ),
+				[ '<mi>H</mi><mn>2</mn><mi>O</mi>' ]
+			],
+		];
+	}
+
+	/** @dataProvider provideNestedCe */
+	public function testNestedCe( string $input, array $output ) {
+		$warnings = [];
+		$res = ( new TexVC() )->check( $input, [ 'usemhchem' => true ], $warnings );
+		$this->assertSame( '+', $res['status'] );
+		$mml = (string)$res['input']->toMMLtree();
+		$this->assertStringNotContainsString( 'mathcolor="red"', $mml,
+			'The removed chem grammar showed what it could not render as red text' );
+		$this->assertStringNotContainsString( '&lt;m', $mml, 'MathML must not end up escaped as text' );
+		foreach ( $output as $value ) {
+			$this->assertStringContainsString( $value, $mml );
 		}
 	}
 }

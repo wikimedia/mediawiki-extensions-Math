@@ -45,6 +45,19 @@ class LocalCheckerTest extends MediaWikiIntegrationTestCase {
 			$checker->getPresentationMathMLFragment() );
 	}
 
+	public function testChemConvertsNestedCe() {
+		$checker = new LocalChecker( WANObjectCache::newEmpty(), '\\ce{\\overbrace{\\ce{H2O}}}', 'chem' );
+		$this->assertTrue( $checker->isValid() );
+		$this->assertStringNotContainsString( '\\ce', $checker->getValidTex() );
+		$this->assertStringNotContainsString( 'mathcolor="red"', $checker->getPresentationMathMLFragment() );
+	}
+
+	public function testChemKeepsUnbracedCe() {
+		$checker = new LocalChecker( WANObjectCache::newEmpty(), 'K = [\\ce A]^\\alpha', 'chem' );
+		$this->assertTrue( $checker->isValid() );
+		$this->assertSame( 'K=[{\\mathrm {A} }]^{\\alpha }', $checker->getValidTex() );
+	}
+
 	public function testCeNeedsTypeChem() {
 		$checker = new LocalChecker( WANObjectCache::newEmpty(), '\\ce{H2O}', 'tex' );
 		$this->assertFalse( $checker->isValid() );

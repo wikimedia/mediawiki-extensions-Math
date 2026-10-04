@@ -1,5 +1,6 @@
 /** PEGjs lexer/parser */
 {{
+use MediaWiki\Extension\Math\WikiTexVC\Mhchem\MhchemParser;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Box;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Big;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\ChemFun2u;
@@ -20,16 +21,42 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Lr;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\LengthSpec;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Mhchem;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\UQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 }}
 {
 private TexUtil $tu;
+/** @var array[] e.g. mhchem-deprecation */
+public array $warnings = [];
 private function initialize(): void
 {
   $this->tu = TexUtil::getInstance();
   # get reference of the options for usage in functions.
   $this->options = ParserUtil::createOptions($this->options);
+  $this->warnings = [];
+}
+
+/**
+ * Converts the argument of \ce or \pu with mhchem and parses the result, so nested \ce recurse.
+ * Unbraced arguments and input that only parses unconverted are the deprecated format.
+ */
+private function mhchem( string $name, string $arg, bool $unbraced = false ): TexNode
+{
+  if ( $unbraced ) {
+    $this->warnings[] = [ 'type' => 'mhchem-deprecation', 'details' => "$name without braces" ];
+  }
+  $parser = new Parser();
+  try {
+    $tree = $parser->parse( ( new MhchemParser() )->toTex( $arg, substr( $name, 1 ), true ), $this->options );
+    array_push( $this->warnings, ...$parser->warnings );
+    return new Mhchem( $name, $tree );
+  } catch ( SyntaxError | \RuntimeException $e ) {
+    $this->warnings[] = [ 'type' => 'mhchem-deprecation', 'details' => $e->getMessage() ];
+    $tree = $parser->parse( $arg, $this->options );
+    array_push( $this->warnings, ...$parser->warnings );
+    return new Fun1( $name, $tree->setCurly() );
+  }
 }
 }
 // first rule is the start production.
@@ -178,7 +205,8 @@ lit
     { return new Fun2sq($name, $e->setCurly(), $l); }
   / name:FUN_AR1 l:lit          { return new Fun1($name, $l); }
   / name:FUN_AR1nb l:lit        { return new Fun1nb($name, $l); }
-  / name:FUN_MHCHEM l:chem_lit  { return new Mhchem($name, $l); }
+  / name:FUN_MHCHEM arg:RAW_GROUP { return $this->mhchem($name, $arg); }
+  / name:FUN_MHCHEM arg:RAW_TOKEN { return $this->mhchem($name, $arg, true); }
   / name:FUN_AR2 l1:lit l2:lit  { return new Fun2($name, $l1, $l2); }
   / name:FUN_AR4 l1:lit l2:lit l3:lit l4:lit  { return new Fun4($name, $l1, $l2, $l3, $l4); }
   / name:FUN_AR2nb l1:lit l2:lit { return new Fun2nb($name, $l1, $l2); }
@@ -523,8 +551,6 @@ BIG
 FUN_AR1
  = f:generic_func &{ return $this->tu->fun_ar1($f); } _
    { return $f; }
- / f:generic_func &{ return $this->options['oldmhchem'] && $this->tu->fun_mhchem($f);} _
-   { return $f; }
  / f:generic_func &{ return $this->tu->other_fun_ar1($f); } _
    { if ($this->options['oldtexvc']) {
         return $this->tu->other_fun_ar1($f);
@@ -537,6 +563,17 @@ FUN_AR1
 FUN_MHCHEM
  = f:generic_func &{ return $this->tu->fun_mhchem($f); } _
    { return $f; }
+
+// The argument of \ce or \pu as written, with balanced braces
+RAW_GROUP
+ = "{" arg:$RAW_CONTENT "}" _ { return $arg; }
+
+// A single-token argument without braces, e.g. \ce A
+RAW_TOKEN
+ = arg:$( "\\" alpha+ / [^ \t\n\r{}\\] ) _ { return $arg; }
+
+RAW_CONTENT
+ = ( [^{}\\] / "\\" . / "{" RAW_CONTENT "}" )*
 
 FUN_AR2
  = f:generic_func &{ return $this->tu->fun_ar2($f); } _
@@ -626,7 +663,6 @@ CNUM
    { return $n; }
  / n:$( [01] "."? ) _
    { return $n; }
-
 
 // MHCHEM LEXER RULES
 CHEM_SINGLE_MACRO

@@ -400,7 +400,7 @@
 		"outputs": [
 			{
 				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"></math>",
-				"error": "Error: math_syntax_error param "
+				"error": "Error: math_other_error param mhchem package required."
 			},
 			{
 				"params": {
@@ -2043,8 +2043,8 @@
 					"type": "chem"
 				},
 				"bug": "T437162",
-				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"></math>",
-				"error": "Error: math_unknown_error param "
+				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow data-mjx-texclass=\"ORD\"><mstyle displaystyle=\"true\" scriptlevel=\"0\"><mrow><mrow data-mjx-texclass=\"OP\"><munder><mi>a</mi><mo>⏟</mo></munder></mrow></mrow></mstyle></mrow></math>",
+				"svg": "<svg style=\"vertical-align: -1.041ex;\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1.197ex\" height=\"2.041ex\" role=\"img\" focusable=\"false\" viewBox=\"0 -442 529 902\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><defs><path id=\"MJX-NCM-I-1D44E\" d=\"M498 144C498 153 493 158 482 158C474 158 468 151 465 137C445 58 421 18 394 18C377 18 368 32 368 60C368 73 372 97 381 132L438 357C443 376 445 387 445 392C445 412 434 422 412 422C391 422 377 410 370 387C349 424 319 442 281 442C216 442 159 409 109 343C63 281 40 217 40 150C40 63 91-11 175-11C218-11 260 12 300 58C311 20 345-11 392-11C461-11 482 70 498 144M341 374C350 353 355 339 355 330C355 326 354 321 353 314L304 122C301 111 294 99 285 87C248 41 212 18 177 18C138 18 118 48 118 107C118 131 124 167 136 215C157 300 187 357 224 388C244 405 263 413 282 413C309 413 329 400 341 374Z\"></path><path id=\"MJX-NCM-N-23DF\" d=\"M492-120C492-113 489-109 482-109C476-109 473-112 472-117C469-155 441-201 403-201L325-201C289-201 263-230 246-289C229-230 203-201 167-201L89-201C51-201 24-154 20-117C20-112 17-109 10-109C3-109 0-113 0-120C6-180 34-261 89-261L167-261C204-261 232-307 236-344C236-350 239-353 246-353C253-353 256-350 256-345C260-308 287-261 325-261L403-261C458-261 486-180 492-120Z\"></path></defs><g stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" transform=\"scale(1,-1)\"><g data-mml-node=\"math\" class=\"mwe-math-element mwe-math-element-inline\"><g data-mml-node=\"TeXAtom\" data-mjx-texclass=\"ORD\"><g data-mml-node=\"mstyle\"><g data-mml-node=\"mrow\"><g data-mml-node=\"TeXAtom\" data-mjx-texclass=\"OP\"><g data-mml-node=\"munder\"><g data-mml-node=\"mi\"><use data-c=\"1D44E\" xlink:href=\"#MJX-NCM-I-1D44E\"></use></g><g data-mml-node=\"mo\" transform=\"translate(18.5,-7)\"><use data-c=\"23DF\" xlink:href=\"#MJX-NCM-N-23DF\"></use></g></g></g></g></g></g></g></g></svg>"
 			}
 		]
 	},

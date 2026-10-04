@@ -4589,7 +4589,9 @@
 		"callback": [
 			"machine",
 			"pu"
-		]
+		],
+		"fun_mhchem": true,
+		"mhchem_required": true
 	},
 	"\\qquad": {
 		"callback": [

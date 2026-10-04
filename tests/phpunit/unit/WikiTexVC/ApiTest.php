@@ -232,12 +232,17 @@ class ApiTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( 'y=x+2', $result['output'], $message );
 	}
 
-	public function testRetryParsing() {
-		$message = 'should retry parsing if oldmhchem is not set';
+	public function testMhchemWithSpace() {
 		$result = $this->texVC->check( '\\ce {A\\;+\\;B\\;->\\;C}', [ 'usemhchem' => true ] );
-		$this->assertEquals( '+', $result['status'], $message );
-		$this->assertEquals( 'mhchem-deprecation', $result['warnings'][0]['type'], $message );
-		$this->assertEquals( 'S', $result['warnings'][0]['details']['status'], $message );
+		$this->assertEquals( '+', $result['status'] );
+		$this->assertCount( 0, $result['warnings'] );
+		$this->assertStringNotContainsString( '\\ce', $result['output'] );
+	}
+
+	public function testMhchemWithoutBraces() {
+		$result = $this->texVC->check( 'K = [\\ce A]^\\alpha', [ 'usemhchem' => true ] );
+		$this->assertEquals( '+', $result['status'] );
+		$this->assertEquals( 'mhchem-deprecation', $result['warnings'][0]['type'] );
 	}
 
 	public function testDeprecationWarning() {
@@ -256,22 +261,24 @@ class ApiTest extends MediaWikiUnitTestCase {
 		$this->assertCount( 0, $result['warnings'], $message );
 	}
 
-	public function testNoRetry() {
-		$message = 'should not retry parsing if oldmhchem is set';
-		$result = $this->texVC->check( '\\ce {A\\;+\\;B\\;->\\notvalidcommand}',
-			[ 'usemhchem' => true, 'oldmhchem' => true ] );
-		$this->assertEquals( 'F', $result['status'], $message );
+	public function testMhchemFallbackToPlainTex() {
+		$result = $this->texVC->check( '\\ce{\\ce n}', [ 'usemhchem' => true ] );
+		$this->assertEquals( '+', $result['status'] );
+		$this->assertEquals( 'mhchem-deprecation', $result['warnings'][0]['type'] );
+	}
+
+	public function testMhchemInvalidCommand() {
+		$result = $this->texVC->check( '\\ce {A\\;+\\;B\\;->\\notvalidcommand}', [ 'usemhchem' => true ] );
+		$this->assertEquals( 'F', $result['status'] );
 	}
 
 	public function testSquareDq() {
-		$result = $this->texVC->check( ']_x',
-			[ 'usemhchem' => true, 'oldmhchem' => true ] );
+		$result = $this->texVC->check( ']_x', [ 'usemhchem' => true ] );
 		$this->assertEquals( ']_{x}', $result['output'] );
 	}
 
 	public function testSquareFq() {
-		$result = $this->texVC->check( ']_x^2',
-			[ 'usemhchem' => true, 'oldmhchem' => true ] );
+		$result = $this->texVC->check( ']_x^2', [ 'usemhchem' => true ] );
 		$this->assertEquals( ']_{x}^{2}', $result['output'] );
 	}
 
@@ -304,7 +311,7 @@ class ApiTest extends MediaWikiUnitTestCase {
 	public function testPreProcessMhChemTeXify() {
 		$options = ParserUtil::createOptions( [] );
 		$options['usemhchem'] = true;
-		$input = $this->texVC->preProcessInput( true, $options, '\\ce{H2O}' );
+		$input = $this->texVC->preProcessInput( $options, '\\ce{H2O}' );
 		$this->assertEquals( '{\mathrm {H} {\vphantom {A}}_{\smash[{t}]{2}}\mathrm {O} }', $input->render() );
 	}
 

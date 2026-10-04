@@ -17,7 +17,6 @@ class ParserUtil {
 			'usemhchem' => false,
 			'useintent' => false,
 			'oldtexvc' => false,
-			'oldmhchem' => false,
 			'debug' => false,
 			'report_required' => false
 		];

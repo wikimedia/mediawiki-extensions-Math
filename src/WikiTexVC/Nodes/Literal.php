@@ -353,7 +353,7 @@ class Literal extends TexNode {
 		string $input, array $cb, array &$state
 	): MMLbase {
 		$warnings = [];
-		$checkRes = ( new TexVC() )->check( $cb[1], [ "usemhchem" => true ], $warnings, true );
+		$checkRes = ( new TexVC() )->check( $cb[1], [ "usemhchem" => true ], $warnings );
 		return $checkRes["input"]->toMMLtree();
 	}
 }

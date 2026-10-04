@@ -5,7 +5,6 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\WikiTexVC;
 
 use Exception;
-use MediaWiki\Extension\Math\WikiTexVC\Mhchem\MhchemParser;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2;
@@ -65,14 +64,17 @@ class TexVC {
 	 * can also be the output of former parser call
 	 * @param array $options array options for settings of the check
 	 * @param array &$warnings reference on warnings occurring during the check
-	 * @param bool $texifyMhchem create TeX for mhchem in input before checking further
 	 * @return array|string[] output with information status (see above)
 	 * @throws Exception in case of a major problem with the check and activated debug option.
 	 */
-	public function check( $input, $options = [], &$warnings = [], bool $texifyMhchem = false ) {
+	public function check( $input, $options = [], &$warnings = [] ) {
 		$options = ParserUtil::createOptions( $options );
 		try {
-			$input = $this->preProcessInput( $texifyMhchem, $options, $input );
+			$parsed = is_string( $input );
+			$input = $this->preProcessInput( $options, $input );
+			if ( $parsed ) {
+				array_push( $warnings, ...$this->parser->warnings );
+			}
 		} catch ( Exception $ex ) {
 			if (
 				$ex instanceof SyntaxError &&
@@ -87,14 +89,6 @@ class TexVC {
 				return $this->check( $input, $options, $warnings );
 			}
 
-			if ( $ex instanceof SyntaxError && $options['usemhchem'] && !$options['oldmhchem'] ) {
-				$warnings[] = [
-					'type' => 'mhchem-deprecation',
-					'details' => $this->handleTexError( $ex, $options )
-				];
-				$options['oldmhchem'] = true;
-				return $this->check( $input, $options, $warnings );
-			}
 			return $this->handleTexError( $ex, $options );
 		}
 		$output = $input->render();
@@ -220,13 +214,7 @@ class TexVC {
 		}
 	}
 
-	public function preProcessInput( bool $texifyMhchem, array $options, TexArray|string $input ): TexArray {
-		if ( $texifyMhchem && ( $options['usemhchem'] ?? false ) ) {
-			// Parse the chemical equations to TeX with mhChemParser in PHP as preprocessor
-			$mhChemParser = new MHChemParser();
-			$input = $mhChemParser->toTex( $input, "tex", true );
-		}
-
+	public function preProcessInput( array $options, TexArray|string $input ): TexArray {
 		return is_string( $input ) ? $this->parser->parse( $input, $options ) : $input;
 	}
 

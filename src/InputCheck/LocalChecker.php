@@ -99,17 +99,11 @@ class LocalChecker extends BaseChecker {
 	}
 
 	public function runCheck(): array {
-		if ( $this->type == 'chem' ) {
-			$options = [ 'usemhchem' => true ];
-			$texifyMhchem = true;
-		} else {
-			$options = [];
-			$texifyMhchem = false;
-		}
+		$options = $this->type == 'chem' ? [ 'usemhchem' => true ] : [];
 
 		try {
 			$warnings = [];
-			$result = ( new TexVC() )->check( $this->inputTeX, $options, $warnings, $texifyMhchem );
+			$result = ( new TexVC() )->check( $this->inputTeX, $options, $warnings );
 		} catch ( Exception $e ) {
 			// TexVC::check() only rethrows when the 'debug' option is set (which LocalChecker never
 			// sets), but that only covers exceptions raised while processing the input itself; an

@@ -93,7 +93,7 @@ final class MMLmhchemTest extends MediaWikiIntegrationTestCase {
 			'usemathrm' => true,
 			'oldtexvc' => false,
 			'usemhchem' => true
-		], $warnings, false );
+		], $warnings );
 		$mathMLtexVC = isset( $resTexVC["input"] ) ? MMLTestUtil::getMMLwrapped( $resTexVC["input"] ) :
 			"<math> error texvc </math>";
 
