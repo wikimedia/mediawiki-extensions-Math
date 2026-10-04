@@ -30,12 +30,6 @@ class GenerateDoc extends Maintenance {
 		'latex_function_names',
 		'left_function',
 		'mediawiki_function_names',
-		'mhchem_bond',
-		'mhchem_macro_1p',
-		'mhchem_macro_2p',
-		'mhchem_macro_2pc',
-		'mhchem_macro_2pu',
-		'mhchem_single_macro',
 		'nullary_macro',
 		'nullary_macro_in_mbox',
 		'other_delimiters1',
@@ -55,10 +49,6 @@ class GenerateDoc extends Maintenance {
 		'fun_infix' => 1,
 		'fun_mhchem' => 1,
 		'left_function' => 1,
-		'mhchem_bond' => 1,
-		'mhchem_macro_1p' => 1,
-		'mhchem_macro_2p' => 2,
-		'mhchem_macro_2pu' => 1,
 		'right_function' => 1,
 	];
 	private array $sampleArgs = [
@@ -67,8 +57,6 @@ class GenerateDoc extends Maintenance {
 		'definecolor_function' => '{mycolor}{cmyk}{.4,1,1,0}',
 		'fun_ar2nb' => '{_1^2}{_3^4}\sum',
 		'left_function' => '( \right.',
-		'mhchem_bond' => '{-}',
-		'mhchem_macro_2pc' => '{red}{red}',
 		'right_function' => ')',
 	];
 
@@ -116,10 +104,13 @@ class GenerateDoc extends Maintenance {
 			return '\\texttt{\\textbackslash ca} was never used. \\newline ' .
 				' \\url{https://phabricator.wikimedia.org/T323878}';
 		}
+		if ( $elem === '\\pu' ) {
+			return '\\texttt{\\textbackslash pu} is not part of the \\LaTeX{} package mhchem.';
+		}
 
 		$args = $this->sampleArgs[$set] ?? str_repeat( '{x}', $count );
 		$argDesc = $count > 1 ? "applied on \${$args}\$ " : '';
-		$rendering = strpos( $set, 'mhchem' ) === 0 ? "\\ce{{$elem}{$args}}" : $elem . $args;
+		$rendering = $elem . $args;
 
 		return "\\texttt{{$textString}} {$argDesc}is rendered as \${$rendering}\$";
 	}

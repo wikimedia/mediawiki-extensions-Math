@@ -499,7 +499,6 @@
 			"customLetters",
 			"A"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{A}"
 	},
 	"\\And": {
@@ -533,7 +532,6 @@
 			"customLetters",
 			"B"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{B}"
 	},
 	"\\Big": {
@@ -615,7 +613,6 @@
 			"customLetters",
 			"X"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{X}"
 	},
 	"\\Complex": {
@@ -647,7 +644,6 @@
 			}
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\Diamond": {
@@ -679,7 +675,6 @@
 			"customLetters",
 			"E"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{E}"
 	},
 	"\\Eta": {
@@ -687,7 +682,6 @@
 			"customLetters",
 			"H"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{H}"
 	},
 	"\\Finv": {
@@ -714,7 +708,6 @@
 			}
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\H": {
@@ -737,7 +730,6 @@
 			"customLetters",
 			"I"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{I}"
 	},
 	"\\Join": {
@@ -750,7 +742,6 @@
 			"customLetters",
 			"K"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{K}"
 	},
 	"\\Koppa": {
@@ -766,7 +757,6 @@
 			}
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\Larr": {
@@ -826,7 +816,6 @@
 			"customLetters",
 			"M"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{M}"
 	},
 	"\\N": {
@@ -837,7 +826,6 @@
 			"customLetters",
 			"N"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{N}"
 	},
 	"\\O": {
@@ -851,7 +839,6 @@
 			}
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\Omicron": {
@@ -859,7 +846,6 @@
 			"customLetters",
 			"O"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{O}"
 	},
 	"\\P": {
@@ -879,7 +865,6 @@
 			}
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\Pi": {
@@ -890,7 +875,6 @@
 			}
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\Pr": {
@@ -906,7 +890,6 @@
 			}
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\Q": {
@@ -935,7 +918,6 @@
 			"customLetters",
 			"P"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{P}"
 	},
 	"\\Rightarrow": {
@@ -982,7 +964,6 @@
 			}
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\Stigma": {
@@ -1009,7 +990,6 @@
 			"customLetters",
 			"T"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{T}"
 	},
 	"\\Theta": {
@@ -1020,7 +1000,6 @@
 			}
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\Uarr": {
@@ -1045,7 +1024,6 @@
 				"mathvariant": "normal"
 			}
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\Vdash": {
@@ -1086,7 +1064,6 @@
 			"customLetters",
 			"Z"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "\\mathrm{Z}"
 	},
 	"\\\\": {
@@ -1135,7 +1112,6 @@
 			"α"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\amalg": {
@@ -1162,7 +1138,6 @@
 	},
 	"\\approx": {
 		"dots_lookahead": "dotsb",
-		"mhchem_single_macro": true,
 		"nullary_macro": true,
 		"operator_rendering": [
 			"≈"
@@ -1349,7 +1324,6 @@
 			"β"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\beth": {
@@ -1634,8 +1608,7 @@
 		"callback": [
 			"chemCustom",
 			"\\bond"
-		],
-		"mhchem_bond": true
+		]
 	},
 	"\\bot": {
 		"identifier": [
@@ -1730,8 +1703,7 @@
 			"&#x223C;",
 			true
 		],
-		"mhchem_required": true,
-		"mhchem_single_macro": true
+		"mhchem_required": true
 	},
 	"\\cal": {
 		"callback": [
@@ -1804,7 +1776,6 @@
 			"ce"
 		],
 		"fun_mhchem": true,
-		"mhchem_macro_1p": true,
 		"mhchem_required": true
 	},
 	"\\centerdot": {
@@ -1844,7 +1815,6 @@
 			"χ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\choose": {
@@ -1857,7 +1827,6 @@
 	},
 	"\\circ": {
 		"dots_lookahead": "dotsb",
-		"mhchem_single_macro": true,
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∘"
@@ -1939,8 +1908,7 @@
 	},
 	"\\color": {
 		"color_function": true,
-		"color_required": true,
-		"mhchem_macro_2pc": true
+		"color_required": true
 	},
 	"\\complement": {
 		"ams_required": true,
@@ -2134,7 +2102,6 @@
 			"δ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\det": {
@@ -2387,7 +2354,6 @@
 			"ϵ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\eqalign": {
@@ -2460,7 +2426,6 @@
 			"η"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\eth": {
@@ -2523,8 +2488,7 @@
 	},
 	"\\frac": {
 		"callback": "frac",
-		"fun_ar2": true,
-		"mhchem_macro_2p": true
+		"fun_ar2": true
 	},
 	"\\frak": {
 		"callback": [
@@ -2543,7 +2507,6 @@
 			"γ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\gcd": {
@@ -2955,7 +2918,6 @@
 			"ι"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\isin": {
@@ -2980,7 +2942,6 @@
 			"κ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\ker": {
@@ -3012,7 +2973,6 @@
 			"λ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\land": {
@@ -3506,8 +3466,7 @@
 			"bold"
 		],
 		"fun_ar1nb": true,
-		"is_letter_mod": true,
-		"mhchem_macro_1p": true
+		"is_letter_mod": true
 	},
 	"\\mathbfcal": {
 		"callback": [
@@ -3793,7 +3752,6 @@
 			"μ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\multimap": {
@@ -4190,7 +4148,6 @@
 			"ν"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\nvDash": {
@@ -4275,14 +4232,12 @@
 			"ω"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\omicron": {
 		"identifier": [
 			"ο"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro_aliase": "o"
 	},
 	"\\ominus": {
@@ -4399,8 +4354,7 @@
 	"\\overset": {
 		"ams_required": true,
 		"callback": "overset",
-		"fun_ar2": true,
-		"mhchem_macro_2p": true
+		"fun_ar2": true
 	},
 	"\\overwithdelims": {
 		"callback": "over"
@@ -4447,7 +4401,6 @@
 			"ϕ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\pi": {
@@ -4455,7 +4408,6 @@
 			"π"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\pitchfork": {
@@ -4471,7 +4423,6 @@
 	},
 	"\\pm": {
 		"dots_lookahead": "dotsb",
-		"mhchem_single_macro": true,
 		"nullary_macro": true,
 		"operator_rendering": [
 			"±"
@@ -4582,7 +4533,6 @@
 			"ψ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\pu": {
@@ -4691,7 +4641,6 @@
 			"ρ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\right": {
@@ -4894,7 +4843,6 @@
 			"σ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\sim": {
@@ -5362,7 +5310,6 @@
 			"τ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\tbinom": {
@@ -5474,7 +5421,6 @@
 			"θ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\thetasym": {
@@ -5635,8 +5581,7 @@
 			"⏟",
 			1
 		],
-		"fun_ar1nb": true,
-		"mhchem_macro_2pu": true
+		"fun_ar1nb": true
 	},
 	"\\underleftarrow": {
 		"callback": [
@@ -5673,8 +5618,7 @@
 	"\\underset": {
 		"ams_required": true,
 		"callback": "underset",
-		"fun_ar2": true,
-		"mhchem_macro_2p": true
+		"fun_ar2": true
 	},
 	"\\unlhd": {
 		"operator_rendering": [
@@ -5723,7 +5667,6 @@
 		"identifier": [
 			"υ"
 		],
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\upuparrows": {
@@ -5818,7 +5761,6 @@
 			"ε"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\varinjlim": {
@@ -5832,7 +5774,6 @@
 			"ϰ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\varliminf": {
@@ -5872,7 +5813,6 @@
 			"φ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\varpi": {
@@ -5880,7 +5820,6 @@
 			"ϖ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\varprojlim": {
@@ -5904,7 +5843,6 @@
 			"ϱ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\varsigma": {
@@ -5912,7 +5850,6 @@
 			"ς"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\varstigma": {
@@ -5965,7 +5902,6 @@
 			"ϑ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\vartriangle": {
@@ -6181,7 +6117,6 @@
 			"ζ"
 		],
 		"is_literal": true,
-		"mhchem_single_macro": true,
 		"nullary_macro": true
 	},
 	"\\{": {

@@ -22,8 +22,8 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		$this->assertTrue( $tu->getAllFunctionsAt( "\\AA" ) );
 		$this->assertFalse( $tu->getAllFunctionsAt( "\\notlisted" ) );
 		// Testing other functions
-		$this->assertTrue( $tu->mhchem_macro_2pc( "\\color" ) );
-		$this->assertFalse( $tu->mhchem_macro_2pc( "not listed" ) );
+		$this->assertTrue( $tu->fun_mhchem( "\\pu" ) );
+		$this->assertFalse( $tu->fun_mhchem( "not listed" ) );
 	}
 
 	public function testInvalidCall() {
@@ -83,13 +83,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'mathchar',
 			'mathoid_required',
 			'mediawiki_function_names',
-			'mhchem_bond',
-			'mhchem_macro_1p',
-			'mhchem_macro_2p',
-			'mhchem_macro_2pc',
-			'mhchem_macro_2pu',
 			'mhchem_required',
-			'mhchem_single_macro',
 			'nullary_macro',
 			'nullary_macro_aliase',
 			'nullary_macro_in_mbox',

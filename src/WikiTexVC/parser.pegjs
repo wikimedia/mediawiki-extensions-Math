@@ -3,10 +3,7 @@
 use MediaWiki\Extension\Math\WikiTexVC\Mhchem\MhchemParser;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Box;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Big;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\ChemFun2u;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\ChemWord;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Declh;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\Dollar;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
@@ -300,62 +297,6 @@ alignat_spec
 opt_pos
   = "[" _ [tcb] _ "]" _
   / "" /* empty */
-
-/////////////////////////////////////////////////////////////
-// MHCHEM grammar rules
-//----------------------------------------------------------
-
-
-chem_lit
-  = CURLY_OPEN e:chem_sentence CURLY_CLOSE               { return $e->setCurly(); }
-
-chem_sentence =
-    _ p:chem_phrase " " s:chem_sentence                  { return new TexArray($p,new TexArray(new Literal(" "),$s)); } /
-    _ p:chem_phrase _                                    { return new TexArray($p,new TexArray()); }
-
-chem_phrase =
-    m:"(^)"                                              { return new Literal($m); } /
-    m:chem_word n:CHEM_SINGLE_MACRO                      { return new ChemWord($m, new Literal($n)); }/
-    m:chem_word                                          { return $m; } /
-    m:CHEM_SINGLE_MACRO                                  { return new Literal($m); } /
-    m:"^"                                                { return new Literal($m); }
-
-chem_word =
-    m:chem_char n:chem_word_nt                           { return new ChemWord($m, $n); } /
-    m:CHEM_SINGLE_MACRO n:chem_char_nl o:chem_word_nt    { return new ChemWord(new ChemWord(new Literal($m), $n), $o); }
-
-chem_word_nt = m:chem_word                               { return $m; } /
-    ""                                                   { return new Literal(""); }
-
-chem_char =
-    m:chem_char_nl                                       { return $m;} /
-    c:CHEM_LETTER                                        { return new Literal($c); }
-
-chem_char_nl =
-    m:chem_script                                        { return $m;} /
-    CURLY_OPEN c:chem_text CURLY_CLOSE                   { return TexArray::newCurly($c); } /
-    BEGIN_MATH c:expr END_MATH                           { return new Dollar($c); }/
-    name:CHEM_BONDI l:chem_bond                           { return new Fun1($name, $l); } /
-    m:chem_macro                                         { return $m; } /
-    c:CHEM_NONLETTER                                     { return new Literal($c); }
-
-chem_bond
- = CURLY_OPEN e:CHEM_BOND_TYPE CURLY_CLOSE               { return TexArray::newCurly(new Literal($e)); }
-
-chem_script =
-    a:CHEM_SUPERSUB b:CHEM_SCRIPT_FOLLOW                 { return new ChemWord(new Literal($a), new Literal($b)); } /
-    a:CHEM_SUPERSUB b:chem_lit                           { return new ChemWord(new Literal($a), $b); } /
-    a:CHEM_SUPERSUB BEGIN_MATH b:expr END_MATH           { return new ChemWord(new Literal($a), new Dollar($b)); }
-
-// TODO \color is a not documented feature of mhchem for MathJax, at the moment named colors are accepted
-chem_macro =
-    name:CHEM_MACRO_2PU l1:chem_lit "_" l2:chem_lit      { return new ChemFun2u($name, $l1, $l2); }/ //return new Fun1nb($name, $l);
-    name:CHEM_MACRO_2PC l1:CHEM_COLOR l2:chem_lit        { return new Fun2($name, $l1, $l2); } /
-    name:CHEM_MACRO_2P l1:chem_lit l2:chem_lit           { return new Fun2($name, $l1, $l2); } /
-    name:CHEM_MACRO_1P l:chem_lit                        { return new Fun1($name, $l); }
-
-chem_text = cs:boxchars+                                 { return new Literal(join('',$cs)); }
-CHEM_COLOR = "{" _ name:alpha+ _ "}" _                   { return new Literal(join('',$name)); }
 
 /////////////////////////////////////////////////////////////
 // LEXER
@@ -663,44 +604,6 @@ CNUM
    { return $n; }
  / n:$( [01] "."? ) _
    { return $n; }
-
-// MHCHEM LEXER RULES
-CHEM_SINGLE_MACRO
- = f:generic_func &{ return $this->tu->mhchem_single_macro($f); } { return $f; }
- / "\\" c:[, ;!_#%$&] { return "\\" . $c; }
-
-CHEM_BONDI = f:generic_func &{ return $this->tu->mhchem_bond($f); } _ { return $f; }
-
-CHEM_MACRO_1P = f:generic_func &{ return $this->tu->mhchem_macro_1p($f); } _   { return $f; }
-
-CHEM_MACRO_2P = f:generic_func &{ return $this->tu->mhchem_macro_2p($f); } _   { return $f; }
-
-CHEM_MACRO_2PU = f:generic_func &{ return $this->tu->mhchem_macro_2pu($f); } _ { return $f; }
-
-CHEM_MACRO_2PC = f:generic_func &{ return $this->tu->mhchem_macro_2pc($f); } _ { return $f; }
-
-CHEM_SCRIPT_FOLLOW = literal_mn / literal_id / [+-.*']
-
-CHEM_SUPERSUB = "_" / "^"
-
-CHEM_BOND_TYPE = "=" / "#" / "~--" / "~-"  / "~=" / "~" / "-~-" / "...." / "..." / "<-" / "->" / "-" / "1" / "2" / "3"
-
-
-// As '$' cannot be used (dangerous char in math mode) to switch from chem mode to math mode
-// \begin{math} and \end{math} are introduced to do so
-BEGIN_MATH = BEGIN "{math}" _
-
-END_MATH = END "{math}" _
-
-CHEM_LETTER = [a-zA-Z]
-
-CHEM_NONLETTER =
-    c: "\\{" { return $c; } /
-    c: "\\}" { return $c; } /
-    c: "\\\\" { return $c; } /
-    c:[+-=#().,;/*<>|@&\'\[\]] { return $c; } /
-    c:literal_mn { return $c; } /
-    CURLY_OPEN CURLY_CLOSE { return "{}"; }
 
 // Missing lexer tokens!
 FUN_INFIXh = impossible
