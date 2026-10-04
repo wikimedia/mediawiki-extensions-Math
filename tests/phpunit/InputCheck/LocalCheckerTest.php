@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Math\InputCheck;
 
+use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\Message\Message;
 use MediaWikiIntegrationTestCase;
 use Wikimedia\ObjectCache\HashBagOStuff;
@@ -34,6 +35,20 @@ class LocalCheckerTest extends MediaWikiIntegrationTestCase {
 	public function testValidTypeChem() {
 		$checker = new LocalChecker( WANObjectCache::newEmpty(), '{\\displaystyle {\\ce {\\cdot OHNO_{2}}}}', 'chem' );
 		$this->assertTrue( $checker->isValid() );
+	}
+
+	public function testChemConvertsCe() {
+		$checker = new LocalChecker( WANObjectCache::newEmpty(), '\\ce{H2O}', 'chem' );
+		$this->assertTrue( $checker->isValid() );
+		$this->assertStringNotContainsString( '\\ce', $checker->getValidTex() );
+		$this->assertStringContainsString( '<mi mathvariant="normal">H</mi>',
+			$checker->getPresentationMathMLFragment() );
+	}
+
+	public function testCeNeedsTypeChem() {
+		$checker = new LocalChecker( WANObjectCache::newEmpty(), '\\ce{H2O}', 'tex' );
+		$this->assertFalse( $checker->isValid() );
+		$this->assertNull( $checker->getPresentationMathMLFragment() );
 	}
 
 	public function testValidTypeInline() {
@@ -122,6 +137,44 @@ class LocalCheckerTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $fakeContent['output'], $checker->getValidTex() );
 		$this->assertSame( $fakeContent['mathml'], $checker->getPresentationMathMLFragment() );
 		$this->assertSame( true, $checker->isValid() );
+	}
+
+	public function testPurgeReplacesCachedResult() {
+		$fakeWAN = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
+		$fakeWAN->set( self::SAMPLE_KEY,
+			[ 'status' => '+', 'output' => 'stale', 'mathml' => 'stale' ],
+			WANObjectCache::TTL_INDEFINITE,
+			[ 'version' => LocalChecker::VERSION ] );
+		$checker = new LocalChecker( $fakeWAN, '\\sin x^2', 'tex', true );
+		$this->assertSame( '\\sin x^{2}', $checker->getValidTex() );
+	}
+
+	public function testHookReceivesResult() {
+		$results = [];
+		$hookContainer = $this->createHookContainer( [
+			'MathRenderingResultRetrieved' => static function ( $renderer, $result ) use ( &$results ) {
+				$results[] = $result;
+			},
+		] );
+		$checker = new LocalChecker( WANObjectCache::newEmpty(), '\\ce{H2O}', 'chem' );
+		$checker->setContext( $this->createMock( MathRenderer::class ) );
+		$checker->setHookContainer( $hookContainer );
+		$this->assertTrue( $checker->isValid() );
+		$this->assertCount( 1, $results );
+		$this->assertSame( '+', $results[0]->status );
+		$this->assertSame( $checker->getPresentationMathMLFragment(), $results[0]->mathml );
+	}
+
+	public function testHookNeedsContext() {
+		$called = false;
+		$checker = new LocalChecker( WANObjectCache::newEmpty(), '\\sin x^2' );
+		$checker->setHookContainer( $this->createHookContainer( [
+			'MathRenderingResultRetrieved' => static function () use ( &$called ) {
+				$called = true;
+			},
+		] ) );
+		$this->assertTrue( $checker->isValid() );
+		$this->assertFalse( $called );
 	}
 
 	/**
