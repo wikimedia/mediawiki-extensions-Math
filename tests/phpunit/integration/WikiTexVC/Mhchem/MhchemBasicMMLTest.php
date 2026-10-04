@@ -152,7 +152,7 @@ final class MhchemBasicMMLTest extends MediaWikiIntegrationTestCase {
 	/** @dataProvider provideTexVCCheckData */
 	public function testTexVCCheck( string $input, array $output ) {
 		$texVC = new TexVC();
-		$options = [ "usemhchem" => true, "usemhchemtexified" => true ];
+		$options = [ "usemhchem" => true ];
 		$warnings = [];
 		$res = $texVC->check( $input, $options, $warnings, true );
 		foreach ( $output as $value ) {

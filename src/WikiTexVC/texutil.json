@@ -2990,7 +2990,7 @@
 	"\\kern": {
 		"callback": "hskip",
 		"fun_ar1": true,
-		"mhchemtexified_required": true
+		"mhchem_required": true
 	},
 	"\\koppa": {
 		"nullary_macro_in_mbox": true,
@@ -3280,7 +3280,7 @@
 	"\\llap": {
 		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::lap",
 		"fun_ar1": true,
-		"mhchemtexified_required": true
+		"mhchem_required": true
 	},
 	"\\llcorner": {
 		"ams_required": true,
@@ -3356,7 +3356,7 @@
 			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::longHarpoons",
 			"\\stackrel{\\textstyle\\vphantom{{-}}{\\rightharpoonup}}{\\smash{{\\leftharpoondown}\\!\\!{-}}}"
 		],
-		"mhchemtexified_required": true,
+		"mhchem_required": true,
 		"nullary_macro": true
 	},
 	"\\longRightleftharpoons": {
@@ -3364,7 +3364,7 @@
 			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::longHarpoons",
 			"\\stackrel{\\textstyle{-}\\!\\!{\\rightharpoonup}}{\\smash{\\leftharpoondown}}"
 		],
-		"mhchemtexified_required": true,
+		"mhchem_required": true,
 		"nullary_macro": true
 	},
 	"\\longleftarrow": {
@@ -3381,7 +3381,7 @@
 	},
 	"\\longleftrightarrows": {
 		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::longleftrightarrows",
-		"mhchemtexified_required": true,
+		"mhchem_required": true,
 		"nullary_macro": true
 	},
 	"\\longmapsto": {
@@ -3404,7 +3404,7 @@
 			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::longHarpoons",
 			"\\stackrel{\\textstyle{-}\\!\\!{\\rightharpoonup}}{\\smash{{\\leftharpoondown}\\!\\!{-}}}"
 		],
-		"mhchemtexified_required": true,
+		"mhchem_required": true,
 		"nullary_macro": true
 	},
 	"\\looparrowleft": {
@@ -3431,7 +3431,7 @@
 	"\\lower": {
 		"callback": "raiseLower",
 		"fun_ar2": true,
-		"mhchemtexified_required": true
+		"mhchem_required": true
 	},
 	"\\lozenge": {
 		"ams_required": true,
@@ -3576,7 +3576,7 @@
 	"\\mathchoice": {
 		"callback": "mathChoice",
 		"fun_ar4": true,
-		"mhchemtexified_required": true
+		"mhchem_required": true
 	},
 	"\\mathclose": {
 		"callback": [
@@ -3760,7 +3760,7 @@
 	"\\mkern": {
 		"callback": "hskip",
 		"fun_ar1": true,
-		"mhchemtexified_required": true
+		"mhchem_required": true
 	},
 	"\\mod": {
 		"ams_required": true,
@@ -3783,7 +3783,7 @@
 	"\\mskip": {
 		"callback": "hskip",
 		"fun_ar1": true,
-		"mhchemtexified_required": true
+		"mhchem_required": true
 	},
 	"\\mspace": {
 		"callback": "hskip"
@@ -4618,7 +4618,7 @@
 	"\\raise": {
 		"callback": "raiseLower",
 		"fun_ar2": true,
-		"mhchemtexified_required": true
+		"mhchem_required": true
 	},
 	"\\rang": {
 		"other_delimiters2": "\\rangle"
@@ -4765,7 +4765,7 @@
 	"\\rlap": {
 		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::lap",
 		"fun_ar1": true,
-		"mhchemtexified_required": true
+		"mhchem_required": true
 	},
 	"\\rm": {
 		"callback": [
@@ -4959,7 +4959,7 @@
 		"callback": "smash",
 		"fun_ar1": true,
 		"fun_ar1opt": true,
-		"mhchemtexified_required": true
+		"mhchem_required": true
 	},
 	"\\smile": {
 		"nullary_macro": true,
@@ -5591,7 +5591,7 @@
 	},
 	"\\tripledash": {
 		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::tripledash",
-		"mhchemtexified_required": true,
+		"mhchem_required": true,
 		"nullary_macro": true
 	},
 	"\\tt": {

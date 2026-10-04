@@ -43,4 +43,18 @@ final class IntentEvalTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( 'I', $resultT['status' ] );
 		$this->assertEquals( 'intent check failed.', $resultT['details' ] );
 	}
+
+	public function testIntentInBracesIsChecked() {
+		$resultT = ( new TexVC() )->check( "{\\intent{\\binom{n}{k}}{intent='binomial(\$n,\$k)',arg='n,k'}}", [
+			'useintent' => true,
+		] );
+		$this->assertEquals( 'I', $resultT['status'] );
+	}
+
+	public function testNestedIntent() {
+		$resultT = ( new TexVC() )->check( "\\intent{\\intent{x}{intent='a'}}{intent='b'}", [
+			'useintent' => true,
+		] );
+		$this->assertEquals( '+', $resultT['status'] );
+	}
 }

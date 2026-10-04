@@ -97,7 +97,7 @@ class LocalCheckerTest extends MediaWikiIntegrationTestCase {
 		$checker = new LocalChecker( WANObjectCache::newEmpty(), '\tripledash' );
 		$this->assertFalse( $checker->isValid() );
 		$this->assertStringContainsString(
-			Message::newFromKey( 'math_other_error', 'virtual mhchemtexified package required.' )
+			Message::newFromKey( 'math_other_error', 'mhchem package required.' )
 				->inContentLanguage()
 				->escaped(),
 			$checker->getError()

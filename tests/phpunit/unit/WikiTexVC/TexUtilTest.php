@@ -90,7 +90,6 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'mhchem_macro_2pu',
 			'mhchem_required',
 			'mhchem_single_macro',
-			'mhchemtexified_required',
 			'nullary_macro',
 			'nullary_macro_aliase',
 			'nullary_macro_in_mbox',

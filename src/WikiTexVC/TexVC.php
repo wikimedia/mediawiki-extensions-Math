@@ -5,14 +5,12 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\WikiTexVC;
 
 use Exception;
-use LogicException;
 use MediaWiki\Extension\Math\WikiTexVC\Mhchem\MhchemParser;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
-use stdClass;
 
 /**
  * A TeX/LaTeX validator and MathML converter.
@@ -34,7 +32,6 @@ class TexVC {
 		'teubner',
 		'mhchem',
 		'mathoid',
-		'mhchemtexified',
 		'intent'
 	];
 
@@ -64,7 +61,7 @@ class TexVC {
 	 *  - : Generic/Default failure code. Might be an invalid argument,
 	 *      output file already exist, a problem with an external
 	 *      command ...
-	 * @param string|TexArray|stdClass $input tex to be checked as string,
+	 * @param string|TexArray $input tex to be checked as string,
 	 * can also be the output of former parser call
 	 * @param array $options array options for settings of the check
 	 * @param array &$warnings reference on warnings occurring during the check
@@ -223,20 +220,14 @@ class TexVC {
 		}
 	}
 
-	public function preProcessInput( bool $texifyMhchem, array $options, TexArray|string|stdClass $input ): TexArray {
+	public function preProcessInput( bool $texifyMhchem, array $options, TexArray|string $input ): TexArray {
 		if ( $texifyMhchem && ( $options['usemhchem'] ?? false ) ) {
 			// Parse the chemical equations to TeX with mhChemParser in PHP as preprocessor
 			$mhChemParser = new MHChemParser();
 			$input = $mhChemParser->toTex( $input, "tex", true );
 		}
 
-		if ( is_string( $input ) ) {
-			$input = $this->parser->parse( $input, $options );
-		}
-		if ( !$input instanceof TexArray ) {
-			throw new LogicException( 'Tex Array object expected' );
-		}
-		return $input;
+		return is_string( $input ) ? $this->parser->parse( $input, $options ) : $input;
 	}
 
 	public function postProcess( array $options, TexArray $input, array $result ): array {
@@ -256,16 +247,6 @@ class TexVC {
 			return [
 				'status' => 'C',
 				'details' => 'mhchem package required.'
-			];
-		}
-		if (
-			!$options['usemhchemtexified'] &&
-			( $result['mhchemtexified_required']
-				?? $input->containsFunc( $this->tu->getBaseElements()['mhchemtexified_required'] ) )
-		) {
-			return [
-				'status' => 'C',
-				'details' => 'virtual mhchemtexified package required.'
 			];
 		}
 

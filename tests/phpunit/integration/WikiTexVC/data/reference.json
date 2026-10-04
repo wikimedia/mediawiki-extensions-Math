@@ -287,7 +287,7 @@
 		"outputs": [
 			{
 				"output": "<math class=\"mwe-math-element mwe-math-element-inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"></math>",
-				"error": "Error: math_other_error param virtual mhchemtexified package required."
+				"error": "Error: math_other_error param mhchem package required."
 			},
 			{
 				"params": {

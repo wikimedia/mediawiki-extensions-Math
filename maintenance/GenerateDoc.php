@@ -77,8 +77,10 @@ class GenerateDoc extends Maintenance {
 		$this->baseElements = TexUtil::getInstance()->getBaseElements();
 		$this->letterMods = array_keys( $this->baseElements['is_letter_mod'] );
 		$this->literals = array_keys( $this->baseElements['is_literal'] );
-		$this->omitElements = array_merge( array_keys( $this->baseElements['mhchemtexified_required'] ),
-			array_keys( $this->baseElements['intent_required'] ) );
+		// Macros of the TeX that mhchem generates
+		$mhchemMacros = array_diff( array_keys( $this->baseElements['mhchem_required'] ),
+			array_keys( $this->baseElements['fun_mhchem'] ), [ '\\ca' ] );
+		$this->omitElements = array_merge( $mhchemMacros, array_keys( $this->baseElements['intent_required'] ) );
 	}
 
 	private function printSample( string $set, string $elem ): string {

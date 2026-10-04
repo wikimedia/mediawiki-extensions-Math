@@ -2,13 +2,11 @@
 
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC;
 
-use LogicException;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\ParserUtil;
 use MediaWiki\Extension\Math\WikiTexVC\SyntaxError;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 use MediaWikiUnitTestCase;
-use stdClass;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexVC
@@ -154,7 +152,7 @@ class ApiTest extends MediaWikiUnitTestCase {
 			[
 				'in' => '\\tripledash',
 				'status' => 'C',
-				'details' => 'virtual mhchemtexified package required.'
+				'details' => 'mhchem package required.'
 			]
 		];
 		foreach ( $testCases as $case ) {
@@ -277,16 +275,15 @@ class ApiTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( ']_{x}^{2}', $result['output'] );
 	}
 
-	public function mhchemtexifiedTest() {
-		$result = $this->texVC->check( '\\longleftrightarrows',
-			[ 'usemhchemtexified' => true ] );
-		$this->assertEquals( '\\longleftrightarrows', $result['output'] );
+	public function testMhchemMacro() {
+		$result = $this->texVC->check( '\\longleftrightarrows', [ 'usemhchem' => true ] );
+		$this->assertEquals( '\\longleftrightarrows ', $result['output'] );
 	}
 
-	public function mhchemtexifiedTestFail() {
+	public function testMhchemMacroNeedsMhchem() {
 		$result = $this->texVC->check( '\\longleftrightarrows' );
 		$this->assertEquals( 'C', $result['status'] );
-		$this->assertFalse( $result['success'] );
+		$this->assertEquals( 'mhchem package required.', $result['details'] );
 	}
 
 	public function testError() {
@@ -309,11 +306,6 @@ class ApiTest extends MediaWikiUnitTestCase {
 		$options['usemhchem'] = true;
 		$input = $this->texVC->preProcessInput( true, $options, '\\ce{H2O}' );
 		$this->assertEquals( '{\mathrm {H} {\vphantom {A}}_{\smash[{t}]{2}}\mathrm {O} }', $input->render() );
-	}
-
-	public function testPreProcessStdClass() {
-		$this->expectException( LogicException::class );
-		$this->texVC->preProcessInput( false, [], new StdClass() );
 	}
 
 	public function testColonEquals() {

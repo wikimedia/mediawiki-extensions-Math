@@ -1790,7 +1790,7 @@ class Parser
     private function peg_f151(
         mixed $f,
     ): mixed {
-        return $this->tu->fun_ar4($f) && $this->tu->mhchemtexified_required($f);
+        return $this->tu->fun_ar4($f);
     }
 
     private function peg_f152(
@@ -3221,7 +3221,7 @@ class Parser
                                                             }
                                                             if ($s0 === $this->peg_FAILED) {
                                                                 $s0 = $this->peg_currPos;
-                                                                $s1 = $this->peg_parse_FUN_AR4_MHCHEM_TEXIFIED();
+                                                                $s1 = $this->peg_parse_FUN_AR4();
                                                                 if ($s1 !== $this->peg_FAILED) {
                                                                     $s2 = $this->peg_parse_lit();
                                                                     if ($s2 !== $this->peg_FAILED) {
@@ -7807,7 +7807,7 @@ class Parser
         return $s0;
     }
 
-    private function peg_parse_FUN_AR4_MHCHEM_TEXIFIED(): mixed
+    private function peg_parse_FUN_AR4(): mixed
     {
         $key = $this->peg_currPos * 124 + 93;
         $cached = $this->peg_cache[$key] ?? false;
