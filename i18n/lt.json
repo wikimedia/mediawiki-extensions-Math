@@ -5,6 +5,7 @@
 			"Eitvys200",
 			"Macofe",
 			"Manvydasz",
+			"Mindaur",
 			"Nokeoo",
 			"Perkunas",
 			"Tomasdd"
@@ -74,7 +75,7 @@
 	"mw-math-latexml": "LaTeXML (eksperimentinis; naudoja MathML)",
 	"mw-math-mathml": "SVG (MathML gali būti įjungtas per naršyklės įskiepį)",
 	"mw-math-native": "MathML (eksperimentinis; be vaizdų)",
-	"mw-math-source": "LaTeX išeities kodas (teksto naršyklėms)",
+	"mw-math-source": "LaTeX pirminis programos tekstas (teksto naršyklėms)",
 	"prefs-math": "Matematika",
 	"mathstatus": "Matematinių formulių statusas",
 	"mathwikibase": "Matematinės formulės informacija",
