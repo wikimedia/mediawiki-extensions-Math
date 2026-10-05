@@ -210,6 +210,25 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $sum, $res[0] );
 	}
 
+	public static function provideNamedFunction(): array {
+		return [
+			'delimiter stays a separate literal' => [ '\\sin(x)', '\\sin', '(' ],
+			'space is part of the literal' => [ '\\sin x', '\\sin ', 'x' ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideNamedFunction
+	 */
+	public function testNamedFunctionIsOneLiteral( string $input, string $name, string $next ) {
+		$result = ( new TexVC() )->check( $input );
+		$parsed = $result['input'];
+		$this->assertEquals( new Literal( $name ), $parsed->first() );
+		$this->assertEquals( new Literal( $next ), $parsed->second() );
+		$this->assertEquals( [ true, true ], $parsed->checkForNamedFctArgs( $parsed->first(), $parsed->second() ) );
+		$this->assertSame( $input, $result['output'] );
+	}
+
 	public function testCustomOpInLimits() {
 		$ta = new TexArray();
 		$custom = new Fun1nb( '\operatorname', new TexArray( new Literal( 'S' ) ) );

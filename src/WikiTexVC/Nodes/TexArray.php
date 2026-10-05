@@ -136,20 +136,10 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		( $currentNode instanceof Literal &&
 				// Check if the current node is a nullary macro such as \iint, \sum, \prod, etc.
 				( $tu->nullary_macro( trim( $currentNode->getArg() ) )
-				// or a limit operator
-				|| ( trim( $currentNode->getArg() ) == "\\lim" ) ) ) ||
+				// or a named function or operator such as \sin or \lim
+				|| $tu->latex_function_names( trim( $currentNode->getArg() ) ) ) ) ||
 		// or the special case of \operatorname
-		( $currentNode instanceof Fun1nb && $currentNode->getFname() == "\\operatorname" ) ||
-		// special case of latex_function_names
-		( $currentNode instanceof TexArray && $currentNode->getLength() === 2 &&
-			$currentNode->first() instanceof Literal &&
-			// the parser adds a space after the function name (regardless of the user input
-			$currentNode->second() instanceof Literal &&
-			// @phan-suppress-next-line PhanUndeclaredMethod
-			$currentNode->second()->getArg() === " " &&
-			// @phan-suppress-next-line PhanUndeclaredMethod
-			$tu->latex_function_names( $currentNode->first()->getArg() )
-		) ) ) {
+		( $currentNode instanceof Fun1nb && $currentNode->getFname() == "\\operatorname" ) ) ) {
 			return [ null, false ];
 		}
 
@@ -269,13 +259,8 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	public function checkForNamedFctArgs( TexNode $currentNode, ?TexNode $nextNode ): array {
 		// Check if current node is named function
 		$hasNamedFct = false;
-		if ( $currentNode instanceof TexArray && count( $currentNode->args ) == 2 ) {
-			$tu = TexUtil::getInstance();
-			$currentNodeContent = $currentNode[0];
-			if ( $currentNodeContent instanceof Literal &&
-				$tu->latex_function_names( $currentNodeContent->getArg() ) ) {
-				$hasNamedFct = true;
-			}
+		if ( $currentNode instanceof Literal ) {
+			$hasNamedFct = (bool)TexUtil::getInstance()->latex_function_names( trim( $currentNode->getArg() ) );
 		} elseif ( $currentNode instanceof Fun1nb && $currentNode->getFname() === '\\operatorname' ) {
 			$hasNamedFct = true;
 		}

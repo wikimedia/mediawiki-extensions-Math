@@ -159,7 +159,7 @@ class Literal extends TexNode {
 
 		$operatorContent = array_merge( $operatorContent ?? [], $state ?? [] );
 		try {
-			$cb = $this->getLocalCallback( $inputP, $arguments, $operatorContent, $state );
+			$cb = $this->getLocalCallback( trim( $inputP ), $arguments, $operatorContent, $state );
 		} catch ( RuntimeException ) {
 			// ignore exception
 			return new MMLarray();

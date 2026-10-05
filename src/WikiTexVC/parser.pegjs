@@ -161,8 +161,8 @@ right
 lit
   = r:LITERAL                   { return new Literal($r); }
   / f:generic_func &{ return $this->tu->latex_function_names($f); } _
-   c:( "(" / "[" / "\\{" / "" { return " ";}) _
-   { return new TexArray( new Literal( $f ) , new Literal( $c ) ) ; }
+   c:( &( "(" / "[" / "\\{" ) { return ""; } / "" { return " "; } )
+   { return new Literal( $f . $c ); }
   // quasi-literal; this is from Texutil.find(...) but the result is not
   // guaranteed to be Tex.LITERAL(...)
   / f:generic_func &{ return $this->tu->nullary_macro_aliase($f); } _ // from Texutil.find(...)

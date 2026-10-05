@@ -77,7 +77,9 @@ class FQ extends TexNode {
 		$movablelimitsEnabled = false;
 
 		// Determine whether to use munderover (above=true) vs mmlsubsup (above=false).
-		if ( $base instanceof Literal ) {
+		// Skip named functions such as \lim: this branch would remove movablelimits="false" from \lim\limits.
+		// bug T440231
+		if ( $base instanceof Literal && !$tu->latex_function_names( trim( $base->getArg() ) ) ) {
 			$litArg = trim( $base->getArgs()[0] );
 			$useMoveLimits = $tu->operator_rendering( $litArg )[1]['movesupsub'] ?? false;
 
