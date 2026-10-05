@@ -32,6 +32,7 @@ class GenerateDoc extends Maintenance {
 		'mediawiki_function_names',
 		'nullary_macro',
 		'nullary_macro_in_mbox',
+		'op_limits',
 		'other_delimiters1',
 		'other_delimiters2',
 		'right_function',
@@ -90,13 +91,20 @@ class GenerateDoc extends Maintenance {
 		if ( $set === 'mediawiki_function_names' ) {
 			return "\\texttt{{$textString}} is rendered as \$\\operatorname{" . substr( $elem, 1 ) . "} y\$";
 		}
+		if ( in_array( $elem, [ '\\limits', '\\nolimits' ] ) ) {
+			return "\\texttt{{$textString}} is rendered for example as \$\\mathop\\cap{$elem}_a^b\$";
+		}
+		if ( $set === 'op_limits' ) {
+			// The Op atoms with an argument, such as \mathop{X}, are all in fun_ar1nb
+			$op = isset( $this->baseElements['fun_ar1nb'][$elem] ) ? "{$elem}{X}" : $elem;
+			$limits = $this->baseElements['op_limits'][$elem];
+			return "\\texttt{{$textString}} ({$limits}) is rendered as \$\\displaystyle {$op}_a^b\$ "
+				. "in display style and as \${$op}_a^b\$ inline";
+		}
 		if ( $set === 'right_function' ) {
 			return "\\texttt{{$textString}} is rendered as \$\\left. \\right)\$";
 		}
 
-		if ( in_array( $elem, [ '\\limits', '\\nolimits' ] ) ) {
-			return "\\texttt{{$textString}} is rendered for example as \$\\mathop\\cap{$elem}_a^b\$";
-		}
 		if ( $elem === '\\pagecolor' ) {
 			return '\\texttt{\\textbackslash pagecolor} is not rendered.';
 		}

@@ -87,13 +87,13 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'nullary_macro',
 			'nullary_macro_aliase',
 			'nullary_macro_in_mbox',
+			'op_limits',
 			'operator',
 			'operator_infix',
 			'operator_rendering',
 			'other_delimiters1',
 			'other_delimiters2',
 			'other_fun_ar1',
-			'over_operator',
 			'right_function',
 			'stix_required',
 			'teubner_required',
@@ -185,6 +185,47 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		foreach ( TexUtil::getInstance()->getBaseElements()['dots_lookahead'] as $key => $value ) {
 			$this->assertContains( $value, $valid, "Invalid dots_lookahead for $key" );
 		}
+	}
+
+	/**
+	 * \mathop: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=14684-14685
+	 * plain.tex: swh:1:cnt:0f363a96c0e1f93d830e97534b1fe07861fdae69;lines=823-829,1054-1085
+	 * amsopn.dtx: swh:1:cnt:3af54cff29be781035d629164f58f12d06b77563;lines=115-127,172-183,238-252
+	 * amsmath.dtx: swh:1:cnt:d4a287b9531788cd614d524bdd53f38681a63902;lines=124,275,1393-1395
+	 * Large operators and braces, plain.tex: swh:1:cnt:0f363a96c0e1f93d830e97534b1fe07861fdae69;lines=817-830,957-962
+	 * \overarc is not plain TeX, it is set like \overbrace.
+	 * \limits and \nolimits: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=22024-22033
+	 */
+	public function testOpLimitsFollowTeX() {
+		$expected = [
+			'\\mathop' => 'displaylimits',
+			'\\operatorname' => 'nolimits',
+		];
+		foreach ( [ 'Pr', 'det', 'gcd', 'inf', 'lim', 'liminf', 'limsup', 'max', 'min', 'sup',
+			'injlim', 'projlim', 'varinjlim', 'varliminf', 'varlimsup', 'varprojlim' ] as $name
+		) {
+			$expected["\\$name"] = 'displaylimits';
+		}
+		foreach ( [ 'bigcap', 'bigcup', 'bigodot', 'bigoplus', 'bigotimes', 'bigsqcup', 'biguplus',
+			'bigvee', 'bigwedge', 'coprod', 'prod', 'sum' ] as $name
+		) {
+			$expected["\\$name"] = 'displaylimits';
+		}
+		foreach ( [ 'overbrace', 'underbrace', 'overarc' ] as $name ) {
+			$expected["\\$name"] = 'limits';
+		}
+		$expected['\\limits'] = 'limits';
+		$expected['\\nolimits'] = 'nolimits';
+		foreach ( [ 'arccos', 'arcsin', 'arctan', 'arg', 'cos', 'cosh', 'cot', 'coth', 'csc', 'deg',
+			'dim', 'exp', 'hom', 'ker', 'lg', 'ln', 'log', 'sec', 'sin', 'sinh', 'tan', 'tanh',
+			'int', 'oint', 'iint', 'iiint', 'iiiint' ] as $name
+		) {
+			$expected["\\$name"] = 'nolimits';
+		}
+		$actual = TexUtil::getInstance()->getBaseElements()['op_limits'];
+		ksort( $expected );
+		ksort( $actual );
+		$this->assertEquals( $expected, $actual );
 	}
 
 	public function testGetOperatorByKey() {

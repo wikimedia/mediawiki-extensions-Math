@@ -11,6 +11,10 @@
     \usepackage{stix} %intbar
     \usepackage{arcs}
 }
+% arcs passes only two of the three arguments of the relsize warning to \@gobbletwo,
+% so \overarc prints the font size, see https://www.tug.org/pipermail/tex-live/2014-April/035069.html
+\usepackage{etoolbox}
+\patchcmd{\over@under@arc}{\@gobbletwo}{\@gobblethree}{}{}
 \makeatother
 \usepackage{url}
 \usepackage{parskip}

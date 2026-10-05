@@ -112,47 +112,15 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	}
 
 	public function checkForLimits( TexNode $currentNode, ?TexNode $nextNode ): array {
-		// Preceding 'lim' in example: "\\lim_{x \\to 2}"
-		if ( ( $currentNode instanceof DQ || $currentNode instanceof FQ )
-			&& ( $currentNode->containsFunc( "\\lim" ) ||
-				$currentNode->containsFunc( '\\varinjlim' ) ) ) {
-
-			$base = $currentNode->getBase();
-			if ( $base instanceof TexArray && !$base->isEmpty() ) {
-				return [ $base->getArgs()[0], false ];
-			} else {
-				return [ $base, false ];
-			}
-		}
-
-		/** Find cases which have preceding Literals with nullary_macro-type operators i.e.:
-		 * "\iint\limits_D \, dx\,dy"
-		 */
-		$tu = TexUtil::getInstance();
-
-		// Check whether the current node is a possible preceding literal
-		if ( !(
-		// logically superfluous brackets were inserted to improve readability
-		( $currentNode instanceof Literal &&
-				// Check if the current node is a nullary macro such as \iint, \sum, \prod, etc.
-				( $tu->nullary_macro( trim( $currentNode->getArg() ) )
-				// or a named function or operator such as \sin or \lim
-				|| $tu->latex_function_names( trim( $currentNode->getArg() ) ) ) ) ||
-		// or the special case of \operatorname
+		// An Op atom followed by \limits or \nolimits with scripts, e.g. "\iint\limits_D".
 		// TeX's math_limit_switch: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=22026-22031
-		( $currentNode instanceof Fun1nb && $currentNode->getFname() == "\\operatorname" ) ) ) {
-			return [ null, false ];
+		if ( TexUtil::getInstance()->op_limits( $currentNode->getFname() ?? '' ) &&
+			$nextNode instanceof FQ &&
+			in_array( $nextNode->getBase()->getFname(), [ '\\limits', '\\nolimits' ], true )
+		) {
+			return [ $currentNode, true ];
 		}
-
-		// Check whether the next node is a possible limits construct
-		if ( !( ( $nextNode instanceof DQ || $nextNode instanceof FQ || $nextNode instanceof UQ )
-			&& $nextNode->getBase() instanceof Literal
-			&& ( $nextNode->containsFunc( "\\limits" ) || $nextNode->containsFunc( "\\nolimits" ) )
-			) ) {
-			return [ null, false ];
-
-		}
-		return [ $currentNode, true ];
+		return [ null, false ];
 	}
 
 	/**
@@ -414,15 +382,18 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 			}
 
 			if ( $styleArguments ) {
-				$state["styleargs"] = $styleArguments;
 				$mmlStyles[] = new MMLmstyle( "", $styleArguments );
 				if ( $next instanceof TexNode && $next->isCurly() ) {
 					// Wrap with style-tags when the next element is a Curly which determines start and end tag.
-					$content = $this->createMMLwithContext( $currentColor, $next, $state, $arguments );
+					// The style ends with the group, so the group gets a copy of the state.
+					$groupState = $state;
+					$groupState["styleargs"] = $styleArguments;
+					$content = $this->createMMLwithContext( $currentColor, $next, $groupState, $arguments );
 					$currentContainer = end( $mmlStyles );
 					$currentContainer->addChild( $content );
-					unset( $state["styleargs"] );
 					$skip++;
+				} else {
+					$state["styleargs"] = $styleArguments;
 				}
 			} else {
 				// Start the style indicator in cases like \textstyle abc
@@ -447,6 +418,9 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 			return new MMLmrow( TexClass::ORD, [], ...$output );
 		}
 		// Bug: T417592
+		// TeX makes a group an Ord atom, so a lone operator such as {\sum} gets no space around it.
+		// TeX's math_group: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=22330-22342
+		// MathML Core gives an mo outside its operator dictionary 0.2778em on each side instead.
 		if ( $this->curly && $this->getLength() === 1 && ( $output[0] ?? null ) instanceof MMLmo ) {
 			$output[0]->setAttribute( 'lspace', '0' );
 			$output[0]->setAttribute( 'rspace', '0' );

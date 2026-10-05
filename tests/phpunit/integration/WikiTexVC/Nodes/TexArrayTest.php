@@ -245,6 +245,13 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( '<munderover>', (string)$result['input']->toMMLtree() );
 	}
 
+	public function testMathopInLimits() {
+		$ta = new TexArray();
+		$mathop = new Fun1nb( '\\mathop', new TexArray( new Literal( 'X' ) ) );
+		$res = $ta->checkForLimits( $mathop, new DQ( new Literal( '\\limits' ), new Literal( 'n' ) ) );
+		$this->assertEquals( [ $mathop, true ], $res );
+	}
+
 	public function testRenderAPrime() {
 		$n = new TexArray( new Literal( 'A' ) );
 		$state = [ 'prime' => 1 ];

@@ -62,6 +62,11 @@ class TexNode {
 		return BaseMethods::generateMMLError( "Not implemented $name for $input" );
 	}
 
+	/** Name of the macro this node stands for, e.g. \sum or \frac */
+	public function getFname(): ?string {
+		return null;
+	}
+
 	/**
 	 * @return self[]|string[]
 	 */

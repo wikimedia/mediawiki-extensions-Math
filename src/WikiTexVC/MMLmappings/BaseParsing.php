@@ -281,8 +281,11 @@ class BaseParsing {
 			$mrowOpen = new MMLmrow( TexClass::OPEN, [], new MMLmo( "", $styleAttr, $left ) );
 			$output[] = $mrowOpen;
 		}
-		$mrow1 = new MMLmrow( TexClass::ORD, [], $node->getArg1()->toMMLtree() );
-		$mrow2 = new MMLmrow( TexClass::ORD, [], $node->getArg2()->toMMLtree() );
+		// TeX sets the parts in text style unless \genfrac asks for display style.
+		$state1 = [ 'styleargs' => [ 'displaystyle' => $displayStyle ] ];
+		$state2 = $state1;
+		$mrow1 = new MMLmrow( TexClass::ORD, [], $node->getArg1()->toMMLtree( [], $state1 ) );
+		$mrow2 = new MMLmrow( TexClass::ORD, [], $node->getArg2()->toMMLtree( [], $state2 ) );
 
 		$output[] = MMLmfrac::newSubtree( $mrow1, $mrow2, "", $attrs );
 		if ( $right ) {
@@ -298,16 +301,21 @@ class BaseParsing {
 	}
 
 	public static function frac( $node, $passedArgs, $operatorContent, $name ): MMLbase {
+		// TeX sets the parts of a fraction in text style.
+		$state = [ 'styleargs' => [ 'displaystyle' => 'false' ] ];
+		$state1 = $state;
+		$state2 = $state;
 		if ( $node instanceof Fun2 ) {
-			$inner = [ new MMLmrow( TexClass::ORD, [], $node->getArg1()->toMMLtree() ),
-				new MMLmrow( TexClass::ORD, [], $node->getArg2()->toMMLtree() ) ];
+			$inner = [ new MMLmrow( TexClass::ORD, [], $node->getArg1()->toMMLtree( [], $state1 ) ),
+				new MMLmrow( TexClass::ORD, [], $node->getArg2()->toMMLtree( [], $state2 ) ) ];
 		} elseif ( $node instanceof DQ ) {
-			$inner = [ new MMLmrow( TexClass::ORD, [], $node->getBase()->toMMLtree() ),
-				new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree() ) ];
+			$inner = [ new MMLmrow( TexClass::ORD, [], $node->getBase()->toMMLtree( [], $state1 ) ),
+				new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree( [], $state2 ) ) ];
 		} else {
 			$inner = [];
 			foreach ( $node->getArgs() as $arg ) {
-				$rendered = is_string( $arg ) ? $arg : $arg->toMMLtree();
+				$argState = $state;
+				$rendered = is_string( $arg ) ? $arg : $arg->toMMLtree( [], $argState );
 				$inner[] = new MMLmrow( TexClass::ORD, [], $rendered );
 			}
 		}
@@ -408,7 +416,10 @@ class BaseParsing {
 				if ( $texclass ) {
 					$mtdAttributes['class'] = $texclass;
 				}
-				$state = [ 'inMatrix'	=> true ];
+				// TeX sets each cell as a $...$ formula, which starts in text style.
+				// plain.tex \matrix: swh:1:cnt:0f363a96c0e1f93d830e97534b1fe07861fdae69;lines=1093-1096
+				// amsmath matrix: swh:1:cnt:d4a287b9531788cd614d524bdd53f38681a63902;lines=2525-2527
+				$state = [ 'inMatrix' => true, 'styleargs' => [ 'displaystyle' => 'false' ] ];
 				$isEmptyLine = $isEmptyLine && $usedArg->isEmpty();
 				$innerInnter[] = new MMLmtd( "", $mtdAttributes, $usedArg->toMMLtree( $passedArgs, $state ) );
 				$colNo++;
@@ -462,9 +473,13 @@ class BaseParsing {
 			);
 			$attributes = [ "linethickness" => "0" ];
 		}
+		// TeX sets the parts of a fraction in text style.
+		$state = [ 'styleargs' => [ 'displaystyle' => 'false' ] ];
+		$state1 = $state;
+		$state2 = $state;
 		if ( $node instanceof Fun2 ) {
-			$mfrac = MMLmfrac::newSubtree( new MMLmrow( "", [], $node->getArg1()->toMMLtree() ),
-				new MMLmrow( "", [], $node->getArg2()->toMMLtree() ), "", $attributes );
+			$mfrac = MMLmfrac::newSubtree( new MMLmrow( "", [], $node->getArg1()->toMMLtree( [], $state1 ) ),
+				new MMLmrow( "", [], $node->getArg2()->toMMLtree( [], $state2 ) ), "", $attributes );
 			if ( $start->isEmpty() ) {
 				return $mfrac;
 			}
@@ -475,7 +490,8 @@ class BaseParsing {
 			if ( is_string( $arg ) && str_contains( $arg, $name ) ) {
 				continue;
 			}
-			$rendered = $arg instanceof TexNode ? $arg->toMMLtree() : $arg;
+			$argState = $state;
+			$rendered = $arg instanceof TexNode ? $arg->toMMLtree( [], $argState ) : $arg;
 			$inner[] = new MMLmrow( "", [], $rendered );
 		}
 		$mfrac = MMLmfrac::newSubtree( $inner[0], $inner[1], "", $attributes );

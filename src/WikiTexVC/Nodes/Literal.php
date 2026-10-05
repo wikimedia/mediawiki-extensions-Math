@@ -190,6 +190,12 @@ class Literal extends TexNode {
 		return new MMLmi( "", $arguments, $content );
 	}
 
+	/** @inheritDoc */
+	public function getFname(): ?string {
+		$name = trim( $this->arg );
+		return str_starts_with( $name, '\\' ) ? $name : null;
+	}
+
 	public function getArg(): string {
 		return $this->arg;
 	}

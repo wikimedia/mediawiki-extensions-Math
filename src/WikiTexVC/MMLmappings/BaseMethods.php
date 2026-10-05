@@ -114,9 +114,6 @@ class BaseMethods {
 		if ( array_key_exists( "largeop", $attrs ) && $attrs['largeop'] == "" ) {
 			unset( $attrs['largeop'] );
 		}
-		if ( array_key_exists( "movesupsub", $attrs ) && $attrs['movesupsub'] == "1" ) {
-			unset( $attrs['movesupsub'] );
-		}
 		return new MMLmo( trim( $name ) === '\\colon' ? 'PUNCT' : '', $attrs, $uc );
 	}
 

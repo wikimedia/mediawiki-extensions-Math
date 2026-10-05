@@ -128,9 +128,9 @@ class DQTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testToMMLTreeLimitsCase() {
-		$dq = new DQ( new Literal( 'a' ), new Literal( 'b' ) );
+		$dq = new DQ( new Literal( '\\limits' ), new Literal( 'b' ) );
 		$state = [
-				'limits' => new Literal( 'c' ),
+				'limits' => new Literal( '\\sum' ),
 		];
 		$result = $dq->toMMLTree( [], $state );
 		$this->assertNotNull( $result, 'toMMLTree should handle limits case and not return null' );

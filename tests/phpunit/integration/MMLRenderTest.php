@@ -54,7 +54,7 @@ class MMLRenderTest extends MediaWikiIntegrationTestCase {
 	public function testNoLimits() {
 		$input = "\\displaystyle \int\\nolimits_0^\infty f(x) dx";
 		$mathMLtexVC = $this->generateMML( $input );
-		$this->assertStringContainsString( 'movablelimits="false"', $mathMLtexVC );
+		$this->assertStringContainsString( '<msubsup>', $mathMLtexVC );
 		$this->assertStringNotContainsString( "nolimits", $mathMLtexVC );
 	}
 
@@ -470,8 +470,9 @@ class MMLRenderTest extends MediaWikiIntegrationTestCase {
 		$input = "\\textstyle \\lim_{n \\to \\infty}x_n";
 		$mathMLtexVC = $this->generateMML( $input );
 		$this->assertStringContainsString( "lim", $mathMLtexVC );
-		$this->assertStringContainsString( "munder", $mathMLtexVC, );
-		$this->assertStringContainsString( "movablelimits=\"true\"", $mathMLtexVC );
+		// In text style TeX puts the limits aside.
+		$this->assertStringContainsString( "<msub>", $mathMLtexVC );
+		$this->assertStringNotContainsString( "munder", $mathMLtexVC );
 	}
 
 	public function testColorGeneration1() {

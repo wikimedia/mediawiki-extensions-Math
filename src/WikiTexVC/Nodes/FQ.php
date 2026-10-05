@@ -41,30 +41,9 @@ class FQ extends TexNode {
 
 	/** @inheritDoc */
 	public function toMMLTree( $arguments = [], &$state = [] ): MMLbase {
-		$tu = TexUtil::getInstance();
-
-		$hasLimits = array_key_exists( 'limits', $state );
-		$displaystyle = ( $state['styleargs']['displaystyle'] ?? 'true' ) === 'true';
-
-		// TeX's math_limit_switch: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=22024-22033
-		if ( $hasLimits ) {
-			$argsOp = [ 'form' => 'prefix' ];
-			if ( !$displaystyle ) {
-				$argsOp['movablelimits'] = 'true';
-			}
-			if ( $this->base->containsFunc( '\\limits' ) ) {
-				$argsOp['movablelimits'] = 'false';
-			}
-			if ( $this->base->containsFunc( '\\nolimits' ) ) {
-				$argsOp['movablelimits'] = 'false';
-				$hasLimits = false;
-			}
-			$base = $state['limits'];
-			unset( $state['limits'] );
-		} else {
-			$base = $this->getBase();
-			$argsOp = $arguments;
-		}
+		// The operator before \limits or \nolimits, see TexArray::checkForLimits
+		$base = $state['limits'] ?? $this->getBase();
+		unset( $state['limits'] );
 
 		// Special-case: sideset with empty (non-curly) base -> return array of under/over rows.
 		if ( isset( $state['sideset'] ) && $base->getLength() === 0 && !$base->isCurly() ) {
@@ -74,62 +53,36 @@ class FQ extends TexNode {
 			);
 		}
 
-		$above = false;
-		$movablelimitsEnabled = false;
+		// TeX's make_op: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=14684-14685
+		$limits = $this->getLimits( $base );
+		$displaystyle = ( $state['styleargs']['displaystyle'] ?? 'true' ) === 'true';
+		$above = $limits === 'limits' || ( $limits === 'displaylimits' && $displaystyle );
 
-		// Determine whether to use munderover (above=true) vs mmlsubsup (above=false).
-		// Skip named functions such as \lim: this branch would remove movablelimits="false" from \lim\limits.
-		// bug T440231
-		if ( $base instanceof Literal && !$tu->latex_function_names( trim( $base->getArg() ) ) ) {
-			$litArg = trim( $base->getArgs()[0] );
-			$useMoveLimits = $tu->operator_rendering( $litArg )[1]['movesupsub'] ?? false;
-
-			$containsLimits = $this->getBase()->containsFunc( '\\limits' );
-			$movablelimitsEnabled = ( $argsOp['movablelimits'] ?? 'true' ) === 'true';
-
-			if ( $containsLimits || ( $useMoveLimits && $movablelimitsEnabled && $displaystyle ) ) {
-				// replicate original mutation semantics
-				if ( $containsLimits || ( $useMoveLimits && $displaystyle ) ) {
-					$argsOp['movablelimits'] = 'false';
-				}
-				if ( !$useMoveLimits ) {
-					unset( $argsOp['movablelimits'] );
-				}
-				$above = true;
-			}
-		} elseif ( $base instanceof Fun1 && $tu->over_operator( $base->getFname() ) ) {
-			$above = true;
-		} elseif ( $this instanceof DQ && $this->getBase()->containsFunc( "\underbrace" ) ) {
-			$above = true;
-		}
-
-		$baseMML = $base->toMMLTree( $argsOp, $state );
-		if ( $this instanceof DQ ) {
-			// TeX's make_op puts display limits above only in display style.
-			// swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=14684-14685
-			// the movablelimits option is only available for mo elements
-			// for other elements such as mrow we need to msub instead of mover
-			// bug T417375
-			$moveMrow = !$displaystyle && $baseMML instanceof MMLmrow && $movablelimitsEnabled;
-			if ( $hasLimits && !$moveMrow ) {
-				$above = true;
-			}
-			if ( $this->isEmpty() ) {
-				return new MMLarray();
-			}
-			if ( $displaystyle && $tu->operator( trim( $base->render() ) ) ) {
-				$above = true;
-			}
+		$baseMML = $base->toMMLTree( $arguments, $state );
+		if ( $this instanceof DQ && $this->isEmpty() ) {
+			return new MMLarray();
 		}
 
 		$emptyMrow = $base->isEmpty() ? new MMLmrow() : new MMLarray();
 
-		return $this->newMmlElement(
-			$above,
-			new MMLarray( $emptyMrow, $baseMML ),
-			new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLTree( $arguments, $state ) ),
-			new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( $arguments, $state ) )
-		);
+		// TeX sets scripts in script style, which is no display style.
+		$scriptState = $state;
+		$scriptState['styleargs']['displaystyle'] = 'false';
+		$down = new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLTree( $arguments, $scriptState ) );
+		$up = new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( $arguments, $scriptState ) );
+
+		return $this->newMmlElement( $above, new MMLarray( $emptyMrow, $baseMML ), $down, $up );
+	}
+
+	/**
+	 * Limits setting of the Op atom $base: limits, nolimits, displaylimits, or null for other atoms.
+	 */
+	private function getLimits( TexNode $base ): ?string {
+		$tu = TexUtil::getInstance();
+		// \limits and \nolimits are the base of the scripts and override the operator before them.
+		// TeX's math_limit_switch: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=22024-22033
+		return $tu->op_limits( $this->getBase()->getFname() ?? '' ) ?:
+			$tu->op_limits( $base->getFname() ?? '' ) ?: null;
 	}
 
 	protected function newMmlElement( bool $above, MMLbase $base, MMLbase $down, MMLbase $up ): MMLbase {
