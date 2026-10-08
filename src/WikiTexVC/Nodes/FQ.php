@@ -46,6 +46,7 @@ class FQ extends TexNode {
 		$hasLimits = array_key_exists( 'limits', $state );
 		$displaystyle = ( $state['styleargs']['displaystyle'] ?? 'true' ) === 'true';
 
+		// TeX's math_limit_switch: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=22024-22033
 		if ( $hasLimits ) {
 			$argsOp = [ 'form' => 'prefix' ];
 			if ( !$displaystyle ) {
@@ -104,6 +105,8 @@ class FQ extends TexNode {
 
 		$baseMML = $base->toMMLTree( $argsOp, $state );
 		if ( $this instanceof DQ ) {
+			// TeX's make_op puts display limits above only in display style.
+			// swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=14684-14685
 			// the movablelimits option is only available for mo elements
 			// for other elements such as mrow we need to msub instead of mover
 			// bug T417375

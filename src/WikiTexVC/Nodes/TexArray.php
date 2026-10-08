@@ -139,6 +139,7 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 				// or a named function or operator such as \sin or \lim
 				|| $tu->latex_function_names( trim( $currentNode->getArg() ) ) ) ) ||
 		// or the special case of \operatorname
+		// TeX's math_limit_switch: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=22026-22031
 		( $currentNode instanceof Fun1nb && $currentNode->getFname() == "\\operatorname" ) ) ) {
 			return [ null, false ];
 		}

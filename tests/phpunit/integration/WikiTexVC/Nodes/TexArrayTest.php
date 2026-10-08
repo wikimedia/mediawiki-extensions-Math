@@ -237,6 +237,14 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $custom, $res[0] );
 	}
 
+	public function testLimitsAfterOrdinaryAtom() {
+		// TeX stops here: "Limit controls must follow a math operator".
+		// TeX's math_limit_switch: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=22026-22031
+		$result = ( new TexVC() )->check( 'X\\limits_a^b' );
+		$this->assertSame( '+', $result['status'] );
+		$this->assertStringContainsString( '<munderover>', (string)$result['input']->toMMLtree() );
+	}
+
 	public function testRenderAPrime() {
 		$n = new TexArray( new Literal( 'A' ) );
 		$state = [ 'prime' => 1 ];
