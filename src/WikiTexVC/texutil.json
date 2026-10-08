@@ -2904,15 +2904,6 @@
 			"⊺"
 		]
 	},
-	"\\intop": {
-		"operator_rendering": [
-			"∫",
-			{
-				"movesupsub": true,
-				"movablelimits": true
-			}
-		]
-	},
 	"\\iota": {
 		"identifier": [
 			"ι"

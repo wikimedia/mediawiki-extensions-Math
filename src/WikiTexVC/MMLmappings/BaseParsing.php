@@ -737,7 +737,7 @@ class BaseParsing {
 				$baseOperator = $op->getBase()->getArgs()[0];
 				if ( is_string( $baseOperator ) ) {
 					$opParsed = $bm->checkAndParseOperator( $baseOperator,
-						null, [ "largeop" => "true", "movablelimits" => "false", "symmetric" => "true" ], [], null );
+						null, [ "largeop" => "true", "symmetric" => "true" ], [], null );
 				} else {
 					$opParsed = $baseOperator->toMMLTree();
 				}
