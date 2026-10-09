@@ -89,7 +89,10 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 		$parserOptions1->setOption( 'math', MathConfig::MODE_SOURCE );
 		$render = $parserOutputAccess->getCachedParserOutput( $page, $parserOptions1 );
 		$this->assertNotNull( $render );
-		$this->assertStringContainsString( "<render>source:TEST_FORMULA</render>", $render->getContentHolderText() );
+		$this->assertMatchesRegularExpression(
+			"#<render[^>]*>source:TEST_FORMULA</render>#",
+			$render->getContentHolderText()
+		);
 
 		// Now render with 'mathml' and make sure we didn't get the cached output
 		$parserOptions2 = ParserOptions::newCanonical( 'canonical' );
@@ -97,24 +100,24 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 		$this->assertNull( $parserOutputAccess->getCachedParserOutput( $page, $parserOptions2 ) );
 		$renderStatus = $parserOutputAccess->getParserOutput( $page, $parserOptions2 );
 		$this->assertStatusGood( $renderStatus );
-		$this->assertStringContainsString(
-			"<render>latexml:TEST_FORMULA</render>",
+		$this->assertMatchesRegularExpression(
+			"#<render[^>]*>latexml:TEST_FORMULA</render>#",
 			$renderStatus->getValue()->getContentHolderText()
 		);
 
 		// Fetch from cache with source
 		$cachedWithDummy1 = $parserOutputAccess->getCachedParserOutput( $page, $parserOptions1 );
 		$this->assertNotNull( $cachedWithDummy1 );
-		$this->assertStringContainsString(
-			"<render>source:TEST_FORMULA</render>",
+		$this->assertMatchesRegularExpression(
+			"#<render[^>]*>source:TEST_FORMULA</render>#",
 			$cachedWithDummy1->getContentHolderText()
 		);
 
 		// Fetch from cache with mathml
 		$cachedWithDummy2 = $parserOutputAccess->getCachedParserOutput( $page, $parserOptions2 );
 		$this->assertNotNull( $cachedWithDummy2 );
-		$this->assertStringContainsString(
-			"<render>latexml:TEST_FORMULA</render>",
+		$this->assertMatchesRegularExpression(
+			"#<render[^>]*>latexml:TEST_FORMULA</render>#",
 			$cachedWithDummy2->getContentHolderText()
 		);
 	}
