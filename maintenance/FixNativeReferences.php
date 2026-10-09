@@ -40,6 +40,7 @@ class FixNativeReferences extends Maintenance {
 		$this->addOption( 'skip-svg', 'Skip regenerating client-side SVG snapshots '
 			. '(runs npm run qunit in a real browser; slow, requires Firefox).' );
 		$this->addOption( 'add', 'Add a reference entry for this TeX input', false, true );
+		$this->addOption( 'force', 'Keep outputs that violate MathML Core instead of failing.' );
 	}
 
 	public function execute() {
@@ -58,6 +59,14 @@ class FixNativeReferences extends Maintenance {
 		foreach ( $json as $hash => $entry ) {
 			$success = MathReferenceData::renderReferenceEntry( $entry ) && $success;
 			$allEntries[$hash] = $entry;
+		}
+
+		$violations = MathReferenceData::getCoreViolations( $allEntries );
+		if ( $violations ) {
+			$this->error( "Keys of references that violate MathML Core:\n" . implode( "\n", $violations ) . "\n" );
+			if ( !$this->hasOption( 'force' ) ) {
+				$this->fatalError( "reference.json was not changed. Fix the violations, or keep them with --force.\n" );
+			}
 		}
 
 		// The QUnit snapshot fetches this file, so it must already hold the new MathML.

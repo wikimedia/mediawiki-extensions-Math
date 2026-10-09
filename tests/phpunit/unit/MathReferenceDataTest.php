@@ -67,6 +67,18 @@ class MathReferenceDataTest extends TestCase {
 		MathReferenceData::groupCases( [ [ 'output' => 'x' ] ] );
 	}
 
+	public function testGetCoreViolations(): void {
+		$this->assertSame( [ 'h2: a', 'h3: a', 'h3: b' ], MathReferenceData::getCoreViolations( [
+			'h1' => [ 'input' => 'x', 'output' => '<math/>' ],
+			'h2' => [ 'input' => 'y', 'core-validation' => [ "a\n" => 1 ] ],
+			'h3' => [ 'input' => 'z', 'outputs' => [
+				[ 'core-validation' => [ 'a' => 1 ] ],
+				[ 'output' => '<math/>' ],
+				[ 'core-validation' => [ 'a' => 2, 'b' => 1 ] ],
+			] ],
+		] ) );
+	}
+
 	public function testRenderReferenceEntryRejectsMissingInput(): void {
 		$reference = [ 'output' => 'x' ];
 		$this->expectException( InvalidArgumentException::class );

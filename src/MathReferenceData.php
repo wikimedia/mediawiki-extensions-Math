@@ -116,6 +116,21 @@ final class MathReferenceData {
 	}
 
 	/**
+	 * @param array<string,array> $references
+	 * @return string[] "<key>: <violation>"
+	 */
+	public static function getCoreViolations( array $references ): array {
+		$lines = [];
+		foreach ( $references as $hash => $entry ) {
+			$outputs = $entry['outputs'] ?? [ $entry ];
+			foreach ( array_keys( array_merge( ...array_column( $outputs, 'core-validation' ) ) ) as $violation ) {
+				$lines[] = trim( "$hash: $violation" );
+			}
+		}
+		return $lines;
+	}
+
+	/**
 	 * Renders and validates one output variant in place.
 	 */
 	private static function renderOutput(
