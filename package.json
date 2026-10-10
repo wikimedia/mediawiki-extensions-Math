@@ -29,6 +29,6 @@
 		"phpeggy": "^3.0.0",
 		"stylelint-config-wikimedia": "0.19.4",
 		"typescript-eslint": "^8.46.2",
-		"wdio-mediawiki": "6.5.2"
+		"wdio-mediawiki": "6.5.3"
 	}
 }
