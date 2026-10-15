@@ -26,4 +26,8 @@ class MMLmtableTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( [], $table->getAttributes() );
 		$this->assertEquals( $table->getChildren(), [ $mtr, $mtr ] );
 	}
+
+	public function testEmptyTableIsNotEmpty() {
+		$this->assertFalse( ( new MMLmtable() )->isEmpty() );
+	}
 }

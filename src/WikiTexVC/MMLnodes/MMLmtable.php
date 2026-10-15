@@ -21,4 +21,9 @@ class MMLmtable extends MMLbase {
 		...$rows ) {
 		parent::__construct( "mtable", $texclass, $attributes, ...$rows );
 	}
+
+	/** \begin{array}{c}\end{array} renders an empty <mtable>, not an merror. */
+	public function isEmpty(): bool {
+		return false;
+	}
 }
