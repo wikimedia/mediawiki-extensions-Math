@@ -999,7 +999,7 @@ class BaseParsing {
 	}
 
 	public static function tilde( $node, $passedArgs, $operatorContent, $name ): MMLbase {
-		return new MMLmspace( "", [ "width" => "0.5em" ] );
+		return new MMLmtext( "", [], '&#160;' );
 	}
 
 	public static function xArrow( $node, $passedArgs, $operatorContent, $name, $chr = null, $l = null,
