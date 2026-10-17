@@ -113,10 +113,9 @@ class FixNativeReferences extends Maintenance {
 		fclose( $pipes[2] );
 		$exitCode = proc_close( $process );
 
-		if ( !str_contains( $stdout, 'tests completed' ) ) {
-			$this->output( "npm run qunit exited with code $exitCode without completing; " .
-				"skipping SVG reference update.\n" );
-			return;
+		if ( !preg_match( '/(\d+) tests? completed/', $stdout, $matches ) || $matches[1] === '0' ) {
+			$this->fatalError( "npm run qunit exited with code $exitCode without running any test; " .
+				"the SVG reference snapshots were not checked. Use --skip-svg to skip them.\n" );
 		}
 		// Browser JS can't write files, and a structured Karma channel needs a
 		// custom reporter (registered in core's Gruntfile.js, out of scope here) --
