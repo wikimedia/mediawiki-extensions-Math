@@ -5,9 +5,10 @@
 # The tests are deactivated by default. Running this script to download the files activates the tests in
 # EnWikiFormulaeTest and andChemRegressionTest.
 
+# Both files of EnWikiFormulaeTest are from https://doi.org/10.5281/zenodo.23421825
 # Downloads the file containing all english wikipedia formula to the testfolder
 FILEPATH=../tests/phpunit/integration/WikiTexVC/en-wiki-formulae-good.json
-URL=https://raw.githubusercontent.com/wikimedia/mediawiki-services-texvcjs/ca9b33d3b5081ae78829af4c65322becb4f4a216/test/en-wiki-formulae-good.json
+URL=https://zenodo.org/records/23421825/files/en-wiki-formulae-good.json
 curl $URL -o $FILEPATH
 
 # Downloads the file containing for chem-regression tests to the testfolder
@@ -17,7 +18,7 @@ curl $URL -o $FILEPATH
 
 # Downloads the file containing reference renderings for all english wikipedia chem-regression tests to the testfolder
 FILEPATH=../tests/phpunit/integration/WikiTexVC/en-wiki-formulae-good-reference.json
-URL=https://zenodo.org/records/14209690/files/normalized.json
+URL=https://zenodo.org/records/23421825/files/normalized.json
 curl $URL -o $FILEPATH
 
 # Download relaxng into the test folder
