@@ -86,7 +86,7 @@ class MatrixTest extends MediaWikiIntegrationTestCase {
 			'Should contain inner elements' );
 	}
 
-	public function testRenderMML() {
+	public function testToMMLTree() {
 		$matrix = new Matrix( 'matrix',
 			new TexArray( new TexArray( new Literal( '\\sin' ) ) ) );
 		$this->assertStringContainsString( 'mtable', $matrix->toMMLTree(),
@@ -152,7 +152,7 @@ class MatrixTest extends MediaWikiIntegrationTestCase {
 	public function testAlignRendering() {
 		$matrix = new Matrix( 'aligned',
 			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
-		$this->assertStringContainsString( 'mwe-math-columnalign-r', $matrix->renderMML(),
+		$this->assertStringContainsString( 'mwe-math-columnalign-r', (string)$matrix->toMMLTree(),
 			'Should render align column specs' );
 	}
 
@@ -161,7 +161,7 @@ class MatrixTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
 		$matrix->setColumnSpecs( new TexArray( ( new Literal( '20' ) ) ) );
 		$this->assertCount( 40, $matrix->getAlign() );
-		$this->assertStringContainsString( 'mwe-math-columnalign-r', $matrix->renderMML(),
+		$this->assertStringContainsString( 'mwe-math-columnalign-r', (string)$matrix->toMMLTree(),
 			'Should render align column specs' );
 	}
 

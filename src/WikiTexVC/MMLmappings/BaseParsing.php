@@ -728,7 +728,7 @@ class BaseParsing {
 	}
 
 	public static function machine( $node, $passedArgs, $operatorContent, $name, $type = null ): MMLbase {
-		// this could also be shifted to MhChem.php renderMML for ce
+		// this could also be shifted to Mhchem::toMMLTree for ce
 		// For parsing chem (ce) or ??? (pu)
 		return new MMLmrow( "", [], $node->getArg()->toMMLtree() );
 	}
@@ -862,8 +862,6 @@ class BaseParsing {
 		$intentArg = MMLParsingUtil::getIntentArgs( $intentStr );
 		if ( !$intentContent && !$intentParams && $intentArg !== null ) {
 			// explicit args annotation parsing in literal
-			// return $arg1->renderMML([],["intent-params-expl"=>$intentArg]);
-			// alternative just add the arg here
 			return $arg1->toMMLtree( [ "arg" => $intentArg ] );
 		}
 		$intentContentAtr = [ "intent" => $intentContent ];
@@ -872,7 +870,7 @@ class BaseParsing {
 		}
 		// tbd refine intent params and operator content merging (does it overwrite ??)
 		$intentParamsState = $intentParams ? [ "intent-params" => $intentParams ] : $operatorContent;
-		// Here are some edge cases, they might go into renderMML in the related element
+		// Here are some edge cases, they might go into toMMLTree of the related element
 		if ( str_contains( $intentContent ?? '', "matrix" ) ||
 			( $arg1->isCurly() && $arg1->getArgs()[0] instanceof Matrix ) ) {
 			$element = $arg1->getArgs()[0];

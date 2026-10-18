@@ -106,14 +106,6 @@ class Matrix extends TexArray {
 			$this->top . '}}';
 	}
 
-	/**
-	 * @param array $arguments
-	 * @param array &$state
-	 */
-	public function renderMML( $arguments = [], &$state = [] ): string {
-		return (string)$this->toMMLTree( $arguments, $state );
-	}
-
 	/** @inheritDoc */
 	public function toMMLTree( $arguments = [], &$state = [] ): MMLbase {
 		$mml = $this->parseToMML( $this->getTop(), $arguments, null );

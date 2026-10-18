@@ -52,7 +52,7 @@ class BoxTest extends \MediaWikiIntegrationTestCase {
 		$this->assertEquals( '{\\hbox{a}}', $box->inCurlies(), 'Should create exactly one set of curlies' );
 	}
 
-	public function testRenderMML() {
+	public function testToMMLTree() {
 		$box = new Box( '\\hbox', 'a' );
 		$this->assertStringContainsString( '</mtext>', $box->toMMLTree(), 'Render MathML as text.' );
 	}

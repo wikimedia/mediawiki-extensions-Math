@@ -53,7 +53,7 @@ class BigTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( '{\\big a}', $big->inCurlies(), 'Should create exactly one set of curlies' );
 	}
 
-	public function testRenderMML() {
+	public function testToMMLTree() {
 		$big = new Big( '\\big', 'a' );
 		$this->assertStringContainsString( '</mrow>', $big->toMMLTree(), 'Should render to MathML' );
 	}
