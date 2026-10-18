@@ -2,6 +2,7 @@
 /docs/
 /modules/mathjax
 /modules/mathjax-newcm-font
+/modules/mathjax-tex-font
 # Very large files from .gitignore
 wmf_texvc_inputs.json
 en-wiki-formulae.json
