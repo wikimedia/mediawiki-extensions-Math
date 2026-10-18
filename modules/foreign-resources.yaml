@@ -2,10 +2,10 @@ mathjax:
   license: Apache-2.0
   homepage: https://www.mathjax.org
   authors: MathJax Consortium
-  version: 4.1.0
+  version: 4.1.3
   type: tar
-  src: https://registry.npmjs.org/mathjax/-/mathjax-4.1.0.tgz
-  integrity: sha512-53eDXzxk40pS2sdI6KDCPoreY95ADaGygbi41ExKmn3FYQ+QIdpquIU90eppecelzQjf74kpScyeplVPccnIJw==
+  src: https://registry.npmjs.org/mathjax/-/mathjax-4.1.3.tgz
+  integrity: sha512-BN/8Pkgn7G1pIDYJqd9md+JHsE/jydSYbyOZnSdSA0WziuVO8mRxdYiWFumkVVly/8U+hm9DpIIoWuvySverzw==
   dest:
     package/**: .
 
@@ -13,9 +13,20 @@ mathjax-newcm-font:
   license: Apache-2.0
   homepage: https://www.mathjax.org
   authors: MathJax Consortium
-  version: 4.1.0
+  version: 4.1.3
   type: tar
-  src: https://registry.npmjs.org/@mathjax/mathjax-newcm-font/-/mathjax-newcm-font-4.1.0.tgz
-  integrity: sha512-n10AwYubUa2hyOzxSRzkwRrgCVns083zkentryXICMPKaWT/watfvK2sUk5D9Bow9mpDfoqb5EWApuUvqnlzaw==
+  src: https://registry.npmjs.org/@mathjax/mathjax-newcm-font/-/mathjax-newcm-font-4.1.3.tgz
+  integrity: sha512-gzAB3dFHilHX1l5x2xUqRL+1jDQt3Fyza1DkEMVXWC4E8SvsGdlgEza47HYi2WhVcgfkvf4zgUGzuhbq3Pjlew==
+  dest:
+    package/**: .
+
+mathjax-tex-font:
+  license: Apache-2.0
+  homepage: https://www.mathjax.org
+  authors: MathJax Consortium
+  version: 4.1.3
+  type: tar
+  src: https://registry.npmjs.org/@mathjax/mathjax-tex-font/-/mathjax-tex-font-4.1.3.tgz
+  integrity: sha512-9B78brBEmmAwyumaREIyM1gF2HgDamDIXA36UyeXWxX7XrpLdmoSB5NLIf/c6tEA4L6xNrIdMxfgY6YX/kcSNw==
   dest:
     package/**: .
