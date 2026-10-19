@@ -3826,7 +3826,7 @@
 		"ams_required": true,
 		"nullary_macro": true,
 		"operator_rendering": [
-			"≆"
+			"≇"
 		]
 	},
 	"\\ne": {
