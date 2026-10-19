@@ -217,6 +217,48 @@ function restoreAttributes( data ) {
 }
 
 /**
+ * Map the 26 script capitals from base on to A–Z.
+ *
+ * @param {number} base Code point of the script A
+ * @param {Object<number,number>} letterlike Code points outside the block, by index from A
+ * @return {Map<string,string>}
+ */
+function scriptToLetters( base, letterlike ) {
+	const letters = new Map();
+	for ( let i = 0; i < 26; i++ ) {
+		letters.set( String.fromCodePoint( letterlike[ i ] || base + i ), String.fromCharCode( 0x41 + i ) );
+	}
+	return letters;
+}
+
+const calligraphicLetters = new Map( [
+	// Script letters that Unicode places in Letterlike Symbols, from
+	// https://github.com/mathjax/MathJax/issues/3292#issuecomment-3487698042
+	[ '-tex-calligraphic', scriptToLetters( 0x1D49C, { 1: 0x212C, 4: 0x2130, 5: 0x2131, 7: 0x210B, 8: 0x2110, 11: 0x2112, 12: 0x2133, 17: 0x211B } ) ],
+	[ '-tex-bold-calligraphic', scriptToLetters( 0x1D4D0, {} ) ]
+] );
+const calligraphicSelector = Array.from(
+	calligraphicLetters.keys(), ( variant ) => `[data-mjx-variant="${ variant }"]`
+).join( ', ' );
+
+/**
+ * Use the plain letters for calligraphic letters, as MathJax's TeX input does.
+ * MathJax 4.1.0 swh:1:cnt:41264a434a41551dc43d9ca5767507ff31d18dd2;lines=422-423
+ *
+ * @param {Document|Element} data MathML DOM to transform
+ */
+function transformCalligraphic( data ) {
+	for ( const element of data.querySelectorAll( calligraphicSelector ) ) {
+		const letters = calligraphicLetters.get( element.getAttribute( 'data-mjx-variant' ) );
+		for ( const node of Array.from( element.childNodes ) ) {
+			if ( node.nodeType === Node.TEXT_NODE ) {
+				node.nodeValue = Array.from( node.nodeValue, ( char ) => letters.get( char ) || char ).join( '' );
+			}
+		}
+	}
+}
+
+/**
  * Transform Core-compatible MathML before MathJax parses it.
  *
  * @param {Object} options MathJax filter options
@@ -229,11 +271,13 @@ function mmlFilter( { data } ) {
 	transformRowSpacing( data );
 	transformMenclose( data );
 	transformCancelTo( data );
+	transformCalligraphic( data );
 	restoreAttributes( data );
 }
 
 module.exports = {
 	mmlFilter,
+	transformCalligraphic,
 	transformCancelTo,
 	transformMatrixBorders,
 	transformMenclose,

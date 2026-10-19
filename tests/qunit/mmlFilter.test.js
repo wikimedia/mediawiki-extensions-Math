@@ -184,4 +184,15 @@ QUnit.module( 'ext.math.mathjax.mml', () => {
 		assert.strictEqual( annotation.getAttribute( 'height' ), '+.1em' );
 		assert.strictEqual( annotation.getAttribute( 'class' ), null );
 	} );
+
+	QUnit.test( 'uses plain letters for calligraphic letters', ( assert ) => {
+		const document = parseMathML( `<math xmlns="${ MATHML_NS }"><mi data-mjx-variant="-tex-calligraphic">𝒜</mi><mi data-mjx-variant="-tex-calligraphic">ℬ</mi><mi data-mjx-variant="-tex-calligraphic">𝒵</mi><mi data-mjx-variant="-tex-bold-calligraphic">𝓐</mi><mi data-mjx-variant="-tex-calligraphic">𝒶</mi><mi>𝒜</mi></math>` );
+
+		mmlFilter( { data: document } );
+
+		assert.deepEqual(
+			Array.from( document.getElementsByTagName( 'mi' ), ( mi ) => mi.textContent ),
+			[ 'A', 'B', 'Z', 'A', '𝒶', '𝒜' ]
+		);
+	} );
 } );
