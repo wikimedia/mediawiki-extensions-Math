@@ -29,7 +29,9 @@ class Matrix extends TexArray {
 			if ( !$row instanceof TexArray ) {
 				throw new InvalidArgumentException( 'Nested arguments have to be type of TexArray' );
 			}
-			$this->lines[] = $row->containsFunc( '\hline' );
+			$firstCell = $row->first();
+			$inner = $firstCell instanceof TexArray ? $firstCell->first() : null;
+			$this->lines[] = $inner instanceof Literal && trim( $inner->getArg() ) === '\\hline';
 		}
 		if ( $mainarg instanceof Matrix ) {
 			$this->args = $mainarg->args;
