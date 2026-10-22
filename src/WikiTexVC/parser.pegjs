@@ -116,6 +116,8 @@ litsq_zq
 expr_nosqc
   = l:lit_aq e:expr_nosqc
     { return $e ->unshift( $l ); }
+  / d:DECLh e:expr_nosqc
+    { return new TexArray(new Declh($d->getFname(), $e)); }
   / "" /* */
     { return new TexArray(); }
 lit_aq
@@ -133,6 +135,8 @@ lit_fq
     { return new FQ ($l1->getBase(), $l2, $l1->getUp()); }
   / l1:lit_dqn SUP l2:lit
     { return new FQ(new TexArray(), $l1->getDown(), $l2); }
+  / l1:lit_uqn SUB l2:lit
+    { return new FQ(new TexArray(), $l2, $l1->getUp()); }
 
 lit_uq
   = base:lit SUP upi:lit
