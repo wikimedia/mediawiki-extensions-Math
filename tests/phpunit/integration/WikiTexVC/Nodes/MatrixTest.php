@@ -149,6 +149,15 @@ class MatrixTest extends MediaWikiIntegrationTestCase {
 		$this->assertCount( 2, $real );
 	}
 
+	public function testLinesNested() {
+		$inner = new Matrix( 'matrix',
+			new TexArray( new TexArray( new TexArray( new Literal( 'a' ) ) ),
+				new TexArray( new TexArray( new Literal( '\\hline ' ), new Literal( 'b' ) ) ) ) );
+		$matrix = new Matrix( 'matrix', new TexArray( new TexArray( new TexArray( $inner ) ) ) );
+		$this->assertSame( [ false ], $matrix->getLines() );
+		$this->assertSame( [ false, true ], $inner->getLines() );
+	}
+
 	public function testAlignRendering() {
 		$matrix = new Matrix( 'aligned',
 			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
