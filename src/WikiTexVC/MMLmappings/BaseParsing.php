@@ -12,7 +12,6 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmerror;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmfrac;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
-use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmmultiscripts;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmover;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmpadded;
@@ -30,16 +29,13 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtr;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunder;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunderover;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2sq;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun4;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\UQ;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 /**
@@ -47,37 +43,6 @@ use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
  * Usually the parsing functions are invoked from the BaseMethods classes.
  */
 class BaseParsing {
-
-	public static function accent( $node, $passedArgs, $name, $operatorContent,
-								   string $accent, ?bool $stretchy = null ): MMLbase {
-		// Currently this is own implementation from Fun1.php
-		// TODO The first if-clause is mathjax specific (and not necessary by generic parsers)
-		// and will most probably removed (just for running all tc atm)
-		if ( $accent == "00B4" || $accent == "0060" ) {
-			$attrs = [ Tag::SCRIPTTAG => "true" ];
-		} else {
-			if ( $stretchy === null ) {
-				$attrs = [];
-			} else {
-				$attrs = [ "stretchy" => $stretchy ? "true" : "false" ];
-			}
-		}
-		if ( trim( $operatorContent ) === '\\vec' ) {
-			$attrs['class'] = 'mwe-math-vec';
-		}
-
-		// Fetching entity from $accent key tbd
-		$entity = MMLutil::createEntity( $accent );
-		if ( !$entity ) {
-			$entity = $accent;
-		}
-		$inner = $node->getArg()->toMMLtree( $passedArgs );
-
-		return MMLmover::newSubtree(
-			!$inner->isEmpty() ? $inner : ( new MMLmrow() ),
-			new MMLmo( '', $attrs, $entity )
-		);
-	}
 
 	public static function array( $node, $passedArgs, $operatorContent, $name, $begin = null, $open = null,
 		$close = null, $align = null, $spacing = null,
@@ -349,26 +314,6 @@ class BaseParsing {
 		}
 
 		return new MMLmspace( "", $args );
-	}
-
-	public static function handleOperatorName( $node, $passedArgs, $operatorContent, $name ): MMLbase {
-		// In example "\\operatorname{a}"
-		$applyFct = self::getApplyFct( $operatorContent );
-		$mmlNot = new MMLarray();
-		if ( isset( $operatorContent['not'] ) && $operatorContent['not'] ) {
-			$mmlNot = MMLParsingUtil::createNot();
-		}
-		$passedArgs = array_merge( $passedArgs, [ Tag::CLASSTAG => TexClass::OP, 'mathvariant' => Variants::NORMAL ] );
-		$state = [ 'squashLiterals' => true ];
-		$inner = $node->getArg()->toMMLtree( $passedArgs, $state );
-		if ( $inner instanceof MMLarray && count( $inner->getChildren() ) == 1 ) {
-			$mi = $inner->getChildren()[0];
-			// this check needs to be made explicit for phan
-			if ( $mi instanceof MMLmi ) {
-				$inner = $mi;
-			}
-		}
-		return new MMLarray( $mmlNot, $inner, $applyFct );
 	}
 
 	public static function matrix( Matrix $node, $passedArgs, $operatorContent,
@@ -645,43 +590,6 @@ class BaseParsing {
 			return new MMLmrow( TexClass::ORD, [], $node->getArg()->toMMLtree( $args, $state ) );
 	}
 
-	public static function mathChoice( $node, $passedArgs, $operatorContent, $name, $smth = null ): MMLbase {
-		if ( !$node instanceof Fun4 ) {
-			return MMLmerror::newFromText( "Wrong node type in mathChoice" );
-		}
-
-		/**
-		 * Parametrization for mathchoice:
-		 * \mathchoice
-		 * {<material for display style>}
-		 * {<material for text style>}
-		 * {<material for script style>}
-		 * {<material for scriptscript style>}
-		 */
-
-		if ( isset( $operatorContent["styleargs"] ) ) {
-			$styleArgs = $operatorContent["styleargs"];
-			$displayStyle = $styleArgs["displaystyle"] ?? "true";
-			$scriptLevel = $styleArgs["scriptlevel"] ?? "0";
-
-			if ( $displayStyle == "true" && $scriptLevel == "0" ) {
-				// This is displaystyle
-				return $node->getArg1()->toMMLtree( $passedArgs, $operatorContent );
-			} elseif ( $displayStyle == "false" && $scriptLevel == "0" ) {
-				// This is textstyle
-				return $node->getArg2()->toMMLtree( $passedArgs, $operatorContent );
-			} elseif ( $displayStyle == "false" && $scriptLevel == "1" ) {
-				// This is scriptstyle
-				return $node->getArg3()->toMMLtree( $passedArgs, $operatorContent );
-			} elseif ( $displayStyle == "false" && $scriptLevel == "2" ) {
-				// This is scriptscriptstyle
-				return $node->getArg4()->toMMLtree( $passedArgs, $operatorContent );
-			}
-		}
-		// By default render displaystyle
-		return $node->getArg1()->toMMLtree( $passedArgs, $operatorContent );
-	}
-
 	public static function makeBig( $node, $passedArgs, $operatorContent, $name, $texClass = null,
 		$size = null
 	): MMLbase {
@@ -737,62 +645,6 @@ class BaseParsing {
 		return self::mathFont( $node, $passedArgs, $operatorContent, $name, $variant );
 	}
 
-	public static function sideset( $node, $passedArgs, $operatorContent, $name ): MMLbase {
-		if ( !array_key_exists( "sideset", $operatorContent ) ) {
-			return MMLmerror::newFromText( "Error parsing sideset expression, no succeeding operator found" );
-		}
-
-		$op = $operatorContent["sideset"];
-		$state = [ 'sideset' => true ];
-		$in1 = $node->getArg1()->toMMLtree( [], $state );
-		$in2 = $node->getArg2()->toMMLtree( [], $state );
-
-		if ( $op instanceof FQ || $op instanceof DQ || $op instanceof UQ ) {
-			$bm = new BaseMethods();
-			if ( count( $op->getBase()->getArgs() ) == 1 ) {
-				$baseOperator = $op->getBase()->getArgs()[0];
-				if ( is_string( $baseOperator ) ) {
-					$opParsed = $bm->checkAndParseOperator( $baseOperator,
-						null, [ "largeop" => "true", "symmetric" => "true" ], [], null );
-				} else {
-					$opParsed = $baseOperator->toMMLTree();
-				}
-				if ( $opParsed->isEmpty() ) {
-					$opParsed = $op->getBase()->toMMLtree();
-				}
-			} else {
-				$opParsed = MMLmerror::newFromText( "Sideset operator parsing not implemented yet" );
-			}
-			$down = $op instanceof UQ ? new MMLmrow( "", [] ) : $op->getDown()->toMMLtree();
-			$up = $op instanceof DQ ? new MMLmrow( "", [] ) : $op->getUp()->toMMLtree();
-			return new MMLmrow(
-				TexClass::OP,
-				[],
-				MMLmunderover::newSubtree(
-					new MMLmstyle( "", [ "displaystyle" => "true" ],
-					MMLmmultiscripts::newSubtree( $opParsed, $in2, new MMLarray(), $in1 ) ),
-					new MMLmrow( "", [], $down ),
-					new MMLmrow( "", [], $up )
-				)
-			);
-		}
-
-		if ( $op instanceof Literal ) {
-			$bm = new BaseMethods();
-			$opParsed = $bm->checkAndParseOperator( $op->getArg(), null, [], [], null );
-			if ( $opParsed->isEmpty() ) {
-				$opParsed = $op->toMMLtree();
-			}
-		} else {
-			$opParsed = $op->toMMLtree();
-		}
-		return new MMLmrow( TexClass::OP, [],
-			MMLmmultiscripts::newSubtree( $opParsed, $in2, new MMLarray(), $in1, new MMLarray(),
-				"", [ Tag::ALIGN => "left" ]
-			)
-		);
-	}
-
 	public static function spacer( $node, $passedArgs, $operatorContent, $name, $withIn = null, $smth2 = null
 	): MMLbase {
 		return new MMLmspace( "", [ "width" => MMLutil::round2em( $withIn ) ] );
@@ -839,55 +691,6 @@ class BaseParsing {
 			default:
 				$inner = $node->getArg()->toMMLtree();
 				return new MMLmrow( TexClass::ORD, [], new MMLmrow( $texClass, [], $inner ) );
-		}
-	}
-
-	public static function intent( $node, $passedArgs, $operatorContent, $name, $smth = null ): MMLbase {
-		if ( !$node instanceof Fun2 ) {
-			return new MMLarray();
-		}
-		// if there is intent annotation add intent to root element
-		// match args in row of subargs, unless an element has explicit annotations
-		// nested annotations ?
-		$arg1 = $node->getArg1();
-		$arg2 = $node->getArg2();
-		if ( !$arg2->isCurly() ) {
-			return new MMLarray();
-		}
-		// tbd refactor intent form and fiddle in mml or tree
-		$intentStr = MMLutil::squashLitsToUnitIntent( $arg2 );
-		$intentContent = MMLParsingUtil::getIntentContent( $intentStr );
-		$intentParams = MMLParsingUtil::getIntentParams( $intentContent );
-		// Sometimes the intent has additioargs = {array[3]} nal args in the same string
-		$intentArg = MMLParsingUtil::getIntentArgs( $intentStr );
-		if ( !$intentContent && !$intentParams && $intentArg !== null ) {
-			// explicit args annotation parsing in literal
-			return $arg1->toMMLtree( [ "arg" => $intentArg ] );
-		}
-		$intentContentAtr = [ "intent" => $intentContent ];
-		if ( $intentArg !== null ) {
-			$intentContentAtr["arg"] = $intentArg;
-		}
-		// tbd refine intent params and operator content merging (does it overwrite ??)
-		$intentParamsState = $intentParams ? [ "intent-params" => $intentParams ] : $operatorContent;
-		// Here are some edge cases, they might go into toMMLTree of the related element
-		if ( str_contains( $intentContent ?? '', "matrix" ) ||
-			( $arg1->isCurly() && $arg1->getArgs()[0] instanceof Matrix ) ) {
-			$element = $arg1->getArgs()[0];
-			$rendered = $element->toMMLtree( [], $intentParamsState );
-			return MMLParsingUtil::forgeIntentToSpecificElement( $rendered,
-				$intentContentAtr, "mtable" );
-		} elseif ( $arg1->isCurly() && count( $arg1->getArgs() ) >= 2 ) {
-			// Create a surrounding element which holds the intents
-			return new MMLmrow( "", $intentContentAtr, $arg1->toMMLtree( [], $intentParamsState ) );
-		} elseif ( $arg1->isCurly() && count( $arg1->getArgs() ) >= 1 ) {
-			// Forge the intent attribute to the top-level element after MML rendering
-			$element = $arg1->getArgs()[0];
-			$rendered = $element->toMMLtree( [], $intentParamsState );
-			return MMLParsingUtil::forgeIntentToTopElement( $rendered, $intentContentAtr );
-		} else {
-			// This is the default case
-			return $arg1->toMMLtree( $intentContentAtr, $intentParamsState );
 		}
 	}
 

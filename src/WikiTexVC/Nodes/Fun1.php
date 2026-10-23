@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
@@ -147,5 +148,38 @@ class Fun1 extends TexNode {
 			new MMLmo( "", [ "lspace" => $thick, "rspace" => $thick ], "mod" ),
 			new MMLmrow( TexClass::ORD, [], $this->arg->toMMLTree() ),
 			new MMLmrow( TexClass::ORD, [], $thin ) );
+	}
+
+	protected function accent( array $passedArgs, array $operatorContent,
+		string $input, array $cb, array &$state
+	): MMLbase {
+		[ , $accent ] = $cb;
+		$stretchy = $cb[2] ?? null;
+		// TODO The first if-clause is mathjax specific (and not necessary by generic parsers)
+		// and will most probably removed (just for running all tc atm)
+		if ( $accent == "00B4" || $accent == "0060" ) {
+			$attrs = [ Tag::SCRIPTTAG => "true" ];
+		} else {
+			if ( $stretchy === null ) {
+				$attrs = [];
+			} else {
+				$attrs = [ "stretchy" => $stretchy ? "true" : "false" ];
+			}
+		}
+		if ( trim( $input ) === '\\vec' ) {
+			$attrs['class'] = 'mwe-math-vec';
+		}
+
+		// Fetching entity from $accent key tbd
+		$entity = MMLutil::createEntity( $accent );
+		if ( !$entity ) {
+			$entity = $accent;
+		}
+		$inner = $this->arg->toMMLtree( $passedArgs );
+
+		return MMLmover::newSubtree(
+			!$inner->isEmpty() ? $inner : ( new MMLmrow() ),
+			new MMLmo( '', $attrs, $entity )
+		);
 	}
 }

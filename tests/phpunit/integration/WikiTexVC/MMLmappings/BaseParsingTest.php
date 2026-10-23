@@ -18,25 +18,6 @@ use MediaWikiIntegrationTestCase;
  */
 class BaseParsingTest extends MediaWikiIntegrationTestCase {
 
-	public function testAccent() {
-		$node = new Fun1(
-			'\\widetilde',
-			( new Literal( 'a' ) )
-		);
-		$result = BaseParsing::accent( $node, [], null, 'widetilde', '007E' );
-		$this->assertStringContainsString( '~', $result );
-		$this->assertStringContainsString( 'mover', $result );
-	}
-
-	public function testAccentArgPassing() {
-		$node = new Fun1(
-			'\\widetilde',
-			( new Literal( 'a' ) )
-		);
-		$result = BaseParsing::accent( $node, [ 'k' => 'v' ], null, 'widetilde', '007E' );
-		$this->assertStringContainsString( '<mi k="v"', $result );
-	}
-
 	public function testArray() {
 		$node = new Matrix( 'matrix',
 			new TexArray( new TexArray( new Literal( 'a' ) ) )
@@ -294,30 +275,6 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 		) );
 		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
 		$this->assertMatchesRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
-	}
-
-	public function testHandleOperatorName() {
-		$node = new Fun1(
-			'\\operatorname',
-			( new Literal( 'sn' ) )
-		);
-		$result = BaseParsing::handleOperatorName( $node, [], [
-			"foundNamedFct" => [ true, true ]
-		], 'operatorname' );
-		$this->assertStringContainsString( 'sn</mi>', (string)$result );
-		$this->assertStringContainsString( '<mo>&#x2061;</mo>', (string)$result );
-	}
-
-	public function testHandleOperatorLast() {
-		$node = new Fun1(
-			'\\operatorname',
-			( new Literal( 'sn' ) )
-		);
-		$result = BaseParsing::handleOperatorName( $node, [], [
-			"foundNamedFct" => [ true, false ]
-		], 'operatorname' );
-		$this->assertStringContainsString( 'sn</mi>', (string)$result );
-		$this->assertStringNotContainsString( '<mo>&#x2061;</mo>', (string)$result );
 	}
 
 	public function testColumnSpecs() {

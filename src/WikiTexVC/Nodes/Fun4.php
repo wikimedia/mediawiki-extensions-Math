@@ -55,6 +55,10 @@ class Fun4 extends TexNode {
 
 	/** @inheritDoc */
 	public function toMMLTree( array $arguments = [], array &$state = [] ): MMLbase {
+		$cb = $this->getLocalCallback( trim( $this->fname ), $arguments, [], $state );
+		if ( !$cb->isEmpty() ) {
+			return $cb;
+		}
 		return $this->parseToMML( $this->fname, $arguments, $state );
 	}
 
@@ -66,4 +70,40 @@ class Fun4 extends TexNode {
 		return parent::extractIdentifiers( $args );
 	}
 
+	protected function mathChoice( array $passedArgs, array $operatorContent,
+		string $input, array $cb, array &$state
+	): MMLbase {
+		$styleState = $state;
+
+		/**
+		 * Parametrization for mathchoice:
+		 * \mathchoice
+		 * {<material for display style>}
+		 * {<material for text style>}
+		 * {<material for script style>}
+		 * {<material for scriptscript style>}
+		 */
+
+		if ( isset( $state["styleargs"] ) ) {
+			$styleArgs = $state["styleargs"];
+			$displayStyle = $styleArgs["displaystyle"] ?? "true";
+			$scriptLevel = $styleArgs["scriptlevel"] ?? "0";
+
+			if ( $displayStyle == "true" && $scriptLevel == "0" ) {
+				// This is displaystyle
+				return $this->arg1->toMMLtree( $passedArgs, $styleState );
+			} elseif ( $displayStyle == "false" && $scriptLevel == "0" ) {
+				// This is textstyle
+				return $this->arg2->toMMLtree( $passedArgs, $styleState );
+			} elseif ( $displayStyle == "false" && $scriptLevel == "1" ) {
+				// This is scriptstyle
+				return $this->arg3->toMMLtree( $passedArgs, $styleState );
+			} elseif ( $displayStyle == "false" && $scriptLevel == "2" ) {
+				// This is scriptscriptstyle
+				return $this->arg4->toMMLtree( $passedArgs, $styleState );
+			}
+		}
+		// By default render displaystyle
+		return $this->arg1->toMMLtree( $passedArgs, $styleState );
+	}
 }

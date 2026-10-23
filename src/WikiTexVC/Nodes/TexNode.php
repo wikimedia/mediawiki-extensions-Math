@@ -30,20 +30,24 @@ class TexNode {
 
 	public function getLocalCallback( string $input, array $passedArgs,
 									 array $operatorContent, array &$state ): MMLbase {
+		$cb = $this->localCallback( $input );
+		if ( $cb === null ) {
+			return new MMLarray();
+		}
+		$method = substr( $cb[0], strlen( static::class ) + 2 );
+		return $this->{$method}( $passedArgs, $operatorContent, $input, $cb, $state );
+	}
+
+	/** The callback texutil.json names for $input if it is a method of this class, else null */
+	private function localCallback( string $input ): ?array {
 		$cb = TexUtil::getInstance()->callback( trim( $input ) );
 		if ( !$cb ) {
-			return new MMLarray();
+			return null;
 		}
 		if ( is_string( $cb ) ) {
 			$cb = [ $cb ];
 		}
-		if ( preg_match( '#^' .
-			preg_quote( static::class ) .
-			'::(?<method>\\w+)$#', $cb[0], $m ) ) {
-			return $this->{$m['method']}( $passedArgs, $operatorContent, $input, $cb, $state );
-		} else {
-			return new MMLarray();
-		}
+		return preg_match( '#^' . preg_quote( static::class ) . '::\\w+$#', $cb[0] ) ? $cb : null;
 	}
 
 	/**
@@ -53,7 +57,9 @@ class TexNode {
 	 * @return MMLbase
 	 */
 	protected function parseToMML( $input, $passedArgs, $operatorContent ): MMLbase {
-		$parsed = BaseMethods::checkAndParse( $input, $passedArgs, $operatorContent, $this );
+		// A local callback that rendered nothing gets the error below, BaseParsing does not have it
+		$parsed = is_string( $input ) && $this->localCallback( $input ) !== null ? new MMLarray() :
+			BaseMethods::checkAndParse( $input, $passedArgs, $operatorContent, $this );
 		if ( !$parsed->isEmpty() ) {
 			return $parsed;
 		}

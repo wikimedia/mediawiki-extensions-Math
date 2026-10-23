@@ -8,6 +8,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1nb;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWikiIntegrationTestCase;
@@ -16,6 +17,7 @@ use TypeError;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1
+ * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1nb
  */
 class Fun1Test extends MediaWikiIntegrationTestCase {
 
@@ -156,5 +158,30 @@ class Fun1Test extends MediaWikiIntegrationTestCase {
 		$f = new Fun1( '\\mathbf', new Literal( '\\lambda' ) );
 		$this->assertStringContainsString( '𝝀', $f->toMMLTree(),
 			'Should render bold lambda in MathML.' );
+	}
+
+	public function testAccent() {
+		$result = ( new Fun1( '\\widetilde', new Literal( 'a' ) ) )->toMMLTree();
+		$this->assertStringContainsString( '~', $result );
+		$this->assertStringContainsString( 'mover', $result );
+	}
+
+	public function testAccentArgPassing() {
+		$result = ( new Fun1( '\\widetilde', new Literal( 'a' ) ) )->toMMLTree( [ 'k' => 'v' ] );
+		$this->assertStringContainsString( '<mi k="v"', $result );
+	}
+
+	public function testHandleOperatorName() {
+		$state = [ 'foundNamedFct' => [ true, true ] ];
+		$result = ( new Fun1nb( '\\operatorname', new Literal( 'sn' ) ) )->toMMLTree( [], $state );
+		$this->assertStringContainsString( 'sn</mi>', (string)$result );
+		$this->assertStringContainsString( '<mo>&#x2061;</mo>', (string)$result );
+	}
+
+	public function testHandleOperatorLast() {
+		$state = [ 'foundNamedFct' => [ true, false ] ];
+		$result = ( new Fun1nb( '\\operatorname', new Literal( 'sn' ) ) )->toMMLTree( [], $state );
+		$this->assertStringContainsString( 'sn</mi>', (string)$result );
+		$this->assertStringNotContainsString( '<mo>&#x2061;</mo>', (string)$result );
 	}
 }

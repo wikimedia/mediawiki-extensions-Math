@@ -1086,7 +1086,7 @@
 	},
 	"\\acute": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"00B4"
 		],
 		"fun_ar1": true,
@@ -1258,7 +1258,7 @@
 	},
 	"\\bar": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"00AF",
 			false
 		],
@@ -1661,7 +1661,7 @@
 	},
 	"\\breve": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"02D8"
 		],
 		"fun_ar1": true,
@@ -1784,7 +1784,7 @@
 	},
 	"\\check": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"02C7"
 		],
 		"fun_ar1": true,
@@ -2055,19 +2055,19 @@
 	},
 	"\\ddddot": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"20DC"
 		]
 	},
 	"\\dddot": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"20DB"
 		]
 	},
 	"\\ddot": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"00A8"
 		],
 		"fun_ar1": true,
@@ -2198,7 +2198,7 @@
 	},
 	"\\dot": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"02D9"
 		],
 		"fun_ar1": true,
@@ -2621,7 +2621,7 @@
 	},
 	"\\grave": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"0060"
 		],
 		"fun_ar1": true,
@@ -2695,7 +2695,7 @@
 	},
 	"\\hat": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"0302",
 			false
 		],
@@ -2893,7 +2893,7 @@
 		"stix_required": true
 	},
 	"\\intent": {
-		"callback": "intent",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun2::intent",
 		"fun_ar2": true,
 		"intent_required": true
 	},
@@ -3534,7 +3534,7 @@
 		"is_letter_mod": true
 	},
 	"\\mathchoice": {
-		"callback": "mathChoice",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun4::mathChoice",
 		"fun_ar4": true,
 		"mhchem_required": true
 	},
@@ -3618,7 +3618,7 @@
 	},
 	"\\mathring": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"02DA"
 		]
 	},
@@ -4259,7 +4259,7 @@
 	"\\operatorname": {
 		"ams_required": true,
 		"callback": [
-			"handleOperatorName"
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1nb::handleOperatorName"
 		],
 		"fun_ar1nb": true,
 		"ignore_identifier": true,
@@ -4841,7 +4841,7 @@
 	"\\sideset": {
 		"ams_required": true,
 		"callback": [
-			"SideSet"
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun2nb::sideset"
 		],
 		"fun_ar2nb": true
 	},
@@ -5464,7 +5464,7 @@
 	},
 	"\\tilde": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"007E"
 		],
 		"fun_ar1": true,
@@ -5970,7 +5970,7 @@
 	},
 	"\\vec": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"2192",
 			false
 		],
@@ -6021,7 +6021,7 @@
 	},
 	"\\widehat": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"005E",
 			1
 		],
@@ -6030,7 +6030,7 @@
 	},
 	"\\widetilde": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"007E",
 			1
 		],
