@@ -52,9 +52,10 @@ class MMLParsingUtil {
 			case "textrm":
 				break;
 			case "mathrm":
-				// Bold always has precedence
+				// \boldsymbol keeps \mathrm bold, as the bold math version of TeX does; \mathbf does not
+				// fontmath.ltx: swh:1:cnt:bf414e27aee7a8213b23194ebaad6583a8b5f2dc;lines=59-69
 				$passedVariant = $passedArgs['mathvariant'] ?? '';
-				if ( str_contains( $passedVariant, 'bold' ) ) {
+				if ( $passedVariant === Variants::BOLDITALIC ) {
 					$args = [ 'mathvariant' => $passedVariant ];
 					break;
 				}

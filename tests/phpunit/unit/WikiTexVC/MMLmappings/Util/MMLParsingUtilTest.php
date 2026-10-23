@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\MMLmappings;
 
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWikiUnitTestCase;
 
@@ -27,6 +28,23 @@ class MMLParsingUtilTest extends MediaWikiUnitTestCase {
 		$result = MMLParsingUtil::parseDefineColorExpression(
 			"\\definecolor {gray}{0.123}" );
 		$this->assertNull( $result );
+	}
+
+	public static function provideMathrmInside() {
+		return [
+			'\\mathbf' => [ Variants::BOLD, Variants::NORMAL ],
+			'\\boldsymbol' => [ Variants::BOLDITALIC, Variants::BOLDITALIC ],
+			'no font' => [ null, Variants::NORMAL ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideMathrmInside
+	 */
+	public function testMathrmInside( ?string $outer, string $expected ) {
+		$passedArgs = $outer === null ? [] : [ 'mathvariant' => $outer ];
+		$result = MMLParsingUtil::getFontArgs( '\\mathrm', null, $passedArgs );
+		$this->assertSame( [ 'mathvariant' => $expected ], $result );
 	}
 
 }
