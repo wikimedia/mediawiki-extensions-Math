@@ -435,7 +435,7 @@ class AllTest extends MediaWikiUnitTestCase {
 					'output' => '{a \\over b}'
 				]
 			],
-			'DECLh' => [ [
+			'DECLARATION' => [ [
 				'input' => '{abc \\rm def \\it ghi \\cal jkl \\bf mno}',
 				'output' => '{abc{\\rm {def{\\it {ghi{\\cal {jkl{\\bf {mno}}}}}}}}}'
 				]

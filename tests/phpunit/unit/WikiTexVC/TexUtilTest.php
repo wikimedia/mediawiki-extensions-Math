@@ -58,7 +58,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'color',
 			'color_function',
 			'color_required',
-			'declh_function',
+			'declaration',
 			'definecolor_function',
 			'delimiter',
 			'deprecated_nullary_macro_aliase',

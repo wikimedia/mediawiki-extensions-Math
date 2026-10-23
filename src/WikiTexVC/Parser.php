@@ -14,7 +14,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC;
 use MediaWiki\Extension\Math\WikiTexVC\Mhchem\MhchemParser;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Box;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Big;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\Declh;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Declaration;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
@@ -807,7 +807,7 @@ class Parser
         mixed $d,
         mixed $e,
     ): mixed {
-        return new TexArray(new Declh($d->getFname(), $e));
+        return new TexArray(new Declaration($d->getFname(), $e));
     }
 
     private function peg_f7(
@@ -854,7 +854,7 @@ class Parser
         mixed $d,
         mixed $e,
     ): mixed {
-        return new TexArray(new Declh($d->getFname(), $e));
+        return new TexArray(new Declaration($d->getFname(), $e));
     }
 
     private function peg_f14(
@@ -1624,13 +1624,13 @@ class Parser
     private function peg_f129(
         mixed $f,
     ): mixed {
-        return $this->tu->declh_function($f);
+        return $this->tu->declaration($f);
     }
 
     private function peg_f130(
         mixed $f,
     ): mixed {
-        return new Declh($f, new TexArray());
+        return new Declaration($f, new TexArray());
     }
 
     private function peg_f131(
@@ -2024,7 +2024,7 @@ class Parser
             }
             if ($s0 === $this->peg_FAILED) {
                 $s0 = $this->peg_currPos;
-                $s1 = $this->peg_parse_DECLh();
+                $s1 = $this->peg_parse_DECLARATION();
                 if ($s1 !== $this->peg_FAILED) {
                     $s2 = $this->peg_parse_expr();
                     if ($s2 !== $this->peg_FAILED) {
@@ -2256,7 +2256,7 @@ class Parser
         }
         if ($s0 === $this->peg_FAILED) {
             $s0 = $this->peg_currPos;
-            $s1 = $this->peg_parse_DECLh();
+            $s1 = $this->peg_parse_DECLARATION();
             if ($s1 !== $this->peg_FAILED) {
                 $s2 = $this->peg_parse_expr_nosqc();
                 if ($s2 !== $this->peg_FAILED) {
@@ -7200,7 +7200,7 @@ class Parser
         return $s0;
     }
 
-    private function peg_parse_DECLh(): mixed
+    private function peg_parse_DECLARATION(): mixed
     {
         $key = $this->peg_currPos * 102 + 86;
         $cached = $this->peg_cache[$key] ?? false;

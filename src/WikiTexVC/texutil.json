@@ -1351,7 +1351,7 @@
 			"setFont",
 			"bold"
 		],
-		"declh_function": true
+		"declaration": true
 	},
 	"\\big": {
 		"big_literals": true,
@@ -1697,7 +1697,7 @@
 			"setFont",
 			"-tex-calligraphic"
 		],
-		"declh_function": true
+		"declaration": true
 	},
 	"\\cancel": {
 		"callback": [
@@ -2921,7 +2921,7 @@
 			"setFont",
 			"-tex-mathit"
 		],
-		"declh_function": true
+		"declaration": true
 	},
 	"\\jmath": {
 		"identifier": [
@@ -4729,7 +4729,7 @@
 			"setFont",
 			"normal"
 		],
-		"declh_function": true
+		"declaration": true
 	},
 	"\\rmoustache": {
 		"delimiter": [

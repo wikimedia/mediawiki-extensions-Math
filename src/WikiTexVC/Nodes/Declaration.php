@@ -6,7 +6,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 
-class Declh extends TexNode {
+class Declaration extends TexNode {
 
 	public function __construct(
 		private readonly string $fname,

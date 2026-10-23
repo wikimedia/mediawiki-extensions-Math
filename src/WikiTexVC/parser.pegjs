@@ -3,7 +3,7 @@
 use MediaWiki\Extension\Math\WikiTexVC\Mhchem\MhchemParser;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Box;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Big;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\Declh;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Declaration;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
@@ -92,8 +92,8 @@ ne_expr
     { return $t->unshift($h); }
   / h:litsq_aq t:expr
     { return $t->unshift($h); }
-  / d:DECLh e:expr
-    { return new TexArray(new Declh($d->getFname(), $e)); }
+  / d:DECLARATION e:expr
+    { return new TexArray(new Declaration($d->getFname(), $e)); }
 litsq_aq
   = litsq_fq
   / litsq_dq
@@ -116,8 +116,8 @@ litsq_zq
 expr_nosqc
   = l:lit_aq e:expr_nosqc
     { return $e ->unshift( $l ); }
-  / d:DECLh e:expr_nosqc
-    { return new TexArray(new Declh($d->getFname(), $e)); }
+  / d:DECLARATION e:expr_nosqc
+    { return new TexArray(new Declaration($d->getFname(), $e)); }
   / "" /* */
     { return new TexArray(); }
 lit_aq
@@ -532,9 +532,9 @@ FUN_INFIX
  = f:generic_func &{ return $this->tu->fun_infix($f); } _
    { return $f; }
 
-DECLh
- = f:generic_func &{ return $this->tu->declh_function($f); } _
-   { return new Declh($f, new TexArray()); }
+DECLARATION
+ = f:generic_func &{ return $this->tu->declaration($f); } _
+   { return new Declaration($f, new TexArray()); }
 
 FUN_AR2nb
  = f:generic_func &{ return $this->tu->fun_ar2nb($f); } _

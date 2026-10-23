@@ -17,7 +17,7 @@ class GenerateDoc extends Maintenance {
 		'big_literals',
 		'box_functions',
 		'color_function',
-		'declh_function',
+		'declaration',
 		'definecolor_function',
 		'fun_ar1',
 		'fun_ar1nb',
@@ -100,6 +100,9 @@ class GenerateDoc extends Maintenance {
 			$limits = $this->baseElements['op_limits'][$elem];
 			return "\\texttt{{$textString}} ({$limits}) is rendered as \$\\displaystyle {$op}_a^b\$ "
 				. "in display style and as \${$op}_a^b\$ inline";
+		}
+		if ( $set === 'declaration' ) {
+			return "\\texttt{{$textString}} applied on \$\\frac{x}{X}\$ is rendered as \${{$elem} \\frac{x}{X}}\$";
 		}
 		if ( $set === 'right_function' ) {
 			return "\\texttt{{$textString}} is rendered as \$\\left. \\right)\$";
