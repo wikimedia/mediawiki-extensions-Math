@@ -234,39 +234,6 @@ class MathRestbaseInterface {
 	}
 
 	/**
-	 * Generates a unique TeX string, renders it and gets it via a public URL.
-	 * The method fails, if the public URL does not point to the same server, who did render
-	 * the unique TeX input in the first place.
-	 * @return bool
-	 */
-	private function checkConfig() {
-		// Generates a TeX string that probably has not been generated before
-		$uniqueTeX = uniqid( 't=', true );
-		$testInterface = new MathRestbaseInterface( $uniqueTeX );
-		if ( !$testInterface->checkTeX() ) {
-			$this->logger->warning( 'Config check failed, since test expression was considered as invalid.',
-				[ 'uniqueTeX' => $uniqueTeX ] );
-			return false;
-		}
-
-		try {
-			$url = $testInterface->getFullSvgUrl();
-			$req = MediaWikiServices::getInstance()->getHttpRequestFactory()->create( $url, [], __METHOD__ );
-			$status = $req->execute();
-			if ( $status->isOK() ) {
-				return true;
-			}
-
-			$this->logger->warning( 'Config check failed, due to an invalid response code.',
-				[ 'responseCode' => $status ] );
-		} catch ( Exception $e ) {
-			$this->logger->warning( 'Config check failed, due to an exception.', [ $e ] );
-		}
-
-		return false;
-	}
-
-	/**
 	 * Gets a publicly accessible link to the generated SVG image.
 	 * @return string
 	 * @throws InvalidTeXException
