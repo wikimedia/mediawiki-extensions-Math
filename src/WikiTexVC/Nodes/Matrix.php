@@ -8,6 +8,7 @@ use Generator;
 use InvalidArgumentException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtable;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 
 class Matrix extends TexArray {
 
@@ -109,12 +110,24 @@ class Matrix extends TexArray {
 	}
 
 	/** @inheritDoc */
-	public function toMMLTree( $arguments = [], &$state = [] ): MMLbase {
-		$mml = $this->parseToMML( $this->getTop(), $arguments, null );
+	public function argContext( TexNode $arg, RenderContext $ctx, array $links = [], ?array $colors = null
+	): RenderContext {
+		// TeX sets each cell as a $...$ formula, which starts in text style; texutil.json lists exceptions.
+		// plain.tex \matrix: swh:1:cnt:0f363a96c0e1f93d830e97534b1fe07861fdae69;lines=1093-1096
+		// amsmath matrix: swh:1:cnt:d4a287b9531788cd614d524bdd53f38681a63902;lines=2525-2527
+		$style = self::macroArgStyle( $this->getTop(), 0, RenderContext::TEXT );
+		// \vline draws a rule in the tables of the matrix callback, not in aligned
+		$inMatrix = self::macro( $this->getTop() )['callback'] !== 'alignAt';
+		return $ctx->forArgument( $style, $ctx->font, inMatrix: $inMatrix,
+			squashLiterals: $ctx->squashLiterals, colorDefinitions: $colors, links: $links );
+	}
+
+	/** @inheritDoc */
+	public function toMMLTree( RenderContext $ctx = new RenderContext() ): MMLbase {
+		$mml = $this->parseToMML( $this->getTop(), $ctx );
 		// Bug T418073
-		$displayStyle = $state['styleArgs']['displaystyle'] ?? 'true';
-		if ( $mml instanceof MMLmtable && $displayStyle === 'true' ) {
-			$mml->setAttribute( 'displaystyle', $displayStyle );
+		if ( $mml instanceof MMLmtable ) {
+			$mml->setAttribute( 'displaystyle', 'true' );
 		}
 		return $mml;
 	}

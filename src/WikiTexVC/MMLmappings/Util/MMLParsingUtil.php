@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmpadded;
@@ -195,6 +196,28 @@ class MMLParsingUtil {
 			$renderedMML->setAttribute( "arg", $intentContentAtr["arg"] );
 		}
 		return $renderedMML;
+	}
+
+	/**
+	 * Sets $attributes on the first element in $mml; an MMLarray only groups elements and has no attributes
+	 * of its own
+	 * @param MMLbase $mml
+	 * @param array<string,?string> $attributes
+	 * @return MMLbase $mml
+	 */
+	public static function addAttributesToFirstElement( MMLbase $mml, array $attributes ): MMLbase {
+		$element = $mml;
+		while ( $element instanceof MMLarray && $element->getChildren() ) {
+			$element = $element->getChildren()[0];
+		}
+		if ( $element instanceof MMLbase && !$element instanceof MMLarray ) {
+			foreach ( $attributes as $name => $value ) {
+				if ( $value !== null ) {
+					$element->setAttribute( $name, $value );
+				}
+			}
+		}
+		return $mml;
 	}
 
 	public static function forgeIntentToSpecificElement(

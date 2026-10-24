@@ -6,6 +6,7 @@ use InvalidArgumentException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 use MediaWikiUnitTestCase;
+use ReflectionMethod;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\TexUtil
@@ -51,6 +52,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 
 		$sets = [
 			'ams_required',
+			'arg_styles',
 			'big_literals',
 			'box_functions',
 			'callback',
@@ -91,11 +93,13 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'operator',
 			'operator_infix',
 			'operator_rendering',
+			'opt_arg_style',
 			'other_delimiters1',
 			'other_delimiters2',
 			'other_fun_ar1',
 			'right_function',
 			'stix_required',
+			'style',
 			'teubner_required',
 			'unicode_char',
 		];
@@ -163,6 +167,45 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		}
 	}
 
+	/**
+	 * A callback gets the node, $passedArgs, $operatorContent, the name and the further entries of texutil.json,
+	 * and the context last, by name. An entry it does not declare would end up as the context.
+	 */
+	public function testCallbacksDeclareTheirEntries() {
+		foreach ( TexUtil::getInstance()->getBaseElements()['callback'] as $symbol => $callback ) {
+			$callback = (array)$callback;
+			if ( str_contains( $callback[0], '::' ) ) {
+				continue;
+			}
+			$params = ( new ReflectionMethod( BaseParsing::class, $callback[0] ) )->getParameters();
+			$last = array_pop( $params );
+			$this->assertSame( 'ctx', $last->getName(), "The context comes last in {$callback[0]}" );
+			$this->assertGreaterThanOrEqual( 4 + count( $callback ) - 1, count( $params ),
+				"{$callback[0]} declares the entries of $symbol" );
+		}
+	}
+
+	/**
+	 * A callback of a node class gets the context, $passedArgs, the name and the further entries of texutil.json,
+	 * see TexNode::getLocalCallback(), and declares the leading ones it uses.
+	 */
+	public function testLocalCallbacksDeclareALeadingPart() {
+		$expected = [ 'ctx', 'passedArgs', 'input' ];
+		foreach ( TexUtil::getInstance()->getBaseElements()['callback'] as $symbol => $callback ) {
+			$callback = (array)$callback;
+			if ( !str_contains( $callback[0], '::' ) ) {
+				continue;
+			}
+			[ $class, $method ] = explode( '::', $callback[0], 2 );
+			$reflection = new ReflectionMethod( $class, $method );
+			$names = array_map( static fn ( $p ) => $p->getName(), $reflection->getParameters() );
+			$this->assertSame( array_slice( $expected, 0, min( count( $names ), 3 ) ),
+				array_slice( $names, 0, 3 ), "{$callback[0]} for $symbol" );
+			$this->assertLessThanOrEqual( 3 + count( $callback ) - 1, $reflection->getNumberOfRequiredParameters(),
+				"{$callback[0]} requires no more entries than $symbol has" );
+		}
+	}
+
 	public function testDataType() {
 		$types = [
 			'mathchar' => 'string',
@@ -226,6 +269,68 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 		ksort( $expected );
 		ksort( $actual );
 		$this->assertEquals( $expected, $actual );
+	}
+
+	/**
+	 * amsmath.dtx: swh:1:cnt:d4a287b9531788cd614d524bdd53f38681a63902;lines=627-628
+	 * swh:1:cnt:d4a287b9531788cd614d524bdd53f38681a63902;lines=639-640
+	 * swh:1:cnt:d4a287b9531788cd614d524bdd53f38681a63902;lines=2133-2135
+	 * \overset, \underset and arrow labels: swh:1:cnt:d4a287b9531788cd614d524bdd53f38681a63902;lines=2149-2155
+	 * swh:1:cnt:d4a287b9531788cd614d524bdd53f38681a63902;lines=2343-2344
+	 * aligned: swh:1:cnt:d4a287b9531788cd614d524bdd53f38681a63902;lines=3969-3972
+	 * smallmatrix: swh:1:cnt:d4a287b9531788cd614d524bdd53f38681a63902;lines=2485-2486
+	 * \root, \eqalign, \displaylines, \eqalignno and \leqalignno, plain.tex:
+	 * swh:1:cnt:0f363a96c0e1f93d830e97534b1fe07861fdae69;lines=1018-1019
+	 * swh:1:cnt:0f363a96c0e1f93d830e97534b1fe07861fdae69;lines=1117-1118
+	 * swh:1:cnt:0f363a96c0e1f93d830e97534b1fe07861fdae69;lines=1126-1137
+	 * \cancelto draws its value as a superscript, see BaseParsing::cancelTo.
+	 */
+	public function testStylesFollowTeX() {
+		$style = [
+			'\\displaystyle' => 'display',
+			'\\textstyle' => 'text',
+			'\\scriptstyle' => 'script',
+			'\\scriptscriptstyle' => 'scriptscript',
+			'\\dfrac' => 'display',
+			'\\dbinom' => 'display',
+			'\\cfrac' => 'display',
+			'\\tfrac' => 'text',
+			'\\tbinom' => 'text',
+			'smallmatrix' => 'script',
+		];
+		foreach ( [ 'aligned', 'alignat', 'alignat*', 'alignedat', '\\eqalign', '\\eqalignno', '\\leqalignno',
+			'\\displaylines' ] as $name
+		) {
+			$style[$name] = 'display';
+		}
+		$argStyles = [
+			'\\overset' => [ 'sup', null ],
+			'\\stackrel' => [ 'sup', null ],
+			'\\cancelto' => [ 'sup', null ],
+			'\\underset' => [ 'sub', null ],
+		];
+		foreach ( [ '\\frac', '\\dfrac', '\\tfrac', '\\cfrac', '\\binom', '\\dbinom', '\\tbinom', '\\above',
+			'\\abovewithdelims', '\\atop', '\\atopwithdelims', '\\brace', '\\brack', '\\choose', '\\over',
+			'\\overwithdelims' ] as $name
+		) {
+			$argStyles[$name] = [ 'num', 'denom' ];
+		}
+		$optArgStyle = [ '\\sqrt' => 'scriptscript' ];
+		foreach ( [ '\\xLeftrightharpoons', '\\xRightleftharpoons', '\\xleftarrow', '\\xleftrightarrow',
+			'\\xrightarrow', '\\xrightleftharpoons' ] as $name
+		) {
+			$argStyles[$name] = [ 'script' ];
+			$optArgStyle[$name] = 'script';
+		}
+		$baseElements = TexUtil::getInstance()->getBaseElements();
+		foreach ( [ 'style' => $style, 'arg_styles' => $argStyles, 'opt_arg_style' => $optArgStyle ]
+			as $set => $expected
+		) {
+			$actual = $baseElements[$set];
+			ksort( $expected );
+			ksort( $actual );
+			$this->assertEquals( $expected, $actual, $set );
+		}
 	}
 
 	public function testGetOperatorByKey() {

@@ -6,8 +6,12 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use InvalidArgumentException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 class TexNode {
@@ -28,38 +32,30 @@ class TexNode {
 		$this->args = $args;
 	}
 
-	public function getLocalCallback( string $input, array $passedArgs,
-									 array $operatorContent, array &$state ): MMLbase {
-		$cb = $this->localCallback( $input );
-		if ( $cb === null ) {
-			return new MMLarray();
-		}
-		$method = substr( $cb[0], strlen( static::class ) + 2 );
-		return $this->{$method}( $passedArgs, $operatorContent, $input, $cb, $state );
-	}
-
-	/** The callback texutil.json names for $input if it is a method of this class, else null */
-	private function localCallback( string $input ): ?array {
-		$cb = TexUtil::getInstance()->callback( trim( $input ) );
-		if ( !$cb ) {
-			return null;
-		}
-		if ( is_string( $cb ) ) {
-			$cb = [ $cb ];
-		}
-		return preg_match( '#^' . preg_quote( static::class ) . '::\\w+$#', $cb[0] ) ? $cb : null;
-	}
-
 	/**
+	 * Calls the method of this node that texutil.json names as callback for $input, like Literal::namedFn.
+	 * The method gets the context, $passedArgs, $input and the further entries of the callback, and declares
+	 * only the leading ones it uses.
 	 * @param string $input
 	 * @param array $passedArgs
-	 * @param mixed|null $operatorContent
+	 * @param RenderContext $ctx
 	 * @return MMLbase
 	 */
-	protected function parseToMML( $input, $passedArgs, $operatorContent ): MMLbase {
-		// A local callback that rendered nothing gets the error below, BaseParsing does not have it
-		$parsed = is_string( $input ) && $this->localCallback( $input ) !== null ? new MMLarray() :
-			BaseMethods::checkAndParse( $input, $passedArgs, $operatorContent, $this );
+	public function getLocalCallback( string $input, array $passedArgs, RenderContext $ctx ): MMLbase {
+		$macro = self::macro( $input );
+		if ( $macro['callbackClass'] !== static::class ) {
+			return new MMLarray();
+		}
+		return $this->{$macro['callback']}( $ctx, $passedArgs, $input, ...$macro['callbackArgs'] );
+	}
+
+	/** Renders this node with the callback texutil.json names for $input, in this class or else in BaseParsing */
+	protected function parseToMML( string $input, RenderContext $ctx ): MMLbase {
+		$local = $this->getLocalCallback( trim( $input ), [], $ctx );
+		if ( !$local->isEmpty() ) {
+			return $local;
+		}
+		$parsed = BaseMethods::checkAndParse( $input, [], [], $this, ctx: $ctx );
 		if ( !$parsed->isEmpty() ) {
 			return $parsed;
 		}
@@ -70,6 +66,100 @@ class TexNode {
 
 	/** Name of the macro this node stands for, e.g. \sum or \frac */
 	public function getFname(): ?string {
+		return null;
+	}
+
+	/**
+	 * Context of $arg, an argument of this node rendered in $ctx; nodes that change the style, font or another
+	 * part of the context for their arguments override this
+	 * @param TexNode $arg
+	 * @param RenderContext $ctx
+	 * @param array $links links of $arg to its neighbours, see TexArray::linkArgs()
+	 * @param array|null $colors colors defined before $arg, if not those of $ctx
+	 * @return RenderContext
+	 */
+	public function argContext( TexNode $arg, RenderContext $ctx, array $links = [], ?array $colors = null
+	): RenderContext {
+		$name = $this->getFname();
+		$font = $name === null ? $ctx->font : $this->macroFont( $ctx->font ) ?? $ctx->font;
+		return $ctx->forArgument( $this->argStyle( $arg, $ctx->style ), $font, colorDefinitions: $colors,
+			links: $links );
+	}
+
+	protected function argStyle( TexNode $arg, int $style ): int {
+		$name = $this->getFname();
+		return $name === null ? $style : self::macroArgStyle( $name, 0, $style );
+	}
+
+	public function renderChild( TexNode $arg, RenderContext $ctx ): MMLbase {
+		if ( $arg instanceof Literal && $arg->getArg() === "'" ) {
+			// An argument that is only an apostrophe, as in a^', is ^\prime on an empty base, like {'}
+			return TexArray::addPrimeContext( new MMLmrow(), 1 );
+		}
+		return $arg->toMMLTree( $this->argContext( $arg, $ctx ) );
+	}
+
+	/** @var array<string,array> see macro() */
+	private static array $macros = [];
+
+	/**
+	 * What texutil.json says about macro $name that matters for its arguments, cached for speed
+	 * @param string $name
+	 * @return array<string,mixed> callback (the method), callbackClass (null for BaseParsing), callbackArgs,
+	 *  textFont, style, argStyles and optArgStyle
+	 */
+	protected static function macro( string $name ): array {
+		if ( !isset( self::$macros[$name] ) ) {
+			$tu = TexUtil::getInstance();
+			$key = trim( $name );
+			$cb = $tu->callback( $key );
+			$cb = is_string( $cb ) ? [ $cb ] : ( is_array( $cb ) ? $cb : [ null ] );
+			[ $class, $method ] = str_contains( $cb[0] ?? '', '::' ) ? explode( '::', $cb[0] ) : [ null, $cb[0] ];
+			self::$macros[$name] = [
+				'callback' => $method,
+				'callbackClass' => $class,
+				'callbackArgs' => array_slice( $cb, 1 ),
+				// The text macros like \textbf name their font as the second argument of hBox
+				'textFont' => $method === 'hBox' ? $cb[2] ?? null : null,
+				'style' => is_string( $tu->style( $key ) ) ? $tu->style( $key ) : null,
+				'argStyles' => $tu->arg_styles( $key ) ?: [],
+				'optArgStyle' => is_string( $tu->opt_arg_style( $key ) ) ? $tu->opt_arg_style( $key ) : null,
+			];
+		}
+		return self::$macros[$name];
+	}
+
+	/** Style of argument $n of macro $name by texutil.json, starting from $style */
+	protected static function macroArgStyle( string $name, int $n, int $style ): int {
+		$macro = self::macro( $name );
+		$style = RenderContext::nextStyle( $style, $macro['style'] );
+		return RenderContext::nextStyle( $style, $macro['argStyles'][$n] ?? null );
+	}
+
+	/** Attributes of the text of this node, in the font a text macro like \textbf names in texutil.json */
+	protected function textFontArgs(): array {
+		$font = self::macro( $this->getFname() ?? '' )['textFont'] ?? Variants::NORMAL;
+		return $font === Variants::NORMAL ? [] : [ 'mathvariant' => $font ];
+	}
+
+	/**
+	 * Font that the macro of this node sets for its argument inside $font, or null if it sets none
+	 * @param array<string,string> $font
+	 * @return array<string,string>|null
+	 */
+	protected function macroFont( array $font ): ?array {
+		$name = $this->getFname() ?? '';
+		$macro = self::macro( $name );
+		switch ( $macro['callback'] ) {
+			case 'mathFont':
+			case 'setFont':
+				return MMLParsingUtil::getFontArgs( $name, $macro['callbackArgs'][0] ?? null, $font );
+			case 'handleOperatorName':
+				return array_merge( $font, [ 'mathvariant' => Variants::NORMAL ] );
+			case 'hBox':
+				// Text is not set in the math font around it; the text macros set their own
+				return $this->textFontArgs();
+		}
 		return null;
 	}
 
@@ -92,28 +182,14 @@ class TexNode {
 	}
 
 	/**
-	 * @param array $arguments
-	 * @param array &$state
+	 * @param RenderContext $ctx context of this node; the default is that of the root of a formula
 	 * @return MMLbase
 	 */
-	public function toMMLTree( array $arguments = [], array &$state = [] ): MMLbase {
+	public function toMMLTree( RenderContext $ctx = new RenderContext() ): MMLbase {
 		return new MMLarray( ...array_map(
-			fn ( $child ) => $this->processChildMML( $child, $arguments, $state ),
+			fn ( $child ) => $child instanceof self ? $this->renderChild( $child, $ctx ) : new MMLarray(),
 			$this->args
 		) );
-	}
-
-	/**
-	 * @param mixed $child
-	 * @param array $arguments
-	 * @param array &$state
-	 * @return MMLbase
-	 */
-	private function processChildMML( $child, array $arguments, array &$state ): MMLbase {
-		if ( $child instanceof self ) {
-			return $child->toMMLTree( $arguments, $state );
-		}
-		return new MMLarray();
 	}
 
 	/**

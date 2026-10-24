@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 use ArgumentCountError;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2sq;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWikiUnitTestCase;
 use TypeError;
 
@@ -40,5 +41,14 @@ class Fun2sqTest extends MediaWikiUnitTestCase {
 		$f = new Fun2sq( '\\f', new Literal( 'a' ), new Literal( 'b' ) );
 		$this->assertEquals( '{\\f[a]{b}}', $f->inCurlies(),
 			'Should create exactly one set of curlies' );
+	}
+
+	public function testArgStyles() {
+		$ctx = new RenderContext( style: RenderContext::TEXT );
+		$sqrt = new Fun2sq( '\\sqrt', new Literal( 'n' ), new Literal( 'x' ) );
+		$this->assertSame( RenderContext::SCRIPT_SCRIPT, $sqrt->argContext( $sqrt->getArg1(), $ctx )->style );
+		$arrow = new Fun2sq( '\\xrightarrow', new Literal( 'b' ), new Literal( 'a' ) );
+		$this->assertSame( RenderContext::SCRIPT, $arrow->argContext( $arrow->getArg1(), $ctx )->style );
+		$this->assertSame( RenderContext::SCRIPT, $arrow->argContext( $arrow->getArg2(), $ctx )->style );
 	}
 }

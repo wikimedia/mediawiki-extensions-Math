@@ -6,7 +6,6 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use Generator;
 use InvalidArgumentException;
-use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Tag;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
@@ -15,6 +14,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsup;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
@@ -43,23 +43,6 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 
 		self::checkInput( $nargs );
 		parent::__construct( ...$nargs );
-	}
-
-	public function checkForStyleArgs( TexNode $node ): ?array {
-		if ( $node instanceof Literal ) {
-			$name = trim( $node->getArg() );
-			switch ( $name ) {
-				case "\\displaystyle":
-					return [ "displaystyle" => "true", "scriptlevel" => "0" ];
-				case "\\scriptstyle":
-					return [ "displaystyle" => "false", "scriptlevel" => "1" ];
-				case "\\scriptscriptstyle":
-					return [ "displaystyle" => "false", "scriptlevel" => "2" ];
-				case "\\textstyle":
-					return [ "displaystyle" => "false", "scriptlevel" => "0" ];
-			}
-		}
-		return null;
 	}
 
 	/**
@@ -159,47 +142,26 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 
 	/**
 	 * Count consecutive apostrophe shorthand nodes following the current node.
+	 * @param int $start
+	 * @param list<TexNode> $args
+	 * @return int
 	 */
-	public function countFollowingPrimes( int $start, array $args ): int {
+	private function countFollowingPrimes( int $start, array $args ): int {
 		$ctr = 0;
-		$started = false;
-		foreach ( $args as $key => $arg ) {
-			if ( !$started ) {
-				if ( $key == $start ) {
-					$started = true;
-				}
-				continue;
-			}
-			if ( $arg instanceof Literal && $arg->getArg() === "'" ) {
-				$ctr++;
-			} else {
-				break;
-			}
+		$next = $args[$start + 1] ?? null;
+		while ( $next instanceof Literal && $next->getArg() === "'" ) {
+			$ctr++;
+			$next = $args[$start + $ctr + 1] ?? null;
 		}
 		return $ctr;
 	}
 
-	/**
-	 * Normalize a superscript made entirely from explicit \prime commands to
-	 * the base used by the apostrophe shorthand and the number of primes.
-	 *
-	 * @return array{TexNode,int}
-	 */
-	private function normalizePrimeSuperscript( TexNode $node ): array {
+	/** Number of \prime in the superscript of $node if it holds nothing else, otherwise 0 */
+	private function countPrimeSuperscript( TexNode $node ): int {
 		if ( !( $node instanceof FQ ) || $node instanceof DQ ) {
-			return [ $node, 0 ];
+			return 0;
 		}
-
-		$primeCount = $this->countExplicitPrimes( $node->getUp() );
-		if ( $primeCount === 0 ) {
-			return [ $node, 0 ];
-		}
-
-		if ( $node instanceof UQ ) {
-			return [ $node->getBase(), $primeCount ];
-		}
-
-		return [ new DQ( $node->getBase(), $node->getDown() ), $primeCount ];
+		return $this->countExplicitPrimes( $node->getUp() );
 	}
 
 	/**
@@ -247,181 +209,50 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 		return [ $hasNamedFct, $hasValidParameters ];
 	}
 
-	private function squashLiterals( array &$arguments ): void {
-		$tmp = '';
-		foreach ( $this->args as $arg ) {
-			if ( !( $arg instanceof Literal ) ) {
-				unset( $arguments[ Tag::CLASSTAG  ] );
-				return;
-			}
-			// Don't squash if there is a macro in the literal
-			if ( preg_match( "/[\\\\]/", $arg->getArg() ) ) {
-				unset( $arguments[ Tag::CLASSTAG  ] );
-				return;
-			}
-			$tmp .= $arg->getArg();
+	/** @inheritDoc */
+	public function argContext( TexNode $arg, RenderContext $ctx, array $links = [], ?array $colors = null
+	): RenderContext {
+		if ( !$links && ( $colors === null || $colors === $ctx->colorDefinitions ) ) {
+			// Most nodes are members of a group without links to their neighbours
+			return $ctx->forGroupMember();
 		}
-		$this->args = [ new Literal( $tmp ) ];
-		$this->curly = false;
-	}
-
-	private function squashNumbers(): void {
-		$lastNumber = false;
-		foreach ( $this->args as $key => $arg ) {
-			// Handle the special case of comma as a decimal separator
-			// e.g., 3{,}14}
-			if (
-				$lastNumber !== false &&
-				$arg instanceof TexArray &&
-				$arg->isCurly() &&
-				!$arg->isEmpty() &&
-				$arg->args[0] instanceof Literal &&
-				trim( $arg->args[0]->getArg() ) === ","
-			) {
-				$this->args[$lastNumber]->appendText( ',' );
-				unset( $this->args[$key] );
-				continue;
-			}
-			if ( !( $arg instanceof Literal ) || !preg_match( "/^[0-9.]$/", $arg->getArg() ) ) {
-				$lastNumber = false;
-				continue;
-			}
-			if ( $lastNumber !== false ) {
-				$this->args[$lastNumber]->appendText( $arg->getArg() );
-				unset( $this->args[$key] );
-			} else {
-				$lastNumber = $key;
-			}
-		}
+		// \operatorname squashes the literals of its groups
+		return $ctx->forArgument( $ctx->style, $ctx->font, squashLiterals: $ctx->squashLiterals,
+			colorDefinitions: $colors, links: $links );
 	}
 
 	/** @inheritDoc */
-	public function toMMLTree( $arguments = [], &$state = [] ): MMLbase {
-		// Everything here is for parsing displaystyle, probably refactored to WikiTexVC grammar later
-		// Root node holding the child nodes.
-		$mmlStyles = [ new MMLmrow() ];
-		$currentColor = null;
-
-		if ( array_key_exists( 'squashLiterals', $state ) ) {
-			$this->squashLiterals( $arguments );
+	public function toMMLTree( RenderContext $ctx = new RenderContext() ): MMLbase {
+		$args = array_values( $this->args );
+		$curly = $this->curly;
+		$squashed = false;
+		if ( $ctx->squashLiterals ) {
+			$literal = $this->toOneLiteral();
+			if ( $literal ) {
+				$args = [ $literal ];
+				$curly = false;
+				$squashed = true;
+			}
 		}
-		$this->squashNumbers();
-		// Only the last node of this array is followed by \right, not those of nested arrays.
-		$beforeRight = $state['beforeRight'] ?? false;
-		unset( $state['beforeRight'] );
-		$skip = 0;
-		foreach ( $this->args  as $key => $current ) {
-			$next = next( $this->args );
-			if ( $skip > 0 ) {
-				$skip--;
-				continue;
-			}
-			$next = $next === false ? null : $next;
-			[ $current, $explicitPrimeCount ] = $this->normalizePrimeSuperscript( $current );
-			// Check for sideset
-			$foundSideset = $this->checkForSideset( $current, $next );
-			if ( $foundSideset ) {
-				$state["sideset"] = $foundSideset;
-				// Skipping the succeeding Literal
-				$skip++;
-			}
+		$args = self::squashNumbers( $args );
 
-			// Check for limits
-			$foundLimits = $this->checkForLimits( $current, $next );
-			if ( $foundLimits[0] ) {
-				$state["limits"] = $foundLimits[0];
-				if ( $foundLimits[1] ) {
-					continue;
-				}
-			}
-
-			$foundDots = $this->checkForDots( $current, $next, $beforeRight );
-			if ( $foundDots ) {
-				$state['dots'] = $foundDots;
-			}
-
-			// Check for Not
-			$foundNot = $this->checkForNot( $current );
-			if ( $foundNot ) {
-				$state["not"] = true;
-				continue;
-			}
-
-			// Check for prime notation
-			$primeCount = $explicitPrimeCount ?: $this->countFollowingPrimes( $key, $this->args );
-			if ( $primeCount > 0 ) {
-				// Apostrophes are following nodes, while explicit primes were part of the
-				// superscript node that has already been replaced above.
-				if ( $explicitPrimeCount === 0 ) {
-					$skip += $primeCount;
-				}
-				$state['prime'] = $primeCount;
-			}
-
-			// Check if there is a new color definition and add it to state
-			$foundColorDef = $this->checkForColorDefinition( $current );
-			if ( $foundColorDef ) {
-				$state["colorDefinitions"][$foundColorDef["name"]] = $foundColorDef;
-				continue;
-			}
-			// Pass preceding color info to state
-			$foundColor = $this->checkForColor( $current );
-			if ( $foundColor[0] ) {
-				$currentColor = $foundColor[1];
-				// Skipping the color element itself for rendering
-				continue;
-			}
-			$styleArguments = $this->checkForStyleArgs( $current );
-
-			// An explicit prime intervenes between the named function and its argument,
-			// just like the apostrophe shorthand before it is normalized.
-			$namedFunctionNext = $explicitPrimeCount > 0 ? null : $next;
-			$foundNamedFct = $this->checkForNamedFctArgs( $current, $namedFunctionNext );
-			if ( $foundNamedFct[0] ) {
-				$state["foundNamedFct"] = $foundNamedFct;
-			}
-
-			if ( $styleArguments ) {
-				$mmlStyles[] = new MMLmstyle( "", $styleArguments );
-				if ( $next instanceof TexNode && $next->isCurly() ) {
-					// Wrap with style-tags when the next element is a Curly which determines start and end tag.
-					// The style ends with the group, so the group gets a copy of the state.
-					$groupState = $state;
-					$groupState["styleargs"] = $styleArguments;
-					$content = $this->createMMLwithContext( $currentColor, $next, $groupState, $arguments );
-					$currentContainer = end( $mmlStyles );
-					$currentContainer->addChild( $content );
-					$skip++;
-				} else {
-					$state["styleargs"] = $styleArguments;
-				}
-			} else {
-				// Start the style indicator in cases like \textstyle abc
-				$currentContent = $this->createMMLwithContext( $currentColor, $current, $state, $arguments );
-				$currentContainer = end( $mmlStyles );
-				$currentContainer->addChild( $currentContent );
-			}
-
-			unset( $state['foundNamedFct'] );
-			unset( $state['not'] );
-			unset( $state['limits'] );
-			unset( $state['dots'] );
+		$output = [];
+		foreach ( $this->linkArgs( $args, $ctx, $ctx->negated && !$squashed ) as $item ) {
+			$output[] = $this->renderPlanItem( $ctx, $item );
 		}
 
-		while ( count( $mmlStyles ) > 1 ) {
-			$container = array_pop( $mmlStyles );
-			$parent = end( $mmlStyles );
-			$parent->addChild( $container );
-		}
-		$output = $mmlStyles[0]->getChildren();
-		if ( $this->curly && $this->getLength() > 1 ) {
+		// A math style declaration counts as a member of its group, as when it was a nullary macro.
+		$first = $args[0] ?? null;
+		$mathStyle = $first instanceof Declaration && $first->setsMathStyle() && $first->getArg()->getLength() > 0;
+		$length = count( $args );
+		if ( $curly && ( $length > 1 || $mathStyle ) ) {
 			return new MMLmrow( TexClass::ORD, [], ...$output );
 		}
 		// Bug: T417592
 		// TeX makes a group an Ord atom, so a lone operator such as {\sum} gets no space around it.
 		// TeX's math_group: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=22330-22342
 		// MathML Core gives an mo outside its operator dictionary 0.2778em on each side instead.
-		if ( $this->curly && $this->getLength() === 1 && ( $output[0] ?? null ) instanceof MMLmo ) {
+		if ( $curly && $length === 1 && ( $output[0] ?? null ) instanceof MMLmo ) {
 			$output[0]->setAttribute( 'lspace', '0' );
 			$output[0]->setAttribute( 'rspace', '0' );
 		}
@@ -429,31 +260,152 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	}
 
 	/**
-	 * @param string|null $currentColor
-	 * @param TexNode $currentNode
-	 * @param array &$state
-	 * @param array $arguments
+	 * Settles what depends on the neighbours of each argument: \not, \limits, \sideset, \dots,
+	 * primes, colors and named functions.
+	 *
+	 * @param TexNode[] $args
+	 * @param RenderContext $ctx context of this group
+	 * @param bool $negateFirst \not came before the group, so its first node is negated
+	 * @return list<array{?TexNode,?TexNode,?string,int,array,array}> node in the group, node to render,
+	 *  color, primes, colors defined, and the links of the node to render
+	 */
+	private function linkArgs( array $args, RenderContext $ctx, bool $negateFirst ): array {
+		$plan = [];
+		$colors = $ctx->colorDefinitions;
+		$currentColor = null;
+		$negate = false;
+		$primes = 0;
+		$skip = 0;
+		$limitsBase = null;
+		foreach ( $args as $i => $current ) {
+			$next = $args[$i + 1] ?? null;
+			if ( $skip > 0 ) {
+				$skip--;
+				continue;
+			}
+			$explicitPrimeCount = $this->countPrimeSuperscript( $current );
+			$rendered = $explicitPrimeCount && $current instanceof UQ ? $current->getBase() : $current;
+			$links = [];
+			if ( $limitsBase ) {
+				$links['limitsBase'] = $limitsBase;
+				$limitsBase = null;
+			}
+
+			$foundSideset = $this->checkForSideset( $rendered, $next );
+			if ( $foundSideset ) {
+				$links['sidesetOperator'] = $foundSideset;
+				// Skipping the succeeding operator
+				$skip++;
+			}
+			if ( $this->checkForLimits( $rendered, $next )[0] && $next ) {
+				$limitsBase = $rendered;
+				continue;
+			}
+			$dotsVariant = $this->checkForDots( $rendered, $next, $ctx->beforeRight );
+			if ( $dotsVariant !== null ) {
+				$links['dotsVariant'] = $dotsVariant;
+			}
+			if ( $this->checkForNot( $rendered ) ) {
+				$negate = true;
+				continue;
+			}
+
+			// A prime without a base, as in {\displaystyle '}, is ^\prime on an empty base, as in TeX.
+			if ( $plan === [] && $rendered instanceof Literal && $rendered->getArg() === "'" ) {
+				$count = 1 + $this->countFollowingPrimes( $i, $args );
+				$skip += $count - 1;
+				$plan[] = [ null, null, null, $count, $colors, [] ];
+				continue;
+			}
+
+			// Apostrophes are following nodes, while explicit primes were part of the
+			// superscript node that is replaced when rendering.
+			$primeCount = $explicitPrimeCount ?: $this->countFollowingPrimes( $i, $args );
+			if ( $primeCount > 0 ) {
+				if ( $explicitPrimeCount === 0 ) {
+					$skip += $primeCount;
+				}
+				$primes = $primeCount;
+			}
+
+			$foundColorDef = $this->checkForColorDefinition( $rendered );
+			if ( $foundColorDef ) {
+				$colors[$foundColorDef["name"]] = $foundColorDef;
+				continue;
+			}
+			$foundColor = $this->checkForColor( $rendered );
+			if ( $foundColor[0] ) {
+				$currentColor = $foundColor[1];
+				// Skipping the color element itself for rendering
+				continue;
+			}
+			// An explicit prime intervenes between the named function and its argument,
+			// just like the apostrophe shorthand before it is normalized.
+			[ $namedFunction, $hasArgument ] =
+				$this->checkForNamedFctArgs( $rendered, $explicitPrimeCount > 0 ? null : $next );
+			if ( $namedFunction ) {
+				// Only the links that are set, so that most members share one context, see argContext()
+				$links['namedFunction'] = true;
+				$links['namedFunctionHasArgument'] = $hasArgument;
+			}
+			// \not before the group negates its first node, unless that is replaced when rendering
+			if ( $negate || ( $negateFirst && $i === 0 && $rendered === $current ) ) {
+				$links['negated'] = true;
+				$negate = false;
+			}
+			$plan[] = [ $current, $rendered, $currentColor, $primes, $colors, $links ];
+			$primes = 0;
+		}
+		return $plan;
+	}
+
+	/**
+	 * @param RenderContext $ctx context of this group
+	 * @param array{?TexNode,?TexNode,?string,int,array,array} $item see linkArgs()
 	 * @return MMLbase
 	 */
-	private function createMMLwithContext( ?string $currentColor, TexNode $currentNode, array &$state,
-										   array $arguments ): MMLbase {
-		$ret = $currentNode->toMMLTree( $arguments, $state );
-		if ( $currentNode instanceof TexArray && $currentNode->isCurly() && $currentNode->getLength() === 0 ) {
+	private function renderPlanItem( RenderContext $ctx, array $item ): MMLbase {
+		[ $current, $rendered, $currentColor, $primes, $colors, $links ] = $item;
+		if ( $current === null || $rendered === null ) {
+			return self::addPrimeContext( new MMLmrow(), $primes );
+		}
+		// In a group the first node is negated, see linkArgs()
+		$negated = $links['negated'] ?? false;
+		$negatesGroup = $negated && $rendered instanceof TexArray
+			&& ( $rendered->getArgs()[0] ?? null ) instanceof TexNode;
+
+		if ( $rendered !== $current ) {
+			// The base of a superscript of primes, as in f^\prime
+			$node = $rendered;
+			$nodeCtx = $current->argContext( $rendered, $this->argContext( $current, $ctx, [], $colors ), $links );
+		} elseif ( $current instanceof FQ && $this->countPrimeSuperscript( $current ) > 0 ) {
+			// Scripts whose superscript is only primes, as in f_x^\prime, lose the superscript
+			$node = new DQ( $current->getBase(), $current->getDown() );
+			$nodeCtx = $this->argContext( $current, $ctx,
+				[ 'negated' => $negated, 'limitsBase' => $links['limitsBase'] ?? null ], $colors );
+		} else {
+			$node = $current;
+			$nodeCtx = $this->argContext( $current, $ctx, $links, $colors );
+		}
+
+		$ret = $node->toMMLTree( $nodeCtx );
+		if ( $node instanceof TexArray && $node->isCurly() && $node->getLength() === 0 ) {
 			// Only {} itself: TeX makes it an empty Ord atom
 			// TeX's math_group: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=22330-22342
 			$ret = new MMLmrow( TexClass::ORD );
 		}
-		$ret = $this->addNot( $state, $ret );
-		$ret = $this->addPrimeContext( $state, $ret );
+		if ( $negated && !$negatesGroup ) {
+			$ret = $this->addNot( $ret );
+		}
+		$ret = self::addPrimeContext( $ret, $primes,
+			( $links['namedFunction'] ?? false ) && !( $links['namedFunctionHasArgument'] ?? false )
+				&& $node === $rendered );
 
 		if ( $currentColor ) {
-			if ( array_key_exists( "colorDefinitions", $state )
-				&& is_array( $state["colorDefinitions"] )
-				&& array_key_exists( $currentColor, $state["colorDefinitions"] ?? [] )
-				&& is_array( $state["colorDefinitions"][$currentColor] )
-				&& array_key_exists( "hex", $state["colorDefinitions"][$currentColor] )
+			if ( is_array( $colors[$currentColor] ?? null )
+				&& array_key_exists( "hex", $colors[$currentColor] )
 			) {
-				$displayedColor = $state["colorDefinitions"][$currentColor]["hex"];
+				$displayedColor = $colors[$currentColor]["hex"];
 
 			} else {
 				$resColor = TexUtil::getInstance()->color( ucfirst( $currentColor ) );
@@ -465,43 +417,89 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	}
 
 	/**
-	 * Applies the TeX \not overlay to the returned operator node.
-	 *
-	 * When the parser state contains the 'not' flag and the current result is an <mo> leaf,
-	 * this appends U+0338 (COMBINING LONG SOLIDUS OVERLAY) to the operator's text, producing
-	 * the MathML representation of "not" operators.
-	 *
-	 * Otherwise, returns the original node unchanged.
+	 * The letters of this group merged into one literal, as \operatorname and the text macros set them;
+	 * null if a member is no plain letter
 	 */
-	public function addNot( array $state, MMLbase $ret ): MMLbase {
-		// $state['not'] is set when a preceding \not token was encountered.
-		if ( !( $state['not'] ?? false ) || !( $ret instanceof MMLmo ) ) {
+	public function toOneLiteral(): ?Literal {
+		$tmp = '';
+		foreach ( $this->args as $arg ) {
+			// Don't squash if there is a macro in the literal
+			if ( !( $arg instanceof Literal ) || preg_match( "/[\\\\]/", $arg->getArg() ) ) {
+				return null;
+			}
+			$tmp .= $arg->getArg();
+		}
+		return new Literal( $tmp );
+	}
+
+	/**
+	 * Merges the digits of a number into one literal
+	 * @param TexNode[] $args
+	 * @return TexNode[]
+	 */
+	private static function squashNumbers( array $args ): array {
+		$out = [];
+		$lastNumber = null;
+		$number = '';
+		foreach ( $args as $arg ) {
+			// Handle the special case of comma as a decimal separator
+			// e.g., 3{,}14}
+			if (
+				$lastNumber !== null &&
+				$arg instanceof TexArray &&
+				$arg->isCurly() &&
+				!$arg->isEmpty() &&
+				self::isComma( $arg->getArgs()[0] )
+			) {
+				$number .= ',';
+				$out[$lastNumber] = new Literal( $number );
+				continue;
+			}
+			if ( !( $arg instanceof Literal ) || !preg_match( "/^[0-9.]$/", $arg->getArg() ) ) {
+				$lastNumber = null;
+				$out[] = $arg;
+				continue;
+			}
+			if ( $lastNumber !== null ) {
+				$number .= $arg->getArg();
+				$out[$lastNumber] = new Literal( $number );
+			} else {
+				$lastNumber = count( $out );
+				$number = $arg->getArg();
+				$out[] = $arg;
+			}
+		}
+		return $out;
+	}
+
+	private static function isComma( TexNode $node ): bool {
+		return $node instanceof Literal && trim( $node->getArg() ) === ",";
+	}
+
+	/**
+	 * Applies the TeX \not overlay to an operator: appends U+0338 (COMBINING LONG SOLIDUS OVERLAY)
+	 * to the text of an <mo>, and leaves any other node unchanged.
+	 */
+	public function addNot( MMLbase $ret ): MMLbase {
+		if ( !( $ret instanceof MMLmo ) ) {
 			return $ret;
 		}
-		unset( $state['not'] );
-
 		return $ret->setText( $ret->getText() . '&#x338;' );
 	}
 
 	/**
-	 * If prime notation was recognized, add the corresponding prime operator
-	 * to the MathML and wrap it in an msup element.
-	 * @param array &$state state containing the number of primes
-	 * @param MMLbase $mml mathml input
-	 * @return MMLbase MathML with the prime superscript
+	 * Wraps $mml in an msup with $primeCount primes, followed by an apply function for a named
+	 * function without an argument.
 	 */
-	public function addPrimeContext( array &$state, MMLbase $mml ): MMLbase {
-		$primeCount = $state['prime'] ?? 0;
+	public static function addPrimeContext( MMLbase $mml, int $primeCount, bool $applyFunction = false ): MMLbase {
 		if ( $primeCount <= 0 ) {
 			return $mml;
 		}
-
-		unset( $state['prime'] );
 		if ( $mml->isEmpty() ) {
 			$mml = new MMLmrow();
 		}
 		$ret = MMLmsup::newSubtree( $mml, new MMLmo( "", [], self::getPrimeContent( $primeCount ) ) );
-		if ( ( $state['foundNamedFct'][0] ?? false ) && !( $state['foundNamedFct'][1] ?? true ) ) {
+		if ( $applyFunction ) {
 			return new MMLarray( $ret, MMLParsingUtil::renderApplyFunction() );
 		}
 		return $ret;

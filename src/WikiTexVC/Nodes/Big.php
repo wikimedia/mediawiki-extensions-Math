@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 
 class Big extends TexNode {
 
@@ -34,8 +35,8 @@ class Big extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function toMMLTree( array $arguments = [], array &$state = [] ): MMLbase {
-		return $this->parseToMML( $this->fname, $arguments, null );
+	public function toMMLTree( RenderContext $ctx = new RenderContext() ): MMLbase {
+		return $this->parseToMML( $this->fname, $ctx );
 	}
 
 	/** @inheritDoc */

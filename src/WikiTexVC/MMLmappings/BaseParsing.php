@@ -36,18 +36,24 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 /**
  * Parsing functions for specific recognized mappings.
  * Usually the parsing functions are invoked from the BaseMethods classes.
+ *
+ * A callback gets the node, the attributes and the content in braces a literal passes ($passedArgs and
+ * $operatorContent, empty for other nodes), the name of the macro, the further entries of its callback in
+ * texutil.json, and the context of the node last, by name.
  */
 class BaseParsing {
 
-	public static function array( $node, $passedArgs, $operatorContent, $name, $begin = null, $open = null,
-		$close = null, $align = null, $spacing = null,
-		$vspacing = null, $style = null, $raggedHeight = null
+	public static function array( $node, $passedArgs, $operatorContent, $name,
+		$begin = null, $open = null, $close = null, $align = null, $spacing = null, $vspacing = null, $style = null,
+		$raggedHeight = null, RenderContext $ctx = new RenderContext()
 	): MMLbase {
+		// MathJax Array: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1926-1979
 		$output = [];
 		if ( $open != null ) {
 			$resDelimiter = TexUtil::getInstance()->delimiter( trim( $open ) ) ?? false;
@@ -60,10 +66,10 @@ class BaseParsing {
 			|| $name == "vmatrix" || $name == "smallmatrix" || $name == "pmatrix" || $name == "matrix" ) {
 			// This is a workaround and might be improved mapping BMatrix to Matrix directly instead of array
 			return self::matrix( $node, $passedArgs, $operatorContent, $name,
-				$open, $close, null, null, null, null, true );
+				$open, $close, null, null, null, null, true, ctx: $ctx );
 
 		} else {
-			$output[] = new MMLmrow( TexClass::ORD, [], $node->getMainarg()->toMMLtree() );
+			$output[] = new MMLmrow( TexClass::ORD, [], $node->getMainarg()->toMMLTree( $ctx ) );
 		}
 
 		if ( $close != null ) {
@@ -75,56 +81,23 @@ class BaseParsing {
 		return new MMLarray( ...$output );
 	}
 
-	public static function alignAt( Matrix $node, $passedArgs, $operatorContent, $name, $align = null,
-		$smth2 = null
+	public static function alignAt( Matrix $node, $passedArgs, $operatorContent, $name,
+		$end = null, $numbered = null, $taggable = null, $columnAlign = null, $columnSpacing = null,
+		$rowSpacing = null, $style = null, RenderContext $ctx = new RenderContext()
 	): MMLbase {
-		$mtable  = new MMLmtable( '', [ 'displaystyle' => 'true' ] );
-		$inner = [];
-		$align ??= $node->getAlign();
-		$rowNo = 0;
-		$rowCount = count( $node->getArgs() );
-		foreach ( $node as $tableRow ) {
-			$rowNo++;
-			$mtds = [];
-			$colNo = 0;
-			$isEmptyLine = true;
-			$attributes = [];
-			$rowSpecs = $tableRow->getRowSpecs();
-			if ( $rowSpecs ) {
-				$attributes['style'] = "padding-bottom: {$rowSpecs->getCssLength()};";
-			}
-			foreach ( $tableRow->getArgs() as $tableCell ) {
-				$class = '';
-				if ( in_array( $align[$colNo] ?? [], [ 'l', 'r' ] ) ) {
-					// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
-					$class .= ' mwe-math-columnalign-' . $align[$colNo];
-				}
-				$class = trim( $class );
-				$isEmptyLine = $isEmptyLine && $tableCell->isEmpty();
-				$mtds[] = new MMLmtd( "",
-					$attributes + ( $class ? [ 'class' => $class ] : [] ),
-					$tableCell->toMMLtree() );
-				$colNo++;
-			}
-			// empty trailing lines with only one empty cell should not be rendered
-			if ( $rowNo === $rowCount && $colNo === 1 && $isEmptyLine ) {
-				continue;
-			}
-			$inner[] = new MMLmtr( "", [], ...$mtds );
-		}
-		$mtable->addChild( ...$inner );
+		// MathJax AlignAt: swh:1:cnt:d1ea310dac6fcde3604a6155f33b8935b1e17349;lines=132-187
+		// The entries after $end are not used yet; aligned takes them from MathJax's AmsEqnArray
+		// swh:1:cnt:976a0ed45c7bff3f119ed30c07f3ed1347fad078;lines=96-119
+		$mtable = self::matrix( $node, $passedArgs, $operatorContent, $name, ctx: $ctx );
+		$mtable->setAttribute( 'displaystyle', 'true' );
 		return $mtable;
 	}
 
-	public static function boldsymbol( $node, $passedArgs, $operatorContent, $name, $smth = null,
-		$smth2 = null
+	public static function cancel( Fun1 $node, $passedArgs, $operatorContent, $name,
+		$notation = '', RenderContext $ctx = new RenderContext()
 	): MMLbase {
-		$passedArgs = array_merge( $passedArgs, [ 'mathvariant' => Variants::BOLDITALIC ] );
-		return new MMLmrow( TexClass::ORD, [], $node->getArg()->toMMLtree( $passedArgs ) );
-	}
-
-	public static function cancel( Fun1 $node, $passedArgs, $operatorContent, $name, $notation = '' ): MMLbase {
-		return self::menclose( $node->getArg()->toMMLtree(), $notation );
+		// MathJax Cancel: swh:1:cnt:c73232c9e4936ca89f60aa73cec17ac75cd3ed1f;lines=42-48
+		return self::menclose( $node->renderArg( $ctx ), $notation );
 	}
 
 	private static function menclose( MMLbase $content, string $notation ): MMLbase {
@@ -137,22 +110,27 @@ class BaseParsing {
 			new MMLmrow( '', [], $content ) );
 	}
 
-	public static function cancelTo( $node, $passedArgs, $operatorContent, $name, string $notation = '' ): MMLbase {
+	public static function cancelTo( $node, $passedArgs, $operatorContent, $name,
+		string $notation = '', RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax CancelTo: swh:1:cnt:c73232c9e4936ca89f60aa73cec17ac75cd3ed1f;lines=57-78
 		// Match MathJax's 0.1em upward adjustment for the cancelto annotation:
-		// https://github.com/mathjax/MathJax-src/blob/master/ts/input/tex/cancel/CancelConfiguration.ts
+		// swh:1:cnt:bd892c998627f356523b57097176e2de05ff7509;lines=68-70
 		$mpAdded = new MMLmpadded( "", [ "depth" => "-.1em", "voffset" => ".1em",
 			"class" => "mwe-math-cancelto" ],
-			$node->getArg1()->toMMLtree() );
-		$menclose = self::menclose( $node->getArg2()->toMMLtree(), $notation );
+			$node->renderArg1( $ctx ) );
+		$menclose = self::menclose( $node->renderArg2( $ctx ), $notation );
 		return new MMLmrow( TexClass::ORD, [], MMLmsup::newSubtree( $menclose, $mpAdded ) );
 	}
 
-	public static function chemCustom( $node, $passedArgs, $operatorContent, $name, $translation = null ): MMLmerror {
+	public static function chemCustom( $node, $passedArgs, $operatorContent, $name,
+		$translation = null, RenderContext $ctx = new RenderContext()
+	): MMLmerror {
 		return MMLmerror::newFromText( $translation ?: 'tbd chemCustom' );
 	}
 
-	public static function customLetters( $node, $passedArgs, $operatorContent, $name, $char,
-			$isOperator = false
+	public static function customLetters( $node, $passedArgs, $operatorContent, $name,
+		$char, $isOperator = false, RenderContext $ctx = new RenderContext()
 	): MMLbase {
 		if ( $isOperator ) {
 			return new MMLmrow( TexClass::ORD, [], new MMLmo( "", [], $char ) );
@@ -161,11 +139,14 @@ class BaseParsing {
 		return new MMLmrow( TexClass::ORD, [], new MMLmi( "", [ 'mathvariant' => $variant ], $char ) );
 	}
 
-	public static function cFrac( $node, $passedArgs, $operatorContent, $name ): MMLbase {
+	public static function cFrac( $node, $passedArgs, $operatorContent, $name,
+		RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax CFrac: swh:1:cnt:d1ea310dac6fcde3604a6155f33b8935b1e17349;lines=646-681
 		$mstyle1 = new MMLmstyle( "", [ "displaystyle" => "false", "scriptlevel" => "0" ],
-			new MMLmrow( TexClass::ORD, [], $node->getArg1()->toMMLtree() ) );
+			new MMLmrow( TexClass::ORD, [], $node->renderArg1( $ctx ) ) );
 		$mstyle2 = new MMLmstyle( "", [ "displaystyle" => "false", "scriptlevel" => "0" ],
-			new MMLmrow( TexClass::ORD, [], $node->getArg2()->toMMLtree() ) );
+			new MMLmrow( TexClass::ORD, [], $node->renderArg2( $ctx ) ) );
 		// See TexUtilMMLTest testcase 81
 		// (mml3 might be erronous here, but this element seems to be rendered correctly)
 		$whatIsThis = new MMLmrow( TexClass::ORD, [],
@@ -176,12 +157,18 @@ class BaseParsing {
 		return new MMLmrow( TexClass::ORD, [], $mfrac );
 	}
 
-	public static function crLaTeX( $node, $passedArgs, $operatorContent, $name ): MMLbase {
+	public static function crLaTeX( $node, $passedArgs, $operatorContent, $name,
+		$smth = null, RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax CrLaTeX: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1744-1791
 		return new MMLmspace( "", [ "linebreak" => "newline" ] );
 	}
 
-	public static function dots( $node, $passedArgs, $operatorContent, $name, $smth = null, $smth2 = null ): MMLbase {
-		switch ( $operatorContent['dots'] ?? 'dotso' ) {
+	public static function dots( $node, $passedArgs, $operatorContent, $name,
+		$smth = null, $smth2 = null, RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax Dots: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1509-1531
+		switch ( $ctx->dotsVariant ?? 'dotso' ) {
 			case 'dotsb':
 				return new MMLmo( "", $passedArgs, "&#x22EF;" );
 			case 'dotsi':
@@ -196,8 +183,9 @@ class BaseParsing {
 	}
 
 	public static function genFrac( $node, $passedArgs, $operatorContent, $name,
-		$left = null, $right = null, $thick = null, $style = null
+		$left = null, $right = null, $thick = null, $style = null, RenderContext $ctx = new RenderContext()
 	): MMLbase {
+		// MathJax Genfrac: swh:1:cnt:d1ea310dac6fcde3604a6155f33b8935b1e17349;lines=693-756
 		// Actually this is in AMSMethods, consider refactoring  left, right, thick, style
 		$bm = new BaseMethods();
 		$ret = $bm->checkAndParseDelimiter( $name, $node, $passedArgs, $operatorContent, true );
@@ -246,13 +234,10 @@ class BaseParsing {
 			$mrowOpen = new MMLmrow( TexClass::OPEN, [], new MMLmo( "", $styleAttr, $left ) );
 			$output[] = $mrowOpen;
 		}
-		// TeX sets the parts in text style unless \genfrac asks for display style.
-		$state1 = [ 'styleargs' => [ 'displaystyle' => $displayStyle ] ];
-		$state2 = $state1;
-		$mrow1 = new MMLmrow( TexClass::ORD, [], $node->getArg1()->toMMLtree( [], $state1 ) );
-		$mrow2 = new MMLmrow( TexClass::ORD, [], $node->getArg2()->toMMLtree( [], $state2 ) );
+		$num = new MMLmrow( TexClass::ORD, [], $node->renderArg1( $ctx ) );
+		$denom = new MMLmrow( TexClass::ORD, [], $node->renderArg2( $ctx ) );
 
-		$output[] = MMLmfrac::newSubtree( $mrow1, $mrow2, "", $attrs );
+		$output[] = MMLmfrac::newSubtree( $num, $denom, "", $attrs );
 		if ( $right ) {
 			$mrowClose = new MMLmrow( TexClass::CLOSE, [], new MMLmo( "", $styleAttr, $right ) );
 			$output[] = $mrowClose;
@@ -265,22 +250,20 @@ class BaseParsing {
 		return new MMLmrow( TexClass::ORD, [], $output );
 	}
 
-	public static function frac( $node, $passedArgs, $operatorContent, $name ): MMLbase {
-		// TeX sets the parts of a fraction in text style.
-		$state = [ 'styleargs' => [ 'displaystyle' => 'false' ] ];
-		$state1 = $state;
-		$state2 = $state;
+	public static function frac( $node, $passedArgs, $operatorContent, $name,
+		RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax Frac: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=707-713
 		if ( $node instanceof Fun2 ) {
-			$inner = [ new MMLmrow( TexClass::ORD, [], $node->getArg1()->toMMLtree( [], $state1 ) ),
-				new MMLmrow( TexClass::ORD, [], $node->getArg2()->toMMLtree( [], $state2 ) ) ];
+			$inner = [ new MMLmrow( TexClass::ORD, [], $node->renderArg1( $ctx ) ),
+				new MMLmrow( TexClass::ORD, [], $node->renderArg2( $ctx ) ) ];
 		} elseif ( $node instanceof DQ ) {
-			$inner = [ new MMLmrow( TexClass::ORD, [], $node->getBase()->toMMLtree( [], $state1 ) ),
-				new MMLmrow( TexClass::ORD, [], $node->getDown()->toMMLtree( [], $state2 ) ) ];
+			$inner = [ new MMLmrow( TexClass::ORD, [], $node->renderBase( $ctx ) ),
+				new MMLmrow( TexClass::ORD, [], $node->renderDown( $ctx ) ) ];
 		} else {
 			$inner = [];
 			foreach ( $node->getArgs() as $arg ) {
-				$argState = $state;
-				$rendered = is_string( $arg ) ? $arg : $arg->toMMLtree( [], $argState );
+				$rendered = is_string( $arg ) ? $arg : $node->renderChild( $arg, $ctx );
 				$inner[] = new MMLmrow( TexClass::ORD, [], $rendered );
 			}
 		}
@@ -289,13 +272,17 @@ class BaseParsing {
 	}
 
 	public static function hline( $node, $passedArgs, $operatorContent, $name,
-			$smth1 = null, $smth2 = null, $smth3 = null, $smth4 = null
+		$smth1 = null, $smth2 = null, $smth3 = null, $smth4 = null, RenderContext $ctx = new RenderContext()
 	): MMLbase {
+		// MathJax HLine: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1800-1823
 		// HLine is most probably not parsed this way, since only parsed in Matrix context
 		return new MMLmrow( "tbd", [], new MMLmtext( "", [], "HLINE TBD" ) );
 	}
 
-	public static function hskip( $node, $passedArgs, $operatorContent, $name ): MMLbase {
+	public static function hskip( $node, $passedArgs, $operatorContent, $name,
+		RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax Hskip: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1288-1297
 		if ( $node->getArg()->isCurly() ) {
 			$unit = MMLutil::squashLitsToUnit( $node->getArg() );
 			if ( !$unit ) {
@@ -316,10 +303,11 @@ class BaseParsing {
 		return new MMLmspace( "", $args );
 	}
 
-	public static function matrix( Matrix $node, $passedArgs, $operatorContent,
-		$name, $open = null, $close = null, $align = null, $spacing = null,
-		$vspacing = null, $style = null, $cases = null, $numbered = null
+	public static function matrix( Matrix $node, $passedArgs, $operatorContent, $name,
+		$open = null, $close = null, $align = null, $spacing = null, $vspacing = null, $style = null, $cases = null,
+		$numbered = null, RenderContext $ctx = new RenderContext()
 	): MMLbase {
+		// MathJax Matrix: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1547-1610
 		$resInner = [];
 		$boarder = $node->getBoarder();
 		if ( !$align ) {
@@ -328,6 +316,7 @@ class BaseParsing {
 		$rowNo = 0;
 		$lines = $node->getLines();
 		foreach ( $node as $row ) {
+			$rowCtx = $node->argContext( $row, $ctx );
 			$innerInnter = [];
 			$colNo = 0;
 			$isEmptyLine = true;
@@ -337,6 +326,7 @@ class BaseParsing {
 				$rowAttributes['style'] = "padding-bottom: {$rowSpecs->getCssLength()};";
 			}
 			foreach ( $row  as $cell ) {
+				$cellCtx = $row->argContext( $cell, $rowCtx );
 				$usedArg = clone $cell;
 				if ( $usedArg instanceof TexArray &&
 					$usedArg->getLength() >= 1
@@ -361,12 +351,8 @@ class BaseParsing {
 				if ( $texclass ) {
 					$mtdAttributes['class'] = $texclass;
 				}
-				// TeX sets each cell as a $...$ formula, which starts in text style.
-				// plain.tex \matrix: swh:1:cnt:0f363a96c0e1f93d830e97534b1fe07861fdae69;lines=1093-1096
-				// amsmath matrix: swh:1:cnt:d4a287b9531788cd614d524bdd53f38681a63902;lines=2525-2527
-				$state = [ 'inMatrix' => true, 'styleargs' => [ 'displaystyle' => 'false' ] ];
 				$isEmptyLine = $isEmptyLine && $usedArg->isEmpty();
-				$innerInnter[] = new MMLmtd( "", $mtdAttributes, $usedArg->toMMLtree( $passedArgs, $state ) );
+				$innerInnter[] = new MMLmtd( "", $mtdAttributes, $usedArg->toMMLTree( $cellCtx ) );
 				$colNo++;
 			}
 			$rowNo++;
@@ -402,7 +388,10 @@ class BaseParsing {
 		return $mtable;
 	}
 
-	public static function over( $node, $passedArgs, $operatorContent, $name, $id = null ): MMLbase {
+	public static function over( $node, $passedArgs, $operatorContent, $name,
+		$id = null, $close = null, RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax Over: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=677-699
 		$attributes = [];
 		$start = new MMLarray();
 		$tail = new MMLarray();
@@ -418,13 +407,9 @@ class BaseParsing {
 			);
 			$attributes = [ "linethickness" => "0" ];
 		}
-		// TeX sets the parts of a fraction in text style.
-		$state = [ 'styleargs' => [ 'displaystyle' => 'false' ] ];
-		$state1 = $state;
-		$state2 = $state;
 		if ( $node instanceof Fun2 ) {
-			$mfrac = MMLmfrac::newSubtree( new MMLmrow( "", [], $node->getArg1()->toMMLtree( [], $state1 ) ),
-				new MMLmrow( "", [], $node->getArg2()->toMMLtree( [], $state2 ) ), "", $attributes );
+			$mfrac = MMLmfrac::newSubtree( new MMLmrow( "", [], $node->renderArg1( $ctx ) ),
+				new MMLmrow( "", [], $node->renderArg2( $ctx ) ), "", $attributes );
 			if ( $start->isEmpty() ) {
 				return $mfrac;
 			}
@@ -435,8 +420,7 @@ class BaseParsing {
 			if ( is_string( $arg ) && str_contains( $arg, $name ) ) {
 				continue;
 			}
-			$argState = $state;
-			$rendered = $arg instanceof TexNode ? $arg->toMMLtree( [], $argState ) : $arg;
+			$rendered = $arg instanceof TexNode ? $node->renderChild( $arg, $ctx ) : $arg;
 			$inner[] = new MMLmrow( "", [], $rendered );
 		}
 		$mfrac = MMLmfrac::newSubtree( $inner[0], $inner[1], "", $attributes );
@@ -446,8 +430,8 @@ class BaseParsing {
 		return new MMLmrow( TexClass::ORD, [], $start, $mfrac, $tail );
 	}
 
-	public static function oint( $node, $passedArgs, $operatorContent,
-		$name, $uc = null, $attributes = null, $smth2 = null
+	public static function oint( $node, $passedArgs, $operatorContent, $name,
+		$uc = null, $attributes = null, $smth2 = null, RenderContext $ctx = new RenderContext()
 	): MMLbase {
 		// This is a custom mapping not in js.
 		switch ( trim( $name ) ) {
@@ -470,14 +454,17 @@ class BaseParsing {
 		}
 	}
 
-	public static function overset( $node, $passedArgs, $operatorContent, $name, $id = null ): MMLbase {
+	public static function overset( $node, $passedArgs, $operatorContent, $name,
+		$id = null, RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax Overset: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=861-871
 		if ( $node instanceof DQ ) {
 			return new MMLmrow( TexClass::ORD, [],
 				MMLmover::newSubtree( new MMLmrow(
 					"",
 					[],
-					$node->getDown()->toMMLtree() ),
-					$node->getDown()->toMMLtree()
+					$node->renderDown( $ctx ) ),
+					$node->renderDown( $ctx )
 				)
 			);
 		}
@@ -486,15 +473,16 @@ class BaseParsing {
 				new MMLmrow(
 					"",
 					[],
-				$node->getArg2()->toMMLtree() ),
-				$node->getArg1()->toMMLtree()
+				$node->renderArg2( $ctx ) ),
+				$node->renderArg1( $ctx )
 			)
 		);
 	}
 
-	public static function phantom( $node, $passedArgs, $operatorContent,
-		$name, $vertical = null, $horizontal = null, $smh3 = null
+	public static function phantom( $node, $passedArgs, $operatorContent, $name,
+		$vertical = null, $horizontal = null, $smh3 = null, RenderContext $ctx = new RenderContext()
 	): MMLbase {
+		// MathJax Phantom: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1161-1179
 		$attrs = [];
 		if ( $vertical ) {
 			$attrs = array_merge( $attrs, [ "width" => "0" ] );
@@ -511,13 +499,16 @@ class BaseParsing {
 				new MMLmpadded(
 					"",
 					$attrs,
-					new MMLmphantom( "", [], $node->getArg()->toMMLtree() )
+					new MMLmphantom( "", [], $node->renderArg( $ctx ) )
 				)
 			)
 		);
 	}
 
-	public static function raiseLower( $node, $passedArgs, $operatorContent, $name ): MMLbase {
+	public static function raiseLower( $node, $passedArgs, $operatorContent, $name,
+		RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax RaiseLower: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1232-1254
 		if ( !$node instanceof Fun2 ) {
 			return new MMLarray();
 		}
@@ -549,12 +540,15 @@ class BaseParsing {
 			// incorrect name, should not happen, prevent erroneous mappings from getting rendered.
 			return new MMLarray();
 		}
-		return new MMLmrow( "", [], new MMLmpadded( "", $args, $node->getArg2()->toMMLtree() ) );
+		return new MMLmrow( "", [], new MMLmpadded( "", $args, $node->renderArg2( $ctx ) ) );
 	}
 
-	public static function underset( $node, $passedArgs, $operatorContent, $name, $smh = null ): MMLbase {
-		$inrow = $node->getArg2()->toMMLtree();
-		$arg1 = $node->getArg1()->toMMLtree();
+	public static function underset( $node, $passedArgs, $operatorContent, $name,
+		$smh = null, RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax Underset: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=879-889
+		$inrow = $node->renderArg2( $ctx );
+		$arg1 = $node->renderArg1( $ctx );
 		if ( !$inrow->isEmpty() && !$arg1->isEmpty() ) {
 			return new MMLmrow( TexClass::ORD, [], MMLmunder::newSubtree( $inrow, $arg1 ) );
 		}
@@ -563,8 +557,10 @@ class BaseParsing {
 		return new MMLmrow( TexClass::ORD, [], $inrow, $arg1 );
 	}
 
-	public static function underOver( Fun1 $node, $passedArgs, $operatorContent,
-		$name, $operatorSymbol = null, $stack = null ): MMLbase {
+	public static function underOver( Fun1 $node, $passedArgs, $operatorContent, $name,
+		$operatorSymbol = null, $stack = null, RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax UnderOver: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=839-853
 		// tbd verify if stack interpreted correctly ?
 		$texClass = $stack ? TexClass::OP : TexClass::ORD; // ORD or ""
 
@@ -580,19 +576,21 @@ class BaseParsing {
 		}
 
 		$mo = new MMLmo( "", [], $operatorSymbol );
-		return new MMLmrow( $texClass, [], $movun::newSubtree( $node->getArg()->toMMLtree( $passedArgs ), $mo ) );
+		$inner = $node->renderArg( $ctx );
+		return new MMLmrow( $texClass, [], $movun::newSubtree( $inner, $mo ) );
 	}
 
-	public static function mathFont( $node, $passedArgs, $operatorContent, $name, $mathvariant = null ): MMLbase {
-		$args = MMLParsingUtil::getFontArgs( $name, $mathvariant, $passedArgs );
-		$state = [];
-
-			return new MMLmrow( TexClass::ORD, [], $node->getArg()->toMMLtree( $args, $state ) );
-	}
-
-	public static function makeBig( $node, $passedArgs, $operatorContent, $name, $texClass = null,
-		$size = null
+	public static function mathFont( $node, $passedArgs, $operatorContent, $name,
+		$mathvariant = null, RenderContext $ctx = new RenderContext()
 	): MMLbase {
+		// MathJax MathFont: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=414-433
+		return new MMLmrow( TexClass::ORD, [], $node->renderArg( $ctx ) );
+	}
+
+	public static function makeBig( $node, $passedArgs, $operatorContent, $name,
+		$texClass = null, $size = null, RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax MakeBig: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1365-1384
 		// $size is the kernel height of \big..\Bigg (8.5pt..17.5pt) scaled by MathJax's 1.2/.85
 		// swh:1:cnt:72f94735bba07ecbc4214f3cc409de0e137ff1ee;lines=1534-1541
 		// swh:1:cnt:4fcf2badb30fa89a86be332c1481b0daaf21d367;lines=47
@@ -635,22 +633,33 @@ class BaseParsing {
 		);
 	}
 
-	public static function machine( $node, $passedArgs, $operatorContent, $name, $type = null ): MMLbase {
+	public static function machine( $node, $passedArgs, $operatorContent, $name,
+		$type = null, RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax Machine: swh:1:cnt:0015c31cf8d8eb024c292cc48074d57eb016e139;lines=99-112
 		// this could also be shifted to Mhchem::toMMLTree for ce
 		// For parsing chem (ce) or ??? (pu)
-		return new MMLmrow( "", [], $node->getArg()->toMMLtree() );
+		return new MMLmrow( "", [], $node->renderArg( $ctx ) );
 	}
 
-	public static function setFont( $node, $passedArgs, $operatorContent, $name, $variant = null ): MMLbase {
-		return self::mathFont( $node, $passedArgs, $operatorContent, $name, $variant );
-	}
-
-	public static function spacer( $node, $passedArgs, $operatorContent, $name, $withIn = null, $smth2 = null
+	public static function setFont( $node, $passedArgs, $operatorContent, $name,
+		$variant = null, RenderContext $ctx = new RenderContext()
 	): MMLbase {
+		// MathJax SetFont: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=442-445
+		return self::mathFont( $node, $passedArgs, $operatorContent, $name, $variant, ctx: $ctx );
+	}
+
+	public static function spacer( $node, $passedArgs, $operatorContent, $name,
+		$withIn = null, $smth2 = null, RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax Spacer: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=495-500
 		return new MMLmspace( "", [ "width" => MMLutil::round2em( $withIn ) ] );
 	}
 
-	public static function smash( $node, $passedArgs, $operatorContent, $name ): MMLbase {
+	public static function smash( $node, $passedArgs, $operatorContent, $name,
+		RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax Smash: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1187-1205
 		$mpArgs = [];
 		$inner = new MMLarray();
 		if ( $node instanceof Fun2sq ) {
@@ -670,88 +679,62 @@ class BaseParsing {
 				$mpArgs = [ "height" => "0", "depth" => "0" ];
 			}
 
-			$inner = $node->getArg2()->toMMLtree();
+			$inner = $node->renderArg2( $ctx );
 		} elseif ( $node instanceof Fun1 ) {
 			// Implicitly assume "tb" as default mode
 			$mpArgs = [ "height" => "0", "depth" => "0" ];
-			$inner = $node->getArg()->toMMLtree();
+			$inner = $node->renderArg( $ctx );
 		}
 		return new MMLmrow( TexClass::ORD, [], new MMLmpadded( "", $mpArgs, $inner ) );
 	}
 
-	public static function texAtom( $node, $passedArgs, $operatorContent, $name, $texClass = null ): MMLbase {
+	public static function texAtom( $node, $passedArgs, $operatorContent, $name,
+		$texClass = null, RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax TeXAtom: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=922-949
 		switch ( $name ) {
 			case '\mathbin':
 				// no break
 			case '\mathop':
 				// no break
 			case '\mathrel':
-				$inner = $node->getArg()->toMMLtree();
+				$inner = $node->renderArg( $ctx );
 				return new MMLmrow( $texClass, [], $inner );
 			default:
-				$inner = $node->getArg()->toMMLtree();
+				$inner = $node->renderArg( $ctx );
 				return new MMLmrow( TexClass::ORD, [], new MMLmrow( $texClass, [], $inner ) );
 		}
 	}
 
-	public static function hBox( $node, $passedArgs, $operatorContent, $name, $smth = null ): MMLbase {
-		switch ( trim( $name ) ) {
-			case "\\mbox":
-				if ( isset( $operatorContent['foundOC'] ) ) {
-					$op = $operatorContent['foundOC'];
-					$macro = TexUtil::getInstance()->nullary_macro_in_mbox( $op ) ?
-						/* tested in \MediaWiki\Extension\Math\Tests\WikiTexVC\TexUtilTest::testUnicodeDefined */
-						[ TexUtil::getInstance()->unicode_char( $op ) ] :
-						TexUtil::getInstance()->identifier( $op );
-					$input = $macro[0] ?? $op;
-					return new MMLmrow( TexClass::ORD, [], new MMLmo( "", [], MMLutil::uc2xNotation( $input ) ) );
-				} else {
-					return new MMLmrow( TexClass::ORD, [], new MMLmtext( "", [], "\mbox" ) );
-				}
-			case "\\hbox":
-				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->toMMLtree() : $node->getArg();
-				return new MMLmrow( TexClass::ORD, [],
-					new MMLmstyle( "", [ "displaystyle" => "false", "scriptlevel" => "0" ],
-						new MMLmtext( "", [], $inner )
-					)
-				);
-			case "\\text":
-				$inner = $node->getArg() instanceof TexNode ? $node->getArg()->toMMLtree() : $node->getArg();
-				return new MMLmrow( TexClass::ORD, [], new MMLmtext( "", [], $inner ) );
-			case "\\textbf":
-				// no break
-			case "\\textit":
-				// no break
-			case "\\textrm":
-				// no break
-			case "\\textsf":
-				// no break
-			case "\\texttt":
-				$state = [ "inHBox" => true, 'squashLiterals' => true ];
-				$fontArgs = MMLParsingUtil::getFontArgs( $name, null, null );
-				$inner = $node->getArg()->isCurly() ? $node->getArg()->toMMLtree(
-					$fontArgs, $state )
-					: $node->getArg()->toMMLtree( $fontArgs );
-				if ( $inner instanceof MMLbase ) {
-					$inner = $inner->getTextContent();
-				}
-				return new MMLmtext( "", $fontArgs, $inner ?? '' );
-
+	public static function hBox( $node, $passedArgs, $operatorContent, $name,
+		$smth = null, $font = null, RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax HBox: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1415-1420
+		// Only literals like \mbox{\AA} get here: Box renders \mbox, \hbox and \text, Fun1 the text macros
+		if ( trim( $name ) === "\\mbox" && isset( $operatorContent['foundOC'] ) ) {
+			$op = $operatorContent['foundOC'];
+			$macro = TexUtil::getInstance()->nullary_macro_in_mbox( $op ) ?
+				/* tested in \MediaWiki\Extension\Math\Tests\WikiTexVC\TexUtilTest::testUnicodeDefined */
+				[ TexUtil::getInstance()->unicode_char( $op ) ] :
+				TexUtil::getInstance()->identifier( $op );
+			$input = $macro[0] ?? $op;
+			return new MMLmrow( TexClass::ORD, [], new MMLmo( "", [], MMLutil::uc2xNotation( $input ) ) );
 		}
-
 		return MMLmerror::newFromText( "undefined hbox" );
 	}
 
 	public static function setStyle( $node, $passedArgs, $operatorContent, $name,
-		$smth = null, $smth1 = null, $smth2 = null
+		$smth = null, $smth1 = null, $smth2 = null, RenderContext $ctx = new RenderContext()
 	): MMLmrow {
-		// Just discard setstyle since they are captured in TexArray now}
+		// MathJax SetStyle: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=456-470
+		// Declaration::toMMLTree renders math style declarations; a bare one has nothing to style
 		return new MMLmrow();
 	}
 
-	public static function not( $node, $passedArgs, $operatorContent, $name, $smth = null,
-		$smth1 = null, $smth2 = null
+	public static function not( $node, $passedArgs, $operatorContent, $name,
+		$smth = null, $smth1 = null, $smth2 = null, RenderContext $ctx = new RenderContext()
 	): MMLbase {
+		// MathJax Not: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1497-1501
 		// This is only tested for \not statement without follow-up parameters
 		if ( $node instanceof Literal ) {
 			return MMLParsingUtil::createNot();
@@ -759,7 +742,10 @@ class BaseParsing {
 		return MMLmerror::newFromText( "TBD implement not" );
 	}
 
-	public static function vbox( $node, $passedArgs, $operatorContent, $name, $smth = null ): MMLbase {
+	public static function vbox( $node, $passedArgs, $operatorContent, $name,
+		$smth = null, RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax VBox: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=958-975
 		// This is only example functionality for vbox("ab").
 		// TBD: it should be discussed if vbox is supported since it
 		// does not seem to be supported by mathjax
@@ -774,11 +760,14 @@ class BaseParsing {
 		return MMLmerror::newFromText( "no implemented vbox" );
 	}
 
-	public static function sqrt( $node, $passedArgs, $operatorContent, $name ): MMLbase {
+	public static function sqrt( $node, $passedArgs, $operatorContent, $name,
+		RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax Sqrt: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=721-737
 		// There is an additional argument for the root
 		if ( $node instanceof Fun2sq ) {
 			// In case of an empty curly add an mrow
-			$arg2Rendered = $node->getArg2()->toMMLtree( $passedArgs );
+			$arg2Rendered = $node->renderArg2( $ctx );
 			if ( $arg2Rendered->isEmpty() ) {
 				$arg2Rendered = new MMLmrow( TexClass::ORD, [] );
 			}
@@ -786,7 +775,7 @@ class BaseParsing {
 				MMLmroot::newSubtree(
 					$arg2Rendered,
 					new MMLmrow( TexClass::ORD, [],
-						$node->getArg1()->toMMLtree( $passedArgs )
+						$node->renderArg1( $ctx )
 					)
 				)
 			);
@@ -794,17 +783,22 @@ class BaseParsing {
 		// Currently this is own implementation from Fun1.php
 		return new MMLmrow( TexClass::ORD, [], // assuming that this is always encapsulated in mrow
 			new MMLmsqrt( "", [],
-				$node->getArg()->toMMLtree( $passedArgs )
+				$node->renderArg( $ctx )
 			)
 		);
 	}
 
-	public static function tilde( $node, $passedArgs, $operatorContent, $name ): MMLbase {
+	public static function tilde( $node, $passedArgs, $operatorContent, $name,
+		RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax Tilde: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=171-174
 		return new MMLmtext( "", [], '&#160;' );
 	}
 
-	public static function xArrow( $node, $passedArgs, $operatorContent, $name, $chr = null, $l = null,
-								   $r = null ): MMLbase {
+	public static function xArrow( $node, $passedArgs, $operatorContent, $name,
+		$chr = null, $l = null, $r = null, RenderContext $ctx = new RenderContext()
+	): MMLbase {
+		// MathJax xArrow: swh:1:cnt:d1ea310dac6fcde3604a6155f33b8935b1e17349;lines=545-608
 		$defWidth = "+" . MMLutil::round2em( ( $l + $r ) / 18 );
 		$defLspace = MMLutil::round2em( $l / 18 );
 
@@ -821,31 +815,24 @@ class BaseParsing {
 				),
 				new MMLmpadded( "", $mpaddedArgs,
 					new MMLmrow( TexClass::ORD, [],
-						$node->getArg1()->toMMLtree()
+						$node->renderArg1( $ctx )
 					),
 					$mspace
 				),
 				new MMLmpadded( "", $mpaddedArgs,
-					$node->getArg2()->toMMLtree()
+					$node->renderArg2( $ctx )
 				)
 			) );
 
 		}
 		return MMLmover::newSubtree(
 			new MMLmstyle( "", [ "scriptlevel" => "0" ], new MMLmo( Texclass::REL, [], $char ) ),
-			new MMLmpadded( "", $mpaddedArgs, $node->getArg()->toMMLtree(), $mspace )
+			new MMLmpadded( "", $mpaddedArgs, $node->renderArg( $ctx ), $mspace )
 		);
 	}
 
-	public static function getApplyFct( array $operatorContent ): MMLbase {
-		$applyFct = new MMLarray();
-		if ( array_key_exists( "foundNamedFct", $operatorContent ) ) {
-			$hasNamedFct = $operatorContent['foundNamedFct'][0];
-			$hasValidParameters = $operatorContent["foundNamedFct"][1];
-			if ( $hasNamedFct && $hasValidParameters ) {
-				$applyFct = MMLParsingUtil::renderApplyFunction();
-			}
-		}
-		return $applyFct;
+	/** The invisible function application after a named function like \sin that has an argument */
+	public static function getApplyFct( RenderContext $ctx ): MMLbase {
+		return $ctx->hasFunctionArgument() ? MMLParsingUtil::renderApplyFunction() : new MMLarray();
 	}
 }

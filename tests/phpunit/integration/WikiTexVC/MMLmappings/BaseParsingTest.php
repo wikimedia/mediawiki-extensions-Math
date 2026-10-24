@@ -3,6 +3,8 @@
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\MMLmappings;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2;
@@ -32,7 +34,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			'\\boldsymbol',
 			( new Literal( '\\alpha' ) )
 		);
-		$result = BaseParsing::boldsymbol( $node, [], null, 'boldsymbol' );
+		$result = BaseParsing::mathFont( $node, [], null, 'boldsymbol' );
 		$this->assertStringContainsString( '𝜶', $result );
 	}
 
@@ -41,7 +43,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			'\\boldsymbol',
 			( new Literal( 'a' ) )
 		);
-		$result = BaseParsing::boldsymbol( $node, [], null, 'boldsymbol' );
+		$result = BaseParsing::mathFont( $node, [], null, 'boldsymbol' );
 		$this->assertStringContainsString( '𝒂', $result );
 	}
 
@@ -70,8 +72,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 		// amsmath defines \binom as \genfrac()\z@{} and \dbinom as \genfrac(){0pt}0:
 		// https://archive.softwareheritage.org/swh:1:cnt:63c753577180436201384e6d5856e19b60994157;origin=https://github.com/latex3/latex2e;visit=swh:1:snp:b0ee00ac9658057bb387804cccae97bce8af59b5;anchor=swh:1:rev:cf95df5b80349c35628d021bf35418f5d844f2e5;path=/required/amsmath/amsmath.dtx;lines=630-641
 		$node = new Fun2( '\\dbinom', new Literal( 'n' ), new Literal( 'k' ) );
-		$operatorContent = [ 'styleargs' => [ 'displaystyle' => 'false' ] ];
-		$result = BaseParsing::genFrac( $node, [], $operatorContent, '\\dbinom', '(', ')', '0', '0' );
+		$result = BaseParsing::genFrac( $node, [], [], '\\dbinom', '(', ')', '0', '0' );
 
 		$this->assertStringContainsString( '<mstyle displaystyle="true" scriptlevel="0">', $result );
 		$this->assertSame( 2, substr_count( $result, 'minsize="2.047em"' ) );
@@ -127,23 +128,10 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( 'merror', $result );
 	}
 
-	public function testUnderArgPassing() {
-		$node = new Fun1(
-			'\\overline',
-			( new Literal( 'a' ) )
-		);
-		$result = BaseParsing::underover( $node, [ 'k' => 'v' ], null, '', '00AF' );
-		$this->assertStringContainsString( '<mi k="v"', $result );
-	}
-
-	public function testUnderBadArgPassing() {
-		$node = new Fun1(
-			'\\overline',
-			( new Literal( 'a' ) )
-		);
-		$result = BaseParsing::underover( $node,
-			[ 'k' => '"<script>alert("problem")</script>"' ], null, '', '00AF' );
-		$this->assertStringContainsString( 'k=\'"&lt;script&gt;alert("problem")', $result );
+	public function testAttributesAreEscaped() {
+		$mml = new MMLmi( '', [], 'a' );
+		MMLParsingUtil::addAttributesToFirstElement( $mml, [ 'k' => '"<script>alert("problem")</script>"' ] );
+		$this->assertStringContainsString( 'k=\'"&lt;script&gt;alert("problem")', (string)$mml );
 	}
 
 	public function testAlignAt() {

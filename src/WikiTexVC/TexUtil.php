@@ -7,6 +7,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC;
 use InvalidArgumentException;
 
 /**
+ * @method false|array arg_styles(string $getArg)
  * @method false|mixed callback(string $getArg)
  * @method false|mixed cancel_required(string $getArg)
  * @method false|string color(string $getArg)
@@ -19,8 +20,10 @@ use InvalidArgumentException;
  * @method false|mixed nullary_macro(string $litArg)
  * @method false|mixed nullary_macro_in_mbox(string $getArg)
  * @method false|mixed operator(string $getArg)
+ * @method false|string opt_arg_style(string $getArg)
  * @method false|array operator_infix(string $getArg)
  * @method false|mixed operator_rendering(string $getArg)
+ * @method false|string style(string $getArg)
  * @method false|mixed unicode_char(string $getArg)
  */
 class TexUtil {

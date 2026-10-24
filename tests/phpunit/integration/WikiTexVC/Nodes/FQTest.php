@@ -10,6 +10,7 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWikiIntegrationTestCase;
 use TypeError;
 
@@ -79,32 +80,31 @@ class FQTest extends MediaWikiIntegrationTestCase {
 
 	public function testNoLimits() {
 		$fq = new FQ( new Literal( '\\nolimits' ), new Literal( '0' ), new Literal( '1' ) );
-		$state = [ 'limits' => new Literal( '\\int ' ) ];
-		$this->assertStringContainsString( 'msubsup', $fq->toMMLTree( [], $state ) );
+		$ctx = new RenderContext( limitsBase: new Literal( '\\int ' ) );
+		$this->assertStringContainsString( 'msubsup', $fq->toMMLTree( $ctx ) );
 	}
 
 	public function testNoLimitsTextStyle() {
 		$fq = new FQ( new Literal( '\\nolimits' ), new Literal( '0' ), new Literal( '1' ) );
-		$state = [ 'limits' => new Literal( '\\int ' ), 'styleargs' => [ 'displaystyle' => 'inline' ] ];
-		$this->assertStringContainsString( 'msubsup', $fq->toMMLTree( [], $state ) );
+		$ctx = new RenderContext( style: RenderContext::TEXT, limitsBase: new Literal( '\\int ' ) );
+		$this->assertStringContainsString( 'msubsup', $fq->toMMLTree( $ctx ) );
 	}
 
 	public function testLimits() {
 		$fq = new FQ( new Literal( '\\limits' ), new Literal( '0' ), new Literal( '1' ) );
-		$state = [ 'limits' => new Literal( '\\int ' ) ];
-		$this->assertStringContainsString( 'munderover', $fq->toMMLTree( [], $state ) );
+		$ctx = new RenderContext( limitsBase: new Literal( '\\int ' ) );
+		$this->assertStringContainsString( 'munderover', $fq->toMMLTree( $ctx ) );
 	}
 
 	public function testDqLimits() {
-		$fq = new DQ( new Literal( '\\lim' ), new Literal( 'x' ) );
-		$state = [ 'limits' => new Literal( '\\lim ' ) ];
-		$this->assertStringContainsString( 'munder', $fq->toMMLTree( [], $state ) );
+		$dq = new DQ( new Literal( '\\limits' ), new Literal( 'x' ) );
+		$this->assertStringContainsString( 'munder',
+			( new TexArray( new Literal( '\\lim ' ), $dq ) )->toMMLTree() );
 	}
 
 	public function testSideset() {
 		$fq = new FQ( new TexArray(), new Literal( '0' ), new Literal( '1' ) );
-		$state = [ 'sideset' => true ];
-		$this->assertInstanceOf( MMLarray::class, $fq->toMMLTree( [], $state ) );
+		$this->assertInstanceOf( MMLarray::class, $fq->toMMLTree( new RenderContext( inSideset: true ) ) );
 	}
 
 	public function testOverOperator() {

@@ -14,4 +14,11 @@ class MMLmstyle extends MMLbase {
 	public function __construct( string $texclass = "", array $attributes = [], ...$children ) {
 		parent::__construct( "mstyle", $texclass, $attributes, ...$children );
 	}
+
+	public static function newWithDisplayStyle( bool $displayStyle, int $scriptLevel ): self {
+		return new self( "", [
+			"displaystyle" => $displayStyle ? "true" : "false",
+			"scriptlevel" => (string)$scriptLevel
+		] );
+	}
 }

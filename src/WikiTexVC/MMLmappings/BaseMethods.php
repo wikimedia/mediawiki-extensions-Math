@@ -1,11 +1,9 @@
 <?php
 namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings;
 
-use ArgumentCountError;
 use Exception;
 use LogicException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
-use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmerror;
@@ -14,7 +12,9 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmspace;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
+use MediaWiki\Logger\LoggerFactory;
 
 /**
  * This contains the basic parsing methods for tex elements, which get invoked
@@ -26,7 +26,9 @@ use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
  */
 class BaseMethods {
 
-	public static function checkAndParse( $input, $passedArgs, $operatorContent, TexNode $node ): MMLbase {
+	public static function checkAndParse( $input, $passedArgs, $operatorContent, TexNode $node,
+		RenderContext $ctx = new RenderContext()
+	): MMLbase {
 		if ( !is_string( $input ) ) {
 			// just discard these elements, sometimes empty TexArray
 			return new MMLarray();
@@ -45,20 +47,23 @@ class BaseMethods {
 		if ( str_contains( $resFct[0], '::', ) ) {
 			throw new LogicException( "Callback to $resFct[0] should be treated in the respective class." );
 		}
+		// Passing resolved function as param without first id; the context goes last, by name
+		$shifted = array_shift( $resFct );
+		$resFct['ctx'] = $ctx;
 		try {
-			// Passing resolved function as param without first id
-			if ( count( $resFct ) > 1 ) {
-				$shifted = array_shift( $resFct );
-				return BaseParsing::{$shifted}( $node, $passedArgs, $operatorContent, $input, ...$resFct );
-			}
-			return BaseParsing::{$resFct[0]}( $node, $passedArgs, $operatorContent, $input );
-		} catch ( Exception ) {
+			return BaseParsing::{$shifted}( $node, $passedArgs, $operatorContent, $input, ...$resFct );
+		} catch ( Exception $e ) {
+			LoggerFactory::getInstance( 'Math' )->error( 'Callback {callback} failed for {input}', [
+				'callback' => $shifted,
+				'input' => $input,
+				'exception' => $e,
+			] );
 			return new MMLarray();
 		}
 	}
 
 	public function checkAndParseOperator( $input, $node, $passedArgs, $operatorContent,
-		$state, $prepareInput = true
+		$prepareInput = true
 	): MMLbase {
 		$resOperator = TexUtil::getInstance()->operator_rendering( trim( $input ) );
 		if ( $resOperator == null ) {
@@ -81,7 +86,7 @@ class BaseMethods {
 		if ( $resOperator == null ) {
 			return new MMLarray();
 		}
-		return $this->parseOperator( $node, $passedArgs, $operatorContent, $input, $state, ...$resOperator );
+		return $this->parseOperator( $node, $passedArgs, $operatorContent, $input, ...$resOperator );
 	}
 
 	public function parseOperatorDict( $node, $passedArgs, $operatorContent, $input, $uc = null,
@@ -106,7 +111,7 @@ class BaseMethods {
 		throw new LogicException( "$input is not a valid operator." );
 	}
 
-	public function parseOperator( $node, $passedArgs, $operatorContent, $name, $state, $uc = null,
+	public function parseOperator( $node, $passedArgs, $operatorContent, $name, $uc = null,
 		$attrs = []
 	): MMLbase {
 		// if($name == "equiv" || $name == "dotplus" || $name == "mp"  || $name == "pm"){
@@ -115,49 +120,6 @@ class BaseMethods {
 			unset( $attrs['largeop'] );
 		}
 		return new MMLmo( trim( $name ) === '\\colon' ? 'PUNCT' : '', $attrs, $uc );
-	}
-
-	public function checkAndParseIdentifier( $input, $node, $passedArgs, $operatorContent,
-		 $prepareInput = true
-	): MMLbase {
-		// @phan-suppress-next-line PhanCoalescingNeverUndefined
-		$resIdentifier = TexUtil::getInstance()->identifier( trim( $input ) ) ?? null;
-		// If the macro has been found, dynamically call the associated parsing function.
-		if ( is_string( $resIdentifier ) ) {
-			$resIdentifier = [ $resIdentifier ];
-		}
-
-		if ( $resIdentifier == null ) {
-			return new MMLarray();
-		}
-		try {
-			$resIdentifier[0] = MMLutil::uc2xNotation( $resIdentifier[0] );
-			return $this->parseIdentifier( $node, $passedArgs, $operatorContent, $input, ...$resIdentifier );
-		} catch ( ArgumentCountError ) {
-			return new MMLarray();
-		}
-	}
-
-	public function parseIdentifier( $node, $passedArgs, $operatorContent, $name, $uc = null, $attrs = [] ): MMLbase {
-		// tbd verify rule: Lowercase name ("operator" instead "Operator") seems to
-		// indicate additional italic mathvariant when bold already
-		if ( !ctype_upper( $name ) ) {
-			if ( isset( $passedArgs['mathvariant'] ) && $passedArgs['mathvariant'] === Variants::BOLD ) {
-				$passedArgs['mathvariant'] = $passedArgs['mathvariant'] . "-" . Variants::ITALIC;
-			}
-		}
-
-		$args = array_merge( $attrs, $passedArgs );
-
-		if ( array_key_exists( "texClass", $args ) ) {
-			$args["data-mjx-texclass"] = $args["texClass"];
-			unset( $args["texClass"] );
-		}
-
-		$state = [];
-		$uc = $node->changeUnicodeFontInput( $uc, $state, $args );
-
-		return new MMLmi( "", $args, $uc );
 	}
 
 	public function checkAndParseDelimiter( $input, $node, $passedArgs,

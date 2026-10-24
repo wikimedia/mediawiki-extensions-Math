@@ -9,6 +9,7 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWikiIntegrationTestCase;
 use RuntimeException;
 use TypeError;
@@ -69,10 +70,9 @@ class DQTest extends MediaWikiIntegrationTestCase {
 
 	public function testSmallSum() {
 		$dq = new DQ( new Literal( '\\sum' ), new Literal( 'i' ) );
-		$state = [ 'styleargs' => [ 'displaystyle' => 'false' ] ];
 		$this->assertStringContainsString(
 			"<msub>",
-			$dq->toMMLTree( [], $state ) );
+			$dq->toMMLTree( new RenderContext( style: RenderContext::TEXT ) ) );
 	}
 
 	public function testIdentifiers() {
@@ -129,10 +129,7 @@ class DQTest extends MediaWikiIntegrationTestCase {
 
 	public function testToMMLTreeLimitsCase() {
 		$dq = new DQ( new Literal( '\\limits' ), new Literal( 'b' ) );
-		$state = [
-				'limits' => new Literal( '\\sum' ),
-		];
-		$result = $dq->toMMLTree( [], $state );
+		$result = $dq->toMMLTree( new RenderContext( limitsBase: new Literal( '\\sum' ) ) );
 		$this->assertNotNull( $result, 'toMMLTree should handle limits case and not return null' );
 		$this->assertInstanceOf( MMLmunder::class, $result, 'toMMLTree should return MMLmunder' );
 	}

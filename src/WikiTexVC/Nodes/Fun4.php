@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 
 class Fun4 extends TexNode {
 
@@ -54,12 +55,17 @@ class Fun4 extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function toMMLTree( array $arguments = [], array &$state = [] ): MMLbase {
-		$cb = $this->getLocalCallback( trim( $this->fname ), $arguments, [], $state );
-		if ( !$cb->isEmpty() ) {
-			return $cb;
-		}
-		return $this->parseToMML( $this->fname, $arguments, $state );
+	public function toMMLTree( RenderContext $ctx = new RenderContext() ): MMLbase {
+		return $this->parseToMML( $this->fname, $ctx );
+	}
+
+	/** MathJax MathChoice: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=2281-2287 */
+	protected function mathChoice( RenderContext $ctx ): MMLbase {
+		// The arguments are the material for display, text, script and scriptscript style.
+		// tex.web: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=14372-14377
+		$choice = $ctx->isDisplayStyle() ? 1 : $ctx->getScriptLevel() + 2;
+		// getArgs()[0] is \mathchoice itself
+		return $this->renderChild( $this->getArgs()[$choice], $ctx );
 	}
 
 	/** @inheritDoc */
@@ -70,40 +76,4 @@ class Fun4 extends TexNode {
 		return parent::extractIdentifiers( $args );
 	}
 
-	protected function mathChoice( array $passedArgs, array $operatorContent,
-		string $input, array $cb, array &$state
-	): MMLbase {
-		$styleState = $state;
-
-		/**
-		 * Parametrization for mathchoice:
-		 * \mathchoice
-		 * {<material for display style>}
-		 * {<material for text style>}
-		 * {<material for script style>}
-		 * {<material for scriptscript style>}
-		 */
-
-		if ( isset( $state["styleargs"] ) ) {
-			$styleArgs = $state["styleargs"];
-			$displayStyle = $styleArgs["displaystyle"] ?? "true";
-			$scriptLevel = $styleArgs["scriptlevel"] ?? "0";
-
-			if ( $displayStyle == "true" && $scriptLevel == "0" ) {
-				// This is displaystyle
-				return $this->arg1->toMMLtree( $passedArgs, $styleState );
-			} elseif ( $displayStyle == "false" && $scriptLevel == "0" ) {
-				// This is textstyle
-				return $this->arg2->toMMLtree( $passedArgs, $styleState );
-			} elseif ( $displayStyle == "false" && $scriptLevel == "1" ) {
-				// This is scriptstyle
-				return $this->arg3->toMMLtree( $passedArgs, $styleState );
-			} elseif ( $displayStyle == "false" && $scriptLevel == "2" ) {
-				// This is scriptscriptstyle
-				return $this->arg4->toMMLtree( $passedArgs, $styleState );
-			}
-		}
-		// By default render displaystyle
-		return $this->arg1->toMMLtree( $passedArgs, $styleState );
-	}
 }

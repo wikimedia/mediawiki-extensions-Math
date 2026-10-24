@@ -15,6 +15,7 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\UQ;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 use MediaWikiIntegrationTestCase;
 use TypeError;
@@ -86,12 +87,11 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( [], $n->extractSubscripts(), 'Should extract subscripts' );
 	}
 
-	public function testAddNotAppendsOverlayToMMLmoWhenNotFlagIsSet() {
-		$state = [ 'not' => true ];
+	public function testAddNotAppendsOverlayToMMLmo() {
 		$mmlmo = new MMLmo( "", [], "∈" );
 
 		$ta = new TexArray();
-		$result = $ta->addNot( $state, $mmlmo );
+		$result = $ta->addNot( $mmlmo );
 
 		$this->assertInstanceOf( MMLmo::class, $result );
 		$this->assertEquals(
@@ -101,27 +101,21 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	public function testAddNotDoesNothingWhenNotFlagIsNotSet() {
-		$state = [];
-		$mmlmo = new MMLmo( "", [], "∈" );
+	public function testNotNegatesFollowingOperator() {
+		$ta = new TexArray( new Literal( 'a' ), new Literal( '\\not ' ), new Literal( '\\in ' ), new Literal( 'b' ) );
+		$this->assertStringContainsString( '∈&#x338;</mo>', (string)$ta->toMMLTree() );
+	}
 
-		$ta = new TexArray();
-		$result = $ta->addNot( $state, $mmlmo );
-
-		$this->assertInstanceOf( MMLmo::class, $result );
-		$this->assertEquals(
-			"∈",
-			$result->getText(),
-			'Should not modify text for unset "not" flag'
-		);
+	public function testOperatorWithoutNotStaysUnchanged() {
+		$ta = new TexArray( new Literal( 'a' ), new Literal( '\\in ' ), new Literal( 'b' ) );
+		$this->assertStringNotContainsString( '&#x338;', (string)$ta->toMMLTree() );
 	}
 
 	public function testAddNotDoesNotProcessNonMMLmoObjects() {
-		$state = [ 'not' => true ];
 		$nonMMLmo = new MMLbase( 'dummy' );
 
 		$ta = new TexArray();
-		$result = $ta->addNot( $state, $nonMMLmo );
+		$result = $ta->addNot( $nonMMLmo );
 
 		$this->assertEquals( $nonMMLmo, $result, 'Should not modify non-MMLmo objects' );
 	}
@@ -129,17 +123,15 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 	public function testAddNotRejectsStringInput() {
 		$this->expectException( TypeError::class );
 
-		$state = [ 'not' => true ];
 		$ta = new TexArray();
-		$ta->addNot( $state, '∈' );
+		$ta->addNot( '∈' );
 	}
 
 	public function testAddNotRejectsNullInput() {
 		$this->expectException( TypeError::class );
 
-		$state = [ 'not' => true ];
 		$ta = new TexArray();
-		$ta->addNot( $state, null );
+		$ta->addNot( null );
 	}
 
 	public function testUnshift() {
@@ -190,16 +182,16 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 
 	public function testSquashLiterals() {
 		$ta = new TexArray( new Literal( 'a' ), new Literal( 'b' ) );
-		$state = [ 'squashLiterals' => true ];
-		$res  = $ta->toMMLTree( [], $state );
-		$this->assertEquals( '<mi>ab</mi>', $res );
+		$fun = new Fun1nb( '\\operatorname', $ta );
+		$this->assertEquals( '<mi mathvariant="normal">ab</mi>',
+			(string)$fun->renderArg( new RenderContext() ) );
 	}
 
 	public function testSquashLiteralsMacro() {
 		$ta = new TexArray( new Literal( 'a' ), new Literal( '\gamma' ) );
-		$state = [ 'squashLiterals' => true ];
-		$res  = $ta->toMMLTree( [], $state );
-		$this->assertEquals( '<mi>a</mi><mi>γ</mi>', $res );
+		$fun = new Fun1nb( '\\operatorname', $ta );
+		$this->assertEquals( '<mi mathvariant="normal">a</mi><mi mathvariant="normal">γ</mi>',
+			(string)$fun->renderArg( new RenderContext() ) );
 	}
 
 	public function testSumInLimits() {
@@ -223,8 +215,8 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 	public function testNamedFunctionIsOneLiteral( string $input, string $name, string $next ) {
 		$result = ( new TexVC() )->check( $input );
 		$parsed = $result['input'];
-		$this->assertEquals( new Literal( $name ), $parsed->first() );
-		$this->assertEquals( new Literal( $next ), $parsed->second() );
+		$this->assertSame( $name, $parsed->first()->getArg() );
+		$this->assertSame( $next, $parsed->second()->getArg() );
 		$this->assertEquals( [ true, true ], $parsed->checkForNamedFctArgs( $parsed->first(), $parsed->second() ) );
 		$this->assertSame( $input, $result['output'] );
 	}
@@ -253,16 +245,13 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testRenderAPrime() {
-		$n = new TexArray( new Literal( 'A' ) );
-		$state = [ 'prime' => 1 ];
-		$mml = $n->toMMLTree( [], $state );
+		$n = new TexArray( new Literal( 'A' ), new Literal( "'" ) );
+		$mml = $n->toMMLTree();
 		$this->assertStringContainsString( '&#x2032;</mo>', $mml );
 	}
 
 	public function testRenderEmptyPlaceholderPrime() {
-		$n = new TexArray( new Literal( 'A' ) );
-		$state = [ 'prime' => 1 ];
-		$mml = $n->addPrimeContext( $state, new MMLarray() );
+		$mml = TexArray::addPrimeContext( new MMLarray(), 1 );
 		$this->assertInstanceOf( MMLmsup::class, $mml );
 		$this->assertSame( 'msup', $mml->getName() );
 		$this->assertCount( 2, $mml->getChildren() );
@@ -335,9 +324,7 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testRenderPrimeOnNamedFunction() {
-		$n = new TexArray();
-		$state = [ 'prime' => 1, 'foundNamedFct' => [ true, false ] ];
-		$mml = $n->addPrimeContext( $state, new MMLmo( '', [], 'f' ) );
+		$mml = TexArray::addPrimeContext( new MMLmo( '', [], 'f' ), 1, true );
 		$this->assertInstanceOf( MMLarray::class, $mml );
 		$this->assertStringContainsString( '&#x2061;</mo>', (string)$mml );
 	}
@@ -345,8 +332,6 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 	public function testRenderStringPrimeRejected() {
 		$this->expectException( TypeError::class );
 
-		$n = new TexArray( new Literal( 'A' ) );
-		$state = [ 'prime' => 1 ];
-		$n->addPrimeContext( $state, "k" );
+		TexArray::addPrimeContext( "k", 1 );
 	}
 }
