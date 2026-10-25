@@ -117,10 +117,6 @@ class MMLParsingUtil {
 		);
 	}
 
-	private static function addToChr( string $chr, string $base ): string {
-		return strtoupper( dechex( mb_ord( $chr ) + hexdec( $base ) ) );
-	}
-
 	public static function getIntentContent( ?string $input ): ?string {
 		if ( !$input ) {
 			return null;
