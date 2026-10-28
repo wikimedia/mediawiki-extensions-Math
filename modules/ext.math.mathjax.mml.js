@@ -288,6 +288,33 @@ function transformCalligraphic( data ) {
 }
 
 /**
+ * Let the browser render Devanagari text.
+ *
+ * The MathJax font has Devanagari glyphs, but MathJax places them one by one
+ * without shaping, so conjuncts and vowel signs fall apart. An explicit
+ * fontfamily makes MathJax emit the text as a single SVG <text> element that
+ * the browser shapes. MathJax then ignores mathvariant, so the font family,
+ * weight and style it asked for (as in \textsf or \textbf) are set explicitly.
+ *
+ * @param {Document|Element} data MathML DOM to transform
+ */
+function transformDevanagariText( data ) {
+	for ( const mtext of Array.from( data.getElementsByTagName( 'mtext' ) ) ) {
+		if ( mtext.hasAttribute( 'fontfamily' ) || !/[\u0900-\u097F]|[\uA8E0-\uA8FF]/.test( mtext.textContent ) ) {
+			continue;
+		}
+		const variant = mtext.getAttribute( 'mathvariant' ) || '';
+		mtext.setAttribute( 'fontfamily', ( variant.match( /sans-serif|monospace/ ) || [ 'serif' ] )[ 0 ] );
+		if ( variant.includes( 'bold' ) && !mtext.hasAttribute( 'fontweight' ) ) {
+			mtext.setAttribute( 'fontweight', 'bold' );
+		}
+		if ( variant.includes( 'italic' ) && !mtext.hasAttribute( 'fontstyle' ) ) {
+			mtext.setAttribute( 'fontstyle', 'italic' );
+		}
+	}
+}
+
+/**
  * Transform Core-compatible MathML before MathJax parses it.
  *
  * @param {Object} options MathJax filter options
@@ -303,6 +330,7 @@ function mmlFilter( { data } ) {
 	transformCancelTo( data );
 	transformCalligraphic( data );
 	restoreAttributes( data );
+	transformDevanagariText( data );
 }
 
 module.exports = {
@@ -310,6 +338,7 @@ module.exports = {
 	transformColumnSpacing,
 	transformCalligraphic,
 	transformCancelTo,
+	transformDevanagariText,
 	transformMatrixBorders,
 	transformMenclose,
 	transformSmallMatrices
