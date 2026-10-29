@@ -51,6 +51,7 @@
 	"math_invalidjson": "د $1 پالنگر ځواب ناسم جی‌اېس‌او‌اېن دی.",
 	"math_other_error": "نورې تېروتنې: $1",
 	"math_syntax_error": "غونډل‌پوهې تېروتنه",
+	"math-test-fail": "''$1'' ازموينه نابرياله شوه.",
 	"math-tracking-category-error": "شمېرپوهنيزې تېروتنې لرونکي مخونه",
 	"math-tracking-category-error-desc": "د دې وېشنيزې مخونه د شمېرپوهنې نښلنونو په کارولو کې تېروتنې لري.",
 	"math-tracking-category-mhchem-deprecation": "هغه مخونه چې د کېمياوي نښلنونو له‌منځه‌وړل‌شوې بڼه کاروي",
