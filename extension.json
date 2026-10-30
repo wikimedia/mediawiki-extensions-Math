@@ -199,6 +199,7 @@
 		"scripts": [
 			"tests/qunit/mmlFilter.test.js",
 			"tests/qunit/mathjaxSvgReference.test.js",
+			"tests/qunit/ext.math.popup.test.js",
 			"modules/ve-math/tests/ve.dm.Autocomplete.test.js"
 		],
 		"dependencies": [
