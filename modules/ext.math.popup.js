@@ -2,7 +2,7 @@ const previewType = 'math';
 const selector = '.mwe-math-element[data-qid] img';
 const api = new mw.Rest();
 const fetch = function ( qid ) {
-	return api.get( '/math/v0/popup/html/' + qid, {}, {
+	return api.get( '/math/v0/popup/html/' + encodeURIComponent( qid ), {}, {
 		Accept: 'application/json; charset=utf-8',
 		'Accept-Language': mw.config.language
 	} );
@@ -24,7 +24,7 @@ const fetchPreviewForTitle = function ( title, el ) {
 	if ( parent.dataset.qid ) {
 		qidstr = parent.dataset.qid;
 	}
-	if ( !qidstr || ( qidstr.match( /Q\d+/g ) === null ) ) {
+	if ( !qidstr || !/^Q\d+$/.test( qidstr ) ) {
 		return deferred.reject();
 	}
 	qidstr = qidstr.slice( 1 );
