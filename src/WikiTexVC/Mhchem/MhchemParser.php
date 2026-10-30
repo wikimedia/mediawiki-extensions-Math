@@ -34,7 +34,6 @@ class MhchemParser {
 
 	/** @var LoggerInterface */
 	private $logger;
-	private int $debugIndex;
 
 	/**
 	 * Instantiate Mhchemparser, required for usage of "toTex" functionality
@@ -43,7 +42,6 @@ class MhchemParser {
 	public function __construct( bool $doLogging = false ) {
 		$this->mhchemPatterns = new MhchemPatterns();
 		$this->mhchemStateMachines = new MhchemStateMachines( $this );
-		$this->debugIndex = 0;
 		if ( $doLogging ) {
 			$this->logger = LoggerFactory::getInstance( 'Math' );
 		}
@@ -118,8 +116,6 @@ class MhchemParser {
 					// Execute actions
 					$task = $value["task"];
 					for ( $iA = 0, $iAMax = count( $task["action_"] ); $iA < $iAMax; $iA++ ) {
-						$this->debugIndex++;
-
 						$o = null;
 
 						// Find and execute action
