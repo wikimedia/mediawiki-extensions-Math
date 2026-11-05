@@ -438,6 +438,11 @@ class TexArray extends TexNode implements \ArrayAccess, \IteratorAggregate {
 	private function createMMLwithContext( ?string $currentColor, TexNode $currentNode, array &$state,
 										   array $arguments ): MMLbase {
 		$ret = $currentNode->toMMLTree( $arguments, $state );
+		if ( $currentNode instanceof TexArray && $currentNode->isCurly() && $currentNode->getLength() === 0 ) {
+			// Only {} itself: TeX makes it an empty Ord atom
+			// TeX's math_group: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=22330-22342
+			$ret = new MMLmrow( TexClass::ORD );
+		}
 		$ret = $this->addNot( $state, $ret );
 		$ret = $this->addPrimeContext( $state, $ret );
 

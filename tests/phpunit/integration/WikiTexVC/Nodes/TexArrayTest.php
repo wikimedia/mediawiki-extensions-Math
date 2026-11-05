@@ -276,6 +276,24 @@ class TexArrayTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( '<msup><mi>f</mi><mo>&#x2032;</mo></msup>', (string)$n->toMMLTree() );
 	}
 
+	public static function provideEmptyGroup(): array {
+		return [
+			'after a relation' => [ 'a={}',
+				'<mi>a</mi><mo stretchy="false">=</mo><mrow data-mjx-texclass="ORD"></mrow>' ],
+			'before a binary operator' => [ '{}+B',
+				'<mrow data-mjx-texclass="ORD"></mrow><mo stretchy="false">+</mo><mi>B</mi>' ],
+			'between letters' => [ 'a{}b', '<mi>a</mi><mrow data-mjx-texclass="ORD"></mrow><mi>b</mi>' ],
+			'as a subscript' => [ 'x_{}', '<msub><mi>x</mi><mrow data-mjx-texclass="ORD"></mrow></msub>' ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideEmptyGroup
+	 */
+	public function testEmptyGroupIsOrdAtom( string $input, string $mml ) {
+		$this->assertSame( $mml, (string)( new TexVC() )->parse( $input )->toMMLTree() );
+	}
+
 	public function testNormalizeExplicitPrimeOnNamedFunction() {
 		$n = ( new TexVC() )->parse( '\\sin^\\prime x' );
 		$this->assertSame(
