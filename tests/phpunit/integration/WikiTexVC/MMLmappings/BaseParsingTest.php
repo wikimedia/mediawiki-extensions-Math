@@ -143,8 +143,42 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringNotContainsString( 'padding-bottom', $result );
 	}
 
+	public static function provideAlignLeftGroup(): array {
+		return [
+			'relation' => [ '\\begin{align} a &= b \\end{align}', 1 ],
+			'letter' => [ '\\begin{align} a &b \\end{align}', 1 ],
+			'two pairs' => [ '\\begin{alignat}{2} a &= b & c &= d \\end{alignat}', 2 ],
+			'right column only' => [ '\\begin{aligned} = a \\end{aligned}', 0 ],
+			'matrix' => [ '\\begin{matrix} a & = b \\end{matrix}', 0 ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideAlignLeftGroup
+	 */
+	public function testAlignLeftGroup( string $tex, int $count ) {
+		$mml = (string)( new TexVC() )->parse( $tex )->toMMLTree();
+		$this->assertSame( $count,
+			substr_count( $mml, '<mtd class="mwe-math-columnalign-l"><mrow data-mjx-texclass="ORD"></mrow>' ), $mml );
+	}
+
+	public static function provideColumnSpacing(): array {
+		return [
+			'align' => [ '\\begin{align} a &= b \\end{align}', 'class="mwe-math-columnspacing-0em-2em"' ],
+			'alignat' => [ '\\begin{alignat}{1} a &= b \\end{alignat}', 'class="mwe-math-columnspacing-0em"' ],
+			'matrix' => [ '\\begin{matrix} a & b \\end{matrix}', '<mtable>' ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideColumnSpacing
+	 */
+	public function testColumnSpacing( string $tex, string $expected ) {
+		$this->assertStringContainsString( $expected, (string)( new TexVC() )->parse( $tex )->toMMLTree() );
+	}
+
 	public function testDisplayStyleD() {
-		$this->assertStringContainsString( '<mtable displaystyle="true">',
+		$this->assertStringContainsString( '<mtable class="mwe-math-columnspacing-0em" displaystyle="true">',
 			(string)( new TexVC() )->parse( '\\begin{alignat}{1} a &= b \\end{alignat}' )->toMMLTree() );
 		$this->assertStringNotContainsString( 'displaystyle',
 			(string)( new TexVC() )->parse( '\\begin{matrix} a & b \\end{matrix}' )->toMMLTree() );

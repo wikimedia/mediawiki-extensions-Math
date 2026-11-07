@@ -22,6 +22,35 @@ function transformSmallMatrices( data ) {
 }
 
 /**
+ * Restore columnspacing from the class mwe-math-columnspacing-<pattern>, which the native output reads in CSS.
+ * The pattern repeats over the columns, as in MathJax's EqnArrayItem.extendArray
+ * swh:1:cnt:a2eb4d66b972a216bb8556431df804498b611c39;lines=1527-1537
+ *
+ * @param {Document|Element} data MathML DOM to transform
+ */
+function transformColumnSpacing( data ) {
+	const prefix = 'mwe-math-columnspacing-';
+	for ( const mtable of Array.from( data.getElementsByTagName( 'mtable' ) ) ) {
+		const className = ( mtable.getAttribute( 'class' ) || '' ).split( /\s+/ )
+			.find( ( name ) => name.startsWith( prefix ) );
+		if ( !className ) {
+			continue;
+		}
+		const pattern = className.slice( prefix.length ).split( '-' );
+		const columns = Math.max( 0, ...Array.from( mtable.childNodes )
+			.filter( ( row ) => row.localName === 'mtr' )
+			.map( ( row ) => Array.from( row.childNodes ).filter( ( cell ) => cell.localName === 'mtd' ).length ) );
+		const gaps = [];
+		for ( let i = 0; i < columns - 1; i++ ) {
+			gaps.push( pattern[ i % pattern.length ] );
+		}
+		if ( gaps.length ) {
+			mtable.setAttribute( 'columnspacing', gaps.join( ' ' ) );
+		}
+	}
+}
+
+/**
  * Restore the non-Core table borders used by MathJax.
  *
  * @param {Document|Element} data MathML DOM to transform
@@ -267,6 +296,7 @@ function transformCalligraphic( data ) {
 function mmlFilter( { data } ) {
 	// From https://github.com/mathjax/MathJax/issues/3540
 	transformSmallMatrices( data );
+	transformColumnSpacing( data );
 	transformMatrixBorders( data );
 	transformRowSpacing( data );
 	transformMenclose( data );
@@ -277,6 +307,7 @@ function mmlFilter( { data } ) {
 
 module.exports = {
 	mmlFilter,
+	transformColumnSpacing,
 	transformCalligraphic,
 	transformCancelTo,
 	transformMatrixBorders,

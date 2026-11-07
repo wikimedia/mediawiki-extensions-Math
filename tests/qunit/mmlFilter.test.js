@@ -106,6 +106,18 @@ QUnit.module( 'ext.math.mathjax.mml', () => {
 		assert.strictEqual( mtable.getElementsByTagName( 'mi' )[ 0 ].textContent, 'x' );
 	} );
 
+	QUnit.test( 'restores the column spacing from its class', ( assert ) => {
+		const row = '<mtr><mtd/><mtd/><mtd/><mtd/></mtr><mtr><mtd/><mtd/></mtr>';
+		const document = parseMathML( `<math xmlns="${ MATHML_NS }"><mtable class="mwe-math-columnspacing-0em-2em">${ row }</mtable><mtable class="mwe-math-columnspacing-0em">${ row }</mtable><mtable>${ row }</mtable></math>` );
+
+		mmlFilter( { data: document } );
+
+		const mtables = document.getElementsByTagName( 'mtable' );
+		assert.strictEqual( mtables[ 0 ].getAttribute( 'columnspacing' ), '0em 2em 0em' );
+		assert.strictEqual( mtables[ 1 ].getAttribute( 'columnspacing' ), '0em 0em 0em' );
+		assert.strictEqual( mtables[ 2 ].getAttribute( 'columnspacing' ), null );
+	} );
+
 	QUnit.test( 'transform every small matrix in the input', ( assert ) => {
 		const document = parseMathML( `<math xmlns="${ MATHML_NS }"><mrow><mtable class="mwe-math-smallmatrix"/><mo>+</mo><mtable class="mwe-math-smallmatrix"/></mrow></math>` );
 

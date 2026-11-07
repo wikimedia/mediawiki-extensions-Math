@@ -289,6 +289,13 @@ class Matrix extends TexArray {
 					$mtdAttributes['class'] = $texclass;
 				}
 				$isEmptyLine = $isEmptyLine && $usedArg->isEmpty();
+				if ( preg_match( '/^aligned(at)?$/', $this->top ) && ( $align[$colNo] ?? '' ) === 'l' ) {
+					// amsmath starts each left column with {}
+					// aligned swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=3927
+					// align swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=5611
+					// TODO: flalign and split do the same once they are supported
+					$usedArg = new TexArray( TexArray::newCurly(), $usedArg );
+				}
 				$innerInnter[] = new MMLmtd( "", $mtdAttributes, $usedArg->toMMLTree( $cellCtx ) );
 				$colNo++;
 			}

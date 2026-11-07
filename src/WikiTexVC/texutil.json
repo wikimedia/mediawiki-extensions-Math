@@ -6214,6 +6214,7 @@
 				"l"
 			],
 			"repeat": 5,
+			"class": "mwe-math-columnspacing-0em-2em",
 			"vline": false
 		},
 		"style": "display"
@@ -6224,6 +6225,7 @@
 				"r",
 				"l"
 			],
+			"class": "mwe-math-columnspacing-0em",
 			"vline": false
 		},
 		"style": "display"
