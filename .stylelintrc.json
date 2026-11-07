@@ -5,6 +5,7 @@
 	],
 	"rules": {
 		"selector-class-pattern": null,
-		"declaration-property-value-no-unknown": null
+		"declaration-property-value-no-unknown": null,
+		"wikimedia/selector-class-prefix": null
 	}
 }
