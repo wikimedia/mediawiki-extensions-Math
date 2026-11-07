@@ -67,12 +67,10 @@ abstract class MathRenderer {
 	protected $lastError = '';
 	/** @var string binary packed inputhash */
 	protected $inputHash = '';
-	/** @var string rendering mode */
-	protected $mode = MathConfig::MODE_MATHML;
+	/** @var string rendering mode. TODO: Make this a required constructor param */
+	protected $mode = MathConfig::MODE_NATIVE_MML;
 	/** @var string input type */
 	protected $inputType = 'tex';
-	/** @var MathRestbaseInterface used for checking */
-	protected $rbi;
 	/** @var array with rendering warnings */
 	protected $warnings;
 	/** @var LoggerInterface */
@@ -139,10 +137,9 @@ abstract class MathRenderer {
 	abstract public function render();
 
 	/**
-	 * @param bool $svg
 	 * @return string Html output that is embedded in the page
 	 */
-	abstract public function getHtmlOutput( bool $svg = true ): string;
+	abstract public function getHtmlOutput(): string;
 
 	/**
 	 * texvc error messages
@@ -231,14 +228,6 @@ abstract class MathRenderer {
 			'math_svg' => $this->svg,
 			'math_mode' => $this->mode
 		];
-	}
-
-	/**
-	 * @param MathRestbaseInterface $param
-	 */
-	public function setRestbaseInterface( $param ) {
-		$this->rbi = $param;
-		$this->rbi->setPurge( $this->isPurge() );
 	}
 
 	public function hasWarnings(): bool {
@@ -514,6 +503,8 @@ abstract class MathRenderer {
 	}
 
 	/**
+	 * Used for testing and indexing via the MathSearch extension.
+	 *
 	 * @param string $svg
 	 */
 	public function setSvg( $svg ) {
@@ -522,7 +513,7 @@ abstract class MathRenderer {
 	}
 
 	/**
-	 * Gets the SVG image
+	 * Used for testing and indexing via the MathSearch extension.
 	 *
 	 * @param string $render if set to 'render' (default) and no SVG image exists, the function
 	 *                       tries to generate it on the fly.
@@ -532,10 +523,6 @@ abstract class MathRenderer {
 	 * @return string XML-Document of the rendered SVG
 	 */
 	public function getSvg( $render = 'render' ) {
-		// Spaces will prevent the image from being displayed correctly in the browser
-		if ( !$this->svg && $this->rbi ) {
-			$this->svg = $this->rbi->getSvg();
-		}
 		return trim( $this->svg );
 	}
 

@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathRenderer;
@@ -23,11 +22,6 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 			[ MathConfig::MODE_SOURCE, MathConfig::MODE_NATIVE_MML, MathConfig::MODE_NATIVE_JAX ] );
 		$this->mergeMwGlobalArrayValue( 'wgDefaultUserOptions', [ 'math' => MathConfig::MODE_SOURCE ] );
 		$this->setService( 'Math.RendererFactory', new class(
-			new ServiceOptions( RendererFactory::CONSTRUCTOR_OPTIONS, [
-				'MathoidCli' => false,
-				'MathEnableExperimentalInputFormats' => false,
-				'MathValidModes' => [ MathConfig::MODE_SOURCE ],
-			] ),
 			$this->createNoOpMock( MathConfig::class ),
 			$this->getServiceContainer()->getUserOptionsLookup(),
 			new NullLogger(),
@@ -52,7 +46,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 						return true;
 					}
 
-					public function getHtmlOutput( bool $svg = true ): string {
+					public function getHtmlOutput(): string {
 						return "<render>$this->mode:$this->tex</render>";
 					}
 				};

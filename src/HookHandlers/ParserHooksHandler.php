@@ -5,13 +5,10 @@ namespace MediaWiki\Extension\Math\HookHandlers;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Math\Hooks\HookRunner;
 use MediaWiki\Extension\Math\MathConfig;
-use MediaWiki\Extension\Math\MathMathML;
-use MediaWiki\Extension\Math\MathMathMLCli;
 use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Logger\LoggerFactory;
-use MediaWiki\Parser\Hook\ParserAfterTidyHook;
 use MediaWiki\Parser\Hook\ParserFirstCallInitHook;
 use MediaWiki\Parser\Hook\ParserOptionsDefaultsHook;
 use MediaWiki\Parser\Parser;
@@ -31,26 +28,11 @@ use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
  */
 class ParserHooksHandler extends ExtensionTagHandler implements
 	ParserFirstCallInitHook,
-	ParserAfterTidyHook,
 	ParserOptionsDefaultsHook
 {
 
 	/** @var int */
 	private $mathTagCounter = 1;
-
-	/** @var array[] renders delayed to be done as a batch [ MathRenderer, Parser ] */
-	private $mathLazyRenderBatch = [];
-
-	/**
-	 * @var string[] result of batch rendering.
-	 *
-	 * We store rendered math to prevent parsing again if we happen to need it later.
-	 * Sometimes, parserAfterTidy is called several times.
-	 * First time it is called, we batch render all math, but maybe we don't need some math at that point,
-	 * so we store the rendered math for later use.
-	 * T371972
-	 */
-	private $mathLazyRenderBatchCompleted = [];
 
 	private readonly HookRunner $hookRunner;
 
@@ -84,7 +66,6 @@ class ParserHooksHandler extends ExtensionTagHandler implements
 	 * @return array|string
 	 */
 	private function mathTagHook( ?string $content, array $attributes, Parser $parser ) {
-		global $wgMathSvgRenderer;
 		// The default mode from ParserOptions considers site config, user preference,
 		// and request param. The actual $mode is decided by RendererFactory::determineMode
 		// via RendererFactory::getRenderer, which also considers the "forcemathmode" attribute
@@ -98,13 +79,7 @@ class ParserHooksHandler extends ExtensionTagHandler implements
 		$mode = $renderer->getMode();
 
 		self::addModules( $parser->getOutput(), $mode, $attributes );
-		if ( $wgMathSvgRenderer === 'restbase' && $mode == MathConfig::MODE_MATHML ) {
-			$marker = Parser::MARKER_PREFIX .
-				'-postMath-' . sprintf( '%08X', $this->mathTagCounter++ ) .
-				Parser::MARKER_SUFFIX;
-			$this->mathLazyRenderBatch[$marker] = [ $renderer, $parser ];
-			return $marker;
-		}
+
 		return [ $this->mathPostTagHook( $renderer, $parser, $parser->getOutput(), $parser->getRevisionRecordObject() ),
 			'markerType' => 'nowiki' ];
 	}
@@ -201,48 +176,6 @@ class ParserHooksHandler extends ExtensionTagHandler implements
 		$renderer->writeCache();
 
 		return $renderedMath;
-	}
-
-	/**
-	 * @param Parser $parser
-	 * @param string &$text
-	 */
-	public function onParserAfterTidy( $parser, &$text ) {
-		$this->renderBatch( $parser );
-
-		foreach ( $this->mathLazyRenderBatchCompleted as $key => $value ) {
-			$count = 0;
-			$text = str_replace( $key, $value, $text, $count );
-			if ( $count ) {
-				// This hook might be called multiple times. However once the tag is replaced the job is done.
-				unset( $this->mathLazyRenderBatchCompleted[ $key ] );
-			}
-		}
-	}
-
-	private function renderBatch( Parser $parser ) {
-		if ( !$this->mathLazyRenderBatch ) {
-			return;
-		}
-
-		$mode = $parser->getOptions()->getOption( 'math' );
-
-		if ( $mode === MathConfig::MODE_MATHML ) {
-			$renderers = array_column( $this->mathLazyRenderBatch, 0 );
-			if ( MathMathMLCli::isMathoidCliConfigured() ) {
-				MathMathMLCli::batchEvaluate( $renderers );
-			} else {
-				MathMathML::batchEvaluate( $renderers );
-			}
-		}
-		foreach ( $this->mathLazyRenderBatch as $key => [ $renderer, $renderParser ] ) {
-			$this->mathLazyRenderBatchCompleted[ $key ] = $this->mathPostTagHook( $renderer, $renderParser,
-				$renderParser->getOutput(), $renderParser->getRevisionRecordObject() );
-			// Unset directly after (expensive) parse to prevent accidentaly
-			// parsing again on subsequent parserAfterTidy calls.
-			// Result is stored on mathLazyRenderBatchCompleted array, in case we need it later. (T371972)
-			unset( $this->mathLazyRenderBatch[ $key ] );
-		}
 	}
 
 	/** @inheritDoc */

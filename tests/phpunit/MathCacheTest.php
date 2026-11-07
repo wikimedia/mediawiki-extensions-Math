@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\Extension\Math\MathMathML;
 use MediaWiki\Extension\Math\MathRenderer;
 
@@ -22,7 +23,16 @@ class MathCacheTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-		$this->renderer = new MathMathML( self::SOME_TEX );
+		$this->overrideConfigValue( 'MathValidModes', [ MathConfig::MODE_NATIVE_MML ] );
+		$this->renderer = new class( self::SOME_TEX ) extends MathMathML {
+			protected function doRender(): StatusValue {
+				return StatusValue::newGood();
+			}
+
+			public function getHtmlOutput(): string {
+				return '';
+			}
+		};
 	}
 
 	/**
@@ -30,7 +40,8 @@ class MathCacheTest extends MediaWikiIntegrationTestCase {
 	 * @covers \MediaWiki\Extension\Math\MathRenderer::getInputHash
 	 */
 	public function testInputHash() {
-		$this->assertEquals( 'beb7506b16f7c36aa0f9c8c9ef41b40b', $this->renderer->getInputHash() );
+		$this->renderer->setMode( MathConfig::MODE_NATIVE_MML );
+		$this->assertEquals( 'e1e27a93b71fb2c3eec6cea372d5deef', $this->renderer->getInputHash() );
 	}
 
 	/**
@@ -49,7 +60,15 @@ class MathCacheTest extends MediaWikiIntegrationTestCase {
 	public function testDBBasics() {
 		$this->setValues();
 		$this->renderer->writeCache();
-		$renderer2 = new MathMathML( self::SOME_TEX, [ 'display' => '' ] );
+		$renderer2 = new class( self::SOME_TEX, [ 'display' => '' ] ) extends MathMathML {
+			protected function doRender(): StatusValue {
+				return StatusValue::newGood();
+			}
+
+			public function getHtmlOutput(): string {
+				return '';
+			}
+		};
 		$this->assertTrue( $renderer2->readFromCache(), 'Reading from database failed' );
 		// comparing the class object does now work due to null values etc.
 		$this->assertEquals(

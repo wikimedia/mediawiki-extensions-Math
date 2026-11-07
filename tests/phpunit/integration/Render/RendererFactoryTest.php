@@ -3,10 +3,7 @@
 namespace MediaWiki\Extension\Math\Tests\Render;
 
 use InvalidArgumentException;
-use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathConfig;
-use MediaWiki\Extension\Math\MathMathML;
-use MediaWiki\Extension\Math\MathMathMLCli;
 use MediaWiki\Extension\Math\MathNativeMML;
 use MediaWiki\Extension\Math\MathSource;
 use MediaWiki\Extension\Math\Render\RendererFactory;
@@ -26,8 +23,6 @@ use Wikimedia\ObjectCache\WANObjectCache;
  */
 class RendererFactoryTest extends MediaWikiIntegrationTestCase {
 
-	private ServiceOptions|MockObject $options;
-
 	private MockObject|MathConfig $mathConfig;
 
 	private UserOptionsLookup|MockObject $userOptionsLookup;
@@ -46,7 +41,6 @@ class RendererFactoryTest extends MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->options = $this->createMock( ServiceOptions::class );
 		$this->mathConfig = $this->createMock( MathConfig::class );
 		$this->userOptionsLookup = $this->createMock( UserOptionsLookup::class );
 		$this->logger = $this->createMock( LoggerInterface::class );
@@ -55,20 +49,16 @@ class RendererFactoryTest extends MediaWikiIntegrationTestCase {
 		$fakeWAN->set( self::FAKE_INPUT_HASH, self::FAKE_DATA );
 		$this->cache = $fakeWAN;
 
-		$this->options->method( 'assertRequiredOptions' )->willReturn( true );
-
 		$this->mathConfig->method( 'getValidRenderingModes' )->willReturn( [
 			MathConfig::MODE_SOURCE,
-			MathConfig::MODE_MATHML,
 			MathConfig::MODE_NATIVE_MML
 		] );
 
 		$this->userOptionsLookup->method( 'getDefaultOption' )
 			->with( 'math' )
-			->willReturn( MathConfig::MODE_MATHML );
+			->willReturn( MathConfig::MODE_NATIVE_MML );
 
 		$this->factory = new RendererFactory(
-			$this->options,
 			$this->mathConfig,
 			$this->userOptionsLookup,
 			$this->logger,
@@ -93,51 +83,23 @@ class RendererFactoryTest extends MediaWikiIntegrationTestCase {
 		$this->assertInstanceOf( MathNativeMML::class, $renderer );
 	}
 
-	public function testGetRendererForMathMLMode() {
-		$tex = 'x^2 + y^2 = z^2';
-
-		$this->options->method( 'get' )
-			->willReturnMap( [
-				[ 'MathoidCli', false ],
-				[ 'MathEnableExperimentalInputFormats', false ]
-			] );
-
-		$renderer = $this->factory->getRenderer( $tex, [], MathConfig::MODE_MATHML );
-
-		$this->assertInstanceOf( MathMathML::class, $renderer );
-	}
-
-	public function testGetRendererForMathMLModeWithMathoidCli() {
-		$tex = 'x^2 + y^2 = z^2';
-
-		$this->options->method( 'get' )
-			->willReturnMap( [
-				[ 'MathoidCli', true ],
-				[ 'MathEnableExperimentalInputFormats', false ]
-			] );
-
-		$renderer = $this->factory->getRenderer( $tex, [], MathConfig::MODE_MATHML );
-
-		$this->assertInstanceOf( MathMathMLCli::class, $renderer );
-	}
-
 	public function testGetRendererWithInvalidMode() {
 		$tex = 'x^2 + y^2 = z^2';
 		$invalidMode = 'invalid_mode';
 
 		$renderer = $this->factory->getRenderer( $tex, [], $invalidMode );
 
-		// Should fall back to default mode (MATHML)
-		$this->assertInstanceOf( MathMathML::class, $renderer );
+		// Fall back from invalid to default (MODE_NATIVE_MML)
+		$this->assertInstanceOf( MathNativeMML::class, $renderer );
 	}
 
 	public function testGetRendererWithForceMathMode() {
 		$tex = 'x^2 + y^2 = z^2';
 		$params = [ 'forcemathmode' => MathConfig::MODE_SOURCE ];
 
-		$renderer = $this->factory->getRenderer( $tex, $params, MathConfig::MODE_MATHML );
+		$renderer = $this->factory->getRenderer( $tex, $params, MathConfig::MODE_NATIVE_MML );
 
-		// Should use the forced mode instead of the provided mode
+		// Favor forced mode over site/user default
 		$this->assertInstanceOf( MathSource::class, $renderer );
 	}
 
@@ -145,39 +107,17 @@ class RendererFactoryTest extends MediaWikiIntegrationTestCase {
 		$tex = 'H_2O';
 		$params = [ 'chem' => true ];
 
-		$this->options->method( 'get' )
-			->willReturnMap( [
-				[ 'MathoidCli', false ],
-				[ 'MathEnableExperimentalInputFormats', false ]
-			] );
-
 		$renderer = $this->factory->getRenderer( $tex, $params, MathConfig::MODE_SOURCE );
 
-		// Chemistry should override to MATHML mode
-		$this->assertInstanceOf( MathMathML::class, $renderer );
+		// Chemistry should ignore MODE_SOURCE and fall back to default (MODE_NATIVE_MML)
+		$this->assertInstanceOf( MathNativeMML::class, $renderer );
 		$this->assertEquals( 'chem', $renderer->getInputType() );
-	}
-
-	public function testGetRendererWithExperimentalFormat() {
-		$tex = '<math><mi>x</mi></math>';
-		$params = [ 'type' => 'pmml' ];
-
-		$this->options->method( 'get' )
-			->willReturnMap( [
-				[ 'MathoidCli', false ],
-				[ 'MathEnableExperimentalInputFormats', true ]
-			] );
-
-		$renderer = $this->factory->getRenderer( $tex, $params, MathConfig::MODE_MATHML );
-
-		$this->assertEquals( 'pmml', $renderer->getInputType() );
 	}
 
 	public function testGetFromHash() {
 		// Create a partial mock to avoid actually initializing from cache
 		$factory = $this->getMockBuilder( RendererFactory::class )
 			->setConstructorArgs( [
-				$this->options,
 				$this->mathConfig,
 				$this->userOptionsLookup,
 				$this->logger,

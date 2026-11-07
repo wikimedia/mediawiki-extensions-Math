@@ -39,7 +39,6 @@ class MathConfig {
 	/** @var string[] a list of all supported rendering modes */
 	public const SUPPORTED_MODES = [
 		self::MODE_SOURCE,
-		self::MODE_MATHML,
 		self::MODE_NATIVE_MML,
 		self::MODE_NATIVE_JAX
 	];

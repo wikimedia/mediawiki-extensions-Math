@@ -112,7 +112,7 @@ class MathNativeMMLTest extends MediaWikiIntegrationTestCase {
 	public function testGetHtmlNoMathJax() {
 		$math = new MathNativeMML( "a+b" );
 		$math->render();
-		$out = $math->getHtmlOutput( false );
+		$out = $math->getHtmlOutput();
 		$this->assertStringContainsString( 'mathjax_ignore', $out );
 	}
 
@@ -120,7 +120,7 @@ class MathNativeMMLTest extends MediaWikiIntegrationTestCase {
 		$math = new MathNativeMML( "a+b" );
 		$math->setMode( MathConfig::MODE_NATIVE_JAX );
 		$math->render();
-		$out = $math->getHtmlOutput( false );
+		$out = $math->getHtmlOutput();
 		$this->assertStringNotContainsString( 'mathjax_ignore', $out );
 	}
 }

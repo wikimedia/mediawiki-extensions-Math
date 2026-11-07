@@ -56,7 +56,7 @@ class MathConfigTest extends TestCase {
 		yield 'mathjax option' => [ 9, MathConfig::MODE_NATIVE_JAX ];
 
 		yield 'source string' => [ 'source', MathConfig::MODE_SOURCE ];
-		yield 'mathml string' => [ 'mathml', MathConfig::MODE_MATHML ];
+		yield 'mathml string' => [ 'mathml', self::TEST_DEFAULT ];
 		yield 'latexml string' => [ 'latexml', self::TEST_DEFAULT ];
 		yield 'native string' => [ 'native', MathConfig::MODE_NATIVE_MML ];
 		yield 'mathjax string' => [ 'mathjax', MathConfig::MODE_NATIVE_JAX ];
@@ -85,7 +85,7 @@ class MathConfigTest extends TestCase {
 	}
 
 	public static function provideIsValidRenderingMode() {
-		yield 'valid' => [ MathConfig::MODE_MATHML, true ];
+		yield 'valid' => [ MathConfig::MODE_NATIVE_MML, true ];
 		yield 'garbage' => [ 'garbage', false ];
 		yield 'does not normalize' => [ 0, false ];
 	}
@@ -95,17 +95,17 @@ class MathConfigTest extends TestCase {
 	 */
 	public function testIsValidRenderingMode( $mode, $expected ) {
 		$mathConfig = $this->newMathConfig( [
-			'MathValidModes' => [ MathConfig::MODE_MATHML ],
+			'MathValidModes' => [ MathConfig::MODE_NATIVE_MML ],
 		] );
 		$this->assertSame( $expected, $mathConfig->isValidRenderingMode( $mode ) );
 	}
 
 	public function testGetValidRenderingModeKeys() {
 		$mathConfig = $this->newMathConfig( [
-			'MathValidModes' => [ MathConfig::MODE_MATHML ],
+			'MathValidModes' => [ MathConfig::MODE_NATIVE_MML ],
 		] );
 		$this->assertEquals(
-			[ 'mathml' => 'mw-math-mathml' ],
+			[ 'native' => 'mw-math-native' ],
 			$mathConfig->getValidRenderingModeKeys() );
 	}
 

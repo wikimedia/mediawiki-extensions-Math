@@ -9,9 +9,8 @@ The Math extension manages the rendering of mathematical expressions in wikis su
 The wikitext tag math (e.g.,
 `<math display=block>E=mc^2</math>`) specifies mathematical expressions in the LaTeX dialect
 [texvc.](https://github.com/wikimedia/texvcjs/blob/master/lib/parser.pegjs)
-The most recent version of the Math extension converts these tags to mathematical expressions that can be
-displayed by most browsers using
-[mathoid](https://gitlab.wikimedia.org/repos/mediawiki/services/mathoid).
+The current version of the Math extension converts these tags to MathML that browsers render
+natively, enhanced by [MathJax](https://www.mathjax.org/).
 
 ## Workflow overview
 
@@ -31,16 +30,6 @@ The workflow for changing math-related aspects is the following.
 8. Enable the feature in on the [beta cluster](https://www.mediawiki.org/wiki/Beta_Cluster).
 9. Enable the feature in production (appropriate communities)
 
-
-Note that for rendering math the following dependent software packages are required
-* texvcjs
-* texvcinfo (depends on texvcjs)
-* mathjax
-* mathjax-node (depends on mathjax)
-* mathoid (depends on mathjax-node, texvcinfo)
-* restbase (depends on mathoid)
-* Math extension (depends on either restbase, or [mathoid and a database])
-* (MathSearch extension depends on Extension math)
 ### Step 1 (Ticket creation)
 
 > READ: [How to report a bug](https://www.mediawiki.org/wiki/How_to_report_a_bug)
@@ -85,8 +74,8 @@ Understand the current code and see which components have to be changed in which
 
 Examples:
 1. Possible tests: PHPUnit tests that check if the CSS attribute is present. Selenium tests that check if numbers are rendered. Find the Math extension code position that outputs HTML and find the CSS styles shipped with math. Understand how the math extension handles options. Understand PHPUnit and Selenium tests.
-2. Define test cases in MediaWiki, mathoid, and texvcjs. Implement node module texvcjs in and release to the npm bump version number of texvcinfo and implement changes in mathoid.
-3. Set up a bot to replace the old command. Add pseudo latex package to discover formulae that contain deprecated macros. Implement changes in texvcjs, texvcinfo, mathoid, and the math extension.
+2. Define test cases in MediaWiki.
+3. Set up a bot to replace the old command. Add pseudo latex package to discover formulae that contain deprecated macros. Implement changes in the Math extension.
 
 ### Step 5
 

@@ -3,10 +3,7 @@
 namespace MediaWiki\Extension\Math\Render;
 
 use InvalidArgumentException;
-use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathConfig;
-use MediaWiki\Extension\Math\MathMathML;
-use MediaWiki\Extension\Math\MathMathMLCli;
 use MediaWiki\Extension\Math\MathNativeMML;
 use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\Extension\Math\MathSource;
@@ -16,21 +13,12 @@ use Wikimedia\ObjectCache\WANObjectCache;
 
 class RendererFactory {
 
-	/** @var string[] */
-	public const CONSTRUCTOR_OPTIONS = [
-		'MathoidCli',
-		'MathEnableExperimentalInputFormats',
-		'MathValidModes',
-	];
-
 	public function __construct(
-		private readonly ServiceOptions $serviceOptions,
 		private readonly MathConfig $mathConfig,
 		private readonly UserOptionsLookup $userOptionsLookup,
 		private readonly LoggerInterface $logger,
 		private readonly WANObjectCache $cache,
 	) {
-		$serviceOptions->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
 	}
 
 	/**
@@ -41,7 +29,7 @@ class RendererFactory {
 	 * @return array Returns one of the predefined MathConfig::MODE_* constants and params changed according to rules
 	 */
 	public function determineMode(
-		string $mode = MathConfig::MODE_MATHML,
+		string $mode,
 		array $params = []
 	): array {
 		if ( isset( $params['forcemathmode'] ) ) {
@@ -50,24 +38,13 @@ class RendererFactory {
 		if ( !in_array( $mode, $this->mathConfig->getValidRenderingModes(), true ) ) {
 			$mode = $this->userOptionsLookup->getDefaultOption( 'math' );
 		}
-		if ( $this->serviceOptions->get( 'MathEnableExperimentalInputFormats' ) === true &&
-			$mode == MathConfig::MODE_MATHML &&
-			isset( $params['type'] )
-		) {
-			// Support of MathML input (experimental)
-			// Currently support for mode 'mathml' only
-			if ( !in_array( $params['type'], [ 'pmml', 'ascii' ], true ) ) {
-				unset( $params['type'] );
-			}
-		}
 		if ( isset( $params['chem'] ) ) {
 			$validModesForChem = [
 				MathConfig::MODE_NATIVE_MML,
 				MathConfig::MODE_NATIVE_JAX,
-				MathConfig::MODE_MATHML,
 			];
 			if ( !in_array( $mode, $validModesForChem, true ) ) {
-				$mode = MathConfig::MODE_MATHML;
+				$mode = MathConfig::MODE_NATIVE_MML;
 			}
 			$params['type'] = 'chem';
 		}
@@ -84,8 +61,8 @@ class RendererFactory {
 	 */
 	public function getRenderer(
 		string $tex,
-		array $params = [],
-		string $mode = MathConfig::MODE_MATHML
+		array $params,
+		string $mode
 	): MathRenderer {
 		[ $mode, $params ] = $this->determineMode( $mode, $params );
 		switch ( $mode ) {
@@ -94,18 +71,11 @@ class RendererFactory {
 				break;
 			case MathConfig::MODE_NATIVE_MML:
 			case MathConfig::MODE_NATIVE_JAX:
+			default:
 				$renderer = new MathNativeMML( $tex, $params, $this->cache );
 				// ParserHooksHandler::mathTagHook uses $renderer->getMode() to
 				// learn result of determineMode() to load the MathJax module.
 				$renderer->setMode( $mode );
-				break;
-			case MathConfig::MODE_MATHML:
-			default:
-				if ( $this->serviceOptions->get( 'MathoidCli' ) ) {
-					$renderer = new MathMathMLCli( $tex, $params, $this->cache );
-				} else {
-					$renderer = new MathMathML( $tex, $params, $this->cache );
-				}
 		}
 		$this->logger->debug(
 			'Start rendering "{tex}" in mode {mode}',
