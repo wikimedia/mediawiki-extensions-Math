@@ -128,10 +128,6 @@
 			"description": "Maximum string-length of a TeX expression for the Wikibase property type math. See Wikibase documentation on string-limits for other limits https://doc.wikimedia.org/Wikibase/master/php/docs_topics_options.html#autotoc_md317.",
 			"value": 400
 		},
-		"MathTexVCService": {
-			"description": "Determine which TexVC variant is used, currently available: 'mathoid', 'restbase' and 'local' (default).",
-			"value": "local"
-		},
 		"MathSvgRenderer": {
 			"description": "Determine which SVG rendering service is used. Currently available 'mathoid', 'restbase'.",
 			"value": "restbase"
