@@ -2,10 +2,7 @@
 
 namespace MediaWiki\Extension\Math\InputCheck;
 
-use MediaWiki\Extension\Math\MathConfig;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
-use stdClass;
 
 /**
  * MediaWiki math extension
@@ -57,32 +54,5 @@ abstract class BaseChecker {
 
 	public function setPurge( bool $purge ) {
 		$this->purge = $purge;
-	}
-
-	/**
-	 * @see https://phabricator.wikimedia.org/T119300
-	 * @param stdClass $e
-	 * @param string $host
-	 * @return Message
-	 */
-	protected function errorObjectToMessage( stdClass $e, $host = 'invalid' ): Message {
-		if ( isset( $e->error->message ) ) {
-			if ( $e->error->message === 'Illegal TeX function' ) {
-				return Message::newFromKey( 'math_unknown_function', $e->error->found );
-			} elseif ( preg_match( '/Math extension/', $e->error->message ) ) {
-				// TODO: inject once checker is refactored more
-				$mode = MediaWikiServices::getInstance()
-					->get( 'Math.Config' )
-					->getRenderingModeName( MathConfig::MODE_MATHML );
-				$msg = $e->error->message;
-				return Message::newFromKey( 'math_invalidresponse', $mode, $host, $msg );
-			}
-
-			return Message::newFromKey( 'math_syntax_error' );
-		} elseif ( isset( $e->error->details ) ) {
-			return Message::newFromKey( 'math_other_error', $e->error->details );
-		}
-
-		return Message::newFromKey( 'math_unknown_error' );
 	}
 }

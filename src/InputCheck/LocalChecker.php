@@ -8,6 +8,7 @@ use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Message\Message;
+use stdClass;
 use Wikimedia\ObjectCache\WANObjectCache;
 
 class LocalChecker extends BaseChecker {
@@ -46,7 +47,7 @@ class LocalChecker extends BaseChecker {
 		}
 		if ( !in_array( $this->type, self::VALID_TYPES, true ) ) {
 			$this->error = $this->errorObjectToMessage(
-				(object)[ "error" => "Unsupported type passed to LocalChecker: " . $this->type ], "LocalCheck" );
+				(object)[ "error" => "Unsupported type passed to LocalChecker: " . $this->type ] );
 			return;
 		}
 		try {
@@ -72,8 +73,7 @@ class LocalChecker extends BaseChecker {
 			$this->mathMl = $result['mathml'];
 		} else {
 			$this->error = $this->errorObjectToMessage(
-				(object)[ "error" => (object)( $result["error"] ?? [] ) ],
-				"LocalCheck" );
+				(object)[ "error" => (object)( $result["error"] ?? [] ) ] );
 		}
 		$this->isChecked = true;
 	}
@@ -143,5 +143,22 @@ class LocalChecker extends BaseChecker {
 
 	public function setHookContainer( ?HookContainer $hookContainer ): void {
 		$this->hookContainer = $hookContainer;
+	}
+
+	/**
+	 * @see https://phabricator.wikimedia.org/T119300
+	 */
+	protected function errorObjectToMessage( stdClass $e ): Message {
+		if ( isset( $e->error->message ) ) {
+			if ( $e->error->message === 'Illegal TeX function' ) {
+				return Message::newFromKey( 'math_unknown_function', $e->error->found );
+			}
+
+			return Message::newFromKey( 'math_syntax_error' );
+		} elseif ( isset( $e->error->details ) ) {
+			return Message::newFromKey( 'math_other_error', $e->error->details );
+		}
+
+		return Message::newFromKey( 'math_unknown_error' );
 	}
 }
