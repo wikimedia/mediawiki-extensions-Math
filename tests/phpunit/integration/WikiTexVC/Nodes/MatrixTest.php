@@ -93,6 +93,24 @@ class MatrixTest extends MediaWikiIntegrationTestCase {
 			'Should render a matrix' );
 	}
 
+	public static function provideFences(): array {
+		return [
+			'array' => [ 'array', '/^<mtable/' ],
+			'aligned' => [ 'aligned', '/^<mtable/' ],
+			'matrix' => [ 'matrix', '/^<mrow[^>]*><mo[^>]*><\/mo><mtable/' ],
+			'pmatrix' => [ 'pmatrix', '/^<mrow[^>]*><mo[^>]*>\(<\/mo>.*<mo[^>]*>\)<\/mo><\/mrow>$/' ],
+			'cases' => [ 'cases', '/^<mrow[^>]*><mo[^>]*>{<\/mo>.*mwe-math-columnalign-l/' ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideFences
+	 */
+	public function testFences( string $top, string $pattern ) {
+		$matrix = new Matrix( $top, new TexArray( new TexArray( new TexArray( new Literal( 'a' ) ) ) ) );
+		$this->assertMatchesRegularExpression( $pattern, (string)$matrix->toMMLTree() );
+	}
+
 	public function testTop() {
 		$this->sampleMatrix->setTop( 'abc' );
 		$this->assertEquals( 'abc', $this->sampleMatrix->getTop() );

@@ -25,7 +25,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) )
 		);
 
-		$result = BaseParsing::array( $node, [], null, 'array', '007E' );
+		$result = $node->toMMLTree();
 		$this->assertStringContainsString( '<mi>a</mi>', (string)$result );
 	}
 
@@ -138,9 +138,16 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 		$matrix = new Matrix( 'alignat',
 			new TexArray( new TexArray( new Literal( '\\sin' ) ) )
 		);
-		$result = BaseParsing::alignAt( $matrix, [], null, 'alignat' );
+		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( 'mtable', $result );
 		$this->assertStringNotContainsString( 'padding-bottom', $result );
+	}
+
+	public function testDisplayStyleD() {
+		$this->assertStringContainsString( '<mtable displaystyle="true">',
+			(string)( new TexVC() )->parse( '\\begin{alignat}{1} a &= b \\end{alignat}' )->toMMLTree() );
+		$this->assertStringNotContainsString( 'displaystyle',
+			(string)( new TexVC() )->parse( '\\begin{matrix} a & b \\end{matrix}' )->toMMLTree() );
 	}
 
 	public function testAlignAtLength() {
@@ -151,7 +158,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			$row1
 			)
 		);
-		$result = BaseParsing::alignAt( $matrix, [], null, 'alignat' );
+		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( 'mtable', $result );
 		$this->assertStringContainsString( 'padding-bottom', $result );
 		$this->assertStringContainsString( '23em;', $result );
@@ -168,7 +175,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 				)
 			)
 		);
-		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( 'top', $result );
 	}
 
@@ -179,7 +186,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 				new TexArray( new TexArray( new Literal( '\\hline ' ) ) )
 			)
 		);
-		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( 'bottom', $result );
 		$this->assertStringContainsString( '<mi>a</mi>', $result );
 	}
@@ -194,7 +201,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 				) )
 			)
 		);
-		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( 'class="mwe-math-matrix-top', $result );
 		$this->assertStringContainsString( '<mi>a</mi>', $result );
 	}
@@ -206,7 +213,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 2\\\\
 \\hline
 \\end{array}' )[0];
-		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( 'class="mwe-math-matrix-top"', $result );
 		$this->assertStringContainsString( 'class="mwe-math-matrix-top mwe-math-matrix-bottom"', $result );
 	}
@@ -216,7 +223,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ),
 			new TexArray( new TexArray() )
 		) );
-		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$result = $node->toMMLTree();
 		$this->assertDoesNotMatchRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
 	}
 
@@ -225,7 +232,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ),
 			new TexArray( new TexArray( new Literal( 'b' ) ) )
 		) );
-		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$result = $node->toMMLTree();
 		$this->assertMatchesRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
 	}
 
@@ -234,7 +241,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ),
 			new TexArray( new TexArray(), new TexArray() )
 		) );
-		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$result = $node->toMMLTree();
 		$this->assertMatchesRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
 	}
 
@@ -243,7 +250,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ),
 			new TexArray( new TexArray( new Literal( '\\hline ' ) ) )
 		) );
-		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$result = $node->toMMLTree();
 		$this->assertDoesNotMatchRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
 	}
 
@@ -252,7 +259,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ),
 			new TexArray( new TexArray( new Literal( '\\hline ' ), new Literal( 'b' ) ) )
 		) );
-		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$result = $node->toMMLTree();
 		$this->assertMatchesRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
 	}
 
@@ -261,7 +268,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ),
 			new TexArray( new TexArray( new Literal( '\\hline ' ) ), new TexArray() )
 		) );
-		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$result = $node->toMMLTree();
 		$this->assertMatchesRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
 	}
 
@@ -270,7 +277,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 z & = & a \\\\
 f(x,y,z) & = & x + y + z
 \\end{array}' )[0];
-		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( '<mtd class="mwe-math-columnalign-l"', $result );
 		$this->assertStringContainsString( '<mtd class="mwe-math-columnalign-r"', $result );
 	}

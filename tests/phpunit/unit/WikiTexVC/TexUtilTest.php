@@ -84,6 +84,7 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			'left_function',
 			'mathchar',
 			'mathoid_required',
+			'matrix',
 			'mediawiki_function_names',
 			'mhchem_required',
 			'nullary_macro',
@@ -186,11 +187,10 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * A callback of a node class gets the context, $passedArgs, the name and the further entries of texutil.json,
-	 * see TexNode::getLocalCallback(), and declares the leading ones it uses.
+	 * A callback of a node class gets the context and the further entries of texutil.json,
+	 * see TexNode::parseToMML().
 	 */
-	public function testLocalCallbacksDeclareALeadingPart() {
-		$expected = [ 'ctx', 'passedArgs', 'input' ];
+	public function testLocalCallbacksTakeTheContextFirst() {
 		foreach ( TexUtil::getInstance()->getBaseElements()['callback'] as $symbol => $callback ) {
 			$callback = (array)$callback;
 			if ( !str_contains( $callback[0], '::' ) ) {
@@ -199,9 +199,10 @@ class TexUtilTest extends MediaWikiUnitTestCase {
 			[ $class, $method ] = explode( '::', $callback[0], 2 );
 			$reflection = new ReflectionMethod( $class, $method );
 			$names = array_map( static fn ( $p ) => $p->getName(), $reflection->getParameters() );
-			$this->assertSame( array_slice( $expected, 0, min( count( $names ), 3 ) ),
-				array_slice( $names, 0, 3 ), "{$callback[0]} for $symbol" );
-			$this->assertLessThanOrEqual( 3 + count( $callback ) - 1, $reflection->getNumberOfRequiredParameters(),
+			if ( $names ) {
+				$this->assertSame( 'ctx', $names[0], "{$callback[0]} for $symbol" );
+			}
+			$this->assertLessThanOrEqual( count( $callback ), $reflection->getNumberOfRequiredParameters(),
 				"{$callback[0]} requires no more entries than $symbol has" );
 		}
 	}

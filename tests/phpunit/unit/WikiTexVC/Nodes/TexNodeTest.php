@@ -3,8 +3,10 @@
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 
 use InvalidArgumentException;
+use LogicException;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Declaration;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2sq;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
@@ -14,6 +16,7 @@ use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 use MediaWikiUnitTestCase;
 use RuntimeException;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode
@@ -35,6 +38,29 @@ class TexNodeTest extends MediaWikiUnitTestCase {
 	public function testRender( array $args, string $expected ) {
 		$n = new TexNode( ...$args );
 		$this->assertSame( $expected, $n->render() );
+	}
+
+	public static function provideCallbacks(): array {
+		return [
+			'no callback' => [ 'a', [ null, null, [] ] ],
+			'list' => [ '\\mathbf', [ null, 'mathFont', [ 'bold' ] ] ],
+			'node class' => [ '\\textbf', [ Fun1::class, 'hBox', [ null, 'bold' ] ] ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideCallbacks
+	 */
+	public function testMacroCallback( string $name, array $expected ) {
+		$macro = TestingAccessWrapper::newFromClass( TexNode::class )->macro( $name );
+		$this->assertSame( $expected, [ $macro['callbackClass'], $macro['callback'], $macro['callbackArgs'] ] );
+	}
+
+	public function testForeignCallback() {
+		$this->expectException( LogicException::class );
+		$this->expectExceptionMessage( 'Callback to MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::lap' .
+			' should be treated in the respective class.' );
+		TestingAccessWrapper::newFromObject( new TexNode() )->parseToMML( '\\llap', new RenderContext() );
 	}
 
 	public function testIntegerArgs() {

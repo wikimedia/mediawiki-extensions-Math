@@ -113,7 +113,7 @@ class Fun1 extends TexNode {
 	}
 
 	/** MathJax Accent: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=801-829 */
-	protected function accent( RenderContext $ctx, array $passedArgs, string $input, string $accent,
+	protected function accent( RenderContext $ctx, string $accent,
 		int|bool|null $stretchy = null
 	): MMLbase {
 		// TODO The first if-clause is mathjax specific (and not necessary by generic parsers)
@@ -127,7 +127,7 @@ class Fun1 extends TexNode {
 				$attrs = [ "stretchy" => $stretchy ? "true" : "false" ];
 			}
 		}
-		if ( $input === '\\vec' ) {
+		if ( trim( $this->fname ) === '\\vec' ) {
 			$attrs['class'] = 'mwe-math-vec';
 		}
 

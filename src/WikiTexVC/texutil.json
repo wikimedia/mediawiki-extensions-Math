@@ -240,13 +240,10 @@
 		"color": "#473992"
 	},
 	"Bmatrix": {
-		"callback": [
-			"array",
-			null,
-			"\\{",
-			"\\}",
-			"c"
-		]
+		"matrix": {
+			"open": "{",
+			"close": "}"
+		}
 	},
 	"BrickRed": {
 		"color": "#B6321C"
@@ -417,13 +414,10 @@
 		"color": "#EF58A0"
 	},
 	"Vmatrix": {
-		"callback": [
-			"array",
-			null,
-			"\\Vert",
-			"\\Vert",
-			"c"
-		]
+		"matrix": {
+			"open": "‖",
+			"close": "‖"
+		}
 	},
 	"White": {
 		"color": "#FFFFFF"
@@ -1188,9 +1182,6 @@
 		"latex_function_names": true,
 		"op_limits": "nolimits"
 	},
-	"\\array": {
-		"callback": "matrix"
-	},
 	"\\arrowvert": {
 		"delimiter": [
 			"⏐"
@@ -1755,21 +1746,6 @@
 			"∩"
 		]
 	},
-	"\\cases": {
-		"callback": [
-			"matrix",
-			"{",
-			"",
-			[
-				"l",
-				"l"
-			],
-			null,
-			".1em",
-			null,
-			true
-		]
-	},
 	"\\cdot": {
 		"dots_lookahead": "dotsb",
 		"nullary_macro": true,
@@ -2209,15 +2185,6 @@
 		"op_limits": "nolimits"
 	},
 	"\\displaylines": {
-		"callback": [
-			"matrix",
-			null,
-			null,
-			null,
-			null,
-			".5em",
-			"D"
-		],
 		"style": "display"
 	},
 	"\\displaystyle": {
@@ -2403,35 +2370,9 @@
 		"nullary_macro": true
 	},
 	"\\eqalign": {
-		"callback": [
-			"matrix",
-			null,
-			null,
-			[
-				"r",
-				"l"
-			],
-			"(0, lengths_js_1.em)(MathSpace::thickmathspace)",
-			".5em",
-			"D"
-		],
 		"style": "display"
 	},
 	"\\eqalignno": {
-		"callback": [
-			"matrix",
-			null,
-			null,
-			[
-				"r",
-				"l"
-			],
-			"(0, lengths_js_1.em)(MathSpace::thickmathspace)",
-			".5em",
-			"D",
-			null,
-			"right"
-		],
 		"style": "display"
 	},
 	"\\eqcirc": {
@@ -3168,20 +3109,6 @@
 		]
 	},
 	"\\leqalignno": {
-		"callback": [
-			"matrix",
-			null,
-			null,
-			[
-				"r",
-				"l"
-			],
-			"(0, lengths_js_1.em)(MathSpace::thickmathspace)",
-			".5em",
-			"D",
-			null,
-			"left"
-		],
 		"style": "display"
 	},
 	"\\leqq": {
@@ -3729,9 +3656,6 @@
 			"mathFont",
 			"normal"
 		]
-	},
-	"\\matrix": {
-		"callback": "matrix"
 	},
 	"\\max": {
 		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedOp",
@@ -4505,13 +4429,6 @@
 		"nullary_macro": true,
 		"operator_rendering": [
 			"±"
-		]
-	},
-	"\\pmatrix": {
-		"callback": [
-			"matrix",
-			"(",
-			")"
 		]
 	},
 	"\\pmod": {
@@ -6285,130 +6202,73 @@
 		]
 	},
 	"alignat": {
-		"callback": [
-			"alignAt",
-			null,
-			true,
-			true
-		],
 		"style": "display"
 	},
 	"alignat*": {
-		"callback": [
-			"alignAt",
-			null,
-			false,
-			true
-		],
 		"style": "display"
 	},
 	"aligned": {
-		"callback": [
-			"alignAt",
-			null,
-			null,
-			null,
-			[
+		"matrix": {
+			"align": [
 				"r",
 				"l"
 			],
-			"ParseUtil_js_1.default.cols(0, 2)",
-			".5em",
-			"D"
-		],
+			"repeat": 5,
+			"vline": false
+		},
 		"style": "display"
 	},
 	"alignedat": {
-		"callback": [
-			"alignAt",
-			null,
-			false,
-			false
-		],
-		"style": "display"
-	},
-	"array": {
-		"callback": [
-			"matrix"
-		]
-	},
-	"bmatrix": {
-		"callback": [
-			"array",
-			null,
-			"[",
-			"]",
-			"c"
-		]
-	},
-	"cases": {
-		"callback": [
-			"matrix",
-			"{",
-			"",
-			[
-				"l",
+		"matrix": {
+			"align": [
+				"r",
 				"l"
 			],
-			null,
-			".1em",
-			null,
-			true
-		]
+			"vline": false
+		},
+		"style": "display"
+	},
+	"bmatrix": {
+		"matrix": {
+			"open": "[",
+			"close": "]"
+		}
+	},
+	"cases": {
+		"matrix": {
+			"open": "{",
+			"close": "",
+			"align": [
+				"l",
+				"l"
+			]
+		}
 	},
 	"matrix": {
-		"callback": [
-			"array",
-			null,
-			null,
-			null,
-			"c"
-		]
+		"matrix": {
+			"open": "",
+			"close": ""
+		}
 	},
 	"pmatrix": {
-		"callback": [
-			"array",
-			null,
-			"(",
-			")",
-			"c"
-		]
+		"matrix": {
+			"open": "(",
+			"close": ")"
+		}
 	},
 	"smallmatrix": {
-		"callback": [
-			"array",
-			null,
-			null,
-			null,
-			"c",
-			"ParseUtil_js_1.default.cols(1 / 3)",
-			".2em",
-			"S",
-			1
-		],
+		"matrix": {
+			"open": "",
+			"close": "",
+			"class": "mwe-math-smallmatrix"
+		},
 		"style": "script"
 	},
-	"subarray": {
-		"callback": [
-			"array",
-			null,
-			null,
-			null,
-			null,
-			"ParseUtil_js_1.default.cols(0)",
-			"0.1em",
-			"S",
-			1
-		]
-	},
 	"vmatrix": {
-		"callback": [
-			"array",
-			null,
-			"\\vert",
-			"\\vert",
-			"c"
-		]
+		"matrix": {
+			"open": "|",
+			"close": "|"
+		}
 	},
 	"|": {
 		"delimiter": [

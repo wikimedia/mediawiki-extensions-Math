@@ -1,7 +1,6 @@
 <?php
 namespace MediaWiki\Extension\Math\WikiTexVC\MMLmappings;
 
-use Exception;
 use LogicException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
@@ -11,10 +10,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmspace;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
-use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
-use MediaWiki\Logger\LoggerFactory;
 
 /**
  * This contains the basic parsing methods for tex elements, which get invoked
@@ -25,42 +21,6 @@ use MediaWiki\Logger\LoggerFactory;
  * @author Johannes Stegmüller
  */
 class BaseMethods {
-
-	public static function checkAndParse( $input, $passedArgs, $operatorContent, TexNode $node,
-		RenderContext $ctx = new RenderContext()
-	): MMLbase {
-		if ( !is_string( $input ) ) {
-			// just discard these elements, sometimes empty TexArray
-			return new MMLarray();
-		}
-
-		// Checking for a named parsing function
-
-		$resFct = TexUtil::getInstance()->callback( trim( $input ) );
-		if ( $resFct == null ) {
-			return new MMLarray();
-		}
-		// If the function has been found, dynamically call the associated parsing function.
-		if ( is_string( $resFct ) ) {
-			$resFct = [ $resFct ];
-		}
-		if ( str_contains( $resFct[0], '::', ) ) {
-			throw new LogicException( "Callback to $resFct[0] should be treated in the respective class." );
-		}
-		// Passing resolved function as param without first id; the context goes last, by name
-		$shifted = array_shift( $resFct );
-		$resFct['ctx'] = $ctx;
-		try {
-			return BaseParsing::{$shifted}( $node, $passedArgs, $operatorContent, $input, ...$resFct );
-		} catch ( Exception $e ) {
-			LoggerFactory::getInstance( 'Math' )->error( 'Callback {callback} failed for {input}', [
-				'callback' => $shifted,
-				'input' => $input,
-				'exception' => $e,
-			] );
-			return new MMLarray();
-		}
-	}
 
 	public function checkAndParseOperator( $input, $node, $passedArgs, $operatorContent,
 		$prepareInput = true

@@ -6,9 +6,15 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use Generator;
 use InvalidArgumentException;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtable;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtd;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtr;
 use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
+use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 class Matrix extends TexArray {
 
@@ -116,20 +122,9 @@ class Matrix extends TexArray {
 		// plain.tex \matrix: swh:1:cnt:0f363a96c0e1f93d830e97534b1fe07861fdae69;lines=1093-1096
 		// amsmath matrix: swh:1:cnt:d4a287b9531788cd614d524bdd53f38681a63902;lines=2525-2527
 		$style = self::macroArgStyle( $this->getTop(), 0, RenderContext::TEXT );
-		// \vline draws a rule in the tables of the matrix callback, not in aligned
-		$inMatrix = self::macro( $this->getTop() )['callback'] !== 'alignAt';
+		$inMatrix = $this->definition()['vline'] ?? true;
 		return $ctx->forArgument( $style, $ctx->font, inMatrix: $inMatrix,
 			squashLiterals: $ctx->squashLiterals, colorDefinitions: $colors, links: $links );
-	}
-
-	/** @inheritDoc */
-	public function toMMLTree( RenderContext $ctx = new RenderContext() ): MMLbase {
-		$mml = $this->parseToMML( $this->getTop(), $ctx );
-		// Bug T418073
-		if ( $mml instanceof MMLmtable ) {
-			$mml->setAttribute( 'displaystyle', 'true' );
-		}
-		return $mml;
 	}
 
 	private function renderMatrix( Matrix $matrix ): string {
@@ -209,13 +204,12 @@ class Matrix extends TexArray {
 		$this->renderedColumSpecs = trim( $colSpecs->render(), "{} \n\r\t\v\x00" );
 		$colNo = 0;
 		$this->boarder = [];
-		if ( $this->top === 'alignedat' && is_numeric( $this->renderedColumSpecs ) ) {
-			$this->alignInfo = $this->getRlSequence( (int)$this->renderedColumSpecs );
-			return;
-		}
-		if ( $this->top === 'aligned' ) {
-			// TODO: this would need to guess the number of columns form the content
-			$this->alignInfo = $this->getRlSequence();
+		$definition = $this->definition();
+		if ( isset( $definition['align'] ) ) {
+			// TODO: aligned would need to guess the number of columns from the content
+			$repeat = is_numeric( $this->renderedColumSpecs ) ? (int)$this->renderedColumSpecs
+				: $definition['repeat'] ?? 1;
+			$this->alignInfo = array_merge( ...array_fill( 0, $repeat, $definition['align'] ) );
 			return;
 		}
 		foreach ( str_split( $this->renderedColumSpecs ) as $chr ) {
@@ -229,8 +223,9 @@ class Matrix extends TexArray {
 		}
 	}
 
-	private function getRlSequence( int $length = 5 ): array {
-		return str_split( str_repeat( 'rl', $length ) );
+	/** The entry of this environment under matrix in texutil.json */
+	private function definition(): array {
+		return TexUtil::getInstance()->matrix( $this->top ) ?: [];
 	}
 
 	public function getBoarder(): array {
@@ -248,4 +243,73 @@ class Matrix extends TexArray {
 		return '\\\\' . $rowSpecs;
 	}
 
+	/** @inheritDoc */
+	public function toMMLTree( RenderContext $ctx = new RenderContext() ): MMLbase {
+		$definition = $this->definition();
+		// MathJax Matrix: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1547-1610
+		$resInner = [];
+		$boarder = $this->getBoarder();
+		$align = $this->getAlign();
+		$rowNo = 0;
+		$lines = $this->getLines();
+		foreach ( $this as $row ) {
+			$rowCtx = $this->argContext( $row, $ctx );
+			$innerInnter = [];
+			$colNo = 0;
+			$isEmptyLine = true;
+			$rowAttributes = [];
+			$rowSpecs = $row->getRowSpecs();
+			if ( $rowSpecs ) {
+				$rowAttributes['style'] = "padding-bottom: {$rowSpecs->getCssLength()};";
+			}
+			foreach ( $row  as $cell ) {
+				$cellCtx = $row->argContext( $cell, $rowCtx );
+				$usedArg = clone $cell;
+				if ( $usedArg instanceof TexArray &&
+					$usedArg->getLength() >= 1
+				) {
+					$firstArg = $usedArg[0];
+					if ( $firstArg instanceof Literal &&
+						$firstArg->getArg() === '\\hline '
+					) {
+						$usedArg->pop();
+					}
+				}
+				$mtdAttributes = $rowAttributes;
+				$texclass = $lines[$rowNo] ? TexClass::TOP : '';
+				$texclass .= $lines[$rowNo + 1] ?? false ? ' ' . TexClass::BOTTOM : '';
+				$texclass .= $boarder[$colNo] ?? false ? ' ' . TexClass::LEFT : '';
+				$texclass .= $boarder[$colNo + 1 ] ?? false ? ' ' . TexClass::RIGHT : '';
+				if ( in_array( $align[$colNo] ?? [], [ 'l', 'r' ] ) ) {
+					// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
+					$texclass .= ' mwe-math-columnalign-' . $align[$colNo];
+				}
+				$texclass = trim( $texclass );
+				if ( $texclass ) {
+					$mtdAttributes['class'] = $texclass;
+				}
+				$isEmptyLine = $isEmptyLine && $usedArg->isEmpty();
+				$innerInnter[] = new MMLmtd( "", $mtdAttributes, $usedArg->toMMLTree( $cellCtx ) );
+				$colNo++;
+			}
+			$rowNo++;
+			// empty trailing lines with only one empty cell should not be rendered
+			if ( $rowNo === count( $lines ) && $colNo === 1 && $isEmptyLine ) {
+				break;
+			}
+			$resInner[] = new MMLmtr( "", [], ...$innerInnter );
+		}
+		$mtable = new MMLmtable( '', isset( $definition['class'] ) ? [ 'class' => $definition['class'] ] : [] );
+		$mtable->addChild( ...$resInner );
+		if ( !isset( $definition['open'] ) ) {
+			// Bug T418073
+			$mtable->setAttribute( 'displaystyle', 'true' );
+			return $mtable;
+		}
+		$open = new MMLmo( TexClass::OPEN, [], $definition['open'] );
+		// MathJax gives an empty closing fence the width of a null delimiter.
+		$close = new MMLmo( TexClass::CLOSE,
+			[ "data-mwe-fence" => "true", "stretchy" => "true", "symmetric" => "true" ], $definition['close'] );
+		return new MMLmrow( TexClass::ORD, [], $open, $mtable, $close );
+	}
 }

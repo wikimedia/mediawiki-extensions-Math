@@ -22,10 +22,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmspace;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsqrt;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmstyle;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsup;
-use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtable;
-use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtd;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
-use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtr;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunder;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunderover;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
@@ -33,7 +30,6 @@ use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2sq;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
@@ -41,57 +37,13 @@ use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 /**
  * Parsing functions for specific recognized mappings.
- * Usually the parsing functions are invoked from the BaseMethods classes.
+ * TexNode::parseToMML() invokes these parsing functions.
  *
  * A callback gets the node, the attributes and the content in braces a literal passes ($passedArgs and
  * $operatorContent, empty for other nodes), the name of the macro, the further entries of its callback in
  * texutil.json, and the context of the node last, by name.
  */
 class BaseParsing {
-
-	public static function array( $node, $passedArgs, $operatorContent, $name,
-		$begin = null, $open = null, $close = null, $align = null, $spacing = null, $vspacing = null, $style = null,
-		$raggedHeight = null, RenderContext $ctx = new RenderContext()
-	): MMLbase {
-		// MathJax Array: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1926-1979
-		$output = [];
-		if ( $open != null ) {
-			$resDelimiter = TexUtil::getInstance()->delimiter( trim( $open ) ) ?? false;
-			if ( $resDelimiter ) {
-				// $retDelim = $bm->checkAndParseDelimiter($open, $node,$passedArgs,true);
-				$output[] = ( new MMLmo( TexClass::OPEN, [], $resDelimiter[0] ) );
-			}
-		}
-		if ( $name == "Bmatrix" || $name == "bmatrix" || $name == "Vmatrix"
-			|| $name == "vmatrix" || $name == "smallmatrix" || $name == "pmatrix" || $name == "matrix" ) {
-			// This is a workaround and might be improved mapping BMatrix to Matrix directly instead of array
-			return self::matrix( $node, $passedArgs, $operatorContent, $name,
-				$open, $close, null, null, null, null, true, ctx: $ctx );
-
-		} else {
-			$output[] = new MMLmrow( TexClass::ORD, [], $node->getMainarg()->toMMLTree( $ctx ) );
-		}
-
-		if ( $close != null ) {
-			$resDelimiter = TexUtil::getInstance()->delimiter( trim( $close ) ) ?? false;
-			if ( $resDelimiter ) {
-				$output[] = new MMLmo( TexClass::CLOSE, [], $resDelimiter[0] );
-			}
-		}
-		return new MMLarray( ...$output );
-	}
-
-	public static function alignAt( Matrix $node, $passedArgs, $operatorContent, $name,
-		$end = null, $numbered = null, $taggable = null, $columnAlign = null, $columnSpacing = null,
-		$rowSpacing = null, $style = null, RenderContext $ctx = new RenderContext()
-	): MMLbase {
-		// MathJax AlignAt: swh:1:cnt:d1ea310dac6fcde3604a6155f33b8935b1e17349;lines=132-187
-		// The entries after $end are not used yet; aligned takes them from MathJax's AmsEqnArray
-		// swh:1:cnt:976a0ed45c7bff3f119ed30c07f3ed1347fad078;lines=96-119
-		$mtable = self::matrix( $node, $passedArgs, $operatorContent, $name, ctx: $ctx );
-		$mtable->setAttribute( 'displaystyle', 'true' );
-		return $mtable;
-	}
 
 	public static function cancel( Fun1 $node, $passedArgs, $operatorContent, $name,
 		$notation = '', RenderContext $ctx = new RenderContext()
@@ -301,91 +253,6 @@ class BaseParsing {
 		}
 
 		return new MMLmspace( "", $args );
-	}
-
-	public static function matrix( Matrix $node, $passedArgs, $operatorContent, $name,
-		$open = null, $close = null, $align = null, $spacing = null, $vspacing = null, $style = null, $cases = null,
-		$numbered = null, RenderContext $ctx = new RenderContext()
-	): MMLbase {
-		// MathJax Matrix: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1547-1610
-		$resInner = [];
-		$boarder = $node->getBoarder();
-		if ( !$align ) {
-			$align = $node->getAlign();
-		}
-		$rowNo = 0;
-		$lines = $node->getLines();
-		foreach ( $node as $row ) {
-			$rowCtx = $node->argContext( $row, $ctx );
-			$innerInnter = [];
-			$colNo = 0;
-			$isEmptyLine = true;
-			$rowAttributes = [];
-			$rowSpecs = $row->getRowSpecs();
-			if ( $rowSpecs ) {
-				$rowAttributes['style'] = "padding-bottom: {$rowSpecs->getCssLength()};";
-			}
-			foreach ( $row  as $cell ) {
-				$cellCtx = $row->argContext( $cell, $rowCtx );
-				$usedArg = clone $cell;
-				if ( $usedArg instanceof TexArray &&
-					$usedArg->getLength() >= 1
-				) {
-					$firstArg = $usedArg[0];
-					if ( $firstArg instanceof Literal &&
-						$firstArg->getArg() === '\\hline '
-					) {
-						$usedArg->pop();
-					}
-				}
-				$mtdAttributes = $rowAttributes;
-				$texclass = $lines[$rowNo] ? TexClass::TOP : '';
-				$texclass .= $lines[$rowNo + 1] ?? false ? ' ' . TexClass::BOTTOM : '';
-				$texclass .= $boarder[$colNo] ?? false ? ' ' . TexClass::LEFT : '';
-				$texclass .= $boarder[$colNo + 1 ] ?? false ? ' ' . TexClass::RIGHT : '';
-				if ( in_array( $align[$colNo] ?? [], [ 'l', 'r' ] ) ) {
-					// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
-					$texclass .= ' mwe-math-columnalign-' . $align[$colNo];
-				}
-				$texclass = trim( $texclass );
-				if ( $texclass ) {
-					$mtdAttributes['class'] = $texclass;
-				}
-				$isEmptyLine = $isEmptyLine && $usedArg->isEmpty();
-				$innerInnter[] = new MMLmtd( "", $mtdAttributes, $usedArg->toMMLTree( $cellCtx ) );
-				$colNo++;
-			}
-			$rowNo++;
-			// empty trailing lines with only one empty cell should not be rendered
-			if ( $rowNo === count( $lines ) && $colNo === 1 && $isEmptyLine ) {
-				break;
-			}
-			$resInner[] = new MMLmtr( "", [], ...$innerInnter );
-		}
-		$mtable = new MMLmtable( '',
-		$name === 'smallmatrix' ?
-		[ 'class' => 'mwe-math-smallmatrix' ] : []
-		);
-		if ( $cases || ( $open != null && $close != null ) ) {
-			$bm = new BaseMethods();
-			$mmlMoOpen = $bm->checkAndParseDelimiter( $open, $node, [], [],
-				true, TexClass::OPEN );
-			if ( $mmlMoOpen->isEmpty() ) {
-				$mmlMoOpen = new MMLmo( TexClass::OPEN, [], $open ?? '' );
-			}
-
-			// MathJax gives an empty closing fence the width of a null delimiter.
-			$closeAtts = [ "data-mwe-fence" => "true", "stretchy" => "true", "symmetric" => "true" ];
-			$mmlMoClose = $bm->checkAndParseDelimiter( $close, $node, $closeAtts,
-				null, true, TexClass::CLOSE );
-			if ( $mmlMoClose->isEmpty() ) {
-				$mmlMoClose = ( new MMLmo( TexClass::CLOSE, $closeAtts, $close ?? '' ) );
-			}
-			$mtable->addChild( ...$resInner );
-			return new MMLmrow( TexClass::ORD, [], $mmlMoOpen, $mtable, $mmlMoClose );
-		}
-		$mtable->addChild( ...$resInner );
-		return $mtable;
 	}
 
 	public static function over( $node, $passedArgs, $operatorContent, $name,

@@ -17,6 +17,7 @@ use InvalidArgumentException;
  * @method false|mixed is_literal(string $litArg)
  * @method false|mixed latex_function_names(string $getArg)
  * @method false|string mathchar(string $getArg)
+ * @method false|array matrix(string $getArg)
  * @method false|mixed nullary_macro(string $litArg)
  * @method false|mixed nullary_macro_in_mbox(string $getArg)
  * @method false|mixed operator(string $getArg)

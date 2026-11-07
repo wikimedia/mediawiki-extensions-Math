@@ -25,7 +25,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunder;
 use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 use MediaWiki\Extension\Math\WikiTexVC\TexVC;
-use RuntimeException;
+use MediaWiki\Logger\LoggerFactory;
 
 class Literal extends TexNode {
 	private const CURLY_PATTERN = '/(?<start>[\\a-zA-Z\s]+)\{(?<arg>[^}]+)}/';
@@ -58,6 +58,17 @@ class Literal extends TexNode {
 		return $this->arg;
 	}
 
+	/** Attributes of the element this literal becomes */
+	private function attributes( RenderContext $ctx ): array {
+		$attributes = $ctx->font;
+		foreach ( $ctx->intentParams as $intparam ) {
+			if ( $intparam == $this->arg ) {
+				$attributes["arg"] = $intparam;
+			}
+		}
+		return $attributes;
+	}
+
 	/**
 	 * If the arg matches {@link self::CURLY_PATTERN}, return the
 	 * inner content of the curlies.
@@ -72,8 +83,8 @@ class Literal extends TexNode {
 		return null;
 	}
 
-	private function changeUnicodeFontInput( string $input, array &$arguments ): string {
-		$variant = MathVariant::removeMathVariantAttribute( $arguments );
+	private function changeUnicodeFontInput( string $input, array &$attributes ): string {
+		$variant = MathVariant::removeMathVariantAttribute( $attributes );
 		if ( $variant !== 'normal' ) {
 			// If the variant is normal, we do not need to change the input.
 			return MathVariant::translate(
@@ -86,8 +97,7 @@ class Literal extends TexNode {
 
 	/** @inheritDoc */
 	public function toMMLTree( RenderContext $ctx = new RenderContext() ): MMLbase {
-		// Attributes of the element this literal becomes
-		$arguments = $ctx->font;
+		$attributes = $this->attributes( $ctx );
 		if ( $this->arg === " " ) {
 			// Fixes https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Math/+/961711
 			// And they creation of empty mo elements.
@@ -96,21 +106,16 @@ class Literal extends TexNode {
 		if ( $this->arg === '\\ ' ) {
 			return new MMLmtext( "", [], '&#160;' );
 		}
-		foreach ( $ctx->intentParams as $intparam ) {
-			if ( $intparam == $this->arg ) {
-				$arguments["arg"] = $intparam;
-			}
-		}
 		// handle comma as decimal separator https://www.php.net/manual/en/function.is-numeric.php#88041
 		if ( ( is_numeric( $this->arg ) || is_numeric( str_replace( ',', '.', $this->arg ) ) )
 			&& !$ctx->inText ) {
-			if ( ( $arguments['mathvariant'] ?? '' ) === 'italic' ) {
+			if ( ( $attributes['mathvariant'] ?? '' ) === 'italic' ) {
 				// If the mathvariant italic does not exist for numbers
 				// https://github.com/w3c/mathml/issues/77#issuecomment-2993838911
-				$arguments['style'] = trim( ( $arguments['style'] ?? '' ) . ' font-style: italic' );
+				$attributes['style'] = trim( ( $attributes['style'] ?? '' ) . ' font-style: italic' );
 			}
-			$content = $this->changeUnicodeFontInput( $this->arg, $arguments );
-			return new MMLmn( "", $arguments, $content );
+			$content = $this->changeUnicodeFontInput( $this->arg, $attributes );
+			return new MMLmn( "", $attributes, $content );
 		}
 
 		// is important to split and find chars within curly and differentiate, see tc 459
@@ -130,7 +135,7 @@ class Literal extends TexNode {
 
 		// Sieve for Operators
 		$bm = new BaseMethods();
-		$noStretchArgs = $arguments;
+		$noStretchArgs = $attributes;
 		// Delimiters and operators should not be stretchy by default when used as literals
 		$noStretchArgs['stretchy'] ??= 'false';
 		$ret = $bm->checkAndParseOperator( $inputP, $this, $noStretchArgs, $operatorContent, false );
@@ -139,13 +144,13 @@ class Literal extends TexNode {
 		}
 		// Sieve for mathchar07 chars
 		$bm = new BaseMethods();
-		$ret = $bm->checkAndParseMathCharacter( $inputP, $this, $arguments, $operatorContent, false );
+		$ret = $bm->checkAndParseMathCharacter( $inputP, $this, $attributes, $operatorContent, false );
 		if ( !$ret->isEmpty() ) {
 			return $ret;
 		}
 
 		// Sieve for Identifiers
-		$ret = $this->checkAndParseIdentifier( $inputP, $arguments );
+		$ret = $this->checkAndParseIdentifier( $inputP, $attributes );
 		if ( !$ret->isEmpty() ) {
 			return $ret;
 		}
@@ -155,20 +160,8 @@ class Literal extends TexNode {
 			return $ret;
 		}
 
-		$operatorContent ??= [];
-		try {
-			$cb = $this->getLocalCallback( trim( $inputP ), $arguments, $ctx );
-		} catch ( RuntimeException ) {
-			// ignore exception
-			return new MMLarray();
-		}
-		if ( !$cb->isEmpty() ) {
-			return $cb;
-		}
-		// Sieve for Makros
-		$ret = BaseMethods::checkAndParse( $inputP, $arguments, $operatorContent, $this, ctx: $ctx );
-		if ( !( $ret instanceof MMLarray ) || !$ret->isEmpty() ) {
-			return $ret;
+		if ( self::macro( $inputP )['callback'] !== null ) {
+			return $this->parseToMML( $inputP, $ctx, $attributes, $operatorContent ?? [] );
 		}
 
 		// Specific
@@ -176,14 +169,14 @@ class Literal extends TexNode {
 			return $this->createVlineElement();
 		}
 
-		$content = $this->changeUnicodeFontInput( $input, $arguments );
+		$content = $this->changeUnicodeFontInput( $input, $attributes );
 		if ( $ctx->inText ) {
 			// No mi, if literal is from HBox
 			return new MMLmtext( "", [], $content );
 		}
 		// If falling through all sieves just creates an mi element
 
-		return new MMLmi( "", $arguments, $content );
+		return new MMLmi( "", $attributes, $content );
 	}
 
 	private function checkAndParseIdentifier( string $input, array $passedArgs ): MMLbase {
@@ -286,22 +279,27 @@ class Literal extends TexNode {
 		);
 	}
 
-	protected function limits(): never {
-		throw new RuntimeException( 'limits should not be rendered explicitly' );
+	protected function limits(): MMLbase {
+		LoggerFactory::getInstance( 'Math' )->warning( 'Ignored {input} without an operator before it', [
+			'input' => trim( $this->arg ),
+		] );
+		return new MMLarray();
 	}
 
 	/** MathJax NamedFn: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=583-590 */
-	protected function namedFn( RenderContext $ctx, array $passedArgs, string $input ): MMLbase {
+	protected function namedFn( RenderContext $ctx ): MMLbase {
 		// TexArray::linkArgs() sets whether an argument follows, which gets an apply function
 		$applyFct = BaseParsing::getApplyFct( $ctx );
-		return new MMLarray( new MMLmi( "", $passedArgs, ltrim( $input, '\\' ) ), $applyFct );
+		return new MMLarray( new MMLmi( "", $this->attributes( $ctx ), ltrim( trim( $this->getStart() ), '\\' ) ),
+			$applyFct );
 	}
 
 	/** MathJax NamedOp: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=599-617 */
-	protected function namedOp( RenderContext $ctx, array $passedArgs, string $input, ?string $uc = null ): MMLbase {
+	protected function namedOp( RenderContext $ctx, ?string $uc = null ): MMLbase {
 		// TexArray::linkArgs() sets whether an argument follows, which gets an apply function
 		$applyFct = BaseParsing::getApplyFct( $ctx );
-		return new MMLarray( new MMLmo( "", $passedArgs, $uc ?? ltrim( $input, '\\' ) ), $applyFct );
+		return new MMLarray(
+			new MMLmo( "", $this->attributes( $ctx ), $uc ?? ltrim( trim( $this->getStart() ), '\\' ) ), $applyFct );
 	}
 
 	/** MathJax \mod: swh:1:cnt:e9fc665797bcb6bdc58f25de1944c8c68d0fd764;lines=700-704 */
@@ -314,21 +312,21 @@ class Literal extends TexNode {
 	 * MathJax \implies: swh:1:cnt:32d2132763b2b01d0a77c2fb37dae43356a863aa;lines=525
 	 * MathJax \iff: swh:1:cnt:e9fc665797bcb6bdc58f25de1944c8c68d0fd764;lines=710
 	 */
-	protected function spacedArrow( RenderContext $ctx, array $passedArgs, string $input ): MMLbase {
+	protected function spacedArrow(): MMLbase {
 		// amsmath \implies and \iff put \; around the arrow; \thickmuskip is 5mu
 		// swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=907
 		// swh:1:cnt:e05c33e5d589cd1cb1ab6d74840bb02ea6f08273;lines=1288
 		// swh:1:cnt:72f94735bba07ecbc4214f3cc409de0e137ff1ee;lines=1576
 		$mstyle = new MMLmstyle( "", [ "scriptlevel" => "0" ],
 			new MMLmspace( "", [ "width" => MMLutil::round2em( 5 / 18 ) ] ) );
-		$arrow = trim( $input ) === '\implies' ? "&#x27F9;" : "&#x27FA;";
+		$arrow = trim( $this->getStart() ) === '\implies' ? "&#x27F9;" : "&#x27FA;";
 		return new MMLarray( $mstyle, new MMLmo( "", [], $arrow ), $mstyle );
 	}
 
 	/** MathJax \varliminf, \varlimsup, \varinjlim, \varprojlim: swh:1:cnt:32d2132763b2b01d0a77c2fb37dae43356a863aa;lines=70-79 */
-	protected function varlim( RenderContext $ctx, array $passedArgs, string $input ): MMLbase {
+	protected function varlim(): MMLbase {
 		$lim = new MMLmi( "", [], "lim" );
-		$inner = match ( trim( $input ) ) {
+		$inner = match ( trim( $this->getStart() ) ) {
 			'\varlimsup' => MMLmover::newSubtree( $lim, new MMLmo( "", [], "&#x2015;" ), "",
 				[ "accent" => "true" ] ),
 			'\varliminf' => MMLmunder::newSubtree( $lim, new MMLmo( "", [], "&#x2015;" ), "",
@@ -371,7 +369,7 @@ class Literal extends TexNode {
 	}
 
 	/** MathJax 3.2.2 mhchem: swh:1:cnt:951c2129885cc59578e24efb55f897008359a59e;lines=61-72 */
-	protected function longHarpoons( RenderContext $ctx, array $passedArgs, string $input, string $tex ): MMLbase {
+	protected function longHarpoons( RenderContext $ctx, string $tex ): MMLbase {
 		$warnings = [];
 		$checkRes = ( new TexVC() )->check( $tex, [ "usemhchem" => true ], $warnings );
 		return $checkRes["input"]->toMMLtree();

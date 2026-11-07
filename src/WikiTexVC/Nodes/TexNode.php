@@ -4,8 +4,11 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
+use Exception;
 use InvalidArgumentException;
+use LogicException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\Variants;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
@@ -13,6 +16,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
+use MediaWiki\Logger\LoggerFactory;
 
 class TexNode {
 
@@ -33,34 +37,38 @@ class TexNode {
 	}
 
 	/**
-	 * Calls the method of this node that texutil.json names as callback for $input, like Literal::namedFn.
-	 * The method gets the context, $passedArgs, $input and the further entries of the callback, and declares
-	 * only the leading ones it uses.
+	 * Renders $input with the callback texutil.json names for it, a method of this node or of BaseParsing.
+	 * A method of this node gets the context and the further entries of the callback.
 	 * @param string $input
-	 * @param array $passedArgs
 	 * @param RenderContext $ctx
+	 * @param array $passedArgs attributes for BaseParsing, from Literal
+	 * @param array|null $operatorContent content in braces for BaseParsing, from Literal
 	 * @return MMLbase
 	 */
-	public function getLocalCallback( string $input, array $passedArgs, RenderContext $ctx ): MMLbase {
-		$macro = self::macro( $input );
-		if ( $macro['callbackClass'] !== static::class ) {
-			return new MMLarray();
+	protected function parseToMML(
+		string $input, RenderContext $ctx, array $passedArgs = [], ?array $operatorContent = []
+	): MMLbase {
+		[ 'callbackClass' => $class, 'callback' => $method, 'callbackArgs' => $args ] = self::macro( $input );
+		if ( $class === static::class ) {
+			return $this->{$method}( $ctx, ...$args );
 		}
-		return $this->{$macro['callback']}( $ctx, $passedArgs, $input, ...$macro['callbackArgs'] );
-	}
-
-	/** Renders this node with the callback texutil.json names for $input, in this class or else in BaseParsing */
-	protected function parseToMML( string $input, RenderContext $ctx ): MMLbase {
-		$local = $this->getLocalCallback( trim( $input ), [], $ctx );
-		if ( !$local->isEmpty() ) {
-			return $local;
+		if ( $class !== null ) {
+			throw new LogicException( "Callback to $class::$method should be treated in the respective class." );
 		}
-		$parsed = BaseMethods::checkAndParse( $input, [], [], $this, ctx: $ctx );
-		if ( !$parsed->isEmpty() ) {
-			return $parsed;
+		if ( $method !== null ) {
+			// The context goes last, by name
+			$args['ctx'] = $ctx;
+			try {
+				return BaseParsing::{$method}( $this, $passedArgs, $operatorContent, $input, ...$args );
+			} catch ( Exception $e ) {
+				LoggerFactory::getInstance( 'Math' )->error( 'Callback {callback} failed for {input}', [
+					'callback' => $method,
+					'input' => $input,
+					'exception' => $e,
+				] );
+			}
 		}
 		$name = strtoupper( self::class );
-
 		return BaseMethods::generateMMLError( "Not implemented $name for $input" );
 	}
 
