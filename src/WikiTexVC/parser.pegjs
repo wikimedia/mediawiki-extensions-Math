@@ -152,16 +152,17 @@ lit_dqn
     { return new DQ(new TexArray(),$l); }
 
 
+// DELIMITER lacks "]", which is lexed as SQ_CLOSE to end optional arguments
+delimiter_sq
+  = DELIMITER
+  / SQ_CLOSE
+    { return "]"; }
 left
-  = LEFTI d:DELIMITER
+  = LEFTI d:delimiter_sq
     { return $d; }
-  / LEFTI SQ_CLOSE
-    { return  "]"; }
 right
-  = RIGHTI d:DELIMITER
+  = RIGHTI d:delimiter_sq
     { return $d; }
-  / RIGHTI SQ_CLOSE
-    { return  "]"; }
 lit
   = r:LITERAL                   { return new Literal($r); }
   / f:generic_func &{ return $this->tu->latex_function_names($f); } _
@@ -199,8 +200,7 @@ lit
              return new Fun1nb( '\\operatorname', new Literal( $fProcessed ) );
          }
   / r:DELIMITER                 { return new Literal($r); }
-  / b:BIG r:DELIMITER           { return new Big($b, $r); }
-  / b:BIG SQ_CLOSE              { return new Big($b,  "]"); }
+  / b:BIG r:delimiter_sq        { return new Big($b, $r); }
   / l:left e:expr r:right       {return new Lr($l, $r, $e); }
   / name:FUN_AR1opt e:expr_nosqc SQ_CLOSE l:lit /* must be before FUN_AR1 */
     { return new Fun2sq($name, $e->setCurly(), $l); }

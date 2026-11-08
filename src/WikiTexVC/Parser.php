@@ -917,14 +917,14 @@ class Parser
     }
 
     private function peg_f23(
-        mixed $d,
     ): mixed {
-        return $d;
+        return "]";
     }
 
     private function peg_f24(
+        mixed $d,
     ): mixed {
-        return  "]";
+        return $d;
     }
 
     private function peg_f25(
@@ -934,48 +934,43 @@ class Parser
     }
 
     private function peg_f26(
-    ): mixed {
-        return  "]";
-    }
-
-    private function peg_f27(
         mixed $r,
     ): mixed {
         return new Literal($r);
     }
 
-    private function peg_f28(
+    private function peg_f27(
         mixed $f,
     ): mixed {
         return $this->tu->latex_function_names($f);
     }
 
-    private function peg_f29(
+    private function peg_f28(
         mixed $f,
     ): mixed {
         return "";
     }
 
-    private function peg_f30(
+    private function peg_f29(
         mixed $f,
     ): mixed {
         return " ";
     }
 
-    private function peg_f31(
+    private function peg_f30(
         mixed $f,
         mixed $c,
     ): mixed {
         return new Literal( $f . $c );
     }
 
-    private function peg_f32(
+    private function peg_f31(
         mixed $f,
     ): mixed {
         return $this->tu->nullary_macro_aliase($f);
     }
 
-    private function peg_f33(
+    private function peg_f32(
         mixed $f,
     ): mixed {
         $parser = new Parser();
@@ -984,13 +979,13 @@ class Parser
          return $ast->first();
     }
 
-    private function peg_f34(
+    private function peg_f33(
         mixed $f,
     ): mixed {
         return $this->tu->deprecated_nullary_macro_aliase($f);
     }
 
-    private function peg_f35(
+    private function peg_f34(
         mixed $f,
     ): mixed {
         $parser = new Parser();
@@ -1004,13 +999,13 @@ class Parser
          }
     }
 
-    private function peg_f36(
+    private function peg_f35(
         mixed $f,
     ): mixed {
         return $this->tu->mediawiki_function_names($f);
     }
 
-    private function peg_f37(
+    private function peg_f36(
         mixed $f,
     ): mixed {
         if(is_array($f)) {
@@ -1022,26 +1017,20 @@ class Parser
                  return new Fun1nb( '\\operatorname', new Literal( $fProcessed ) );
     }
 
-    private function peg_f38(
+    private function peg_f37(
         mixed $r,
     ): mixed {
         return new Literal($r);
     }
 
-    private function peg_f39(
+    private function peg_f38(
         mixed $b,
         mixed $r,
     ): mixed {
         return new Big($b, $r);
     }
 
-    private function peg_f40(
-        mixed $b,
-    ): mixed {
-        return new Big($b,  "]");
-    }
-
-    private function peg_f41(
+    private function peg_f39(
         mixed $l,
         mixed $e,
         mixed $r,
@@ -1049,7 +1038,7 @@ class Parser
         return new Lr($l, $r, $e);
     }
 
-    private function peg_f42(
+    private function peg_f40(
         mixed $name,
         mixed $e,
         mixed $l,
@@ -1057,35 +1046,35 @@ class Parser
         return new Fun2sq($name, $e->setCurly(), $l);
     }
 
-    private function peg_f43(
+    private function peg_f41(
         mixed $name,
         mixed $l,
     ): mixed {
         return new Fun1($name, $l);
     }
 
-    private function peg_f44(
+    private function peg_f42(
         mixed $name,
         mixed $l,
     ): mixed {
         return new Fun1nb($name, $l);
     }
 
-    private function peg_f45(
+    private function peg_f43(
         mixed $name,
         mixed $arg,
     ): mixed {
         return $this->mhchem($name, $arg);
     }
 
-    private function peg_f46(
+    private function peg_f44(
         mixed $name,
         mixed $arg,
     ): mixed {
         return $this->mhchem($name, $arg, true);
     }
 
-    private function peg_f47(
+    private function peg_f45(
         mixed $name,
         mixed $l1,
         mixed $l2,
@@ -1093,7 +1082,7 @@ class Parser
         return new Fun2($name, $l1, $l2);
     }
 
-    private function peg_f48(
+    private function peg_f46(
         mixed $name,
         mixed $l1,
         mixed $l2,
@@ -1103,7 +1092,7 @@ class Parser
         return new Fun4($name, $l1, $l2, $l3, $l4);
     }
 
-    private function peg_f49(
+    private function peg_f47(
         mixed $name,
         mixed $l1,
         mixed $l2,
@@ -1111,13 +1100,13 @@ class Parser
         return new Fun2nb($name, $l1, $l2);
     }
 
-    private function peg_f50(
+    private function peg_f48(
         mixed $e,
     ): mixed {
         return $e->setCurly();
     }
 
-    private function peg_f51(
+    private function peg_f49(
         mixed $e1,
         mixed $name,
         mixed $e2,
@@ -1125,117 +1114,117 @@ class Parser
         return new Infix($name, $e1, $e2);
     }
 
-    private function peg_f52(
+    private function peg_f50(
         mixed $m,
     ): mixed {
         return $m->setTop( 'matrix' );
     }
 
-    private function peg_f53(
+    private function peg_f51(
         mixed $m,
     ): mixed {
         return $m->setTop( 'pmatrix' );
     }
 
-    private function peg_f54(
+    private function peg_f52(
         mixed $m,
     ): mixed {
         return $m->setTop( 'bmatrix' );
     }
 
-    private function peg_f55(
+    private function peg_f53(
         mixed $m,
     ): mixed {
         return $m->setTop( 'Bmatrix' );
     }
 
-    private function peg_f56(
+    private function peg_f54(
         mixed $m,
     ): mixed {
         return $m->setTop( 'vmatrix' );
     }
 
-    private function peg_f57(
+    private function peg_f55(
         mixed $m,
     ): mixed {
         return $m->setTop( 'Vmatrix' );
     }
 
-    private function peg_f58(
+    private function peg_f56(
         mixed $m,
     ): mixed {
         return $m->setTop( 'array' );
     }
 
-    private function peg_f59(
+    private function peg_f57(
         mixed $m,
     ): mixed {
         return $m->setTop( 'aligned' );
+    }
+
+    private function peg_f58(
+        mixed $m,
+    ): mixed {
+        return $m->setTop( 'aligned' );
+    }
+
+    private function peg_f59(
+        mixed $m,
+    ): mixed {
+        return $m->setTop( 'alignedat' );
     }
 
     private function peg_f60(
         mixed $m,
     ): mixed {
-        return $m->setTop( 'aligned' );
+        return $m->setTop( 'alignedat' );
     }
 
     private function peg_f61(
         mixed $m,
     ): mixed {
-        return $m->setTop( 'alignedat' );
+        return $m->setTop( 'smallmatrix' );
     }
 
     private function peg_f62(
         mixed $m,
     ): mixed {
-        return $m->setTop( 'alignedat' );
-    }
-
-    private function peg_f63(
-        mixed $m,
-    ): mixed {
-        return $m->setTop( 'smallmatrix' );
-    }
-
-    private function peg_f64(
-        mixed $m,
-    ): mixed {
         return $m->setTop( 'cases' );
     }
 
-    private function peg_f65(
+    private function peg_f63(
     ): mixed {
         throw new SyntaxError("Illegal TeX function", [], $this->text(), $this->offset(),
                                 $this->line(), $this->column(), $this->location());
     }
 
-    private function peg_f66(
+    private function peg_f64(
         mixed $f,
     ): mixed {
         return !$this->tu->getAllFunctionsAt($f);
     }
 
-    private function peg_f67(
+    private function peg_f65(
         mixed $f,
     ): mixed {
         throw new SyntaxError("Illegal TeX function", [], $f, $this->offset(), $this->line(), $this->column(), $this->location());
     }
 
-    private function peg_f68(
+    private function peg_f66(
         mixed $cs,
         mixed $m,
     ): mixed {
         return $m->setColumnSpecs( $cs );
     }
 
-    private function peg_f69(
+    private function peg_f67(
         mixed $as,
         mixed $m,
     ): mixed {
         return $m->setColumnSpecs( $as );
     }
 
-    private function peg_f70(
+    private function peg_f68(
         mixed $l,
         mixed $r,
         mixed $m,
@@ -1243,7 +1232,7 @@ class Parser
         return [$m,$r];
     }
 
-    private function peg_f71(
+    private function peg_f69(
         mixed $l,
         mixed $tail,
     ): mixed {
@@ -1251,7 +1240,7 @@ class Parser
          return new Matrix( 'matrix', $tail[0]->unshift($l), $tail[1] );
     }
 
-    private function peg_f72(
+    private function peg_f70(
         mixed $f,
         mixed $l,
     ): mixed {
@@ -1261,19 +1250,30 @@ class Parser
             $l->first()->unshift(new Literal($f . " ")); return $l;
     }
 
-    private function peg_f73(
+    private function peg_f71(
         mixed $e,
         mixed $l,
     ): mixed {
         return $l;
     }
 
-    private function peg_f74(
+    private function peg_f72(
         mixed $e,
         mixed $tail,
     ): mixed {
         if ($tail === null) { return new TexArray( $e )  ; }
         return $tail->unshift($e);
+    }
+
+    private function peg_f73(
+    ): mixed {
+        return $this->text();
+    }
+
+    private function peg_f74(
+        mixed $cs,
+    ): mixed {
+        return TexArray::newCurly(new Literal($cs));
     }
 
     private function peg_f75(
@@ -1282,132 +1282,138 @@ class Parser
     }
 
     private function peg_f76(
-        mixed $cs,
-    ): mixed {
-        return TexArray::newCurly(new Literal($cs));
-    }
-
-    private function peg_f77(
-    ): mixed {
-        return $this->text();
-    }
-
-    private function peg_f78(
         mixed $num,
     ): mixed {
         return TexArray::newCurly(new Literal($num));
     }
 
-    private function peg_f79(
+    private function peg_f77(
         mixed $b,
     ): mixed {
         return $this->tu->box_functions($b);
     }
 
-    private function peg_f80(
+    private function peg_f78(
         mixed $b,
         mixed $cs,
     ): mixed {
         return new Box($b, join('', $cs));
     }
 
-    private function peg_f81(
+    private function peg_f79(
     ): mixed {
         return ":=";
     }
 
-    private function peg_f82(
+    private function peg_f80(
         mixed $c,
     ): mixed {
         return $c;
     }
 
-    private function peg_f83(
+    private function peg_f81(
         mixed $f,
     ): mixed {
         return $this->tu->nullary_macro($f);
     }
 
-    private function peg_f84(
+    private function peg_f82(
         mixed $f,
     ): mixed {
         return $f . " ";
     }
 
-    private function peg_f85(
+    private function peg_f83(
         mixed $f,
     ): mixed {
         return $this->options['usemathrm'] && $this->tu->nullary_macro_in_mbox($f);
     }
 
-    private function peg_f86(
+    private function peg_f84(
         mixed $f,
     ): mixed {
         return "\\mathrm {" . $f . "} ";
     }
 
-    private function peg_f87(
+    private function peg_f85(
         mixed $mathrm,
     ): mixed {
         return $this->options['usemathrm'] && $mathrm === "\\mathrm";
     }
 
-    private function peg_f88(
+    private function peg_f86(
         mixed $mathrm,
         mixed $f,
     ): mixed {
         return $this->options['usemathrm'] && $this->tu->nullary_macro_in_mbox($f);
     }
 
-    private function peg_f89(
+    private function peg_f87(
         mixed $mathrm,
         mixed $f,
     ): mixed {
         return  $this->options['usemathrm'] ? "\\mathrm {" . $f . "} " : false;
     }
 
-    private function peg_f90(
+    private function peg_f88(
         mixed $f,
     ): mixed {
         return $this->tu->nullary_macro_in_mbox($f);
     }
 
-    private function peg_f91(
+    private function peg_f89(
         mixed $f,
     ): mixed {
         return "\\mbox{" . $f . "} ";
     }
 
-    private function peg_f92(
+    private function peg_f90(
         mixed $mbox,
     ): mixed {
         return $mbox === "\\mbox";
     }
 
-    private function peg_f93(
+    private function peg_f91(
         mixed $mbox,
         mixed $f,
     ): mixed {
         return $this->tu->nullary_macro_in_mbox($f);
     }
 
-    private function peg_f94(
+    private function peg_f92(
         mixed $mbox,
         mixed $f,
     ): mixed {
         return "\\mbox{" . $f . "} ";
     }
 
-    private function peg_f95(
+    private function peg_f93(
         mixed $f,
     ): mixed {
         return $f;
     }
 
-    private function peg_f96(
+    private function peg_f94(
         mixed $c,
     ): mixed {
         return "\\" . $c;
+    }
+
+    private function peg_f95(
+        mixed $c,
+    ): mixed {
+        return $c;
+    }
+
+    private function peg_f96(
+        mixed $c,
+    ): mixed {
+        if($this->options['oldtexvc']) {
+        return "\\" . $c; /* escape dangerous chars */
+        } else {
+         throw new SyntaxError("Deprecation: % and $ need to be escaped.", [], $this->text(), $this->offset(),
+            $this->line(), $this->column(), $this->location());
+        }
     }
 
     private function peg_f97(
@@ -1419,45 +1425,28 @@ class Parser
     private function peg_f98(
         mixed $c,
     ): mixed {
-        if($this->options['oldtexvc']) {
-        return "\\" . $c; /* escape dangerous chars */
-        } else {
-         throw new SyntaxError("Deprecation: % and $ need to be escaped.", [], $this->text(), $this->offset(),
-            $this->line(), $this->column(), $this->location());
-        }
-    }
-
-    private function peg_f99(
-        mixed $c,
-    ): mixed {
-        return $c;
-    }
-
-    private function peg_f100(
-        mixed $c,
-    ): mixed {
         return "\\" . $c;
     }
 
-    private function peg_f101(
+    private function peg_f99(
         mixed $f,
     ): mixed {
         return $this->tu->other_delimiters1($f);
     }
 
-    private function peg_f102(
+    private function peg_f100(
         mixed $f,
     ): mixed {
         return $f . " ";
     }
 
-    private function peg_f103(
+    private function peg_f101(
         mixed $f,
     ): mixed {
         return $this->tu->other_delimiters2($f);
     }
 
-    private function peg_f104(
+    private function peg_f102(
         mixed $f,
     ): mixed {
         $parser = new Parser();
@@ -1471,10 +1460,22 @@ class Parser
          return $p->first()->getArg();
     }
 
-    private function peg_f105(
+    private function peg_f103(
         mixed $f,
     ): mixed {
         return $this->tu->fun_ar1nb($f);
+    }
+
+    private function peg_f104(
+        mixed $f,
+    ): mixed {
+        return $f;
+    }
+
+    private function peg_f105(
+        mixed $f,
+    ): mixed {
+        return $this->tu->fun_ar1opt($f);
     }
 
     private function peg_f106(
@@ -1484,18 +1485,6 @@ class Parser
     }
 
     private function peg_f107(
-        mixed $f,
-    ): mixed {
-        return $this->tu->fun_ar1opt($f);
-    }
-
-    private function peg_f108(
-        mixed $f,
-    ): mixed {
-        return $f;
-    }
-
-    private function peg_f109(
         mixed $s,
         mixed $n,
         mixed $u,
@@ -1503,27 +1492,39 @@ class Parser
         return new LengthSpec($s, $n, $u);
     }
 
-    private function peg_f110(
+    private function peg_f108(
         mixed $l,
     ): mixed {
         return $l;
     }
 
-    private function peg_f111(
+    private function peg_f109(
         mixed $s,
     ): mixed {
         return $s;
     }
 
-    private function peg_f112(
+    private function peg_f110(
     ): mixed {
         return $this->text();
+    }
+
+    private function peg_f111(
+        mixed $f,
+    ): mixed {
+        return $this->tu->big_literals($f);
+    }
+
+    private function peg_f112(
+        mixed $f,
+    ): mixed {
+        return $f;
     }
 
     private function peg_f113(
         mixed $f,
     ): mixed {
-        return $this->tu->big_literals($f);
+        return $this->tu->fun_ar1($f);
     }
 
     private function peg_f114(
@@ -1535,22 +1536,10 @@ class Parser
     private function peg_f115(
         mixed $f,
     ): mixed {
-        return $this->tu->fun_ar1($f);
-    }
-
-    private function peg_f116(
-        mixed $f,
-    ): mixed {
-        return $f;
-    }
-
-    private function peg_f117(
-        mixed $f,
-    ): mixed {
         return $this->tu->other_fun_ar1($f);
     }
 
-    private function peg_f118(
+    private function peg_f116(
         mixed $f,
     ): mixed {
         if ($this->options['oldtexvc']) {
@@ -1561,34 +1550,46 @@ class Parser
          }
     }
 
-    private function peg_f119(
+    private function peg_f117(
         mixed $f,
     ): mixed {
         return $this->tu->fun_mhchem($f);
     }
 
-    private function peg_f120(
+    private function peg_f118(
         mixed $f,
     ): mixed {
         return $f;
     }
 
-    private function peg_f121(
+    private function peg_f119(
         mixed $arg,
     ): mixed {
         return $arg;
     }
 
-    private function peg_f122(
+    private function peg_f120(
         mixed $arg,
     ): mixed {
         return $arg;
+    }
+
+    private function peg_f121(
+        mixed $f,
+    ): mixed {
+        return $this->tu->fun_ar2($f);
+    }
+
+    private function peg_f122(
+        mixed $f,
+    ): mixed {
+        return $f;
     }
 
     private function peg_f123(
         mixed $f,
     ): mixed {
-        return $this->tu->fun_ar2($f);
+        return $this->tu->fun_ar4($f);
     }
 
     private function peg_f124(
@@ -1600,7 +1601,7 @@ class Parser
     private function peg_f125(
         mixed $f,
     ): mixed {
-        return $this->tu->fun_ar4($f);
+        return $this->tu->fun_infix($f);
     }
 
     private function peg_f126(
@@ -1612,83 +1613,71 @@ class Parser
     private function peg_f127(
         mixed $f,
     ): mixed {
-        return $this->tu->fun_infix($f);
+        return $this->tu->declaration($f);
     }
 
     private function peg_f128(
         mixed $f,
     ): mixed {
-        return $f;
+        return new Declaration($f, new TexArray());
     }
 
     private function peg_f129(
         mixed $f,
     ): mixed {
-        return $this->tu->declaration($f);
+        return $this->tu->fun_ar2nb($f);
     }
 
     private function peg_f130(
         mixed $f,
     ): mixed {
-        return new Declaration($f, new TexArray());
+        return $f;
     }
 
     private function peg_f131(
         mixed $f,
     ): mixed {
-        return $this->tu->fun_ar2nb($f);
+        return $this->tu->left_function($f);
     }
 
     private function peg_f132(
         mixed $f,
     ): mixed {
-        return $f;
+        return $this->tu->right_function($f);
     }
 
     private function peg_f133(
         mixed $f,
     ): mixed {
-        return $this->tu->left_function($f);
+        return $this->tu->hline_function($f);
     }
 
     private function peg_f134(
         mixed $f,
     ): mixed {
-        return $this->tu->right_function($f);
+        return $f;
     }
 
     private function peg_f135(
         mixed $f,
     ): mixed {
-        return $this->tu->hline_function($f);
-    }
-
-    private function peg_f136(
-        mixed $f,
-    ): mixed {
-        return $f;
-    }
-
-    private function peg_f137(
-        mixed $f,
-    ): mixed {
         return $this->tu->color_function($f);
     }
 
-    private function peg_f138(
+    private function peg_f136(
         mixed $f,
         mixed $cs,
     ): mixed {
         return $f . " " . $cs;
     }
 
-    private function peg_f139(
+    private function peg_f137(
         mixed $f,
     ): mixed {
         return $this->tu->definecolor_function($f);
     }
 
-    private function peg_f140(
+    private function peg_f138(
         mixed $f,
         mixed $name,
         mixed $cs,
@@ -1696,7 +1685,7 @@ class Parser
         return "{named}" . $cs;
     }
 
-    private function peg_f141(
+    private function peg_f139(
         mixed $f,
         mixed $name,
         mixed $cs,
@@ -1704,23 +1693,23 @@ class Parser
         return "{gray}" . $cs;
     }
 
+    private function peg_f140(
+        mixed $f,
+        mixed $name,
+        mixed $cs,
+    ): mixed {
+        return "{rgb}" . $cs;
+    }
+
+    private function peg_f141(
+        mixed $f,
+        mixed $name,
+        mixed $cs,
+    ): mixed {
+        return "{rgb}" . $cs;
+    }
+
     private function peg_f142(
-        mixed $f,
-        mixed $name,
-        mixed $cs,
-    ): mixed {
-        return "{rgb}" . $cs;
-    }
-
-    private function peg_f143(
-        mixed $f,
-        mixed $name,
-        mixed $cs,
-    ): mixed {
-        return "{rgb}" . $cs;
-    }
-
-    private function peg_f144(
         mixed $f,
         mixed $name,
         mixed $cs,
@@ -1728,7 +1717,7 @@ class Parser
         return "{cmyk}" . $cs;
     }
 
-    private function peg_f145(
+    private function peg_f143(
         mixed $f,
         mixed $name,
         mixed $a,
@@ -1736,66 +1725,66 @@ class Parser
         return $f . " {" . join('',$name) . "}" . $a;
     }
 
-    private function peg_f146(
+    private function peg_f144(
         mixed $cs,
     ): mixed {
         return "[named]" . $cs;
     }
 
-    private function peg_f147(
+    private function peg_f145(
         mixed $cs,
     ): mixed {
         return "[gray]" . $cs;
     }
 
+    private function peg_f146(
+        mixed $cs,
+    ): mixed {
+        return "[rgb]" . $cs;
+    }
+
+    private function peg_f147(
+        mixed $cs,
+    ): mixed {
+        return "[rgb]" . $cs;
+    }
+
     private function peg_f148(
-        mixed $cs,
-    ): mixed {
-        return "[rgb]" . $cs;
-    }
-
-    private function peg_f149(
-        mixed $cs,
-    ): mixed {
-        return "[rgb]" . $cs;
-    }
-
-    private function peg_f150(
         mixed $cs,
     ): mixed {
         return "[cmyk]" . $cs;
     }
 
-    private function peg_f151(
+    private function peg_f149(
         mixed $name,
     ): mixed {
         return "{" . join('', $name) . "}";
     }
 
-    private function peg_f152(
+    private function peg_f150(
         mixed $k,
     ): mixed {
         $s = is_array($k) ? $k[0] : $k;
           return "{" . $s . "}";
     }
 
+    private function peg_f151(
+        mixed $r,
+        mixed $g,
+        mixed $b,
+    ): mixed {
+        return "{" . $r . "," . $g . "," . $b . "}";
+    }
+
+    private function peg_f152(
+        mixed $r,
+        mixed $g,
+        mixed $b,
+    ): mixed {
+        return "{" . $r . "," . $g . "," . $b . "}";
+    }
+
     private function peg_f153(
-        mixed $r,
-        mixed $g,
-        mixed $b,
-    ): mixed {
-        return "{" . $r . "," . $g . "," . $b . "}";
-    }
-
-    private function peg_f154(
-        mixed $r,
-        mixed $g,
-        mixed $b,
-    ): mixed {
-        return "{" . $r . "," . $g . "," . $b . "}";
-    }
-
-    private function peg_f155(
         mixed $c,
         mixed $m,
         mixed $y,
@@ -1804,38 +1793,38 @@ class Parser
         return "{" . $c . "," . $m . "," . $y . "," . $k . "}";
     }
 
-    private function peg_f156(
+    private function peg_f154(
         mixed $n,
     ): mixed {
         return intval($n, 10) <= 255;
     }
 
-    private function peg_f157(
+    private function peg_f155(
         mixed $n,
     ): mixed {
         return $n / 255;
     }
 
+    private function peg_f156(
+        mixed $n,
+    ): mixed {
+        return $n;
+    }
+
+    private function peg_f157(
+        mixed $n,
+    ): mixed {
+        return $n;
+    }
+
     private function peg_f158(
-        mixed $n,
-    ): mixed {
-        return $n;
-    }
-
-    private function peg_f159(
-        mixed $n,
-    ): mixed {
-        return $n;
-    }
-
-    private function peg_f160(
     ): mixed {
         return $this->peg_currPos === $this->input_length;
     }
 
     private function peg_parse_start(): mixed
     {
-        $key = $this->peg_currPos * 102 + 0;
+        $key = $this->peg_currPos * 103 + 0;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -1861,7 +1850,7 @@ class Parser
 
     private function peg_parse__(): mixed
     {
-        $key = $this->peg_currPos * 102 + 1;
+        $key = $this->peg_currPos * 103 + 1;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -1899,7 +1888,7 @@ class Parser
 
     private function peg_parse_tex_expr(): mixed
     {
-        $key = $this->peg_currPos * 102 + 2;
+        $key = $this->peg_currPos * 103 + 2;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -1959,7 +1948,7 @@ class Parser
 
     private function peg_parse_expr(): mixed
     {
-        $key = $this->peg_currPos * 102 + 3;
+        $key = $this->peg_currPos * 103 + 3;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -1983,7 +1972,7 @@ class Parser
 
     private function peg_parse_ne_expr(): mixed
     {
-        $key = $this->peg_currPos * 102 + 4;
+        $key = $this->peg_currPos * 103 + 4;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2048,7 +2037,7 @@ class Parser
 
     private function peg_parse_litsq_aq(): mixed
     {
-        $key = $this->peg_currPos * 102 + 5;
+        $key = $this->peg_currPos * 103 + 5;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2074,7 +2063,7 @@ class Parser
 
     private function peg_parse_litsq_fq(): mixed
     {
-        $key = $this->peg_currPos * 102 + 6;
+        $key = $this->peg_currPos * 103 + 6;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2134,7 +2123,7 @@ class Parser
 
     private function peg_parse_litsq_uq(): mixed
     {
-        $key = $this->peg_currPos * 102 + 7;
+        $key = $this->peg_currPos * 103 + 7;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2171,7 +2160,7 @@ class Parser
 
     private function peg_parse_litsq_dq(): mixed
     {
-        $key = $this->peg_currPos * 102 + 8;
+        $key = $this->peg_currPos * 103 + 8;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2208,7 +2197,7 @@ class Parser
 
     private function peg_parse_litsq_zq(): mixed
     {
-        $key = $this->peg_currPos * 102 + 9;
+        $key = $this->peg_currPos * 103 + 9;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2231,7 +2220,7 @@ class Parser
 
     private function peg_parse_expr_nosqc(): mixed
     {
-        $key = $this->peg_currPos * 102 + 10;
+        $key = $this->peg_currPos * 103 + 10;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2286,7 +2275,7 @@ class Parser
 
     private function peg_parse_lit_aq(): mixed
     {
-        $key = $this->peg_currPos * 102 + 11;
+        $key = $this->peg_currPos * 103 + 11;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2318,7 +2307,7 @@ class Parser
 
     private function peg_parse_lit_fq(): mixed
     {
-        $key = $this->peg_currPos * 102 + 12;
+        $key = $this->peg_currPos * 103 + 12;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2424,7 +2413,7 @@ class Parser
 
     private function peg_parse_lit_uq(): mixed
     {
-        $key = $this->peg_currPos * 102 + 13;
+        $key = $this->peg_currPos * 103 + 13;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2461,7 +2450,7 @@ class Parser
 
     private function peg_parse_lit_dq(): mixed
     {
-        $key = $this->peg_currPos * 102 + 14;
+        $key = $this->peg_currPos * 103 + 14;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2498,7 +2487,7 @@ class Parser
 
     private function peg_parse_lit_uqn(): mixed
     {
-        $key = $this->peg_currPos * 102 + 15;
+        $key = $this->peg_currPos * 103 + 15;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2529,7 +2518,7 @@ class Parser
 
     private function peg_parse_lit_dqn(): mixed
     {
-        $key = $this->peg_currPos * 102 + 16;
+        $key = $this->peg_currPos * 103 + 16;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2558,9 +2547,35 @@ class Parser
         return $s0;
     }
 
+    private function peg_parse_delimiter_sq(): mixed
+    {
+        $key = $this->peg_currPos * 103 + 17;
+        $cached = $this->peg_cache[$key] ?? false;
+
+        if ($cached) {
+            $this->peg_currPos = $cached->nextPos;
+            return $cached->result;
+        }
+
+        $s0 = $this->peg_parse_DELIMITER();
+        if ($s0 === $this->peg_FAILED) {
+            $s0 = $this->peg_currPos;
+            $s1 = $this->peg_parse_SQ_CLOSE();
+            if ($s1 !== $this->peg_FAILED) {
+                $this->peg_reportedPos = $s0;
+                $s1 = $this->peg_f23();
+            }
+            $s0 = $s1;
+        }
+
+        $this->peg_cache[$key] = new pegCacheItem($this->peg_currPos, $s0);
+
+        return $s0;
+    }
+
     private function peg_parse_left(): mixed
     {
-        $key = $this->peg_currPos * 102 + 17;
+        $key = $this->peg_currPos * 103 + 18;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2571,10 +2586,10 @@ class Parser
         $s0 = $this->peg_currPos;
         $s1 = $this->peg_parse_LEFTI();
         if ($s1 !== $this->peg_FAILED) {
-            $s2 = $this->peg_parse_DELIMITER();
+            $s2 = $this->peg_parse_delimiter_sq();
             if ($s2 !== $this->peg_FAILED) {
                 $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f23($s2);
+                $s0 = $this->peg_f24($s2);
             } else {
                 $this->peg_currPos = $s0;
                 $s0 = $this->peg_FAILED;
@@ -2582,23 +2597,6 @@ class Parser
         } else {
             $this->peg_currPos = $s0;
             $s0 = $this->peg_FAILED;
-        }
-        if ($s0 === $this->peg_FAILED) {
-            $s0 = $this->peg_currPos;
-            $s1 = $this->peg_parse_LEFTI();
-            if ($s1 !== $this->peg_FAILED) {
-                $s2 = $this->peg_parse_SQ_CLOSE();
-                if ($s2 !== $this->peg_FAILED) {
-                    $this->peg_reportedPos = $s0;
-                    $s0 = $this->peg_f24();
-                } else {
-                    $this->peg_currPos = $s0;
-                    $s0 = $this->peg_FAILED;
-                }
-            } else {
-                $this->peg_currPos = $s0;
-                $s0 = $this->peg_FAILED;
-            }
         }
 
         $this->peg_cache[$key] = new pegCacheItem($this->peg_currPos, $s0);
@@ -2608,7 +2606,7 @@ class Parser
 
     private function peg_parse_right(): mixed
     {
-        $key = $this->peg_currPos * 102 + 18;
+        $key = $this->peg_currPos * 103 + 19;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2619,7 +2617,7 @@ class Parser
         $s0 = $this->peg_currPos;
         $s1 = $this->peg_parse_RIGHTI();
         if ($s1 !== $this->peg_FAILED) {
-            $s2 = $this->peg_parse_DELIMITER();
+            $s2 = $this->peg_parse_delimiter_sq();
             if ($s2 !== $this->peg_FAILED) {
                 $this->peg_reportedPos = $s0;
                 $s0 = $this->peg_f25($s2);
@@ -2631,23 +2629,6 @@ class Parser
             $this->peg_currPos = $s0;
             $s0 = $this->peg_FAILED;
         }
-        if ($s0 === $this->peg_FAILED) {
-            $s0 = $this->peg_currPos;
-            $s1 = $this->peg_parse_RIGHTI();
-            if ($s1 !== $this->peg_FAILED) {
-                $s2 = $this->peg_parse_SQ_CLOSE();
-                if ($s2 !== $this->peg_FAILED) {
-                    $this->peg_reportedPos = $s0;
-                    $s0 = $this->peg_f26();
-                } else {
-                    $this->peg_currPos = $s0;
-                    $s0 = $this->peg_FAILED;
-                }
-            } else {
-                $this->peg_currPos = $s0;
-                $s0 = $this->peg_FAILED;
-            }
-        }
 
         $this->peg_cache[$key] = new pegCacheItem($this->peg_currPos, $s0);
 
@@ -2656,7 +2637,7 @@ class Parser
 
     private function peg_parse_lit(): mixed
     {
-        $key = $this->peg_currPos * 102 + 19;
+        $key = $this->peg_currPos * 103 + 20;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -2668,7 +2649,7 @@ class Parser
         $s1 = $this->peg_parse_LITERAL();
         if ($s1 !== $this->peg_FAILED) {
             $this->peg_reportedPos = $s0;
-            $s1 = $this->peg_f27($s1);
+            $s1 = $this->peg_f26($s1);
         }
         $s0 = $s1;
         if ($s0 === $this->peg_FAILED) {
@@ -2676,7 +2657,7 @@ class Parser
             $s1 = $this->peg_parse_generic_func();
             if ($s1 !== $this->peg_FAILED) {
                 $this->peg_reportedPos = $this->peg_currPos;
-                $s2 = $this->peg_f28($s1);
+                $s2 = $this->peg_f27($s1);
                 if ($s2) {
                     $s2 = null;
                 } else {
@@ -2716,19 +2697,19 @@ class Parser
                     }
                     if ($s5 !== $this->peg_FAILED) {
                         $this->peg_reportedPos = $s4;
-                        $s5 = $this->peg_f29($s1);
+                        $s5 = $this->peg_f28($s1);
                     }
                     $s4 = $s5;
                     if ($s4 === $this->peg_FAILED) {
                         $s4 = $this->peg_currPos;
                         $s5 = "";
                         $this->peg_reportedPos = $s4;
-                        $s5 = $this->peg_f30($s1);
+                        $s5 = $this->peg_f29($s1);
                         $s4 = $s5;
                     }
                     if ($s4 !== $this->peg_FAILED) {
                         $this->peg_reportedPos = $s0;
-                        $s0 = $this->peg_f31($s1, $s4);
+                        $s0 = $this->peg_f30($s1, $s4);
                     } else {
                         $this->peg_currPos = $s0;
                         $s0 = $this->peg_FAILED;
@@ -2746,7 +2727,7 @@ class Parser
                 $s1 = $this->peg_parse_generic_func();
                 if ($s1 !== $this->peg_FAILED) {
                     $this->peg_reportedPos = $this->peg_currPos;
-                    $s2 = $this->peg_f32($s1);
+                    $s2 = $this->peg_f31($s1);
                     if ($s2) {
                         $s2 = null;
                     } else {
@@ -2755,7 +2736,7 @@ class Parser
                     if ($s2 !== $this->peg_FAILED) {
                         $s3 = $this->peg_parse__();
                         $this->peg_reportedPos = $s0;
-                        $s0 = $this->peg_f33($s1);
+                        $s0 = $this->peg_f32($s1);
                     } else {
                         $this->peg_currPos = $s0;
                         $s0 = $this->peg_FAILED;
@@ -2769,7 +2750,7 @@ class Parser
                     $s1 = $this->peg_parse_generic_func();
                     if ($s1 !== $this->peg_FAILED) {
                         $this->peg_reportedPos = $this->peg_currPos;
-                        $s2 = $this->peg_f34($s1);
+                        $s2 = $this->peg_f33($s1);
                         if ($s2) {
                             $s2 = null;
                         } else {
@@ -2778,7 +2759,7 @@ class Parser
                         if ($s2 !== $this->peg_FAILED) {
                             $s3 = $this->peg_parse__();
                             $this->peg_reportedPos = $s0;
-                            $s0 = $this->peg_f35($s1);
+                            $s0 = $this->peg_f34($s1);
                         } else {
                             $this->peg_currPos = $s0;
                             $s0 = $this->peg_FAILED;
@@ -2792,7 +2773,7 @@ class Parser
                         $s1 = $this->peg_parse_generic_func();
                         if ($s1 !== $this->peg_FAILED) {
                             $this->peg_reportedPos = $this->peg_currPos;
-                            $s2 = $this->peg_f36($s1);
+                            $s2 = $this->peg_f35($s1);
                             if ($s2) {
                                 $s2 = null;
                             } else {
@@ -2801,7 +2782,7 @@ class Parser
                             if ($s2 !== $this->peg_FAILED) {
                                 $s3 = $this->peg_parse__();
                                 $this->peg_reportedPos = $s0;
-                                $s0 = $this->peg_f37($s1);
+                                $s0 = $this->peg_f36($s1);
                             } else {
                                 $this->peg_currPos = $s0;
                                 $s0 = $this->peg_FAILED;
@@ -2815,17 +2796,17 @@ class Parser
                             $s1 = $this->peg_parse_DELIMITER();
                             if ($s1 !== $this->peg_FAILED) {
                                 $this->peg_reportedPos = $s0;
-                                $s1 = $this->peg_f38($s1);
+                                $s1 = $this->peg_f37($s1);
                             }
                             $s0 = $s1;
                             if ($s0 === $this->peg_FAILED) {
                                 $s0 = $this->peg_currPos;
                                 $s1 = $this->peg_parse_BIG();
                                 if ($s1 !== $this->peg_FAILED) {
-                                    $s2 = $this->peg_parse_DELIMITER();
+                                    $s2 = $this->peg_parse_delimiter_sq();
                                     if ($s2 !== $this->peg_FAILED) {
                                         $this->peg_reportedPos = $s0;
-                                        $s0 = $this->peg_f39($s1, $s2);
+                                        $s0 = $this->peg_f38($s1, $s2);
                                     } else {
                                         $this->peg_currPos = $s0;
                                         $s0 = $this->peg_FAILED;
@@ -2836,12 +2817,18 @@ class Parser
                                 }
                                 if ($s0 === $this->peg_FAILED) {
                                     $s0 = $this->peg_currPos;
-                                    $s1 = $this->peg_parse_BIG();
+                                    $s1 = $this->peg_parse_left();
                                     if ($s1 !== $this->peg_FAILED) {
-                                        $s2 = $this->peg_parse_SQ_CLOSE();
+                                        $s2 = $this->peg_parse_expr();
                                         if ($s2 !== $this->peg_FAILED) {
-                                            $this->peg_reportedPos = $s0;
-                                            $s0 = $this->peg_f40($s1);
+                                            $s3 = $this->peg_parse_right();
+                                            if ($s3 !== $this->peg_FAILED) {
+                                                $this->peg_reportedPos = $s0;
+                                                $s0 = $this->peg_f39($s1, $s2, $s3);
+                                            } else {
+                                                $this->peg_currPos = $s0;
+                                                $s0 = $this->peg_FAILED;
+                                            }
                                         } else {
                                             $this->peg_currPos = $s0;
                                             $s0 = $this->peg_FAILED;
@@ -2852,14 +2839,20 @@ class Parser
                                     }
                                     if ($s0 === $this->peg_FAILED) {
                                         $s0 = $this->peg_currPos;
-                                        $s1 = $this->peg_parse_left();
+                                        $s1 = $this->peg_parse_FUN_AR1opt();
                                         if ($s1 !== $this->peg_FAILED) {
-                                            $s2 = $this->peg_parse_expr();
+                                            $s2 = $this->peg_parse_expr_nosqc();
                                             if ($s2 !== $this->peg_FAILED) {
-                                                $s3 = $this->peg_parse_right();
+                                                $s3 = $this->peg_parse_SQ_CLOSE();
                                                 if ($s3 !== $this->peg_FAILED) {
-                                                    $this->peg_reportedPos = $s0;
-                                                    $s0 = $this->peg_f41($s1, $s2, $s3);
+                                                    $s4 = $this->peg_parse_lit();
+                                                    if ($s4 !== $this->peg_FAILED) {
+                                                        $this->peg_reportedPos = $s0;
+                                                        $s0 = $this->peg_f40($s1, $s2, $s4);
+                                                    } else {
+                                                        $this->peg_currPos = $s0;
+                                                        $s0 = $this->peg_FAILED;
+                                                    }
                                                 } else {
                                                     $this->peg_currPos = $s0;
                                                     $s0 = $this->peg_FAILED;
@@ -2874,24 +2867,12 @@ class Parser
                                         }
                                         if ($s0 === $this->peg_FAILED) {
                                             $s0 = $this->peg_currPos;
-                                            $s1 = $this->peg_parse_FUN_AR1opt();
+                                            $s1 = $this->peg_parse_FUN_AR1();
                                             if ($s1 !== $this->peg_FAILED) {
-                                                $s2 = $this->peg_parse_expr_nosqc();
+                                                $s2 = $this->peg_parse_lit();
                                                 if ($s2 !== $this->peg_FAILED) {
-                                                    $s3 = $this->peg_parse_SQ_CLOSE();
-                                                    if ($s3 !== $this->peg_FAILED) {
-                                                        $s4 = $this->peg_parse_lit();
-                                                        if ($s4 !== $this->peg_FAILED) {
-                                                            $this->peg_reportedPos = $s0;
-                                                            $s0 = $this->peg_f42($s1, $s2, $s4);
-                                                        } else {
-                                                            $this->peg_currPos = $s0;
-                                                            $s0 = $this->peg_FAILED;
-                                                        }
-                                                    } else {
-                                                        $this->peg_currPos = $s0;
-                                                        $s0 = $this->peg_FAILED;
-                                                    }
+                                                    $this->peg_reportedPos = $s0;
+                                                    $s0 = $this->peg_f41($s1, $s2);
                                                 } else {
                                                     $this->peg_currPos = $s0;
                                                     $s0 = $this->peg_FAILED;
@@ -2902,12 +2883,12 @@ class Parser
                                             }
                                             if ($s0 === $this->peg_FAILED) {
                                                 $s0 = $this->peg_currPos;
-                                                $s1 = $this->peg_parse_FUN_AR1();
+                                                $s1 = $this->peg_parse_FUN_AR1nb();
                                                 if ($s1 !== $this->peg_FAILED) {
                                                     $s2 = $this->peg_parse_lit();
                                                     if ($s2 !== $this->peg_FAILED) {
                                                         $this->peg_reportedPos = $s0;
-                                                        $s0 = $this->peg_f43($s1, $s2);
+                                                        $s0 = $this->peg_f42($s1, $s2);
                                                     } else {
                                                         $this->peg_currPos = $s0;
                                                         $s0 = $this->peg_FAILED;
@@ -2918,12 +2899,12 @@ class Parser
                                                 }
                                                 if ($s0 === $this->peg_FAILED) {
                                                     $s0 = $this->peg_currPos;
-                                                    $s1 = $this->peg_parse_FUN_AR1nb();
+                                                    $s1 = $this->peg_parse_FUN_MHCHEM();
                                                     if ($s1 !== $this->peg_FAILED) {
-                                                        $s2 = $this->peg_parse_lit();
+                                                        $s2 = $this->peg_parse_RAW_GROUP();
                                                         if ($s2 !== $this->peg_FAILED) {
                                                             $this->peg_reportedPos = $s0;
-                                                            $s0 = $this->peg_f44($s1, $s2);
+                                                            $s0 = $this->peg_f43($s1, $s2);
                                                         } else {
                                                             $this->peg_currPos = $s0;
                                                             $s0 = $this->peg_FAILED;
@@ -2936,10 +2917,10 @@ class Parser
                                                         $s0 = $this->peg_currPos;
                                                         $s1 = $this->peg_parse_FUN_MHCHEM();
                                                         if ($s1 !== $this->peg_FAILED) {
-                                                            $s2 = $this->peg_parse_RAW_GROUP();
+                                                            $s2 = $this->peg_parse_RAW_TOKEN();
                                                             if ($s2 !== $this->peg_FAILED) {
                                                                 $this->peg_reportedPos = $s0;
-                                                                $s0 = $this->peg_f45($s1, $s2);
+                                                                $s0 = $this->peg_f44($s1, $s2);
                                                             } else {
                                                                 $this->peg_currPos = $s0;
                                                                 $s0 = $this->peg_FAILED;
@@ -2950,12 +2931,18 @@ class Parser
                                                         }
                                                         if ($s0 === $this->peg_FAILED) {
                                                             $s0 = $this->peg_currPos;
-                                                            $s1 = $this->peg_parse_FUN_MHCHEM();
+                                                            $s1 = $this->peg_parse_FUN_AR2();
                                                             if ($s1 !== $this->peg_FAILED) {
-                                                                $s2 = $this->peg_parse_RAW_TOKEN();
+                                                                $s2 = $this->peg_parse_lit();
                                                                 if ($s2 !== $this->peg_FAILED) {
-                                                                    $this->peg_reportedPos = $s0;
-                                                                    $s0 = $this->peg_f46($s1, $s2);
+                                                                    $s3 = $this->peg_parse_lit();
+                                                                    if ($s3 !== $this->peg_FAILED) {
+                                                                        $this->peg_reportedPos = $s0;
+                                                                        $s0 = $this->peg_f45($s1, $s2, $s3);
+                                                                    } else {
+                                                                        $this->peg_currPos = $s0;
+                                                                        $s0 = $this->peg_FAILED;
+                                                                    }
                                                                 } else {
                                                                     $this->peg_currPos = $s0;
                                                                     $s0 = $this->peg_FAILED;
@@ -2966,14 +2953,26 @@ class Parser
                                                             }
                                                             if ($s0 === $this->peg_FAILED) {
                                                                 $s0 = $this->peg_currPos;
-                                                                $s1 = $this->peg_parse_FUN_AR2();
+                                                                $s1 = $this->peg_parse_FUN_AR4();
                                                                 if ($s1 !== $this->peg_FAILED) {
                                                                     $s2 = $this->peg_parse_lit();
                                                                     if ($s2 !== $this->peg_FAILED) {
                                                                         $s3 = $this->peg_parse_lit();
                                                                         if ($s3 !== $this->peg_FAILED) {
-                                                                            $this->peg_reportedPos = $s0;
-                                                                            $s0 = $this->peg_f47($s1, $s2, $s3);
+                                                                            $s4 = $this->peg_parse_lit();
+                                                                            if ($s4 !== $this->peg_FAILED) {
+                                                                                $s5 = $this->peg_parse_lit();
+                                                                                if ($s5 !== $this->peg_FAILED) {
+                                                                                    $this->peg_reportedPos = $s0;
+                                                                                    $s0 = $this->peg_f46($s1, $s2, $s3, $s4, $s5);
+                                                                                } else {
+                                                                                    $this->peg_currPos = $s0;
+                                                                                    $s0 = $this->peg_FAILED;
+                                                                                }
+                                                                            } else {
+                                                                                $this->peg_currPos = $s0;
+                                                                                $s0 = $this->peg_FAILED;
+                                                                            }
                                                                         } else {
                                                                             $this->peg_currPos = $s0;
                                                                             $s0 = $this->peg_FAILED;
@@ -2988,26 +2987,14 @@ class Parser
                                                                 }
                                                                 if ($s0 === $this->peg_FAILED) {
                                                                     $s0 = $this->peg_currPos;
-                                                                    $s1 = $this->peg_parse_FUN_AR4();
+                                                                    $s1 = $this->peg_parse_FUN_AR2nb();
                                                                     if ($s1 !== $this->peg_FAILED) {
                                                                         $s2 = $this->peg_parse_lit();
                                                                         if ($s2 !== $this->peg_FAILED) {
                                                                             $s3 = $this->peg_parse_lit();
                                                                             if ($s3 !== $this->peg_FAILED) {
-                                                                                $s4 = $this->peg_parse_lit();
-                                                                                if ($s4 !== $this->peg_FAILED) {
-                                                                                    $s5 = $this->peg_parse_lit();
-                                                                                    if ($s5 !== $this->peg_FAILED) {
-                                                                                        $this->peg_reportedPos = $s0;
-                                                                                        $s0 = $this->peg_f48($s1, $s2, $s3, $s4, $s5);
-                                                                                    } else {
-                                                                                        $this->peg_currPos = $s0;
-                                                                                        $s0 = $this->peg_FAILED;
-                                                                                    }
-                                                                                } else {
-                                                                                    $this->peg_currPos = $s0;
-                                                                                    $s0 = $this->peg_FAILED;
-                                                                                }
+                                                                                $this->peg_reportedPos = $s0;
+                                                                                $s0 = $this->peg_f47($s1, $s2, $s3);
                                                                             } else {
                                                                                 $this->peg_currPos = $s0;
                                                                                 $s0 = $this->peg_FAILED;
@@ -3021,15 +3008,21 @@ class Parser
                                                                         $s0 = $this->peg_FAILED;
                                                                     }
                                                                     if ($s0 === $this->peg_FAILED) {
-                                                                        $s0 = $this->peg_currPos;
-                                                                        $s1 = $this->peg_parse_FUN_AR2nb();
-                                                                        if ($s1 !== $this->peg_FAILED) {
-                                                                            $s2 = $this->peg_parse_lit();
-                                                                            if ($s2 !== $this->peg_FAILED) {
-                                                                                $s3 = $this->peg_parse_lit();
-                                                                                if ($s3 !== $this->peg_FAILED) {
-                                                                                    $this->peg_reportedPos = $s0;
-                                                                                    $s0 = $this->peg_f49($s1, $s2, $s3);
+                                                                        $s0 = $this->peg_parse_BOX();
+                                                                        if ($s0 === $this->peg_FAILED) {
+                                                                            $s0 = $this->peg_currPos;
+                                                                            $s1 = $this->peg_parse_CURLY_OPEN();
+                                                                            if ($s1 !== $this->peg_FAILED) {
+                                                                                $s2 = $this->peg_parse_expr();
+                                                                                if ($s2 !== $this->peg_FAILED) {
+                                                                                    $s3 = $this->peg_parse_CURLY_CLOSE();
+                                                                                    if ($s3 !== $this->peg_FAILED) {
+                                                                                        $this->peg_reportedPos = $s0;
+                                                                                        $s0 = $this->peg_f48($s2);
+                                                                                    } else {
+                                                                                        $this->peg_currPos = $s0;
+                                                                                        $s0 = $this->peg_FAILED;
+                                                                                    }
                                                                                 } else {
                                                                                     $this->peg_currPos = $s0;
                                                                                     $s0 = $this->peg_FAILED;
@@ -3038,22 +3031,28 @@ class Parser
                                                                                 $this->peg_currPos = $s0;
                                                                                 $s0 = $this->peg_FAILED;
                                                                             }
-                                                                        } else {
-                                                                            $this->peg_currPos = $s0;
-                                                                            $s0 = $this->peg_FAILED;
-                                                                        }
-                                                                        if ($s0 === $this->peg_FAILED) {
-                                                                            $s0 = $this->peg_parse_BOX();
                                                                             if ($s0 === $this->peg_FAILED) {
                                                                                 $s0 = $this->peg_currPos;
                                                                                 $s1 = $this->peg_parse_CURLY_OPEN();
                                                                                 if ($s1 !== $this->peg_FAILED) {
-                                                                                    $s2 = $this->peg_parse_expr();
+                                                                                    $s2 = $this->peg_parse_ne_expr();
                                                                                     if ($s2 !== $this->peg_FAILED) {
-                                                                                        $s3 = $this->peg_parse_CURLY_CLOSE();
+                                                                                        $s3 = $this->peg_parse_FUN_INFIX();
                                                                                         if ($s3 !== $this->peg_FAILED) {
-                                                                                            $this->peg_reportedPos = $s0;
-                                                                                            $s0 = $this->peg_f50($s2);
+                                                                                            $s4 = $this->peg_parse_ne_expr();
+                                                                                            if ($s4 !== $this->peg_FAILED) {
+                                                                                                $s5 = $this->peg_parse_CURLY_CLOSE();
+                                                                                                if ($s5 !== $this->peg_FAILED) {
+                                                                                                    $this->peg_reportedPos = $s0;
+                                                                                                    $s0 = $this->peg_f49($s2, $s3, $s4);
+                                                                                                } else {
+                                                                                                    $this->peg_currPos = $s0;
+                                                                                                    $s0 = $this->peg_FAILED;
+                                                                                                }
+                                                                                            } else {
+                                                                                                $this->peg_currPos = $s0;
+                                                                                                $s0 = $this->peg_FAILED;
+                                                                                            }
                                                                                         } else {
                                                                                             $this->peg_currPos = $s0;
                                                                                             $s0 = $this->peg_FAILED;
@@ -3068,26 +3067,17 @@ class Parser
                                                                                 }
                                                                                 if ($s0 === $this->peg_FAILED) {
                                                                                     $s0 = $this->peg_currPos;
-                                                                                    $s1 = $this->peg_parse_CURLY_OPEN();
+                                                                                    $s1 = $this->peg_parse_BEGIN_MATRIX();
                                                                                     if ($s1 !== $this->peg_FAILED) {
-                                                                                        $s2 = $this->peg_parse_ne_expr();
+                                                                                        $s2 = $this->peg_parse_array();
+                                                                                        if ($s2 === $this->peg_FAILED) {
+                                                                                            $s2 = $this->peg_parse_matrix();
+                                                                                        }
                                                                                         if ($s2 !== $this->peg_FAILED) {
-                                                                                            $s3 = $this->peg_parse_FUN_INFIX();
+                                                                                            $s3 = $this->peg_parse_END_MATRIX();
                                                                                             if ($s3 !== $this->peg_FAILED) {
-                                                                                                $s4 = $this->peg_parse_ne_expr();
-                                                                                                if ($s4 !== $this->peg_FAILED) {
-                                                                                                    $s5 = $this->peg_parse_CURLY_CLOSE();
-                                                                                                    if ($s5 !== $this->peg_FAILED) {
-                                                                                                        $this->peg_reportedPos = $s0;
-                                                                                                        $s0 = $this->peg_f51($s2, $s3, $s4);
-                                                                                                    } else {
-                                                                                                        $this->peg_currPos = $s0;
-                                                                                                        $s0 = $this->peg_FAILED;
-                                                                                                    }
-                                                                                                } else {
-                                                                                                    $this->peg_currPos = $s0;
-                                                                                                    $s0 = $this->peg_FAILED;
-                                                                                                }
+                                                                                                $this->peg_reportedPos = $s0;
+                                                                                                $s0 = $this->peg_f50($s2);
                                                                                             } else {
                                                                                                 $this->peg_currPos = $s0;
                                                                                                 $s0 = $this->peg_FAILED;
@@ -3102,17 +3092,17 @@ class Parser
                                                                                     }
                                                                                     if ($s0 === $this->peg_FAILED) {
                                                                                         $s0 = $this->peg_currPos;
-                                                                                        $s1 = $this->peg_parse_BEGIN_MATRIX();
+                                                                                        $s1 = $this->peg_parse_BEGIN_PMATRIX();
                                                                                         if ($s1 !== $this->peg_FAILED) {
                                                                                             $s2 = $this->peg_parse_array();
                                                                                             if ($s2 === $this->peg_FAILED) {
                                                                                                 $s2 = $this->peg_parse_matrix();
                                                                                             }
                                                                                             if ($s2 !== $this->peg_FAILED) {
-                                                                                                $s3 = $this->peg_parse_END_MATRIX();
+                                                                                                $s3 = $this->peg_parse_END_PMATRIX();
                                                                                                 if ($s3 !== $this->peg_FAILED) {
                                                                                                     $this->peg_reportedPos = $s0;
-                                                                                                    $s0 = $this->peg_f52($s2);
+                                                                                                    $s0 = $this->peg_f51($s2);
                                                                                                 } else {
                                                                                                     $this->peg_currPos = $s0;
                                                                                                     $s0 = $this->peg_FAILED;
@@ -3127,17 +3117,17 @@ class Parser
                                                                                         }
                                                                                         if ($s0 === $this->peg_FAILED) {
                                                                                             $s0 = $this->peg_currPos;
-                                                                                            $s1 = $this->peg_parse_BEGIN_PMATRIX();
+                                                                                            $s1 = $this->peg_parse_BEGIN_BMATRIX();
                                                                                             if ($s1 !== $this->peg_FAILED) {
                                                                                                 $s2 = $this->peg_parse_array();
                                                                                                 if ($s2 === $this->peg_FAILED) {
                                                                                                     $s2 = $this->peg_parse_matrix();
                                                                                                 }
                                                                                                 if ($s2 !== $this->peg_FAILED) {
-                                                                                                    $s3 = $this->peg_parse_END_PMATRIX();
+                                                                                                    $s3 = $this->peg_parse_END_BMATRIX();
                                                                                                     if ($s3 !== $this->peg_FAILED) {
                                                                                                         $this->peg_reportedPos = $s0;
-                                                                                                        $s0 = $this->peg_f53($s2);
+                                                                                                        $s0 = $this->peg_f52($s2);
                                                                                                     } else {
                                                                                                         $this->peg_currPos = $s0;
                                                                                                         $s0 = $this->peg_FAILED;
@@ -3152,17 +3142,17 @@ class Parser
                                                                                             }
                                                                                             if ($s0 === $this->peg_FAILED) {
                                                                                                 $s0 = $this->peg_currPos;
-                                                                                                $s1 = $this->peg_parse_BEGIN_BMATRIX();
+                                                                                                $s1 = $this->peg_parse_BEGIN_BBMATRIX();
                                                                                                 if ($s1 !== $this->peg_FAILED) {
                                                                                                     $s2 = $this->peg_parse_array();
                                                                                                     if ($s2 === $this->peg_FAILED) {
                                                                                                         $s2 = $this->peg_parse_matrix();
                                                                                                     }
                                                                                                     if ($s2 !== $this->peg_FAILED) {
-                                                                                                        $s3 = $this->peg_parse_END_BMATRIX();
+                                                                                                        $s3 = $this->peg_parse_END_BBMATRIX();
                                                                                                         if ($s3 !== $this->peg_FAILED) {
                                                                                                             $this->peg_reportedPos = $s0;
-                                                                                                            $s0 = $this->peg_f54($s2);
+                                                                                                            $s0 = $this->peg_f53($s2);
                                                                                                         } else {
                                                                                                             $this->peg_currPos = $s0;
                                                                                                             $s0 = $this->peg_FAILED;
@@ -3177,17 +3167,17 @@ class Parser
                                                                                                 }
                                                                                                 if ($s0 === $this->peg_FAILED) {
                                                                                                     $s0 = $this->peg_currPos;
-                                                                                                    $s1 = $this->peg_parse_BEGIN_BBMATRIX();
+                                                                                                    $s1 = $this->peg_parse_BEGIN_VMATRIX();
                                                                                                     if ($s1 !== $this->peg_FAILED) {
                                                                                                         $s2 = $this->peg_parse_array();
                                                                                                         if ($s2 === $this->peg_FAILED) {
                                                                                                             $s2 = $this->peg_parse_matrix();
                                                                                                         }
                                                                                                         if ($s2 !== $this->peg_FAILED) {
-                                                                                                            $s3 = $this->peg_parse_END_BBMATRIX();
+                                                                                                            $s3 = $this->peg_parse_END_VMATRIX();
                                                                                                             if ($s3 !== $this->peg_FAILED) {
                                                                                                                 $this->peg_reportedPos = $s0;
-                                                                                                                $s0 = $this->peg_f55($s2);
+                                                                                                                $s0 = $this->peg_f54($s2);
                                                                                                             } else {
                                                                                                                 $this->peg_currPos = $s0;
                                                                                                                 $s0 = $this->peg_FAILED;
@@ -3202,17 +3192,17 @@ class Parser
                                                                                                     }
                                                                                                     if ($s0 === $this->peg_FAILED) {
                                                                                                         $s0 = $this->peg_currPos;
-                                                                                                        $s1 = $this->peg_parse_BEGIN_VMATRIX();
+                                                                                                        $s1 = $this->peg_parse_BEGIN_VVMATRIX();
                                                                                                         if ($s1 !== $this->peg_FAILED) {
                                                                                                             $s2 = $this->peg_parse_array();
                                                                                                             if ($s2 === $this->peg_FAILED) {
                                                                                                                 $s2 = $this->peg_parse_matrix();
                                                                                                             }
                                                                                                             if ($s2 !== $this->peg_FAILED) {
-                                                                                                                $s3 = $this->peg_parse_END_VMATRIX();
+                                                                                                                $s3 = $this->peg_parse_END_VVMATRIX();
                                                                                                                 if ($s3 !== $this->peg_FAILED) {
                                                                                                                     $this->peg_reportedPos = $s0;
-                                                                                                                    $s0 = $this->peg_f56($s2);
+                                                                                                                    $s0 = $this->peg_f55($s2);
                                                                                                                 } else {
                                                                                                                     $this->peg_currPos = $s0;
                                                                                                                     $s0 = $this->peg_FAILED;
@@ -3227,17 +3217,20 @@ class Parser
                                                                                                         }
                                                                                                         if ($s0 === $this->peg_FAILED) {
                                                                                                             $s0 = $this->peg_currPos;
-                                                                                                            $s1 = $this->peg_parse_BEGIN_VVMATRIX();
+                                                                                                            $s1 = $this->peg_parse_BEGIN_ARRAY();
                                                                                                             if ($s1 !== $this->peg_FAILED) {
-                                                                                                                $s2 = $this->peg_parse_array();
-                                                                                                                if ($s2 === $this->peg_FAILED) {
-                                                                                                                    $s2 = $this->peg_parse_matrix();
-                                                                                                                }
+                                                                                                                $s2 = $this->peg_parse_opt_pos();
                                                                                                                 if ($s2 !== $this->peg_FAILED) {
-                                                                                                                    $s3 = $this->peg_parse_END_VVMATRIX();
+                                                                                                                    $s3 = $this->peg_parse_array();
                                                                                                                     if ($s3 !== $this->peg_FAILED) {
-                                                                                                                        $this->peg_reportedPos = $s0;
-                                                                                                                        $s0 = $this->peg_f57($s2);
+                                                                                                                        $s4 = $this->peg_parse_END_ARRAY();
+                                                                                                                        if ($s4 !== $this->peg_FAILED) {
+                                                                                                                            $this->peg_reportedPos = $s0;
+                                                                                                                            $s0 = $this->peg_f56($s3);
+                                                                                                                        } else {
+                                                                                                                            $this->peg_currPos = $s0;
+                                                                                                                            $s0 = $this->peg_FAILED;
+                                                                                                                        }
                                                                                                                     } else {
                                                                                                                         $this->peg_currPos = $s0;
                                                                                                                         $s0 = $this->peg_FAILED;
@@ -3252,16 +3245,16 @@ class Parser
                                                                                                             }
                                                                                                             if ($s0 === $this->peg_FAILED) {
                                                                                                                 $s0 = $this->peg_currPos;
-                                                                                                                $s1 = $this->peg_parse_BEGIN_ARRAY();
+                                                                                                                $s1 = $this->peg_parse_BEGIN_ALIGN();
                                                                                                                 if ($s1 !== $this->peg_FAILED) {
                                                                                                                     $s2 = $this->peg_parse_opt_pos();
                                                                                                                     if ($s2 !== $this->peg_FAILED) {
-                                                                                                                        $s3 = $this->peg_parse_array();
+                                                                                                                        $s3 = $this->peg_parse_matrix();
                                                                                                                         if ($s3 !== $this->peg_FAILED) {
-                                                                                                                            $s4 = $this->peg_parse_END_ARRAY();
+                                                                                                                            $s4 = $this->peg_parse_END_ALIGN();
                                                                                                                             if ($s4 !== $this->peg_FAILED) {
                                                                                                                                 $this->peg_reportedPos = $s0;
-                                                                                                                                $s0 = $this->peg_f58($s3);
+                                                                                                                                $s0 = $this->peg_f57($s3);
                                                                                                                             } else {
                                                                                                                                 $this->peg_currPos = $s0;
                                                                                                                                 $s0 = $this->peg_FAILED;
@@ -3280,16 +3273,16 @@ class Parser
                                                                                                                 }
                                                                                                                 if ($s0 === $this->peg_FAILED) {
                                                                                                                     $s0 = $this->peg_currPos;
-                                                                                                                    $s1 = $this->peg_parse_BEGIN_ALIGN();
+                                                                                                                    $s1 = $this->peg_parse_BEGIN_ALIGNED();
                                                                                                                     if ($s1 !== $this->peg_FAILED) {
                                                                                                                         $s2 = $this->peg_parse_opt_pos();
                                                                                                                         if ($s2 !== $this->peg_FAILED) {
                                                                                                                             $s3 = $this->peg_parse_matrix();
                                                                                                                             if ($s3 !== $this->peg_FAILED) {
-                                                                                                                                $s4 = $this->peg_parse_END_ALIGN();
+                                                                                                                                $s4 = $this->peg_parse_END_ALIGNED();
                                                                                                                                 if ($s4 !== $this->peg_FAILED) {
                                                                                                                                     $this->peg_reportedPos = $s0;
-                                                                                                                                    $s0 = $this->peg_f59($s3);
+                                                                                                                                    $s0 = $this->peg_f58($s3);
                                                                                                                                 } else {
                                                                                                                                     $this->peg_currPos = $s0;
                                                                                                                                     $s0 = $this->peg_FAILED;
@@ -3308,20 +3301,14 @@ class Parser
                                                                                                                     }
                                                                                                                     if ($s0 === $this->peg_FAILED) {
                                                                                                                         $s0 = $this->peg_currPos;
-                                                                                                                        $s1 = $this->peg_parse_BEGIN_ALIGNED();
+                                                                                                                        $s1 = $this->peg_parse_BEGIN_ALIGNAT();
                                                                                                                         if ($s1 !== $this->peg_FAILED) {
-                                                                                                                            $s2 = $this->peg_parse_opt_pos();
+                                                                                                                            $s2 = $this->peg_parse_alignat();
                                                                                                                             if ($s2 !== $this->peg_FAILED) {
-                                                                                                                                $s3 = $this->peg_parse_matrix();
+                                                                                                                                $s3 = $this->peg_parse_END_ALIGNAT();
                                                                                                                                 if ($s3 !== $this->peg_FAILED) {
-                                                                                                                                    $s4 = $this->peg_parse_END_ALIGNED();
-                                                                                                                                    if ($s4 !== $this->peg_FAILED) {
-                                                                                                                                        $this->peg_reportedPos = $s0;
-                                                                                                                                        $s0 = $this->peg_f60($s3);
-                                                                                                                                    } else {
-                                                                                                                                        $this->peg_currPos = $s0;
-                                                                                                                                        $s0 = $this->peg_FAILED;
-                                                                                                                                    }
+                                                                                                                                    $this->peg_reportedPos = $s0;
+                                                                                                                                    $s0 = $this->peg_f59($s2);
                                                                                                                                 } else {
                                                                                                                                     $this->peg_currPos = $s0;
                                                                                                                                     $s0 = $this->peg_FAILED;
@@ -3336,14 +3323,14 @@ class Parser
                                                                                                                         }
                                                                                                                         if ($s0 === $this->peg_FAILED) {
                                                                                                                             $s0 = $this->peg_currPos;
-                                                                                                                            $s1 = $this->peg_parse_BEGIN_ALIGNAT();
+                                                                                                                            $s1 = $this->peg_parse_BEGIN_ALIGNEDAT();
                                                                                                                             if ($s1 !== $this->peg_FAILED) {
                                                                                                                                 $s2 = $this->peg_parse_alignat();
                                                                                                                                 if ($s2 !== $this->peg_FAILED) {
-                                                                                                                                    $s3 = $this->peg_parse_END_ALIGNAT();
+                                                                                                                                    $s3 = $this->peg_parse_END_ALIGNEDAT();
                                                                                                                                     if ($s3 !== $this->peg_FAILED) {
                                                                                                                                         $this->peg_reportedPos = $s0;
-                                                                                                                                        $s0 = $this->peg_f61($s2);
+                                                                                                                                        $s0 = $this->peg_f60($s2);
                                                                                                                                     } else {
                                                                                                                                         $this->peg_currPos = $s0;
                                                                                                                                         $s0 = $this->peg_FAILED;
@@ -3358,14 +3345,17 @@ class Parser
                                                                                                                             }
                                                                                                                             if ($s0 === $this->peg_FAILED) {
                                                                                                                                 $s0 = $this->peg_currPos;
-                                                                                                                                $s1 = $this->peg_parse_BEGIN_ALIGNEDAT();
+                                                                                                                                $s1 = $this->peg_parse_BEGIN_SMALLMATRIX();
                                                                                                                                 if ($s1 !== $this->peg_FAILED) {
-                                                                                                                                    $s2 = $this->peg_parse_alignat();
+                                                                                                                                    $s2 = $this->peg_parse_array();
+                                                                                                                                    if ($s2 === $this->peg_FAILED) {
+                                                                                                                                        $s2 = $this->peg_parse_matrix();
+                                                                                                                                    }
                                                                                                                                     if ($s2 !== $this->peg_FAILED) {
-                                                                                                                                        $s3 = $this->peg_parse_END_ALIGNEDAT();
+                                                                                                                                        $s3 = $this->peg_parse_END_SMALLMATRIX();
                                                                                                                                         if ($s3 !== $this->peg_FAILED) {
                                                                                                                                             $this->peg_reportedPos = $s0;
-                                                                                                                                            $s0 = $this->peg_f62($s2);
+                                                                                                                                            $s0 = $this->peg_f61($s2);
                                                                                                                                         } else {
                                                                                                                                             $this->peg_currPos = $s0;
                                                                                                                                             $s0 = $this->peg_FAILED;
@@ -3380,17 +3370,14 @@ class Parser
                                                                                                                                 }
                                                                                                                                 if ($s0 === $this->peg_FAILED) {
                                                                                                                                     $s0 = $this->peg_currPos;
-                                                                                                                                    $s1 = $this->peg_parse_BEGIN_SMALLMATRIX();
+                                                                                                                                    $s1 = $this->peg_parse_BEGIN_CASES();
                                                                                                                                     if ($s1 !== $this->peg_FAILED) {
-                                                                                                                                        $s2 = $this->peg_parse_array();
-                                                                                                                                        if ($s2 === $this->peg_FAILED) {
-                                                                                                                                            $s2 = $this->peg_parse_matrix();
-                                                                                                                                        }
+                                                                                                                                        $s2 = $this->peg_parse_matrix();
                                                                                                                                         if ($s2 !== $this->peg_FAILED) {
-                                                                                                                                            $s3 = $this->peg_parse_END_SMALLMATRIX();
+                                                                                                                                            $s3 = $this->peg_parse_END_CASES();
                                                                                                                                             if ($s3 !== $this->peg_FAILED) {
                                                                                                                                                 $this->peg_reportedPos = $s0;
-                                                                                                                                                $s0 = $this->peg_f63($s2);
+                                                                                                                                                $s0 = $this->peg_f62($s2);
                                                                                                                                             } else {
                                                                                                                                                 $this->peg_currPos = $s0;
                                                                                                                                                 $s0 = $this->peg_FAILED;
@@ -3405,14 +3392,39 @@ class Parser
                                                                                                                                     }
                                                                                                                                     if ($s0 === $this->peg_FAILED) {
                                                                                                                                         $s0 = $this->peg_currPos;
-                                                                                                                                        $s1 = $this->peg_parse_BEGIN_CASES();
+                                                                                                                                        if ($this->input_substr($this->peg_currPos, 7) === $this->peg_l1) {
+                                                                                                                                            $s1 = $this->peg_l1;
+                                                                                                                                            $this->peg_currPos += 7;
+                                                                                                                                        } else {
+                                                                                                                                            $s1 = $this->peg_FAILED;
+                                                                                                                                            if ($this->peg_silentFails === 0) {
+                                                                                                                                                $this->peg_fail($this->peg_e3);
+                                                                                                                                            }
+                                                                                                                                        }
                                                                                                                                         if ($s1 !== $this->peg_FAILED) {
-                                                                                                                                            $s2 = $this->peg_parse_matrix();
+                                                                                                                                            $s2 = [];
+                                                                                                                                            $s3 = $this->peg_parse_alpha();
+                                                                                                                                            if ($s3 !== $this->peg_FAILED) {
+                                                                                                                                                while ($s3 !== $this->peg_FAILED) {
+                                                                                                                                                    $s2[] = $s3;
+                                                                                                                                                    $s3 = $this->peg_parse_alpha();
+                                                                                                                                                }
+                                                                                                                                            } else {
+                                                                                                                                                $s2 = $this->peg_FAILED;
+                                                                                                                                            }
                                                                                                                                             if ($s2 !== $this->peg_FAILED) {
-                                                                                                                                                $s3 = $this->peg_parse_END_CASES();
+                                                                                                                                                if ($this->input_substr($this->peg_currPos, 1) === $this->peg_l2) {
+                                                                                                                                                    $s3 = $this->peg_l2;
+                                                                                                                                                    $this->peg_currPos++;
+                                                                                                                                                } else {
+                                                                                                                                                    $s3 = $this->peg_FAILED;
+                                                                                                                                                    if ($this->peg_silentFails === 0) {
+                                                                                                                                                        $this->peg_fail($this->peg_e4);
+                                                                                                                                                    }
+                                                                                                                                                }
                                                                                                                                                 if ($s3 !== $this->peg_FAILED) {
                                                                                                                                                     $this->peg_reportedPos = $s0;
-                                                                                                                                                    $s0 = $this->peg_f64($s2);
+                                                                                                                                                    $s0 = $this->peg_f63();
                                                                                                                                                 } else {
                                                                                                                                                     $this->peg_currPos = $s0;
                                                                                                                                                     $s0 = $this->peg_FAILED;
@@ -3427,43 +3439,18 @@ class Parser
                                                                                                                                         }
                                                                                                                                         if ($s0 === $this->peg_FAILED) {
                                                                                                                                             $s0 = $this->peg_currPos;
-                                                                                                                                            if ($this->input_substr($this->peg_currPos, 7) === $this->peg_l1) {
-                                                                                                                                                $s1 = $this->peg_l1;
-                                                                                                                                                $this->peg_currPos += 7;
-                                                                                                                                            } else {
-                                                                                                                                                $s1 = $this->peg_FAILED;
-                                                                                                                                                if ($this->peg_silentFails === 0) {
-                                                                                                                                                    $this->peg_fail($this->peg_e3);
-                                                                                                                                                }
-                                                                                                                                            }
+                                                                                                                                            $s1 = $this->peg_parse_generic_func();
                                                                                                                                             if ($s1 !== $this->peg_FAILED) {
-                                                                                                                                                $s2 = [];
-                                                                                                                                                $s3 = $this->peg_parse_alpha();
-                                                                                                                                                if ($s3 !== $this->peg_FAILED) {
-                                                                                                                                                    while ($s3 !== $this->peg_FAILED) {
-                                                                                                                                                        $s2[] = $s3;
-                                                                                                                                                        $s3 = $this->peg_parse_alpha();
-                                                                                                                                                    }
+                                                                                                                                                $this->peg_reportedPos = $this->peg_currPos;
+                                                                                                                                                $s2 = $this->peg_f64($s1);
+                                                                                                                                                if ($s2) {
+                                                                                                                                                    $s2 = null;
                                                                                                                                                 } else {
                                                                                                                                                     $s2 = $this->peg_FAILED;
                                                                                                                                                 }
                                                                                                                                                 if ($s2 !== $this->peg_FAILED) {
-                                                                                                                                                    if ($this->input_substr($this->peg_currPos, 1) === $this->peg_l2) {
-                                                                                                                                                        $s3 = $this->peg_l2;
-                                                                                                                                                        $this->peg_currPos++;
-                                                                                                                                                    } else {
-                                                                                                                                                        $s3 = $this->peg_FAILED;
-                                                                                                                                                        if ($this->peg_silentFails === 0) {
-                                                                                                                                                            $this->peg_fail($this->peg_e4);
-                                                                                                                                                        }
-                                                                                                                                                    }
-                                                                                                                                                    if ($s3 !== $this->peg_FAILED) {
-                                                                                                                                                        $this->peg_reportedPos = $s0;
-                                                                                                                                                        $s0 = $this->peg_f65();
-                                                                                                                                                    } else {
-                                                                                                                                                        $this->peg_currPos = $s0;
-                                                                                                                                                        $s0 = $this->peg_FAILED;
-                                                                                                                                                    }
+                                                                                                                                                    $this->peg_reportedPos = $s0;
+                                                                                                                                                    $s0 = $this->peg_f65($s1);
                                                                                                                                                 } else {
                                                                                                                                                     $this->peg_currPos = $s0;
                                                                                                                                                     $s0 = $this->peg_FAILED;
@@ -3471,29 +3458,6 @@ class Parser
                                                                                                                                             } else {
                                                                                                                                                 $this->peg_currPos = $s0;
                                                                                                                                                 $s0 = $this->peg_FAILED;
-                                                                                                                                            }
-                                                                                                                                            if ($s0 === $this->peg_FAILED) {
-                                                                                                                                                $s0 = $this->peg_currPos;
-                                                                                                                                                $s1 = $this->peg_parse_generic_func();
-                                                                                                                                                if ($s1 !== $this->peg_FAILED) {
-                                                                                                                                                    $this->peg_reportedPos = $this->peg_currPos;
-                                                                                                                                                    $s2 = $this->peg_f66($s1);
-                                                                                                                                                    if ($s2) {
-                                                                                                                                                        $s2 = null;
-                                                                                                                                                    } else {
-                                                                                                                                                        $s2 = $this->peg_FAILED;
-                                                                                                                                                    }
-                                                                                                                                                    if ($s2 !== $this->peg_FAILED) {
-                                                                                                                                                        $this->peg_reportedPos = $s0;
-                                                                                                                                                        $s0 = $this->peg_f67($s1);
-                                                                                                                                                    } else {
-                                                                                                                                                        $this->peg_currPos = $s0;
-                                                                                                                                                        $s0 = $this->peg_FAILED;
-                                                                                                                                                    }
-                                                                                                                                                } else {
-                                                                                                                                                    $this->peg_currPos = $s0;
-                                                                                                                                                    $s0 = $this->peg_FAILED;
-                                                                                                                                                }
                                                                                                                                             }
                                                                                                                                         }
                                                                                                                                     }
@@ -3536,7 +3500,7 @@ class Parser
 
     private function peg_parse_array(): mixed
     {
-        $key = $this->peg_currPos * 102 + 20;
+        $key = $this->peg_currPos * 103 + 21;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -3550,7 +3514,7 @@ class Parser
             $s2 = $this->peg_parse_matrix();
             if ($s2 !== $this->peg_FAILED) {
                 $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f68($s1, $s2);
+                $s0 = $this->peg_f66($s1, $s2);
             } else {
                 $this->peg_currPos = $s0;
                 $s0 = $this->peg_FAILED;
@@ -3567,7 +3531,7 @@ class Parser
 
     private function peg_parse_alignat(): mixed
     {
-        $key = $this->peg_currPos * 102 + 21;
+        $key = $this->peg_currPos * 103 + 22;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -3581,7 +3545,7 @@ class Parser
             $s2 = $this->peg_parse_matrix();
             if ($s2 !== $this->peg_FAILED) {
                 $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f69($s1, $s2);
+                $s0 = $this->peg_f67($s1, $s2);
             } else {
                 $this->peg_currPos = $s0;
                 $s0 = $this->peg_FAILED;
@@ -3598,7 +3562,7 @@ class Parser
 
     private function peg_parse_matrix(): mixed
     {
-        $key = $this->peg_currPos * 102 + 22;
+        $key = $this->peg_currPos * 103 + 23;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -3615,7 +3579,7 @@ class Parser
                 $s4 = $this->peg_parse_matrix();
                 if ($s4 !== $this->peg_FAILED) {
                     $this->peg_reportedPos = $s2;
-                    $s2 = $this->peg_f70($s1, $s3, $s4);
+                    $s2 = $this->peg_f68($s1, $s3, $s4);
                 } else {
                     $this->peg_currPos = $s2;
                     $s2 = $this->peg_FAILED;
@@ -3628,7 +3592,7 @@ class Parser
                 $s2 = null;
             }
             $this->peg_reportedPos = $s0;
-            $s0 = $this->peg_f71($s1, $s2);
+            $s0 = $this->peg_f69($s1, $s2);
         } else {
             $this->peg_currPos = $s0;
             $s0 = $this->peg_FAILED;
@@ -3641,7 +3605,7 @@ class Parser
 
     private function peg_parse_line_start(): mixed
     {
-        $key = $this->peg_currPos * 102 + 23;
+        $key = $this->peg_currPos * 103 + 24;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -3655,7 +3619,7 @@ class Parser
             $s2 = $this->peg_parse_line_start();
             if ($s2 !== $this->peg_FAILED) {
                 $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f72($s1, $s2);
+                $s0 = $this->peg_f70($s1, $s2);
             } else {
                 $this->peg_currPos = $s0;
                 $s0 = $this->peg_FAILED;
@@ -3675,7 +3639,7 @@ class Parser
 
     private function peg_parse_line(): mixed
     {
-        $key = $this->peg_currPos * 102 + 24;
+        $key = $this->peg_currPos * 103 + 25;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -3692,7 +3656,7 @@ class Parser
                 $s4 = $this->peg_parse_line();
                 if ($s4 !== $this->peg_FAILED) {
                     $this->peg_reportedPos = $s2;
-                    $s2 = $this->peg_f73($s1, $s4);
+                    $s2 = $this->peg_f71($s1, $s4);
                 } else {
                     $this->peg_currPos = $s2;
                     $s2 = $this->peg_FAILED;
@@ -3705,7 +3669,7 @@ class Parser
                 $s2 = null;
             }
             $this->peg_reportedPos = $s0;
-            $s0 = $this->peg_f74($s1, $s2);
+            $s0 = $this->peg_f72($s1, $s2);
         } else {
             $this->peg_currPos = $s0;
             $s0 = $this->peg_FAILED;
@@ -3718,7 +3682,7 @@ class Parser
 
     private function peg_parse_column_spec(): mixed
     {
-        $key = $this->peg_currPos * 102 + 25;
+        $key = $this->peg_currPos * 103 + 26;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -3742,14 +3706,14 @@ class Parser
             }
             if ($s3 !== $this->peg_FAILED) {
                 $this->peg_reportedPos = $s2;
-                $s3 = $this->peg_f75();
+                $s3 = $this->peg_f73();
             }
             $s2 = $s3;
             if ($s2 !== $this->peg_FAILED) {
                 $s3 = $this->peg_parse_CURLY_CLOSE();
                 if ($s3 !== $this->peg_FAILED) {
                     $this->peg_reportedPos = $s0;
-                    $s0 = $this->peg_f76($s2);
+                    $s0 = $this->peg_f74($s2);
                 } else {
                     $this->peg_currPos = $s0;
                     $s0 = $this->peg_FAILED;
@@ -3770,7 +3734,7 @@ class Parser
 
     private function peg_parse_one_col(): mixed
     {
-        $key = $this->peg_currPos * 102 + 26;
+        $key = $this->peg_currPos * 103 + 27;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -4038,7 +4002,7 @@ class Parser
 
     private function peg_parse_alignat_spec(): mixed
     {
-        $key = $this->peg_currPos * 102 + 27;
+        $key = $this->peg_currPos * 103 + 28;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -4078,7 +4042,7 @@ class Parser
             }
             if ($s3 !== $this->peg_FAILED) {
                 $this->peg_reportedPos = $s2;
-                $s3 = $this->peg_f77();
+                $s3 = $this->peg_f75();
             }
             $s2 = $s3;
             if ($s2 !== $this->peg_FAILED) {
@@ -4086,7 +4050,7 @@ class Parser
                 $s4 = $this->peg_parse_CURLY_CLOSE();
                 if ($s4 !== $this->peg_FAILED) {
                     $this->peg_reportedPos = $s0;
-                    $s0 = $this->peg_f78($s2);
+                    $s0 = $this->peg_f76($s2);
                 } else {
                     $this->peg_currPos = $s0;
                     $s0 = $this->peg_FAILED;
@@ -4107,7 +4071,7 @@ class Parser
 
     private function peg_parse_opt_pos(): mixed
     {
-        $key = $this->peg_currPos * 102 + 28;
+        $key = $this->peg_currPos * 103 + 29;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -4174,7 +4138,7 @@ class Parser
 
     private function peg_parse_alpha(): mixed
     {
-        $key = $this->peg_currPos * 102 + 29;
+        $key = $this->peg_currPos * 103 + 30;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -4199,7 +4163,7 @@ class Parser
 
     private function peg_parse_literal_mn(): mixed
     {
-        $key = $this->peg_currPos * 102 + 30;
+        $key = $this->peg_currPos * 103 + 31;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -4224,7 +4188,7 @@ class Parser
 
     private function peg_parse_boxchars(): mixed
     {
-        $key = $this->peg_currPos * 102 + 31;
+        $key = $this->peg_currPos * 103 + 32;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -4249,7 +4213,7 @@ class Parser
 
     private function peg_parse_BOX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 32;
+        $key = $this->peg_currPos * 103 + 33;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -4261,7 +4225,7 @@ class Parser
         $s1 = $this->peg_parse_generic_func();
         if ($s1 !== $this->peg_FAILED) {
             $this->peg_reportedPos = $this->peg_currPos;
-            $s2 = $this->peg_f79($s1);
+            $s2 = $this->peg_f77($s1);
             if ($s2) {
                 $s2 = null;
             } else {
@@ -4302,7 +4266,7 @@ class Parser
                         if ($s6 !== $this->peg_FAILED) {
                             $s7 = $this->peg_parse__();
                             $this->peg_reportedPos = $s0;
-                            $s0 = $this->peg_f80($s1, $s5);
+                            $s0 = $this->peg_f78($s1, $s5);
                         } else {
                             $this->peg_currPos = $s0;
                             $s0 = $this->peg_FAILED;
@@ -4331,7 +4295,7 @@ class Parser
 
     private function peg_parse_LITERAL(): mixed
     {
-        $key = $this->peg_currPos * 102 + 33;
+        $key = $this->peg_currPos * 103 + 34;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -4352,7 +4316,7 @@ class Parser
         if ($s1 !== $this->peg_FAILED) {
             $s2 = $this->peg_parse__();
             $this->peg_reportedPos = $s0;
-            $s0 = $this->peg_f81();
+            $s0 = $this->peg_f79();
         } else {
             $this->peg_currPos = $s0;
             $s0 = $this->peg_FAILED;
@@ -4371,7 +4335,7 @@ class Parser
             if ($s1 !== $this->peg_FAILED) {
                 $s2 = $this->peg_parse__();
                 $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f82($s1);
+                $s0 = $this->peg_f80($s1);
             } else {
                 $this->peg_currPos = $s0;
                 $s0 = $this->peg_FAILED;
@@ -4381,7 +4345,7 @@ class Parser
                 $s1 = $this->peg_parse_generic_func();
                 if ($s1 !== $this->peg_FAILED) {
                     $this->peg_reportedPos = $this->peg_currPos;
-                    $s2 = $this->peg_f83($s1);
+                    $s2 = $this->peg_f81($s1);
                     if ($s2) {
                         $s2 = null;
                     } else {
@@ -4390,7 +4354,7 @@ class Parser
                     if ($s2 !== $this->peg_FAILED) {
                         $s3 = $this->peg_parse__();
                         $this->peg_reportedPos = $s0;
-                        $s0 = $this->peg_f84($s1);
+                        $s0 = $this->peg_f82($s1);
                     } else {
                         $this->peg_currPos = $s0;
                         $s0 = $this->peg_FAILED;
@@ -4404,7 +4368,7 @@ class Parser
                     $s1 = $this->peg_parse_generic_func();
                     if ($s1 !== $this->peg_FAILED) {
                         $this->peg_reportedPos = $this->peg_currPos;
-                        $s2 = $this->peg_f85($s1);
+                        $s2 = $this->peg_f83($s1);
                         if ($s2) {
                             $s2 = null;
                         } else {
@@ -4413,7 +4377,7 @@ class Parser
                         if ($s2 !== $this->peg_FAILED) {
                             $s3 = $this->peg_parse__();
                             $this->peg_reportedPos = $s0;
-                            $s0 = $this->peg_f86($s1);
+                            $s0 = $this->peg_f84($s1);
                         } else {
                             $this->peg_currPos = $s0;
                             $s0 = $this->peg_FAILED;
@@ -4427,7 +4391,7 @@ class Parser
                         $s1 = $this->peg_parse_generic_func();
                         if ($s1 !== $this->peg_FAILED) {
                             $this->peg_reportedPos = $this->peg_currPos;
-                            $s2 = $this->peg_f87($s1);
+                            $s2 = $this->peg_f85($s1);
                             if ($s2) {
                                 $s2 = null;
                             } else {
@@ -4448,7 +4412,7 @@ class Parser
                                     $s5 = $this->peg_parse_generic_func();
                                     if ($s5 !== $this->peg_FAILED) {
                                         $this->peg_reportedPos = $this->peg_currPos;
-                                        $s6 = $this->peg_f88($s1, $s5);
+                                        $s6 = $this->peg_f86($s1, $s5);
                                         if ($s6) {
                                             $s6 = null;
                                         } else {
@@ -4468,7 +4432,7 @@ class Parser
                                             if ($s8 !== $this->peg_FAILED) {
                                                 $s9 = $this->peg_parse__();
                                                 $this->peg_reportedPos = $s0;
-                                                $s0 = $this->peg_f89($s1, $s5);
+                                                $s0 = $this->peg_f87($s1, $s5);
                                             } else {
                                                 $this->peg_currPos = $s0;
                                                 $s0 = $this->peg_FAILED;
@@ -4498,7 +4462,7 @@ class Parser
                             $s1 = $this->peg_parse_generic_func();
                             if ($s1 !== $this->peg_FAILED) {
                                 $this->peg_reportedPos = $this->peg_currPos;
-                                $s2 = $this->peg_f90($s1);
+                                $s2 = $this->peg_f88($s1);
                                 if ($s2) {
                                     $s2 = null;
                                 } else {
@@ -4507,7 +4471,7 @@ class Parser
                                 if ($s2 !== $this->peg_FAILED) {
                                     $s3 = $this->peg_parse__();
                                     $this->peg_reportedPos = $s0;
-                                    $s0 = $this->peg_f91($s1);
+                                    $s0 = $this->peg_f89($s1);
                                 } else {
                                     $this->peg_currPos = $s0;
                                     $s0 = $this->peg_FAILED;
@@ -4521,7 +4485,7 @@ class Parser
                                 $s1 = $this->peg_parse_generic_func();
                                 if ($s1 !== $this->peg_FAILED) {
                                     $this->peg_reportedPos = $this->peg_currPos;
-                                    $s2 = $this->peg_f92($s1);
+                                    $s2 = $this->peg_f90($s1);
                                     if ($s2) {
                                         $s2 = null;
                                     } else {
@@ -4542,7 +4506,7 @@ class Parser
                                             $s5 = $this->peg_parse_generic_func();
                                             if ($s5 !== $this->peg_FAILED) {
                                                 $this->peg_reportedPos = $this->peg_currPos;
-                                                $s6 = $this->peg_f93($s1, $s5);
+                                                $s6 = $this->peg_f91($s1, $s5);
                                                 if ($s6) {
                                                     $s6 = null;
                                                 } else {
@@ -4562,7 +4526,7 @@ class Parser
                                                     if ($s8 !== $this->peg_FAILED) {
                                                         $s9 = $this->peg_parse__();
                                                         $this->peg_reportedPos = $s0;
-                                                        $s0 = $this->peg_f94($s1, $s5);
+                                                        $s0 = $this->peg_f92($s1, $s5);
                                                     } else {
                                                         $this->peg_currPos = $s0;
                                                         $s0 = $this->peg_FAILED;
@@ -4595,7 +4559,7 @@ class Parser
                                     }
                                     if ($s1 !== $this->peg_FAILED) {
                                         $this->peg_reportedPos = $s0;
-                                        $s1 = $this->peg_f95($s1);
+                                        $s1 = $this->peg_f93($s1);
                                     }
                                     $s0 = $s1;
                                     if ($s0 === $this->peg_FAILED) {
@@ -4622,7 +4586,7 @@ class Parser
                                             if ($s2 !== $this->peg_FAILED) {
                                                 $s3 = $this->peg_parse__();
                                                 $this->peg_reportedPos = $s0;
-                                                $s0 = $this->peg_f96($s2);
+                                                $s0 = $this->peg_f94($s2);
                                             } else {
                                                 $this->peg_currPos = $s0;
                                                 $s0 = $this->peg_FAILED;
@@ -4645,7 +4609,7 @@ class Parser
                                             if ($s1 !== $this->peg_FAILED) {
                                                 $s2 = $this->peg_parse__();
                                                 $this->peg_reportedPos = $s0;
-                                                $s0 = $this->peg_f97($s1);
+                                                $s0 = $this->peg_f95($s1);
                                             } else {
                                                 $this->peg_currPos = $s0;
                                                 $s0 = $this->peg_FAILED;
@@ -4664,7 +4628,7 @@ class Parser
                                                 if ($s1 !== $this->peg_FAILED) {
                                                     $s2 = $this->peg_parse__();
                                                     $this->peg_reportedPos = $s0;
-                                                    $s0 = $this->peg_f98($s1);
+                                                    $s0 = $this->peg_f96($s1);
                                                 } else {
                                                     $this->peg_currPos = $s0;
                                                     $s0 = $this->peg_FAILED;
@@ -4687,7 +4651,7 @@ class Parser
 
     private function peg_parse_DELIMITER(): mixed
     {
-        $key = $this->peg_currPos * 102 + 34;
+        $key = $this->peg_currPos * 103 + 35;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -4708,7 +4672,7 @@ class Parser
         if ($s1 !== $this->peg_FAILED) {
             $s2 = $this->peg_parse__();
             $this->peg_reportedPos = $s0;
-            $s0 = $this->peg_f99($s1);
+            $s0 = $this->peg_f97($s1);
         } else {
             $this->peg_currPos = $s0;
             $s0 = $this->peg_FAILED;
@@ -4737,7 +4701,7 @@ class Parser
                 if ($s2 !== $this->peg_FAILED) {
                     $s3 = $this->peg_parse__();
                     $this->peg_reportedPos = $s0;
-                    $s0 = $this->peg_f100($s2);
+                    $s0 = $this->peg_f98($s2);
                 } else {
                     $this->peg_currPos = $s0;
                     $s0 = $this->peg_FAILED;
@@ -4751,7 +4715,7 @@ class Parser
                 $s1 = $this->peg_parse_generic_func();
                 if ($s1 !== $this->peg_FAILED) {
                     $this->peg_reportedPos = $this->peg_currPos;
-                    $s2 = $this->peg_f101($s1);
+                    $s2 = $this->peg_f99($s1);
                     if ($s2) {
                         $s2 = null;
                     } else {
@@ -4760,7 +4724,7 @@ class Parser
                     if ($s2 !== $this->peg_FAILED) {
                         $s3 = $this->peg_parse__();
                         $this->peg_reportedPos = $s0;
-                        $s0 = $this->peg_f102($s1);
+                        $s0 = $this->peg_f100($s1);
                     } else {
                         $this->peg_currPos = $s0;
                         $s0 = $this->peg_FAILED;
@@ -4774,7 +4738,7 @@ class Parser
                     $s1 = $this->peg_parse_generic_func();
                     if ($s1 !== $this->peg_FAILED) {
                         $this->peg_reportedPos = $this->peg_currPos;
-                        $s2 = $this->peg_f103($s1);
+                        $s2 = $this->peg_f101($s1);
                         if ($s2) {
                             $s2 = null;
                         } else {
@@ -4783,7 +4747,7 @@ class Parser
                         if ($s2 !== $this->peg_FAILED) {
                             $s3 = $this->peg_parse__();
                             $this->peg_reportedPos = $s0;
-                            $s0 = $this->peg_f104($s1);
+                            $s0 = $this->peg_f102($s1);
                         } else {
                             $this->peg_currPos = $s0;
                             $s0 = $this->peg_FAILED;
@@ -4803,7 +4767,45 @@ class Parser
 
     private function peg_parse_FUN_AR1nb(): mixed
     {
-        $key = $this->peg_currPos * 102 + 35;
+        $key = $this->peg_currPos * 103 + 36;
+        $cached = $this->peg_cache[$key] ?? false;
+
+        if ($cached) {
+            $this->peg_currPos = $cached->nextPos;
+            return $cached->result;
+        }
+
+        $s0 = $this->peg_currPos;
+        $s1 = $this->peg_parse_generic_func();
+        if ($s1 !== $this->peg_FAILED) {
+            $this->peg_reportedPos = $this->peg_currPos;
+            $s2 = $this->peg_f103($s1);
+            if ($s2) {
+                $s2 = null;
+            } else {
+                $s2 = $this->peg_FAILED;
+            }
+            if ($s2 !== $this->peg_FAILED) {
+                $s3 = $this->peg_parse__();
+                $this->peg_reportedPos = $s0;
+                $s0 = $this->peg_f104($s1);
+            } else {
+                $this->peg_currPos = $s0;
+                $s0 = $this->peg_FAILED;
+            }
+        } else {
+            $this->peg_currPos = $s0;
+            $s0 = $this->peg_FAILED;
+        }
+
+        $this->peg_cache[$key] = new pegCacheItem($this->peg_currPos, $s0);
+
+        return $s0;
+    }
+
+    private function peg_parse_FUN_AR1opt(): mixed
+    {
+        $key = $this->peg_currPos * 103 + 37;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -4823,44 +4825,6 @@ class Parser
             }
             if ($s2 !== $this->peg_FAILED) {
                 $s3 = $this->peg_parse__();
-                $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f106($s1);
-            } else {
-                $this->peg_currPos = $s0;
-                $s0 = $this->peg_FAILED;
-            }
-        } else {
-            $this->peg_currPos = $s0;
-            $s0 = $this->peg_FAILED;
-        }
-
-        $this->peg_cache[$key] = new pegCacheItem($this->peg_currPos, $s0);
-
-        return $s0;
-    }
-
-    private function peg_parse_FUN_AR1opt(): mixed
-    {
-        $key = $this->peg_currPos * 102 + 36;
-        $cached = $this->peg_cache[$key] ?? false;
-
-        if ($cached) {
-            $this->peg_currPos = $cached->nextPos;
-            return $cached->result;
-        }
-
-        $s0 = $this->peg_currPos;
-        $s1 = $this->peg_parse_generic_func();
-        if ($s1 !== $this->peg_FAILED) {
-            $this->peg_reportedPos = $this->peg_currPos;
-            $s2 = $this->peg_f107($s1);
-            if ($s2) {
-                $s2 = null;
-            } else {
-                $s2 = $this->peg_FAILED;
-            }
-            if ($s2 !== $this->peg_FAILED) {
-                $s3 = $this->peg_parse__();
                 if ($this->input_substr($this->peg_currPos, 1) === $this->peg_l8) {
                     $s4 = $this->peg_l8;
                     $this->peg_currPos++;
@@ -4873,7 +4837,7 @@ class Parser
                 if ($s4 !== $this->peg_FAILED) {
                     $s5 = $this->peg_parse__();
                     $this->peg_reportedPos = $s0;
-                    $s0 = $this->peg_f108($s1);
+                    $s0 = $this->peg_f106($s1);
                 } else {
                     $this->peg_currPos = $s0;
                     $s0 = $this->peg_FAILED;
@@ -4894,7 +4858,7 @@ class Parser
 
     private function peg_parse_NEXT_CELL(): mixed
     {
-        $key = $this->peg_currPos * 102 + 37;
+        $key = $this->peg_currPos * 103 + 38;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -4928,7 +4892,7 @@ class Parser
 
     private function peg_parse_LATEX_LENGTH(): mixed
     {
-        $key = $this->peg_currPos * 102 + 38;
+        $key = $this->peg_currPos * 103 + 39;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -4946,7 +4910,7 @@ class Parser
             $s3 = $this->peg_parse_LATEX_UNIT();
             if ($s3 !== $this->peg_FAILED) {
                 $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f109($s1, $s2, $s3);
+                $s0 = $this->peg_f107($s1, $s2, $s3);
             } else {
                 $this->peg_currPos = $s0;
                 $s0 = $this->peg_FAILED;
@@ -4963,7 +4927,7 @@ class Parser
 
     private function peg_parse_LATEX_SIGN(): mixed
     {
-        $key = $this->peg_currPos * 102 + 39;
+        $key = $this->peg_currPos * 103 + 40;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -4988,7 +4952,7 @@ class Parser
 
     private function peg_parse_LATEX_NUMBER(): mixed
     {
-        $key = $this->peg_currPos * 102 + 40;
+        $key = $this->peg_currPos * 103 + 41;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5074,7 +5038,7 @@ class Parser
 
     private function peg_parse_LATEX_UNIT(): mixed
     {
-        $key = $this->peg_currPos * 102 + 41;
+        $key = $this->peg_currPos * 103 + 42;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5253,7 +5217,7 @@ class Parser
 
     private function peg_parse_NEXT_ROW(): mixed
     {
-        $key = $this->peg_currPos * 102 + 42;
+        $key = $this->peg_currPos * 103 + 43;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5296,7 +5260,7 @@ class Parser
                     }
                     if ($s5 !== $this->peg_FAILED) {
                         $this->peg_reportedPos = $s2;
-                        $s2 = $this->peg_f110($s4);
+                        $s2 = $this->peg_f108($s4);
                     } else {
                         $this->peg_currPos = $s2;
                         $s2 = $this->peg_FAILED;
@@ -5314,7 +5278,7 @@ class Parser
             }
             $s3 = $this->peg_parse__();
             $this->peg_reportedPos = $s0;
-            $s0 = $this->peg_f111($s2);
+            $s0 = $this->peg_f109($s2);
         } else {
             $this->peg_currPos = $s0;
             $s0 = $this->peg_FAILED;
@@ -5327,7 +5291,7 @@ class Parser
 
     private function peg_parse_BEGIN(): mixed
     {
-        $key = $this->peg_currPos * 102 + 43;
+        $key = $this->peg_currPos * 103 + 44;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5361,7 +5325,7 @@ class Parser
 
     private function peg_parse_END(): mixed
     {
-        $key = $this->peg_currPos * 102 + 44;
+        $key = $this->peg_currPos * 103 + 45;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5395,7 +5359,7 @@ class Parser
 
     private function peg_parse_BEGIN_MATRIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 45;
+        $key = $this->peg_currPos * 103 + 46;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5435,7 +5399,7 @@ class Parser
 
     private function peg_parse_END_MATRIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 46;
+        $key = $this->peg_currPos * 103 + 47;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5475,7 +5439,7 @@ class Parser
 
     private function peg_parse_BEGIN_PMATRIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 47;
+        $key = $this->peg_currPos * 103 + 48;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5515,7 +5479,7 @@ class Parser
 
     private function peg_parse_END_PMATRIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 48;
+        $key = $this->peg_currPos * 103 + 49;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5555,7 +5519,7 @@ class Parser
 
     private function peg_parse_BEGIN_BMATRIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 49;
+        $key = $this->peg_currPos * 103 + 50;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5595,7 +5559,7 @@ class Parser
 
     private function peg_parse_END_BMATRIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 50;
+        $key = $this->peg_currPos * 103 + 51;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5635,7 +5599,7 @@ class Parser
 
     private function peg_parse_BEGIN_BBMATRIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 51;
+        $key = $this->peg_currPos * 103 + 52;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5675,7 +5639,7 @@ class Parser
 
     private function peg_parse_END_BBMATRIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 52;
+        $key = $this->peg_currPos * 103 + 53;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5715,7 +5679,7 @@ class Parser
 
     private function peg_parse_BEGIN_VMATRIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 53;
+        $key = $this->peg_currPos * 103 + 54;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5755,7 +5719,7 @@ class Parser
 
     private function peg_parse_END_VMATRIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 54;
+        $key = $this->peg_currPos * 103 + 55;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5795,7 +5759,7 @@ class Parser
 
     private function peg_parse_BEGIN_VVMATRIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 55;
+        $key = $this->peg_currPos * 103 + 56;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5835,7 +5799,7 @@ class Parser
 
     private function peg_parse_END_VVMATRIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 56;
+        $key = $this->peg_currPos * 103 + 57;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5875,7 +5839,7 @@ class Parser
 
     private function peg_parse_BEGIN_ARRAY(): mixed
     {
-        $key = $this->peg_currPos * 102 + 57;
+        $key = $this->peg_currPos * 103 + 58;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5915,7 +5879,7 @@ class Parser
 
     private function peg_parse_END_ARRAY(): mixed
     {
-        $key = $this->peg_currPos * 102 + 58;
+        $key = $this->peg_currPos * 103 + 59;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5955,7 +5919,7 @@ class Parser
 
     private function peg_parse_BEGIN_ALIGN(): mixed
     {
-        $key = $this->peg_currPos * 102 + 59;
+        $key = $this->peg_currPos * 103 + 60;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -5995,7 +5959,7 @@ class Parser
 
     private function peg_parse_END_ALIGN(): mixed
     {
-        $key = $this->peg_currPos * 102 + 60;
+        $key = $this->peg_currPos * 103 + 61;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6035,7 +5999,7 @@ class Parser
 
     private function peg_parse_BEGIN_ALIGNED(): mixed
     {
-        $key = $this->peg_currPos * 102 + 61;
+        $key = $this->peg_currPos * 103 + 62;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6075,7 +6039,7 @@ class Parser
 
     private function peg_parse_END_ALIGNED(): mixed
     {
-        $key = $this->peg_currPos * 102 + 62;
+        $key = $this->peg_currPos * 103 + 63;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6115,7 +6079,7 @@ class Parser
 
     private function peg_parse_BEGIN_ALIGNAT(): mixed
     {
-        $key = $this->peg_currPos * 102 + 63;
+        $key = $this->peg_currPos * 103 + 64;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6155,7 +6119,7 @@ class Parser
 
     private function peg_parse_END_ALIGNAT(): mixed
     {
-        $key = $this->peg_currPos * 102 + 64;
+        $key = $this->peg_currPos * 103 + 65;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6195,7 +6159,7 @@ class Parser
 
     private function peg_parse_BEGIN_ALIGNEDAT(): mixed
     {
-        $key = $this->peg_currPos * 102 + 65;
+        $key = $this->peg_currPos * 103 + 66;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6235,7 +6199,7 @@ class Parser
 
     private function peg_parse_END_ALIGNEDAT(): mixed
     {
-        $key = $this->peg_currPos * 102 + 66;
+        $key = $this->peg_currPos * 103 + 67;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6275,7 +6239,7 @@ class Parser
 
     private function peg_parse_BEGIN_SMALLMATRIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 67;
+        $key = $this->peg_currPos * 103 + 68;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6315,7 +6279,7 @@ class Parser
 
     private function peg_parse_END_SMALLMATRIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 68;
+        $key = $this->peg_currPos * 103 + 69;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6355,7 +6319,7 @@ class Parser
 
     private function peg_parse_BEGIN_CASES(): mixed
     {
-        $key = $this->peg_currPos * 102 + 69;
+        $key = $this->peg_currPos * 103 + 70;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6395,7 +6359,7 @@ class Parser
 
     private function peg_parse_END_CASES(): mixed
     {
-        $key = $this->peg_currPos * 102 + 70;
+        $key = $this->peg_currPos * 103 + 71;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6435,7 +6399,7 @@ class Parser
 
     private function peg_parse_SQ_CLOSE(): mixed
     {
-        $key = $this->peg_currPos * 102 + 71;
+        $key = $this->peg_currPos * 103 + 72;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6469,7 +6433,7 @@ class Parser
 
     private function peg_parse_CURLY_OPEN(): mixed
     {
-        $key = $this->peg_currPos * 102 + 72;
+        $key = $this->peg_currPos * 103 + 73;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6503,7 +6467,7 @@ class Parser
 
     private function peg_parse_CURLY_CLOSE(): mixed
     {
-        $key = $this->peg_currPos * 102 + 73;
+        $key = $this->peg_currPos * 103 + 74;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6537,7 +6501,7 @@ class Parser
 
     private function peg_parse_SUP(): mixed
     {
-        $key = $this->peg_currPos * 102 + 74;
+        $key = $this->peg_currPos * 103 + 75;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6571,7 +6535,7 @@ class Parser
 
     private function peg_parse_SUB(): mixed
     {
-        $key = $this->peg_currPos * 102 + 75;
+        $key = $this->peg_currPos * 103 + 76;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6605,7 +6569,7 @@ class Parser
 
     private function peg_parse_generic_func(): mixed
     {
-        $key = $this->peg_currPos * 102 + 76;
+        $key = $this->peg_currPos * 103 + 77;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6636,7 +6600,7 @@ class Parser
             }
             if ($s2 !== $this->peg_FAILED) {
                 $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f112();
+                $s0 = $this->peg_f110();
             } else {
                 $this->peg_currPos = $s0;
                 $s0 = $this->peg_FAILED;
@@ -6653,7 +6617,45 @@ class Parser
 
     private function peg_parse_BIG(): mixed
     {
-        $key = $this->peg_currPos * 102 + 77;
+        $key = $this->peg_currPos * 103 + 78;
+        $cached = $this->peg_cache[$key] ?? false;
+
+        if ($cached) {
+            $this->peg_currPos = $cached->nextPos;
+            return $cached->result;
+        }
+
+        $s0 = $this->peg_currPos;
+        $s1 = $this->peg_parse_generic_func();
+        if ($s1 !== $this->peg_FAILED) {
+            $this->peg_reportedPos = $this->peg_currPos;
+            $s2 = $this->peg_f111($s1);
+            if ($s2) {
+                $s2 = null;
+            } else {
+                $s2 = $this->peg_FAILED;
+            }
+            if ($s2 !== $this->peg_FAILED) {
+                $s3 = $this->peg_parse__();
+                $this->peg_reportedPos = $s0;
+                $s0 = $this->peg_f112($s1);
+            } else {
+                $this->peg_currPos = $s0;
+                $s0 = $this->peg_FAILED;
+            }
+        } else {
+            $this->peg_currPos = $s0;
+            $s0 = $this->peg_FAILED;
+        }
+
+        $this->peg_cache[$key] = new pegCacheItem($this->peg_currPos, $s0);
+
+        return $s0;
+    }
+
+    private function peg_parse_FUN_AR1(): mixed
+    {
+        $key = $this->peg_currPos * 103 + 79;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6683,50 +6685,12 @@ class Parser
             $this->peg_currPos = $s0;
             $s0 = $this->peg_FAILED;
         }
-
-        $this->peg_cache[$key] = new pegCacheItem($this->peg_currPos, $s0);
-
-        return $s0;
-    }
-
-    private function peg_parse_FUN_AR1(): mixed
-    {
-        $key = $this->peg_currPos * 102 + 78;
-        $cached = $this->peg_cache[$key] ?? false;
-
-        if ($cached) {
-            $this->peg_currPos = $cached->nextPos;
-            return $cached->result;
-        }
-
-        $s0 = $this->peg_currPos;
-        $s1 = $this->peg_parse_generic_func();
-        if ($s1 !== $this->peg_FAILED) {
-            $this->peg_reportedPos = $this->peg_currPos;
-            $s2 = $this->peg_f115($s1);
-            if ($s2) {
-                $s2 = null;
-            } else {
-                $s2 = $this->peg_FAILED;
-            }
-            if ($s2 !== $this->peg_FAILED) {
-                $s3 = $this->peg_parse__();
-                $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f116($s1);
-            } else {
-                $this->peg_currPos = $s0;
-                $s0 = $this->peg_FAILED;
-            }
-        } else {
-            $this->peg_currPos = $s0;
-            $s0 = $this->peg_FAILED;
-        }
         if ($s0 === $this->peg_FAILED) {
             $s0 = $this->peg_currPos;
             $s1 = $this->peg_parse_generic_func();
             if ($s1 !== $this->peg_FAILED) {
                 $this->peg_reportedPos = $this->peg_currPos;
-                $s2 = $this->peg_f117($s1);
+                $s2 = $this->peg_f115($s1);
                 if ($s2) {
                     $s2 = null;
                 } else {
@@ -6735,7 +6699,7 @@ class Parser
                 if ($s2 !== $this->peg_FAILED) {
                     $s3 = $this->peg_parse__();
                     $this->peg_reportedPos = $s0;
-                    $s0 = $this->peg_f118($s1);
+                    $s0 = $this->peg_f116($s1);
                 } else {
                     $this->peg_currPos = $s0;
                     $s0 = $this->peg_FAILED;
@@ -6753,7 +6717,7 @@ class Parser
 
     private function peg_parse_FUN_MHCHEM(): mixed
     {
-        $key = $this->peg_currPos * 102 + 79;
+        $key = $this->peg_currPos * 103 + 80;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6765,7 +6729,7 @@ class Parser
         $s1 = $this->peg_parse_generic_func();
         if ($s1 !== $this->peg_FAILED) {
             $this->peg_reportedPos = $this->peg_currPos;
-            $s2 = $this->peg_f119($s1);
+            $s2 = $this->peg_f117($s1);
             if ($s2) {
                 $s2 = null;
             } else {
@@ -6774,7 +6738,7 @@ class Parser
             if ($s2 !== $this->peg_FAILED) {
                 $s3 = $this->peg_parse__();
                 $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f120($s1);
+                $s0 = $this->peg_f118($s1);
             } else {
                 $this->peg_currPos = $s0;
                 $s0 = $this->peg_FAILED;
@@ -6791,7 +6755,7 @@ class Parser
 
     private function peg_parse_RAW_GROUP(): mixed
     {
-        $key = $this->peg_currPos * 102 + 80;
+        $key = $this->peg_currPos * 103 + 81;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6825,7 +6789,7 @@ class Parser
             if ($s3 !== $this->peg_FAILED) {
                 $s4 = $this->peg_parse__();
                 $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f121($s2);
+                $s0 = $this->peg_f119($s2);
             } else {
                 $this->peg_currPos = $s0;
                 $s0 = $this->peg_FAILED;
@@ -6842,7 +6806,7 @@ class Parser
 
     private function peg_parse_RAW_TOKEN(): mixed
     {
-        $key = $this->peg_currPos * 102 + 81;
+        $key = $this->peg_currPos * 103 + 82;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -6903,7 +6867,7 @@ class Parser
         if ($s1 !== $this->peg_FAILED) {
             $s2 = $this->peg_parse__();
             $this->peg_reportedPos = $s0;
-            $s0 = $this->peg_f122($s1);
+            $s0 = $this->peg_f120($s1);
         } else {
             $this->peg_currPos = $s0;
             $s0 = $this->peg_FAILED;
@@ -6916,7 +6880,7 @@ class Parser
 
     private function peg_parse_RAW_CONTENT(): mixed
     {
-        $key = $this->peg_currPos * 102 + 82;
+        $key = $this->peg_currPos * 103 + 83;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -7088,7 +7052,45 @@ class Parser
 
     private function peg_parse_FUN_AR2(): mixed
     {
-        $key = $this->peg_currPos * 102 + 83;
+        $key = $this->peg_currPos * 103 + 84;
+        $cached = $this->peg_cache[$key] ?? false;
+
+        if ($cached) {
+            $this->peg_currPos = $cached->nextPos;
+            return $cached->result;
+        }
+
+        $s0 = $this->peg_currPos;
+        $s1 = $this->peg_parse_generic_func();
+        if ($s1 !== $this->peg_FAILED) {
+            $this->peg_reportedPos = $this->peg_currPos;
+            $s2 = $this->peg_f121($s1);
+            if ($s2) {
+                $s2 = null;
+            } else {
+                $s2 = $this->peg_FAILED;
+            }
+            if ($s2 !== $this->peg_FAILED) {
+                $s3 = $this->peg_parse__();
+                $this->peg_reportedPos = $s0;
+                $s0 = $this->peg_f122($s1);
+            } else {
+                $this->peg_currPos = $s0;
+                $s0 = $this->peg_FAILED;
+            }
+        } else {
+            $this->peg_currPos = $s0;
+            $s0 = $this->peg_FAILED;
+        }
+
+        $this->peg_cache[$key] = new pegCacheItem($this->peg_currPos, $s0);
+
+        return $s0;
+    }
+
+    private function peg_parse_FUN_AR4(): mixed
+    {
+        $key = $this->peg_currPos * 103 + 85;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -7124,9 +7126,9 @@ class Parser
         return $s0;
     }
 
-    private function peg_parse_FUN_AR4(): mixed
+    private function peg_parse_FUN_INFIX(): mixed
     {
-        $key = $this->peg_currPos * 102 + 84;
+        $key = $this->peg_currPos * 103 + 86;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -7162,9 +7164,9 @@ class Parser
         return $s0;
     }
 
-    private function peg_parse_FUN_INFIX(): mixed
+    private function peg_parse_DECLARATION(): mixed
     {
-        $key = $this->peg_currPos * 102 + 85;
+        $key = $this->peg_currPos * 103 + 87;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -7200,9 +7202,9 @@ class Parser
         return $s0;
     }
 
-    private function peg_parse_DECLARATION(): mixed
+    private function peg_parse_FUN_AR2nb(): mixed
     {
-        $key = $this->peg_currPos * 102 + 86;
+        $key = $this->peg_currPos * 103 + 88;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -7238,9 +7240,9 @@ class Parser
         return $s0;
     }
 
-    private function peg_parse_FUN_AR2nb(): mixed
+    private function peg_parse_LEFTI(): mixed
     {
-        $key = $this->peg_currPos * 102 + 87;
+        $key = $this->peg_currPos * 103 + 89;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -7253,44 +7255,6 @@ class Parser
         if ($s1 !== $this->peg_FAILED) {
             $this->peg_reportedPos = $this->peg_currPos;
             $s2 = $this->peg_f131($s1);
-            if ($s2) {
-                $s2 = null;
-            } else {
-                $s2 = $this->peg_FAILED;
-            }
-            if ($s2 !== $this->peg_FAILED) {
-                $s3 = $this->peg_parse__();
-                $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f132($s1);
-            } else {
-                $this->peg_currPos = $s0;
-                $s0 = $this->peg_FAILED;
-            }
-        } else {
-            $this->peg_currPos = $s0;
-            $s0 = $this->peg_FAILED;
-        }
-
-        $this->peg_cache[$key] = new pegCacheItem($this->peg_currPos, $s0);
-
-        return $s0;
-    }
-
-    private function peg_parse_LEFTI(): mixed
-    {
-        $key = $this->peg_currPos * 102 + 88;
-        $cached = $this->peg_cache[$key] ?? false;
-
-        if ($cached) {
-            $this->peg_currPos = $cached->nextPos;
-            return $cached->result;
-        }
-
-        $s0 = $this->peg_currPos;
-        $s1 = $this->peg_parse_generic_func();
-        if ($s1 !== $this->peg_FAILED) {
-            $this->peg_reportedPos = $this->peg_currPos;
-            $s2 = $this->peg_f133($s1);
             if ($s2) {
                 $s2 = null;
             } else {
@@ -7316,7 +7280,7 @@ class Parser
 
     private function peg_parse_RIGHTI(): mixed
     {
-        $key = $this->peg_currPos * 102 + 89;
+        $key = $this->peg_currPos * 103 + 90;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -7328,7 +7292,7 @@ class Parser
         $s1 = $this->peg_parse_generic_func();
         if ($s1 !== $this->peg_FAILED) {
             $this->peg_reportedPos = $this->peg_currPos;
-            $s2 = $this->peg_f134($s1);
+            $s2 = $this->peg_f132($s1);
             if ($s2) {
                 $s2 = null;
             } else {
@@ -7354,7 +7318,45 @@ class Parser
 
     private function peg_parse_HLINE(): mixed
     {
-        $key = $this->peg_currPos * 102 + 90;
+        $key = $this->peg_currPos * 103 + 91;
+        $cached = $this->peg_cache[$key] ?? false;
+
+        if ($cached) {
+            $this->peg_currPos = $cached->nextPos;
+            return $cached->result;
+        }
+
+        $s0 = $this->peg_currPos;
+        $s1 = $this->peg_parse_generic_func();
+        if ($s1 !== $this->peg_FAILED) {
+            $this->peg_reportedPos = $this->peg_currPos;
+            $s2 = $this->peg_f133($s1);
+            if ($s2) {
+                $s2 = null;
+            } else {
+                $s2 = $this->peg_FAILED;
+            }
+            if ($s2 !== $this->peg_FAILED) {
+                $s3 = $this->peg_parse__();
+                $this->peg_reportedPos = $s0;
+                $s0 = $this->peg_f134($s1);
+            } else {
+                $this->peg_currPos = $s0;
+                $s0 = $this->peg_FAILED;
+            }
+        } else {
+            $this->peg_currPos = $s0;
+            $s0 = $this->peg_FAILED;
+        }
+
+        $this->peg_cache[$key] = new pegCacheItem($this->peg_currPos, $s0);
+
+        return $s0;
+    }
+
+    private function peg_parse_COLOR(): mixed
+    {
+        $key = $this->peg_currPos * 103 + 92;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -7374,48 +7376,10 @@ class Parser
             }
             if ($s2 !== $this->peg_FAILED) {
                 $s3 = $this->peg_parse__();
-                $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f136($s1);
-            } else {
-                $this->peg_currPos = $s0;
-                $s0 = $this->peg_FAILED;
-            }
-        } else {
-            $this->peg_currPos = $s0;
-            $s0 = $this->peg_FAILED;
-        }
-
-        $this->peg_cache[$key] = new pegCacheItem($this->peg_currPos, $s0);
-
-        return $s0;
-    }
-
-    private function peg_parse_COLOR(): mixed
-    {
-        $key = $this->peg_currPos * 102 + 91;
-        $cached = $this->peg_cache[$key] ?? false;
-
-        if ($cached) {
-            $this->peg_currPos = $cached->nextPos;
-            return $cached->result;
-        }
-
-        $s0 = $this->peg_currPos;
-        $s1 = $this->peg_parse_generic_func();
-        if ($s1 !== $this->peg_FAILED) {
-            $this->peg_reportedPos = $this->peg_currPos;
-            $s2 = $this->peg_f137($s1);
-            if ($s2) {
-                $s2 = null;
-            } else {
-                $s2 = $this->peg_FAILED;
-            }
-            if ($s2 !== $this->peg_FAILED) {
-                $s3 = $this->peg_parse__();
                 $s4 = $this->peg_parse_COLOR_SPEC();
                 if ($s4 !== $this->peg_FAILED) {
                     $this->peg_reportedPos = $s0;
-                    $s0 = $this->peg_f138($s1, $s4);
+                    $s0 = $this->peg_f136($s1, $s4);
                 } else {
                     $this->peg_currPos = $s0;
                     $s0 = $this->peg_FAILED;
@@ -7436,7 +7400,7 @@ class Parser
 
     private function peg_parse_DEFINECOLOR(): mixed
     {
-        $key = $this->peg_currPos * 102 + 92;
+        $key = $this->peg_currPos * 103 + 93;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -7448,7 +7412,7 @@ class Parser
         $s1 = $this->peg_parse_generic_func();
         if ($s1 !== $this->peg_FAILED) {
             $this->peg_reportedPos = $this->peg_currPos;
-            $s2 = $this->peg_f139($s1);
+            $s2 = $this->peg_f137($s1);
             if ($s2) {
                 $s2 = null;
             } else {
@@ -7527,7 +7491,7 @@ class Parser
                                         $s17 = $this->peg_parse_COLOR_SPEC_NAMED();
                                         if ($s17 !== $this->peg_FAILED) {
                                             $this->peg_reportedPos = $s12;
-                                            $s12 = $this->peg_f140($s1, $s6, $s17);
+                                            $s12 = $this->peg_f138($s1, $s6, $s17);
                                         } else {
                                             $this->peg_currPos = $s12;
                                             $s12 = $this->peg_FAILED;
@@ -7567,7 +7531,7 @@ class Parser
                                             $s17 = $this->peg_parse_COLOR_SPEC_GRAY();
                                             if ($s17 !== $this->peg_FAILED) {
                                                 $this->peg_reportedPos = $s12;
-                                                $s12 = $this->peg_f141($s1, $s6, $s17);
+                                                $s12 = $this->peg_f139($s1, $s6, $s17);
                                             } else {
                                                 $this->peg_currPos = $s12;
                                                 $s12 = $this->peg_FAILED;
@@ -7607,7 +7571,7 @@ class Parser
                                                 $s17 = $this->peg_parse_COLOR_SPEC_rgb();
                                                 if ($s17 !== $this->peg_FAILED) {
                                                     $this->peg_reportedPos = $s12;
-                                                    $s12 = $this->peg_f142($s1, $s6, $s17);
+                                                    $s12 = $this->peg_f140($s1, $s6, $s17);
                                                 } else {
                                                     $this->peg_currPos = $s12;
                                                     $s12 = $this->peg_FAILED;
@@ -7647,7 +7611,7 @@ class Parser
                                                     $s17 = $this->peg_parse_COLOR_SPEC_RGBI();
                                                     if ($s17 !== $this->peg_FAILED) {
                                                         $this->peg_reportedPos = $s12;
-                                                        $s12 = $this->peg_f143($s1, $s6, $s17);
+                                                        $s12 = $this->peg_f141($s1, $s6, $s17);
                                                     } else {
                                                         $this->peg_currPos = $s12;
                                                         $s12 = $this->peg_FAILED;
@@ -7687,7 +7651,7 @@ class Parser
                                                         $s17 = $this->peg_parse_COLOR_SPEC_CMYK();
                                                         if ($s17 !== $this->peg_FAILED) {
                                                             $this->peg_reportedPos = $s12;
-                                                            $s12 = $this->peg_f144($s1, $s6, $s17);
+                                                            $s12 = $this->peg_f142($s1, $s6, $s17);
                                                         } else {
                                                             $this->peg_currPos = $s12;
                                                             $s12 = $this->peg_FAILED;
@@ -7706,7 +7670,7 @@ class Parser
                                 }
                                 if ($s12 !== $this->peg_FAILED) {
                                     $this->peg_reportedPos = $s0;
-                                    $s0 = $this->peg_f145($s1, $s6, $s12);
+                                    $s0 = $this->peg_f143($s1, $s6, $s12);
                                 } else {
                                     $this->peg_currPos = $s0;
                                     $s0 = $this->peg_FAILED;
@@ -7743,7 +7707,7 @@ class Parser
 
     private function peg_parse_COLOR_SPEC(): mixed
     {
-        $key = $this->peg_currPos * 102 + 93;
+        $key = $this->peg_currPos * 103 + 94;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -7790,7 +7754,7 @@ class Parser
                         $s7 = $this->peg_parse_COLOR_SPEC_NAMED();
                         if ($s7 !== $this->peg_FAILED) {
                             $this->peg_reportedPos = $s0;
-                            $s0 = $this->peg_f146($s7);
+                            $s0 = $this->peg_f144($s7);
                         } else {
                             $this->peg_currPos = $s0;
                             $s0 = $this->peg_FAILED;
@@ -7845,7 +7809,7 @@ class Parser
                             $s7 = $this->peg_parse_COLOR_SPEC_GRAY();
                             if ($s7 !== $this->peg_FAILED) {
                                 $this->peg_reportedPos = $s0;
-                                $s0 = $this->peg_f147($s7);
+                                $s0 = $this->peg_f145($s7);
                             } else {
                                 $this->peg_currPos = $s0;
                                 $s0 = $this->peg_FAILED;
@@ -7900,7 +7864,7 @@ class Parser
                                 $s7 = $this->peg_parse_COLOR_SPEC_rgb();
                                 if ($s7 !== $this->peg_FAILED) {
                                     $this->peg_reportedPos = $s0;
-                                    $s0 = $this->peg_f148($s7);
+                                    $s0 = $this->peg_f146($s7);
                                 } else {
                                     $this->peg_currPos = $s0;
                                     $s0 = $this->peg_FAILED;
@@ -7955,7 +7919,7 @@ class Parser
                                     $s7 = $this->peg_parse_COLOR_SPEC_RGBI();
                                     if ($s7 !== $this->peg_FAILED) {
                                         $this->peg_reportedPos = $s0;
-                                        $s0 = $this->peg_f149($s7);
+                                        $s0 = $this->peg_f147($s7);
                                     } else {
                                         $this->peg_currPos = $s0;
                                         $s0 = $this->peg_FAILED;
@@ -8010,7 +7974,7 @@ class Parser
                                         $s7 = $this->peg_parse_COLOR_SPEC_CMYK();
                                         if ($s7 !== $this->peg_FAILED) {
                                             $this->peg_reportedPos = $s0;
-                                            $s0 = $this->peg_f150($s7);
+                                            $s0 = $this->peg_f148($s7);
                                         } else {
                                             $this->peg_currPos = $s0;
                                             $s0 = $this->peg_FAILED;
@@ -8040,7 +8004,7 @@ class Parser
 
     private function peg_parse_COLOR_SPEC_NAMED(): mixed
     {
-        $key = $this->peg_currPos * 102 + 94;
+        $key = $this->peg_currPos * 103 + 95;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -8084,7 +8048,7 @@ class Parser
                 if ($s5 !== $this->peg_FAILED) {
                     $s6 = $this->peg_parse__();
                     $this->peg_reportedPos = $s0;
-                    $s0 = $this->peg_f151($s3);
+                    $s0 = $this->peg_f149($s3);
                 } else {
                     $this->peg_currPos = $s0;
                     $s0 = $this->peg_FAILED;
@@ -8105,7 +8069,7 @@ class Parser
 
     private function peg_parse_COLOR_SPEC_GRAY(): mixed
     {
-        $key = $this->peg_currPos * 102 + 95;
+        $key = $this->peg_currPos * 103 + 96;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -8147,7 +8111,7 @@ class Parser
                 }
                 if ($s4 !== $this->peg_FAILED) {
                     $this->peg_reportedPos = $s0;
-                    $s0 = $this->peg_f152($s3);
+                    $s0 = $this->peg_f150($s3);
                 } else {
                     $this->peg_currPos = $s0;
                     $s0 = $this->peg_FAILED;
@@ -8168,7 +8132,7 @@ class Parser
 
     private function peg_parse_COLOR_SPEC_rgb(): mixed
     {
-        $key = $this->peg_currPos * 102 + 96;
+        $key = $this->peg_currPos * 103 + 97;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -8228,7 +8192,7 @@ class Parser
                                 if ($s10 !== $this->peg_FAILED) {
                                     $s11 = $this->peg_parse__();
                                     $this->peg_reportedPos = $s0;
-                                    $s0 = $this->peg_f153($s3, $s6, $s9);
+                                    $s0 = $this->peg_f151($s3, $s6, $s9);
                                 } else {
                                     $this->peg_currPos = $s0;
                                     $s0 = $this->peg_FAILED;
@@ -8265,7 +8229,7 @@ class Parser
 
     private function peg_parse_COLOR_SPEC_RGBI(): mixed
     {
-        $key = $this->peg_currPos * 102 + 97;
+        $key = $this->peg_currPos * 103 + 98;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -8325,7 +8289,7 @@ class Parser
                                 if ($s10 !== $this->peg_FAILED) {
                                     $s11 = $this->peg_parse__();
                                     $this->peg_reportedPos = $s0;
-                                    $s0 = $this->peg_f154($s3, $s6, $s9);
+                                    $s0 = $this->peg_f152($s3, $s6, $s9);
                                 } else {
                                     $this->peg_currPos = $s0;
                                     $s0 = $this->peg_FAILED;
@@ -8362,7 +8326,7 @@ class Parser
 
     private function peg_parse_COLOR_SPEC_CMYK(): mixed
     {
-        $key = $this->peg_currPos * 102 + 98;
+        $key = $this->peg_currPos * 103 + 99;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -8435,7 +8399,7 @@ class Parser
                                         if ($s13 !== $this->peg_FAILED) {
                                             $s14 = $this->peg_parse__();
                                             $this->peg_reportedPos = $s0;
-                                            $s0 = $this->peg_f155($s3, $s6, $s9, $s12);
+                                            $s0 = $this->peg_f153($s3, $s6, $s9, $s12);
                                         } else {
                                             $this->peg_currPos = $s0;
                                             $s0 = $this->peg_FAILED;
@@ -8480,7 +8444,7 @@ class Parser
 
     private function peg_parse_CNUM255(): mixed
     {
-        $key = $this->peg_currPos * 102 + 99;
+        $key = $this->peg_currPos * 103 + 100;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -8557,7 +8521,7 @@ class Parser
         }
         if ($s1 !== $this->peg_FAILED) {
             $this->peg_reportedPos = $this->peg_currPos;
-            $s2 = $this->peg_f156($s1);
+            $s2 = $this->peg_f154($s1);
             if ($s2) {
                 $s2 = null;
             } else {
@@ -8566,7 +8530,7 @@ class Parser
             if ($s2 !== $this->peg_FAILED) {
                 $s3 = $this->peg_parse__();
                 $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f157($s1);
+                $s0 = $this->peg_f155($s1);
             } else {
                 $this->peg_currPos = $s0;
                 $s0 = $this->peg_FAILED;
@@ -8583,7 +8547,7 @@ class Parser
 
     private function peg_parse_CNUM(): mixed
     {
-        $key = $this->peg_currPos * 102 + 100;
+        $key = $this->peg_currPos * 103 + 101;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -8661,7 +8625,7 @@ class Parser
         if ($s1 !== $this->peg_FAILED) {
             $s2 = $this->peg_parse__();
             $this->peg_reportedPos = $s0;
-            $s0 = $this->peg_f158($s1);
+            $s0 = $this->peg_f156($s1);
         } else {
             $this->peg_currPos = $s0;
             $s0 = $this->peg_FAILED;
@@ -8706,7 +8670,7 @@ class Parser
             if ($s1 !== $this->peg_FAILED) {
                 $s2 = $this->peg_parse__();
                 $this->peg_reportedPos = $s0;
-                $s0 = $this->peg_f159($s1);
+                $s0 = $this->peg_f157($s1);
             } else {
                 $this->peg_currPos = $s0;
                 $s0 = $this->peg_FAILED;
@@ -8720,7 +8684,7 @@ class Parser
 
     private function peg_parse_EOF(): mixed
     {
-        $key = $this->peg_currPos * 102 + 101;
+        $key = $this->peg_currPos * 103 + 102;
         $cached = $this->peg_cache[$key] ?? false;
 
         if ($cached) {
@@ -8729,7 +8693,7 @@ class Parser
         }
 
         $this->peg_reportedPos = $this->peg_currPos;
-        $s0 = $this->peg_f160();
+        $s0 = $this->peg_f158();
         if ($s0) {
             $s0 = null;
         } else {
