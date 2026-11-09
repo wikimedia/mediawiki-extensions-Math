@@ -96,10 +96,7 @@ class ParserHooksHandler implements
 		if ( $mode === MathConfig::MODE_NATIVE_JAX ) {
 			$parser->getOutput()->addModules( [ 'ext.math.mathjax' ] );
 		}
-		if ( ( $wgMathSvgRenderer === 'restbase' && $mode == MathConfig::MODE_MATHML ) ||
-			$mode === MathConfig::MODE_NATIVE_JAX ||
-			$mode === MathConfig::MODE_NATIVE_MML
-		) {
+		if ( $wgMathSvgRenderer === 'restbase' && $mode == MathConfig::MODE_MATHML ) {
 			$marker = Parser::MARKER_PREFIX .
 				'-postMath-' . sprintf( '%08X', $this->mathTagCounter++ ) .
 				Parser::MARKER_SUFFIX;

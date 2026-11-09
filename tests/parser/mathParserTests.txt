@@ -48,3 +48,24 @@ Math on a line with a div stays in the paragraph (blockquote version) (T429711)
 <p>Prop <math class="mwe-math-element mwe-math-element-inline mathjax_ignore" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"A"}}' typeof="mw:Extension/math" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>A</mi></mstyle></mrow></math> implies <math class="mwe-math-element mwe-math-element-inline mathjax_ignore" data-mw='{"name":"math","attrs":{},"body":{"extsrc":"B"}}' typeof="mw:Extension/math" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>B</mi></mstyle></mrow></math> too.</p>
 </blockquote>
 !! end
+
+!! test
+Math in a heading leaves no strip marker in the anchor
+!! options
+parsoid=wt2html
+!! wikitext
+== a <math>x</math> ==
+!! html/php
+<div class="mw-heading mw-heading2"><h2 id="a_x">a <math class="mwe-math-element mwe-math-element-inline mathjax_ignore" xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>x</mi></mstyle></mrow></math></h2><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Parser_test&amp;action=edit&amp;section=1" title="Edit section: a x">edit</a><span class="mw-editsection-bracket">]</span></span></div>
+!! end
+
+!! test
+Math in an invisible image caption leaves no strip marker in title and alt (T440110)
+!! options
+parsoid=wt2html
+!! wikitext
+[[File:Foobar.jpg|100px|<math>x</math>]]
+!! html/php
+<p><span typeof="mw:File"><a href="/wiki/File:Foobar.jpg" class="mw-file-description" title="x"><img alt="x" src="http://example.com/images/thumb/3/3a/Foobar.jpg/100px-Foobar.jpg" decoding="async" loading="lazy" width="100" height="11" class="mw-file-element" srcset="http://example.com/images/thumb/3/3a/Foobar.jpg/200px-Foobar.jpg 2x" /></a></span>
+</p>
+!! end
