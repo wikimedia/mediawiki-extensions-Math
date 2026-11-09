@@ -51,7 +51,8 @@
 			"services": [
 				"Math.RendererFactory",
 				"UserOptionsLookup",
-				"HookContainer"
+				"HookContainer",
+				"RevisionStore"
 			]
 		},
 		"PreferencesHooksHandler": {
@@ -86,6 +87,49 @@
 		"SpecialPage_initList": "main",
 		"ResourceLoaderGetConfigVars": "ResourceLoaderConfigHandler"
 	},
+	"ParsoidModules": [
+		{
+			"name": "Math",
+			"tags": [
+				{
+					"name": "math",
+					"handler": {
+						"class": "MediaWiki\\Extension\\Math\\HookHandlers\\ParserHooksHandler",
+						"services": [
+							"Math.RendererFactory",
+							"UserOptionsLookup",
+							"HookContainer",
+							"RevisionStore"
+						]
+					}
+				},
+				{
+					"name": "chem",
+					"handler": {
+						"class": "MediaWiki\\Extension\\Math\\HookHandlers\\ParserHooksHandler",
+						"services": [
+							"Math.RendererFactory",
+							"UserOptionsLookup",
+							"HookContainer",
+							"RevisionStore"
+						]
+					}
+				},
+				{
+					"name": "ce",
+					"handler": {
+						"class": "MediaWiki\\Extension\\Math\\HookHandlers\\ParserHooksHandler",
+						"services": [
+							"Math.RendererFactory",
+							"UserOptionsLookup",
+							"HookContainer",
+							"RevisionStore"
+						]
+					}
+				}
+			]
+		}
+	],
 	"config": {
 		"MathDefaultLaTeXMLSetting": {
 			"value": {

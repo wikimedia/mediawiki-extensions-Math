@@ -22,6 +22,7 @@ use Psr\Log\LoggerInterface;
 use Wikimedia\Message\MessageParam;
 use Wikimedia\Message\MessageSpecifier as MsgSp;
 use Wikimedia\ObjectCache\WANObjectCache;
+use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\StringUtils\StringUtils;
 
 /**
@@ -250,10 +251,8 @@ abstract class MathRenderer {
 
 	/**
 	 * Adds tracking categories to the parser
-	 *
-	 * @param Parser $parser
 	 */
-	public function addTrackingCategories( $parser ) {
+	public function addTrackingCategories( Parser|ParsoidExtensionAPI $parser ) {
 		if ( !$this->checkTeX() ) {
 			$parser->addTrackingCategory( 'math-tracking-category-error' );
 		}
