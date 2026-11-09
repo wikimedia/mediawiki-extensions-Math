@@ -3,6 +3,7 @@
 		"authors": [
 			"ANukuma",
 			"Bennylin",
+			"Exploraz",
 			"Ezagren",
 			"Fafau06",
 			"Gombang",
@@ -92,8 +93,9 @@
 	"math_unknown_error": "galat tak dikenal",
 	"math_unknown_function": "fungsi tak dikenal \"$1\"",
 	"mw-math-latexml": "LaTeXML (eksperimental; menggunakan MathML)",
+	"mw-math-mathjax": "MathML dengan gambar SVG (pemaparan MathJax sisi klien)",
 	"mw-math-mathml": "MathML dengan gambar SVG (rendering MathJax sisi server)",
-	"mw-math-native": "MathML (eksperimental; tanpa gambar)",
+	"mw-math-native": "MathML saja",
 	"mw-math-source": "Sumber LaTeX (untuk peramban teks)",
 	"prefs-math": "Matematika",
 	"mathstatus": "Status matematika",
