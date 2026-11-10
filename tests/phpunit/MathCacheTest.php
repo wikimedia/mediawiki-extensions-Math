@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Extension\Math\MathConfig;
-use MediaWiki\Extension\Math\MathMathML;
 use MediaWiki\Extension\Math\MathRenderer;
 
 /**
@@ -24,9 +23,9 @@ class MathCacheTest extends MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 		$this->overrideConfigValue( 'MathValidModes', [ MathConfig::MODE_NATIVE_MML ] );
-		$this->renderer = new class( self::SOME_TEX ) extends MathMathML {
-			protected function doRender(): StatusValue {
-				return StatusValue::newGood();
+		$this->renderer = new class( self::SOME_TEX ) extends MathRenderer {
+			public function render() {
+				return true;
 			}
 
 			public function getHtmlOutput(): string {
@@ -60,9 +59,9 @@ class MathCacheTest extends MediaWikiIntegrationTestCase {
 	public function testDBBasics() {
 		$this->setValues();
 		$this->renderer->writeCache();
-		$renderer2 = new class( self::SOME_TEX, [ 'display' => '' ] ) extends MathMathML {
-			protected function doRender(): StatusValue {
-				return StatusValue::newGood();
+		$renderer2 = new class( self::SOME_TEX, [ 'display' => '' ] ) extends MathRenderer {
+			public function render() {
+				return true;
 			}
 
 			public function getHtmlOutput(): string {

@@ -36,6 +36,21 @@ class MathNativeMMLTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( 'sin', $mml->getMathml() );
 	}
 
+	public function testChemType() {
+		$mml = new MathNativeMML( 'H2O', [ 'type' => 'chem' ] );
+		$this->assertSame( 'chem', $mml->getInputType() );
+	}
+
+	public function testUnknownTypeIsTex() {
+		$mml = new MathNativeMML( '\\sin', [ 'type' => 'pmml' ] );
+		$this->assertSame( 'tex', $mml->getInputType() );
+	}
+
+	public function testInlineDisplaystyleIsTheDefault() {
+		$mml = new MathNativeMML( '\\sin' );
+		$this->assertSame( '{\\displaystyle \\sin}', $mml->getTex() );
+	}
+
 	public function testNoLink() {
 		$this->overrideConfigValue( 'MathEnableFormulaLinks', false );
 		$mml = new MathNativeMML( '\sin', [ 'qid' => 'Q1' ] );

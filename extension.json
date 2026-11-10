@@ -32,7 +32,6 @@
 		"math-popups": "1"
 	},
 	"ExtensionMessagesFiles": {
-		"MathAlias": "Math.alias.php",
 		"MathAliasNoTranslate": "Math.alias.noTranslate.php"
 	},
 	"ExtensionFunctions": [

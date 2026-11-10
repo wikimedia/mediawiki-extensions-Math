@@ -31,9 +31,6 @@ class ParserHooksHandler extends ExtensionTagHandler implements
 	ParserOptionsDefaultsHook
 {
 
-	/** @var int */
-	private $mathTagCounter = 1;
-
 	private readonly HookRunner $hookRunner;
 
 	public function __construct(
