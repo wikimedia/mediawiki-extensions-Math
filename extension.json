@@ -131,32 +131,6 @@
 		}
 	],
 	"config": {
-		"MathDefaultLaTeXMLSetting": {
-			"value": {
-				"format": "xhtml",
-				"whatsin": "math",
-				"whatsout": "math",
-				"0": "pmml",
-				"1": "cmml",
-				"2": "mathtex",
-				"3": "nodefaultresources",
-				"preload": [
-					"LaTeX.pool",
-					"article.cls",
-					"amsmath.sty",
-					"amsthm.sty",
-					"amstext.sty",
-					"amssymb.sty",
-					"eucal.sty",
-					"[dvipsnames]xcolor.sty",
-					"url.sty",
-					"hyperref.sty",
-					"[ids]latexml.sty",
-					"texvc"
-				],
-				"linelength": 90
-			}
-		},
 		"MathDisableTexFilter": {
 			"description": "To access this at run-time, use MathConfig::texCheckDisabled(). Do not use the non-normalized configuration directly.",
 			"value": "new"
@@ -175,12 +149,6 @@
 		"MathSvgRenderer": {
 			"description": "Determine which SVG rendering service is used. Currently available 'mathoid', 'restbase'.",
 			"value": "restbase"
-		},
-		"MathLaTeXMLTimeout": {
-			"value": 240
-		},
-		"MathLaTeXMLUrl": {
-			"value": "https://latexml.formulasearchengine.com/convert"
 		},
 		"MathMathMLUrl": {
 			"value": "https://mathoid-beta.wmflabs.org"

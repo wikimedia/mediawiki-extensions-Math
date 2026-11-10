@@ -60,9 +60,6 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 					case MathConfig::MODE_MATHML:
 						$this->runMathMLTest();
 						break;
-					case MathConfig::MODE_LATEXML:
-						$this->runMathLaTeXMLTest();
-						break;
 					case MathConfig::MODE_NATIVE_MML:
 						$this->runNativeTest( $modeName );
 				}
@@ -88,11 +85,6 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 		$this->testSpecialCaseText();
 		$this->testMathMLIntegration();
 		$this->testPmmlInput();
-	}
-
-	private function runMathLaTeXMLTest(): void {
-		$this->testLaTeXMLIntegration();
-		$this->testLaTeXMLLinebreak();
 	}
 
 	public function testSpecialCaseText() {
@@ -143,47 +135,6 @@ class SpecialMathStatus extends UnlistedSpecialPage {
 		}
 		$real = $renderer->getHtmlOutput();
 		$this->assertContains( 'mode=mathml', $real, 'Checking if the link to SVG image is in correct mode' );
-	}
-
-	/**
-	 * Checks the basic functionality
-	 * i.e. if the span element is generated right.
-	 */
-	public function testLaTeXMLIntegration() {
-		$renderer = $this->rendererFactory->getRenderer( "a+b", [], MathConfig::MODE_LATEXML );
-		if ( !$this->assertTrue( $renderer->render(), "Rendering of a+b in LaTeXML mode" ) ) {
-			return;
-		}
-		// phpcs:ignore Generic.Files.LineLength.TooLong
-		$expected = '<math xmlns="http://www.w3.org/1998/Math/MathML" ';
-		$real = preg_replace( "/\n\\s*/", '', $renderer->getHtmlOutput() );
-		$this->assertContains( $expected, $real,
-			"Comparing the output to the MathML reference rendering" .
-			  $renderer->getLastError() );
-	}
-
-	/**
-	 * Checks LaTeXML line break functionality
-	 * i.e. if a long line contains a mtr element.
-	 * http://www.w3.org/TR/REC-MathML/chap3_5.html#sec3.5.2
-	 */
-	public function testLaTeXMLLinebreak() {
-		$mathDefaultLaTeXMLSetting = $this->getConfig()->get( 'MathDefaultLaTeXMLSetting' );
-		$tex = '';
-		$testMax = ceil( $mathDefaultLaTeXMLSetting[ 'linelength' ] / 2 );
-		for ( $i = 0; $i < $testMax; $i++ ) {
-			$tex .= "$i+";
-		}
-		$tex .= $testMax;
-		$renderer = new MathLaTeXML( $tex, [ 'display' => 'linebreak' ] );
-		$renderer->setPurge();
-		if ( !$this->assertTrue( $renderer->render(), "Rendering of linebreak test in LaTeXML mode" ) ) {
-			return;
-		}
-		$expected = 'mtr';
-		$real = preg_replace( "/\n\\s*/", '', $renderer->getHtmlOutput() );
-		$this->assertContains( $expected, $real, "Checking for linebreak" .
-			  $renderer->getLastError() );
 	}
 
 	private function assertTrue( bool $expression, string $message = '' ): bool {

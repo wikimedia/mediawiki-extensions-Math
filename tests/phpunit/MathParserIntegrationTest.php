@@ -36,7 +36,7 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 			public function getRenderer(
 				string $tex,
 				array $params = [],
-				string $mode = MathConfig::MODE_LATEXML
+				string $mode = MathConfig::MODE_NATIVE_MML
 			): MathRenderer {
 				return new class( $mode, $tex, $params ) extends MathRenderer {
 					public function __construct( $mode, $tex = '', $params = [] ) {
@@ -94,18 +94,18 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 			$render->getContentHolderText()
 		);
 
-		// Now render with 'mathml' and make sure we didn't get the cached output
+		// Now render with a different math mode and make sure we didn't get the cached output
 		$parserOptions2 = ParserOptions::newCanonical( 'canonical' );
-		$parserOptions2->setOption( 'math', MathConfig::MODE_LATEXML );
+		$parserOptions2->setOption( 'math', MathConfig::MODE_NATIVE_MML );
 		$this->assertNull( $parserOutputAccess->getCachedParserOutput( $page, $parserOptions2 ) );
 		$renderStatus = $parserOutputAccess->getParserOutput( $page, $parserOptions2 );
 		$this->assertStatusGood( $renderStatus );
 		$this->assertMatchesRegularExpression(
-			"#<render[^>]*>latexml:TEST_FORMULA</render>#",
+			"#<render[^>]*>native:TEST_FORMULA</render>#",
 			$renderStatus->getValue()->getContentHolderText()
 		);
 
-		// Fetch from cache with source
+		// Fetch from cache with canonical math mode
 		$cachedWithDummy1 = $parserOutputAccess->getCachedParserOutput( $page, $parserOptions1 );
 		$this->assertNotNull( $cachedWithDummy1 );
 		$this->assertMatchesRegularExpression(
@@ -113,11 +113,11 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 			$cachedWithDummy1->getContentHolderText()
 		);
 
-		// Fetch from cache with mathml
+		// Fetch from cache with other math mode
 		$cachedWithDummy2 = $parserOutputAccess->getCachedParserOutput( $page, $parserOptions2 );
 		$this->assertNotNull( $cachedWithDummy2 );
 		$this->assertMatchesRegularExpression(
-			"#<render[^>]*>latexml:TEST_FORMULA</render>#",
+			"#<render[^>]*>native:TEST_FORMULA</render>#",
 			$cachedWithDummy2->getContentHolderText()
 		);
 	}
@@ -184,8 +184,8 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 			->getContentHolderText();
 		$this->assertStringContainsString( '<render>source:formula</render>', $res );
 
-		// now we add a query parameter and render as LaTeX
-		$fauxRequest = new FauxRequest( [ 'mathmode' => MathConfig::MODE_LATEXML ] );
+		// now we add a query parameter and render with non-default mode
+		$fauxRequest = new FauxRequest( [ 'mathmode' => MathConfig::MODE_NATIVE_MML ] );
 		RequestContext::getMain()->setRequest( $fauxRequest );
 		$po = ParserOptions::newCanonical( 'canonical' );
 		$res = $this->getServiceContainer()
@@ -196,6 +196,6 @@ class MathParserIntegrationTest extends MediaWikiIntegrationTestCase {
 				$po
 			)
 			->getContentHolderText();
-		$this->assertStringContainsString( '<render>latexml:formula</render>', $res );
+		$this->assertStringContainsString( '<render>native:formula</render>', $res );
 	}
 }

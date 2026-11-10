@@ -57,10 +57,10 @@ class MathConfigTest extends TestCase {
 
 		yield 'source string' => [ 'source', MathConfig::MODE_SOURCE ];
 		yield 'mathml string' => [ 'mathml', MathConfig::MODE_MATHML ];
-		yield 'latexml string' => [ 'latexml', MathConfig::MODE_LATEXML ];
+		yield 'latexml string' => [ 'latexml', self::TEST_DEFAULT ];
 		yield 'native string' => [ 'native', MathConfig::MODE_NATIVE_MML ];
 		yield 'mathjax string' => [ 'mathjax', MathConfig::MODE_NATIVE_JAX ];
-		yield 'wrong capitalization' => [ 'LaTeXmL', MathConfig::MODE_LATEXML ];
+		yield 'wrong capitalization' => [ 'NaTiVe', MathConfig::MODE_NATIVE_MML ];
 		yield 'unrecognized' => [ 'garbage', self::TEST_DEFAULT ];
 	}
 

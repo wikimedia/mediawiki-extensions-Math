@@ -27,13 +27,10 @@ class MathConfig {
 
 	/** @var string use input tex as formula rendering */
 	public const MODE_SOURCE = 'source';
-
 	/** @var string render formula into MathML */
 	public const MODE_MATHML = 'mathml';
-
 	/** @var string render formula into LateXML */
 	public const MODE_LATEXML = 'latexml';
-
 	/** @var string render formula into MathML using PHP (currently in development) */
 	public const MODE_NATIVE_MML = 'native';
 	/** @var string render formula into MathML using PHP and output it via MathJax */
@@ -42,7 +39,6 @@ class MathConfig {
 	/** @var string[] a list of all supported rendering modes */
 	public const SUPPORTED_MODES = [
 		self::MODE_SOURCE,
-		self::MODE_LATEXML,
 		self::MODE_MATHML,
 		self::MODE_NATIVE_MML,
 		self::MODE_NATIVE_JAX

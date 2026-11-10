@@ -5,7 +5,6 @@ namespace MediaWiki\Extension\Math\Render;
 use InvalidArgumentException;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathConfig;
-use MediaWiki\Extension\Math\MathLaTeXML;
 use MediaWiki\Extension\Math\MathMathML;
 use MediaWiki\Extension\Math\MathMathMLCli;
 use MediaWiki\Extension\Math\MathNativeMML;
@@ -99,9 +98,6 @@ class RendererFactory {
 				// ParserHooksHandler::mathTagHook uses $renderer->getMode() to
 				// learn result of determineMode() to load the MathJax module.
 				$renderer->setMode( $mode );
-				break;
-			case MathConfig::MODE_LATEXML:
-				$renderer = new MathLaTeXML( $tex, $params, $this->cache );
 				break;
 			case MathConfig::MODE_MATHML:
 			default:

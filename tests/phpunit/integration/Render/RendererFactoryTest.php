@@ -5,7 +5,6 @@ namespace MediaWiki\Extension\Math\Tests\Render;
 use InvalidArgumentException;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathConfig;
-use MediaWiki\Extension\Math\MathLaTeXML;
 use MediaWiki\Extension\Math\MathMathML;
 use MediaWiki\Extension\Math\MathMathMLCli;
 use MediaWiki\Extension\Math\MathNativeMML;
@@ -61,7 +60,6 @@ class RendererFactoryTest extends MediaWikiIntegrationTestCase {
 		$this->mathConfig->method( 'getValidRenderingModes' )->willReturn( [
 			MathConfig::MODE_SOURCE,
 			MathConfig::MODE_MATHML,
-			MathConfig::MODE_LATEXML,
 			MathConfig::MODE_NATIVE_MML
 		] );
 
@@ -93,14 +91,6 @@ class RendererFactoryTest extends MediaWikiIntegrationTestCase {
 		$renderer = $this->factory->getRenderer( $tex, [], MathConfig::MODE_NATIVE_MML );
 
 		$this->assertInstanceOf( MathNativeMML::class, $renderer );
-	}
-
-	public function testGetRendererForLaTeXMLMode() {
-		$tex = 'x^2 + y^2 = z^2';
-
-		$renderer = $this->factory->getRenderer( $tex, [], MathConfig::MODE_LATEXML );
-
-		$this->assertInstanceOf( MathLaTeXML::class, $renderer );
 	}
 
 	public function testGetRendererForMathMLMode() {

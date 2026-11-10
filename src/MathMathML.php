@@ -208,15 +208,12 @@ class MathMathML extends MathRenderer {
 
 	/**
 	 * Performs a HTTP Post request to the given host.
-	 * Uses $wgMathLaTeXMLTimeout as timeout.
 	 *
 	 * @return StatusValue result with response body as a value
 	 */
 	public function makeRequest() {
-		// TODO: Change the timeout mechanism.
-		global $wgMathLaTeXMLTimeout;
 		$post = $this->getPostData();
-		$options = [ 'method' => 'POST', 'postData' => $post, 'timeout' => $wgMathLaTeXMLTimeout ];
+		$options = [ 'method' => 'POST', 'postData' => $post, 'timeout' => 240 ];
 		$req = MediaWikiServices::getInstance()->getHttpRequestFactory()->create( $this->host, $options, __METHOD__ );
 		$status = $req->execute();
 		if ( $status->isGood() ) {
@@ -226,7 +223,7 @@ class MathMathML extends MathRenderer {
 				$this->logger->warning( 'Math service request timeout', [
 					'post' => $post,
 					'host' => $this->host,
-					'timeout' => $wgMathLaTeXMLTimeout
+					'timeout' => 240
 				] );
 				return StatusValue::newFatal( 'math_timeout', $this->getModeName(), $this->host );
 			} else {
@@ -254,9 +251,7 @@ class MathMathML extends MathRenderer {
 	 */
 	public function getPostData() {
 		$input = $this->getTex();
-		if ( $this->inputType == 'pmml' ||
-			( $this->getMode() == MathConfig::MODE_LATEXML && $this->getMathml() )
-		) {
+		if ( $this->inputType == 'pmml' ) {
 			$out = 'type=mml&q=' . rawurlencode( $this->getMathml() );
 		} elseif ( $this->inputType == 'ascii' ) {
 			$out = 'type=asciimath&q=' . rawurlencode( $input );
@@ -515,7 +510,7 @@ class MathMathML extends MathRenderer {
 	 * @return StatusValue
 	 */
 	protected function processJsonResult( $jsonResult, $host ): StatusValue {
-		if ( $this->getMode() == MathConfig::MODE_LATEXML || $this->inputType == 'pmml' ||
+		if ( $this->inputType == 'pmml' ||
 			 $this->isValidMathML( $jsonResult->mml )
 		) {
 			if ( isset( $jsonResult->svg ) ) {
@@ -528,7 +523,7 @@ class MathMathML extends MathRenderer {
 			} else {
 				$this->logger->error( 'Missing SVG property in JSON result.' );
 			}
-			if ( $this->getMode() != MathConfig::MODE_LATEXML && $this->inputType != 'pmml' ) {
+			if ( $this->inputType != 'pmml' ) {
 				$this->setMathml( $jsonResult->mml );
 			}
 			// Avoid PHP 7.1 warning from passing $this by reference
