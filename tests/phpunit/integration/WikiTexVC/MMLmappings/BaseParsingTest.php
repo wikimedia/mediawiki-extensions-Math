@@ -186,7 +186,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 
 	public function testAlignAtLength() {
 		$row1 = new TexArray( new Literal( '\\sin' ) );
-		$row1->setRowSpecs( new LengthSpec( '-', [ null, [ '2', '3' ] ], 'em' ) );
+		$row1->setRowSpecs( new LengthSpec( '-', [ '.', [ '3' ] ], 'em' ) );
 		$matrix = new Matrix( 'alignat',
 			new TexArray(
 			$row1
@@ -194,8 +194,27 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 		);
 		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( 'mtable', $result );
-		$this->assertStringContainsString( 'padding-bottom', $result );
-		$this->assertStringContainsString( '23em;', $result );
+		$this->assertStringContainsString( 'padding-bottom: 0.1em;', $result );
+	}
+
+	public static function provideRowSpacing(): array {
+		return [
+			'aligned' => [ '\\begin{aligned} a &= b \\\\[20pt] c &= d \\end{aligned}', '2.3em' ],
+			'cases' => [ '\\begin{cases} a \\\\[20pt] b \\end{cases}', '2.2em' ],
+			'pmatrix' => [ '\\begin{pmatrix} a \\\\[20pt] b \\end{pmatrix}', '2.4em' ],
+			'mu' => [ '\\begin{matrix} a \\\\[18mu] b \\end{matrix}', '1.4em' ],
+			'TeX unit unknown to MathJax' => [ '\\begin{matrix} a \\\\[10bp] b \\end{matrix}', '1.4em' ],
+			'px' => [ '\\begin{matrix} a \\\\[20px] b \\end{matrix}', '2.4em' ],
+			'negative gap is clamped' => [ '\\begin{matrix} a \\\\[-1em] b \\end{matrix}', '0em' ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideRowSpacing
+	 */
+	public function testRowSpacingAddsToEnvironmentGap( string $tex, string $gap ) {
+		$this->assertStringContainsString( "padding-bottom: $gap;",
+			(string)( new TexVC() )->parse( $tex )->toMMLTree() );
 	}
 
 	public function testHLineTop() {

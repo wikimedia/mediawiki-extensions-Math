@@ -7,6 +7,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 use Generator;
 use InvalidArgumentException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLutil;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
@@ -17,6 +18,14 @@ use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 class Matrix extends TexArray {
+	/**
+	 * Row gap in em where texutil.json sets none.
+	 * MathJax Array: swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=1946-1949
+	 * texutil.json, aligned and alignedat:
+	 * swh:1:cnt:0dc9c1b9d75e51da3f0b700e6e3286b5f8072d72;lines=2142-2146
+	 * cases and smallmatrix: swh:1:cnt:e0efdcf32754521fd6740c1ff155ff50e770af9d;lines=210-220,227
+	 */
+	private const float DEFAULT_ROW_SPACING = 0.4;
 
 	private array $lines = [];
 
@@ -260,7 +269,9 @@ class Matrix extends TexArray {
 			$rowAttributes = [];
 			$rowSpecs = $row->getRowSpecs();
 			if ( $rowSpecs ) {
-				$rowAttributes['style'] = "padding-bottom: {$rowSpecs->getCssLength()};";
+				// \\[…] adds to the row gap: swh:1:cnt:960fa3a2a557e1777df38426031a3ca90df604f2;lines=1421-1437
+				$rowAttributes['style'] = 'padding-bottom: ' . MMLutil::round2em( max( 0,
+						( $definition['rowspacing'] ?? self::DEFAULT_ROW_SPACING ) + $rowSpecs->toEm() ) ) . ';';
 			}
 			foreach ( $row  as $cell ) {
 				$cellCtx = $row->argContext( $cell, $rowCtx );

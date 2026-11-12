@@ -5,6 +5,22 @@ namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 use InvalidArgumentException;
 
 class LengthSpec extends TexNode {
+	/**
+	 * MathJax's TeX unit table: swh:1:cnt:a5855f74cf49509f1215eb1121c8a56114e7e3ad;lines=80-81,104-114
+	 * Unknown units count as pt: swh:1:cnt:a5855f74cf49509f1215eb1121c8a56114e7e3ad;lines=64-66
+	 */
+	private const UNIT_EM = [
+		'em' => 1,
+		'ex' => 0.43,
+		'pt' => 0.1,
+		'pc' => 1.2,
+		'px' => 0.1,
+		'in' => 7.2,
+		'cm' => 7.2 / 2.54,
+		'mm' => 7.2 / 25.4,
+		'mu' => 1 / 18,
+	];
+
 	private readonly string $sign;
 	private readonly string $number;
 
@@ -31,6 +47,10 @@ class LengthSpec extends TexNode {
 
 	public function getCssLength(): string {
 		return $this->sign . $this->number . $this->unit;
+	}
+
+	public function toEm(): float {
+		return (float)( $this->sign . $this->number ) * ( self::UNIT_EM[$this->unit] ?? self::UNIT_EM['pt'] );
 	}
 
 }

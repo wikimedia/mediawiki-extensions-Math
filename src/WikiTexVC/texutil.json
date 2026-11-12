@@ -6215,7 +6215,8 @@
 			],
 			"repeat": 5,
 			"class": "mwe-math-columnspacing-0em-2em",
-			"vline": false
+			"vline": false,
+			"rowspacing": 0.3
 		},
 		"style": "display"
 	},
@@ -6226,7 +6227,8 @@
 				"l"
 			],
 			"class": "mwe-math-columnspacing-0em",
-			"vline": false
+			"vline": false,
+			"rowspacing": 0.3
 		},
 		"style": "display"
 	},
@@ -6243,7 +6245,8 @@
 			"align": [
 				"l",
 				"l"
-			]
+			],
+			"rowspacing": 0.2
 		}
 	},
 	"matrix": {
@@ -6262,7 +6265,8 @@
 		"matrix": {
 			"open": "",
 			"close": "",
-			"class": "mwe-math-smallmatrix"
+			"class": "mwe-math-smallmatrix",
+			"rowspacing": 0.2
 		},
 		"style": "script"
 	},
