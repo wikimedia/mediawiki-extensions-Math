@@ -26,7 +26,7 @@ class MMLbase {
 		$this->attributes = $attributes;
 		$this->children = $children;
 		if ( $texclass !== '' ) {
-			$this->attributes[ TAG::CLASSTAG ] = $texclass;
+			$this->attributes[ Tag::CLASSTAG ] = $texclass;
 		}
 	}
 

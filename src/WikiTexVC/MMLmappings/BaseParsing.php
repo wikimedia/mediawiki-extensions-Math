@@ -678,7 +678,7 @@ class BaseParsing {
 		if ( $node instanceof Fun2sq ) {
 			return new MMLmrow( TexClass::ORD, [], MMLmunderover::newSubtree(
 				new MMLmstyle( "", [ "scriptlevel" => "0" ],
-					new MMLmo( Texclass::REL, [], $char )
+					new MMLmo( TexClass::REL, [], $char )
 				),
 				new MMLmpadded( "", $mpaddedArgs,
 					new MMLmrow( TexClass::ORD, [],
@@ -693,7 +693,7 @@ class BaseParsing {
 
 		}
 		return MMLmover::newSubtree(
-			new MMLmstyle( "", [ "scriptlevel" => "0" ], new MMLmo( Texclass::REL, [], $char ) ),
+			new MMLmstyle( "", [ "scriptlevel" => "0" ], new MMLmo( TexClass::REL, [], $char ) ),
 			new MMLmpadded( "", $mpaddedArgs, $node->renderArg( $ctx ), $mspace )
 		);
 	}

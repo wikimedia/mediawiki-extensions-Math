@@ -180,7 +180,7 @@ class MhchemParser {
 			// Prevent infinite loop
 			if ( $watchdog <= 0 ) {
 				// Unexpected character
-				throw new RunTimeException( "MhchemBugU: mhchem-PHP bug U. Please report." );
+				throw new RuntimeException( "MhchemBugU: mhchem-PHP bug U. Please report." );
 			}
 		}
 	}
