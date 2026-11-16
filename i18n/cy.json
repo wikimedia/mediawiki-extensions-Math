@@ -33,7 +33,6 @@
 	"mw-math-mathml": "SVG (gellir defnyddio MathML trwy ychwanegyn porwr)",
 	"mw-math-source": "Cod LaTeX (ar gyfer porwyr testun)",
 	"prefs-math": "Mathemateg",
-	"mathstatus": "Statws Math",
 	"math-wikibase-formula": "Fformiwla",
 	"math-wikibase-formula-name": "Enw",
 	"math-wikibase-formula-type": "Math",

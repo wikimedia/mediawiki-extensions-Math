@@ -67,7 +67,6 @@
 	"mw-math-mathml": "MathML, SVG կամ PNG անցումով(խորհուրդ է տրվում ժամանակակից բրոուզերների և հասանելիությունը բարձրացնող գործիքների համար):",
 	"mw-math-source": "LaTeX (տեքստային բրաուզերների համար)",
 	"prefs-math": "Մաթեմատիկական բանաձևեր",
-	"mathstatus": "Math-ի կարգավիճակ",
 	"datatypes-type-math": "Մաթեմատիկական արտահայտություն",
 	"wikibase-listdatatypes-math-head": "Մաթեմատիկական արտահայտություն",
 	"math-wikibase-formula": "Բանաձև"

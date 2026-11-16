@@ -16,7 +16,6 @@
 	"math_invalidjson": "$1 Server oonswaar as ferkiard JSON.",
 	"math_invalidresponse": "$1: Ferkiard oonswaar („$3“) faan server „$2“:",
 	"math_invalidxml": "MathML of SVG as ferkiard XML.",
-	"math_mathoid_error": "Konwerjuunsfeeler. Di server („$1“) sait: „$2“",
 	"math_syntax_error": "Süntaksfeeler",
 	"math_timeout": "$1 tu leed för \"$2\"",
 	"math_unknown_error": "Ünbekäänd feeler",
