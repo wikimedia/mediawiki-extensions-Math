@@ -5,11 +5,11 @@ namespace MediaWiki\Extension\Math\WikiTexVC\MMLnodes;
 class MMLarray extends MMLbase {
 
 	/**
-	 * Constructor for array wrapper of MMLbase (and string) elements
+	 * Constructor for array wrapper of MMLbase elements
 	 *
-	 * @param MMLbase|string|null ...$children MMLbase child elements ...$children
+	 * @param MMLbase ...$children MMLbase child elements ...$children
 	 */
-	public function __construct( ...$children ) {
+	public function __construct( MMLbase ...$children ) {
 		parent::__construct( '', '', [], ...$children );
 	}
 
@@ -19,31 +19,21 @@ class MMLarray extends MMLbase {
 
 	/**
 	 * An array behaves differently as it's not a real MathML element.
-	 * Is empty if all of its children are empty (null, empty string, or empty MMLbase element).
+	 * Is empty if all of its children are empty.
 	 */
 	public function isEmpty(): bool {
-		$empty = true;
 		foreach ( $this->children as $child ) {
-			if ( $child === null ||
-				( is_string( $child ) && trim( $child ) === '' ) ||
-				( $child instanceof MMLbase && $child->isEmpty() ) ) {
-				continue;
-			} else {
-				$empty = false;
-				break;
+			if ( !$child->isEmpty() ) {
+				return false;
 			}
 		}
-		return $empty;
+		return true;
 	}
 
 	public function getTextContent(): string {
 		$tmp = '';
 		foreach ( $this->getChildren() as $child ) {
-			if ( $child instanceof MMLbase ) {
-				$tmp .= $child->getTextContent();
-			} elseif ( is_string( $child ) ) {
-				$tmp .= $child;
-			}
+			$tmp .= $child->getTextContent();
 		}
 		return $tmp;
 	}

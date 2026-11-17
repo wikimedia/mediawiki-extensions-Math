@@ -5,6 +5,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLarray;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLDomVisitor;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmmultiscripts;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmn;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
@@ -59,20 +60,19 @@ class MMLDomVisitorTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( 'x=5', $visitor->getText() );
 	}
 
-	public function testGetTextFromMixedChildren() {
+	public function testGetTextSkipsNullChildren() {
 		$visitor = new MMLDomVisitor();
-		$mrow = new MMLmrow( '', [],
-			new MMLmo( '', [], '+' ),
-			'<mo>&#x27F9;</mo>',
+		$mmultiscripts = MMLmmultiscripts::newSubtree(
+			new MMLmi( '', [], 'x' ),
 			new MMLmn( '', [], '2' )
 		);
-		$mrow->accept( $visitor );
-		$this->assertSame( '+&#x27F9;2', $visitor->getText() );
+		$mmultiscripts->accept( $visitor );
+		$this->assertSame( 'x2', $visitor->getText() );
 	}
 
 	public function testEmptyElementReturnsEmptyString() {
 		$visitor = new MMLDomVisitor();
-		$emptyNode = new MMLbase( 'mrow', '', [], '' );
+		$emptyNode = new MMLbase( 'mrow' );
 		$visitor->visit( $emptyNode );
 		$this->assertSame( '', $visitor->getText() );
 	}
@@ -145,120 +145,18 @@ class MMLDomVisitorTest extends MediaWikiIntegrationTestCase {
 		$this->assertXmlStringEqualsXmlString( $expected, $visitor->getHTML() );
 	}
 
-	public function testBasicStringChild() {
-		$visitor = new MMLDomVisitor();
-		$mrow = new MMLbase( 'mrow', '', [], '<mo>&#x27F9;</mo>' );
-
-		$mrow->accept( $visitor );
-		$output = $visitor->getHTML();
-
-		$expected = '<mrow><mo>&#x27F9;</mo></mrow>';
-		$this->assertXmlStringEqualsXmlString( $expected, $output );
-	}
-
-	public function testMixedChildren() {
-		$visitor = new MMLDomVisitor();
-		$mrow = new MMLmrow( '', [],
-			new MMLmo( '', [], '+' ),
-			'<mo>&#x27F9;</mo>',
-			new MMLmn( '', [], '2' )
-		);
-
-		$mrow->accept( $visitor );
-		$output = $visitor->getHTML();
-
-		$expected = <<<XML
-		<mrow>
-			<mo>+</mo>
-			<mo>&#x27F9;</mo>
-			<mn>2</mn>
-		</mrow>
-		XML;
-		$this->assertXmlStringEqualsXmlString( $expected, $output );
-	}
-
-	public function testNestedXmlString() {
-		$visitor = new MMLDomVisitor();
-		$mrow = new MMLbase( 'mrow', '', [],
-			'<msup><mi>x</mi><mn>2</mn></msup>'
-		);
-
-		$mrow->accept( $visitor );
-		$output = $visitor->getHTML();
-
-		$expected = '<mrow><msup><mi>x</mi><mn>2</mn></msup></mrow>';
-		$this->assertXmlStringEqualsXmlString( $expected, $output );
-	}
-
-	public function testTextAndXmlCombination() {
-		$visitor = new MMLDomVisitor();
-		$node = new MMLmrow( '', [],
-			new MMLmtext( '', [], 'Solve: ' ),
-			'<mrow><mi>x</mi><mo>+</mo><mn>5</mn></mrow>'
-		);
-
-		$node->accept( $visitor );
-		$output = $visitor->getHTML();
-
-		$expected = <<<XML
-		<mrow>
-		<mtext>Solve: </mtext>
-			<mrow>
-				<mi>x</mi>
-				<mo>+</mo>
-				<mn>5</mn>
-			</mrow>
-		</mrow>
-		XML;
-		$this->assertXmlStringEqualsXmlString( $expected, $output );
-	}
-
-	public function testEmptyStringChild() {
-		$visitor = new MMLDomVisitor();
-		$mrow = new MMLmrow( '', [], '' );
-
-		$mrow->accept( $visitor );
-		$output = $visitor->getHTML();
-
-		$this->assertSame( '<mrow></mrow>', trim( $output ) );
-	}
-
-	public function testHugeXmlDepthHandling() {
-		$deepNesting = str_repeat( '<sub>', 500 ) . '&#x338;' . str_repeat( '</sub>', 500 );
-		$mrow = new MMLbase( 'math', '', [], $deepNesting );
-		$visitor = new MMLDomVisitor();
-		$mrow->accept( $visitor );
-		$output = $visitor->getHTML();
-
-		$this->assertStringContainsString( '<sub><sub>', $output, 'Should contain nested tags' );
-		$this->assertStringContainsString( '&#x338', $output, 'Should contain inner content' );
-		$this->assertStringEndsWith( '</math>', $output, 'Should have proper closing' );
-
-		$firstPos = strpos( $output, '<sub>' );
-		$lastPos = strrpos( $output, '</sub>' );
-		$inner = substr( $output, $firstPos, $lastPos - $firstPos );
-		$nestingCount = substr_count( $inner, '<sub>' );
-
-		$this->assertGreaterThan(
-			256,
-			$nestingCount,
-			'Should handle more than default 256 nesting levels'
-		);
-	}
-
 	public function testMMLarrayAsRoot() {
-		$mrow = new MMLbase( 'mrow', '', [], 'Hello' );
-		$array = new MMLarray( $mrow, '<mi>World</mi>' );
+		$array = new MMLarray( new MMLmi( '', [], 'Hello' ), new MMLmi( '', [], 'World' ) );
 		$html = (string)$array;
-		$this->assertStringContainsString( '<mrow>Hello</mrow>', $html );
+		$this->assertStringContainsString( '<mi>Hello</mi>', $html );
 		$this->assertStringContainsString( '<mi>World</mi>', $html );
 	}
 
 	public function testMMLarrayAsChild() {
-		$array = new MMLarray( new MMLbase( 'mrow', '', [], 'Inner' ) );
+		$array = new MMLarray( new MMLmi( '', [], 'Inner' ) );
 		$parent = new MMLbase( 'mroot', '', [], $array );
 		$html = (string)$parent;
-		$this->assertStringContainsString( '<mroot><mrow>Inner</mrow></mroot>', $html );
+		$this->assertStringContainsString( '<mroot><mi>Inner</mi></mroot>', $html );
 	}
 
 	public function testEmptyMMLarray() {
@@ -270,8 +168,7 @@ class MMLDomVisitorTest extends MediaWikiIntegrationTestCase {
 	public function testMixedChildrenInArray() {
 		$array = new MMLarray(
 			new MMLmi( '', [], 'x' ),
-			'<mn>3</mn>',
-			null
+			new MMLmn( '', [], '3' )
 		);
 		$html = (string)$array;
 		$this->assertStringContainsString( '<mi>x</mi>', $html );
@@ -281,23 +178,19 @@ class MMLDomVisitorTest extends MediaWikiIntegrationTestCase {
 	public function testArrayRoot() {
 		$array = new MMLarray(
 			new MMLmi( '', [], 'x' ),
-			'<mn>3</mn>',
-			null
+			new MMLmn( '', [], '3' )
 		);
 		$visitor = new MMLDomVisitor();
 		$this->expectException( InvalidArgumentException::class );
 		$visitor->visit( $array );
 	}
 
-	public function testGetTextContentWithStringChild() {
-		$visitorFactory = new VisitorFactory();
-		$base = new MMLarray( '', null, 'simple string' );
-		$base->setVisitorFactory( $visitorFactory );
-		$this->assertSame( 'simple string', $base->getTextContent() );
-	}
-
-	public function testGetTextContentWithMultipleStrings() {
-		$base = new MMLarray( '', null, 'first string', ' second string', ' third string' );
+	public function testGetTextContentWithLeafChildren() {
+		$base = new MMLarray(
+			new MMLmtext( '', [], 'first string' ),
+			new MMLmtext( '', [], ' second string' ),
+			new MMLmtext( '', [], ' third string' )
+		);
 		$this->assertSame( 'first string second string third string', $base->getTextContent() );
 	}
 
@@ -311,7 +204,7 @@ class MMLDomVisitorTest extends MediaWikiIntegrationTestCase {
 		$mmlBaseChild = new MMLbase( 'test', '', [] );
 		$mmlBaseChild->setVisitorFactory( $visitorFactory );
 
-		$base = new MMLarray( '', null, $mmlBaseChild );
+		$base = new MMLarray( $mmlBaseChild );
 		$this->assertSame( 'example text', $base->getTextContent() );
 	}
 
@@ -326,7 +219,7 @@ class MMLDomVisitorTest extends MediaWikiIntegrationTestCase {
 		$mmlBaseChild = new MMLbase( 'test', '', [] );
 		$mmlBaseChild->setVisitorFactory( $visitorFactory );
 
-		$base = new MMLarray( '', null, $mmlBaseChild, ' and another string' );
+		$base = new MMLarray( $mmlBaseChild, new MMLmtext( '', [], ' and another string' ) );
 		$this->assertSame( ' and another string', $base->getTextContent() );
 	}
 }

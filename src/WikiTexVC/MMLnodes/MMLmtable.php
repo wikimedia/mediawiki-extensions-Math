@@ -18,7 +18,7 @@ class MMLmtable extends MMLbase {
 	public function __construct(
 		string $texclass = TexClass::ORD,
 		array $attributes = [],
-		...$rows ) {
+		MMLbase ...$rows ) {
 		parent::__construct( "mtable", $texclass, $attributes, ...$rows );
 	}
 

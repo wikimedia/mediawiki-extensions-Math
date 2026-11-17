@@ -11,7 +11,7 @@ namespace MediaWiki\Extension\Math\WikiTexVC\MMLnodes;
 class MMLmtd extends MMLbase {
 
 	/** @inheritDoc */
-	public function __construct( string $texclass = "", array $attributes = [], ...$children ) {
+	public function __construct( string $texclass = "", array $attributes = [], MMLbase ...$children ) {
 		parent::__construct( "mtd", $texclass, $attributes, ...$children );
 	}
 

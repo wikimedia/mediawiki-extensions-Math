@@ -10,7 +10,7 @@ class MMLbase {
 	private string $name;
 	private array $attributes;
 	protected ?VisitorFactory $visitorFactory = null;
-	/** @var array<MMLbase|string> */
+	/** @var array<MMLbase|null> */
 	protected array $children = [];
 
 	/**
@@ -19,9 +19,9 @@ class MMLbase {
 	 * @param string $name The element tag name (e.g., 'msubsup', 'msqrt')
 	 * @param string $texclass TeX class name
 	 * @param array $attributes Associative array of element attributes
-	 * @param MMLbase|string|null ...$children MMLbase child elements (null values are allowed for placeholder values)
+	 * @param MMLbase ...$children MMLbase child elements
 	 */
-	public function __construct( string $name, string $texclass = '', array $attributes = [], ...$children ) {
+	public function __construct( string $name, string $texclass = '', array $attributes = [], MMLbase ...$children ) {
 		$this->name = $name;
 		$this->attributes = $attributes;
 		$this->children = $children;
@@ -32,9 +32,9 @@ class MMLbase {
 
 	/**
 	 * Add child node to current children
-	 * @param MMLbase|string|null ...$node
+	 * @param MMLbase ...$node
 	 */
-	public function addChild( ...$node ): void {
+	public function addChild( MMLbase ...$node ): void {
 		foreach ( $node as $n ) {
 			$this->children[] = $n;
 		}
@@ -42,7 +42,7 @@ class MMLbase {
 
 	/**
 	 * Get name children from the current element
-	 * @return MMLbase[]
+	 * @return array<MMLbase|null>
 	 */
 	public function getChildren(): array {
 		return $this->children;
