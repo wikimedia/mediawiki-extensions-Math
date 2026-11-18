@@ -6,6 +6,7 @@ use ArgumentCountError;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Infix;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWikiUnitTestCase;
 use TypeError;
 
@@ -62,5 +63,15 @@ class InfixTest extends MediaWikiUnitTestCase {
 			new TexArray( new Literal( 'b' ) ) );
 		$this->assertEquals( [ 'a', 'b' ], $f->extractIdentifiers(),
 			'Should extract identifiers' );
+	}
+
+	public function testArgStyles() {
+		$over = new Infix( '\\over',
+			new TexArray( new Literal( 'a' ) ),
+			new TexArray( new Literal( 'b' ) ) );
+		$ctx = new RenderContext( style: RenderContext::TEXT );
+		$this->assertSame( RenderContext::SCRIPT, $over->argContext( $over->getArg1(), $ctx )->style );
+		$this->assertSame( RenderContext::SCRIPT + RenderContext::CRAMPED,
+			$over->argContext( $over->getArg2(), $ctx )->style );
 	}
 }

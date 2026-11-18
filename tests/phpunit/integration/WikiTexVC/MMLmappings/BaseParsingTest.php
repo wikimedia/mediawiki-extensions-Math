@@ -3,6 +3,8 @@
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\MMLmappings;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseParsing;
+use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\Util\MMLParsingUtil;
+use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmi;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2;
@@ -18,31 +20,12 @@ use MediaWikiIntegrationTestCase;
  */
 class BaseParsingTest extends MediaWikiIntegrationTestCase {
 
-	public function testAccent() {
-		$node = new Fun1(
-			'\\widetilde',
-			( new Literal( 'a' ) )
-		);
-		$result = BaseParsing::accent( $node, [], null, 'widetilde', '007E' );
-		$this->assertStringContainsString( '~', $result );
-		$this->assertStringContainsString( 'mover', $result );
-	}
-
-	public function testAccentArgPassing() {
-		$node = new Fun1(
-			'\\widetilde',
-			( new Literal( 'a' ) )
-		);
-		$result = BaseParsing::accent( $node, [ 'k' => 'v' ], null, 'widetilde', '007E' );
-		$this->assertStringContainsString( '<mi k="v"', $result );
-	}
-
 	public function testArray() {
 		$node = new Matrix( 'matrix',
 			new TexArray( new TexArray( new Literal( 'a' ) ) )
 		);
 
-		$result = BaseParsing::array( $node, [], null, 'array', '007E' );
+		$result = $node->toMMLTree();
 		$this->assertStringContainsString( '<mi>a</mi>', (string)$result );
 	}
 
@@ -51,7 +34,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			'\\boldsymbol',
 			( new Literal( '\\alpha' ) )
 		);
-		$result = BaseParsing::boldsymbol( $node, [], null, 'boldsymbol' );
+		$result = BaseParsing::mathFont( $node, [], null, 'boldsymbol' );
 		$this->assertStringContainsString( '𝜶', $result );
 	}
 
@@ -60,7 +43,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			'\\boldsymbol',
 			( new Literal( 'a' ) )
 		);
-		$result = BaseParsing::boldsymbol( $node, [], null, 'boldsymbol' );
+		$result = BaseParsing::mathFont( $node, [], null, 'boldsymbol' );
 		$this->assertStringContainsString( '𝒂', $result );
 	}
 
@@ -89,8 +72,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 		// amsmath defines \binom as \genfrac()\z@{} and \dbinom as \genfrac(){0pt}0:
 		// https://archive.softwareheritage.org/swh:1:cnt:63c753577180436201384e6d5856e19b60994157;origin=https://github.com/latex3/latex2e;visit=swh:1:snp:b0ee00ac9658057bb387804cccae97bce8af59b5;anchor=swh:1:rev:cf95df5b80349c35628d021bf35418f5d844f2e5;path=/required/amsmath/amsmath.dtx;lines=630-641
 		$node = new Fun2( '\\dbinom', new Literal( 'n' ), new Literal( 'k' ) );
-		$operatorContent = [ 'styleargs' => [ 'displaystyle' => 'false' ] ];
-		$result = BaseParsing::genFrac( $node, [], $operatorContent, '\\dbinom', '(', ')', '0', '0' );
+		$result = BaseParsing::genFrac( $node, [], [], '\\dbinom', '(', ')', '0', '0' );
 
 		$this->assertStringContainsString( '<mstyle displaystyle="true" scriptlevel="0">', $result );
 		$this->assertSame( 2, substr_count( $result, 'minsize="2.047em"' ) );
@@ -146,46 +128,93 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( 'merror', $result );
 	}
 
-	public function testUnderArgPassing() {
-		$node = new Fun1(
-			'\\overline',
-			( new Literal( 'a' ) )
-		);
-		$result = BaseParsing::underover( $node, [ 'k' => 'v' ], null, '', '00AF' );
-		$this->assertStringContainsString( '<mi k="v"', $result );
-	}
-
-	public function testUnderBadArgPassing() {
-		$node = new Fun1(
-			'\\overline',
-			( new Literal( 'a' ) )
-		);
-		$result = BaseParsing::underover( $node,
-			[ 'k' => '"<script>alert("problem")</script>"' ], null, '', '00AF' );
-		$this->assertStringContainsString( 'k=\'"&lt;script&gt;alert("problem")', $result );
+	public function testAttributesAreEscaped() {
+		$mml = new MMLmi( '', [], 'a' );
+		MMLParsingUtil::addAttributesToFirstElement( $mml, [ 'k' => '"<script>alert("problem")</script>"' ] );
+		$this->assertStringContainsString( 'k=\'"&lt;script&gt;alert("problem")', (string)$mml );
 	}
 
 	public function testAlignAt() {
 		$matrix = new Matrix( 'alignat',
 			new TexArray( new TexArray( new Literal( '\\sin' ) ) )
 		);
-		$result = BaseParsing::alignAt( $matrix, [], null, 'alignat' );
+		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( 'mtable', $result );
 		$this->assertStringNotContainsString( 'padding-bottom', $result );
 	}
 
+	public static function provideAlignLeftGroup(): array {
+		return [
+			'relation' => [ '\\begin{align} a &= b \\end{align}', 1 ],
+			'letter' => [ '\\begin{align} a &b \\end{align}', 1 ],
+			'two pairs' => [ '\\begin{alignat}{2} a &= b & c &= d \\end{alignat}', 2 ],
+			'right column only' => [ '\\begin{aligned} = a \\end{aligned}', 0 ],
+			'matrix' => [ '\\begin{matrix} a & = b \\end{matrix}', 0 ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideAlignLeftGroup
+	 */
+	public function testAlignLeftGroup( string $tex, int $count ) {
+		$mml = (string)( new TexVC() )->parse( $tex )->toMMLTree();
+		$this->assertSame( $count,
+			substr_count( $mml, '<mtd class="mwe-math-columnalign-l"><mrow data-mjx-texclass="ORD"></mrow>' ), $mml );
+	}
+
+	public static function provideColumnSpacing(): array {
+		return [
+			'align' => [ '\\begin{align} a &= b \\end{align}', 'class="mwe-math-columnspacing-0em-2em"' ],
+			'alignat' => [ '\\begin{alignat}{1} a &= b \\end{alignat}', 'class="mwe-math-columnspacing-0em"' ],
+			'matrix' => [ '\\begin{matrix} a & b \\end{matrix}', '<mtable>' ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideColumnSpacing
+	 */
+	public function testColumnSpacing( string $tex, string $expected ) {
+		$this->assertStringContainsString( $expected, (string)( new TexVC() )->parse( $tex )->toMMLTree() );
+	}
+
+	public function testDisplayStyleD() {
+		$this->assertStringContainsString( '<mtable class="mwe-math-columnspacing-0em" displaystyle="true">',
+			(string)( new TexVC() )->parse( '\\begin{alignat}{1} a &= b \\end{alignat}' )->toMMLTree() );
+		$this->assertStringNotContainsString( 'displaystyle',
+			(string)( new TexVC() )->parse( '\\begin{matrix} a & b \\end{matrix}' )->toMMLTree() );
+	}
+
 	public function testAlignAtLength() {
 		$row1 = new TexArray( new Literal( '\\sin' ) );
-		$row1->setRowSpecs( new LengthSpec( '-', [ null, [ '2', '3' ] ], 'em' ) );
+		$row1->setRowSpecs( new LengthSpec( '-', [ '.', [ '3' ] ], 'em' ) );
 		$matrix = new Matrix( 'alignat',
 			new TexArray(
 			$row1
 			)
 		);
-		$result = BaseParsing::alignAt( $matrix, [], null, 'alignat' );
+		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( 'mtable', $result );
-		$this->assertStringContainsString( 'padding-bottom', $result );
-		$this->assertStringContainsString( '23em;', $result );
+		$this->assertStringContainsString( 'padding-bottom: 0.1em;', $result );
+	}
+
+	public static function provideRowSpacing(): array {
+		return [
+			'aligned' => [ '\\begin{aligned} a &= b \\\\[20pt] c &= d \\end{aligned}', '2.3em' ],
+			'cases' => [ '\\begin{cases} a \\\\[20pt] b \\end{cases}', '2.2em' ],
+			'pmatrix' => [ '\\begin{pmatrix} a \\\\[20pt] b \\end{pmatrix}', '2.4em' ],
+			'mu' => [ '\\begin{matrix} a \\\\[18mu] b \\end{matrix}', '1.4em' ],
+			'TeX unit unknown to MathJax' => [ '\\begin{matrix} a \\\\[10bp] b \\end{matrix}', '1.4em' ],
+			'px' => [ '\\begin{matrix} a \\\\[20px] b \\end{matrix}', '2.4em' ],
+			'negative gap is clamped' => [ '\\begin{matrix} a \\\\[-1em] b \\end{matrix}', '0em' ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideRowSpacing
+	 */
+	public function testRowSpacingAddsToEnvironmentGap( string $tex, string $gap ) {
+		$this->assertStringContainsString( "padding-bottom: $gap;",
+			(string)( new TexVC() )->parse( $tex )->toMMLTree() );
 	}
 
 	public function testHLineTop() {
@@ -199,7 +228,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 				)
 			)
 		);
-		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( 'top', $result );
 	}
 
@@ -210,7 +239,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 				new TexArray( new TexArray( new Literal( '\\hline ' ) ) )
 			)
 		);
-		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( 'bottom', $result );
 		$this->assertStringContainsString( '<mi>a</mi>', $result );
 	}
@@ -225,7 +254,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 				) )
 			)
 		);
-		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( 'class="mwe-math-matrix-top', $result );
 		$this->assertStringContainsString( '<mi>a</mi>', $result );
 	}
@@ -237,7 +266,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 2\\\\
 \\hline
 \\end{array}' )[0];
-		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( 'class="mwe-math-matrix-top"', $result );
 		$this->assertStringContainsString( 'class="mwe-math-matrix-top mwe-math-matrix-bottom"', $result );
 	}
@@ -247,7 +276,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ),
 			new TexArray( new TexArray() )
 		) );
-		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$result = $node->toMMLTree();
 		$this->assertDoesNotMatchRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
 	}
 
@@ -256,7 +285,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ),
 			new TexArray( new TexArray( new Literal( 'b' ) ) )
 		) );
-		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$result = $node->toMMLTree();
 		$this->assertMatchesRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
 	}
 
@@ -265,7 +294,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ),
 			new TexArray( new TexArray(), new TexArray() )
 		) );
-		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$result = $node->toMMLTree();
 		$this->assertMatchesRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
 	}
 
@@ -274,7 +303,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ),
 			new TexArray( new TexArray( new Literal( '\\hline ' ) ) )
 		) );
-		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$result = $node->toMMLTree();
 		$this->assertDoesNotMatchRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
 	}
 
@@ -283,7 +312,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ),
 			new TexArray( new TexArray( new Literal( '\\hline ' ), new Literal( 'b' ) ) )
 		) );
-		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$result = $node->toMMLTree();
 		$this->assertMatchesRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
 	}
 
@@ -292,32 +321,8 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ),
 			new TexArray( new TexArray( new Literal( '\\hline ' ) ), new TexArray() )
 		) );
-		$result = BaseParsing::array( $node, [], null, 'matrix', '002A' );
+		$result = $node->toMMLTree();
 		$this->assertMatchesRegularExpression( '/<mtr>.*<\/mtr><mtr>.*<\/mtr>/', $result );
-	}
-
-	public function testHandleOperatorName() {
-		$node = new Fun1(
-			'\\operatorname',
-			( new Literal( 'sn' ) )
-		);
-		$result = BaseParsing::handleOperatorName( $node, [], [
-			"foundNamedFct" => [ true, true ]
-		], 'operatorname' );
-		$this->assertStringContainsString( 'sn</mi>', (string)$result );
-		$this->assertStringContainsString( '<mo>&#x2061;</mo>', (string)$result );
-	}
-
-	public function testHandleOperatorLast() {
-		$node = new Fun1(
-			'\\operatorname',
-			( new Literal( 'sn' ) )
-		);
-		$result = BaseParsing::handleOperatorName( $node, [], [
-			"foundNamedFct" => [ true, false ]
-		], 'operatorname' );
-		$this->assertStringContainsString( 'sn</mi>', (string)$result );
-		$this->assertStringNotContainsString( '<mo>&#x2061;</mo>', (string)$result );
 	}
 
 	public function testColumnSpecs() {
@@ -325,7 +330,7 @@ class BaseParsingTest extends MediaWikiIntegrationTestCase {
 z & = & a \\\\
 f(x,y,z) & = & x + y + z
 \\end{array}' )[0];
-		$result = BaseParsing::matrix( $matrix, [], null, 'matrix', '002A' );
+		$result = $matrix->toMMLTree();
 		$this->assertStringContainsString( '<mtd class="mwe-math-columnalign-l"', $result );
 		$this->assertStringContainsString( '<mtd class="mwe-math-columnalign-r"', $result );
 	}

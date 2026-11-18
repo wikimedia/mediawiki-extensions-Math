@@ -43,8 +43,6 @@
 	"math_invalidresponse": "$1: Ógilt svar (\"$3\") frá vefþjóninum \"$2\":",
 	"math_invalidxml": "MathML eða SVG inniheldur ógilt XML.",
 	"math_syntax_error": "málskipanarvilla",
-	"math-test-fail": "Prófun ''$1'' mistókst.",
-	"math-test-success": "Prófun ''$1'' tókst.",
 	"math-tracking-category-error": "Síður með stærðfræðivillur",
 	"math-tracking-category-error-desc": "Síður í þessum flokki hafa villur í notkun stærðfræðimerkja.",
 	"math-tracking-category-mhchem-deprecation": "Síður sem nota úrelt snið chem-merkjanna",

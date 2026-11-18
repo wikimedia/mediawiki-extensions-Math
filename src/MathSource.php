@@ -35,10 +35,9 @@ class MathSource extends MathRenderer {
 	/**
 	 * Renders TeX by outputting it to the browser in a span tag
 	 *
-	 * @param bool $svg
 	 * @return string span tag with TeX
 	 */
-	public function getHtmlOutput( bool $svg = true ): string {
+	public function getHtmlOutput(): string {
 		# No need to render or parse anything more!
 		# New lines are replaced with spaces, which avoids confusing our parser (bugs 23190, 22818)
 		if ( $this->getMathStyle() == 'display' ) {

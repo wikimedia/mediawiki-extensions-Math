@@ -32,10 +32,6 @@ return [
 	},
 	'Math.RendererFactory' => static function ( MediaWikiServices $services ): RendererFactory {
 		return new RendererFactory(
-			new ServiceOptions(
-				RendererFactory::CONSTRUCTOR_OPTIONS,
-				$services->getMainConfig()
-			),
 			Math::getMathConfig( $services ),
 			$services->getUserOptionsLookup(),
 			LoggerFactory::getInstance( 'Math' ),

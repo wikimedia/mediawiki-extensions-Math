@@ -106,6 +106,18 @@ QUnit.module( 'ext.math.mathjax.mml', () => {
 		assert.strictEqual( mtable.getElementsByTagName( 'mi' )[ 0 ].textContent, 'x' );
 	} );
 
+	QUnit.test( 'restores the column spacing from its class', ( assert ) => {
+		const row = '<mtr><mtd/><mtd/><mtd/><mtd/></mtr><mtr><mtd/><mtd/></mtr>';
+		const document = parseMathML( `<math xmlns="${ MATHML_NS }"><mtable class="mwe-math-columnspacing-0em-2em">${ row }</mtable><mtable class="mwe-math-columnspacing-0em">${ row }</mtable><mtable>${ row }</mtable></math>` );
+
+		mmlFilter( { data: document } );
+
+		const mtables = document.getElementsByTagName( 'mtable' );
+		assert.strictEqual( mtables[ 0 ].getAttribute( 'columnspacing' ), '0em 2em 0em' );
+		assert.strictEqual( mtables[ 1 ].getAttribute( 'columnspacing' ), '0em 0em 0em' );
+		assert.strictEqual( mtables[ 2 ].getAttribute( 'columnspacing' ), null );
+	} );
+
 	QUnit.test( 'transform every small matrix in the input', ( assert ) => {
 		const document = parseMathML( `<math xmlns="${ MATHML_NS }"><mrow><mtable class="mwe-math-smallmatrix"/><mo>+</mo><mtable class="mwe-math-smallmatrix"/></mrow></math>` );
 
@@ -183,5 +195,16 @@ QUnit.module( 'ext.math.mathjax.mml', () => {
 		const annotation = document.getElementsByTagName( 'mpadded' )[ 0 ];
 		assert.strictEqual( annotation.getAttribute( 'height' ), '+.1em' );
 		assert.strictEqual( annotation.getAttribute( 'class' ), null );
+	} );
+
+	QUnit.test( 'uses plain letters for calligraphic letters', ( assert ) => {
+		const document = parseMathML( `<math xmlns="${ MATHML_NS }"><mi data-mjx-variant="-tex-calligraphic">𝒜</mi><mi data-mjx-variant="-tex-calligraphic">ℬ</mi><mi data-mjx-variant="-tex-calligraphic">𝒵</mi><mi data-mjx-variant="-tex-bold-calligraphic">𝓐</mi><mi data-mjx-variant="-tex-calligraphic">𝒶</mi><mi>𝒜</mi></math>` );
+
+		mmlFilter( { data: document } );
+
+		assert.deepEqual(
+			Array.from( document.getElementsByTagName( 'mi' ), ( mi ) => mi.textContent ),
+			[ 'A', 'B', 'Z', 'A', '𝒶', '𝒜' ]
+		);
 	} );
 } );

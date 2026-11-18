@@ -18,6 +18,6 @@ class MMLmath extends MMLbase {
 	 * @return string HTML string of the math element
 	 */
 	public function wrapRawFragment( string $content ): string {
-		return HTML::rawElement( $this->getName(), $this->getAttributes(), $content );
+		return Html::rawElement( $this->getName(), $this->getAttributes(), $content );
 	}
 }

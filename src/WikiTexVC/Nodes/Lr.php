@@ -9,6 +9,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmo;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 
 class Lr extends TexNode {
 
@@ -32,6 +33,10 @@ class Lr extends TexNode {
 		return $this->arg;
 	}
 
+	public function renderArg( RenderContext $ctx ): MMLbase {
+		return $this->renderChild( $this->arg, $ctx );
+	}
+
 	/** @inheritDoc */
 	public function inCurlies() {
 		return '{' . $this->render() . '}';
@@ -43,7 +48,7 @@ class Lr extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function toMMLTree( $arguments = [], &$state = [] ): MMLbase {
+	public function toMMLTree( RenderContext $ctx = new RenderContext() ): MMLbase {
 		$bm = new BaseMethods();
 		$left = $bm->checkAndParseDelimiter( $this->left, $this, [], null, false,
 			TexClass::OPEN );
@@ -55,12 +60,16 @@ class Lr extends TexNode {
 		if ( $right->isEmpty() ) {
 			$right = new MMLmo( TexClass::CLOSE, [], $this->right );
 		}
-		// Don't apply an outer prime inside the LR structure.
-		$innerState = $state;
-		unset( $innerState['prime'] );
-		$innerState['beforeRight'] = true;
-		$inner = $this->getArg()->toMMLTree( [], $innerState );
+		$inner = $this->renderArg( $ctx );
 		return new MMLmrow( TexClass::INNER, [], $left, $inner, $right );
+	}
+
+	/** @inheritDoc */
+	public function argContext( TexNode $arg, RenderContext $ctx, array $links = [], ?array $colors = null
+	): RenderContext {
+		// Only the group directly before \right, not groups nested in it, see TexArray::checkForDots
+		return $ctx->forArgument( $ctx->style, $ctx->font, colorDefinitions: $colors, links: $links,
+			beforeRight: true );
 	}
 
 	/** @inheritDoc */

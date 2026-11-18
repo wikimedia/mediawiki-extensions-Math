@@ -3,7 +3,10 @@
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\Nodes;
 
 use ArgumentCountError;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Matrix;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 use MediaWikiIntegrationTestCase;
 use TypeError;
@@ -77,15 +80,16 @@ class LiteralTest extends MediaWikiIntegrationTestCase {
 
 	public function testVLineInMatrix() {
 		$n = new Literal( '\\vline' );
-		$state = [ 'inMatrix' => true ];
-		$this->assertStringContainsString( '|</mo>', $n->toMMLTree( [], $state ),
+		$cell = new TexArray( $n );
+		$row = new TexArray( $cell );
+		$this->assertStringContainsString( '|</mo>', ( new Matrix( 'matrix', new TexArray( $row ) ) )->toMMLTree(),
 			'vline should render a vertical bar operator in matrix context.' );
 	}
 
 	public function testHBoxLiterals() {
 		$n = new Literal( 'in box' );
-		$state = [ 'inHBox' => true ];
-		$this->assertStringContainsString( 'in box', $n->toMMLTree( [], $state ),
+		$arg = TexArray::newCurly( $n );
+		$this->assertStringContainsString( 'in box', ( new Fun1( '\\textrm', $arg ) )->toMMLTree(),
 			'hboxes should not be wrapped in to mi elements.' );
 	}
 

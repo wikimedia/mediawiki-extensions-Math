@@ -240,13 +240,10 @@
 		"color": "#473992"
 	},
 	"Bmatrix": {
-		"callback": [
-			"array",
-			null,
-			"\\{",
-			"\\}",
-			"c"
-		]
+		"matrix": {
+			"open": "{",
+			"close": "}"
+		}
 	},
 	"BrickRed": {
 		"color": "#B6321C"
@@ -417,13 +414,10 @@
 		"color": "#EF58A0"
 	},
 	"Vmatrix": {
-		"callback": [
-			"array",
-			null,
-			"\\Vert",
-			"\\Vert",
-			"c"
-		]
+		"matrix": {
+			"open": "‖",
+			"close": "‖"
+		}
 	},
 	"White": {
 		"color": "#FFFFFF"
@@ -1079,14 +1073,22 @@
 		"mathchar": "&#x005F;"
 	},
 	"\\above": {
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": "over"
 	},
 	"\\abovewithdelims": {
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": "over"
 	},
 	"\\acute": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"00B4"
 		],
 		"fun_ar1": true,
@@ -1180,9 +1182,6 @@
 		"latex_function_names": true,
 		"op_limits": "nolimits"
 	},
-	"\\array": {
-		"callback": "matrix"
-	},
 	"\\arrowvert": {
 		"delimiter": [
 			"⏐"
@@ -1202,10 +1201,18 @@
 		]
 	},
 	"\\atop": {
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": "over",
 		"fun_infix": true
 	},
 	"\\atopwithdelims": {
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": "over"
 	},
 	"\\backepsilon": {
@@ -1258,7 +1265,7 @@
 	},
 	"\\bar": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"00AF",
 			false
 		],
@@ -1351,7 +1358,7 @@
 			"setFont",
 			"bold"
 		],
-		"declh_function": true
+		"declaration": true
 	},
 	"\\big": {
 		"big_literals": true,
@@ -1522,6 +1529,10 @@
 	},
 	"\\binom": {
 		"ams_required": true,
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": [
 			"genFrac",
 			"(",
@@ -1585,8 +1596,8 @@
 	"\\boldsymbol": {
 		"ams_required": true,
 		"callback": [
-			"boldsymbol",
-			""
+			"mathFont",
+			"bold-italic"
 		],
 		"fun_ar1": true,
 		"is_letter_mod": true
@@ -1641,6 +1652,10 @@
 		]
 	},
 	"\\brace": {
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": [
 			"over",
 			"{",
@@ -1653,6 +1668,10 @@
 		]
 	},
 	"\\brack": {
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": [
 			"over",
 			"[",
@@ -1661,7 +1680,7 @@
 	},
 	"\\breve": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"02D8"
 		],
 		"fun_ar1": true,
@@ -1697,7 +1716,7 @@
 			"setFont",
 			"-tex-calligraphic"
 		],
-		"declh_function": true
+		"declaration": true
 	},
 	"\\cancel": {
 		"callback": [
@@ -1709,6 +1728,10 @@
 		"is_letter_mod": true
 	},
 	"\\cancelto": {
+		"arg_styles": [
+			"sup",
+			null
+		],
 		"callback": [
 			"cancelTo",
 			"northeastarrow"
@@ -1721,21 +1744,6 @@
 		"nullary_macro": true,
 		"operator_rendering": [
 			"∩"
-		]
-	},
-	"\\cases": {
-		"callback": [
-			"matrix",
-			"{",
-			"",
-			[
-				"l",
-				"l"
-			],
-			null,
-			".1em",
-			null,
-			true
 		]
 	},
 	"\\cdot": {
@@ -1777,14 +1785,19 @@
 	},
 	"\\cfrac": {
 		"ams_required": true,
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": [
 			"cFrac"
 		],
-		"fun_ar2": true
+		"fun_ar2": true,
+		"style": "display"
 	},
 	"\\check": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"02C7"
 		],
 		"fun_ar1": true,
@@ -1805,6 +1818,10 @@
 		"nullary_macro": true
 	},
 	"\\choose": {
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": [
 			"over",
 			"(",
@@ -2038,6 +2055,10 @@
 	},
 	"\\dbinom": {
 		"ams_required": true,
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": [
 			"genFrac",
 			"(",
@@ -2045,7 +2066,8 @@
 			"0",
 			"0"
 		],
-		"fun_ar2": true
+		"fun_ar2": true,
+		"style": "display"
 	},
 	"\\ddagger": {
 		"nullary_macro": true,
@@ -2055,19 +2077,19 @@
 	},
 	"\\ddddot": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"20DC"
 		]
 	},
 	"\\dddot": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"20DB"
 		]
 	},
 	"\\ddot": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"00A8"
 		],
 		"fun_ar1": true,
@@ -2103,6 +2125,10 @@
 	},
 	"\\dfrac": {
 		"ams_required": true,
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": [
 			"genFrac",
 			"",
@@ -2110,7 +2136,8 @@
 			"",
 			"0"
 		],
-		"fun_ar2": true
+		"fun_ar2": true,
+		"style": "display"
 	},
 	"\\diagdown": {
 		"ams_required": true,
@@ -2158,15 +2185,7 @@
 		"op_limits": "nolimits"
 	},
 	"\\displaylines": {
-		"callback": [
-			"matrix",
-			null,
-			null,
-			null,
-			null,
-			".5em",
-			"D"
-		]
+		"style": "display"
 	},
 	"\\displaystyle": {
 		"callback": [
@@ -2175,7 +2194,8 @@
 			true,
 			0
 		],
-		"nullary_macro": true
+		"declaration": true,
+		"style": "display"
 	},
 	"\\div": {
 		"dots_lookahead": "dotsb",
@@ -2198,7 +2218,7 @@
 	},
 	"\\dot": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"02D9"
 		],
 		"fun_ar1": true,
@@ -2350,34 +2370,10 @@
 		"nullary_macro": true
 	},
 	"\\eqalign": {
-		"callback": [
-			"matrix",
-			null,
-			null,
-			[
-				"r",
-				"l"
-			],
-			"(0, lengths_js_1.em)(MathSpace::thickmathspace)",
-			".5em",
-			"D"
-		]
+		"style": "display"
 	},
 	"\\eqalignno": {
-		"callback": [
-			"matrix",
-			null,
-			null,
-			[
-				"r",
-				"l"
-			],
-			"(0, lengths_js_1.em)(MathSpace::thickmathspace)",
-			".5em",
-			"D",
-			null,
-			"right"
-		]
+		"style": "display"
 	},
 	"\\eqcirc": {
 		"ams_required": true,
@@ -2481,6 +2477,10 @@
 		"nullary_macro": true
 	},
 	"\\frac": {
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": "frac",
 		"fun_ar2": true
 	},
@@ -2621,7 +2621,7 @@
 	},
 	"\\grave": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"0060"
 		],
 		"fun_ar1": true,
@@ -2695,7 +2695,7 @@
 	},
 	"\\hat": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"0302",
 			false
 		],
@@ -2893,7 +2893,7 @@
 		"stix_required": true
 	},
 	"\\intent": {
-		"callback": "intent",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun2::intent",
 		"fun_ar2": true,
 		"intent_required": true
 	},
@@ -2921,7 +2921,7 @@
 			"setFont",
 			"-tex-mathit"
 		],
-		"declh_function": true
+		"declaration": true
 	},
 	"\\jmath": {
 		"identifier": [
@@ -3109,20 +3109,7 @@
 		]
 	},
 	"\\leqalignno": {
-		"callback": [
-			"matrix",
-			null,
-			null,
-			[
-				"r",
-				"l"
-			],
-			"(0, lengths_js_1.em)(MathSpace::thickmathspace)",
-			".5em",
-			"D",
-			null,
-			"left"
-		]
+		"style": "display"
 	},
 	"\\leqq": {
 		"ams_required": true,
@@ -3534,7 +3521,7 @@
 		"is_letter_mod": true
 	},
 	"\\mathchoice": {
-		"callback": "mathChoice",
+		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun4::mathChoice",
 		"fun_ar4": true,
 		"mhchem_required": true
 	},
@@ -3618,7 +3605,7 @@
 	},
 	"\\mathring": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"02DA"
 		]
 	},
@@ -3669,9 +3656,6 @@
 			"mathFont",
 			"normal"
 		]
-	},
-	"\\matrix": {
-		"callback": "matrix"
 	},
 	"\\max": {
 		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Literal::namedOp",
@@ -3826,7 +3810,7 @@
 		"ams_required": true,
 		"nullary_macro": true,
 		"operator_rendering": [
-			"≆"
+			"≇"
 		]
 	},
 	"\\ne": {
@@ -4259,7 +4243,7 @@
 	"\\operatorname": {
 		"ams_required": true,
 		"callback": [
-			"handleOperatorName"
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1nb::handleOperatorName"
 		],
 		"fun_ar1nb": true,
 		"ignore_identifier": true,
@@ -4298,6 +4282,10 @@
 		]
 	},
 	"\\over": {
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": "over",
 		"fun_infix": true
 	},
@@ -4360,10 +4348,18 @@
 	},
 	"\\overset": {
 		"ams_required": true,
+		"arg_styles": [
+			"sup",
+			null
+		],
 		"callback": "overset",
 		"fun_ar2": true
 	},
 	"\\overwithdelims": {
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": "over"
 	},
 	"\\owns": {
@@ -4433,13 +4429,6 @@
 		"nullary_macro": true,
 		"operator_rendering": [
 			"±"
-		]
-	},
-	"\\pmatrix": {
-		"callback": [
-			"matrix",
-			"(",
-			")"
 		]
 	},
 	"\\pmod": {
@@ -4729,7 +4718,7 @@
 			"setFont",
 			"normal"
 		],
-		"declh_function": true
+		"declaration": true
 	},
 	"\\rmoustache": {
 		"delimiter": [
@@ -4762,7 +4751,8 @@
 			false,
 			2
 		],
-		"nullary_macro": true
+		"declaration": true,
+		"style": "scriptscript"
 	},
 	"\\scriptstyle": {
 		"callback": [
@@ -4771,7 +4761,8 @@
 			false,
 			1
 		],
-		"nullary_macro": true
+		"declaration": true,
+		"style": "script"
 	},
 	"\\sdot": {
 		"nullary_macro_aliase": "\\cdot"
@@ -4841,7 +4832,7 @@
 	"\\sideset": {
 		"ams_required": true,
 		"callback": [
-			"SideSet"
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun2nb::sideset"
 		],
 		"fun_ar2nb": true
 	},
@@ -4963,7 +4954,8 @@
 	"\\sqrt": {
 		"callback": "sqrt",
 		"fun_ar1": true,
-		"fun_ar1opt": true
+		"fun_ar1opt": true,
+		"opt_arg_style": "scriptscript"
 	},
 	"\\sqsubset": {
 		"ams_required": true,
@@ -4999,6 +4991,10 @@
 		"nullary_macro": true
 	},
 	"\\stackrel": {
+		"arg_styles": [
+			"sup",
+			null
+		],
 		"callback": "MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun2::stackrel",
 		"fun_ar2": true
 	},
@@ -5324,6 +5320,10 @@
 	},
 	"\\tbinom": {
 		"ams_required": true,
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": [
 			"genFrac",
 			"(",
@@ -5331,7 +5331,8 @@
 			"0",
 			"1"
 		],
-		"fun_ar2": true
+		"fun_ar2": true,
+		"style": "text"
 	},
 	"\\text": {
 		"ams_required": true,
@@ -5340,7 +5341,7 @@
 	},
 	"\\textbf": {
 		"callback": [
-			"hBox",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::hBox",
 			null,
 			"bold"
 		],
@@ -5349,7 +5350,7 @@
 	},
 	"\\textit": {
 		"callback": [
-			"hBox",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::hBox",
 			null,
 			"italic"
 		],
@@ -5358,12 +5359,12 @@
 	},
 	"\\textnormal": {
 		"callback": [
-			"hBox"
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::hBox"
 		]
 	},
 	"\\textrm": {
 		"callback": [
-			"hBox",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::hBox",
 			null,
 			"normal"
 		],
@@ -5372,7 +5373,7 @@
 	},
 	"\\textsf": {
 		"callback": [
-			"hBox",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::hBox",
 			null,
 			"sans-serif"
 		],
@@ -5386,11 +5387,12 @@
 			false,
 			0
 		],
-		"nullary_macro": true
+		"declaration": true,
+		"style": "text"
 	},
 	"\\texttt": {
 		"callback": [
-			"hBox",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::hBox",
 			null,
 			"monospace"
 		],
@@ -5399,7 +5401,7 @@
 	},
 	"\\textup": {
 		"callback": [
-			"hBox",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::hBox",
 			null,
 			"normal"
 		]
@@ -5410,6 +5412,10 @@
 	},
 	"\\tfrac": {
 		"ams_required": true,
+		"arg_styles": [
+			"num",
+			"denom"
+		],
 		"callback": [
 			"genFrac",
 			"",
@@ -5417,7 +5423,8 @@
 			"",
 			"1"
 		],
-		"fun_ar2": true
+		"fun_ar2": true,
+		"style": "text"
 	},
 	"\\therefore": {
 		"ams_required": true,
@@ -5464,7 +5471,7 @@
 	},
 	"\\tilde": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"007E"
 		],
 		"fun_ar1": true,
@@ -5628,6 +5635,10 @@
 	},
 	"\\underset": {
 		"ams_required": true,
+		"arg_styles": [
+			"sub",
+			null
+		],
 		"callback": "underset",
 		"fun_ar2": true
 	},
@@ -5970,7 +5981,7 @@
 	},
 	"\\vec": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"2192",
 			false
 		],
@@ -6021,7 +6032,7 @@
 	},
 	"\\widehat": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"005E",
 			1
 		],
@@ -6030,7 +6041,7 @@
 	},
 	"\\widetilde": {
 		"callback": [
-			"accent",
+			"MediaWiki\\Extension\\Math\\WikiTexVC\\Nodes\\Fun1::accent",
 			"007E",
 			1
 		],
@@ -6054,20 +6065,28 @@
 		]
 	},
 	"\\xLeftrightharpoons": {
+		"arg_styles": [
+			"script"
+		],
 		"callback": [
 			"xArrow",
 			8652,
 			5,
 			7
-		]
+		],
+		"opt_arg_style": "script"
 	},
 	"\\xRightleftharpoons": {
+		"arg_styles": [
+			"script"
+		],
 		"callback": [
 			"xArrow",
 			8652,
 			5,
 			7
-		]
+		],
+		"opt_arg_style": "script"
 	},
 	"\\xcancel": {
 		"callback": [
@@ -6087,6 +6106,9 @@
 	},
 	"\\xleftarrow": {
 		"ams_required": true,
+		"arg_styles": [
+			"script"
+		],
 		"callback": [
 			"xArrow",
 			8592,
@@ -6096,18 +6118,26 @@
 		"dots_lookahead": "dotsb",
 		"fun_ar1nb": true,
 		"fun_ar1opt": true,
-		"is_letter_mod": true
+		"is_letter_mod": true,
+		"opt_arg_style": "script"
 	},
 	"\\xleftrightarrow": {
+		"arg_styles": [
+			"script"
+		],
 		"callback": [
 			"xArrow",
 			8596,
 			6,
 			6
-		]
+		],
+		"opt_arg_style": "script"
 	},
 	"\\xrightarrow": {
 		"ams_required": true,
+		"arg_styles": [
+			"script"
+		],
 		"callback": [
 			"xArrow",
 			8594,
@@ -6117,15 +6147,20 @@
 		"dots_lookahead": "dotsb",
 		"fun_ar1nb": true,
 		"fun_ar1opt": true,
-		"is_letter_mod": true
+		"is_letter_mod": true,
+		"opt_arg_style": "script"
 	},
 	"\\xrightleftharpoons": {
+		"arg_styles": [
+			"script"
+		],
 		"callback": [
 			"xArrow",
 			8652,
 			5,
 			7
-		]
+		],
+		"opt_arg_style": "script"
 	},
 	"\\zeta": {
 		"identifier": [
@@ -6167,125 +6202,79 @@
 		]
 	},
 	"alignat": {
-		"callback": [
-			"alignAt",
-			null,
-			true,
-			true
-		]
+		"style": "display"
 	},
 	"alignat*": {
-		"callback": [
-			"alignAt",
-			null,
-			false,
-			true
-		]
+		"style": "display"
 	},
 	"aligned": {
-		"callback": [
-			"alignAt",
-			null,
-			null,
-			null,
-			[
+		"matrix": {
+			"align": [
 				"r",
 				"l"
 			],
-			"ParseUtil_js_1.default.cols(0, 2)",
-			".5em",
-			"D"
-		]
+			"repeat": 5,
+			"class": "mwe-math-columnspacing-0em-2em",
+			"vline": false,
+			"rowspacing": 0.3
+		},
+		"style": "display"
 	},
 	"alignedat": {
-		"callback": [
-			"alignAt",
-			null,
-			false,
-			false
-		]
-	},
-	"array": {
-		"callback": [
-			"matrix"
-		]
+		"matrix": {
+			"align": [
+				"r",
+				"l"
+			],
+			"class": "mwe-math-columnspacing-0em",
+			"vline": false,
+			"rowspacing": 0.3
+		},
+		"style": "display"
 	},
 	"bmatrix": {
-		"callback": [
-			"array",
-			null,
-			"[",
-			"]",
-			"c"
-		]
+		"matrix": {
+			"open": "[",
+			"close": "]"
+		}
 	},
 	"cases": {
-		"callback": [
-			"matrix",
-			"{",
-			"",
-			[
+		"matrix": {
+			"open": "{",
+			"close": "",
+			"align": [
 				"l",
 				"l"
 			],
-			null,
-			".1em",
-			null,
-			true
-		]
+			"rowspacing": 0.2
+		}
 	},
 	"matrix": {
-		"callback": [
-			"array",
-			null,
-			null,
-			null,
-			"c"
-		]
+		"matrix": {
+			"open": "",
+			"close": ""
+		}
 	},
 	"pmatrix": {
-		"callback": [
-			"array",
-			null,
-			"(",
-			")",
-			"c"
-		]
+		"matrix": {
+			"open": "(",
+			"close": ")"
+		}
 	},
 	"smallmatrix": {
-		"callback": [
-			"array",
-			null,
-			null,
-			null,
-			"c",
-			"ParseUtil_js_1.default.cols(1 / 3)",
-			".2em",
-			"S",
-			1
-		]
-	},
-	"subarray": {
-		"callback": [
-			"array",
-			null,
-			null,
-			null,
-			null,
-			"ParseUtil_js_1.default.cols(0)",
-			"0.1em",
-			"S",
-			1
-		]
+		"matrix": {
+			"open": "",
+			"close": "",
+			"class": "mwe-math-smallmatrix",
+			"rowspacing": 0.2
+		},
+		"style": "script"
 	},
 	"vmatrix": {
-		"callback": [
-			"array",
-			null,
-			"\\vert",
-			"\\vert",
-			"c"
-		]
+		"matrix": {
+			"open": "|",
+			"close": "|"
+		}
 	},
 	"|": {
 		"delimiter": [

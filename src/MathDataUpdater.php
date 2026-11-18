@@ -18,9 +18,6 @@ class MathDataUpdater implements StatementDataUpdater {
 	/** @var bool */
 	private $hasMath = false;
 
-	/**
-	 * @inheritDoc
-	 */
 	public function __construct(
 		private readonly PropertyDataTypeMatcher $propertyDataTypeMatcher,
 	) {

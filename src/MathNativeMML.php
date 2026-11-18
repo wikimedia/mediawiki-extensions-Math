@@ -14,21 +14,64 @@ use MediaWiki\Config\Config;
 use MediaWiki\Extension\Math\InputCheck\LocalChecker;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmath;
 use MediaWiki\HookContainer\HookContainer;
+use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use Psr\Log\LoggerInterface;
 use StatusValue;
+use Throwable;
 
 /**
  * Converts LaTeX to MathML using PHP
  */
-class MathNativeMML extends MathMathML {
+class MathNativeMML extends MathRenderer {
 	private LocalChecker $checker;
 	private Config $mainConfig;
 	private HookContainer $hookContainer;
+	private LoggerInterface $logger;
 
 	/** @inheritDoc */
 	public function __construct( $tex = '', $params = [], $cache = null, $mathConfig = null ) {
 		parent::__construct( $tex, $params, $cache, $mathConfig );
+		if ( ( $params['type'] ?? '' ) === 'chem' ) {
+			$this->inputType = 'chem';
+		}
+		if ( !isset( $params['display'] ) && $this->getMathStyle() == 'inlineDisplaystyle' ) {
+			// default preserve the (broken) layout as it was
+			$this->tex = '{\\displaystyle ' . $tex . '}';
+		}
 		$this->setMode( MathConfig::MODE_NATIVE_MML );
+		$this->logger = LoggerFactory::getInstance( 'Math' );
+	}
+
+	/** @inheritDoc */
+	public function render() {
+		try {
+			return $this->doRender()->isGood();
+		} catch ( Throwable $e ) {
+			// TODO: Avoid generic Throwable, narrow at least to Exception or remove after T432511.
+			$this->logger->error( $e->getMessage(), [ $e, $this ] );
+			return false;
+		}
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function addTrackingCategories( $parser ) {
+		parent::addTrackingCategories( $parser );
+		if ( $this->hasWarnings() ) {
+			foreach ( $this->warnings as $warning ) {
+				if ( isset( $warning->type ) ) {
+					switch ( $warning->type ) {
+						case 'mhchem-deprecation':
+							$parser->addTrackingCategory( 'math-tracking-category-mhchem-deprecation' );
+							break;
+						case 'texvc-deprecation':
+							$parser->addTrackingCategory( 'math-tracking-category-texvc-deprecation' );
+					}
+				}
+			}
+		}
 	}
 
 	/**
@@ -117,7 +160,7 @@ class MathNativeMML extends MathMathML {
 	/**
 	 * @inheritDoc
 	 */
-	public function getHtmlOutput( bool $svg = true ): string {
+	public function getHtmlOutput(): string {
 		return $this->getMathml();
 	}
 

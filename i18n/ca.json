@@ -37,7 +37,6 @@
 	"mw-math-mathml": "MathML amb SVG o PNG alternatiu (recomanat per a navegadors moderns i eines d'accessibilitat)",
 	"mw-math-source": "Deixa com a LaTeX (per a navegadors de text)",
 	"prefs-math": "Com es mostren les fórmules",
-	"mathstatus": "Estat matemàtic",
 	"mathwikibase": "Informació de la fòrmula matemàtica",
 	"math-wikibase-header": "Informació dels elements matemàtics",
 	"math-wikibase-formula": "Fòrmula",

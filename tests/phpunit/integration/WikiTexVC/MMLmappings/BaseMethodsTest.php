@@ -1,9 +1,7 @@
 <?php
 namespace MediaWiki\Extension\Math\Tests\WikiTexVC\MMLmappings;
 
-use LogicException;
 use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\BaseMethods;
-use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
 use MediaWikiIntegrationTestCase;
 
 /**
@@ -12,26 +10,19 @@ use MediaWikiIntegrationTestCase;
 class BaseMethodsTest extends MediaWikiIntegrationTestCase {
 	public function testCheckAndParseOperatorWithU() {
 		$bm = new BaseMethods();
-		$this->assertTrue( $bm->checkAndParseOperator( '\u3009', null, [], [], [] )->isEmpty() );
-		$this->assertTrue( $bm->checkAndParseOperator( '&#x3009;', null, [], [], [] )->isEmpty() );
+		$this->assertTrue( $bm->checkAndParseOperator( '\u3009', null, [], [] )->isEmpty() );
+		$this->assertTrue( $bm->checkAndParseOperator( '&#x3009;', null, [], [] )->isEmpty() );
 	}
 
 	public function testCheckAndParseOperatorNormal() {
 		$bm = new BaseMethods();
-		$op = $bm->checkAndParseOperator( '!', null, [], [], [] );
+		$op = $bm->checkAndParseOperator( '!', null, [], [] );
 		$this->assertStringContainsString( '!</mo>', $op );
 	}
 
 	public function testCheckAndParseOperatorSpecial() {
 		$bm = new BaseMethods();
-		$op = $bm->checkAndParseOperator( '>', null, [], [], [] );
+		$op = $bm->checkAndParseOperator( '>', null, [], [] );
 		$this->assertStringContainsString( '&gt;</mo>', $op );
-	}
-
-	public function testInvalidCall() {
-		$this->expectException( LogicException::class );
-		$this->expectExceptionMessage( 'Callback to MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1::lap' .
-		' should be treated in the respective class.' );
-		BaseMethods::checkAndParse( '\\llap', null, [], new TexNode() );
 	}
 }

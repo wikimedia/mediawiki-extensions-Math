@@ -13,11 +13,11 @@ class GenerateDoc extends Maintenance {
 	private array $letterMods;
 	private array $literals;
 	private array $omitElements;
-	private array $sets = [
+	private const SETS = [
 		'big_literals',
 		'box_functions',
 		'color_function',
-		'declh_function',
+		'declaration',
 		'definecolor_function',
 		'fun_ar1',
 		'fun_ar1nb',
@@ -37,7 +37,7 @@ class GenerateDoc extends Maintenance {
 		'other_delimiters2',
 		'right_function',
 	];
-	private array $argCounts = [
+	private const ARG_COUNTS = [
 		'big_literals' => 1,
 		'box_functions' => 1,
 		'color_function' => 1,
@@ -52,7 +52,7 @@ class GenerateDoc extends Maintenance {
 		'left_function' => 1,
 		'right_function' => 1,
 	];
-	private array $sampleArgs = [
+	private const SAMPLE_ARGS = [
 		'big_literals' => '(',
 		'color_function' => '{red}{red}',
 		'definecolor_function' => '{mycolor}{cmyk}{.4,1,1,0}',
@@ -73,7 +73,7 @@ class GenerateDoc extends Maintenance {
 	}
 
 	private function printSample( string $set, string $elem ): string {
-		$count = $this->argCounts[$set] ?? 0;
+		$count = self::ARG_COUNTS[$set] ?? 0;
 		if ( in_array( $elem, $this->omitElements ) ) {
 			// no output for special mhchem implementation
 			return '';
@@ -101,6 +101,9 @@ class GenerateDoc extends Maintenance {
 			return "\\texttt{{$textString}} ({$limits}) is rendered as \$\\displaystyle {$op}_a^b\$ "
 				. "in display style and as \${$op}_a^b\$ inline";
 		}
+		if ( $set === 'declaration' ) {
+			return "\\texttt{{$textString}} applied on \$\\frac{x}{X}\$ is rendered as \${{$elem} \\frac{x}{X}}\$";
+		}
 		if ( $set === 'right_function' ) {
 			return "\\texttt{{$textString}} is rendered as \$\\left. \\right)\$";
 		}
@@ -116,7 +119,7 @@ class GenerateDoc extends Maintenance {
 			return '\\texttt{\\textbackslash pu} is not part of the \\LaTeX{} package mhchem.';
 		}
 
-		$args = $this->sampleArgs[$set] ?? str_repeat( '{x}', $count );
+		$args = self::SAMPLE_ARGS[$set] ?? str_repeat( '{x}', $count );
 		$argDesc = $count > 1 ? "applied on \${$args}\$ " : '';
 		$rendering = $elem . $args;
 
@@ -156,7 +159,7 @@ class GenerateDoc extends Maintenance {
 				implode( "\n\n",
 					array_map( fn ( $elem ) => $this->printSample( $set, $elem ),
 						array_keys( $this->baseElements[$set] ) ) );
-			}, $this->sets ) ) );
+			}, self::SETS ) ) );
 	}
 }
 // @codeCoverageIgnoreStart

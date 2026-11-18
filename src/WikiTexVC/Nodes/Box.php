@@ -8,6 +8,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLmappings\TexConstants\TexClass;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmtext;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 
 class Box extends TexNode {
 
@@ -37,7 +38,7 @@ class Box extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function toMMLTree( array $arguments = [], array &$state = [] ): MMLbase {
+	public function toMMLTree( RenderContext $ctx = new RenderContext() ): MMLbase {
 		$arg = $this->getArg();
 
 		if ( strlen( $arg ) >= 1 ) {

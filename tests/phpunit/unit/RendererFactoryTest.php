@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Math\Render;
 
-use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\Math\MathConfig;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWikiUnitTestCase;
@@ -18,15 +17,6 @@ class RendererFactoryTest extends MediawikiUnitTestCase {
 			->method( 'getValidRenderingModes' )
 			->willReturn( $parameters['validModes'] ?? MathConfig::SUPPORTED_MODES );
 
-		$options = $this->createMock( ServiceOptions::class );
-		$options
-			->expects( self::any() )
-			->method( 'get' )
-			->with( 'MathEnableExperimentalInputFormats' )
-			->willReturnCallback( static function () use ( $parameters ) {
-				return $parameters['experimentalFormats'] ?? false;
-			} );
-
 		$userOptionsLookup = $this->createMock( UserOptionsLookup::class );
 		$userOptionsLookup
 			->expects( self::any() )
@@ -39,7 +29,6 @@ class RendererFactoryTest extends MediawikiUnitTestCase {
 		$cache = $this->createStub( WANObjectCache::class );
 
 		return new RendererFactory(
-			$options,
 			$mathConfig,
 			$userOptionsLookup,
 			$logger,
@@ -53,7 +42,7 @@ class RendererFactoryTest extends MediawikiUnitTestCase {
 				[], [], MathConfig::MODE_SOURCE, MathConfig::MODE_SOURCE
 			],
 			[
-				[], [], MathConfig::MODE_MATHML, MathConfig::MODE_MATHML
+				[], [], MathConfig::MODE_MATHML, MathConfig::MODE_NATIVE_MML
 			],
 			[
 				[], [], MathConfig::MODE_NATIVE_MML, MathConfig::MODE_NATIVE_MML
@@ -62,7 +51,7 @@ class RendererFactoryTest extends MediawikiUnitTestCase {
 				[],
 				[ 'forcemathmode' => MathConfig::MODE_MATHML ],
 				MathConfig::MODE_NATIVE_MML,
-				MathConfig::MODE_MATHML
+				MathConfig::MODE_NATIVE_MML
 			],
 			[
 				[],
@@ -133,7 +122,7 @@ class RendererFactoryTest extends MediawikiUnitTestCase {
 					'chem' => true,
 				],
 				MathConfig::MODE_SOURCE,
-				MathConfig::MODE_MATHML,
+				MathConfig::MODE_NATIVE_MML,
 				[
 					'chem' => true,
 					'type' => 'chem'
@@ -160,7 +149,7 @@ class RendererFactoryTest extends MediawikiUnitTestCase {
 					'forcemathmode' => MathConfig::MODE_SOURCE
 				],
 				MathConfig::MODE_NATIVE_MML,
-				MathConfig::MODE_MATHML,
+				MathConfig::MODE_NATIVE_MML,
 				[
 					'chem' => true,
 					'forcemathmode' => MathConfig::MODE_SOURCE,
@@ -168,35 +157,23 @@ class RendererFactoryTest extends MediawikiUnitTestCase {
 				]
 			],
 			[
-				[
-					'experimentalFormats' => true
-				],
-				[
-					'type' => 'broken_type',
-				],
-				MathConfig::MODE_MATHML,
-				MathConfig::MODE_MATHML,
-				[]
-			],
-			[
-				[
-					'experimentalFormats' => true
-				],
+				[],
 				[
 					'type' => 'broken_type',
 				],
 				MathConfig::MODE_NATIVE_MML,
-				MathConfig::MODE_NATIVE_MML
+				MathConfig::MODE_NATIVE_MML,
+				[
+					'type' => 'broken_type',
+				],
 			],
 			[
-				[
-					'experimentalFormats' => true
-				],
+				[],
 				[
 					'type' => 'pmml',
 				],
-				MathConfig::MODE_MATHML,
-				MathConfig::MODE_MATHML
+				MathConfig::MODE_NATIVE_MML,
+				MathConfig::MODE_NATIVE_MML
 			],
 		];
 	}

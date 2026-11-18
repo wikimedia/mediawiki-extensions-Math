@@ -123,6 +123,32 @@ mtd.mwe-math-columnalign-r {
 	padding-right: 0;
 }
 
+/*
+ * Polyfill for columnspacing, set as a class in texutil.json.
+ * 0em 2em is align, swh:1:cnt:32d2132763b2b01d0a77c2fb37dae43356a863aa;lines=116-124
+ * 0em is alignat, swh:1:cnt:976a0ed45c7bff3f119ed30c07f3ed1347fad078;lines=160
+ */
+mtable.mwe-math-columnspacing-0em-2em > mtr > mtd.mwe-math-columnalign-l {
+	padding-right: 1em;
+}
+
+mtable.mwe-math-columnspacing-0em-2em > mtr > mtd.mwe-math-columnalign-r {
+	padding-left: 1em;
+}
+
+mtable.mwe-math-columnspacing-0em > mtr > mtd {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+mtable.mwe-math-columnspacing-0em-2em > mtr > mtd:first-child {
+	padding-left: 0;
+}
+
+mtable.mwe-math-columnspacing-0em-2em > mtr > mtd:last-child {
+	padding-right: 0;
+}
+
 mo.mwe-math-vec {
 	transform: scale( 0.75 );
 }

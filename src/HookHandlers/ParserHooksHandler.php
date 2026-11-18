@@ -5,8 +5,6 @@ namespace MediaWiki\Extension\Math\HookHandlers;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Math\Hooks\HookRunner;
 use MediaWiki\Extension\Math\MathConfig;
-use MediaWiki\Extension\Math\MathMathML;
-use MediaWiki\Extension\Math\MathMathMLCli;
 use MediaWiki\Extension\Math\MathRenderer;
 use MediaWiki\Extension\Math\Render\RendererFactory;
 use MediaWiki\HookContainer\HookContainer;
@@ -16,12 +14,20 @@ use MediaWiki\Parser\Hook\ParserFirstCallInitHook;
 use MediaWiki\Parser\Hook\ParserOptionsDefaultsHook;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOptions;
+use MediaWiki\Parser\ParserOutput;
+use MediaWiki\Parser\Parsoid\Config\PageConfig;
+use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\RevisionStore;
 use MediaWiki\User\Options\UserOptionsLookup;
+use Wikimedia\Parsoid\Core\ContentMetadataCollector;
+use Wikimedia\Parsoid\DOM\DocumentFragment;
+use Wikimedia\Parsoid\Ext\ExtensionTagHandler;
+use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 
 /**
- * Hook handler for Parser hooks
+ * Hook handler for Parser hooks, and the Parsoid handler of <math>, <chem> and <ce>
  */
-class ParserHooksHandler implements
+class ParserHooksHandler extends ExtensionTagHandler implements
 	ParserFirstCallInitHook,
 	ParserAfterTidyHook,
 	ParserOptionsDefaultsHook
@@ -50,6 +56,7 @@ class ParserHooksHandler implements
 		private readonly RendererFactory $rendererFactory,
 		private readonly UserOptionsLookup $userOptionsLookup,
 		HookContainer $hookContainer,
+		private readonly RevisionStore $revisionStore,
 	) {
 		$this->hookRunner = new HookRunner( $hookContainer );
 	}
@@ -75,7 +82,6 @@ class ParserHooksHandler implements
 	 * @return array|string
 	 */
 	private function mathTagHook( ?string $content, array $attributes, Parser $parser ) {
-		global $wgMathSvgRenderer;
 		// The default mode from ParserOptions considers site config, user preference,
 		// and request param. The actual $mode is decided by RendererFactory::determineMode
 		// via RendererFactory::getRenderer, which also considers the "forcemathmode" attribute
@@ -88,15 +94,9 @@ class ParserHooksHandler implements
 		$renderer = $this->rendererFactory->getRenderer( $content ?? '', $attributes, $defaultMode );
 		$mode = $renderer->getMode();
 
-		$parser->getOutput()->addModuleStyles( [ 'ext.math.styles' ] );
-		$parser->getOutput()->addModules( [ 'ext.math.polyfills' ] );
-		if ( array_key_exists( "qid", $attributes ) ) {
-			$parser->getOutput()->addModules( [ 'ext.math.popup' ] );
-		}
-		if ( $mode === MathConfig::MODE_NATIVE_JAX ) {
-			$parser->getOutput()->addModules( [ 'ext.math.mathjax' ] );
-		}
-		if ( ( $wgMathSvgRenderer === 'restbase' && $mode == MathConfig::MODE_MATHML ) ||
+		self::addModules( $parser->getOutput(), $mode, $attributes );
+
+		if (
 			$mode === MathConfig::MODE_NATIVE_JAX ||
 			$mode === MathConfig::MODE_NATIVE_MML
 		) {
@@ -106,7 +106,20 @@ class ParserHooksHandler implements
 			$this->mathLazyRenderBatch[$marker] = [ $renderer, $parser ];
 			return $marker;
 		}
-		return [ $this->mathPostTagHook( $renderer, $parser ), 'markerType' => 'nowiki' ];
+
+		return [ $this->mathPostTagHook( $renderer, $parser, $parser->getOutput(), $parser->getRevisionRecordObject() ),
+			'markerType' => 'nowiki' ];
+	}
+
+	private static function addModules( ContentMetadataCollector $output, string $mode, array $attributes ): void {
+		$output->addModuleStyles( [ 'ext.math.styles' ] );
+		$output->addModules( [ 'ext.math.polyfills' ] );
+		if ( array_key_exists( "qid", $attributes ) ) {
+			$output->addModules( [ 'ext.math.popup' ] );
+		}
+		if ( $mode === MathConfig::MODE_NATIVE_JAX ) {
+			$output->addModules( [ 'ext.math.mathjax' ] );
+		}
 	}
 
 	/**
@@ -118,18 +131,44 @@ class ParserHooksHandler implements
 	 * @return array|string
 	 */
 	private function chemTagHook( ?string $content, array $attributes, Parser $parser ) {
+		$tex = self::wrapChemInCe( $content, $attributes );
+		return $this->mathTagHook( $tex, $attributes, $parser );
+	}
+
+	private static function wrapChemInCe( ?string $content, array &$attributes ): string {
 		$attributes['chem'] = true;
-		return $this->mathTagHook( '\ce{' . $content . '}', $attributes, $parser );
+		return '\ce{' . $content . '}';
+	}
+
+	/**
+	 * Renders one tag for Parsoid, independent of all others.
+	 * @inheritDoc
+	 */
+	public function sourceToDom( ParsoidExtensionAPI $extApi, string $src, array $extArgs ): DocumentFragment {
+		$args = $extApi->extArgsToArray( $extArgs );
+		if ( in_array( $extApi->extTag->getName(), [ 'chem', 'ce' ], true ) ) {
+			$src = self::wrapChemInCe( $src, $args );
+		}
+		$pageConfig = $extApi->getPageConfig();
+		$defaultMode = $pageConfig instanceof PageConfig
+			? $pageConfig->getParserOptions()->getOption( 'math' )
+			: $this->userOptionsLookup->getDefaultOption( 'math' );
+		$renderer = $this->rendererFactory->getRenderer( $src, $args, $defaultMode );
+		$metadata = $extApi->getMetadata();
+		self::addModules( $metadata, $renderer->getMode(), $args );
+		$revisionId = $pageConfig->getRevisionId();
+		return $extApi->htmlToDom( $this->mathPostTagHook( $renderer, $extApi, $metadata,
+			$revisionId ? $this->revisionStore->getRevisionById( $revisionId ) : null ) );
 	}
 
 	/**
 	 * Callback function for the <math> parser hook.
 	 *
-	 * @param MathRenderer $renderer
-	 * @param Parser $parser
 	 * @return string
 	 */
-	private function mathPostTagHook( MathRenderer $renderer, Parser $parser ) {
+	private function mathPostTagHook( MathRenderer $renderer, Parser|ParsoidExtensionAPI $parser,
+		ContentMetadataCollector $output, ?RevisionRecord $revision
+	) {
 		$checkResult = $renderer->checkTeX();
 
 		if ( $checkResult !== true ) {
@@ -146,14 +185,16 @@ class ParserHooksHandler implements
 				"Rendering failed. Printing error message." );
 			// Set a short parser cache time (10 minutes) after encountering
 			// render issues, but not syntax issues.
-			$parser->getOutput()->updateCacheExpiry( 600 );
+			if ( $output instanceof ParserOutput ) {
+				$output->updateCacheExpiry( 600 );
+			}
 			$renderer->addTrackingCategories( $parser );
 			return $renderer->getLastError();
 		}
 
 		// Enables indexing of math formula
 		$this->hookRunner->onMathFormulaPostRenderRevision(
-			$parser->getRevisionRecordObject(),
+			$revision,
 			$renderer,
 			$renderedMath
 		);
@@ -186,18 +227,9 @@ class ParserHooksHandler implements
 			return;
 		}
 
-		$mode = $parser->getOptions()->getOption( 'math' );
-
-		if ( $mode === MathConfig::MODE_MATHML ) {
-			$renderers = array_column( $this->mathLazyRenderBatch, 0 );
-			if ( MathMathMLCli::isMathoidCliConfigured() ) {
-				MathMathMLCli::batchEvaluate( $renderers );
-			} else {
-				MathMathML::batchEvaluate( $renderers );
-			}
-		}
 		foreach ( $this->mathLazyRenderBatch as $key => [ $renderer, $renderParser ] ) {
-			$this->mathLazyRenderBatchCompleted[ $key ] = $this->mathPostTagHook( $renderer, $renderParser );
+			$this->mathLazyRenderBatchCompleted[ $key ] = $this->mathPostTagHook( $renderer, $renderParser,
+				$renderParser->getOutput(), $renderParser->getRevisionRecordObject() );
 			// Unset directly after (expensive) parse to prevent accidentaly
 			// parsing again on subsequent parserAfterTidy calls.
 			// Result is stored on mathLazyRenderBatchCompleted array, in case we need it later. (T371972)

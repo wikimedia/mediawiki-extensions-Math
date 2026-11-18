@@ -20,7 +20,7 @@ class MathIdTest extends MediaWikiIntegrationTestCase {
 		$randomId = 'a_random_id';
 		$renderer = $this->getServiceContainer()
 			->get( 'Math.RendererFactory' )
-			->getRenderer( "a+b", [ 'id' => $randomId ], MathConfig::MODE_MATHML );
+			->getRenderer( "a+b", [ 'id' => $randomId ], MathConfig::MODE_NATIVE_MML );
 		$this->assertEquals( $randomId, $renderer->getID() );
 	}
 

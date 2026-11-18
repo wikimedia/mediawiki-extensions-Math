@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Math\WikiTexVC\Nodes;
 
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 
 class Infix extends TexNode {
 
@@ -14,6 +15,12 @@ class Infix extends TexNode {
 		private readonly TexArray $arg2,
 	) {
 		parent::__construct( $op, $arg1, $arg2 );
+	}
+
+	/** @inheritDoc */
+	protected function argStyle( TexNode $arg, int $style ): int {
+		// @phan-suppress-next-line PhanTypeComparisonFromArray phan takes TexArray, an ArrayAccess, for an array
+		return self::macroArgStyle( $this->op, $this->arg1 === $arg ? 0 : 1, $style );
 	}
 
 	public function getOp(): string {
@@ -41,8 +48,8 @@ class Infix extends TexNode {
 	}
 
 	/** @inheritDoc */
-	public function toMMLTree( array $arguments = [], array &$state = [] ): MMLbase {
-		return $this->parseToMML( $this->op, $arguments, null );
+	public function toMMLTree( RenderContext $ctx = new RenderContext() ): MMLbase {
+		return $this->parseToMML( $this->op, $ctx );
 	}
 
 	/** @inheritDoc */

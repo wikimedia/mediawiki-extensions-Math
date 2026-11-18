@@ -60,14 +60,12 @@
 	"math-visualeditor-symbol-group-math-typefaces": "შრიფტები",
 	"math-visualeditor-symbol-group-math-unsorted": "დაუხარისხებელი",
 	"math_failure": "შეუძლებელია გამონათქვამის გარჩევაშ",
-	"math-status-introduction": "ეს გვერდი აჩვენებს მათემატიკის ჩვენების ინფორმაციას {{PLURAL:$1|ჩართულ რეჟიმზე|ჩართულ რეჟიმებზე}}.\n\n{{PLURAL:$1|ჩართულია მათემატიკის ჩვენების შემდეგი რეჟიმი|ჩართულია მათემატიკის ჩვენების შემდეგი რეჟიმები}}:",
 	"math_syntax_error": "სინტაქსი არასწორია",
 	"math_unknown_error": "უცნობი შეცდომა",
 	"math_unknown_function": "უცნობი ფუნქცია „$1“",
 	"mw-math-mathml": "MathML თუ შესაძლებელია (ექსპერიმენტული)",
 	"mw-math-source": "LaTeX-ის წყარო (ტექსტური ბრაუზერებისთვის)",
 	"prefs-math": "მათემატიკა",
-	"mathstatus": "Math-ის მდგომარეობა",
 	"datatypes-type-math": "მათემატიკური გამოსახულება",
 	"wikibase-listdatatypes-math-head": "მათემატიკური გამოსახულება"
 }

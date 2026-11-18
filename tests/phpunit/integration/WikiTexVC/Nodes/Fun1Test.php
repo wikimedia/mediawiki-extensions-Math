@@ -8,14 +8,21 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\DQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\FQ;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1nb;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\Literal;
 use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexArray;
+use MediaWiki\Extension\Math\WikiTexVC\Nodes\TexNode;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
+use MediaWiki\Extension\Math\WikiTexVC\TexVC;
 use MediaWikiIntegrationTestCase;
 use RuntimeException;
 use TypeError;
 
 /**
  * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1
+ * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun1nb
+ * @covers \MediaWiki\Extension\Math\WikiTexVC\Nodes\Fun2
  */
 class Fun1Test extends MediaWikiIntegrationTestCase {
 
@@ -156,5 +163,63 @@ class Fun1Test extends MediaWikiIntegrationTestCase {
 		$f = new Fun1( '\\mathbf', new Literal( '\\lambda' ) );
 		$this->assertStringContainsString( '𝝀', $f->toMMLTree(),
 			'Should render bold lambda in MathML.' );
+	}
+
+	public function testFontReachesFractionParts() {
+		$rendering = (string)( new TexVC() )->check( '\\mathbf{\\frac{a}{b}}' )['input']->toMMLTree();
+		$this->assertStringContainsString( '𝐚', $rendering );
+		$this->assertStringContainsString( '𝐛', $rendering );
+	}
+
+	public function testAccent() {
+		$result = ( new Fun1( '\\widetilde', new Literal( 'a' ) ) )->toMMLTree();
+		$this->assertStringContainsString( '~', $result );
+		$this->assertStringContainsString( 'mover', $result );
+	}
+
+	public static function provideOperatorNameClass(): array {
+		return [
+			'literal' => [ new Literal( 'f' ), '<mi mathvariant="normal" data-mjx-texclass="OP">f</mi>' ],
+			'letters merged into one literal' => [ new TexArray( new Literal( 'a' ), new Literal( 'b' ) ),
+				'<mi mathvariant="normal" data-mjx-texclass="OP">ab</mi>' ],
+			'a macro prevents merging' => [ new TexArray( new Literal( 'a' ), new Literal( '\\gamma' ) ),
+				'<mi mathvariant="normal">a</mi><mi mathvariant="normal">γ</mi>' ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideOperatorNameClass
+	 */
+	public function testOperatorNameClass( TexNode $arg, string $expected ) {
+		$node = new Fun1nb( '\\operatorname', $arg );
+		$this->assertSame( $expected, (string)$node->toMMLTree() );
+	}
+
+	public function testOperatorNameBeforeItsArgument() {
+		$node = new Fun1nb( '\\operatorname', new TexArray( new Literal( 'sn' ) ) );
+		$result = (string)$node->toMMLTree( new RenderContext( namedFunction: true, namedFunctionHasArgument: true ) );
+		$this->assertStringContainsString( 'sn</mi>', $result );
+		$this->assertStringContainsString( '<mo>&#x2061;</mo>', $result );
+	}
+
+	public function testOperatorNameLast() {
+		$node = new Fun1nb( '\\operatorname', new Literal( 'sn' ) );
+		$result = (string)$node->toMMLTree( new RenderContext( namedFunction: true ) );
+		$this->assertStringContainsString( 'sn</mi>', $result );
+		$this->assertStringNotContainsString( '<mo>&#x2061;</mo>', $result );
+	}
+
+	public static function provideIntentAttributes(): array {
+		return [
+			'identifier' => [ new Literal( 'x' ), '<mi intent="foo">x</mi>' ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideIntentAttributes
+	 */
+	public function testIntentAttributesOnFirstElement( TexNode $arg, string $expected ) {
+		$node = new Fun2( '\\intent', $arg, TexArray::newCurly( new Literal( "intent='foo'" ) ) );
+		$this->assertStringStartsWith( $expected, (string)$node->toMMLTree() );
 	}
 }

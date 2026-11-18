@@ -59,7 +59,6 @@
 	"math-visualeditor-symbol-group-math-typefaces": "ទម្រង់អក្សរ",
 	"math-visualeditor-symbol-group-math-unsorted": "ផ្សេងៗ",
 	"math_failure": "បរាជ័យ​ក្នុង​ការ​ញែក​ចេញ​",
-	"math-status-introduction": "ទំព័រនេះបង្ហាញពីព័ត៌មានអំពី{{PLURAL:$1|ម៉ូដ|ម៉ូដ}}រចនាទ្រង់ទ្រាយរូបមន្តគណិតដែលកំពុងប្រើ។\n\nកំពុងប្រើ{{PLURAL:$1|ម៉ូដ|ម៉ូដ}}រចនាទ្រង់ទ្រាយរូបមន្តគណិតខាងក្រោម៖",
 	"math_syntax_error": "កំហុសពាក្យសម្ព័ន្ធ",
 	"math-tracking-category-error": "ទំព័រមានបញ្ហារូបមន្ត",
 	"math-tracking-category-error-desc": "ទំព័រនៅក្នុងចំណាត់ថ្នាក់ក្រុមនេះមានបញ្ហាបំរើបំរាស់ស្លាករូបមន្ត។",
@@ -71,7 +70,6 @@
 	"mw-math-mathml": "MathML ដែលមាន  SVG ឬ PNG សម្រាប់ជំនួស (ល្អសម្រាប់ឧបករណ៍រាយរកទំនើបនិង)",
 	"mw-math-source": "កូដ LaTeX (ចំពោះឧបករណ៍រាវរកអត្ថបទ)",
 	"prefs-math": "គណិត",
-	"mathstatus": "ស្ថានភាពគណិត",
 	"datatypes-type-math": "កន្សោមគណិតវិទ្យា",
 	"wikibase-listdatatypes-math-head": "កន្សោមគណិតវិទ្យា",
 	"math-wikibase-formula": "រូបមន្ត"

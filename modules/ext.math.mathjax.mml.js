@@ -22,6 +22,35 @@ function transformSmallMatrices( data ) {
 }
 
 /**
+ * Restore columnspacing from the class mwe-math-columnspacing-<pattern>, which the native output reads in CSS.
+ * The pattern repeats over the columns, as in MathJax's EqnArrayItem.extendArray
+ * swh:1:cnt:a2eb4d66b972a216bb8556431df804498b611c39;lines=1527-1537
+ *
+ * @param {Document|Element} data MathML DOM to transform
+ */
+function transformColumnSpacing( data ) {
+	const prefix = 'mwe-math-columnspacing-';
+	for ( const mtable of Array.from( data.getElementsByTagName( 'mtable' ) ) ) {
+		const className = ( mtable.getAttribute( 'class' ) || '' ).split( /\s+/ )
+			.find( ( name ) => name.startsWith( prefix ) );
+		if ( !className ) {
+			continue;
+		}
+		const pattern = className.slice( prefix.length ).split( '-' );
+		const columns = Math.max( 0, ...Array.from( mtable.childNodes )
+			.filter( ( row ) => row.localName === 'mtr' )
+			.map( ( row ) => Array.from( row.childNodes ).filter( ( cell ) => cell.localName === 'mtd' ).length ) );
+		const gaps = [];
+		for ( let i = 0; i < columns - 1; i++ ) {
+			gaps.push( pattern[ i % pattern.length ] );
+		}
+		if ( gaps.length ) {
+			mtable.setAttribute( 'columnspacing', gaps.join( ' ' ) );
+		}
+	}
+}
+
+/**
  * Restore the non-Core table borders used by MathJax.
  *
  * @param {Document|Element} data MathML DOM to transform
@@ -217,6 +246,48 @@ function restoreAttributes( data ) {
 }
 
 /**
+ * Map the 26 script capitals from base on to A–Z.
+ *
+ * @param {number} base Code point of the script A
+ * @param {Object<number,number>} letterlike Code points outside the block, by index from A
+ * @return {Map<string,string>}
+ */
+function scriptToLetters( base, letterlike ) {
+	const letters = new Map();
+	for ( let i = 0; i < 26; i++ ) {
+		letters.set( String.fromCodePoint( letterlike[ i ] || base + i ), String.fromCharCode( 0x41 + i ) );
+	}
+	return letters;
+}
+
+const calligraphicLetters = new Map( [
+	// Script letters that Unicode places in Letterlike Symbols, from
+	// https://github.com/mathjax/MathJax/issues/3292#issuecomment-3487698042
+	[ '-tex-calligraphic', scriptToLetters( 0x1D49C, { 1: 0x212C, 4: 0x2130, 5: 0x2131, 7: 0x210B, 8: 0x2110, 11: 0x2112, 12: 0x2133, 17: 0x211B } ) ],
+	[ '-tex-bold-calligraphic', scriptToLetters( 0x1D4D0, {} ) ]
+] );
+const calligraphicSelector = Array.from(
+	calligraphicLetters.keys(), ( variant ) => `[data-mjx-variant="${ variant }"]`
+).join( ', ' );
+
+/**
+ * Use the plain letters for calligraphic letters, as MathJax's TeX input does.
+ * MathJax 4.1.0 swh:1:cnt:41264a434a41551dc43d9ca5767507ff31d18dd2;lines=422-423
+ *
+ * @param {Document|Element} data MathML DOM to transform
+ */
+function transformCalligraphic( data ) {
+	for ( const element of data.querySelectorAll( calligraphicSelector ) ) {
+		const letters = calligraphicLetters.get( element.getAttribute( 'data-mjx-variant' ) );
+		for ( const node of Array.from( element.childNodes ) ) {
+			if ( node.nodeType === Node.TEXT_NODE ) {
+				node.nodeValue = Array.from( node.nodeValue, ( char ) => letters.get( char ) || char ).join( '' );
+			}
+		}
+	}
+}
+
+/**
  * Transform Core-compatible MathML before MathJax parses it.
  *
  * @param {Object} options MathJax filter options
@@ -225,15 +296,19 @@ function restoreAttributes( data ) {
 function mmlFilter( { data } ) {
 	// From https://github.com/mathjax/MathJax/issues/3540
 	transformSmallMatrices( data );
+	transformColumnSpacing( data );
 	transformMatrixBorders( data );
 	transformRowSpacing( data );
 	transformMenclose( data );
 	transformCancelTo( data );
+	transformCalligraphic( data );
 	restoreAttributes( data );
 }
 
 module.exports = {
 	mmlFilter,
+	transformColumnSpacing,
+	transformCalligraphic,
 	transformCancelTo,
 	transformMatrixBorders,
 	transformMenclose,

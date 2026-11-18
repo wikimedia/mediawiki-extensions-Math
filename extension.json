@@ -32,10 +32,8 @@
 		"math-popups": "1"
 	},
 	"ExtensionMessagesFiles": {
-		"MathAlias": "Math.alias.php",
 		"MathAliasNoTranslate": "Math.alias.noTranslate.php"
 	},
-	"callback": "MediaWiki\\Extension\\Math\\Hooks::onConfig",
 	"ExtensionFunctions": [
 		"MediaWiki\\Extension\\Math\\Hooks::onExtensionFunctions"
 	],
@@ -51,7 +49,8 @@
 			"services": [
 				"Math.RendererFactory",
 				"UserOptionsLookup",
-				"HookContainer"
+				"HookContainer",
+				"RevisionStore"
 			]
 		},
 		"PreferencesHooksHandler": {
@@ -75,8 +74,8 @@
 	},
 	"Hooks": {
 		"EditPage::showEditForm:initial": "EditPageHooksHandler",
-		"ParserFirstCallInit": "ParserHooksHandler",
 		"ParserAfterTidy": "ParserHooksHandler",
+		"ParserFirstCallInit": "ParserHooksHandler",
 		"ParserOptionsDefaults": "ParserHooksHandler",
 		"GetPreferences": "PreferencesHooksHandler",
 		"UserGetDefaultOptions": "PreferencesHooksHandler",
@@ -86,39 +85,53 @@
 		"SpecialPage_initList": "main",
 		"ResourceLoaderGetConfigVars": "ResourceLoaderConfigHandler"
 	},
+	"ParsoidModules": [
+		{
+			"name": "Math",
+			"tags": [
+				{
+					"name": "math",
+					"handler": {
+						"class": "MediaWiki\\Extension\\Math\\HookHandlers\\ParserHooksHandler",
+						"services": [
+							"Math.RendererFactory",
+							"UserOptionsLookup",
+							"HookContainer",
+							"RevisionStore"
+						]
+					}
+				},
+				{
+					"name": "chem",
+					"handler": {
+						"class": "MediaWiki\\Extension\\Math\\HookHandlers\\ParserHooksHandler",
+						"services": [
+							"Math.RendererFactory",
+							"UserOptionsLookup",
+							"HookContainer",
+							"RevisionStore"
+						]
+					}
+				},
+				{
+					"name": "ce",
+					"handler": {
+						"class": "MediaWiki\\Extension\\Math\\HookHandlers\\ParserHooksHandler",
+						"services": [
+							"Math.RendererFactory",
+							"UserOptionsLookup",
+							"HookContainer",
+							"RevisionStore"
+						]
+					}
+				}
+			]
+		}
+	],
 	"config": {
-		"MathDefaultLaTeXMLSetting": {
-			"value": {
-				"format": "xhtml",
-				"whatsin": "math",
-				"whatsout": "math",
-				"0": "pmml",
-				"1": "cmml",
-				"2": "mathtex",
-				"3": "nodefaultresources",
-				"preload": [
-					"LaTeX.pool",
-					"article.cls",
-					"amsmath.sty",
-					"amsthm.sty",
-					"amstext.sty",
-					"amssymb.sty",
-					"eucal.sty",
-					"[dvipsnames]xcolor.sty",
-					"url.sty",
-					"hyperref.sty",
-					"[ids]latexml.sty",
-					"texvc"
-				],
-				"linelength": 90
-			}
-		},
 		"MathDisableTexFilter": {
 			"description": "To access this at run-time, use MathConfig::texCheckDisabled(). Do not use the non-normalized configuration directly.",
 			"value": "new"
-		},
-		"MathEnableExperimentalInputFormats": {
-			"value": false
 		},
 		"MathEntitySelectorFallbackUrl": {
 			"description": "Fallback value for wbEntitySelector if wbRepo is not configured. See https://www.mediawiki.org/wiki/Manual:CORS for cross wiki communication.",
@@ -127,41 +140,6 @@
 		"MathTexMaxLength": {
 			"description": "Maximum string-length of a TeX expression for the Wikibase property type math. See Wikibase documentation on string-limits for other limits https://doc.wikimedia.org/Wikibase/master/php/docs_topics_options.html#autotoc_md317.",
 			"value": 400
-		},
-		"MathTexVCService": {
-			"description": "Determine which TexVC variant is used, currently available: 'mathoid', 'restbase' and 'local' (default).",
-			"value": "local"
-		},
-		"MathSvgRenderer": {
-			"description": "Determine which SVG rendering service is used. Currently available 'mathoid', 'restbase'.",
-			"value": "restbase"
-		},
-		"MathLaTeXMLTimeout": {
-			"value": 240
-		},
-		"MathLaTeXMLUrl": {
-			"value": "https://latexml.formulasearchengine.com/convert"
-		},
-		"MathMathMLUrl": {
-			"value": "https://mathoid-beta.wmflabs.org"
-		},
-		"MathInternalRestbaseURL": {
-			"description": "Optional override of $wgMathFullRestbaseURL for internal calls from MediaWiki PHP. Use this to bypass public reverse proxies, avoid firewall rate-limiting, or prevent unnecessary external network hops.",
-			"value": null
-		},
-		"MathFullRestbaseURL": {
-			"description": "This is used for external URLs to RESTBase from browsers, such as when embedding Mathoid SVGs by URL in HTML markup.",
-			"value": "https://wikimedia.org/api/rest_"
-		},
-		"MathHTTPProxy": {
-			"description": "The HTTP proxy used for contacting RESTBase.",
-			"value": null
-		},
-		"MathConcurrentReqs": {
-			"value": 50
-		},
-		"MathoidCli": {
-			"value": false
 		},
 		"MathValidModes": {
 			"description": "To access this at run-time, use MathConfig::getValidRenderingModes(). Do not use the non-normalized configuration directly.",
@@ -389,20 +367,6 @@
 		"remoteExtPath": "Math/modules"
 	},
 	"SpecialPages": {
-		"MathShowImage": {
-			"class": "MediaWiki\\Extension\\Math\\SpecialMathShowImage",
-			"services": [
-				"Math.Config",
-				"Math.RendererFactory"
-			]
-		},
-		"MathStatus": {
-			"class": "MediaWiki\\Extension\\Math\\SpecialMathStatus",
-			"services": [
-				"Math.Config",
-				"Math.RendererFactory"
-			]
-		},
 		"MathWikibase": {
 			"class": "MediaWiki\\Extension\\Math\\SpecialMathWikibase",
 			"services": [

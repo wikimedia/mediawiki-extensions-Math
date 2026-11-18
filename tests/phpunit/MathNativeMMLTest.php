@@ -36,6 +36,21 @@ class MathNativeMMLTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( 'sin', $mml->getMathml() );
 	}
 
+	public function testChemType() {
+		$mml = new MathNativeMML( 'H2O', [ 'type' => 'chem' ] );
+		$this->assertSame( 'chem', $mml->getInputType() );
+	}
+
+	public function testUnknownTypeIsTex() {
+		$mml = new MathNativeMML( '\\sin', [ 'type' => 'pmml' ] );
+		$this->assertSame( 'tex', $mml->getInputType() );
+	}
+
+	public function testInlineDisplaystyleIsTheDefault() {
+		$mml = new MathNativeMML( '\\sin' );
+		$this->assertSame( '{\\displaystyle \\sin}', $mml->getTex() );
+	}
+
 	public function testNoLink() {
 		$this->overrideConfigValue( 'MathEnableFormulaLinks', false );
 		$mml = new MathNativeMML( '\sin', [ 'qid' => 'Q1' ] );
@@ -112,7 +127,7 @@ class MathNativeMMLTest extends MediaWikiIntegrationTestCase {
 	public function testGetHtmlNoMathJax() {
 		$math = new MathNativeMML( "a+b" );
 		$math->render();
-		$out = $math->getHtmlOutput( false );
+		$out = $math->getHtmlOutput();
 		$this->assertStringContainsString( 'mathjax_ignore', $out );
 	}
 
@@ -120,7 +135,7 @@ class MathNativeMMLTest extends MediaWikiIntegrationTestCase {
 		$math = new MathNativeMML( "a+b" );
 		$math->setMode( MathConfig::MODE_NATIVE_JAX );
 		$math->render();
-		$out = $math->getHtmlOutput( false );
+		$out = $math->getHtmlOutput();
 		$this->assertStringNotContainsString( 'mathjax_ignore', $out );
 	}
 }

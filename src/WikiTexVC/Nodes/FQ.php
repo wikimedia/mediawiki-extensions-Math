@@ -10,6 +10,7 @@ use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLbase;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmrow;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmsubsup;
 use MediaWiki\Extension\Math\WikiTexVC\MMLnodes\MMLmunderover;
+use MediaWiki\Extension\Math\WikiTexVC\Render\RenderContext;
 use MediaWiki\Extension\Math\WikiTexVC\TexUtil;
 
 class FQ extends TexNode {
@@ -34,42 +35,67 @@ class FQ extends TexNode {
 		return $this->down;
 	}
 
+	public function renderBase( RenderContext $ctx ): MMLbase {
+		// Not renderChild(): the grammar makes the apostrophe of D'_\mu a base, which stays a literal
+		return $this->base->toMMLTree( $this->argContext( $this->base, $ctx ) );
+	}
+
+	public function renderDown( RenderContext $ctx ): MMLbase {
+		return $this->renderChild( $this->down, $ctx );
+	}
+
+	public function renderUp( RenderContext $ctx ): MMLbase {
+		return $this->renderChild( $this->up, $ctx );
+	}
+
 	/** @inheritDoc */
 	public function render() {
 		return $this->base->render() . '_' . $this->down->inCurlies() . '^' . $this->up->inCurlies();
 	}
 
 	/** @inheritDoc */
-	public function toMMLTree( $arguments = [], &$state = [] ): MMLbase {
+	public function argContext( TexNode $arg, RenderContext $ctx, array $links = [], ?array $colors = null
+	): RenderContext {
+		// tex.web make_scripts: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=14916-14928
+		$style = match ( $arg ) {
+			$this->down => RenderContext::nextStyle( $ctx->style, 'sub' ),
+			$this->up => RenderContext::nextStyle( $ctx->style, 'sup' ),
+			default => $ctx->style,
+		};
+		// \operatorname squashes the literals of its scripts
+		return $ctx->forArgument( $style, $ctx->font, squashLiterals: $ctx->squashLiterals,
+			colorDefinitions: $colors, links: $links );
+	}
+
+	/** @inheritDoc */
+	public function toMMLTree( RenderContext $ctx = new RenderContext() ): MMLbase {
 		// The operator before \limits or \nolimits, see TexArray::checkForLimits
-		$base = $state['limits'] ?? $this->getBase();
-		unset( $state['limits'] );
+		$base = $ctx->limitsBase ?? $this->base;
 
 		// Special-case: sideset with empty (non-curly) base -> return array of under/over rows.
-		if ( isset( $state['sideset'] ) && $base->getLength() === 0 && !$base->isCurly() ) {
+		if ( $ctx->inSideset && $base->getLength() === 0 && !$base->isCurly() ) {
 			return new MMLarray(
-				new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLTree( [], $state ) ),
-				new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( [], $state ) )
+				new MMLmrow( TexClass::ORD, [], $this->renderDown( $ctx ) ),
+				new MMLmrow( TexClass::ORD, [], $this->renderUp( $ctx ) )
 			);
 		}
 
 		// TeX's make_op: swh:1:cnt:62374028b2c5947fdcec6462027d6a37d1bd8444;lines=14684-14685
 		$limits = $this->getLimits( $base );
-		$displaystyle = ( $state['styleargs']['displaystyle'] ?? 'true' ) === 'true';
-		$above = $limits === 'limits' || ( $limits === 'displaylimits' && $displaystyle );
+		$above = $limits === 'limits' || ( $limits === 'displaylimits' && $ctx->isDisplayStyle() );
 
-		$baseMML = $base->toMMLTree( $arguments, $state );
+		// The operator before \limits is a neighbour of the scripts in their group
+		$baseMML = $ctx->limitsBase
+			? $base->toMMLTree( $ctx->forGroupMember() )
+			: $this->renderBase( $ctx );
 		if ( $this instanceof DQ && $this->isEmpty() ) {
 			return new MMLarray();
 		}
 
 		$emptyMrow = $base->isEmpty() ? new MMLmrow() : new MMLarray();
 
-		// TeX sets scripts in script style, which is no display style.
-		$scriptState = $state;
-		$scriptState['styleargs']['displaystyle'] = 'false';
-		$down = new MMLmrow( TexClass::ORD, [], $this->getDown()->toMMLTree( $arguments, $scriptState ) );
-		$up = new MMLmrow( TexClass::ORD, [], $this->getUp()->toMMLTree( $arguments, $scriptState ) );
+		$down = new MMLmrow( TexClass::ORD, [], $this->renderDown( $ctx ) );
+		$up = new MMLmrow( TexClass::ORD, [], $this->renderUp( $ctx ) );
 
 		return $this->newMmlElement( $above, new MMLarray( $emptyMrow, $baseMML ), $down, $up );
 	}

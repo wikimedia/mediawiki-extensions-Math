@@ -1,26 +1,6 @@
 const extensionAssetsPath = mw.config.get( 'wgExtensionAssetsPath' );
 const { mmlFilter } = require( './ext.math.mathjax.mml.js' );
 
-// helper function for https://phabricator.wikimedia.org/T375932
-function remapChars( v1, v2, base, map, font ) {
-	const c1 = v1.chars;
-	const c2 = v2.chars;
-	for ( let i = 0; i < 26; i++ ) {
-		const data1 = c1[ map[ i ] || base + i ] || [];
-		const data2 = c2[ 0x41 + i ];
-		if ( data1.length === 0 ) {
-			c1[ base + i ] = data1;
-		}
-		for ( const j of [ 0, 1, 2 ] ) {
-			data1[ j ] = data2[ j ];
-		}
-		data1[ 3 ] = Object.assign( {}, data2[ 3 ], {
-			f: font,
-			c: String.fromCharCode( 0x41 + i )
-		} );
-	}
-}
-
 window.MathJax = {
 	loader: {
 		// see https://docs.mathjax.org/en/latest/input/mathml.html
@@ -127,27 +107,6 @@ window.MathJax = {
 		//
 		// This is called after window.MathJax.ready().
 		async pageReady() {
-			// See https://phabricator.wikimedia.org/T375932 and the suggested fix from
-			// https://github.com/mathjax/MathJax/issues/3292#issuecomment-3487698042
-			// Makes rendering of \matcal look similar to the browsers MathML rendering
-			// and the old image rendering.
-			// Note that \mathsrc (which is unsupported by texvc) would map to the
-			// same unicode chars and thus should not be activated.
-			const font = window.MathJax.startup.document.outputJax.font;
-			Object.assign( font, {
-				fontLoadDynamicFile: font.loadDynamicFile,
-				async loadDynamicFile( dynamic ) {
-					await this.fontLoadDynamicFile( dynamic );
-					if ( dynamic.file === 'script' ) {
-						await this.fontLoadDynamicFile( this.constructor.dynamicFiles.calligraphic );
-						const variant = font.variant;
-						const map = { 1: 0x212C, 4: 0x2130, 5: 0x2131, 7: 0x210B, 8: 0x2110, 11: 0x2112, 12: 0x2133, 17: 0x211B };
-						remapChars( variant.normal, variant[ '-tex-calligraphic' ], 0x1D49C, map, 'C' );
-						remapChars( variant.normal, variant[ '-tex-bold-calligraphic' ], 0x1D4D0, {}, 'CB' );
-					}
-				}
-			} );
-
 			// This uses FindMathML to find and replace all `<math>` with `<mjx-lazy>` placeholders.
 			// It then calls MathJax.typeset (via ui/lazy, using requestIdleCallback, so it happens after
 			// and outside the pageReady callstack), which will render them to SVG if/when they are

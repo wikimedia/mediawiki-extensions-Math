@@ -65,9 +65,8 @@ class LrTest extends MediaWikiIntegrationTestCase {
 
 	public function testOuterPrimeIsNotRenderedInside() {
 		$n = new Lr( '(', ')', new TexArray( new Literal( 'A' ) ) );
-		$state = [ 'prime' => 1 ];
-		$mml = $n->toMMLTree( [], $state );
-		$this->assertStringNotContainsString( '&#x2032;</mo>', $mml );
+		$mml = ( new TexArray( $n, new Literal( "'" ) ) )->toMMLTree();
+		$this->assertSame( 1, substr_count( $mml, '&#x2032;</mo>' ) );
 	}
 
 }

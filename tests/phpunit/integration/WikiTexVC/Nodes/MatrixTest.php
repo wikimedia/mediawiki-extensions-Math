@@ -86,11 +86,29 @@ class MatrixTest extends MediaWikiIntegrationTestCase {
 			'Should contain inner elements' );
 	}
 
-	public function testRenderMML() {
+	public function testToMMLTree() {
 		$matrix = new Matrix( 'matrix',
 			new TexArray( new TexArray( new Literal( '\\sin' ) ) ) );
 		$this->assertStringContainsString( 'mtable', $matrix->toMMLTree(),
 			'Should render a matrix' );
+	}
+
+	public static function provideFences(): array {
+		return [
+			'array' => [ 'array', '/^<mtable/' ],
+			'aligned' => [ 'aligned', '/^<mtable/' ],
+			'matrix' => [ 'matrix', '/^<mrow[^>]*><mo[^>]*><\/mo><mtable/' ],
+			'pmatrix' => [ 'pmatrix', '/^<mrow[^>]*><mo[^>]*>\(<\/mo>.*<mo[^>]*>\)<\/mo><\/mrow>$/' ],
+			'cases' => [ 'cases', '/^<mrow[^>]*><mo[^>]*>{<\/mo>.*mwe-math-columnalign-l/' ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideFences
+	 */
+	public function testFences( string $top, string $pattern ) {
+		$matrix = new Matrix( $top, new TexArray( new TexArray( new TexArray( new Literal( 'a' ) ) ) ) );
+		$this->assertMatchesRegularExpression( $pattern, (string)$matrix->toMMLTree() );
 	}
 
 	public function testTop() {
@@ -149,10 +167,19 @@ class MatrixTest extends MediaWikiIntegrationTestCase {
 		$this->assertCount( 2, $real );
 	}
 
+	public function testLinesNested() {
+		$inner = new Matrix( 'matrix',
+			new TexArray( new TexArray( new TexArray( new Literal( 'a' ) ) ),
+				new TexArray( new TexArray( new Literal( '\\hline ' ), new Literal( 'b' ) ) ) ) );
+		$matrix = new Matrix( 'matrix', new TexArray( new TexArray( new TexArray( $inner ) ) ) );
+		$this->assertSame( [ false ], $matrix->getLines() );
+		$this->assertSame( [ false, true ], $inner->getLines() );
+	}
+
 	public function testAlignRendering() {
 		$matrix = new Matrix( 'aligned',
 			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
-		$this->assertStringContainsString( 'mwe-math-columnalign-r', $matrix->renderMML(),
+		$this->assertStringContainsString( 'mwe-math-columnalign-r', (string)$matrix->toMMLTree(),
 			'Should render align column specs' );
 	}
 
@@ -161,7 +188,7 @@ class MatrixTest extends MediaWikiIntegrationTestCase {
 			new TexArray( new TexArray( new Literal( 'a' ) ) ) );
 		$matrix->setColumnSpecs( new TexArray( ( new Literal( '20' ) ) ) );
 		$this->assertCount( 40, $matrix->getAlign() );
-		$this->assertStringContainsString( 'mwe-math-columnalign-r', $matrix->renderMML(),
+		$this->assertStringContainsString( 'mwe-math-columnalign-r', (string)$matrix->toMMLTree(),
 			'Should render align column specs' );
 	}
 

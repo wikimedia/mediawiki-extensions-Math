@@ -386,6 +386,11 @@ class AllTest extends MediaWikiUnitTestCase {
 					'skipOcaml' => 'spacing'
 				]
 			],
+			'FUN_AR1OPT (2)' => [ [
+				'input' => '\\sqrt[\\bf n]{x}',
+				'output' => '{\\sqrt[{\\bf {n}}]{x}}'
+				]
+			],
 			'FUN_AR2' => [
 				[
 					'input' =>
@@ -430,7 +435,7 @@ class AllTest extends MediaWikiUnitTestCase {
 					'output' => '{a \\over b}'
 				]
 			],
-			'DECLh' => [ [
+			'DECLARATION' => [ [
 				'input' => '{abc \\rm def \\it ghi \\cal jkl \\bf mno}',
 				'output' => '{abc{\\rm {def{\\it {ghi{\\cal {jkl{\\bf {mno}}}}}}}}}'
 				]
@@ -438,6 +443,11 @@ class AllTest extends MediaWikiUnitTestCase {
 			'litsq_zq' => [ [
 				'input' => ']^2',
 				'output' => ']^{2}'
+				]
+			],
+			'lit_fq' => [ [
+				'input' => '^a_b _c^d',
+				'output' => '_{b}^{a}_{c}^{d}'
 				]
 			],
 			'Matrices' => [

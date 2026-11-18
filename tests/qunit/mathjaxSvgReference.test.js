@@ -23,21 +23,11 @@ function hasFontFallback( svg ) {
 	return /<text\b/.test( svg );
 }
 
-// \\[30px]-style row spacing (T438415) is a literal CSS px value that MathJax
-// converts to its internal ex units using the current font's live metrics;
-// that conversion, and so the whole row layout, genuinely varies by platform.
-function hasPixelRowSpacing( mathml ) {
-	return /padding-bottom:\s*[\d.]+px/.test( mathml );
-}
-
 // Null when nothing about this entry is known to render differently by
 // platform; otherwise a short label for the warning message.
-function platformDependentReason( svg, mathml ) {
+function platformDependentReason( svg ) {
 	if ( hasFontFallback( svg ) ) {
 		return 'font-fallback glyph';
-	}
-	if ( hasPixelRowSpacing( mathml ) ) {
-		return 'px-based row spacing';
 	}
 	return null;
 }
@@ -99,7 +89,7 @@ QUnit.module( 'ext.math.mathjax.svgReference', () => {
 				continue;
 			}
 			const changed = svg !== reference.svg;
-			const platformReason = platformDependentReason( svg, reference.output );
+			const platformReason = platformDependentReason( svg );
 			if ( !platformReason && reference.svg !== undefined ) {
 				assert.strictEqual( svg, reference.svg, label + ' SVG unchanged' );
 			} else if ( platformReason && changed ) {

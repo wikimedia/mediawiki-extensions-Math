@@ -27,4 +27,9 @@ class MMLmstyleTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( [ 'mathvariant' => Variants::BOLD ], $mstyle->getAttributes() );
 		$this->assertEquals( $mstyle->getChildren(), [ $mi, $mo, $mn ] );
 	}
+
+	public function testNewWithDisplayStyle() {
+		$this->assertEquals( [ 'displaystyle' => 'false', 'scriptlevel' => '2' ],
+			MMLmstyle::newWithDisplayStyle( false, 2 )->getAttributes() );
+	}
 }

@@ -8,37 +8,12 @@
 
 namespace MediaWiki\Extension\Math;
 
-use MediaWiki\Config\ConfigException;
 use MediaWiki\Registration\ExtensionRegistry;
-use MediaWiki\Settings\SettingsBuilder;
 use MediaWiki\SpecialPage\Hook\SpecialPage_initListHook;
 
 class Hooks implements
 	SpecialPage_initListHook
 {
-
-	/**
-	 * Extension registration callback, used to apply dynamic defaults for configuration variables.
-	 */
-	public static function onConfig( array $extInfo, SettingsBuilder $settings ) {
-		$config = $settings->getConfig();
-
-		// Documentation of MathRestbaseInterface::getUrl() should be updated when this is changed.
-
-		$fullRestbaseUrl = $config->get( 'MathFullRestbaseURL' );
-		$internalRestbaseURL = $config->get( 'MathInternalRestbaseURL' );
-
-		if ( !$fullRestbaseUrl ) {
-			throw new ConfigException(
-				'Math extension can not find Restbase URL. Please specify $wgMathFullRestbaseURL.'
-			);
-		}
-
-		if ( !$internalRestbaseURL ) {
-			// Default to using the external URL for internal calls as well.
-			$settings->overrideConfigValue( 'MathInternalRestbaseURL', $fullRestbaseUrl );
-		}
-	}
 
 	public static function onExtensionFunctions() {
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'WikibaseClient' ) ) {
