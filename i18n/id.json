@@ -18,7 +18,7 @@
 		]
 	},
 	"math-desc": "Menghasilkan rumus matematika di antara tanda <code>&lt;math&gt;</code> ... <code>&lt;/math&gt;</code>",
-	"popups-settings-option-math-tooltip": "Menjelaskan rumus matematika saat kursor diarahkan.",
+	"popups-settings-option-math-tooltip": "Jelaskan rumus matematika saat kursor diarahkan.",
 	"math-visualeditor-mwchemdialog-title": "Rumus kimia",
 	"math-visualeditor-mwlatexcontextitem-quickedit": "Suntingan cepat",
 	"math-visualeditor-mwlatexdialog-card-formula": "Rumus",
