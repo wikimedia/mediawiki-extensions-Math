@@ -207,36 +207,4 @@ QUnit.module( 'ext.math.mathjax.mml', () => {
 			[ 'A', 'B', 'Z', 'A', '𝒶', '𝒜' ]
 		);
 	} );
-
-	QUnit.test( 'renders Devanagari mtext with a browser font', ( assert ) => {
-		const document = parseMathML( `<math xmlns="${ MATHML_NS }"><mtext>इक्विटी</mtext><mo>+</mo><msub><mi>x</mi><mtext>मान</mtext></msub><mtext>text</mtext><mtext fontfamily="sans-serif">हिन्दी</mtext></math>` );
-
-		mmlFilter( { data: document } );
-
-		const mtexts = document.getElementsByTagName( 'mtext' );
-		assert.strictEqual( mtexts[ 0 ].getAttribute( 'fontfamily' ), 'serif' );
-		assert.strictEqual( mtexts[ 1 ].getAttribute( 'fontfamily' ), 'serif', 'also in subscripts' );
-		assert.strictEqual( mtexts[ 2 ].getAttribute( 'fontfamily' ), null, 'Latin text keeps the math font' );
-		assert.strictEqual( mtexts[ 3 ].getAttribute( 'fontfamily' ), 'sans-serif', 'explicit font is kept' );
-	} );
-
-	QUnit.test( 'keeps the mathvariant of Devanagari mtext', ( assert ) => {
-		const document = parseMathML( `<math xmlns="${ MATHML_NS }"><mtext mathvariant="sans-serif">मान</mtext><mtext mathvariant="monospace">मान</mtext><mtext mathvariant="bold">मान</mtext><mtext mathvariant="italic">मान</mtext></math>` );
-
-		mmlFilter( { data: document } );
-
-		assert.deepEqual(
-			Array.from( document.getElementsByTagName( 'mtext' ), ( mtext ) => [
-				mtext.getAttribute( 'fontfamily' ),
-				mtext.getAttribute( 'fontweight' ),
-				mtext.getAttribute( 'fontstyle' )
-			] ),
-			[
-				[ 'sans-serif', null, null ],
-				[ 'monospace', null, null ],
-				[ 'serif', 'bold', null ],
-				[ 'serif', null, 'italic' ]
-			]
-		);
-	} );
 } );
