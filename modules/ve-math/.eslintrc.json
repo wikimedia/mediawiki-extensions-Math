@@ -1,8 +1,0 @@
-{
-	"globals": {
-		"ve": "readonly"
-	},
-	"rules": {
-		"no-jquery/no-done-fail": "warn"
-	}
-}
