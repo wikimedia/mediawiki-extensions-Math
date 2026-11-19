@@ -1,10 +1,4 @@
-The version for MediaWiki 1.31+ has some changes since previous versions:
-
-By default the math rendering service from the Wikimedia Foundation located at
-https://wikimedia.org/api/rest_v1/
-will be used for math rendering.
-Therefore php-curl is required.
-cf. https://www.mediawiki.org/wiki/Manual:CURL
+Formulae are rendered to MathML on the server, without any external service.
 
 Consult https://www.mediawiki.org/wiki/Extension:Math for further information and advanced settings.
 

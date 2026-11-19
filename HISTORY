@@ -1,5 +1,17 @@
 Change notes from older releases. The extension math does now follow the releases of MediaWiki core.
 
+== Math for MediaWiki 1.47 ==
+
+=== Configuration changes in 1.47 ===
+* (T432511) The 'mathml' and 'latexml' rendering modes are removed.
+  User preferences and $wgMathValidModes entries for them fall back to 'native'.
+* The following settings are removed and can be dropped from LocalSettings.php:
+  $wgMathMathMLUrl, $wgMathoidCli, $wgMathSvgRenderer,
+  $wgMathInternalRestbaseURL, $wgMathFullRestbaseURL, $wgMathLaTeXMLUrl,
+  $wgMathLaTeXMLTimeout, $wgMathDefaultLaTeXMLSetting, $wgMathHTTPProxy,
+  $wgMathConcurrentReqs, $wgMathTexVCService and
+  $wgMathEnableExperimentalInputFormats.
+
 == Math 2.0 ==
 
 === Configuration changes in 2.0 ===
