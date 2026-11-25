@@ -39,6 +39,8 @@ ve.ce.MWLatexNode.prototype.onSetup = function () {
 
 	// DOM changes
 	this.$element.addClass( 've-ce-mwLatexNode' );
+	// MathJax replaces the <math> elements that it typesets, which removes the view and its event handlers
+	this.$element.find( 'math' ).addBack( 'math' ).addClass( 'mathjax_ignore' );
 };
 
 /**
